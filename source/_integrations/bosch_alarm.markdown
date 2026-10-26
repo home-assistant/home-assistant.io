@@ -139,7 +139,7 @@ At startup, the integration checks whether your panel supports push data updates
 automation:
   - alias: "Turn on light when walking into room"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id:
           - binary_sensor.bosch_solution_3000_bedroom
         to: "on"

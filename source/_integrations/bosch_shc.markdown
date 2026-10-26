@@ -114,6 +114,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Shutter Contact II gets a **Break function timeout** value (1 to 15 minutes), controlling how long an active break function stays in effect before it expires automatically. It has no effect while the break function is set to never expire.
 - A Smart Plug or Smart Plug Compact that supports energy-saving mode gets an **Energy-saving power threshold** value (0 to 3680 W), controlling the power draw below which the plug switches off automatically.
 - A Smart Plug or Smart Plug Compact gets an **Energy-saving enter duration** value (1 to 3600 seconds), controlling how long the plug stays below the power threshold before energy-saving mode is entered.
+- A Thermostat, Wall Thermostat, or Room Thermostat II that supports it gets a **Temperature offset** value, letting you correct the measured temperature within the range and step the device allows.
 
 ### Select
 
@@ -124,6 +125,9 @@ The select platform lets you choose between a set of predefined options. Select 
 - Door/Window Contact II Plus: a **Vibration sensitivity** select, letting you choose between **very high**, **high**, **medium**, **low**, or **very low**. In YAML, the options are `very_high`, `high`, `medium`, `low`, and `very_low`.
 - Smoke Detector that supports it: a **Smoke sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
 - Thermostat II and Room Thermostat II: a **Display orientation** select, letting you choose between **Normal** and **Rotated by 180°**, and a **Displayed temperature** select, letting you choose between **Set temperature** and **Measured**. In YAML, the display orientation options are `normal` and `reversed`, and the displayed temperature options are `setpoint` and `measured`.
+- Smart Plug and Smart Plug Compact that support it: a **State after power outage** select, letting you choose between **Off**, **On**, or **Last state**. In YAML, the options are `off`, `on`, and `last_state`.
+- Micromodule Relay that supports it: a **Switch type** select, letting you choose between **None**, **Push button**, **Rocker switch**, or **No switch**. In YAML, the options are `none`, `pushbutton`, `switch`, and `no_switch`.
+- Thermostat II that supports it: a **Valve type** select (**normally closed** or **normally open**) and a **Heater type** select (**underfloor heating**, **underfloor heating low energy**, **radiator**, **passive convector**, **active convector**, or **central heating**).
 
 ### Sensors
 
@@ -225,8 +229,7 @@ Combine the cover platform with a sun trigger to close your shutters as it gets 
 automation: |
   alias: "Close shutters at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: cover.close_cover
       target:

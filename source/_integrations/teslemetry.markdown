@@ -104,6 +104,10 @@ To pair your Powerwall or Backup Gateway:
 
 Once paired, Home Assistant stores your Powerwall's address and password and sends energy commands to it directly, falling back to the cloud automatically whenever your Powerwall can't be reached.
 
+A paired energy site also gets extra entities that are only available from your Powerwall over your local network, such as **Grid OK** and **Contactor closed**. They are marked **Local** in the [energy site entity table](#energy-sites). Each one is only created when your Powerwall reports its value, and it becomes unavailable while your Powerwall can't be reached. If your Powerwall can't be reached when Home Assistant starts, these entities are still created and stay unavailable, then update on their own once your Powerwall responds, with no reload needed.
+
+A paired energy site can also be charged or discharged at a set power for a set time with the [Dispatch battery power](/actions/teslemetry.dispatch_battery_power/) action, and returned to its normal operation early with the [Resume battery operation](/actions/teslemetry.resume_battery_operation/) action. These actions are sent directly to your Powerwall, so they only work while it can be reached on your local network.
+
 {% note %}
 Removing the Teslemetry integration doesn't revoke the access key from your Powerwall system, so other apps or integrations using the same key keep working.
 {% endnote %}
@@ -111,7 +115,8 @@ Removing the Teslemetry integration doesn't revoke the access key from your Powe
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
-Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise. 
+Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise.
+The **Charge on solar** switch and **Charge on solar lower limit** number are part of a Labs preview feature and only appear once you enable it, as described in [Charge on solar](#charge-on-solar) below.
 The **Enable keep accessory power** and **Disable keep accessory power** buttons are only created for vehicles on firmware 2025.38 or newer.
 
 ### Vehicles
@@ -142,7 +147,7 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 |Binary sensor|DC DC|No|Streaming|No|
 |Binary sensor|Defrost for preconditioning|No|Streaming|No|
 |Binary sensor|Drive rail|No|Streaming|No|
-|Binary sensor|Driver seat belt|No|Streaming|No|
+|Binary sensor|Driver seat belt warning|No|Streaming|No|
 |Binary sensor|Driver seat occupied|No|Streaming|No|
 |Binary sensor|Emergency lane departure avoidance|No|Streaming|No|
 |Binary sensor|Europe vehicle|No|Streaming|No|
@@ -210,6 +215,7 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 |Media player|Media player|Yes|Both|Yes|
 |Number|Charge current|Yes|Both|Yes|
 |Number|Charge limit|Yes|Both|Yes|
+|Number|Charge on solar lower limit|Yes|Both|No|
 |Select|Seat cooler front left|Yes|Both|Yes|
 |Select|Seat cooler front right|Yes|Both|Yes|
 |Select|Seat heater front left|Yes|Both|Yes|
@@ -316,6 +322,7 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 |Switch|Auto seat climate right|Yes|Both|Yes|
 |Switch|Auto steering wheel heater|Yes|Both|Yes|
 |Switch|Charge|Yes|Both|Yes|
+|Switch|Charge on solar|Yes|Both|No|
 |Switch|Defrost|Yes|Both|Yes|
 |Switch|Guest mode|Yes|Streaming|Yes|
 |Switch|Sentry mode|Yes|Both|Yes|
@@ -327,9 +334,16 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 |Domain|Name|Enabled|Data|
 |---|---|---|---|
 |Binary sensor|Backup capable|Yes|Polling|
+|Binary sensor|Contactor closed|Yes|Local|
+|Binary sensor|ESCAN firmware updating|Yes|Local|
+|Binary sensor|Grid OK|Yes|Local|
 |Binary sensor|Grid services active|Yes|Polling|
 |Binary sensor|Grid services enabled|Yes|Polling|
 |Binary sensor|Grid status|Yes|Polling|
+|Binary sensor|Microgrid OK|Yes|Local|
+|Binary sensor|PW3CAN firmware updating|Yes|Local|
+|Binary sensor|Site manager running|Yes|Local|
+|Binary sensor|Site running|Yes|Local|
 |Binary sensor|Storm watch active|Yes|Polling|
 |Calendar|Buy tariff|Yes|Polling|
 |Calendar|Sell tariff|Yes|Polling|
@@ -369,6 +383,7 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 
 |Domain|Name|Enabled|Data|
 |---|---|---|---|
+|Sensor|Energy delivered|Yes|Streaming|
 |Sensor|Fault state|No|Polling|
 |Sensor|Power|Yes|Polling|
 |Sensor|State|Yes|Polling|
@@ -381,6 +396,21 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 |Sensor|Teslemetry credits|Yes|Streaming|
 
 {% include integrations/actions.md %}
+
+## Charge on solar
+
+{% labs %}
+Requires the **Charge on solar** Labs preview feature. Enable it at {% my labs title="**Settings** > **System** > **Labs**" %}.
+{% endlabs %}
+
+Charge on solar lets your Tesla vehicle keep charging while your home has excess solar power, and pause again once that excess runs out. Enabling the **Charge on solar** Labs preview feature adds two entities to each vehicle when your Teslemetry account has granted the `Vehicle commands` scope:
+
+- A **Charge on solar** switch to turn the mode on or off.
+- A **Charge on solar lower limit** number for the battery percentage the vehicle keeps charging to even without solar, so it doesn't sit too low.
+
+There's no separate upper limit entity for charge on solar. It reuses the vehicle's existing **Charge limit** number as the upper bound, so the lower limit can never be set above it. If you lower the charge limit below the current lower limit, the lower limit follows it down on the next update from the vehicle.
+
+If you disable the Labs preview feature, or the `Vehicle commands` scope is no longer granted, both entities are removed until they become available again.
 
 ## Energy dashboard
 
@@ -397,6 +427,7 @@ Teslemetry delivers data by streaming or polling, depending on the product. The 
 - **Streaming**: the value arrives over the live stream in real time.
 - **Polling**: the value comes from Teslemetry's cached vehicle data.
 - **Both**: the value can arrive by streaming or polling, depending on the vehicle and its configuration.
+- **Local**: the value is polled directly from your Powerwall over your local network. These entities only exist for energy sites paired for [local Powerwall control](#local-powerwall-control).
 - **—** (em dash): the entity does not report data. Buttons send commands, so they have no data source.
 
 ### Vehicle data
@@ -411,11 +442,16 @@ The integration does not wake a sleeping vehicle to fetch data. Updates pause un
 
 Energy site live status, site information, tariffs, and energy history arrive through the Teslemetry data stream. If you've paired a Powerwall for [local control](#local-powerwall-control), Home Assistant also reads its live values directly over your local network every 5 seconds, and its backup reserve and operation mode every 30 seconds. Whenever your Powerwall can't be reached, Home Assistant uses the cloud values instead. Entity availability still follows the Teslemetry data stream.
 
+For an energy site paired for [local Powerwall control](#local-powerwall-control), entities marked **Local** are polled from your Powerwall's status every 10 seconds.
+
+The **Energy delivered** sensor of each Wall Connector is the energy it delivered on the current day, in the site's time zone. Teslemetry streams it while a Wall Connector at the site is charging, and once more after charging stops. A charging session counts on the day it started, so a session that continues past midnight adds to the previous day.
+
 ## Known limitations
 
 -   **Vehicle Sleep:** The integration will not actively wake a vehicle to fetch data. However, sending commands (such as locking, unlocking, or climate control) will wake the vehicle.
 -   **Rate Limits:** While Teslemetry handles upstream rate limiting with Tesla, excessive polling or command usage from aggressive automations may encounter temporary API limits.
 -   **Virtual Key:** See [Prerequisites](#prerequisites) for when a virtual key is needed. To set one up, follow the instructions on the [Teslemetry Console](https://teslemetry.com/console).
+-   **Charge on solar assumed state:** Tesla's API doesn't currently report charge on solar's status back from the vehicle, so the **Charge on solar** switch and its lower limit number show the state of the last command you sent rather than confirmed feedback from the vehicle.
 
 ## Troubleshooting
 
@@ -443,7 +479,7 @@ Timeouts can occur due to connection issues between Home Assistant, Teslemetry, 
 automation:
   - alias: "Charge Tesla from Solar"
     trigger:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.home_solar_power
         above: 3000
     actions:
@@ -463,7 +499,7 @@ automation:
 automation:
   - alias: "Precondition for Work"
     trigger:
-      - platform: calendar
+      - trigger: calendar
         event: start
         offset: "-00:15:00"
         entity_id: calendar.work
@@ -522,15 +558,17 @@ blueprint:
           filter:
             - domain: cover
 trigger:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id:
       - !input distance_to_arrival_entity
     below: !input distance_to_arrival
     above: 0
 condition:
-  - condition: zone
-    entity_id: !input route_entity
-    zone: !input route_zone
+  - condition: zone.in_zone
+    target:
+      entity_id: !input route_entity
+    options:
+      zone: !input route_zone
 actions:
   - action: cover.open_cover
     target:

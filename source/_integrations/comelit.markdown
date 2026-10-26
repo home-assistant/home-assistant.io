@@ -80,8 +80,7 @@ automation:
 - alias: Close covers at sunset
   id: "covers_close_sunset"
   trigger:
-   - platform: sun
-     event: sunset
+   - trigger: sun.sunset
   condition:
     conditions:
       - alias: "condition alias (not home)"

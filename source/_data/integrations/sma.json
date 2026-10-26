@@ -1,0 +1,22 @@
+{
+  "domain": "sma",
+  "name": "SMA Solar",
+  "integration_type": "device",
+  "codeowners": [
+    "@kellerza",
+    "@rklomp",
+    "@erwindouna"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

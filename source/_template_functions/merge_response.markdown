@@ -15,7 +15,7 @@ related_functions:
   - flatten
 ---
 
-The `merge_response` template function takes the response dictionary from a multi-entity action call and merges it into a single flat list. When you call an action that targets multiple {% term entities %}, the response is a dictionary keyed by entity ID, where each value contains the entity's response data. `merge_response` flattens this structure into a single list, adding the `entity_id` to each item for reference.
+The `merge_response` template function takes the response dictionary from a multi-entity action call and merges it into a single flat list. When you call an action that targets multiple {% term entities %}, the response is a dictionary keyed by entity ID, where each value contains the entity's response data. `merge_response` flattens this structure into a single list. It adds the `entity_id` to each item for reference. For responses with a list, such as calendar events, it also adds a `value_key` with the name of that list.
 
 This is useful when you call actions like `calendar.get_events` or `weather.get_forecasts` that target multiple entities at once. Without `merge_response`, you would need to manually loop through the response dictionary and extract items from each entity. This function handles that for you and produces a unified list that is straightforward to sort, filter, and display. Each item in the result includes an `entity_id` field so you can still tell which entity it came from.
 
@@ -27,8 +27,18 @@ function: |
 type: list
 output: |
   [
-    {"start": "2024-03-15", "summary": "Meeting", "entity_id": "calendar.work"},
-    {"start": "2024-03-15", "summary": "Dentist", "entity_id": "calendar.personal"},
+    {
+      "start": "2024-03-15",
+      "summary": "Meeting",
+      "entity_id": "calendar.work",
+      "value_key": "events",
+    },
+    {
+      "start": "2024-03-15",
+      "summary": "Dentist",
+      "entity_id": "calendar.personal",
+      "value_key": "events",
+    },
   ]
 {% endtemplate_function_usage %}
 
@@ -47,7 +57,7 @@ The following parameters can be provided to this function.
 {% function_parameters %}
 value:
   description: >
-    The action response dictionary to merge. This must be a dictionary where each key is an entity ID and each value is a dictionary containing the entity's response data.
+    The action response dictionary to merge. Each key is an entity ID, and each value is a dictionary with that entity's response data. If the input, or the response of any entity, isn't a dictionary, you get the error `Response is not a dictionary`.
   required: true
   type: map
 {% endfunction_parameters %}
@@ -55,7 +65,10 @@ value:
 ## Good to know
 
 - Adds an `entity_id` field to each item, so you can tell which entity each response came from after merging.
-- Only works on responses shaped as `{entity_id: {key: [items]}}`. Responses with a different shape need manual handling.
+- Some responses have exactly one key that holds a list, such as `events`. In that case, the items of all these lists are combined into one list. Each item also gets a `value_key` field with the name of that key, such as `events`.
+- Other response dictionaries work too, for example, with several keys. Each entity's response then becomes one item in the list.
+- The result isn't sorted. If the order matters, use [`sort`](/template-functions/sort/).
+- An empty response returns an empty list (`[]`).
 
 {% include template_functions/try_it.md %}
 

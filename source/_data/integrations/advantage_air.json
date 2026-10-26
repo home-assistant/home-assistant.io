@@ -1,0 +1,24 @@
+{
+  "domain": "advantage_air",
+  "name": "Advantage Air",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Bre77"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "cover",
+    "diagnostics",
+    "light",
+    "select",
+    "sensor",
+    "switch",
+    "update"
+  ]
+}

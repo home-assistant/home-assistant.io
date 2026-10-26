@@ -45,9 +45,17 @@ Other models linked to a My Renault account may also work. In that case, the int
 
 - A My Renault account with your vehicle linked to it. If you can see your vehicle in the My Renault app, the integration can access it.
 - The email address and password you use to sign in to the My Renault app.
+- If two-factor authentication is turned on for your My Renault account, access to the email inbox that receives the verification codes.
 - For remote control features, such as starting the air conditioning or charging, your vehicle might need an active subscription, such as the _Pack EV Remote Control_ or the _Pack Smart Navigation_.
 
 {% include integrations/config_flow.md %}
+
+If two-factor authentication is turned on for your My Renault account, Home Assistant asks for a verification code after you enter your password:
+
+1. If more than one email address is registered for two-factor authentication, select the address to send the code to.
+2. Enter the **Verification code** that Renault sent to that address.
+
+Home Assistant then remembers the device, so you do not need a new code each time Home Assistant starts.
 
 If your email address is linked to more than one Kamereon account, Home Assistant asks you to select the account your vehicles are assigned to. If there is only one account, it is selected automatically.
 
@@ -58,17 +66,21 @@ Email:
   description: "The email address you use to sign in to the My Renault app."
 Password:
   description: "The password you use to sign in to the My Renault app."
+Verification code:
+  description: "The verification code sent to your email address. This is only asked if two-factor authentication is turned on for your My Renault account."
 Account ID:
   description: "The Kamereon account ID associated with your vehicles. This is only asked if your email address is linked to more than one account."
 {% endconfiguration_basic %}
 
-Each vehicle linked to the account is added as a device, named after its registration number.
+The integration entry is named after your masked email address, for example `e***@example.com`. Each vehicle linked to the account is added as a device, named after its registration number.
 
-To change the locale, email address, or password later, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Renault**, then select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and select **Reconfigure**. You must select the same Kamereon account.
+To change the locale, email address, or password later, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Renault**, then select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and select **Reconfigure**. You must select the same Kamereon account. If two-factor authentication is turned on, Home Assistant can ask for a new verification code.
 
 ## Supported functionality
 
 The **Renault** integration provides the following entities. The entities available for your vehicle depend on its model, whether it is electric, hybrid, or fuel-powered, and your subscription. The integration only creates entities for the features that your vehicle supports.
+
+On the device page, the **Minimum charge level** and **Target charge level** numbers and the **Charge mode** select are shown under **Configuration**. The **Charging mode**, **HVAC SoC threshold**, **Last battery activity**, **Last HVAC activity**, **Last location activity**, and **Remote engine start code** sensors are shown under **Diagnostic**.
 
 ### Binary sensors
 
@@ -185,8 +197,9 @@ Here are some ideas to get you started.
 
 Send a notification to your phone when your vehicle finishes charging. Replace the entity IDs in the example with the entity IDs of your vehicle and phone.
 
-- **Trigger**: State: **Charge state** changes to **Charge ended**
+- **Trigger**: State changed
   - **Target**: Your vehicle's **Charge state** sensor
+  - **To**: Charge ended
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -216,9 +229,9 @@ Start the air conditioning at 19°C at 7:30 on weekdays, so the cabin is comfort
 - **Trigger**: Time
   - **At time**: `07:30:00`
   - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, and Friday
-- **Action**: Start A/C
-  - **Vehicle**: Your vehicle
-  - **Temperature**: `19`
+- **Action**: Renault: Start A/C
+  - **Vehicle**: `abcde1234567890abcde1234567890ab`
+  - **Temperature**: `19`°C
 
 {% details "YAML example for pre-heating the cabin on weekday mornings" %}
 
@@ -245,9 +258,11 @@ automation: |
 
 ## Data updates
 
-The **Renault** integration {% term polling polls %} the Renault servers for data. The vehicle data is split into several groups, such as battery, location, and air conditioning. The integration makes on average one request per minute, so each value is updated every N minutes, where N is the total number of data groups across all your vehicles. For example, if your vehicle supports 6 groups, each value is updated every 6 minutes. With 2 such vehicles on the same account, each value is updated every 12 minutes.
+The **Renault** integration {% term polling polls %} the Renault servers for data. The vehicle data is split into several groups, such as battery, location, and air conditioning. The integration makes on average one request per minute, so each value is updated about every N minutes, where N is the total number of data groups across all your vehicles. For example, if your vehicle supports 6 groups, each value is updated every 6 minutes. With 2 such vehicles on the same account, each value is updated every 12 minutes.
 
 This keeps the integration within the request limits of the Renault servers. If the servers still report that too many requests were made, the integration pauses updates for 15 minutes and keeps showing the last known values.
+
+The integration also checks the list of vehicles in your My Renault account every hour. New vehicles are added automatically, and vehicles you removed from your account are removed from Home Assistant.
 
 When you change a charge limit, Home Assistant shows the new value right away, before the Renault servers confirm it.
 
@@ -256,8 +271,8 @@ When you change a charge limit, Home Assistant shows the new value right away, b
 - The integration depends on the Renault servers and on an internet connection. It cannot connect to the vehicle directly.
 - Some features require a subscription, such as the _Pack EV Remote Control_ or the _Pack Smart Navigation_.
 - Not all features are available on all models. For example, the horn, lights, and tire pressure are not available on many recent vehicles, and some electric vehicles cannot stop charging remotely.
-- Two-factor authentication on the My Renault account is not supported.
-- A vehicle that you add to your My Renault account later only appears in Home Assistant after you reload the integration.
+- Two-factor authentication only supports verification codes sent by email.
+- A vehicle that you add to your My Renault account can take up to an hour to appear in Home Assistant.
 - The **Start air conditioner** button always uses 21°C. To use another temperature, use the [Start A/C](/actions/renault.ac_start/) action.
 
 ## Troubleshooting
@@ -266,17 +281,18 @@ When you change a charge limit, Home Assistant shows the new value right away, b
 
 ### Symptom: Home Assistant asks you to reauthenticate the Renault integration
 
-**Renault** appears under **Attention required** in **Settings** > **Devices & services**.
+**Renault** appears under **Attention required** in **Settings** > **Devices & services**. An action, button, number, or select can also show **The Renault login has expired, re-authenticate the Renault integration**, or the integration can fail to set up with **Failed to log in to the Renault servers, re-authenticate the Renault integration**.
 
 #### Description
 
-The Renault servers no longer accept the stored sign-in, for example because you changed your password in the My Renault app.
+The Renault servers no longer accept the stored sign-in. For example, the login expired, you changed your password in the My Renault app, or two-factor authentication was turned on for your account.
 
 #### Resolution
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Under **Attention required**, select **Reconfigure** on the **Renault** card.
-3. Enter your new password.
+3. Enter your password.
+4. If Home Assistant asks for it, select the email address to send the code to, then enter the **Verification code** that Renault sent to you.
 
 {% enddetails %}
 
@@ -284,7 +300,7 @@ The Renault servers no longer accept the stored sign-in, for example because you
 
 ### Symptom: The integration fails to set up and retries
 
-The Renault integration shows that it failed to set up and retries automatically.
+The Renault integration shows that it failed to set up and retries automatically, with a message such as **Failed to connect to the Renault servers** or **Failed to retrieve vehicle details from the Renault servers**.
 
 #### Description
 
@@ -297,20 +313,21 @@ Home Assistant cannot reach the Renault servers, or the servers cannot return th
 
 {% enddetails %}
 
-{% details "Setup fails with a connection error" %}
+{% details "The verification code is not accepted" %}
 
-### Symptom: Setup shows Failed to connect
+### Symptom: Two-factor authentication fails during setup or reauthentication
 
-When you set up the integration, you get a **Failed to connect** error, even though the My Renault app works.
+When you set up or reauthenticate the integration, Home Assistant shows **Invalid verification code**, or the setup stops with an error.
 
 #### Description
 
-Two-factor authentication is turned on for your My Renault account. The integration does not support two-factor authentication.
+The verification code is wrong or has expired, or Renault cannot send a code to your account.
 
 #### Resolution
 
-1. Check whether two-factor authentication is turned on in your My Renault account settings.
-2. If the Renault servers are temporarily unavailable, try again later.
+1. If Home Assistant shows **Invalid verification code**, check the code in the most recent email from Renault and enter it again.
+2. If the setup stops with **Failed to connect** or **Unexpected error**, start the setup or reauthentication again. Renault sends a new code.
+3. If Home Assistant shows **No email address is registered for two-factor authentication on your Renault account**, add an email address for two-factor authentication in your My Renault account settings.
 
 {% enddetails %}
 
@@ -322,7 +339,7 @@ When you set up the integration, Home Assistant shows **Unable to find Kamereon 
 
 #### Description
 
-None of the accounts linked to your email address has a vehicle with complete details. This can happen when a vehicle was only just added to your My Renault account.
+None of the accounts linked to your email address has a vehicle with complete details. This can happen when a vehicle was only just added to your My Renault account, or when the Renault servers have a problem.
 
 #### Resolution
 
@@ -376,7 +393,7 @@ Some entities or buttons listed under [Supported functionality](#supported-funct
 
 #### Description
 
-The integration only creates entities for the features that your vehicle model and subscription support. When the Renault servers report that a feature is not supported or that access is denied, the integration skips it and writes a message to the log. Some entities are also disabled by default.
+The integration only creates entities for the features that your vehicle model and subscription support. When the Renault servers report that a feature is not supported or that access is denied, the integration skips it and writes a message to the log. Some entities are also disabled by default, and some are shown under **Configuration** or **Diagnostic** on the device page instead of with the other entities.
 
 #### Resolution
 
@@ -390,11 +407,13 @@ The integration only creates entities for the features that your vehicle model a
 
 ### Symptom: An action or button shows an error
 
-When you use an action, a button, a number, or a select, Home Assistant shows that an unknown error occurred while communicating with the Renault servers.
+When you use an action, a button, a number, or a select, Home Assistant shows **An unknown error occurred while communicating with the Renault servers**.
 
 #### Description
 
-The Renault servers refused the command. This usually happens when the feature is not available for your vehicle model or subscription, or when the vehicle cannot be reached. In that case, the error message often contains `err.func.wired.forbidden`.
+The Renault servers refused the command. This usually happens when the feature is not available for your vehicle model or subscription, or when the vehicle cannot be reached. The error that the Renault servers returned, such as `err.func.wired.forbidden`, is available in the [debug log](#reporting-an-issue).
+
+If the error says that the Renault login has expired, Home Assistant asks you to reauthenticate. See [Home Assistant asks you to reauthenticate the Renault integration](#symptom-home-assistant-asks-you-to-reauthenticate-the-renault-integration).
 
 When you change a charge limit, you can also get an error that the battery state of charge data is currently unavailable. Wait for the next data update, and try again.
 
@@ -413,12 +432,13 @@ You added a vehicle to your My Renault account, but it does not appear in Home A
 
 #### Description
 
-The integration only reads the list of vehicles when it starts.
+The integration checks the list of vehicles every hour. A vehicle without complete details on the Renault servers is skipped until its details are available.
 
 #### Resolution
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Renault**.
-2. Select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and select **Reload**.
+1. Wait up to an hour for the next check.
+2. To check right away, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Renault**. Then select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and select **Reload**.
+3. Check that the vehicle shows up in the official My Renault app.
 
 {% enddetails %}
 
@@ -439,10 +459,6 @@ This integration follows standard integration removal. No extra steps are requir
 
 ### Removing a vehicle you no longer own
 
-When you remove a vehicle from your My Renault account, it stays in Home Assistant. To remove it:
+When you remove a vehicle from your My Renault account, Home Assistant removes it automatically at the next hourly check, or when you reload the integration.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Renault**.
-2. Select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and select **Reload**.
-3. Select the vehicle, then select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
-
-You can only delete a vehicle that is no longer linked to your account.
+If you removed all vehicles from your account, Home Assistant keeps them, because an empty list usually means a problem with the Renault servers. In that case, remove the Renault integration.

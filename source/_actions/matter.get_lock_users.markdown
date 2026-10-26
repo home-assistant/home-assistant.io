@@ -47,7 +47,7 @@ action: |
 
 This action has no options.
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Response data
 

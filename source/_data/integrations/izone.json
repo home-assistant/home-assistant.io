@@ -1,0 +1,21 @@
+{
+  "domain": "izone",
+  "name": "iZone",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Swamp-Ig"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "climate",
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "homekit"
+  ]
+}

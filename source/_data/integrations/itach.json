@@ -1,0 +1,12 @@
+{
+  "domain": "itach",
+  "name": "Global Caché iTach TCP/IP to IR",
+  "iot_class": "assumed_state",
+  "quality_scale": "legacy",
+  "categories": [
+    "buttons_remotes"
+  ],
+  "platforms": [
+    "remote"
+  ]
+}

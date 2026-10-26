@@ -47,7 +47,7 @@ This fires whenever the living room PM2.5 sensor reading changes to a value abov
 {% include triggers/threshold_changed_options_yaml.md
    unit_phrase_yaml="literal value in μg/m³" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="PM2.5 sensor" example="sensor.living_room_pm25" %}
 
 ## Good to know
 

@@ -1,0 +1,12 @@
+{
+  "domain": "sesame",
+  "name": "Sesame Smart Lock",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "security_safety.locks_access"
+  ],
+  "platforms": [
+    "lock"
+  ]
+}

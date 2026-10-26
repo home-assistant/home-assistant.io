@@ -11,6 +11,9 @@ ha_codeowners:
 ha_domain: steamvr_base_station
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
+  - button
+  - select
   - sensor
   - switch
 ha_integration_type: device
@@ -41,6 +44,19 @@ Device:
 {% endconfiguration_basic %}
 
 ## Supported functionality
+
+### Binary sensor
+
+- **Problem**: On when the station reports a fault.
+
+### Button
+
+- **Identify**: Blinks the station's LED white for about 20 seconds, to tell stations apart.
+
+### Selects
+
+- **Power mode**: Switches the station on, to standby, or to sleep. From standby it is back on in about a second, from sleep in about 11 seconds. Standby is hidden on firmware that lacks it.
+- **Channel**: The station's tracking channel, from 1 to 16. SteamVR normally assigns channels itself, so only change it to fix a conflict. Disabled by default.
 
 ### Sensors
 
@@ -83,7 +99,7 @@ automation: |
 
 ## Data updates
 
-The base stations broadcast their power state over Bluetooth, so Home Assistant updates the switch and sensors without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands.
+The base stations broadcast their power state and channel over Bluetooth, so Home Assistant updates the entities without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands.
 
 ## Troubleshooting
 
@@ -92,6 +108,11 @@ The base stations broadcast their power state over Bluetooth, so Home Assistant 
 #### Resolution
 
 Make sure the base station is within range of a Bluetooth adapter or proxy with a free connection slot, then try again.
+
+## Diagnostics
+
+The diagnostics download includes the station's device information, its last known state, and the raw data of its last Bluetooth broadcast, which can help developers reproduce issues without access to the hardware. The station name, serial number, and Bluetooth address are redacted.
+Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ## Removing the integration
 

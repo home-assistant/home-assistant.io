@@ -91,8 +91,7 @@ automation:
         entity_id: alarm_control_panel.home
         to: "disarmed"
     conditions:
-      - condition: sun
-        before: sunset
+      - condition: sun.is_up
     actions:
       - action: scene.turn_on
         target:
@@ -110,9 +109,7 @@ automation:
 
   - alias: "Alarm: Arm Home Instant at Sunset"
     triggers:
-      - trigger: sun
-        event: sunset
-        offset: 0
+      - trigger: sun.sunset
     actions:
       - action: totalconnect.arm_home_instant
         target:

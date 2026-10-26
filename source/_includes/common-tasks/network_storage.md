@@ -3,14 +3,6 @@
 You can configure both Network File System (NFS) and Samba/Windows (CIFS) targets to be used within Home Assistant and apps.
 To list all your currently connected network storages, go to {% my storage title="**Settings** > **System** > **Storage**" %} in the UI.
 
-{% if page.installation == "os" %}
-
-{% important %}
-You need to update to Home Assistant Operating System 10.2 before you can use this feature.
-{% endimportant %}
-
-{% endif %}
-
 <p class='img'>
   <picture>
     <source srcset="/images/screenshots/network-storage/list_dark.png" media="(prefers-color-scheme: dark)">
@@ -21,10 +13,11 @@ You need to update to Home Assistant Operating System 10.2 before you can use th
 
 ### Add a new network storage
 
-1. Go to {% my storage title="**Settings** > **System** > **Storage**" %} in the UI.
+1. Go to {% my storage title="**Settings** > **System** > **Storage**" %}.
 2. Select **Add storage**.
-3. Fill out all the information for your network storage.
+3. Enter the details of your network storage. For a description of each option, refer to [Network storage configuration](#network-storage-configuration).
 4. Select **Connect**.
+   - If the connection to a Samba/Windows (CIFS) share fails, the **Samba/Windows (CIFS) version** option appears. If your storage server only supports an older version, select it, and then select **Connect** again.
 
 <p class='img'>
   <picture>
@@ -38,26 +31,28 @@ You need to update to Home Assistant Operating System 10.2 before you can use th
 
 {% configuration_basic "hassio.network_share" %}
 Name:
-  description: This is the name that will be used for the mounted directory on your system.
+  description: The name of the folder for the network storage on your system. The name can only contain letters, numbers, and underscores.
 Usage:
   description: Select how you want to use the storage. For the options, see [usage types](#usage-types).
 "Type<sup>3</sup>":
   description: The type of storage. For network storage, select **Samba/Windows (CIFS)** or **Network File System (NFS)**.
 Server:
-  description: The IP/hostname of the server running NFS/CIFS.
+  description: The IP address or host name of the storage server.
 "[NFS]<sup>1</sup> Remote share path":
   description: The path used to connect to the remote storage server.
+"[CIFS]<sup>2</sup> Samba/Windows (CIFS) version":
+  description: "The version of the CIFS protocol to use. This option only appears if the connection fails, or if the network storage already uses an older version. Keep **Auto (2.1+)** unless your storage server only supports an older version. Then, select **Legacy (2.0)** or **Legacy (1.0)**. Older versions are less secure."
+"[CIFS]<sup>2</sup> Remote share":
+  description: The name of the share on the storage server.
 "[CIFS]<sup>2</sup> Username":
-  description: "The username to use when connecting to the storage server. Use User Principal Name for domain accounts. For example: `user@domain.com`."
+  description: "Optional. The username to use when connecting to the storage server. Use User Principal Name for domain accounts. For example: `user@domain.com`."
 "[CIFS]<sup>2</sup> Password":
-  description: The password to use when connecting to the storage server.
-"[CIFS]<sup>2</sup> Share":
-  description: The share to connect to on the storage server.
+  description: Optional. The password to use when connecting to the storage server.
 {% endconfiguration_basic %}
 
 <sup>1</sup> _Options prefixed with `[NFS]` are only available for NFS targets._<br>
 <sup>2</sup> _Options prefixed with `[CIFS]` are only available for CIFS targets._<br>
-<sup>3</sup> _For the `CIFS` option, only version 2.1+ is supported._<br>
+<sup>3</sup> _For CIFS, Home Assistant uses version 2.1 or later by default. If the connection fails, you can select an older version with the **Samba/Windows (CIFS) version** option._<br>
 
 ##### Usage types
 

@@ -1,0 +1,27 @@
+{
+  "domain": "kitchen_sink",
+  "name": "Everything but the Kitchen Sink",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ],
+  "platforms": [
+    "button",
+    "device_tracker",
+    "event",
+    "fan",
+    "image",
+    "infrared",
+    "lawn_mower",
+    "lock",
+    "notify",
+    "radio_frequency",
+    "sensor",
+    "switch",
+    "weather"
+  ]
+}

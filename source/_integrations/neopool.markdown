@@ -169,7 +169,8 @@ Only entities backed by a detected hardware module or an enabled controller opti
 - **Redox/ORP setpoint**: the target oxidation-reduction potential in mV. Added when the Redox module is present.
 - **Free chlorine setpoint**: the target free chlorine concentration. Added when the chlorine module is present.
 - **Hydrolysis target production level**: the target production level for the electrolytic cell. Added when the hydrolysis module is present. The maximum, unit, and step follow the controller: a percentage when it reports production in percent, or g/h when it reports a nominal production rate.
-- **Heating setpoint**: the target water temperature for the heating relay. Added when the controller has a heating relay and a temperature sensor.
+- **Heating mode temperature**: the target water temperature for the heating relay. Added when the controller has a heating relay and a temperature sensor.
+- **Intelligent mode temperature**: the target water temperature for Intelligent filtration mode. Added when the controller has a heating relay and a temperature sensor.
 - **Smart minimum temperature** and **smart maximum temperature**: the low and high water temperatures that bound Smart filtration mode. Added when a temperature sensor is present.
 - **Cover reduction**: the percentage by which hydrolysis production is reduced while the pool cover is closed. Added when the cover sensor is enabled in the integration options and the controller has a hydrolysis module.
 - **Hydrolysis shutdown temperature**: the water temperature below which hydrolysis stops. Added when the cover sensor is enabled in the integration options and the controller has a hydrolysis module and a temperature sensor.
@@ -192,6 +193,7 @@ Only entities backed by a detected hardware module or an enabled controller opti
 - **Filtration speed**: current variable-speed filtration percentage (when the controller reports a variable-speed pump).
 - **Intelligent-mode intervals** and **time to next interval**: scheduling data for Intelligent mode (when a heating relay and temperature sensor are configured).
 - **Backwash remaining**: time remaining in the active backwash cycle (when a Besgo automatic filter valve is configured).
+- **Filtration time remaining**: time left before the current filtration schedule stops, taken from whichever of the three filtration timers is running. Disabled by default; enable it in the entity registry if you want to track it.
 - **Cell runtime counters**: five diagnostic counters tracking wear on the electrolytic cell (when the hydrolysis module is present), total runtime, runtime since last reset, runtime in polarity 1 and 2, and polarity-change count. All five are diagnostic and disabled by default; enable them in the entity registry if you want to track cell wear over time.
 
 ### Times

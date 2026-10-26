@@ -11,12 +11,12 @@ ha_codeowners:
   - '@jpbede'
 ha_integration_type: service
 related:
-  - docs: /common-tasks/general/#backups
+  - docs: /common-tasks/general/backups/
     title: Backups
 ha_quality_scale: bronze
 ---
 
-This {% term integration %} allows you to use a [WebDAV](https://en.wikipedia.org/wiki/WebDAV) compatible location for [Home Assistant Backups](/common-tasks/general/#backups).
+This {% term integration %} allows you to use a [WebDAV](https://en.wikipedia.org/wiki/WebDAV) compatible location for [Home Assistant Backups](/common-tasks/general/backups/).
 
 ## Installation
 

@@ -60,7 +60,7 @@ This fires when the garage NO sensor reading rises above 50 ppb.
    unit_example_entity="input_number.no_alert_level"
    unit_example_value="40" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="nitrogen monoxide sensor" example="sensor.living_room_nitrogen_monoxide" %}
 
 {% include triggers/behavior.md %}
 

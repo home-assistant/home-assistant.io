@@ -37,10 +37,8 @@ API Key:
   description: "API Key from the website"
 Name:
   description: "Name of the integration"
-Latitude:
-  description: "Latitude for weather forecast and sensor"
-Longitude:
-  description: "Longitude for weather forecast and sensor"
+Location:
+  description: "Latitude and longitude for weather forecast and sensor"
 {% endconfiguration_basic %}
 
 The integration creates one weather entity per forecast mode and also sensors for all available conditions. There are two forecast modes, `daily` for daily forecast up to 6 days or `hourly` for an hourly forecast up to 3 days.

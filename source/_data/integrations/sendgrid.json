@@ -1,0 +1,12 @@
+{
+  "domain": "sendgrid",
+  "name": "SendGrid",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "messaging_notifications.email_sms_calls"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "domain": "surepetcare",
+  "name": "Sure Petcare",
+  "integration_type": "hub",
+  "codeowners": [
+    "@benleb",
+    "@danielhiversen"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "pets"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "lock",
+    "sensor"
+  ]
+}
