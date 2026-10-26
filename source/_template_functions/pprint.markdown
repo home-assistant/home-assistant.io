@@ -14,7 +14,7 @@ related_functions:
 ---
 
 The `pprint` filter formats a value in a human-readable way, making it easier to inspect complex data structures like dictionaries and lists.
-This is primarily useful for debugging templates. When you are trying to understand the structure of data returned by a {% term sensor %} or another template function, piping the value through `pprint` displays it in a nicely formatted, indented layout. This makes it much easier to read than the default single-line representation.
+This is primarily useful for debugging templates. It helps you understand the structure of data returned by a {% term sensor %} or another template function. If the value is longer than 80 characters, `pprint` spreads it over several lines where it can, for example, between the items of a list or a dictionary. Shorter values stay on one line. A long string without spaces also stays on one line.
 
 {% include template_functions/usage.md %}
 
@@ -29,7 +29,6 @@ output: "{'name': 'Living Room', 'temperature': 22.5}"
 ```signature
 pprint(
     value: Any,
-    verbose: bool = False,
 ) -> str
 ```
 
@@ -43,18 +42,12 @@ value:
     The value to pretty-print. Works with any data type including dictionaries, lists, strings, and numbers.
   required: true
   type: any
-verbose:
-  description: >
-    If `true`, includes additional type information in the output. Defaults to `false`.
-  required: false
-  default: "false"
-  type: boolean
 {% endfunction_parameters %}
 
 ## Good to know
 
 - The output is intended for debugging. For structured data you plan to use elsewhere, use [`to_json`](/template-functions/to_json/).
-- With `verbose=true`, the output also includes the Python type name, which can help identify unexpected types.
+- The keys of a dictionary are sorted alphabetically.
 
 {% include template_functions/try_it.md %}
 

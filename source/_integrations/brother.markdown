@@ -67,7 +67,7 @@ The **Brother Printer** integration provides the following entities.
   - **Description**: Printer door is open
 - **Input tray empty**
   - **Description**: Input tray is empty
-  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **Input tray missing**
   - **Description**: Input tray is missing
   - **Remarks**: This entity is disabled by default

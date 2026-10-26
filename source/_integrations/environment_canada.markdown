@@ -41,7 +41,7 @@ The integration will create the entities listed below.
 ### Radar map (Camera)
 
 - Loop of radar imagery from the last 3 hours.
-- This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and can be enabled in the entry's settings dialog.
+- This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and can be enabled in the entry's settings dialog.
 - Radar display settings can be customized through the integration options. See [Radar camera options](#radar-camera-options) below.
 
 ### Sensors

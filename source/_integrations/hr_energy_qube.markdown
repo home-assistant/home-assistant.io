@@ -105,7 +105,7 @@ Host:
 - **Compressor alarm**
   - **Description**: Indicates a compressor-related alarm condition.
 - **Room sensor enabled**
-  - **Description**: Indicates whether the room temperature sensor is enabled. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - **Description**: Indicates whether the room temperature sensor is enabled. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Plant sensor enabled**
   - **Description**: Indicates whether the plant temperature sensor is enabled. Disabled by default.
 - **Buffer sensor enabled**

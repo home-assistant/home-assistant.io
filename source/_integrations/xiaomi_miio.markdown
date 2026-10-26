@@ -393,7 +393,7 @@ In addition to the standard fan attributes, the fan entity shows these attribute
 - **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
 - **Purify volume**: Shows the total volume of purified air, in cubic meters. Disabled by default.
 - **Temperature**: Shows the measured temperature. Enabled by default.
-- **Use time**: Shows the total device usage time. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+- **Use time**: Shows the total device usage time. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Switch entities
 

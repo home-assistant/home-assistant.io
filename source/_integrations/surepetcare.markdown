@@ -33,7 +33,7 @@ These are the entities available in the Sure Petcare integration.
 
 #### Sensors
 
-- **Last seen flap device ID**: Last flap device ID used by the pet (useful for the [pet select location blueprint](#pet-select-location-template-entity)). `unknown` if the last status is not from a flap update. This sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+- **Last seen flap device ID**: Last flap device ID used by the pet (useful for the [pet select location blueprint](#pet-select-location-template-entity)). `unknown` if the last status is not from a flap update. This sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Last seen user ID**: Last user ID that manually changed the pet location (useful for the [pet select location blueprint](#pet-select-location-template-entity)). `unknown` if the last status is not from a manual update. This sensor is disabled by default.
 
 ### Pet and cat flaps

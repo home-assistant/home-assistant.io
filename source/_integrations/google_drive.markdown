@@ -15,7 +15,7 @@ ha_quality_scale: platinum
 api: Google Drive API
 api_link: https://console.cloud.google.com/apis/library/drive.googleapis.com
 related:
-  - docs: /common-tasks/general/#backups
+  - docs: /common-tasks/general/backups/
     title: Creating backups in Home Assistant
   - url: https://drive.google.com
     title: Google Drive
@@ -26,7 +26,7 @@ ha_platforms:
   - sensor
 ---
 
-This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with [Home Assistant Backups](/common-tasks/general/#backups).
+This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with [Home Assistant Backups](/common-tasks/general/backups/).
 
 When you set up this integration, your Google Drive will have a new folder called `Home Assistant` where all the backups will be stored. A separate folder is created for each of your Home Assistant instances. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
 
@@ -52,7 +52,7 @@ The integration provides the following sensors, which are updated every 6 hours:
 
 - **Total available storage**: The storage limit, if applicable. This will be unknown if the user has unlimited storage.
 - **Used storage**: The total storage usage across all Google services.
-- **Used storage in Drive**: The usage by all files in Google Drive. This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+- **Used storage in Drive**: The usage by all files in Google Drive. This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Used storage in Drive Trash**: The usage by trashed files in Google Drive. This entity is disabled by default.
 - **Total size of backups**: The sum of the size of all backups for the current Home Assistant's installation.
 

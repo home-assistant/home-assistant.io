@@ -86,7 +86,7 @@ Password:
 | Firmware                      | `update`        | View and update to the latest firmware, only for Litter-Robot 4.                                            |
 
 {% note %}
-The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode start (per day)**, and **Sleep mode end (per day)**) are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable the days you want to control in the entity settings.
+The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode start (per day)**, and **Sleep mode end (per day)**) are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Enable the days you want to control in the entity settings.
 {% endnote %}
 
 ### Feeder-Robot

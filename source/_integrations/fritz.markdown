@@ -24,7 +24,7 @@ ha_platforms:
 ha_ssdp: true
 ha_integration_type: hub
 related:
-  - docs: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  - docs: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
     title: Enabling or disabling entities
 ha_quality_scale: gold
 ---
