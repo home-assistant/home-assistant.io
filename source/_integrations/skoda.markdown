@@ -26,7 +26,7 @@ The **Škoda** {% term integration %} lets you monitor your [Škoda](https://www
 
 ### Monitor vehicle status
 
-Keep an eye on the mileage, fuel/battery level, and when the vehicle last reported in. Build automations around synchronization gaps, or simply track how the car is used over time.
+Keep an eye on the mileage, fuel or battery level, and estimated driving range. Use this information in dashboards and automations, or track how the car is used over time.
 
 ### Monitor charging
 
@@ -36,9 +36,9 @@ The integration is read-only. It reports the charging state provided by Škoda C
 
 ### Monitor climate control and auxiliary heating
 
-See the target cabin temperature and, while active, the estimated time until the climate control system reaches it.
+See the target cabin temperature and, while climate control is active, the estimated time when the target temperature will be reached. For supported vehicles, you can also monitor the auxiliary heating mode and its estimated completion time.
 
-The integration reports the configured target temperature and whether climate control is active. It cannot start or stop climate control. The target temperature is not available for some combustion vehicles.
+The integration cannot start or stop climate control or auxiliary heating. The target temperature is not available for some combustion vehicles.
 
 ## Supported vehicles
 
@@ -103,7 +103,7 @@ Send a notification if charging unexpectedly stops before the vehicle is fully c
 alias: Notify me if charging is interrupted
 triggers:
   - trigger: state
-    entity_id: sensor.YOUR_VEHICLE_charging_state
+    entity_id: sensor.your_vehicle_charging_state
     to: "charging_interrupted"
 actions:
   - action: notify.mobile_app_phone_john_doe
@@ -112,38 +112,11 @@ actions:
       message: "Charging was interrupted."
 ```
 
-### Notify when the API key is about to expire
-
-Send a reminder a week before your API key expires, so you can renew it before the integration loses access.
-
-{% raw %}
-```yaml
-alias: Notify me before my Škoda API key expires
-triggers:
-  - trigger: template
-    value_template: >
-         {% set expiration =
-           states('sensor.YOUR_VEHICLE_api_key_expiration') | as_datetime %}
-      {{ expiration is not none and now() >= expiration - timedelta(days=7) }}
-actions:
-  - action: notify.mobile_app_phone_john_doe
-    data:
-      title: 🚘 Škoda
-      message: >-
-         Your Škoda API key expires in less than a week. Generate a new one in the
-         MyŠkoda app.
-```
-{% endraw %}
-
-{% note %}
-The **API key expiration** sensor is disabled by default. Enable it first if you want to use this automation.
-{% endnote %}
-
 ## Data updates
 
 The **Škoda** integration {% term polling polls %} the current vehicle status every 5 minutes.
 
-The Škoda public API enforces a rate limit per Vehicle Identification Number (VIN). The **API requests remaining** and **API rate limit reset** diagnostic sensors (disabled by default) let you keep an eye on your remaining quota if you need to.
+The Škoda public API enforces a rate limit per Vehicle Identification Number (VIN). If the limit is reached, the integration waits before attempting to retrieve data again.
 
 ## Known limitations
 
@@ -159,6 +132,7 @@ The Škoda public API enforces a rate limit per Vehicle Identification Number (V
 ### Re-authentication
 
 If the API key expires or is revoked, the integration can no longer retrieve data from the vehicle. Generate a new API key in the MyŠkoda app under **Profile** > **Smart Home**, or through the [Škoda API key portal](https://go.skoda.eu/api-keys).
+
 Remove the existing integration entry and add the vehicle again using the new API key.
 
 ## Removing the integration
