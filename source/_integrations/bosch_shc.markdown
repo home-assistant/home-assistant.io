@@ -74,6 +74,8 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact II
 - Battery powered devices
 
+A room climate control also gets **Call for heat**, **Schedule override active**, **Heating break**, and **Sustainable ventilation** binary sensors.
+
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
