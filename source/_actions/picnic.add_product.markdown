@@ -77,8 +77,7 @@ product_name:
   required: false
   type: string
 gtin:
-  description: >
-    The product barcode. Picnic must recognize the code.
+  description: The product barcode. Picnic must recognize the code.
   required: false
   type: string
 amount:
