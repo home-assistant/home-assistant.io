@@ -2,13 +2,13 @@
 type: card
 title: "Date card"
 sidebar_label: Date
-description: "The Date card shows the current date in a variety of formats and sizes."
+description: "The date card shows the current date in a variety of formats and sizes."
 related:
   - docs: /docs/configuration/basic/
     title: Set your time zone
 ---
 
-The Date card shows the current date in a variety of formats, sizes, and time zones. It pairs well with the [Clock card](/dashboards/clock/) on dashboards used as a daily overview or wall-mounted display.
+The date card shows the current date in a variety of formats, sizes, and time zones. It pairs well with the [Clock card](/dashboards/clock/) on dashboards used as a daily overview or wall-mounted display.
 
 <p class='img'>
 <img src='/images/dashboards/date_card_large.png' alt='Screenshot of the date card'>
