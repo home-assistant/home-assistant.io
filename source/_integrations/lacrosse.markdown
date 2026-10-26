@@ -85,8 +85,6 @@ Once the receiver is configured, you can add one or more sensors. Select the sen
    description: Select the type of sensor being added.
  Name:
    description: The name of the sensor.
- Mark unavailable after (seconds):
-   description: "Time after which sensors are marked unavailable if no update is received. If not set, the default of 300 seconds is used."
 {% endconfiguration_basic %}
 
 ## Reconfiguration and device replacement
@@ -127,7 +125,6 @@ If sensors appear offline in Home Assistant, they may not be transmitting data. 
 
 - The sensor has fresh batteries and is powered on.
 - The sensor is within range of the LaCrosse receiver.
-- The **Expire after** timeout is set appropriately (default is 300 seconds).
 - No interference is affecting the wireless signal.
 
 ### ID conflicts between sensors
