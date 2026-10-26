@@ -154,17 +154,19 @@ This creates a backup instantly. You can create a manual backup at any time, irr
 
 When you download a backup from the Home Assistant backup page, it is decrypted on the fly, so that you can view the data using your favorite archive tool. This works for all backup locations, including Home Assistant Cloud, if the backup uses your current encryption key. If the backup uses a different key, Home Assistant asks for that key. You can also download the backup encrypted.
 
-There are multiple ways to download your local backup from your Home Assistant instance and store it on another device:
+To store a local backup on another device, you can download it from the backups page, or copy it from the backup folder.
 
-**Option 1**: Download from the backup page:
+### To download a backup from the backups page
 
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
 2. In the list, on the row of the backup you want to download, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download**.
    - Result: The backup is stored in the **Downloads** folder of your computer.
-3. If a backup is stored on multiple locations, you can select where you download it from:
+3. If a backup is stored in several locations, you can choose where to download it from:
    - Select the backup, and under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
-**Option 2**: On Home Assistant OS, copy backups from the backup folder:
+### To copy backups from the backup folder
+
+On {% term "Home Assistant Operating System" %}, you can also copy backups directly from the `backup` folder.
 
 1. If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/os/#configuring-access-to-files), using one of the methods listed there.
    - For example, [use the Samba share app](/common-tasks/os/#installing-and-using-the-samba-share-app).
@@ -174,16 +176,18 @@ There are multiple ways to download your local backup from your Home Assistant i
 
 If you were logged in to Home Assistant Cloud and had Cloud backup enabled when creating a backup, your last backup is stored on Home Assistant Cloud.
 
-There are two ways to download the backup from Home Assistant Cloud:
+You can download the backup from the backups page in Home Assistant, or from your Home Assistant Cloud account.
 
-- **Option 1**: From the backups page
-  1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
-  2. Select the backup from the list.
-  3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
+### To download a Home Assistant Cloud backup from the backups page
 
-- **Option 2**: From your Home Assistant Cloud account
-  1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
-  2. Under **Stored files**, you can see the latest available backup file. Select the **Download** button.
+1. In Home Assistant, go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
+2. Select the backup from the list.
+3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
+
+### To download a backup from your Home Assistant Cloud account
+
+1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
+2. Under **Cloud services** > **Backups**, find the latest available backup file, and select **Download**.
 
 ## App update backups
 
@@ -205,21 +209,21 @@ On {% term "Home Assistant Operating System" %}, Home Assistant can create a bac
 
 If you defined a retention for automatic backups, old automatic backups are deleted automatically. The retention doesn't delete manual backups, so you might still have some old backups around that you want to delete. Home Assistant Cloud is an exception: it only keeps the last backup that was uploaded to it, also if that's a manual backup.
 
-To delete old backups, follow these steps:
+You can delete backups in Home Assistant. A backup on Home Assistant Cloud can also be deleted from your Home Assistant Cloud account.
 
-1. In Home Assistant, under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
-2. To **delete one backup**: from the list, select the backup of interest.
-   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
-3. To **delete multiple backups**: select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
-   - From the list of backups, select all the ones you want to delete and select **Delete selected**.
-   - {% icon "mdi:information-outline" %} Consider keeping at least one recent backup for recovery purposes.
-4. To **delete a backup that is stored on Home Assistant Cloud**, you have 2 options:
-   - **Option 1**: Trigger backup deletion from within Home Assistant
-     - Follow steps 1 and 2 from above.
-     - When you select **Delete** in Home Assistant, the backup is deleted from all its locations, including Home Assistant Cloud.
-   - **Option 2**: Delete the backup from the Nabu Casa account page.
-     - Log in to your [Nabu Casa account](https://account.nabucasa.com/).
-     - Under **Backups**, delete the backup.
+### To delete backups in Home Assistant
+
+1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
+2. Delete one or more backups:
+   - To delete one backup, select it from the list. Then, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
+   - To delete several backups, select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button. Select the backups that you want to delete, and then select **Delete selected**.
+   - Consider keeping at least one recent backup, so that you can recover your system if needed.
+   - Result: The backups are deleted from all their locations, including Home Assistant Cloud.
+
+### To delete a backup from your Home Assistant Cloud account
+
+1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
+2. Under **Backups**, delete the backup.
 
 ## Restoring a backup
 
@@ -267,14 +271,14 @@ You can use a backup during the onboarding process to restore your configuration
 
 1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or a Connect&nbsp;ZBT-2):
    - make sure to plug them into the new device.
-2. You can either restore a backup from your local machine or a backup stored on Home Assistant Cloud:
-   - **Option 1**: restoring from a local backup.
+2. Select the backup that you want to restore. It can be a backup file on your computer, or a backup stored on Home Assistant Cloud.
+   - To restore a backup file from your computer:
      - On the welcome screen, select **Upload backup**.
      - Select **Select backup file**.
-       - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
+       - The file explorer opens on the device on which you are viewing the Home Assistant user interface.
        - You can access any connected network drive from there.
      - Select the backup file.
-   - **Option 2**: restoring from a Home Assistant Cloud backup.
+   - To restore a backup from Home Assistant Cloud:
      - On the welcome screen, select **Home Assistant Cloud**.
      - Sign in to Home Assistant Cloud.
 3. In the dialog, select all the parts you want to restore.
