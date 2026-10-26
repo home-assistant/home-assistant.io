@@ -54,6 +54,10 @@ Applications:
   description: "Select one or more applications available to the API key. Only devices in these applications are exposed to Home Assistant."
 {% endconfiguration_basic %}
 
+## Supported functionality
+
+This integration does not create entities itself. It provides the connection to your applications. When a supported device appears, Home Assistant shows the matching LoRaWAN device integration in the **Discovered** section on {% my integrations title="**Settings** > **Devices & services**" %}. That device integration creates the entities.
+
 ## Data updates
 
 Device readings arrive through live event streams. Changes to the device list are detected through server events and a check every 30 seconds. Home Assistant reconnects if the connection is interrupted.
