@@ -106,6 +106,8 @@ Once paired, Home Assistant stores your Powerwall's address and password and sen
 
 A paired energy site also gets extra entities that are only available from your Powerwall over your local network, such as **Grid OK** and **Contactor closed**. They are marked **Local** in the [energy site entity table](#energy-sites). Each one is only created when your Powerwall reports its value, and it becomes unavailable while your Powerwall can't be reached. If your Powerwall can't be reached when Home Assistant starts, these entities are still created and stay unavailable, then update on their own once your Powerwall responds, with no reload needed.
 
+A paired energy site can also be charged or discharged at a set power for a set time with the [Dispatch battery power](/actions/teslemetry.dispatch_battery_power/) action, and returned to its normal operation early with the [Resume battery operation](/actions/teslemetry.resume_battery_operation/) action. These actions are sent directly to your Powerwall, so they only work while it can be reached on your local network.
+
 {% note %}
 Removing the Teslemetry integration doesn't revoke the access key from your Powerwall system, so other apps or integrations using the same key keep working.
 {% endnote %}
@@ -477,7 +479,7 @@ Timeouts can occur due to connection issues between Home Assistant, Teslemetry, 
 automation:
   - alias: "Charge Tesla from Solar"
     trigger:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.home_solar_power
         above: 3000
     actions:
@@ -497,7 +499,7 @@ automation:
 automation:
   - alias: "Precondition for Work"
     trigger:
-      - platform: calendar
+      - trigger: calendar
         event: start
         offset: "-00:15:00"
         entity_id: calendar.work
@@ -556,15 +558,17 @@ blueprint:
           filter:
             - domain: cover
 trigger:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id:
       - !input distance_to_arrival_entity
     below: !input distance_to_arrival
     above: 0
 condition:
-  - condition: zone
-    entity_id: !input route_entity
-    zone: !input route_zone
+  - condition: zone.in_zone
+    target:
+      entity_id: !input route_entity
+    options:
+      zone: !input route_zone
 actions:
   - action: cover.open_cover
     target:

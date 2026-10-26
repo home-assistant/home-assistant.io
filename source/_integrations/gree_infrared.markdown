@@ -20,6 +20,15 @@ The **Gree Infrared** {% term integration %} lets you control a compatible Gree 
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the air conditioner but there is no feedback channel to confirm the current state. The integration therefore uses assumed states. It remembers the last known state and restores it after a restart.
 
+## How you can use the integration
+
+After setup, you can control your Gree air conditioner from Home Assistant the same way you would with its remote, and make it part of your automations. For example, you can:
+
+- Cool the bedroom before you go to bed.
+- Turn the air conditioner off when everyone leaves home, so it does not cool an empty house.
+- Turn the air conditioner off when a window opens.
+- Keep using the physical remote. With an infrared receiver, the climate entity follows the changes you make with it.
+
 ## Supported devices
 
 The integration supports compatible Gree air conditioners that can be controlled via the standard Gree air conditioner infrared protocol.
@@ -93,6 +102,72 @@ Supported range: 16 °C to 30 °C in 1 °C steps.
 
 If you also have an infrared receiver entity (from an IR blaster that can also listen), you can optionally select it during setup. When selected, the integration decodes signals from the physical Gree air conditioner remote and updates the entities to match, so the mode, fan speed, target temperature, and the turbo, panel light, and extra fan switches stay in sync.
 
+## Gree Infrared automation examples
+
+The following examples show how to automate a Gree air conditioner. For more ideas, refer to the climate platform [actions reference](/integrations/climate/#list-of-actions).
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Cooling the bedroom before bedtime
+
+- **Trigger**: Time: 21:30
+- **Condition**: Numeric state: **Home** zone is above 0
+- **Action**: Set thermostat target temperature
+  - **Target**: Gree AC (`climate.gree_ac`)
+  - **Temperature**: 24
+  - **HVAC mode**: Cool
+
+{% details "YAML example for cooling the bedroom before bedtime" %}
+
+{% example %}
+automation: |
+  alias: "Cool the bedroom before bedtime"
+  triggers:
+    - trigger: time
+      at: "21:30:00"
+  conditions:
+    - condition: numeric_state
+      entity_id: zone.home
+      above: 0
+  actions:
+    - action: climate.set_temperature
+      target:
+        entity_id: climate.gree_ac
+      data:
+        # Use 75 instead if Home Assistant uses Fahrenheit.
+        temperature: 24
+        hvac_mode: cool
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turning off the air conditioner when a window opens
+
+- **Trigger**: Window opened
+  - **Target**: Bedroom window (`binary_sensor.bedroom_window`)
+- **Action**: Set thermostat HVAC mode
+  - **Target**: Gree AC (`climate.gree_ac`)
+  - **HVAC mode**: Off
+
+{% details "YAML example for turning off the air conditioner when a window opens" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the air conditioner when the window opens"
+  triggers:
+    - trigger: window.opened
+      target:
+        entity_id: binary_sensor.bedroom_window
+  actions:
+    - action: climate.set_hvac_mode
+      target:
+        entity_id: climate.gree_ac
+      data:
+        hvac_mode: "off"
+{% endexample %}
+
+{% enddetails %}
+
 ## Known limitations
 
 - The climate entity and the switches for the air conditioner use assumed state. Home Assistant cannot verify the actual state of the unit and instead tracks the last known state.
@@ -117,6 +192,16 @@ To fix this, in your existing ESPHome `remote_receiver` configuration, set `idle
 remote_receiver:
   idle: 25ms
 ```
+
+### The air conditioner does not respond to commands
+
+If the climate entity changes in Home Assistant but your air conditioner does not react, the infrared signal is probably not reaching the unit. Make sure the infrared emitter points at the receiver window of the unit and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/integrations/infrared/#the-device-does-not-respond-to-commands).
+
+If the unit reacts to most commands but not to one mode, your model probably does not have that mode. Check your remote or the manual of your unit.
+
+### Reporting an issue
+
+If you need to report an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), then reload the integration. Reproduce the issue, disable debug logging, and attach the automatically downloaded debug log to your report.
 
 ## Removing the integration
 

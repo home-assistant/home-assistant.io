@@ -62,7 +62,7 @@ The **Sync time** button appears under the **Configuration** section of the devi
 ### Climate
 
 - Home Assistant creates one climate entity for each detected heating circuit.
-- These appear in Home Assistant as **Heating circuit 1**, **Heating circuit 2**, and **Heating circuit 3**, depending on what your system exposes.
+- These appear in Home Assistant as **Heating circuit 1** and **Heating circuit 2**, depending on what your system exposes.
 - Each heating circuit is grouped under its own sub-device on the BSB-LAN device page.
 
 ### Water heater

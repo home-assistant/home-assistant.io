@@ -295,7 +295,7 @@ This example updates the sensors every 2 minutes during the morning rush hour (7
   - Time pattern, every 2 minutes
   - Time, at 08:55, 08:56, 08:57, 08:58, and 08:59
 - **Condition**: Time, between 07:00 and 09:00
-- **Action**: Update entity
+- **Action**: Home Assistant Core Integration: Update entity
 
 {% details "YAML example: more frequent updates during peak hours" %}
 
@@ -330,7 +330,7 @@ automation:
 This example refreshes the departure data whenever you press a dashboard button. The button is an input button {% term helper %} that you create separately under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}. This example uses a helper with the entity ID `input_button.refresh_departures`.
 
 - **Trigger**: The dashboard button is pressed
-- **Action**: Update entity
+- **Action**: Home Assistant Core Integration: Update entity
 
 {% details "YAML example: update on demand with a button" %}
 

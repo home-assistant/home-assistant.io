@@ -21,6 +21,8 @@ This is a quick way to turn a UNIX timestamp into a readable local date and time
 
 {% include template_functions/usage.md %}
 
+The examples use a time zone of UTC+1.
+
 {% template_function_usage %}
 filter: '{{ 1710510600 | timestamp_local }}'
 type: string
@@ -49,10 +51,10 @@ default:
 
 ## Using a default value
 
-If the input might not be a valid timestamp, provide a default to avoid errors.
+If the input might not be a valid timestamp, provide a default to avoid errors. `float(none)` turns invalid text into `none`, so the default is used.
 
 {% example %}
-template: '{{ "invalid" | float(0) | timestamp_local(default="unknown") }}'
+template: '{{ "invalid" | float(none) | timestamp_local(default="unknown") }}'
 type: string
 output: "unknown"
 {% endexample %}
@@ -61,7 +63,8 @@ output: "unknown"
 
 - The input must be a UNIX timestamp (a number of seconds). Pass a datetime object through [`as_timestamp`](/template-functions/as_timestamp/) first.
 - The result is a string, not a datetime object. To do datetime math, use [`as_local`](/template-functions/as_local/) instead.
-- Without a `default`, the filter raises an error for non-numeric inputs.
+- The input must be a number, not text. A numeric string such as `"1700000000"` fails too. Convert states with [`float`](/template-functions/float/) or [`int`](/template-functions/int/) first.
+- Without a `default`, the filter raises an error if the input isn't a number.
 
 {% include template_functions/try_it.md %}
 

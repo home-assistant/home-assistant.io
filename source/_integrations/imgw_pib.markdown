@@ -67,9 +67,12 @@ Here is an idea to get you started.
 
 Use the **Hydrological alert** sensor to create a persistent notification with the content and probability of a hydrological alert. Replace the entity ID in the example with the entity ID of your station's **Hydrological alert** sensor.
 
-- **Trigger**: State: **Hydrological alert** changes from **No alert**
+- **Trigger**: State changed
   - **Target**: Your station's **Hydrological alert** sensor
-- **Action**: Create persistent notification
+  - **From**: No alert
+- **Action**: Persistent Notification: Create persistent notification
+  - **Title**: `Hydrological alert!`
+  - **Message**: `{{ trigger.to_state.state }}, probability {{ trigger.to_state.attributes.probability }}%`
 
 {% details "YAML example for creating a hydrological alert notification" %}
 

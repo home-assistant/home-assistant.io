@@ -359,7 +359,7 @@ Here are a few ideas to get you started.
 This automation turns on the **Block social networks** switch of the kids profile every evening.
 
 - **Trigger**: Time: 20:00
-- **Action**: Turn on
+- **Action**: Turn on switch
   - **Target**: Block social networks (`switch.kids_block_social_networks`)
 
 {% details "YAML example for blocking social media in the evening" %}
@@ -383,7 +383,7 @@ automation: |
 This automation turns off the **Block social networks** switch of the kids profile after school.
 
 - **Trigger**: Time: 16:00
-- **Action**: Turn off
+- **Action**: Turn off switch
   - **Target**: Block social networks (`switch.kids_block_social_networks`)
 
 {% details "YAML example for unblocking social media after school" %}

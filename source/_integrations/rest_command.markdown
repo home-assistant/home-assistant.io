@@ -214,10 +214,11 @@ Call the new action from [Tools](/docs/tools/dev-tools/) in the sidebar with som
 automation:
 - alias: "Arrive at Work"
   triggers:
-    - trigger: zone
-      entity_id: device_tracker.my_device
-      zone: zone.work
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: device_tracker.my_device
+      options:
+        zone: zone.work
   actions:
     - action: rest_command.my_request
       data:

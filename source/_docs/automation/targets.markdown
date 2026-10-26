@@ -60,6 +60,7 @@ The following entities are not part of a target because of how they are set up:
 - Entities that you assigned to a different area than their device, when you target the area of the device. These entities belong to their own area only.
 - [Hidden entities](/docs/configuration/customizing-devices/#hidden-entities). For example, if an action turns on all lights in the living room, a hidden light in that room stays off. To hide or show an entity, refer to [Hiding an entity](/docs/configuration/customizing-devices/#hiding-an-entity).
 - Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.
+  - Battery triggers and conditions, such as [Battery became low](/triggers/battery.became_low/) and [Battery is low](/conditions/battery.is_low/), are an exception. They include configuration and diagnostic entities, because many devices show their battery as a diagnostic entity.
 
 ## Targets stay up to date
 
@@ -80,7 +81,7 @@ Excluding an [old-style group](/integrations/group/#old-style-groups), such as `
 
 ## When a target covers several entities
 
-When a target covers more than one entity, you can decide how the trigger or condition combines them.
+When a target covers more than one entity, you can decide how the trigger or condition combines them. The **Trigger when** and **Condition passes if** options are only shown when the target covers more than one entity.
 
 ### Triggers: Each, First, and All
 
@@ -91,6 +92,13 @@ Under **Trigger when**, select one of the following:
 - **All**: The trigger reacts when the last target makes the change, so that all targets are in that state. For example, the automation starts when the last window is closed.
 
 For **First** and **All**, Home Assistant skips targets that are **Unavailable** or **Unknown**. Most triggers also don't react when a target comes back from **Unavailable** or **Unknown**. For details, refer to [Unavailable and unknown state behavior in triggers](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
+
+If the trigger has a **For at least** duration, it reacts only after the change has lasted that long. Home Assistant times the duration as follows:
+
+- With **Each**, it times the duration separately for every target.
+- With **First** and **All**, it times the duration once, for all the entities covered by the target.
+- A restart of Home Assistant, or a reload of the automation, stops the timing.
+- After a restart or reload, the timing only starts again when the target changes again, even if the target is still in the new state. For details, refer to [How automations react to changes](/docs/automation/how-automations-react-to-changes/#what-counts-as-a-change).
 
 When an automation starts, the trigger data describes the one entity that made the change, not the entire target. For example, `trigger.entity_id` is the light that turned on, and `trigger.from_state` and `trigger.to_state` are the states of that light before and after the change. To learn how to use this data, refer to [Trigger data in templates](/docs/automation/trigger-data/).
 
@@ -108,6 +116,15 @@ Targets that are **Unavailable** or **Unknown** don't count. If all targets are 
 ### Actions
 
 An action controls all of its targets. For example, if **Turn on light** targets an area, all lights in that area turn on. For details, refer to [Action targets](/docs/automation/action/#action-targets).
+
+#### Targeting all entities or no entities in YAML
+
+In YAML, actions also accept two special values for `entity_id`:
+
+- `all`: All available entities that the action can control. For example, `light.turn_off` with `entity_id: all` turns off all lights.
+- `none`: No entities. This is useful in a template that sometimes has no target. You can also use `none` for `device_id`, `area_id`, `floor_id`, and `label_id`.
+
+Triggers and conditions don't support `all` or `none`.
 
 ## Targets in YAML
 

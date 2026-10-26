@@ -23,6 +23,12 @@ The **ScorpionTrack** {% term integration %} lets Home Assistant follow the loca
 
 This integration is intentionally focused on the share-link workflow. It does not use your private ScorpionTrack account credentials. Instead, it reads the shared vehicle feed exposed by ScorpionTrack and creates entities for location, speed, and ignition state from that data. The vehicle location appears on the Home Assistant map.
 
+You can use the integration to:
+
+- Find your vehicle's last reported location on the map and check the **Last reported** sensor to see how recent that position is.
+- Use the vehicle tracker in a [zone automation](/docs/automation/trigger/#zone-trigger) to send a notification when the vehicle arrives at or leaves a location.
+- Receive a notification in Home Assistant when the vehicle's ignition turns on, using the example below.
+
 ## Prerequisites
 
 Before setting up the integration, you need:
@@ -74,6 +80,47 @@ The **ScorpionTrack** integration creates one device for each vehicle included i
 The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
 
 The **Speed** sensor initially uses the unit selected for the ScorpionTrack share. You can choose a different display unit in the entity settings.
+
+## ScorpionTrack automation examples
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Notify when the ignition turns on
+
+This automation creates a [persistent notification](/integrations/persistent_notification/) in Home Assistant when your vehicle's **Ignition** sensor changes from **Off** to **On**.
+
+In the [automation editor](/docs/automation/editor/), use these settings:
+
+- **Trigger**: State changed
+  - **Entity**: Your vehicle's **Ignition** sensor
+  - **From**: Off
+  - **To**: On
+- **Action**: Create persistent notification
+  - **Title**: `Vehicle ignition`
+  - **Message**: `Your vehicle's ignition is on.`
+
+Setting both **From** and **To** prevents a notification when the sensor changes from **Unknown** or **Unavailable** to **On**. Notifications depend on the [polling interval and updates to the shared feed](#data-updates), so they are not immediate. Changes that happen between updates can be missed.
+
+{% details "YAML example for an ignition notification" %}
+
+Replace `binary_sensor.vehicle_ignition` with your vehicle's **Ignition** entity ID.
+
+{% example %}
+automation: |
+  alias: "Notify when the vehicle ignition turns on"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.vehicle_ignition
+      from: "off"
+      to: "on"
+  actions:
+    - action: persistent_notification.create
+      data:
+        title: "Vehicle ignition"
+        message: "Your vehicle's ignition is on."
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 

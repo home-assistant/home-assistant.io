@@ -10,6 +10,7 @@ ha_codeowners:
   - '@chpego'
 ha_domain: bluetti_modbus
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -82,7 +83,7 @@ The device page links to the power station's own web interface. The serial numbe
 
 ## Data updates
 
-The **BLUETTI Modbus** integration {% term polling polls %} the device every 30 seconds. This device's Modbus TCP interface has been found to become unresponsive when polled more often, so the interval is not configurable.
+The **BLUETTI Modbus** integration {% term polling polls %} the device every 15 seconds. This device's Modbus TCP interface has been found to become unresponsive when polled more often, so the interval is not configurable.
 
 Home Assistant keeps one Modbus connection per address and shares it between the integrations that use it. If the device does not answer a poll, its {% term entity entities %} become unavailable. Home Assistant does not keep showing the last known reading as if it were current.
 
@@ -120,7 +121,7 @@ If setup or a later poll cannot reach the device, work through the following ste
 
 ### Entities are unavailable for a short time
 
-About once an hour, the device drops its Modbus connection or answers a request with a damaged reply. The integration retries at once and reconnects if needed. If that still fails, the entities show as unavailable until the next poll, 30 seconds later. No action is needed.
+About once an hour, the device drops its Modbus connection or answers a request with a damaged reply. The integration retries at once and reconnects if needed. If that still fails, the entities show as unavailable until the next poll, 15 seconds later. No action is needed.
 
 ### The device is not a supported model
 
