@@ -1,0 +1,49 @@
+{
+  "domain": "mqtt",
+  "name": "MQTT",
+  "integration_type": "service",
+  "codeowners": [
+    "@emontnemery",
+    "@jbouwh",
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "diy_makers"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "camera",
+    "climate",
+    "cover",
+    "date",
+    "datetime",
+    "device_tracker",
+    "diagnostics",
+    "event",
+    "fan",
+    "humidifier",
+    "image",
+    "infrared",
+    "lawn_mower",
+    "light",
+    "lock",
+    "notify",
+    "number",
+    "scene",
+    "select",
+    "sensor",
+    "siren",
+    "switch",
+    "text",
+    "time",
+    "update",
+    "vacuum",
+    "valve",
+    "water_heater"
+  ]
+}

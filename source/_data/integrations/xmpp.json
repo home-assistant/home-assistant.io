@@ -1,0 +1,16 @@
+{
+  "domain": "xmpp",
+  "name": "Jabber (XMPP)",
+  "codeowners": [
+    "@fabaff",
+    "@flowolf"
+  ],
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "messaging_notifications.chat_apps"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

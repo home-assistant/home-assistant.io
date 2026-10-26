@@ -1,0 +1,24 @@
+{
+  "domain": "roomba",
+  "name": "iRobot Roomba and Braava",
+  "integration_type": "device",
+  "codeowners": [
+    "@pschmitt",
+    "@cyr-ius",
+    "@shenxn"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "appliances_cleaning.cleaning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor",
+    "vacuum"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

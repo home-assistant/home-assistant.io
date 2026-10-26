@@ -13,7 +13,7 @@ related_functions:
   - wordwrap
 ---
 
-The `indent` filter adds a specified number of spaces to the beginning of each line in a string. By default, the first line and blank lines are not indented, but you can change this behavior with the `first` and `blank` parameters.
+The `indent` filter adds a specified number of spaces, or text you choose, to the beginning of each line in a string. By default, the first line and blank lines are not indented, but you can change this behavior with the `first` and `blank` parameters.
 This is useful when building multi-line text output that needs proper formatting. For example, you might want to indent a block of YAML data in a notification, format a list of {% term entity %} states for readable display, or align text within a larger multi-line message.
 
 {% include template_functions/usage.md %}
@@ -29,7 +29,7 @@ output: "line 1\n    line 2\n    line 3"
 ```signature
 indent(
     value: str,
-    width: int = 4,
+    width: int | str = 4,
     first: bool = False,
     blank: bool = False,
 ) -> str
@@ -47,10 +47,10 @@ value:
   type: string
 width:
   description: >
-    The number of spaces to add to the beginning of each indented line. Defaults to `4`.
+    The number of spaces to add to the beginning of each indented line. You can also pass text to use as the indent, such as `"\t"` for a tab or `"> "` for a quote. Defaults to `4`.
   required: false
   default: "4"
-  type: integer
+  type: [integer, string]
 first:
   description: >
     Whether to indent the first line as well. Defaults to `false`.
@@ -80,7 +80,7 @@ output: "  line 1\n  line 2"
 
 - The first line is not indented by default. Pass `first=true` to indent it along with the rest.
 - Blank lines are also skipped by default. Pass `blank=true` to pad them too.
-- The width is in spaces, not tab characters.
+- A number as width means that many spaces. To indent with tabs or other characters, pass them as text, such as `indent("\t")`.
 
 {% include template_functions/try_it.md %}
 
@@ -97,7 +97,7 @@ template: |
 type: string
 output: |
   Home status:
-      Temperature: 22°C
+  Temperature: 22°C
       Humidity: 65%
       Pressure: 1013 hPa
 {% endexample %}

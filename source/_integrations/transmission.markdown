@@ -1,22 +1,7 @@
 ---
-title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
-ha_categories:
-  - computers_network.nas_servers
 ha_release: 0.87
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@engrbm87'
-  - '@JPHutchins'
-  - '@andrew-codechimp'
 ha_domain: transmission
-ha_platforms:
-  - event
-  - sensor
-  - switch
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Transmission** {% term integration %} allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.

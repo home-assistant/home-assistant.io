@@ -1,16 +1,7 @@
 ---
-title: Serial
 description: Instructions on how to integrate data from serial connected sensors into Home Assistant.
-ha_categories:
-  - diy_makers.boards_hardware
 ha_release: 0.56
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@fabaff'
 ha_domain: serial
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /integrations/esphome/#about-esphome-remote-adapters-proxies
     title: ESPHome remote adapters (proxies)

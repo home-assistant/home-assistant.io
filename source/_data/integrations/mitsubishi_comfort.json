@@ -1,0 +1,20 @@
+{
+  "domain": "mitsubishi_comfort",
+  "name": "Mitsubishi Comfort",
+  "integration_type": "hub",
+  "codeowners": [
+    "@nikolairahimi"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "climate"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

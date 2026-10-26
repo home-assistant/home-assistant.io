@@ -1,0 +1,13 @@
+{
+  "domain": "ffmpeg_noise",
+  "name": "FFmpeg Noise",
+  "iot_class": "calculated",
+  "quality_scale": "legacy",
+  "categories": [
+    "security_safety.cameras",
+    "sensors"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

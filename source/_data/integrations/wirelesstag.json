@@ -1,0 +1,17 @@
+{
+  "domain": "wirelesstag",
+  "name": "Wireless Sensor Tags",
+  "codeowners": [
+    "@sergeymaysak"
+  ],
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "sensors"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor",
+    "switch"
+  ]
+}
