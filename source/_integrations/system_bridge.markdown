@@ -53,6 +53,8 @@ This integration provides the following sensors:
 | Battery              | Battery level of the device                         |
 | Boot Time            | Time the device was turned on                       |
 | CPU Speed            | The current CPU speed                               |
+| Disk Read Rate       | Total read rate across all disks                    |
+| Disk Write Rate      | Total write rate across all disks                   |
 | Displays Connected   | Number of displays connected                        |
 | Display Resolution X | Display resolution (across)                         |
 | Display Resolution Y | Display resolution (down)                           |
@@ -78,6 +80,8 @@ These sensors are also available, but are not enabled by default:
 | ---------------------- | ---------------------------------- |
 | CPU Temperature        | The current temperature of the CPU |
 | CPU Voltage            | The current voltage of the CPU     |
+| Disk Read Rate (disk)  | Read rate of each disk             |
+| Disk Write Rate (disk) | Write rate of each disk            |
 | GPU Core Clock Speed   | GPU core clock speed in MHz        |
 | GPU Memory Clock Speed | GPU memory clock speed in MHz      |
 | GPU Fan Speed          | GPU fan speed percentage           |
@@ -89,6 +93,8 @@ These sensors are also available, but are not enabled by default:
 | Load Average (15 min)  | Load average over 15 minutes       |
 
 The load average sensors are only added on devices that report a load average.
+
+Per-disk sensors are named after the disk, such as `/dev/sda1 read rate`. They're only added for disks that report read and write activity, and a disk that appears later, such as a USB drive, gets its sensors when it first shows up.
 
 ## Media player
 
