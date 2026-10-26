@@ -1,6 +1,6 @@
 ---
 title: "Network"
-description: "Change the network settings of your Home Assistant, such as the hostname, a static IP address, or the Wi-Fi network that it connects to."
+description: "Change the network settings of your Home Assistant system, such as the hostname, a static IP address, or the Wi-Fi network that it connects to."
 related:
   - docs: /integrations/network/
     title: Network integration
@@ -10,7 +10,7 @@ related:
     title: Remote access to Home Assistant
 ---
 
-You can change the hostname, the IP address, and the Wi-Fi network of your Home Assistant under {% my network title="**Settings** > **System** > **Network**" %}. These settings are only available on {% term "Home Assistant Operating System" %}.
+You can change the hostname, the IP address, and the Wi-Fi network of your Home Assistant system under {% my network title="**Settings** > **System** > **Network**" %}. These settings are only available on {% term "Home Assistant Operating System" %}.
 
 The **Network** page also has settings for the Home Assistant URL, the network adapter, and the HTTP server. For these, refer to [Remote access to Home Assistant](/docs/configuration/remote/), the [Network integration](/integrations/network/#auto-detection), and the [HTTP integration](/integrations/http/#http-server-settings).
 
@@ -20,7 +20,7 @@ On {% term "Home Assistant Container" %}, the operating system of your computer 
 
 ## Changing the hostname
 
-The hostname is the name of your system on your network. By default, it's `homeassistant`, so you can reach Home Assistant at `homeassistant.local`. If you have more than one Home Assistant system, give each one its own hostname.
+The hostname is the name of your system on your network. By default, it's `homeassistant`, so you can reach Home Assistant at `homeassistant.local`. If you have more than one Home Assistant system, give each one its own hostname to avoid hostname conflicts.
 
 ### Prerequisites
 
@@ -31,7 +31,9 @@ The hostname is the name of your system on your network. By default, it's `homea
 
 1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
 2. In the **Hostname** section, enter the new name, and then select **Save**.
-3. To open Home Assistant, use the new name.
+3. Reboot the system.
+   - For the steps, refer to [Rebooting the system](/common-tasks/general/restarting/#rebooting-the-system).
+4. To open Home Assistant, use the new name.
    - For example, if the new hostname is `kitchen`, `homeassistant.local` in your address changes to `kitchen.local`. Keep `http://` or `https://`, and the port.
 
 ## Setting a static IP address
