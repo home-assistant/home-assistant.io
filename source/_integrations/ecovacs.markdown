@@ -88,6 +88,7 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Time`: The total cleaning time
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Auto-empty`: Enable the station to empty the dust bin of the bot automatically. Set how often with the `Auto-empty frequency` select.
   - `Border spin`: Enable border spin, which means the bot will tilt to reach corners during mopping. Present on bots without an extendable mop. Disabled by default.
   - `Border switch`: Enable border switch. Disabled by default.
   - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
