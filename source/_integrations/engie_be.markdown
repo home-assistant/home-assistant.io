@@ -118,7 +118,7 @@ They also get the **EPEX current hour price is negative** and the **EPEX current
 
 ## ENGIE Belgium automation examples
 
-These examples cover common dynamic-tariff automations: run an appliance when electricity gets cheap, hear about tomorrow's prices the moment they are published, and hear when the cheapest hour of the day changes. When you create these automations in the automation editor, it fills in the device ID of your contract for you.
+These examples cover common dynamic-tariff automations: run an appliance when electricity gets cheap, and hear about tomorrow's prices the moment they are published. When you create these automations in the automation editor, it fills in the device ID of your contract for you.
 
 {% include docs/paste_yaml_tip.md %}
 
@@ -175,38 +175,6 @@ automation: |
       data:
         title: "Electricity prices"
         message: "Tomorrow's EPEX prices are available."
-{% endexample %}
-
-{% enddetails %}
-
-### Automation: Hearing when the cheapest hour changes
-
-This automation sends a notification with the price of today's cheapest hour when today's lowest hourly price changes, which normally happens just after midnight, Brussels time. When two days in a row have the same lowest price, it does not send a notification.
-
-- **Trigger**: EPEX lowest hour price today updated
-  - **Contracts**: your contract
-- **Action**: Send a notification message
-  - **Target**: My Device (`notify.my_device`)
-
-{% details "YAML example for a notification about the cheapest hour" %}
-
-{% example %}
-automation: |
-  alias: "Notify about today's cheapest hour"
-  triggers:
-    - trigger: engie_be.epex_low_today_hour_updated
-      options:
-        device_id: 0123456789abcdef0123456789abcdef
-  actions:
-    - action: notify.send_message
-      target:
-        entity_id: notify.my_device
-      data:
-        title: "Cheapest hour today"
-        message: >
-          Today's cheapest hour costs
-          {{ states('sensor.main_street_1_1000_brussels_epex_lowest_hour_price_today') }}
-          EUR/kWh.
 {% endexample %}
 
 {% enddetails %}

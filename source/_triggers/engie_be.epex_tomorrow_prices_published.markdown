@@ -3,16 +3,11 @@ title: "Tomorrow's EPEX prices published"
 trigger: engie_be.epex_tomorrow_prices_published
 domain: engie_be
 description: "Triggers when the EPEX day-ahead prices for tomorrow become available."
-related_triggers:
-  - engie_be.epex_low_today_hour_updated
-  - engie_be.epex_high_today_hour_updated
-  - engie_be.epex_low_today_quarter_hour_updated
-  - engie_be.epex_high_today_quarter_hour_updated
 ---
 
 The **Tomorrow's EPEX prices published** trigger fires when the hourly and the quarter-hourly EPEX prices both cover all of tomorrow, Brussels time.
 
-Use it to plan the next day, for example to get a notification or to schedule appliances for the cheapest hours. To react when today's cheapest price changes, use [EPEX lowest hour price today updated](/triggers/engie_be.epex_low_today_hour_updated/).
+Use it to plan the next day, for example to get a notification or to schedule appliances for the cheapest hours.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
