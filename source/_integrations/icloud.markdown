@@ -72,7 +72,7 @@ The iCloud integration will track available devices on your iCloud account.
 
 ### Sensor
 
-The iCloud integration adds a battery sensor for each device on your Apple Account, and the following sensors for devices that report the data:
+The iCloud integration adds the following sensors for each device on your Apple Account. Some sensors are only added if the device supports them.
 
 - **Battery**: The battery level of the device.
 - **Battery status**: Whether the battery is charging, full, or not charging.
