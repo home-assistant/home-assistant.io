@@ -1,12 +1,7 @@
 ---
-title: To-do list
 description: Instructions on how to use to-do lists within Home Assistant.
 ha_domain: todo
 ha_release: 2023.11
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
   - docs: /integrations/local_todo
     title: Local to-do list integration documentation

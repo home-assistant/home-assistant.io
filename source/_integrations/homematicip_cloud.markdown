@@ -1,32 +1,7 @@
 ---
-title: HomematicIP Cloud
 description: Instructions for integrating HomematicIP into Home Assistant.
-ha_categories:
-  - hubs_protocols.smart_home_hubs
-ha_iot_class: Cloud Push
 ha_release: 0.66
-ha_config_flow: true
 ha_domain: homematicip_cloud
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - sensor
-  - siren
-  - switch
-  - valve
-  - weather
-ha_integration_type: hub
-ha_codeowners:
-  - '@hahn-th'
-  - '@lackas'
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.

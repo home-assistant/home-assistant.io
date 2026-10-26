@@ -1,21 +1,7 @@
 ---
-title: Rehlko
 description: Support for Rehlko devices (formerly Oncue and Kohler Energy)
-ha_categories:
-  - energy.backup_power
-ha_iot_class: Cloud Polling
 ha_release: 2025.5
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-  - '@peterager'
-ha_dhcp: true
 ha_domain: rehlko
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Rehlko** (formerly Kohler Energy Management) {% term integration %} allows you to monitor the status of your [enabled Kohler generator](https://www.kohlerhomeenergy.rehlko.com/kohler-energy-management-app) through Home Assistant. This integration replaces the legacy Oncue integration.

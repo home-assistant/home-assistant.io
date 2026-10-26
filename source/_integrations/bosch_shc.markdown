@@ -1,30 +1,7 @@
 ---
-title: Bosch SHC
 description: Integrate Bosch SHC.
-ha_categories:
-  - hubs_protocols.smart_home_hubs
 ha_release: 2021.6
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@tschamm'
-  - '@mosandlt'
 ha_domain: bosch_shc
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - event
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - valve
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **Bosch SHC** {% term integration %} allows you to connect your [Bosch Smart Home Controller](https://www.bosch-smarthome.com) to Home Assistant to control and monitor your Bosch Smart Home devices.

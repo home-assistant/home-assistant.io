@@ -1,21 +1,7 @@
 ---
-title: Météo-France
 description: Instructions on how to integrate Météo-France within Home Assistant.
 ha_release: 0.89
-ha_iot_class: Cloud Polling
-ha_categories:
-  - weather_alerts.forecasts
-  - weather_alerts.public_warnings
-ha_codeowners:
-  - '@hacf-fr/reviewers'
-  - '@oncleben31'
-  - '@Quentame'
-ha_config_flow: true
 ha_domain: meteo_france
-ha_platforms:
-  - sensor
-  - weather
-ha_integration_type: service
 ---
 
 The **Météo-France** {% term integration %} uses the meteorological data from [Météo-France](http://www.meteofrance.com/) to provide weather forecast for any location in the world with a focus on France. One or more locations can be set via the front end or via the configuration file.

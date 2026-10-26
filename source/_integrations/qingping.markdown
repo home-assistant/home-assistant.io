@@ -1,21 +1,7 @@
 ---
-title: Qingping
 description: Instructions on how to integrate Qingping devices into Home Assistant.
-ha_categories:
-  - sensors.temperature_humidity
-  - sensors.air_quality
-ha_bluetooth: true
 ha_release: 2022.9
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@bdraco'
-  - '@tengfeili-qingping'
 ha_domain: qingping
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: device
 ---
 
 The **Qingping** {% term integration %} lets you monitor [Qingping](https://qingping.co/) environmental sensors directly over Bluetooth Low Energy. No cloud account or hub is required: the devices broadcast their readings and Home Assistant listens passively.

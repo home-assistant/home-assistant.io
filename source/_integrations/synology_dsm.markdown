@@ -1,28 +1,7 @@
 ---
-title: Synology DSM
 description: Instructions on how to integrate the Synology DSM sensor within Home Assistant.
-ha_categories:
-  - computers_network.nas_servers
-  - security_safety.cameras
 ha_release: 0.32
-ha_iot_class: Local Polling
 ha_domain: synology_dsm
-ha_codeowners:
-  - '@Quentame'
-  - '@mib1185'
-ha_config_flow: true
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: device
-ha_zeroconf: true
 ---
 
 The **Synology DSM** {% term integration %} provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_), as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance) and will allow you to use the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as a {% term backup %} location.

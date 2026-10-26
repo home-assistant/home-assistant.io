@@ -1,23 +1,7 @@
 ---
-title: Besen
 description: Instructions on how to integrate Besen EV chargers over Bluetooth Low Energy with Home Assistant.
-ha_categories:
-  - energy.ev_charging
 ha_release: 2026.9
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@moryoav'
 ha_domain: besen
-ha_bluetooth: true
-ha_platforms:
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Besen** {% term integration %} connects Home Assistant to Besen EV chargers over Bluetooth Low Energy.

@@ -1,20 +1,7 @@
 ---
-title: OKOK Scale
 description: Instructions to configure the OKOK Scale integration into Home Assistant.
-ha_categories:
-  - health_wellbeing
 ha_release: 2026.11
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@rrooggiieerr'
-ha_config_flow: true
 ha_domain: okok_scale
-ha_integration_type: device
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_bluetooth: true
-ha_quality_scale: platinum
 ---
 
 The **OKOK Scale** {% term integration %} allows you to connect your [OKOK·International App](https://okokapp.com/) supported scale to Home Assistant. This lets you keep an eye on your weight over time in Home Assistant, chart it on a dashboard, and use each new measurement in your automations.

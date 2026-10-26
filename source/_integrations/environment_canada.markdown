@@ -1,22 +1,7 @@
 ---
-title: Environment Canada
 description: Weather data from Environment Canada.
-ha_categories:
-  - weather_alerts.forecasts
-  - weather_alerts.public_warnings
-ha_platforms:
-  - camera
-  - diagnostics
-  - sensor
-  - weather
 ha_release: 0.95
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@gwww'
-  - '@michaeldavie'
 ha_domain: environment_canada
-ha_config_flow: true
-ha_integration_type: service
 ---
 
 The **Environment Canada** {% term integration %} provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).

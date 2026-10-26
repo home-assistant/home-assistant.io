@@ -1,26 +1,7 @@
 ---
-title: NeoPool
 description: Instructions on how to integrate NeoPool / Sugar Valley pool controllers with Home Assistant.
 ha_release: 2026.8
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@svasek'
 ha_domain: neopool
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_integration_type: hub
-ha_quality_scale: platinum
-ha_categories:
-  - water.pools_spas
 ---
 
 The **NeoPool** {% term integration %} integrates pool controllers built around the **NeoPool control system** (originally developed by **Sugar Valley**, acquired by **Hayward** in 2016) with Home Assistant. It communicates entirely locally over Modbus, either over your network (Modbus TCP) or over a direct serial connection (Modbus RTU), providing real-time monitoring of water chemistry, filtration, and hydrolysis without any cloud dependency.

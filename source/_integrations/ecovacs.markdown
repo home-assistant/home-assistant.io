@@ -1,30 +1,7 @@
 ---
-title: Ecovacs
 description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
-ha_categories:
-  - appliances_cleaning.cleaning
-  - garden_plants
-ha_iot_class: Cloud Push
 ha_release: 0.77
-ha_codeowners:
-  - '@mib1185'
-  - '@edenhaus'
-  - '@Augar'
-ha_config_flow: true
 ha_domain: ecovacs
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - image
-  - lawn_mower
-  - number
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_integration_type: hub
 ---
 
 The **Ecovacs** {% term integration %} integrates [Ecovacs](https://www.ecovacs.com) robotic vacuum cleaners and lawn mowers.
@@ -90,6 +67,7 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Time`: The total cleaning time
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Auto-empty`: Enable the station to empty the dust bin of the bot automatically. Set how often with the `Auto-empty frequency` select.
   - `Border spin`: Enable border spin, which means the bot will tilt to reach corners during mopping. Present on bots without an extendable mop. Disabled by default.
   - `Border switch`: Enable border switch. Disabled by default.
   - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.

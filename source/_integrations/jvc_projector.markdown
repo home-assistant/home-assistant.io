@@ -1,21 +1,7 @@
 ---
-title: JVC Projector
 description: Instructions on how to integrate JVC Projector into Home Assistant.
-ha_categories:
-  - media_entertainment.tv_streaming
 ha_release: '2023.6'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@SteveEasley'
 ha_domain: jvc_projector
-ha_platforms:
-  - binary_sensor
-  - remote
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **JVC Projector** {% term integration %} allows for the automation of [JVC Projectors](https://www.jvc.com/usa/projectors/).

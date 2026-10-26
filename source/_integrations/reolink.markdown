@@ -1,31 +1,7 @@
 ---
-title: Reolink
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
-ha_categories:
-  - security_safety.cameras
-  - security_safety.doorbells_intercoms
-ha_iot_class: Local Push
 ha_release: 2023.1
 ha_domain: reolink
-ha_codeowners:
-  - '@starkillerOG'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - time
-  - update
-ha_integration_type: hub
-ha_dhcp: true
-ha_quality_scale: platinum
 related:
   - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
     title: Controlling the camera from the dashboard

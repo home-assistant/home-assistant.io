@@ -1,20 +1,7 @@
 ---
-title: madVR Envy
 description: Instructions on how to integrate a madVR Envy into Home Assistant.
-ha_categories:
-  - media_entertainment.tv_streaming
 ha_release: '2024.8'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@iloveicedgreentea'
 ha_domain: madvr
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - remote
-  - sensor
-ha_integration_type: device
 ---
 
 The **madVR Envy** {% term integration %} allows for the automation and control of [madVR Envy devices](https://madvrenvy.com).
