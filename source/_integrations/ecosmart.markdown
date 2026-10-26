@@ -31,7 +31,7 @@ You need an ecosmart electricity account with at least one connected property, a
 To create a key, open the ecosmart app and go to **More** > **Settings** > **Advanced** > **API keys**.
 
 {% important %}
-Creating a new key disables the previous one. If you already use your ecosmart API key somewhere else, creating a key for Home Assistant stops that other tool working. Creating a key elsewhere later stops Home Assistant working until you remove the integration and add it again with the new key.
+Creating a new key disables the previous one. If you already use your ecosmart API key somewhere else, creating a key for Home Assistant stops that other tool working. If you create another key later, Home Assistant asks you for it; see [Replacing the API key](#replacing-the-api-key).
 {% endimportant %}
 
 If your switch to ecosmart has not completed yet, a key can already exist while no connection point is attached to it. Setup then reports that the key has no connection points. Try again once the property is live.
@@ -42,6 +42,15 @@ If your switch to ecosmart has not completed yet, a key can already exist while 
 API key:
   description: "The API key you created in the ecosmart app under **More** > **Settings** > **Advanced** > **API keys**."
 {% endconfiguration_basic %}
+
+## Replacing the API key
+
+Creating a new key in the ecosmart app disables the one Home Assistant is using. You do not need to remove the integration. Give Home Assistant the new key in either of these ways:
+
+- **Straight away**: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **ecosmart**, select the {% icon "mdi:dots-vertical" %} menu on the entry, then select **Reconfigure** and enter the new key.
+- **When Home Assistant asks**: within about five minutes, Home Assistant notices that the old key was rejected, and the ecosmart entry appears under **Needs attention**. Select **Reconfigure** there and enter the new key.
+
+The new key must belong to the same ecosmart account. A key for a different account is refused and the old key stays in place. To add another account, add the integration again.
 
 ## Supported functionality
 
@@ -70,10 +79,6 @@ The sensor does not guess. When it does not have a value it can stand behind, it
 - The spot price is unavailable when the most recent published price is stale, or carries no value. A price more than about fifteen minutes old must never be what tells a battery to charge.
 - The spot price is unavailable while the ecosmart API cannot be reached, and it recovers on the next successful poll.
 
-### API key replacement
-
-Re-authentication is not supported yet. If a newer key has replaced the one Home Assistant holds, remove the integration and add it again with the current key.
-
 ### Energy dashboard costs
 
 The spot price is in cents per kWh, and it is the wholesale price only. Don't use it as the electricity price in the [Energy dashboard](/docs/energy/). The dashboard would treat the value as dollars per kWh, so costs would come out 100 times too high, and they would still leave out line charges, losses, and fees.
@@ -93,18 +98,6 @@ During setup, the form reports that the key has no connection points yet. The ke
 #### Resolution
 
 Try again once the property is live.
-
-{% enddetails %}
-
-{% details "The sensor stopped updating and the entry reports an authentication failure" %}
-
-### Symptom: Authentication fails after replacing the API key
-
-The sensor stops updating and the integration reports an authentication failure after the API key was replaced. Creating a key anywhere else disables the key Home Assistant is using.
-
-#### Resolution
-
-Remove the integration, create a new key in the ecosmart app, and add the integration again. Entity IDs are derived from the ICP, so they come back identical and your automations keep working.
 
 {% enddetails %}
 
