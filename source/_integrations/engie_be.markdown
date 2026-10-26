@@ -110,7 +110,7 @@ To follow the cost of your consumption, go to {% my config_energy title="**Setti
 
 Addresses on a dynamic tariff get the **EPEX tomorrow prices available** binary sensor. It turns on once the hourly and the quarter-hourly prices for tomorrow are both published.
 
-They also get the **EPEX current hour price is negative** and the **EPEX current quarter-hourly price is negative** binary sensors. They are on while the price of the hour or quarter hour you are in is negative, which means you are paid to consume. They turn off when the price returns to zero or above, and read unknown when no price covers the current moment.
+They also get the **EPEX current hour price is negative** and the **EPEX current quarter-hourly price is negative** binary sensors. They are on while the price of the hour or quarter hour you are in is negative. They turn off when the price returns to zero or above, and read unknown when no price covers the current moment.
 
 {% include integrations/triggers.md %}
 
@@ -118,23 +118,19 @@ They also get the **EPEX current hour price is negative** and the **EPEX current
 
 ## Examples
 
-These examples cover the common dynamic-tariff automations: run an appliance when electricity gets cheap, hear about tomorrow's prices the moment they are published, and know the cheapest hour of the day as soon as the day starts. They use the triggers listed above.
+These examples cover the common dynamic-tariff automations: run an appliance when electricity gets cheap, hear about tomorrow's prices the moment they are published, and know the cheapest hour of the day as soon as the day starts. They use the triggers listed above. When you create these automations in the automation editor, it fills in the device ID of your contract for you.
 
 ### Running the dishwasher when electricity is cheap
 
-This automation starts the dishwasher the moment the price of the current hour crosses below 0.10 EUR/kWh, so the program runs during the cheap hours of the day.
+This automation starts the dishwasher the moment the price of the current hour goes below 0.10 EUR/kWh, so the program runs during the cheap hours of the day.
 
 ```yaml
 - alias: "Run the dishwasher when electricity is cheap"
   triggers:
     - trigger: engie_be.epex_current_hour_crossed_threshold
-      target:
-        entity_id: sensor.main_street_1_1000_brussels_epex_current_hour_price
       options:
-        threshold:
-          type: below
-          value:
-            number: 0.10
+        device_id: 0123456789abcdef0123456789abcdef
+        below: 0.10
   actions:
     - action: switch.turn_on
       target:
@@ -149,8 +145,8 @@ This automation sends a notification once tomorrow's EPEX prices are published, 
 - alias: "Notify when tomorrow's prices are published"
   triggers:
     - trigger: engie_be.epex_tomorrow_prices_published
-      target:
-        entity_id: binary_sensor.main_street_1_1000_brussels_epex_tomorrow_prices_available
+      options:
+        device_id: 0123456789abcdef0123456789abcdef
   actions:
     - action: notify.send_message
       target:
@@ -168,8 +164,8 @@ At midnight, Brussels time, the new day's prices apply, and this automation send
 - alias: "Notify about today's cheapest hour"
   triggers:
     - trigger: engie_be.epex_low_today_hour_updated
-      target:
-        entity_id: sensor.main_street_1_1000_brussels_epex_lowest_hour_price_today
+      options:
+        device_id: 0123456789abcdef0123456789abcdef
   actions:
     - action: notify.send_message
       target:

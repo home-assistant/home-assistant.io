@@ -2,7 +2,7 @@
 title: "EPEX next quarter-hourly price crossed threshold"
 trigger: engie_be.epex_next_quarter_hour_crossed_threshold
 domain: engie_be
-description: "Triggers when the next quarter-hourly EPEX day-ahead price crosses a threshold."
+description: "Triggers when the EPEX price of the next quarter hour enters a price range."
 related_triggers:
   - engie_be.epex_current_hour_crossed_threshold
   - engie_be.epex_current_quarter_hour_crossed_threshold
@@ -11,11 +11,11 @@ related_triggers:
   - engie_be.epex_quarter_hour_no_longer_negative
 ---
 
-The **EPEX next quarter-hourly price crossed threshold** trigger fires when the price of the next quarter hour crosses a threshold you set. On a dynamic tariff, the EPEX day-ahead auction sets a new price for every quarter hour of the day, and the **EPEX next quarter-hourly price** sensor follows it.
+The **EPEX next quarter-hourly price crossed threshold** trigger fires when the EPEX price of the next quarter hour enters a price range you set, so when it goes from outside the range to inside it. On a dynamic tariff, the EPEX day-ahead auction sets a price for every quarter hour of the day.
 
-Use it to act before the quarter hour starts: postpone an appliance when the next quarter hour gets expensive, or start a load when the next quarter hour turns cheap. To react to the quarter hour you are already in, use [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/). If your contract bills you per hour, use [EPEX next hour price crossed threshold](/triggers/engie_be.epex_next_hour_crossed_threshold/) instead.
+Use it when your contract bills you per quarter hour and you want to prepare before a cheap quarter hour starts. To act on the quarter hour you are in, use [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/). For the hourly price, use [EPEX next hour price crossed threshold](/triggers/engie_be.epex_next_hour_crossed_threshold/).
 
-Only addresses on a dynamic tariff have EPEX price sensors. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
+Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
 {% include triggers/ui_header.md %}
 
@@ -24,35 +24,23 @@ To use **EPEX next quarter-hourly price crossed threshold** in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **EPEX next quarter-hourly price crossed threshold**.
-5. Select **Add target** (see [Targets](#targets)) and pick the **EPEX next quarter-hourly price** sensor of your dynamic address.
-6. Under **Threshold**, pick **Above**, **Below**, **In range**, or **Outside range**, then enter the price in EUR/kWh. You can also pick another ENGIE Belgium price sensor as the threshold.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick how the trigger fires when you target more than one entity.
-8. Under **For at least**, set how long the price must stay past the threshold before the trigger fires. Leave it at zero to fire immediately.
-9. Select **Save**.
+4. Search for **EPEX next quarter-hourly price crossed threshold** and select it.
+5. Under **Contracts**, select one or more of your contracts with a dynamic tariff.
+6. Enter a price in EUR/kWh under **Above**, **Below**, or both.
+7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
-Threshold:
-  description: |
-    The price boundary in EUR/kWh. The trigger fires when the price crosses into it:
-
-    - **Above**: the price crosses to strictly above the threshold. A price equal to the threshold does not trigger a crossing.
-    - **Below**: the price crosses to strictly below the threshold. A price equal to the threshold does not trigger a crossing.
-    - **In range**: the price crosses into the range between two values. A price equal to either value is considered inside the range.
-    - **Outside range**: the price crosses out of the range between two values. A price equal to either value is still considered inside the range.
-
-    For each type you can enter a fixed price or pick an ENGIE Belgium sensor as a dynamic threshold. A fixed price must be between -1 and 5 EUR/kWh.
-Trigger when:
-  description: |
-    When more than one entity is targeted, controls when the trigger fires:
-
-    - **Each** (default): fires every time any targeted entity crosses the threshold.
-    - **First**: fires only on the first entity to cross.
-    - **All**: fires only after every targeted entity has crossed.
-For at least:
-  description: How long the price must stay past the threshold before the trigger fires. Useful to ride out brief fluctuations. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
+Contracts:
+  description: The ENGIE Belgium contracts with a dynamic tariff to watch.
+  required: true
+Above:
+  description: The price in EUR/kWh that the EPEX price of the next quarter hour must be above. Enter a number from -1 to 5.
+  required: false
+Below:
+  description: The price in EUR/kWh that the EPEX price of the next quarter hour must be below. Enter a number from -1 to 5.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -62,31 +50,22 @@ In YAML, refer to this trigger as `engie_be.epex_next_quarter_hour_crossed_thres
 {% example %}
 trigger: |
   trigger: engie_be.epex_next_quarter_hour_crossed_threshold
-  target:
-    entity_id: sensor.main_street_1_1000_brussels_epex_next_quarter_hourly_price
   options:
-    threshold:
-      type: above
-      value:
-        number: 0.25
+    device_id: 0123456789abcdef0123456789abcdef
+    below: 0.10
 {% endexample %}
 
-This fires the moment the price of the next quarter hour crosses above 0.25 EUR/kWh. It does not fire again while the price stays above the threshold; the price has to drop back below it first.
+This fires when the EPEX price of the next quarter hour goes from 0.10 EUR/kWh or more to below 0.10 EUR/kWh. It does not fire again while the price stays below 0.10. The price has to leave the range first. When you create the automation in the automation editor, it fills in the device ID of your contract for you.
 
-To fire when the price crosses into a cheap range, for example between -0.05 and 0.10 EUR/kWh:
+To fire when the price enters a range, for example between -0.05 and 0.10 EUR/kWh, set both options:
 
 {% example %}
 trigger: |
   trigger: engie_be.epex_next_quarter_hour_crossed_threshold
-  target:
-    entity_id: sensor.main_street_1_1000_brussels_epex_next_quarter_hourly_price
   options:
-    threshold:
-      type: between
-      value_min:
-        number: -0.05
-      value_max:
-        number: 0.10
+    device_id: 0123456789abcdef0123456789abcdef
+    above: -0.05
+    below: 0.10
 {% endexample %}
 
 ### Options in YAML
@@ -94,83 +73,71 @@ trigger: |
 The options go under `options`.
 
 {% options_yaml %}
-threshold:
-  description: |
-    A mapping that defines the price crossing that fires the trigger:
-
-    - `type: above` (exclusive): fires when the price crosses to strictly above `value`. Provide `value` with a `number` key (a price in EUR/kWh) or an `entity` key (an ENGIE Belgium sensor used as a dynamic threshold).
-    - `type: below` (exclusive): fires when the price crosses to strictly below `value`. Provide `value` the same way.
-    - `type: between` (inclusive): fires when the price crosses into the range. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
-    - `type: outside` (exclusive): fires when the price crosses out of the range. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+device_id:
+  description: One or more device IDs of ENGIE Belgium contracts with a dynamic tariff.
   required: true
-  type: map
-behavior:
-  description: |
-    When more than one entity is targeted, controls when the trigger fires:
-
-    - `each` (default): fires every time any targeted entity crosses the threshold.
-    - `first`: fires only on the first entity to cross.
-    - `all`: fires only after every targeted entity has crossed.
+  type: [string, list]
+above:
+  description: The price in EUR/kWh that the EPEX price of the next quarter hour must be above. Set at least one of `above` and `below`. When you set both, `above` must be lower than `below`.
   required: false
-  type: string
-  default: each
-for:
-  description: How long the price must stay past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+  type: float
+below:
+  description: The price in EUR/kWh that the EPEX price of the next quarter hour must be below. Set at least one of `above` and `below`. When you set both, `above` must be lower than `below`.
   required: false
-  type: string
-  default: "00:00:00"
+  type: float
 {% endoptions_yaml %}
-
-{% include triggers/targets.md domain="sensor" %}
-
-{% include triggers/behavior.md %}
 
 ## Good to know
 
-- Only addresses on a dynamic tariff have EPEX price sensors, so the trigger only offers targets when your integration has one.
-- The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs. The price you actually pay is higher, and wholesale prices can be negative.
-- The trigger fires on the crossing only. While the price stays past the threshold, it does not fire again.
-- The next quarter-hourly price changes on every quarter-hour boundary, so the trigger gives you up to fifteen minutes of lead time before the new price applies.
-- When the next quarter hour falls on a day whose prices are not published yet, the sensor has no value and the trigger does not fire. Once tomorrow's prices are published, it has a value again.
+- Above and Below must be between -1 and 5 EUR/kWh.
+- Only contracts with a dynamic tariff have EPEX prices. A device of a contract with a fixed tariff never fires.
+- Home Assistant checks the price on every EPEX update and on every quarter-hour boundary (at 00, 15, 30 and 45 minutes past the hour).
+- After the integration reloads, or when the price is unknown because a slot is missing or an update failed, the first known price sets a new baseline. The trigger does not fire on that first price.
+- Each selected device fires on its own. If you select two contracts of the same account, the trigger fires twice.
+- Both comparisons are strict. With **Above** set to 0.10, a price of exactly 0.10 EUR/kWh is not in the range.
+- The trigger fires when the price enters the range. While the price stays in the range, it does not fire again.
+
+### Available trigger data
+
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variable:
+
+- `trigger.device_id`: The device ID of the contract that fired the trigger.
 
 {% include triggers/try_it.md %}
 
 {% include triggers/more_examples.md %}
 
-### Automation: get a notification before an expensive quarter hour starts
+### Automation: get a heads-up before an expensive quarter hour
 
-When the price of the next quarter hour crosses above 0.25 EUR/kWh, this automation sends a notification, so you have a moment to postpone heavy appliances before the expensive quarter hour starts.
+When the price of the next quarter hour goes above 0.30 EUR/kWh, this automation sends a notification so you can switch heavy loads off in time.
 
 - **Trigger**: EPEX next quarter-hourly price crossed threshold
-  - **Target**: EPEX next quarter-hourly price
-  - **Threshold type**: Above (0.25)
+  - **Contracts**: Main Street 1
+  - **Above**: 0.30
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for a notification before an expensive quarter hour" %}
+{% details "YAML example for this automation" %}
 
 {% example %}
 automation: |
   alias: "Notify before an expensive quarter hour"
   triggers:
     - trigger: engie_be.epex_next_quarter_hour_crossed_threshold
-      target:
-        entity_id: sensor.main_street_1_1000_brussels_epex_next_quarter_hourly_price
       options:
-        threshold:
-          type: above
-          value:
-            number: 0.25
+        device_id: 0123456789abcdef0123456789abcdef
+        above: 0.30
   actions:
     - action: notify.send_message
       target:
         entity_id: notify.my_device
       data:
-        title: "Expensive electricity"
-        message: "The next quarter hour costs more than 0.25 EUR/kWh."
+        title: "Expensive quarter hour ahead"
+        message: "The next quarter hour costs more than 0.30 EUR/kWh."
 {% endexample %}
 
 {% enddetails %}
 
 {% include triggers/stuck.md %}
+
 {% include triggers/related.md %}

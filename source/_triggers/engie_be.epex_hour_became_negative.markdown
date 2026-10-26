@@ -2,18 +2,18 @@
 title: "EPEX hour price became negative"
 trigger: engie_be.epex_hour_became_negative
 domain: engie_be
-description: "Triggers when the current hourly EPEX day-ahead price turns negative."
+description: "Triggers when the current hourly EPEX price goes from zero or above to below zero."
 related_triggers:
   - engie_be.epex_hour_no_longer_negative
   - engie_be.epex_quarter_hour_became_negative
   - engie_be.epex_quarter_hour_no_longer_negative
 ---
 
-The **EPEX hour price became negative** trigger fires when the price of the electricity hour you are in drops below zero. On a dynamic tariff, the EPEX day-ahead price can turn negative: when supply exceeds demand, you are paid to consume. The **EPEX current hour price is negative** binary sensor follows the price, and this trigger fires the moment it turns on.
+The **EPEX hour price became negative** trigger fires when the current hourly EPEX price goes from zero or above to below zero.
 
-Use it to charge an EV or a home battery, or to run heavy appliances during the hours that electricity pays you. To stop again when the negative window ends, use [EPEX hour price no longer negative](/triggers/engie_be.epex_hour_no_longer_negative/). If your contract bills you per quarter hour, use [EPEX quarter-hourly price became negative](/triggers/engie_be.epex_quarter_hour_became_negative/) instead.
+Use it to start loads such as an EV charger or a home battery when the hourly price turns negative. To stop them again, use [EPEX hour price no longer negative](/triggers/engie_be.epex_hour_no_longer_negative/). To check the price when an automation runs, use the [EPEX hour price is negative](/conditions/engie_be.epex_hour_price_is_negative/) condition.
 
-Only addresses on a dynamic tariff have EPEX price sensors. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs.
+Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
 {% include triggers/ui_header.md %}
 
@@ -22,24 +22,16 @@ To use **EPEX hour price became negative** in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **EPEX hour price became negative**.
-5. Select **Add target** (see [Targets](#targets)) and pick the **EPEX current hour price is negative** binary sensor of your dynamic address.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick how the trigger fires when you target more than one entity.
-7. Under **For at least**, set how long the price must stay negative before the trigger fires. Leave it at zero to fire immediately.
-8. Select **Save**.
+4. Search for **EPEX hour price became negative** and select it.
+5. Under **Contracts**, select one or more of your contracts with a dynamic tariff.
+6. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
-Trigger when:
-  description: |
-    When more than one entity is targeted, controls when the trigger fires:
-
-    - **Each** (default): fires every time any targeted entity turns negative.
-    - **First**: fires only on the first entity to turn negative.
-    - **All**: fires only after every targeted entity has turned negative.
-For at least:
-  description: How long the price must stay negative before the trigger fires. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
+Contracts:
+  description: The ENGIE Belgium contracts with a dynamic tariff to watch.
+  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -49,68 +41,59 @@ In YAML, refer to this trigger as `engie_be.epex_hour_became_negative`. A basic 
 {% example %}
 trigger: |
   trigger: engie_be.epex_hour_became_negative
-  target:
-    entity_id: binary_sensor.main_street_1_1000_brussels_epex_current_hour_price_is_negative
+  options:
+    device_id: 0123456789abcdef0123456789abcdef
 {% endexample %}
 
-This fires the moment the price of the current hour turns negative.
+This fires when the current hourly price of the contract with that device ID goes from zero or above to below zero. When you create the automation in the automation editor, it fills in the device ID of your contract for you.
 
 ### Options in YAML
 
 The options go under `options`.
 
 {% options_yaml %}
-behavior:
-  description: |
-    When more than one entity is targeted, controls when the trigger fires:
-
-    - `each` (default): fires every time any targeted entity turns negative.
-    - `first`: fires only on the first entity to turn negative.
-    - `all`: fires only after every targeted entity has turned negative.
-  required: false
-  type: string
-  default: each
-for:
-  description: How long the price must stay negative before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
-  required: false
-  type: string
-  default: "00:00:00"
+device_id:
+  description: One or more device IDs of ENGIE Belgium contracts with a dynamic tariff.
+  required: true
+  type: [string, list]
 {% endoptions_yaml %}
-
-{% include triggers/targets.md domain="binary_sensor" %}
-
-{% include triggers/behavior.md %}
 
 ## Good to know
 
-- Only addresses on a dynamic tariff have EPEX price sensors, so the trigger only offers targets when your integration has one.
-- The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs. Wholesale prices can be negative, and then you are paid to consume.
-- The trigger fires on the crossing to negative only. While the price stays negative, it does not fire again.
-- When no price covers the current moment, for example while the EPEX prices are unavailable, the binary sensor reads unknown and the trigger does not fire.
-- To gate an automation while the price is negative, instead of reacting to the crossing, use the [EPEX hour price is negative](/conditions/engie_be.epex_hour_price_is_negative/) condition.
+- Only contracts with a dynamic tariff have EPEX prices. A device of a contract with a fixed tariff never fires.
+- Home Assistant checks the price on every EPEX update and on every quarter-hour boundary (at 00, 15, 30 and 45 minutes past the hour).
+- After the integration reloads, or when the price is unknown because a slot is missing or an update failed, the first known price sets a new baseline. The trigger does not fire on that first price.
+- Each selected device fires on its own. If you select two contracts of the same account, the trigger fires twice.
+- A price of exactly zero counts as not negative.
+
+### Available trigger data
+
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variable:
+
+- `trigger.device_id`: The device ID of the contract that fired the trigger.
 
 {% include triggers/try_it.md %}
 
 {% include triggers/more_examples.md %}
 
-### Automation: charge the EV while electricity is paid to consume
+### Automation: charge the EV when the price turns negative
 
-When the price of the current hour turns negative, this automation starts the EV charger, so the car charges during the hours that pay you back.
+When the price of the current hour turns negative, this automation starts the EV charger.
 
 - **Trigger**: EPEX hour price became negative
-  - **Target**: EPEX current hour price is negative
+  - **Contracts**: Main Street 1
 - **Action**: Turn on switch
   - **Target**: EV charger (`switch.ev_charger`)
 
-{% details "YAML example for charging the EV on negative prices" %}
+{% details "YAML example for this automation" %}
 
 {% example %}
 automation: |
-  alias: "Charge the EV when electricity turns negative"
+  alias: "Charge the EV when the hourly price turns negative"
   triggers:
     - trigger: engie_be.epex_hour_became_negative
-      target:
-        entity_id: binary_sensor.main_street_1_1000_brussels_epex_current_hour_price_is_negative
+      options:
+        device_id: 0123456789abcdef0123456789abcdef
   actions:
     - action: switch.turn_on
       target:
@@ -120,4 +103,5 @@ automation: |
 {% enddetails %}
 
 {% include triggers/stuck.md %}
+
 {% include triggers/related.md %}

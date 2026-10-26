@@ -2,7 +2,7 @@
 title: "Tomorrow's EPEX prices published"
 trigger: engie_be.epex_tomorrow_prices_published
 domain: engie_be
-description: "Triggers when the EPEX day-ahead prices for tomorrow become available."
+description: "Triggers when the EPEX day-ahead prices for tomorrow are published."
 related_triggers:
   - engie_be.epex_low_today_hour_updated
   - engie_be.epex_high_today_hour_updated
@@ -10,11 +10,11 @@ related_triggers:
   - engie_be.epex_high_today_quarter_hour_updated
 ---
 
-The **Tomorrow's EPEX prices published** trigger fires when the EPEX day-ahead prices for tomorrow become available. The **EPEX tomorrow prices available** binary sensor turns on the moment both the hourly and the quarter-hourly prices for tomorrow are in, and this trigger passes that moment on to your automations.
+The **Tomorrow's EPEX prices published** trigger fires when the hourly and the quarter-hourly EPEX prices both cover all of tomorrow, Brussels time.
 
-Use it to get a heads-up when tomorrow's prices are in, so you can plan the next day: shift flexible appliances to tomorrow's cheap hours, or check the [Energy dashboard](/energy) after the new data arrives. The prices are typically published in the early afternoon, Brussels time.
+Use it to plan the next day, for example to get a notification or to schedule appliances for the cheapest hours. To react when today's cheapest price changes, use [EPEX lowest hour price today updated](/triggers/engie_be.epex_low_today_hour_updated/).
 
-Only addresses on a dynamic tariff have EPEX price sensors. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
+Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
 {% include triggers/ui_header.md %}
 
@@ -23,24 +23,16 @@ To use **Tomorrow's EPEX prices published** in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Tomorrow's EPEX prices published**.
-5. Select **Add target** (see [Targets](#targets)) and pick the **EPEX tomorrow prices available** binary sensor of your dynamic address.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick how the trigger fires when you target more than one entity.
-7. Under **For at least**, set how long the binary sensor must stay on before the trigger fires. Leave it at zero to fire immediately.
-8. Select **Save**.
+4. Search for **Tomorrow's EPEX prices published** and select it.
+5. Under **Contracts**, select one or more of your contracts with a dynamic tariff.
+6. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
-Trigger when:
-  description: |
-    When more than one entity is targeted, controls when the trigger fires:
-
-    - **Each** (default): fires every time any targeted entity turns on.
-    - **First**: fires only on the first entity to turn on.
-    - **All**: fires only after every targeted entity has turned on.
-For at least:
-  description: How long tomorrow's prices must be available before the trigger fires. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
+Contracts:
+  description: The ENGIE Belgium contracts with a dynamic tariff to watch.
+  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -50,45 +42,36 @@ In YAML, refer to this trigger as `engie_be.epex_tomorrow_prices_published`. A b
 {% example %}
 trigger: |
   trigger: engie_be.epex_tomorrow_prices_published
-  target:
-    entity_id: binary_sensor.main_street_1_1000_brussels_epex_tomorrow_prices_available
+  options:
+    device_id: 0123456789abcdef0123456789abcdef
 {% endexample %}
 
-This fires the moment tomorrow's EPEX day-ahead prices become available.
+This fires when tomorrow's prices for the contract with that device ID are published. When you create the automation in the automation editor, it fills in the device ID of your contract for you.
 
 ### Options in YAML
 
 The options go under `options`.
 
 {% options_yaml %}
-behavior:
-  description: |
-    When more than one entity is targeted, controls when the trigger fires:
-
-    - `each` (default): fires every time any targeted entity turns on.
-    - `first`: fires only on the first entity to turn on.
-    - `all`: fires only after every targeted entity has turned on.
-  required: false
-  type: string
-  default: each
-for:
-  description: How long tomorrow's prices must be available before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
-  required: false
-  type: string
-  default: "00:00:00"
+device_id:
+  description: One or more device IDs of ENGIE Belgium contracts with a dynamic tariff.
+  required: true
+  type: [string, list]
 {% endoptions_yaml %}
-
-{% include triggers/targets.md domain="binary_sensor" %}
-
-{% include triggers/behavior.md %}
 
 ## Good to know
 
-- Only addresses on a dynamic tariff have EPEX price sensors, so the trigger only offers targets when your integration has one.
-- The trigger fires once per day, when the hourly and the quarter-hourly prices for tomorrow are both published. This is typically in the early afternoon, Brussels time.
-- At midnight, Brussels time, the binary sensor turns off again, because the prices of the following day are not published yet. The trigger fires again after the next publication.
-- Until the prices are published, the next price sensors have no value for hours that fall on tomorrow.
-- The lowest and highest price today sensors switch to the new day at the same moment, and the updated triggers fire when the new extreme price differs from yesterday's.
+- Only contracts with a dynamic tariff have EPEX prices. A device of a contract with a fixed tariff never fires.
+- Home Assistant checks the price on every EPEX update and on every quarter-hour boundary (at 00, 15, 30 and 45 minutes past the hour).
+- After the integration reloads, or when the price is unknown because a slot is missing or an update failed, the first known price sets a new baseline. The trigger does not fire on that first price.
+- Each selected device fires on its own. If you select two contracts of the same account, the trigger fires twice.
+- The prices for tomorrow are usually published in the early afternoon, Brussels time. The trigger fires once per day for each contract.
+
+### Available trigger data
+
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variable:
+
+- `trigger.device_id`: The device ID of the contract that fired the trigger.
 
 {% include triggers/try_it.md %}
 
@@ -96,10 +79,10 @@ for:
 
 ### Automation: get a notification when tomorrow's prices are in
 
-This automation sends a notification once tomorrow's EPEX prices are published, so you can plan the next day while the evening is still ahead.
+This automation sends a notification once tomorrow's EPEX prices are published, so you can plan the next day.
 
 - **Trigger**: Tomorrow's EPEX prices published
-  - **Target**: EPEX tomorrow prices available
+  - **Contracts**: Main Street 1
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -110,8 +93,8 @@ automation: |
   alias: "Notify when tomorrow's prices are published"
   triggers:
     - trigger: engie_be.epex_tomorrow_prices_published
-      target:
-        entity_id: binary_sensor.main_street_1_1000_brussels_epex_tomorrow_prices_available
+      options:
+        device_id: 0123456789abcdef0123456789abcdef
   actions:
     - action: notify.send_message
       target:
@@ -124,4 +107,5 @@ automation: |
 {% enddetails %}
 
 {% include triggers/stuck.md %}
+
 {% include triggers/related.md %}
