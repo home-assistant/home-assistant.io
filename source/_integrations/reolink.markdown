@@ -865,7 +865,7 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 
 The binary motion/AI event sensors receive events using one of the following methods: `TCP push`, `Webhook push`, `ONVIF push`, `ONVIF long polling`, or `Fast polling`.
 The push methods will result in slightly faster state changes of the binary motion/AI event sensors than ONVIF long polling.
-Moreover, the push methods are less demanding for the camera than ONVIF long polling or fast polling, resulting in potentially less connection issues.
+Moreover, push methods are less demanding on the camera than ONVIF long polling or fast polling, which can lead to fewer connection issues.
 
 - **TCP push** is used by most devices that are not battery powered, and by battery cameras connected through a Reolink Home Hub or NVR. TCP push does not have any particular requirements.
 - **Webhook push** is used by battery cameras that are directly connected to Home Assistant (not through a Home Hub or NVR). Battery cameras do not keep a connection open to save battery life, so they push their motion/AI events to a webhook of Home Assistant instead. The webhook address is based on the (local) **Home Assistant URL** configured in the {% my network title="network settings" %}. Both HTTP and HTTPS addresses are supported.
@@ -880,7 +880,7 @@ Battery cameras only support `Webhook push`; they do not support ONVIF or pollin
 ONVIF push has the following network configuration requirements:
 
 - Reolink products cannot push ONVIF motion events to an HTTPS address (SSL).
-Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
+Therefore, make sure a (local) HTTP address at which Home Assistant is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
 A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device.
 
 - The Reolink device must be able to reach Home Assistant on that address. Network restrictions, such as a VLAN or firewall between the Reolink device and Home Assistant, must allow this traffic.
