@@ -1,0 +1,23 @@
+{
+  "domain": "webostv",
+  "name": "LG webOS TV",
+  "integration_type": "device",
+  "codeowners": [
+    "@thecode"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "diagnostics",
+    "media_player",
+    "notify",
+    "switch"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

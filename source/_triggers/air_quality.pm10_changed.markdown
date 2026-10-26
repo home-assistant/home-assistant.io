@@ -47,7 +47,7 @@ This fires whenever the hallway PM10 sensor reading changes to a value above 20 
 {% include triggers/threshold_changed_options_yaml.md
    unit_phrase_yaml="literal value in μg/m³" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="PM10 sensor" example="sensor.living_room_pm10" %}
 
 ## Good to know
 

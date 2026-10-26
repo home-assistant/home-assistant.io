@@ -1,0 +1,23 @@
+{
+  "domain": "prana",
+  "name": "Prana",
+  "integration_type": "device",
+  "codeowners": [
+    "@prana-dev-official"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "fan",
+    "number",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

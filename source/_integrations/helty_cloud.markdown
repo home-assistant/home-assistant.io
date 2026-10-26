@@ -12,6 +12,7 @@ ha_domain: helty_cloud
 ha_platforms:
   - binary_sensor
   - fan
+  - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -62,7 +63,7 @@ Password:
 
 ## Supported functionality
 
-The integration creates one device per ventilation unit on the account, each exposing a fan entity.
+The integration creates one device per ventilation unit on the account, each exposing a fan entity and a set of sensors.
 
 ### Fans
 
@@ -73,6 +74,51 @@ The integration creates one device per ventilation unit on the account, each exp
 
 - **Filter**
   - **Description**: Turns on when the unit raises its filter alarm, meaning the filter is due for replacement. Helty Flow units raise this alarm on the volume of air the filter has treated, not on hours of use. The sensor turns off again once the filter has been replaced and reset on the unit.
+
+### Sensors
+
+- **Indoor temperature**
+  - **Description**: The indoor temperature measured by the unit, in °C.
+- **Outdoor temperature**
+  - **Description**: The outdoor temperature measured by the unit, in °C.
+- **Indoor humidity**
+  - **Description**: The indoor relative humidity measured by the unit.
+- **Air treated by filter**
+  - **Description**: The volume of air, in cubic meters, the unit has moved since its filter was last changed. Helty Flow units do not count filter hours: they measure the age of the filter by the air it has treated, and raise the filter alarm when this value reaches 90,000 m³ with current firmware. The value drops back to zero when the filter is reset.
+- **Total air treated**
+  - **Description**: The volume of air, in cubic meters, the unit has moved over its whole life.
+  - **Remarks**: This diagnostic entity is disabled by default.
+
+## Examples
+
+{% include docs/paste_yaml_tip.md %}
+
+### Get a reminder before the filter is due
+
+The unit raises its filter alarm when the filter has treated 90,000 m³ of air. This automation sends you a reminder a little earlier, at 85,000 m³, so you have time to get a replacement filter before the alarm goes off.
+
+- **Trigger**: Numeric state
+  - **Entity**: the **Air treated by filter** sensor of your unit
+  - **Above**: 85000
+- **Action**: Notifications: Send a notification
+  - **Message**: The ventilation filter is close to its replacement point.
+
+{% details "YAML example for a filter reminder" %}
+
+{% example %}
+automation: |
+  alias: "Ventilation filter reminder"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.living_room_air_treated_by_filter
+      above: 85000
+  actions:
+    - action: notify.notify
+      data:
+        message: "The ventilation filter is close to its replacement point."
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
@@ -90,9 +136,9 @@ The integration depends on the manufacturer's cloud. If your internet connection
 
 Units with the recent panel cannot report whether their **Auto** function is switched on, nor the state of the panel itself. This is a limitation of this generation of machines, confirmed by the manufacturer, and not something the integration can work around. If you run the unit in Auto, Home Assistant shows the speed the unit has settled on, but gives no way to tell Auto apart from that speed having been set by hand.
 
-### Sensor values
+### CO₂ and VOC
 
-Besides ventilation, only the filter alarm is available for now. The temperature, humidity, and treated-air values the panel reports are not yet exposed.
+The units can be fitted with optional CO₂ and VOC probes. Their readings are not exposed yet.
 
 ### Undocumented cloud API
 
@@ -100,19 +146,46 @@ The cloud API is not documented by the manufacturer and has been reverse-enginee
 
 ## Troubleshooting
 
-### Setup fails with an authentication error
+{% details "Home Assistant asks you to sign in again" %}
 
-The integration signs in with the same credentials as the Helty Home app. Check that the app can still sign in with them. If you changed your Helty Home password, remove the integration and add it again with the new password.
+### Symptom: Helty Flow Cloud needs attention
 
-### The entities are unavailable
+On the {% my integrations title="**Settings** > **Devices & services**" %} page, the Helty Flow Cloud integration is listed among the integrations that need attention, and its entities are unavailable.
+
+#### Description
+
+The integration signs in with the same credentials as the Helty Home app. When the Helty cloud stops accepting them, for example because you changed your Helty Home password, Home Assistant asks you to sign in again.
+
+#### Resolution
+
+1. Check that the Helty Home app can sign in with your current credentials.
+2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. On the **Helty Flow Cloud** card marked as needing attention, select **Reconfigure**.
+4. Enter the email address and password of your Helty Home account. If you changed the email address of the account in the app, enter the new one.
+
+The credentials must belong to the same Helty Home account the integration was set up with. To connect a different account, add the integration again.
+
+{% enddetails %}
+
+{% details "The entities are unavailable" %}
+
+### Symptom: All the entities of the unit show as unavailable
+
+The entities of the unit show as unavailable, while the integration does not ask you to sign in again.
+
+#### Description
 
 The entities become unavailable when Home Assistant cannot get a recent report for the unit from the Helty cloud. This happens when your internet connection or the Helty cloud is down, or when the panel has not reported to the cloud for 2 hours.
+
+A panel that has lost its Wi-Fi connection keeps ventilating, but the unit itself gives no sign of the problem.
+
+#### Resolution
 
 1. Check that your Home Assistant instance has a working internet connection.
 2. Check that the unit is powered on and that its panel is connected to your Wi-Fi network.
 3. Open the Helty Home app and check that it shows current values for the unit.
 
-A panel that has lost its Wi-Fi connection keeps ventilating, but the unit itself gives no sign of the problem.
+{% enddetails %}
 
 ## Removing the integration
 

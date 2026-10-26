@@ -1,0 +1,13 @@
+{
+  "domain": "x10",
+  "name": "Heyu X10",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "hubs_protocols",
+    "lighting"
+  ],
+  "platforms": [
+    "light"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "domain": "fibaro",
+  "name": "Fibaro",
+  "integration_type": "hub",
+  "codeowners": [
+    "@rappenze"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "cover",
+    "diagnostics",
+    "event",
+    "light",
+    "lock",
+    "scene",
+    "sensor",
+    "switch"
+  ]
+}

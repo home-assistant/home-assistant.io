@@ -23,8 +23,8 @@ To use this trigger in an automation:
 4. From the search box, search for and select **Blue hour ended**.
 5. Under **Period**, select **Any**, **Morning**, or **Evening**.
 6. Optionally, set an offset to fire before or after blue hour ends:
-   - Under **Offset**, enter how far from the end of blue hour to fire, such as 10 minutes.
-   - Under **Offset type**, select **Before** or **After**.
+   - Under **Offset**, select **Before** or **After**.
+   - Under **Duration**, enter how far from the end of blue hour to fire, such as 10 minutes.
 7. Select **Save**.
 
 ### Options in the UI
@@ -38,13 +38,12 @@ Period:
     - **Morning**: only the blue hour before sunrise, while the sun is rising.
     - **Evening**: only the blue hour after sunset, while the sun is descending.
 Offset:
-  description: The length of time from the end of blue hour when the trigger fires, in days, hours, minutes, and seconds. By default there is no offset, so the trigger fires exactly when blue hour ends.
-Offset type:
   description: |
-    Whether the offset applies before or after blue hour ends:
+    Whether to fire before or after blue hour ends:
 
-    - **Before**: fires the offset amount before blue hour ends. This is the default.
-    - **After**: fires the offset amount after blue hour ends.
+    - **No offset**: fires exactly when blue hour ends. This is the default.
+    - **Before**: fires the duration you enter before blue hour ends.
+    - **After**: fires the duration you enter after blue hour ends.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -65,7 +64,7 @@ trigger: |
     period: evening
 {% endexample %}
 
-To fire a fixed amount of time before or after blue hour ends, add the `offset` and `offset_type` options:
+To fire a fixed amount of time before or after blue hour ends, add the `offset` option. A negative offset fires before and a positive one after:
 
 {% example %}
 trigger: |
@@ -74,7 +73,6 @@ trigger: |
     period: evening
     offset:
       minutes: 10
-    offset_type: after
 {% endexample %}
 
 This fires 10 minutes after the evening blue hour ends.
@@ -90,16 +88,10 @@ period:
   default: any
 offset:
   description: >
-    The length of time from the end of blue hour when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. Combine it with `offset_type` to fire before or after blue hour ends.
+    The length of time from the end of blue hour when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. A negative value, such as `minutes: -30` or `"-00:30:00"`, fires before blue hour ends. A positive value fires after.
   required: false
   type: time
   default: "00:00:00"
-offset_type:
-  description: >
-    Whether the offset applies before or after blue hour ends. Accepts `before` or `after`.
-  required: false
-  type: string
-  default: before
 {% endoptions_yaml %}
 
 ## Good to know

@@ -1,0 +1,30 @@
+{
+  "domain": "fritz",
+  "name": "FRITZ!Box Tools",
+  "integration_type": "hub",
+  "codeowners": [
+    "@AaronDavidSchneider",
+    "@chemelli74",
+    "@mib1185"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "gold",
+  "categories": [
+    "computers_network.routers_network",
+    "presence_location.network_presence"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "device_tracker",
+    "diagnostics",
+    "image",
+    "sensor",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

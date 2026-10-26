@@ -1,0 +1,19 @@
+{
+  "domain": "amcrest",
+  "name": "Amcrest",
+  "codeowners": [
+    "@flacjacket"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "security_safety.cameras",
+    "security_safety.doorbells_intercoms"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "camera",
+    "sensor",
+    "switch"
+  ]
+}

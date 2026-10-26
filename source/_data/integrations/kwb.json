@@ -1,0 +1,12 @@
+{
+  "domain": "kwb",
+  "name": "KWB Easyfire",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

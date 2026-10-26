@@ -72,8 +72,7 @@ automation: |
 
 At sunset, start a saved evening activity on a remote that supports activities.
 
-- **Trigger**: Sun
-  - **Event**: Sunset
+- **Trigger**: Sunset
 - **Action**: Turn on via remote
   - **Target**: Living room remote
   - **Activity**: Evening TV
@@ -84,8 +83,7 @@ At sunset, start a saved evening activity on a remote that supports activities.
 automation: |
   alias: "Start evening TV activity at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: remote.turn_on
       target:

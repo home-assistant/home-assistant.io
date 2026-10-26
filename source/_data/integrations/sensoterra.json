@@ -1,0 +1,18 @@
+{
+  "domain": "sensoterra",
+  "name": "Sensoterra",
+  "integration_type": "hub",
+  "codeowners": [
+    "@SanderBakkumCuriousInc",
+    "@curious-florian",
+    "@markruys"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "garden_plants"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

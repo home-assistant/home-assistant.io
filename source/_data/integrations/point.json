@@ -1,0 +1,19 @@
+{
+  "domain": "point",
+  "name": "Minut Point",
+  "integration_type": "hub",
+  "codeowners": [
+    "@fredrike"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "security_safety.alarm_systems",
+    "sensors"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "sensor"
+  ]
+}

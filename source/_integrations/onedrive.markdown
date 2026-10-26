@@ -11,7 +11,7 @@ ha_codeowners:
   - '@zweckj'
 ha_integration_type: service
 related:
-  - docs: /common-tasks/general/#backups
+  - docs: /common-tasks/general/backups/
     title: Backups
 ha_quality_scale: platinum
 ha_platforms:
@@ -19,9 +19,9 @@ ha_platforms:
   - sensor
 ---
 
-This {% term integration %} allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups) as well as uploading generic files to your OneDrive.
+This {% term integration %} allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/backups/) as well as uploading generic files to your OneDrive.
 
-Backup encryption is enabled by default and can be disabled as shown in the [backup documentation](/common-tasks/general/#to-define-the-backup-location-for-automatic-backups).
+Backup encryption is enabled by default and can be disabled as shown in the [backup documentation](/common-tasks/general/backups/#to-define-the-backup-location-for-automatic-backups).
 
 Backups will be created in a folder called `Home Assistant\backups_<id>` in the `App Folder` of your OneDrive by default.
 `id` is part of your Home Assistant instance's unique id to allow backups from multiple instances to the same OneDrive account.

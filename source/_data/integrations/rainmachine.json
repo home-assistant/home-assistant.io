@@ -1,0 +1,26 @@
+{
+  "domain": "rainmachine",
+  "name": "RainMachine",
+  "integration_type": "device",
+  "codeowners": [
+    "@bachya"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "garden_plants"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "select",
+    "sensor",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "homekit",
+    "zeroconf"
+  ]
+}

@@ -28,6 +28,7 @@ ha_platforms:
   - switch
   - update
   - vacuum
+  - water_heater
   - weather
 ha_integration_type: helper
 ha_config_flow: true
@@ -67,6 +68,7 @@ There is currently support for the following entity types within Home Assistant:
 - [Switch](#switch)
 - [Update](#update)
 - [Vacuum](#vacuum)
+- [Water heater](#water-heater)
 - [Weather](#weather)
 
 {% include integrations/config_flow.md %}
@@ -1023,7 +1025,7 @@ cover:
       required: false
       type: template
     set_cover_position:
-      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed.
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed if it is in `supported_speeds`.
       required: false
       type: action
     set_cover_tilt_position:
@@ -1039,7 +1041,7 @@ cover:
       required: false
       type: action
     supported_speeds:
-      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed was requested.
+      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed or a speed not in `supported_speeds` was requested.
       required: false
       type: [string, list]
     tilt:
@@ -3378,6 +3380,174 @@ template:
             {% else %}
               Charging
             {% endif %}
+```
+
+## Water heater
+
+The template water heater platform allows you to create water heater entities with templates to define the state and scripts to define each action.
+
+Water heater entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
+
+{% configuration_basic %}
+Name:
+  description: The name of the water heater.
+  required: true
+Operation modes:
+  description: A template for the list of operation modes the water heater supports, for example `eco`, `electric`, or `heat_pump`.
+  required: true
+Operation mode:
+  description: A template for the water heater's current operation mode. The result must be one of the **Operation modes**. If you leave this empty, the water heater assumes the last mode you selected.
+  required: false
+Actions on set operation mode:
+  description: The action or actions run when an operation mode change is requested. The `operation_mode` variable holds the requested mode.
+  required: true
+Current temperature:
+  description: A template for the water heater's current water temperature.
+  required: false
+Target temperature:
+  description: A template for the water heater's target temperature. Requires **Actions on set temperature**.
+  required: false
+Actions on set temperature:
+  description: The action or actions run when a target temperature change is requested. The `temperature` variable holds the requested temperature, and the `operation_mode` variable holds the requested operation mode, if one was given.
+  required: false
+Away mode:
+  description: A template that gets the away mode state. Requires **Actions on turn away mode on** and **Actions on turn away mode off**. You find this option under **Additional options**.
+  required: false
+Actions on turn away mode on:
+  description: The action or actions run when away mode is turned on. You find this option under **Additional options**.
+  required: false
+Actions on turn away mode off:
+  description: The action or actions run when away mode is turned off. You find this option under **Additional options**.
+  required: false
+Actions on turn on:
+  description: The action or actions run when the water heater is turned on.
+  required: false
+Actions on turn off:
+  description: The action or actions run when the water heater is turned off.
+  required: false
+Temperature unit:
+  description: The unit the temperature templates' output is in. One of **°C**, **°F**, or **K**.
+  required: false
+Device:
+  description: An existing device to attach this helper to.
+  required: false
+Availability:
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
+  required: false
+Minimum temperature:
+  description: The lowest target temperature you can set. You find this option under **Additional options**.
+  required: false
+Maximum temperature:
+  description: The highest target temperature you can set. You find this option under **Additional options**.
+  required: false
+{% endconfiguration_basic %}
+
+### Options in YAML
+
+{% configuration water_heater %}
+water_heater:
+  description: List of water heater entities
+  required: true
+  type: list
+  keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `away_mode`, `current_temperature`, `max_temp`, `min_temp`, `operation_list`, `operation_mode`, `target_temp_high`, `target_temp_low`, `target_temp_step`, `temperature`, and `temperature_unit`.
+      required: false
+      type: [map, template]
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    away_mode:
+      description: Defines a template to get the away mode state of the water heater. If `away_mode` is specified, `turn_away_mode_on` and `turn_away_mode_off` must also be specified.
+      required: false
+      type: template
+      default: optimistic
+    current_temperature:
+      description: Defines a template to get the current water temperature.
+      required: false
+      type: template
+    max_temperature:
+      description: The water heater's maximum target temperature. Unit is defined with `temperature_unit`.
+      required: false
+      type: float
+    min_temperature:
+      description: The water heater's minimum target temperature. Unit is defined with `temperature_unit`.
+      required: false
+      type: float
+    operation_list:
+      description: Defines a template to get the list of supported operation modes. Must render a list.
+      required: true
+      type: template
+    operation_mode:
+      description: Defines a template to get the current operation mode of the water heater. Must render a value in `operation_list`.
+      required: false
+      type: template
+      default: optimistic
+    optimistic:
+      description: Flag that defines if the water heater's operation mode works in optimistic mode. When enabled, the operation mode updates immediately when a change is requested through the UI or actions, without waiting for the `operation_mode` template to update. When disabled, the operation mode updates only when that template returns a new value.
+      required: false
+      type: boolean
+      default: "`true` if `operation_mode` is omitted, otherwise `false`."
+    set_operation_mode:
+      description: Defines an action or actions to set the operation mode. Receives variable `operation_mode`.
+      required: true
+      type: action
+    set_temperature:
+      description: Defines an action or actions to set the target temperature. Receives variables `temperature` and `operation_mode`. If `target_temperature_step` is specified, `temperature` is rounded to the nearest `target_temperature_step`.
+      required: false
+      type: action
+    target_temperature:
+      description: Defines a template to get the target temperature of the water heater. If `target_temperature` is specified, `set_temperature` must also be specified.
+      required: false
+      type: template
+      default: optimistic
+    target_temperature_step:
+      description: Round the `target_temperature` to the nearest `target_temperature_step`. Must be a number of at least `0.1`.
+      required: false
+      type: float
+    temperature_unit:
+      description: Unit for `current_temperature` and `target_temperature` output. Valid options are `°C`, `°F`, and `K`. Defaults to the unit system of your Home Assistant installation.
+      required: false
+      type: string
+    turn_away_mode_off:
+      description: Defines an action or actions to run when away mode is turned off. Must be used together with `turn_away_mode_on`.
+      required: inclusive
+      type: action
+    turn_away_mode_on:
+      description: Defines an action or actions to run when away mode is turned on. Must be used together with `turn_away_mode_off`.
+      required: inclusive
+      type: action
+    turn_off:
+      description: Defines an action or actions to run when the water heater is turned off. Must be used together with `turn_on`.
+      required: inclusive
+      type: action
+    turn_on:
+      description: Defines an action or actions to run when the water heater is turned on. Must be used together with `turn_off`.
+      required: inclusive
+      type: action
+{% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - water_heater:
+      - name: Boiler
+        operation_list: "{{ ['eco', 'electric'] }}"
+        operation_mode: "{{ states('input_select.boiler_mode') }}"
+        set_operation_mode:
+          - action: input_select.select_option
+            target:
+              entity_id: input_select.boiler_mode
+            data:
+              option: "{{ operation_mode }}"
+        current_temperature: "{{ states('sensor.boiler_temperature') }}"
 ```
 
 ## Weather

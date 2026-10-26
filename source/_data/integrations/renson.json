@@ -1,0 +1,22 @@
+{
+  "domain": "renson",
+  "name": "Renson",
+  "integration_type": "device",
+  "codeowners": [
+    "@jimmyd-be"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "fan",
+    "number",
+    "sensor",
+    "switch",
+    "time"
+  ]
+}

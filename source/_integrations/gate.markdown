@@ -49,8 +49,7 @@ automation: |
       target:
         entity_id: cover.driveway_gate
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

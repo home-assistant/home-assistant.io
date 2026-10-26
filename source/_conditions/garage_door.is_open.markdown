@@ -63,7 +63,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="garage door sensor or motorized garage door" example="cover.garage_door" %}
 
 {% include conditions/behavior.md %}
 

@@ -27,7 +27,6 @@ The integration adds no entities. You use it through its two actions, which run 
 
 - An account for the Mijn Farmad Apotheek app, registered at a pharmacy connected to Farmad. If you do not have an account yet, create one in the app or on the [Farmad website](https://procura.farmad.be/).
 - At least one pharmacy linked to your account in the app.
-- The account must not require multi-factor authentication.
 
 {% include integrations/config_flow.md %}
 
@@ -36,6 +35,8 @@ Email:
   description: The email address of your Mijn Farmad Apotheek account.
 Password:
   description: The password of your Mijn Farmad Apotheek account.
+One-time code:
+  description: The current six-digit code from your authenticator app. Only requested when your account requires two-factor authentication.
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -92,7 +93,6 @@ The integration fetches nothing on a schedule. Each action contacts Farmad when 
 
 ### Authentication
 
-- Accounts that require multi-factor authentication cannot be set up yet. Support for these accounts is planned.
 - When the Farmad session expires, remove the integration and set it up again. A flow to sign in again without removing the integration is planned.
 - The integration supports a single account per Home Assistant instance.
 
@@ -119,11 +119,10 @@ The setup form shows one of these errors:
 
 - **Failed to connect**: Farmad could not be reached.
 - **Invalid authentication**: the email address or the password is wrong.
-- **Multi-factor authentication**: the account requires a one-time code.
 
 #### Resolution
 
-For a connection error, check that Home Assistant can reach the internet and try again. For an authentication error, check your credentials by signing in to the Mijn Farmad Apotheek app with them. Accounts that require multi-factor authentication cannot be set up yet.
+For a connection error, check that Home Assistant can reach the internet and try again. For an authentication error, check your credentials by signing in to the Mijn Farmad Apotheek app with them.
 
 {% enddetails %}
 

@@ -1,0 +1,10 @@
+{
+  "domain": "device_sun_light_trigger",
+  "name": "Presence-based lights",
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "lighting",
+    "presence_location"
+  ]
+}

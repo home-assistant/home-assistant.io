@@ -41,7 +41,7 @@ action: |
 
 This clears any manual temperature setting on `climate.living_room`.
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Netatmo thermostat" example="climate.living_room" %}
 
 ## Good to know
 

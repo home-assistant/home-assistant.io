@@ -1,0 +1,25 @@
+{
+  "domain": "compit",
+  "name": "Compit",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Przemko92"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "climate.thermostats_heating",
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "fan",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "water_heater"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "domain": "willow",
+  "name": "Willow",
+  "integration_type": "hub",
+  "codeowners": [
+    "@paxprz"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "garden_plants"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

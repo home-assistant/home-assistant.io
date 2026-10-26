@@ -7,6 +7,9 @@ related_actions:
   - homeassistant.reload_core_config
   - homeassistant.reload_custom_templates
   - homeassistant.check_config
+related:
+  - docs: /common-tasks/general/restarting/#reloading-the-yaml-configuration
+    title: Reloading the YAML configuration
 ---
 
 Use this action to reload all the YAML configuration that can be reloaded without restarting Home Assistant. A common use is to apply changes you made to your YAML files in one step, instead of reloading each part separately.

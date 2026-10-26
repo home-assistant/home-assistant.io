@@ -73,7 +73,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="moisture detector" example="binary_sensor.kitchen_leak" %}
 
 {% include triggers/behavior.md %}
 

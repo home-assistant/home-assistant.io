@@ -4,7 +4,7 @@ description: "Material Design Icons in the Home Assistant frontend"
 related:
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing entities
   - docs: https://pictogrammers.com/library/mdi/
     title: Material Design Icons

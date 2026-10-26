@@ -106,7 +106,7 @@ To be able to create an app password:
 
 ### Notifiers
 
-The **SMTP** {% term integration %} will add a notify {% term entity %} for each configured recipient. To send a notification, you can use the **Send a notification message** (`notify.send_message`) {% term action %}. For more customizable notifications, use the [**SMTP: Send message**](/actions/smtp.send_message/) (`smtp.send_message`) instead.
+The **SMTP** {% term integration %} will add a notify {% term entity %} for each configured recipient. To send a notification, you can use the **Send a notification message** (`notify.send_message`) {% term action %}. For more customizable notifications, use the [**Send message**](/actions/smtp.send_message/) (`smtp.send_message`) instead.
 
 {% example %}
 action: |
@@ -130,7 +130,7 @@ You can use this integration to create automations that send a notification to y
 
 This automation sends a notification message to an email address when the front door opens.
 
-- **Trigger**: State changed
+- **Trigger**: Door opened
   - **Entity**: Front door binary sensor
   - **To**: On
 - **Action**: Send a notification message
