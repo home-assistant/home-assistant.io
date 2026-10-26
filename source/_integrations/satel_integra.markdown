@@ -52,6 +52,8 @@ If you do not have access to the DLOADX program or your project file, ask your i
 
 {% include integrations/config_flow.md %}
 
+### Configuration parameters
+
 {% configuration_basic %}
 Host:
   description: The IP address of the Satel Integra ETHM module.
@@ -60,8 +62,13 @@ Port:
 Integration encryption key:
   description: Encryption key to use if an encrypted connection is used, as configured in DLOADX
     for the ETHM-1 Plus module. Leave empty if not using an encrypted connection.
-Code:
-  description: Optional code that will be used to toggle switchable outputs.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+code:
+  description: The 4- to 16-digit user code configured on the alarm panel. The integration uses this code to toggle switchable outputs. Leave the field empty if you do not need to control switchable outputs.
 {% endconfiguration_basic %}
 
 ## Configuring partitions, zones, and outputs
