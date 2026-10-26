@@ -68,6 +68,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Water level`: Set a precise water level used during cleaning with the mop.
 - **Select**:
   - `Active map`: Select the active map. The ID will be shown when the map has no name.
+  - `Efficiency mode`: Choose between `Standard` and `Energy efficient` cleaning. Disabled by default.
   - `Water level`: Choose from predefined water levels used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
