@@ -292,7 +292,9 @@ You can use a backup during the onboarding process to restore your configuration
    - The login password and username must match the ones you used at the time the backup was taken.
    - Your dashboard should show all the elements as they were when you created the backup.
    - If some devices are shown as unavailable, you may need to wake the battery-powered devices.
-7. If you had [network storage](/common-tasks/os/#network-storage) connected on the previous system, you may need to reconnect those.
+7. If you had [network storage](/common-tasks/os/#network-storage) connected on the previous system, go to {% my storage title="**Settings** > **System** > **Storage**" %} and check that each network storage is listed and connected.
+   - If a share can't be reached during the restore, its settings are still restored. Make sure that the share is available. Then, next to the network storage, select the reload {% icon "mdi:reload" %} button.
+   - If a network storage is missing, add it again. For the steps, refer to [Add a new network storage](/common-tasks/os/#add-a-new-network-storage).
 8. If you had Zigbee devices, and you migrated to a new device with its own Zigbee radio built-in:
    - Because this is now a different Zigbee radio, you need to [migrate Zigbee](/integrations/zha/#migrating-to-a-new-zigbee-adapter-inside-zha).
 
@@ -313,6 +315,7 @@ If the restore doesn't start because of one of these conditions, refer to [The r
    - Your current system will be overwritten with the parts that you choose to restore.
    - If you want to restore the complete configuration with all directories and apps, select everything.
    - If you only want to restore specific elements, only select the folders and apps you want to restore.
+   - On {% term "Home Assistant Operating System" %}, the network storage from the backup is restored too. If this system already has a network storage with the same name, the one from the backup replaces it.
 4. Select **Restore**.
    - Result: The **Restore backup** dialog opens.
    - If the backup uses a different encryption key than the one on this system, enter that key.
