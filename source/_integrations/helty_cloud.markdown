@@ -78,9 +78,9 @@ The integration creates one device per ventilation unit on the account, each exp
 - **Indoor humidity**
   - **Description**: The indoor relative humidity measured by the unit.
 - **Air treated by filter**
-  - **Description**: The volume of air, in cubic metres, the unit has moved since its filter was last changed. Helty Flow units do not count filter hours: they measure the age of the filter by the air it has treated, and raise the filter alarm when this value reaches 90,000 m³ with current firmware. The value drops back to zero when the filter is reset.
+  - **Description**: The volume of air, in cubic meters, the unit has moved since its filter was last changed. Helty Flow units do not count filter hours: they measure the age of the filter by the air it has treated, and raise the filter alarm when this value reaches 90,000 m³ with current firmware. The value drops back to zero when the filter is reset.
 - **Total air treated**
-  - **Description**: The volume of air, in cubic metres, the unit has moved over its whole life.
+  - **Description**: The volume of air, in cubic meters, the unit has moved over its whole life.
   - **Remarks**: This diagnostic entity is disabled by default.
 
 ## Examples
