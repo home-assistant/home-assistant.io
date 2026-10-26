@@ -56,7 +56,7 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   - `Relocate`: Button entity to trigger manual relocation.
-  - `Station actions`: For each supported station action, a button entity will be created.
+  - `Station actions`: For each supported station action, a button entity will be created: `Clean base`, `Dry mop`, `Empty dustbin`, and `Wash mop`.
 - **Event**:
   - `Last job`: Provides the stop reason as event_type
 - **Image**:
@@ -97,6 +97,10 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
   - `Safe protect`: Enable "Safe protect" feature. Disabled by default.
   - `True detect`: Enable "True detect" feature. Disabled by default.
+
+## Lawn mower
+
+The `ecovacs` lawn mower platform allows you to start, pause, and stop mowing with your Ecovacs GOAT mower, and to send it back to its station.
 
 ## Vacuum
 
