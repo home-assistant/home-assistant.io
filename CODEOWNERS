@@ -521,7 +521,7 @@ source/_integrations/hypontech.markdown @jcisio
 source/_integrations/ialarm.markdown @RyuzakiKK @bigmoby
 source/_integrations/iammeter.markdown @lewei50 @IAMMETER @miwyf
 source/_integrations/iaqualink.markdown @flz
-source/_integrations/icloud.markdown @Quentame @nzapponi
+source/_integrations/icloud.markdown @Quentame @nzapponi @timlaing
 source/_integrations/idasen_desk.markdown @abmantis
 source/_integrations/idrive_e2.markdown @patrickvorgers
 source/_integrations/igloohome.markdown @keithle888
@@ -682,6 +682,7 @@ source/_integrations/madvr.markdown @iloveicedgreentea
 source/_integrations/map_tiles.markdown @home-assistant/core
 source/_integrations/marantz.markdown @ol-iver @starkillerOG
 source/_integrations/marantz_infrared.markdown @balloob
+source/_integrations/marantz_rs232.markdown @balloob
 source/_integrations/marketplace.markdown @home-assistant/core
 source/_integrations/martec.markdown @starkillerOG
 source/_integrations/mastodon.markdown @fabaff @andrew-codechimp
@@ -1328,7 +1329,7 @@ source/_integrations/zinvolt.markdown @joostlek
 source/_integrations/zodiac.markdown @JulienTant
 source/_integrations/zondergas.markdown @klaasnicolaas
 source/_integrations/zone.markdown @home-assistant/core
-source/_integrations/zoneminder.markdown @rohankapoorcom @nabbi
+source/_integrations/zoneminder.markdown @SteveGilvarry @nabbi @rohankapoorcom
 source/_integrations/zonneplan.markdown @erwindouna
 source/_integrations/zwave_js.markdown @home-assistant/z-wave
 source/_integrations/zwave_me.markdown @lawfulchaos @Z-Wave-Me @PoltoS
@@ -1475,6 +1476,7 @@ source/_actions/dynalite.request_channel_level.markdown @ziv1234
 source/_actions/easyenergy.get_energy_return_prices.markdown @klaasnicolaas
 source/_actions/easyenergy.get_energy_usage_prices.markdown @klaasnicolaas
 source/_actions/easyenergy.get_gas_prices.markdown @klaasnicolaas
+source/_actions/ecosmart.get_forecasts.markdown @Daryn-L
 source/_actions/ecovacs.raw_get_positions.markdown @mib1185 @edenhaus @Augar
 source/_actions/elgato.identify.markdown @frenck
 source/_actions/elkm1.alarm_arm_home_instant.markdown @gwww @bdraco
@@ -1537,6 +1539,7 @@ source/_actions/geniushub.set_switch_override.markdown @manzanotti
 source/_actions/geniushub.set_zone_mode.markdown @manzanotti
 source/_actions/geniushub.set_zone_override.markdown @manzanotti
 source/_actions/google.create_event.markdown @allenporter
+source/_actions/google_assistant.reload.markdown @home-assistant/cloud
 source/_actions/google_assistant.request_sync.markdown @home-assistant/cloud
 source/_actions/google_assistant_sdk.send_text_command.markdown @tronikos
 source/_actions/google_mail.set_vacation.markdown @tkdrob
@@ -1656,10 +1659,10 @@ source/_actions/husqvarna_automower.override_schedule_work_area.markdown @Thomas
 source/_actions/hydrawise.resume.markdown @dknowles2 @thomaskistler @ptcryan @frenck
 source/_actions/hydrawise.start_watering.markdown @dknowles2 @thomaskistler @ptcryan @frenck
 source/_actions/hydrawise.suspend.markdown @dknowles2 @thomaskistler @ptcryan @frenck
-source/_actions/icloud.display_message.markdown @Quentame @nzapponi
-source/_actions/icloud.lost_device.markdown @Quentame @nzapponi
-source/_actions/icloud.play_sound.markdown @Quentame @nzapponi
-source/_actions/icloud.update.markdown @Quentame @nzapponi
+source/_actions/icloud.display_message.markdown @Quentame @nzapponi @timlaing
+source/_actions/icloud.lost_device.markdown @Quentame @nzapponi @timlaing
+source/_actions/icloud.play_sound.markdown @Quentame @nzapponi @timlaing
+source/_actions/icloud.update.markdown @Quentame @nzapponi @timlaing
 source/_actions/image.snapshot.markdown @home-assistant/core
 source/_actions/image_processing.scan.markdown @home-assistant/core
 source/_actions/imap.delete.markdown @jbouwh
@@ -2170,9 +2173,11 @@ source/_actions/tesla_fleet.navigate_to_destination.markdown @Bre77
 source/_actions/tesla_fleet.navigate_to_waypoints.markdown @Bre77
 source/_actions/teslemetry.add_charge_schedule.markdown @Bre77
 source/_actions/teslemetry.add_precondition_schedule.markdown @Bre77
+source/_actions/teslemetry.dispatch_battery_power.markdown @Bre77
 source/_actions/teslemetry.navigation_gps_request.markdown @Bre77
 source/_actions/teslemetry.remove_charge_schedule.markdown @Bre77
 source/_actions/teslemetry.remove_precondition_schedule.markdown @Bre77
+source/_actions/teslemetry.resume_battery_operation.markdown @Bre77
 source/_actions/teslemetry.set_scheduled_charging.markdown @Bre77
 source/_actions/teslemetry.set_scheduled_departure.markdown @Bre77
 source/_actions/teslemetry.speed_limit.markdown @Bre77
@@ -2326,7 +2331,7 @@ source/_actions/zha.set_zigbee_cluster_attribute.markdown @dmulcahey @adminiuga 
 source/_actions/zha.warning_device_squawk.markdown @dmulcahey @adminiuga @puddly @TheJulianJES
 source/_actions/zha.warning_device_warn.markdown @dmulcahey @adminiuga @puddly @TheJulianJES
 source/_actions/zone.reload.markdown @home-assistant/core
-source/_actions/zoneminder.set_run_state.markdown @rohankapoorcom @nabbi
+source/_actions/zoneminder.set_run_state.markdown @SteveGilvarry @nabbi @rohankapoorcom
 source/_actions/zwave_js.bulk_set_partial_config_parameters.markdown @home-assistant/z-wave
 source/_actions/zwave_js.clear_lock_usercode.markdown @home-assistant/z-wave
 source/_actions/zwave_js.delete_all_credentials.markdown @home-assistant/z-wave
@@ -2411,6 +2416,7 @@ source/_triggers/climate.target_temperature_changed.markdown @home-assistant/cor
 source/_triggers/climate.target_temperature_crossed_threshold.markdown @home-assistant/core
 source/_triggers/climate.turned_off.markdown @home-assistant/core
 source/_triggers/climate.turned_on.markdown @home-assistant/core
+source/_triggers/conversation.markdown @home-assistant/core @synesthesiam @arturpragacz
 source/_triggers/counter.decremented.markdown @fabaff
 source/_triggers/counter.incremented.markdown @fabaff
 source/_triggers/counter.maximum_reached.markdown @fabaff
@@ -2487,6 +2493,7 @@ source/_triggers/motion.detected.markdown @home-assistant/core
 source/_triggers/mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_triggers/occupancy.cleared.markdown @home-assistant/core
 source/_triggers/occupancy.detected.markdown @home-assistant/core
+source/_triggers/persistent_notification.markdown @home-assistant/core
 source/_triggers/power.changed.markdown @home-assistant/core
 source/_triggers/power.crossed_threshold.markdown @home-assistant/core
 source/_triggers/remote.turned_off.markdown @home-assistant/core
@@ -2519,6 +2526,7 @@ source/_triggers/switch.turned_on.markdown @home-assistant/core
 source/_triggers/tag.markdown @home-assistant/core
 source/_triggers/temperature.changed.markdown @home-assistant/core
 source/_triggers/temperature.crossed_threshold.markdown @home-assistant/core
+source/_triggers/template.markdown @Petro31 @home-assistant/core
 source/_triggers/text.changed.markdown @home-assistant/core
 source/_triggers/time.markdown @home-assistant/core
 source/_triggers/todo.item_added.markdown @home-assistant/core
