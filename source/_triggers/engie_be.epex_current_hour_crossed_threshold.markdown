@@ -89,7 +89,7 @@ below:
 
 ## Good to know
 
-- Above and Below must be between -1 and 5 EUR/kWh.
+- In the UI, Above and Below accept a number from -1 to 5 EUR/kWh.
 - Only contracts with a dynamic tariff have EPEX prices. A device of a contract with a fixed tariff never fires.
 - Home Assistant checks the price on every EPEX update and on every quarter-hour boundary (at 00, 15, 30 and 45 minutes past the hour).
 - After the integration reloads, or when the price is unknown because a slot is missing or an update failed, the first known price sets a new baseline. The trigger does not fire on that first price.
