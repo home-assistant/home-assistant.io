@@ -111,8 +111,9 @@ const srcset = thumbnail ? `${thumbnail} 1x, ${resized(image, 288)} 2x` : undefi
       box-shadow: inset 0 0 0 2px var(--card-ring);
     }
 
+    /* The text color, which contrasts with every tone's surface. */
     &:focus-visible {
-      box-shadow: inset 0 0 0 0.25rem var(--card-ring);
+      box-shadow: inset 0 0 0 0.25rem var(--card-text);
       outline: none;
     }
 

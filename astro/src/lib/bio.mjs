@@ -549,7 +549,6 @@ function linkTile(item, posts, siteUrl) {
     kind: "link",
     label: item.label,
     url: item.url,
-    note: item.note ?? null,
     image: imageFor(item, posts, siteUrl),
     featured: item.featured === true,
     source: "curated",
