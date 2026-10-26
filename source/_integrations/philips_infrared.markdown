@@ -57,7 +57,7 @@ The integration creates one media player entity for your TV.
 - **Philips TV**
   - **Description**: Represents the Philips TV and allows you to control it with infrared commands.
   - **Supported features**: Turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, and stop.
-  - **Remarks**: The next track and previous track controls of the media player change the channel up and down.
+  - **Remarks**: The next track and previous track controls of the media player change the channel up and down. The state of the media player follows the last command sent from Home Assistant since this integration has not way of knowing the real state.
 
 ## Philips Infrared automation examples
 
@@ -91,8 +91,8 @@ automation: |
 
 ## Known limitations
 
-- The media player uses assumed state, meaning Home Assistant can't read the actual state of the TV. The media player always shows as on, even after you turn the TV off.
-- Philips TVs have a single power toggle command, so turning the TV on and turning it off both send the same command. If the TV is already off, a turn off command turns it on, and the other way around. Keep this in mind when you use these actions in automations.
+- The media player uses assumed state, meaning Home Assistant can't read the actual state of the TV. The state shows the last command sent from Home Assistant, so it gets out of sync when you use the TV remote, or when a command doesn't reach the TV.
+- Philips TVs have a single power toggle command, so turning the TV on and turning it off both send the same command. If Home Assistant shows the TV as on while it's already off, a turn off command turns it on, and the other way around. Keep this in mind when you use these actions in automations.
 - Mute also toggles. Each mute command switches the sound on or off, regardless of whether you select mute or unmute.
 - Volume control is step-based only. There is no way to set an absolute volume level.
 - You can't change the infrared emitter after setup. To use a different emitter, remove the TV from the integration and add it again.
@@ -105,7 +105,7 @@ If you send a command from Home Assistant but your TV doesn't react, the infrare
 
 ### The TV turns on when it should turn off
 
-Turning the TV on and off both send the same power command, so the command switches the TV to the opposite of its current state. If the TV was already off, for example because someone turned it off with the remote, the command turns it on again. To avoid this in automations, only send power commands when you know the current state of the TV, for example from a smart plug that measures the power use of the TV.
+Turning the TV on and off both send the same power command, so the command switches the TV to the opposite of its current state. If the state in Home Assistant doesn't match the TV, for example because someone turned the TV off with the remote, a turn off command turns the TV on again. To avoid this in automations, only send power commands when you know the current state of the TV.
 
 ### Reporting an issue
 
