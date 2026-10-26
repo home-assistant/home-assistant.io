@@ -17,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - cover
   - device_tracker
   - sensor
   - switch
@@ -122,3 +123,7 @@ This integration allows you to view and control the Freebox alarm control panel.
 ## Switch
 
 This platform offers you a switch to toggle the Wi-Fi on or off. This will toggle all Wi-Fi interfaces of the router (all SSID and all bands).
+
+## Cover
+
+This platform allows you to observe and control roller shutters (Somfy RTS and io-homecontrol) paired with the Freebox Delta.
