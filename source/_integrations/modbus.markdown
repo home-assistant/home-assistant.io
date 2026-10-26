@@ -1,20 +1,7 @@
 ---
-title: Modbus
 description: Instructions on how to manually register Modbus entities and platforms.
-ha_categories:
-  - diy_makers
 ha_release: pre 0.7
-ha_iot_class: Local Polling
 ha_domain: modbus
-ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - fan
-  - light
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file

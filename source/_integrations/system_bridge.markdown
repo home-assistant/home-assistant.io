@@ -1,22 +1,7 @@
 ---
-title: System Bridge
 description: How to integrate the System Bridge integration into Home Assistant.
-ha_categories:
-  - computers_network.monitoring
 ha_release: 2021.6
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@timmo001'
 ha_domain: system_bridge
-ha_platforms:
-  - binary_sensor
-  - media_player
-  - notify
-  - sensor
-  - update
-ha_zeroconf: true
-ha_integration_type: device
 ---
 
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.

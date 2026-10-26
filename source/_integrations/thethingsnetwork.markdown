@@ -1,18 +1,7 @@
 ---
-title: The Things Network (Cloud Storage)
 description: Read stored device data from The Things Network in Home Assistant.
-ha_categories:
-  - hubs_protocols.wireless_protocols
-  - diy_makers.web_data_connectors
 ha_release: 0.55
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@angelnu'
 ha_domain: thethingsnetwork
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_config_flow: true
 ---
 
 The **The Things Network (Cloud Storage)** {% term integration %} creates sensors from decoded payload fields stored by [The Things Network](https://www.thethingsnetwork.org/).

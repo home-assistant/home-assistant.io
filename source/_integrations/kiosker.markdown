@@ -1,22 +1,7 @@
 ---
-title: Kiosker
 description: Instructions on how to integrate Kiosker with Home Assistant
-ha_categories:
-  - presence_location.phones_companion_apps
 ha_release: 2026.5
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Claeysson'
 ha_domain: kiosker
-ha_platforms:
-  - binary_sensor
-  - button
-  - sensor
-  - switch
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: silver
 ---
 
 [Kiosker](https://kiosker.io) is a powerful yet easy-to-use web kiosk for iPad and iPhone. This integration gives you control over your Kiosker app via the Kiosker API.

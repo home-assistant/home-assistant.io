@@ -1,18 +1,7 @@
 ---
-title: OpenAI
 description: Instructions on how to integrate OpenAI as a conversation agent
-ha_categories:
-  - ai_voice.ai_models
-  - ai_voice.speech
 ha_release: 2023.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: openai_conversation
-ha_integration_type: service
-ha_platforms:
-  - conversation
-  - stt
-  - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -22,9 +11,6 @@ related:
     title: OpenAI API key
   - url: https://www.openai.com
     title: OpenAI
-ha_quality_scale: bronze
-ha_codeowners:
-  - '@Shulyaka'
 ---
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.

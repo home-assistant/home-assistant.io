@@ -1,19 +1,7 @@
 ---
-title: System monitor
 description: Instructions on how to monitor the Home Assistant host.
-ha_categories:
-  - computers_network.monitoring
 ha_release: pre 0.7
-ha_iot_class: Local Push
 ha_domain: systemmonitor
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: integration
-ha_codeowners:
-  - '@gjohansson-ST'
 ---
 
 The **System monitor** {% term integration %} allows you to monitor disk usage, memory usage, network usage, CPU usage, and running processes on which Home Assistant is running.

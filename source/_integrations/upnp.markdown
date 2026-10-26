@@ -1,19 +1,7 @@
 ---
-title: UPnP/IGD
 description: Internet Gateway Device (IGD) Protocol for Home Assistant.
-ha_categories:
-  - computers_network.routers_network
 ha_release: 0.18
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@StevenLooman'
 ha_domain: upnp
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: device
 ---
 
 The **UPnP/IGD** {% term integration %} enables you to collect network statistics from your router such as bytes in/out and packets in/out, uptime, WAN IP address, and WAN connectivity status. This information is provided by the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play)/[Internet Gateway Device (IGD) Protocol](https://en.wikipedia.org/wiki/Internet_Gateway_Device_Protocol) if enabled on your router.

@@ -1,30 +1,7 @@
 ---
-title: Ecovacs
 description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
-ha_categories:
-  - appliances_cleaning.cleaning
-  - garden_plants
-ha_iot_class: Cloud Push
 ha_release: 0.77
-ha_codeowners:
-  - '@mib1185'
-  - '@edenhaus'
-  - '@Augar'
-ha_config_flow: true
 ha_domain: ecovacs
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - image
-  - lawn_mower
-  - number
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_integration_type: hub
 ---
 
 The **Ecovacs** {% term integration %} integrates [Ecovacs](https://www.ecovacs.com) robotic vacuum cleaners and lawn mowers.

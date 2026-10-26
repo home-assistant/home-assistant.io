@@ -1,17 +1,6 @@
 ---
-title: Thread
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: 2023.2
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: thread
-ha_iot_class: Local Polling
-ha_integration_type: service
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-ha_zeroconf: true
 related:
   - docs: /integrations/matter/
     title: Matter

@@ -1,35 +1,8 @@
 ---
-title: Matter
 description: Instructions on how to integrate Matter with Home Assistant.
-ha_categories:
-  - hubs_protocols.wireless_protocols
 featured: true
 ha_release: '2022.12'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/matter'
 ha_domain: matter
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-  - vacuum
-  - valve
-  - water_heater
-ha_integration_type: hub
 related:
   - docs: /integrations/thread/
     title: Thread
@@ -39,7 +12,6 @@ related:
     title: Adding an Apple HomeKit device through Thread
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
-ha_zeroconf: true
 ---
 
 The **Matter** {% term integration %} allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.

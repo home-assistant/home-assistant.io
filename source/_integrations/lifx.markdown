@@ -1,25 +1,7 @@
 ---
-title: LIFX
 description: Instructions on how to integrate LIFX into Home Assistant.
-ha_categories:
-  - lighting.bulbs_lamps
-ha_iot_class: Local Polling
 ha_release: 0.81
-ha_config_flow: true
 ha_domain: lifx
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - select
-  - sensor
-ha_integration_type: device
-ha_dhcp: true
-ha_zeroconf: true
-ha_codeowners:
-  - '@Djelibeybi'
 ---
 
 The **LIFX** {% term integration %} controls [LIFX](https://www.lifx.com) lights over your local network, without going through the LIFX cloud. Use it to switch your lights on and off, set their color and brightness, and start the animated effects that LIFX lights can run.
