@@ -54,7 +54,7 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Binary sensor**:
   - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
 - **Button**:
-  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   - `Relocate`: Button entity to trigger manual relocation.
   - `Station actions`: For each supported station action, a button entity will be created.
 - **Event**:

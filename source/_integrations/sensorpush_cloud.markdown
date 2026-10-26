@@ -37,7 +37,7 @@ For each device, the following *sensors* are created:
 
 | Sensor                 | Description                                                   |
 | :--------------------- | :------------------------------------------------------------ |
-| `altitude`             | Measures the altitude. ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))                  |
+| `altitude`             | Measures the altitude. ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))                  |
 | `atmospheric_pressure` | Measures the barometric pressure. (disabled by default)       |
 | `battery_voltage`      | Measures the battery voltage. (disabled by default)           |
 | `dewpoint`             | Measures the dew point. (disabled by default)                 |

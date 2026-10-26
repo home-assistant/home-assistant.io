@@ -85,7 +85,7 @@ The following current weather data is provided:
 - **UV index**
   - **Description**: UV index on standard international scale
   
-The following sensors are also provided however are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
+The following sensors are also provided however are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity):
 
 - **Feels like temperature**
   - **Description**: Subjective temperature accounting for wind and humidity

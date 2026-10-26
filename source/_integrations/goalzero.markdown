@@ -39,7 +39,7 @@ The following switches will also be created:
 The following sensors will also be created:
 
 - **Watts In**: Shows the watt input.
-- **Amps In**: Shows the ampere input. ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
+- **Amps In**: Shows the ampere input. ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - **Watts Out**: Shows the watt output.
 - **Amps Out**: Shows the ampere output. (disabled by default)
 - **WH Out**: Shows the watt-hour output. (disabled by default)

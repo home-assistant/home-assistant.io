@@ -32,7 +32,7 @@ Selecting multiple items lets you change them all at the same time, instead of o
 
    ![Selecting multiple elements in a list](/images/organizing/multiselect_01.png)
 
-3. Apply your change to all selected items, such as [adding labels](/docs/organizing/labels/) or [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+3. Apply your change to all selected items, such as [adding labels](/docs/organizing/labels/) or [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Filtering items in a table
 

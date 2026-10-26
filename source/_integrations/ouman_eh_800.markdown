@@ -89,7 +89,7 @@ Enabled by default (categorized as configuration):
 - **H1/H2 Room temperature fine tuning**: Manual offset for the room temperature target.
 - **H1 Constant temperature setpoint** (only when the heating mode is constant-temperature controller): The target supply water temperature.
 
-Disabled by default (see [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)):
+Disabled by default (see [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)):
 
 - **Trend sampling interval** (on the main device): The polling interval used by the controller's trend recorder, in seconds.
 
@@ -113,7 +113,7 @@ The exact set of sensors depends on which features and circuits are active on yo
 - **H1/H2 room temperature**: The room temperature measured by the room sensor (when installed).
 - **H1/H2 room temperature setpoint**: The target room temperature.
 
-Additional diagnostic sensors are exposed but disabled by default. See [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to enable them if needed:
+Additional diagnostic sensors are exposed but disabled by default. See [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to enable them if needed:
 
 - **H1/H2 curve supply water temperature**: The supply water temperature derived from the heating curve.
 - **H1/H2 delayed room temperature**: A smoothed/delayed room temperature reading.

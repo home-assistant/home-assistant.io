@@ -61,7 +61,7 @@ enabled by default:
 - mobile connection binary sensor
 - device tracker entries
 
-The rest are added to the entity registry, but [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+The rest are added to the entity registry, but [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 Support for different categories of information and thus available
 entities varies by device model and firmware version.
