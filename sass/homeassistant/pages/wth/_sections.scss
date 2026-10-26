@@ -487,7 +487,8 @@ main#page-wth {
     #everyone,
     #how-it-works,
     #fix {
-        > .container > .content > h2:first-child {
+        > .container > .content > h2:first-child,
+        > .container > .content > h2.quote-heading {
             padding-top: 18px;
             position: relative;
 
@@ -657,7 +658,7 @@ main#page-wth {
         }
 
         // The heading over the quote wall starts a new block after the buttons.
-        .content > h3 {
+        .content > h2.quote-heading {
             margin-top: 56px;
 
             @include bp(tablet) {
