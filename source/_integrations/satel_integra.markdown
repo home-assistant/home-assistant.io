@@ -23,7 +23,7 @@ The **Satel Integra** {% term integration %} allows you to connect your [Satel I
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary sensor: Reports on zone or output statuses
+- Binary sensor: Reports on zone or output statuses, and on the alarm panel's service mode and system troubles
 - Switch: allows for setting states of selected outputs
 - Alarm control panel: represents the zones (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the partition
 - Sensor: Reports zone temperatures for zones that have temperature support 
@@ -91,7 +91,7 @@ For example:
 
 ### Binary sensors
 
-- **Service mode**: Whether the panel is in service mode, activated during maintenance. This can be used to disable automations while the system is under maintenance.
+- **Service mode**: Whether the panel is in service mode, activated during maintenance. Use it to pause automations while the panel is under maintenance.
 - **System trouble**: Whether any system trouble is active on the alarm panel.
 
 #### Individual trouble sensors
