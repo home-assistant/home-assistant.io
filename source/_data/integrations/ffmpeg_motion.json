@@ -1,0 +1,13 @@
+{
+  "domain": "ffmpeg_motion",
+  "name": "FFmpeg Motion",
+  "iot_class": "calculated",
+  "quality_scale": "legacy",
+  "categories": [
+    "security_safety.cameras",
+    "sensors.motion_presence"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

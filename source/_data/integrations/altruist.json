@@ -1,0 +1,21 @@
+{
+  "domain": "altruist",
+  "name": "Altruist",
+  "integration_type": "device",
+  "codeowners": [
+    "@airalab",
+    "@LoSk-p"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

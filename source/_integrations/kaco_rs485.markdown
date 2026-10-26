@@ -9,6 +9,7 @@ ha_codeowners:
   - '@g4bri3lDev'
 ha_domain: kaco_rs485
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_config_flow: true
 ha_integration_type: hub
@@ -59,11 +60,55 @@ Each inverter on the bus becomes its own device, named for the model it reports 
 ### Sensors
 
 - **AC power**: The power the inverter is currently feeding into the grid.
+- **DC power**: The power coming in from the solar panels.
+- **Temperature**: The inverter's internal temperature.
 - **Daily yield**: Energy produced since midnight, in watt-hours. This is the one to add to the [Energy dashboard](/docs/energy/); see [Add production to the Energy dashboard](#add-production-to-the-energy-dashboard) below.
 - **Total yield**: The inverter's lifetime energy counter, in kilowatt-hours.
+- **Daily peak power**: The highest AC power reached today.
+- **Total operating hours**: How long the inverter has been running over its lifetime.
 - **Status**: What the inverter is currently doing, such as MPP tracking, waiting, or one of its fault conditions.
 
+The following sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
+
+- **AC voltage** and **AC current**: Measured on the grid side.
+- **DC voltage** and **DC current**: Measured on the solar panel side.
+- **Daily operating hours**: How long the inverter has been running today.
+
+### Binary sensors
+
+- **Fault**: On while the inverter reports one of its fault conditions, such as a grid failure or an overtemperature shutdown. Normal operating states like waiting or night shutdown leave it off.
+
 ## Examples
+
+### Get notified when an inverter trips
+
+To create this automation in the UI:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
+2. Add a state trigger for your inverter's **Fault** binary sensor changing to `on`, which indicates a fault.
+3. Add a notification action, select your notification destination, and enter a message. See [notification actions](/integrations/notify/#list-of-actions) for the available options.
+4. Save the automation.
+
+If you manage automations in YAML, you can optionally add the following example to `configuration.yaml`. Replace both inverter entity IDs and `notify.my_device` with your own.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Notify when a KACO inverter trips"
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.kaco_powador_6400xi_1_fault
+        to: "on"
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          message: "{{ trigger.to_state.name }}: {{ state_translated('sensor.kaco_powador_6400xi_1_status') }}"
+```
+
+{% endraw %}
 
 ### Add production to the Energy dashboard
 
@@ -90,6 +135,8 @@ These inverters don't report a serial number, so Home Assistant identifies the b
 Inverter settings can't be changed from Home Assistant. The integration only reads.
 
 ## Troubleshooting
+
+If you report a problem, attach the [diagnostics](/integrations/diagnostics/) download. It contains the serial port, the inverter list, and each inverter's last reading.
 
 ### No inverters answered during setup
 

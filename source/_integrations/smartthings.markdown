@@ -208,6 +208,7 @@ The SmartThings Media player lets you control devices that have media player-rel
 | [`mediaInputSource`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#mediaInputSource)         | `select_source`                                                                       |
 | [`mediaPlaybackRepeat`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#mediaPlaybackRepeat)   | `repeat_set`                                                                          |
 | [`mediaPlaybackShuffle`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#mediaPlaybackShuffle) | `shuffle_set`                                                                         |
+| `custom.soundmode`                                                                                                                | `select_sound_mode`                                                                   |
 | [`switch`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switch)                             | `turn_on`, `turn_off`                                                                 |
 
 ### Number
@@ -232,6 +233,7 @@ The following SmartThings capabilities are supported for Select entities:
 
 | SmartThings capability                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `custom.picturemode`                                                                                                                       |
 | `custom.washerSoilLevel`                                                                                                                   |
 | `custom.washerSpinLevel`                                                                                                                   |
 | `custom.washerWaterTemperature`                                                                                                            |

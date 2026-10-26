@@ -1,0 +1,21 @@
+{
+  "domain": "aladdin_connect",
+  "name": "Aladdin Connect",
+  "integration_type": "hub",
+  "codeowners": [
+    "@swcloudgenie"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "cover",
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

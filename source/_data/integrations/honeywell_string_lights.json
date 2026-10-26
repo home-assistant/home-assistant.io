@@ -1,0 +1,17 @@
+{
+  "domain": "honeywell_string_lights",
+  "name": "Honeywell String Lights",
+  "integration_type": "device",
+  "codeowners": [
+    "@balloob"
+  ],
+  "config_flow": true,
+  "iot_class": "assumed_state",
+  "quality_scale": "bronze",
+  "categories": [
+    "lighting"
+  ],
+  "platforms": [
+    "light"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "domain": "roborock",
+  "name": "Roborock",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Lash-L",
+    "@allenporter"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "appliances_cleaning.cleaning",
+    "appliances_cleaning.laundry"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "image",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "time",
+    "vacuum"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

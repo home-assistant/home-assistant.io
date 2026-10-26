@@ -92,7 +92,7 @@ Example: Send a notification when power consumption exceeds 3000&nbsp;W for 5 mi
 automation:
   - alias: High Power Consumption Detected
     trigger:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.electricity_example_street_11_total_power
         above: 3000
         for:
@@ -113,7 +113,7 @@ Example: Turn off high-power devices when photovoltaic production is insufficien
 automation:
   - alias: Consumption Control Based on PV Output
     trigger:
-      - platform: state
+      - trigger: state
         entity_id: sensor.electricity_example_street_11_total_power
     condition:
       - condition: numeric_state

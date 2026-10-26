@@ -31,7 +31,7 @@ You need an ecosmart electricity account with at least one connected property, a
 To create a key, open the ecosmart app and go to **More** > **Settings** > **Advanced** > **API keys**.
 
 {% important %}
-Creating a new key disables the previous one. If you already use your ecosmart API key somewhere else, creating a key for Home Assistant stops that other tool working. Creating a key elsewhere later stops Home Assistant working until you remove the integration and add it again with the new key.
+Creating a new key disables the previous one. If you already use your ecosmart API key somewhere else, creating a key for Home Assistant stops that other tool working. If you create another key later, Home Assistant asks you for it; see [Replacing the API key](#replacing-the-api-key).
 {% endimportant %}
 
 If your switch to ecosmart has not completed yet, a key can already exist while no connection point is attached to it. Setup then reports that the key has no connection points. Try again once the property is live.
@@ -43,6 +43,20 @@ API key:
   description: "The API key you created in the ecosmart app under **More** > **Settings** > **Advanced** > **API keys**."
 {% endconfiguration_basic %}
 
+## Replacing the API key
+
+Creating a new key in the ecosmart app disables the one Home Assistant is using. You do not need to remove the integration. Give Home Assistant the new key in either of these ways:
+
+If Home Assistant has already noticed that the old key was rejected, the ecosmart entry shows under **Needs attention**. This happens within about five minutes. Select **Reconfigure** there and enter the new key.
+
+To enter the new key straight away:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **ecosmart**.
+2. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Enter the new key and select **Submit**.
+
+The new key must belong to the same ecosmart account. A key for a different account is refused and the old key stays in place. To add another account, add the integration again.
+
 ## Supported functionality
 
 The integration creates one service device for every <abbr title="Installation Control Point">ICP</abbr> the API key can reach. An ICP is the fifteen-character number that identifies a New Zealand electricity connection, and it appears on your bill. If you have several properties, you get one device per property, each named by its ICP and modeled by its grid exit point, which is the substation where the local network draws power off the national grid.
@@ -53,6 +67,8 @@ Every device carries one sensor. It reports cents per kWh including <abbr title=
 
 - **Spot price**
   - **Description**: The wholesale price at your grid exit point right now.
+
+{% include integrations/actions.md %}
 
 ## Data updates
 
@@ -67,10 +83,6 @@ The sensor does not guess. When it does not have a value it can stand behind, it
 
 - The spot price is unavailable when the most recent published price is stale, or carries no value. A price more than about fifteen minutes old must never be what tells a battery to charge.
 - The spot price is unavailable while the ecosmart API cannot be reached, and it recovers on the next successful poll.
-
-### API key replacement
-
-Re-authentication is not supported yet. If a newer key has replaced the one Home Assistant holds, remove the integration and add it again with the current key.
 
 ### Energy dashboard costs
 
@@ -91,18 +103,6 @@ During setup, the form reports that the key has no connection points yet. The ke
 #### Resolution
 
 Try again once the property is live.
-
-{% enddetails %}
-
-{% details "The sensor stopped updating and the entry reports an authentication failure" %}
-
-### Symptom: Authentication fails after replacing the API key
-
-The sensor stops updating and the integration reports an authentication failure after the API key was replaced. Creating a key anywhere else disables the key Home Assistant is using.
-
-#### Resolution
-
-Remove the integration, create a new key in the ecosmart app, and add the integration again. Entity IDs are derived from the ICP, so they come back identical and your automations keep working.
 
 {% enddetails %}
 

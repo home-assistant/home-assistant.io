@@ -12,7 +12,7 @@ related:
     title: Categories
   - docs: /docs/organizing/
     title: Grouping your assets
-  - docs: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  - docs: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
     title: Disabling or enabling an entity
 ---
 

@@ -1,0 +1,27 @@
+{
+  "domain": "husqvarna_automower",
+  "name": "Husqvarna Automower",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Thomas55555"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "silver",
+  "categories": [
+    "garden_plants"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "calendar",
+    "device_tracker",
+    "diagnostics",
+    "event",
+    "lawn_mower",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ]
+}

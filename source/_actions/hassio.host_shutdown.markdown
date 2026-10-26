@@ -5,6 +5,9 @@ domain: hassio
 description: "Powers off the host system."
 related_actions:
   - hassio.host_reboot
+related:
+  - docs: /common-tasks/general/restarting/#shutting-down-the-system
+    title: Shutting down the system
 ---
 
 Use this action to power off the host system that Home Assistant runs on. This shuts down the whole machine, including the operating system and every app.

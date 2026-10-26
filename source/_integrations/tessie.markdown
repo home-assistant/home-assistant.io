@@ -441,10 +441,11 @@ This automation opens your garage door when your Tesla arrives home:
 automation:
   - alias: "Open garage when Tesla arrives"
     triggers:
-      - trigger: zone
-        entity_id: device_tracker.my_tesla_location
-        zone: zone.home
-        event: enter
+      - trigger: zone.entered
+        target:
+          entity_id: device_tracker.my_tesla_location
+        options:
+          zone: zone.home
     actions:
       - action: cover.open_cover
         target:

@@ -111,7 +111,9 @@ Use these sensors in the [energy dashboard](/docs/energy/):
 
 Send a notification when the battery state of charge drops below 20%.
 
-- **Trigger**: Numeric state: Battery: State of charge below 20
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Battery 1234567890 state of charge
+  - **Below**: `20`
 - **Action**: Send a notification
 
 {% details "YAML example for a low battery notification" %}

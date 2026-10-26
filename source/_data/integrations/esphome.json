@@ -1,0 +1,50 @@
+{
+  "domain": "esphome",
+  "name": "ESPHome",
+  "integration_type": "device",
+  "codeowners": [
+    "@jesserockz",
+    "@kbx81",
+    "@bdraco",
+    "@arturpragacz"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "diy_makers.boards_hardware"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "assist_satellite",
+    "binary_sensor",
+    "button",
+    "camera",
+    "climate",
+    "cover",
+    "date",
+    "datetime",
+    "diagnostics",
+    "event",
+    "fan",
+    "infrared",
+    "light",
+    "lock",
+    "media_player",
+    "number",
+    "radio_frequency",
+    "select",
+    "sensor",
+    "switch",
+    "text",
+    "time",
+    "update",
+    "valve",
+    "water_heater"
+  ],
+  "discovery": [
+    "dhcp",
+    "mqtt",
+    "zeroconf"
+  ]
+}

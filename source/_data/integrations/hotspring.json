@@ -1,0 +1,25 @@
+{
+  "domain": "hotspring",
+  "name": "Hot Spring",
+  "integration_type": "device",
+  "codeowners": [
+    "@Moustachauve"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "water.pools_spas"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "light",
+    "number",
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

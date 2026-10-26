@@ -15,6 +15,7 @@ ha_domain: icloud
 ha_platforms:
   - calendar
   - device_tracker
+  - diagnostics
   - sensor
   - todo
 ha_integration_type: hub
@@ -72,7 +73,22 @@ The iCloud integration will track available devices on your iCloud account.
 
 ### Sensor
 
-The iCloud integration will add a battery sensor for each iCloud devices available on your iCloud account.
+The iCloud integration adds the following sensors for each device on your Apple Account. Some sensors are only added if the device supports them.
+
+- **Battery**: The battery level of the device.
+- **Battery status**: Whether the battery is charging, full, or not charging.
+- **Status**: The status Apple reports for the device, such as online, offline, or pending.
+- **Owner**: The family member the device belongs to, or the owner of the Apple Account if you did not set up the integration with family sharing.
+- **Last located**: When the device was last located.
+- **Location type**: How the location was determined, such as GPS, Wi-Fi, or cellular.
+- **Location accuracy**: How accurate the location is, in meters.
+- **Altitude**: The altitude of the location, in meters.
+- **Floor**: The floor level of the location, where Apple reports one.
+- **Last locked**: When the device was last locked.
+- **Last lost**: When the device was last put into Lost Mode.
+- **Last wiped**: When the device was last erased.
+
+The location sensors are only added for devices that report a location, and the lock, Lost Mode, and erase sensors only for devices that support those features. The **Floor**, **Last locked**, **Last lost**, and **Last wiped** entities are disabled by default.
 
 ### To-do list
 
@@ -89,3 +105,12 @@ If you have [Advanced Data Protection](https://support.apple.com/en-us/102651) t
 ## Media source
 
 iCloud photo albums and shared streams are displayed in the media browser, "Media" > "iCloud". This will display a list of configured iCloud accounts, selecting the account will give a choice of "Albums" and "Shared Streams". Selection of these will give a list of available photo albums, and selecting these will display the current contents of the album.
+
+## Diagnostics
+
+The integration provides [diagnostics](/docs/configuration/troubleshooting/#download-diagnostics) to help with troubleshooting. There are two downloads:
+
+- The integration download contains the account information and the data Apple reports for every device.
+- Each device page has its own download, containing the data Apple reports for that device. For devices Apple no longer reports, the download falls back to the account information.
+
+Your username and password, device and personal identifiers, location coordinates, family member names, and the Lost Mode contact number and message are redacted. The device name is kept so you can tell the downloads apart.
