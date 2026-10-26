@@ -167,7 +167,7 @@ To create a new schedule based on another one, read the time blocks of the exist
    - Result: Under **Response**, the time blocks of the schedule for each day of the week are listed, including any additional data.
 6. Create the new schedule in one of these ways:
    - **In the UI**: Add the time blocks shown in the response to a new schedule helper.
-   - **In YAML**: Copy the response into your {% term "`configuration.yaml`" %} file. For the steps on how to access and edit this file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configurationyaml).
+   - **In YAML**: Copy the time blocks of the response into a `schedule:` section in your {% term "`configuration.yaml`" %} file and then run the [**Reload schedules**](/actions/schedule.reload) action. For the steps on how to access and edit the YAML configuration file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configurationyaml).
 
 {% note %}
 Schedules created in YAML can't be edited in the UI. To edit them, change the YAML and reload the schedules.

@@ -106,7 +106,7 @@ data:
 
 - Each day is keyed by its lowercase English name, such as `monday`, regardless of your interface language.
 - A day with no configured time ranges is returned as an empty list.
-- The response uses the same format as the YAML configuration of a schedule. You can use it to create a new schedule from an existing one. For the steps, see [Copying a schedule](/integrations/schedule/#copying-a-schedule).
+- The [response data](/actions/schedule.get_schedule/#response-data) uses the same format as the YAML configuration of a schedule. You can use it to create a new schedule from an existing one. For the steps, see [Copying a schedule](/integrations/schedule/#copying-a-schedule).
 
 {% include actions/try_it.md %}
 
@@ -147,10 +147,11 @@ automation: |
           {% for day, blocks in schedules['schedule.heating'].items() %}
           {%- set ns = namespace(times=[]) %}
           {%- for block in blocks %}
-          {%- set start = (block['from'] | string)[:5] %}
-          {%- set end = (block['to'] | string)[:5] %}
+          {%- set start = block['from'] | string %}
+          {%- set end = block['to'] | string %}
+          {%- set end = '24:00:00' if end == '23:59:59.999999' else end %}
           {%- set time = start ~ ' to ' ~ end %}
-          {%- if block['data'] %}
+          {%- if block.get('data') %}
           {%- set time = time ~ ' (`' ~ block['data'] | to_json ~ '`)' %}
           {%- endif %}
           {%- set ns.times = ns.times + [time] %}
