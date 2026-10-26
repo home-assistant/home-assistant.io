@@ -10,9 +10,8 @@ ha_codeowners:
 ha_domain: skoda
 ha_integration_type: device
 ha_config_flow: true
-ha_category:
-  - Car
-  - Sensor
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_platforms:
   - sensor
 ha_quality_scale: bronze
