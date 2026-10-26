@@ -370,6 +370,14 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 Zigbee Green Power devices, such as the Philips Hue Tap and some "Friends of Hue" switches, have no battery. They send short messages that nearby Zigbee router devices pass on to the Zigbee coordinator.
 
+Support for Green Power devices was added in Home Assistant 2026.11.0. Some Zigbee coordinators can also receive messages from Green Power devices directly, usually with no limit on the number of devices. With these coordinators, Green Power devices in range of the coordinator work without a router device. The following radio types receive Green Power messages directly:
+
+- Ziggurat (`ziggurat`)
+- Silicon Labs (`ezsp`)
+- deCONZ (`deconz`)
+
+With other radio types, such as Texas Instruments (`znp`), ZiGate (`zigate`), and XBee (`xbee`), Green Power devices only work through router devices that pass on their messages. To check which radio type your coordinator uses, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}, select **Network information**, and look at **Radio type**.
+
 Green Power devices do not have enough power to search for your Zigbee network. Instead, you set the channel on the device yourself, usually by pressing a combination of buttons. Before you add a Green Power device, find the channel of your Zigbee network.
 
 **To find the channel of your Zigbee network:**
@@ -388,14 +396,6 @@ Check that your Green Power device supports this channel. If it does not, you ca
 4. Once the device joins, it will appear on that page and will be automatically added to your devices.
 
 Unlike other Zigbee end devices, a Green Power device is not connected to a single parent router device. Instead, every router device that receives its messages passes them on. Each router device can only do this for a limited number of Green Power devices. Depending on the manufacturer, this limit is anywhere from 5 to more than 40. Philips Hue lights and other Philips Hue router devices have a high limit. If you have more than a few Green Power devices, make sure enough router devices with a high limit are in range of them.
-
-Some Zigbee coordinators can also receive messages from Green Power devices directly, usually with no limit on the number of devices. With these coordinators, Green Power devices in range of the coordinator work without a router device. To check which radio type your coordinator uses, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}, select **Network information**, and look at **Radio type**. The following radio types receive Green Power messages directly:
-
-- Ziggurat (`ziggurat`)
-- Silicon Labs (`ezsp`)
-- deCONZ (`deconz`)
-
-With other radio types, such as Texas Instruments (`znp`), ZiGate (`zigate`), and XBee (`xbee`), Green Power devices only work through router devices that pass on their messages.
 
 Green Power devices work differently from other Zigbee devices:
 
