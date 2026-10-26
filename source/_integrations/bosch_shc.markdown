@@ -110,6 +110,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Micromodule Relay that supports it: an **Actuator type** select, letting you choose between **Normally closed**, **Normally open**, or **Unsupported**. In YAML, the options are `normally_closed`, `normally_open`, and `unsupported`.
 - Micromodule Relay that supports it: an **Output mode** select, letting you choose between **Coupled**, **Disconnected on any key press**, **Disconnected on short press**, **Disconnected on long press**, or **Unsupported**. In YAML, the options are `attached`, `detached`, `detached_short_press`, `detached_long_press`, and `unsupported`.
 - Motion Detector II that supports it: a **Sensitivity for alarm system** select and a **Sensitivity for other cases** select, each letting you choose between **High**, **Medium**, or **Low**. In YAML, the medium option is `middle`.
+- Motion Detector II: an **Orientation light response time** select, letting you choose between **Long** and **Short**. In YAML, the options are `long` and `short`.
 
 ### Sensors
 
