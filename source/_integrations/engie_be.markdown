@@ -116,16 +116,27 @@ They also get the **EPEX current hour price is negative** and the **EPEX current
 
 {% include integrations/conditions.md %}
 
-## Examples
+## ENGIE Belgium automation examples
 
-These examples cover the common dynamic-tariff automations: run an appliance when electricity gets cheap, hear about tomorrow's prices the moment they are published, and know the cheapest hour of the day as soon as the day starts. They use the triggers listed above. When you create these automations in the automation editor, it fills in the device ID of your contract for you.
+These examples cover common dynamic-tariff automations: run an appliance when electricity gets cheap, hear about tomorrow's prices the moment they are published, and hear when the cheapest hour of the day changes. When you create these automations in the automation editor, it fills in the device ID of your contract for you.
 
-### Running the dishwasher when electricity is cheap
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Running the dishwasher when electricity is cheap
 
 This automation starts the dishwasher the moment the price of the current hour goes below 0.10 EUR/kWh, so the program runs during the cheap hours of the day.
 
-```yaml
-- alias: "Run the dishwasher when electricity is cheap"
+- **Trigger**: EPEX current hour price crossed threshold
+  - **Contracts**: your contract
+  - **Below**: 0.10
+- **Action**: Turn on switch
+  - **Target**: Dishwasher (`switch.dishwasher`)
+
+{% details "YAML example for running the dishwasher when electricity is cheap" %}
+
+{% example %}
+automation: |
+  alias: "Run the dishwasher when electricity is cheap"
   triggers:
     - trigger: engie_be.epex_current_hour_crossed_threshold
       options:
@@ -135,14 +146,24 @@ This automation starts the dishwasher the moment the price of the current hour g
     - action: switch.turn_on
       target:
         entity_id: switch.dishwasher
-```
+{% endexample %}
 
-### Getting a notification when tomorrow's prices are in
+{% enddetails %}
+
+### Automation: Getting a notification when tomorrow's prices are in
 
 This automation sends a notification once tomorrow's EPEX prices are published, so you can plan the next day while the evening is still ahead.
 
-```yaml
-- alias: "Notify when tomorrow's prices are published"
+- **Trigger**: Tomorrow's EPEX prices published
+  - **Contracts**: your contract
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a notification when tomorrow's prices are in" %}
+
+{% example %}
+automation: |
+  alias: "Notify when tomorrow's prices are published"
   triggers:
     - trigger: engie_be.epex_tomorrow_prices_published
       options:
@@ -154,14 +175,24 @@ This automation sends a notification once tomorrow's EPEX prices are published, 
       data:
         title: "Electricity prices"
         message: "Tomorrow's EPEX prices are available."
-```
+{% endexample %}
 
-### Planning the day around the cheapest hour
+{% enddetails %}
 
-At midnight, Brussels time, the new day's prices apply, and this automation sends a notification with the price of today's cheapest hour, so you know the bargain of the day right away.
+### Automation: Hearing when the cheapest hour changes
 
-```yaml
-- alias: "Notify about today's cheapest hour"
+This automation sends a notification with the price of today's cheapest hour when today's lowest hourly price changes, which normally happens just after midnight, Brussels time. When two days in a row have the same lowest price, it does not send a notification.
+
+- **Trigger**: EPEX lowest hour price today updated
+  - **Contracts**: your contract
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a notification about the cheapest hour" %}
+
+{% example %}
+automation: |
+  alias: "Notify about today's cheapest hour"
   triggers:
     - trigger: engie_be.epex_low_today_hour_updated
       options:
@@ -176,7 +207,9 @@ At midnight, Brussels time, the new day's prices apply, and this automation send
           Today's cheapest hour costs
           {{ states('sensor.main_street_1_1000_brussels_epex_lowest_hour_price_today') }}
           EUR/kWh.
-```
+{% endexample %}
+
+{% enddetails %}
 
 ## Multiple households
 
