@@ -72,7 +72,9 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 - `trigger.device_id`: The device ID of the contract that fired the trigger.
 
-{% include triggers/try_it.md %}
+## Try it yourself
+
+Go to {% my automations title="**Settings** > **Automations & scenes**" %}, create a new automation, add this trigger, and save it. The trigger fires on the next price change it watches, so you may have to wait for the next hour, quarter hour or publication. To test the actions right away, open the automation and select **Run actions**.
 
 {% include triggers/more_examples.md %}
 

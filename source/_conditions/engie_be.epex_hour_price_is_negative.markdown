@@ -69,9 +69,9 @@ device_id:
 
 {% include conditions/more_examples.md %}
 
-### Automation: charge the EV only in negative hours
+### Automation: start the EV charger in a negative hour
 
-At the start of every hour, this automation starts the EV charger, but only when the price of that hour is negative. The [EPEX hour price no longer negative](/triggers/engie_be.epex_hour_no_longer_negative/) trigger can stop it again.
+At the start of every hour, this automation starts the EV charger, but only when the price of that hour is negative. This automation only starts charging. To stop it when the price goes up again, add a second automation with the [EPEX hour price no longer negative](/triggers/engie_be.epex_hour_no_longer_negative/) trigger.
 
 - **Trigger**: Time pattern (every hour)
 - **Condition**: EPEX hour price is negative

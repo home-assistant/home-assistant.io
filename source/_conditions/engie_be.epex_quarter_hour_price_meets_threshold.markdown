@@ -87,9 +87,9 @@ below:
 
 {% include conditions/more_examples.md %}
 
-### Automation: charge the EV only in cheap quarter hours
+### Automation: start the EV charger in a cheap quarter hour
 
-Every quarter hour, this automation starts the EV charger, but only when the price is between -0.05 and 0.08 EUR/kWh.
+Every quarter hour, this automation starts the EV charger, but only when the price is between -0.05 and 0.08 EUR/kWh. This automation only starts charging. To stop it when the price goes up again, add a second automation with the [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/) trigger set to `above: 0.08`.
 
 - **Trigger**: Time pattern (every 15 minutes)
 - **Condition**: EPEX quarter-hourly price is in range

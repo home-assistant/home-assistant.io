@@ -11,7 +11,7 @@ related_triggers:
 
 The **EPEX lowest quarter-hourly price today updated** trigger fires when today's lowest quarter-hourly EPEX price changes from one known value to another. In practice, this happens at midnight, Brussels time, when a new day starts, or when prices are corrected.
 
-Use it when your contract bills you per quarter hour, to know the cheapest quarter hour of the day. For the most expensive quarter hour, use [EPEX highest quarter-hourly price today updated](/triggers/engie_be.epex_high_today_quarter_hour_updated/). For the hourly price, use [EPEX lowest hour price today updated](/triggers/engie_be.epex_low_today_hour_updated/).
+Use it to get a notification when today's lowest quarter-hourly price changes. The trigger tells you that the price changed, and the EPEX lowest quarter-hourly price today sensor holds the new price. For the most expensive quarter hour, use [EPEX highest quarter-hourly price today updated](/triggers/engie_be.epex_high_today_quarter_hour_updated/). For the hourly price, use [EPEX lowest hour price today updated](/triggers/engie_be.epex_low_today_hour_updated/).
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
@@ -72,13 +72,15 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 - `trigger.device_id`: The device ID of the contract that fired the trigger.
 
-{% include triggers/try_it.md %}
+## Try it yourself
+
+Go to {% my automations title="**Settings** > **Automations & scenes**" %}, create a new automation, add this trigger, and save it. The trigger fires on the next price change it watches, so you may have to wait for the next hour, quarter hour or publication. To test the actions right away, open the automation and select **Run actions**.
 
 {% include triggers/more_examples.md %}
 
-### Automation: get today's cheapest quarter hour
+### Automation: get a notification when today's lowest quarter-hourly price changes
 
-When a new day starts, this automation sends a notification about today's cheapest quarter hour.
+When today's lowest quarter-hourly price changes, normally just after midnight, Brussels time, this automation sends a notification with the new price.
 
 - **Trigger**: EPEX lowest quarter-hourly price today updated
   - **Contracts**: Main Street 1
@@ -89,7 +91,7 @@ When a new day starts, this automation sends a notification about today's cheape
 
 {% example %}
 automation: |
-  alias: "Notify about today's cheapest quarter hour"
+  alias: "Notify when today's lowest quarter-hourly price changes"
   triggers:
     - trigger: engie_be.epex_low_today_quarter_hour_updated
       options:
@@ -99,8 +101,11 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        title: "Cheapest quarter hour today"
-        message: "Today's lowest quarter-hourly price has changed."
+        title: "Lowest quarter-hourly price today"
+        message: >
+          Today's lowest quarter-hourly price is now
+          {{ states('sensor.main_street_1_1000_brussels_epex_lowest_quarter_hourly_price_today') }}
+          EUR/kWh.
 {% endexample %}
 
 {% enddetails %}

@@ -69,9 +69,9 @@ device_id:
 
 {% include conditions/more_examples.md %}
 
-### Automation: charge the home battery only in negative quarter hours
+### Automation: start charging the home battery in a negative quarter hour
 
-Every quarter hour, this automation starts charging the home battery, but only when the price of that quarter hour is negative.
+Every quarter hour, this automation starts charging the home battery, but only when the price of that quarter hour is negative. This automation only starts charging. To stop it when the price goes up again, add a second automation with the [EPEX quarter-hourly price no longer negative](/triggers/engie_be.epex_quarter_hour_no_longer_negative/) trigger.
 
 - **Trigger**: Time pattern (every 15 minutes)
 - **Condition**: EPEX quarter-hourly price is negative

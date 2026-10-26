@@ -87,7 +87,7 @@ below:
 
 {% include conditions/more_examples.md %}
 
-### Automation: start the dishwasher only in a cheap hour
+### Automation: start the dishwasher in a cheap hour
 
 This automation starts the dishwasher at 22:00, but only when the price of that hour is below 0.10 EUR/kWh.
 
