@@ -23,7 +23,7 @@ related:
 ---
 
 {% warning %}
-The **Raw Serial** {% term integration %} is for advanced use only. It reads raw data from a serial port, and you must parse that data yourself with templates. Most devices with a serial port already have an integration that handles the connection for you. Before you use this integration, search the [integrations](/integrations/) for your device or its brand.
+The **Raw Serial** {% term integration %} reads raw text from a serial port. To get useful values, you usually need to process that text with templates. Most devices with a serial port already have an integration that handles the connection for you. Before you use this integration, search the [integrations](/integrations/) for your device or its brand.
 {% endwarning %}
 
 The **Raw Serial** {% term integration %} uses the data provided by a device connected to a serial port that Home Assistant can reach. The port can be on the system where Home Assistant runs, or shared over your network. To connect a device that is not next to your system, the recommended way is a [serial proxy](#serial-proxy), which shares a serial port from an [ESPHome](/integrations/esphome/) device over your network. You can also use [`ser2net`](https://ser2net.sourceforge.net/) or [`socat`](http://www.dest-unreach.org/socat/) to reach a device on a remote system.
