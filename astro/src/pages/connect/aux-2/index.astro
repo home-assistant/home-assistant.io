@@ -20,6 +20,7 @@ import ConnectHero from "../../../components/connect/ConnectHero.astro";
 import ConnectSectionHeader from "../../../components/connect/ConnectSectionHeader.astro";
 import ConnectFeatureCard from "../../../components/connect/ConnectFeatureCard.astro";
 import ConnectLabel from "../../../components/connect/ConnectLabel.astro";
+import ConnectModel from "../../../components/connect/ConnectModel.astro";
 import musicAssistantDesktop from "../../../assets/connect/aux-2/music-assistant-desktop.webp";
 import musicAssistantPhone from "../../../assets/connect/aux-2/music-assistant-phone.webp";
 import musicAssistantIcon from "../../../assets/connect/icons/music-assistant.svg";
@@ -68,6 +69,9 @@ import wholeHomeAudio from "../../../assets/connect/icons/whole-home-audio.svg";
 import advancedControl from "../../../assets/connect/icons/advanced-control.svg";
 import connectAnywhere from "../../../assets/connect/icons/connect-anywhere.svg";
 import bluetooth from "../../../assets/connect/icons/bluetooth.svg";
+// The line drawing's model, made from the CAD export for it (no
+// textures, only the parts that can be seen from outside: 2 MB).
+import lineModel from "../../../assets/connect/aux-2/aux-2-line.glb?url";
 
 const product = "Connect AUX-2";
 
@@ -227,12 +231,11 @@ const diagram = [
       </div>
     </section>
 
-    <!-- Figma frame "Frame 149" (desktop node 2586:1425).
-         TODO: a placeholder for now: the label, heading and lead on a
-         black section one window tall. The section is to be rebuilt. -->
-    <section class="multi-tool-placeholder">
+    <!-- Figma frame "Frame 149" (desktop node 2586:1425): the intro,
+         then the AUX-2 as a line drawing visitors can turn. -->
+    <section class="multi-tool">
       <div class="content">
-        <div class="multi-tool">
+        <div class="multi-tool-intro">
           <ConnectLabel>The smart home multi-tool</ConnectLabel>
           <h2 class="heading">Connect everything</h2>
           <!-- TODO [copy]: Zigbee won't work at launch; this lead mentions
@@ -242,6 +245,11 @@ const diagram = [
             and extend your Zigbee or Z-Wave network, all from one small box.
           </p>
         </div>
+        <ConnectModel
+          class="multi-tool-model"
+          src={lineModel}
+          label="Line drawing of the Connect AUX-2, its ports side to the front"
+        />
       </div>
     </section>
 
@@ -659,18 +667,20 @@ const diagram = [
     }
   }
 
-  /* Connect everything: for now a black placeholder one window tall,
-     the intro at its top (see the TODO in the markup). */
+  /* Connect everything: the intro, then the model, square on phones. */
 
-  .multi-tool-placeholder {
-    background: #000;
-    box-sizing: border-box;
-    min-height: 100vh;
+  .multi-tool {
     padding-block: var(--space-xxlarge);
   }
 
-  .multi-tool {
+  .multi-tool-intro {
     max-width: 48.5rem;
+  }
+
+  .multi-tool-model {
+    aspect-ratio: 1;
+    margin-top: var(--space-xlarge);
+    width: 100%;
   }
 
   /* Best spot in the house: text and coverage map, then the photo. */
@@ -1053,6 +1063,11 @@ const diagram = [
      on phones, but cards sit two or three to a row, and the diagram,
      map and photos are sized for the wider column. */
   @media only screen and (min-width: breakpoints.$tab) {
+    /* Connect everything: the model as wide as a screen. */
+    .multi-tool-model {
+      aspect-ratio: 16 / 9;
+    }
+
     /* Audio and so much more: the cards two by two above the video. */
     .cards {
       display: grid;

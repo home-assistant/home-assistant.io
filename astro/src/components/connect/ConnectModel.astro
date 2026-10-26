@@ -1,0 +1,109 @@
+---
+// A product's 3D model drawn as a line illustration, white strokes on
+// the page's black, that visitors turn by dragging. Sideways drags turn
+// it; the wheel and vertical swipes keep scrolling the page.
+//
+// Built for "Connect everything" on the Connect AUX-2 page, not ported
+// from Jekyll. The drawing is done by src/lib/line-model.ts, which is
+// loaded (with three.js) only once the model comes near the screen,
+// and draws only while it is on screen and moving.
+//
+// The model is a GLB file made for the drawing: no textures, and only
+// the parts that can be seen from outside.
+//
+// Accessibility: the drawing is an image to screen readers, described
+// by `label`. Without the script or WebGL, the box stays empty.
+interface Props {
+  // The GLB's URL: import it (`import model from "./x.glb?url"`).
+  src: string;
+  // What the model shows, for screen readers.
+  label: string;
+  class?: string;
+}
+
+// Other attributes (and the parent's style scope) go on the wrapper.
+const { src, label, class: className, ...attributes } = Astro.props;
+---
+
+<div
+  class:list={["connect-model", className]}
+  role="img"
+  aria-label={label}
+  data-connect-model={src}
+  {...attributes}
+>
+  <canvas></canvas>
+</div>
+
+<script>
+  for (const wrapper of document.querySelectorAll<HTMLElement>(
+    "[data-connect-model]",
+  )) {
+    const canvas = wrapper.querySelector("canvas")!;
+    let model: { start(): void; stop(): void } | undefined;
+    let loading: Promise<void> | undefined;
+    let inView = false;
+
+    const load = () => {
+      loading ??= import("../../lib/line-model").then(async ({ createLineModel }) => {
+        // The colours come from the wrapper's CSS: the text colour for
+        // the lines, the background for the fill.
+        const style = getComputedStyle(wrapper);
+        model = await createLineModel(canvas, {
+          src: wrapper.dataset.connectModel!,
+          line: style.color,
+          fill: style.backgroundColor,
+          // The ports side towards the visitor, seen from a little to
+          // the right and above.
+          view: [1, 0.62, 0.42],
+        });
+        wrapper.classList.add("is-loaded");
+        if (inView) model.start();
+      });
+    };
+
+    // Start loading a screen's height ahead.
+    new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) load();
+      },
+      { rootMargin: "100% 0px" },
+    ).observe(wrapper);
+
+    new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      if (inView) model?.start();
+      else model?.stop();
+    }).observe(wrapper);
+  }
+</script>
+
+<style lang="scss">
+  .connect-model {
+    background: #000;
+    color: var(--color-text-inverse);
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    canvas {
+      display: block;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease-out;
+      width: 100%;
+    }
+
+    &:global(.is-loaded) canvas {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .connect-model canvas {
+      transition: none;
+    }
+  }
+</style>
