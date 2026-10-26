@@ -2,7 +2,7 @@
 title: BUSY Bar
 description: Monitor the battery and Wi-Fi connection of your BUSY Bar in Home Assistant.
 ha_categories:
-  - Sensor
+  - sensors
 ha_release: 2026.11
 ha_iot_class: Local Polling
 ha_codeowners:
