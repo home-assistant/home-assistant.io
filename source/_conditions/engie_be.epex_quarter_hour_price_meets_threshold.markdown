@@ -11,7 +11,7 @@ related_conditions:
 
 The **EPEX quarter-hourly price is in range** condition passes when the price of the quarter hour you are in is above, below, or between prices you set.
 
-Use it when your contract bills you per quarter hour, to run an automation only during cheap quarter hours. For the hourly price, use [EPEX hour price is in range](/conditions/engie_be.epex_hour_price_meets_threshold/). To react the moment the price enters a range, use the [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/) trigger.
+Use it when your contract bills you per quarter hour, to run an automation only during cheap quarter hours. For the hourly price, use [EPEX hourly price is in range](/conditions/engie_be.epex_hour_price_meets_threshold/). To react the moment the price enters a range, use the [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/) trigger.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 

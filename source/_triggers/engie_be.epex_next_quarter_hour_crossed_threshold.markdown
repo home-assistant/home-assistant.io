@@ -13,7 +13,7 @@ related_triggers:
 
 The **EPEX next quarter-hourly price crossed threshold** trigger fires when the EPEX price of the next quarter hour enters a price range you set, so when it goes from outside the range to inside it. On a dynamic tariff, the EPEX day-ahead auction sets a price for every quarter hour of the day.
 
-Use it when your contract bills you per quarter hour and you want to prepare before a cheap quarter hour starts. To act on the quarter hour you are in, use [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/). For the hourly price, use [EPEX next hour price crossed threshold](/triggers/engie_be.epex_next_hour_crossed_threshold/).
+Use it when your contract bills you per quarter hour and you want to prepare before a cheap quarter hour starts. To act on the quarter hour you are in, use [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/). For the hourly price, use [EPEX next hourly price crossed threshold](/triggers/engie_be.epex_next_hour_crossed_threshold/).
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 

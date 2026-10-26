@@ -1,5 +1,5 @@
 ---
-title: "EPEX current hour price crossed threshold"
+title: "EPEX current hourly price crossed threshold"
 trigger: engie_be.epex_current_hour_crossed_threshold
 domain: engie_be
 description: "Triggers when the current hourly EPEX price enters the configured range."
@@ -11,20 +11,20 @@ related_triggers:
   - engie_be.epex_hour_no_longer_negative
 ---
 
-The **EPEX current hour price crossed threshold** trigger fires when the current hourly EPEX price enters a price range you set, so when it goes from outside the range to inside it. On a dynamic tariff, the EPEX day-ahead auction sets a price for every hour of the day.
+The **EPEX current hourly price crossed threshold** trigger fires when the current hourly EPEX price enters a price range you set, so when it goes from outside the range to inside it. On a dynamic tariff, the EPEX day-ahead auction sets a price for every hour of the day.
 
-Use it to start a dishwasher, a tumble dryer, or an EV charger when electricity gets cheap, or to get a warning when the price climbs above a ceiling. To act on the price of the next hour before it starts, use [EPEX next hour price crossed threshold](/triggers/engie_be.epex_next_hour_crossed_threshold/). If your contract bills you per quarter hour, use [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/) instead. To check the price when an automation runs, use the [EPEX hour price is in range](/conditions/engie_be.epex_hour_price_meets_threshold/) condition.
+Use it to start a dishwasher, a tumble dryer, or an EV charger when electricity gets cheap, or to get a warning when the price climbs above a ceiling. To act on the price of the next hour before it starts, use [EPEX next hourly price crossed threshold](/triggers/engie_be.epex_next_hour_crossed_threshold/). If your contract bills you per quarter hour, use [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/) instead. To check the price when an automation runs, use the [EPEX hourly price is in range](/conditions/engie_be.epex_hour_price_meets_threshold/) condition.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
 {% include triggers/ui_header.md %}
 
-To use **EPEX current hour price crossed threshold** in an automation:
+To use **EPEX current hourly price crossed threshold** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Search for **EPEX current hour price crossed threshold** and select it.
+4. Search for **EPEX current hourly price crossed threshold** and select it.
 5. Under **Contracts**, select one or more of your contracts with a dynamic tariff.
 6. Enter a price in EUR/kWh under **Above**, **Below**, or both.
 7. Select **Save**.
@@ -113,7 +113,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 
 When the price of the current hour goes above 0.25 EUR/kWh, this automation sends a notification so you can postpone heavy appliances until a cheaper hour.
 
-- **Trigger**: EPEX current hour price crossed threshold
+- **Trigger**: EPEX current hourly price crossed threshold
   - **Contracts**: Main Street 1
   - **Above**: 0.25
 - **Action**: Send a notification message

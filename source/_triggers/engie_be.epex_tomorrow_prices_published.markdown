@@ -3,6 +3,9 @@ title: "Tomorrow's EPEX prices published"
 trigger: engie_be.epex_tomorrow_prices_published
 domain: engie_be
 description: "Triggers when the EPEX day-ahead prices for tomorrow become available."
+related_triggers:
+  - engie_be.epex_next_hour_crossed_threshold
+  - engie_be.epex_next_quarter_hour_crossed_threshold
 ---
 
 The **Tomorrow's EPEX prices published** trigger fires when the hourly and the quarter-hourly EPEX prices both cover all of tomorrow, Brussels time.

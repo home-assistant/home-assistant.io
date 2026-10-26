@@ -126,7 +126,7 @@ These examples cover common dynamic-tariff automations: run an appliance when el
 
 This automation starts the dishwasher the moment the price of the current hour goes below 0.10 EUR/kWh, so the program runs during the cheap hours of the day.
 
-- **Trigger**: EPEX current hour price crossed threshold
+- **Trigger**: EPEX current hourly price crossed threshold
   - **Contracts**: your contract
   - **Below**: 0.10
 - **Action**: Turn on switch

@@ -1,5 +1,5 @@
 ---
-title: "EPEX hour price became negative"
+title: "EPEX hourly price became negative"
 trigger: engie_be.epex_hour_became_negative
 domain: engie_be
 description: "Triggers when the hourly EPEX day-ahead price turns negative."
@@ -9,20 +9,20 @@ related_triggers:
   - engie_be.epex_quarter_hour_no_longer_negative
 ---
 
-The **EPEX hour price became negative** trigger fires when the current hourly EPEX price goes from zero or above to below zero.
+The **EPEX hourly price became negative** trigger fires when the current hourly EPEX price goes from zero or above to below zero.
 
-Use it to start loads such as an EV charger or a home battery when the hourly price turns negative. To stop them again, use [EPEX hour price no longer negative](/triggers/engie_be.epex_hour_no_longer_negative/). To check the price when an automation runs, use the [EPEX hour price is negative](/conditions/engie_be.epex_hour_price_is_negative/) condition.
+Use it to start loads such as an EV charger or a home battery when the hourly price turns negative. To stop them again, use [EPEX hourly price no longer negative](/triggers/engie_be.epex_hour_no_longer_negative/). To check the price when an automation runs, use the [EPEX hourly price is negative](/conditions/engie_be.epex_hour_price_is_negative/) condition.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
 {% include triggers/ui_header.md %}
 
-To use **EPEX hour price became negative** in an automation:
+To use **EPEX hourly price became negative** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Search for **EPEX hour price became negative** and select it.
+4. Search for **EPEX hourly price became negative** and select it.
 5. Under **Contracts**, select one or more of your contracts with a dynamic tariff.
 6. Select **Save**.
 
@@ -82,7 +82,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 
 When the price of the current hour turns negative, this automation starts the EV charger.
 
-- **Trigger**: EPEX hour price became negative
+- **Trigger**: EPEX hourly price became negative
   - **Contracts**: Main Street 1
 - **Action**: Turn on switch
   - **Target**: EV charger (`switch.ev_charger`)

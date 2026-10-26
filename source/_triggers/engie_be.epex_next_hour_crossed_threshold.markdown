@@ -1,5 +1,5 @@
 ---
-title: "EPEX next hour price crossed threshold"
+title: "EPEX next hourly price crossed threshold"
 trigger: engie_be.epex_next_hour_crossed_threshold
 domain: engie_be
 description: "Triggers when the next hourly EPEX price enters the configured range."
@@ -11,20 +11,20 @@ related_triggers:
   - engie_be.epex_hour_no_longer_negative
 ---
 
-The **EPEX next hour price crossed threshold** trigger fires when the EPEX price of the next hour enters a price range you set, so when it goes from outside the range to inside it. On a dynamic tariff, the EPEX day-ahead auction sets a price for every hour of the day.
+The **EPEX next hourly price crossed threshold** trigger fires when the EPEX price of the next hour enters a price range you set, so when it goes from outside the range to inside it. On a dynamic tariff, the EPEX day-ahead auction sets a price for every hour of the day.
 
-Use it to prepare before a cheap hour starts, for example to get a notification that the next hour is cheap so you can load the washing machine. To act on the hour you are in, use [EPEX current hour price crossed threshold](/triggers/engie_be.epex_current_hour_crossed_threshold/). If your contract bills you per quarter hour, use [EPEX next quarter-hourly price crossed threshold](/triggers/engie_be.epex_next_quarter_hour_crossed_threshold/) instead.
+Use it to prepare before a cheap hour starts, for example to get a notification that the next hour is cheap so you can load the washing machine. To act on the hour you are in, use [EPEX current hourly price crossed threshold](/triggers/engie_be.epex_current_hour_crossed_threshold/). If your contract bills you per quarter hour, use [EPEX next quarter-hourly price crossed threshold](/triggers/engie_be.epex_next_quarter_hour_crossed_threshold/) instead.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
 {% include triggers/ui_header.md %}
 
-To use **EPEX next hour price crossed threshold** in an automation:
+To use **EPEX next hourly price crossed threshold** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Search for **EPEX next hour price crossed threshold** and select it.
+4. Search for **EPEX next hourly price crossed threshold** and select it.
 5. Under **Contracts**, select one or more of your contracts with a dynamic tariff.
 6. Enter a price in EUR/kWh under **Above**, **Below**, or both.
 7. Select **Save**.
@@ -113,7 +113,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 
 When the price of the next hour goes below 0.05 EUR/kWh, this automation sends a notification so you can get appliances ready.
 
-- **Trigger**: EPEX next hour price crossed threshold
+- **Trigger**: EPEX next hourly price crossed threshold
   - **Contracts**: Main Street 1
   - **Below**: 0.05
 - **Action**: Send a notification message

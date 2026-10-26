@@ -11,7 +11,7 @@ related_conditions:
 
 The **EPEX quarter-hourly price is negative** condition passes when the price of the quarter hour you are in is below zero.
 
-Use it when your contract bills you per quarter hour, to run an automation only during negative quarter hours. To check the hourly price instead, use [EPEX hour price is negative](/conditions/engie_be.epex_hour_price_is_negative/). To react the moment the price turns negative, use the [EPEX quarter-hourly price became negative](/triggers/engie_be.epex_quarter_hour_became_negative/) trigger.
+Use it when your contract bills you per quarter hour, to run an automation only during negative quarter hours. To check the hourly price instead, use [EPEX hourly price is negative](/conditions/engie_be.epex_hour_price_is_negative/). To react the moment the price turns negative, use the [EPEX quarter-hourly price became negative](/triggers/engie_be.epex_quarter_hour_became_negative/) trigger.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 

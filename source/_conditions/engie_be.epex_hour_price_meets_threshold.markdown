@@ -1,5 +1,5 @@
 ---
-title: "EPEX hour price is in range"
+title: "EPEX hourly price is in range"
 condition: engie_be.epex_hour_price_meets_threshold
 domain: engie_be
 description: "Tests if the current hourly EPEX price is in a price range."
@@ -9,20 +9,20 @@ related_conditions:
   - engie_be.epex_quarter_hour_price_is_negative
 ---
 
-The **EPEX hour price is in range** condition passes when the price of the electricity hour you are in is above, below, or between prices you set.
+The **EPEX hourly price is in range** condition passes when the price of the electricity hour you are in is above, below, or between prices you set.
 
-Use it to run an automation only during cheap hours, for example to start the dishwasher only when the current hour is cheap. If your contract bills you per quarter hour, use [EPEX quarter-hourly price is in range](/conditions/engie_be.epex_quarter_hour_price_meets_threshold/) instead. To react the moment the price enters a range, use the [EPEX current hour price crossed threshold](/triggers/engie_be.epex_current_hour_crossed_threshold/) trigger.
+Use it to run an automation only during cheap hours, for example to start the dishwasher only when the current hour is cheap. If your contract bills you per quarter hour, use [EPEX quarter-hourly price is in range](/conditions/engie_be.epex_quarter_hour_price_meets_threshold/) instead. To react the moment the price enters a range, use the [EPEX current hourly price crossed threshold](/triggers/engie_be.epex_current_hour_crossed_threshold/) trigger.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
 {% include conditions/ui_header.md %}
 
-To use **EPEX hour price is in range** in an automation:
+To use **EPEX hourly price is in range** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. Search for **EPEX hour price is in range** and select it.
+4. Search for **EPEX hourly price is in range** and select it.
 5. Under **Contracts**, select one or more of your contracts with a dynamic tariff.
 6. Enter a price in EUR/kWh under **Above**, **Below**, or both.
 7. Select **Save**.
@@ -92,7 +92,7 @@ below:
 This automation starts the dishwasher at 22:00, but only when the price of that hour is below 0.10 EUR/kWh.
 
 - **Trigger**: Time (at `22:00:00`)
-- **Condition**: EPEX hour price is in range
+- **Condition**: EPEX hourly price is in range
   - **Contracts**: Main Street 1
   - **Below**: 0.10
 - **Action**: Turn on switch
