@@ -10,7 +10,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-The **Network configuration** {% term integration %} provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my network title="Settings > System > Network" %}**.
+The **Network configuration** {% term integration %} provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my network title="Settings > System > Network" %}**. To change the hostname, the IP address, or the Wi-Fi network on {% term "Home Assistant Operating System" %}, refer to [Network](/docs/configuration/network/).
 
 **{% my general badge %}**
 
