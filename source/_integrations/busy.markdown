@@ -25,8 +25,8 @@ The **BUSY Bar** {% term integration %} monitors the battery and Wi-Fi connectio
 ## Prerequisites
 
 1. Set up your bar through the BUSY app and connect it to the same network as Home Assistant.
-2. On the bar, go to **SETTINGS** > **Wi-Fi** and enable its HTTP API.
-3. If the API requires a key, note the Wi-Fi access key shown in the same menu.
+2. Connect the bar to your computer by USB and open its web interface at `http://10.0.4.20`.
+3. Under **Network** > **HTTP API**, enable HTTP API access over Wi-Fi. If password protection is enabled, use that password as the API key in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -34,7 +34,7 @@ The **BUSY Bar** {% term integration %} monitors the battery and Wi-Fi connectio
 Host:
   description: "The IP address or hostname of your bar. You can find its IP address in your router. This field is only required when adding a bar manually."
 API key:
-  description: "The key shown on the bar under **SETTINGS** > **Wi-Fi**. This field appears only if the bar requires a key. Home Assistant exchanges it for an access token and uses that token for subsequent connections."
+  description: "The password configured under **Network** > **HTTP API** in the bar’s web interface. This field appears only if password protection is enabled. Home Assistant exchanges it for an access token and uses that token for subsequent connections."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -57,7 +57,7 @@ The integration monitors your bar. It does not control sessions, display notific
 
 {% details "The bar is discovered but cannot be added" %}
 
-The bar announces itself on the network even when its HTTP API is disabled. On the bar, go to **SETTINGS** > **Wi-Fi**, enable the API, and add it again.
+The bar announces itself on the network even when its HTTP API is disabled. Connect the bar by USB, open `http://10.0.4.20`, enable access under **Network** > **HTTP API**, and add it again.
 
 {% enddetails %}
 
