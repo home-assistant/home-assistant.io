@@ -9,7 +9,7 @@ related_triggers:
   - engie_be.epex_high_today_hour_updated
 ---
 
-The **EPEX highest quarter-hourly price today updated** trigger fires when today's highest quarter-hourly EPEX price changes from one known value to another. In practice, this happens at midnight, Brussels time, when a new day starts, or when prices are corrected.
+The **EPEX highest quarter-hourly price today updated** trigger fires when today's highest quarter-hourly EPEX price changes from one known value to another. This happens at midnight, Brussels time, when the new day starts and its highest quarter-hourly price differs from the day before. When both days have the same highest price, the trigger does not fire.
 
 Use it to get a notification when today's highest quarter-hourly price changes. The trigger tells you that the price changed, and the EPEX highest quarter-hourly price today sensor holds the new price. For the cheapest quarter hour, use [EPEX lowest quarter-hourly price today updated](/triggers/engie_be.epex_low_today_quarter_hour_updated/). For the hourly price, use [EPEX highest hour price today updated](/triggers/engie_be.epex_high_today_hour_updated/).
 
