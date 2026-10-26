@@ -296,6 +296,7 @@ If VirtualBox is not supported on your Mac and you have experience using virtual
 - [VirtualBox (Apple Silicon chip)][vdi_aarch64] (.vdi)
 {% elsif page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
+- [VMware Workstation][vmdk] (.vmdk)
 {% elsif page.installation_type == 'alternative' %}
 - [KVM/Proxmox][qcow2] (.qcow2)
 - [VMware ESXi/vSphere][Virtual Appliance] (.ova)
