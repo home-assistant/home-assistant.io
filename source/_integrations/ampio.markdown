@@ -22,17 +22,17 @@ The **Ampio** {% term integration %} connects Home Assistant to an [Ampio Smart 
 
 The integration exposes the sensor channels configured in your Ampio installation. Confirmed sources of sensor data:
 
-- **M-SENS** environmental sensors: temperature, humidity, absolute and relative pressure, illuminance, loudness, air quality index, and CO2.
+- M-SENS environmental sensors: temperature, humidity, absolute and relative pressure, illuminance, loudness, air quality index, and CO2.
 - Any other Ampio module whose channels report one of those measurements.
 
-Each Ampio object gets its own device, named as in the Ampio app. That device sits under the device of its physical module, and each module device links to the M-SERV hub device. The M-SERV's own objects sit directly under the hub. The module devices are the same for both Ampio account types. With an administrator account they carry the module name, model, serial, and firmware version from the M-SERV's module catalog. With a standard account they are named after the module's bus address until you rename them. A module gets a device only when at least one of its objects becomes an entity.
+Each Ampio object gets its own device, named as in the Ampio app. That device sits under the device of its physical module, and each module device links to the M-SERV hub device. The M-SERV's own objects sit directly under the hub. Module devices are named after the module's bus address, for example **Ampio module 0xCB8F**, until you rename them. A module gets a device only when at least one of its objects becomes an entity.
 
 Objects belonging to output modules (relays, dimmers, blinds, RGBW, DALI) are not exposed as entities.
 
 ## Prerequisites
 
 - The Ampio M-SERV must be reachable from the Home Assistant host on its MQTT port (`1883`).
-- You need the credentials of an Ampio account on the M-SERV. A standard user account is recommended. An administrator account, which signs in as `admin`, also provides per-module device information and faster state updates.
+- You need the credentials of a standard Ampio user account, created in the Ampio app. Home Assistant sees only the objects that this account can access, so give it access to the objects you want in Home Assistant. The administrator account is not supported.
 
 {% include integrations/config_flow.md %}
 
@@ -40,30 +40,27 @@ Objects belonging to output modules (relays, dimmers, blinds, RGBW, DALI) are no
 Host:
   description: "Hostname or IP address of the Ampio server (M-SERV). Defaults to `ampio.local`."
 Username:
-  description: "Your Ampio account username. The administrator account signs in as `admin`."
+  description: "The name of a standard Ampio user account from the Ampio app."
 Password:
   description: "Your Ampio account password."
 {% endconfiguration_basic %}
 
-During the flow, the integration checks the credentials, reads the M-SERV's identity, and checks that the username matches the account type that the M-SERV reports. Home Assistant supports one Ampio M-SERV. To change the address, the account, or the password, delete the integration and add it again. If you add it again within 30 days, Home Assistant restores your entities with their entity IDs and the names you gave them.
+When you add the integration, it checks the credentials and reads the M-SERV's identity. If you sign in with the administrator account, the form shows an error and asks for a standard user account instead. Home Assistant supports one Ampio M-SERV. To change the address, the account, or the password, delete the integration and add it again. If you add it again within 30 days, Home Assistant restores your entities with their entity IDs and the names you gave them.
 
 ## Replacing the M-SERV
 
-If the configured address answers as a different M-SERV, the integration does not set up and shows an error. This also happens after you replace the M-SERV hardware. To use the new M-SERV:
+To replace the M-SERV hardware, restore your Ampio Designer project onto the new M-SERV. The project keeps the object IDs, so your entities stay linked to the same objects.
 
-1. Restore your Ampio Designer project onto the new M-SERV.
-2. Delete the Ampio integration in Home Assistant.
-3. Add the Ampio integration again with the address of the new M-SERV.
-
-If you add the integration again within 30 days, Home Assistant restores your entities with their entity IDs and the names you gave them.
+- If the new M-SERV uses the address of the old one, the integration reconnects to it automatically.
+- If the new M-SERV uses a different address, delete the Ampio integration and add it again with the new address. If you add it again within 30 days, Home Assistant restores your entities with their entity IDs and the names you gave them.
 
 ## Supported functionality
 
 ### Sensors
 
-Each recognized sensor channel becomes a sensor entity with the matching device class, unit, and suggested precision. The measurement type comes from the channel's type and interpretation as the M-SERV reports them, so a rename in Ampio Designer keeps the measurement type. The new name shows on the object's device after a reload. The entity takes its name from the object's device. An object without a name gets a device named `Object <id>`, and its entity is named after the measurement.
+Each recognized sensor channel becomes a sensor entity with the matching device class, unit, and suggested precision. The measurement type comes from the channel's type and interpretation as the M-SERV reports them, so a rename in Ampio Designer keeps the measurement type. The new name shows on the object's device after a reload. The entity takes its name from the object's device. An object without a name gets a device named after its ID, for example **Object 42**, and its entity is named after the measurement.
 
-Only channels that are configured and visible in Ampio Designer are exposed. The M-SERV marks placeholder channels as hidden, and the integration filters those out, so the entity list matches what the Ampio apps show.
+Only channels that are configured and visible in Ampio Designer, and that your Ampio account can access, are exposed. The M-SERV marks placeholder channels as hidden, and the integration filters those out, so the entity list matches what the Ampio apps show.
 
 ## Data updates
 
