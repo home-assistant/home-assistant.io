@@ -235,9 +235,6 @@ Panel:
 Panel User Code:
   description: >-
     The user PIN for the selected alarm panel. Enter exactly four decimal digits, including any leading zeros. The form defaults to `1111`; replace it with a valid user code for your panel. This is separate from your cloud account password. The integration validates access to the selected panel using this code and uses it for cloud arm and disarm commands.
-Polling Interval (seconds):
-  description: >-
-    How often Home Assistant requests panel updates from the cloud service, in seconds. Enter a whole number of at least `5`. The default is `20` seconds. Updates can be delayed by the selected interval and the cloud service response time.
 {% endconfiguration_basic %}
 
 ### Local connection settings
@@ -333,6 +330,50 @@ Time delay (seconds) between reload attempts:
   description: >-
     The delay between local connection retry attempts, in seconds. The default is `90` seconds. The allowed range is `5` to `1000` seconds.
 {% endconfiguration_basic %}
+
+## Visonic Security System automation examples
+
+### Automation: Update cloud panel status every minute
+
+Use this automation if you want to poll your cloud panel once per minute. First, [disable automatic polling](#data-updates) for the cloud entry.
+
+- **Trigger**: Time pattern, every minute.
+- **Action**: Update entity.
+  - **Target**: Your Visonic cloud alarm entity.
+
+{% include docs/paste_yaml_tip.md %}
+
+{% details "YAML example for updating cloud panel status every minute" %}
+
+Replace `alarm_control_panel.visonic_alarm_p1` with your cloud alarm entity ID.
+
+{% example %}
+automation: |
+  alias: "Update Visonic cloud panel every minute"
+  triggers:
+    - trigger: time_pattern
+      minutes: "/1"
+  actions:
+    - action: homeassistant.update_entity
+      target:
+        entity_id: alarm_control_panel.visonic_alarm_p1
+{% endexample %}
+
+{% enddetails %}
+
+## Data updates
+
+Local Ethernet and serial connections receive panel state updates as the panel sends them. Cloud connections request panel status every 20 seconds. Cloud status changes can take up to one polling interval, plus the service response time, to appear in Home Assistant.
+
+To use a different cloud polling schedule:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the Visonic cloud entry.
+2. Open the {% icon "mdi:dots-vertical" %} menu, select **System options**, and turn off **Enable polling for changes**. Select **Update**.
+3. Create an automation that calls **Update entity** for your cloud alarm entity. For an example, see [Update cloud panel status every minute](#automation-update-cloud-panel-status-every-minute).
+
+Use an interval of at least 20 seconds. More frequent update requests may be delayed by the integration. Slower polling delays reported status changes; arm and disarm actions still run when requested. Authentication, commands, and command-result checks can make additional requests independently of scheduled status polling.
+
+To restore the default schedule, disable the automation and turn **Enable polling for changes** back on.
 
 ## Troubleshooting
 
