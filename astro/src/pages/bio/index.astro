@@ -9,21 +9,15 @@
 // which a page opened from a social profile doesn't want. It keeps the
 // site's head (social tags, fonts, Plausible).
 //
-// Designed with the /community page's design system
-// (sass/homeassistant/pages/community/): its light grey page, navy ink,
-// Figtree type with tight headings, cyan panels, pill buttons with a
-// white icon circle and the mint accent. Those colors are custom
-// properties on <body> below, which the Bio* components read; spacing,
-// type sizes and radii come from the site's tokens.
+// Built from the site's components: a Card for each item of a feed,
+// a Button for each curated link and an Icon for each social link.
 import fs from "node:fs";
 import path from "node:path";
 import { getEntry } from "astro:content";
 import SiteHead from "../../components/SiteHead.astro";
-import BioTile from "../../components/BioTile.astro";
-import BioButton from "../../components/BioButton.astro";
-import BioHero from "../../components/BioHero.astro";
-import BioVideo from "../../components/BioVideo.astro";
-import BioSocials from "../../components/BioSocials.astro";
+import Card from "../../components/Card.astro";
+import Button from "../../components/Button.astro";
+import Icon from "../../components/Icon.astro";
 import { loadPosts, resolve, socialLinks, validate } from "../../lib/bio.mjs";
 import { setting } from "../../lib/site.mjs";
 import "../../styles/tokens.scss";
@@ -71,20 +65,37 @@ const name = setting("title");
         sections.map((section, sectionIndex) =>
           section.type === "feed" ? (
             <section class="feed">
-              {section.title && <h2 class="feed-title">{section.title}</h2>}
-              <ul class="tiles">
+              {section.title && <h2>{section.title}</h2>}
+              <ul class="list">
                 {section.tiles.map((tile, tileIndex) => {
-                  const props = { ...tile, section: section.title };
-                  const eager = sectionIndex === 0 && tileIndex < 2;
+                  const video = tile.kind === "video";
                   return (
                     <li>
-                      {tile.kind === "video" ? (
-                        <BioVideo {...props} eager={eager} />
-                      ) : tile.kind === "hero" ? (
-                        <BioHero {...props} />
-                      ) : (
-                        <BioTile {...props} eager={eager} />
-                      )}
+                      <Card
+                        href={tile.url}
+                        title={tile.label}
+                        meta={tile.note}
+                        image={tile.image}
+                        layout={video || tile.kind === "hero" ? "stacked" : "row"}
+                        tone={video ? "dark" : tile.featured ? "accent" : "default"}
+                        imageWidth={video ? 16 : undefined}
+                        imageHeight={video ? 9 : undefined}
+                        eager={sectionIndex === 0 && tileIndex < 2}
+                        rel="noopener"
+                        data-section={section.title ?? "links"}
+                        data-source={tile.source}
+                        data-label={tile.label}
+                      >
+                        {video && (
+                          <svg slot="media" class="play" viewBox="0 0 68 48" width="68" height="48" aria-hidden="true">
+                            <path
+                              d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.6 8.6 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.6 8.6 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.6 8.6 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3Z"
+                              fill="#f00"
+                            />
+                            <path d="M45 24 27 14v20Z" fill="#fff" />
+                          </svg>
+                        )}
+                      </Card>
                     </li>
                   );
                 })}
@@ -92,11 +103,22 @@ const name = setting("title");
             </section>
           ) : (
             <section class="links">
-              {section.title && <h2 class="links-title">{section.title}</h2>}
-              <ul class="buttons">
+              {section.title && <h2>{section.title}</h2>}
+              <ul class="list">
                 {section.tiles.map((tile) => (
                   <li>
-                    <BioButton {...tile} section={section.title} />
+                    <Button
+                      class="link"
+                      href={tile.url}
+                      scheme={tile.featured ? "green" : "tertiary"}
+                      icon
+                      rel="noopener"
+                      data-section={section.title ?? "links"}
+                      data-source={tile.source}
+                      data-label={tile.label}
+                    >
+                      {tile.label}
+                    </Button>
                   </li>
                 ))}
               </ul>
@@ -105,9 +127,26 @@ const name = setting("title");
         )
       }
 
-      <div class="socials">
-        <BioSocials links={socials} />
-      </div>
+      {
+        socials.length > 0 && (
+          <nav class="socials" aria-label="Home Assistant elsewhere">
+            {socials.map((social) => (
+              <a
+                class="social"
+                href={social.url}
+                aria-label={social.label}
+                title={social.label}
+                rel="noopener"
+                data-section="socials"
+                data-source="curated"
+                data-label={social.platform}
+              >
+                <Icon name={social.platform} />
+              </a>
+            ))}
+          </nav>
+        )
+      }
 
       <footer class="footer">
         <a href="/">home-assistant.io</a> · An <a href="https://www.openhomefoundation.org/">Open Home Foundation</a> project
@@ -117,25 +156,12 @@ const name = setting("title");
 </html>
 
 <style lang="scss" is:global>
-  // The /community page's palette
-  // (sass/homeassistant/pages/community/_variables.scss, _base.scss),
-  // read by the Bio* components.
   body.bio-page {
-    --bio-page-bg: #f5f6fa;
-    --bio-ink: #002332;
-    --bio-paragraph: #4f606e;
-    --bio-primary: #00aef8;
-    --bio-secondary: #16f3be;
-    --bio-pill: #99dffc;
-    --bio-panel: #cceffe;
-    --bio-radius: 0.75rem;
-
     margin: 0;
     min-height: 100vh;
-    background: var(--bio-page-bg);
-    color: var(--bio-ink);
+    background: var(--color-page);
+    color: var(--color-text);
     font-family: var(--font-heading);
-    line-height: 1.25;
     -webkit-text-size-adjust: 100%;
   }
 </style>
@@ -145,13 +171,12 @@ const name = setting("title");
     box-sizing: border-box;
     max-width: 34rem;
     margin: 0 auto;
-    padding: var(--space-xlarge) max(var(--space-medium), env(safe-area-inset-right)) var(--space-xxlarge)
-      max(var(--space-medium), env(safe-area-inset-left));
+    padding: var(--space-xlarge) max(var(--space-large), env(safe-area-inset-right)) var(--space-xxlarge)
+      max(var(--space-large), env(safe-area-inset-left));
   }
 
   .header {
     margin-bottom: var(--space-xlarge);
-    padding: 0 var(--space-small);
     text-align: center;
   }
 
@@ -166,47 +191,34 @@ const name = setting("title");
     margin: 0;
     font-size: var(--font-size-heading);
     font-weight: 600;
-    letter-spacing: -0.04em;
-    line-height: 1;
   }
 
   .tagline {
     max-width: 24rem;
     margin: var(--space-small) auto 0;
-    color: var(--bio-paragraph);
+    color: var(--color-text-muted);
     font-size: var(--font-size-large);
     text-wrap: balance;
   }
 
-  // The feed sits in a cyan panel, like the community page's meetups and
-  // newsletter sections.
-  .feed {
-    padding: var(--space-small);
-    background: var(--bio-panel);
-    border-radius: var(--bio-radius);
+  h2 {
+    margin: 0 0 var(--space-medium);
+    font-size: var(--font-size-large);
+    font-weight: 600;
   }
 
-  .feed-title {
-    margin: var(--space-small) var(--space-small) var(--space-medium);
-    font-size: var(--font-size-xxlarge);
-    font-weight: 600;
-    letter-spacing: -0.04em;
-    line-height: 1;
+  // The feed sits on a light panel, so its white cards stand out.
+  .feed {
+    padding: var(--space-medium);
+    background: var(--color-surface-subtle);
+    border-radius: var(--radius-small);
   }
 
   .links {
     margin-top: var(--space-xlarge);
-    padding: 0 var(--space-small);
   }
 
-  .links-title {
-    margin: 0 0 var(--space-medium);
-    font-size: var(--font-size-medium);
-    font-weight: 700;
-  }
-
-  .tiles,
-  .buttons {
+  .list {
     display: grid;
     gap: var(--space-small);
     margin: 0;
@@ -214,13 +226,51 @@ const name = setting("title");
     list-style: none;
   }
 
+  .link {
+    width: 100%;
+  }
+
+  .play {
+    width: 4.25rem;
+    height: auto;
+  }
+
+  // A row of platform icons, each a 2.75rem tap target.
   .socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-small);
     margin-top: var(--space-xxlarge);
+  }
+
+  .social {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-pill);
+    color: #002e3e;
+    font-size: var(--font-size-xxlarge);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #18bcf2;
+    }
+
+    &:focus-visible {
+      box-shadow: inset 0 0 0 0.25rem #18bcf2;
+      outline: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   .footer {
     margin-top: var(--space-xxlarge);
-    color: var(--bio-paragraph);
+    color: var(--color-text-muted);
     font-size: var(--font-size-small);
     text-align: center;
 
