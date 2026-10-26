@@ -60,7 +60,7 @@ device_id:
 
 ## Good to know
 
-- Only contracts with a dynamic tariff have EPEX prices. A device of a contract with a fixed tariff never fires.
+- Only contracts with a dynamic tariff have EPEX prices. A device of a contract without a confirmed dynamic tariff never fires.
 - Home Assistant checks the price on every EPEX update and on every quarter-hour boundary (at 00, 15, 30 and 45 minutes past the hour).
 - After the integration reloads, the price when it finishes loading sets a new baseline. When the price is unknown because a slot is missing or an update failed, the first known price sets it. The trigger does not fire on a baseline price.
 - Each selected device fires on its own. If you select two contracts of the same account, the trigger fires twice.

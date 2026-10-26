@@ -110,7 +110,7 @@ To follow the cost of your consumption, go to {% my config_energy title="**Setti
 
 Addresses on a dynamic tariff get the **EPEX tomorrow prices available** binary sensor. It turns on once the hourly and the quarter-hourly prices for tomorrow are both published.
 
-They also get the **EPEX current hour price is negative** and the **EPEX current quarter-hourly price is negative** binary sensors. They are on while the price of the hour or quarter hour you are in is negative. They turn off when the price returns to zero or above, and read unknown when no price covers the current moment.
+They also get the **EPEX current hourly price is negative** and the **EPEX current quarter-hourly price is negative** binary sensors. They are on while the price of the hour or quarter hour you are in is negative. They turn off when the price returns to zero or above, and read unknown when no price covers the current moment.
 
 {% include integrations/triggers.md %}
 
