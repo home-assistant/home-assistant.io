@@ -335,8 +335,9 @@ Not every {% term integration %} provides device triggers. Without them, the **D
 Use a trigger on an {% term entity %} of the device instead:
 
 1. In the automation editor, select **Add trigger**.
-2. On the **By target** tab, select the device or one of its entities.
-   - Result: The triggers for this target are shown, for example, **State changed**.
+2. On the **By target** tab, select one of the device's entities.
+   - Result: The triggers for this entity are shown, for example, **State changed**.
+   - If you select the device itself, only triggers that fit its entities are shown, such as **Light turned on**. **State changed** isn't one of them.
 3. Select the trigger that fits.
 
 {% enddetails %}

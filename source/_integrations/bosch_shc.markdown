@@ -229,8 +229,7 @@ Combine the cover platform with a sun trigger to close your shutters as it gets 
 automation: |
   alias: "Close shutters at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: cover.close_cover
       target:

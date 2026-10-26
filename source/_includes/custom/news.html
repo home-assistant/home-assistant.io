@@ -179,6 +179,7 @@
           background-image: url({{page.frontpage_image | default:page.og_image}});
           background-size: cover;
           background-color: #41bdf5;
+          {% if page.frontpage_gradient_color %}--caption-color: {{ page.frontpage_gradient_color }};{% endif %}
         ">
     <div class="caption">
       <div>
@@ -203,6 +204,7 @@
       background-image: url(/images/frontpage/feature-sotoh2026.webp);
       background-size: cover;
       padding-top: 55%;
+      --caption-color: #231933;
     ">
     <div class="caption">
       <div>
@@ -224,6 +226,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      --caption-color: #042B38;
     ">
     <div class="caption">
       <div>
@@ -243,6 +246,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      --caption-color: #372851;
     ">
     <div class="caption">
       <div>
@@ -261,6 +265,7 @@
       background-image: url(/images/frontpage/feature-voice.jpg);
       background-size: cover;
       padding-bottom: 35%;
+      --caption-color: #535a5c;
     ">
     <div class="caption">
       <div>
@@ -278,6 +283,7 @@
       background-image: url(/images/frontpage/energy-frontpage.jpg);
       background-size: cover;
       padding-top: 35%;
+      --caption-color: #42321b;
     ">
     <div class="caption">
       <div>

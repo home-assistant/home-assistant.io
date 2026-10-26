@@ -112,9 +112,12 @@ By the end of this section you will have configured the OAuth consent screen, ne
 3. Click **Branding** in the left sidebar. Fill in the required fields:
    - **App name**: Enter a name (e.g. Home Assistant). This is shown during the OAuth login flow.
    - **User support email**: Select your Google account email.
+   - **Application home page**: Enter a placeholder URL, such as `https://home-assistant.io`.
+   - **Application privacy policy link**: Enter a placeholder URL, such as `https://home-assistant.io/privacy`.
+   - **Authorized domains**: Select **Add Domain** then include the domain(s) for the URLs in the previous two points, such as: `home-assistant.io`.
    - **Developer contact email**: Enter your email address under Developer contact information.
    
-   Leave all other fields (App logo, App domain, Authorized domains) empty to avoid triggering Google's verification process. Click **Save**.
+   Leave all other fields (App logo, Application terms of service) empty to avoid triggering Google's verification process. Select **Save**.
 
 4. Click **Audience** in the left sidebar.
    - Under **User type**, confirm it shows **External**.
@@ -370,7 +373,7 @@ without waiting for any media to be fetched. See Device Triggers for media suppo
 
 ## Device Triggers
 
-The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Tutorial: Create your first automation](/getting-started/automation/) or the [Automation](/docs/automation/) documentation for full details.
+The Nest integration works with the [device trigger](/triggers/device/) to enable automation in Home Assistant. You should review the [Tutorial: Create your first automation](/getting-started/automation/) or the [Automation](/docs/automation/) documentation for full details.
 
 Device triggers will wait to fire after any media associated with the event is downloaded. Use an
 event entity for immediate notifications without media.
@@ -667,7 +670,15 @@ is required:
 1. Navigate to the [Branding](https://console.cloud.google.com/auth/branding) page.
 2. Remove additional fields that are not required and Save. See the set up instruction above and
 make sure not to enter extra fields.
-3. Go back to the Verification Center and confirm the status is correct.
+3. Remove the app logo and any fields not listed in the setup instructions above, then select **Save**. Keep the application home page, privacy policy link, and authorized domain, as Google requires them to publish the app.
+4. In the left sidebar, select **Branding**.  Fill in the required fields:
+   - **App name**: Enter a name (for example, Home Assistant). This is shown during the OAuth login flow.
+   - **User support email**: Select your Google account email.
+   - Under **App domain**, enter `https://home-assistant.io` for **Application home page** and `https://home-assistant.io/privacy` for **Application privacy policy link**. Google requires both before you can publish the app.
+   - Under **Authorized domains**, select **Add domain** and enter `home-assistant.io`.
+   - **Developer contact email**: Enter your email address under Developer contact information.
+
+   Leave **App logo** empty, because uploading a logo triggers Google's verification process. **Application terms of service** is optional. Select **Save**.
 
 Additionally you need to make sure the Audience configuration is correct by following these steps:
 
@@ -686,7 +697,7 @@ fully configured for the project and needs additional information.
 #### Resolution
 
 Visit the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) and
-enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
+enter the required fields (App Name, Support Email, Application home page, Application privacy policy link, Authorized domains, Developer Email) and leave everything else as default.
 
 ### Can't find devices
 

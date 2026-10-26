@@ -8,7 +8,7 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard
@@ -94,7 +94,10 @@ automation: |
 
 Use the button action when an integration exposes a restart or update button that you want to run from an automation.
 
-- **Trigger**: Internet connection turns off for 10 minutes
+- **Trigger**: State changed
+  - **Entity**: Internet connection sensor
+  - **To**: Off
+  - **For at least**: `00:10:00`
 - **Action**: Press button
   - **Target**: Router restart button
 

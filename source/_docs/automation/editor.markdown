@@ -53,7 +53,7 @@ The table works like the other tables in Home Assistant. For the steps, refer to
 
 ## Undoing and redoing changes
 
-In the visual editor, you can undo and redo your changes before you save them.
+In the visual editor, you can undo and redo your changes, also after you save them.
 
 - To undo a change, in the top bar, select **Undo** {% icon "mdi:undo" %}.
 - To redo a change, in the top bar, select **Redo** {% icon "mdi:redo" %}.

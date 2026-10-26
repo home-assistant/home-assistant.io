@@ -50,8 +50,7 @@ The phone number used in **target** should be registered with Facebook messenger
 automation:
   - alias: "Evening Greeting"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: notify.facebook
         data:

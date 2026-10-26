@@ -477,7 +477,7 @@ Timeouts can occur due to connection issues between Home Assistant, Teslemetry, 
 automation:
   - alias: "Charge Tesla from Solar"
     trigger:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.home_solar_power
         above: 3000
     actions:
@@ -497,7 +497,7 @@ automation:
 automation:
   - alias: "Precondition for Work"
     trigger:
-      - platform: calendar
+      - trigger: calendar
         event: start
         offset: "-00:15:00"
         entity_id: calendar.work
@@ -556,15 +556,17 @@ blueprint:
           filter:
             - domain: cover
 trigger:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id:
       - !input distance_to_arrival_entity
     below: !input distance_to_arrival
     above: 0
 condition:
-  - condition: zone
-    entity_id: !input route_entity
-    zone: !input route_zone
+  - condition: zone.in_zone
+    target:
+      entity_id: !input route_entity
+    options:
+      zone: !input route_zone
 actions:
   - action: cover.open_cover
     target:

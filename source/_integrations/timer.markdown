@@ -128,9 +128,9 @@ automation: |
 
 Get a reminder shortly before a timer finishes, like when laundry or cooking time is almost done.
 
-- **Trigger**: Timer time remaining
+- **Trigger**: Timer remaining time reached
   - **Target**: Laundry timer
-  - **Time remaining**: 00:05:00
+  - **Time remaining**: `00:05:00`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

@@ -32,7 +32,7 @@ The **Google Gemini** {% term integration %} adds a conversation agent, speech-t
 
 Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 This integration requires an API key to use, [which you can generate here](https://aistudio.google.com/app/apikey), and to be in one of the [available regions](https://ai.google.dev/gemini-api/docs/available-regions).
 
