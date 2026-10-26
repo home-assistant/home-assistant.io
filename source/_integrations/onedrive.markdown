@@ -79,7 +79,7 @@ The integration will request the following permissions on your OneDrive for the 
 
 The integration provides the following sensors, which are updated every 5 minutes:
 
-- **Total available storage**: The total size of your drive ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
+- **Total available storage**: The total size of your drive ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - **Used storage**: The amount of storage you have used up
 - **Remaining storage**: The amount of storage that is left in your drive
 - **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`

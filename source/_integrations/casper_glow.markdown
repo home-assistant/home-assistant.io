@@ -75,7 +75,7 @@ The **Casper Glow** {% term integration %} provides the following entities.
 - **Battery**
   - **Description**: Reports the current battery level of the Glow as a percentage.
 
-- **Dimming end time** ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
+- **Dimming end time** ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
   - **Description**: Shows the projected time when the current dimming sequence will end. This value is a timestamp that updates only when there is a significant change during a poll interval. Such as pausing or resuming dimming, or manually adjusting the physical light.
 
 #### Selects

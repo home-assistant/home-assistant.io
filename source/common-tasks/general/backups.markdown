@@ -32,6 +32,24 @@ Some actions still use older terms. A full backup contains all of these parts, u
 
 On Home Assistant Container, a backup contains the Home Assistant settings and, if you choose, the history. Apps, the media and share folders, and network storage are only available on Home Assistant OS.
 
+## What isn't in a backup
+
+Some files are never part of a backup, because Home Assistant creates them again, or because they would make the backup much larger. A backup doesn't contain the following files:
+
+- Log files, such as `home-assistant.log`.
+- Caches and temporary files, such as the `tts` folder with cached text-to-speech audio, and the `.cache` folder.
+- Backup files in the `backups` and `tmp_backups` folders inside the configuration folder, so that a backup doesn't contain older backups. A backup file that you copied to another place in the configuration folder is included.
+- On {% term "Home Assistant Operating System" %}, files that Home Assistant marked as damaged.
+
+The history is only included if you select it. On {% term "Home Assistant Operating System" %}, the same applies to the media folder, the share folder, and apps. To see which parts you can select, refer to [What a backup contains and where it's stored](#what-a-backup-contains-and-where-its-stored).
+
+If Home Assistant stores its history in another database, such as MariaDB or PostgreSQL, that database isn't part of the Home Assistant settings in a backup. Where it's backed up depends on where it runs:
+
+- On {% term "Home Assistant Operating System" %}, if you run the database as an app, such as the **MariaDB** app, the database is backed up with the app. Include the app in the backup.
+- If the database runs on another system, it's never part of a backup. Back it up separately, for example, with the backup tools of the database.
+
+For more about other databases, refer to [Custom database engines](/integrations/recorder/#custom-database-engines).
+
 ## Preparing for a backup
 
 Before creating a backup, check if you can reduce the size of the backup. This is especially important if you want to use the backup to migrate the system to new hardware, for example from a Raspberry Pi Compute Module&nbsp;4 to a Raspberry Pi Compute Module&nbsp;5.
@@ -274,7 +292,9 @@ You can use a backup during the onboarding process to restore your configuration
    - The login password and username must match the ones you used at the time the backup was taken.
    - Your dashboard should show all the elements as they were when you created the backup.
    - If some devices are shown as unavailable, you may need to wake the battery-powered devices.
-7. If you had [network storage](/common-tasks/os/#network-storage) connected on the previous system, you may need to reconnect those.
+7. If you had [network storage](/common-tasks/os/#network-storage) connected on the previous system, go to {% my storage title="**Settings** > **System** > **Storage**" %} and check that each network storage is listed and connected.
+   - If a share can't be reached during the restore, its settings are still restored. Make sure that the share is available. Then, next to the network storage, select the reload {% icon "mdi:reload" %} button.
+   - If a network storage is missing, add it again. For the steps, refer to [Add a new network storage](/common-tasks/os/#add-a-new-network-storage).
 8. If you had Zigbee devices, and you migrated to a new device with its own Zigbee radio built-in:
    - Because this is now a different Zigbee radio, you need to [migrate Zigbee](/integrations/zha/#migrating-to-a-new-zigbee-adapter-inside-zha).
 
@@ -295,6 +315,7 @@ If the restore doesn't start because of one of these conditions, refer to [The r
    - Your current system will be overwritten with the parts that you choose to restore.
    - If you want to restore the complete configuration with all directories and apps, select everything.
    - If you only want to restore specific elements, only select the folders and apps you want to restore.
+   - On {% term "Home Assistant Operating System" %}, the network storage from the backup is restored too. If this system already has a network storage with the same name, the one from the backup replaces it.
 4. Select **Restore**.
    - Result: The **Restore backup** dialog opens.
    - If the backup uses a different encryption key than the one on this system, enter that key.
