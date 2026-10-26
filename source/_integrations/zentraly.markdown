@@ -3,7 +3,7 @@ title: Zentraly
 description: Instructions on how to integrate Zentraly devices with Home Assistant.
 ha_category:
   - Climate
-ha_release: "2026.10"
+ha_release: "2026.11"
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_zeroconf: true
@@ -109,7 +109,9 @@ automation: |
 
 Zentraly uses a local WebSocket connection to receive state updates reported by the device.
 
-Home Assistant also reads the device state every five minutes as a synchronization fallback.
+Home Assistant also reads the device state every five minutes as a synchronization fallback. If you disable polling in the integration's system options, these periodic reads stop. Device reports and state refreshes on startup and reconnection continue.
+
+Hardware and firmware versions are read when the integration loads, including initial setup, Home Assistant startup, and integration reload, and when the device reconnects. There are no periodic version reads or a dedicated manual version refresh. If a version cannot be read, Home Assistant retains its previously known value. Missing version information does not prevent setup or reconnection.
 
 All communication between Home Assistant and the Zentraly device takes place over the local network.
 
