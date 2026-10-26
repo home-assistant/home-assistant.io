@@ -112,15 +112,17 @@ condition: |
     behavior: any
 {% endexample %}
 
-This passes when the bedroom humidity sensor reads above the number helper´s value.
+This passes when the bedroom humidity sensor reads above the number helper's value.
 
 ### Options in YAML
 
 {% include conditions/threshold_value_options_yaml.md
    range_note="0–100"
-   number_final="a percentage value (0–100)" %}
+   number_final="a percentage value (0–100)"
+   threshold_required="true"
+   entity_unit="`%`" %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="humidity sensor, thermostat, humidifier, or weather entity" example="sensor.bathroom_humidity" %}
 
 {% include conditions/behavior.md %}
 

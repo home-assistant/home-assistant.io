@@ -3,10 +3,39 @@
 # in site/head.html checks these on page load and sends the reader to the
 # new location. Keys are page URLs, then old anchor IDs mapped to new URLs.
 "/common-tasks/general/":
-  enabling-or-disabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
-  enabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
-  to-enable-or-disable-a-single-entity: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
-  to-enable-or-disable-multiple-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  backups: /common-tasks/general/backups/
+  what-a-backup-contains-and-where-its-stored: /common-tasks/general/backups/#what-a-backup-contains-and-where-its-stored
+  preparing-for-a-backup: /common-tasks/general/backups/#preparing-for-a-backup
+  setting-up-an-automatic-backup-process: /common-tasks/general/backups/#setting-up-an-automatic-backup-process
+  defining-backup-locations: /common-tasks/general/backups/#defining-backup-locations
+  about-the-backup-storage-on-home-assistant-cloud: /common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-cloud
+  to-define-the-backup-location-for-automatic-backups: /common-tasks/general/backups/#to-define-the-backup-location-for-automatic-backups
+  creating-a-backup-automation-using-the-backup-action: /common-tasks/general/backups/#creating-a-backup-automation-using-the-backup-action
+  creating-a-manual-backup: /common-tasks/general/backups/#creating-a-manual-backup
+  downloading-your-local-backups: /common-tasks/general/backups/#downloading-your-local-backups
+  downloading-a-backup-from-home-assistant-cloud: /common-tasks/general/backups/#downloading-a-backup-from-home-assistant-cloud
+  app-update-backups: /common-tasks/general/backups/#app-update-backups
+  changing-app-update-backup-settings: /common-tasks/general/backups/#changing-app-update-backup-settings
+  deleting-obsolete-backups: /common-tasks/general/backups/#deleting-obsolete-backups
+  restoring-a-backup: /common-tasks/general/backups/#restoring-a-backup
+  estimated-duration: /common-tasks/general/backups/#estimated-duration
+  restoring-a-backup-during-onboarding: /common-tasks/general/backups/#restoring-a-backup-during-onboarding
+  to-restore-a-backup-during-onboarding: /common-tasks/general/backups/#to-restore-a-backup-during-onboarding
+  to-restore-a-backup-on-your-current-system: /common-tasks/general/backups/#to-restore-a-backup-on-your-current-system
+  troubleshooting-backups: /common-tasks/general/backups/#troubleshooting-backups
+  symptom-last-automatic-backup-failed-or-failed-to-create-backup: /common-tasks/general/backups/#symptom-last-automatic-backup-failed-or-failed-to-create-backup
+  symptom-could-not-lock-database-within-30-seconds: /common-tasks/general/backups/#symptom-could-not-lock-database-within-30-seconds
+  enabling-or-disabling-entities: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
+  enabling-entities: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
+  to-enable-or-disable-a-single-entity: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
+  to-enable-or-disable-multiple-entities: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
+"/common-tasks/os/":
+  installing-and-using-the-samba-app: /common-tasks/os/#installing-and-using-the-samba-share-app
+  installing-and-using-the-visual-studio-code-vsc-app: /common-tasks/os/#installing-and-using-the-studio-code-server-app
+  flashing-an-odroid-m1s: /installation/odroid/#flashing-an-odroid-m1s
+  flashing-an-odroid-n2: /installation/odroid/#flashing-an-odroid-n2
+  snapshots: /common-tasks/general/backups/
+  backups: /common-tasks/general/backups/
 "/conditions/":
   logical-conditions: /conditions/and/
   and-condition: /conditions/and/
@@ -203,3 +232,19 @@
   persistent-notification: /docs/automation/trigger-data/#persistent-notification-triggers
   webhook: /docs/automation/trigger-data/#webhook-triggers
   zone: /docs/automation/trigger-data/#zone-triggers
+"/docs/automation/trigger/":
+  webhook-data: /triggers/webhook/#sending-a-request-to-a-webhook
+  webhook-security: /triggers/webhook/#webhook-security
+# /docs/configuration/customizing-devices redirects here (see _redirects), and
+# the browser keeps the anchor.
+"/docs/configuration/customizing-entities/":
+  device-class: /integrations/homeassistant/#device-class
+  customizing-entities: /integrations/homeassistant/#editing-entity-settings-in-yaml
+"/more-info/local-media/add-media/":
+  accessing-the-media-browser: /integrations/media_source/#browsing-your-media
+  adding-media-using-the-media-browser-on-home-assistant-os: /more-info/local-media/add-media/#adding-media-using-the-media-browser
+  removing-media-using-the-media-browser-on-home-assistant-os: /more-info/local-media/add-media/#removing-media-using-the-media-browser
+# /common-tasks/supervised redirects to /installation/ (see _redirects), and
+# the browser keeps the anchor.
+"/installation/":
+  snapshots: /common-tasks/general/backups/

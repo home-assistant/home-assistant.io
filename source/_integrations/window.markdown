@@ -43,8 +43,7 @@ automation: |
         behavior: each
         for: "00:00:00"
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: notify.send_message
       target:

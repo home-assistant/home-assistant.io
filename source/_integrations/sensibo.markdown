@@ -62,7 +62,7 @@ API key:
 
 {% note %}
 
-Some entities are disabled by default, so you need to [enable them](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to use them.
+Some entities are disabled by default, so you need to [enable them](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to use them.
 
 Depending on device support, some entities might not be available as the device does not support them.
 
@@ -193,10 +193,11 @@ switch:
 automation:
   alias: "Example timer"
   triggers:
-    - trigger: zone
-      entity_id: person.me
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.me
+      options:
+        zone: zone.home
   actions:
     - action: sensibo.enable_timer
       data:

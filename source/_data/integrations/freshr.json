@@ -1,0 +1,19 @@
+{
+  "domain": "freshr",
+  "name": "Fresh-r",
+  "integration_type": "hub",
+  "codeowners": [
+    "@SierraNL"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "climate.fans_ventilation",
+    "sensors.air_quality"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

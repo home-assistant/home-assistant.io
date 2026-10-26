@@ -69,7 +69,7 @@ For Home Assistant Host, the following sensors are available:
 
 For each installed app Supervisor provides following binary sensors:
 
-(These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and must be re-enabled to appear)
+(These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and must be re-enabled to appear)
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |

@@ -1,0 +1,17 @@
+{
+  "domain": "zamg",
+  "name": "GeoSphere Austria",
+  "integration_type": "service",
+  "codeowners": [
+    "@killer0071234"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts"
+  ],
+  "platforms": [
+    "sensor",
+    "weather"
+  ]
+}

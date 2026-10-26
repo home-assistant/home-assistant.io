@@ -42,7 +42,7 @@ Note that not all routers support all features, if a router does not support a f
 
 You might also see the following error in the log `404 service '...', method '...' not found`, to prevent these errors, keep the unsupported entities disabled.
 
-All possibly unsupported entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+All possibly unsupported entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Reboot button
 

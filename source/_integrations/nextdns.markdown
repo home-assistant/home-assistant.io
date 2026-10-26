@@ -67,7 +67,7 @@ The **NextDNS** integration provides the following entities.
   - **Description**: Shows the percentage of blocked DNS queries
 - **DNS-over-HTTP/3 queries**
   - **Description**: Shows the number of DNS queries via DNS-over-HTTP/3
-  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **DNS-over-HTTP/3 queries ratio**
   - **Description**: Shows the percentage of DNS queries via DNS-over-HTTP/3
   - **Remarks**: This entity is disabled by default
@@ -146,6 +146,10 @@ The **NextDNS** integration provides the following entities.
   - **Description**: Controls cryptojacking protection
 - **Domain generation algorithms protection**
   - **Description**: Controls protection against domain generation algorithms
+- **DNS data exfiltration protection**
+  - **Description**: Controls protection against data exfiltration over DNS
+- **DNS payload delivery protection**
+  - **Description**: Controls protection against malware payload delivery over DNS
 - **DNS rebinding protection**
   - **Description**: Controls DNS rebinding protection
 - **Google safe browsing**
@@ -162,6 +166,8 @@ The **NextDNS** integration provides the following entities.
   - **Description**: Controls access to Web3 and crypto domains
 - **Force YouTube restricted mode**
   - **Description**: Controls YouTube Restricted Mode enforcement
+- **Block newly active domains**
+  - **Description**: Controls blocking of newly active domains
 - **Block newly registered domains**
   - **Description**: Controls blocking of newly registered domains
 - **Block bypass methods**
@@ -176,8 +182,12 @@ The **NextDNS** integration provides the following entities.
   - **Description**: Controls blocking of dynamic DNS hostnames
 - **Block disguised third-party trackers**
   - **Description**: Controls blocking of disguised third-party trackers
+- **Block fast-flux networks**
+  - **Description**: Controls blocking of fast-flux networks
 - **Block free hosting domains**
   - **Description**: Controls blocking of free hosting domains
+- **Block high-risk TLDs**
+  - **Description**: Controls blocking of high-risk top-level domains
 - **Block page**
   - **Description**: Controls the display of the blocking page
 - **Block online gaming**
@@ -197,6 +207,8 @@ The **NextDNS** integration provides the following entities.
   - **Remarks**: This entity is disabled by default
 - **Block tunneling endpoints**
   - **Description**: Controls blocking of tunneling endpoints
+- **Block untrusted certificates**
+  - **Description**: Controls blocking of domains that use untrusted certificates
 - **Block video streaming**
   - **Description**: Controls blocking of video streaming websites
   - **Remarks**: This entity is disabled by default
@@ -347,7 +359,7 @@ Here are a few ideas to get you started.
 This automation turns on the **Block social networks** switch of the kids profile every evening.
 
 - **Trigger**: Time: 20:00
-- **Action**: Turn on
+- **Action**: Turn on switch
   - **Target**: Block social networks (`switch.kids_block_social_networks`)
 
 {% details "YAML example for blocking social media in the evening" %}
@@ -371,7 +383,7 @@ automation: |
 This automation turns off the **Block social networks** switch of the kids profile after school.
 
 - **Trigger**: Time: 16:00
-- **Action**: Turn off
+- **Action**: Turn off switch
   - **Target**: Block social networks (`switch.kids_block_social_networks`)
 
 {% details "YAML example for unblocking social media after school" %}

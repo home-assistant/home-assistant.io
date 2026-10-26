@@ -144,8 +144,7 @@ Cycle the pool light to the next color at sunset every evening:
 automation: |
   alias: "Pool: advance LED color at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: button.press
       target:
@@ -164,7 +163,7 @@ The integration provides the following sensors:
 - **UV**: UV module reading (if UV module installed)
 - **Electrolysis / Hydrolysis**: current production level in gr/h
 - **Filtration intel time**: daily runtime in Intel mode
-- **Wi-Fi signal strength**: controller RSSI (diagnostic, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
+- **Wi-Fi signal strength**: controller RSSI (diagnostic, [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 
 ### Binary sensors
 

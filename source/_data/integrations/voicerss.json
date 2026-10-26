@@ -1,0 +1,12 @@
+{
+  "domain": "voicerss",
+  "name": "VoiceRSS",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "ai_voice.speech"
+  ],
+  "platforms": [
+    "tts"
+  ]
+}

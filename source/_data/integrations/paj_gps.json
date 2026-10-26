@@ -1,0 +1,18 @@
+{
+  "domain": "paj_gps",
+  "name": "PAJ GPS",
+  "integration_type": "hub",
+  "codeowners": [
+    "@skipperro"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "presence_location.trackers"
+  ],
+  "platforms": [
+    "device_tracker",
+    "sensor"
+  ]
+}

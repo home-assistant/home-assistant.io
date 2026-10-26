@@ -1,0 +1,16 @@
+{
+  "domain": "cloud",
+  "name": "Home Assistant Cloud",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/cloud"
+  ],
+  "iot_class": "cloud_push",
+  "platforms": [
+    "ai_task",
+    "binary_sensor",
+    "conversation",
+    "stt",
+    "tts"
+  ]
+}

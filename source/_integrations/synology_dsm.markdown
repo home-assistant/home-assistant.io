@@ -67,7 +67,7 @@ If you denied access to all locations and applications it is normal to receive a
 
 The NAS can also be used as a {% term backup %} location, without the need to add the NAS as a network drive to Home Assistant (_this requires DSM 6.0 and higher_). For this you need to set up the correct permissions for the user (_see [Separate User Configuration](#separate-user-configuration) above_), afterwards, you will be able to select the shared folder and define a relative path to be used as a backup location in the integration options ({% my integrations title="**Settings** > **Devices & services**" %} > **Synology DSM** > _select the instance_ > **Configure**)
 
-After configuring the backup location, [enable it as a location for automatic backups](/common-tasks/general/#to-define-the-backup-location-for-automatic-backups) if you want automatic backups to be stored on the NAS.
+After configuring the backup location, [enable it as a location for automatic backups](/common-tasks/general/backups/#to-define-the-backup-location-for-automatic-backups) if you want automatic backups to be stored on the NAS.
 
 {% important %}
 
@@ -115,7 +115,7 @@ Entities reporting the current network transfer rates of the NAS. Both upload an
 
 ### General sensors
 
-Entities reporting the internal temperature and the uptime of the NAS. The uptime sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+Entities reporting the internal temperature and the uptime of the NAS. The uptime sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Disk sensors
 

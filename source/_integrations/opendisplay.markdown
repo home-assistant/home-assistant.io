@@ -63,7 +63,7 @@ The **OpenDisplay** integration provides the following entities.
 
 Devices configured with [OpenDisplay Flex](https://opendisplay.org/protocol/flex-standard.html), including devices set up with an OpenDisplay Toolbox preset, can provide the following diagnostic sensors. Other OpenDisplay devices provide only the **Connectivity** binary sensor.
 
-- **Temperature**: The device chip temperature. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+- **Temperature**: The device chip temperature. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Battery voltage**: The voltage of the attached battery. Available when the device uses battery or solar power. Disabled by default.
 - **Battery**: The battery charge as a percentage. Available when the device uses battery or solar power.
 
@@ -118,7 +118,7 @@ automation: |
 
 Change the display image when the sun sets.
 
-- **Trigger**: Sun: sunset
+- **Trigger**: Sunset
 - **Action**: OpenDisplay: Upload image
   - **Device**: Your OpenDisplay device
   - **Image**: The image to show
@@ -129,8 +129,7 @@ Change the display image when the sun sets.
 automation: |
   alias: "Show a sunset image on the display"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: opendisplay.upload_image
       data:

@@ -47,9 +47,10 @@ This passes when the greenhouse N2O sensor reads above 900 μg/m³.
 {% include conditions/threshold_value_options_yaml.md
    range_note="μg/m³"
    number_final="a value in μg/m³"
-   threshold_required="true" %}
+   threshold_required="true"
+   entity_unit="`μg/m³`" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="nitrous oxide sensor" example="sensor.living_room_nitrous_oxide" %}
 
 {% include conditions/behavior.md %}
 

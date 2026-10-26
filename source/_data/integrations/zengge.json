@@ -1,0 +1,13 @@
+{
+  "domain": "zengge",
+  "name": "Zengge",
+  "integration_type": "system",
+  "codeowners": [
+    "@emontnemery"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "platforms": [
+    "light"
+  ]
+}

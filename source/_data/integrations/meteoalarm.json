@@ -1,0 +1,15 @@
+{
+  "domain": "meteoalarm",
+  "name": "MeteoAlarm",
+  "codeowners": [
+    "@rolfberkenbosch"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "weather_alerts.public_warnings"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

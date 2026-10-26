@@ -1,0 +1,9 @@
+{
+  "domain": "media_source",
+  "name": "Media source",
+  "integration_type": "system",
+  "codeowners": [
+    "@hunterjm"
+  ],
+  "quality_scale": "internal"
+}

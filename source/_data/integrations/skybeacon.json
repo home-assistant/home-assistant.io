@@ -1,0 +1,12 @@
+{
+  "domain": "skybeacon",
+  "name": "Skybeacon",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "sensors.temperature_humidity"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

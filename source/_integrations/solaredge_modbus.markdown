@@ -222,7 +222,7 @@ The inverter holds settings of its own, which this integration can change as wel
 
 ### Switches
 
-These switches are flags on the export control. An installer sets them to describe the site, and they are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+These switches are flags on the export control. An installer sets them to describe the site, and they are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **External production**: Tells the inverter there is production at the site that it cannot see itself, so it can keep the whole site within its export limit.
 - **Negative site limit**: Lets the site limit go below zero, which turns it into a minimum import rather than a maximum export. It needs a meter at the connection point to mean anything.
@@ -272,7 +272,9 @@ Your inverter knows more about your solar production than a monthly report ever 
 
 A solar installation on the roof is easy to forget about, and an inverter that has stopped producing costs you money every sunny hour. This automation sends a notification the moment the inverter reports a fault, so you find out on the same day instead of on your next bill.
 
-- **Trigger**: **Problem** turned on
+- **Trigger**: State changed
+  - **Entity**: Solaredge se10000h problem sensor
+  - **To**: On
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -300,8 +302,12 @@ automation: |
 
 Appliances that do not care when they run are the cheapest way to use your own production instead of selling it. This automation starts the dishwasher once your panels have been producing more than 2 kW for ten minutes, which is long enough to know it is not a passing gap in the clouds.
 
-- **Trigger**: **Power** above 2000 for 10 minutes
-- **Action**: Turn on the dishwasher
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Solaredge se10000h power
+  - **Above**: `2000`
+  - **For at least**: `00:10:00`
+- **Action**: Turn on switch
+  - **Target**: Dishwasher switch
 
 {% details "YAML example for running the dishwasher on solar power" %}
 

@@ -19,8 +19,8 @@ To set the tracked fan speed from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to control.
-6. From the actions shown for that target, under **Bond**, select **Set fan speed tracked state**.
+5. From the search box, search for and select **Bond: Set fan speed tracked state**.
+6. In **Entity**, select the fan you want to control.
 7. Set the **Fan speed** to the percentage the fan is actually running at.
 8. Select **Save**.
 
@@ -55,7 +55,9 @@ speed:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="fan" %}
+{% include actions/targets.md domain="fan" entity_type="Bond fan" %}
+
+In the UI, this action has an **Entity** field instead of targets. There, you can select one fan. To use a device, an area, a floor, or a label as the target, select the three dots menu {% icon "mdi:dots-vertical" %} on the action, and then select **Edit in YAML**.
 
 ## Good to know
 
@@ -74,7 +76,7 @@ Use this automation when a physical remote button tells Home Assistant the fan w
   - **Entity**: Fan remote button sensor
   - **To**: High
 - **Action**: Bond: Set fan speed tracked state
-  - **Target**: Living room fan
+  - **Entity**: Living room fan
   - **Fan speed**: `100`
 
 {% details "Show example YAML" %}

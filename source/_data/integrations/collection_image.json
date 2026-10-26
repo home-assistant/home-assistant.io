@@ -1,0 +1,19 @@
+{
+  "domain": "collection_image",
+  "name": "Collection image",
+  "integration_type": "service",
+  "codeowners": [
+    "@karwosts"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "silver",
+  "categories": [
+    "helpers",
+    "productivity_information.documents_photos"
+  ],
+  "platforms": [
+    "diagnostics",
+    "image"
+  ]
+}

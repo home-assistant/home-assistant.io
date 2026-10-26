@@ -1,0 +1,15 @@
+{
+  "domain": "signal_messenger",
+  "name": "Signal Messenger",
+  "codeowners": [
+    "@bbernhard"
+  ],
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "messaging_notifications.chat_apps"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

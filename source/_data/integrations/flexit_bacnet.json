@@ -1,0 +1,22 @@
+{
+  "domain": "flexit_bacnet",
+  "name": "Flexit Nordic (BACnet)",
+  "integration_type": "device",
+  "codeowners": [
+    "@lellky",
+    "@piotrbulinski"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "number",
+    "sensor",
+    "switch"
+  ]
+}

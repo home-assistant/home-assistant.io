@@ -1,0 +1,20 @@
+{
+  "domain": "harman_luxury",
+  "name": "Harman Luxury Audio",
+  "integration_type": "device",
+  "codeowners": [
+    "@sbesh91"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "media_player"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

@@ -67,7 +67,7 @@ The **Brother Printer** integration provides the following entities.
   - **Description**: Printer door is open
 - **Input tray empty**
   - **Description**: Input tray is empty
-  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **Input tray missing**
   - **Description**: Input tray is missing
   - **Remarks**: This entity is disabled by default
@@ -196,8 +196,9 @@ Here is an idea to get you started.
 
 Use the **Paper jam** and **No paper** binary sensors to send a notification to your phone when the printer needs attention. Replace the entity IDs in the example with the entity IDs of your printer's binary sensors.
 
-- **Trigger**: State: **Paper jam** or **No paper** changes to detected
+- **Trigger**: State changed
   - **Target**: Your printer's **Paper jam** and **No paper** binary sensors
+  - **To**: Problem
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

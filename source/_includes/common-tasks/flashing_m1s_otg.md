@@ -28,7 +28,7 @@ To flash your <abbr title="embedded MultiMediaCard">eMMC</abbr> using <abbr titl
 ### Flashing Home Assistant M1S
 
 1. Download the latest stable version of Home Assistant OS for the [ODROID-M1S](https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos['odroid-m1s']}}/haos_odroid-m1s-{{site.data.version_data.hassos['odroid-m1s']}}.img.xz).
-2. Apart from the HAOS image to flash (M1S instead of N2+ version), you can follow the N2+ step-by-step flashing guide [HERE](/common-tasks/os/#flashing-home-assistant).
+2. Apart from the HAOS image to flash (M1S instead of N2+ version), you can follow the N2+ step-by-step flashing guide [HERE](/installation/odroid/#flashing-home-assistant).
 
 
 #### _HK Recovery_

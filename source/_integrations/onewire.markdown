@@ -19,7 +19,7 @@ ha_platforms:
   - switch
 ha_integration_type: hub
 ha_zeroconf: true
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **1-Wire** {% term integration %} brings devices on a 1-Wire bus into Home Assistant. 1-Wire is a low-cost bus that is popular for DIY projects. A single pair of wires can connect many temperature sensors, counters, and input/output chips.
@@ -116,7 +116,7 @@ Sensor precision:
 
 The integration creates one device for each 1-Wire device it finds on the bus. Devices connected to a DS2409 coupler are linked to that coupler. Each entity has a `device_file` attribute with the path of the value in owserver, for example `/28.FF5C68521604/temperature`.
 
-Many entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), so that the integration does not read unnecessary data from the bus. You can turn them on from the device page.
+Many entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), so that the integration does not read unnecessary data from the bus. You can turn them on from the device page.
 
 ### Binary sensors
 
@@ -289,7 +289,7 @@ The integration also scans the bus for new devices every 5 minutes. New devices 
 
 ### Symptom: Setup fails with a connection error
 
-When you set up the integration, you get an error that Home Assistant failed to connect.
+When you set up the integration, you get an error that Home Assistant failed to connect. Or, after setup, the integration shows **Error communicating with the 1-Wire server** followed by the host and port.
 
 #### Description
 
@@ -345,11 +345,11 @@ Many entities are disabled by default, including all binary sensors and switches
 
 {% enddetails %}
 
-{% details "An entity shows unknown" %}
+{% details "An entity is unavailable" %}
 
-### Symptom: An entity shows an unknown state
+### Symptom: An entity shows as unavailable
 
-An entity shows **Unknown**, and {% my logs title="**Settings** > **System** > **Logs**" %} contains a message about an error fetching data.
+An entity shows as **Unavailable**, and {% my logs title="**Settings** > **System** > **Logs**" %} contains a message about an error fetching data.
 
 #### Description
 
@@ -405,8 +405,8 @@ This integration follows standard integration removal. No extra steps are requir
 The integration does not remove devices that you disconnect from the bus. To remove one:
 
 1. Disconnect the device from the bus.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **1-Wire**.
-3. Select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and select **Reload**.
+2. Wait up to 5 minutes, until the next scan of the bus.
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **1-Wire**.
 4. Select the device, then select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 
-You can only delete a device that the integration no longer finds on the bus.
+You can only delete a device that the integration no longer finds on the bus. If you connect the device again later, it is added again on the next scan.

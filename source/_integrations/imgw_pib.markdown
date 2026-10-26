@@ -48,7 +48,7 @@ The **IMGW-PIB** integration provides the following entities.
   - **Remarks**: Not available for all hydrological stations
 - **Emergent vegetation cover**
   - **Description**: Emergent vegetation cover indicates how much of the river cross-section is occupied by plants that grow above the water surface
-  - **Remarks**: Not available for all hydrological stations, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: Not available for all hydrological stations, [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **Floating vegetation cover**
   - **Description**: Floating vegetation cover indicates how much of the river cross-section is covered by plants floating on the water surface
   - **Remarks**: Not available for all hydrological stations, disabled by default
@@ -67,9 +67,12 @@ Here is an idea to get you started.
 
 Use the **Hydrological alert** sensor to create a persistent notification with the content and probability of a hydrological alert. Replace the entity ID in the example with the entity ID of your station's **Hydrological alert** sensor.
 
-- **Trigger**: State: **Hydrological alert** changes from **No alert**
+- **Trigger**: State changed
   - **Target**: Your station's **Hydrological alert** sensor
-- **Action**: Create persistent notification
+  - **From**: No alert
+- **Action**: Persistent Notification: Create persistent notification
+  - **Title**: `Hydrological alert!`
+  - **Message**: `{{ trigger.to_state.state }}, probability {{ trigger.to_state.attributes.probability }}%`
 
 {% details "YAML example for creating a hydrological alert notification" %}
 

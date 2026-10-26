@@ -80,13 +80,13 @@ behavior:
   default: each
 for:
   description: |
-    How long the sensor or sensors must remain reporting a normal battery level before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+    How long the sensor or sensors must remain reporting a normal battery level before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="low battery sensor" example="binary_sensor.phone_battery_low" %}
 
 {% include triggers/behavior.md %}
 

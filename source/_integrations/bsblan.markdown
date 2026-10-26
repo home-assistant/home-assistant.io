@@ -62,7 +62,7 @@ The **Sync time** button appears under the **Configuration** section of the devi
 ### Climate
 
 - Home Assistant creates one climate entity for each detected heating circuit.
-- These appear in Home Assistant as **Heating circuit 1**, **Heating circuit 2**, and **Heating circuit 3**, depending on what your system exposes.
+- These appear in Home Assistant as **Heating circuit 1** and **Heating circuit 2**, depending on what your system exposes.
 - Each heating circuit is grouped under its own sub-device on the BSB-LAN device page.
 
 ### Water heater
@@ -78,7 +78,7 @@ The following sensors are available, depending on your heating system:
 - Outside temperature
 - Total Energy (disabled by default)
 
-To use the **Total Energy** sensor, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) in Home Assistant.
+To use the **Total Energy** sensor, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) in Home Assistant.
 
 {% note %}
 The **Total Energy** sensor is not real-time. It updates in 1 kWh steps, so the value changes only after another 1 kWh has been used.

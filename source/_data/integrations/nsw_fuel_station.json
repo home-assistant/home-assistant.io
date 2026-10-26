@@ -1,0 +1,15 @@
+{
+  "domain": "nsw_fuel_station",
+  "name": "NSW Fuel Station Price",
+  "codeowners": [
+    "@nickw444"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "local_services"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}
