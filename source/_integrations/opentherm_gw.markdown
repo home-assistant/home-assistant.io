@@ -21,7 +21,7 @@ ha_integration_type: device
 
 The **OpenTherm Gateway** {% term integration %} is used to control the [OpenTherm Gateway](https://otgw.tclcode.com/) from Home Assistant.
 
-This integration will add three devices to Home Assistant for each configured gateway. The main control of the integration is a single `climate` entity which can be found on the added `OpenTherm Thermostat` device. All added devices have a collection of `sensor` and `binary_sensor` entities, which are disabled by default. To enable them, follow the steps on [enabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+This integration will add three devices to Home Assistant for each configured gateway. The main control of the integration is a single `climate` entity which can be found on the added `OpenTherm Thermostat` device. All added devices have a collection of `sensor` and `binary_sensor` entities, which are disabled by default. To enable them, follow the steps on [enabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 {% note %}
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.

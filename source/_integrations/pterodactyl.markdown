@@ -68,7 +68,7 @@ This integration provides the following entities for each game server of your Pt
 - Stop server
 - Restart server
 
-The following button is provided as well, but [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
+The following button is provided as well, but [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity):
 
 - Force stop server
 

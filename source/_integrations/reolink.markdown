@@ -66,7 +66,7 @@ Protocol:
 
 ## Asterisk (*) next to entities listed in this documentation
 
-If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) first.
+If an entity listed below has an asterisk (*) next to its name, it means it is disabled by default. To use such an entity, you must [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first.
 
 ## Data updates: plus (+) next to entities listed in this documentation
 

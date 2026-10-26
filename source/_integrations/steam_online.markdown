@@ -80,7 +80,7 @@ Image entities provide artwork for the Steam account or the game the account is 
 - **App icon**
   - **Description**: The game's application icon.
   - **Image size**: 32 × 32 px.
-  - **Remarks**: Entity [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - **Remarks**: Entity [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **Avatar**
   - **Description**: The Steam user's profile avatar.

@@ -102,7 +102,7 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Micromodule Shutter Control
 - Micromodule Blinds
 
-Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) because the valve entity provides the position directly.
+Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because the valve entity provides the position directly.
 
 In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
 

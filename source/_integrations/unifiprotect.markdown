@@ -213,7 +213,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
   - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
-- **Button** - A [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
+- **Button** - A [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
 
 #### PTZ cameras
 

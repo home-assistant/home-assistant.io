@@ -157,7 +157,7 @@ You can change the name of a scene, and its icon, area, category, and labels, wi
 5. To keep the changes, select **Save**.
    - **Rename** only changes the scene in the editor. If you leave the editor without saving, it asks whether you want to leave, and the changes are lost.
 
-Renaming a scene doesn't change its entity ID, for example, `scene.movie_night`. To change the entity ID, refer to [Changing the attributes of an entity](/docs/configuration/customizing-devices/#changing-the-attributes-of-an-entity).
+Renaming a scene doesn't change its entity ID, for example, `scene.movie_night`. To change the entity ID, refer to [Changing the attributes of an entity](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity).
 
 ## Deleting a scene
 

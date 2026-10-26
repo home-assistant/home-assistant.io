@@ -85,7 +85,7 @@ The choice between Bridge and Router mode depends on the network architecture an
 
 ### Reboot
 
-[Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), can be enabled to provide a button to reboot the device.
+[Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), can be enabled to provide a button to reboot the device.
 
 ## Sensor
 
