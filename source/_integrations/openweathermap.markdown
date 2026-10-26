@@ -33,13 +33,17 @@ You need to register for an API key: [Sign up here](https://home.openweathermap.
 
 ## Supported modes
 
-There are currently two types of OpenWeatherMap services supported by this integration, with several corresponding modes.
+This integration supports the following OpenWeatherMap services and modes.
 
-### [One Call API 3.0](https://openweathermap.org/price#onecall)
+### [One Call API 4.0](https://openweathermap.org/api/one-call-4)
 
-- `v3.0` : current weather, hourly forecast for 48 hours, daily forecast for 8 days
+- `v4.0`: current weather, hourly forecast for up to 48 hours, daily forecast for up to 8 days, and a [minute-by-minute precipitation forecast](/actions/openweathermap.get_minute_forecast/) for up to 60 minutes
 
-The One Call API 3.0 services requires a [subscription](https://openweathermap.org/api/one-call-3). The subscription has a free tier with 1000 calls/day. Consider setting the limit on the OpenWeatherMap website to stay under the threshold where API usage incurs a cost. This is done in the [Billing plans](https://home.openweathermap.org/subscriptions) page, under "Calls per day".
+### [One Call API 3.0](https://openweathermap.org/api/one-call-3)
+
+- `v3.0`: current weather, hourly forecast for 48 hours, daily forecast for 8 days, and a [minute-by-minute precipitation forecast](/actions/openweathermap.get_minute_forecast/) for 60 minutes
+
+Both One Call API versions require a separate One Call subscription. Select the mode that matches the API version available with your subscription and API key. The [One Call pricing plan](https://openweathermap.org/price) includes 1,000 free API calls per day, with charges for additional calls. You can set a daily call limit on the [Billing plans](https://home.openweathermap.org/subscriptions) page, under **Calls per day**. See [Data updates](#data-updates) for how this integration uses API calls.
 
 ### [Free](https://openweathermap.org/price#freeaccess)
 
@@ -49,25 +53,10 @@ The One Call API 3.0 services requires a [subscription](https://openweathermap.o
 
 The Free services require a registration but no subscription. Once signed up, the API key can be found from your profiles' [My API keys](https://home.openweathermap.org/api_keys) page. 
 
-## ⚠️ Important Deprecation Notice
-
-### OpenWeatherMap API V2.5 Deprecation
-
-OpenWeatherMap API V2.5 has been deprecated and is no longer supported by this integration. You need to use API V3.0.
-
-To continue using the service if you were previously using API V2.5:
-
-- Visit the OpenWeatherMap website and activate the One Call subscription.
-- During activation, you will be prompted for a credit card, but you will not be charged unless you exceed the free tier limits.
-- Configure your OWM integration to select mode `v3.0`.
-- Note: Subscription activation may take up to 2 hours.
-
-For more details, set limits on your usage to avoid charges at [OpenWeatherMap Subscriptions](https://home.openweathermap.org/subscriptions).
-
 {% important %}
 If you register a new API key with OpenWeatherMap, it will be activated automatically. This typically takes between 10 minutes and 2 hours.  
 Keep in mind when configuring this integration that your new API key might not be active yet.  
-Invalid API-key errors can also occur if you use a key which doesn't match the corresponding service (One Call API 3.0 versus Free).
+Invalid API-key errors can also occur if your API key or subscription does not support the selected mode (`v3.0`, `v4.0`, or a free mode).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
@@ -78,7 +67,7 @@ Invalid API-key errors can also occur if you use a key which doesn't match the c
 | Name      | Name of the integration                                   |
 | Latitude  | Latitude for weather forecast and sensor                  |
 | Longitude | Longitude for weather forecast and sensor                 |
-| Mode      | <li>`v3.0` (new API version) current weather plus daily forecast for 8 days, and 1-hour steps for 48 hours</li><li>`current` current weather data only, no forecast</li><li>`forecast` weather forecast only, in 3-hour steps for 5 days, no current weather data</li><li>`air_pollution` current air quality data</li> |
+| Mode      | <li>`v3.0` (default) current weather plus daily forecast for 8 days, hourly forecast for 48 hours, and minute forecast for 60 minutes</li><li>`v4.0` current weather plus daily forecast for up to 8 days, hourly forecast for up to 48 hours, and minute forecast for up to 60 minutes</li><li>`current` current weather data only, no forecast</li><li>`forecast` weather forecast only, in 3-hour steps for 5 days, no current weather data</li><li>`air_pollution` current air quality data</li> |
 | Language  | Language for receiving data (only for `sensor`)           |
 
 A `sensor` entity will be created for each supported condition. Their IDs will follow the format:
@@ -92,6 +81,14 @@ The Weather entity provides data only in English. Home Assistant automatically t
 {% endnote %}
 
 If you want to change the weather location, you will need to delete and re-add the integration.
+
+## Data updates
+
+Home Assistant updates OpenWeatherMap data every 10 minutes by default.
+
+In `v4.0` mode, each update makes separate requests for current weather and minute, hourly, and daily forecasts. The hourly API returns up to 20 records per page, so a complete 48-hour forecast normally needs three hourly requests. Together with the other forecasts and current weather, this totals six API calls per update, or approximately 864 calls per day for each location at the default interval. Each request, including each additional forecast page, counts toward your subscription usage.
+
+Setup, restarts, retries, multiple locations, and other uses of the same subscription can increase your total usage beyond this estimate and the free daily allowance. Check your usage and daily call limit on the [Billing plans](https://home.openweathermap.org/subscriptions) page.
 
 ## Supported Weather Conditions
 

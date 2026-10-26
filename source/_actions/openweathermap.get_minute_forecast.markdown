@@ -8,7 +8,7 @@ description: "Retrieves a minute-by-minute precipitation forecast for the next h
 Use this action to get a minute-by-minute precipitation forecast for the next hour, for example to decide whether to start the garden sprinklers or to send yourself a heads-up before rain arrives. It returns the forecasted rain or snow for each of the next 60 minutes as [response data](/docs/automation/action/#action-response-data).
 
 {% important %}
-The minute forecast is only available when the OpenWeatherMap integration mode is set to `v3.0`. The action fails if the mode is set to `current`, `forecast`, or `air pollution`.
+The minute forecast is only available when the OpenWeatherMap integration mode is set to `v3.0` or `v4.0`. The action fails if the mode is set to `current`, `forecast`, or `air_pollution`.
 {% endimportant %}
 
 {% include actions/ui_header.md %}
