@@ -43,7 +43,7 @@ This integration supports the following OpenWeatherMap services and modes.
 
 - `v3.0`: current weather, hourly forecast for 48 hours, daily forecast for 8 days, and a [minute-by-minute precipitation forecast](/actions/openweathermap.get_minute_forecast/) for 60 minutes
 
-Both One Call API versions require a separate One Call subscription. Select the mode that matches the API version available with your subscription and API key. The [One Call pricing plan](https://openweathermap.org/price) includes 1,000 free API calls per day, with charges for additional calls. You can set a daily call limit on the [Billing plans](https://home.openweathermap.org/subscriptions) page, under **Calls per day**. See [Data updates](#data-updates) for how this integration uses API calls.
+Both One Call API versions use the same One Call subscription, which is separate from the free services below. You do not need an additional subscription to switch from `v3.0` to `v4.0`. The [One Call pricing plan](https://openweathermap.org/price) includes 1,000 free API calls per day shared across both versions, with charges for additional calls. You can set a daily call limit on the [Billing plans](https://home.openweathermap.org/subscriptions) page, under **Calls per day**. See [Data updates](#data-updates) for how this integration uses API calls.
 
 ### [Free](https://openweathermap.org/price#freeaccess)
 
@@ -61,13 +61,15 @@ Invalid API-key errors can also occur if your API key or subscription does not s
 
 {% include integrations/config_flow.md %}
 
+New setups use `v4.0` by default. Existing configurations keep their selected mode, including `v3.0`. To switch an existing configuration, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **OpenWeatherMap**, and change **Mode** in the integration options. Before switching, review [Data updates](#data-updates), as `v4.0` uses more API calls per update.
+
 | Parameter | Value                                                     |
 | :-------- | :-------------------------------------------------------- |
 | API Key   | API Key from the website                                  |
 | Name      | Name of the integration                                   |
 | Latitude  | Latitude for weather forecast and sensor                  |
 | Longitude | Longitude for weather forecast and sensor                 |
-| Mode      | <li>`v3.0` (default) current weather plus daily forecast for 8 days, hourly forecast for 48 hours, and minute forecast for 60 minutes</li><li>`v4.0` current weather plus daily forecast for up to 8 days, hourly forecast for up to 48 hours, and minute forecast for up to 60 minutes</li><li>`current` current weather data only, no forecast</li><li>`forecast` weather forecast only, in 3-hour steps for 5 days, no current weather data</li><li>`air_pollution` current air quality data</li> |
+| Mode      | <li>`v4.0` (default for new setups) current weather plus daily forecast for up to 8 days, hourly forecast for up to 48 hours, and minute forecast for up to 60 minutes</li><li>`v3.0` current weather plus daily forecast for 8 days, hourly forecast for 48 hours, and minute forecast for 60 minutes</li><li>`current` current weather data only, no forecast</li><li>`forecast` weather forecast only, in 3-hour steps for 5 days, no current weather data</li><li>`air_pollution` current air quality data</li> |
 | Language  | Language for receiving data (only for `sensor`)           |
 
 A `sensor` entity will be created for each supported condition. Their IDs will follow the format:
