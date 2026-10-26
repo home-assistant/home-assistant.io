@@ -4,7 +4,8 @@
   "integration_type": "hub",
   "codeowners": [
     "@Quentame",
-    "@nzapponi"
+    "@nzapponi",
+    "@timlaing"
   ],
   "config_flow": true,
   "iot_class": "cloud_polling",
@@ -14,8 +15,10 @@
     "productivity_information.documents_photos"
   ],
   "platforms": [
+    "button",
     "calendar",
     "device_tracker",
+    "diagnostics",
     "sensor",
     "todo"
   ]

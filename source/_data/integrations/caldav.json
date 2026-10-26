@@ -9,6 +9,7 @@
   ],
   "platforms": [
     "calendar",
+    "diagnostics",
     "todo"
   ]
 }
