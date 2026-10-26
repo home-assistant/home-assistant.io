@@ -1,0 +1,124 @@
+---
+// One item in a feed on the link-in-bio page (/bio/): a label, a second
+// line and an optional thumbnail, with the /community page's arrow
+// badge. `featured` gives it the community page's mint accent.
+//
+// Follows the /community page's design system (white cards on its cyan
+// panels: sass/homeassistant/pages/community/components/_meetups.scss,
+// _newsletter.scss); page colors come from custom properties on the bio
+// page, with fallbacks so the component also renders on its own.
+//
+// The data-* attributes name the section, source and label of each
+// click, ready to become Plausible event properties.
+import Icon from "./Icon.astro";
+import "../styles/tokens.scss";
+
+const { label, url, note, image, featured = false, section, source, eager = false } = Astro.props;
+---
+
+<a
+  class:list={["tile", { featured, "has-image": image }]}
+  href={url}
+  rel="noopener"
+  data-section={section ?? "links"}
+  data-source={source}
+  data-label={label}
+>
+  {
+    image && (
+      <img
+        class="thumb"
+        src={image}
+        width="56"
+        height="56"
+        alt=""
+        loading={eager ? undefined : "lazy"}
+        decoding="async"
+      />
+    )
+  }
+  <span class="text">
+    <span class="label">{label}</span>
+    {note && <span class="note">{note}</span>}
+  </span>
+  <span class="arrow"><Icon name="arrow-right" /></span>
+</a>
+
+<style lang="scss">
+  .tile {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: var(--space-medium);
+    min-height: 3.5rem;
+    padding: var(--space-medium);
+    background: var(--color-surface);
+    border-radius: var(--bio-radius, 0.75rem);
+    color: var(--bio-ink, #002332);
+    font-family: var(--font-heading);
+    text-decoration: none;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+      box-shadow: 0 0 0 2px var(--bio-primary, #00aef8);
+
+      .arrow {
+        background: var(--bio-primary, #00aef8);
+        color: var(--color-text-inverse);
+      }
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--bio-ink, #002332);
+      outline-offset: 2px;
+    }
+
+    &.featured {
+      background: var(--bio-secondary, #16f3be);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .thumb {
+    flex: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-small);
+    object-fit: cover;
+    background: var(--bio-panel, #cceffe);
+  }
+
+  .text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .label {
+    display: block;
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .note {
+    display: block;
+    margin-top: var(--space-xsmall);
+    color: var(--bio-paragraph, #4f606e);
+    font-size: var(--font-size-small);
+  }
+
+  .arrow {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    background: var(--bio-panel, #cceffe);
+    border-radius: 50%;
+    font-size: var(--font-size-medium);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+</style>

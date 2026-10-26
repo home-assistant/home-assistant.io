@@ -302,7 +302,15 @@ task :newsletter_data do
                 image.split('/content/images/', 2).last
       end
 
-      { 'title' => title, 'image' => image }
+      # The bio page (source/_data/bio.yml) links to the latest edition, so
+      # keep its address and date too. The community page ignores them.
+      published = item.elements['pubDate']&.text
+      {
+        'title' => title,
+        'image' => image,
+        'url' => item.elements['link']&.text.to_s.strip,
+        'date' => published && Time.parse(published).utc.iso8601,
+      }
     end.first(3)
     raise "feed does not contain any usable editions" if editions.empty?
 

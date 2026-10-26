@@ -1,0 +1,88 @@
+---
+// A curated link on the link-in-bio page (/bio/), drawn as the pill
+// button of the /community page: a white circle with an arrow, then the
+// label. `featured` takes the community page's mint accent, as its
+// "Find a meetup near you" button does.
+//
+// Follows the /community page's design system
+// (sass/homeassistant/pages/community/_buttons.scss, _icon.scss); page
+// colors come from custom properties on the bio page.
+import Icon from "./Icon.astro";
+import "../styles/tokens.scss";
+
+const { label, url, note, featured = false, section, source } = Astro.props;
+---
+
+<a class:list={["button", { featured }]} href={url} rel="noopener" data-section={section ?? "links"} data-source={source} data-label={label}>
+  <span class="circle"><Icon name="arrow-right" /></span>
+  <span class="text">
+    <span class="label">{label}</span>
+    {note && <span class="note">{note}</span>}
+  </span>
+</a>
+
+<style lang="scss">
+  .button {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: var(--space-medium);
+    min-height: 3rem;
+    padding: var(--space-xsmall) var(--space-xlarge) var(--space-xsmall) var(--space-xsmall);
+    background: var(--bio-pill, #99dffc);
+    border-radius: var(--radius-pill);
+    color: var(--bio-ink, #002332);
+    font-family: var(--font-heading);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: var(--bio-primary, #00aef8);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--bio-ink, #002332);
+      outline-offset: 2px;
+    }
+
+    &.featured {
+      background: var(--bio-secondary, #16f3be);
+
+      &:hover {
+        background: var(--bio-primary, #00aef8);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .circle {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--color-surface);
+    border-radius: 50%;
+    color: var(--bio-ink, #002332);
+    font-size: var(--font-size-large);
+  }
+
+  .text {
+    min-width: 0;
+  }
+
+  .label {
+    display: block;
+    font-size: var(--font-size-large);
+    font-weight: 600;
+  }
+
+  .note {
+    display: block;
+    font-size: var(--font-size-small);
+    opacity: 0.8;
+  }
+</style>
