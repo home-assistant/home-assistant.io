@@ -180,6 +180,33 @@ action: |
       {% endfor %}
 {% endexample %}
 
+### Required and optional response data
+
+Actions handle response data in one of the following ways:
+
+- Some actions always return data. For example, `calendar.get_events` returns the events of a calendar. For these actions, the response variable is required. If you leave it out, the action fails when it runs, and the automation or script stops.
+- Some actions return data only when you ask for it. For example, `conversation.process` can return the reply of the conversation agent. For these actions, the response variable is optional. If you leave it out, the action still runs, but its data isn't stored.
+- Most actions don't return data. In the editor, they don't show a **Response variable** field. If you add `response_variable` to one of these actions in YAML, the action fails when it runs, and the automation or script stops.
+
+To find out whether an action returns data, add the action to an automation or script in its editor. If the action returns data, it shows a **Response variable** field. If the field has a checkbox next to it, the response variable is optional. If it has no checkbox, the response variable is required.
+
+To see the data that an action returns, perform the action in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}. The data is shown under **Response**. For the steps, refer to [Performing an action](/docs/tools/dev-tools/#performing-an-action).
+
+### What the response data looks like
+
+Response data is a mapping of keys and values. Which keys it contains depends on the action:
+
+- An action that targets entities, such as `calendar.get_events` or `weather.get_forecasts`, returns one entry for each entity. The key of each entry is the entity ID. This is why the earlier example uses `agenda['calendar.school']`. Use the entity ID even if the action targets only one entity.
+- Other actions return their own keys. To see them, perform the action in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
+
+### Response data from scripts
+
+A script can also return response data. To return data, the script uses the [Stop](/building-blocks/stop/) building block with a response variable.
+
+To use the data, run the script as an action, for example, `script.morning_report`. For scripts, the response variable is optional. If you start the script with `script.turn_on`, you don't get its data. This action starts the script and continues right away, without waiting for it to finish.
+
+Some integrations that run your own commands can also return data, such as [RESTful Command](/integrations/rest_command/), [Shell Command](/integrations/shell_command/), and [Python Scripts](/integrations/python_script/). For these actions, the response variable is optional, too.
+
 ## Templates in actions
 
 With [templating], an action can decide what to do when it runs. In text fields, such as the message of a notification, you can enter a template directly. For other templates, such as for the action itself, its targets, or all its options at once, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML** on the action.
