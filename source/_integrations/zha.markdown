@@ -368,9 +368,9 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 ### Adding Green Power devices
 
-Zigbee Green Power devices, such as the Philips Hue Tap and and some "Friends of Hue" switches, have no battery. They send short messages that nearby Zigbee router devices pass on to the Zigbee coordinator.
+Zigbee Green Power devices, such as the Philips Hue Tap and some "Friends of Hue" switches, have no battery. They send short messages that nearby Zigbee router devices pass on to the Zigbee coordinator.
 
-Green Power devices often need you to press buttons to indicate the specific Zigbee channel number they need to switch to, as they do not have enough power to scan channels. Before you add a Green Power device, find the channel of your Zigbee network.
+Green Power devices do not have enough power to search for your Zigbee network. Instead, you set the channel on the device yourself, usually by pressing a combination of buttons. Before you add a Green Power device, find the channel of your Zigbee network.
 
 **To find the channel of your Zigbee network:**
 
@@ -387,9 +387,9 @@ Check that your Green Power device supports this channel. If it does not, you ca
 3. Put the device in pairing mode according to the instructions provided by the manufacturer.
 4. Once the device joins, it will appear on that page and will be automatically added to your devices.
 
-Green Power devices do not have a single parent router, unlike normal Zigbee end devices: every router on the network relays messages for Green Power devices. The number of Green Power devices a single router supports varies by manufacturer and capacity ranges between 5 and 40+, with the coordinator often itself supporting unlimited Green Power devices. If you have more than a few Green Power devices, ensure you have enough high-capacity routers on your network and in range of the Green Power devices. Philips Hue lights and other Philips Hue router devices can handle many Green Power devices.
+Unlike other Zigbee end devices, a Green Power device is not connected to a single parent router device. Instead, every router device that receives its messages passes them on. Each router device can only do this for a limited number of Green Power devices. Depending on the manufacturer, this limit is anywhere from 5 to more than 40. Philips Hue lights and other Philips Hue router devices have a high limit. If you have more than a few Green Power devices, make sure enough router devices with a high limit are in range of them.
 
-Only some Zigbee coordinators can receive messages from Green Power devices directly. With these coordinators, Green Power devices within range of the coordinator work without a router device. To check which radio type your coordinator uses, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}, select **Network information**, and look at **Radio type**. The following radio types receive Green Power messages directly:
+Some Zigbee coordinators can also receive messages from Green Power devices directly, usually with no limit on the number of devices. With these coordinators, Green Power devices in range of the coordinator work without a router device. To check which radio type your coordinator uses, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}, select **Network information**, and look at **Radio type**. The following radio types receive Green Power messages directly:
 
 - Ziggurat (`ziggurat`)
 - Silicon Labs (`ezsp`)
