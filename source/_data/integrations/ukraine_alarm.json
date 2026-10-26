@@ -1,0 +1,16 @@
+{
+  "domain": "ukraine_alarm",
+  "name": "Ukraine Alarm",
+  "integration_type": "service",
+  "codeowners": [
+    "@PaulAnnekov"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.public_warnings"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

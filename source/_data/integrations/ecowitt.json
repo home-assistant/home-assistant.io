@@ -1,0 +1,19 @@
+{
+  "domain": "ecowitt",
+  "name": "Ecowitt",
+  "integration_type": "device",
+  "codeowners": [
+    "@pvizeli"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "sensors",
+    "weather_alerts"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ]
+}

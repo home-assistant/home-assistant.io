@@ -1,0 +1,24 @@
+{
+  "domain": "lunatone",
+  "name": "Lunatone",
+  "integration_type": "hub",
+  "codeowners": [
+    "@MoonDevLT"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "lighting.lighting_systems",
+    "hubs_protocols.building_automation"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "light",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

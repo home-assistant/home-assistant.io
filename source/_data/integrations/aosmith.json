@@ -1,0 +1,19 @@
+{
+  "domain": "aosmith",
+  "name": "A. O. Smith",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bdr99"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "climate.water_heaters"
+  ],
+  "platforms": [
+    "diagnostics",
+    "select",
+    "sensor",
+    "water_heater"
+  ]
+}

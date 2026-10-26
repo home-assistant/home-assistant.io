@@ -1,0 +1,9 @@
+{
+  "domain": "dialogflow",
+  "name": "Dialogflow",
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "ai_voice.voice_assistants"
+  ]
+}

@@ -60,7 +60,7 @@ This fires whenever the living room CO sensor reading changes to a value above 9
    unit_example_entity="input_number.co_alert_level"
    unit_example_value="9" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="carbon monoxide sensor" example="sensor.hallway_carbon_monoxide" %}
 
 ## Good to know
 

@@ -54,7 +54,7 @@ camera_light_mode:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Netatmo outdoor camera" example="camera.front_door" %}
 
 ## Good to know
 

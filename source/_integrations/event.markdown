@@ -10,7 +10,7 @@ ha_integration_type: entity
 related:
   - docs: /triggers/event.received/
     title: Event received trigger
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard

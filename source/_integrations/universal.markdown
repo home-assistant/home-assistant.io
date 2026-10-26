@@ -226,7 +226,7 @@ media_player:
       - action: input_boolean.turn_on
         target:
           entity_id: input_boolean.kodi_tv_state
-      - action: media_player.kodi_call_method
+      - action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -242,7 +242,7 @@ media_player:
       - action: media_player.media_stop
         target:
           entity_id: media_player.kodi
-      - action: media_player.kodi_call_method
+      - action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:

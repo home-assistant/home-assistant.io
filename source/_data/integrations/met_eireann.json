@@ -1,0 +1,16 @@
+{
+  "domain": "met_eireann",
+  "name": "Met Éireann",
+  "integration_type": "service",
+  "codeowners": [
+    "@DylanGore"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "platforms": [
+    "weather"
+  ]
+}

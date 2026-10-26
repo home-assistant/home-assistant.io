@@ -126,6 +126,11 @@ The select platform lets you choose between a set of predefined options. Select 
 - Smoke Detector that supports it: a **Smoke sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
 - Thermostat II and Room Thermostat II: a **Display orientation** select, letting you choose between **Normal** and **Rotated by 180°**, and a **Displayed temperature** select, letting you choose between **Set temperature** and **Measured**. In YAML, the display orientation options are `normal` and `reversed`, and the displayed temperature options are `setpoint` and `measured`.
 - Smart Plug and Smart Plug Compact that support it: a **State after power outage** select, letting you choose between **Off**, **On**, or **Last state**. In YAML, the options are `off`, `on`, and `last_state`.
+- Micromodule Relay that supports it: a **Switch type** select, letting you choose between **None**, **Push button**, **Rocker switch**, or **No switch**. In YAML, the options are `none`, `pushbutton`, `switch`, and `no_switch`.
+- Thermostat II that supports it: a **Valve type** select (**normally closed** or **normally open**) and a **Heater type** select (**underfloor heating**, **underfloor heating low energy**, **radiator**, **passive convector**, **active convector**, or **central heating**).
+- Room Thermostat II that supports it: a **Sensor connection** select, letting you choose how an external sensor on the terminal is used: **Not used**, **Floor sensor connected**, **Floor sensor used for regulation**, **Cable temperature sensor (without regulation)**, **Cable temperature sensor (with regulation)**, **Volt-free sensor connected**, **Potential-free contact**, or **Outdoor temperature sensor**. In YAML, the options are `not_connected`, `floor_sensor_connected`, `floor_sensor_used_for_regulation`, `floor_sensor_displayed`, `floor_sensor_displayed_and_used_for_regulation`, `volt_free_sensor_connected`, `volt_free_sensor_connected_and_used_for_operation`, and `outdoor_sensor_connected`.
+- Micromodule Relay that supports it: an **Actuator type** select, letting you choose between **Normally closed**, **Normally open**, or **Unsupported**. In YAML, the options are `normally_closed`, `normally_open`, and `unsupported`.
+- Micromodule Relay that supports it: an **Output mode** select, letting you choose between **Coupled**, **Disconnected on any key press**, **Disconnected on short press**, **Disconnected on long press**, or **Unsupported**. In YAML, the options are `attached`, `detached`, `detached_short_press`, `detached_long_press`, and `unsupported`.
 
 ### Sensors
 
@@ -227,8 +232,7 @@ Combine the cover platform with a sun trigger to close your shutters as it gets 
 automation: |
   alias: "Close shutters at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: cover.close_cover
       target:

@@ -1,0 +1,22 @@
+{
+  "domain": "silla_prism",
+  "name": "Silla Prism",
+  "integration_type": "device",
+  "codeowners": [
+    "@ebaschiera"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.ev_charging"
+  ],
+  "platforms": [
+    "number",
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "mqtt"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "domain": "alert",
+  "name": "Alert",
+  "codeowners": [
+    "@home-assistant/core",
+    "@frenck"
+  ],
+  "iot_class": "local_push",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers",
+    "messaging_notifications"
+  ]
+}

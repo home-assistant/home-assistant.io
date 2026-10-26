@@ -61,7 +61,7 @@ To-do list triggers and conditions make it easier to react to changes in a list 
 If you share a shopping list with your household, this automation lets you know right away when someone adds a new item.
 
 - **Trigger**: To-do item added
-- **Target**: Shopping list
+  - **Target**: Shopping list
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -91,7 +91,7 @@ If you keep an evening checklist in Home Assistant, this automation locks the fr
 
 - **Trigger**: To-do item completed
 - **Condition**: All to-do items completed
-- **Target**: Evening checklist
+  - **Target**: Evening checklist
 - **Action**: Lock lock
 
 {% details "YAML example for locking up after the evening checklist is done" %}

@@ -13,9 +13,9 @@ related_functions:
   - from_json
 ---
 
-The `tojson` filter converts a Python object (like a dictionary, list, string, or number) into a JSON-formatted string. This is a Home Assistant override of the standard `tojson` filter. It accepts an optional `indent` parameter to pretty-print the output with indentation.
+The `tojson` filter converts a value (like a dictionary, list, string, or number) into a JSON-formatted string. This is the standard `tojson` filter from Jinja. It accepts an optional `indent` parameter to pretty-print the output with indentation.
 
-This filter is useful when you need to produce JSON output for external services or for debugging. If you need more control over the serialization (such as sorting keys or controlling ASCII escaping), consider using the [`to_json`](/template-functions/to_json/) filter instead, which offers additional options.
+This filter is useful when you need to produce JSON output for external services or for debugging. If you need more control over the output, use the [`to_json`](/template-functions/to_json/) filter instead. It offers additional options, such as keeping special characters as they are.
 
 {% include template_functions/usage.md %}
 
@@ -65,7 +65,10 @@ output: |
 ## Good to know
 
 - The default output includes a space after each comma and colon, unlike [`to_json`](/template-functions/to_json/), which produces a compact string.
-- If you need sorted keys or control over ASCII escaping, use [`to_json`](/template-functions/to_json/) instead.
+- The keys of a dictionary are always sorted alphabetically.
+- Some characters are escaped: `<`, `>`, `&`, and `'` become `\u003c`, `\u003e`, `\u0026`, and `\u0027`. This makes the output safe to place in HTML text, in a `<script>` element, or in an HTML attribute with single quotes. Double quotes aren't escaped, so don't place the output in an attribute with double quotes.
+- Characters outside the ASCII range are escaped too. For example, `°C` becomes `\u00b0C`. To keep these characters as they are, use [`to_json`](/template-functions/to_json/).
+- Date and time values and state objects can't be converted. They cause an error.
 
 {% include template_functions/try_it.md %}
 

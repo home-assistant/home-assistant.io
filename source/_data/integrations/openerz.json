@@ -1,0 +1,15 @@
+{
+  "domain": "openerz",
+  "name": "Open ERZ",
+  "codeowners": [
+    "@misialq"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "local_services"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

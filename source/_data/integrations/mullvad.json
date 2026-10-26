@@ -1,0 +1,16 @@
+{
+  "domain": "mullvad",
+  "name": "Mullvad VPN",
+  "integration_type": "service",
+  "codeowners": [
+    "@meichthys"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

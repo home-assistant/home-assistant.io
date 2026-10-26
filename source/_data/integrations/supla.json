@@ -1,0 +1,17 @@
+{
+  "domain": "supla",
+  "name": "SUPLA",
+  "codeowners": [
+    "@mwegrzynek"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "hubs_protocols.smart_home_hubs",
+    "diy_makers"
+  ],
+  "platforms": [
+    "cover",
+    "switch"
+  ]
+}

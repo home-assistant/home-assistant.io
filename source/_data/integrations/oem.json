@@ -1,0 +1,12 @@
+{
+  "domain": "oem",
+  "name": "OpenEnergyMonitor WiFi Thermostat",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "domain": "shelly",
+  "name": "Shelly",
+  "integration_type": "device",
+  "codeowners": [
+    "@bieniu",
+    "@thecode",
+    "@chemelli74",
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "plugs_switches",
+    "lighting.bulbs_lamps",
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "camera",
+    "climate",
+    "cover",
+    "diagnostics",
+    "event",
+    "infrared",
+    "light",
+    "media_player",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "text",
+    "update",
+    "valve"
+  ],
+  "discovery": [
+    "bluetooth",
+    "zeroconf"
+  ]
+}

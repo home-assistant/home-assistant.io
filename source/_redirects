@@ -212,7 +212,7 @@ layout: null
 /integrations/switch.rflink /integrations/rflink/#switch
 /integrations/switch.xiaomi_aqara/ /integrations/xiaomi_aqara/#switches
 /integrations/switch.pca /integrations/elv/
-/integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
+/integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wi-fi-socket-and-smart-power-strip
 /integrations/telegram_broadcast /integrations/telegram_bot
 /integrations/telegram_polling /integrations/telegram_bot
 /integrations/telegram_webhooks /integrations/telegram_bot
@@ -306,8 +306,6 @@ layout: null
 /docs/configuration/basic/#allowlist_external_urls /integrations/homeassistant/#allowlist_external_urls
 /docs/configuration/basic/#allowlist_external_dirs /integrations/homeassistant/#allowlist_external_dirs
 /docs/configuration/basic/#external_urls /integrations/homeassistant/#external_urls
-/docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
-/docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
 /android https://companion.home-assistant.io/
 /ios https://companion.home-assistant.io/
 /ios/nfc https://companion.home-assistant.io/
@@ -383,7 +381,8 @@ layout: null
 /getting-started/automation-templating /docs/automation/trigger-data/
 /docs/automation/templating /docs/automation/trigger-data/
 /getting-started/basic /docs/configuration/basic
-/getting-started/customizing-devices /docs/configuration/customizing-devices
+/getting-started/customizing-devices /docs/configuration/customizing-entities
+/docs/configuration/customizing-devices /docs/configuration/customizing-entities
 /getting-started/installation /docs/installation
 /getting-started/installation-docker /docs/installation/docker
 /getting-started/installation-virtualenv /docs/installation/virtualenv
@@ -412,8 +411,6 @@ layout: null
 /topics/state_object /docs/configuration/state_object
 /topics/templating /docs/configuration/templating
 /common-tasks /common-tasks/os
-/common-tasks/os/#flashing-an-odroid-m1s /installation/odroid#flashing-an-odroid-m1s
-/common-tasks/os/#flashing-an-odroid-n2 /installation/odroid#flashing-an-odroid-n2
 /docs/installation /installation
 /docs/installation/docker /installation
 /docs/installation/raspberry-pi /installation
@@ -421,7 +418,7 @@ layout: null
 /docs/installation/virtualenv /installation
 /hassio /getting-started
 /hassio/commandline /common-tasks/os#home-assistant-via-the-command-line
-/hassio/flashing_n2_otg /common-tasks/os#flashing-an-odroid-n2
+/hassio/flashing_n2_otg /installation/odroid/#flashing-an-odroid-n2
 /hassio/haos_common_tasks /common-tasks/os
 /hassio/hassos_faq /faq
 /hassio/index /installation
@@ -434,9 +431,6 @@ layout: null
 /cookbook/#infrastructure /examples/#infrastructure
 /cookbook/#automation-examples /examples
 /cookbook /examples
-/common-tasks/os/#snapshots /common-tasks/general/#backups
-/common-tasks/os/#backups /common-tasks/general/#backups
-/common-tasks/supervised/#snapshots /common-tasks/general/#backups
 /more-info/unsupported/container /more-info/unsupported/software
 /more-info/system-health/   /more-info/system-information/
 /integrations/zigbee /integrations/zha
@@ -719,6 +713,7 @@ layout: null
 /integrations/tahoma /more-info/removed-integration 301
 /integrations/tensorflow /more-info/removed-integration 301
 /integrations/teksavvy /more-info/removed-integration 301
+/integrations/telegram /integrations/telegram_bot#notifiers 301
 /integrations/tesla /more-info/removed-integration 301
 /integrations/tfiac /more-info/removed-integration 301
 /integrations/thermoworks_smoke /more-info/removed-integration 301

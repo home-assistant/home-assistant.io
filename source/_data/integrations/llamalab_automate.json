@@ -1,0 +1,12 @@
+{
+  "domain": "llamalab_automate",
+  "name": "LlamaLab Automate",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "messaging_notifications.push_notifications"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

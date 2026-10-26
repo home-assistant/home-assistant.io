@@ -169,11 +169,11 @@ For setup steps, YAML options, and examples for the **Numeric state crossed thre
 
 ### Sentence trigger
 
-For setup steps, YAML options, and examples of a sentence trigger, see [Sentence triggers](/integrations/conversation/#sentence-triggers).
+For setup steps, YAML options, and examples for the **Sentence** trigger, see [Sentence trigger](/triggers/conversation/).
 
 #### Sentence wildcards
 
-For wildcard syntax and examples, see [Sentence wildcards](/integrations/conversation/#sentence-wildcards).
+For wildcard syntax and examples, see [Sentence wildcards](/triggers/conversation/#sentence-wildcards).
 
 <a id="state-trigger"></a>
 
@@ -241,104 +241,15 @@ A very thorough explanation of this is available in the Wikipedia article about 
 
 ### Tag trigger
 
-Reacts when a [tag](/integrations/tag) is scanned. For example, an NFC tag is
-scanned using the Home Assistant Companion mobile application.
-
-```yaml
-automation:
-  triggers:
-    - trigger: tag
-      tag_id: A7-6B-90-5F
-```
-
-Additionally, you can also only trigger if a card is scanned by a specific
-device/scanner by setting the `device_id`:
-
-```yaml
-automation:
-  triggers:
-    - trigger: tag
-      tag_id: A7-6B-90-5F
-      device_id: 0e19cd3cf2b311ea88f469a7512c307d
-```
-
-Or trigger on multiple possible devices for multiple tags:
-
-```yaml
-automation:
-  triggers:
-    - trigger: tag
-      tag_id:
-        - "A7-6B-90-5F"
-        - "A7-6B-15-AC"
-      device_id:
-        - 0e19cd3cf2b311ea88f469a7512c307d
-        - d0609cb25f4a13922bb27d8f86e4c821
-```
+For setup steps, YAML options, and examples for the **Tag** trigger, see [Tag trigger](/triggers/tag/).
 
 ### Template trigger
 
-Template triggers work by evaluating a [template](/docs/templating/) when any of the recognized entities change state. The trigger reacts if the state change caused the template to render 'true' (a non-zero number or any of the strings `true`, `yes`, `on`, `enable`) when it was previously 'false' (anything else).
-
-This is achieved by having the template result in a true boolean expression (for example `{{ is_state('device_tracker.paulus', 'home') }}`) or by having the template render `true` (example below).
-
-With template triggers you can also evaluate attribute changes by using is_state_attr (like `{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}`)
-
-```yaml
-automation:
-  triggers:
-    - trigger: template
-      value_template: "{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}"
-
-      # If given, will trigger when template remains true for X time.
-      for: "00:01:00"
-```
-
-You can also use templates in the `for` option. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
-
-```yaml
-automation:
-  triggers:
-    - trigger: template
-      value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
-      for:
-        minutes: "{{ states('input_number.minutes')|int(0) }}"
-```
-
-The `for` template(s) will be evaluated when the `value_template` becomes 'true'.
-
-Templates that do not contain an entity will be rendered once per minute.
-
-{% important %}
-Use of the `for` option will not survive Home Assistant restart or the reload of automations. During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
-
-If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
-{% endimportant %}
+For setup steps, YAML options, and examples for the **Template** trigger, see [Template trigger](/triggers/template/).
 
 ### Time pattern trigger
 
-With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value.
-
-```yaml
-automation:
-  triggers:
-    - trigger: time_pattern
-      # Matches every hour at 5 minutes past whole
-      minutes: 5
-
-automation 2:
-  triggers:
-    - trigger: time_pattern
-      # Trigger once per minute during the hour of 3
-      hours: "3"
-      minutes: "*"
-
-automation 3:
-  triggers:
-    - trigger: time_pattern
-      # You can also match on interval. This will match every 5 minutes
-      minutes: "/5"
-```
+For setup steps, YAML options, and examples for the **Time pattern** trigger, see [Time pattern trigger](/triggers/time_pattern/).
 
 ### Time trigger
 
@@ -386,7 +297,7 @@ automation:
       at: "15:32:00"
 ```
 
-Triggers can also be disabled based on [limited templates](/docs/templating/limited-templates/) or blueprint inputs. These are only evaluated once when the automation is loaded.
+Triggers can also be disabled based on [limited templates](/docs/templating/limited-templates/) or blueprint inputs. Home Assistant evaluates these when it sets up the triggers: when it loads the automation, when you reload automations, and when you turn the automation on. They don't update in between.
 
 ```yaml
 blueprint:

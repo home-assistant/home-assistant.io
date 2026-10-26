@@ -1,0 +1,18 @@
+{
+  "domain": "uhoo",
+  "name": "uHoo",
+  "integration_type": "hub",
+  "codeowners": [
+    "@getuhoo",
+    "@joshsmonta"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -193,10 +193,11 @@ switch:
 automation:
   alias: "Example timer"
   triggers:
-    - trigger: zone
-      entity_id: person.me
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.me
+      options:
+        zone: zone.home
   actions:
     - action: sensibo.enable_timer
       data:
