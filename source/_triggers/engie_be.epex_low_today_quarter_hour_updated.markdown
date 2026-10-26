@@ -2,7 +2,7 @@
 title: "EPEX lowest quarter-hourly price today updated"
 trigger: engie_be.epex_low_today_quarter_hour_updated
 domain: engie_be
-description: "Triggers when today's lowest quarter-hourly EPEX price changes."
+description: "Triggers when the lowest quarter-hourly EPEX price of today changes."
 related_triggers:
   - engie_be.epex_high_today_hour_updated
   - engie_be.epex_high_today_quarter_hour_updated
@@ -62,7 +62,7 @@ device_id:
 
 - Only contracts with a dynamic tariff have EPEX prices. A device of a contract with a fixed tariff never fires.
 - Home Assistant checks the price on every EPEX update and on every quarter-hour boundary (at 00, 15, 30 and 45 minutes past the hour).
-- After the integration reloads, or when the price is unknown because a slot is missing or an update failed, the first known price sets a new baseline. The trigger does not fire on that first price.
+- After the integration reloads, the price when it finishes loading sets a new baseline. When the price is unknown because a slot is missing or an update failed, the first known price sets it. The trigger does not fire on a baseline price.
 - Each selected device fires on its own. If you select two contracts of the same account, the trigger fires twice.
 - The trigger does not fire when today's lowest price becomes unknown, or when it becomes known for the first time.
 

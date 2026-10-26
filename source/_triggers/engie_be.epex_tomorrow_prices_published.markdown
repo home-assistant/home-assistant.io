@@ -2,7 +2,7 @@
 title: "Tomorrow's EPEX prices published"
 trigger: engie_be.epex_tomorrow_prices_published
 domain: engie_be
-description: "Triggers when the EPEX day-ahead prices for tomorrow are published."
+description: "Triggers when the EPEX day-ahead prices for tomorrow become available."
 related_triggers:
   - engie_be.epex_low_today_hour_updated
   - engie_be.epex_high_today_hour_updated
@@ -63,7 +63,7 @@ device_id:
 
 - Only contracts with a dynamic tariff have EPEX prices. A device of a contract with a fixed tariff never fires.
 - Home Assistant checks whether tomorrow's prices are complete on every EPEX update and on every quarter-hour boundary (at 00, 15, 30 and 45 minutes past the hour).
-- After the integration reloads, or after a failed update, the first check sets a new baseline. If tomorrow's prices are already complete at that check, the trigger does not fire that day.
+- After the integration reloads, the check when it finishes loading sets a new baseline. After a failed update, the first check sets it. If tomorrow's prices are already complete at that check, the trigger does not fire that day.
 - Each selected device fires on its own. If you select two contracts of the same account, the trigger fires twice.
 - The prices for tomorrow are usually published in the early afternoon, Brussels time. The trigger fires when tomorrow's prices become complete, normally once per day for each contract.
 
