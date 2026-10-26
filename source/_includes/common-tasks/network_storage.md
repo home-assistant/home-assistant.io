@@ -34,7 +34,7 @@ Name:
   description: The name of the folder for the network storage on your system. The name can only contain letters, numbers, and underscores.
 Usage:
   description: Select how you want to use the storage. For the options, see [usage types](#usage-types).
-"Type<sup>3</sup>":
+Type:
   description: The type of storage. For network storage, select **Samba/Windows (CIFS)** or **Network File System (NFS)**.
 Server:
   description: The IP address or host name of the storage server.
@@ -52,7 +52,6 @@ Server:
 
 <sup>1</sup> _Options prefixed with `[NFS]` are only available for NFS targets._<br>
 <sup>2</sup> _Options prefixed with `[CIFS]` are only available for CIFS targets._<br>
-<sup>3</sup> _For CIFS, Home Assistant uses version 2.1 or later by default. If the connection fails, you can select an older version with the **Samba/Windows (CIFS) version** option._<br>
 
 ##### Usage types
 
