@@ -115,6 +115,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Smart Plug or Smart Plug Compact that supports energy-saving mode gets an **Energy-saving power threshold** value (0 to 3680 W), controlling the power draw below which the plug switches off automatically.
 - A Smart Plug or Smart Plug Compact gets an **Energy-saving enter duration** value (1 to 3600 seconds), controlling how long the plug stays below the power threshold before energy-saving mode is entered.
 - A Thermostat, Wall Thermostat, or Room Thermostat II that supports it gets a **Temperature offset** value, letting you correct the measured temperature within the range and step the device allows.
+- A Heating circuit gets an **Eco temperature** and a **Comfort temperature** value, setting the temperatures used by the eco and comfort levels within the range the controller allows.
 
 ### Select
 
