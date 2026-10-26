@@ -1,0 +1,22 @@
+{
+  "domain": "airzone_cloud",
+  "name": "Airzone Cloud",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Noltari"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "diagnostics",
+    "select",
+    "sensor",
+    "switch",
+    "water_heater"
+  ]
+}

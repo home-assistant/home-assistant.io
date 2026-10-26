@@ -1,0 +1,14 @@
+{
+  "domain": "evil_genius_labs",
+  "name": "Evil Genius Labs",
+  "integration_type": "device",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "lighting.led_strips_controllers"
+  ],
+  "platforms": [
+    "diagnostics",
+    "light"
+  ]
+}

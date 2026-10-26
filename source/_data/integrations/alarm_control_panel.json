@@ -1,0 +1,9 @@
+{
+  "domain": "alarm_control_panel",
+  "name": "Alarm control panel",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

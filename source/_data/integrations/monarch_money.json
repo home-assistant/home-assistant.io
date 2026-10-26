@@ -1,0 +1,17 @@
+{
+  "domain": "monarch_money",
+  "name": "Monarch Money",
+  "integration_type": "service",
+  "codeowners": [
+    "@jeeftor",
+    "@bradleyseanf"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "finance"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

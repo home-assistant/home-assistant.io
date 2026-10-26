@@ -1,0 +1,26 @@
+{
+  "domain": "actron_air",
+  "name": "Actron Air",
+  "integration_type": "hub",
+  "codeowners": [
+    "@kclif9",
+    "@JagadishDhanamjayam"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "silver",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "cover",
+    "diagnostics",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

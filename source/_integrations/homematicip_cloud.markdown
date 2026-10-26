@@ -177,7 +177,7 @@ Floor heating actuators are operated through the climate group and don't need th
 - Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`, `HmIP-STHO`, `HmIP-STHO-A`)
 - External temperature sensors with two probes (`HmIP-STE2-PCB`, `ELV-SH-PTI2`)
 - Light sensor – outdoor (`HmIP-SLO`)
-- Motion and presence sensors (`HmIP-SMI`, `HmIP-SMO`, `HmIP-SPI`)
+- Motion and presence sensors (`HmIP-SMI`, `HmIP-SMO`, `HmIP-SMO230`, `HmIP-SPI`)
 - Passage sensor with direction recognition (`HmIP-SPDR`)
 - Floor heating actuator – 12 channels, valve positions (`HMIP-FALMOT-C12`)
 - Fine dust sensor (`HmIP-SFD`)

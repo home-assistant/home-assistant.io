@@ -1,0 +1,15 @@
+{
+  "domain": "sinch",
+  "name": "Sinch SMS",
+  "codeowners": [
+    "@bendikrb"
+  ],
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "messaging_notifications.email_sms_calls"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

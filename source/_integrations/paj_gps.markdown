@@ -71,10 +71,11 @@ Opening the garage door when a car with a PAJ GPS device is near using automatio
 automation: |
   alias: "Open garage door for the car"
   triggers:
-    - trigger: zone
-      entity_id: person.car_tracker
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.car_tracker
+      options:
+        zone: zone.home
   actions:
     - action: button.press
       target:

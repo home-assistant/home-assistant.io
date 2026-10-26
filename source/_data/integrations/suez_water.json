@@ -1,0 +1,18 @@
+{
+  "domain": "suez_water",
+  "name": "Suez Water",
+  "integration_type": "service",
+  "codeowners": [
+    "@ooii",
+    "@jb101010-2"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "water.meters_leak_detection"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

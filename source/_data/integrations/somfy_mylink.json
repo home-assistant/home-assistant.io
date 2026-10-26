@@ -1,0 +1,19 @@
+{
+  "domain": "somfy_mylink",
+  "name": "Somfy MyLink",
+  "integration_type": "hub",
+  "codeowners": [
+    "@sslivins"
+  ],
+  "config_flow": true,
+  "iot_class": "assumed_state",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "cover"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

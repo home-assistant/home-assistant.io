@@ -241,9 +241,14 @@ Here are a few automation examples that use the actions provided by the LIFX int
 
 Pulse the living room lights a few times so you notice the doorbell even if the sound is turned down.
 
-- **Trigger**: State of the doorbell button changes to pressed
-- **Action**: Pulse effect
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
+- **Action**: LIFX: Pulse effect
   - **Target**: Living room (`light.living_room`)
+  - **Mode**: Breathe
+  - **Color name**: `white`
+  - **Cycles**: `3`
 
 Use the blueprint to pick the sensor, the lights, and the flash color without writing any YAML.
 
@@ -253,9 +258,11 @@ Use the blueprint to pick the sensor, the lights, and the flash color without wr
 
 Start the Sky effect on a LIFX Ceiling light at sunset, using the slow sunset scene. To return the light to normal control later, use the [**Stop effect**](/actions/lifx.effect_stop/) action.
 
-- **Trigger**: Sun: after sunset
-- **Action**: Sky effect
+- **Trigger**: Sunset
+- **Action**: LIFX: Sky effect
   - **Target**: Bedroom ceiling (`light.bedroom_ceiling`)
+  - **Sky type**: Sunset
+  - **Speed**: `120` seconds
 
 Use the blueprint to choose the lights, the sky type, the speed, and how long after sunset the effect starts.
 
@@ -265,9 +272,12 @@ Use the blueprint to choose the lights, the sky type, the speed, and how long af
 
 Start a two-hour HEV cycle on a LIFX Clean light at 2 AM every night. The example runs from 2 AM to 4 AM, when rooms are most likely to be empty. If your schedule is different, adjust the start time. We strongly recommend running each cycle for at least two continuous hours.
 
-- **Trigger**: Time: 02:00
-- **Action**: Set HEV cycle state
+- **Trigger**: Time
+  - **At**: `02:00`
+- **Action**: LIFX: Set HEV cycle state
   - **Target**: Bathroom (`light.bathroom`)
+  - **Enable**: On
+  - **Duration**: `7200` seconds
 
 Use the blueprint to choose the start time, the LIFX Clean lights, and how long the cycle runs.
 

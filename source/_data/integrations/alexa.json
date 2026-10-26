@@ -1,0 +1,14 @@
+{
+  "domain": "alexa",
+  "name": "Amazon Alexa",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/cloud",
+    "@ochlocracy",
+    "@jbouwh"
+  ],
+  "iot_class": "cloud_push",
+  "platforms": [
+    "diagnostics"
+  ]
+}

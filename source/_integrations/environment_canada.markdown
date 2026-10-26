@@ -178,11 +178,11 @@ The configuration snippet below adds a template sensor containing the current fo
 
 ```yaml
 - trigger:
-    - platform: time_pattern
+    - trigger: time_pattern
       hours: "/4"
-    - platform: homeassistant
+    - trigger: homeassistant
       event: start
-    - platform: event
+    - trigger: event
       event_type: event_template_reloaded
   actions:
     - action: environment_canada.get_forecasts
@@ -206,11 +206,11 @@ To get the alerts in a sensor with all the alert data, use the following, replac
 
 ```yaml
 - trigger:
-    - platform: time_pattern
+    - trigger: time_pattern
       minutes: "/1"
-    - platform: homeassistant
+    - trigger: homeassistant
       event: start
-    - platform: event
+    - trigger: event
       event_type: event_template_reloaded
   actions:
     - action: environment_canada.get_alerts

@@ -1,6 +1,6 @@
 ---
 title: "Automation targets: entities, devices, areas, floors, and labels"
-description: "Use areas, floors, labels, and devices as targets in automations. Learn which entities a target covers, and how triggers and conditions react when a target covers several entities."
+description: "Use areas, floors, labels, and devices as targets in automations. Learn which entities a target covers, how to exclude some of them, and how triggers and conditions react when a target covers several entities."
 related:
   - docs: /docs/automation/basics/
     title: Understanding automations
@@ -60,14 +60,28 @@ The following entities are not part of a target because of how they are set up:
 - Entities that you assigned to a different area than their device, when you target the area of the device. These entities belong to their own area only.
 - [Hidden entities](/docs/configuration/customizing-devices/#hidden-entities). For example, if an action turns on all lights in the living room, a hidden light in that room stays off. To hide or show an entity, refer to [Hiding an entity](/docs/configuration/customizing-devices/#hiding-an-entity).
 - Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.
+  - Battery triggers and conditions, such as [Battery became low](/triggers/battery.became_low/) and [Battery is low](/conditions/battery.is_low/), are an exception. They include configuration and diagnostic entities, because many devices show their battery as a diagnostic entity.
 
 ## Targets stay up to date
 
 Home Assistant keeps the entities in a target up to date. If you've selected an area as a target, and later add a light to that area, the light becomes part of the target right away. You don't need to edit the automation.
 
+## Excluding targets
+
+Sometimes a target is broader than you want. For example, you want to turn on all lights on the ground floor, except the lights in the kitchen. You can exclude entities, devices, areas, floors, and labels from the targets of a trigger, condition, or action.
+
+- To exclude something that isn't shown in the targets, select **Exclude target** under **Targets**, and then select what to leave out. For example, select a label to leave out all entities with that label.
+- To exclude some of the entities a target covers, open the target's details, clear the checkboxes for the items you want to leave out, and then select **Apply**. To include them again, select the checkbox again and select **Apply**.
+
+Each exclusion is listed below the targets it excludes, with the number of entities it removes. An exclusion applies to all targets. If an exclusion matches nothing in the targets, it has no effect and is listed under **Exclusions with no effect**, where you can remove it.
+
+Exclusions stay up to date, like targets. If you exclude an area and later add a light to that area, the light is left out as well. An entity excluded by an area, a device, a floor, or a label can't be included again on its own. The same applies to an entity whose exclusion also leaves out entities from another target. To include it again, remove that exclusion.
+
+Excluding an [old-style group](/integrations/group/#old-style-groups), such as `group.downstairs_lights`, leaves out only the group entity, not its members. This also applies to actions, even though they include old-style group members in the target. To exclude members, exclude them, their area, or their label.
+
 ## When a target covers several entities
 
-When a target covers more than one entity, you can decide how the trigger or condition combines them.
+When a target covers more than one entity, you can decide how the trigger or condition combines them. The **Trigger when** and **Condition passes if** options are only shown when the target covers more than one entity.
 
 ### Triggers: Each, First, and All
 
@@ -78,6 +92,13 @@ Under **Trigger when**, select one of the following:
 - **All**: The trigger reacts when the last target makes the change, so that all targets are in that state. For example, the automation starts when the last window is closed.
 
 For **First** and **All**, Home Assistant skips targets that are **Unavailable** or **Unknown**. Most triggers also don't react when a target comes back from **Unavailable** or **Unknown**. For details, refer to [Unavailable and unknown state behavior in triggers](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
+
+If the trigger has a **For at least** duration, it reacts only after the change has lasted that long. Home Assistant times the duration as follows:
+
+- With **Each**, it times the duration separately for every target.
+- With **First** and **All**, it times the duration once, for all the entities covered by the target.
+- A restart of Home Assistant, or a reload of the automation, stops the timing.
+- After a restart or reload, the timing only starts again when the target changes again, even if the target is still in the new state. For details, refer to [How automations react to changes](/docs/automation/how-automations-react-to-changes/#what-counts-as-a-change).
 
 When an automation starts, the trigger data describes the one entity that made the change, not the entire target. For example, `trigger.entity_id` is the light that turned on, and `trigger.from_state` and `trigger.to_state` are the states of that light before and after the change. To learn how to use this data, refer to [Trigger data in templates](/docs/automation/trigger-data/).
 
@@ -96,9 +117,20 @@ Targets that are **Unavailable** or **Unknown** don't count. If all targets are 
 
 An action controls all of its targets. For example, if **Turn on light** targets an area, all lights in that area turn on. For details, refer to [Action targets](/docs/automation/action/#action-targets).
 
+#### Targeting all entities or no entities in YAML
+
+In YAML, actions also accept two special values for `entity_id`:
+
+- `all`: All available entities that the action can control. For example, `light.turn_off` with `entity_id: all` turns off all lights.
+- `none`: No entities. This is useful in a template that sometimes has no target. You can also use `none` for `device_id`, `area_id`, `floor_id`, and `label_id`.
+
+Triggers and conditions don't support `all` or `none`.
+
 ## Targets in YAML
 
 In {% term YAML %}, enter the targets under `target`. Use one or more of the following keys: `entity_id`, `device_id`, `area_id`, `floor_id`, and `label_id`. Each key can contain a single ID or a list of IDs. Use the IDs, not the names.
+
+To exclude targets, add an `exclude` block to the `target`. It uses the same keys as the target, but it can't use `all` or `none`, and it can't contain another `exclude` block. An `exclude` block on its own is not a valid target.
 
 For triggers, set **Trigger when** with `behavior` under `options`. The values are `each`, `first`, and `all`. For conditions, set **Condition passes if** the same way. The values are `any` and `all`.
 
@@ -123,4 +155,16 @@ automation: |
     - action: light.turn_on
       target:
         area_id: hallway
+{% endexample %}
+
+The following action turns on all lights on the ground floor, except the lights in the kitchen and the lights with the **Night light** label:
+
+{% example %}
+action: |
+  action: light.turn_on
+  target:
+    floor_id: ground_floor
+    exclude:
+      area_id: kitchen
+      label_id: night_light
 {% endexample %}

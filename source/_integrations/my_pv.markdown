@@ -16,6 +16,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
   - water_heater
 ha_integration_type: device
 ha_config_flow: true
@@ -100,10 +101,6 @@ When the device is configured for hot water heating and has a temperature sensor
 - **Minimum hysteresis**: How far the temperature has to drop below the target temperature before heating starts again. Disabled by default.
 - **Maximum hysteresis**: How far the temperature has to rise above the target temperature before heating stops. Disabled by default.
 
-### Buttons
-
-- **Restart**: Restarts the my-PV device.
-
 ### Sensors
 
 - **Device status**: What the device is doing: `Standby`, `Heat`, `Boost`, `Heating finished`, `No connection / Disabled`, `Failure`, or `Block active`.
@@ -120,6 +117,14 @@ The following diagnostic sensors are disabled by default:
 - **Network mode**: `LAN`, `WLAN`, or `AP`.
 - **Uptime**
 - **Wi-Fi signal strength**
+
+### Buttons
+
+- **Restart**: Restarts the my-PV device.
+
+### Updates
+
+- **Firmware**: Shows the firmware version installed on the device and the latest version available for it. When a newer version is available, you can install it from Home Assistant. While the update is being installed, the entity shows its progress. The device checks for new firmware about once a day. This entity is only created when the device reports both its installed and its latest firmware version.
 
 ## Examples
 

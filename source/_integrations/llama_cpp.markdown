@@ -34,7 +34,7 @@ If you are using OpenRouter, you should prefer the official [OpenRouter](/integr
 
 Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Prerequisites
 
@@ -43,6 +43,7 @@ This integration requires an external server running an OpenAI-compatible API. S
 - **llama.cpp**: Running on `http://localhost:8080/v1` or another port of your choosing. See the [llama.cpp quick start guide](https://github.com/ggml-org/llama.cpp/tree/master#quick-start) for more details.
 - **llama-cpp-python**: Running on `http://localhost:8000/v1` or another port of your choosing. See the [llama-cpp-python installation guide](https://llama-cpp-python.readthedocs.io/en/latest/#installation) for more details.
 - **vLLM**: Running on `http://localhost:8000/v1` or another port of your choosing. See the [vLLM installation guide](https://docs.vllm.ai/en/latest/getting_started/installation/) for more details.
+- **LM Studio**: Running on `http://localhost:1234/v1` after you start the server in LM Studio. If Home Assistant runs on another device, turn on **Serve on Local Network** in LM Studio and use the IP address of that computer instead of `localhost`. See the [LM Studio OpenAI compatibility guide](https://lmstudio.ai/docs/developer/openai-compat) for more details.
 - **DeepSeek**: Using the cloud API URL `https://api.deepseek.com`.
 
 {% include integrations/config_flow.md %}

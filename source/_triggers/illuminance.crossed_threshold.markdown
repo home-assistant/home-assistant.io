@@ -155,7 +155,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="illuminance sensor" example="sensor.living_room_illuminance" %}
 
 {% include triggers/behavior.md %}
 
@@ -163,6 +163,7 @@ for:
 
 - Use a sensor with the illuminance device class.
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
+- If you use an entity as the threshold, it must use `lx` as its unit. If it has a different unit, or no unit, the trigger doesn't react.
 - Number entity support applies to threshold values, not to the target being checked. The number entity must use the illuminance device class.
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.

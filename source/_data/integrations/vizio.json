@@ -1,0 +1,25 @@
+{
+  "domain": "vizio",
+  "name": "VIZIO SmartCast",
+  "integration_type": "device",
+  "codeowners": [
+    "@raman325"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "media_entertainment.tv_streaming",
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "media_player",
+    "remote",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

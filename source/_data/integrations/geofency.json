@@ -1,0 +1,12 @@
+{
+  "domain": "geofency",
+  "name": "Geofency",
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "presence_location.phones_companion_apps"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

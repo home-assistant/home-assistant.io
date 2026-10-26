@@ -1,0 +1,19 @@
+{
+  "domain": "pterodactyl",
+  "name": "Pterodactyl",
+  "integration_type": "service",
+  "codeowners": [
+    "@elmurato"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "media_entertainment.gaming"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "sensor"
+  ]
+}

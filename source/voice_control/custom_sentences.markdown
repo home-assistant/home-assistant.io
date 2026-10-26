@@ -5,9 +5,9 @@ related:
     title: Create aliases
   - docs: /actions/set_conversation_response/
     title: Set conversation response action
-  - docs: /docs/automation/trigger/#sentence-trigger
+  - docs: /triggers/conversation/
     title: Sentence triggers
-  - docs: /docs/automation/trigger/#sentence-wildcards
+  - docs: /triggers/conversation/#sentence-wildcards
     title: Sentence wildcards
   - docs: voice_control/custom_sentences_yaml
     title: Customize responses
@@ -41,7 +41,7 @@ This is the easiest method to get started with custom sentences for automations.
 
    ![Enter the response text](/images/assist/assist_set-conversation-response_02.png)  
 
-   - You can also use [wildcards](/docs/automation/trigger/#sentence-wildcards). For example, the trigger:
+   - You can also use [wildcards](/triggers/conversation/#sentence-wildcards). For example, the trigger:
 
       ```yaml
       play {album} by {artist}

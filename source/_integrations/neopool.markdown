@@ -193,6 +193,7 @@ Only entities backed by a detected hardware module or an enabled controller opti
 - **Filtration speed**: current variable-speed filtration percentage (when the controller reports a variable-speed pump).
 - **Intelligent-mode intervals** and **time to next interval**: scheduling data for Intelligent mode (when a heating relay and temperature sensor are configured).
 - **Backwash remaining**: time remaining in the active backwash cycle (when a Besgo automatic filter valve is configured).
+- **Filtration time remaining**: time left before the current filtration schedule stops, taken from whichever of the three filtration timers is running. Disabled by default; enable it in the entity registry if you want to track it.
 - **Cell runtime counters**: five diagnostic counters tracking wear on the electrolytic cell (when the hydrolysis module is present), total runtime, runtime since last reset, runtime in polarity 1 and 2, and polarity-change count. All five are diagnostic and disabled by default; enable them in the entity registry if you want to track cell wear over time.
 
 ### Times

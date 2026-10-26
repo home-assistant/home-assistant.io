@@ -1,0 +1,18 @@
+{
+  "domain": "atag",
+  "name": "Atag",
+  "integration_type": "device",
+  "codeowners": [
+    "@MatsNL"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate",
+    "sensor",
+    "water_heater"
+  ]
+}

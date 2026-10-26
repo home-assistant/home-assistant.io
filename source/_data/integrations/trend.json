@@ -1,0 +1,17 @@
+{
+  "domain": "trend",
+  "name": "Trend",
+  "integration_type": "helper",
+  "codeowners": [
+    "@jpbede"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

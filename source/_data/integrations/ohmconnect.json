@@ -1,0 +1,15 @@
+{
+  "domain": "ohmconnect",
+  "name": "OhmConnect",
+  "codeowners": [
+    "@robbiet480"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "energy"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

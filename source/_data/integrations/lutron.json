@@ -1,0 +1,26 @@
+{
+  "domain": "lutron",
+  "name": "Lutron",
+  "integration_type": "hub",
+  "codeowners": [
+    "@cdheiser",
+    "@wilburCForce"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "lighting.lighting_systems",
+    "plugs_switches",
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "cover",
+    "event",
+    "fan",
+    "light",
+    "scene",
+    "select",
+    "switch"
+  ]
+}

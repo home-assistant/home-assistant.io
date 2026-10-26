@@ -1,0 +1,13 @@
+{
+  "domain": "aws",
+  "name": "Amazon Web Services (AWS)",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.cloud_developer_tools",
+    "messaging_notifications"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

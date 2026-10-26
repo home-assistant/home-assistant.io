@@ -5,6 +5,9 @@ domain: homeassistant
 description: "Stops the Home Assistant instance."
 related_actions:
   - homeassistant.restart
+related:
+  - docs: /common-tasks/general/restarting/#shutting-down-the-system
+    title: Shutting down the system
 ---
 
 Use this action to stop Home Assistant. Once stopped, Home Assistant must be started again from the host device. A common use is to shut Home Assistant down cleanly as part of powering off the host.

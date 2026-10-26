@@ -59,7 +59,7 @@ This passes when the outdoor NO2 sensor reads above 40 μg/m³.
    unit_example_value="25"
    threshold_required="true" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="nitrogen dioxide sensor" example="sensor.living_room_nitrogen_dioxide" %}
 
 {% include conditions/behavior.md %}
 
