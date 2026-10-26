@@ -179,8 +179,8 @@ To delete a scene from the list of scenes:
 
 ### Scenes you can't delete in the scene editor
 
-You can only delete scenes that you can edit in the scene editor. To delete other scenes, depending on where they come from:
+You can only delete scenes that you can edit in the scene editor. For which scenes those are, refer to [Scenes you can't edit in the scene editor](#scenes-you-cant-edit-in-the-scene-editor). To delete another scene, use the method that matches where it comes from:
 
-- Scenes defined in YAML, including entries in `scenes.yaml` without an `id`: Remove the scene from its YAML file, and then [reload the scenes](/integrations/scene/#reloading-scenes).
-- Scenes from another integration: Delete the scene where that integration manages its scenes.
+- Scenes in another YAML file, or in `scenes.yaml` without an `id`: Remove the scene from its YAML file, and then [reload the scenes](/integrations/scene/#reloading-scenes).
+- Scenes from another integration: Delete the scene where that integration manages its scenes. For details, refer to [Scenes from other integrations](/integrations/scene/#scenes-from-other-integrations).
 - Temporary scenes from the **Create scene** action: Use the [**Delete scene**](/actions/scene.delete/) action.
