@@ -97,7 +97,7 @@ These sensors are also available, but are not enabled by default:
 
 Load average sensors are only added on devices that report a load average.
 
-Network interface sensors are named after the interface, such as `eth0 download rate`. Loopback interfaces are left out, and sensors for an interface that appears later, such as a USB network adapter, are added when it first shows up. The Wi-Fi sensors are unknown while the interface isn't connected, and aren't available on macOS.
+Network interface sensors are named after the interface, such as `eth0 download rate`. The download and upload rate sensors show Mbit/s by default, and you can change the unit in the entity settings. Loopback interfaces are left out, and sensors for an interface that appears later, such as a USB network adapter, are added when it first shows up. The Wi-Fi sensors are unknown while the interface isn't connected, and aren't available on macOS.
 
 ## Media player
 
