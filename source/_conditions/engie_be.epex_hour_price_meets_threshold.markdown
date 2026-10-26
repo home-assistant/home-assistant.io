@@ -78,7 +78,7 @@ below:
 
 - In the UI, Above and Below accept a number from -1 to 5 EUR/kWh.
 - Only contracts with a dynamic tariff have EPEX prices.
-- The condition passes only when every selected device has a dynamic tariff, known EPEX prices, and a current price that is in the range.
+- The condition passes only when every selected device has a confirmed dynamic tariff, known EPEX prices, and a current price that is in the range.
 - The condition is checked when the automation runs.
 - Both comparisons are strict. With **Below** set to 0.10, a price of exactly 0.10 EUR/kWh is not in the range.
 - Set at least one of **Above** and **Below**. When you set both, **Above** must be lower than **Below**.

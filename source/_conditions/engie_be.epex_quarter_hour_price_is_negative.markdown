@@ -61,7 +61,7 @@ device_id:
 ## Good to know
 
 - Only contracts with a dynamic tariff have EPEX prices.
-- The condition passes only when every selected device has a dynamic tariff, known EPEX prices, and a current price that is negative.
+- The condition passes only when every selected device has a confirmed dynamic tariff, known EPEX prices, and a current price that is negative.
 - The condition is checked when the automation runs.
 - A price of exactly zero is not negative.
 
