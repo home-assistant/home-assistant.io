@@ -387,7 +387,15 @@ Check that your Green Power device supports this channel. If it does not, you ca
 3. Put the device in pairing mode according to the instructions provided by the manufacturer.
 4. Once the device joins, it will appear on that page and will be automatically added to your devices.
 
-Green Power devices do not have a single parent router, unlike normal Zigbee end devices: every router on the network relays messages for Green Power devices. The number of Green Power devices a single router supports varies by manufacturer and capacity ranges between 5 and 40+, with the coordinator itself supporting unlimited Green Power devices. If you have more than a few Green Power devices, ensure you have enough high-capacity routers on your network and in range of the Green Power devices. Philips Hue lights and other Philips Hue router devices can handle many Green Power devices.
+Green Power devices do not have a single parent router, unlike normal Zigbee end devices: every router on the network relays messages for Green Power devices. The number of Green Power devices a single router supports varies by manufacturer and capacity ranges between 5 and 40+, with the coordinator often itself supporting unlimited Green Power devices. If you have more than a few Green Power devices, ensure you have enough high-capacity routers on your network and in range of the Green Power devices. Philips Hue lights and other Philips Hue router devices can handle many Green Power devices.
+
+Only some Zigbee coordinators can receive messages from Green Power devices directly. With these coordinators, Green Power devices within range of the coordinator work without a router device. To check which radio type your coordinator uses, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}, select **Network information**, and look at **Radio type**. The following radio types receive Green Power messages directly:
+
+- Ziggurat (`ziggurat`)
+- Silicon Labs (`ezsp`)
+- deCONZ (`deconz`)
+
+With other radio types, such as Texas Instruments (`znp`), ZiGate (`zigate`), and XBee (`xbee`), Green Power devices only work through router devices that pass on their messages.
 
 Green Power devices work differently from other Zigbee devices:
 
