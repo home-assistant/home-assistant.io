@@ -5,41 +5,115 @@ ha_categories:
   - vehicles_transport.public_transport
 ha_iot_class: Local Polling
 ha_release: 0.17
+ha_codeowners:
+  - '@raman325'
 ha_domain: gtfs
 ha_platforms:
+  - calendar
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
+ha_config_flow: true
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
 ---
 
-The **GTFS** {% term integration %} will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as [General Transit Feed Specification](https://developers.google.com/transit/gtfs/) data, commonly known as GTFS.
+The **GTFS** {% term integration %} gives you the next departure time and associated data between two stops of your public transit network. The data comes from your public transit authority, published in the [General Transit Feed Specification](https://gtfs.org/) format, commonly known as GTFS.
 
-You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps. You may also be able to find data at [Mobility Database](https://mobilitydatabase.org/).
+## Prerequisites
+
+You need the URL of a static GTFS feed: a ZIP file published by your transit agency. Most agencies publish one, often on a developer or open data page. The [Mobility Database](https://mobilitydatabase.org/) catalogs feeds from around the world.
 
 Here are some examples:
 
 - [Bay Area Rapid Transit (BART)](https://www.bart.gov/schedules/developers/gtfs) - The rapid transit system for the San Francisco Bay Area.
 - [Metropolitan Transit Authority of New York City (MTA)](http://web.mta.info/developers/) - Provides separate data feeds for subway, bus, LIRR and Metro-North of the greater New York City metropolitan region.
-- [Official Timetable Switzerland](https://opentransportdata.swiss/en/dataset/timetable-2019-gtfs) - The official timetable data for Switzerland in 2019.
 
-You need to download a GTFS ZIP file and put it into a folder named `gtfs` in your configuration directory. For ease of use, it is suggested that you rename the file to just the agency/data source name (for example, `bart.zip` instead of `google_transit_20160328_v1.zip`). You can also unzip and place a folder in the `gtfs` folder.
+{% include integrations/config_flow.md %}
 
-The data will be converted into a queryable format and saved as a SQLite3 database alongside the source data. The sensor will check for the existence of this SQLite3 data at every startup and will re-import the ZIP/Folder if none is found.
+{% configuration_basic %}
+URL:
+  description: "Direct link to the agency's static GTFS ZIP file. The feed is downloaded and imported when you add it, which can take several minutes for large feeds."
+{% endconfiguration_basic %}
 
-To update the data, delete the SQLite3 file and restart Home Assistant.
+The feed must contain `agency.txt`, `routes.txt`, `stop_times.txt`, `stops.txt`, `trips.txt`, and `calendar.txt` or `calendar_dates.txt`.
 
-To find your stop ID, open the `stops.txt` file inside the ZIP file/unzipped folder. The format of the ID is different for every transit agency but will be the first "column" (meaning the string before the first comma) in a row.
+### Adding routes
 
-The sensor attributes will contain all related information for the specific trip, such as agency information, origin and destination stop information, origin and destination stop time and the route information.
+Each route tracks departures from one stop to another. To add a route:
 
-Your mileage may vary depending on the transit agency used. Most agencies respect the GTFS format but some will do weird things like adding extra columns or using different data formatting. If you have any data specific issues, please report them to the [PyGTFS](https://github.com/jarondl/pygtfs) project, which is what the GTFS sensor uses to parse data.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **GTFS** integration.
+2. Next to the feed, select **Add route**.
+3. Choose the origin and destination stops from the lists of stops in the feed. Stations and entrances are not listed, because trips stop at their platforms. Pick the platform instead.
 
-**Please note**: This is a _static_ data source. Currently, there is no GTFS Realtime support in this sensor due to issues surrounding parsing the protocol buffer format in Python 3. Once those issues have been fixed Realtime support will be added. Once added, the sensor will check for any delays and advisories and report them in the sensor as needed.
+The route is named after its stops, for example **First Street to Third Street**. To use a different name, rename its device.
 
-To enable the GTFS {% term integration %}, you need to add it to your {% term "`configuration.yaml`" %} file.
+Each route creates a device with a calendar. Every departure is an event that starts when the trip leaves the origin and ends when it arrives at the destination. The event title shows the route and its headsign, for example **1 to Third Street**. The calendar is on during a trip, and its attributes describe the current or next departure.
+
+### Example: notify before a departure
+
+Use a calendar trigger with an offset to be reminded before the next departure.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Leave for the bus"
+    triggers:
+      - trigger: calendar
+        event: start
+        entity_id: calendar.first_street_to_third_street
+        offset: "-0:10:0"
+    actions:
+      - action: notify.notify
+        data:
+          message: "{{ trigger.calendar_event.summary }} leaves in 10 minutes"
+```
+
+{% endraw %}
+
+## Data updates
+
+The calendar calculates departures from the imported timetable, so it does not contact the agency once the feed is imported. It recalculates the upcoming departures every 15 minutes.
+
+The feed is not updated automatically. When the last service date in the feed has passed, the calendars have no more departures and a repair issue appears under {% my repairs title="**Settings** > **System** > **Repairs**" %}. To load a new timetable, reconfigure the feed.
+
+The imported feed is stored in the `.cache/gtfs` folder of your configuration directory. That folder is not included in backups, because feeds can be large. After restoring a backup, the feed is downloaded and imported again when Home Assistant starts.
+
+## Reconfiguration
+
+Reconfiguring a feed downloads it again, for example when the agency publishes a new timetable or moves the feed to a new URL. Your routes are kept.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **GTFS** integration.
+2. Next to the feed, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Keep the URL or enter a new one, then select **Submit**.
+
+The calendars keep using the old timetable until the new one is imported. If the download or import fails, the old timetable stays in use. If a stop of a route no longer exists in the new feed, that route's calendar has no departures. Remove the route and add it again with the new stop.
+
+## Known limitations
+
+- This is a _static_ data source. GTFS Realtime delays and advisories are not supported.
+- For feeds with many stops, such as national networks, the stop lists are long.
+- Most agencies follow the GTFS format closely, but some feeds contain data that cannot be imported. The [pygtfs](https://github.com/jarondl/pygtfs) library parses the feed.
+- A trip is left out if the timetable has no time for it at the origin or destination stop. Some feeds only give times at major stops (timepoints) and leave the times of the stops in between empty.
+- Trips defined by frequency in `frequencies.txt`, for example "every 10 minutes", are not supported. Only trips with times in `stop_times.txt` are shown.
+
+## Removing the integration
+
+This integration follows standard integration removal. Removing a feed deletes its imported data.
+
+{% include integrations/remove_device_service.md %}
+
+## YAML configuration
+
+For a YAML sensor, download a GTFS ZIP file and put it into a folder named `gtfs` in your configuration directory. For ease of use, rename the file to the agency or data source name (for example, `bart.zip` instead of `google_transit_20160328_v1.zip`). You can also unzip it and place the folder in the `gtfs` folder.
+
+The data is converted into a SQLite database saved alongside the source data. The sensor checks for this database at every startup and imports the ZIP file or folder again if none is found. To update the data, delete the SQLite file and restart Home Assistant.
+
+To find your stop ID, open the `stops.txt` file inside the ZIP file or unzipped folder. The ID is the first column of each row.
+
+You can also set up a sensor for a feed stored in your configuration directory by adding it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
