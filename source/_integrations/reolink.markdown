@@ -456,6 +456,7 @@ The following models have been tested and confirmed to work with a direct link t
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
 - [Reolink Elite WiFi](https://reolink.com/product/elite-wifi/)
 - [Reolink Floodlight PoE and Wi-Fi*](https://reolink.com/product/reolink-floodlight/)
+- [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Mini](https://reolink.com/product/home-hub-mini/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
 - [Reolink Lumus](https://reolink.com/product/reolink-lumus/)
