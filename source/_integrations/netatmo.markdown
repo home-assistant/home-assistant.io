@@ -1,20 +1,10 @@
 ---
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Climate
-  - Cover
-  - Environment
-  - Fan
-  - Hub
-  - Light
-  - Media source
-  - Sensor
-  - Switch
-  - Weather
+ha_categories:
+  - climate.thermostats_heating
+  - security_safety.cameras
+  - weather_alerts
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -85,7 +75,7 @@ It also exposes [Netatmo Smart Door and Window Sensors](https://www.netatmo.com/
 ## Button
 
 The `netatmo` button sensor platform provides support for moving compatible shutters to a preferred position.
-Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are disabled by default.
+Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Camera
 

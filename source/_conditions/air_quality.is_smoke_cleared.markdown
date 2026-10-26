@@ -43,8 +43,6 @@ This passes when the kitchen smoke sensor is no longer detecting smoke.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -54,13 +52,13 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="smoke detector" example="binary_sensor.hallway_smoke" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as cleared. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check whether smoke is currently detected, use [Smoke detected](/conditions/air_quality.is_smoke_detected/).
 
 {% include conditions/try_it.md %}
@@ -72,7 +70,7 @@ behavior:
 After a smoke event, you want to keep the emergency lights on until every room is safe. This automation triggers when you press the reset button, but the condition requires _every_ smoke sensor to read clear before the normal lighting scene restores. If any sensor still detects smoke, the emergency lights stay on.
 
 - **Trigger**: State changed: Reset lighting button pressed
-- **Condition**: Air Quality: Smoke cleared
+- **Condition**: Smoke cleared
   - **Target**: All smoke sensors (kitchen, hallway)
   - **Condition passes if**: All
 - **Action**: Activate scene (normal lighting)

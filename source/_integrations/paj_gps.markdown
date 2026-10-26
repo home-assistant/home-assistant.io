@@ -1,9 +1,8 @@
 ---
 title: PAJ GPS
 description: Instructions on how to integrate PAJ GPS devices into Home Assistant.
-ha_category:
-  - Device tracker
-  - Sensor
+ha_categories:
+  - presence_location.trackers
 ha_release: 2026.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -72,10 +71,11 @@ Opening the garage door when a car with a PAJ GPS device is near using automatio
 automation: |
   alias: "Open garage door for the car"
   triggers:
-    - trigger: zone
-      entity_id: person.car_tracker
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.car_tracker
+      options:
+        zone: zone.home
   actions:
     - action: button.press
       target:

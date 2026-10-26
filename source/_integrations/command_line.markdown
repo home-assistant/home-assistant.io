@@ -1,12 +1,8 @@
 ---
 title: Command line
 description: Instructions on how to integrate the command line utility within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Notifications
-  - Sensor
-  - Utility
+ha_categories:
+  - diy_makers
 ha_release: 0.12
 ha_iot_class: Local Polling
 ha_domain: command_line
@@ -55,6 +51,14 @@ command_line:
           default: 15
         device_class:
           description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
+        json_attributes:
+          description: Defines a list of keys to extract values from a JSON dictionary result and then set as binary sensor attributes.
+          required: false
+          type: [string, list]
+        json_attributes_path:
+          description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
           required: false
           type: string
         name:
@@ -226,7 +230,7 @@ command_line:
           type: device_class
           default: None
         state_class:
-          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor."
+          description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor."
           required: false
           type: string
           default: None
@@ -240,7 +244,7 @@ command_line:
           required: false
           type: device_class
         state_class:
-          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will display the value based on the **Number Format** defined in the user profile."
+          description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This will display the value based on the **Number Format** defined in the user profile."
           required: false
           type: string
     switch:
@@ -490,6 +494,22 @@ command_line:
       payload_off: "inactive"
 ```
 
+### Usage of JSON attributes in a binary sensor
+
+If the command returns JSON, a binary sensor can take its state from one key and keep other keys as attributes. Here `open` sets the state, and `battery` and `rssi` become attributes:
+
+```yaml
+command_line:
+  - binary_sensor:
+      name: Door
+      command: "cat /tmp/door.json"
+      value_template: "{{ 'on' if value_json.open else 'off' }}"
+      payload_on: "on"
+      payload_off: "off"
+      json_attributes:
+        - battery
+        - rssi
+```
 
 ## Example cover platform
 

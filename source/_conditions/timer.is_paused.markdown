@@ -47,8 +47,6 @@ This passes when `timer.movie_break` is paused.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple timers are targeted, controls how results combine. Accepts `all` or `any`.
@@ -56,9 +54,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the timer must remain paused before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the timer must remain paused before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -69,7 +67,7 @@ for:
 ## Good to know
 
 - A paused timer keeps its remaining time until it is restarted or cancelled.
-- Timers that are `unavailable` or `unknown` are skipped for **Any** and cause **All** to fail.
+{% include conditions/unavailable_targets.md entities="timers" %}
 
 {% include conditions/try_it.md %}
 

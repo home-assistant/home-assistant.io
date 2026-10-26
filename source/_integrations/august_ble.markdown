@@ -1,10 +1,6 @@
 ---
 title: August Bluetooth
 description: Connect and control your August Bluetooth devices using the Yale Access Bluetooth integration
-ha_category:
-  - Binary sensor
-  - Lock
-  - Sensor
 ha_release: 2022.9
 ha_domain: august_ble
 ha_integration_type: virtual

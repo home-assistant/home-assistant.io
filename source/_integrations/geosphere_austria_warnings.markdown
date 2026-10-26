@@ -1,9 +1,8 @@
 ---
 title: GeoSphere Austria Warnings
 description: Instructions on how to integrate official GeoSphere Austria weather warnings within Home Assistant.
-ha_category:
-  - Sensor
-  - Weather
+ha_categories:
+  - weather_alerts.public_warnings
 ha_release: 2026.8
 ha_iot_class: Cloud Polling
 ha_domain: geosphere_austria_warnings
@@ -130,10 +129,9 @@ automation: |
 
 Get a notification when GeoSphere Austria issues an orange or red warning that starts later, together with the type of weather event and when it begins.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Innsbruck advance warning level (`sensor.innsbruck_advance_warning_level`)
-  - **To**: Orange
-  - **To**: Red
+  - **To**: Orange, Red
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: `{{ state_attr('sensor.innsbruck_advance_warning_level', 'type') }} warning for Innsbruck starts at {{ state_attr('sensor.innsbruck_advance_warning_level', 'start') | as_datetime | as_local }}.`

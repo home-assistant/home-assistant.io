@@ -1,26 +1,8 @@
 ---
 title: Template
-description: Instructions on how to integrate Template Sensors into Home Assistant.
-ha_category:
-  - Alarm Control Panel
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Device Tracker
-  - Event
-  - Fan
-  - Helper
-  - Image
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
-  - Vacuum
-  - Weather
+description: Instructions on how to create template entities in Home Assistant.
+ha_categories:
+  - helpers.calculate_value
 ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -46,6 +28,7 @@ ha_platforms:
   - switch
   - update
   - vacuum
+  - water_heater
   - weather
 ha_integration_type: helper
 ha_config_flow: true
@@ -66,7 +49,7 @@ related:
 
 The **Template** {% term integration %} allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/templating/) for properties of an entity, like the name or the state.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following entity types within Home Assistant:
 
 - [Alarm control panel](#alarm-control-panel)
 - [Binary sensor](#binary-sensor)
@@ -85,6 +68,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Update](#update)
 - [Vacuum](#vacuum)
+- [Water heater](#water-heater)
 - [Weather](#weather)
 
 {% include integrations/config_flow.md %}
@@ -113,7 +97,9 @@ After you create a template helper, you can change its options at any time in **
 
 ## YAML configuration
 
-Entities are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
+Entities are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block can define entities of any of the supported types, and can contain optional update triggers.
+
+The older format, with `platform: template` under a platform key such as `sensor:`, isn't supported anymore. If your configuration still uses it, Home Assistant shows a repair.
 
 ### State-based template entities
 
@@ -137,14 +123,14 @@ template:
 
 If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
-Whenever a trigger fires, all related entities re-render and have access to [the trigger data](/docs/automation/templating/) in the templates.
+Whenever a trigger reacts, all related entities re-render and have access to [the trigger data](/docs/automation/trigger-data/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [State changed trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
-The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
+The state, including attributes, of trigger-based template entities is restored when Home Assistant is restarted. This doesn't apply to buttons, images, and update entities.
 
 {% note %}
-Buttons do not support using `trigger` or `action` options.
+Buttons don't support the `triggers`, `trigger_variables`, or `actions` options.
 {% endnote %}
 
 ```yaml
@@ -162,27 +148,66 @@ template:
         unit_of_measurement: "Days"
 ```
 
+#### Trigger variables
+
+Some trigger options accept templates, such as the event type of an event trigger. To use your own values in these options, define them under `trigger_variables`. This works the same way as [trigger variables in automations](/docs/automation/trigger/#trigger-variables).
+
+Trigger variables use [limited templates](/docs/templating/limited-templates/), so they can't use functions such as `states()`. Home Assistant renders them once, when the configuration is loaded or reloaded. If a trigger variable can't be rendered, Home Assistant logs an error and doesn't set up the triggers for that entry.
+
+After they are rendered, trigger variables are also available in `variables`, `conditions`, `actions`, and all entity templates. Entity actions, such as the `turn_on` action of a switch, can use them even before a trigger has reacted.
+
+If the same name is defined in more than one place, Home Assistant uses this order of priority:
+
+1. Variables that an entity action receives, such as `brightness` in the `turn_on` action of a light
+2. The trigger data, such as `trigger`
+3. Variables defined under `variables`
+4. Variables defined under `trigger_variables`
+
+```yaml
+# Example configuration entry
+template:
+  - trigger_variables:
+      prefix: kitchen
+    triggers:
+      - trigger: event
+        event_type: "{{ prefix }}_motion"
+    variables:
+      label: "{{ prefix }} motion"
+    sensor:
+      - name: "Kitchen motion"
+        state: "{{ label }}"
+```
+
 ### Configuration reference
 
 {% configuration trigger-based %}
 actions:
-  description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to run when a trigger reacts (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/automation/action/#action-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 conditions:
-  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
+  description: Define conditions that have to be met after a trigger reacts and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
   required: false
   type: list
 triggers:
   description: Define one or multiple automation triggers to update the entities. Optional. If omitted updates based on referenced entities. [See trigger documentation](/docs/automation/trigger).
   required: false
   type: list
+trigger_variables:
+  description: Key-value pairs of variable definitions that can be used in trigger options that accept templates (for trigger-based entities only). Requires `triggers`. Values can only use [limited templates](/docs/templating/limited-templates/) and are rendered when the configuration is loaded or reloaded. The rendered values are also available in `variables`, `conditions`, `actions`, and entity templates. [See trigger variables](#trigger-variables).
+  required: false
+  type: map
+  keys:
+    "variable_name: value":
+      description: The variable name and corresponding value.
+      required: true
+      type: string
 unique_id:
   description: The unique ID for this config block. This is prefixed to all unique IDs of all entities in this block.
   required: false
   type: string
 variables:
-  description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints. With State-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger based template entities resolve variables between triggers and actions.
+  description: Key-value pairs of variable definitions which can be referenced and used in the templates below. Mostly used by blueprints. With state-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger-based template entities resolve variables between triggers and actions.
   required: false
   type: map
   keys:
@@ -193,7 +218,7 @@ variables:
 
 {% endconfiguration %}
 
-## Common Device Configuration Options
+## Common entity options
 
 Each entity platform has its own set of configuration options, but there are some common options that can be used across all entity platforms.
 
@@ -225,7 +250,7 @@ template:
     required: false
     type: list
   default_entity_id:
-    description: Use `default_entity_id` instead of name for automatic generation of the entity id. For example, `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available. If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time.
+    description: Use `default_entity_id` instead of name for automatic generation of the entity id. For example, `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available. If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. The domain must match the platform, for example, `sensor.` for a sensor.
     required: false
     type: string
   icon:
@@ -233,7 +258,7 @@ template:
     required: false
     type: template
   picture:
-    description: Defines a template for the entity picture of the sensor.
+    description: Defines a template for the entity picture of the entity.
     required: false
     type: template
   name:
@@ -245,7 +270,7 @@ template:
     required: false
     type: string
   variables:
-    description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints. With State-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger based template entities resolve variables between triggers and actions.
+    description: Key-value pairs of variable definitions which can be referenced and used in the templates below. Mostly used by blueprints. With state-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger-based template entities resolve variables between triggers and actions.
     required: false
     type: map
     keys:
@@ -258,7 +283,7 @@ template:
 
 ## Alarm Control Panel
 
-The template alarm control panel platform allows you to create a alarm control panels with templates to define the state and scripts to define each actions.
+The template alarm control panel platform allows you to create alarm control panels with templates to define the state and scripts to define each action.
 
 Alarm control panel entities can be created from the frontend in the Helpers section or via YAML.
 
@@ -290,7 +315,7 @@ Code format:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -299,26 +324,26 @@ Availability:
 alarm_control_panel:
   description: List of alarm control panels
   required: true
-  type: map
+  type: list
   keys:
     arm_away:
-      description: Defines an action to run when the alarm is armed to away mode.
+      description: Defines an action to run when the alarm is armed to away mode. Receives the variable `code`.
       required: false
       type: action
     arm_custom_bypass:
-      description: Defines an action to run when the alarm is armed to custom bypass mode.
+      description: Defines an action to run when the alarm is armed to custom bypass mode. Receives the variable `code`.
       required: false
       type: action
     arm_home:
-      description: Defines an action to run when the alarm is armed to home mode.
+      description: Defines an action to run when the alarm is armed to home mode. Receives the variable `code`.
       required: false
       type: action
     arm_night:
-      description: Defines an action to run when the alarm is armed to night mode.
+      description: Defines an action to run when the alarm is armed to night mode. Receives the variable `code`.
       required: false
       type: action
     arm_vacation:
-      description: Defines an action to run when the alarm is armed to vacation mode.
+      description: Defines an action to run when the alarm is armed to vacation mode. Receives the variable `code`.
       required: false
       type: action
     attributes:
@@ -337,25 +362,25 @@ alarm_control_panel:
       type: boolean
       default: true
     code_format:
-      description: One of `number`, `text` or `no_code`. Format for the code used to arm/disarm the alarm.
+      description: One of `number`, `text`, or `no_code`. Format for the code used to arm/disarm the alarm.
       required: false
       type: string
       default: number
     disarm:
-      description: Defines an action to run when the alarm is disarmed.
+      description: Defines an action to run when the alarm is disarmed. Receives the variable `code`.
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the alarm control panel updates only when the `state` template returns a new value.
+      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state updates immediately when it's armed, disarmed, or triggered through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the alarm control panel updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the alarm control panel works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     state:
       description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_custom_bypass`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `disarming`, `pending`, and `triggered` are used."
       required: false
       type: template
     trigger:
-      description: Defines an action to run when the alarm is triggered.
+      description: Defines an action to run when the alarm is triggered. Receives the variable `code`.
       required: false
       type: action
 {% endconfiguration %}
@@ -411,7 +436,7 @@ Device class:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 Delay on:
   description: The amount of time the template state must be met before this sensor switches to `on`. You find this option under **Additional options**.
 Delay off:
@@ -436,7 +461,7 @@ binary_sensor:
           required: true
           type: template
     auto_off:
-      description: "**Requires a trigger.** After how much time the entity should turn off after it rendered 'on'."
+      description: "**Requires a trigger.** After how much time the entity should turn off after it rendered 'on'. This can also be a template."
       required: false
       type: time
     delay_off:
@@ -605,7 +630,7 @@ Device class:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -614,7 +639,7 @@ Availability:
 button:
   description: List of buttons
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: Defines templates for attributes of the entity. The `device_class` attribute is not allowed inside attributes map.
@@ -625,6 +650,10 @@ button:
           description: The attribute and corresponding template.
           required: true
           type: template
+    device_class:
+      description: Sets the [device class](/integrations/button/#device-class), changing the icon that is displayed in the UI.
+      required: false
+      type: device_class
     press:
       description: Defines actions to run to press the button.
       required: true
@@ -661,7 +690,7 @@ Name:
 Current temperature:
   description: A template for the climate's current temperature.
   required: false
-HVAC action:
+Current action:
   description: A template for the climate's current HVAC action. Only `cooling`, `defrosting`, `drying`, `fan`, `heating`, `idle`, `off`, and `preheating` are recognized.
   required: false
 HVAC mode:
@@ -669,11 +698,11 @@ HVAC mode:
   required: false
 HVAC modes:
   description: A template for the climate's available HVAC modes. The template expects a list of HVAC modes. Only `auto`, `cool`, `dry`, `fan_only`, `heat`, `heat_cool`, and `off` are recognized in the list.
-  required: false
+  required: true
 Actions on set HVAC mode:
   description: The action or actions run when a climate's HVAC mode change is requested.
-  required: false
-Actions on temperature:
+  required: true
+Actions on set temperature:
   description: The action or actions run when a climate's target temperature change is requested.
   required: false
 Target temperature:
@@ -685,21 +714,28 @@ Temperature unit:
 Device:
   description: An existing device to attach this helper to.
   required: false
-Availability template:
-  description: A template that gets the available state of the entity.
+Availability:
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
+  required: false
+Min target temperature:
+  description: The lowest target temperature you can set. You find this option under **Additional options**.
+  required: false
+Max target temperature:
+  description: The highest target temperature you can set. You find this option under **Additional options**.
   required: false
 {% endconfiguration_basic %}
 
 ### Options in YAML
 
 {% configuration climate %}
-cover:
-  description: Characteristics of a climate
-  type: map
+climate:
+  description: List of climate entities
+  required: true
+  type: list
   keys:
     attributes:
       description: >
-        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `current_humidity`, `current_temperature`, `fan_mode`, `fan_modes`, `humidity`, `hvac_action`, `hvac_modes`, `max_humidity`, `max_temp`, `min_humidity`, `min_temp`, `preset_mode`, `preset_modes`, `swing_horizontal_mode`, `swing_horizontal_modes`, `swing_mode`, `swing_modes`, `target_humidity_step`, `target_temp_high`, `target_temp_low`, `target_temp_step` and `temperature`,.
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `current_humidity`, `current_temperature`, `fan_mode`, `fan_modes`, `humidity`, `hvac_action`, `hvac_modes`, `max_humidity`, `max_temp`, `min_humidity`, `min_temp`, `preset_mode`, `preset_modes`, `swing_horizontal_mode`, `swing_horizontal_modes`, `swing_mode`, `swing_modes`, `target_humidity_step`, `target_temp_high`, `target_temp_low`, `target_temp_step`, and `temperature`.
       required: false
       type: [map, template]
       keys:
@@ -729,7 +765,7 @@ cover:
       required: false
       type: template
     hvac_mode:
-      description: Defines a template to get the HVAC mode of the climate. Must render a value in `fan_modes`. Only `auto`, `cool`, `dry`, `fan_only`, `heat`, `heat_cool`, and `off` are recognized in the list. Result must be an option in `hvac_modes`.
+      description: Defines a template to get the HVAC mode of the climate. Only `auto`, `cool`, `dry`, `fan_only`, `heat`, `heat_cool`, and `off` are recognized in the list. Result must be an option in `hvac_modes`.
       required: false
       type: template
       default: optimistic
@@ -757,6 +793,11 @@ cover:
       description: The climate's temperature precision. Only `0.5`, `0.1`, and `1` are recognized.
       required: false
       type: float
+    optimistic:
+      description: Flag that defines if the climate entity works in optimistic mode. When enabled, the entity's state updates immediately when it's changed through the UI or actions, without waiting for its templates to update. When disabled, the entity updates only when its templates return a new value. If you don't set `optimistic` and don't define an `hvac_mode` template, the climate entity works in optimistic mode.
+      required: false
+      type: boolean
+      default: "`true` without an `hvac_mode` template, otherwise `false`"
     preset_mode:
       description: Defines a template to get the preset mode of the climate. Must render a value in `preset_modes`. If `preset_mode` is specified, `preset_modes` and `set_preset_mode` must also be specified.
       required: false
@@ -772,7 +813,7 @@ cover:
       type: action
     set_humidity:
       description: Defines an action or actions to set the target humidity. Receives variable `humidity`. If `target_humidity_step` is specified, `humidity` is rounded to the nearest `target_humidity_step`.
-      required: inclusive
+      required: false
       type: action
     set_hvac_mode:
       description: Defines an action or actions to set the HVAC mode. Receives variable `hvac_mode`.
@@ -787,12 +828,12 @@ cover:
       required: inclusive
       type: action
     set_swing_mode:
-      description: Defines an action or actions to set the swing mode. Receives variable `swing_mode`. If `set_fan_mode` is specified, `swing_modes` must also be specified.
+      description: Defines an action or actions to set the swing mode. Receives variable `swing_mode`. If `set_swing_mode` is specified, `swing_modes` must also be specified.
       required: inclusive
       type: action
     set_temperature:
-      description: Defines an action or actions to set the target temperatures. Receives variables `temperature`, `target_temp_high` and `target_temp_low` when enabled. If `target_temperature_step` is specified, `temperature`, `target_temp_high` and `target_temp_low` are rounded to the nearest `target_temperature_step`.
-      required: inclusive
+      description: Defines an action or actions to set the target temperatures. Receives variables `hvac_mode`, `temperature`, `target_temp_high`, and `target_temp_low` when enabled. If `hvac_mode` is received, the `set_hvac_mode` actions run first. If `target_temperature_step` is specified, `temperature`, `target_temp_high`, and `target_temp_low` are rounded to the nearest `target_temperature_step`.
+      required: false
       type: action
     swing_horizontal_mode:
       description: Defines a template to get the horizontal swing mode of the climate. Must render a value in `swing_horizontal_modes`. If `swing_horizontal_mode` is specified, `swing_horizontal_modes` and `set_swing_horizontal_mode` must also be specified.
@@ -817,12 +858,12 @@ cover:
       required: false
       type: template
     target_humidity_step:
-      description: Round the `target_humidity` to the nearest `target_humidity_step`. Must be an integer between `1` and `100`.
+      description: Round the `target_humidity` to the nearest `target_humidity_step`. Must be a whole number of `1` or more.
       required: false
       type: integer
     target_temperature:
       description: Defines a template to get the target temperature of the climate. If `target_temperature` is specified, `set_temperature` must also be specified.
-      required: inclusive
+      required: false
       type: template
     target_temperature_high:
       description: Defines a template to get the high target temperature of the climate. If `target_temperature_high` is specified, `target_temperature_low` and `set_temperature` must also be specified.
@@ -864,7 +905,7 @@ template:
         hvac_modes: "{{ ['off', 'heat'] }}"
         current_temperature: "{{ states('sensor.living_room_temperature') }}"
         set_hvac_mode:
-          - action: "switch.turn_on{{ 'on' if hvac_mode == 'heat' else 'off' }}"
+          - action: "switch.turn_{{ 'on' if hvac_mode == 'heat' else 'off' }}"
             target:
               entity_id: switch.living_room_heat
 ```
@@ -910,7 +951,7 @@ template:
         hvac_modes: "{{ ['off', 'heat'] }}"
         current_temperature: "{{ states('sensor.living_room_temperature') }}"
         set_hvac_mode:
-          - action: "switch.turn_on{{ 'on' if hvac_mode == 'heat' else 'off' }}"
+          - action: "switch.turn_{{ 'on' if hvac_mode == 'heat' else 'off' }}"
             target:
               entity_id: switch.living_room_heat
 ```
@@ -927,7 +968,7 @@ Name:
 State:
   description: A template that gets the cover's state. Only `open`, `opening`, `closing`, and `closed` are recognized.
 Actions on open:
-  description: The action or actions run when the cover is open.
+  description: The action or actions run when the cover is opened.
 Actions on close:
   description: The action or actions run when the cover is closed.
 Actions on stop:
@@ -941,15 +982,16 @@ Device class:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
 
 {% configuration cover %}
 cover:
-  description: Characteristics of a cover
-  type: map
+  description: List of covers
+  required: true
+  type: list
   keys:
     attributes:
       description: >
@@ -983,7 +1025,7 @@ cover:
       required: false
       type: template
     set_cover_position:
-      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed.
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed if it is in `supported_speeds`.
       required: false
       type: action
     set_cover_tilt_position:
@@ -999,7 +1041,7 @@ cover:
       required: false
       type: action
     supported_speeds:
-      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed was requested.
+      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed or a speed not in `supported_speeds` was requested.
       required: false
       type: [string, list]
     tilt:
@@ -1081,15 +1123,15 @@ In optimistic mode, the cover position state is maintained internally. This mode
 
 If both a `state` and a `position` are specified, only `opening` and `closing` states are set directly from the `state`. The `open` and `closed` states are instead derived from the cover position.
 
-| value_template output | result                               |
-| --------------------- | ------------------------------------ |
-| open                  | state defined by `position_template` |
-| closed                | state defined by `position_template` |
-| true                  | state defined by `position_template` |
-| false                 | state defined by `position_template` |
-| opening               | state set to `opening`               |
-| closing               | state set to `closing`               |
-| <any other output>    | No change of state or position       |
+| `state` output     | result                      |
+| ------------------ | --------------------------- |
+| open               | state defined by `position` |
+| closed             | state defined by `position` |
+| true               | state defined by `position` |
+| false              | state defined by `position` |
+| opening            | state set to `opening`      |
+| closing            | state set to `closing`      |
+| <any other output> | No change of state or position |
 
 ### State based cover - Garage Door
 
@@ -1152,7 +1194,7 @@ template:
 
 ## Device tracker
 
-The template device_tracker platform allows you to create device_tracker entities with templates for `latitude` and `longitude` to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`). When the location is inside the Home zone, the state will be `home`. When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
+The template device_tracker platform allows you to create device_tracker entities with templates for `latitude` and `longitude`, or for a list of zones in `in_zones`, to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`), or by the zones. When the location is inside the Home zone, the state will be `home`. When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
 
 ### Options in the UI
 
@@ -1168,9 +1210,9 @@ Longitude:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 Location accuracy:
-  description: A template that gets the accuracy of the device tracker's location, with the margin on error expressed in meters.
+  description: A template that gets the accuracy of the device tracker's location, with the margin on error expressed in meters. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -1179,7 +1221,7 @@ Location accuracy:
 device_tracker:
   description: List of device trackers
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
@@ -1248,11 +1290,11 @@ Last fired event type:
 Event types:
   description: A template that gets the list of available event types.
 Device class:
-  description: The [device class](/integrations/event/#device-class) used to pick the event's wording and icon. One of **Button**, **Doorbell** or **Motion**.
+  description: The [device class](/integrations/event/#device-class) used to pick the event's wording and icon. One of **Button**, **Doorbell**, or **Motion**. You can only set it when you create the helper.
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -1261,8 +1303,17 @@ Availability:
 event:
   description: List of events
   required: true
-  type: map
+  type: list
   keys:
+    attributes:
+      description: Defines templates for attributes of the entity. The `event_type` and `event_types` attributes are not allowed inside the attributes map.
+      required: false
+      type: [map, template]
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     device_class:
       description: Sets the [class of the device](/integrations/event/#device-class), changing the device state and icon that is displayed in the UI.
       required: false
@@ -1330,7 +1381,7 @@ Speed count:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -1339,7 +1390,7 @@ Availability:
 fan:
   description: List of fans
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
@@ -1356,10 +1407,10 @@ fan:
       required: false
       type: template
     optimistic:
-      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the fan updates only when the `state` template returns a new value.
+      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state updates immediately when it's changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the fan updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the fan works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     oscillating:
       description: "Defines a template to get the oscillation state of the fan. The fan is oscillating if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is not oscillating if the template evaluates to `0`, `false`, `no`, `off`, or `disable`."
       required: false
@@ -1373,10 +1424,9 @@ fan:
       required: false
       type: template
     preset_modes:
-      description: List of preset modes the fan is capable of. This is an arbitrary list of strings and must not contain any speeds.
+      description: List of preset modes the fan is capable of. This is an arbitrary list of strings.
       required: false
       type: [string, list]
-      default: []
     set_percentage:
       description: Defines an action to run when the fan is given a speed percentage command.
       required: false
@@ -1399,8 +1449,8 @@ fan:
       type: integer
       default: 100
     state:
-      description: "Defines a template to get the state of the fan. The fan is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The fan is `unknown` if the template evaluates as `None`."
-      required: true
+      description: "Defines a template to get the state of the fan. The fan is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The fan is `unknown` if the template evaluates as `None`. If not defined, and `optimistic` isn't set, the fan works in optimistic mode."
+      required: false
       type: template
     turn_on:
       description: Defines an action to run when the fan is turned on.
@@ -1615,7 +1665,7 @@ Verify SSL certificate:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -1624,10 +1674,10 @@ Availability:
 image:
   description: List of images
   required: true
-  type: map
+  type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The `access_token` attribute is not allow inside attributes map.
+      description: Defines templates for attributes of the entity. The `access_token` attribute is not allowed inside the attributes map.
       required: false
       type: [map, template]
       keys:
@@ -1693,7 +1743,7 @@ State:
 Actions on turn on:
   description: The action or actions run when the light is turned on.
 Actions on turn off:
-  description: The action run when the light is turned off.
+  description: The action or actions run when the light is turned off.
 Brightness level:
   description: A template for the light's brightness.
 Actions on set level:
@@ -1709,7 +1759,7 @@ Actions on set color temperature:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -1718,7 +1768,7 @@ Availability:
 light:
   description: List of your lights.
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
@@ -1761,10 +1811,10 @@ light:
       type: template
       default: optimistic
     optimistic:
-      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the light updates only when the `state` template returns a new value.
+      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state updates immediately when it's changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the light updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the light works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     rgb:
       description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
       required: false
@@ -1828,7 +1878,7 @@ light:
       type: template
       default: optimistic
     turn_on:
-      description: Defines an action to run when the light is turned on. May receive the variables `brightness` and/or `transition`.
+      description: Defines an action to run when the light is turned on. May receive the variables `brightness`, `brightness_pct`, and `transition`.
       required: true
       type: action
     turn_off:
@@ -1855,6 +1905,7 @@ template:
         temperature: "{{states('input_number.temperature_input') | int}}"
         hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
+        effect: "{{ state_attr('light.led_strip', 'effect') }}"
         turn_on:
           action: script.theater_lights_on
         turn_off:
@@ -1912,6 +1963,7 @@ template:
         temperature: "{{states('input_number.temperature_input') | int}}"
         hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
+        effect: "{{ state_attr('light.led_strip', 'effect') }}"
         turn_on:
           action: script.theater_lights_on
         turn_off:
@@ -2007,13 +2059,11 @@ When `light.turn_on` is called, Home Assistant selects exactly one script to run
 4. `rgbww_color` is provided and `set_rgbww` is defined.
 5. `rgbw_color` is provided and `set_rgbw` is defined.
 6. `rgb_color` is provided and `set_rgb` is defined.
-7. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
-8. `rgb_color` is provided and `set_rgb` is defined.
-9. `xy_color` is provided and `set_xy` is defined.
-10. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
-11. None of the above match, and `turn_on` is called.
+7. `xy_color` is provided and `set_xy` is defined.
+8. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+9. None of the above match, and `turn_on` is called.
 
-Whichever script is selected, it also receives `brightness` as a variable when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
+Whichever script is selected, it also receives `brightness` and `brightness_pct` as variables when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
 
 There is no separate script for transitions. The `transition` value is passed as a variable to whichever script is selected, including `turn_off`.
 
@@ -2073,11 +2123,12 @@ This example shows how to group together 2 RGBW segments from the same WLED cont
 ```yaml
 template:
   - light:
-        unique_id: 28208f257b54c44e50deb2d618d44710
-        name: Multi-segment Wled control
+      - unique_id: 28208f257b54c44e50deb2d618d44710
+        name: "Multi-segment WLED control"
         state: "{{ states('light.wled_master') }}"
         level: "{{ state_attr('light.wled_master', 'brightness') | d(0,true) | int }}"
-        rgbw: (
+        rgbw: >
+          (
           {{ (state_attr('light.wled_segment_0', 'rgbw_color')[0] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[0] | d(0))/2 }},
           {{ (state_attr('light.wled_segment_0', 'rgbw_color')[1] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[1] | d(0))/2 }},
           {{ (state_attr('light.wled_segment_0', 'rgbw_color')[2] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[2] | d(0))/2 }},
@@ -2086,21 +2137,29 @@ template:
         effect_list: "{{ state_attr('light.wled_segment_0', 'effect_list') }}"
         effect: "{{ state_attr('light.wled_segment_0', 'effect') if state_attr('light.wled_segment_0', 'effect') == state_attr('light.wled_segment_1', 'effect') else none }}"
         availability: "{{ not is_state('light.wled_master', 'unknown') }}"
-
         turn_on:
           action: light.turn_on
-          entity_id: light.wled_segment_0, light.wled_segment_1, light.wled_master
+          target:
+            entity_id:
+              - light.wled_segment_0
+              - light.wled_segment_1
+              - light.wled_master
         turn_off:
           action: light.turn_off
-          entity_id: light.wled_master
+          target:
+            entity_id: light.wled_master
         set_level:
           action: light.turn_on
-          entity_id: light.wled_master
+          target:
+            entity_id: light.wled_master
           data:
             brightness: "{{ brightness }}"
         set_rgbw:
           action: light.turn_on
-          entity_id: light.wled_segment_0, light.wled_segment_1
+          target:
+            entity_id:
+              - light.wled_segment_0
+              - light.wled_segment_1
           data:
             rgbw_color:
               - "{{ r }}"
@@ -2110,7 +2169,10 @@ template:
             effect: "Solid"
         set_effect:
           action: light.turn_on
-          entity_id: light.wled_segment_0, light.wled_segment_1
+          target:
+            entity_id:
+              - light.wled_segment_0
+              - light.wled_segment_1
           data:
             effect: "{{ effect }}"
 ```
@@ -2133,13 +2195,13 @@ Actions on lock:
 Actions on unlock:
   description: The action or actions run when the lock is unlocked.
 Code format:
-  description: A template that gets the code format of the lock. It must match as a regular expression against any code entered before the **Actions on lock** or **Actions on unlock** run.
+  description: A template that gets the code format of the lock. It must match as a regular expression against any code entered before the **Actions on lock**, **Actions on unlock**, or **Actions on open** run.
 Actions on open:
   description: The action or actions run when the lock is opened.
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -2148,7 +2210,7 @@ Availability:
 lock:
   description: List of locks
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
@@ -2161,7 +2223,7 @@ lock:
           required: true
           type: template
     code_format:
-      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock/unlock actions are executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity is `unavailable`. If the template fails to render for other reasons or if the regular expression is invalid, no code is accepted, and the lock/unlock actions are never be invoked.
+      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock, unlock, and open actions run only if they match. The actual _validity_ of the entered code must be verified within these actions. If the template fails to render, or the regular expression is invalid, no code is accepted. The lock, unlock, and open actions then fail with an error, and never run.
       required: false
       type: template
       default: None
@@ -2174,10 +2236,10 @@ lock:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the lock updates only when the `state` template returns a new value.
+      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state updates immediately when it's locked, unlocked, or opened through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the lock updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the lock works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     state:
       description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition,  `1`, `true`, `yes`, `on`, and `enable` are valid as synonyms to `locked` while `0`, `false`, `no`, `off`, and `disable` are valid as synonyms to `unlocked`. If the template produces a `None` value, the state is set to `unknown`.
       required: false
@@ -2253,7 +2315,7 @@ This example shows a lock in optimistic mode. This lock immediately changes stat
 template:
   - lock:
       - name: Garage Door
-        state: "{{ is_state('sensor.skylight.state', 'on') }}"
+        state: "{{ is_state('sensor.skylight', 'on') }}"
         optimistic: true
         lock:
           action: switch.turn_on
@@ -2273,7 +2335,7 @@ This example shows a lock that takes its state from a sensor, and uses two momen
 template:
   - lock:
       - name: Garage Door
-        state: "{{ is_state('sensor.skylight.state', 'on') }}"
+        state: "{{ is_state('sensor.skylight', 'on') }}"
         lock:
           action: switch.turn_on
           target:
@@ -2341,7 +2403,7 @@ Actions on set value:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -2350,11 +2412,11 @@ Availability:
 number:
   description: List of numbers
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
-        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min`, `max`, `step`, and `mode`.
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min`, `max`, `step`, `mode`, and `device_class`.
       required: false
       type: [map, template]
       keys:
@@ -2362,6 +2424,10 @@ number:
           description: The attribute and corresponding template.
           required: true
           type: template
+    device_class:
+      description: Sets the [device class](/integrations/number/#device-class), changing the device state and icon that is displayed in the UI.
+      required: false
+      type: device_class
     max:
       description: Template for the number's maximum value.
       required: false
@@ -2373,10 +2439,10 @@ number:
       type: template
       default: 0.0
     optimistic:
-      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state updates immediately when changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the number updates only when the `state` template returns a new value.
+      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state updates immediately when changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the number updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the number works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     set_value:
       description: Defines actions to run when the number value changes. The variable `value` contains the number entered.
       required: true
@@ -2481,7 +2547,7 @@ Actions on select:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -2490,10 +2556,10 @@ Availability:
 select:
   description: List of selects
   required: true
-  type: map
+  type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The `options` attribute is not allow inside attributes map.
+      description: Defines templates for attributes of the entity. The `options` attribute is not allowed inside the attributes map.
       required: false
       type: [map, template]
       keys:
@@ -2502,10 +2568,10 @@ select:
           required: true
           type: template
     optimistic:
-      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the select updates only when the `state` template returns a new value.
+      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the select updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the select works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     options:
       description: Template for the select's available options.
       required: true
@@ -2555,7 +2621,7 @@ template:
 
 ### State based select - Control Day/Night mode of a camera
 
-This show how a state based template select can be used to perform an action.
+This shows how a state based template select can be used to perform an action.
 
 ```yaml
 template:
@@ -2594,7 +2660,7 @@ State class:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -2629,7 +2695,7 @@ sensor:
       required: true
       type: template
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
+      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
       required: false
       type: string
       default: None
@@ -2822,7 +2888,7 @@ Actions on turn off:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -2831,10 +2897,10 @@ Availability:
 switch:
   description: List of switches
   required: true
-  type: map
+  type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The `device_class` attribute is not allow inside attributes map.
+      description: Defines templates for attributes of the entity. The `device_class` attribute is not allowed inside the attributes map.
       required: false
       type: [map, template]
       keys:
@@ -2843,10 +2909,10 @@ switch:
           required: true
           type: template
     optimistic:
-      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the switch updates only when the `state` template returns a new value.
+      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state updates immediately when it's turned on or off through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the switch updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the switch works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     state:
       description: Defines a template to set the state of the switch. If not defined, the switch optimistically assumes all commands are successful. The switch is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The switch is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The switch is `unknown` if the template evaluates as `None`.
       required: false
@@ -2854,11 +2920,11 @@ switch:
       default: optimistic
     turn_off:
       description: Defines an action or list of actions to run when the switch is turned off.
-      required: true
+      required: false
       type: action
     turn_on:
       description: Defines an action or list of actions to run when the switch is turned on.
-      required: true
+      required: false
       type: action
 
 {% endconfiguration %}
@@ -2947,7 +3013,7 @@ momentary switches to control a device.
 template:
   - switch:
       - name: "Skylight"
-        value_template: "{{ is_state('sensor.skylight', 'on') }}"
+        state: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           action: switch.turn_on
           target:
@@ -3012,7 +3078,7 @@ Device class:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -3021,7 +3087,7 @@ Availability:
 update:
   description: List of update entities
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
@@ -3052,11 +3118,11 @@ update:
       required: false
       type: action
     installed_version:
-      description: Defines a template to get the installed version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the installed version. When `latest_version` is newer than `installed_version`, the update entity state is `on`.
       required: true
       type: template
     latest_version:
-      description: Defines a template to get the latest version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the latest version. When `latest_version` is newer than `installed_version`, the update entity state is `on`.
       required: true
       type: template
     release_summary:
@@ -3076,7 +3142,7 @@ update:
       description: Defines a template to get the update title.
       required: false
       type: template
-    update_percent:
+    update_percentage:
       description: Defines a template to get the update completion percentage.
       required: false
       type: template
@@ -3138,12 +3204,12 @@ Actions on return to dock:
   description: The action or actions run when the vacuum is sent to dock.
 Actions on clean spot:
   description: The action or actions run for a spot-clean command.
-Actions locate:
+Actions on locate:
   description: The action or actions run for a locate command.
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -3152,10 +3218,10 @@ Availability:
 vacuum:
   description: List of vacuum entities
   required: true
-  type: map
+  type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity.
+      description: Defines templates for attributes of the entity. The `fan_speed` and `fan_speed_list` attributes are not allowed inside the attributes map.
       required: false
       type: [map, template]
       keys:
@@ -3163,10 +3229,6 @@ vacuum:
           description: The attribute and corresponding template.
           required: true
           type: template
-    battery_level:
-      description: "Defines a template to get the battery level of the vacuum. Legal values are numbers between `0` and `100`."
-      required: false
-      type: template
     clean_segments:
       description: Defines an action to run when the vacuum is given a clean area command. The action receives the `segment_ids` variable, which contains the list of selected area segment IDs. Requires `unique_id` and `segments`.
       required: inclusive
@@ -3188,10 +3250,10 @@ vacuum:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the vacuum updates only when the `state` template returns a new value.
+      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state updates immediately when a command is sent through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the vacuum updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the vacuum works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     pause:
       description: Defines an action to run when the vacuum is paused.
       required: false
@@ -3213,7 +3275,7 @@ vacuum:
       required: true
       type: action
     state:
-      description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
+      description: "Defines a template to get the state of the vacuum. Valid values are `cleaning`, `docked`, `idle`, `paused`, `returning`, and `error`."
       required: false
       default: optimistic
       type: template
@@ -3229,7 +3291,7 @@ vacuum:
 # Example state-based configuration.yaml entry
 template:
   - vacuum:
-      - name: Living Room Vacuum
+      - name: "Living Room Vacuum"
         start:
           action: script.vacuum_start
 ```
@@ -3241,7 +3303,7 @@ template:
       - trigger: state
         entity_id: sensor.living_room_vacuum_state
     vacuum:
-      - name: Living Room Vacuum
+      - name: "Living Room Vacuum"
         state: "{{ states('sensor.living_room_vacuum_state') }}"
         start:
           action: script.vacuum_start
@@ -3251,7 +3313,7 @@ template:
 # Example state-based configuration.yaml entry with segment cleaning
 template:
   - vacuum:
-      - name: Living Room Vacuum
+      - name: "Living Room Vacuum"
         clean_segments:
           action: script.vacuum_start
           data:
@@ -3272,10 +3334,9 @@ template:
 This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote integration](/integrations/harmony).
 
 ```yaml
-vacuum:
-  - platform: template
-    vacuums:
-      living_room_vacuum:
+template:
+  - vacuum:
+      - name: "Living Room Vacuum"
         start:
           - action: remote.send_command
             target:
@@ -3304,14 +3365,13 @@ vacuum:
 This example shows how to add custom attributes.
 
 ```yaml
-vacuum:
-  - platform: template
-    vacuums:
-      living_room_vacuum:
-        value_template: "{{ states('sensor.vacuum_state') }}"
-        battery_level_template: "{{ states('sensor.vacuum_battery_level') | int }}"
-        fan_speed_template: "{{ states('sensor.vacuum_fan_speed') }}"
-        attribute_templates:
+template:
+  - vacuum:
+      - name: "Living Room Vacuum"
+        state: "{{ states('sensor.vacuum_state') }}"
+        start:
+          action: script.vacuum_start
+        attributes:
           status: >-
             {% if (states('sensor.robot_vacuum_robot_cleaner_movement') == "after" and states('sensor.robot_vacuum_robot_cleaner_cleaning_mode') == "stop")  %}
               Charging to Resume
@@ -3320,6 +3380,174 @@ vacuum:
             {% else %}
               Charging
             {% endif %}
+```
+
+## Water heater
+
+The template water heater platform allows you to create water heater entities with templates to define the state and scripts to define each action.
+
+Water heater entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
+
+{% configuration_basic %}
+Name:
+  description: The name of the water heater.
+  required: true
+Operation modes:
+  description: A template for the list of operation modes the water heater supports, for example `eco`, `electric`, or `heat_pump`.
+  required: true
+Operation mode:
+  description: A template for the water heater's current operation mode. The result must be one of the **Operation modes**. If you leave this empty, the water heater assumes the last mode you selected.
+  required: false
+Actions on set operation mode:
+  description: The action or actions run when an operation mode change is requested. The `operation_mode` variable holds the requested mode.
+  required: true
+Current temperature:
+  description: A template for the water heater's current water temperature.
+  required: false
+Target temperature:
+  description: A template for the water heater's target temperature. Requires **Actions on set temperature**.
+  required: false
+Actions on set temperature:
+  description: The action or actions run when a target temperature change is requested. The `temperature` variable holds the requested temperature, and the `operation_mode` variable holds the requested operation mode, if one was given.
+  required: false
+Away mode:
+  description: A template that gets the away mode state. Requires **Actions on turn away mode on** and **Actions on turn away mode off**. You find this option under **Additional options**.
+  required: false
+Actions on turn away mode on:
+  description: The action or actions run when away mode is turned on. You find this option under **Additional options**.
+  required: false
+Actions on turn away mode off:
+  description: The action or actions run when away mode is turned off. You find this option under **Additional options**.
+  required: false
+Actions on turn on:
+  description: The action or actions run when the water heater is turned on.
+  required: false
+Actions on turn off:
+  description: The action or actions run when the water heater is turned off.
+  required: false
+Temperature unit:
+  description: The unit the temperature templates' output is in. One of **°C**, **°F**, or **K**.
+  required: false
+Device:
+  description: An existing device to attach this helper to.
+  required: false
+Availability:
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
+  required: false
+Minimum temperature:
+  description: The lowest target temperature you can set. You find this option under **Additional options**.
+  required: false
+Maximum temperature:
+  description: The highest target temperature you can set. You find this option under **Additional options**.
+  required: false
+{% endconfiguration_basic %}
+
+### Options in YAML
+
+{% configuration water_heater %}
+water_heater:
+  description: List of water heater entities
+  required: true
+  type: list
+  keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `away_mode`, `current_temperature`, `max_temp`, `min_temp`, `operation_list`, `operation_mode`, `target_temp_high`, `target_temp_low`, `target_temp_step`, `temperature`, and `temperature_unit`.
+      required: false
+      type: [map, template]
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    away_mode:
+      description: Defines a template to get the away mode state of the water heater. If `away_mode` is specified, `turn_away_mode_on` and `turn_away_mode_off` must also be specified.
+      required: false
+      type: template
+      default: optimistic
+    current_temperature:
+      description: Defines a template to get the current water temperature.
+      required: false
+      type: template
+    max_temperature:
+      description: The water heater's maximum target temperature. Unit is defined with `temperature_unit`.
+      required: false
+      type: float
+    min_temperature:
+      description: The water heater's minimum target temperature. Unit is defined with `temperature_unit`.
+      required: false
+      type: float
+    operation_list:
+      description: Defines a template to get the list of supported operation modes. Must render a list.
+      required: true
+      type: template
+    operation_mode:
+      description: Defines a template to get the current operation mode of the water heater. Must render a value in `operation_list`.
+      required: false
+      type: template
+      default: optimistic
+    optimistic:
+      description: Flag that defines if the water heater's operation mode works in optimistic mode. When enabled, the operation mode updates immediately when a change is requested through the UI or actions, without waiting for the `operation_mode` template to update. When disabled, the operation mode updates only when that template returns a new value.
+      required: false
+      type: boolean
+      default: "`true` if `operation_mode` is omitted, otherwise `false`."
+    set_operation_mode:
+      description: Defines an action or actions to set the operation mode. Receives variable `operation_mode`.
+      required: true
+      type: action
+    set_temperature:
+      description: Defines an action or actions to set the target temperature. Receives variables `temperature` and `operation_mode`. If `target_temperature_step` is specified, `temperature` is rounded to the nearest `target_temperature_step`.
+      required: false
+      type: action
+    target_temperature:
+      description: Defines a template to get the target temperature of the water heater. If `target_temperature` is specified, `set_temperature` must also be specified.
+      required: false
+      type: template
+      default: optimistic
+    target_temperature_step:
+      description: Round the `target_temperature` to the nearest `target_temperature_step`. Must be a number of at least `0.1`.
+      required: false
+      type: float
+    temperature_unit:
+      description: Unit for `current_temperature` and `target_temperature` output. Valid options are `°C`, `°F`, and `K`. Defaults to the unit system of your Home Assistant installation.
+      required: false
+      type: string
+    turn_away_mode_off:
+      description: Defines an action or actions to run when away mode is turned off. Must be used together with `turn_away_mode_on`.
+      required: inclusive
+      type: action
+    turn_away_mode_on:
+      description: Defines an action or actions to run when away mode is turned on. Must be used together with `turn_away_mode_off`.
+      required: inclusive
+      type: action
+    turn_off:
+      description: Defines an action or actions to run when the water heater is turned off. Must be used together with `turn_on`.
+      required: inclusive
+      type: action
+    turn_on:
+      description: Defines an action or actions to run when the water heater is turned on. Must be used together with `turn_off`.
+      required: inclusive
+      type: action
+{% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - water_heater:
+      - name: Boiler
+        operation_list: "{{ ['eco', 'electric'] }}"
+        operation_mode: "{{ states('input_select.boiler_mode') }}"
+        set_operation_mode:
+          - action: input_select.select_option
+            target:
+              entity_id: input_select.boiler_mode
+            data:
+              option: "{{ operation_mode }}"
+        current_temperature: "{{ states('sensor.boiler_temperature') }}"
 ```
 
 ## Weather
@@ -3348,7 +3576,7 @@ Forecast hourly:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -3357,7 +3585,7 @@ Availability:
 weather:
   description: List of weather entities
   required: true
-  type: map
+  type: list
   keys:
     apparent_temperature:
       description: The current apparent (feels-like) temperature.
@@ -3373,6 +3601,10 @@ weather:
           description: The attribute and corresponding template.
           required: true
           type: template
+    attribution:
+      description: Defines a template for the attribution text of the weather data, such as the name of the data provider.
+      required: false
+      type: template
     cloud_coverage:
       description: The current cloud coverage.
       required: false
@@ -3406,7 +3638,7 @@ weather:
       required: false
       type: template
     precipitation_unit:
-      description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      description: Unit for the precipitation values. Valid options are km, mi, nmi, ft, m, cm, mm, in, and yd.
       required: false
       type: string
     pressure:
@@ -3414,7 +3646,7 @@ weather:
       required: false
       type: template
     pressure_unit:
-      description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
+      description: Unit for the `pressure` value. Valid options are mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O, psi, and atm.
       required: false
       type: string
     temperature:
@@ -3422,7 +3654,7 @@ weather:
       required: true
       type: template
     temperature_unit:
-      description: Unit for temperature_template output. Valid options are °C, °F, and K.
+      description: Unit for the `temperature` value. Valid options are °C, °F, and K.
       required: false
       type: string
     uv_index:
@@ -3434,7 +3666,7 @@ weather:
       required: false
       type: template
     visibility_unit:
-      description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      description: Unit for the `visibility` value. Valid options are km, mi, nmi, ft, m, cm, mm, in, and yd.
       required: false
       type: string
     wind_gust_speed:
@@ -3446,7 +3678,7 @@ weather:
       required: false
       type: template
     wind_speed_unit:
-      description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
+      description: Unit for the `wind_speed` value. Valid options are m/s, km/h, mph, kn, m/min, ft/s, in/s, mm/s, mm/d, mm/h, in/d, in/h, and Beaufort.
       required: false
       type: string
     wind_bearing:
@@ -3510,7 +3742,7 @@ The `twice_daily` forecast should contain dictionaries, where each dictionary re
 
 ### Trigger based weather - Weather Forecast from response data
 
-This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data)
+This example demonstrates how to use an `action` to call a [action with response data](/docs/automation/action/#action-response-data)
 and use the response in a template.
 
 ```yaml
@@ -3598,7 +3830,7 @@ curl --header "Content-Type: application/json" \
 
 ## Template and action variables
 
-State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the current [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attributes in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/).
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the current [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attributes in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/trigger-data/).
 
 {% note %}
 Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. In other words, it contains the previous state.
@@ -3620,9 +3852,9 @@ template:
 
 ## Optimistic mode
 
-For template entities that support interactivity (like `number` and `select`), you can enable optimistic mode by setting the `optimistic` parameter to `true`. This affects how the entity's state updates when you interact with it:
+For template entities that support interactivity, such as `number`, `select`, `switch`, or `light`, you can enable optimistic mode by setting the `optimistic` parameter to `true`. If you don't set `optimistic`, optimistic mode is on automatically when the entity has no template for its state. For most entities, that's the `state` template. For a climate entity, it's `hvac_mode`. A cover is only optimistic automatically when it has neither `state` nor `position`. This affects how the entity's state updates when you interact with it:
 
-- **With optimistic mode disabled (default)**: When you interact with the entity (for example, selecting a new option in a dropdown or setting a new number value), the entity's state in Home Assistant updates only after the underlying template defined in the `state` parameter returns the new value.
+- **With optimistic mode disabled**: When you interact with the entity (for example, selecting a new option in a dropdown or setting a new number value), the entity's state in Home Assistant updates only after the underlying template defined in the `state` parameter returns the new value.
 
 - **With optimistic mode enabled**: When you interact with the entity, the entity's state in Home Assistant immediately updates to reflect your change, without waiting for the `state` template to update. This provides a more responsive UI experience but may not reflect the actual state if the underlying action fails or takes time to complete.
 
@@ -3632,14 +3864,14 @@ Optimistic mode is particularly useful when:
 - You want a more responsive UI experience
 - You're confident the action succeeds
 
-When optimistic mode is disabled (default), you get more accuracy but potentially a less responsive UI, as the entity only updates after confirmation from the underlying system.
+When optimistic mode is disabled, you get more accuracy but potentially a less responsive UI, as the entity only updates after confirmation from the underlying system.
 
 ## Rate limiting updates
 
 When there are entities present in the template and no triggers are defined, the template re-renders when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, rate limiting is automatically applied if too many states are observed.
 
 {% tip %}
-<a href='#trigger-based-template-sensors'>Define a trigger</a> to avoid a rate limit and get more control over entity updates.
+[Define a trigger](#trigger-based-template-entities) to avoid a rate limit and get more control over entity updates.
 {% endtip %}
 
 When [`states`](/template-functions/states/) is used in a template by itself to iterate all states on the system, the template is re-rendered each
@@ -3681,7 +3913,7 @@ trigger: |
     minutes: 5
 {% endexample %}
 
-Home Assistant tracks the entities that are referenced in the template and evaluates the template again when one of those entities changes state. If a template does not reference an entity, it is evaluated once per minute.
+Home Assistant tracks the entities that are referenced in the template and evaluates the template again when one of those entities changes state. If the template uses the time, for example with `now()`, it's also evaluated at the start of every minute. A template that references neither an entity nor the time isn't evaluated again.
 
 You can use `for` to require the template to stay true for a set time. Templates in `for` are evaluated when `value_template` becomes true.
 
@@ -3693,9 +3925,9 @@ The `for` option does not survive a Home Assistant restart or the reload of auto
 
 ### Startup
 
-If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use the [`states()`](/template-functions/states/) function in your template. For example, you should replace {% raw %}`{{ states.sensor.moon.state }}`{% endraw %} with this equivalent that returns the state and never results in `unknown`: {% raw %}`{{ states('sensor.moon') }}` {% endraw %}.
+If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use the [`states()`](/template-functions/states/) function in your template. For example, you should replace {% raw %}`{{ states.sensor.moon.state }}`{% endraw %} with this equivalent, which doesn't cause an error while the entity isn't available yet: {% raw %}`{{ states('sensor.moon') }}` {% endraw %}. Until the entity exists, it returns `unknown`.
 
-The same would apply to the [`is_state()`](/template-functions/is_state/) function. You should replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
+The same would apply to the [`is_state()`](/template-functions/is_state/) function. You should replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent, which returns `true` or `false` instead of an error:
 
 ```yaml
 {{ is_state('switch.source', 'on') }}

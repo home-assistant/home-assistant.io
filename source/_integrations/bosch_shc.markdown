@@ -1,20 +1,8 @@
 ---
 title: Bosch SHC
 description: Integrate Bosch SHC.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Valve
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -100,6 +88,8 @@ The climate platform lets you monitor and control each room's climate control. T
 
 Setting a target temperature while a room is off has no effect. Turn the room on first, or set the mode in the same action.
 
+A heating circuit also gets a climate entity named after the circuit. It shows the target temperature and whether the circuit is heating or idle, but no current temperature. **Auto** follows the schedule in the Bosch Smart Home app and **Heat** holds the manual target temperature. The target temperature range follows the limits set on the circuit.
+
 ### Covers
 
 The cover platform allows you to control shutters, awnings, and blinds.
@@ -124,6 +114,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Shutter Contact II gets a **Break function timeout** value (1 to 15 minutes), controlling how long an active break function stays in effect before it expires automatically. It has no effect while the break function is set to never expire.
 - A Smart Plug or Smart Plug Compact that supports energy-saving mode gets an **Energy-saving power threshold** value (0 to 3680 W), controlling the power draw below which the plug switches off automatically.
 - A Smart Plug or Smart Plug Compact gets an **Energy-saving enter duration** value (1 to 3600 seconds), controlling how long the plug stays below the power threshold before energy-saving mode is entered.
+- A Thermostat, Wall Thermostat, or Room Thermostat II that supports it gets a **Temperature offset** value, letting you correct the measured temperature within the range and step the device allows.
 
 ### Select
 
@@ -134,6 +125,12 @@ The select platform lets you choose between a set of predefined options. Select 
 - Door/Window Contact II Plus: a **Vibration sensitivity** select, letting you choose between **very high**, **high**, **medium**, **low**, or **very low**. In YAML, the options are `very_high`, `high`, `medium`, `low`, and `very_low`.
 - Smoke Detector that supports it: a **Smoke sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
 - Thermostat II and Room Thermostat II: a **Display orientation** select, letting you choose between **Normal** and **Rotated by 180°**, and a **Displayed temperature** select, letting you choose between **Set temperature** and **Measured**. In YAML, the display orientation options are `normal` and `reversed`, and the displayed temperature options are `setpoint` and `measured`.
+- Smart Plug and Smart Plug Compact that support it: a **State after power outage** select, letting you choose between **Off**, **On**, or **Last state**. In YAML, the options are `off`, `on`, and `last_state`.
+- Micromodule Relay that supports it: a **Switch type** select, letting you choose between **None**, **Push button**, **Rocker switch**, or **No switch**. In YAML, the options are `none`, `pushbutton`, `switch`, and `no_switch`.
+- Thermostat II that supports it: a **Valve type** select (**normally closed** or **normally open**) and a **Heater type** select (**underfloor heating**, **underfloor heating low energy**, **radiator**, **passive convector**, **active convector**, or **central heating**).
+- Room Thermostat II that supports it: a **Sensor connection** select, letting you choose how an external sensor on the terminal is used: **Not used**, **Floor sensor connected**, **Floor sensor used for regulation**, **Cable temperature sensor (without regulation)**, **Cable temperature sensor (with regulation)**, **Volt-free sensor connected**, **Potential-free contact**, or **Outdoor temperature sensor**. In YAML, the options are `not_connected`, `floor_sensor_connected`, `floor_sensor_used_for_regulation`, `floor_sensor_displayed`, `floor_sensor_displayed_and_used_for_regulation`, `volt_free_sensor_connected`, `volt_free_sensor_connected_and_used_for_operation`, and `outdoor_sensor_connected`.
+- Micromodule Relay that supports it: an **Actuator type** select, letting you choose between **Normally closed**, **Normally open**, or **Unsupported**. In YAML, the options are `normally_closed`, `normally_open`, and `unsupported`.
+- Micromodule Relay that supports it: an **Output mode** select, letting you choose between **Coupled**, **Disconnected on any key press**, **Disconnected on short press**, **Disconnected on long press**, or **Unsupported**. In YAML, the options are `attached`, `detached`, `detached_short_press`, `detached_long_press`, and `unsupported`.
 
 ### Sensors
 
@@ -148,7 +145,7 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Micromodule Shutter Control
 - Micromodule Blinds
 
-Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is disabled by default because the valve entity provides the position directly.
+Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because the valve entity provides the position directly.
 
 In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
 
@@ -195,7 +192,7 @@ Get a reminder if a shutter contact stays open for too long, so an open window d
 - **Trigger**: State changed
   - **Entity**: Front door (binary sensor)
   - **To**: On
-  - **For**: `00:10:00`
+  - **For at least**: `00:10:00`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: `The front door has been open for 10 minutes.`
@@ -235,8 +232,7 @@ Combine the cover platform with a sun trigger to close your shutters as it gets 
 automation: |
   alias: "Close shutters at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: cover.close_cover
       target:

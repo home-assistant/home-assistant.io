@@ -7,7 +7,7 @@ related_actions:
   - climate.set_fan_mode
 ---
 
-The **Set fan timer** action sets the fan to run for a specific duration. The SDM API supports a maximum duration of 12 hours.
+The **Google Nest: Set fan timer** action sets the fan to run for a specific duration. The SDM API supports a maximum duration of 12 hours.
 
 {% include actions/ui_header.md %}
 
@@ -17,7 +17,7 @@ To set the fan timer from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Nest: Set fan timer**.
+5. From the search box, search for and select **Google Nest: Set fan timer**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your thermostat is in. You can also select a device or a specific entity.
 7. Set the duration for the fan to run.
 8. Select **Save**.
@@ -55,7 +55,7 @@ duration:
   type: time
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Nest thermostat" example="climate.upstairs" %}
 
 ## Good to know
 
@@ -70,9 +70,9 @@ duration:
 When a CO2 sensor crosses a threshold, run the fan to bring in fresh air until levels drop back to normal.
 
 - **Trigger**: Numeric state crossed threshold: CO2 sensor above 1000 ppm
-- **Action**: Nest: Set fan timer
-   - **Target**: Living room thermostat
-   - **Duration**: 30 minutes
+- **Action**: Google Nest: Set fan timer
+  - **Target**: Living room thermostat
+  - **Duration**: `00:30:00`
 
 {% details "YAML example for CO2-triggered ventilation" %}
 

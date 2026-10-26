@@ -1,0 +1,23 @@
+{
+  "domain": "opendisplay",
+  "name": "OpenDisplay",
+  "integration_type": "device",
+  "codeowners": [
+    "@g4bri3lDev"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "silver",
+  "categories": [
+    "diy_makers.boards_hardware"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "event",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "domain": "miele",
+  "name": "Miele",
+  "integration_type": "hub",
+  "codeowners": [
+    "@astrandb"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "appliances_cleaning",
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "diagnostics",
+    "fan",
+    "light",
+    "select",
+    "sensor",
+    "switch",
+    "vacuum"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

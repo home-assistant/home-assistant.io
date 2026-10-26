@@ -1,0 +1,18 @@
+{
+  "domain": "recollect_waste",
+  "name": "ReCollect Waste",
+  "integration_type": "service",
+  "codeowners": [
+    "@bachya"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "local_services"
+  ],
+  "platforms": [
+    "calendar",
+    "diagnostics",
+    "sensor"
+  ]
+}

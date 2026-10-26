@@ -8,7 +8,7 @@ description: "More information on why Docker version marks the installation as u
 The version that is needed by the Supervisor depends on the features it needs
 to work properly.
 
-The current minimum supported version of Docker is: `20.10.17`.
+The current minimum supported version of Docker is: `24.0.0`.
 
 However, the feature set changes and improves over time. Therefore, the minimal
 required version may change. When that happens, it will be communicated

@@ -1,10 +1,8 @@
 ---
 title: OpenGarage
 description: Instructions on how to integrate OpenGarage.io devices with Home Assistant.
-ha_category:
-  - Cover
-  - DIY
-  - Light
+ha_categories:
+  - blinds_curtains
 ha_iot_class: Local Polling
 ha_release: 0.44
 ha_domain: opengarage

@@ -1,3 +1,3 @@
 ## Using this action in YAML
 
-If you work directly in YAML, or you want to know exactly what Home Assistant does under the hood, this section has the technical reference. It lists the field names you use in YAML, their types, and which ones are required.
+If you work directly in YAML, or you want to know exactly what Home Assistant does under the hood, this section has the technical reference. It lists the field names you use in YAML, their types, and which ones are required. For how an automation or a script is built in YAML, refer to [Automations in YAML](/docs/automation/yaml/) and [Scripts](/docs/script/).

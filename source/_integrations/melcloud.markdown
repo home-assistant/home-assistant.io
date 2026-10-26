@@ -1,8 +1,8 @@
 ---
 title: MELCloud
 description: MELCloud integration
-ha_category:
-  - Climate
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.106
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -150,7 +150,7 @@ The following binary sensors indicate component operating status and are categor
 
 - Boiler
 - Booster heater 1
-- Booster heater 2 _(disabled by default)_
+- Booster heater 2 _([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))_
 - Booster heater 2+ _(disabled by default)_
 - Immersion heater
 - Water pump 1
@@ -188,8 +188,11 @@ With the vane actions, you decide where the air from your air conditioner goes.
 
 When the air conditioner starts cooling, let the vanes swing from side to side, so the cool air spreads through the whole room.
 
-- **Trigger**: State: Living room air conditioner started cooling
-- **Action**: Set vane horizontal
+- **Trigger**: State changed
+  - **Entity**: Living room thermostat
+  - **Attribute**: HVAC action
+  - **To**: Cooling
+- **Action**: MELCloud: Set vane horizontal
   - **Target**: Living room air conditioner (`climate.living_room`)
   - **Position**: `swing`
 

@@ -1,14 +1,8 @@
 ---
 title: Whisker
 description: Instructions on how to integrate Whisker's lineup of Wi-Fi-enabled, automatic, self-cleaning litter boxes and pet feeders to Home Assistant.
-ha_category:
-  - Button
-  - Light
-  - Select
-  - Sensor
-  - Switch
-  - Update
-  - Vacuum
+ha_categories:
+  - pets
 ha_iot_class: Cloud Push
 ha_release: 2021.3
 ha_config_flow: true
@@ -75,7 +69,7 @@ Password:
 | Bonnet removed                | `binary_sensor` | Indicates whether the bonnet is removed, only for Litter-Robot 5.                                           |
 | Drawer removed                | `binary_sensor` | Indicates whether the waste drawer is removed, only for Litter-Robot 5.                                     |
 | Hopper connected              | `binary_sensor` | Indicates whether a LitterHopper is connected, only for Litter-Robot 5.                                     |
-| Laser dirty                   | `binary_sensor` | Indicates whether the cat detection laser is dirty, only for Litter-Robot 5.                                |
+| Laser dirty                   | `binary_sensor` | Indicates whether the cat detection laser is dirty, only for Litter-Robot 4 and 5.                          |
 | Online                        | `binary_sensor` | Indicates whether the unit is connected to the Whisker cloud, only for Litter-Robot 5.                      |
 | Power status                  | `binary_sensor` | Indicates whether power is currently connected.                                                             |
 | Sleep mode                    | `binary_sensor` | Indicates whether sleep mode is enabled.                                                                    |
@@ -92,7 +86,7 @@ Password:
 | Firmware                      | `update`        | View and update to the latest firmware, only for Litter-Robot 4.                                            |
 
 {% note %}
-The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode start (per day)**, and **Sleep mode end (per day)**) are disabled by default. Enable the days you want to control in the entity settings.
+The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode start (per day)**, and **Sleep mode end (per day)**) are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Enable the days you want to control in the entity settings.
 {% endnote %}
 
 ### Feeder-Robot

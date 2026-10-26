@@ -1,0 +1,9 @@
+{
+  "domain": "thingspeak",
+  "name": "ThingSpeak",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "diy_makers.web_data_connectors"
+  ]
+}

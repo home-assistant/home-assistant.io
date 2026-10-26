@@ -1,0 +1,25 @@
+{
+  "domain": "fjaraskupan",
+  "name": "Fjäråskupan",
+  "integration_type": "hub",
+  "codeowners": [
+    "@elupus"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "appliances_cleaning.cooking",
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "fan",
+    "light",
+    "number",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

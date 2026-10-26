@@ -1,0 +1,15 @@
+{
+  "domain": "aprs",
+  "name": "APRS",
+  "codeowners": [
+    "@PhilRW"
+  ],
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "presence_location.trackers"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

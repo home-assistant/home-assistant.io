@@ -1,8 +1,6 @@
 ---
 title: Scripts
 description: Create scripts in Home Assistant, ask for input with fields, choose a mode, and start scripts from dashboards, Assist, and automations.
-ha_category:
-  - Automation
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
@@ -147,7 +145,10 @@ This script turns on the bedroom lights, waits for the number of minutes that th
 - **Script**: Wake up
   - **Field**: Minutes, a number from 0 to 60, with the **Default** 5
   - **Mode**: Restart
-- **Action**: Log activity, with the message "started"
+- **Action**: Activity: Log activity
+  - **Name**: `Wake up`
+  - **Message**: `started`
+  - **Entity ID**: Wake up script
 - **Action**: Turn on light
   - **Target**: Bedroom light (`light.bedroom`)
 - **Action**: Wait for time to pass (delay)
@@ -300,7 +301,7 @@ If you turn off the bedroom light while the Wake up script is still waiting, thi
 - **Condition**: State
   - **Entity**: Wake up (`script.wake_up`)
   - **State**: On
-- **Action**: Turn off script
+- **Action**: Script: Turn off script
   - **Target**: Wake up (`script.wake_up`)
 
 {% details "YAML example" %}

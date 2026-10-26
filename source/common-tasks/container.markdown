@@ -6,7 +6,7 @@ installation: container
 
 ## Backup
 
-To learn how to back up the system or how to restore a system from a backup, refer to the backup documentation under [common tasks](/common-tasks/general/#backups).
+To learn how to back up the system or how to restore a system from a backup, refer to the backup documentation under [common tasks](/common-tasks/general/backups/).
 
 ## Update
 
@@ -14,4 +14,5 @@ To learn how to back up the system or how to restore a system from a backup, ref
 {% include common-tasks/beta_version.md %}
 {% include common-tasks/development_version.md %}
 {% include common-tasks/specific_version.md %}
+{% include common-tasks/lost_password.md %}
 {% include common-tasks/configuration_check.md %}

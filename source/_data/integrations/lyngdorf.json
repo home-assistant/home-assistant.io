@@ -1,0 +1,25 @@
+{
+  "domain": "lyngdorf",
+  "name": "Lyngdorf",
+  "integration_type": "device",
+  "codeowners": [
+    "@fishloa"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "diagnostics",
+    "media_player",
+    "number",
+    "remote",
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

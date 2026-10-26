@@ -1,0 +1,27 @@
+{
+  "domain": "hue",
+  "name": "Philips Hue",
+  "integration_type": "hub",
+  "codeowners": [
+    "@marcelveldt"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "lighting.lighting_systems"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "event",
+    "light",
+    "scene",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "homekit",
+    "zeroconf"
+  ]
+}

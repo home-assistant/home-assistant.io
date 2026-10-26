@@ -12,25 +12,22 @@ The **Carbon monoxide value** condition passes when a carbon monoxide (CO) senso
 
 {% include conditions/ui_header.md %}
 
-To use this condition in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **And if** section, select **Add condition**.
-4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-5. From the conditions shown for that target, select **Carbon monoxide value**.
-6. Under **Threshold type**, set the CO level the condition checks against.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
-8. Select **Save**.
+{% include conditions/threshold_value_steps.md
+   title="Carbon monoxide value"
+   sensor="carbon monoxide sensor"
+   areas="hallway or garage"
+   value_long="a fixed level directly, for example `35`"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options="ppb, ppm, mg/m³, or μg/m³" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: The carbon monoxide level the sensor has to meet or exceed for the condition to pass.
-Condition passes if:
-  description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-{% endoptions_ui %}
+{% include conditions/threshold_value_options_ui.md
+   value_short="a fixed level"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options_code="`ppb`, `ppm`, `mg/m³`, or `μg/m³`" %}
 
 {% include conditions/yaml_header.md %}
 
@@ -42,37 +39,32 @@ condition: |
   target:
     entity_id: sensor.hallway_co
   options:
-    threshold: 35
+    threshold:
+      type: above
+      value:
+        number: 35
+        unit_of_measurement: "ppm"
     behavior: any
 {% endexample %}
 
-This passes when the hallway CO sensor reads at or above 35 ppm.
+This passes when the hallway CO sensor reads above 35 ppm.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+{% include conditions/threshold_value_options_yaml.md
+   has_unit="true"
+   unit_default="ppm"
+   unit_example_entity="input_number.co_alert_level"
+   unit_example_value="9"
+   threshold_required="true" %}
 
-{% options_yaml %}
-threshold:
-  description: >
-    The carbon monoxide level the sensor has to meet or exceed for the condition to pass. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
-  type: any
-behavior:
-  description: >
-    When multiple sensors are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
-  type: string
-  default: any
-{% endoptions_yaml %}
-
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="carbon monoxide sensor" example="sensor.hallway_carbon_monoxide" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For simple binary detection without a specific threshold, use [Carbon monoxide detected](/conditions/air_quality.is_co_detected/) or [Carbon monoxide cleared](/conditions/air_quality.is_co_cleared/).
 
 {% include conditions/try_it.md %}
@@ -81,14 +73,14 @@ behavior:
 
 ### Automation: check CO levels when you arrive home
 
-When you pull into the driveway, you want to know if the air inside is safe before settling in. This automation triggers when you enter the home zone and checks the hallway CO reading. If the level is at or above 20 ppm, you get a notification right away so you know to open the windows or stay outside until the air clears.
+When you pull into the driveway, you want to know if the air inside is safe before settling in. This automation triggers when you enter the home zone and checks the hallway CO reading. If the level is above 20 ppm, you get a notification right away so you know to open the windows or stay outside until the air clears.
 
 - **Trigger**: Zone entered
   - **Target**: Frenck
   - **Zone**: Home
-- **Condition**: Air Quality: Carbon monoxide value
+- **Condition**: Carbon monoxide value
   - **Target**: Hallway CO sensor
-  - **Threshold type**: 20
+  - **Threshold type**: Above 20 ppm
   - **Condition passes if**: Any
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -109,7 +101,11 @@ automation: |
       target:
         entity_id: sensor.hallway_co
       options:
-        threshold: 20
+        threshold:
+          type: above
+          value:
+            number: 20
+            unit_of_measurement: "ppm"
         behavior: any
   actions:
     - action: notify.send_message

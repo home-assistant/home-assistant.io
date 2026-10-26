@@ -1,8 +1,8 @@
 ---
 title: Debug console
 description: Run Python code inside Home Assistant, to develop and debug its live internals.
-ha_category:
-  - Utility
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 2026.11
 ha_quality_scale: internal
 ha_domain: debug_console

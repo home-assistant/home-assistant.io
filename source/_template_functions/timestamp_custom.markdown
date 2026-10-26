@@ -21,19 +21,21 @@ This is useful whenever you have a UNIX timestamp (a number of seconds since Jan
 
 {% include template_functions/usage.md %}
 
+The examples use a time zone of UTC+1.
+
 {% template_function_usage %}
 filter: '{{ 1710510600 | timestamp_custom("%H:%M") }}'
 type: string
-output: "14:30"
+output: "14:50"
 {% endtemplate_function_usage %}
 
 {% include template_functions/signatures.md %}
 
 ```signature
 value | timestamp_custom(
-    format_string: str = "%Y-%m-%d %H:%M:%S",
-    local_time: bool = True,
-    default: Any = None,
+    date_format: str = "%Y-%m-%d %H:%M:%S",
+    local: bool = True,
+    default: Any,
 ) -> str | Any
 ```
 
@@ -42,13 +44,13 @@ value | timestamp_custom(
 The following parameters can be provided to this filter.
 
 {% function_parameters %}
-format_string:
+date_format:
   description: >
     The format string describing the desired output. Uses Python strftime format codes such as `%Y` (year), `%m` (month), `%d` (day), `%H` (hour), `%M` (minute), `%S` (second).
   required: false
   default: '"%Y-%m-%d %H:%M:%S"'
   type: string
-local_time:
+local:
   description: >
     Whether to convert the timestamp to the local time zone before formatting. Set to `false` to format in UTC.
   required: false
@@ -56,7 +58,7 @@ local_time:
   type: boolean
 default:
   description: >
-    Value to return if the formatting fails. If not provided, an error is raised on invalid input.
+    The value to return if the formatting fails, such as `"unknown"`. If you leave out `default` and the formatting fails, `timestamp_custom` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}
@@ -68,7 +70,7 @@ By default, `timestamp_custom` converts the timestamp to your local time zone. P
 {% example %}
 template: '{{ 1710510600 | timestamp_custom("%H:%M", false) }}'
 type: string
-output: "13:30"
+output: "13:50"
 {% endexample %}
 
 ## Common format patterns
@@ -86,7 +88,8 @@ Here are some patterns that cover the formats you need most often:
 
 - The input must be a UNIX timestamp (a number of seconds). Pass a datetime object through [`as_timestamp`](/template-functions/as_timestamp/) first.
 - The timestamp is converted to your Home Assistant time zone by default. Pass `false` as the second argument to format in UTC instead.
-- Without a `default`, the filter raises an error for non-numeric inputs. Provide one to keep templates from breaking on unavailable sensors.
+- The input must be a number, not text. A numeric string such as `"1700000000"` fails too. Convert states with [`float`](/template-functions/float/) or [`int`](/template-functions/int/) first.
+- Without a `default`, the filter raises an error if the input isn't a number. Provide one to keep templates from breaking on unavailable sensors.
 
 {% include template_functions/try_it.md %}
 
@@ -118,16 +121,16 @@ output: "Friday, March 15 at 14:30"
 
 ### Using a default value
 
-If a sensor might provide an invalid timestamp, use a default to avoid errors.
+If a sensor might provide an invalid timestamp, use a default to avoid errors. `float(none)` turns an invalid state into `none`, so the default is used.
 
 {% example %}
 template: |
   {{
-    states("sensor.last_event") | float(0)
+    states("sensor.last_event") | float(none)
     | timestamp_custom("%Y-%m-%d", default="unknown")
   }}
 type: string
-output: "2024-03-15"
+output: "unknown"
 {% endexample %}
 
 {% include template_functions/stuck.md %}

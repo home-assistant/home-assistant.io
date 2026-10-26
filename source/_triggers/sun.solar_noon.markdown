@@ -22,21 +22,20 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. From the search box, search for and select **Solar noon**.
 5. Optionally, set an offset to fire before or after solar noon:
-   - Under **Offset**, enter how far from solar noon to fire, such as 30 minutes.
-   - Under **Offset type**, select **Before** or **After**.
+   - Under **Offset**, select **Before** or **After**.
+   - Under **Duration**, enter how far from solar noon to fire, such as 30 minutes.
 6. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Offset:
-  description: The length of time from solar noon when the trigger fires, in days, hours, minutes, and seconds. By default there is no offset, so the trigger fires exactly at solar noon.
-Offset type:
   description: |
-    Whether the offset applies before or after solar noon:
+    Whether to fire before or after solar noon:
 
-    - **Before**: fires the offset amount before solar noon. This is the default.
-    - **After**: fires the offset amount after solar noon.
+    - **No offset**: fires exactly at solar noon. This is the default.
+    - **Before**: fires the duration you enter before solar noon.
+    - **After**: fires the duration you enter after solar noon.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -48,7 +47,7 @@ trigger: |
   trigger: sun.solar_noon
 {% endexample %}
 
-This fires every day, the moment the sun reaches its highest point. To fire a fixed amount of time before or after solar noon, add the `offset` and `offset_type` options:
+This fires every day, the moment the sun reaches its highest point. To fire a fixed amount of time before or after solar noon, add the `offset` option. A negative offset fires before and a positive one after:
 
 {% example %}
 trigger: |
@@ -56,7 +55,6 @@ trigger: |
   options:
     offset:
       minutes: 30
-    offset_type: after
 {% endexample %}
 
 This fires 30 minutes after solar noon every day.
@@ -66,16 +64,10 @@ This fires 30 minutes after solar noon every day.
 {% options_yaml %}
 offset:
   description: >
-    The length of time from solar noon when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. Combine it with `offset_type` to fire before or after solar noon.
+    The length of time from solar noon when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. A negative value, such as `minutes: -30` or `"-00:30:00"`, fires before solar noon. A positive value fires after.
   required: false
   type: time
   default: "00:00:00"
-offset_type:
-  description: >
-    Whether the offset applies before or after solar noon. Accepts `before` or `after`.
-  required: false
-  type: string
-  default: before
 {% endoptions_yaml %}
 
 ## Good to know

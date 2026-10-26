@@ -1,0 +1,23 @@
+{
+  "domain": "smappee",
+  "name": "Smappee",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bsmappee"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "energy.meters_monitoring",
+    "plugs_switches",
+    "water.meters_leak_detection"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

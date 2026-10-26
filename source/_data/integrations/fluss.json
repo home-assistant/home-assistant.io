@@ -1,0 +1,19 @@
+{
+  "domain": "fluss",
+  "name": "Fluss+",
+  "codeowners": [
+    "@fluss",
+    "@Marcello17"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "blinds_curtains",
+    "security_safety.locks_access"
+  ],
+  "platforms": [
+    "button",
+    "cover"
+  ]
+}

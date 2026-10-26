@@ -43,8 +43,6 @@ This passes when the kitchen gas sensor is no longer detecting gas.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -54,13 +52,13 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="gas detector" example="binary_sensor.kitchen_gas" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as cleared. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check whether gas is currently detected, use [Gas detected](/conditions/air_quality.is_gas_detected/).
 
 {% include conditions/try_it.md %}
@@ -72,7 +70,7 @@ behavior:
 After a gas event, pressing a button to silence the alarm too early is risky if gas lingers in another room. This automation triggers when you press the silence button, but the condition requires _every_ gas sensor in the house to read clear before the siren actually turns off. If any sensor still detects gas, the alarm keeps sounding.
 
 - **Trigger**: State changed: Silence alarm button pressed
-- **Condition**: Air Quality: Gas cleared
+- **Condition**: Gas cleared
   - **Target**: All gas sensors (kitchen, basement)
   - **Condition passes if**: All
 - **Action**: Turn off siren

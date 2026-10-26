@@ -1,8 +1,6 @@
 ---
 title: Map tiles
 description: Serves the base map used by the Home Assistant map.
-ha_category:
-  - Other
 ha_release: 2026.9
 ha_quality_scale: internal
 ha_codeowners:

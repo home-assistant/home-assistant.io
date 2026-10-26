@@ -1,8 +1,8 @@
 ---
 title: Rehlko
 description: Support for Rehlko devices (formerly Oncue and Kohler Energy)
-ha_category:
-  - Sensor
+ha_categories:
+  - energy.backup_power
 ha_iot_class: Cloud Polling
 ha_release: 2025.5
 ha_config_flow: true
@@ -51,7 +51,7 @@ This integration provides the following binary sensors to help you keep track of
   Monitors the oil pressure sensor. If this sensor is *on*, it means there is a problem with the oil pressure.
 
 - **Load shed**  
-  Monitors load shedding status for managed loads. If this sensor is *on*, it means the load is being shed. Generators can manage up to 6 loads. Disabled by default.
+  Monitors load shedding status for managed loads. If this sensor is *on*, it means the load is being shed. Generators can manage up to 6 loads. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Sensors
 

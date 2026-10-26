@@ -1,0 +1,17 @@
+{
+  "domain": "whois",
+  "name": "Whois",
+  "integration_type": "service",
+  "codeowners": [
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "computers_network.monitoring"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

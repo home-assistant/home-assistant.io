@@ -4,13 +4,8 @@ description: Instructions on how to integrate Rituals Perfume Genie diffusers wi
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_release: 2021.3
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - appliances_cleaning
 ha_codeowners:
   - '@milanmeu'
   - '@frenck'
@@ -60,16 +55,16 @@ Password:
 
 ## Supported functionality
 
-Each diffuser on your Rituals account is added to Home Assistant as a device, with the entities described below.
+Each diffuser on your Rituals account is added to Home Assistant as a device, with the entities described below. When you add a diffuser to your Rituals account later, it shows up in Home Assistant within a few minutes. When you remove one from your account, its device is removed from Home Assistant as well.
 
 {% note %}
-The entities you see depend on your model. The battery and charging entities appear on the battery-powered model only. On mains-powered models, the **Room size** control is disabled by default. You can turn it on from the entity's settings if you want to use it.
+The entities you see depend on your model. The battery and charging entities appear on the battery-powered model only. On mains-powered models, the **Room size** control is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). You can turn it on from the entity's settings if you want to use it.
 {% endnote %}
 
 ### Switch
 
 - **Diffuser**: The main switch for the diffuser. Turn it on to start diffusing fragrance, and off to stop. This switch carries the name of your diffuser.
-- **Standby LED**: Turns the light on or off, depending on whether the diffuser is in `standby`, `on`, or `off`. Available on diffusers that support it.
+- **Standby LED**: Turns on or off the light that shows while the diffuser is on standby, for example to keep it from lighting up a bedroom at night. Available on diffusers that support it.
 
 ### Number
 
@@ -87,8 +82,8 @@ The entities you see depend on your model. The battery and charging entities app
 ### Sensors
 
 - **Battery**: The remaining battery charge, as a percentage. Available on the battery-powered model only.
-- **Fill**: How full the current fragrance cartridge is.
-- **Perfume**: The name of the fragrance cartridge currently in the diffuser.
+- **Fill**: An estimate of how full the current fragrance cartridge is, as a percentage. Unknown when there is no measurement.
+- **Perfume**: The name of the fragrance cartridge currently in the diffuser. Unknown when no cartridge is inserted.
 - **Wi-Fi signal**: The strength of the diffuser's Wi-Fi connection, as a percentage. This sensor is disabled by default. You can turn it on from the entity's settings if you want to use it.
 
 ### Update
@@ -150,7 +145,7 @@ If one of your diffusers does not appear:
 
 1. Open the Rituals mobile app and confirm the diffuser is registered to your account and online.
 2. Make sure the diffuser is connected to your Wi-Fi network.
-3. Reload the integration from its page under {% my integrations title="**Settings** > **Devices & services**" %}.
+3. Wait a few minutes. Home Assistant checks your Rituals account for new diffusers every 5 minutes.
 
 ## Removing the integration
 

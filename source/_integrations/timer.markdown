@@ -1,9 +1,8 @@
 ---
 title: Timer
 description: Instructions on how to integrate timers into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
+ha_categories:
+  - helpers.store_value
 ha_release: 0.57
 ha_quality_scale: internal
 ha_domain: timer
@@ -129,9 +128,9 @@ automation: |
 
 Get a reminder shortly before a timer finishes, like when laundry or cooking time is almost done.
 
-- **Trigger**: Timer time remaining
+- **Trigger**: Timer remaining time reached
   - **Target**: Laundry timer
-  - **Time remaining**: 00:05:00
+  - **Time remaining**: `00:05:00`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

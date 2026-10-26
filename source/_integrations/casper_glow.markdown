@@ -1,12 +1,9 @@
 ---
 title: Casper Glow
 description: Instructions on how to integrate Casper Glow lights into Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Light
-  - Select
-  - Sensor
+ha_categories:
+  - lighting.bulbs_lamps
+  - health_wellbeing
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Polling
@@ -78,7 +75,7 @@ The **Casper Glow** {% term integration %} provides the following entities.
 - **Battery**
   - **Description**: Reports the current battery level of the Glow as a percentage.
 
-- **Dimming end time** (disabled by default)
+- **Dimming end time** ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
   - **Description**: Shows the projected time when the current dimming sequence will end. This value is a timestamp that updates only when there is a significant change during a poll interval. Such as pausing or resuming dimming, or manually adjusting the physical light.
 
 #### Selects

@@ -11,25 +11,16 @@ The **Carbon dioxide value** condition passes when a carbon dioxide (CO2) sensor
 
 {% include conditions/ui_header.md %}
 
-To use this condition in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **And if** section, select **Add condition**.
-4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-5. From the conditions shown for that target, select **Carbon dioxide value**.
-6. Under **Threshold type**, set the CO2 level the condition checks against.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
-8. Select **Save**.
+{% include conditions/threshold_value_steps.md
+   title="Carbon dioxide value"
+   sensor="carbon dioxide sensor"
+   areas="bedroom or office"
+   value_long="a fixed level directly, for example `1000` for 1000 ppm" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: The carbon dioxide level the sensor has to meet or exceed for the condition to pass.
-Condition passes if:
-  description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-{% endoptions_ui %}
+{% include conditions/threshold_value_options_ui.md
+   value_short="a fixed level in ppm" %}
 
 {% include conditions/yaml_header.md %}
 
@@ -41,38 +32,32 @@ condition: |
   target:
     entity_id: sensor.office_co2
   options:
-    threshold: 1000
+    threshold:
+      type: above
+      value:
+        number: 1000
     behavior: any
 {% endexample %}
 
-This passes when the office CO2 sensor reads at or above 1000 ppm.
+This passes when the office CO2 sensor reads above 1000 ppm.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+{% include conditions/threshold_value_options_yaml.md
+   range_note="ppm"
+   number_final="a value in ppm"
+   threshold_required="true"
+   entity_unit="`ppm`" %}
 
-{% options_yaml %}
-threshold:
-  description: >
-    The carbon dioxide level the sensor has to meet or exceed for the condition to pass. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
-  type: any
-behavior:
-  description: >
-    When multiple sensors are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
-  type: string
-  default: any
-{% endoptions_yaml %}
-
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="carbon dioxide sensor" example="sensor.living_room_co2" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - Outdoor CO2 levels are typically around 420 ppm. Indoor levels above 1000 ppm often suggest the room needs better ventilation.
+- The threshold is in ppm. A sensor that reports CO2 in another unit never matches. If you use an entity as the threshold, it must also report ppm.
 
 {% include conditions/try_it.md %}
 
@@ -80,12 +65,12 @@ behavior:
 
 ### Automation: turn on ventilation at bedtime only if CO2 is elevated
 
-After you spend an evening in the living room with the doors closed, CO2 levels are sometimes higher than you would expect by the time you head to bed. This automation triggers at your usual bedtime and checks the bedroom CO2 reading. If the level is at or above 1000 ppm, the ventilation fan turns on so you sleep with fresh air. On evenings when the room already has good airflow, the fan stays off.
+After you spend an evening in the living room with the doors closed, CO2 levels are sometimes higher than you would expect by the time you head to bed. This automation triggers at your usual bedtime and checks the bedroom CO2 reading. If the level is above 1000 ppm, the ventilation fan turns on so you sleep with fresh air. On evenings when the room already has good airflow, the fan stays off.
 
 - **Trigger**: Time: 22:30
 - **Condition**: Carbon dioxide value
   - **Target**: Bedroom CO2 sensor
-  - **Threshold type**: 1000
+  - **Threshold type**: Above 1000 ppm
 - **Action**: Turn on fan
   - **Target**: Bedroom ventilation
 
@@ -102,7 +87,10 @@ automation: |
       target:
         entity_id: sensor.bedroom_co2
       options:
-        threshold: 1000
+        threshold:
+          type: above
+          value:
+            number: 1000
   actions:
     - action: fan.turn_on
       target:

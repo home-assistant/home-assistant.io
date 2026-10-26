@@ -1,21 +1,9 @@
 ---
 title: Tessie
 description: Instructions on how to integrate Tessie within Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Car
-  - Climate
-  - Cover
-  - Device Tracker
-  - Lock
-  - Media Player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Update
+ha_categories:
+  - vehicles_transport.cars_evs
+  - energy.solar_batteries
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -453,10 +441,11 @@ This automation opens your garage door when your Tesla arrives home:
 automation:
   - alias: "Open garage when Tesla arrives"
     triggers:
-      - trigger: zone
-        entity_id: device_tracker.my_tesla_location
-        zone: zone.home
-        event: enter
+      - trigger: zone.entered
+        target:
+          entity_id: device_tracker.my_tesla_location
+        options:
+          zone: zone.home
     actions:
       - action: cover.open_cover
         target:
