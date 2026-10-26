@@ -63,6 +63,7 @@ This integration provides the following sensors:
 | Kernel               | Version information of the Kernel                   |
 | Latest Version       | System Bridge Latest Version                        |
 | Load                 | System load percentage                              |
+| Load Average (1 min) | Load average over 1 minute                          |
 | Power Usage          | Power usage in watts (if available)                 |
 | Memory Free          | Memory (RAM) free in GB                             |
 | Memory Used          | Memory (RAM) used in GB                             |
@@ -84,6 +85,10 @@ These sensors are also available, but are not enabled by default:
 | GPU Memory Used %      | GPU memory used percentage         |
 | GPU Power Usage        | GPU power usage                    |
 | GPU Temperature        | The current temperature of the GPU |
+| Load Average (5 min)   | Load average over 5 minutes        |
+| Load Average (15 min)  | Load average over 15 minutes       |
+
+The load average sensors are only added on devices that report a load average.
 
 ## Media player
 
