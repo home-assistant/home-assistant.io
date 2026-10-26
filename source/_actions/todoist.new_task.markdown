@@ -5,7 +5,7 @@ domain: todoist
 description: "Creates a new Todoist task and adds it to a project."
 ---
 
-Use this action to create a new Todoist task. Beyond the basic to-do actions, this action gives you more control over the task, letting you set a project, section, labels, an assignee, a priority, a due date, and a reminder.
+Use this action to create a new Todoist task. Beyond the basic to-do actions, this action gives you more control over the task, letting you set a project, section, labels, an assignee, a priority, a due date, and reminders based on a date or a location.
 
 This is handy in automations, for example to add a "Take out the bins" task with a due date the evening before collection day, so it shows up in Todoist automatically.
 
@@ -67,6 +67,24 @@ Reminder date language:
 Reminder date:
   description: When you should be reminded of this task, in the format YYYY-MM-DD HH:MM, in the UTC time zone.
   required: false
+Reminder zone:
+  description: A zone that triggers a location reminder. The zone's name, location, and radius are shared with Todoist.
+  required: false
+Reminder location name:
+  description: The name of the location for a location reminder. Use it with the latitude, longitude, and radius as an alternative to a zone.
+  required: false
+Reminder latitude:
+  description: The latitude of the location. This location is shared with Todoist.
+  required: false
+Reminder longitude:
+  description: The longitude of the location. This location is shared with Todoist.
+  required: false
+Reminder radius:
+  description: The radius, in meters, around the location that triggers the reminder, up to 5000.
+  required: false
+Reminder location direction:
+  description: Whether the location reminder triggers when **Entering** or **Leaving** the location. Defaults to **Entering**.
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -85,6 +103,30 @@ action: |
 {% endexample %}
 
 This creates the task "Pick up the mail" in the Errands project.
+
+To be reminded of a task when you arrive somewhere, add a location reminder from a zone:
+
+{% example %}
+action: |
+  action: todoist.new_task
+  data:
+    content: "Water the plants"
+    reminder_zone: zone.home
+{% endexample %}
+
+Or set the location by its coordinates, and choose whether the reminder triggers when you arrive or when you leave:
+
+{% example %}
+action: |
+  action: todoist.new_task
+  data:
+    content: "Return the library books"
+    reminder_location_name: "Library"
+    reminder_latitude: 52.3731
+    reminder_longitude: 4.8926
+    reminder_radius: 200
+    reminder_location_direction: on_leave
+{% endexample %}
 
 ### Options in YAML
 
@@ -161,6 +203,49 @@ reminder_date:
     reminder date string.
   required: false
   type: string
+reminder_zone:
+  description: >
+    The entity ID of a zone that triggers a location reminder, for example
+    `zone.home`. The zone's name, location, and radius are shared with
+    Todoist. Mutually exclusive with `reminder_location_name`,
+    `reminder_latitude`, `reminder_longitude`, and `reminder_radius`.
+  required: false
+  type: string
+reminder_location_name:
+  description: >
+    The name of the location for a location reminder, as an alternative to
+    a zone. Must be used together with `reminder_latitude`,
+    `reminder_longitude`, and `reminder_radius`.
+  required: false
+  type: string
+reminder_latitude:
+  description: >
+    The latitude of the location. This location is shared with Todoist.
+    Must be used together with `reminder_location_name`,
+    `reminder_longitude`, and `reminder_radius`.
+  required: false
+  type: float
+reminder_longitude:
+  description: >
+    The longitude of the location. This location is shared with Todoist.
+    Must be used together with `reminder_location_name`,
+    `reminder_latitude`, and `reminder_radius`.
+  required: false
+  type: float
+reminder_radius:
+  description: >
+    The radius, in meters, around the location that triggers the reminder,
+    from 1 to 5000. Must be used together with `reminder_location_name`,
+    `reminder_latitude`, and `reminder_longitude`.
+  required: false
+  type: integer
+reminder_location_direction:
+  description: >
+    Whether the location reminder triggers when entering (`on_enter`) or
+    leaving (`on_leave`) the location.
+  required: false
+  type: string
+  default: on_enter
 {% endoptions_yaml %}
 
 ## Good to know
@@ -168,6 +253,10 @@ reminder_date:
 - For everyday tasks, you can also use the actions from the [to-do](/integrations/todo/) integration to create, update, and delete to-do items.
 - The due date string and the due date are mutually exclusive. Use one or the other.
 - The reminder date string and the reminder date are mutually exclusive. Use one or the other.
+- For a location reminder, use either a zone or a location name with its latitude, longitude, and radius, not both.
+- A task can have both a date reminder and a location reminder.
+- Location reminders need a Todoist Pro or Business plan.
+- Location reminders are triggered by the Todoist mobile app, based on your phone's location, not by Home Assistant.
 - When you leave the project empty, the task goes to your **Inbox** project.
 
 {% include actions/try_it.md %}
