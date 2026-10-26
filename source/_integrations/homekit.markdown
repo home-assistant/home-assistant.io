@@ -508,11 +508,13 @@ automation:
       event_data:
         key_name: arrow_right
 
-  # Send the arrow right key via a broadlink IR blaster
+  # Send the arrow right key via a Broadlink IR blaster
   actions:
-    - action: broadlink.send
-      host: 192.168.1.55
-      packet: XXXXXXXX
+    - action: remote.send_command
+      target:
+        entity_id: remote.living_room_ir_blaster
+      data:
+        command: b64:YOUR_IR_CODE
 ```
 
 ## Events

@@ -103,7 +103,7 @@ This guide is for advanced users only. It requires creating an OAuth client ID o
   - **Result**: If everything was successful, you will get a **The authentication flow has completed. You may close this window** message in your browser.
   - In your terminal you will see the path where the credentials were saved. For example: `credentials saved: C:\Users\user\AppData\Roaming\google-oauthlib-tool\credentials.json`
 14. Open the `credentials.json` in a text editor. Keep it open since you will need to copy several values from it.
-15. In the file editor of your Home Assistant, typically http://homeassistant.local:8123/core_configurator, open `/homeassistant/.storage/application_credentials`.
+15. In the file editor of your Home Assistant, open `/homeassistant/.storage/application_credentials`.
   - Locate the entry for `google_assistant_sdk` and modify `client_id` and `client_secret` to match the ones from `credentials.json`.
   - Save the file.
 16. Open `/homeassistant/.storage/core.config_entries`.
@@ -198,4 +198,4 @@ Note: due to a bug in the Google Assistant API, not all responses contain text, 
 
 {% include integrations/remove_device_service.md %}
 
-Removing the Google Assistant SDK integration does not remove its [Application Credentials](/integrations/application_credentials/). If you want to use a different OAuth Client ID and Client Secret, go to **Settings** > **Devices & services**, select the three dots menu in the top right, select **Application credentials**, and delete the existing credentials before adding the integration again.
+If you keep the application credentials and later want to use a different OAuth client ID and client secret, delete the application credentials before you add the integration again. For the steps, refer to [Deleting application credentials](/integrations/application_credentials/#deleting-application-credentials).

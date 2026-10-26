@@ -1,0 +1,23 @@
+{
+  "domain": "pglab",
+  "name": "PG LAB Electronics",
+  "integration_type": "hub",
+  "codeowners": [
+    "@pglab-electronics"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "plugs_switches",
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "cover",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "mqtt"
+  ]
+}

@@ -59,7 +59,7 @@ duration:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="binary_sensor" %}
+{% include actions/targets.md entity_type="Hydrawise zone watering sensor" example="binary_sensor.front_lawn_watering" %}
 
 {% include actions/try_it.md %}
 

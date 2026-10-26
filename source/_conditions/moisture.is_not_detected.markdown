@@ -58,13 +58,13 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the sensor or sensors must stay dry before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the sensor or sensors must stay dry before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="moisture detector" example="binary_sensor.kitchen_leak" %}
 
 {% include conditions/behavior.md %}
 

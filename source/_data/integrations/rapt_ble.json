@@ -1,0 +1,19 @@
+{
+  "domain": "rapt_ble",
+  "name": "RAPT Bluetooth",
+  "integration_type": "device",
+  "codeowners": [
+    "@sairon"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

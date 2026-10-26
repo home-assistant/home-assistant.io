@@ -60,6 +60,15 @@ phase:
   default: any
 {% endoptions_yaml %}
 
+## Trigger variables
+
+When the trigger reacts, the `trigger` variable contains the following data:
+
+- `trigger.phase`: The new moon phase, such as `full_moon`.
+- `trigger.previous_phase`: The previous moon phase, such as `waxing_gibbous`.
+
+This trigger doesn't include `trigger.entity_id`, `trigger.from_state`, or `trigger.to_state`. For the data that all triggers include, refer to [Trigger data in templates](/docs/automation/trigger-data/#properties-of-all-triggers).
+
 ## Good to know
 
 - This trigger does not use a target. It follows the moon phase, which is the same everywhere on Earth, so it does not depend on your [home location](/docs/configuration/basic/).

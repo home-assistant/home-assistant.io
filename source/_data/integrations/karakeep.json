@@ -1,0 +1,17 @@
+{
+  "domain": "karakeep",
+  "name": "Karakeep",
+  "integration_type": "service",
+  "codeowners": [
+    "@sli-cka"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "productivity_information.documents_photos"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

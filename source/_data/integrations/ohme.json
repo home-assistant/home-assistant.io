@@ -1,0 +1,23 @@
+{
+  "domain": "ohme",
+  "name": "Ohme",
+  "integration_type": "device",
+  "codeowners": [
+    "@dan-r"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.ev_charging"
+  ],
+  "platforms": [
+    "button",
+    "diagnostics",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "time"
+  ]
+}

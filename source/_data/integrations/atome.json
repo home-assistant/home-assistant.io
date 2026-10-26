@@ -1,0 +1,15 @@
+{
+  "domain": "atome",
+  "name": "Atome Linky",
+  "codeowners": [
+    "@baqs"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

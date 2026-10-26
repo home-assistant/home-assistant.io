@@ -1,0 +1,16 @@
+{
+  "domain": "pushover",
+  "name": "Pushover",
+  "integration_type": "service",
+  "codeowners": [
+    "@engrbm87"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "messaging_notifications.push_notifications"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

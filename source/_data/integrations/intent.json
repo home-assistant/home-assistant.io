@@ -1,0 +1,11 @@
+{
+  "domain": "intent",
+  "name": "Intent",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core",
+    "@synesthesiam",
+    "@arturpragacz"
+  ],
+  "quality_scale": "internal"
+}

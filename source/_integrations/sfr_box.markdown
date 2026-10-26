@@ -145,8 +145,10 @@ Here are some ideas to get you started.
 
 While your internet connection is down, notifications to your phone cannot be delivered. This automation sends a notification as soon as the connection is back, so you know there was an outage. Replace the entity IDs in the example with the entity IDs of your box and your phone.
 
-- **Trigger**: State: **WAN status** changes from **Disconnected** to **Connected**
+- **Trigger**: State changed
   - **Target**: Your box's **WAN status** binary sensor
+  - **From**: Off
+  - **To**: On
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -174,8 +176,10 @@ automation: |
 
 Restarting the box often fixes a connection that does not recover on its own. This automation presses the **Restart** button when the connection has been down for 15 minutes. The **Restart** button is only available when you set credentials. If the outage is on SFR's side, the box restarts every 15 minutes until the connection is back. Replace the entity IDs in the example with the entity IDs of your box.
 
-- **Trigger**: State: **WAN status** changes to **Disconnected** for 15 minutes
+- **Trigger**: State changed
   - **Target**: Your box's **WAN status** binary sensor
+  - **To**: Off
+  - **For at least**: `00:15:00`
 - **Action**: Press button
   - **Target**: Your box's **Restart** button
 
@@ -235,11 +239,15 @@ Home Assistant cannot reach the local API of the box with the host you entered.
 
 ### Symptom: Home Assistant asks you to enter the credentials again
 
-During setup, you get an invalid authentication error. Or, after setup, **SFR Box** appears under **Attention required** in **Settings** > **Devices & services**.
+You see one of the following:
+
+- During setup, you get an invalid authentication error.
+- After setup, **SFR Box** appears under **Attention required** in **Settings** > **Devices & services**.
+- When you press the **Restart** button, Home Assistant shows **The provided credentials are invalid.**
 
 #### Description
 
-The box does not accept the username and password that Home Assistant uses. This usually happens after you change the password in the box's web interface.
+The box doesn't accept the username and password that Home Assistant uses. This usually happens after you change the password in the box's web interface. Home Assistant notices this during setup, during data updates, and when you press the **Restart** button. It then asks you to enter the credentials again.
 
 #### Resolution
 

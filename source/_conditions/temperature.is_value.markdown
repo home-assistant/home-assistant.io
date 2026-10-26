@@ -97,7 +97,7 @@ This passes when the living room temperature sensor reads between 20 and 22°C.
    unit_example_value="22"
    threshold_required="true" %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="temperature sensor, thermostat, water heater, or weather entity" example="sensor.living_room_temperature" %}
 
 {% include conditions/behavior.md %}
 

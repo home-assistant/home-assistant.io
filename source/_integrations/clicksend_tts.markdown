@@ -63,8 +63,7 @@ ClickSend is a notify platform and thus can be controlled by calling the notify 
 ```yaml
 alias: "The sun has set"
 triggers:
-  - trigger: sun
-    event: sunset
+  - trigger: sun.sunset
 actions:
   - action: notify.clicksend_tts
     data:

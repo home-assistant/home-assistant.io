@@ -48,12 +48,12 @@ The following parameters can be provided to this function.
 {% function_parameters %}
 value:
   description: >
-    The nested list to flatten. Must be a list or collection.
+    The nested list to flatten. It can be any collection except text, such as a list, tuple, or set. Text, a number, or another single value raises an error.
   required: true
   type: list
 levels:
   description: >
-    The number of levels of nesting to flatten. If not provided, all levels are flattened completely. Set to `1` to only flatten one level deep.
+    The number of levels of nesting to flatten. If not provided, all levels are flattened completely. Set to `1` to only flatten one level deep. Set to `0` to get an unflattened copy.
   required: false
   type: integer
 {% endfunction_parameters %}
@@ -71,7 +71,9 @@ output: "[1, [2, 3], 4, [5, 6]]"
 ## Good to know
 
 - Without `levels`, every layer of nesting is removed, which can produce surprising results on deeply structured data.
-- Only nested lists are unpacked. Dictionaries and other collections inside the list are kept as-is.
+- Any nested collection except text is unpacked, including tuples and sets. Text stays as a single item.
+- A dictionary inside the list is replaced by its keys.
+- `none` items stay in the list.
 
 {% include template_functions/try_it.md %}
 

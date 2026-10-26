@@ -14,7 +14,7 @@ related_functions:
   - map
 ---
 
-The `attr` filter reads an attribute from an object by name, the same way a dot does. Writing `foo | attr("bar")` is exactly like writing `foo.bar`. The difference is that with `attr`, the attribute name can come from a variable or be built at the moment the template runs, instead of being written into the template as fixed text.
+The `attr` filter reads an attribute from an object by name, the same way a dot does. Writing `foo | attr("bar")` works like writing `foo.bar`. Unlike the dot, `attr` never falls back to a dictionary key such as `foo["bar"]`. The difference is that with `attr`, the attribute name can come from a variable or be built at the moment the template runs, instead of being written into the template as fixed text.
 
 This is useful when you don't know in advance which attribute you need to read. You might store an attribute name in a variable and look it up on a state object, or loop over a list of attribute names and read each one in turn. For most everyday templates, a regular dot (`states.sensor.temperature.state`) is simpler and should be preferred.
 
@@ -47,7 +47,7 @@ value:
   type: any
 name:
   description: >
-    The attribute to read, as text. Common values include `state`, `entity_id`, `last_changed`, `last_updated`, or any attribute your entity reports (for example, `brightness` on a light or `temperature` on a climate entity).
+    The attribute to read, as text. On a state object, common values include `state`, `entity_id`, `attributes`, `last_changed`, `last_updated`, `domain`, `object_id`, and `name`. Entity attributes, such as `brightness` on a light, are not reachable this way.
   required: true
   type: string
 {% endfunction_parameters %}
@@ -66,23 +66,25 @@ output: "21.5"
 
 ## Good to know
 
-- This reads object attributes, not entity state attributes. For entity attributes, use [`state_attr`](/template-functions/state_attr/) instead.
+- This reads object attributes, not entity state attributes. For example, `states.light.living_room | attr("brightness")` returns an undefined value. For entity attributes, use [`state_attr`](/template-functions/state_attr/) or `.attributes.brightness` instead.
+- It doesn't read dictionary keys. For example, `{"a": 1} | attr("a")` returns an undefined value.
+- Names that start with an underscore (`_`) are blocked.
 - When the attribute does not exist, it produces an undefined value, which pairs well with [`| default(value)`](/template-functions/default/).
 
 {% include template_functions/try_it.md %}
 
 {% include template_functions/more_examples.md %}
 
-### Access entity attributes dynamically
+### Access state object properties dynamically
 
-Retrieve different attributes from an entity state object based on a variable.
+Retrieve different properties from an entity state object based on a variable.
 
 {% example %}
 template: |
   {% set prop = "last_changed" %}
   {{ states.light.living_room | attr(prop) }}
 type: string
-output: "2026-04-03 10:15:00+00:00"
+output: "2026-04-03 10:15:00.123456+00:00"
 {% endexample %}
 
 ### Iterate over multiple attributes
@@ -92,9 +94,9 @@ Loop over a list of attribute names and retrieve each one from a state object.
 {% example %}
 template: |
   {% set fields = ["entity_id", "state"] %}
-  {% for field in fields %}
-    {{ field }}: {{ states.sensor.temperature | attr(field) }}
-  {% endfor %}
+  {%- for field in fields %}
+  {{ field }}: {{ states.sensor.temperature | attr(field) }}
+  {%- endfor %}
 type: string
 output: |
   entity_id: sensor.temperature

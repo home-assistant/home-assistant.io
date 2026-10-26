@@ -1,0 +1,17 @@
+{
+  "domain": "dyson_infrared",
+  "name": "Dyson Infrared",
+  "integration_type": "device",
+  "codeowners": [
+    "@elax46"
+  ],
+  "config_flow": true,
+  "iot_class": "assumed_state",
+  "quality_scale": "bronze",
+  "categories": [
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "fan"
+  ]
+}

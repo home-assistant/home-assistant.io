@@ -6,6 +6,8 @@ related:
     title: Adding your media to Home Assistant
   - docs: /integrations/homeassistant/#media_dirs
     title: Media directories configuration
+  - docs: /integrations/media_source/
+    title: Media source
 ---
 
 Home Assistant includes a built-in media browser (in the sidebar under {% my media_browser title="**Media** > **My media**" %}) that lets you browse and play your local media files. Before you can use it, you need to make sure your media files are accessible to Home Assistant.
@@ -93,7 +95,10 @@ You can expose more than one media directory to the media browser. For example, 
 
     Each key is the label that appears as the folder name in the media browser. For example, `recordings` will show up as "recordings" in the media browser, pointing to `/mnt/recordings` on disk.
 
-3. Save the file and [reload the configuration](/docs/configuration/#reloading-the-configuration-to-apply-changes) to apply the changes.
+    The folders under `media_dirs` replace the default media folder. To keep your `/media` folder in the media browser, add it too, like `media: /media` in the example above.
+
+3. Save the file, and [restart Home Assistant](/common-tasks/general/restarting/#restarting-home-assistant) to apply the changes.
+   - A quick reload doesn't apply changes to `media_dirs`.
 4. To add files, follow the [steps on adding media][add-media].
 
 [add-media]: /more-info/local-media/add-media

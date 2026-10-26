@@ -83,8 +83,7 @@ See the example below for how an automation trigger translates to a message on t
 automation:
   - alias: "Sunset Service Bus message"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: notify.test_queue
         data:
