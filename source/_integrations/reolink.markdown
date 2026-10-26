@@ -97,6 +97,16 @@ The Fluent stream camera entity is enabled by default; the other streams are dis
 The Snapshots stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
 Dual lens cameras provide additional streams for the second lens.
 
+#### Two-way audio
+
+If the camera model supports two-way audio ([see specifications of the camera model on Reolink.com](#tested-models)), you can talk through the camera from the live view of the camera entity in Home Assistant.
+
+Two-way audio has the following requirements:
+
+- The **Two-way audio** preview feature is enabled in {% my labs title="**Settings** > **System** > **Labs**" %}. For more information, see [Home Assistant Labs](/integrations/labs/).
+- The **Protocol** option of the integration is set to <abbr title="real-time streaming protocol">RTSP</abbr>.
+- Home Assistant is opened over HTTPS, because browsers only allow microphone access over a secure connection.
+
 ### Binary sensors
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), binary sensors are added for:
@@ -820,7 +830,7 @@ Prerequisites:
 
 ## Known limitations
 
-- 2-way audio or Text-to-speech is not available in the Reolink Home Assistant integration.
+- Text-to-speech is not available in the Reolink Home Assistant integration.
 - The 4K camera streams are H265 encoded, support for playing H265 encoding in browsers (such as Chrome, Firefox, Edge, or Safari) is still very limited, therefore the 4K clear stream may not play in all browsers or on all phones in the Home Assistant Companion app. By default only the lower resolution Fluent camera entity is enabled in Home Assistant. This Fluent stream is H264 encoded and will play on any browser or phone.
 
 ## Troubleshooting

@@ -1,9 +1,8 @@
 ---
 title: Marantz RS-232
 description: Instructions on how to integrate a Marantz receiver via its RS-232 serial port into Home Assistant.
-ha_category:
-  - Media player
-  - Serial-controlled
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_iot_class: Local Push
 ha_release: 2026.11
 ha_codeowners:
