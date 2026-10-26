@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: bluetti_modbus
 ha_platforms:
   - diagnostics
+  - number
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -75,9 +76,13 @@ Your power station is added as a single device.
 
 The following are added as diagnostic entities: **Battery SoH**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
 
-The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
-
 The device page links to the power station's own web interface. The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
+
+### Controls
+
+- **Charge limit**, **Discharge limit**: The battery levels the power station stops charging at, and stops discharging at. The discharge limit accepts 5 to 90 %.
+
+Both limits are configuration entities. They are read every 60 seconds, so a change made in the BLUETTI app shows up within a minute. They are unavailable while the power station cannot be read.
 
 ## Data updates
 
@@ -89,7 +94,9 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 ### Controls and sensors
 
-- Only sensors are provided by this integration today. The writable settings (AC output, grid charging, grid feed-in), the charge limit values, and the fault/warning bits as proper binary sensors are not available yet.
+- The fault and warning bits are not available as binary sensors yet.
+- The AC output cannot be switched from Home Assistant yet.
+- Grid charging and grid feed-in are not available. The BLUETTI app sets them through the working mode (AI mode, Self-consumption, Backup, or Custom), which is not available over Modbus, and the device can undo a change made outside it.
 
 ### Battery packs
 
