@@ -62,36 +62,37 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
 - **Number**:
-  - `Clean count`: Set the number of times to clean the area.
-  - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees).
-  - `Volume`: Set the volume.
-  - `Water level`: Set a precise water level used during cleaning with the mop.
+  - `Clean count`: Set the number of times to clean the area. Disabled by default.
+  - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees). Disabled by default.
+  - `Volume`: Set the volume. Disabled by default.
+  - `Water flow level`: Set a precise water flow level used during cleaning with the mop.
 - **Select**:
   - `Active map`: Select the active map. The ID will be shown when the map has no name.
-  - `Water level`: Choose from predefined water levels used during cleaning with the mop.
-  - `Work mode`: Specify the mode, how the bot should clean.
+  - `Auto-empty frequency`: Set how often the station empties the dust bin of the bot.
+  - `Water flow level`: Choose from predefined water flow levels used during cleaning with the mop.
+  - `Work mode`: Specify the mode, how the bot should clean. Disabled by default.
 - **Sensor**:
-  - `Auto-empty frequency`: The frequency of emptying the bot dust bin during cleaning.
   - `Error`: The error code and a description of the error. `0` means no error. Disabled by default.
   - `Lifespan`: For each supported component, an entity with the remaining lifespan will be created.
   - `Network`: The following network related entities will be created. All disabled by default.
-    - `Ip address`
+    - `IP address`
     - `Wi-Fi RSSI`
     - `Wi-Fi SSID`
   - `Cleaning cycle`:
-    - `Area`: The cleaned area
-    - `Time`: The cleaned time
+    - `Area cleaned` (`Area mowed` for mowers): The area of the last cycle
+    - `Cleaning duration` (`Mowing duration` for mowers): The time of the last cycle
   - `Station state`: Station state enum sensor. See options to see all possible states
   - `Total statistics`: Updated after each cleaning cycle:
-    - `Area`: Total cleaned area
-    - `Cleanings`: The number of cleanings
-    - `Time`: The total cleaning time
+    - `Total area cleaned` (`Total area mowed` for mowers): Total cleaned area
+    - `Total cleanings` (`Total mowings` for mowers): The number of cleanings
+    - `Total cleaning duration` (`Total mowing duration` for mowers): The total cleaning time
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
   - `Border spin`: Enable border spin, which means the bot will tilt to reach corners during mopping. Present on bots without an extendable mop. Disabled by default.
   - `Border switch`: Enable border switch. Disabled by default.
-  - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
+  - `Carpet auto-boost suction`: Enable maximum fan speed if a carpet is detected. Disabled by default.
   - `Child lock`: Enable child lock. Disabled by default.
+  - `Clean preference`: Use the cleaning settings you customized per room in the Ecovacs app. Disabled by default.
   - `Move up warning`: Enable device move up warning. Disabled by default.
   - `Cross map border warning`: Enable warning for crossing the map border. Disabled by default.
   - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
