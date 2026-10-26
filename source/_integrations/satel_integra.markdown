@@ -67,7 +67,7 @@ Integration encryption key:
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
-code:
+Code:
   description: The 4- to 16-digit user code configured on the alarm panel. The integration uses this code to toggle switchable outputs. Leave the field empty if you do not need to control switchable outputs.
 {% endconfiguration_basic %}
 
