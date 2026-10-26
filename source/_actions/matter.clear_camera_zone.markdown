@@ -61,6 +61,7 @@ zone_id:
 ## Good to know
 
 - The action fails for zones that came with the camera.
+- The action fails for a motion zone that a trigger stored on the camera uses. Home Assistant can't remove these camera triggers, so remove the trigger first in the app that set it up, for example the camera's app.
 - Removing a privacy zone stops the camera from hiding that area.
 
 {% include actions/stuck.md %}

@@ -13,7 +13,7 @@ Use this action to create or update a zone on a Matter camera. A zone is an area
 - `privacy`: The camera hides this area, for example a neighbor's window.
 - `focus`: The camera focuses on this area.
 
-You give the corners of the zone in percent of the full camera sensor, measured from the top left corner. For example, `x: 50` and `y: 50` is the center. Home Assistant converts them to the zone coordinates of the camera, so the same values work on every camera. If the camera crops or zooms its picture, the zone may not line up exactly with what you see.
+You give the corners of the zone in percent of the full camera sensor, measured from the top left corner. For example, `x: 50` and `y: 50` is the center. Home Assistant converts them to the zone coordinates of the camera, so the same values work on every camera. If the camera crops or zooms its picture, the zone may not line up exactly with what you see. List the corners in order around the zone, so that its edges don't cross. The camera rejects a zone with crossing edges.
 
 If you leave the zone ID empty, the camera creates a new zone and the action returns its ID. To change a zone, give its ID. Use the [Get camera zones](/actions/matter.get_camera_zones/) action to look up the IDs.
 
@@ -45,7 +45,7 @@ Use:
   description: What the camera uses the zone for, either privacy or focus.
   required: true
 Corners:
-  description: The corners of the zone, in percent of the camera sensor from the top left. 3 to 12 corners.
+  description: The corners of the zone, in percent of the camera sensor from the top left, in order around the zone so that its edges don't cross. 3 to 12 corners.
   required: true
 Color:
   description: A color for the zone, as `#RRGGBB` or `#RRGGBBAA`. The last two digits set how opaque the inside of the zone is. Without them, the inside is fully transparent. The camera can ignore the color.
@@ -114,7 +114,7 @@ use:
   required: true
   type: string
 vertices:
-  description: A list of 3 to 12 corners, each with `x` and `y` from 0 to 100 in percent of the camera sensor.
+  description: A list of 3 to 12 corners in order around the zone, each with `x` and `y` from 0 to 100 in percent of the camera sensor.
   required: true
   type: list
 color:
@@ -140,7 +140,7 @@ With the first example above, the ID is in `zone['camera.front_door'].zone_id`.
 - Updating a zone replaces all its settings. Give the name, use, and corners again, and the color if you want to keep it.
 - A camera holds a limited number of zones. [Get camera zones](/actions/matter.get_camera_zones/) returns the limit as `max_user_defined_zones`.
 - The action fails for zones that came with the camera.
-- Motion zones can't be created or changed. Home Assistant doesn't support the triggers they need. [Get camera zones](/actions/matter.get_camera_zones/) still lists existing motion zones, and [Clear camera zone](/actions/matter.clear_camera_zone/) can remove them.
+- Motion zones can't be created or changed. Home Assistant can't create the camera triggers they need. [Get camera zones](/actions/matter.get_camera_zones/) still lists existing motion zones, and [Clear camera zone](/actions/matter.clear_camera_zone/) can remove them if no camera trigger uses them.
 
 {% include actions/stuck.md %}
 
