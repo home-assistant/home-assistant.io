@@ -188,9 +188,9 @@ Actions handle response data in one of the following ways:
 - Some actions return data only when you ask for it. For example, `conversation.process` can return the reply of the conversation agent. For these actions, the response variable is optional. If you leave it out, the action still runs, but its data isn't stored.
 - Most actions don't return data. In the editor, they don't show a **Response variable** field. If you add `response_variable` to one of these actions in YAML, the action fails when it runs, and the automation or script stops.
 
-To find out whether an action returns data, add it in the editor. The description of the **Response variable** field tells you whether the action always returns data or only when you ask for it.
+To find out whether an action returns data, add the action to an automation or script in its editor. If the action returns data, it shows a **Response variable** field. If the field has a checkbox next to it, the response variable is optional. If it has no checkbox, the response variable is required.
 
-To see the data that an action returns, try the action in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}. The data is shown under **Response**. For the steps, refer to [Actions tab](/docs/tools/dev-tools/#actions-tab).
+To see the data that an action returns, perform the action in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}. The data is shown under **Response**. For the steps, refer to [Performing an action](/docs/tools/dev-tools/#performing-an-action).
 
 ### What the response data looks like
 
