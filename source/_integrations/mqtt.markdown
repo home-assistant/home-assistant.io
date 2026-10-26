@@ -294,7 +294,7 @@ MQTT entities, device triggers, and tags can be linked to a device in the [devic
 - At least one of `identifiers` or `connections` must be set to identify the device.
 - For entities, the device information is only used when the entity has a `unique_id`.
 - Entities, device triggers, and tags that use the same `identifiers` or `connections` are linked to the same device. When a device is shared, it is enough to set the shared `identifiers` or `connections` for the other items. It is recommended to always include the device `name`.
-- When the device information of an entity changes to another device, for example with a discovery update or a changed YAML configuration, the entity is moved to the new device. The previous device is removed when no other entities, device triggers, or tags use it.
+- When the device information of an entity changes to another device, for example with a discovery update or a changed YAML configuration, the entity is moved to the new device. The previous device is removed when no other entities, device triggers, or tags use it. A child device can't be moved to another parent device, see [child devices](#child-devices).
 
 How the device information is set depends on the configuration method.
 
@@ -311,7 +311,9 @@ With YAML and single component discovery, a child device is set with the `child_
 
 When the `child_device` of an entity is added, changed, or removed, the entity is moved to the new device in the same way, and a child device that is no longer used is removed. When discovered items are removed, a parent device is kept as long as it has child devices, and is removed after its last child device when no other items use it.
 
-When the `identifiers` of an existing MQTT device are used for a child device, the existing device is converted into a child device. It keeps its device ID, so automations that use the device keep working. If the existing device is still in use as a regular device, the conversion fails. The same applies when a child device is moved to another parent device, which is not supported. When an entity is added, it is then not added and an error is logged. With a discovery update, the update is canceled, the entity keeps its current configuration and device, and a warning is logged. In that case, update the configuration of all items that use the device, and reload the MQTT integration.
+When the `identifiers` of an existing MQTT device are used for a child device, the existing device is converted into a child device. It keeps its device ID, so automations that use the device keep working. If the existing device is still in use as a regular device, the conversion fails. An entity with that child device is then not added, and an error is logged. With a discovery update, the update is canceled, the entity keeps its current configuration and device, and a warning is logged. In that case, update the configuration of all items that use the device, and reload the MQTT integration.
+
+A child device can't be moved to another parent device. When the parent device of a child device changes, the same happens as when a conversion fails. To move a child device to another parent device, remove the child device in Home Assistant, and reload the MQTT integration. The child device is then added again with its new parent device, and keeps its device ID. With single component discovery, removing the child device can also clear the discovery payloads of its entities. The publisher then has to send them again.
 
 ### Device configuration in YAML
 
