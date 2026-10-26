@@ -492,7 +492,7 @@ The alarm control panel state `armed_custom_bypass` isn't supported by Alexa and
 
 {% note %}
 Alexa does not support arming with voice PIN. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
-The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [entity customization tool](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity) to override `code_arm_required` to `false` and expose the alarm control panel during discovery.
+The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. To expose the alarm control panel during discovery, set `code_arm_required` to `false` in YAML. For the steps, refer to [Manual customization](/integrations/homeassistant/#manual-customization).
 {% endnote %}
 
 #### Disarming
