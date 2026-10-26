@@ -1,0 +1,20 @@
+{
+  "domain": "solaredge",
+  "name": "SolarEdge",
+  "integration_type": "device",
+  "codeowners": [
+    "@bdraco",
+    "@tronikos"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

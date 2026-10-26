@@ -1,0 +1,17 @@
+{
+  "domain": "pvpc_hourly_pricing",
+  "name": "Spain electricity hourly pricing (PVPC)",
+  "integration_type": "service",
+  "codeowners": [
+    "@azogue",
+    "@chiro79"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "energy.energy_prices"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

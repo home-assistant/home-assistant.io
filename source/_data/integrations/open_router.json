@@ -1,0 +1,20 @@
+{
+  "domain": "open_router",
+  "name": "OpenRouter",
+  "integration_type": "service",
+  "codeowners": [
+    "@joostlek",
+    "@ab3lson"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "ai_voice.ai_models"
+  ],
+  "platforms": [
+    "ai_task",
+    "conversation",
+    "diagnostics"
+  ]
+}

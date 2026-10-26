@@ -1,5 +1,5 @@
 ---
-title: "New task"
+title: "Create task"
 action: todoist.new_task
 domain: todoist
 description: "Creates a new Todoist task and adds it to a project."
@@ -19,7 +19,7 @@ To create a new task from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Todoist: New task**.
+5. From the search box, search for and select **Todoist: Create task**.
 6. Enter the **Content** for the task, and optionally set any of the other fields.
 7. Select **Save**.
 
@@ -178,8 +178,11 @@ reminder_date:
 
 The evening before bin collection, add a Todoist task with a due date so it shows up in your list.
 
-- **Trigger**: Every Tuesday at 18:00
-- **Action**: Todoist: New task
+- **Trigger**: Time
+  - **At time**: `18:00`
+- **Condition**: Time
+  - **Days of the week**: Tuesday
+- **Action**: Todoist: Create task
 
 {% details "YAML example for a bin collection reminder" %}
 

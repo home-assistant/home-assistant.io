@@ -1,37 +1,46 @@
 ---
 title: Media player
-description: Instructions on how to set up your media players with Home Assistant.
-ha_category:
-  - Media player
+description: Control and automate your TVs, speakers, and other media players in Home Assistant.
 ha_release: 0.7
+ha_categories:
+  - media_entertainment
 ha_quality_scale: internal
 ha_domain: media_player
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard
+  - docs: /integrations/media_source/
+    title: Media source
 ---
 
-Interacts with media players on your network.
+The **Media player** {% term integration %} provides the media player entities in Home Assistant, such as TVs, speakers, and receivers. Other integrations create these entities, for example, [Sonos](/integrations/sonos/) or [Google Cast](/integrations/cast/). You can control your media players from your dashboards, and use them in automations.
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a media player
+## Media player states
 
-A media player can have the following states:
+A media player can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **Off**: The media player is turned off and is not accepting commands until turned on.
-- **On**: The media player is turned on, but no details on its state are currently known.
-- **Idle**: The media player is turned on and accepting commands, but currently not playing any media. Possibly at some idle home screen.
-- **Playing**: The media player is currently playing media.
-- **Paused**: The media player has an active media and is currently paused
-- **Buffering**: The media player is preparing to start playback of media.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Off** (`off`): The media player is turned off and is not accepting commands until turned on.
+- **On** (`on`): The media player is turned on, but no details on its state are currently known.
+- **Idle** (`idle`): The media player is turned on and accepting commands, but not playing any media. For example, it might show a home screen.
+- **Playing** (`playing`): The media player is currently playing media.
+- **Paused** (`paused`): The media player has media loaded and is paused.
+- **Buffering** (`buffering`): The media player is preparing to start playback of media.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
+
+## Playing media from the media browser
+
+You can browse your media in the media browser, and play it on a media player, such as a speaker or a TV. To choose the media player, open the list of players in the bottom-right corner of the media browser. The list only shows media players that support browsing media.
+
+- For the steps, refer to [Browsing your media](/integrations/media_source/#browsing-your-media).
+- If a media player is missing from the list or grayed out, refer to [Troubleshooting](/integrations/media_source/#troubleshooting).
 
 {% include integrations/triggers.md %}
 
@@ -53,6 +62,7 @@ When the living room TV starts playing, dim the lights so the room is ready for 
   - **Target**: Living room TV
 - **Action**: Turn on light
   - **Target**: Living room lights
+  - **Brightness**: 25%
 
 {% details "YAML example for dimming the room when a movie starts" %}
 
@@ -108,18 +118,23 @@ automation: |
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant what kind of media player an entity is, such as a TV or a speaker. Home Assistant uses the device class to choose the icon. Google Assistant, Alexa, and Apple Home use the device class to decide what kind of device to show.
 
-The media player entity will be represented by one of the following icons in the frontend, depending on the device class of the media player:
+The integration that provides the media player sets the device class.
 
-- {% icon "mdi:cast" %} `None`
-- {% icon "mdi:television" %} `tv`
-- {% icon "mdi:speaker" %} `speaker`
-- {% icon "mdi:audio-video" %} `receiver` (device that takes audio and video input and outputs to speakers and displays)
-- {% icon "mdi:projector" %} `projector`
+### Device classes in automations and templates
 
-Some device classes also support additional icons based on their state:
+- Automations: The device class doesn't change how a media player works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `tv`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
-- Off: {% icon "mdi:cast-off" %} {% icon "mdi:television-off" %} {% icon "mdi:speaker-off" %} {% icon "mdi:audio-video-off" %} {% icon "mdi:projector-off" %}
-- Playing: {% icon "mdi:cast-connected" %} {% icon "mdi:television-play" %} {% icon "mdi:speaker-play" %}
-- Paused: {% icon "mdi:cast-connected" %} {% icon "mdi:television-pause" %} {% icon "mdi:speaker-pause" %}
+### List of available device classes
+
+A media player without a device class is a generic media player and shows {% icon "mdi:cast" %} by default.
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- {% icon "mdi:television" %} **TV** (`tv`): A television.
+- {% icon "mdi:speaker" %} **Speaker** (`speaker`): A speaker.
+- {% icon "mdi:audio-video" %} **Receiver** (`receiver`): A device that takes audio and video input and outputs it to speakers and displays.
+- {% icon "mdi:projector" %} **Projector** (`projector`): A projector.
+

@@ -1,8 +1,6 @@
 ---
 title: Krispol
 description: Connect and control your Krispol devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: krispol
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

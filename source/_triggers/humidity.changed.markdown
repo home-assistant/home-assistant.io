@@ -114,12 +114,10 @@ This fires whenever any humidity sensor in the basement area changes to a value 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% include triggers/threshold_changed_options_yaml.md
    unit_phrase_yaml="literal percentage 0–100" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="humidity sensor, thermostat, humidifier, or weather entity" example="sensor.bathroom_humidity" %}
 
 ## Good to know
 
@@ -175,7 +173,7 @@ Track how much the humidity in your greenhouse shifts throughout the day by send
 - **Trigger**: Relative humidity changed
   - **Target**: Greenhouse humidity sensor
   - **Threshold type**: Any change
-- **Action**: Send a notification
+- **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for greenhouse humidity logging" %}

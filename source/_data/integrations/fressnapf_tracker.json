@@ -1,0 +1,21 @@
+{
+  "domain": "fressnapf_tracker",
+  "name": "Fressnapf Tracker",
+  "integration_type": "hub",
+  "codeowners": [
+    "@eifinger"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "pets"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "device_tracker",
+    "light",
+    "sensor",
+    "switch"
+  ]
+}

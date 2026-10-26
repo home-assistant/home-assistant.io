@@ -1,0 +1,29 @@
+{
+  "domain": "victron_gx",
+  "name": "Victron GX",
+  "integration_type": "hub",
+  "codeowners": [
+    "@tomer-w"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "device_tracker",
+    "diagnostics",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "time",
+    "update"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

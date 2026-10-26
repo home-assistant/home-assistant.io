@@ -1,15 +1,8 @@
 ---
 title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Light
-  - Select
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -59,7 +52,7 @@ The integration will create sensor entities for a variety of aspects:
 
 - The air filter sensor shows if it needs to be replaced.
 - Two sensor entities will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` action to change these.
-- Each zone that is temperature-controlled will have a sensor to show the temperature (disabled by default), and how open the damper is.
+- Each zone that is temperature-controlled will have a sensor to show the temperature ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)), and how open the damper is.
 - Each zone with a wireless temperature or motion sensor will have a sensor that reports its wireless RSSI.
 
 ### Binary sensor

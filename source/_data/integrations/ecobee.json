@@ -1,0 +1,24 @@
+{
+  "domain": "ecobee",
+  "name": "ecobee",
+  "integration_type": "hub",
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "humidifier",
+    "notify",
+    "number",
+    "sensor",
+    "switch",
+    "weather"
+  ],
+  "discovery": [
+    "homekit",
+    "zeroconf"
+  ]
+}

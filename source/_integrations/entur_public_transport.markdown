@@ -1,8 +1,8 @@
 ---
 title: Entur
 description: Instructions for how to set up monitoring of public transport departures in Norway.
-ha_category:
-  - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_release: 0.84
 ha_iot_class: Cloud Polling
 ha_codeowners:

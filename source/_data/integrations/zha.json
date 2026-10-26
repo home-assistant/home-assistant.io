@@ -1,0 +1,41 @@
+{
+  "domain": "zha",
+  "name": "Zigbee Home Automation",
+  "integration_type": "hub",
+  "codeowners": [
+    "@dmulcahey",
+    "@adminiuga",
+    "@puddly",
+    "@TheJulianJES"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "hubs_protocols.wireless_protocols"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "device_tracker",
+    "diagnostics",
+    "event",
+    "fan",
+    "infrared",
+    "light",
+    "lock",
+    "number",
+    "select",
+    "sensor",
+    "siren",
+    "switch",
+    "update",
+    "valve"
+  ],
+  "discovery": [
+    "usb",
+    "zeroconf"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "domain": "lyric",
+  "name": "Honeywell Lyric",
+  "integration_type": "hub",
+  "codeowners": [
+    "@timmo001"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

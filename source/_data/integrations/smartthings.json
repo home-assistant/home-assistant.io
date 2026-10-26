@@ -1,0 +1,39 @@
+{
+  "domain": "smartthings",
+  "name": "SmartThings",
+  "integration_type": "hub",
+  "codeowners": [
+    "@joostlek"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "diagnostics",
+    "event",
+    "fan",
+    "light",
+    "lock",
+    "media_player",
+    "number",
+    "scene",
+    "select",
+    "sensor",
+    "switch",
+    "time",
+    "update",
+    "vacuum",
+    "valve",
+    "water_heater"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

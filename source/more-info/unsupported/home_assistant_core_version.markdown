@@ -20,7 +20,7 @@ app (formerly known as add-ons) updates.
 ## The solution
 
 1. Since you've not updated your system in a while, it is recommended to
-   [create a backup](/common-tasks/general/#backups) before updating your system.
+   [create a backup](/common-tasks/general/backups/) before updating your system.
     - Make sure to download the backup or store it in a remote location.
 
 2. Update your Home Assistant Core version.

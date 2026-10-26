@@ -19,7 +19,7 @@ To use this condition in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Door is closed**.
-5. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your door is in, like your entryway or garage. You can also select a floor, a device, a specific entity, or a label.
+5. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your door is in, like your entryway or hallway. You can also select a floor, a device, a specific entity, or a label.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the door must have stayed closed before the condition passes.
 8. Select **Save**.
@@ -48,8 +48,6 @@ This passes when `binary_sensor.front_door` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -59,22 +57,21 @@ behavior:
   default: any
 for:
   description: >
-    How long the door must have stayed closed before the condition passes.
+    How long the door must have stayed closed before the condition passes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="door sensor or motorized door" example="binary_sensor.front_door" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
 - The target must be a contact sensor or cover with the door device class.
-- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted door is closed.
-- With **All**, the condition passes only if every available targeted door is closed. If every targeted door is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
+- Garage doors have their own condition. To check whether a garage door is closed, use [Garage door is closed](/conditions/garage_door.is_closed/).
+{% include conditions/unavailable_targets.md entities="doors" %}
 
 {% include conditions/try_it.md %}
 
@@ -115,13 +112,14 @@ automation: |
 
 ### Automation: arm the house at night only when every exterior door is closed
 
-At bedtime, this automation arms the house only if the front door, back door, and garage door are all closed. That keeps you from arming the house while an entry point is still open.
+At bedtime, this automation arms the house only if the front door, back door, and patio door are all closed. That keeps you from arming the house while an entry point is still open.
 
 - **Trigger**: Time
 - **Condition**: Door is closed
-- **Target**: Front door, back door, and garage door
+- **Target**: Front door, back door, and patio door
 - **Condition passes if**: All
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
 
 {% details "YAML example for arming only after all doors are closed" %}
 
@@ -137,7 +135,7 @@ automation: |
         entity_id:
           - binary_sensor.front_door
           - binary_sensor.back_door
-          - cover.garage_door
+          - binary_sensor.patio_door
       options:
         behavior: all
   actions:

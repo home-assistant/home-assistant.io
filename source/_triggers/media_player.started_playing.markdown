@@ -35,6 +35,7 @@ Trigger when:
     - **Each**: Fires every time any targeted media player starts playing (default).
     - **First**: Fires when the first targeted media player starts playing.
     - **All**: Fires when every targeted media player starts playing.
+  required: false
 For at least:
   description: How long playback must continue before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -60,7 +61,7 @@ trigger: |
   target:
     area_id: downstairs
   options:
-    behavior: last
+    behavior: all
     for: "00:00:30"
 {% endexample %}
 
@@ -71,16 +72,16 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted media player starts playing.
-    - `first` (**First** in the UI): fires when the first targeted media player starts playing.
-    - `last` (**All** in the UI): fires when every targeted media player starts playing.
+    - `each` (default): fires every time any targeted media player starts playing.
+    - `first`: fires when the first targeted media player starts playing.
+    - `all`: fires when every targeted media player starts playing.
   required: false
   type: string
-  default: any
+  default: each
 for:
-  description: How long playback must continue before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long playback must continue before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

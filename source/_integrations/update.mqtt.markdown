@@ -1,8 +1,6 @@
 ---
 title: "MQTT Update"
 description: "Instructions on how to interact with a device exposing an Update entity through MQTT from within Home Assistant."
-ha_category:
-  - Update
 ha_release: "2021.11"
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -71,7 +69,7 @@ default_entity_id:
   required: false
   type: string
 device:
-  description: "Information about the device this Update is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this Update is a part of to tie it into the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -124,7 +122,7 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/update/#device-classes) of the update to set the icon in the frontend. The `device_class` can be `null`.
+  description: The [device class](/integrations/update/#device-class) of the update. The `device_class` can be `null`.
   required: false
   type: device_class
 display_precision:
@@ -133,7 +131,7 @@ display_precision:
   type: integer
   default: 0
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -143,7 +141,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:
@@ -151,7 +149,7 @@ entity_picture:
   required: false
   type: string
 icon:
-  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  description: "[Icon](/integrations/homeassistant/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:

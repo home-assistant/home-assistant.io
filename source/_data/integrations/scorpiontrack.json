@@ -1,0 +1,21 @@
+{
+  "domain": "scorpiontrack",
+  "name": "ScorpionTrack",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Herbertmt978"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "vehicles_transport.cars_evs",
+    "presence_location.trackers"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "device_tracker",
+    "diagnostics",
+    "sensor"
+  ]
+}

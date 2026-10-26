@@ -1,10 +1,8 @@
 ---
 title: AirGradient
 description: Instructions on how to set up AirGradient devices in Home Assistant.
-ha_category:
-  - Health
-  - Sensor
-  - Update
+ha_categories:
+  - sensors.air_quality
 ha_config_flow: true
 ha_release: 2024.6
 ha_iot_class: Local Polling
@@ -28,7 +26,7 @@ ha_quality_scale: platinum
 ---
 
 The **AirGradient** {% term integration %} will fetch data from your [AirGradient devices](https://www.airgradient.com/).
-AirGradient creates indoor and outdoor air quality monitors that enable you to know if the air quality is healthy or not. They measure metrics such as PM2.5, CO2, TVOCs, and NOx. Both the software and hardware are open-source, allowing you to customize or extend the device functionality.
+AirGradient creates indoor, outdoor, and portable air quality monitors that enable you to know if the air quality is healthy or not. They measure metrics such as PM2.5, CO2, TVOCs, and NOx. Both the software and hardware are open-source, allowing you to customize or extend the device functionality.
 
 ## Use cases
 
@@ -36,13 +34,12 @@ AirGradient creates indoor and outdoor air quality monitors that enable you to k
 - Warn to open windows when CO2 levels are too high.
 - Control ventilation systems based on air quality.
 
-## Supported devices
+## Works with Home Assistant certified devices
 
-- [AirGradient Indoor Air Quality Monitor](https://www.airgradient.com/indoor/)
-- [AirGradient Outdoor Air Quality Monitor](https://www.airgradient.com/outdoor/)
+{% include integrations/device_list.html brand="airgradient" %}
 
 {% important %}
-In order for the device to be set up or discovered by Home Assistant, the [firmware](https://www.airgradient.com/documentation/firmwares) version should be at least 3.1.1.
+Devices using the legacy local API require [firmware](https://www.airgradient.com/documentation/firmwares) version 3.1.1 or later to be set up or discovered by Home Assistant. This minimum version does not apply to the portable monitor, AirGradient Go.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
@@ -54,7 +51,7 @@ Host:
 
 ## Supported functionality
 
-Below is a complete overview of the entities this integration provides.
+The following entities are available depending on your device model and the features it supports.
 
 ### Available sensors
 
@@ -73,20 +70,32 @@ The integration will fetch data from each device. The following sensors are supp
 - Signal strength
 - Temperature
 - Total volatile organic compounds index
+- Battery percentage
+- Battery voltage ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
+- Input voltage (disabled by default)
+- PM0.5 particle count (disabled by default)
+- PM1 particle count (disabled by default)
+- PM2.5 particle count (disabled by default)
+- PM5 particle count (disabled by default)
+- PM10 particle count (disabled by default)
 
-Several configuration entities are available as sensors to automate with if you control the device via the AirGradient dashboard instead of set it to control locally.
+Input voltage measures the charging input voltage; it does not indicate whether the battery is charging.
+
+Several configuration entities are available as sensors to use in automations when you control the device via the AirGradient dashboard instead of locally:
+
 - CO2 automatic baseline calibration days
 - NOx learning offset
 - Total volatile organic compounds learning offset
 - Data used for the LED bar
 - LED bar brightness
 - Display temperature unit
+- Display PM standard
 - Display brightness
 
 ### Available configuration entities
 
 The integration provides a few configuration entities to customize the device experience.
-The settings are only available when the configuration source is set to local.
+Set **Configuration source** to **Local** to access the supported settings and calibration or test buttons. The configuration source selector itself remains available when the source is set to **Cloud**.
 The following entities are supported:
 
 - Display temperature unit
@@ -98,9 +107,19 @@ The following entities are supported:
 - Configuration source
 - Data used for the LED bar
 - Display PM standard
+- Altitude unit
+- Measurement interval
 - CO2 automatic baseline calibration days
 - NOx learning offset
 - Total volatile organic compounds learning offset
+- GPS mode
+- Front LED brightness
+- Back LED brightness
+- Touch LED intensity
+- Buzzer
+- Cloud connection
+
+On devices with a **Cloud connection** setting, turning it off disables cloud communication while keeping the local connection to Home Assistant available.
 
 ### Updates
 
@@ -111,9 +130,11 @@ To install the update, the device needs to be rebooted.
 
 This integration uses local {% term polling %}, meaning it checks for changes to all entities by regularly communicating with the AirGradient device.
 
+The **Measurement interval** setting controls how often the device takes measurements (1 to 3600 seconds). Home Assistant continues to retrieve the latest measurements every minute, regardless of this setting.
+
 The integration will retrieve data from the device every minute.
 
-The updates for the device are checked once every hour.
+The integration checks for firmware updates every hour.
 
 ## Actions
 

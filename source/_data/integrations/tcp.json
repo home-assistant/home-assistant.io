@@ -1,0 +1,13 @@
+{
+  "domain": "tcp",
+  "name": "TCP",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "diy_makers.web_data_connectors"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

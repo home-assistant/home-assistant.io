@@ -21,7 +21,7 @@ To clear a temperature setting from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Netatmo climate device you want to control.
-6. From the actions shown for that target, select **Clear temperature setting**.
+6. From the actions shown for that target, under **Netatmo**, select **Clear temperature setting**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -41,7 +41,7 @@ action: |
 
 This clears any manual temperature setting on `climate.living_room`.
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Netatmo thermostat" example="climate.living_room" %}
 
 ## Good to know
 

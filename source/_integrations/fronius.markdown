@@ -2,10 +2,9 @@
 title: Fronius
 description: Instructions on how to connect your Fronius SolarAPI devices to Home Assistant.
 ha_release: 0.96
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
+  - energy.meters_monitoring
 ha_codeowners:
   - '@farmio'
 ha_config_flow: true
@@ -20,6 +19,9 @@ ha_platforms:
 ha_dhcp: true
 ha_integration_type: hub
 ha_quality_scale: platinum
+related:
+  - docs: /integrations/modbus/
+    title: Modbus
 ---
 
 The **Fronius** {% term integration %} polls a [Fronius](https://www.fronius.com/) solar inverter or datalogger for details of a Fronius SolarNet setup and integrate it in your Home Assistant installation.
@@ -53,8 +55,6 @@ You should either set a static IP or assign a static DHCP lease for the Fronius 
 For Gen24 devices (delivered with Firmware >= 1.14.1) make sure to activate "Solar API" in the inverters web interface. For older devices, Solar API should be enabled by default.
 {% endnote %}
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -66,6 +66,10 @@ Modbus port:
     description: "The port of the device's Modbus TCP interface. Only used when Modbus is enabled on the device, see [Modbus TCP](#modbus-tcp). The default is `502`."
     required: false
     type: integer
+Revert the AC power limit if Home Assistant stops:
+    description: "Whether the inverter should give up a power limit set by Home Assistant when it stops hearing it, see [Falling back to the inverter's own settings](#falling-back-to-the-inverters-own-settings). Off by default."
+    required: false
+    type: boolean
 {% endconfiguration_basic %}
 
 ## Monitored data
@@ -137,7 +141,7 @@ Leave the data format setting (**float** or **int + SF**) as it is. The integrat
 These entities are added per inverter and updated every minute:
 
 - `MPPT <n> DC power` and `MPPT <n> energy` for each MPP tracker.
-- `MPPT <n> DC current` and `MPPT <n> DC voltage` for each MPP tracker. Disabled by default.
+- `MPPT <n> DC current` and `MPPT <n> DC voltage` for each MPP tracker. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - `PV energy total`: lifetime energy from the photovoltaic strings only. Whether this is a DC measurement depends on the device, see below.
 - `Battery charging energy total` and `Battery discharging energy total`: on hybrid inverters that expose their battery as dedicated MPP trackers, such as Gen24 with a battery.
 
@@ -174,6 +178,14 @@ The inverter decides which control source wins. If **IO control** or **Dynamic p
 Depending on the inverter's firmware, an `AC power limit` below `10 %` may force the inverter into standby, stopping feed-in altogether rather than throttling it.
 
 On a hybrid inverter, the `AC power limit` does not restrict **charging** the battery. Charging is not AC output. Surplus photovoltaic power goes into the battery instead of being wasted, which makes the limit useful for peak shaving. **Discharging** does count against it, because that power leaves the inverter on AC.
+
+#### Falling back to the inverter's own settings
+
+A setpoint stays on the inverter until it is changed, including while Home Assistant is shut down or unreachable. Removing the integration leaves it behind as well, with nothing left to take it back. To have the inverter recover on its own instead, turn on **Revert the AC power limit if Home Assistant stops**. It is offered when the integration is set up, and can be changed later: go to **Settings** > **Devices & services** > **Fronius**, select the three dots menu {% icon "mdi:dots-vertical" %} next to the entry, and choose **Reconfigure**.
+
+The inverter then drops the `AC power limit` an hour after it last received it, and hands control back to its own priority list. Home Assistant sends the limit again every 15 minutes, so the hour only ever runs out once Home Assistant has really stopped - a restart or a short outage has plenty of room. An inverter held at `30 %` runs unrestricted an hour after Home Assistant stops sending updates.
+
+This applies to the `AC power limit` only. Fronius documents no timeout for the battery setpoints, so those keep their value and switch state whatever happens to Home Assistant.
 
 #### The battery limits are power, not a charge level
 

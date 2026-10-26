@@ -1,0 +1,16 @@
+{
+  "domain": "geo_rss_events",
+  "name": "GeoRSS",
+  "codeowners": [
+    "@exxamalte"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "diy_makers.web_data_connectors",
+    "weather_alerts.public_warnings"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

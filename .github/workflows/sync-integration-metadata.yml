@@ -1,0 +1,138 @@
+name: Sync integration metadata
+
+# Keeps source/_data/integrations and CODEOWNERS in sync with the
+# integration manifests in Home Assistant core, one pull request per
+# documentation branch. Times are in UTC.
+on:
+  schedule:
+    # current, from core master: Friday morning.
+    - cron: "0 6 * * 5"
+    # next, from core dev: Monday, Wednesday and Friday around lunch.
+    - cron: "0 11 * * 1,3,5"
+    # rc, from core rc: on release day and the day after the beta cut.
+    # Cron cannot express those days, the plan job picks them.
+    - cron: "30 10 * * 3,4"
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Documentation branch to sync
+        required: true
+        type: choice
+        options:
+          - current
+          - rc
+          - next
+
+permissions: {}
+
+jobs:
+  plan:
+    name: Plan
+    if: ${{ github.repository_owner == 'home-assistant' }}
+    runs-on: ubuntu-latest
+    outputs:
+      branch: ${{ steps.plan.outputs.branch }}
+      core: ${{ steps.plan.outputs.core }}
+    steps:
+      - name: Pick the branch to sync
+        id: plan
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          INPUT_BRANCH: ${{ inputs.branch }}
+        run: |
+          branch=""
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            branch="$INPUT_BRANCH"
+          else
+            case "$SCHEDULE" in
+              "0 6 * * 5") branch="current" ;;
+              "0 11 * * 1,3,5") branch="next" ;;
+              "30 10 * * 3,4")
+                # A release lands on the first Wednesday of the month, the
+                # beta is cut one week earlier.
+                if [ "$(date -u +%u)" = "3" ] && [ "$(date -u +%-d)" -le 7 ]; then
+                  branch="rc"
+                elif [ "$(date -u +%u)" = "4" ] && [ "$(date -u -d '+6 days' +%-d)" -le 7 ]; then
+                  branch="rc"
+                fi
+                ;;
+            esac
+          fi
+
+          case "$branch" in
+            current) core="master" ;;
+            rc) core="rc" ;;
+            next) core="dev" ;;
+            *) echo "Nothing to sync today"; exit 0 ;;
+          esac
+
+          echo "Syncing $branch from core $core"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          echo "core=$core" >> "$GITHUB_OUTPUT"
+
+  sync:
+    name: Sync ${{ needs.plan.outputs.branch }}
+    needs: plan
+    if: ${{ needs.plan.outputs.branch != '' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out the documentation
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.plan.outputs.branch }}
+          # The token is only handed to the push, not to the gems and the
+          # Rakefile that run before it.
+          persist-credentials: false
+
+      - name: Check out Home Assistant core
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: home-assistant/core
+          ref: ${{ needs.plan.outputs.core }}
+          path: .core
+          persist-credentials: false
+          sparse-checkout: |
+            homeassistant/components
+            homeassistant/generated
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@7f797815d8adceb1c412e7abefdd1ab4abc47a5f # v1.335.0
+        with:
+          bundler-cache: true
+
+      - name: Sync the integration metadata
+        run: bundle exec rake integrations_data CORE=.core
+
+      - name: Open or update the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ needs.plan.outputs.branch }}
+          CORE: ${{ needs.plan.outputs.core }}
+        run: |
+          paths=(source/_data/integrations source/_data/integration_categories.json CODEOWNERS)
+          if [ -z "$(git status --porcelain -- "${paths[@]}")" ]; then
+            echo "Already in sync with core $CORE"
+            exit 0
+          fi
+
+          core_sha="$(git -C .core rev-parse HEAD)"
+          sync_branch="sync-integration-metadata-$BRANCH"
+          title="Sync integration metadata with core $CORE"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$sync_branch"
+          git add -- "${paths[@]}"
+          git commit -m "$title" -m "Synced from home-assistant/core@$core_sha."
+          git push --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$sync_branch"
+
+          body="Synced the integration metadata and CODEOWNERS from home-assistant/core@$core_sha (\`$CORE\`)."
+          if [ "$(gh pr list --head "$sync_branch" --base "$BRANCH" --state open --json number --jq length)" = "0" ]; then
+            gh pr create --base "$BRANCH" --head "$sync_branch" --title "$title" --body "$body" --label "$BRANCH"
+          else
+            gh pr edit "$sync_branch" --body "$body"
+          fi

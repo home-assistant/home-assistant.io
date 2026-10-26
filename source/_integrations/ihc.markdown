@@ -1,12 +1,8 @@
 ---
 title: IHC Controller
 description: Instructions on how to integrate the IHC integrations with Home Assistant
-ha_category:
-  - Binary sensor
-  - Hub
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.building_automation
 ha_release: 0.62
 ha_iot_class: Local Push
 ha_domain: ihc
@@ -74,7 +70,7 @@ info:
 
 If the auto setup is enabled, the `ihc` integration will automatically find IHC products and insert these as devices in Home Assistant. To disable this set auto_setup to false. See the individual device types for a list of IHC products to be recognized automatically.
 
-Components will get a default name that is a combination of the IHC group and IHC resource id. If you want to change the display names use the [Customizing entities](/docs/configuration/customizing-devices/).
+Components will get a default name that is a combination of the IHC group and IHC resource id. If you want to change the display names use the [Customizing entities](/docs/configuration/customizing-entities/).
 
 ## Manual setup
 

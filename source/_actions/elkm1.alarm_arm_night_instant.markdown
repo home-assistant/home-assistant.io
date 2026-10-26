@@ -8,7 +8,7 @@ related_actions:
   - elkm1.alarm_arm_vacation
 ---
 
-The **Alarm arm night instant** action arms an Elk-M1 area in *night instant* mode. This arms the system for nighttime, but without an entry delay, so any triggered zone sounds the alarm immediately.
+The **Elk-M1 Control: Alarm arm night instant** action arms an Elk-M1 area in *night instant* mode. This arms the system for nighttime, but without an entry delay, so any triggered zone sounds the alarm immediately.
 
 This is useful when you want an automation to arm your system for the night with no entry delay.
 

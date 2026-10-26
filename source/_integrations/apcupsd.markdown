@@ -1,10 +1,8 @@
 ---
 title: APC UPS Daemon
 description: Instructions on how to integrate apcupsd status with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
-  - System monitor
+ha_categories:
+  - energy.backup_power
 ha_release: 0.13
 ha_iot_class: Local Polling
 ha_domain: apcupsd
@@ -67,7 +65,7 @@ The APC UPS Daemon integration provides the following entities.
 
 {% note %}
 
-Some sensors are disabled by default, since they are primarily useful for diagnostics or troubleshooting. You can manually enable them in **{% my entities title="**Settings** > **Devices & services** > **Entities**" %}** > the sensor entity you want to enable > {% icon "mdi:cog" %} > **Enabled**.
+Some sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), since they are primarily useful for diagnostics or troubleshooting. You can manually enable them in **{% my entities title="**Settings** > **Devices & services** > **Entities**" %}** > the sensor entity you want to enable > {% icon "mdi:cog" %} > **Enabled**.
 
 {% endnote %}
 
@@ -321,25 +319,23 @@ Some sensors are disabled by default, since they are primarily useful for diagno
 
 ## Examples
 
-### Send me a push notification when UPS load is high
+### Automation: Notify when UPS load is high
 
+This example sends a notification when the UPS load rises above 80%.
 
 ```yaml
-alias: "APC UPS Load High Notification"
-description: "Notify when APC UPS load is too high"
-mode: single
+alias: "APC UPS load high notification"
 triggers:
   - trigger: numeric_state
-    entity_id:
-      - sensor.apc_ups_load
+    entity_id: sensor.apc_ups_load
     above: 80
-conditions: []
 actions:
-  - action: notify.notify
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
-      message: "APC UPS load is high: {{ states('sensor.apc_ups_load') }}%"
+      message: "APC UPS load is above 80%."
 ```
-
 
 ## Data updates
 

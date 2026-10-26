@@ -1,0 +1,27 @@
+{
+  "domain": "tado",
+  "name": "Tado",
+  "integration_type": "hub",
+  "codeowners": [
+    "@erwindouna"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "climate.thermostats_heating",
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "diagnostics",
+    "select",
+    "sensor",
+    "switch",
+    "water_heater"
+  ],
+  "discovery": [
+    "dhcp",
+    "homekit"
+  ]
+}

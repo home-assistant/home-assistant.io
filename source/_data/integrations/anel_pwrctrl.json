@@ -1,0 +1,12 @@
+{
+  "domain": "anel_pwrctrl",
+  "name": "Anel NET-PwrCtrl",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "plugs_switches"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

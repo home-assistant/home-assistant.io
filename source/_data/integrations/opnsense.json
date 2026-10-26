@@ -1,0 +1,18 @@
+{
+  "domain": "opnsense",
+  "name": "OPNsense",
+  "integration_type": "hub",
+  "codeowners": [
+    "@HarlemSquirrel",
+    "@Snuffy2"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "presence_location.network_presence",
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

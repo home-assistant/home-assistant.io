@@ -1,5 +1,5 @@
 ---
-title: "Set a Matter lock user"
+title: "Set lock user"
 action: matter.set_lock_user
 domain: matter
 description: "Creates or updates a user on a Matter lock."
@@ -13,7 +13,7 @@ Use this action to create or update a user on a Matter lock. A user is a person 
 
 If you leave the user index empty, the lock automatically assigns the next available slot.
 
-Your lock must support the Matter Door Lock cluster user management features for this action to work. Use the [Get Matter lock info](/actions/matter.get_lock_info/) action to check what your lock supports.
+Your lock must support the Matter Door Lock cluster user management features for this action to work. Use the [Get lock info](/actions/matter.get_lock_info/) action to check what your lock supports.
 
 {% include actions/ui_header.md %}
 
@@ -24,7 +24,7 @@ To set a lock user from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the lock you want to manage.
-6. From the actions shown for that target, select **Set a Matter lock user**.
+6. From the actions shown for that target, under **Matter**, select **Set lock user**.
 7. Fill in the user details you want to set.
 8. Select **Save**.
 
@@ -100,11 +100,11 @@ credential_rule:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Good to know
 
-- Creating a user does not give them a way to unlock the door yet. Add a credential, such as a PIN, with the [Set a Matter lock credential](/actions/matter.set_lock_credential/) action.
+- Creating a user does not give them a way to unlock the door yet. Add a credential, such as a PIN, with the [Set lock credential](/actions/matter.set_lock_credential/) action.
 
 {% include actions/stuck.md %}
 

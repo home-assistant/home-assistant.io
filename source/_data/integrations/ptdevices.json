@@ -1,0 +1,19 @@
+{
+  "domain": "ptdevices",
+  "name": "PTDevices",
+  "integration_type": "hub",
+  "codeowners": [
+    "@ParemTech-Inc",
+    "@frogman85978"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "water"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

@@ -20,8 +20,8 @@ To send a command from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the TV you want to control.
-6. From the actions shown for that target, select **Command**.
+5. From the search box, search for and select **LG webOS TV: Command**.
+6. In **Entity**, select the TV you want to control.
 7. Set the **Command** and, if needed, a **Payload**.
 8. Select **Save**.
 
@@ -63,7 +63,9 @@ payload:
   type: map
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="media_player" %}
+{% include actions/targets.md domain="media_player" entity_type="LG webOS TV" %}
+
+In the UI, this action has an **Entity** field instead of targets. There, you can select one TV. To use a device, an area, a floor, or a label as the target, select the three dots menu {% icon "mdi:dots-vertical" %} on the action, and then select **Edit in YAML**.
 
 ## Response data
 

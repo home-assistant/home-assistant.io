@@ -1,10 +1,8 @@
 ---
 title: Kodi
 description: Instructions on how to integrate Kodi into Home Assistant.
-ha_category:
-  - Media player
-  - Media source
-  - Notifications
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
@@ -42,7 +40,7 @@ If you do not remove it, your configuration will be imported with the following 
 
 You can customize your turn on and off actions through automations. Simply use the relevant Kodi device triggers and your automation will be called to perform the `turn_on` or `turn_off` sequence; see the [Kodi turn on/off samples](#turning-kodi-onoff-examples) section for scripts that can be used.
 
-These automations can be configured through the UI (see [device triggers](/docs/automation/trigger/#device-triggers) for automations).  If you prefer YAML, you'll need to get the device ID from the UI automation editor. Automations would be of the form:
+These automations can be configured through the UI (see [device trigger](/triggers/device/) for automations).  If you prefer YAML, you'll need to get the device ID from the UI automation editor. Automations would be of the form:
 
 ```yaml
 automation:
