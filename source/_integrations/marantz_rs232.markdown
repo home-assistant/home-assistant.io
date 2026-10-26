@@ -55,7 +55,7 @@ Home Assistant adds a media player {% term entity %} for each supported zone, al
 Each zone's media player supports:
 
 - Turning the zone on and off.
-- Setting the volume and stepping it up or down.
+- Setting the volume and stepping it up or down. For the **Multi-room** media player, the volume controls adjust the receiver's multi-room output volume, not the main zone volume.
 - Muting and unmuting.
 - Selecting an input source.
 
