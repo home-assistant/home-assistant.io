@@ -65,7 +65,7 @@ agent_user_id:
 
 ### Automation: sync with Google after Home Assistant starts
 
-When you add or remove devices in your YAML configuration, restart Home Assistant. This automation then asks Google to sync, so the Google Home app shows your devices right away.
+When you add or remove devices in your YAML configuration, use the [`google_assistant.reload`](/actions/google_assistant.reload/) action, which asks Google to sync right away. This automation covers restarts: it asks Google to sync after Home Assistant starts, so the Google Home app shows your devices.
 
 - **Trigger**: Home Assistant
   - **Event**: Start
