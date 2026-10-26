@@ -703,7 +703,7 @@ main#page-wth #cta .cta-card .wth-routing {
 // source/wth/components/_hero-background.html. It is anchored to the right,
 // where the artwork is busiest. Phones get the gradient alone, as the lines
 // crowd the wordmark and the copy there.
-// source/javascripts/wth/hero-background.js adds the pulses that travel along
+// source/javascripts/wth/flow-lines.js adds the pulses that travel along
 // the lines on scroll.
 main#page-wth #hero .wth-hero-bg {
     display: none;
@@ -723,6 +723,37 @@ main#page-wth #hero .wth-hero-bg {
     }
 
     @include bp(tablet) {
+        display: block;
+    }
+}
+
+// The closing card's background, from
+// source/wth/components/_cta-background.html: one group of lines on each
+// edge, placed as in the design and clipped by the card. They only show from
+// desktop up, where there is room beside the copy.
+// source/javascripts/wth/flow-lines.js moves them on scroll, as in the hero.
+main#page-wth #cta .wth-cta-bg {
+    display: none;
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+
+    svg {
+        display: block;
+        position: absolute;
+        top: -30.3px;
+    }
+
+    .wth-cta-bg__left {
+        left: -45.78px;
+    }
+
+    .wth-cta-bg__right {
+        right: -36.79px;
+    }
+
+    @include bp(desktop) {
         display: block;
     }
 }

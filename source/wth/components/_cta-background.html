@@ -1,0 +1,84 @@
+{% comment %}
+  The closing card's background, exported from Figma as SVG
+  (What The Heck 2026, node 14:37) and cleaned up by hand: each dashed line
+  came out as separate segments and is drawn here as one dashed path, with
+  its short end caps kept apart.
+
+  Lines marked `wth-flow` get a pulse that travels along them as the page
+  scrolls, and lines marked `wth-flow wth-flow--dashed` march their dashes;
+  see source/javascripts/wth/flow-lines.js. The nodes, the card and the end
+  caps stay still. The nodes and the card are marked `wth-flow-shapes`, so
+  the pulses run underneath them.
+{% endcomment %}
+<div class="wth-cta-bg" data-flow-shown="(min-width: 1024px)" aria-hidden="true">
+  <svg class="wth-cta-bg__left" width="277.314" height="418.603" viewBox="0 0 277.314 418.603" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g class="wth-flow-art" opacity="0.6" stroke-miterlimit="10">
+      <path class="wth-flow" d="M132.89 0V90.2986C132.89 101.344 141.844 110.299 152.89 110.299H201.926C212.972 110.299 221.926 119.253 221.926 130.299V418.603" stroke-width="14.2424" stroke="url(#wth-cta-paint1)"/>
+      <path class="wth-flow" d="M0 174.086H154.086C165.132 174.086 174.086 183.04 174.086 194.086V208.979M174.086 208.979L174.086 325.514C174.086 336.56 165.132 345.514 154.086 345.514H114.352C103.306 345.514 94.352 336.56 94.352 325.514V228.979C94.352 217.934 103.306 208.979 114.352 208.979H174.086ZM174.086 208.979H224.584" stroke-width="4.74747" stroke="url(#wth-cta-paint2)"/>
+      <path d="M221.926 208.979H224.578M273.753 131.561V133.953" stroke-width="7.1212" stroke="url(#wth-cta-paint3)"/>
+      <path class="wth-flow wth-flow--dashed" d="M229.883 208.979H253.753C264.799 208.979 273.753 200.025 273.753 188.979V138.738" stroke-width="7.1212" stroke="url(#wth-cta-paint3)" stroke-dasharray="5.3 5.3"/>
+      <g class="wth-flow-shapes">
+        <path d="M221.926 219.983C227.826 219.983 232.608 215.201 232.608 209.302C232.608 203.402 227.826 198.62 221.926 198.62C216.027 198.62 211.245 203.402 211.245 209.302C211.245 215.201 216.027 219.983 221.926 219.983Z" fill="#F2F4F9" stroke-width="3.5606" stroke="url(#wth-cta-paint4)"/>
+      </g>
+    </g>
+    <defs>
+      <linearGradient id="wth-cta-paint1" x1="221.926" y1="446.51" x2="158.016" y2="439.135" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#528C77"/>
+        <stop offset="0.898672" stop-color="#18BCF2"/>
+      </linearGradient>
+      <linearGradient id="wth-cta-paint2" x1="138.206" y1="155.481" x2="93.023" y2="362.79" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#528C77"/>
+        <stop offset="0.61" stop-color="#18BCF2"/>
+      </linearGradient>
+      <linearGradient id="wth-cta-paint3" x1="218.698" y1="193.56" x2="280.328" y2="193.56" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#16F3BE"/>
+        <stop offset="0.59" stop-color="#2EC2D1"/>
+        <stop offset="0.96" stop-color="#2FC0D2"/>
+        <stop offset="1" stop-color="#0FCCB7"/>
+      </linearGradient>
+      <linearGradient id="wth-cta-paint4" x1="209.464" y1="209.302" x2="234.4" y2="209.302" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#16F3BE"/>
+        <stop offset="0.61" stop-color="#0FCCB7"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <svg class="wth-cta-bg__right" width="293.726" height="426.577" viewBox="0 0 293.726 426.577" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g class="wth-flow-art" opacity="0.6" stroke-miterlimit="10">
+      <path d="M167.229 93.8331H169.727M277.153 93.8331H274.655" stroke-width="7.1212" stroke="url(#wth-cta-paint5)"/>
+      <path class="wth-flow wth-flow--dashed" d="M174.724 93.8331H269.659" stroke-width="7.1212" stroke="url(#wth-cta-paint5)" stroke-dasharray="4.9965 4.9965"/>
+      <path class="wth-flow" d="M167.481 0V228.771C167.481 239.816 176.435 248.771 187.481 248.771H293.726" stroke-width="14.2424" stroke="url(#wth-cta-paint6)"/>
+      <path class="wth-flow" d="M167.481 93.0229H146.285C135.239 93.0229 126.285 101.977 126.285 113.023V426.577" stroke-width="4.74747" stroke="url(#wth-cta-paint7)"/>
+      <g class="wth-flow-shapes">
+        <path d="M167.481 103.705C173.38 103.705 178.163 98.9224 178.163 93.023C178.163 87.1236 173.38 82.3412 167.481 82.3412C161.581 82.3412 156.799 87.1236 156.799 93.023C156.799 98.9224 161.581 103.705 167.481 103.705Z" fill="#F2F4F9" stroke-width="3.5606" stroke="url(#wth-cta-paint8)"/>
+        <g>
+          <path d="M48.533 363.212H149.927C153.722 363.212 156.799 360.135 156.799 356.34V303.335C156.799 299.539 153.722 296.463 149.927 296.463H48.533C44.7377 296.463 41.661 299.539 41.661 303.335L41.661 356.34C41.661 360.135 44.7377 363.212 48.533 363.212Z" fill="white"/>
+          <path d="M46.9519 333.536H29.4812C27.0756 333.536 25.1254 335.486 25.1254 337.891C25.1254 340.297 27.0756 342.247 29.4812 342.247H46.9519C49.3575 342.247 51.3077 340.297 51.3077 337.891C51.3077 335.486 49.3575 333.536 46.9519 333.536Z" fill="#18BCF2"/>
+          <path d="M73.8706 333.536H60.2216C57.8159 333.536 55.8657 335.486 55.8657 337.891C55.8657 340.297 57.8159 342.247 60.2216 342.247H73.8706C76.2762 342.247 78.2263 340.297 78.2263 337.891C78.2263 335.486 76.2762 333.536 73.8706 333.536Z" fill="#18BCF2"/>
+          <path d="M73.8706 317.441H4.35585C1.95021 317.441 0 319.392 0 321.797C0 324.203 1.95021 326.153 4.35585 326.153H73.8706C76.2763 326.153 78.2264 324.203 78.2264 321.797C78.2264 319.392 76.2763 317.441 73.8706 317.441Z" fill="#18BCF2"/>
+          <path d="M123.138 348.74C133.573 348.74 142.033 340.28 142.033 329.845C142.033 319.409 133.573 310.95 123.138 310.95C112.702 310.95 104.243 319.409 104.243 329.845C104.243 340.28 112.702 348.74 123.138 348.74Z" fill="#F2F4F9"/>
+        </g>
+      </g>
+    </g>
+    <defs>
+      <linearGradient id="wth-cta-paint5" x1="160.382" y1="94.0323" x2="291.099" y2="94.0323" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#16F3BE"/>
+        <stop offset="0.59" stop-color="#2EC2D1"/>
+        <stop offset="0.96" stop-color="#2FC0D2"/>
+        <stop offset="1" stop-color="#0FCCB7"/>
+      </linearGradient>
+      <linearGradient id="wth-cta-paint6" x1="256.517" y1="248.771" x2="163.877" y2="247.204" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#528C77"/>
+        <stop offset="0.898672" stop-color="#18BCF2"/>
+      </linearGradient>
+      <linearGradient id="wth-cta-paint7" x1="126.285" y1="174.086" x2="21.0491" y2="229.996" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#528C77"/>
+        <stop offset="0.61" stop-color="#18BCF2"/>
+      </linearGradient>
+      <linearGradient id="wth-cta-paint8" x1="155.019" y1="93.023" x2="179.955" y2="93.023" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#16F3BE"/>
+        <stop offset="0.61" stop-color="#0FCCB7"/>
+      </linearGradient>
+    </defs>
+  </svg>
+</div>
