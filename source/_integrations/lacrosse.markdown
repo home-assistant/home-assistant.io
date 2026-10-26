@@ -76,18 +76,13 @@ Toggle interval:
 
 ### Adding a sensor
 
-Once the receiver is configured, you can add one or more sensors. A sensor must report either humidity or temperature.
-Optionally, it can report battery level. Battery status is shown as **ok** or **low**, and it is not reported as a percentage.
+Once the receiver is configured, you can add one or more sensors. Select the sensor type from the dropdown. The selected type determines which entities Home Assistant creates, such as temperature, humidity, and battery status. Battery status is shown as **ok** or **low**, not as a percentage.
 
 {% configuration_basic %}
  Sensor ID:
    description: "The ID of the sensor being added. If the sensor has a display, calculate the ID with: `hex2dec(ID_on_display) / 4`."
- Reports temperature:
-   description: "Select this if the sensor reports temperature. Select at least either this option or `Reports humidity`."
- Reports humidity:
-   description: "Select this if the sensor reports humidity. Select at least either this option or `Reports temperature`."
- Reports battery state:
-   description: Select this if the sensor reports battery state.
+ Sensor type:
+   description: Select the type of sensor being added.
  Name:
    description: The name of the sensor.
  Mark unavailable after (seconds):
