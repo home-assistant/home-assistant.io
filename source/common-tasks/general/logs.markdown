@@ -1,6 +1,6 @@
 ---
 title: "Viewing and downloading logs"
-description: "How to view and download the logs of Home Assistant, remove personal information from them, and find where logs are stored on each installation type."
+description: "How to view and download the logs of Home Assistant, remove sensitive information from them, and find where logs are stored on each installation type."
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
@@ -97,13 +97,16 @@ You can download a log to keep a copy of it, or to look at it in another program
    - In the raw logs, a dialog opens. Under **Lines**, select how many lines to download, and then select **Download**. The newest lines are downloaded.
    - Result: Your browser saves the log as a file, for example, `home-assistant_<date and time>.log`, or `supervisor_<date and time>.log` for the Supervisor log.
 
-## Personal information in logs
+## Sensitive information in logs
 
-Logs can contain personal information, such as the names of your devices or the name of your Wi-Fi network. Home Assistant doesn't remove personal information from its logs. Only some integrations hide some values. For example, the [Telegram bot](/integrations/telegram_bot/) integration hides its bot token.
+Logs can contain sensitive information. This includes personal data that can identify you directly or indirectly, such as user names, the names of your devices, the name of your Wi-Fi network, IP addresses, or your location.
 
-The following list shows examples of what a log can contain. A log can also contain other personal information.
+Much of this information comes from your own configuration, for example, the address of a server that you set up, the name that you gave a device, or the web address of a service that an integration connects to. Home Assistant can't tell whether such a value is sensitive to you. Hiding it would also make the log useless for finding out what went wrong. So Home Assistant and its integrations are designed not to write credentials, such as passwords, API keys, or tokens, to the log, and they leave the rest in place. Some integrations go further and filter known secrets. For example, the [Telegram bot](/integrations/telegram_bot/) integration hides its bot token.
 
-- IP addresses, the numbers that identify devices on a network, such as `192.168.1.23`.
+The following list shows examples of what a log can contain. A log can also contain other sensitive information.
+
+- IP addresses and MAC addresses of devices on your network.
+  - An IP address identifies a device on a network, such as `192.168.1.23`. A MAC address is a unique ID of your specific device, such as `a4:c1:38:12:34:56`.
   - For example, when a login fails, Home Assistant logs the IP address of the device that tried to log in.
 - Host names, the names of devices on a network, such as `kitchen-speaker.local`.
   - For example, when a login fails, Home Assistant also logs the host name of the device that tried to log in.
@@ -114,31 +117,31 @@ The following list shows examples of what a log can contain. A log can also cont
 - Entity IDs, such as `light.living_room`, and the names of your network storage.
 - Locations, such as the coordinates `52.37, 4.90`.
   - For example, when [OwnTracks](/integrations/owntracks/) ignores a location update because it isn't accurate enough, it logs the update, including the location.
-  - With debug logging, the [Companion app](/integrations/mobile_app/) logs the data that your phone sends, including its location. The [IPMA](/integrations/ipma/) and [Buienradar](/integrations/buienradar/) weather integrations log the coordinates of the location that you set up for them. By default, this is your home location.
 - Web addresses that you entered when you set up an integration, such as `https://api.example.com/data?key=abc123`.
   - For example, when the [RESTful](/integrations/rest/) integration can't reach an address, it logs the address. If the address contains a key, like `abc123` in the example, the key is in the log as well.
-- With debug logging, more details.
-  - For example, [DHCP discovery](/integrations/dhcp/) logs the IP address, host name, and MAC address of devices on your network. A MAC address is a unique ID of your specific device, such as `a4:c1:38:12:34:56`.
-  - The RESTful integration logs the data that it receives.
+
+With debug logging, integrations can log the raw data that they exchange with devices and services, so expect all of the above and more. For example, [DHCP discovery](/integrations/dhcp/) logs the IP address, host name, and MAC address of devices on your network. The [Companion app](/integrations/mobile_app/) logs the data that your phone sends, including its location. The [IPMA](/integrations/ipma/) and [Buienradar](/integrations/buienradar/) weather integrations log the coordinates of the location that you set up for them, which is your home location by default.
 
 Integrations use other software, such as libraries for a device or a service. This software can also write to the log, for example, in error messages.
 
-## Removing personal information from a log
+## Removing sensitive information from a log
 
-When you ask for help with a problem, someone may ask you for a log. Anyone you share a log with can read it. Before you share a log, remove the personal information from it. To learn what a log can contain, refer to [Personal information in logs](#personal-information-in-logs).
+When you ask for help with a problem, someone may ask you for a log, for example, in a bug report. Anyone you share a log with can read it. Before you share a log, review it and remove anything that you consider sensitive. To learn what a log can contain, refer to [Sensitive information in logs](#sensitive-information-in-logs).
+
+If the problem is with one integration, consider sharing its diagnostics instead. Diagnostics are meant for sharing, and integrations hide known sensitive values in them. For the steps, refer to [Downloading diagnostics](/docs/configuration/troubleshooting/#downloading-diagnostics).
 
 ### Prerequisites
 
 - Administrator rights.
 
-### To remove personal information from a log
+### To remove sensitive information from a log
 
 1. Download the log soon after the problem happens. For the steps, refer to [Downloading the logs](#downloading-the-logs).
    - The download contains the newest lines. Choose enough lines to include the problem.
 2. Open the downloaded file in a text editor.
 3. Remove the lines that have nothing to do with the problem.
-4. Search the remaining lines for personal information, such as the examples in [Personal information in logs](#personal-information-in-logs), and for anything that gives access to an account or a device, such as a password, a key, or a token.
-   - To find some of the examples, search for the following words. These words don't find all personal information, so also read the remaining lines yourself.
+4. Search the remaining lines for sensitive information, such as the examples in [Sensitive information in logs](#sensitive-information-in-logs), and for anything that gives access to an account or a device, such as a password, a key, or a token.
+   - To find some of the examples, search for the following words. These words don't find all sensitive information, so also read the remaining lines yourself.
      - `Login attempt`: Finds the IP address and host name of a device whose login failed.
      - `login for`: Finds user names in the **Supervisor** log.
      - `wireless network`: Finds the name of your Wi-Fi network in the **Host** log.
@@ -148,7 +151,7 @@ When you ask for help with a problem, someone may ask you for a log. Anyone you 
      - `key`, `token`, and `password`: Find values that can give access.
    - Also search for values that you know, such as the name of your Wi-Fi network, your user name, or the names of your devices.
    - To find your IP addresses, search for the first part of the IP address of Home Assistant. To find it, go to {% my network title="**Settings** > **System** > **Network**" %}.
-5. Replace each personal value with a placeholder, such as `REDACTED`.
+5. Replace each sensitive value with a placeholder, such as `REDACTED`.
    - Use the same placeholder each time the same value appears, for example, `DEVICE_1` for one device. Then the log still shows which messages belong together.
    - Use a different placeholder for each different value, for example, `DEVICE_1` and `DEVICE_2`.
    - Keep the rest of each line, such as the time, the name of the integration, and the error message. These help others find the cause of the problem.
