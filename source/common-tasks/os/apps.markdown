@@ -1,11 +1,47 @@
 ---
-title: "Managing apps"
-description: "How to choose whether an app starts on boot, restarts when it crashes, updates automatically, or runs in protection mode, change its network ports, and uninstall it."
+title: "Installing and managing apps"
+description: "How to install an app, choose whether it starts on boot, restarts when it crashes, updates automatically, or runs in protection mode, change its network ports, and uninstall it."
 ---
 
-Apps are applications that run alongside Home Assistant on the same system, such as an MQTT broker or a file editor. For each app that you installed, you can choose how it starts, whether it restarts after a crash, and which network ports it uses. You can also uninstall an app that you no longer need.
+Apps are applications that run alongside Home Assistant on the same system, such as a file editor. You install apps from the app store. For each app that you installed, you can choose how it starts, whether it restarts after a crash, and which network ports it uses. You can also check the system resources that an app uses, and uninstall an app that you no longer need.
 
 Apps are only available on {% term "Home Assistant Operating System" %}.
+
+## The app store
+
+The app store lists the apps that you can install. To open it, go to {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}.
+
+The app store groups the apps by repository. A repository is a collection of apps that someone publishes. The app store includes the following repositories by default:
+
+- **Official apps**
+- **Home Assistant Community Apps**
+- **ESPHome**
+- **Music Assistant**
+- **Local apps**
+
+You can also add app repositories from the community. Home Assistant can't guarantee the quality or security of apps from other repositories. For the steps, refer to [Installing a third-party app repository](/common-tasks/os/#installing-a-third-party-app-repository).
+
+To check for new versions of the apps, in the app store, select **Menu** {% icon "mdi:dots-vertical" %} > **Check for updates**.
+
+## Installing an app
+
+You install apps from the app store. For the repositories that the app store includes, refer to [The app store](#the-app-store).
+
+### Prerequisites
+
+- Administrator rights.
+- {% term "Home Assistant Operating System" %}.
+
+### To install an app
+
+1. Go to {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}.
+   - Result: The **App store** opens.
+2. Select the app that you want to install.
+   - To find an app, use the search field.
+   - The app page shows the documentation of the app on the **Documentation** tab.
+3. On the **Info** tab, select **Install**.
+4. When the installation is done, select **Start**.
+   - To choose whether the app starts with the system, restarts after a crash, or updates automatically, refer to [App options](#app-options).
 
 ## App options
 
@@ -79,6 +115,21 @@ Some apps use network ports, so that other devices on your network can reach the
    - To go back to the ports that the app uses by default, select **Reset to defaults**.
 4. Select **Save**.
    - If the app is running, Home Assistant asks whether to restart it. The new ports are used after the restart.
+
+## Checking the resources an app uses
+
+Each app uses system resources: disk space, memory, and processor time. While an app runs, you can check how much memory and processor time it uses.
+
+### Prerequisites
+
+- Administrator rights.
+- {% term "Home Assistant Operating System" %}.
+- The app is running.
+
+### To check the resources an app uses
+
+1. Go to {% my supervisor title="**Settings** > **Apps**" %}, and select the app.
+2. On the **Info** tab, check **CPU usage** and **RAM usage**.
 
 ## Uninstalling an app
 
