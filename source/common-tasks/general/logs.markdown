@@ -108,6 +108,7 @@ The following list shows examples of what a log can contain. A log can also cont
 - IP addresses and MAC addresses of devices on your network.
   - An IP address identifies a device on a network, such as `192.168.1.23`. A MAC address is a unique ID of your specific device, such as `a4:c1:38:12:34:56`.
   - For example, when a login fails, Home Assistant logs the IP address of the device that tried to log in.
+  - When a Bluetooth device can't be reached, the error message starts with its MAC address.
 - Host names, the names of devices on a network, such as `kitchen-speaker.local`.
   - For example, when a login fails, Home Assistant also logs the host name of the device that tried to log in.
 - User names.
