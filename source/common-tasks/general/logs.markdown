@@ -120,7 +120,7 @@ The following list shows examples of what a log can contain. A log can also cont
 - Web addresses that you entered when you set up an integration, such as `https://api.example.com/data?key=abc123`.
   - For example, when the [RESTful](/integrations/rest/) integration can't reach an address, it logs the address. If the address contains a key, like `abc123` in the example, the key is in the log as well.
 
-With debug logging, integrations can log the raw data that they exchange with devices and services, so expect all of the above and more. For example, [DHCP discovery](/integrations/dhcp/) logs the IP address, host name, and MAC address of devices on your network. The [Companion app](/integrations/mobile_app/) logs the data that your phone sends, including its location. The [IPMA](/integrations/ipma/) and [Buienradar](/integrations/buienradar/) weather integrations log the coordinates of the location that you set up for them, which is your home location by default.
+With debug logging, integrations can log the raw data that they exchange with devices and services, so expect all of the above and more. For example, [DHCP discovery](/integrations/dhcp/) logs the IP address, host name, and MAC address of devices on your network. The [Companion app](/integrations/mobile_app/) logs the data that your phone sends, including its location.
 
 Integrations use other software, such as libraries for a device or a service. This software can also write to the log, for example, in error messages.
 
