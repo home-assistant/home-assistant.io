@@ -1,9 +1,9 @@
 ---
 title: "Installing and managing apps"
-description: "How to install an app, choose whether it starts on boot, restarts when it crashes, updates automatically, or runs in protection mode, change its network ports, and uninstall it."
+description: "How to install apps from the app store, choose whether an app starts on boot, restarts after a crash, updates automatically, or runs in protection mode, change its network ports, check its resources, and uninstall it."
 ---
 
-Apps are applications that run alongside Home Assistant on the same system, such as a file editor. You install apps from the app store. For each app that you installed, you can choose how it starts, whether it restarts after a crash, and which network ports it uses. You can also check the system resources that an app uses, and uninstall an app that you no longer need.
+Apps (formerly known as add-ons) are applications that run alongside Home Assistant on the same system, such as a file editor. You install apps from the app store. For each app that you installed, you can choose how it starts, whether it restarts after a crash, and which network ports it uses. You can also check the system resources that an app uses, and uninstall an app that you no longer need.
 
 Apps are only available on {% term "Home Assistant Operating System" %}.
 
