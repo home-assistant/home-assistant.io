@@ -257,6 +257,7 @@ When you change a charge limit, Home Assistant shows the new value right away, b
 - Two-factor authentication only supports verification codes sent by email.
 - A vehicle that you add to your My Renault account can take up to an hour to appear in Home Assistant.
 - The **Start air conditioner** button always uses 21°C. To use another temperature, use the [Start A/C](/actions/renault.ac_start/) action.
+- On electric vehicles, the vehicle only starts the air conditioning when the battery has enough charge. If the charge is too low, the **Start air conditioner** button and the [Start A/C](/actions/renault.ac_start/) action fail with an error message. To see the minimum charge level that is needed, check the **HVAC SoC threshold** sensor.
 
 ## Troubleshooting
 
