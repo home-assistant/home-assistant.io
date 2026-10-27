@@ -1,16 +1,7 @@
 ---
-title: RESTful Command
 description: Instructions on how to integrate REST commands into Home Assistant.
-ha_category:
-  - Automation
-ha_categories:
-  - diy_makers.web_data_connectors
 ha_release: 0.36
-ha_iot_class: Local Push
 ha_domain: rest_command
-ha_integration_type: integration
-ha_codeowners:
-  - '@jpbede'
 ---
 
 This {% term integration %} can expose regular REST commands as actions. Actions can be called from a [script] or in [automation].
@@ -216,10 +207,11 @@ Call the new action from [Tools](/docs/tools/dev-tools/) in the sidebar with som
 automation:
 - alias: "Arrive at Work"
   triggers:
-    - trigger: zone
-      entity_id: device_tracker.my_device
-      zone: zone.work
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: device_tracker.my_device
+      options:
+        zone: zone.work
   actions:
     - action: rest_command.my_request
       data:

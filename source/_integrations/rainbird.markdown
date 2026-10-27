@@ -1,31 +1,7 @@
 ---
-title: Rain Bird
 description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Calendar
-  - Irrigation
-  - Sensor
-  - Switch
-ha_categories:
-  - garden_plants
-ha_config_flow: true
 ha_release: 0.61
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@konikvranik'
-  - '@allenporter'
 ha_domain: rainbird
-ha_platforms:
-  - binary_sensor
-  - button
-  - calendar
-  - diagnostics
-  - number
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **Rain Bird** {% term integration %} allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
@@ -104,6 +80,13 @@ The Rain Bird integration provides the following entities.
     manually at the controller. You can use it in automations with the `button.press` action.
   - **Available for devices**: All. The number of buttons depends on how many programs your
     controller model supports.
+
+- **Sync time**
+  - **Description**: Sets the controller's date and time to the current time in your Home Assistant
+    time zone. Use it to correct a controller clock that has drifted, for example after a power
+    outage or a daylight saving time change. The button is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). To use it, enable it
+    from the controller's device page.
+  - **Available for devices**: All
 
 #### Calendar
 

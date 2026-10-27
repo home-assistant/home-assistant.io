@@ -1,20 +1,7 @@
 ---
-title: Holiday
 description: Instructions on how to use holiday calendars in Home Assistant.
-ha_category:
-  - Calendar
-ha_categories:
-  - productivity_information.calendars_todos
-ha_iot_class: Local Polling
 ha_release: 2024.1
-ha_config_flow: true
 ha_domain: holiday
-ha_platforms:
-  - calendar
-ha_codeowners:
-  - '@jrieger'
-  - '@gjohansson-ST'
-ha_integration_type: integration
 ---
 
 The **Holiday** {% term integration %} adds a {% term calendar %} with the public holidays for a country, and optionally a region within that country, to Home Assistant. You can use it to view upcoming holidays on your calendar dashboard and to power automations, for example, to keep the blinds closed on public holidays or turn on festive lights on a specific holiday.
@@ -52,7 +39,7 @@ Individual holiday *Events* are what powers automations such as:
 - Turn on the Christmas lights at the *start* of Christmas Day.
 - Prevent your covers from being opened on public holidays.
 
-For an overview, refer to [calendar automations](/integrations/calendar#automation). You can use [calendar trigger variables](/docs/automation/templating/#calendar) in a condition or action such as the event `summary`, `description`, `location` and in other places.
+For an overview, refer to [calendar automations](/integrations/calendar#automation). You can use [calendar trigger variables](/docs/automation/trigger-data/#calendar-triggers) in a condition or action such as the event `summary`, `description`, `location` and in other places.
 
 ## Data updates
 

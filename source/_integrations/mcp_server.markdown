@@ -1,26 +1,27 @@
 ---
-title: Model Context Protocol
 description: Instructions on how to add a Model Context Protocol server to Home Assistant.
 featured: true
-ha_category:
-  - Voice
-ha_categories:
-  - ai_voice.ai_models
-  - other_ecosystems
 ha_release: 2025.2
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@allenporter'
 ha_domain: mcp_server
-ha_integration_type: service
 related:
   - docs: /integrations/conversation/
     title: Conversation
-ha_quality_scale: silver
+  - docs: /integrations/mcp/
+    title: Model Context Protocol Client
 ---
 
 The **Model Context Protocol** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home.
+
+With this integration, Home Assistant is the MCP *server*. The AI agent gets its tools from the LLM APIs in Home Assistant that you allow it to use, which by default is all of them. One of these is the **Device control** API, which gives the AI agent the same tools as your voice assistant ([Assist](/voice_control/)). Through the **Device control** API, it can only control or see the entities that you have exposed on the {% my voice_assistants title="exposed entities page" %}. To choose which LLM APIs the AI agent can use, refer to [Configuration options](#configuration-options).
+
+{% tip %}
+Home Assistant has two MCP integrations, and they work in opposite directions:
+
+- **Model Context Protocol** (this page): Another AI app, such as Claude or ChatGPT, controls Home Assistant.
+- [**Model Context Protocol Client**](/integrations/mcp/): Your Home Assistant conversation agent uses tools from another service.
+
+If you want your Home Assistant conversation agent to use tools from another service, such as web search, you need the [Model Context Protocol Client](/integrations/mcp/) integration.
+{% endtip %}
 
 ## Prerequisites
 
@@ -170,8 +171,8 @@ are exposed.
 ### Prompts
 
 The [MCP Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) provided
-inform LLMs how to call the tools. The tools used by the configured LLM API
-are exposed.
+inform LLMs how to call the tools. Home Assistant provides one default prompt for
+the configured LLM API, which contains the instructions of that LLM API.
 
 ### Resources
 

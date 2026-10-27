@@ -1,6 +1,6 @@
 // Fixtures for the homepage hero. On the live site the integration
-// count is the number of pages in the `integrations` collection with
-// both `ha_category` and `title`; Astro does not read that collection
+// count is the number of pages in the `integrations` collection with a
+// `title`; Astro does not read that collection
 // yet, so the count comes in as a prop.
 //
 // The hero reserves room for the header at its top. On the homepage the

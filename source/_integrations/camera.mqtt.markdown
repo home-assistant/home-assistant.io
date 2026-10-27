@@ -1,8 +1,6 @@
 ---
 title: "MQTT Camera"
 description: "Instructions on how to use an MQTT image message as a Camera within Home Assistant."
-ha_category:
-  - Camera
 ha_release: 0.43
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -127,7 +125,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -145,7 +143,7 @@ entity_picture:
   required: false
   type: string
 icon:
-  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  description: "[Icon](/integrations/homeassistant/#icon) for the entity."
   required: false
   type: icon
 image_encoding:

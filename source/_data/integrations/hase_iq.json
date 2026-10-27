@@ -1,0 +1,17 @@
+{
+  "domain": "hase_iq",
+  "name": "Hase iQ",
+  "integration_type": "device",
+  "codeowners": [
+    "@bbayszczak"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

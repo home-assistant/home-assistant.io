@@ -1,8 +1,6 @@
 ---
 title: "MQTT Infrared"
 description: "Instructions on how to interact with a device exposing infrared capabilities through MQTT from within Home Assistant."
-ha_category:
-  - Infrared
 ha_release: 2026.7
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -132,7 +130,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -314,7 +312,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true

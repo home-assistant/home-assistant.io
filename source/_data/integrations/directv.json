@@ -1,0 +1,17 @@
+{
+  "domain": "directv",
+  "name": "DirecTV",
+  "integration_type": "hub",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "media_player",
+    "remote"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

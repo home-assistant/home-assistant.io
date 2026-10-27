@@ -1,0 +1,12 @@
+{
+  "domain": "norway_air",
+  "name": "Om Luftkvalitet i Norge (Norway Air)",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "weather_alerts.air_quality_pollen"
+  ],
+  "platforms": [
+    "air_quality"
+  ]
+}

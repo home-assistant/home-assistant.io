@@ -1,25 +1,7 @@
 ---
-title: WattWächter Plus
 description: Instructions on how to integrate WattWächter Plus into Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
-  - Update
-ha_categories:
-  - energy.meters_monitoring
 ha_release: 2026.7
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@smartcircuits'
 ha_domain: wattwaechter
-ha_platforms:
-  - diagnostics
-  - sensor
-  - update
-ha_zeroconf: true
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **WattWächter Plus** {% term integration %} connects Home Assistant to a [WattWächter Plus](https://wattwächter.de) energy monitoring device by [SmartCircuits GmbH](https://smartcircuits.de). The device reads data from your smart electricity meter via the <abbr title="Smart Message Language">SML</abbr>/<abbr title="Object Identification System">OBIS</abbr> protocol and exposes it over a local HTTP API. All communication stays on your local network. No cloud service is involved.
@@ -84,7 +66,7 @@ Smart meters can report values beyond the well-known ones listed above. The inte
 
 ### Diagnostic sensors
 
-The following sensors are created with the diagnostic entity category and are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
+The following sensors are created with the diagnostic entity category and are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity):
 
 - **Wi-Fi signal (dBm)**: The wireless signal strength of the device.
 - **Wi-Fi SSID**: The wireless network name the device is connected to.

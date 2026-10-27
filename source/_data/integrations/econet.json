@@ -1,0 +1,22 @@
+{
+  "domain": "econet",
+  "name": "Rheem EcoNet Products",
+  "integration_type": "hub",
+  "codeowners": [
+    "@w1ll1am23"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "climate.water_heaters",
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "select",
+    "sensor",
+    "switch",
+    "water_heater"
+  ]
+}

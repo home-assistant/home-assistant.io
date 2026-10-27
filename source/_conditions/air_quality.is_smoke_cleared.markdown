@@ -52,13 +52,13 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md domain="binary_sensor" %}
+{% include conditions/targets.md entity_type="smoke detector" example="binary_sensor.hallway_smoke" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as cleared. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check whether smoke is currently detected, use [Smoke detected](/conditions/air_quality.is_smoke_detected/).
 
 {% include conditions/try_it.md %}

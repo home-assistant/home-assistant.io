@@ -1,46 +1,7 @@
 ---
-title: HomematicIP Cloud
 description: Instructions for integrating HomematicIP into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Sensor
-  - Switch
-  - Valve
-ha_categories:
-  - hubs_protocols.smart_home_hubs
-ha_iot_class: Cloud Push
 ha_release: 0.66
-ha_config_flow: true
 ha_domain: homematicip_cloud
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - sensor
-  - siren
-  - switch
-  - valve
-  - weather
-ha_integration_type: hub
-ha_codeowners:
-  - '@hahn-th'
-  - '@lackas'
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
@@ -191,11 +152,12 @@ Floor heating actuators are operated through the climate group and don't need th
 - Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`, `HmIP-STHO`, `HmIP-STHO-A`)
 - External temperature sensors with two probes (`HmIP-STE2-PCB`, `ELV-SH-PTI2`)
 - Light sensor – outdoor (`HmIP-SLO`)
-- Motion and presence sensors (`HmIP-SMI`, `HmIP-SMO`, `HmIP-SPI`)
+- Motion and presence sensors (`HmIP-SMI`, `HmIP-SMO`, `HmIP-SMO230`, `HmIP-SPI`)
 - Passage sensor with direction recognition (`HmIP-SPDR`)
 - Floor heating actuator – 12 channels, valve positions (`HMIP-FALMOT-C12`)
 - Fine dust sensor (`HmIP-SFD`)
 - Soil moisture sensor (`ELV-SH-SMSI`)
+- Ultrasonic distance sensor interface, distance and height (`ELV-SH-DUSI`)
 - Door lock pad (`HmIP-DLP`)
 - Carbon dioxide sensors (`HmIP-SCTH230`, `HmIP-WGTC`, `HmIPW-SCTHD`)
 

@@ -57,9 +57,9 @@ behavior:
 for:
   description: >
     How long the siren must stay off before the condition passes.
-    Accepts a duration string like `00:05:00`.
+    Accepts a duration string like `00:05:00`. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -69,7 +69,7 @@ for:
 
 ## Good to know
 
-- Sirens in the `unavailable` or `unknown` state do not count as being off.
+{% include conditions/unavailable_targets.md entities="sirens" %}
 - With **All** behavior, the condition passes only if every targeted siren is off for the selected time.
 - To check whether a siren is sounding, use [Siren is on](/conditions/siren.is_on/).
 

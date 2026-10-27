@@ -1,35 +1,7 @@
 ---
-title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
-ha_category:
-  - Climate
-  - Infrared
-  - Light
-  - Radio frequency
-  - Remote
-  - Sensor
-  - Switch
-ha_categories:
-  - buttons_remotes
-  - plugs_switches
 ha_release: 0.35
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@danielhiversen'
-  - '@felipediel'
-  - '@L-I-Am'
 ha_domain: broadlink
-ha_config_flow: true
-ha_platforms:
-  - climate
-  - light
-  - remote
-  - select
-  - sensor
-  - switch
-  - time
-ha_dhcp: true
-ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -44,7 +16,7 @@ The following devices are supported:
 - Thermostats: `Hysen HY02B05H` and `Floureon HY03WE`
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
-- Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
+- Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU`, `SP4M-US`, `WS2-W10` and `WS2-W16`
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, `RM4 TV mate` and `RM5 plus`
 - Wi-Fi Controlled Switches: `BG1`, `SC1`
 - Smart Light Bulbs: `LB1`,`LB2`

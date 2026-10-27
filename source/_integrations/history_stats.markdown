@@ -1,21 +1,7 @@
 ---
-title: History Stats
 description: Instructions about how to integrate historical statistics into Home Assistant.
-ha_category:
-  - Helper
-  - Sensor
-  - Utility
-ha_categories:
-  - helpers.calculate_value
-ha_iot_class: Local Polling
 ha_release: 0.39
-ha_quality_scale: internal
 ha_domain: history_stats
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -87,7 +73,7 @@ state:
   required: true
   type: [list, string]
 name:
-  description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](/docs/configuration/customizing-devices/#friendly_name) or via [Dashboards](/dashboards/entities/#name).
+  description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](/integrations/homeassistant/#friendly_name) or via [Dashboards](/dashboards/entities/#name).
   required: false
   default: unnamed statistics
   type: string

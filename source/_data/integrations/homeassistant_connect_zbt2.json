@@ -1,0 +1,21 @@
+{
+  "domain": "homeassistant_connect_zbt2",
+  "name": "Home Assistant Connect ZBT-2",
+  "integration_type": "hardware",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "config_flow": true,
+  "quality_scale": "bronze",
+  "categories": [
+    "hubs_protocols.wireless_protocols"
+  ],
+  "platforms": [
+    "diagnostics",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "usb"
+  ]
+}

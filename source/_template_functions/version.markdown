@@ -72,8 +72,10 @@ output: "false"
 
 ## Good to know
 
-- Comparing two version objects returns a boolean. Comparing a version object with a plain string raises an error, so convert both sides first.
-- Version parsing is lenient. Unusual formats may parse in ways you do not expect, so test your comparisons against real values.
+- You can compare a version object with a plain string, in either order. For example, `version("2099.9.9") < "2099.9.10"` is `true`.
+- Version parsing is lenient and never fails, even for text like `unknown`. Unusual formats may parse in ways you do not expect, so test your comparisons against real values.
+- The comparisons `<`, `>`, `<=`, and `>=` raise an error if either side isn't a valid version. This happens when a sensor state is `unavailable` or `unknown`. To avoid this, check the state first, for example with [`has_value`](/template-functions/has_value/). The `==` comparison never raises an error.
+- When you output a version object, it shows the version text.
 
 {% include template_functions/try_it.md %}
 

@@ -1,21 +1,7 @@
 ---
-title: Airly
 description: Instructions on how to integrate Airly within Home Assistant.
-ha_category:
-  - Health
-ha_categories:
-  - weather_alerts.air_quality_pollen
 ha_release: 0.101
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bieniu'
 ha_domain: airly
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 The **Airly** {% term integration %} uses the [Airly](https://airly.org/) web service as a source for air quality data for your location.
@@ -45,10 +31,8 @@ This integration needs a free Airly API key. To get one:
 {% configuration_basic %}
 API key:
     description: "The API key for your Airly account."
-Latitude:
-    description: "The latitude of the location for which to retrieve air quality data. By default, Home Assistant uses your home location."
-Longitude:
-    description: "The longitude of the location for which to retrieve air quality data. By default, Home Assistant uses your home location."
+Location:
+    description: "The location for which to retrieve air quality data. By default, Home Assistant uses your home location."
 {% endconfiguration_basic %}
 
 ## Supported functionality

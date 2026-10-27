@@ -1,21 +1,7 @@
 ---
-title: IMGW-PIB
 description: Instructions on how to integrate IMGW-PIB (Polish Institute of Meteorology and Water Management - National Research Institute) hydrological service within Home Assistant.
-ha_category:
-  - Environment
-ha_categories:
-  - weather_alerts.public_warnings
 ha_release: 2024.6
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bieniu'
 ha_domain: imgw_pib
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **IMGW-PIB** {% term integration %} uses hydrological data from the [Institute of Meteorology and Water Management - National Research Institute](https://hydro.imgw.pl) to present information about rivers and water reservoirs in Poland.
@@ -50,7 +36,7 @@ The **IMGW-PIB** integration provides the following entities.
   - **Remarks**: Not available for all hydrological stations
 - **Emergent vegetation cover**
   - **Description**: Emergent vegetation cover indicates how much of the river cross-section is occupied by plants that grow above the water surface
-  - **Remarks**: Not available for all hydrological stations, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: Not available for all hydrological stations, [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **Floating vegetation cover**
   - **Description**: Floating vegetation cover indicates how much of the river cross-section is covered by plants floating on the water surface
   - **Remarks**: Not available for all hydrological stations, disabled by default
@@ -69,9 +55,12 @@ Here is an idea to get you started.
 
 Use the **Hydrological alert** sensor to create a persistent notification with the content and probability of a hydrological alert. Replace the entity ID in the example with the entity ID of your station's **Hydrological alert** sensor.
 
-- **Trigger**: State: **Hydrological alert** changes from **No alert**
+- **Trigger**: State changed
   - **Target**: Your station's **Hydrological alert** sensor
-- **Action**: Create persistent notification
+  - **From**: No alert
+- **Action**: Persistent Notification: Create persistent notification
+  - **Title**: `Hydrological alert!`
+  - **Message**: `{{ trigger.to_state.state }}, probability {{ trigger.to_state.attributes.probability }}%`
 
 {% details "YAML example for creating a hydrological alert notification" %}
 

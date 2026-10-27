@@ -27,9 +27,10 @@ action: |
   action: vacuum.clean_area
   target:
     entity_id: vacuum.cleaner
-  cleaning_area_id:
-    - living_room
-    - kitchen
+  data:
+    cleaning_area_id:
+      - living_room
+      - kitchen
 {% endexample %}
 
 This sends `vacuum.cleaner` to clean the `living_room` and `kitchen` areas.
@@ -42,7 +43,10 @@ target:
   required: true
   type: map
 cleaning_area_id:
-  description: The areas to clean. Use Home Assistant area IDs.
+  description: |
+    The areas to clean. Use Home Assistant area IDs.
+
+    To find an area's ID, go to **Settings** > **Areas, labels & zones**. On the area card, select the edit {% icon "mdi:edit" %} button, and check **Area ID**. Areas created in older versions of Home Assistant can have an ID like `566619861ba442c19d31f5d20af2314c` instead of their name.
   required: true
   type: list
 {% endoptions_yaml %}
@@ -86,9 +90,10 @@ automation: |
     - action: vacuum.clean_area
       target:
         entity_id: vacuum.main_floor
-      cleaning_area_id:
-        - kitchen
-        - dining_room
+      data:
+        cleaning_area_id:
+          - kitchen
+          - dining_room
 {% endexample %}
 
 {% enddetails %}

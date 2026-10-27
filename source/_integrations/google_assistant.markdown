@@ -1,18 +1,8 @@
 ---
-title: Google Assistant
 description: Setup for Google Assistant integration
-ha_category:
-  - Voice
 featured: true
 ha_release: 0.56
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@home-assistant/cloud'
 ha_domain: google_assistant
-ha_integration_type: system
-ha_platforms:
-  - button
-  - diagnostics
 ---
 
 The **Google Assistant** {% term integration %} allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet, or Google Home device.
@@ -242,6 +232,8 @@ entity_config:
           type: string
 {% endconfiguration %}
 
+To apply changes to this configuration without restarting Home Assistant, use the [`google_assistant.reload`](/actions/google_assistant.reload/) action. Changing `project_id` or `service_account` still requires a restart.
+
 ### Available domains
 
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
@@ -377,7 +369,7 @@ With the manual setup, Google doesn't always notice right away when your devices
 
 ### Automation: sync with Google after Home Assistant starts
 
-When you add or remove devices in your YAML configuration, restart Home Assistant. This automation then asks Google to sync, so the Google Home app shows your devices right away.
+When you add or remove devices in your YAML configuration, use the [`google_assistant.reload`](/actions/google_assistant.reload/) action, which asks Google to sync right away. This automation covers restarts: it asks Google to sync after Home Assistant starts, so the Google Home app shows your devices.
 
 - **Trigger**: Home Assistant
   - **Event**: Start

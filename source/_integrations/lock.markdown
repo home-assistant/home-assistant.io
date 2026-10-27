@@ -1,14 +1,7 @@
 ---
-title: Lock
 description: Instructions on how to set up your locks with Home Assistant.
-ha_category:
-  - Lock
 ha_release: 0.9
-ha_quality_scale: internal
 ha_domain: lock
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 Keeps track of the locks in your environment, their state, and lets you control them.
@@ -46,10 +39,11 @@ Here are a few ideas to get you started.
 If you often arrive home with your hands full, it helps when the light is already on. This automation turns on the hallway light when the front door unlocks.
 
 - **Trigger**: Lock unlocked
-- **Target**: Front door lock
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn on
+  - **Target**: Front door lock
+  - **Trigger when**: Each
+  - **For at least**: `00:00:00`
+- **Action**: Turn on light
+  - **Target**: Hallway light
 
 {% details "YAML example for turning on the hallway light" %}
 

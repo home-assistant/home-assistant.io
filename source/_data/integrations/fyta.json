@@ -1,0 +1,23 @@
+{
+  "domain": "fyta",
+  "name": "FYTA",
+  "integration_type": "hub",
+  "codeowners": [
+    "@dontinelli"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "garden_plants"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "image",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

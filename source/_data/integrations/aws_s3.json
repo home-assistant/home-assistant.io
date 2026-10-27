@@ -1,0 +1,18 @@
+{
+  "domain": "aws_s3",
+  "name": "AWS S3",
+  "integration_type": "service",
+  "codeowners": [
+    "@tomasbedrich"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

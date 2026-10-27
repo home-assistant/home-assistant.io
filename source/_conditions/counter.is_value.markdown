@@ -34,7 +34,7 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The value the counter has to meet for the condition to pass. **Above** and **Below** are exclusive: a counter value equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a counter value equal to either bound passes. Choose **Number** to use a fixed value, or **Entity** to use the current value of a `counter`, `input_number`, or `number` entity.
+    The value the counter has to meet for the condition to pass. **Above** and **Below** are exclusive: a counter value equal to the threshold does not pass. **In range** includes both bounds: a counter value equal to either bound passes. **Outside range** excludes both bounds: a counter value equal to either bound does not pass. Choose **Number** to use a fixed value, or **Entity** to use the current value of a `counter`, `input_number`, or `number` entity.
 Condition passes if:
   description: When multiple counters are targeted, controls how results combine. Pick **Any** to pass if at least one targeted counter matches, or **All** to pass only when every targeted counter matches. Default is **Any**.
 For at least:
@@ -102,8 +102,8 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The counter value must be strictly above the threshold to pass.
     - `type: below` (exclusive): Sets a maximum. The counter value must be strictly below the threshold to pass.
-    - `type: between` (exclusive): Defines a range. The counter value must be strictly between both bounds to pass.
-    - `type: outside` (inclusive): Defines an outside-range. The counter value must be at or beyond either bound to pass.
+    - `type: between` (inclusive): Defines a range. The counter value must be between the two bounds, or equal to one of them, to pass.
+    - `type: outside` (exclusive): Defines an outside-range. The counter value must be beyond either bound to pass.
 
     For `type: above` and `type: below`, use `value` with either `number` or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` or `entity`. Entities can be from the `counter`, `input_number`, or `number` domains. For example:
 
@@ -125,9 +125,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the counter must stay within the selected threshold before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the counter must stay within the selected threshold before the condition passes. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -137,7 +137,7 @@ for:
 
 ## Good to know
 
-- Counters in the `unavailable` or `unknown` state are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="counters" %}
 - If the counter leaves the selected threshold before the **For at least** time finishes, the timer resets.
 - When you use an entity as the threshold, Home Assistant reads that entity's current value each time the condition is checked.
 

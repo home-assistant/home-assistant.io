@@ -1,0 +1,19 @@
+{
+  "domain": "sleep_as_android",
+  "name": "Sleep as Android",
+  "integration_type": "service",
+  "codeowners": [
+    "@tr4nt0r"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "health_wellbeing"
+  ],
+  "platforms": [
+    "diagnostics",
+    "event",
+    "sensor"
+  ]
+}

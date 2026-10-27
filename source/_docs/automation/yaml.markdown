@@ -36,7 +36,6 @@ id:
 description:
   description: A description of the automation.
   required: false
-  default: ''
   type: string
 initial_state:
   description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run. If there is no state to restore, the automation is turned on. See [Automation initial state](#automation-initial-state).
@@ -64,7 +63,7 @@ variables:
       description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
       type: any
 trigger_variables:
-  description: "Variables that you can use in the templates of all triggers, for example, in a [template trigger](/docs/automation/trigger/#template-trigger), in the `enabled` option of a trigger, in the `event_type` of an event trigger, in the `webhook_id` of a webhook trigger, or in the `topic` of an MQTT trigger. Home Assistant sets them when it sets up the triggers, for example, when it loads the automation or when you turn the automation on."
+  description: "Variables that you can use in the templates of all triggers, for example, in a [template trigger](/triggers/template/), in the `enabled` option of a trigger, in the `event_type` of an event trigger, in the `webhook_id` of a webhook trigger, or in the `topic` of an MQTT trigger. Home Assistant sets them when it sets up the triggers, for example, when it loads the automation or when you turn the automation on."
   required: false
   default: {}
   type: map
@@ -143,13 +142,18 @@ automation my_lights:
         event: sunset
         offset: "-01:00:00"
       - trigger: state
-        entity_id: all
+        entity_id:
+          - person.paulus
+          - person.anne_therese
         to: "home"
     conditions:
       # Prefix the first line of each condition configuration
-      # with a '-'' to enter multiple
+      # with a '-' to enter multiple
       - condition: state
-        entity_id: all
+        entity_id:
+          - person.paulus
+          - person.anne_therese
+        match: any
         state: "home"
       - condition: time
         after: "16:00:00"
@@ -164,8 +168,8 @@ automation my_lights:
   - alias: "Rule 2 - Away Mode"
     triggers:
       - trigger: state
-        entity_id: all
-        to: "not_home"
+        entity_id: zone.home
+        to: "0"
     actions:
       - action: light.turn_off
         target:

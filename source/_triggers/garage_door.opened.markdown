@@ -60,13 +60,13 @@ behavior:
 for:
   description: >
     How long the garage door must stay open before the trigger fires.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="garage door sensor or motorized garage door" example="cover.garage_door" %}
 
 {% include triggers/behavior.md %}
 
