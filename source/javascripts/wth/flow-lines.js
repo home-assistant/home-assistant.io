@@ -8,8 +8,8 @@
 // `stroke-dashoffset`, driven by the scroll position, so they move only while
 // the page scrolls and run backwards when it scrolls back up.
 //
-// The lines are in source/wth/components/_hero-background.html and
-// source/wth/components/_cta-background.html.
+// The lines are in source/what-the-heck/components/_hero-background.html and
+// source/what-the-heck/components/_cta-background.html.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 // Length of a pulse, in the artwork's units.

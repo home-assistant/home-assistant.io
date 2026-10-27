@@ -437,8 +437,8 @@ layout: null
 /skyconnect /connectzbt1
 
 # Month of "What the Heck?!"
-/what-the-heck /wth/ 301
-/wth-2026 /wth/ 301
+/wth /what-the-heck/ 301
+/wth-2026 /what-the-heck/ 301
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942

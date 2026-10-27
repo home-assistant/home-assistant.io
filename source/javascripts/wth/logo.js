@@ -1,7 +1,7 @@
 // The "What the Heck?!" wordmark in 3D.
 //
 // Builds the wordmark with three.js from the live text in
-// source/wth/components/_wordmark.html, so the words stay editable there. The
+// source/what-the-heck/components/_wordmark.html, so the words stay editable there. The
 // CSS version of the wordmark stays on the page as the fallback and is only
 // hidden once the 3D version has drawn its first frame.
 //

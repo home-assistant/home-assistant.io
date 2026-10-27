@@ -1,7 +1,7 @@
-// Shared values for the Month of "What the Heck?!" page, /wth/.
+// Shared values for the Month of "What the Heck?!" page, /what-the-heck/.
 //
 // The Jekyll page keeps these in its front matter
-// (source/wth/index.html); here they are one module the page and its
+// (source/what-the-heck/index.html); here they are one module the page and its
 // components read, so a link that appears on half the sections is still
 // changed in a single place.
 

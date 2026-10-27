@@ -67,8 +67,8 @@ production deploy, the copy is skipped and Jekyll's version is
 published instead.
 
 A designed page is not Markdown in a reading column, so it gets a
-page of its own in `src/pages` instead — `src/pages/wth/index.astro`
-for `/wth/`, built from components in `src/components/`. The route
+page of its own in `src/pages` instead — `src/pages/what-the-heck/index.astro`
+for `/what-the-heck/`, built from components in `src/components/`. The route
 still goes in `served-routes.json`, which is what publishes it over
 Jekyll's; `[...page].astro` skips a route that has its own page.
 Those pages share the Jekyll stylesheet for the page
