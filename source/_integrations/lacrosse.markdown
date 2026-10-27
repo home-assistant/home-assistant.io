@@ -76,14 +76,14 @@ Toggle interval:
 
 ### Adding a sensor
 
-Once the receiver is configured, you can add one or more sensors. Select the sensor type from the dropdown. The selected type determines which entities Home Assistant creates, such as temperature, humidity, and battery status. Battery status is shown as **ok** or **low**, not as a percentage.
+Once the receiver is configured, select **Add sensor** to add one or more sensors. Enter the sensor ID manually in **Sensor ID**, then select one of the nine options from the **type** dropdown. The selected type determines which entities Home Assistant creates, such as temperature, humidity, and battery status. Battery status is shown as **ok** or **low**, not as a percentage.
 
 {% configuration_basic %}
  Sensor ID:
    description: "The ID of the sensor being added. If the sensor has a display, calculate the ID with: `hex2dec(ID_on_display) / 4`."
- Sensor type:
+ type:
    description: Select the type of sensor being added.
- Name:
+ name:
    description: The name of the sensor.
 {% endconfiguration_basic %}
 
