@@ -33,6 +33,7 @@ The {% term entities %} are divided into the following subdomains:
 
 - [Climate](#climate)
 - [Infrared](#infrared)
+- [Number](#number)
 - [Radio frequency](#radio-frequency)
 - [Remote](#remote)
 - [Select](#select)
@@ -43,7 +44,7 @@ The {% term entities %} are divided into the following subdomains:
 
 ## Climate
 
-The `climate` entities allow you to monitor and control Broadlink thermostats.
+The `climate` entities allow you to monitor and control Broadlink thermostats. The minimum and maximum setpoints of the thermostat set the range of the target temperature. Refer to [Number](#number).
 
 ## Infrared
 
@@ -51,6 +52,15 @@ The `infrared` {% term entities %} allow other integrations to transmit IR comma
 
 The `infrared` entity is complementary to the `remote` entity. Both are created for IR-capable devices. Refer to the [Infrared integration](/integrations/infrared/) for more information.
 The existing `remote.learn_command` and `remote.send_command` actions described below are unaffected and remain available for working with learned IR codes.
+
+## Number
+
+The `number` {% term entities %} set the setpoint limits of a Broadlink thermostat:
+
+- **Minimum setpoint**: The lowest target temperature that you can set on the thermostat.
+- **Maximum setpoint**: The highest target temperature that you can set on the thermostat.
+
+You can set each limit from 5 °C to 99 °C, in steps of 1 °C. The minimum setpoint must not be higher than the maximum setpoint. Home Assistant creates these entities automatically when you configure a thermostat.
 
 ## Radio frequency
 
