@@ -40,7 +40,8 @@ You install apps from the app store. For the repositories that the app store inc
    - To find an app, use the search field.
    - The app page shows the documentation of the app on the **Documentation** tab.
 3. On the **Info** tab, select **Install**.
-4. When the installation is done, select **Start**.
+4. If the app needs settings before it can start, set them first. The **Documentation** tab tells you which settings are needed. Enter them on the **Configuration** tab, and then select **Save**.
+5. On the **Info** tab, select **Start**.
    - To choose whether the app starts with the system, restarts after a crash, or updates automatically, refer to [App options](#app-options).
 
 ## App options
