@@ -1,15 +1,7 @@
 ---
-title: Ollama
 description: Instructions on how to integrate Ollama
-ha_categories:
-  - ai_voice.ai_models
 ha_release: 2024.4
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@synesthesiam'
 ha_domain: ollama
-ha_integration_type: service
 related:
   - docs: /docs/templating/
     title: Home Assistant Templating
@@ -17,8 +9,6 @@ related:
     title: Exposing entities to Assist
   - docs: /triggers/conversation/
     title: Sentence trigger
-ha_platforms:
-  - conversation
 ---
 
 The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server.

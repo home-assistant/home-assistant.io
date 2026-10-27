@@ -1,18 +1,7 @@
 ---
-title: IMAP
 description: Instructions on how to integrate IMAP unread email into Home Assistant.
-ha_categories:
-  - messaging_notifications.email_sms_calls
 ha_release: 0.25
-ha_iot_class: Cloud Push
 ha_domain: imap
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@jbouwh'
-ha_config_flow: true
 ---
 
 The **IMAP** {% term integration %} is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol). It can report the number of unread emails and can send a custom event that can be used to trigger an automation. Other search criteria can be used, as shown in the example below.

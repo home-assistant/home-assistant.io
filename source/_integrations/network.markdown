@@ -1,13 +1,7 @@
 ---
-title: Network Configuration
 description: Network configuration for Home Assistant
 ha_release: 2021.6
 ha_domain: network
-ha_iot_class: Local Push
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: system
 ---
 
 The **Network configuration** {% term integration %} provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my network title="Settings > System > Network" %}**.

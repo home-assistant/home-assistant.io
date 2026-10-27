@@ -1,20 +1,7 @@
 ---
-title: Telegram bot
 description: Telegram bot support
-ha_categories:
-  - messaging_notifications.chat_apps
 ha_release: 0.42
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_domain: telegram_bot
-ha_integration_type: service
-ha_quality_scale: gold
-ha_codeowners:
-  - '@hanwg'
-ha_platforms:
-  - diagnostics
-  - event
-  - notify
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.

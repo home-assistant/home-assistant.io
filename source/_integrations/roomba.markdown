@@ -1,23 +1,7 @@
 ---
-title: iRobot Roomba and Braava
 description: Instructions on how to integrate your Wi-Fi enabled Roomba and Braava within Home Assistant.
-ha_categories:
-  - appliances_cleaning.cleaning
-ha_iot_class: Local Push
 ha_release: 0.51
-ha_codeowners:
-  - '@pschmitt'
-  - '@cyr-ius'
-  - '@shenxn'
 ha_domain: roomba
-ha_config_flow: true
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - vacuum
-ha_integration_type: device
-ha_zeroconf: true
 ---
 
 The **Roomba** {% term integrations %} allows you to control your [iRobot Roomba](https://www.irobot.com/roomba) vacuum or [iRobot Braava](https://www.irobot.com/braava) m-series mop.

@@ -1,28 +1,7 @@
 ---
-title: my-PV
 description: Instructions on how to integrate my-PV devices into Home Assistant.
-ha_categories:
-  - climate.water_heaters
-  - energy.solar_batteries
 ha_release: '2026.10'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@my-pv'
-  - '@rrooggiieerr'
 ha_domain: my_pv
-ha_platforms:
-  - button
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-  - water_heater
-ha_integration_type: device
-ha_config_flow: true
-ha_dhcp: true
-ha_zeroconf: true
-ha_quality_scale: bronze
 ---
 
 The **my-PV** {% term integration %} lets you control and monitor devices made by [my-PV](https://www.my-pv.com/) from Home Assistant. my-PV builds power electronics that turn surplus solar electricity into heat, for example by driving a heating element in a hot water tank.

@@ -1,12 +1,7 @@
 ---
-title: Timer
 description: Instructions on how to integrate timers into Home Assistant.
-ha_categories:
-  - helpers.store_value
 ha_release: 0.57
-ha_quality_scale: internal
 ha_domain: timer
-ha_integration_type: helper
 ---
 
 The **Timer** {% term integration %} lets you create and manage countdown timers in Home Assistant.
