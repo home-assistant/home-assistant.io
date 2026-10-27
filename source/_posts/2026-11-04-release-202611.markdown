@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2026.11 Beta: A lot in store!"
-description: "TODO The highlights of this release, and 28 new integrations!"
+description: "The new Marketplace, excluding items from targets, Matter cameras that can talk back, LoRaWAN support, and 28 new integrations!"
 date: 2026-10-27 00:00:00
 date_formatted: "November 4, 2026"
 author: Franck Nijhof
@@ -107,6 +107,9 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@abb848] who helped write the release notes this release. ❤️_
+
+[@abb848]: https://github.com/abb848
 [@frenck]: https://github.com/frenck
 [@ludeeus]: https://github.com/ludeeus
 
@@ -496,9 +499,8 @@ We welcome the following new integrations in this release:
 
 It is not just new {% term integrations %} that have been added; existing ones keep getting better too. Here are some of the noteworthy improvements this release:
 
-- **[LLM]** and **[System Log]** TODO: Add Home Assistant LLM API and system log tool. Thanks, [@allenporter]!
-- **[Calendar]** and **[Group]** TODO: Add support for calendar groups. Thanks, [@elupus]!
-- **[Matter]** TODO: Support Matter cameras. Thanks, [@arturpragacz]!
+- **[LLM]** and **[System Log]**: AI assistants that use the Home Assistant LLM API can now read your system log, so they can help you track down problems. Thanks, [@allenporter]!
+- **[Calendar]** and **[Group]**: Combine several calendars into a calendar group, which shows the events of all its member calendars together. Thanks, [@elupus]!
 
 #### Infrared and radio frequency keep growing
 
@@ -518,7 +520,6 @@ Thanks to [@bieniu], [@abmantis], [@Dr-Blank], [@tr4nt0r], and [@eseverson] for 
 [Group]: /integrations/group
 [LED Infrared]: /integrations/led_infrared
 [LLM]: /integrations/llm
-[Matter]: /integrations/matter
 [Radio Frequency]: /integrations/radio_frequency
 [Shelly]: /integrations/shelly
 [System Log]: /integrations/system_log
@@ -646,11 +647,8 @@ Time for a little cleaning. The following {% term "integration" "integrations" %
 
 There is even more packed into this release. Here are some of the other changes worth a mention:
 
-- [air_quality] Add air_quality radon condition ([@abmantis] - [#184936]) ([air_quality docs])
-- [air_quality] Add air_quality radon triggers ([@abmantis] - [#184935]) ([air_quality docs])
-
-- [automation, homeassistant] Add homeassistant.updated trigger ([@frenck] - [#186894]) ([automation docs]) ([homeassistant docs])
-
+- **Keep an eye on radon.** Radon now has its own triggers and a condition, so you can, for example, turn on a basement fan when [radon levels rise](/triggers/air_quality.radon_crossed_threshold/), or [check the radon level](/conditions/air_quality.is_radon_value/) before running an automation. Thanks, [@abmantis]!
+- **Act after an update.** A new trigger starts an automation once Home Assistant has started after an update, and tells you which version you updated from and to. It doesn't fire on a normal restart. Thanks, [@frenck]!
 
 ### Your AI assistant can help troubleshoot
 
@@ -661,7 +659,6 @@ expose only read-only tools, so an AI assistant can investigate without making
 changes to your setup.
 
 An AI conversation can now only be continued by the user who started it.
-
 
 ## Need help? Join the community
 
