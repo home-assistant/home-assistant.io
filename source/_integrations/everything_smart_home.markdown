@@ -6,7 +6,6 @@ ha_domain: everything_smart_home
 ha_integration_type: virtual
 ha_supporting_domain: esphome
 ha_supporting_integration: ESPHome
-ha_integration_type: brand
 works_with:
   - local
 ha_codeowners:
@@ -45,7 +44,6 @@ ha_platforms:
 ha_iot_class: Local Push
 ha_dhcp: true
 ha_zeroconf: true
-ha_brand: true
 ---
 
 [Everything Smart Home](https://everythingsmart.io/) makes presence sensors built on ESPHome, including the Everything Presence Lite, Everything Presence One, and Everything Presence Pro.
