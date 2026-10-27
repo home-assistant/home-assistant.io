@@ -3,7 +3,7 @@ title: Trimlight
 description: Instructions on how to control Trimlight Edge Pro lights in Home Assistant.
 ha_categories:
   - lighting.led_strips_controllers
-ha_release: '2026.10'
+ha_release: '2026.11'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
