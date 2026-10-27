@@ -55,15 +55,10 @@ You can add the integration multiple times if you have more than one National Gr
 
 The integration provides the following sensors for each meter on your account.
 
-For electric meters:
+Each meter provides the following sensors:
 
-- **Monthly electric usage**: The current month's electricity usage to date.
-- **Monthly electric cost**: The current month's electricity cost to date.
-
-For gas meters:
-
-- **Monthly gas usage**: The current month's gas usage to date.
-- **Monthly gas cost**: The current month's gas cost to date.
+- **Latest daily usage**: The most recent daily usage reading for the meter, in kilowatt-hours for electric meters and therms for gas meters.
+- **Last billing cost**: The cost from the most recent billing record for the account.
 
 ## Data updates
 
@@ -71,7 +66,9 @@ The **National Grid US** integration {% term polling polls %} data from the Nati
 
 ## Known limitations
 
-- Only current monthly usage and cost sensors are available. Historical data and forecasted usage are not yet supported.
+- The usage sensor reports the most recent daily reading, not a billing-period or monthly total. Historical and forecasted usage are not yet supported.
+- Cost is reported per account, not per meter. When an account has multiple meters of the same fuel, those meters share the same cost figure, because the National Grid API only exposes cost at the account level.
+- Only meters that are AMI smart meters report usage; other meters expose the sensor without a value.
 - Data from National Grid may be delayed by up to a few days.
 
 ## Removing the integration
