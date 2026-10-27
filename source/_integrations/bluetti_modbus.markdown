@@ -56,7 +56,7 @@ Device ID:
   description: "The Modbus device ID of the power station, as configured on the device itself. The default is `1`. You only need to change this if your device was given another ID."
 {% endconfiguration_basic %}
 
-The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+You change the host, port, or device ID later, for example after your power station gets a new IP address. Go to {% my integrations title="**Settings** > **Devices & services**" %}. From the listed integrations, select **BLUETTI Modbus**, select **Menu** {% icon "mdi:dots-vertical" %} and then **Reconfigure**.
 
 ## Supported functionality
 
