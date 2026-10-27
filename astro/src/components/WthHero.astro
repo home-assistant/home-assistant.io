@@ -1,0 +1,33 @@
+---
+// The hero: the date, the wordmark, and the two calls to action.
+import WthIcon from "./WthIcon.astro";
+import WthHeroBackground from "./WthHeroBackground.astro";
+import WthWordmark from "./WthWordmark.astro";
+import { forumUrl } from "../lib/wth.mjs";
+---
+
+<section id="hero">
+  <WthHeroBackground />
+
+  <div class="container">
+    <p class="hero-date">All of November 2026</p>
+
+    <div class="content">
+      <h1 class="hero-heading">
+        <span class="wth-sr-only">Month of “What the Heck?!”, November 2026</span>
+                <WthWordmark />
+      </h1>
+
+      <p class="hero-tagline">Everyone at home gets a say</p>
+      <p class="lead">Don't miss your chance to tell us what makes Home Assistant hard, confusing, or just annoying.</p>
+
+      <div class="buttons-container">
+        <a href={forumUrl} class="button primary" target="_blank" rel="noopener">
+          Share yours
+          <span class="icon-inline" aria-hidden="true"><WthIcon name="mdi:arrow-right" /></span>
+        </a>
+        <a href="#moments" class="button hollow">What is it?</a>
+      </div>
+    </div>
+  </div>
+</section>

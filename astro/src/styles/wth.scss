@@ -1,0 +1,47 @@
+// Styles for the Month of "What the Heck?!" page, /wth/.
+//
+// The page's own stylesheet is shared with the Jekyll build
+// (sass/homeassistant/pages/wth/), so both stacks show the same page
+// while the migration runs. It is written for a page that also loads
+// the site's global stylesheet, which the Astro build does not have:
+// components bring their own styles. The rules below stand in for the
+// handful of base rules it relies on, and for the page chrome the
+// Jekyll `landingpage` layout wraps it in.
+
+@use "homeassistant/pages/wth/index.scss";
+
+// What the site's global stylesheet (inuitcss) gives every Jekyll page.
+main#page-wth {
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+
+    blockquote,
+    figure,
+    p {
+        margin: 0;
+    }
+
+    ol,
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+// The `landingpage` layout's page shell: a tinted page that never
+// scrolls sideways, however far the hero artwork and the routing lines
+// reach past the edge.
+body:has(main#page-wth) {
+    background-color: var(--wth-bg);
+    color: var(--wth-ink);
+    overflow-x: clip;
+}

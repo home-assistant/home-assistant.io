@@ -1,0 +1,124 @@
+---
+// The Month of "What the Heck?!" page, /wth/.
+//
+// Ports source/wth/index.html and the sections it includes from
+// source/wth/components/. Both stacks build the page while the
+// migration runs, and both read the same stylesheet
+// (sass/homeassistant/pages/wth/, see src/styles/wth.scss) and the same
+// scripts under /javascripts/wth/, so the two stay in step.
+//
+// A page of its own rather than the `pages` collection: it is a
+// designed landing page, not Markdown in the site's reading column. It
+// keeps the site header and footer, as the Jekyll page does, but
+// nothing else from the Page layout.
+import SiteHead from "../../components/SiteHead.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import WthNav from "../../components/WthNav.astro";
+import WthHero from "../../components/WthHero.astro";
+import WthMoments from "../../components/WthMoments.astro";
+import WthEveryone from "../../components/WthEveryone.astro";
+import WthTips from "../../components/WthTips.astro";
+import WthFix from "../../components/WthFix.astro";
+import WthCta from "../../components/WthCta.astro";
+import { release } from "../../lib/site.mjs";
+import "../../styles/wth.scss";
+
+const title = "Month of 'What the Heck?!' 2026";
+const description =
+  "Home Assistant's Month of 'What the Heck?!' is back for November 2026. Tell us what makes Home Assistant hard, whether you set it up or just live with it.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SiteHead
+      title={title}
+      description={description}
+      image="/images/wth/wth-2026-key-visual.png"
+    />
+    <!-- Archivo Black is the lettering for the CSS fallback of the
+         "What the Heck?!" wordmark only. -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+    />
+    <!-- The icons on this page are <iconify-icon> elements, as they are
+         on the Jekyll page; see WthIcon.astro. -->
+    <script
+      is:inline
+      src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
+      integrity="sha384-GPb5RlngihS9H0z1D137JsvzmeZ7tCpWEF4t5YDoTZyMsPP8S7h7vFDh4XhheU83"
+      crossorigin="anonymous"></script>
+    <script
+      type="importmap"
+      is:inline
+      set:html={JSON.stringify({
+        imports: { three: "/javascripts/wth/three.min.js" },
+      })}
+    />
+    <!-- Shared with the Jekyll build, which publishes them at the site
+         root: the 3D wordmark and the moving backgrounds. -->
+    <script is:inline src="/javascripts/wth/logo.js" type="module"></script>
+    <script is:inline src="/javascripts/wth/flow-lines.js" type="module"
+    ></script>
+  </head>
+  <body>
+    <div class="masthead">
+      <SiteHeader
+        pathname={Astro.url.pathname}
+        version={release.version}
+        versionUrl={release.url}
+        releasedOn={release.releasedOn}
+      />
+    </div>
+
+    <main id="page-wth">
+      <div class="container-full">
+        <WthNav />
+        <WthHero />
+        <WthMoments />
+        <div class="wth-band">
+          <WthEveryone />
+        </div>
+        <WthTips />
+        <WthFix />
+        <WthCta />
+      </div>
+    </main>
+
+    <SiteFooter />
+
+    <script>
+      // The links in the pills and the hero scroll rather than jump.
+      // The Jekyll `landingpage` layout does the same.
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (event) => {
+          const href = anchor.getAttribute("href");
+          if (!href || href === "#") return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    /* Clears the header, which stays on top as the page scrolls. */
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+</style>

@@ -66,6 +66,16 @@ has it and its Markdown stays shared. If the Astro build fails on a
 production deploy, the copy is skipped and Jekyll's version is
 published instead.
 
+A designed page is not Markdown in a reading column, so it gets a
+page of its own in `src/pages` instead — `src/pages/wth/index.astro`
+for `/wth/`, built from components in `src/components/`. The route
+still goes in `served-routes.json`, which is what publishes it over
+Jekyll's; `[...page].astro` skips a route that has its own page.
+Those pages share the Jekyll stylesheet for the page
+(`sass/homeassistant/pages/…`, reachable from SCSS because
+`astro.config.mjs` puts `sass/` on the load path), so one change of
+design reaches both stacks while they both build the page.
+
 Site settings the layout needs (title, release version, search key)
 come from the repository's `_config.yml`, read by `src/lib/site.mjs`,
 so both stacks always show the same values.

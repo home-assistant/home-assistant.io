@@ -1,0 +1,31 @@
+---
+// "One month, one question": what a WTH is, in three quotes.
+import WthIcon from "./WthIcon.astro";
+import { forumUrl } from "../lib/wth.mjs";
+---
+
+<section id="moments">
+  <div class="container">
+    <div class="content">
+      <h2>One month, one question</h2>
+      <p class="section-lead">What in Home Assistant makes you go “what the heck?!”</p>
+
+      <div class="tile-grid">
+        <div class="tile">
+          <span class="tile-icon" aria-hidden="true"><WthIcon name="mdi:magnify" /></span>
+          <p>“I can never find this setting on my dashboard!”</p>
+        </div>
+        <div class="tile">
+          <span class="tile-icon" aria-hidden="true"><WthIcon name="mdi:help-circle-outline" /></span>
+          <p>“We don’t know why our home keeps doing that!”</p>
+        </div>
+        <div class="tile">
+          <span class="tile-icon" aria-hidden="true"><WthIcon name="mdi:lightbulb-question-outline" /></span>
+          <p>“I can’t believe it’s not possible to do this yet!”</p>
+        </div>
+      </div>
+
+      <p class="section-note">Big or small, post them all on the <a href={forumUrl} target="_blank" rel="noopener">Month of What the Heck?! category</a> on our community forum.</p>
+    </div>
+  </div>
+</section>
