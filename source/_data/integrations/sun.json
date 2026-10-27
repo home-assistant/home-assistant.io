@@ -1,0 +1,18 @@
+{
+  "domain": "sun",
+  "name": "Sun",
+  "integration_type": "service",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

@@ -1,29 +1,7 @@
 ---
-title: Alexa Devices
 description: Instructions on how to integrate Alexa Devices into Home Assistant.
-ha_categories:
-  - ai_voice.voice_assistants
-  - media_entertainment.speakers_audio
 ha_release: '2025.6'
 ha_domain: alexa_devices
-ha_config_flow: true
-ha_codeowners:
-  - '@chemelli74'
-  - '@jamesonuk'
-ha_iot_class: Cloud Polling
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - media_player
-  - notify
-  - select
-  - sensor
-  - switch
-  - todo
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Alexa Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.

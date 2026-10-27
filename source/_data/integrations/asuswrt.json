@@ -1,0 +1,21 @@
+{
+  "domain": "asuswrt",
+  "name": "ASUSWRT",
+  "integration_type": "hub",
+  "codeowners": [
+    "@kennedyshead",
+    "@ollo69",
+    "@Vaskivskyi"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.routers_network",
+    "presence_location.network_presence"
+  ],
+  "platforms": [
+    "device_tracker",
+    "diagnostics",
+    "sensor"
+  ]
+}

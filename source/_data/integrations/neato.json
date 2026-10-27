@@ -1,0 +1,17 @@
+{
+  "domain": "neato",
+  "name": "Neato Botvac",
+  "integration_type": "hub",
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "appliances_cleaning.cleaning"
+  ],
+  "platforms": [
+    "button",
+    "camera",
+    "sensor",
+    "switch",
+    "vacuum"
+  ]
+}

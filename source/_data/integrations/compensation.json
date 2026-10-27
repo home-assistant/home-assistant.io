@@ -1,0 +1,15 @@
+{
+  "domain": "compensation",
+  "name": "Compensation",
+  "codeowners": [
+    "@Petro31"
+  ],
+  "iot_class": "calculated",
+  "quality_scale": "legacy",
+  "categories": [
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

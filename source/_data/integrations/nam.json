@@ -1,0 +1,21 @@
+{
+  "domain": "nam",
+  "name": "Nettigo Air Monitor",
+  "integration_type": "device",
+  "codeowners": [
+    "@bieniu"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "platforms": [
+    "button",
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}
