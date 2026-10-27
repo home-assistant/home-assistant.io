@@ -264,6 +264,19 @@
   {% endif %}
 </li>
 
+{%- assign concept_urls = "/docs/configuration/entities_domains/,/docs/configuration/state_object/,/docs/configuration/events/,/docs/configuration/long-term-statistics/" | split: "," -%}
+<li>
+  {% icon "mdi:lightbulb-on-outline" %} {% active_link /docs/configuration/entities_domains/ Home Assistant concepts %}
+  {% if concept_urls contains page.url or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
+    <li>{% active_link /docs/configuration/events/ Events %}</li>
+    <li>{% active_link /docs/configuration/long-term-statistics/ Long-term statistics %}</li>
+    <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
+  </ul>
+  {% endif %}
+</li>
+
 <li>
   {% icon "mdi:cogs" %} {% active_link /docs/configuration/overview/ Configuration %}
   {% if doc == 'configuration' or include.docs_index %}
@@ -290,15 +303,6 @@
         <li>{% active_link /docs/configuration/splitting_configuration/ Splitting up the configuration %}</li>
         <li>{% active_link /docs/configuration/packages/ Packages %}</li>
         <li>{% active_link /docs/configuration/platform_options/ Entity component platform options %}</li>
-      </ul>
-    </li>
-    <li>
-      How Home Assistant works
-      <ul>
-        <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
-        <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
-        <li>{% active_link /docs/configuration/events/ Events %}</li>
-        <li>{% active_link /docs/configuration/long-term-statistics/ Long-term statistics %}</li>
       </ul>
     </li>
     <li>{% active_link /docs/configuration/troubleshooting/ Troubleshooting configuration %}</li>
