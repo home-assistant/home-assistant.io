@@ -1,21 +1,10 @@
 ---
-title: UniFi AP
 description: Instructions on how to use a UniFi AP as a device tracker.
-ha_category:
-  - Presence detection
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: 0.59
 ha_domain: unifi_direct
-ha_platforms:
-  - device_tracker
-ha_integration_type: device
-ha_codeowners:
-  - '@tofuSCHNITZEL'
 related:
   - docs: /integrations/device_tracker/
     title: Device tracker
-ha_quality_scale: legacy
 ---
 
 This {% term integration %} allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ui.com/products/#unifi). This device tracker differs from [Ubiquiti UniFi](/integrations/unifi) because it doesn't require the UniFi Network application.

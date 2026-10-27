@@ -1,18 +1,7 @@
 ---
-title: Plaato
 description: Instructions on how to integrate Plaato Airlock and Keg sensors within Home Assistant.
 ha_release: 0.95
-ha_category:
-  - Sensor
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@JohNan'
 ha_domain: plaato
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: hub
 ---
 
 This {% term integration %} sets up integration with [Plaato](https://www.plaato.io/) Airlock and Keg.

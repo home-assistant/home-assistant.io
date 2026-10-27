@@ -1,20 +1,7 @@
 ---
-title: Motionblinds
 description: Instructions on how to integrate Motionblinds from Coulisse B.V. into Home Assistant.
-ha_category:
-  - Cover
-ha_iot_class: Local Push
 ha_release: 2020.12
 ha_domain: motion_blinds
-ha_codeowners:
-  - '@starkillerOG'
-ha_config_flow: true
-ha_platforms:
-  - button
-  - cover
-  - sensor
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 The **Motionblinds** {% term integration %} allows you to control [Motionblinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).

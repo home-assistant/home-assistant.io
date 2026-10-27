@@ -1,0 +1,9 @@
+{
+  "domain": "todo",
+  "name": "To-do list",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

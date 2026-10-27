@@ -1,22 +1,7 @@
 ---
-title: NexBlue
 description: Instructions for integrating NexBlue EV chargers with Home Assistant.
-ha_category:
-  - Car
-  - Energy
-  - Sensor
-  - Switch
 ha_release: 2026.9
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@nexblue-maintainer'
 ha_domain: nexblue
-ha_platforms:
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **NexBlue** {% term integration %} connects NexBlue EV chargers to Home Assistant through the NexBlue cloud service. It provides charger status, charging measurements, energy consumption, and diagnostic information.
@@ -44,9 +29,17 @@ Password:
   description: The password for your NexBlue account.
 {% endconfiguration_basic %}
 
+## Local Modbus TCP
+
+Compatible NexBlue chargers can also be configured locally using Home Assistant's built-in [Modbus](/integrations/modbus/) integration. This is a separate YAML configuration and does not add local control or discovery to the NexBlue cloud integration.
+
+For supported models, firmware requirements, setup instructions, and the configuration example, refer to the [NexBlue Modbus TCP YAML example](https://github.com/NexBlue-AB/home-assistant-nexblue/tree/main/examples/modbus).
+
+For multiple chargers, use a reserved IP address for each charger instead of relying on automatically assigned mDNS hostname suffixes.
+
 ## Supported functionality
 
-The NexBlue integration provides sensor entities and a charging switch for each charger in your account.
+The NexBlue integration provides sensor entities, binary sensor entities, and a charging switch for each charger in your account.
 
 ### Sensors
 
@@ -59,7 +52,14 @@ The integration provides the following charger information:
 - **Current and voltage**: Measurements for L1, L2, and L3 when reported by the charger.
 - **Current limit**: The configured charging current limit.
 - **Cable rating** and **circuit fuse**: Electrical limits reported by the charger.
-- **Charger diagnostics**: Cable lock state and mode, access level, charging phase, network status, and LED brightness.
+- **Charger diagnostics**: Cable lock mode, access level, charging phase, network status, and LED brightness.
+
+### Binary sensors
+
+The integration provides the following binary sensors:
+
+- **Cable lock state**: Whether the charging cable is locked by the charger.
+- **Charging enabled**: Whether charging is enabled on the charger.
 
 ### Switches
 

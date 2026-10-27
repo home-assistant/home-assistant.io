@@ -1,5 +1,5 @@
 ---
-title: "Authorize a charge session"
+title: "Authorize charge session"
 action: peblar.authorize_charge_session
 domain: peblar
 description: "Presents a token to the Peblar charger, as if it were held against the reader."
@@ -10,7 +10,7 @@ related:
   - action: peblar.add_rfid_token
 ---
 
-The **Authorize charge session** action presents a token to the Peblar charger, as if the card or key fob were held against the reader. Use it to let a charging session start without walking up to the charger.
+The **Peblar: Authorize charge session** action presents a token to the Peblar charger, as if the card or key fob were held against the reader. Use it to let a charging session start without walking up to the charger.
 
 {% important %}
 This action toggles. A session that is waiting for authorization gets it, and a session that is already running is stopped. That is what holding a card against the reader does, and this action does the same thing.

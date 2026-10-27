@@ -19,7 +19,7 @@ To write to an app's stdin from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Write data to app stdin**.
+5. Search for and select **Home Assistant Supervisor: Write data to app stdin**.
 6. Select the **App** to write to, and enter the **Input** to send.
 7. Select **Save**.
 

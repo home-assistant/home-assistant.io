@@ -1,52 +1,8 @@
 ---
-title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Device tracker
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
 ha_release: 0.44
-ha_iot_class: Local Polling
 featured: true
-ha_config_flow: true
-ha_codeowners:
-  - '@dmulcahey'
-  - '@adminiuga'
-  - '@puddly'
-  - '@TheJulianJES'
 ha_domain: zha
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - device_tracker
-  - diagnostics
-  - fan
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.
@@ -59,7 +15,9 @@ This {% term integration %} currently supports the following device types within
 - [Climate](/integrations/climate/) (beta)
 - [Cover](/integrations/cover/)
 - [Device tracker](/integrations/device_tracker/)
-- [Fan](/integrations/fan/)
+- [Event](/integrations/event/)
+- [Fan](/integrations/fan/) 
+- [Infrared](/integrations/infrared/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
 - [Number](/integrations/number/) (analog input/output)
@@ -68,6 +26,7 @@ This {% term integration %} currently supports the following device types within
 - [Siren](/integrations/siren/)
 - [Switch](/integrations/switch/)
 - [Update](/integrations/update/)
+- [Valve](/integrations/valve/)
 
 ## Introduction
 
@@ -212,7 +171,7 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
     - Select **Submit** to proceed to the next step.
 5. Enter the **Serial device path**:
     - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use the device path from the `/dev/serial/by-id` folder (for example, `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
-    - A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
+    - To look up the device path, go to **Settings** > **Connectivity** > **Serial**. Next to the port of your radio, select **Port information** {% icon "mdi:information-outline" %}, and copy the **Device** field. For more details, refer to [Viewing your serial ports](/integrations/usb/#viewing-your-serial-ports).
 6. Set the **Port speed** (not applicable for all radios).
 7. Set the **Data flow control** (not applicable for all radios).
 8. Press **Submit**.

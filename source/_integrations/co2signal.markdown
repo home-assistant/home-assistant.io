@@ -1,24 +1,10 @@
 ---
-title: Electricity Maps
 description: Instructions on how to use the Electricity Maps (formerly known as CO2Signal) data within Home Assistant
-ha_category:
-  - Climate
-  - Energy
-  - Environment
 ha_release: 0.87
-ha_iot_class: Cloud Polling
 ha_domain: co2signal
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_config_flow: true
-ha_integration_type: service
-ha_codeowners:
-  - '@jpbede'
-  - '@VIKTORVAV99'
 ---
 
-The **Electricity Maps** {% term integration %} (formerly known as CO2Signal) queries the [Electricity Maps](https://electricitymaps.com/free-tier) API for the CO2 intensity of a specific region. 
+The **Electricity Maps** {% term integration %} (formerly known as CO2Signal) queries the [Electricity Maps](https://app.electricitymaps.com/home-assistant) API for the CO2 intensity of a specific region. 
 Data can be collected for your home by using the home location, latitude/longitude, or a zone key.
 
 This API uses the same data as shown on the [Electricity Maps app](https://app.electricitymaps.com/map/). 
@@ -36,9 +22,9 @@ The Electricity Maps integration helps you understand the carbon intensity of yo
 
 ## Prerequisites
 
-To configure and use this integration, you need to obtain a free API key from Electricity Maps by signing up to the Free Tier product on the [Electricity Maps API Portal](https://electricitymaps.com/free-tier).
+To configure and use this integration, you need to obtain a free API key from Electricity Maps by activating Home Assistant access on the [Electricity Maps Home Assistant page](https://app.electricitymaps.com/home-assistant).
 
-Please be aware that the Free Tier API is limited to one location, called a zone. A zone represents a specific electricity grid region. These zones don't match your utility provider. You need to select and specify the zone for your home location when creating your account. For example, the United States has multiple zones like `US-CENT-SWPP` (Southwest Power Pool), `US-CAR-DUK` (Duke Energy Carolinas), or `US-CAR-CPLE` (Duke Energy Progress East).
+Please be aware that the API key is limited to one location, called a zone. A zone represents a specific electricity grid region. These zones don't match your utility provider. You need to select and specify the zone for your home location when activating access. For example, the United States has multiple zones like `US-CENT-SWPP` (Southwest Power Pool), `US-CAR-DUK` (Duke Energy Carolinas), or `US-CAR-CPLE` (Duke Energy Progress East).
 
 To find your zone identifier, you can:
 - Check the [Electricity Maps app](https://app.electricitymaps.com/map/live/fifteen_minutes) to see which zone covers your location. You can get the exact zone key from the URL. For France, the URL looks like `.../map/zone/FR/live/...`. The zone key is after `.../zone/{zone key}`. In this case, it would be `FR`.
@@ -52,7 +38,7 @@ The integration provides the following configuration options when setting it up:
 Location:
   description: Choose between using your Home Assistant's configured home location, a specific zone key, or custom latitude/longitude coordinates.
 API key:
-  description: The API key obtained from the Electricity Maps API Portal.
+  description: The API key shown on the [Electricity Maps Home Assistant page](https://app.electricitymaps.com/home-assistant) after activating access.
 {% endconfiguration_basic %}
 
 When configuring the location based on latitude/longitude, you will be prompted to enter the following:
@@ -106,7 +92,7 @@ This automation starts your dishwasher when the carbon intensity drops below a s
 alias: "Run Dishwasher at Low Carbon Intensity"
 description: "Starts the dishwasher when carbon intensity is low"
 trigger:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id: sensor.electricity_maps_carbon_intensity
     below: 100
     for:
@@ -163,8 +149,7 @@ The integration {% term polling polls %} data from the Electricity Maps API ever
 
 ## Known limitations
 
-- The Free Tier API is limited to one zone. A zone represents a specific electricity grid region. You need to specify the zone when creating your account. If you need to change zones, you will need to delete and reconfigure the integration.
-- The Free Tier API has a limit of 50 requests per hour, but the integration is designed to poll at a rate that won't exceed this limit.
+- The API key is limited to one zone. A zone represents a specific electricity grid region. You need to specify the zone when activating access. You can change the zone on the [Electricity Maps Home Assistant page](https://app.electricitymaps.com/home-assistant). If you need to change zones, you will need to delete and reconfigure the integration.
 - Not all geographic regions are supported by Electricity Maps. Check their app to see if your region has coverage.
 
 ## Troubleshooting
@@ -177,8 +162,8 @@ If you see an invalid token error during setup, your API key may be invalid or e
 
 ##### Resolution
 
-1. Verify that you've correctly copied the API key from the Electricity Maps API portal.
-2. Check if your API key is still active in the Electricity Maps API portal.
+1. Verify that you've correctly copied the API key from the [Electricity Maps Home Assistant page](https://app.electricitymaps.com/home-assistant).
+2. Check that your Home Assistant access is still active on the [Electricity Maps Home Assistant page](https://app.electricitymaps.com/home-assistant).
 3. Try generating a new API key if the issue persists.
 
 #### Symptom: "No data available for selected location" during setup
@@ -189,7 +174,7 @@ If you receive a "No data available for selected location" error, the coordinate
 
 1. Check the [Electricity Maps app](https://app.electricitymaps.com) to verify coverage for your location.
 2. If using a zone key, verify that you're using the correct format. For the United States for example, you should use a specific zone key like `US-CENT-SWPP` rather than just `US`. For country level data, use the two-letter ISO country code.
-3. Make sure the zone key you enter in Home Assistant matches the zone you selected when you created your API key. If you need to change zones, you will need to create a new API key with the new zone and reconfigure the integration.
+3. Make sure the zone key you enter in Home Assistant matches the zone you selected when activating access. If you need to change zones, change it on the [Electricity Maps Home Assistant page](https://app.electricitymaps.com/home-assistant), then delete and reconfigure the integration.
 4. Try using a zone key instead of coordinates. This is more accurate and less error prone.
 5. If your exact location isn't supported, try using the nearest supported location.
 

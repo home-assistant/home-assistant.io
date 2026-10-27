@@ -1,5 +1,5 @@
 ---
-title: "Add a PIN code to a Schlage lock"
+title: "Add PIN code"
 action: schlage.add_code
 domain: schlage
 description: "Adds a PIN code to a Schlage lock."
@@ -19,7 +19,7 @@ To add a PIN code from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Schlage lock.
-6. From the actions shown for that target, select **Schlage: Add PIN code**.
+6. From the actions shown for that target, under **Schlage**, select **Add PIN code**.
 7. Enter the **PIN name** and the **PIN code**.
 8. Select **Save**.
 

@@ -1,29 +1,10 @@
 ---
-title: RFLink
 description: Instructions on how to integrate RFLink gateway into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Hub
-  - Light
-  - Sensor
-  - Switch
-ha_iot_class: Assumed State
 ha_release: 0.38
 ha_domain: rflink
-ha_platforms:
-  - binary_sensor
-  - cover
-  - light
-  - sensor
-  - switch
-ha_codeowners:
-  - '@javicalle'
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **RFLink** {% term integration %} supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -676,7 +657,7 @@ By default new lights are assigned the `switchable` type. Protocol supporting di
 Lights are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
 - Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
-- Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
+- Hide unwanted devices using [customizations](/docs/configuration/customizing-entities/#hiding-an-entity)
 - [Ignore devices on a platform level](#ignoring-devices)
 
 ### Device support for lights

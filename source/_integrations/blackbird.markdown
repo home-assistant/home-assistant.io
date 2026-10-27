@@ -1,18 +1,10 @@
 ---
-title: Monoprice Blackbird Matrix Switch
 description: Instructions on how to integrate Monoprice Blackbird 4k 8x8 HDBaseT Matrix Switch into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 0.68
-ha_iot_class: Local Polling
 ha_domain: blackbird
-ha_platforms:
-  - media_player
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Monoprice Blackbird Matrix Switch** {% term integration %} allows you to control [Monoprice Blackbird Matrix Switch](https://www.monoprice.com/product?p_id=21819) (8x8) using a serial or IP connection, this integration does not support the 4x4 matrix switch.

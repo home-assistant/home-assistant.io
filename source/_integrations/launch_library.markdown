@@ -1,19 +1,7 @@
 ---
-title: Launch Library
 description: Instructions on how to integrate space launch information within Home Assistant.
-ha_category:
-  - Sensor
-ha_iot_class: Cloud Polling
 ha_release: 0.83
-ha_codeowners:
-  - '@ludeeus'
-  - '@DurgNomis-drol'
 ha_domain: launch_library
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_config_flow: true
-ha_integration_type: service
 ---
 
 The **Launch Library** {% term integration %} provides information about upcoming spaceflight, including the next planned rocket launch, the next SpaceX Starship launch, and the next SpaceX Starship event.

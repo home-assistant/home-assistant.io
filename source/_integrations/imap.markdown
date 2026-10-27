@@ -1,18 +1,7 @@
 ---
-title: IMAP
 description: Instructions on how to integrate IMAP unread email into Home Assistant.
-ha_category:
-  - Mailbox
 ha_release: 0.25
-ha_iot_class: Cloud Push
 ha_domain: imap
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@jbouwh'
-ha_config_flow: true
 ---
 
 The **IMAP** {% term integration %} is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol). It can report the number of unread emails and can send a custom event that can be used to trigger an automation. Other search criteria can be used, as shown in the example below.
@@ -87,7 +76,7 @@ Email providers may limit the number of reported emails. The number may be less 
 ### Using events
 
 When a new message arrives or a message is removed within the defined search command scope, the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
-It is also possible to use to create a template [`binary_sensor` or `sensor`](/integrations/template/#trigger-based-template-binary-sensors-buttons-numbers-selects-and-sensors) based the [event data](/docs/automation/templating/#event).
+It is also possible to use to create a template [`binary_sensor` or `sensor`](/integrations/template/#trigger-based-template-binary-sensors-buttons-numbers-selects-and-sensors) based the [event data](/docs/automation/trigger-data/#event-triggers).
 
 The table below shows what attributes come with `trigger.event.data`. The data is a dictionary that has the keys that are shown below.
 

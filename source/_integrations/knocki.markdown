@@ -1,20 +1,7 @@
 ---
-title: Knocki
 description: Instructions on how to set up Knocki devices in Home Assistant.
-ha_category:
-  - Event
-ha_config_flow: true
 ha_release: 2024.7
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@joostlek'
-  - '@jgatto1'
-  - '@JakeBosh'
 ha_domain: knocki
-ha_platforms:
-  - event
-ha_integration_type: hub
-ha_dhcp: true
 ---
 
 The **Knocki** {% term integration %} allows you to trigger your favorite automations simply by tapping custom patterns (such as triple taps) on ordinary surfaces.

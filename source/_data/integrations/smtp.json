@@ -1,0 +1,18 @@
+{
+  "domain": "smtp",
+  "name": "SMTP",
+  "integration_type": "service",
+  "codeowners": [
+    "@tr4nt0r"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "messaging_notifications.email_sms_calls"
+  ],
+  "platforms": [
+    "diagnostics",
+    "notify"
+  ]
+}

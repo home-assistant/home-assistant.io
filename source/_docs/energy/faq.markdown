@@ -45,7 +45,7 @@ If you add up several sensors that reset on a schedule, for example with a templ
 
 To avoid this, add each cumulative sensor to the Energy dashboard as its own separate source, instead of combining them into one summed sensor first.
 
-If inflated data has already been recorded, you can review and adjust it from {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+If inflated data has already been recorded, you can review and adjust it from {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
 
 ## The Energy dashboard is not visible
 
@@ -61,7 +61,7 @@ You are trying to add a sensor to the Energy dashboard, but it does not appear i
 
 To find out why the sensor is not showing, check the following points:
 
-- The sensor must have the appropriate attributes. Check your entity attributes in {% my developer_states title="**Settings** > **Tools** > **States**" %}. The required attributes depend on what the sensor measures:
+- The sensor must have the appropriate attributes. Check your entity attributes in {% my tools_states title="**Settings** > **Tools** > **States**" %}. The required attributes depend on what the sensor measures:
   - **Energy**: `device_class: energy` with `state_class: total` or `state_class: total_increasing`.
   - **Power**: `device_class: power` with `state_class: measurement`.
   - **Battery state of charge**: `device_class: battery`, `state_class: measurement`, and `unit_of_measurement: "%"`.
@@ -72,4 +72,4 @@ To find out why the sensor is not showing, check the following points:
   If any of the attributes are not correct, please open an issue against the integration that provides your sensor, or if you are developing custom template sensors, make sure the templates have the correct attributes.
 
 - The entity must be a `sensor`. If you are trying to add something from another domain (for example an `input_number`), then you must first create a template sensor from it.
-- The entity must not have any statistics errors. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %} to check your specific entity. If your unit has a listed issue here, address that first.
+- The entity must not have any statistics errors. Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %} to check your specific entity. If your unit has a listed issue here, address that first.

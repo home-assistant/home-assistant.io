@@ -1,19 +1,7 @@
 ---
-title: OpenRGB
 description: Instructions on how to integrate OpenRGB within Home Assistant.
-ha_category:
-  - Light
 ha_release: 2025.11
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@felipecrs'
 ha_domain: openrgb
-ha_platforms:
-  - light
-  - select
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **OpenRGB** {% term integration %} is used to integrate the RGB lighting devices from computers running [OpenRGB](https://openrgb.org/).

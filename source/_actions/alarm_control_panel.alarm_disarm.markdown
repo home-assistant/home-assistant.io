@@ -84,9 +84,9 @@ code:
 
 Disarm the home alarm using a PIN code. Useful as a quick action on a dashboard or from a script.
 
-- **Action**: Alarm control panel: Disarm alarm
-- **Target**: Home alarm
-- **Code**: 1234
+- **Action**: Disarm alarm
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for disarming with a code" %}
 
@@ -105,9 +105,12 @@ action: |
 
 When you pull into the driveway and your phone reports you're home, disarm the alarm automatically. No more rushing to the keypad before the siren goes off.
 
-- **Trigger**: Person: Paulus changes to home
-- **Action**: Alarm control panel: Disarm alarm
-- **Target**: Home alarm
+- **Trigger**: State changed
+  - **Entity**: Paulus person
+  - **To**: Home
+- **Action**: Disarm alarm
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for disarming on arrival" %}
 
@@ -133,9 +136,11 @@ automation: |
 Start the day without the alarm blaring when you open the bedroom door. Disarm it automatically at 7 in the morning on weekdays.
 
 - **Trigger**: Time: 07:00
-- **Condition**: Day of the week is Monday to Friday
-- **Action**: Alarm control panel: Disarm alarm
-- **Target**: Home alarm
+- **Condition**: Time
+  - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, Friday
+- **Action**: Disarm alarm
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for a weekday morning disarm" %}
 

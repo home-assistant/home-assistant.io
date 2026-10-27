@@ -1,21 +1,7 @@
 ---
-title: Silla Prism
 description: Instructions on how to integrate your Silla Prism EV wallbox with Home Assistant.
-ha_category:
-  - Car
-  - Select
-  - Sensor
-ha_platforms:
-  - select
-  - sensor
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@ebaschiera'
 ha_release: 2026.9
 ha_domain: silla_prism
-ha_integration_type: device
-ha_config_flow: true
-ha_quality_scale: bronze
 ---
 
 The **Silla Prism** {% term integration %} lets you monitor and control a [Silla Prism](https://silla.industries) electric vehicle wallbox from Home Assistant over its native MQTT protocol. [Silla](https://silla.industries) is an Italian manufacturer of EV charging equipment.
@@ -58,11 +44,15 @@ The integration creates a single device with the following entities.
 - **Temperature**: Internal temperature of the Prism.
 - **Grid power**: Power drawn from the grid. Positive values are imports, negative values are exports.
 
+### Numbers
+
+- **Maximum charging current**: The highest current, from 6 to 32 A, the port offers to the vehicle. It is the same setting you adjust with the **+** and **-** buttons. The vehicle may still draw less.
+
 ### Selects
 
 - **Charging mode**: The operating mode of the port:
   - **Solar**: Charges only with the surplus power available.
-  - **Normal**: Charges at the maximum current set on the wallbox itself.
+  - **Normal**: Charges at the maximum charging current.
   - **Paused**: Suspends charging without disconnecting the vehicle.
 
 The Prism can also pause charging on its own when load balancing runs out of available power. That mode cannot be set from Home Assistant, so the charging mode is `unknown` for as long as it lasts. The status sensor still reports the port as paused.
@@ -73,7 +63,6 @@ The Prism pushes an MQTT message whenever a value changes, so entities update in
 
 ## Known limitations
 
-- Setting the charging current is not available yet.
 - Only the first charging port is supported. On a Prism DUO, the second cable is not exposed.
 - The current limit used for custom load balancing, the night schedule, and charge authorization are not exposed yet.
 - Solar and home power flows are only meaningful when a Powerwall or compatible meter is configured on the Prism; otherwise they report `0`.

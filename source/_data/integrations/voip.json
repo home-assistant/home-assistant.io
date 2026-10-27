@@ -1,0 +1,20 @@
+{
+  "domain": "voip",
+  "name": "Voice over IP",
+  "integration_type": "hub",
+  "codeowners": [
+    "@home-assistant/core",
+    "@jaminh"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "internal",
+  "categories": [
+    "ai_voice.voice_assistants"
+  ],
+  "platforms": [
+    "assist_satellite",
+    "select",
+    "switch"
+  ]
+}

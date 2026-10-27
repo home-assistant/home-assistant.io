@@ -3,19 +3,19 @@ title: "Adding a custom sentence to trigger an automation"
 related:
   - docs: /voice_control/aliases/
     title: Create aliases
-  - docs: /docs/scripts/#respond-to-a-conversation
-    title: Conversation response script action
-  - docs: /docs/automation/trigger/#sentence-trigger
+  - docs: /actions/set_conversation_response/
+    title: Set conversation response action
+  - docs: /triggers/conversation/
     title: Sentence triggers
-  - docs: /docs/automation/trigger/#sentence-wildcards
+  - docs: /triggers/conversation/#sentence-wildcards
     title: Sentence wildcards
   - docs: voice_control/custom_sentences_yaml
     title: Customize responses
-  - url: https://developers.home-assistant.io/docs/intent_builtin/
+  - url: https://contributors.home-assistant.io/core/internals/built-in-intents/
     title: View existing intents
 ---
 
-You may add your own sentences to the intent recognizer by either extending an [existing intent](https://developers.home-assistant.io/docs/intent_builtin/) or creating a new one. You may also [customize responses](/voice_control/custom_sentences_yaml#customizing-responses) for existing intents.
+You may add your own sentences to the intent recognizer by either extending an [existing intent](https://contributors.home-assistant.io/core/internals/built-in-intents/) or creating a new one. You may also [customize responses](/voice_control/custom_sentences_yaml#customizing-responses) for existing intents.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ This is the easiest method to get started with custom sentences for automations.
 
    ![Enter the response text](/images/assist/assist_set-conversation-response_02.png)  
 
-   - You can also use [wildcards](/docs/automation/trigger/#sentence-wildcards). For example, the trigger:
+   - You can also use [wildcards](/triggers/conversation/#sentence-wildcards). For example, the trigger:
 
       ```yaml
       play {album} by {artist}
@@ -55,7 +55,7 @@ This is the easiest method to get started with custom sentences for automations.
       ```
 
 
-   - For more details, refer to [conversation response script action](/docs/scripts/#respond-to-a-conversation).
+   - For more details, refer to the [**Set conversation response**](/actions/set_conversation_response/) action.
  
 6. To test the automation, go to **Overview** and in the top right corner, open Assist.
    - Enter one of the sentences.

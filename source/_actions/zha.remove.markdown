@@ -1,5 +1,5 @@
 ---
-title: "Remove a device from the Zigbee network"
+title: "Remove"
 action: zha.remove
 domain: zha
 description: "Removes a node from the ZHA Zigbee network."
@@ -19,7 +19,7 @@ To remove a device from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Remove**.
+5. Search for and select **Zigbee Home Automation: Remove**.
 6. Set **IEEE** to the IEEE address of the device you want to remove.
 7. Select **Save**.
 

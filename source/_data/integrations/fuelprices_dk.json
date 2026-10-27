@@ -1,0 +1,17 @@
+{
+  "domain": "fuelprices_dk",
+  "name": "Fuelprices.dk",
+  "integration_type": "hub",
+  "codeowners": [
+    "@MTrab"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "local_services"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import servedRoutes from "../served-routes.json" with { type: "json" };
 
 // Collections read the existing Jekyll content in `source/` in place.
 // Content files are shared between both stacks during the migration:
@@ -25,4 +26,21 @@ const help = defineCollection({
     .passthrough(),
 });
 
-export const collections = { help };
+// Pages served by Astro on the website: one Markdown page per route in
+// served-routes.json, which the Rakefile also reads to publish these
+// routes over Jekyll's (see astro/README.md). A route "tos/" is the
+// file source/tos/index.markdown.
+const pages = defineCollection({
+  loader: glob({
+    base: "../source",
+    pattern: servedRoutes.map((route) => `${route}index.markdown`),
+  }),
+  schema: z
+    .object({
+      title: z.string(),
+      description: z.string().optional(),
+    })
+    .passthrough(),
+});
+
+export const collections = { help, pages };

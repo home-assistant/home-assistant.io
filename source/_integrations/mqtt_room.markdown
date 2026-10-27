@@ -1,18 +1,10 @@
 ---
-title: MQTT room presence
 description: Instructions on how to track room presence within Home Assistant.
-ha_category:
-  - Presence detection
 ha_release: 0.27
-ha_iot_class: Local Push
 ha_domain: mqtt_room
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **MQTT room presence** {% term integration %} allows you to detect the indoor location of devices using MQTT clients.

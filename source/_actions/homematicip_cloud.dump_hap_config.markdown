@@ -8,7 +8,7 @@ related_actions:
   - homematicip_cloud.set_home_cooling_mode
 ---
 
-The **Dump HAP config** action writes the configuration of your Homematic IP access points to a file. This can be helpful when you need the raw configuration for troubleshooting or development.
+The **HomematicIP Cloud: Dump HAP config** action writes the configuration of your Homematic IP access points to a file. This can be helpful when you need the raw configuration for troubleshooting or development.
 
 This action is only available to Home Assistant administrators.
 

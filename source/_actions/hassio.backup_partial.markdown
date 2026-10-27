@@ -18,7 +18,7 @@ To create a partial backup from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Create a partial backup**.
+5. Search for and select **Home Assistant Supervisor: Create a partial backup**.
 6. Choose what to include, and optionally fill in the other options described below.
 7. Select **Save**.
 
@@ -131,7 +131,9 @@ backup: 1f2e3d4c
 Create a small, frequent backup of just your Home Assistant settings, so a quick mistake is easy to undo.
 
 - **Trigger**: Time, at 02:00
-- **Action**: Create a partial backup, with Home Assistant settings included
+- **Action**: Home Assistant Supervisor: Create a partial backup
+  - **Name**: `Daily settings backup`
+  - **Home Assistant settings**: On
 
 {% details "Show example YAML" %}
 
@@ -154,8 +156,12 @@ automation: |
 
 Back up a couple of specific apps along with your settings, for example before you update them.
 
-- **Trigger**: Manual or scheduled
-- **Action**: Create a partial backup, with selected apps
+- **Trigger**: Time
+  - **At time**: `02:30`
+- **Action**: Home Assistant Supervisor: Create a partial backup
+  - **Name**: `App backup`
+  - **Home Assistant settings**: On
+  - **Apps**: `["core_mosquitto", "a0d7b954_nodered"]`
 
 {% details "Show example YAML" %}
 

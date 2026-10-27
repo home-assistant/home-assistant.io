@@ -93,7 +93,9 @@ lookback:
 
 Record a short clip when motion is detected and save it with the date and time in the filename, so each recording is kept as a separate file.
 
-- **Trigger**: Motion is detected
+- **Trigger**: State changed
+  - **Entity**: Front door motion sensor
+  - **To**: Detected
 - **Action**: Record camera feed
   - **Target**: Front door camera
   - **Filename**: a path that includes the current date and time

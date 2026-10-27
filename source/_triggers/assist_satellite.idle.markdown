@@ -4,9 +4,9 @@ trigger: assist_satellite.idle
 domain: assist_satellite
 description: "Triggers when one or more Assist satellites become idle after having processed a command."
 related_triggers:
-  - assist_satellite.started_listening
-  - assist_satellite.started_processing
-  - assist_satellite.started_responding
+  - assist_satellite.listening
+  - assist_satellite.processing
+  - assist_satellite.responding
 ---
 
 The **Satellite became idle** trigger fires when one or more Assist satellite {% term entities %} return to the idle state. This happens after a voice pipeline run is fully complete: the wake word was detected, the command was listened to, processed, and the spoken response has finished playing.
@@ -59,8 +59,6 @@ This fires two seconds after `assist_satellite.living_room` returns to the idle 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -74,9 +72,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the satellite or satellites must keep reporting the idle state before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+    How long the satellite or satellites must keep reporting the idle state before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

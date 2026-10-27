@@ -1,14 +1,7 @@
 ---
-title: Garage door
 description: This integration provides garage door automation triggers and conditions.
-ha_category:
-  - Automation
 ha_release: 2026.4
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: garage_door
-ha_integration_type: system
 ---
 
 The **Garage door** {% term integration %} provides automation triggers and conditions for binary sensors with device class `garage_door` and covers with device class `garage`.
@@ -72,7 +65,9 @@ automation: |
 
 If you have created a bedtime {% term helper %} separately, this automation waits for that helper to turn on, then checks that the garage door has stayed closed for 10 minutes before it arms the alarm.
 
-- **Trigger**: User-created bedtime helper turns on
+- **Trigger**: State changed
+  - **Entity**: Bedtime mode helper
+  - **To**: On
 - **Condition**: Garage door is closed
   - **Target**: Garage door
   - **For at least**: 00:10:00

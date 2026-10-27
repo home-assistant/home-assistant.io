@@ -9,7 +9,7 @@ related_actions:
   - imap.fetch
 ---
 
-The **Mark message as seen** action marks an email message on your IMAP server as seen (read). It is meant to run in an automation after an `imap_content` event, using the entry and the message `uid` from the event data.
+The **IMAP: Mark message as seen** action marks an email message on your IMAP server as seen (read). It is meant to run in an automation after an `imap_content` event, using the entry and the message `uid` from the event data.
 
 {% include actions/ui_header.md %}
 

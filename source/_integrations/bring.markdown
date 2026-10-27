@@ -1,21 +1,7 @@
 ---
-title: Bring!
 description: Instructions on how to integrate the Bring! todo list with Home Assistant.
-ha_category:
-  - To-do list
-ha_iot_class: Cloud Polling
 ha_release: 2024.2
-ha_config_flow: true
-ha_codeowners:
-  - '@miaucl'
-  - '@tr4nt0r'
 ha_domain: bring
-ha_integration_type: service
-ha_platforms:
-  - diagnostics
-  - event
-  - sensor
-  - todo
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation
@@ -25,7 +11,6 @@ related:
     title: To-do list card
   - url: https://www.getbring.com/
     title: Bring!
-ha_quality_scale: platinum
 ---
 
 The **Bring!** {% term integration %} allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.

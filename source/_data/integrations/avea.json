@@ -1,0 +1,19 @@
+{
+  "domain": "avea",
+  "name": "Elgato Avea",
+  "integration_type": "device",
+  "codeowners": [
+    "@pattyland"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "lighting.bulbs_lamps"
+  ],
+  "platforms": [
+    "light"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

@@ -36,7 +36,7 @@ output: |
 {% endexample %}
 
 {% important %}
-Templates that use `now()` or `utcnow()` re-run once per minute. This is how clock-based templates stay current. If you need something to refresh more often, base it on a state change instead.
+Templates that use `now()`, `utcnow()`, [`today_at`](/template-functions/today_at/), [`relative_time`](/template-functions/relative_time/), [`time_since`](/template-functions/time_since/), or [`time_until`](/template-functions/time_until/) update at the start of every minute, even when none of their entities change. This is how clock-based templates stay current. It applies where Home Assistant watches a template for changes, such as in template entities, template triggers, and the template editor. A template in an action only runs when the action runs. If you need something to refresh more often, base it on a state change instead.
 {% endimportant %}
 
 ### today_at
@@ -145,9 +145,9 @@ template: |
   UTC:   {{ ts | timestamp_utc }}
   Custom: {{ ts | timestamp_custom('%H:%M on %B %d') }}
 output: |
-  Local: 2024-03-15 14:30:00+01:00
-  UTC:   2024-03-15 13:30:00+00:00
-  Custom: 14:30 on March 15
+  Local: 2024-03-15T14:50:00+01:00
+  UTC:   2024-03-15T13:50:00+00:00
+  Custom: 14:50 on March 15
 {% endexample %}
 
 See [`timestamp_local`](/template-functions/timestamp_local/), [`timestamp_utc`](/template-functions/timestamp_utc/), and [`timestamp_custom`](/template-functions/timestamp_custom/).
@@ -168,7 +168,7 @@ output: "1743768600"
 {% example %}
 template: |
   {{ as_datetime('2026-04-04 14:30:00') }}
-output: "2026-04-04 14:30:00+02:00"
+output: "2026-04-04 14:30:00"
 {% endexample %}
 
 ## Time differences
@@ -234,15 +234,15 @@ output: "Christmas: 8 months"
 
 Home Assistant stores state timestamps (`last_changed`, `last_updated`) in UTC. `now()` returns the current time in your configured time zone, while `utcnow()` returns it in UTC.
 
-If you need to compare datetimes, both sides need to be in the same time zone. [`as_datetime`](/template-functions/as_datetime/) and [`strptime`](/template-functions/strptime/) return datetimes without a time zone by default. Apply the matching conversion before comparing, or stick to [`timestamp_local`](/template-functions/timestamp_local/) and [`timestamp_utc`](/template-functions/timestamp_utc/) which handle this for you.
+If you need to compare datetimes, either both or neither need a time zone. Datetimes with different time zones can be compared directly, but comparing a datetime that has a time zone with one that doesn't causes an error. [`as_datetime`](/template-functions/as_datetime/) returns a datetime without a time zone when the text doesn't include one, and [`strptime`](/template-functions/strptime/) does the same unless the format includes `%z`. To add your time zone, use [`as_local`](/template-functions/as_local/), or convert both sides with [`as_timestamp`](/template-functions/as_timestamp/) and compare the numbers. [`timestamp_local`](/template-functions/timestamp_local/) and [`timestamp_utc`](/template-functions/timestamp_utc/) return text, not datetimes, so they aren't suited for comparing.
 
 ## Common gotchas
 
 - **Text comparison vs time comparison.** Comparing date-looking text with `<` or `>` compares alphabetically, not chronologically. Convert both sides to datetimes first.
 - **[`timestamp_custom`](/template-functions/timestamp_custom/) is not the only option.** For datetime values (like `now()`), use `.strftime(...)` directly. [`timestamp_custom`](/template-functions/timestamp_custom/) is specifically for UNIX timestamps.
-- **Templates using `now()` re-run every minute.** Don't use it for things that should update more often.
+- **Six functions make a template update every minute.** These are `now()`, `utcnow()`, `today_at`, `relative_time`, `time_since`, and `time_until`. For example, `{{ time_since(states.binary_sensor.door.last_changed) }}` updates every minute, not only when the door changes state. Don't use them for things that should update more often.
 - **Subtraction gives you a timedelta, not seconds.** Call `.total_seconds()` on the result when you need a number.
-- **`.replace(hour=..., minute=...)` can be wrong around daylight saving time.** Replacing the hour field on a timezone-aware datetime can land in a skipped or repeated local hour, which silently produces the wrong absolute time. Prefer [`today_at('HH:MM')`](#today_at) for "today at a specific local time", and add or subtract full days with `timedelta(days=1)` only when you accept 24 exact hours, not one calendar day.
+- **Date math uses the clock time.** `now() + timedelta(days=1)` gives the same clock time on the next day, even when daylight saving time starts or ends overnight. That day has 23 or 25 hours, and `timedelta(hours=24)` gives the same result. To add an exact number of hours, start from `utcnow()` instead. Subtracting two datetimes that both come from `now()` also ignores the change. To get the exact time between them, subtract their [`as_timestamp`](/template-functions/as_timestamp/) values. This gives you the number of seconds.
 
 ## Next steps
 

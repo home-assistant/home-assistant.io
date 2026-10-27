@@ -1,19 +1,7 @@
 ---
-title: Foscam
 description: Instructions on how to integrate Foscam IP cameras within Home Assistant.
-ha_category:
-  - Camera
-ha_iot_class: Local Polling
 ha_release: 0.7.3
-ha_codeowners:
-  - '@Foscam-wangzhengyu'
 ha_domain: foscam
-ha_config_flow: true
-ha_platforms:
-  - camera
-  - number
-  - switch
-ha_integration_type: device
 ---
 
 The **Foscam** {% term integration %} allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.

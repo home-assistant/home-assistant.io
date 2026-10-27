@@ -1,18 +1,10 @@
 ---
-title: Emoncms History
 description: Instructions on how to integrate Emoncms history into Home Assistant.
-ha_category:
-  - History
-ha_iot_class: Local Polling
 ha_release: 0.31
 ha_domain: emoncms_history
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
-ha_codeowners:
-  - '@alexandrecuer'
 ---
 
 The **Emoncms History** {% term integration %} makes it possible to transfer (write) details collected with Home Assistant to [Emoncms.org](https://emoncms.org/) or your local running Emoncms instance. It will send the data to a specific input node on Emoncms with the entity IDs as a key. Afterwards you can create feeds and dashboards in Emoncms with the collected data.

@@ -1,5 +1,5 @@
 ---
-title: "Delete a PIN code from a Schlage lock"
+title: "Delete PIN code"
 action: schlage.delete_code
 domain: schlage
 description: "Deletes a PIN code from a Schlage lock."
@@ -19,7 +19,7 @@ To delete a PIN code from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Schlage lock.
-6. From the actions shown for that target, select **Schlage: Delete PIN code**.
+6. From the actions shown for that target, under **Schlage**, select **Delete PIN code**.
 7. Enter the **PIN name** of the code to delete.
 8. Select **Save**.
 

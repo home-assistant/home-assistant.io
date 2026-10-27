@@ -1,0 +1,19 @@
+{
+  "domain": "skoda",
+  "name": "Škoda",
+  "integration_type": "device",
+  "codeowners": [
+    "@TomVSB",
+    "@DavidMagyarics",
+    "@dvx76"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "vehicles_transport.cars_evs"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -1,5 +1,5 @@
 ---
-title: "Play the Sonos queue"
+title: "Play queue"
 action: sonos.play_queue
 domain: sonos
 description: "Starts playing the Sonos queue, optionally from a specific position."
@@ -19,7 +19,7 @@ To play the Sonos queue from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sonos speaker you want to play the queue on. You can also select an area, a device, or a label.
-6. From the actions shown for that target, select **Play queue**.
+6. From the actions shown for that target, under **Sonos**, select **Play queue**.
 7. Optionally, set the **Queue position** to start from.
 8. Select **Save**.
 

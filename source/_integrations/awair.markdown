@@ -1,19 +1,7 @@
 ---
-title: Awair
 description: Instructions on how to set up Awair devices in Home Assistant.
-ha_category:
-  - Health
-ha_config_flow: true
 ha_release: 0.84
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@ahayworth'
-  - '@ricohageman'
 ha_domain: awair
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_zeroconf: true
 ---
 
 The **Awair** {% term integration %} will fetch data from your [Awair devices](https://getawair.com).

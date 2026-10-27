@@ -1,0 +1,14 @@
+{
+  "domain": "xs1",
+  "name": "EZcontrol XS1",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "climate",
+    "sensor",
+    "switch"
+  ]
+}

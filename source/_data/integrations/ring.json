@@ -1,0 +1,29 @@
+{
+  "domain": "ring",
+  "name": "Ring",
+  "integration_type": "hub",
+  "codeowners": [
+    "@sdb9696"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "security_safety.doorbells_intercoms",
+    "security_safety.cameras"
+  ],
+  "platforms": [
+    "button",
+    "camera",
+    "diagnostics",
+    "event",
+    "light",
+    "number",
+    "sensor",
+    "siren",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

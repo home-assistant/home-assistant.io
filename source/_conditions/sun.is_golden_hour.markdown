@@ -80,7 +80,9 @@ period:
 
 When motion is detected in the living room during the evening golden hour, turn on the lamps at a warm color so the indoor light matches the low sun outside.
 
-- **Trigger**: Living room motion detected
+- **Trigger**: State changed
+  - **Entity**: Living room motion sensor
+  - **To**: Detected
 - **Condition**: It is golden hour
   - **Period**: Evening 
 

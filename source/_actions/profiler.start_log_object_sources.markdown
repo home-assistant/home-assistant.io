@@ -1,5 +1,5 @@
 ---
-title: "Profiler: Start log object sources"
+title: "Start logging object sources"
 action: profiler.start_log_object_sources
 domain: profiler
 description: "Starts logging the growth of objects in memory and tries to find their source."
@@ -11,7 +11,7 @@ related_actions:
 
 Use this action to start logging the growth of objects in memory and attempt to find the source of the new objects. Its primary use case is finding memory leaks.
 
-This action is similar to [Profiler: Start log objects](/actions/profiler.start_log_objects/). **Profiler: Start log object sources** is much more CPU intensive, because it attempts to locate the source of each new object, up to the **Max objects** value each time it logs.
+This action is similar to [Start logging objects](/actions/profiler.start_log_objects/). **Profiler: Start logging object sources** is much more CPU intensive, because it attempts to locate the source of each new object, up to the **Max objects** value each time it logs.
 
 This action requires an administrator account.
 
@@ -23,7 +23,7 @@ To start logging object sources from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Profiler: Start log object sources**.
+5. Search for and select **Profiler: Start logging object sources**.
 6. Optionally, set the **Scan interval** and **Max objects**.
 7. Select **Save**.
 

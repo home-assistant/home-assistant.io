@@ -1,30 +1,7 @@
 ---
-title: Axis
 description: Integration between network devices from Axis Communications with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Event
-  - Light
-  - Switch
-ha_config_flow: true
 ha_release: 0.45
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Kane610'
 ha_domain: axis
-ha_qa_scale: platinum
-ha_zeroconf: true
-ha_ssdp: true
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - camera
-  - diagnostics
-  - event
-  - light
-  - switch
-ha_integration_type: device
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.

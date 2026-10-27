@@ -62,7 +62,7 @@ other:
 ## Aliases
 
 This test can also be used as:
-- `!=` - `value is !=(other)`
+- `!=` - Only as the name of the test in [`select`](/template-functions/select/) or [`selectattr`](/template-functions/selectattr/), such as `selectattr("state", "!=", "off")`. `value is !=(other)` doesn't work.
 
 ## Using with selectattr
 

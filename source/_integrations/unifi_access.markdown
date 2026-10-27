@@ -1,28 +1,7 @@
 ---
-title: UniFi Access
 description: Instructions on how to integrate UniFi Access with Home Assistant.
-ha_category:
-  - Doorbell
-  - Lock
-  - Sensor
 ha_release: 2026.4
 ha_domain: unifi_access
-ha_iot_class: Local Push
-ha_quality_scale: platinum
-ha_config_flow: true
-ha_codeowners:
-  - '@imhotep'
-  - '@RaHehl'
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - image
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **UniFi Access** {% term integration %} allows you to control and monitor [Ubiquiti UniFi Access](https://ui.com/door-access) devices from Home Assistant.
@@ -148,13 +127,13 @@ The integration uses a local push architecture via WebSocket. When a door's lock
 
 Get notified on your phone or trigger any action when someone rings a UniFi Access doorbell.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/unifi_access_doorbell_notification.yaml" %}
+{% blueprint_example blueprint="unifi_access/doorbell_notification.yaml" %}
 
 ### React to door access events
 
 Send a notification or trigger an action when someone unlocks a door or when an access attempt is denied.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/unifi_access_door_access_notification.yaml" %}
+{% blueprint_example blueprint="unifi_access/door_access_notification.yaml" %}
 
 ### Use a UniFi Access unlock button as a HomeKit lock
 

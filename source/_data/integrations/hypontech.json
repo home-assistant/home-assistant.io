@@ -1,0 +1,18 @@
+{
+  "domain": "hypontech",
+  "name": "Hypontech Cloud",
+  "integration_type": "hub",
+  "codeowners": [
+    "@jcisio"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

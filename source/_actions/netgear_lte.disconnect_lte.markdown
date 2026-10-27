@@ -9,7 +9,7 @@ related_actions:
   - netgear_lte.delete_sms
 ---
 
-The **Disconnect LTE** action asks your NETGEAR LTE modem to close its LTE connection.
+The **NETGEAR LTE: Disconnect LTE** action asks your NETGEAR LTE modem to close its LTE connection.
 
 This is handy when you want to drop the mobile connection from an automation, for example to switch back to your wired internet connection once it is available again.
 
@@ -67,7 +67,9 @@ host:
 
 When a connectivity sensor reports that your wired internet is back, ask the modem to close the LTE connection.
 
-- **Trigger**: A connectivity sensor turns on
+- **Trigger**: State changed
+  - **Entity**: Internet connection sensor
+  - **To**: On
 - **Action**: NETGEAR LTE: Disconnect LTE
 
 {% details "YAML example for disconnecting LTE when internet returns" %}

@@ -1,18 +1,10 @@
 ---
-title: KIWI
 description: Instructions on how to integrate KIWI Smart Lock and Smart Entry.
-ha_category:
-  - Lock
 ha_release: 0.72
-ha_iot_class: Cloud Polling
 ha_domain: kiwi
-ha_platforms:
-  - lock
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **KIWI** {% term integration %} allows you to open your KIWI Smart Locks and Smart Entry Devices.

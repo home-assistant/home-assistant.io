@@ -78,13 +78,13 @@ behavior:
   default: any
 for:
   description: |
-    How long the dropdown must have been continuously on the selected option before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the dropdown must have been continuously on the selected option before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="dropdown entity or dropdown helper" example="select.washing_machine_program" %}
 
 {% include conditions/behavior.md %}
 
@@ -92,7 +92,7 @@ for:
 
 - The target must be a select entity or an input select dropdown helper.
 - The option string must match the dropdown's option exactly, including capitalization. The UI lets you pick from the available options to avoid typos.
-- A dropdown in the `unknown` or `unavailable` state never matches.
+{% include conditions/unavailable_targets.md entities="dropdowns" %}
 
 {% include conditions/try_it.md %}
 

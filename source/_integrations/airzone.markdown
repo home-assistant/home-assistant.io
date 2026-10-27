@@ -1,29 +1,7 @@
 ---
-title: Airzone
 description: Instructions on how to integrate Airzone within Home Assistant.
 ha_release: 2022.4
-ha_category:
-  - Binary sensor
-  - Climate
-  - Select
-  - Sensor
-  - Switch
-  - Water heater
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: airzone
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_codeowners:
-  - '@Noltari'
-ha_integration_type: hub
-ha_dhcp: true
 ---
 
 This {% term integration %} interacts with the Local API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).

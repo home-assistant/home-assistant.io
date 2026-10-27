@@ -55,8 +55,6 @@ This fires every time `binary_sensor.phone_battery_charging` stops charging.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -70,13 +68,13 @@ behavior:
   default: each
 for:
   description: |
-    How long the device must remain not charging before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:01:00` fires only after the device has not been charging for 1 minute. This helps avoid false positives from brief interruptions.
+    How long the device must remain not charging before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:01:00` fires only after the device has not been charging for 1 minute. This helps avoid false positives from brief interruptions. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="battery charging sensor" example="binary_sensor.phone_charging" %}
 
 {% include triggers/behavior.md %}
 

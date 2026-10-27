@@ -7,7 +7,7 @@ related_actions:
   - insteon.scene_off
 ---
 
-The **Scene on** action triggers an Insteon scene to turn on. An Insteon scene is a grouping of devices that respond together, identified by a group or scene number.
+The **Insteon: Scene on** action triggers an Insteon scene to turn on. An Insteon scene is a grouping of devices that respond together, identified by a group or scene number.
 
 This is useful when you want an automation to activate a scene that is stored on your Insteon devices, so all the linked devices switch on at once without Home Assistant controlling each one individually.
 

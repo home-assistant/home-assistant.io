@@ -5,7 +5,7 @@ domain: nintendo_parental_controls
 description: "Adds bonus screen time to a Nintendo Switch."
 ---
 
-The **Add bonus time** action grants extra screen time to a Nintendo Switch, on top of the maximum allowed screen time.
+The **Nintendo Switch parental controls: Add bonus time** action grants extra screen time to a Nintendo Switch, on top of the maximum allowed screen time.
 
 This is useful when you want an automation to reward a little extra play time, for example after chores are done or on a special occasion.
 

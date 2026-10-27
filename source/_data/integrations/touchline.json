@@ -1,0 +1,16 @@
+{
+  "domain": "touchline",
+  "name": "Roth Touchline",
+  "integration_type": "hub",
+  "codeowners": [
+    "@mnordseth"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate"
+  ]
+}

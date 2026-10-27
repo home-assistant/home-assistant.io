@@ -7,7 +7,7 @@ related_actions:
   - lametric.chart
 ---
 
-The **Display a message** action shows a short text message on your LaMetric device. You can enrich the message with an icon or animation and play a sound alongside it.
+The **LaMetric: Display a message** action shows a short text message on your LaMetric device. You can enrich the message with an icon or animation and play a sound alongside it.
 
 {% include actions/ui_header.md %}
 

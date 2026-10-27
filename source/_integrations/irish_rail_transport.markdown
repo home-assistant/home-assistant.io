@@ -1,20 +1,10 @@
 ---
-title: Irish Rail Transport
 description: Instructions on how to integrate timetable data for traveling on Irish Rail within Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: 0.57
-ha_codeowners:
-  - '@ttroy50'
 ha_domain: irish_rail_transport
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Irish Rail Transport** {% term integration %} will give you the time until the next two departures (within 90 minutes) from an Irish Rail station using the RTPI information.

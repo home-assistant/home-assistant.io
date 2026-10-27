@@ -1,18 +1,7 @@
 ---
-title: FGLair
 description: Control your Fujitsu heat pump or air conditioner that uses the FGLair app
-ha_category:
-  - Climate
 ha_release: 2024.9
 ha_domain: fujitsu_fglair
-ha_integration_type: hub
-ha_codeowners:
-  - '@crevetor'
-ha_config_flow: true
-ha_platforms:
-  - climate
-  - sensor
-ha_iot_class: Cloud Polling
 ---
 
 The **FGLair** {% term integration %} provides support for Fujitsu heat pumps and air conditioners that use the FGLair app.

@@ -1,0 +1,22 @@
+{
+  "domain": "heos",
+  "name": "Denon HEOS",
+  "integration_type": "hub",
+  "codeowners": [
+    "@andrewsayre"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "diagnostics",
+    "media_player"
+  ],
+  "discovery": [
+    "ssdp",
+    "zeroconf"
+  ]
+}
