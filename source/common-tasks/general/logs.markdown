@@ -154,7 +154,7 @@ When you ask for help with a problem, someone may ask you for a log. Anyone you 
    - Keep the rest of each line, such as the time, the name of the integration, and the error message. These help others find the cause of the problem.
 6. Save the file, and share the edited copy.
 
-If you shared anything that gives access, change it. For example, change the password, or create a new key or token.
+If you shared anything that gives access, make sure it no longer works. Change the password, or delete the key or token, and then create a new one.
 
 ## Where the logs are stored
 
