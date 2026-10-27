@@ -10,8 +10,8 @@
 // Fidelity: revamp. The three surfaces (page, white, ink) are the Jekyll
 // page's; each is a `tone` here rather than a block of overrides.
 
-import "../styles/tokens.scss";
-import "../styles/wth.scss";
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
 interface Props {
   /** The fragment the page navigation jumps to. */
   id: string;
@@ -34,7 +34,7 @@ const { id, heading, lead, tone = "page" } = Astro.props;
 </section>
 
 <style lang="scss">
-  @use "../styles/breakpoints";
+  @use "../../styles/breakpoints";
 
   .section {
     padding-block: var(--wth-section-space);

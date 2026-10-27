@@ -107,6 +107,14 @@ to that list and import the file. If the API cannot be reached, the
 build keeps the copy from the previous build and warns; with no copy
 to fall back on, it fails rather than ship broken images.
 
+## Where components live
+
+Only common components, the ones used throughout the whole site, belong
+at the root of `src/components/`. A component that is specific to a
+single page, or a one-off, goes in a folder named for that page. For
+example, the components of the Month of "What the Heck?!" page live in
+`src/components/what-the-heck/`.
+
 ## Component previews
 
 Components live in `src/components/`. To make a component show up in

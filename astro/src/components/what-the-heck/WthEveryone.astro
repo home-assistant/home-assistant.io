@@ -7,12 +7,12 @@
 //
 // Fidelity: revamp. Same cards and copy; the grid follows the space
 // available, and the sizes come from the theme.
-import "../styles/tokens.scss";
-import "../styles/wth.scss";
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
 import WthSection from "./WthSection.astro";
-import Button from "./Button.astro";
+import Button from "../Button.astro";
 import WthIcon from "./WthIcon.astro";
-import { forumUrl } from "../lib/wth.mjs";
+import { forumUrl } from "../../lib/wth.mjs";
 
 const audiences = [
   {
@@ -81,7 +81,7 @@ const questions = [
 </WthSection>
 
 <style lang="scss">
-  @use "../styles/breakpoints";
+  @use "../../styles/breakpoints";
 
   .audiences {
     display: grid;

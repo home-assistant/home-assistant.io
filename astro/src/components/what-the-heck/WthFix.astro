@@ -9,13 +9,13 @@
 // like a merged pull request on GitHub — the merge icon, the WTH as the
 // title, the release as the meta line — with the radii and type from the
 // theme.
-import "../styles/tokens.scss";
-import "../styles/wth.scss";
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
 import WthSection from "./WthSection.astro";
 import WthSteps from "./WthSteps.astro";
-import Button from "./Button.astro";
+import Button from "../Button.astro";
 import WthIcon from "./WthIcon.astro";
-import { forumUrl } from "../lib/wth.mjs";
+import { forumUrl } from "../../lib/wth.mjs";
 
 const steps = [
   { title: "Pick it", text: "Browse the WTHs and find one you can take on." },
@@ -108,7 +108,7 @@ const shipped = [
 </WthSection>
 
 <style lang="scss">
-  @use "../styles/breakpoints";
+  @use "../../styles/breakpoints";
 
   .note {
     color: var(--wth-ink-soft);

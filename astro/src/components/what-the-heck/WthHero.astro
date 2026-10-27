@@ -9,12 +9,12 @@
 // Fidelity: revamp. Same card, artwork and copy; spacing, radii and type
 // sizes come from the theme, and the tagline scales with the window
 // instead of switching size at a breakpoint.
-import "../styles/tokens.scss";
-import "../styles/wth.scss";
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
 import WthHeroBackground from "./WthHeroBackground.astro";
 import WthWordmark from "./WthWordmark.astro";
-import Button from "./Button.astro";
-import { forumUrl } from "../lib/wth.mjs";
+import Button from "../Button.astro";
+import { forumUrl } from "../../lib/wth.mjs";
 ---
 
 <section id="hero">
@@ -46,7 +46,7 @@ import { forumUrl } from "../lib/wth.mjs";
 </section>
 
 <style lang="scss">
-  @use "../styles/breakpoints";
+  @use "../../styles/breakpoints";
 
   #hero {
     /* The key visual's background: a faint blue-to-mint wash over white. */

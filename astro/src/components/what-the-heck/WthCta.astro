@@ -7,11 +7,11 @@
 //
 // Fidelity: revamp. Same card, copy and artwork; spacing and the radius
 // come from the theme.
-import "../styles/tokens.scss";
-import "../styles/wth.scss";
-import Button from "./Button.astro";
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import Button from "../Button.astro";
 import WthCtaBackground from "./WthCtaBackground.astro";
-import { forumUrl } from "../lib/wth.mjs";
+import { forumUrl } from "../../lib/wth.mjs";
 ---
 
 <section id="cta">
@@ -33,7 +33,7 @@ import { forumUrl } from "../lib/wth.mjs";
 </section>
 
 <style lang="scss">
-  @use "../styles/breakpoints";
+  @use "../../styles/breakpoints";
 
   section {
     background-color: var(--wth-surface);
