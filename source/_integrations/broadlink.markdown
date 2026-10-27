@@ -44,7 +44,7 @@ The {% term entities %} are divided into the following subdomains:
 
 ## Binary sensor
 
-The `binary_sensor` {% term entity %} shows if a Broadlink thermostat is heating. It is on when the thermostat's heating output is on. This entity is created automatically when you configure a thermostat.
+The `binary_sensor` {% term entity %} shows the status of the heating output of a Broadlink thermostat. When the heating output is on, the entity is on. Home Assistant creates this entity automatically when you configure a thermostat.
 
 ## Climate
 
