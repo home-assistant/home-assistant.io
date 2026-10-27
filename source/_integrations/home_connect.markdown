@@ -890,8 +890,8 @@ This sensor will be available only if the program is running
 {% endnote %}
 
 - **Program start time**:
-  - **Description**: Represents the time when the current program started. It's calculated from the elapsed program time reported by the appliance. If the appliance doesn't report it (for example, dishwashers and washers), the time when the appliance started running the program is used. The start time stays the same while the program is paused and starts over if the program is changed while running.
-  - **Availability**: Coffee maker, Cook processor, Hood, Oven, Microwave, Dishwasher, Dryer, Washer, Washer dryer
+  - **Description**: Represents the time when the current program started. It's calculated from the elapsed program time reported by the appliance. The elapsed program time doesn't count while the program is paused, so the start time moves later by the length of the pause.
+  - **Availability**: Hood, Oven
 
 {% note %}
 This sensor will be available only if the program is running
