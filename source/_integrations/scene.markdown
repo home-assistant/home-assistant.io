@@ -1,12 +1,7 @@
 ---
-title: Scenes
 description: Scenes set a group of entities to saved states in one step. Learn what the Scenes integration provides, how to define scenes in YAML, and how to use scenes in automations.
 ha_release: 0.15
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: scene
-ha_integration_type: entity
 related:
   - docs: /docs/scene/
     title: Scenes

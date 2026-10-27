@@ -1,30 +1,7 @@
 ---
-title: Bosch SHC
 description: Integrate Bosch SHC.
-ha_categories:
-  - hubs_protocols.smart_home_hubs
 ha_release: 2021.6
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@tschamm'
-  - '@mosandlt'
 ha_domain: bosch_shc
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - event
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - valve
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **Bosch SHC** {% term integration %} allows you to connect your [Bosch Smart Home Controller](https://www.bosch-smarthome.com) to Home Assistant to control and monitor your Bosch Smart Home devices.
@@ -132,6 +109,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Room Thermostat II that supports it: a **Sensor connection** select, letting you choose how an external sensor on the terminal is used: **Not used**, **Floor sensor connected**, **Floor sensor used for regulation**, **Cable temperature sensor (without regulation)**, **Cable temperature sensor (with regulation)**, **Volt-free sensor connected**, **Potential-free contact**, or **Outdoor temperature sensor**. In YAML, the options are `not_connected`, `floor_sensor_connected`, `floor_sensor_used_for_regulation`, `floor_sensor_displayed`, `floor_sensor_displayed_and_used_for_regulation`, `volt_free_sensor_connected`, `volt_free_sensor_connected_and_used_for_operation`, and `outdoor_sensor_connected`.
 - Micromodule Relay that supports it: an **Actuator type** select, letting you choose between **Normally closed**, **Normally open**, or **Unsupported**. In YAML, the options are `normally_closed`, `normally_open`, and `unsupported`.
 - Micromodule Relay that supports it: an **Output mode** select, letting you choose between **Coupled**, **Disconnected on any key press**, **Disconnected on short press**, **Disconnected on long press**, or **Unsupported**. In YAML, the options are `attached`, `detached`, `detached_short_press`, `detached_long_press`, and `unsupported`.
+- Motion Detector II that supports it: a **Sensitivity for alarm system** select and a **Sensitivity for other cases** select, each letting you choose between **High**, **Medium**, or **Low**. In YAML, the medium option is `middle`.
 
 ### Sensors
 

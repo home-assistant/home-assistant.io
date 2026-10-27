@@ -1,14 +1,7 @@
 ---
-title: Debug console
 description: Run Python code inside Home Assistant, to develop and debug its live internals.
-ha_categories:
-  - computers_network.cloud_developer_tools
 ha_release: 2026.11
-ha_quality_scale: internal
 ha_domain: debug_console
-ha_codeowners:
-  - '@frenck'
-ha_integration_type: service
 ---
 
 The **Debug console** {% term integration %} adds a Python console to Home Assistant, much like the console in the developer tools of a web browser. You can run Python code inside your running Home Assistant, with full access to its live internals.

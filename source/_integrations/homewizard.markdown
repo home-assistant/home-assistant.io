@@ -1,30 +1,9 @@
 ---
-title: HomeWizard
 description: Instructions on how to integrate HomeWizard into Home Assistant.
 ha_release: 2022.2
-ha_categories:
-  - energy.meters_monitoring
-  - water.meters_leak_detection
-  - plugs_switches
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: homewizard
-ha_codeowners:
-  - '@DCSBL'
-  - '@lexpostma'
-ha_platforms:
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_zeroconf: true
-ha_integration_type: device
-ha_quality_scale: platinum
 works_with:
   - local
-ha_dhcp: true
 ---
 
 Integration for the [HomeWizard](https://www.homewizard.com/) platform. It can collect data locally from HomeWizard products and create them as sensors in Home Assistant. Use this integration to monitor your energy, gas, and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).

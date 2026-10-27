@@ -1,14 +1,7 @@
 ---
-title: RESTful Command
 description: Instructions on how to integrate REST commands into Home Assistant.
-ha_categories:
-  - diy_makers.web_data_connectors
 ha_release: 0.36
-ha_iot_class: Local Push
 ha_domain: rest_command
-ha_integration_type: integration
-ha_codeowners:
-  - '@jpbede'
 ---
 
 This {% term integration %} can expose regular REST commands as actions. Actions can be called from a [script] or in [automation].

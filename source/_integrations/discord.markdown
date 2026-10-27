@@ -1,17 +1,7 @@
 ---
-title: Discord
 description: Instructions on how to add Discord notifications to Home Assistant.
-ha_categories:
-  - messaging_notifications.chat_apps
-ha_iot_class: Cloud Push
 ha_release: 0.37
-ha_config_flow: true
 ha_domain: discord
-ha_codeowners:
-  - '@tkdrob'
-ha_platforms:
-  - notify
-ha_integration_type: service
 ---
 
 The **Discord** {% term integration %} lets you send notifications from Home Assistant to [Discord](https://discord.com/) channels and users via a bot. You can send text messages, attach files, like images or videos, from local paths or remote URLs, and use Discord embeds for rich formatting.

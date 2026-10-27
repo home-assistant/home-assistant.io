@@ -1,25 +1,7 @@
 ---
-title: Rituals Perfume Genie
 description: Instructions on how to integrate Rituals Perfume Genie diffusers within Home Assistant.
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_release: 2021.3
-ha_categories:
-  - appliances_cleaning
-ha_codeowners:
-  - '@milanmeu'
-  - '@frenck'
-  - '@quebulm'
 ha_domain: rituals_perfume_genie
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: hub
 ---
 
 The **Rituals Perfume Genie** {% term integration %} lets you control and monitor your [Rituals](https://www.rituals.com/) perfume diffusers from Home Assistant.

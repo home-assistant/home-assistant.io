@@ -1,23 +1,7 @@
 ---
-title: INDI Allsky
 description: Instructions on how to integrate INDI Allsky with Home Assistant.
-ha_categories:
-  - diy_makers
-  - weather_alerts
 ha_release: '2026.10'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@TN-1'
 ha_domain: indi_allsky
-ha_integration_type: service
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - camera
-  - image
-  - sensor
-ha_quality_scale: bronze
 ---
 
 The **INDI Allsky** {% term integration %} connects Home Assistant with your [INDI Allsky](https://github.com/aaronwmorris/indi-allsky) camera server. INDI Allsky is an allsky camera system designed for astrophotography, night sky capture, cloud cover monitoring, and atmospheric monitoring.

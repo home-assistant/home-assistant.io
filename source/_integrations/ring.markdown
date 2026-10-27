@@ -1,29 +1,7 @@
 ---
-title: Ring
 description: Instructions on integrating Ring.com devices with Home Assistant.
-ha_categories:
-  - security_safety.doorbells_intercoms
-  - security_safety.cameras
 ha_release: 0.42
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: ring
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - event
-  - light
-  - number
-  - sensor
-  - siren
-  - switch
-ha_integration_type: hub
-ha_codeowners:
-  - '@sdb9696'
-ha_quality_scale: bronze
 ---
 
 The **Ring** {% term integration %} allows you to control your [Ring.com](https://ring.com/) doorbell, stick up cam, chime, and intercom devices in Home Assistant.

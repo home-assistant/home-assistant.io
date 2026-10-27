@@ -1,19 +1,8 @@
 ---
-title: HomeKit Bridge
 description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 featured: true
-ha_categories:
-  - other_ecosystems
 ha_release: 0.64
-ha_iot_class: Local Push
 ha_domain: homekit
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-ha_zeroconf: true
-ha_platforms:
-  - diagnostics
-ha_integration_type: integration
 ---
 
 The **HomeKit Bridge** {% term integration %} allows you to make your Home Assistant entities available in Apple HomeKit,

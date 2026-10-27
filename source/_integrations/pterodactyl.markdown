@@ -1,20 +1,7 @@
 ---
-title: Pterodactyl
 description: Instructions on how to integrate a Pterodactyl server into Home Assistant.
 ha_release: 2025.4
-ha_categories:
-  - media_entertainment.gaming
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@elmurato'
 ha_domain: pterodactyl
-ha_platforms:
-  - binary_sensor
-  - button
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 [Pterodactyl](https://www.pterodactyl.io) is a game server management panel designed to simplify the administration of game servers. It offers a user-friendly interface  which allows users to manage multiple game servers from a single dashboard, supporting popular games like Minecraft. Its key features include an intuitive web-based control panel, automated server installation, real-time server monitoring, scheduled backups and more. Each game server runs in an isolated Docker container, ensuring security and stability.

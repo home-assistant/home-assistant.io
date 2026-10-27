@@ -1,22 +1,7 @@
 ---
-title: LG webOS TV
 description: Instructions on how to integrate a LG webOS TV within Home Assistant.
-ha_categories:
-  - media_entertainment.tv_streaming
-ha_iot_class: Local Push
 ha_release: 0.18
-ha_codeowners:
-  - '@thecode'
 ha_domain: webostv
-ha_config_flow: true
-ha_ssdp: true
-ha_platforms:
-  - diagnostics
-  - media_player
-  - notify
-  - switch
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **LG webOS TV** {% term integration %} allows you to control a [LG](https://www.lg.com/) webOS TV.
