@@ -584,15 +584,29 @@ Widget that displays speed controls for a [fan](/integrations/fan).
   Screenshot of the tile card with fan speed feature
 </p>
 
+The available style depends on how many speeds your fan supports:
+
+- Fans that only support being turned on or off always use buttons.
+- Fans with 2 to 5 speeds use buttons by default, but you can switch to a slider.
+- Fans with 6 to 10 speeds use a slider by default, but you can switch to buttons.
+- Fans with more than 10 speeds always use a slider.
+
+If the buttons don't fit the width of the card, a slider is shown instead, regardless of whether buttons are the default or your own choice.
+
 ```yaml
 features:
   - type: "fan-speed"
+    style: "buttons"
 ```
 
 {% configuration features %}
 type:
   required: true
   description: "`fan-speed`"
+  type: string
+style:
+  required: false
+  description: "Which style of control to display. It can be either `buttons` or `slider`. The default depends on how many speeds the fan supports. See above."
   type: string
 {% endconfiguration %}
 
