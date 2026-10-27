@@ -5,7 +5,7 @@ html {
 }
 
 #landingpage {
-    background-color: var(--wth-bg);
+    background-color: transparent;
     color: var(--wth-ink);
     height: auto;
 
@@ -31,7 +31,7 @@ html {
 }
 
 main#page-wth {
-    background-color: var(--wth-surface);
+    background-color: transparent;
     font-family: var(--typography-base-font);
 
     .container {

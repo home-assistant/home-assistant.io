@@ -118,7 +118,9 @@ const description =
   @use "../../styles/breakpoints";
 
   .wth {
-    background-color: var(--wth-page);
+    /* No surface of its own: the sections that want one paint it, and
+       the rest inherit the page, which carries on into the footer. */
+    background-color: transparent;
     color: var(--wth-ink);
     font-family: var(--font-heading);
     /* The hero card and the artwork in it reach past the page edge. */

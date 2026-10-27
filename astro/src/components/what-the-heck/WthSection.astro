@@ -18,8 +18,9 @@ interface Props {
   heading: string;
   /** The sentence under the heading. */
   lead?: string;
-  /** The surface the section sits on. "band" is the tinted blue band. */
-  tone?: "page" | "surface" | "band" | "ink";
+  /** The surface the section sits on. "band" is the tinted blue band, and
+   *  "inherit" paints nothing so the page shows through. */
+  tone?: "page" | "surface" | "band" | "ink" | "inherit";
 }
 
 const { id, heading, lead, tone = "page" } = Astro.props;
@@ -46,6 +47,10 @@ const { id, heading, lead, tone = "page" } = Astro.props;
 
   .surface {
     --wth-section-surface: var(--wth-surface);
+  }
+
+  .inherit {
+    --wth-section-surface: transparent;
   }
 
   .band {
