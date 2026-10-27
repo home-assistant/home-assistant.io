@@ -1,20 +1,10 @@
 ---
-title: Matrix
 description: Matrix chatbot support
-ha_categories:
-  - messaging_notifications.chat_apps
-ha_iot_class: Cloud Push
 ha_release: 0.69
 ha_domain: matrix
-ha_platforms:
-  - notify
-ha_integration_type: integration
-ha_codeowners:
-  - '@PaarthShah'
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 This {% term integration %} allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.

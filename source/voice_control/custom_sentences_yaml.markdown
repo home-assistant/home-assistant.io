@@ -5,9 +5,9 @@ related:
     title: Create aliases
   - docs: /actions/set_conversation_response/
     title: Set conversation response action
-  - docs: /docs/automation/trigger/#sentence-trigger
+  - docs: /triggers/conversation/
     title: Sentence triggers
-  - docs: /docs/automation/trigger/#sentence-wildcards
+  - docs: /triggers/conversation/#sentence-wildcards
     title: Sentence wildcards
   - url: https://contributors.home-assistant.io/core/internals/built-in-intents/
     title: View existing intents

@@ -1,0 +1,16 @@
+{
+  "domain": "egardia",
+  "name": "Egardia",
+  "codeowners": [
+    "@jeroenterheerdt"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "security_safety.alarm_systems"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor"
+  ]
+}

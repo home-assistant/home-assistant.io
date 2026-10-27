@@ -1,0 +1,12 @@
+{
+  "domain": "schedule",
+  "name": "Schedule",
+  "integration_type": "helper",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.store_value"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "domain": "pi_hole",
+  "name": "Pi-hole",
+  "integration_type": "device",
+  "codeowners": [
+    "@shenxn"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor",
+    "switch",
+    "update"
+  ]
+}

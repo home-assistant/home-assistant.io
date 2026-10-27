@@ -1,23 +1,7 @@
 ---
-title: Sofar
 description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP or a serial RS485 connection.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 2026.9
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@darkrain-nl'
 ha_domain: sofar
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - select
-  - sensor
-  - switch
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus. You can reach the inverter over the network (Modbus TCP), either directly or through a Modbus TCP bridge, or over a serial port wired to its RS485 terminals (Modbus RTU).
@@ -115,7 +99,7 @@ The inverter's power limits and its passive-mode setpoints each span several reg
 ### Binary sensors
 
 - **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which still writes the limit while this is off, but the inverter ignores it until it's enabled again. Disabled by default.
-- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
+- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
 
 ### Buttons
 
@@ -162,8 +146,13 @@ The entity IDs below are named after the inverter, so replace `sofar` with your 
 
 An installation on the roof is easy to forget about, and an inverter that has stopped producing costs you money every sunny hour. This automation sends a notification as soon as the inverter raises a fault or drops out of normal grid-connected operation, so you find out the same day instead of weeks later in the monthly yield.
 
-- **Trigger**: **Grid fault**, **PV fault**, **Battery fault**, or **Thermal fault** turned on
-- **Trigger**: **System state** changed to **Recoverable fault** or **Permanent fault**
+- **Trigger**: State changed
+  - **Entity**: Sofar grid fault sensor, Sofar pv fault sensor, Sofar battery fault sensor, Sofar thermal fault sensor
+  - **From**: Off
+  - **To**: On
+- **Trigger**: State changed
+  - **Entity**: Sofar system state sensor
+  - **To**: Recoverable fault, Permanent fault
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -232,7 +221,9 @@ automation: |
 
 The battery is worth the most in the evening, when the panels have stopped and the grid is expensive. This automation notifies you when the battery drops below a fifth of its capacity, so you can decide whether to hold the rest back or let heavy loads keep running.
 
-- **Trigger**: **Battery state of charge total** below 20
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Sofar battery state of charge total
+  - **Below**: `20`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

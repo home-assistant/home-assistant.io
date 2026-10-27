@@ -1,0 +1,20 @@
+{
+  "domain": "nice_go",
+  "name": "Nice G.O.",
+  "integration_type": "hub",
+  "codeowners": [
+    "@IceBotYT"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "cover",
+    "diagnostics",
+    "event",
+    "light",
+    "switch"
+  ]
+}

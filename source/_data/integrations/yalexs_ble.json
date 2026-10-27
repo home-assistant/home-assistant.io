@@ -1,0 +1,21 @@
+{
+  "domain": "yalexs_ble",
+  "name": "Yale Access Bluetooth",
+  "integration_type": "device",
+  "codeowners": [
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "security_safety.locks_access"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "lock",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

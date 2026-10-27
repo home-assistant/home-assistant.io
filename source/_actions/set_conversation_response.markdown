@@ -5,7 +5,7 @@ domain: built_in
 description: "Sets what Assist says or shows when a sentence starts the automation."
 ---
 
-Use this action to set what Assist says, or shows, when a voice command or sentence starts the automation. Together with a [sentence trigger](/docs/automation/trigger/#sentence-trigger), it answers a custom command.
+Use this action to set what Assist says, or shows, when a voice command or sentence starts the automation. Together with a [sentence trigger](/triggers/conversation/), it answers a custom command.
 
 {% include actions/ui_header.md %}
 
@@ -69,7 +69,7 @@ When you ask Assist "Is the garage door open?", this automation answers with the
 - **Trigger**: Sentence
   - **Sentence**: `Is the garage door open`
 - **Action**: Set conversation response
-  - **Set conversation response**: `The garage door is {{ states('cover.garage_door') }}.`
+  - **Set conversation response**: {% raw %}`The garage door is {{ states('cover.garage_door') }}.`{% endraw %}
 
 {% details "YAML example" %}
 

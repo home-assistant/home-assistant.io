@@ -1,0 +1,18 @@
+{
+  "domain": "tailscale",
+  "name": "Tailscale",
+  "integration_type": "hub",
+  "codeowners": [
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ]
+}

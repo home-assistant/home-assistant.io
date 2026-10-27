@@ -1,0 +1,21 @@
+{
+  "domain": "imeon_inverter",
+  "name": "Imeon Inverter",
+  "integration_type": "device",
+  "codeowners": [
+    "@Imeon-Energy"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

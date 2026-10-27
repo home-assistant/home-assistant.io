@@ -1,0 +1,21 @@
+{
+  "domain": "environment_canada",
+  "name": "Environment Canada",
+  "integration_type": "service",
+  "codeowners": [
+    "@gwww",
+    "@michaeldavie"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.forecasts",
+    "weather_alerts.public_warnings"
+  ],
+  "platforms": [
+    "camera",
+    "diagnostics",
+    "sensor",
+    "weather"
+  ]
+}

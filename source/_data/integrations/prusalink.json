@@ -1,0 +1,19 @@
+{
+  "domain": "prusalink",
+  "name": "PrusaLink",
+  "integration_type": "device",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.printers"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "camera",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

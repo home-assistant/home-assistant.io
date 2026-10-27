@@ -1,32 +1,7 @@
 ---
-title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
-ha_categories:
-  - security_safety.cameras
-  - security_safety.doorbells_intercoms
 ha_release: 2022.2
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: unifiprotect
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - event
-  - light
-  - media_player
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - text
-ha_integration_type: hub
-ha_codeowners:
-  - '@RaHehl'
-ha_quality_scale: platinum
 ---
 
 The **UniFi Protect** {% term integration %} adds support for retrieving camera feeds and sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
@@ -97,7 +72,7 @@ The table below shows which {% term entity %} domains are available in each mode
 
 With an API key only, switches are limited to the settings the public API can change: the camera status light, high FPS mode, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
 
-Numbers are limited in the same way: the camera microphone level, the floodlight motion sensitivity and auto-shutoff duration, the smart sensor motion sensitivity, and the smart chime ring volume for each paired doorbell.
+Numbers are limited in the same way: the camera microphone level, the floodlight motion sensitivity and auto-shutoff duration, the smart sensor motion sensitivity, and the smart chime ring volume per paired doorbell.
 
 Selects are limited in the same way: the camera HDR mode, the floodlight light mode, and the alarm profile.
 
@@ -194,7 +169,7 @@ The table below shows what each device type provides in each connection mode. Se
 | Floodlight   |              ✅ (light, switches, numbers, selects, sensors, binary sensors)              |        ✅         |
 | Smart sensor |                      ✅ (switches, numbers, sensors, binary sensors)                      |        ✅         |
 | Viewer       |                                             —                                             |        ✅         |
-| Smart chime  |                                     ✅ (ring volume)                                      |        ✅         |
+| Smart chime  |                                ✅ (ring volume per camera)                                |        ✅         |
 | Relay        |                                            ✅                                             |        ✅         |
 | Siren        |                                            ✅                                             |        ✅         |
 | Key fob      |                                            ✅                                             |        ✅         |
@@ -221,7 +196,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - configuration switches for overlay information, smart detection types, status light, high FPS mode, system sounds, color night vision, and motion detection
   - configuration selects for recording mode, infrared mode, chime type, and HDR mode (Auto, Always on, Always off)
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
-- **Button** - A [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
+- **Button** - A [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
 
 #### PTZ cameras
 
@@ -278,7 +253,8 @@ Each UniFi Protect viewer will get a device in Home Assistant with the following
 Each UniFi Protect smart chime will get a device in Home Assistant with the following:
 
 - **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
-- **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness, a ring volume slider for each paired doorbell, and a sensor for the last time the chime rang.
+- **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
+- **Ring volume** - A ring volume slider for each doorbell paired with the chime. It also works in the **API key only** connection mode. The chime's own volume slider and the buttons need a local user.
 
 ### UniFi Protect relays
 
@@ -368,7 +344,7 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 
 The {% term integrations %} provides four proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your {% term integrations %}.
 
-These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an {% term automation %} or [notify action](/integrations/notify/).
+These URLs require authentication. They work in notifications to the [Home Assistant Companion app](https://companion.home-assistant.io/docs/notifications/notification-attachments), which loads them with its own login, and with integrations that sign Home Assistant URLs, like [media players](/integrations/media_player/) playing them with `media_player.play_media`. Services that download the file without authentication can't load them.
 
 {% note %}
 These proxy views need a local user. They are not available for entries set up with **API key only**. See [Connection modes](#connection-modes).
@@ -552,7 +528,7 @@ You can obtain the `ulp_id` using the [Action unifiprotect.get_user_keyring_info
 alias: G4 Doorbell Fingerprint Identified Automation
 description: Automation that triggers when a fingerprint is successfully identified on the G4 Doorbell Pro
 trigger:
-  - platform: event
+  - trigger: event
     event_type: state_changed
     event_data:
       entity_id: event.g4_doorbell_pro_poe_fingerprint # Replace with your doorbell entity
@@ -670,7 +646,7 @@ conditions:
          trigger.event.data.new_state.attributes.license_plate in ['ABC123', 'XYZ789']
        }}{% endraw %}
 actions:
-  - action: cover.open
+  - action: cover.open_cover
     target:
       entity_id: cover.garage_door
   - data:

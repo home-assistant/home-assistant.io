@@ -52,8 +52,8 @@ value:
 
 ## Good to know
 
-- Booleans pass this test because `True` and `False` are integers in Python. Guard with `is not boolean` if that matters.
-- Numeric strings like `"42"` do not pass. Convert with [`int`](/template-functions/int/) first.
+- Booleans do not pass this test. `true` and `false` return `false`.
+- Numeric strings like `"42"` do not pass. Convert with [`int`](/template-functions/int/) first. To check whether text contains a number, use the [`is_number`](/template-functions/is_number/) test.
 
 {% include template_functions/try_it.md %}
 

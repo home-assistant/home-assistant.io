@@ -58,7 +58,7 @@ This passes when the outdoor ozone sensor reads above 100 μg/m³.
    unit_example_value="120"
    threshold_required="true" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="ozone sensor" example="sensor.living_room_ozone" %}
 
 {% include conditions/behavior.md %}
 
