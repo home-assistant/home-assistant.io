@@ -138,7 +138,7 @@ country:
   required: false
   type: string
 debug:
-  description: Enable Home Assistant's built-in debug, which can help locate misbehaving integrations by enabling run-time checks for implementation errors. It can block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use.
+  description: Turns on extra checks that report programming errors in integrations to the log. Meant for developers. To get more detailed log messages from an integration, use [debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) instead.
   required: false
   type: boolean
   default: false
