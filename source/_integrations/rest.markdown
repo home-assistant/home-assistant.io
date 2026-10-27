@@ -8,9 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: rest
 ha_platforms:
   - binary_sensor
-  - notify
   - sensor
-  - switch
 ha_integration_type: service
 ha_config_flow: true
 ---
