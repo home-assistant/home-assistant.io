@@ -46,7 +46,7 @@ name:
   type: [string, map, list]
 color: 
   required: false 
-  description: Color of the icon and graph when the entity is active. Can be a theme color name (e.g. primary, red, teal) or any CSS color code. 
+  description: Color of the icon and graph when the entity is active. Can be a theme color name (such as `primary`, `red`, or `teal`) or any CSS color code.
   type: string 
   default: state
 graph:
