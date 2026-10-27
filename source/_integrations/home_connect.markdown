@@ -889,8 +889,8 @@ Both entities can use these options, but the availability of these will depend o
 This sensor will be available only if the program is running
 {% endnote %}
 
-- **Program start time**:
-  - **Description**: Represents the time when the current program started. It's calculated from the elapsed program time reported by the appliance. The elapsed program time doesn't count while the program is paused, so the start time moves later by the length of the pause.
+- **Program running time**:
+  - **Description**: Represents how long the current program has been running, in minutes, as reported by the appliance. The time while the program is paused isn't counted. The appliance reports the running time about once per minute.
   - **Availability**: Hood, Oven
 
 {% note %}
