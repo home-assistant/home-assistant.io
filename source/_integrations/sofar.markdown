@@ -122,7 +122,7 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **Off-grid (EPS/backup) measurements**: The same kind of readings for the EPS/backup output. Only shown for inverters wired for EPS/backup power.
 - **PV strings**: Power for each solar panel string, plus voltage and current if you need more detail. Each string the inverter supports gets its own device, connected via the inverter. Only shown for PV-capable inverters.
 - **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery pack, plus combined power, state of charge, and state of health totals. Each pack gets its own device, connected via the inverter, and only packs that respond are added. A pack added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
-- **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. Only shown for inverters with battery storage.
+- **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. This includes the state of charge at which the battery stops charging, the levels at which it stops discharging on-grid and off-grid, and the level at which off-grid discharging resumes. Only shown for inverters with battery storage.
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 - **Current settings**: The feed-in limit, the active power limit, and the passive-mode setpoints as they're currently stored on the inverter, so you can read back what the actions below have set.
 
@@ -252,6 +252,8 @@ automation: |
 ## Data updates
 
 The **Sofar** {% term integration %} {% term polling polls %} the inverter's live readings every 5 seconds. Values that rarely change, such as the device information and the battery configuration, are polled every 60 seconds instead, so each poll stays short.
+
+A PV inverter switches off when there's no sunlight, so its entities are unavailable at night. If Home Assistant starts while the inverter is off, the integration still loads as long as the Modbus TCP bridge or serial port is reachable. Its entities stay unavailable until the inverter answers again.
 
 ## Known limitations
 
