@@ -31,6 +31,7 @@ The {% term entities %} have the same name as the device by default. To change t
 
 The {% term entities %} are divided into the following subdomains:
 
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Infrared](#infrared)
 - [Radio frequency](#radio-frequency)
@@ -40,6 +41,10 @@ The {% term entities %} are divided into the following subdomains:
 - [Switch](#switch)
 - [Light](#light)
 - [Time](#time)
+
+## Binary sensor
+
+The `binary_sensor` {% term entity %} shows if a Broadlink thermostat is heating. It is on when the thermostat's heating output is on. This entity is created automatically when you configure a thermostat.
 
 ## Climate
 
