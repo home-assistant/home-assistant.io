@@ -48,10 +48,27 @@ The **Sync time** button appears under the **Configuration** section of the devi
 - These appear in Home Assistant as **Heating circuit 1** and **Heating circuit 2**, depending on what your system exposes.
 - Each heating circuit is grouped under its own sub-device on the BSB-LAN device page.
 
+The target temperature is the setpoint the controller uses right now. The mode and preset set which setpoint that is:
+
+| Mode | Preset | Heating circuit behavior |
+| ---- | ------ | ------------------------ |
+| Auto | Comfort or Eco | Follows its time program. The preset shows the level in effect. |
+| Heat | Comfort | Heats to the comfort setpoint until you change the mode or preset. |
+| Heat | Eco | Heats to the reduced setpoint until you change the mode or preset. |
+| Off | | Only heats to protect against frost. |
+
+In **Auto** mode, selecting a preset overrides the time program until its next switch point.
+
+In **Heat** mode, changing the target temperature changes the comfort setpoint, or the reduced setpoint when the **Eco** preset is active. In **Auto** and **Off** modes, changing it does nothing, because BSB-LAN can't override the setpoint the controller applies there. To change the temperatures **Auto** mode uses, change the **Comfort temperature** or **Reduced temperature** entity of the heating circuit.
+
+Presets are not available on devices connected over PPS.
+
 ### Water heater
 
 - If your heating system exposes domestic hot water controls, Home Assistant creates a water heater entity for it.
 - The water heater entity is grouped under its own sub-device on the BSB-LAN device page.
+- The target temperature is the hot water setpoint the controller uses right now, the nominal or the reduced one depending on its release program. Changing it changes that setpoint.
+- When the water heater is off, the target temperature shows the frost protection setpoint, and changing it does nothing.
 
 ### Sensors
 
