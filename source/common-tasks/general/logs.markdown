@@ -1,6 +1,6 @@
 ---
 title: "Viewing and downloading logs"
-description: "How to view and download the logs of Home Assistant, remove personal information from them, and find where logs are stored on each installation type."
+description: "How to view and download the logs of Home Assistant, remove sensitive information from them, and find where logs are stored on each installation type."
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
