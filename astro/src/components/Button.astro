@@ -122,7 +122,14 @@ const tagAttributes = href
     min-height: 2rem;
     padding: 0 var(--space-medium);
     text-decoration: none;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
     white-space: nowrap;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
 
     &:has(.icon) {
       padding-right: var(--space-xsmall);
