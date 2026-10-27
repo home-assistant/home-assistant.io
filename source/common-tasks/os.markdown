@@ -108,7 +108,6 @@ Alternatively, if the Operating Systems runs on a platform that uses the GRUB bo
 
 {% include common-tasks/network_storage.md %}
 {% include common-tasks/lost_password.md %}
-{% include common-tasks/third-party-addons.md %}
 {% include common-tasks/configuration_check.md %}
 
 ## Home Assistant versions
