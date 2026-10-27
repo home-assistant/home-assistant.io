@@ -132,7 +132,7 @@ threshold:
     - `type: between` (inclusive): Defines a range. The reading must be between the two bounds, or equal to one of them, to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
     - `type: outside` (exclusive): Defines an outside-range. The reading must be beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
 
-    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
+    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity. The entity must use `%` as its unit. If it has a different unit, or no unit, the condition doesn't pass.
   required: true
   type: map
 behavior:
@@ -146,7 +146,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="battery level sensor" example="sensor.phone_battery" %}
 
 {% include conditions/behavior.md %}
 
@@ -165,7 +165,7 @@ behavior:
 
 ### Automation: skip a weekly reminder when batteries are low
 
-This automation sends a weekly reminder to test your smoke detectors, but only when every detector still has at least 25% battery. If any battery is low, the reminder is skipped so you can replace the batteries first.
+This automation sends a weekly reminder to test your smoke detectors, but only when every detector still has more than 25% battery. If any battery is low, the reminder is skipped so you can replace the batteries first.
 
 - **Trigger**: Time: Every Sunday at 10:00
 - **Condition**: Battery level (above 25%)

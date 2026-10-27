@@ -1,0 +1,13 @@
+{
+  "domain": "fints",
+  "name": "FinTS",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "finance"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

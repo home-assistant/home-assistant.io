@@ -1,0 +1,23 @@
+{
+  "domain": "trmnl",
+  "name": "TRMNL",
+  "integration_type": "hub",
+  "codeowners": [
+    "@joostlek"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "productivity_information"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor",
+    "switch",
+    "time"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

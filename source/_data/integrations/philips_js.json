@@ -1,0 +1,24 @@
+{
+  "domain": "philips_js",
+  "name": "Philips TV",
+  "integration_type": "device",
+  "codeowners": [
+    "@elupus"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "light",
+    "media_player",
+    "remote",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

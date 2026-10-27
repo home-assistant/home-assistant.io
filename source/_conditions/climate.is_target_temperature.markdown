@@ -131,7 +131,7 @@ threshold:
         unit_of_measurement: °C
     ```
 
-    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated.
+    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated. Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the condition doesn't pass.
   required: true
   type: map
 behavior:
@@ -142,9 +142,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the thermostat must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the thermostat must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

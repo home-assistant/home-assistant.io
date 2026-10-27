@@ -79,9 +79,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the humidifier must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the humidifier has stayed in the new mode for 10 seconds, which is useful to ignore brief transitional modes some devices cycle through during startup.
+    How long the humidifier must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the humidifier has stayed in the new mode for 10 seconds, which is useful to ignore brief transitional modes some devices cycle through during startup. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -93,7 +93,7 @@ for:
 
 - The target humidifier entity must support the mode you want to use.
 - The available modes depend entirely on the device. Check your humidifier's documentation or the Home Assistant entity's attributes to see which modes are supported.
-- If you filter by mode, the trigger only fires when the humidifier _enters_ that mode, not when it leaves it.
+- The trigger only reacts when the humidifier changes to one of the selected modes, not when it changes from a selected mode to a mode that isn't selected. It also doesn't react when the humidifier switches between two selected modes.
 - To check whether the humidifier is currently in a specific mode during a condition step, use the **Humidifier is in mode** condition.
 
 {% include triggers/try_it.md %}

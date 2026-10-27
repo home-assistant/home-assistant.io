@@ -55,7 +55,7 @@ duration:
   type: time
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Nest thermostat" example="climate.upstairs" %}
 
 ## Good to know
 

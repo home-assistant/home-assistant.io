@@ -1,0 +1,24 @@
+{
+  "domain": "motionblinds_ble",
+  "name": "Motionblinds Bluetooth",
+  "integration_type": "device",
+  "codeowners": [
+    "@LennP",
+    "@jerrybboy"
+  ],
+  "config_flow": true,
+  "iot_class": "assumed_state",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "button",
+    "cover",
+    "diagnostics",
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

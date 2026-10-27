@@ -15,10 +15,11 @@ Many automations can be tested directly in the automation editor UI.
 
 ### Checking the state of a condition
 
-While the automation is open in the automation editor, you can see whether each condition passes at every moment. Home Assistant checks the condition again every second, so you can watch it change when the situation changes, for example, when a door opens. It is also checked again when you edit the condition.
+While the automation is open in the automation editor, you can see whether each condition passes at every moment. Home Assistant checks the condition again whenever one of its entities changes, for example, when a door opens. Conditions that depend on the time, a template, or a duration are also checked again every second. This way, you can watch the result change when the situation changes. The condition is also checked again when you edit it.
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. Hover over the state indicator circle on the left side of the condition row.
+2. Hover over the state indicator on the condition's icon, at the start of the condition row.
+   - **Triggered by** conditions don't have a state indicator.
    - Result: The tooltip shows one of the following states:
      - **Condition passes**: the condition is met.
      - **Condition did not pass**: the condition is not met.
@@ -131,10 +132,6 @@ If you are writing automations in YAML, check your configuration for syntax erro
 
 Every time an {% term automation %} runs, Home Assistant records a trace: a step-by-step record of what happened. The trace shows which {% term trigger %} started the automation, whether each {% term condition %} passed, what each {% term action %} did, and which variables changed. If you ran the actions manually, the trace has no trigger, and the conditions of the automation are skipped. Conditions within the actions, such as in an **If-then** or **Choose** block, still run and are shown. Use it to find out why an automation did not do what you expected.
 
-Home Assistant keeps the last 5 traces of each automation. Some triggers also record a trace when they notice a relevant change but do not start the automation. These traces are marked **Did not trigger**. They are kept separately, so they never replace the traces of real runs.
-
-Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) for their traces to be available.
-
 ### Viewing the traces of an automation
 
 Do this when an automation did not run as expected, to see which path it took and where it stopped. You can open the traces from the automation list, the automation editor, or **Activity**.
@@ -146,7 +143,7 @@ Do this when an automation did not run as expected, to see which path it took an
      - Result: The trace of the latest run opens.
    - In **Activity**, select an entry that the automation caused. In the dialog that opens, select **View trace** next to the automation.
      - Result: The trace of the run that caused this entry opens.
-2. To see another run, select it under **Select trace**, or select **Older trace** {% icon "mdi:ray-start-arrow" %} or **Newer trace** {% icon "mdi:ray-end-arrow" %}.
+2. To see another run, select it under **Select trace**, or select **Older trace** {% icon "mdi:ray-end-arrow" %} or **Newer trace** {% icon "mdi:ray-start-arrow" %}.
    - The list shows when each run started and how it ended, for example, **Stopped because a condition failed**.
 
 ### Parts of a trace
@@ -177,11 +174,66 @@ Building blocks use the following icons:
 
 The tabs next to the graph show more information:
 
-- **Step details**: The configuration and the result of the selected step. Within this tab, **Changed variables** shows the variables that the step changed.
+- **Step details**: The result of the selected step, with the following tabs:
+  - **Step config**: The configuration of the step.
+  - **Changed variables**: The variables that the step changed.
+  - **Related activity**: The activity that the step caused.
 - **Trace timeline**: The steps that ran, and when they ran.
 - **Related activity**: The activity related to this run of the automation.
 - **Automation config**: The configuration of the automation at the time it ran.
 - **Blueprint config**: Only shown if the automation was created from a {% term blueprint %}.
+
+### Downloading a trace
+
+Download a trace to share it when you report an issue or ask for help, for example, in the [community forum](https://community.home-assistant.io).
+
+{% important %}
+**Risk of exposing passwords and personal data when you share a trace**
+
+A downloaded trace can contain private information, such as passwords from your `secrets.yaml` file, or the location of a person.
+
+Before you share a trace, remove this information. For the steps, refer to [Preparing a trace for sharing](#preparing-a-trace-for-sharing).
+
+If you already shared a password or webhook ID, change it.
+{% endimportant %}
+
+1. Open the trace that you want to download. For the steps, refer to [Viewing the traces of an automation](#viewing-the-traces-of-an-automation).
+   - If the automation ran after you opened the trace, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Refresh** to load the new runs.
+2. Select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Download trace**.
+   - Result: Your browser downloads the trace and its related activity as a JSON file.
+   - Before you share the file, prepare it. For the steps, refer to [Preparing a trace for sharing](#preparing-a-trace-for-sharing).
+
+### Preparing a trace for sharing
+
+A trace can contain private information, and anyone you share it with can read it. For example, a trace can contain the following information:
+
+- The configuration of the automation, including the real values from your `secrets.yaml` file, such as passwords, API keys, or webhook IDs.
+- The states and attributes of your entities, such as the location of a person or a phone.
+- The data that started the automation, such as the content of a webhook request.
+- The names of people, devices, and areas in your home.
+
+To remove this information before you share a trace, follow these steps:
+
+1. Download the trace. For the steps, refer to [Downloading a trace](#downloading-a-trace).
+2. Open the downloaded file in a text editor.
+3. Search the file for private values. Look for the following values:
+   - Passwords, API keys, and tokens from your `secrets.yaml` file.
+   - Webhook IDs.
+   - Coordinates (`latitude` and `longitude`), for example, of a person or a phone that started the automation.
+   - Street addresses, if the automation uses an entity whose state is an address, such as the geocoded location sensor of the Companion app.
+   - Phone numbers and email addresses, if the automation sends messages to them, for example, with an SMS or email notification.
+4. Replace private text with a placeholder such as `REDACTED`, keeping the surrounding quotes. Replace private numbers, such as coordinates, with a numeric placeholder such as `0`. Keep the rest of the JSON structure unchanged.
+5. Save the file, and share the edited copy.
+
+### How many traces are kept
+
+Home Assistant keeps the last 5 traces of each automation. Some triggers also record a trace when they notice a relevant change but do not start the automation. These traces are marked **Did not trigger**. They are kept separately, so they never replace the traces of real runs.
+
+### Why the trace you want is missing
+
+If you can't find the trace of a run, newer runs have most likely replaced it. Every run uses up one of the stored traces, including a run that stops right away. For example, a run stops right away when a condition isn't met, or when the automation is already running in **Single** [mode](/docs/automation/modes/). If an automation starts often, these short runs can push out the trace that you want to see. To keep more traces, refer to [Changing the number of stored traces](#changing-the-number-of-stored-traces).
+
+A trace can also be missing after Home Assistant stops unexpectedly, or if an automation in YAML has no `id`. For details, refer to [Traces after a restart](#traces-after-a-restart) and [Traces of automations created in YAML](#traces-of-automations-created-in-yaml).
 
 ### Changing the number of stored traces
 
@@ -198,6 +250,14 @@ By default, Home Assistant keeps the last 5 traces of each automation. To keep m
 
 4. Select **Save**.
    - Result: Home Assistant keeps up to this number of traces of runs, and the same number of **Did not trigger** traces.
+
+### Traces after a restart
+
+Traces are kept when Home Assistant restarts. Home Assistant saves them when it stops, and loads them again after it starts. If Home Assistant stops unexpectedly, for example, when the power goes out, the traces since the last restart are lost.
+
+### Traces of automations created in YAML
+
+An automation that you created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) for its traces to be available.
 
 ## Testing templates
 

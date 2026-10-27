@@ -30,7 +30,7 @@ Trigger when:
   required: false
 For at least:
   description: How long the window must stay open before the trigger fires. Set to zero to fire immediately.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -57,13 +57,13 @@ behavior:
   default: each
 for:
   description: >
-    Duration the window must stay open before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
-  type: string
+    Duration the window must stay open before the trigger fires. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="window sensor or motorized window" example="binary_sensor.living_room_window" %}
 
 {% include triggers/behavior.md %}
 

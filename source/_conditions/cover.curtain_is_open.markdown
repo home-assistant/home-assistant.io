@@ -61,13 +61,13 @@ behavior:
 for:
   description: >
     How long the curtain must have stayed open before the condition
-    passes. Accepts a duration like `00:05:00` for five minutes.
+    passes. Accepts a duration like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="motorized curtain" example="cover.living_room_curtain" %}
 
 {% include conditions/behavior.md %}
 

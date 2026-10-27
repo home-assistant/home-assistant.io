@@ -109,7 +109,7 @@ threshold:
     - `type: between` (inclusive): Defines a range. Fires when the setpoint crosses into the range. A setpoint equal to either bound is inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
     - `type: outside` (exclusive): Defines an outside-range. Fires when the setpoint crosses out of the range. A setpoint equal to either bound is still inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
-    When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system temperature unit if the entity has no unit.
+    When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the trigger doesn't react.
 
     For example:
 
@@ -138,9 +138,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the setpoint has been beyond the threshold for 10 seconds, which helps ignore accidental or brief adjustments.
+    How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the setpoint has been beyond the threshold for 10 seconds, which helps ignore accidental or brief adjustments. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

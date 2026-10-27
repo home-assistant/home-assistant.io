@@ -57,13 +57,13 @@ behavior:
   default: any
 for:
   description: >
-    How long one or more vibration sensors must be continuously detecting vibration before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long one or more vibration sensors must be continuously detecting vibration before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="vibration sensor" example="binary_sensor.washing_machine_vibration" %}
 
 {% include conditions/behavior.md %}
 

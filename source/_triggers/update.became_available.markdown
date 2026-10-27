@@ -22,8 +22,12 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. From the search box, search for and select **Update became available**.
 5. Select what you want to monitor. Under **By target** (see
-   [Targets](#targets)), pick the device, area, floor, label, or specific
-   update entity you want to watch.
+   [Targets](#targets)), select the update entities you want to monitor, or a
+   label that you assigned to them.
+   If you select a device, area, or floor instead, update entities marked as
+   configuration or diagnostic entities are not included. This is common for
+   device firmware updates. For details, refer to
+   [Entities that are not part of a target](/docs/automation/targets/#entities-that-are-not-part-of-a-target).
 6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)),
    pick **Each**, **First**, or **All**.
 7. Under **For at least**, enter how long the update must stay available before
@@ -70,9 +74,9 @@ behavior:
 for:
   description: >
     How long the update must stay available before the trigger fires. Use the
-    `HH:MM:SS` format, like `00:10:00` for 10 minutes.
+    `HH:MM:SS` format, like `00:10:00` for 10 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

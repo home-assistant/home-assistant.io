@@ -98,7 +98,7 @@ threshold:
     - `type: between` (inclusive): Defines a range. Fires when the setpoint is between `value_min` and `value_max`. Setpoints equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
     - `type: outside` (exclusive): Defines an outside-range. Fires when the setpoint is below `value_min` or above `value_max`. Setpoints equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
-    When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system temperature unit if the entity has no unit.
+    When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the trigger doesn't react.
 
     For example:
 

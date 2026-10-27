@@ -48,7 +48,8 @@ This passes when the living room light's brightness is above 50%.
 
 {% include conditions/threshold_value_options_yaml.md
    range_note="0–100"
-   number_final="a percentage value (0–100)" %}
+   number_final="a percentage value (0–100)"
+   threshold_required="true" %}
 
 {% include conditions/targets.md %}
 

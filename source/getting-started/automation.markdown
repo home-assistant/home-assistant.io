@@ -5,112 +5,81 @@ description: "Build your first Home Assistant automations using the visual edito
 
 Now that your devices are connected, you can put them to work. {% term Automations %} let your home react to things on its own: turn the lights on when the sun goes down, lower the heat when everyone leaves, or remind you to close the garage door at bedtime. You build them with the visual automation editor, so you can follow this tutorial without writing a single line of code.
 
-We are going to create two automations together: one that turns the lights on as the sun sets, and a second that dims them later in the evening on workdays.
+In this tutorial, you create two automations: one that turns the lights on before the sun sets, and a second that dims them later in the evening before a workday.
 
 ## Turning on the lights before sunset
 
 ### Prerequisites
 
-This tutorial assumes the following:
-
-- You have [installed Home Assistant](/installation/)
-- You have completed the [onboarding steps](/getting-started/onboarding/)
-- You have followed the steps on [adding an integration](/getting-started/integration/)
-- You have a light that is integrated into Home Assistant
-  - If you don't have a light yet, and are unsure what to buy, try [Philips Hue](/integrations/hue/), [nanoleaf](/integrations/nanoleaf/), or products supporting [WLED](/integrations/wled/)
+- You have [installed Home Assistant](/installation/).
+- You have completed the [onboarding steps](/getting-started/onboarding/).
+- You have followed the steps on [adding an integration](/getting-started/integration/).
+- You have a light that is integrated into Home Assistant.
+  - If you don't have a light yet, and are unsure what to buy, try [Philips Hue](/integrations/hue/), [Nanoleaf](/integrations/nanoleaf/), or products supporting [WLED](/integrations/wled/).
+- Your lights are assigned to an {% term area %}, so you can turn on all lights in a room at once. To learn more, refer to [Areas](/docs/organizing/areas/).
 
 ### To automatically turn on the lights before sunset
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create Automation**.
-
-    ![The automation editor.](/images/getting-started/automation-editor.png)
-
-   - Then, select **Create new automation**. This brings up an empty automation page.
-
-     ![The start of a new automation.](/images/getting-started/new-automation.png)
-
-2. The first step is defining what should {% term trigger %} the automation to run.
-   - In this case, we want to use the event of the sun setting to trigger our automation.
-   - Select **Add trigger**, type `Sun` and select it.
-   ![Use the sun as trigger.](/images/getting-started/sun-trigger.png)
-3. Select **Sunset**.
-   - We want the automation to be triggered a little before that, so let's add `-00:30` as the offset. This indicates that the automation will be triggered 30 minutes before sunset. Neat!
-
-    ![A new automation with a sun trigger filled in.](/images/getting-started/new-trigger.png)
-
-4. Once we have defined our trigger, we need to define what should happen.
-   - Select **Add action**.
-5. Type `light` and select **Light turn on**.
-   - For this automation, we're going to turn on all lights in the living room, so let's select the **Area**.
-   - This only works if your lights are assigned to an {% term area %}.
-   - To learn more about grouping devices in areas, refer to the [area documentation](/docs/organizing/areas/).
-
-   ![A new automation with the action set up to turn on the lights in the living room.](/images/getting-started/action.png)
-
-6. To save the automation, select **Save**. Give the automation a name, add a **Description**, and **Save** again.
-   - When choosing a name, be specific, so that you can find it even when you have many automations. For example, `Turn on living room table light at sunset`.
-   - Now wait until it's 30 minutes before sunset and see your automation magic!
-   - Or follow these steps to [test your automation](/docs/automation/testing/#testing-your-automation) right away.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
+   - Result: An empty automation opens.
+2. Define what starts the automation. This is the {% term trigger %}.
+   1. In the **When** section, select **Add trigger**.
+   2. From the search box, search for and select **Sunset**.
+   3. Under **Offset**, enter 30 minutes.
+   4. Under **Offset type**, select **Before**.
+   - Result: The automation starts 30 minutes before sunset.
+3. Define what the automation does. This is the {% term action %}.
+   1. In the **Then do** section, select **Add action**.
+   2. From the search box, search for and select **Turn on light**.
+   3. Under **Targets**, select **Add target**, and then select the area of your lights.
+      - For example, select **Living room** to turn on all lights in the living room.
+4. To save the automation, select **Save**. Enter a name, and optionally a description, and then select **Save** again.
+   - Choose a specific name, so that you can find the automation even when you have many.
+     - For example, `Turn on living room lights before sunset`.
+   - Result: The automation turns on the lights 30 minutes before sunset. To see it work right away, [test your automation](/docs/automation/testing/#testing-your-automation).
 
 ## Dimming the lights the night before a workday
 
-This automation dims the light at a specific time before a workday.
+This automation dims the light at a specific time on the evening before a workday, but only if the light is on.
 
 ### Prerequisites
 
-This tutorial assumes the following:
-
-- You have [installed Home Assistant](/installation/)
-- You have completed the [onboarding steps](/getting-started/onboarding/)
-- You have followed the steps on [adding an integration](/getting-started/integration/)
-- You have a dimmable light that is integrated into Home Assistant
+- You have [installed Home Assistant](/installation/).
+- You have completed the [onboarding steps](/getting-started/onboarding/).
+- You have followed the steps on [adding an integration](/getting-started/integration/).
+- You have a dimmable light that is integrated into Home Assistant.
+- You have set up the [Workday](/integrations/workday/) integration with **Offset** set to `1`, so its sensor shows whether tomorrow is a workday.
 
 ### To dim the light the night before a workday
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation**.
-
-    ![The automation editor.](/images/getting-started/automation-editor.png)
-
-   - Then, select **Create new automation**. This brings up an empty automation page.
-
-     ![The start of a new automation.](/images/getting-started/new-automation.png)
-
-2. We want the light to start dimming at 21:45. This means we want an automation that is triggered by time.
-   - Select **Add trigger** > **Time and location** > **Time**.
-   - Select **Fixed time** and enter the time.
-
-    ![A new automation with a fixed time trigger filled in.](/images/getting-started/automation_trigger_fixed_time.png)
-
-3. We want to do this only if tomorrow is a workday.
-   - Select **Add condition** > **Entity** > **State**.
-   - Under **Entity**, enter `workd` and select your workday sensor.
-   - Under **State**, select **On**.
-4. Next, we want to make sure the light is only dimmed when it is actually on. No reason to do this if the light is not on.
-   - To achieve this, we use an **If-then** action. Select **Add action** > **Blocks** > **If-then**.
-   - You now get a block called **Conditionally execute an action**. From the **Entity** list, select your light.
-   - Under **If**, select **Add condition** > **Entity** > **State**.
-   - Under **State**, select **On**.
-
-    ![Screenshot showing the if section of an if-then action](/images/getting-started/automation_if-then-action_if.png)
-
-5. Now we want to define the action that is performed when the condition is true (when the light was on).
-   - Under **Then**, select **Add action** > **Light turn on**.
-   - Under  **Entity**, select your light.
-   - Define the light settings, such as brightness, temperature, or color. The available settings depend on your light.
-
-    ![Screenshot showing the then section of an if-then action](/images/getting-started/automation_if-then-action_then.png)
-
-6. To save the automation, select **Save**. Give the automation a name (for example, `dim living room table light night before workday`), add a **Description**, and **Save** again.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
+   - Result: An empty automation opens.
+2. Set the time when the automation starts.
+   1. In the **When** section, select **Add trigger** > **Time and sun** > **Time**.
+   2. Choose a fixed time, and enter the time.
+      - For example, `21:45`.
+3. Add a {% term condition %}, so that the automation only continues if tomorrow is a workday.
+   1. In the **And if** section, select **Add condition**.
+   2. From the search box, search for and select **State**.
+   3. In **Entity**, select your workday sensor.
+   4. In **State**, select **On**.
+4. Make sure the light is only dimmed when it's on. To do this, use an **If-then** building block.
+   1. In the **Then do** section, select **Add action** > **Blocks** > **If-then**.
+   2. Under **If**, select **Add condition**, and then search for and select **State**.
+   3. In **Entity**, select your light. In **State**, select **On**.
+   - Result: The actions under **Then** only run if the light is on.
+5. Define how to dim the light.
+   1. Under **Then**, select **Add action**, and then search for and select **Turn on light**.
+   2. Under **Targets**, select **Add target**, and then select your light.
+   3. Under **Additional options**, set the brightness. Depending on your light, you can also set the color temperature or color.
+6. To save the automation, select **Save**. Enter a name, and optionally a description, and then select **Save** again.
+   - For example, `Dim living room light the night before a workday`.
 7. [Test your automation](/docs/automation/testing/#testing-your-automation).
 
 {% include getting-started/next_step.html step="Presence detection" link="/getting-started/presence-detection/" %}
 
-If after completing this getting started you are interested in reading more
-about automations, we recommend the following pages:
+If you want to read more about automations after completing this tutorial, refer to the following pages:
 
 - [Triggers](/docs/automation/trigger/)
 - [Conditions](/docs/automation/condition/)
 - [Actions](/docs/automation/action/)
-
-Please note, these pages may require a bit more experience with Home Assistant
-than you probably have at this point of this tutorial.

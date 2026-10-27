@@ -1,24 +1,7 @@
 ---
-title: MELCloud Home
 description: Instructions on how to integrate MELCloud Home with Home Assistant.
-ha_categories:
-  - climate.heat_pumps_air_conditioning
 ha_release: 2026.7
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@erwindouna'
 ha_domain: melcloud_home
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - number
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **MELCloud Home** {% term integration %} connects Home Assistant to [MELCloud Home](https://www.melcloudhome.com/), Mitsubishi Electric's cloud service for managing their air conditioning and heat pump products.
@@ -149,7 +132,7 @@ The water heater shows as off while the unit is powered off or in standby. It ca
 
 ## Data updates
 
-The integration {% term polling polls %} the MELCloud Home API every 60 seconds for the state of your units. The energy consumption and outdoor temperature are fetched every 15 minutes.
+The integration receives state changes of your units from MELCloud Home as they happen, over a live connection. While that connection is up, it also {% term polling polls %} the MELCloud Home API every 10 minutes as a fallback. If the connection drops, it polls every 60 seconds until the connection is back. The energy consumption and outdoor temperature are fetched every 15 minutes.
 
 Units you add to or remove from your MELCloud Home account are added to or removed from Home Assistant automatically.
 

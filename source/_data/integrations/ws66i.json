@@ -1,0 +1,16 @@
+{
+  "domain": "ws66i",
+  "name": "Soundavo WS66i 6-Zone Amplifier",
+  "integration_type": "device",
+  "codeowners": [
+    "@ssaenger"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

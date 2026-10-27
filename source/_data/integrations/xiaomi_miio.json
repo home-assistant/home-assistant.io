@@ -1,0 +1,37 @@
+{
+  "domain": "xiaomi_miio",
+  "name": "Xiaomi Home",
+  "integration_type": "hub",
+  "codeowners": [
+    "@rytilahti",
+    "@syssi",
+    "@starkillerOG"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "hubs_protocols.smart_home_hubs",
+    "climate.air_purifiers_humidifiers",
+    "appliances_cleaning.cleaning"
+  ],
+  "platforms": [
+    "air_quality",
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "device_tracker",
+    "diagnostics",
+    "fan",
+    "humidifier",
+    "light",
+    "number",
+    "remote",
+    "select",
+    "sensor",
+    "switch",
+    "vacuum"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

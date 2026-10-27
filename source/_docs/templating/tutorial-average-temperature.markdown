@@ -96,7 +96,7 @@ You will see a form with several fields. Fill them out like this:
 Select **Submit**. Your new sensor is ready to use immediately, no restart needed.
 
 {% tip %}
-If you later rename the helper, its **unique ID** stays the same. That is the internal identifier Home Assistant uses to track this sensor across renames, moves, and configuration tweaks. History, dashboards, and automations keep working because they reference the unique ID behind the scenes. You don't have to do anything with it, but it's good to know it exists if you ever see it mentioned elsewhere.
+If you later rename the helper, only its name changes. Its entity ID, `sensor.home_average_temperature`, stays the same, so your dashboards and automations keep working.
 {% endtip %}
 
 ## Step 4: Check it
@@ -119,7 +119,7 @@ The card updates automatically whenever any of your temperature sensors changes.
 
 A few ways to extend this:
 
-- **Fahrenheit**. If your sensors report in Fahrenheit, open the sensor's settings from the entity and set **Unit of measurement** to `°F`. No changes to the template are needed.
+- **Fahrenheit**. If your temperature sensors show their values in Fahrenheit, the template averages Fahrenheit values. Select `°F` as the **Unit of measurement** when you create the helper. If you already created it with `°C`, change the unit in the helper's template options, not in the entity settings. The **Unit of measurement** in the entity settings converts the value, so it would treat your Fahrenheit values as Celsius. No changes to the template are needed.
 - **By area**. Instead of averaging the whole house, limit it to a single area. Replace the `states.sensor` starting point with `area_entities('living_room')` and add a step to filter for temperature sensors. See [`area_entities`](/template-functions/area_entities/).
 - **Highest and lowest too**. Add two more sensors that use [`max`](/template-functions/max/) and [`min`](/template-functions/min/) instead of [`average`](/template-functions/average/). Great for seeing the spread.
 - **Weighted average**. If you want the bedroom thermostat to count more than the garage sensor, you will need a bit more template logic. A [`for` loop](/docs/templating/loops-and-conditions/#loops-with-for) with manual weighting handles that.
