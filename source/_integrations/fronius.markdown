@@ -223,14 +223,14 @@ automation:
 
 #### Forcing the battery to charge or discharge
 
-The battery limits range from `-100 %` to `100 %`, and a negative value reverses the direction. A `Battery discharge power limit` of `-100 %` makes the battery **charge** at its full rate, and a `Battery charge power limit` of `-50 %` makes it **discharge** at half its rate. This is how Fronius documents forcing the battery, and what other tools writing these registers set.
+The battery limits range from `-100 %` to `100 %`, and a negative value reverses the direction: it sets a _minimum_ rate in the opposite direction instead of a maximum. A `Battery discharge power limit` of `-100 %` makes the battery **charge** at its full rate, and a `Battery charge power limit` of `-50 %` makes it **discharge** at least at half its rate, more if the house needs it and the discharge limit allows. This is how Fronius documents forcing the battery, and what other tools writing these registers set.
 
 - The limit only takes effect while its switch is on: `Battery discharge power limiting` for forced charging, `Battery charge power limiting` for forced discharging.
-- With `Battery grid charging` on, a negative discharge limit charges from the grid at that rate whenever there isn't enough photovoltaic power, for example at night. With it off, forced charging can only use photovoltaic power.
+- With `Battery grid charging` on, a negative discharge limit charges at least at that rate, from the grid whenever there isn't enough photovoltaic power, for example at night. With it off, forced charging can only use photovoltaic power.
 - With both limits on, the charge limit plus the discharge limit must not be below `0 %`. The inverter refuses anything else, including both limits negative at once, and Home Assistant rejects such a change with an error before sending it. With a `Battery charge power limit` of `40 %` on, for example, a discharge limit of `-100 %` is refused, while `-40 %` charges at `40 %`.
 - Forcing replaces the value of the limit it uses. If that limit was set to something else before, set it back yourself afterwards.
 
-To charge the battery from the grid during a cheap night tariff:
+To charge the battery from the grid during a cheap night tariff, with `Battery charge power limiting` off or at `100 %`:
 
 ```yaml
 automation:
@@ -265,6 +265,8 @@ automation:
             - switch.gen24_battery_discharge_power_limiting
             - switch.gen24_battery_grid_charging
 ```
+
+With a lower charge limit on, the `-100 %` is refused, as the two limits would add up to less than `0 %`. That includes the charge ceiling example above, which holds the charge limit at `0 %`, so the two examples can't be combined unchanged: either turn `Battery charge power limiting` off for the night, or force with no more than the charge limit, for example `-40 %` at a charge limit of `40 %`.
 
 Like every battery setpoint, a forced charge stays on the inverter if Home Assistant stops running, so the battery keeps charging from the grid until the limit is changed again.
 
