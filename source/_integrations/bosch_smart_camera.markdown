@@ -1,19 +1,19 @@
 ---
-title: Bosch Smart Home Camera
-description: Instructions on how to integrate Bosch Smart Home cameras into Home Assistant.
+title: Bosch Smart Camera
+description: Instructions on how to integrate Bosch cameras into Home Assistant.
 ha_categories:
   - security_safety.cameras
 ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_domain: bosch_shc_camera
+ha_domain: bosch_smart_camera
 ha_codeowners:
   - "@mosandlt"
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Bosch Smart Home Camera** {% term integration %} connects your Bosch SingleKey ID account to Home Assistant. Each camera of the account is added as a camera entity that shows the image of its latest event.
+The **Bosch Smart Camera** {% term integration %} connects your Bosch SingleKey ID account to Home Assistant. Each camera of the account is added as a camera entity that shows the image of its latest event.
 
 ## Supported devices
 
