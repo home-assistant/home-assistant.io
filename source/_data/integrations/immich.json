@@ -1,0 +1,19 @@
+{
+  "domain": "immich",
+  "name": "Immich",
+  "integration_type": "service",
+  "codeowners": [
+    "@mib1185"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "productivity_information.documents_photos"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor",
+    "update"
+  ]
+}

@@ -1,22 +1,7 @@
 ---
-title: Verisure
 description: Instructions on how to set up Verisure devices within Home Assistant.
-ha_categories:
-  - security_safety.alarm_systems
 ha_release: pre 0.7
-ha_iot_class: Cloud Polling
 ha_domain: verisure
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - camera
-  - diagnostics
-  - lock
-  - sensor
-  - switch
-ha_config_flow: true
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.

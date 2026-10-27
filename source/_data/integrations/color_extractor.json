@@ -1,0 +1,11 @@
+{
+  "domain": "color_extractor",
+  "name": "ColorExtractor",
+  "codeowners": [
+    "@GenericStudent"
+  ],
+  "config_flow": true,
+  "categories": [
+    "lighting"
+  ]
+}

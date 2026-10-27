@@ -1,0 +1,23 @@
+{
+  "domain": "kiosker",
+  "name": "Kiosker",
+  "integration_type": "device",
+  "codeowners": [
+    "@Claeysson"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "presence_location.phones_companion_apps"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

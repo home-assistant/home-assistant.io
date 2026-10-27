@@ -1,0 +1,22 @@
+{
+  "domain": "letpot",
+  "name": "LetPot",
+  "integration_type": "hub",
+  "codeowners": [
+    "@jpelgrom"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "silver",
+  "categories": [
+    "garden_plants"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "time"
+  ]
+}

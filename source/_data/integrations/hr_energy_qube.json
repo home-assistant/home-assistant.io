@@ -1,0 +1,27 @@
+{
+  "domain": "hr_energy_qube",
+  "name": "Qube heat pump",
+  "integration_type": "hub",
+  "codeowners": [
+    "@MattieGit"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "climate.heat_pumps_air_conditioning",
+    "climate.thermostats_heating",
+    "climate.water_heaters"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "select",
+    "sensor",
+    "switch",
+    "water_heater"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

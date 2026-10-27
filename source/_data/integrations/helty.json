@@ -1,0 +1,19 @@
+{
+  "domain": "helty",
+  "name": "Helty Flow",
+  "integration_type": "device",
+  "codeowners": [
+    "@ebaschiera"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "button",
+    "fan",
+    "sensor"
+  ]
+}

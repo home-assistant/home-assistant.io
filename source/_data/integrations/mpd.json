@@ -1,0 +1,13 @@
+{
+  "domain": "mpd",
+  "name": "Music Player Daemon (MPD)",
+  "integration_type": "device",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.music_radio_services"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

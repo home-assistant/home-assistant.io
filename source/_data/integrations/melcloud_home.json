@@ -1,0 +1,23 @@
+{
+  "domain": "melcloud_home",
+  "name": "MELCloud Home",
+  "integration_type": "hub",
+  "codeowners": [
+    "@erwindouna"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "silver",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "diagnostics",
+    "number",
+    "sensor",
+    "switch",
+    "water_heater"
+  ]
+}

@@ -1,27 +1,7 @@
 ---
-title: my-PV
 description: Instructions on how to integrate my-PV devices into Home Assistant.
-ha_categories:
-  - climate.water_heaters
-  - energy.solar_batteries
 ha_release: '2026.10'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@my-pv'
-  - '@rrooggiieerr'
 ha_domain: my_pv
-ha_platforms:
-  - button
-  - number
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: device
-ha_config_flow: true
-ha_dhcp: true
-ha_zeroconf: true
-ha_quality_scale: bronze
 ---
 
 The **my-PV** {% term integration %} lets you control and monitor devices made by [my-PV](https://www.my-pv.com/) from Home Assistant. my-PV builds power electronics that turn surplus solar electricity into heat, for example by driving a heating element in a hot water tank.
@@ -100,10 +80,6 @@ When the device is configured for hot water heating and has a temperature sensor
 - **Minimum hysteresis**: How far the temperature has to drop below the target temperature before heating starts again. Disabled by default.
 - **Maximum hysteresis**: How far the temperature has to rise above the target temperature before heating stops. Disabled by default.
 
-### Buttons
-
-- **Restart**: Restarts the my-PV device.
-
 ### Sensors
 
 - **Device status**: What the device is doing: `Standby`, `Heat`, `Boost`, `Heating finished`, `No connection / Disabled`, `Failure`, or `Block active`.
@@ -120,6 +96,14 @@ The following diagnostic sensors are disabled by default:
 - **Network mode**: `LAN`, `WLAN`, or `AP`.
 - **Uptime**
 - **Wi-Fi signal strength**
+
+### Buttons
+
+- **Restart**: Restarts the my-PV device.
+
+### Updates
+
+- **Firmware**: Shows the firmware version installed on the device and the latest version available for it. When a newer version is available, you can install it from Home Assistant. While the update is being installed, the entity shows its progress. The device checks for new firmware about once a day. This entity is only created when the device reports both its installed and its latest firmware version.
 
 ## Examples
 

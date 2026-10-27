@@ -1,0 +1,22 @@
+{
+  "domain": "linkplay",
+  "name": "LinkPlay",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Velleman"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "button",
+    "diagnostics",
+    "media_player",
+    "select"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

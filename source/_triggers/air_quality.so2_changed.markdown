@@ -60,7 +60,7 @@ This fires whenever the rooftop SO2 sensor reading changes to a value above 15 p
    unit_example_entity="input_number.so2_alert_level"
    unit_example_value="20" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="sulphur dioxide sensor" example="sensor.living_room_sulphur_dioxide" %}
 
 ## Good to know
 
