@@ -264,11 +264,12 @@
   {% endif %}
 </li>
 
-{%- assign concept_urls = "/docs/configuration/entities_domains/,/docs/configuration/state_object/,/docs/configuration/events/,/docs/configuration/long-term-statistics/" | split: "," -%}
+{%- assign concept_urls = "/docs/apps-and-integrations/,/docs/configuration/entities_domains/,/docs/configuration/state_object/,/docs/configuration/events/,/docs/configuration/long-term-statistics/" | split: "," -%}
 <li>
   {% icon "mdi:lightbulb-on-outline" %} {% active_link /docs/configuration/entities_domains/ Home Assistant concepts %}
   {% if concept_urls contains page.url or include.docs_index %}
   <ul>
+    <li>{% active_link /docs/apps-and-integrations/ Apps and integrations %}</li>
     <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
     <li>{% active_link /docs/configuration/events/ Events %}</li>
     <li>{% active_link /docs/configuration/long-term-statistics/ Long-term statistics %}</li>
