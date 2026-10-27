@@ -133,11 +133,15 @@ Each zone has the following entities for its damper:
 
 - **Damper minimum**: (configuration) How far the damper stays open at its most closed, as a percentage. You can set it in steps of 5%.
 - **Damper maximum**: (configuration) How far the damper opens at its most open, as a percentage. You can set it in steps of 5%.
-- **Damper position**: The current position of the damper, as a percentage.
+- **Damper position**: The position the controller is driving the damper to, as a percentage.
 
 If your installer has locked airflow adjustment on the iZone controller, **Damper minimum** and **Damper maximum** are unavailable. If only the minimum airflow is locked, only **Damper minimum** is unavailable.
 
-**Damper position** is only created for zones that report a damper position. Systems without damper position feedback report a constant 50%, so the entity is disabled by default unless at least one zone reports a different value. To use it anyway, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+**Damper position** is only created for zones that report a damper position. Some systems don't report it and show a constant 50%, so the entity is disabled by default unless at least one zone reports a different value. To use it anyway, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+
+The damper position is best-effort, and some controllers don't report it correctly. The value can differ from the zone's mode. For example, the controller may briefly open a closed zone used as a constant or bypass, and positions drop to 0 a few minutes after the system turns off. Your installer's balance settings can also limit the damper beyond the minimum and maximum set here.
+
+Damper position isn't a percentage of airflow, because airflow doesn't change linearly with damper position.
 
 ## Diagnostics
 
