@@ -80,8 +80,8 @@ These sensors are also available, but are not enabled by default:
 | ---------------------- | ---------------------------------- |
 | CPU Temperature        | The current temperature of the CPU |
 | CPU Voltage            | The current voltage of the CPU     |
-| Disk Read Rate (disk)  | Read rate of each disk             |
-| Disk Write Rate (disk) | Write rate of each disk            |
+| Per-disk Read Rate     | Read rate of each disk             |
+| Per-disk Write Rate    | Write rate of each disk            |
 | GPU Core Clock Speed   | GPU core clock speed in MHz        |
 | GPU Memory Clock Speed | GPU memory clock speed in MHz      |
 | GPU Fan Speed          | GPU fan speed percentage           |
