@@ -6,19 +6,18 @@ toc: false
 
 After you have [installed](/installation/) Home Assistant on your device, there are five steps to complete the setup. The entire onboarding takes only a few minutes and is done in your browser. You don't need to use the command line or write any code.
 
-1. Open the address shown in your installation guide in your browser.
+1. In your browser, open the address shown in your installation guide.
    - For {% term "Home Assistant Operating System" %}, this is usually `http://homeassistant.local/`.
      - If Home Assistant does not open at that address, try `http://homeassistant.local:8123/`.
      - Result: You now see the **Preparing Home Assistant** page, while Home Assistant downloads its latest version. This may take 20 minutes or more, depending on your hardware and internet connection. Once preparation is finished, the welcome screen is shown.
    - For {% term "Home Assistant Container" %}, this is usually `http://YOUR_HOST:8123`, where `YOUR_HOST` is the host name or IP address of the computer running Home Assistant Container.
      - Result: The welcome screen is shown.
    - If you run into issues with this step, refer to the [installation troubleshooting](/installation/troubleshooting/).
-2. On the welcome screen, you can either create a new installation or restore an existing installation from a backup.
+2. On the welcome screen, choose whether to create a new installation or restore an existing installation from a backup.
 
    ![Screenshot of the Home Assistant welcome screen.](/images/getting-started/onboarding_preparing_01_.png)
 
    - To create a new installation, select **Create my smart home**, and then create the owner account of Home Assistant:
-     - This account is an administrator account. It can always change all settings.
      - Enter a **Name**, **Username**, and **Password**, and repeat the password under **Confirm password**.
        - Make sure the username is lowercase and contains no spaces.
        - The **Name** is shown in the interface. You use the **Username** to log in.
@@ -27,6 +26,7 @@ After you have [installed](/installation/) Home Assistant on your device, there 
 
      - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.
      - Select **Create account**.
+     - This account is an administrator account. It can always change all settings.
    - To restore a backup of a previous installation, under **Or restore**, select **Upload backup** or **Home Assistant Cloud**. For the steps, refer to [Restoring a backup during onboarding](/common-tasks/general/backups/#restoring-a-backup-during-onboarding).
      - If you have a Home Assistant Yellow, follow the [Yellow documentation on restoring from backup](https://support.nabucasa.com/hc/articles/25454643790237).
      - If you have a Home Assistant Green, follow the [Green documentation on restoring from backup](https://support.nabucasa.com/hc/articles/25160431579165).
@@ -34,7 +34,7 @@ After you have [installed](/installation/) Home Assistant on your device, there 
    - To find your location, search for your address under **Search address**. Or, to let Home Assistant detect it, select **Detect** {% icon "mdi:crosshairs-gps" %} at the end of the search field. This makes a one-time request to an external service.
    - The home location is used to configure the time zone, unit system, and currency.
    - It is also used to create the home [zone](/integrations/zone/), which designates the area of your home with a default radius of 100 meters.
-     - This home zone can be used for automations such as opening the shades at sunrise, or starting the vacuum when you leave home.
+   - You can use the home location and zone in automations, such as opening the shades at sunrise or starting the vacuum when you leave home.
    - You can always change this information later in the settings.
    - Select **Next**.
      - If Home Assistant can't determine the country from your location, it asks for your country, so that it uses the correct units. Select your country, and then select **Next**.
