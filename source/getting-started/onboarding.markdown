@@ -16,9 +16,9 @@ In your browser, open the address shown in your installation guide.
   - Result: The welcome screen is shown.
 - If you run into issues with this step, refer to the [installation troubleshooting](/installation/troubleshooting/).
 
-## Step 2: Use a new installation or restore a backup
+## Step 2: Create a new installation or restore a backup
 
-On the welcome screen, choose whether to create your smart home from a new installation or from a backup.
+On the welcome screen, choose whether to create an account for a new installation or restore a backup.
 
 ![Screenshot of the Home Assistant welcome screen.](/images/getting-started/onboarding_preparing_01_.png)
 
