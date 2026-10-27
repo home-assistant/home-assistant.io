@@ -17,7 +17,7 @@
 import SiteHead from "../../components/SiteHead.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
-import WthNav from "../../components/WthNav.astro";
+import NavPills from "../../components/NavPills.astro";
 import WthHero from "../../components/WthHero.astro";
 import WthMoments from "../../components/WthMoments.astro";
 import WthEveryone from "../../components/WthEveryone.astro";
@@ -27,6 +27,14 @@ import WthCta from "../../components/WthCta.astro";
 import { release } from "../../lib/site.mjs";
 import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
+
+// The pill row under the header: one pill for each section it jumps to.
+const sections = [
+  { href: "#moments", label: "What it is" },
+  { href: "#everyone", label: "Who" },
+  { href: "#how-it-works", label: "Tips" },
+  { href: "#fix", label: "Fix a WTH" },
+];
 
 const title = "Month of 'What the Heck?!' 2026";
 const description =
@@ -78,7 +86,7 @@ const description =
     </div>
 
     <main class="wth">
-      <WthNav />
+      <NavPills links={sections} />
       <WthHero />
       <WthMoments />
       <WthEveryone />
@@ -115,6 +123,13 @@ const description =
     font-family: var(--font-heading);
     /* The hero card and the artwork in it reach past the page edge. */
     overflow-x: clip;
+
+    /* The campaign colors for the page navigation pills. */
+    --nav-pills-bg: var(--wth-wash);
+    --nav-pills-color: var(--wth-ink);
+    --nav-pills-hover-bg: var(--wth-mint);
+    --nav-pills-hover-color: var(--wth-ink);
+    --nav-pills-focus: var(--wth-focus);
   }
 </style>
 
