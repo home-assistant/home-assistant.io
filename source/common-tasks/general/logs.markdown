@@ -1,6 +1,6 @@
 ---
 title: "Viewing and downloading logs"
-description: "How to view the logs of Home Assistant, the Supervisor, the host, and your apps, look at the logs of an earlier startup, download logs and remove personal information from them, and find where logs are stored."
+description: "How to view and download the logs of Home Assistant, remove personal information from them, and find where logs are stored on each installation type."
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
@@ -145,7 +145,7 @@ When you ask for help with a problem, someone may ask you for a log. Anyone you 
      - `http`: Finds web addresses, including any key in them.
      - `mac=`: Finds MAC addresses in the debug messages of DHCP discovery.
      - `lat`, `gps`, and `coordinate`: Find locations.
-     - `key`, `token`, and `password`: Finds values that can give access.
+     - `key`, `token`, and `password`: Find values that can give access.
    - Also search for values that you know, such as the name of your Wi-Fi network, your user name, or the names of your devices.
    - To find your IP addresses, search for the first part of the IP address of Home Assistant. To find it, go to {% my network title="**Settings** > **System** > **Network**" %}.
 5. Replace each personal value with a placeholder, such as `REDACTED`.
