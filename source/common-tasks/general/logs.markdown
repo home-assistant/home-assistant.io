@@ -101,7 +101,7 @@ You can download a log to keep a copy of it, or to look at it in another program
 
 Logs can contain sensitive information. This includes personal data that can identify you directly or indirectly, such as user names, the names of your devices, the name of your Wi-Fi network, IP addresses, or your location.
 
-Much of this information comes from your own configuration, for example, the address of a server that you set up, the name that you gave a device, or the web address of a service that an integration connects to. Home Assistant can't tell whether such a value is sensitive to you. Hiding it would also make the log useless for finding out what went wrong. So Home Assistant and its integrations are designed not to write credentials, such as passwords, API keys, or tokens, to the log, and they leave the rest in place. Some integrations go further and filter known secrets. For example, the [Telegram bot](/integrations/telegram_bot/) integration hides its bot token.
+Much of this information comes from your own configuration, for example, the address of a server that you set up, the name that you gave a device, or the web address of a service that an integration connects to. Home Assistant can't tell whether such a value is sensitive to you, and hiding it would also make the log useless for finding out what went wrong. Credentials are different: passwords, API keys, and tokens are always sensitive. The developer guidelines ask integrations to keep them out of the log, and reviewers check for this. This is a guideline, not a guarantee. In particular, debug logging often records the raw data that an integration exchanges with a device or service, and that data can include credentials, locations, or other sensitive details. Custom integrations are not reviewed by the Home Assistant project and may log anything.
 
 The following list shows examples of what a log can contain. A log can also contain other sensitive information.
 
@@ -117,7 +117,6 @@ The following list shows examples of what a log can contain. A log can also cont
   - For example, the **Host** log shows it when the system connects to Wi-Fi.
 - Entity IDs, such as `light.living_room`, and the names of your network storage.
 - Locations, such as the coordinates `52.37, 4.90`.
-  - For example, when [OwnTracks](/integrations/owntracks/) ignores a location update because it isn't accurate enough, it logs the update, including the location.
 - Web addresses that you entered when you set up an integration, such as `https://api.example.com/data?key=abc123`.
   - For example, when the [RESTful](/integrations/rest/) integration can't reach an address, it logs the address. If the address contains a key, like `abc123` in the example, the key is in the log as well.
 
