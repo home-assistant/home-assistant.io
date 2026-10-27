@@ -1,5 +1,5 @@
 ---
-title: "Test if datetime: timedelta"
+title: "Test if timedelta: timedelta"
 function_name: "timedelta"
 description: "Tests whether a value is a timedelta."
 available_as:
