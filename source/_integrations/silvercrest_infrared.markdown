@@ -101,21 +101,19 @@ The **SilverCrest** integration provides the following entities.
 Use the fan's button entities in automations to send commands when something
 happens in your home.
 
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Toggle the fan when a room is occupied and too warm
+
 The following example presses the fan's **Power** button when a room becomes
 occupied and the temperature is above 25 °C. Because this button toggles the
 fan, this example assumes the fan is off when the room becomes occupied.
 Replace the example entity IDs and temperature threshold with values for your
 Home Assistant instance.
 
-{% include docs/paste_yaml_tip.md %}
-
-### Automation: Toggle the fan when a room is occupied and too warm
-
 - **Trigger**: Room occupancy detected
 - **Condition**: Room temperature is above 25 °C
 - **Action**: Press the fan's **Power** button
-
-{% details "YAML example for toggling the fan when a room is occupied and too warm" %}
 
 {% example %}
 automation: |
@@ -133,8 +131,6 @@ automation: |
       target:
         entity_id: button.silvercrest_tower_fan_power
 {% endexample %}
-
-{% enddetails %}
 
 ## Known limitations
 
