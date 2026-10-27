@@ -127,7 +127,7 @@ These examples cover common dynamic-tariff automations: run an appliance when el
 This automation starts the dishwasher the moment the price of the current hour goes below 0.10 EUR/kWh, so the program runs during the cheap hours of the day.
 
 - **Trigger**: EPEX current hourly price crossed threshold
-  - **Contracts**: your contract
+  - **Contracts**: Main Street 1
   - **Below**: 0.10
 - **Action**: Turn on switch
   - **Target**: Dishwasher (`switch.dishwasher`)
@@ -154,8 +154,8 @@ automation: |
 
 This automation sends a notification once tomorrow's EPEX prices are published, so you can plan the next day while the evening is still ahead.
 
-- **Trigger**: Tomorrow's EPEX prices published
-  - **Contracts**: your contract
+- **Trigger**: EPEX prices for tomorrow published
+  - **Contracts**: Main Street 1
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

@@ -1,17 +1,17 @@
 ---
 title: "EPEX hourly price became negative"
-trigger: engie_be.epex_hour_became_negative
+trigger: engie_be.epex_hour_price_became_negative
 domain: engie_be
-description: "Triggers when the hourly EPEX day-ahead price turns negative."
+description: "Triggers when the current hourly EPEX price of one or more contracts becomes negative."
 related_triggers:
-  - engie_be.epex_hour_no_longer_negative
-  - engie_be.epex_quarter_hour_became_negative
-  - engie_be.epex_quarter_hour_no_longer_negative
+  - engie_be.epex_hour_price_no_longer_negative
+  - engie_be.epex_quarter_hour_price_became_negative
+  - engie_be.epex_quarter_hour_price_no_longer_negative
 ---
 
 The **EPEX hourly price became negative** trigger fires when the current hourly EPEX price goes from zero or above to below zero.
 
-Use it to start loads such as an EV charger or a home battery when the hourly price turns negative. To stop them again, use [EPEX hourly price no longer negative](/triggers/engie_be.epex_hour_no_longer_negative/). To check the price when an automation runs, use the [EPEX hourly price is negative](/conditions/engie_be.epex_hour_price_is_negative/) condition.
+Use it to start loads such as an EV charger or a home battery when the hourly price turns negative. To stop them again, use [EPEX hourly price no longer negative](/triggers/engie_be.epex_hour_price_no_longer_negative/). To check the price when an automation runs, use the [EPEX hourly price is negative](/conditions/engie_be.epex_hour_price_is_negative/) condition.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
@@ -36,11 +36,11 @@ Contracts:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `engie_be.epex_hour_became_negative`. A basic example looks like this:
+In YAML, refer to this trigger as `engie_be.epex_hour_price_became_negative`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: engie_be.epex_hour_became_negative
+  trigger: engie_be.epex_hour_price_became_negative
   options:
     device_id: 0123456789abcdef0123456789abcdef
 {% endexample %}
@@ -65,12 +65,32 @@ device_id:
 - After the integration reloads, the price when it finishes loading sets a new baseline. When the price is unknown because a slot is missing or an update failed, the first known price sets it. The trigger does not fire on a baseline price.
 - Each selected device fires on its own. If you select two contracts of the same account, the trigger fires twice.
 - A price of exactly zero counts as not negative.
+- The automation trace and logbook show which event ran the automation, for example "hourly EPEX price became negative for Main Street 1, 1000 Brussels".
 
 ### Available trigger data
 
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variable:
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variables:
 
 - `trigger.device_id`: The device ID of the contract that fired the trigger.
+- `trigger.price`: The EPEX price in EUR/kWh that fired the trigger. This is the current price of the selected period.
+
+To put the price in a notification, use `trigger.price` in a template:
+
+{% example %}
+automation: |
+  alias: "Notify when the hourly price turns negative"
+  triggers:
+    - trigger: engie_be.epex_hour_price_became_negative
+      options:
+        device_id: 0123456789abcdef0123456789abcdef
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Negative electricity price"
+        message: "The hourly price is now {{ trigger.price }} EUR/kWh."
+{% endexample %}
 
 ## Try it yourself
 
@@ -93,7 +113,7 @@ When the price of the current hour turns negative, this automation starts the EV
 automation: |
   alias: "Charge the EV when the hourly price turns negative"
   triggers:
-    - trigger: engie_be.epex_hour_became_negative
+    - trigger: engie_be.epex_hour_price_became_negative
       options:
         device_id: 0123456789abcdef0123456789abcdef
   actions:

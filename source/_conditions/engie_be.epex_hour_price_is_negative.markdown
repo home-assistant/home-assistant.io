@@ -2,16 +2,16 @@
 title: "EPEX hourly price is negative"
 condition: engie_be.epex_hour_price_is_negative
 domain: engie_be
-description: "Tests if the current hourly EPEX price is negative."
+description: "Tests if the current hourly EPEX price of all selected contracts is negative."
 related_conditions:
   - engie_be.epex_quarter_hour_price_is_negative
-  - engie_be.epex_hour_price_meets_threshold
-  - engie_be.epex_quarter_hour_price_meets_threshold
+  - engie_be.epex_hour_price_is_in_range
+  - engie_be.epex_quarter_hour_price_is_in_range
 ---
 
 The **EPEX hourly price is negative** condition passes when the price of the electricity hour you are in is below zero.
 
-Use it to run an automation only during negative hours, for example to charge an EV or a home battery. To check the quarter-hourly price instead, use [EPEX quarter-hourly price is negative](/conditions/engie_be.epex_quarter_hour_price_is_negative/). To react the moment the price turns negative, use the [EPEX hourly price became negative](/triggers/engie_be.epex_hour_became_negative/) trigger.
+Use it to run an automation only during negative hours, for example to charge an EV or a home battery. To check the quarter-hourly price instead, use [EPEX quarter-hourly price is negative](/conditions/engie_be.epex_quarter_hour_price_is_negative/). To react the moment the price turns negative, use the [EPEX hourly price became negative](/triggers/engie_be.epex_hour_price_became_negative/) trigger.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
@@ -61,7 +61,7 @@ device_id:
 ## Good to know
 
 - Only contracts with a dynamic tariff have EPEX prices.
-- The condition passes only when every selected device has a confirmed dynamic tariff, known EPEX prices, and a current price that is negative.
+- The condition passes only when every selected contract has a confirmed dynamic tariff, known EPEX prices, and a current price that is negative.
 - The condition is checked when the automation runs.
 - A price of exactly zero is not negative.
 
@@ -71,7 +71,7 @@ device_id:
 
 ### Automation: start the EV charger in a negative hour
 
-At the start of every hour, this automation starts the EV charger, but only when the price of that hour is negative. This automation only starts charging. To stop it when the price goes up again, add a second automation with the [EPEX hourly price no longer negative](/triggers/engie_be.epex_hour_no_longer_negative/) trigger.
+At the start of every hour, this automation starts the EV charger, but only when the price of that hour is negative. This automation only starts charging. To stop it when the price goes up again, add a second automation with the [EPEX hourly price no longer negative](/triggers/engie_be.epex_hour_price_no_longer_negative/) trigger.
 
 - **Trigger**: Time pattern (every hour)
 - **Condition**: EPEX hourly price is negative

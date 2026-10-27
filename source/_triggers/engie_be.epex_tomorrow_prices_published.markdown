@@ -1,27 +1,27 @@
 ---
-title: "Tomorrow's EPEX prices published"
+title: "EPEX prices for tomorrow published"
 trigger: engie_be.epex_tomorrow_prices_published
 domain: engie_be
-description: "Triggers when the EPEX day-ahead prices for tomorrow become available."
+description: "Triggers when the EPEX prices for tomorrow are published for one or more contracts."
 related_triggers:
   - engie_be.epex_next_hour_crossed_threshold
   - engie_be.epex_next_quarter_hour_crossed_threshold
 ---
 
-The **Tomorrow's EPEX prices published** trigger fires when the hourly and the quarter-hourly EPEX prices both cover all of tomorrow, Brussels time.
+The **EPEX prices for tomorrow published** trigger fires when the hourly and the quarter-hourly EPEX prices both cover all of tomorrow, Brussels time.
 
-Use it to plan the next day, for example to get a notification or to schedule appliances for the cheapest hours.
+Use it to plan the next day, for example to get a notification or to schedule appliances for the cheapest hours. To check in a condition whether the prices for tomorrow are in, use the [EPEX tomorrow prices available](/integrations/engie_be/#binary-sensors) binary sensor.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
 {% include triggers/ui_header.md %}
 
-To use **Tomorrow's EPEX prices published** in an automation:
+To use **EPEX prices for tomorrow published** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Search for **Tomorrow's EPEX prices published** and select it.
+4. Search for **EPEX prices for tomorrow published** and select it.
 5. Under **Contracts**, select one or more of your contracts with a dynamic tariff.
 6. Select **Save**.
 
@@ -64,6 +64,7 @@ device_id:
 - After the integration reloads, the check when it finishes loading sets a new baseline. After a failed update, the first check sets it. If tomorrow's prices are already complete at that check, the trigger does not fire that day.
 - Each selected device fires on its own. If you select two contracts of the same account, the trigger fires twice.
 - The prices for tomorrow are usually published in the early afternoon, Brussels time. The trigger fires when tomorrow's prices become complete, normally once per day for each contract.
+- The automation trace and logbook show which event ran the automation, for example "EPEX prices for tomorrow published for Main Street 1, 1000 Brussels".
 
 ### Available trigger data
 
@@ -81,7 +82,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 
 This automation sends a notification once tomorrow's EPEX prices are published, so you can plan the next day.
 
-- **Trigger**: Tomorrow's EPEX prices published
+- **Trigger**: EPEX prices for tomorrow published
   - **Contracts**: Main Street 1
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

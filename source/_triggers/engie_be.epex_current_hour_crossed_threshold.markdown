@@ -2,18 +2,18 @@
 title: "EPEX current hourly price crossed threshold"
 trigger: engie_be.epex_current_hour_crossed_threshold
 domain: engie_be
-description: "Triggers when the current hourly EPEX price enters the configured range."
+description: "Triggers when the current hourly EPEX price of one or more contracts enters the configured range."
 related_triggers:
   - engie_be.epex_next_hour_crossed_threshold
   - engie_be.epex_next_quarter_hour_crossed_threshold
   - engie_be.epex_current_quarter_hour_crossed_threshold
-  - engie_be.epex_hour_became_negative
-  - engie_be.epex_hour_no_longer_negative
+  - engie_be.epex_hour_price_became_negative
+  - engie_be.epex_hour_price_no_longer_negative
 ---
 
 The **EPEX current hourly price crossed threshold** trigger fires when the current hourly EPEX price enters a price range you set, so when it goes from outside the range to inside it. On a dynamic tariff, the EPEX day-ahead auction sets a price for every hour of the day.
 
-Use it to start a dishwasher, a tumble dryer, or an EV charger when electricity gets cheap, or to get a warning when the price climbs above a ceiling. To act on the price of the next hour before it starts, use [EPEX next hourly price crossed threshold](/triggers/engie_be.epex_next_hour_crossed_threshold/). If your contract bills you per quarter hour, use [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/) instead. To check the price when an automation runs, use the [EPEX hourly price is in range](/conditions/engie_be.epex_hour_price_meets_threshold/) condition.
+Use it to start a dishwasher, a tumble dryer, or an EV charger when electricity gets cheap, or to get a warning when the price climbs above a ceiling. To act on the price of the next hour before it starts, use [EPEX next hourly price crossed threshold](/triggers/engie_be.epex_next_hour_crossed_threshold/). If your contract bills you per quarter hour, use [EPEX current quarter-hourly price crossed threshold](/triggers/engie_be.epex_current_quarter_hour_crossed_threshold/) instead. To check the price when an automation runs, use the [EPEX hourly price is in range](/conditions/engie_be.epex_hour_price_is_in_range/) condition.
 
 Only contracts with a dynamic tariff have EPEX prices. The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs, and they can be negative.
 
@@ -36,10 +36,10 @@ Contracts:
   description: The ENGIE Belgium contracts with a dynamic tariff to watch.
   required: true
 Above:
-  description: The price in EUR/kWh that the current hourly EPEX price must be above. Enter a number from -1 to 5.
+  description: Only match when the price is above this value, in EUR/kWh. Set Above, Below or both. Above must be lower than Below. Enter a number from -1 to 5.
   required: false
 Below:
-  description: The price in EUR/kWh that the current hourly EPEX price must be below. Enter a number from -1 to 5.
+  description: Only match when the price is below this value, in EUR/kWh. Set Above, Below or both. Below must be higher than Above. Enter a number from -1 to 5.
   required: false
 {% endoptions_ui %}
 
@@ -78,11 +78,11 @@ device_id:
   required: true
   type: [string, list]
 above:
-  description: The price in EUR/kWh that the current hourly EPEX price must be above. Set at least one of `above` and `below`. When you set both, `above` must be lower than `below`.
+  description: Only match when the price is above this value, in EUR/kWh. Set Above, Below or both. Above must be lower than Below. Enter a number from -1 to 5.
   required: false
   type: float
 below:
-  description: The price in EUR/kWh that the current hourly EPEX price must be below. Set at least one of `above` and `below`. When you set both, `above` must be lower than `below`.
+  description: Only match when the price is below this value, in EUR/kWh. Set Above, Below or both. Below must be higher than Above. Enter a number from -1 to 5.
   required: false
   type: float
 {% endoptions_yaml %}
@@ -96,12 +96,14 @@ below:
 - Each selected device fires on its own. If you select two contracts of the same account, the trigger fires twice.
 - Both comparisons are strict. With **Above** set to 0.10, a price of exactly 0.10 EUR/kWh is not in the range.
 - The trigger fires when the price enters the range. While the price stays in the range, it does not fire again.
+- The automation trace and logbook show which event ran the automation, for example "current hourly EPEX price crossed threshold for Main Street 1, 1000 Brussels".
 
 ### Available trigger data
 
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variable:
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variables:
 
 - `trigger.device_id`: The device ID of the contract that fired the trigger.
+- `trigger.price`: The EPEX price in EUR/kWh that fired the trigger. This is the current price of the selected period.
 
 ## Try it yourself
 
