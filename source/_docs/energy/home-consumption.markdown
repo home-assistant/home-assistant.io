@@ -24,4 +24,4 @@ Only one home meter can be configured.
 
 - The meter replaces the calculated total consumption of your home.
 - [Individual devices](/docs/energy/individual-devices/) remain a breakdown of this total. Consumption not covered by your devices is shown as untracked.
-- Grid, solar and battery values are still measured by their own sensors. If the home meter reads higher than the sum of your sources, the difference is attributed to the grid. If it reads lower, the difference is subtracted from the grid first, then the battery, then solar, so the breakdown always adds up to the total.
+- Grid, solar and battery values always come from their own sensors. The home meter doesn't change them. If the home meter reads higher than your sources, the difference is shown under your home's name in the energy usage graph. If it reads lower, the sources are still shown as measured.
