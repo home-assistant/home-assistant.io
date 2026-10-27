@@ -23,7 +23,7 @@ A target can be a single {% term entity %}, or a group of entities, such as all 
 You can use one or more targets in a trigger, condition, or action. You can also combine different target types, for example, one entity and an entire area.
 
 - **Entity**: That one entity, for example, the hallway light.
-- **Device**: The matching entities of that {% term device %}. If the device has [sub-devices](/docs/configuration/customizing-devices/#about-parent-devices-and-sub-devices), such as the outlets of a power strip, their matching entities are part of the target as well.
+- **Device**: The matching entities of that {% term device %}. If the device has [sub-devices](/docs/configuration/customizing-entities/#about-parent-devices-and-sub-devices), such as the outlets of a power strip, their matching entities are part of the target as well.
 - **Area**: The matching entities in that area.
 - **Floor**: The matching entities in all areas on that {% term floor %}.
 - **Label**: The matching entities that have that {% term label %}. If the label is on a device or an area, the matching entities of that device or area are part of the target as well.
@@ -58,7 +58,7 @@ The following entities are not part of a target because of what the trigger, con
 The following entities are not part of a target because of how they are set up:
 
 - Entities that you assigned to a different area than their device, when you target the area of the device. These entities belong to their own area only.
-- [Hidden entities](/docs/configuration/customizing-devices/#hidden-entities). For example, if an action turns on all lights in the living room, a hidden light in that room stays off. To hide or show an entity, refer to [Hiding an entity](/docs/configuration/customizing-devices/#hiding-an-entity).
+- [Hidden entities](/docs/configuration/customizing-entities/#hidden-entities). For example, if an action turns on all lights in the living room, a hidden light in that room stays off. To hide or show an entity, refer to [Hiding an entity](/docs/configuration/customizing-entities/#hiding-an-entity).
 - Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.
   - Battery triggers and conditions, such as [Battery became low](/triggers/battery.became_low/) and [Battery is low](/conditions/battery.is_low/), are an exception. They include configuration and diagnostic entities, because many devices show their battery as a diagnostic entity.
 

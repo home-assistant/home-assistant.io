@@ -1,12 +1,7 @@
 ---
-title: Notifications
 description: Instructions on how to add user notifications to Home Assistant.
 ha_release: 0.7
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: notify
-ha_integration_type: entity
 ---
 
 The **Notify** {% term integration %} makes it possible to send notifications to a wide variety of platforms. To use it, you have to set up at least one notification target (notifier). Check the [integrations list](/integrations/#notifications) for one that fits your use case.

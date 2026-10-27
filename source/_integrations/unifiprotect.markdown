@@ -1,32 +1,7 @@
 ---
-title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
-ha_categories:
-  - security_safety.cameras
-  - security_safety.doorbells_intercoms
 ha_release: 2022.2
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: unifiprotect
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - event
-  - light
-  - media_player
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - text
-ha_integration_type: hub
-ha_codeowners:
-  - '@RaHehl'
-ha_quality_scale: platinum
 ---
 
 The **UniFi Protect** {% term integration %} adds support for retrieving camera feeds and sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
@@ -218,7 +193,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - configuration switches Overlay Information, Smart Detections types, Status Light, High FPS mode, System Sounds
   - configuration select for HDR mode (Auto, Always on, Always off)
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
-- **Button** - A [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
+- **Button** - A [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
 
 #### PTZ cameras
 

@@ -1,12 +1,7 @@
 ---
-title: Remote
 description: Instructions on how to set up your remotes with Home Assistant.
 ha_release: 0.34
 ha_domain: remote
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 The **Remote** {% term integration %} manages remote entities and lets you control devices through them.

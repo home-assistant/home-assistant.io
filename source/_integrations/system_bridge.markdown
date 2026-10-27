@@ -1,22 +1,7 @@
 ---
-title: System Bridge
 description: How to integrate the System Bridge integration into Home Assistant.
-ha_categories:
-  - computers_network.monitoring
 ha_release: 2021.6
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@timmo001'
 ha_domain: system_bridge
-ha_platforms:
-  - binary_sensor
-  - media_player
-  - notify
-  - sensor
-  - update
-ha_zeroconf: true
-ha_integration_type: device
 ---
 
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
@@ -53,6 +38,8 @@ This integration provides the following sensors:
 | Battery                   | Battery level of the device                                       |
 | Boot Time                 | Time the device was turned on                                     |
 | CPU Speed                 | The current CPU speed                                             |
+| Disk Read Rate            | Total read rate across all disks                                  |
+| Disk Write Rate           | Total write rate across all disks                                 |
 | Displays Connected        | Number of displays connected                                      |
 | Display Resolution X      | Display resolution (across)                                       |
 | Display Resolution Y      | Display resolution (down)                                         |
@@ -82,6 +69,8 @@ These sensors are also available, but are not enabled by default:
 | ----------------------- | ------------------------------------------------ |
 | CPU Temperature         | The current temperature of the CPU               |
 | CPU Voltage             | The current voltage of the CPU                   |
+| Per-disk Read Rate      | Read rate of each disk                           |
+| Per-disk Write Rate     | Write rate of each disk                          |
 | GPU Core Clock Speed    | GPU core clock speed in MHz                      |
 | GPU Memory Clock Speed  | GPU memory clock speed in MHz                    |
 | GPU Fan Speed           | GPU fan speed percentage                         |
@@ -98,6 +87,8 @@ These sensors are also available, but are not enabled by default:
 Load average sensors are only added on devices that report a load average.
 
 Network interface sensors are named after the interface, such as `eth0 download rate`. The download and upload rate sensors show Mbit/s by default, and you can change the unit in the entity settings. Loopback interfaces are left out, and sensors for an interface that appears later, such as a USB network adapter, are added when it first shows up. The Wi-Fi sensors are unknown while the interface isn't connected, and aren't available on macOS.
+
+Per-disk sensors are named after the disk, such as `/dev/sda1 read rate`. They're only added for disks that report read and write activity, and a disk that appears later, such as a USB drive, gets its sensors when it first shows up.
 
 ## Media player
 

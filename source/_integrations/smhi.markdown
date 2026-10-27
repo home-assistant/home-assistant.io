@@ -1,18 +1,7 @@
 ---
-title: SMHI
 description: Show SMHI weather forecasts, thunder probability, and fire risk for locations in Sweden in Home Assistant.
-ha_categories:
-  - weather_alerts.forecasts
 ha_release: 0.81
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: smhi
-ha_platforms:
-  - sensor
-  - weather
-ha_codeowners:
-  - '@gjohansson-ST'
-ha_integration_type: service
 ---
 
 The **SMHI** {% term integration %} brings weather forecasts and fire risk forecasts from [SMHI](https://www.smhi.se/), the Swedish Meteorological and Hydrological Institute, into Home Assistant. Use it to show the weather and forecasts for your home on your dashboard, or to get notified when thunder or a high fire risk is expected.
@@ -73,7 +62,7 @@ The **SMHI** integration provides the following entities for each location.
 - **Total cloud coverage**
   - **Description**: The mean value of total cloud cover.
   - **Unit**: %
-  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Low cloud coverage**
   - **Description**: The mean value of low-level cloud cover.
   - **Unit**: %
@@ -89,7 +78,7 @@ The **SMHI** integration provides the following entities for each location.
 
 ### Fire risk sensors
 
-All fire risk sensors are disabled by default. To use them, [enable the sensors](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) you need.
+All fire risk sensors are disabled by default. To use them, [enable the sensors](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) you need.
 
 - **FWI index**
   - **Description**: The fire weather index (FWI) as a risk level.

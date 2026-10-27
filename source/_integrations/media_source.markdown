@@ -1,14 +1,9 @@
 ---
-title: Media source
 description: Instructions on how to access your media with Home Assistant.
 ha_release: 0.115
 ha_domain: media_source
 ha_categories:
   - media_entertainment
-ha_codeowners:
-  - '@hunterjm'
-ha_quality_scale: internal
-ha_integration_type: system
 related:
   - docs: /more-info/local-media/setup-media/
     title: Setting up local media sources
@@ -108,9 +103,9 @@ The list of players shows **Web browser** first. After that, it only shows media
 Check which of the following situations applies to the player:
 
 - The entity of the player is hidden.
-  - To show it again, turn on **Visible** in its settings. For the steps, refer to [Hiding an entity](/docs/configuration/customizing-devices/#hiding-an-entity).
+  - To show it again, turn on **Visible** in its settings. For the steps, refer to [Hiding an entity](/docs/configuration/customizing-entities/#hiding-an-entity).
 - The entity of the player is disabled.
-  - To enable it, refer to [Disabling or enabling an entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - To enable it, refer to [Disabling or enabling an entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - The player is visible and enabled, but still missing from the list.
   - The player doesn't support browsing its media. You can still play media on it, for example, with the [**Play specified media**](/actions/media_player.play_media/) action.
 

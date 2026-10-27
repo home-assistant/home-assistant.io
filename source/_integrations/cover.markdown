@@ -1,12 +1,7 @@
 ---
-title: Cover
 description: Instructions on how to integrate covers into Home Assistant.
 ha_release: 0.27
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: cover
-ha_integration_type: entity
 related:
   - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
@@ -81,7 +76,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 If a cover shows up as the wrong type, for example as a window instead of a garage door, you can change its device class.
 
-You can only change the device class in the UI if the cover has a unique ID. A cover without a unique ID shows a message in its entity settings instead. For such a cover, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
+You can only change the device class in the UI if the cover has a unique ID. A cover without a unique ID shows a message in its entity settings instead. For such a cover, you can change the device class in YAML with [customization](/docs/configuration/customizing-entities/#customizing-an-entity-in-yaml).
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the cover.
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
