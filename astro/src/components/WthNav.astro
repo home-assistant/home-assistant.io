@@ -1,13 +1,78 @@
 ---
-// The in-page navigation pills on the Month of "What the Heck?!"
-// page, which jump to the sections below the hero.
+// The pill row under the site header, which jumps to the sections of the
+// Month of "What the Heck?!" page.
+//
+// Replaces source/wth/components/_nav.html and the `#nav` and `.nav-pill`
+// rules in sass/homeassistant/pages/wth/_sections.scss.
+//
+// Fidelity: revamp. Same pills and targets; sizes from the theme.
+
+import "../styles/tokens.scss";
+import "../styles/wth.scss";
+const links = [
+  { href: "#moments", label: "What it is" },
+  { href: "#everyone", label: "Who" },
+  { href: "#how-it-works", label: "Tips" },
+  { href: "#fix", label: "Fix a WTH" },
+];
 ---
 
-<section id="nav">
-  <div class="nav-pills">
-    <a href="#moments" class="nav-pill">What it is</a>
-    <a href="#everyone" class="nav-pill">Who</a>
-    <a href="#how-it-works" class="nav-pill">Tips</a>
-    <a href="#fix" class="nav-pill">Fix a WTH</a>
-  </div>
-</section>
+<nav id="nav" aria-label="On this page">
+  <ul>
+    {
+      links.map((link) => (
+        <li>
+          <a href={link.href}>{link.label}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  /* The row needs air on both sides: it sits between the site header above
+     and the hero card below, and crowds both without it. */
+  nav {
+    padding-block: var(--space-xlarge);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-medium);
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    background-color: var(--wth-wash);
+    border-radius: var(--radius-pill);
+    color: var(--wth-ink);
+    display: block;
+    font-size: var(--font-size-medium);
+    font-weight: 500;
+    padding: var(--space-small) var(--space-large);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: var(--wth-mint);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--wth-focus);
+      outline-offset: 3px;
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    nav {
+      padding-block: var(--space-xxlarge);
+    }
+  }
+</style>

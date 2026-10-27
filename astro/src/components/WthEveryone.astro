@@ -1,55 +1,196 @@
 ---
-// "We want to hear from everyone": who the month is for, ending with
-// the card of questions to ask the rest of the household.
+// "We want to hear from everyone": who the month is for, ending with the
+// wide card of questions to ask the rest of the household.
+//
+// Replaces source/wth/components/_everyone.html and the `#everyone` and
+// `.homework-card` rules in sass/homeassistant/pages/wth/_sections.scss.
+//
+// Fidelity: revamp. Same cards and copy; the grid follows the space
+// available, and the sizes come from the theme.
+import "../styles/tokens.scss";
+import "../styles/wth.scss";
+import WthSection from "./WthSection.astro";
+import WthButton from "./WthButton.astro";
 import WthIcon from "./WthIcon.astro";
 import { forumUrl } from "../lib/wth.mjs";
+
+const audiences = [
+  {
+    icon: "mdi:star-four-points-outline",
+    title: "New to Home Assistant?",
+    text: "Post your “huh?” before you get used to it.",
+  },
+  {
+    icon: "mdi:sofa-outline",
+    title: "Don’t want to tinker, just want it to work?",
+    text: "Tell us where it doesn’t.",
+  },
+  {
+    icon: "mdi:home-heart",
+    title: "Living with someone else’s setup?",
+    text: "We hear from you least, and learn from you most.",
+  },
+];
+
+const questions = [
+  "What annoys you most about using Home Assistant?",
+  "Where do you get lost in the app?",
+  "When the house does something unexpected, do you know why?",
+  "What would you change yourself, if you knew how?",
+  "If you could change one thing, what would it be?",
+];
 ---
 
-<section id="everyone">
-  <div class="container">
-    <div class="content">
-      <h2>We want to hear from everyone</h2>
+<WthSection id="everyone" tone="band" heading="We want to hear from everyone">
+  <ul class="audiences">
+    {
+      audiences.map((audience) => (
+        <li class="card">
+          <span class="icon" aria-hidden="true">
+            <WthIcon name={audience.icon} />
+          </span>
+          <h3>{audience.title}</h3>
+          <p>{audience.text}</p>
+        </li>
+      ))
+    }
+  </ul>
 
-      <div class="audience-grid">
-        <article class="audience-card">
-          <span class="audience-icon" aria-hidden="true"><WthIcon name="mdi:star-four-points-outline" /></span>
-          <h3>New to Home Assistant?</h3>
-          <p>Post your “huh?” before you get used to it.</p>
-        </article>
-        <article class="audience-card">
-          <span class="audience-icon" aria-hidden="true"><WthIcon name="mdi:sofa-outline" /></span>
-          <h3>Don’t want to tinker, just want it to work?</h3>
-          <p>Tell us where it doesn’t.</p>
-        </article>
-        <article class="audience-card">
-          <span class="audience-icon" aria-hidden="true"><WthIcon name="mdi:home-heart" /></span>
-          <h3>Living with someone else’s setup?</h3>
-          <p>We hear from you least, and learn from you most.</p>
-        </article>
-        <article id="homework" class="audience-card homework-card">
-          <div class="homework-intro">
-            <span class="audience-icon" aria-hidden="true"><WthIcon name="mdi:account-group-outline" /></span>
-            <h3>Get the whole home talking</h3>
-            <p>Home Assistant should work for everyone, not just whoever set it up. Find out if it does with a little gentle questioning:</p>
-          </div>
-
-          <div class="homework-answers">
-            <ul class="homework-questions">
-              <li>What annoys you most about using Home Assistant?</li>
-              <li>Where do you get lost in the app?</li>
-              <li>When the house does something unexpected, do you know why?</li>
-              <li>What would you change yourself, if you knew how?</li>
-              <li>If you could change one thing, what would it be?</li>
-            </ul>
-
-            <p>Then help them share their answers in their own words as a WTH.</p>
-            <a class="button primary" href={forumUrl} target="_blank" rel="noopener">
-              Share now
-              <span class="icon-inline" aria-hidden="true"><WthIcon name="mdi:arrow-right" /></span>
-            </a>
-          </div>
-        </article>
-      </div>
+  <article id="homework" class="card household">
+    <div>
+      <span class="icon" aria-hidden="true">
+        <WthIcon name="mdi:account-group-outline" />
+      </span>
+      <h3>Get the whole home talking</h3>
+      <p>
+        Home Assistant should work for everyone, not just whoever set it up.
+        Find out if it does with a little gentle questioning:
+      </p>
     </div>
-  </div>
-</section>
+
+    <div class="answers">
+      <ul class="questions">
+        {questions.map((question) => <li>{question}</li>)}
+      </ul>
+      <p>Then help them share their answers in their own words as a WTH.</p>
+      <WthButton href={forumUrl} external arrow>Share now</WthButton>
+    </div>
+  </article>
+</WthSection>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  .audiences {
+    display: grid;
+    gap: var(--space-medium);
+    grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+    list-style: none;
+    margin: var(--space-xxlarge) 0 0;
+    padding: 0;
+  }
+
+  .card {
+    background-color: var(--wth-surface);
+    border: 1px solid var(--wth-wash-edge);
+    border-radius: var(--radius-large);
+    padding: var(--space-xlarge);
+
+    h3 {
+      color: var(--wth-ink);
+      font-size: var(--font-size-xlarge);
+      font-weight: 700;
+      line-height: 1.25;
+      margin: var(--space-medium) 0 0;
+    }
+
+    p {
+      color: var(--wth-ink-soft);
+      font-size: var(--font-size-large);
+      line-height: 1.55;
+      margin: var(--space-small) 0 0;
+    }
+  }
+
+  /* The icons are <iconify-icon> elements, which size from font-size. */
+  .icon {
+    align-items: center;
+    background-color: var(--wth-mint);
+    border-radius: 50%;
+    color: var(--wth-ink);
+    display: inline-flex;
+    font-size: var(--font-size-xxlarge);
+    height: 3rem;
+    justify-content: center;
+    width: 3rem;
+  }
+
+  .household {
+    display: grid;
+    gap: var(--space-xxlarge);
+    margin-top: var(--space-medium);
+  }
+
+  .answers > p {
+    color: var(--wth-ink-soft);
+    font-size: var(--font-size-large);
+    line-height: 1.55;
+    margin: var(--space-xlarge) 0 0;
+  }
+
+  .questions {
+    display: grid;
+    gap: var(--space-medium);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      border-bottom: 1px solid var(--wth-border);
+      color: var(--wth-ink);
+      font-size: var(--font-size-large);
+      font-weight: 500;
+      line-height: 1.55;
+      padding-bottom: var(--space-medium);
+      padding-left: var(--space-xlarge);
+      position: relative;
+
+      &::before {
+        background-color: var(--wth-mint);
+        border-radius: 50%;
+        content: "";
+        height: 0.625rem;
+        left: 0;
+        position: absolute;
+        top: 0.5rem;
+        width: 0.625rem;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .household :global(.button) {
+    margin-top: var(--space-xlarge);
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    .audiences {
+      gap: var(--space-large);
+    }
+
+    .household {
+      margin-top: var(--space-large);
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .household {
+      gap: var(--space-xxlarge);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

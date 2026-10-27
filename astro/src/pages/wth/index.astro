@@ -2,15 +2,18 @@
 // The Month of "What the Heck?!" page, /wth/.
 //
 // Ports source/wth/index.html and the sections it includes from
-// source/wth/components/. Both stacks build the page while the
-// migration runs, and both read the same stylesheet
-// (sass/homeassistant/pages/wth/, see src/styles/wth.scss) and the same
-// scripts under /javascripts/wth/, so the two stay in step.
+// source/wth/components/. Jekyll keeps building the page as the fallback
+// while the migration runs, but the styling here is the Astro build's own
+// (components, scoped SCSS, theme tokens) rather than the Jekyll
+// stylesheet, so a change of design has to be made on both sides until
+// the Jekyll page goes.
 //
-// A page of its own rather than the `pages` collection: it is a
-// designed landing page, not Markdown in the site's reading column. It
-// keeps the site header and footer, as the Jekyll page does, but
-// nothing else from the Page layout.
+// A page of its own rather than the `pages` collection: it is a designed
+// landing page, not Markdown in the site's reading column. It keeps the
+// site header and footer, as the Jekyll page does.
+//
+// The campaign's palette and scale are in src/styles/wth.scss, which the
+// components import the way they import the site's tokens.
 import SiteHead from "../../components/SiteHead.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
@@ -22,6 +25,7 @@ import WthTips from "../../components/WthTips.astro";
 import WthFix from "../../components/WthFix.astro";
 import WthCta from "../../components/WthCta.astro";
 import { release } from "../../lib/site.mjs";
+import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 
 const title = "Month of 'What the Heck?!' 2026";
@@ -43,8 +47,8 @@ const description =
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
     />
-    <!-- The icons on this page are <iconify-icon> elements, as they are
-         on the Jekyll page; see WthIcon.astro. -->
+    <!-- The icons on this page are <iconify-icon> elements, as they are on
+         the Jekyll page; see WthIcon.astro. -->
     <script
       is:inline
       src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
@@ -73,25 +77,21 @@ const description =
       />
     </div>
 
-    <main id="page-wth">
-      <div class="container-full">
-        <WthNav />
-        <WthHero />
-        <WthMoments />
-        <div class="wth-band">
-          <WthEveryone />
-        </div>
-        <WthTips />
-        <WthFix />
-        <WthCta />
-      </div>
+    <main class="wth">
+      <WthNav />
+      <WthHero />
+      <WthMoments />
+      <WthEveryone />
+      <WthTips />
+      <WthFix />
+      <WthCta />
     </main>
 
     <SiteFooter />
 
     <script>
-      // The links in the pills and the hero scroll rather than jump.
-      // The Jekyll `landingpage` layout does the same.
+      // The links in the pills and the hero scroll rather than jump, as the
+      // Jekyll `landingpage` layout does.
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", (event) => {
           const href = anchor.getAttribute("href");
@@ -106,6 +106,18 @@ const description =
   </body>
 </html>
 
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  .wth {
+    background-color: var(--wth-page);
+    color: var(--wth-ink);
+    font-family: var(--font-heading);
+    /* The hero card and the artwork in it reach past the page edge. */
+    overflow-x: clip;
+  }
+</style>
+
 <style is:global>
   html {
     /* Clears the header, which stays on top as the page scrolls. */
@@ -113,6 +125,7 @@ const description =
   }
 
   body {
+    background: var(--color-page);
     margin: 0;
   }
 

@@ -1,14 +1,20 @@
 ---
-// The closing card's background, exported from Figma as SVG
-// (What The Heck 2026, node 14:37) and cleaned up by hand: each dashed line
-// came out as separate segments and is drawn here as one dashed path, with
-// its short end caps kept apart.
+// The closing card's background, exported from Figma as SVG (What The Heck
+// 2026, node 14:37) and cleaned up by hand: each dashed line came out as
+// separate segments and is drawn here as one dashed path, with its short
+// end caps kept apart.
 //
 // Lines marked `wth-flow` get a pulse that travels along them as the page
-// scrolls, and lines marked `wth-flow wth-flow--dashed` march their dashes;
-// see source/javascripts/wth/flow-lines.js. The nodes, the card and the end
-// caps stay still. The nodes and the card are marked `wth-flow-shapes`, so
-// the pulses run underneath them.
+// scrolls, and lines marked `wth-flow wth-flow--dashed` march their
+// dashes; see source/javascripts/wth/flow-lines.js, which reads the width
+// the artwork shows at from `data-flow-shown`. The nodes, the card and the
+// end caps stay still. The nodes and the card are marked
+// `wth-flow-shapes`, so the pulses run underneath them.
+//
+// Fidelity: copy. The drawing and its motion are the campaign's artwork,
+// carried over unchanged; only the wrapper is restyled.
+import "../styles/tokens.scss";
+import "../styles/wth.scss";
 ---
 
 <div class="wth-cta-bg" data-flow-shown="(min-width: 1024px)" aria-hidden="true">
@@ -83,3 +89,37 @@
     </defs>
   </svg>
 </div>
+
+<style>
+  /* One group of lines on each edge, placed as in the design and clipped
+     by the card. They show only where there is room beside the copy --
+     the width the drawing needs rather than a site breakpoint, and the
+     same value flow-lines.js reads from `data-flow-shown` above. */
+  .wth-cta-bg {
+    display: none;
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .wth-cta-bg :global(svg) {
+    display: block;
+    position: absolute;
+    top: -1.894rem;
+  }
+
+  .wth-cta-bg :global(.wth-cta-bg__left) {
+    left: -2.861rem;
+  }
+
+  .wth-cta-bg :global(.wth-cta-bg__right) {
+    right: -2.299rem;
+  }
+
+  @media only screen and (min-width: 64rem) {
+    .wth-cta-bg {
+      display: block;
+    }
+  }
+</style>

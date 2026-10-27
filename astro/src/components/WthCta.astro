@@ -1,23 +1,97 @@
 ---
-// The closing call to action.
-import WthIcon from "./WthIcon.astro";
+// The closing call to action: a mint card with the campaign's flow lines
+// behind it.
+//
+// Replaces source/wth/components/_cta.html and the `#cta` rules in
+// sass/homeassistant/pages/wth/_sections.scss.
+//
+// Fidelity: revamp. Same card, copy and artwork; spacing and the radius
+// come from the theme.
+import "../styles/tokens.scss";
+import "../styles/wth.scss";
+import WthButton from "./WthButton.astro";
 import WthCtaBackground from "./WthCtaBackground.astro";
 import { forumUrl } from "../lib/wth.mjs";
 ---
 
 <section id="cta">
-  <div class="container">
-    <div class="content">
-      <div class="cta-card">
-        <WthCtaBackground />
+  <div class="content">
+    <div class="card">
+      <WthCtaBackground />
 
-        <h2>So, what the heck?!</h2>
-        <p>Whether you’ve run Home Assistant since the early days, installed it last week, or simply live with someone who won’t stop talking about it: this is <em>your</em> month!</p>
-        <a class="button primary" href={forumUrl} target="_blank" rel="noopener">
-          Share your WTH
-          <span class="icon-inline" aria-hidden="true"><WthIcon name="mdi:arrow-right" /></span>
-        </a>
-      </div>
+      <h2>So, what the heck?!</h2>
+      <p>
+        Whether you’ve run Home Assistant since the early days, installed it
+        last week, or simply live with someone who won’t stop talking about it:
+        this is <em>your</em> month!
+      </p>
+      <WthButton href={forumUrl} external arrow>Share your WTH</WthButton>
     </div>
   </div>
 </section>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  section {
+    background-color: var(--wth-surface);
+    padding-block: var(--wth-section-space);
+  }
+
+  .content {
+    margin-inline: auto;
+    max-width: var(--wth-measure);
+    padding-inline: var(--wth-gutter);
+  }
+
+  .card {
+    background-color: var(--wth-mint);
+    border-radius: var(--radius-large);
+    isolation: isolate;
+    overflow: hidden;
+    padding: var(--space-xxlarge) var(--space-xlarge);
+    position: relative;
+    text-align: center;
+  }
+
+  h2 {
+    color: var(--wth-ink-base);
+    font-size: var(--wth-font-size-heading);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  p {
+    color: var(--wth-on-mint-soft);
+    font-size: var(--font-size-large);
+    line-height: 1.55;
+    margin: var(--space-large) auto 0;
+    max-width: 54ch;
+  }
+
+  /* On mint, the button inverts: ink by default, white on hover. */
+  .card :global(.button) {
+    background-color: var(--wth-ink-base);
+    color: var(--wth-on-ink);
+    margin-top: var(--space-xlarge);
+
+    &:hover {
+      background-color: var(--wth-on-ink);
+      color: var(--wth-ink-base);
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    .content {
+      padding-inline: var(--wth-gutter-wide);
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .card {
+      padding-block: 4.5rem;
+    }
+  }
+</style>

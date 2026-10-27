@@ -3,11 +3,16 @@
 // (Social Media Templates, node 1872:506) and cleaned up by hand.
 //
 // Lines marked `wth-flow` get a pulse that travels along them as the page
-// scrolls, and lines marked `wth-flow wth-flow--dashed` march their dashes;
-// see source/javascripts/wth/flow-lines.js. Everything else, the nodes,
-// the cards and the short end caps beside the dashed lines, stays still. The
-// nodes and cards are marked `wth-flow-shapes`, so the pulses run underneath
-// them.
+// scrolls, and lines marked `wth-flow wth-flow--dashed` march their
+// dashes; see source/javascripts/wth/flow-lines.js, which reads the width
+// the artwork shows at from `data-flow-shown`. Everything else -- the
+// nodes, the cards and the short end caps beside the dashed lines --
+// stays still.
+//
+// Fidelity: copy. The drawing and its motion are the campaign's artwork,
+// carried over unchanged; only the wrapper is restyled.
+import "../styles/tokens.scss";
+import "../styles/wth.scss";
 ---
 
 <div class="wth-hero-bg" data-flow-shown="(min-width: 768px)" aria-hidden="true">
@@ -162,3 +167,34 @@
     </defs>
   </svg>
 </div>
+
+<style>
+  /* Anchored to the right, where the artwork is busiest. Phones get the
+     gradient alone: the lines crowd the wordmark and the copy there.
+     Deliberately not a site breakpoint -- it is the width the drawing
+     needs, and flow-lines.js reads the same value from
+     `data-flow-shown` above. */
+  .wth-hero-bg {
+    display: none;
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .wth-hero-bg :global(svg) {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .wth-hero-bg :global(.wth-hero-bg__art) {
+    opacity: 0.4;
+  }
+
+  @media only screen and (min-width: 48rem) {
+    .wth-hero-bg {
+      display: block;
+    }
+  }
+</style>
