@@ -491,6 +491,8 @@ To create the virtual machine, follow the instructions for the hypervisor you us
     reboot
     ```
 
+    This removes the saved settings of all network interfaces, not only the one that changed. This includes saved Wi-Fi networks and static IP addresses. After the restart, set them up again. For the steps, refer to [Network](/docs/configuration/network/).
+
     Home Assistant OS creates a new default DHCP profile for the new interface during boot. The MAC address stays the same, so an existing DHCP reservation keeps working.
 {% endif %}
 {% if page.installation_type == 'windows' %}
