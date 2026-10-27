@@ -32,7 +32,7 @@ The **Met Office** weather {% term integration %} uses the Met Office's [DataHub
 API Key:
   description: The API key provided by the Met Office when subscribing to the Site Specific Global Spot dataset.
 Location:
-  description: The weather forecast location.
+  description: The weather forecast location. It defaults to your home location. To use a different location, drag the marker on the map.
 {% endconfiguration_basic %}
 
 Details about the <abbr title="Application Programming Interface">API</abbr> are available in the [DataHub API documentation](https://datahub.metoffice.gov.uk/docs/f/category/site-specific/overview). The [datapoint-python](https://github.com/EJEP/datapoint-python) library is used to retrieve data.
