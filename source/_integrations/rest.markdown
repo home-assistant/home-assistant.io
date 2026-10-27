@@ -32,6 +32,80 @@ RESTful uses configuration subentries for configuring the sensors.
 
 {% endnote %}
 
+### RESTful Resource Configuration
+
+{% configuration_basic %}
+Resource:
+  description: "The resource or endpoint URL, supports templates. Example: `https://{{ \"example.com\" }}/resource`."
+Method:
+  description: "The HTTP method of the request. Only `GET` or `POST` supported."
+HTTP authentication:
+  description: "Type of the HTTP authentication."
+Username:
+  description: "Endpoint username."
+Password:
+  description: "Endpoint password, required if username specified."
+HTTP Headers:
+  description: "HTTP headers as key/value pairs, values support templates. Can support header authorization `Authorization: Bearer **auth_code**`."
+Query Parameters:
+  description: "Key/value pairs, values support templates."
+JSON payload:
+  description: "Body of `POST` requests, supports templates."
+SSL cipher list:
+  description: "The list of SSL ciphers to be accepted from this endpoint. `Python Default` (default), `Modern` or `Intermediate` (_see [Mozilla Security/Server Side TLS](https://docs.tlsref.org/server-side-tls.html)_)."
+Verify SSL:
+  description: "Verify the SSL certificates of the connection."
+Timeout:
+  description: "Timeout in seconds for endpoint response."
+Encoding:
+  description: "Encoding of the endpoint response, defaults to `UTF-8`."
+{% endconfiguration_basic %}
+
+### RESTful Subentry Configuration
+
+[RESTful Binary Sensors](#restful-binary-sensor-configuration) and [RESTful Sensors](#restful-sensor-configuration) share these common attributes:
+
+{% configuration_basic %}
+Name:
+  description: "Entity name, supports templates, default:  `RESTful Binary Sensor` or `RESTful Sensor`."
+Icon:
+  description:  "Entity icon, supports templates."
+Picture:
+  description:  "Entity picture, supports templates."
+Value template:
+  description: "Defines a [template](#templates) to extract the value."
+Force update:
+  description: "Sends update events even if the value hasn’t changed. Useful if you want to have meaningful value graphs in history. _See [Data Updates](../sensor.rest#force-update) for more information_."
+Availability:
+  description: "Defines a template to get the available state of the entity. If the template either fails to render or returns `True`, `1`, `true`, `yes`, `on`, `enable`, or a non-zero number, the entity is available. If the template returns any other value, the entity is unavailable. If not configured, the entity is always available. Note that the string comparison is not case sensitive; `TrUe` and `yEs` are allowed."
+{% endconfiguration_basic %}
+
+#### RESTful Binary Sensor Configuration
+
+Attributes specific to binary sensor:
+
+{% configuration_basic %}
+Device class:
+  description: "The [device class](../binary_sensor/#device-class) used to pick the sensor’s on/off wording and icon."
+{% endconfiguration_basic %}
+
+#### RESTful Sensor Configuration
+
+Attributes specific to sensor:
+
+{% configuration_basic %}
+Device class:
+  description: "The [device class](../sensor/#device-class) used to pick the sensor’s on/off wording and icon."
+State class:
+  description: "The [state class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor."
+Unit of measurement:
+  description: "The unit of measurement for the class. Will filter based on `device class` and `state class` selections."
+JSON attributes:
+  description: "A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the `text/xml`, `application/xml` or `application/xhtml+xml` content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)"
+JSON attributes path:
+  description: "A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `JSON attributes` in the JSON content."
+{% endconfiguration_basic %}
+
 ## YAML Configuration
 
 To enable this {% term integration %} using YAML, add the following lines to your {% term "`configuration.yaml`" %} file.
@@ -155,7 +229,7 @@ verify_ssl:
   type: boolean
   default: true
 ssl_cipher_list:
-  description: The list of SSL ciphers to be accepted from this endpoint. `python_default` (_default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
+  description: The list of SSL ciphers to be accepted from this endpoint. `python_default` (_default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://docs.tlsref.org/server-side-tls.html)_).
   required: false
   type: string
   default: default
