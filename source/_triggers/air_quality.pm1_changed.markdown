@@ -47,7 +47,7 @@ This fires whenever the living room PM1 sensor reading changes to a value above 
 {% include triggers/threshold_changed_options_yaml.md
    unit_phrase_yaml="literal value in μg/m³" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="PM1 sensor" example="sensor.living_room_pm1" %}
 
 ## Good to know
 

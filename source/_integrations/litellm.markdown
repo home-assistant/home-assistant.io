@@ -1,19 +1,7 @@
 ---
-title: LiteLLM
 description: Instructions on how to integrate a LiteLLM proxy as a conversation agent and speech-to-text service in Home Assistant
-ha_categories:
-  - ai_voice.ai_models
 ha_release: 2026.8
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@luismalves'
 ha_domain: litellm
-ha_integration_type: service
-ha_platforms:
-  - conversation
-  - stt
-ha_quality_scale: bronze
 ---
 
 The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use a LiteLLM proxy as a conversation agent or [speech-to-text](/integrations/stt/) service in Home Assistant.

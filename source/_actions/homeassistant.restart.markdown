@@ -7,6 +7,9 @@ related_actions:
   - homeassistant.stop
   - homeassistant.check_config
   - homeassistant.reload_all
+related:
+  - docs: /common-tasks/general/restarting/#restarting-home-assistant
+    title: Restarting Home Assistant
 ---
 
 Use this action to restart Home Assistant. Before it restarts, Home Assistant checks the configuration. If the check fails, the restart is canceled so you are not left with a broken setup. A common use is to apply changes that only take effect after a full restart.

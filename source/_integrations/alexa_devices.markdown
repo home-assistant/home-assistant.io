@@ -1,5 +1,4 @@
 ---
-title: Alexa Devices
 description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_categories:
   - ai_voice.voice_assistants
