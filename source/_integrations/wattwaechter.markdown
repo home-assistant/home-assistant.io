@@ -46,7 +46,8 @@ The WattWächter Plus provides sensors that are based on your smart meter's repo
 ### Power sensors
 
 - **Active power (W)**: Current power being consumed or fed in. Negative values indicate feed-in.
-- **Active power L1 / L2 / L3 (W)**: Active power per phase.
+- **Active power L1 / L2 / L3 (W)**: Active power per phase. Depending on the meter, this is the net power of the phase (negative values indicate feed-in) or only its consumption part. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+- **Power feed-in L1 / L2 / L3 (W)**: Feed-in power per phase, on meters that report it separately. Disabled by default.
 - **Power consumption / Power feed-in (W)**: Separate import and export power readings, on meters that report them as two registers.
 - **Absolute power (W)**: Power regardless of direction, on meters that report the unsigned value.
 - **Reactive power consumption / feed-in (var)**: Reactive power, if reported by your meter.
