@@ -31,13 +31,12 @@ Earlier Trimlight Edge controllers are not supported.
 
 Set up your Trimlight Edge Pro controller using the Trimlight app. Make sure the controller is powered on and connected to the same network as Home Assistant.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-Trimlight controllers are configured through automatic network discovery. Manual configuration is not supported.
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Under **Discovered**, find your Trimlight controller and select **Add**.
-3. Follow the instructions on screen to complete the setup.
+{% configuration_basic %}
+Host:
+  description: "Hostname or IP address of your Trimlight controller."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
