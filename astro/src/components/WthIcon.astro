@@ -1,0 +1,29 @@
+---
+// An icon on the Month of "What the Heck?!" page.
+//
+// Ports the site's `{% icon %}` Liquid tag (plugins/icon.rb): an
+// `<iconify-icon>` element, drawn by the Iconify script the page loads.
+// The rest of the Astro build inlines its icons from src/lib/icons.ts
+// instead; this page keeps the Jekyll tag's output so the two stacks
+// render the same markup from the same icon names while both build it.
+
+import "../styles/tokens.scss";
+import "../styles/wth.scss";
+interface Props {
+  name: string;
+  title?: string;
+}
+
+const { name, title } = Astro.props;
+
+// The tag's default title: the icon's name without its set, with the
+// dashes dropped. "mdi:water-polo" becomes "Water polo".
+const defaultTitle = (icon: string) => {
+  const parts = icon.split(":").pop()!.split("-");
+  parts[0] = parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
+  return parts.join(" ");
+};
+---
+
+<iconify-icon inline icon={name} title={title ?? defaultTitle(name)}
+></iconify-icon>

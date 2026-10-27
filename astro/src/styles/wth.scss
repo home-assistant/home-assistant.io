@@ -1,0 +1,60 @@
+/* The Month of "What the Heck?!" campaign palette and scale, for the
+   components of /wth/ (src/pages/wth/index.astro).
+
+   Separate from tokens.scss on purpose: these are one campaign's
+   identity, not the site's theme, and nothing outside the page uses
+   them. Every name is prefixed `--wth-`, and the components import this
+   file the way they import the site tokens, so they also carry their
+   colors into the component browser.
+
+   Values sampled from the 2026 key visual. The mint is the secondary
+   color the community page already uses; the blue is the Home Assistant
+   brand blue. */
+
+:root {
+	--wth-mint: #16f3be;
+	--wth-mint-ink: #056b51;
+	--wth-sky: #5ab9ee;
+
+	/* Ink is both the body text color and the dark band's surface. A
+	   section that inverts redefines --wth-ink; --wth-ink-base stays the
+	   color itself. */
+	--wth-ink: #1e2126;
+	--wth-ink-base: #1e2126;
+	--wth-ink-soft: #4f606e;
+	--wth-on-ink: #fff;
+	--wth-on-ink-soft: #aebac4;
+	--wth-on-mint-soft: #0a4c3c;
+
+	--wth-page: #f2f4f9;
+	--wth-surface: #fff;
+	--wth-border: #e2e7f0;
+	/* The tinted blue band, and the edge that goes with it. */
+	--wth-wash: #eaf6fd;
+	--wth-wash-edge: #cde8f8;
+	--wth-link: #0077a8;
+	/* GitHub's merged purple, for the WTHs that shipped. */
+	--wth-merged: #8250df;
+
+	/* Numbered steps: the figure and the rule beside it. */
+	--wth-number: var(--wth-mint-ink);
+	--wth-number-rule: var(--wth-mint);
+
+	/* Keyboard focus. Ink clears 3:1 against every surface the page
+	   uses; the inverted band swaps it for white. */
+	--wth-focus: #1e2126;
+
+	/* The page's own measure and rhythm. Wider than the site's reading
+	   column, which is for running text. */
+	--wth-measure: 70rem;
+	--wth-measure-wide: 87.5rem;
+	--wth-gutter: var(--layout-gutter);
+	--wth-gutter-wide: var(--layout-gutter-wide);
+	--wth-section-space: clamp(3.25rem, 1.5rem + 5vw, 5.5rem);
+	--wth-section-surface: var(--wth-page);
+
+	/* Section headings and leads scale with the window rather than
+	   switching size at a breakpoint. */
+	--wth-font-size-heading: clamp(1.75rem, 1.1rem + 2.2vw, 2.625rem);
+	--wth-font-size-lead: clamp(1.125rem, 0.95rem + 0.6vw, 1.375rem);
+}

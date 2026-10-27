@@ -1,0 +1,80 @@
+---
+// The numbered steps on the Month of "What the Heck?!" page: the four tips
+// for writing a WTH, and the three steps for fixing one. The rule runs from
+// the number to the edge of its column.
+//
+// Replaces the `.rules`, `.rule` and `.rule-number` blocks in
+// sass/homeassistant/pages/wth/_sections.scss, plus the per-section column
+// counts and the ink-section recoloring.
+//
+// Fidelity: revamp. Same steps, same look; the columns now follow the space
+// available instead of two hand-set breakpoints.
+
+import "../styles/tokens.scss";
+import "../styles/wth.scss";
+interface Props {
+  steps: { title: string; text: string }[];
+  /** The narrowest a column may get before the grid drops one. */
+  columnWidth?: string;
+}
+
+const { steps, columnWidth = "16rem" } = Astro.props;
+---
+
+<ol class="steps" style={`--wth-step-width: ${columnWidth}`}>
+  {
+    steps.map((step, index) => (
+      <li class="step">
+        <span class="number">{index + 1}</span>
+        <h3>{step.title}</h3>
+        <p>{step.text}</p>
+      </li>
+    ))
+  }
+</ol>
+
+<style lang="scss">
+  .steps {
+    display: grid;
+    gap: var(--space-xlarge);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--wth-step-width), 100%), 1fr)
+    );
+    list-style: none;
+    margin: var(--space-xxlarge) 0 0;
+    padding: 0;
+  }
+
+  .number {
+    align-items: center;
+    color: var(--wth-number);
+    display: flex;
+    font-size: var(--font-size-heading);
+    font-weight: 700;
+    gap: var(--space-medium);
+    line-height: 1;
+
+    &::after {
+      background-color: var(--wth-number-rule);
+      content: "";
+      flex: 1;
+      height: 2px;
+    }
+  }
+
+  h3 {
+    color: var(--wth-ink);
+    font-size: var(--font-size-xlarge);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: var(--space-medium) 0 0;
+  }
+
+  p {
+    color: var(--wth-ink-soft);
+    font-size: var(--font-size-large);
+    line-height: 1.55;
+    margin: var(--space-small) 0 0;
+  }
+</style>
