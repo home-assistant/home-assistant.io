@@ -3,7 +3,7 @@ title: "Send message"
 action: prowl.send_message
 domain: prowl
 description: "Send a Prowl push notification. Optionally set a priority and a URL that opens when the notification is selected."
-since: "2026.10"
+since: "2026.11"
 related_actions:
   - notify.send_message
 ---
@@ -37,7 +37,7 @@ Priority:
   description: Priority of the notification. Possible values are **Very low**, **Moderate**, **Normal**, **High**, and **Emergency**. Defaults to **Normal**. Emergency notifications may bypass quiet hours, depending on the settings in the Prowl app.
   required: false
 URL:
-  description: A URL that is opened when the notification is selected in the Prowl app.
+  description: A URL that is opened when the notification is selected in the Prowl app. Any URL the Prowl app can open is accepted, including app URL schemes such as `shortcuts://`, up to 512 characters.
   required: false
 {% endoptions_ui %}
 
@@ -77,7 +77,7 @@ priority:
   type: string
 url:
   description: >
-    A URL that is opened when the notification is selected in the Prowl app.
+    A URL that is opened when the notification is selected in the Prowl app. Any URL the Prowl app can open is accepted, including app URL schemes such as `shortcuts://`, up to 512 characters.
   required: false
   type: string
 {% endoptions_yaml %}
