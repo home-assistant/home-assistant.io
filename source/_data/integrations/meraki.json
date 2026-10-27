@@ -1,0 +1,13 @@
+{
+  "domain": "meraki",
+  "name": "Meraki",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "presence_location.network_presence",
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

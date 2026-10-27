@@ -1,0 +1,26 @@
+{
+  "domain": "casper_glow",
+  "name": "Casper Glow",
+  "integration_type": "device",
+  "codeowners": [
+    "@mikeodr"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "lighting.bulbs_lamps",
+    "health_wellbeing"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "light",
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

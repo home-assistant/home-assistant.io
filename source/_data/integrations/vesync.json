@@ -1,0 +1,37 @@
+{
+  "domain": "vesync",
+  "name": "VeSync",
+  "integration_type": "hub",
+  "codeowners": [
+    "@markperdue",
+    "@webdjoe",
+    "@thegardenmonkey",
+    "@cdnninja",
+    "@iprak",
+    "@sapuseven"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "climate.air_purifiers_humidifiers",
+    "plugs_switches",
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "fan",
+    "humidifier",
+    "light",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

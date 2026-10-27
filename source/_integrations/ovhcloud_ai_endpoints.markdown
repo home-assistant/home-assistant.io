@@ -1,19 +1,7 @@
 ---
-title: OVHcloud AI Endpoints
 description: Instructions on how to integrate OVHcloud AI Endpoints as a conversation agent in Home Assistant.
-ha_categories:
-  - ai_voice.ai_models
 ha_release: 2026.6
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Crocmagnon'
 ha_domain: ovhcloud_ai_endpoints
-ha_integration_type: service
-ha_platforms:
-  - conversation
-  - diagnostics
-ha_quality_scale: silver
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -84,7 +72,7 @@ You can set up your OVHcloud AI Endpoints conversation agent in an [Assist pipel
 
 - Only models that support the OpenAI-compatible chat completions API of OVHcloud AI Endpoints can be used.
 - Tool calling is required for the **Control Home Assistant** option to work. If the selected model does not support tool calling, the agent will still answer questions but won't be able to control your devices.
-- This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+- This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Removing the integration
 

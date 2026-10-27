@@ -1,13 +1,7 @@
 ---
-title: HTTP
 description: Configure the HTTP server that serves the Home Assistant frontend and APIs.
 ha_release: pre 0.7
-ha_iot_class: Local Push
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: http
-ha_integration_type: system
 related:
   - docs: /docs/configuration/remote/
     title: Configuring remote access

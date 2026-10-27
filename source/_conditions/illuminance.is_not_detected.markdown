@@ -64,7 +64,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="light sensor" example="binary_sensor.garden_light" %}
 
 {% include conditions/behavior.md %}
 

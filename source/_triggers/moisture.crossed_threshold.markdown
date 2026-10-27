@@ -144,13 +144,14 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="moisture sensor" example="sensor.plant_moisture" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
 - This trigger works with sensors that have the **moisture** device class, such as soil moisture probes. For wet/dry leak sensors, use [Moisture detected](/triggers/moisture.detected/) or [Moisture cleared](/triggers/moisture.cleared/) instead.
+- If you use an entity as the threshold, it must use `%` as its unit. If it has a different unit, or no unit, the trigger doesn't react.
 - A crossing only fires once per direction. The reading must leave the zone and come back before it can fire again.
 - To react on every change instead of only on crossings, use [Moisture content changed](/triggers/moisture.changed/).
 

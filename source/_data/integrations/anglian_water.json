@@ -1,0 +1,17 @@
+{
+  "domain": "anglian_water",
+  "name": "Anglian Water",
+  "integration_type": "service",
+  "codeowners": [
+    "@pantherale0"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "water.meters_leak_detection"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

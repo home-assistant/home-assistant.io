@@ -39,7 +39,7 @@ This fires every time `button.air_purifier_reset_filter` is pressed.
 
 This trigger has no additional YAML options beyond the target.
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="button or button helper" example="button.restart_router" %}
 
 ## Good to know
 

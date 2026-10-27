@@ -119,7 +119,7 @@ sunday:
   type: list
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Eurotronic Comet Blue thermostat" example="climate.kitchen" %}
 
 {% include actions/try_it.md %}
 

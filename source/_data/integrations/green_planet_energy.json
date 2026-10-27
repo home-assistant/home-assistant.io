@@ -1,0 +1,17 @@
+{
+  "domain": "green_planet_energy",
+  "name": "Green Planet Energy",
+  "integration_type": "service",
+  "codeowners": [
+    "@petschni"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.energy_prices"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}
