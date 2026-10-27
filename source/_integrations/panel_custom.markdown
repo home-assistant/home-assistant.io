@@ -1,12 +1,7 @@
 ---
-title: Custom panel
 description: Instructions on how to add customized panels to the front end of Home Assistant.
 ha_release: 0.26
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/frontend'
 ha_domain: panel_custom
-ha_integration_type: system
 related:
   - docs: /docs/configuration/
     title: Configuration file

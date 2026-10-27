@@ -1,0 +1,27 @@
+{
+  "domain": "tolo",
+  "name": "TOLO Sauna",
+  "integration_type": "device",
+  "codeowners": [
+    "@MatthiasLohr"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "water.pools_spas"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "fan",
+    "light",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "domain": "water_heater",
+  "name": "Water heater",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

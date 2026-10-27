@@ -60,7 +60,7 @@ This fires whenever the backyard ozone sensor reading changes to a value above 5
    unit_example_entity="input_number.ozone_alert_level"
    unit_example_value="70" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="ozone sensor" example="sensor.living_room_ozone" %}
 
 ## Good to know
 

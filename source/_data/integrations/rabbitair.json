@@ -1,0 +1,20 @@
+{
+  "domain": "rabbitair",
+  "name": "Rabbit Air",
+  "integration_type": "device",
+  "codeowners": [
+    "@rabbit-air"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.air_purifiers_humidifiers"
+  ],
+  "platforms": [
+    "fan",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

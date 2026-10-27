@@ -62,7 +62,7 @@ duration:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Watts Vision thermostat" example="climate.living_room_thermostat" %}
 
 ## Good to know
 

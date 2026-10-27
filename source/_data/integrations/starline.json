@@ -1,0 +1,21 @@
+{
+  "domain": "starline",
+  "name": "StarLine",
+  "integration_type": "hub",
+  "codeowners": [
+    "@anonym-tsk"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "vehicles_transport.cars_evs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "device_tracker",
+    "lock",
+    "sensor",
+    "switch"
+  ]
+}

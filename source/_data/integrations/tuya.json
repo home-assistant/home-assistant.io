@@ -1,0 +1,38 @@
+{
+  "domain": "tuya",
+  "name": "Tuya",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Tuya",
+    "@zlinoliver"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "camera",
+    "climate",
+    "cover",
+    "diagnostics",
+    "event",
+    "fan",
+    "humidifier",
+    "light",
+    "number",
+    "scene",
+    "select",
+    "sensor",
+    "siren",
+    "switch",
+    "vacuum",
+    "valve"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "domain": "radarr",
+  "name": "Radarr",
+  "integration_type": "service",
+  "codeowners": [
+    "@tkdrob"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "calendar",
+    "sensor"
+  ]
+}

@@ -1,22 +1,7 @@
 ---
-title: Google Gemini
 description: Instructions on how to integrate Google Gemini as a conversation agent
-ha_categories:
-  - ai_voice.ai_models
-  - ai_voice.speech
 ha_release: 2023.6
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@tronikos'
-  - '@ivanlh'
 ha_domain: google_generative_ai_conversation
-ha_integration_type: service
-ha_platforms:
-  - conversation
-  - diagnostics
-  - stt
-  - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -32,7 +17,7 @@ The **Google Gemini** {% term integration %} adds a conversation agent, speech-t
 
 Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 This integration requires an API key to use, [which you can generate here](https://aistudio.google.com/app/apikey), and to be in one of the [available regions](https://ai.google.dev/gemini-api/docs/available-regions).
 

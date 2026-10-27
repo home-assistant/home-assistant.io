@@ -1,0 +1,18 @@
+{
+  "domain": "hydroquebec_peak",
+  "name": "Hydro-Québec Peak Events",
+  "integration_type": "service",
+  "codeowners": [
+    "@Beat-YT"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.energy_prices"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

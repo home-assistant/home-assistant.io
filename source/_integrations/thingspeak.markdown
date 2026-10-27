@@ -1,13 +1,7 @@
 ---
-title: ThingSpeak
 description: Record one entity in ThingSpeak
-ha_categories:
-  - diy_makers.web_data_connectors
-ha_iot_class: Cloud Push
 ha_release: 0.32
 ha_domain: thingspeak
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **ThingSpeak** {% term integration %} makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.mathworks.com/).

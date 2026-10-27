@@ -1,37 +1,7 @@
 ---
-title: Template
 description: Instructions on how to create template entities in Home Assistant.
-ha_categories:
-  - helpers.calculate_value
 ha_release: 0.12
-ha_iot_class: Local Push
-ha_quality_scale: internal
-ha_codeowners:
-  - '@Petro31'
-  - '@home-assistant/core'
 ha_domain: template
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - device_tracker
-  - event
-  - fan
-  - image
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-  - vacuum
-  - water_heater
-  - weather
-ha_integration_type: helper
-ha_config_flow: true
 related:
   - docs: /docs/templating/
     title: About templating
@@ -1025,7 +995,7 @@ cover:
       required: false
       type: template
     set_cover_position:
-      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed.
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed if it is in `supported_speeds`.
       required: false
       type: action
     set_cover_tilt_position:
@@ -1041,7 +1011,7 @@ cover:
       required: false
       type: action
     supported_speeds:
-      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed was requested.
+      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed or a speed not in `supported_speeds` was requested.
       required: false
       type: [string, list]
     tilt:
