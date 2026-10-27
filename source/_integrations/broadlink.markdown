@@ -170,7 +170,7 @@ When the LED blinks for the first time, press the button you want to learn. Then
 
 #### Learned codes storage location
 
-The learned codes are stored in `/config/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#setting-up-custom-irrf-switches) or to send them as [base64 codes](#sending-a-base64-code). If you only need the names of the learned commands, use [`broadlink.list_commands`](#listing-commands) instead of opening the file.
+The learned codes are stored in `/config/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#setting-up-custom-irrf-switches) or to send them as [base64 codes](#sending-a-base64-code). If you only need the names of the learned commands, use the [List commands](/actions/broadlink.list_commands/) action instead of opening the file.
 
 To view the learned codes using the File Editor {% term app %}:
 
@@ -186,38 +186,6 @@ The files in the `.storage` folder _should never be edited manually_.
 6. Open the File Editor app.
 7. In the upper-left corner, select **Browse Filesystem**.
 8. Open `.storage/broadlink_remote_MACADDRESS_codes`, where `MACADDRESS` is your remote's MAC ADDRESS, for example `112233ab44cd`.
-
-### Listing commands
-
-Use `broadlink.list_commands` to get the names of the devices and commands that a remote has learned. You can try it at {% my tools_actions title="**Tools** > **Actions**" %}: select the **Broadlink: List commands** action, choose your remote, and select **Perform action** to see the response.
-
-This action only reads what the Broadlink integration has already learned. It doesn't send anything, and the IR and RF codes are not part of the response. It doesn't define a common set of commands for remotes, and it only works with Broadlink remotes.
-
-The only field is the remote (`entity_id`). The action only returns a response, so in a script or automation you need to use `response_variable` to get it:
-
-```yaml
-- action: broadlink.list_commands
-  target:
-    entity_id: remote.bedroom
-  response_variable: learned
-```
-
-The response has an entry for each remote, with the learned devices and their commands sorted by name:
-
-```yaml
-remote.bedroom:
-  devices:
-    soundbar:
-      - mute
-      - power
-    tv:
-      - power
-      - volume_up
-```
-
-With the action call above, `learned['remote.bedroom'].devices` contains the devices and their commands.
-
-The remote must be available. If you target a single remote that is unavailable, the action fails. If you target several remotes, the unavailable ones are left out of the response. A remote that is turned off can still be listed. You need permission to control the remote to use this action.
 
 ### Sending commands
 
@@ -467,6 +435,8 @@ switch:
 The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
 
 __IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, for example, Bedroom TV.
+
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 
