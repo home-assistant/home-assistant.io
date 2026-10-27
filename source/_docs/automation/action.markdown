@@ -148,7 +148,7 @@ Some actions return data that you can use in later steps of your automation or s
 
 To use the response data, store it in a [variable](/building-blocks/variables/). You can choose any name for the variable.
 
-- In the editor, actions that return data show a **Response variable** field. If the response is optional for the action, first select the checkbox next to the field. Then enter the name of the variable.
+- In the editor, actions that return data show a **Response variable** field. If the field has a checkbox next to it, select the checkbox first. Then enter the name of the variable.
 - In YAML, use `response_variable`.
 
 The following example stores the calendar events of the next 24 hours in the variable `agenda`.
@@ -185,7 +185,7 @@ action: |
 Actions handle response data in one of the following ways:
 
 - Some actions always return data. For example, `calendar.get_events` returns the events of a calendar. For these actions, the response variable is required. If you leave it out, the action fails when it runs, and the automation or script stops.
-- Some actions return data only when you ask for it. For example, `conversation.process` can return the reply of the conversation agent. For these actions, the response variable is optional. If you leave it out, the action still runs, but its data isn't stored.
+- Some actions can return data. For example, `conversation.process` can return the reply of the conversation agent. For these actions, the response variable is optional. If you set it, the data is stored in the variable. If you leave it out, the action still runs, but its data isn't stored.
 - Most actions don't return data. In the editor, they don't show a **Response variable** field. If you add `response_variable` to one of these actions in YAML, the action fails when it runs, and the automation or script stops.
 
 To find out whether an action returns data, add the action to an automation or script in its editor. If the action returns data, it shows a **Response variable** field. If the field has a checkbox next to it, the response variable is optional. If it has no checkbox, the response variable is required.
@@ -194,10 +194,10 @@ To see the data that an action returns, perform the action in {% my tools_action
 
 ### What the response data looks like
 
-Response data is a mapping of keys and values. Which keys it contains depends on the action:
+Response data is a set of keys, each with a value. Which keys it contains depends on the action:
 
 - An action that targets entities, such as `calendar.get_events` or `weather.get_forecasts`, returns one entry for each entity. The key of each entry is the entity ID. This is why the earlier example uses `agenda['calendar.school']`. Use the entity ID even if the action targets only one entity.
-- Other actions return their own keys. To see them, perform the action in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
+- Other actions return their own keys. To see them, perform the action in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}. For the steps, refer to [Performing an action](/docs/tools/dev-tools/#performing-an-action).
 
 ### Response data from scripts
 
