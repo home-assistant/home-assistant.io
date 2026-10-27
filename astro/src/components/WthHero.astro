@@ -13,7 +13,7 @@ import "../styles/tokens.scss";
 import "../styles/wth.scss";
 import WthHeroBackground from "./WthHeroBackground.astro";
 import WthWordmark from "./WthWordmark.astro";
-import WthButton from "./WthButton.astro";
+import Button from "./Button.astro";
 import { forumUrl } from "../lib/wth.mjs";
 ---
 
@@ -38,8 +38,8 @@ import { forumUrl } from "../lib/wth.mjs";
       </p>
 
       <div class="actions">
-        <WthButton href={forumUrl} external arrow>Share yours</WthButton>
-        <WthButton href="#moments" variant="hollow">What is it?</WthButton>
+        <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">Share yours</Button>
+        <Button href="#moments" scheme="secondary" outline>What is it?</Button>
       </div>
     </div>
   </div>

@@ -12,7 +12,7 @@ import "../styles/tokens.scss";
 import "../styles/wth.scss";
 import WthSection from "./WthSection.astro";
 import WthSteps from "./WthSteps.astro";
-import WthButton from "./WthButton.astro";
+import Button from "./Button.astro";
 import { forumUrl } from "../lib/wth.mjs";
 
 const tips = [
@@ -38,18 +38,14 @@ const tips = [
 <WthSection id="how-it-works" tone="ink" heading="Four tips for a great WTH">
   <WthSteps steps={tips} />
   <div class="actions">
-    <WthButton href={forumUrl} external arrow>Share your WTH</WthButton>
+    <Button href={forumUrl} scheme="green" icon onDark target="_blank" rel="noopener">
+      Share your WTH
+    </Button>
   </div>
 </WthSection>
 
 <style lang="scss">
   .actions {
     margin-top: var(--space-xxlarge);
-  }
-
-  /* The usual hover turns the button ink, which would vanish on this band. */
-  .actions :global(.button:hover) {
-    background-color: var(--wth-on-ink);
-    color: var(--wth-ink-base);
   }
 </style>

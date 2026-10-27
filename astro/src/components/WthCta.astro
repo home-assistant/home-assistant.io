@@ -9,7 +9,7 @@
 // come from the theme.
 import "../styles/tokens.scss";
 import "../styles/wth.scss";
-import WthButton from "./WthButton.astro";
+import Button from "./Button.astro";
 import WthCtaBackground from "./WthCtaBackground.astro";
 import { forumUrl } from "../lib/wth.mjs";
 ---
@@ -25,7 +25,9 @@ import { forumUrl } from "../lib/wth.mjs";
         last week, or simply live with someone who won’t stop talking about it:
         this is <em>your</em> month!
       </p>
-      <WthButton href={forumUrl} external arrow>Share your WTH</WthButton>
+      <Button href={forumUrl} scheme="secondary" icon target="_blank" rel="noopener">
+        Share your WTH
+      </Button>
     </div>
   </div>
 </section>
@@ -71,16 +73,8 @@ import { forumUrl } from "../lib/wth.mjs";
     max-width: 54ch;
   }
 
-  /* On mint, the button inverts: ink by default, white on hover. */
   .card :global(.button) {
-    background-color: var(--wth-ink-base);
-    color: var(--wth-on-ink);
     margin-top: var(--space-xlarge);
-
-    &:hover {
-      background-color: var(--wth-on-ink);
-      color: var(--wth-ink-base);
-    }
   }
 
   @media only screen and (min-width: breakpoints.$lap) {

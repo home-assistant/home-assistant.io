@@ -13,7 +13,7 @@ import "../styles/tokens.scss";
 import "../styles/wth.scss";
 import WthSection from "./WthSection.astro";
 import WthSteps from "./WthSteps.astro";
-import WthButton from "./WthButton.astro";
+import Button from "./Button.astro";
 import WthIcon from "./WthIcon.astro";
 import { forumUrl } from "../lib/wth.mjs";
 
@@ -69,7 +69,9 @@ const shipped = [
   </p>
 
   <div class="actions">
-    <WthButton href={forumUrl} external arrow>Browse open WTHs</WthButton>
+    <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">
+      Browse open WTHs
+    </Button>
   </div>
 
   <h2 class="shipped-heading">Make a real difference!</h2>

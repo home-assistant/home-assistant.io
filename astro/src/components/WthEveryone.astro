@@ -10,7 +10,7 @@
 import "../styles/tokens.scss";
 import "../styles/wth.scss";
 import WthSection from "./WthSection.astro";
-import WthButton from "./WthButton.astro";
+import Button from "./Button.astro";
 import WthIcon from "./WthIcon.astro";
 import { forumUrl } from "../lib/wth.mjs";
 
@@ -73,7 +73,9 @@ const questions = [
         {questions.map((question) => <li>{question}</li>)}
       </ul>
       <p>Then help them share their answers in their own words as a WTH.</p>
-      <WthButton href={forumUrl} external arrow>Share now</WthButton>
+      <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">
+        Share now
+      </Button>
     </div>
   </article>
 </WthSection>

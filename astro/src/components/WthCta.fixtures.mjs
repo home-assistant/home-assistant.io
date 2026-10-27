@@ -8,7 +8,7 @@ export default {
   wide: true,
   description:
     "The mint closing card, with the campaign\u2019s flow lines along both " +
-    "edges and the button inverted to ink.",
+    "edges and the shared button in its navy scheme.",
   variants: [
     {
       name: "default",
