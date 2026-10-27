@@ -68,7 +68,7 @@ Reminder date:
   description: When you should be reminded of this task, in the format YYYY-MM-DD HH:MM, in the UTC time zone.
   required: false
 Reminder zone:
-  description: A zone that triggers a location reminder. The zone's name, location, and radius are shared with Todoist.
+  description: A zone that triggers a location reminder. The zone's radius must be from 1 to 5000 meters. The zone's name, location, and radius are shared with Todoist.
   required: false
 Reminder location name:
   description: The name of the location for a location reminder. Use it with the latitude, longitude, and radius as an alternative to a zone.
@@ -206,9 +206,10 @@ reminder_date:
 reminder_zone:
   description: >
     The entity ID of a zone that triggers a location reminder, for example
-    `zone.home`. The zone's name, location, and radius are shared with
-    Todoist. Mutually exclusive with `reminder_location_name`,
-    `reminder_latitude`, `reminder_longitude`, and `reminder_radius`.
+    `zone.home`. The zone's radius must be from 1 to 5000 meters. The
+    zone's name, location, and radius are shared with Todoist. Mutually
+    exclusive with `reminder_location_name`, `reminder_latitude`,
+    `reminder_longitude`, and `reminder_radius`.
   required: false
   type: string
 reminder_location_name:
