@@ -74,9 +74,9 @@ The target temperature is the setpoint the controller uses right now. The mode a
 | Heat | Eco | Heats to the reduced setpoint until you change the mode or preset. |
 | Off | | Only heats to protect against frost. |
 
-In **Auto** mode, selecting a preset overrides the time program until its next switch point.
+In **Auto** mode, selecting a preset overrides the time program. Selecting **Auto** again ends the override.
 
-You can only change the target temperature in **Heat** mode. It changes the comfort setpoint, or the reduced setpoint when the **Eco** preset is active. To change the temperatures **Auto** mode uses, change the **Comfort temperature** or **Reduced temperature** entity of the heating circuit.
+In **Heat** mode, changing the target temperature changes the comfort setpoint, or the reduced setpoint when the **Eco** preset is active. In **Auto** and **Off** modes, changing it does nothing, because BSB-LAN can't override the setpoint the controller applies there. To change the temperatures **Auto** mode uses, change the **Comfort temperature** or **Reduced temperature** entity of the heating circuit.
 
 Presets are not available on devices connected over PPS.
 
@@ -84,6 +84,8 @@ Presets are not available on devices connected over PPS.
 
 - If your heating system exposes domestic hot water controls, Home Assistant creates a water heater entity for it.
 - The water heater entity is grouped under its own sub-device on the BSB-LAN device page.
+- The target temperature is the hot water setpoint the controller uses right now, the nominal or the reduced one depending on its release program. Changing it changes that setpoint.
+- When the water heater is off, the target temperature shows the frost protection setpoint, and changing it does nothing.
 
 ### Sensors
 
