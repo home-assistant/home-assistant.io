@@ -2,7 +2,7 @@
 layout: post
 title: "2026.11 Beta: A lot in store!"
 description: "TODO The highlights of this release, and 28 new integrations!"
-date: 2026-10-28 00:00:00
+date: 2026-10-27 00:00:00
 date_formatted: "November 4, 2026"
 author: Franck Nijhof
 author_twitter: frenck
