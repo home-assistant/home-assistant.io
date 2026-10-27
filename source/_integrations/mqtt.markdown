@@ -294,26 +294,26 @@ MQTT entities, device triggers, and tags can be linked to a device in the [devic
 - At least one of `identifiers` or `connections` must be set to identify the device.
 - For entities, the device information is only used when the entity has a `unique_id`.
 - Entities, device triggers, and tags that use the same `identifiers` or `connections` are linked to the same device. When a device is shared, it is enough to set the shared `identifiers` or `connections` for the other items. It is recommended to always include the device `name`.
-- When the device information of an entity changes to another device, for example with a discovery update or a changed YAML configuration, the entity is moved to the new device. The previous device is removed when no other entities, device triggers, or tags use it. A child device can't be moved to another parent device, see [child devices](#child-devices).
+- When the device information of an entity changes to another device, for example with a discovery update or a changed YAML configuration, the entity is moved to the new device. The previous device is removed when no other entities, device triggers, or tags use it. A sub-device can't be moved to another parent device, see [sub-devices](#sub-devices).
 
 How the device information is set depends on the configuration method.
 
-### Child devices
+### Sub-devices
 
-A physical device can be split into child devices, for example, the outlets of a power strip, or the channels of a multi-channel switch. A child device is a part of its parent device, and has its own name and entities. A child device uses the area of its parent device, unless another area is assigned to it, and is removed together with its parent device.
+A physical device can be split into sub-devices, for example, the outlets of a power strip, or the channels of a multi-channel switch. A sub-device is a part of its parent device, and has its own name and entities. A sub-device uses the area of its parent device, unless another area is assigned to it, and is removed together with its parent device.
 
-With YAML and single component discovery, a child device is set with the `child_device` mapping, which can be abbreviated as `cdev` in discovery messages. The `device` mapping then describes the parent device. With device discovery, child devices are listed in `child_devices` (`cdevs`), together with their components, see [device configuration with device discovery](#device-configuration-with-device-discovery).
+In the configuration, a sub-device is called a child device. With YAML and single component discovery, a sub-device is set with the `child_device` mapping, which can be abbreviated as `cdev` in discovery messages. The `device` mapping then describes the parent device. With device discovery, sub-devices are listed in `child_devices` (`cdevs`), together with their components, see [device configuration with device discovery](#device-configuration-with-device-discovery).
 
-- Only `identifiers` and `name` can be set for a child device. The `identifiers` are required. Other device information, like the `manufacturer`, belongs to the parent device.
-- A child device requires the entity to have a `unique_id`.
-- Child devices are not supported for device triggers, tags, and subentries.
-- A child device can't be used as the `via_device` of another device.
+- Only `identifiers` and `name` can be set for a sub-device. The `identifiers` are required. Other device information, like the `manufacturer`, belongs to the parent device.
+- A sub-device requires the entity to have a `unique_id`.
+- Sub-devices are not supported for device triggers, tags, and subentries.
+- A sub-device can't be used as the `via_device` of another device.
 
-When the `child_device` of an entity is added, changed, or removed, the entity is moved to the new device in the same way, and a child device that is no longer used is removed. When discovered items are removed, a parent device is kept as long as it has child devices, and is removed after its last child device when no other items use it.
+When the `child_device` of an entity is added, changed, or removed, the entity is moved to the new device in the same way, and a sub-device that is no longer used is removed. When discovered items are removed, a parent device is kept as long as it has sub-devices, and is removed after its last sub-device when no other items use it.
 
-When the `identifiers` of an existing MQTT device are used for a child device, the existing device is converted into a child device. It keeps its device ID, so automations that use the device keep working. If the existing device is still in use as a regular device, the conversion fails. An entity with that child device is then not added, and an error is logged. With a discovery update, the update is canceled, the entity keeps its current configuration and device, and a warning is logged. In that case, update the configuration of all items that use the device, and reload the MQTT integration.
+When the `identifiers` of an existing MQTT device are used for a sub-device, the existing device is converted into a sub-device. It keeps its device ID, so automations that use the device keep working. If the existing device is still in use as a regular device, the conversion fails. An entity with that sub-device is then not added, and an error is logged. With a discovery update, the update is canceled, the entity keeps its current configuration and device, and a warning is logged. In that case, update the configuration of all items that use the device, and reload the MQTT integration.
 
-A child device can't be moved to another parent device. When the parent device of a child device changes, the same happens as when a conversion fails. To move a child device to another parent device, remove the child device in Home Assistant, and reload the MQTT integration. The child device is then added again with its new parent device, and keeps its device ID. With single component discovery, removing the child device can also clear the discovery payloads of its entities. The publisher then has to send them again.
+A sub-device can't be moved to another parent device. When the parent device of a sub-device changes, the same happens as when a conversion fails. To move a sub-device to another parent device, remove the sub-device in Home Assistant, and reload the MQTT integration. The sub-device is then added again with its new parent device, and keeps its device ID. With single component discovery, removing the sub-device can also clear the discovery payloads of its entities. The publisher then has to send them again.
 
 ### Device configuration in YAML
 
@@ -339,7 +339,7 @@ mqtt:
         name: "Bedroom"
 ```
 
-To link an entity to a [child device](#child-devices), add a `child_device` mapping to the `device` mapping. In the example below, the switch is linked to the child device `Outlet 1`, which is a part of the power strip. The power sensor is linked to the power strip itself:
+To link an entity to a [sub-device](#sub-devices), add a `child_device` mapping to the `device` mapping. In the example below, the switch is linked to the sub-device `Outlet 1`, which is a part of the power strip. The power sensor is linked to the power strip itself:
 
 ```yaml
 mqtt:
@@ -369,14 +369,14 @@ mqtt:
 
 With [device discovery](#device-discovery-payload), the `device` (`dev`) mapping is required and is set once, at the root of the discovery payload. It applies to all components in the payload and can't be overridden per component. Entity components must have a `unique_id`.
 
-[Child devices](#child-devices) are listed in `child_devices`, which can be abbreviated as `cdevs`. Each child device has its `identifiers`, an optional `name`, and its own `components` (`cmps`), which are linked to the child device. The components of the device itself are listed in `components` at the root of the discovery payload, which is optional when child devices are listed. A `child_device` mapping is not allowed in the `device` mapping at the root of the discovery payload.
+[Sub-devices](#sub-devices) are listed in `child_devices`, which can be abbreviated as `cdevs`. Each sub-device has `identifiers`, an optional `name`, and its own `components` (`cmps`), which link to the sub-device. The device's components are listed in `components` at the root of the discovery payload, which is optional when sub-devices are listed. A `child_device` mapping is not allowed in the `device` mapping at the root of the discovery payload.
 
-- Only entity components can be part of a child device, device triggers and tags can't.
-- The component IDs must be unique over the device and its child devices, as they identify each component.
-- The `identifiers` of a child device must be unique, and must differ from the `identifiers` of the device.
-- The shared options at the root of the discovery payload, like `origin` and the `availability` options, also apply to the components of the child devices.
+- Only entity components can be part of a sub-device, device triggers and tags can't.
+- The component IDs must be unique across the device and its sub-devices, as they identify each component.
+- The `identifiers` of a sub-device must be unique, and must differ from the `identifiers` of the device.
+- The shared options at the root of the discovery payload, like `origin` and the `availability` options, also apply to the components of the sub-devices.
 
-In the example below, each switch is linked to a child device of the power strip, and the power sensor is linked to the power strip itself:
+In the example below, each switch is linked to a sub-device of the power strip, and the power sensor is linked to the power strip itself:
 
 ```json
 {
@@ -427,13 +427,13 @@ In the example below, each switch is linked to a child device of the power strip
 }
 ```
 
-A component can be moved between the device and its child devices, or between child devices, by moving it to another `components` mapping with the same component ID. To remove a component of a child device, send the component with only its `platform` option, as for the other components.
+A component can be moved between the device and its sub-devices, or between sub-devices, by moving it to another `components` mapping with the same component ID. To remove a component of a sub-device, send the component with only its `platform` option, as for the other components.
 
 ### Device configuration with single component discovery
 
 With [single component discovery](#single-component-discovery-payload), the `device` (`dev`) mapping is added to the discovery payload of each component that is part of the device. For device triggers, the `device` mapping is required. Device triggers and tags don't need a `unique_id`.
 
-To link an entity to a [child device](#child-devices), add a `child_device` (`cdev`) mapping to the `device` mapping, the same way as in YAML. In the example below, the switch is linked to the child device `Outlet 1`, which is a part of the power strip.
+To link an entity to a [sub-device](#sub-devices), add a `child_device` (`cdev`) mapping to the `device` mapping, the same way as in YAML. In the example below, the switch is linked to the sub-device `Outlet 1`, which is a part of the power strip.
 
 Discovery topic: `homeassistant/switch/power_strip_outlet_1/config`
 
@@ -482,7 +482,7 @@ The options in the `device` mapping can be abbreviated, see [supported abbreviat
 
 ### Device configuration with subentries
 
-Each [subentry](#configuration-via-subentries) holds one MQTT device. The device details are set in the UI when the subentry is added or reconfigured. Child devices are not supported for subentries.
+Each [subentry](#configuration-via-subentries) holds one MQTT device. The device details are set in the UI when the subentry is added or reconfigured. Sub-devices are not supported for subentries.
 
 ### Device configuration options
 
@@ -529,16 +529,16 @@ device:
       required: false
       type: string
     child_device:
-      description: The [child device](#child-devices) of the device the entity is linked to. Requires a `unique_id`. Not supported for device triggers and tags. With device discovery, child devices are listed in `child_devices` instead, see [device configuration with device discovery](#device-configuration-with-device-discovery).
+      description: The [sub-device](#sub-devices) of the device the entity is linked to. Requires a `unique_id`. Not supported for device triggers and tags. With device discovery, sub-devices are listed in `child_devices` instead, see [device configuration with device discovery](#device-configuration-with-device-discovery).
       required: false
       type: map
       keys:
         identifiers:
-          description: A list of IDs that uniquely identify the child device.
+          description: A list of IDs that uniquely identify the sub-device.
           required: true
           type: [string, list]
         name:
-          description: The name of the child device.
+          description: The name of the sub-device.
           required: false
           type: string
     suggested_area:
@@ -550,7 +550,7 @@ device:
       required: false
       type: string
     via_device:
-      description: Identifier of a device that routes messages between this device and Home Assistant, like a hub or a bridge. This is used to show the device topology in Home Assistant. Use a [child device](#child-devices) for a part of a physical device instead. A child device can't be used as `via_device`.
+      description: Identifier of a device that routes messages between this device and Home Assistant, like a hub or a bridge. This is used to show the device topology in Home Assistant. Use a [sub-device](#sub-devices) for a part of a physical device instead. A sub-device can't be used as `via_device`.
       required: false
       type: string
 {% endconfiguration %}
@@ -616,7 +616,7 @@ The shared options at the root level of the JSON message must include:
 
 These mappings are mandatory and cannot be overridden at the entity/component level.
 
-The components are listed in the `components` mapping (abbreviated as `cmps`). Components of [child devices](#child-devices) are listed in the `child_devices` list (abbreviated as `cdevs`), see [device configuration with device discovery](#device-configuration-with-device-discovery). At least one of them must be set.
+The components are listed in the `components` mapping (abbreviated as `cmps`). Components of [sub-devices](#sub-devices) are listed in the `child_devices` list (abbreviated as `cdevs`), see [device configuration with device discovery](#device-configuration-with-device-discovery). At least one of them must be set.
 
 Supported shared options are:
 
@@ -670,11 +670,11 @@ The component specific options are placed as mappings under the `components` key
 To see what each abbreviation stands for, refer to the [list of supported abbreviations in MQTT discovery messages](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
 {% endnote %}
 
-The components id's under the `components` (`cmps`) key, including those of the child devices, are used as part of the discovery identification, and must be unique within the payload. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
+The component IDs under the `components` (`cmps`) key, including those of the sub-devices, are used as part of the discovery identification and must be unique within the payload. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
 To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove all components of the device, including disabled entities, and clear the published discovery payload. It will also remove the device entry if there are no further references to it. Removing the device in Home Assistant also clears the published device discovery payload.
 
-Removing a child device in Home Assistant only removes the child device and its entities, and the parent device when it has no other components or child devices left. The published device discovery payload is not cleared, so the child device and its components are added again when a new device discovery payload is received. To prevent this, remove the child device from the device discovery payload.
+Removing a sub-device in Home Assistant only removes the sub-device and its entities, and the parent device when it has no other components or sub-devices left. The published device discovery payload is not cleared, so the sub-device and its components are added again when a new device discovery payload is received. To prevent this, remove the sub-device from the device discovery payload.
 
 An empty config can be published as an update to remove a single component from the device discovery. Note that adding the `platform` (`p`) option is still required.
 
@@ -751,7 +751,7 @@ When an entity that was discovered through device discovery is removed from Home
 
 <div class='note warning'>
 
-A component config part in a device discovery payload must have the `platform` (`p`) option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context. The component IDs must be unique over the device and its child devices.
+A component config part in a device discovery payload must have the `platform` (`p`) option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context. The component IDs must be unique across the device and its sub-devices.
 
 </div>
 
