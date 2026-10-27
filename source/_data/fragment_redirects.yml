@@ -245,3 +245,6 @@
 # the browser keeps the anchor.
 "/installation/":
   snapshots: /common-tasks/general/backups/
+"/docs/configuration/troubleshooting/":
+  disable-debug-logging-and-download-logs: /docs/configuration/troubleshooting/#disabling-debug-logging-and-downloading-the-log
+  download-diagnostics: /docs/configuration/troubleshooting/#downloading-diagnostics
