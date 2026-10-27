@@ -61,7 +61,7 @@ The iCloud integration adds the following binary sensors for each device on your
 - **Location accurate**: Shows **Problem** when Apple flags the last known location as inaccurate, and **OK** otherwise. Only added for devices that report a location.
 - **Wipe in progress**: Whether an erase is currently running on the device.
 - **Remote lock**: Whether Apple has accepted a remote lock that has not been applied to the device yet.
-- **Locating**: Whether the device is being located right now. The integration asks Apple for a location on every update, so this entity is on most of the time and is disabled by default.
+- **Locating**: Whether the device is being located right now. The integration asks Apple for a location on every update, so this entity is on most of the time and is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Button
 
