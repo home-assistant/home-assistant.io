@@ -131,10 +131,12 @@ To swap a trigger, condition, or action for a different one, replace it. The new
 
 The following settings are kept:
 
-- The target, and each option that the new one also has, if the value works for it. A value that uses a template is only kept if the new option is exactly the same as the old one.
+- The target. Entities, devices, areas, floors, and labels that the new one doesn't work with are removed from it.
+- Each option that the new one has in exactly the same form, with the same name and the same kind of input.
 - The trigger ID, the trigger variables, the note, **Continue on error**, and whether it's turned off.
+- The response variable, if the new action returns a response.
 
-The name isn't kept, because it describes the old one. Settings that the new one doesn't have or can't use are also left out.
+The name isn't kept, because it describes the old one. Options that the new one doesn't have, or has in a different form, are also left out, even if the value might still work.
 
 To go back to the old one, select **Undo** in the message that appears, or [undo the change](#undoing-and-redoing-changes).
 
