@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: spin_ble
 ha_bluetooth: true
 ha_platforms:
+  - binary_sensor
   - sensor
   - switch
 ha_integration_type: device
@@ -58,6 +59,11 @@ The integration creates the following sensors:
 - **Current**: Current currently being delivered, in amperes (A).
 - **Session energy**: Energy delivered during the current or most recent charging session, in kilowatt-hours (kWh). This value resets when a new session starts.
 - **Lifetime energy**: Total energy the charger has delivered over its life, in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
+
+### Binary sensors
+
+- **Plug**: On while a vehicle is plugged in. The charger cannot tell while it is starting up or out of service, so the sensor is off then.
+- **Problem**: On while the charger reports at least one active alarm, such as a mains fault or an open earth wire.
 
 ### Switches
 
