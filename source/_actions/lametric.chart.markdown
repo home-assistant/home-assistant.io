@@ -36,7 +36,7 @@ Sound:
 Cycles:
   description: "How many times to display the chart. Set to 0 to keep it on screen until it is dismissed."
   required: false
-Sound repeat:
+Repeat:
   description: "How many times to play the sound with the chart. Set to 0 to keep playing it until the notification is dismissed. Does not apply to sounds fetched from a URL."
   required: false
 Icon type:

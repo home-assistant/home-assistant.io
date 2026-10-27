@@ -45,7 +45,7 @@ Icon type:
 Priority:
   description: "The priority of the notification. When the device is running in screensaver or kiosk mode, only critical notifications are accepted. One of info, warning, or critical."
   required: false
-Sound repeat:
+Repeat:
   description: "How many times to play the sound with the message. Set to 0 to keep playing it until the notification is dismissed. Does not apply to sounds fetched from a URL."
   required: false
 {% endoptions_ui %}
