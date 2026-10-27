@@ -26,7 +26,7 @@ The following cameras are supported with this account:
 
 ## Prerequisites
 
-You need a Bosch SingleKey ID account that has at least one Bosch Smart Home camera registered in the Bosch Smart Camera app.
+You need a Bosch SingleKey ID account that has at least one camera registered in the Bosch Smart Camera app.
 
 {% include integrations/config_flow.md %}
 
