@@ -1,22 +1,7 @@
 ---
-title: System Bridge
 description: How to integrate the System Bridge integration into Home Assistant.
-ha_categories:
-  - computers_network.monitoring
 ha_release: 2021.6
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@timmo001'
 ha_domain: system_bridge
-ha_platforms:
-  - binary_sensor
-  - media_player
-  - notify
-  - sensor
-  - update
-ha_zeroconf: true
-ha_integration_type: device
 ---
 
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
@@ -48,51 +33,60 @@ This integration provides the following binary sensors:
 
 This integration provides the following sensors:
 
-| Name                 | Description                                         |
-| -------------------- | --------------------------------------------------- |
-| Battery              | Battery level of the device                         |
-| Boot Time            | Time the device was turned on                       |
-| CPU Speed            | The current CPU speed                               |
-| Disk Read Rate       | Total read rate across all disks                    |
-| Disk Write Rate      | Total write rate across all disks                   |
-| Displays Connected   | Number of displays connected                        |
-| Display Resolution X | Display resolution (across)                         |
-| Display Resolution Y | Display resolution (down)                           |
-| Display Refresh Rate | Display refresh rate                                |
-| Filesystem(s)        | Space used for each drive letter / filesystem mount |
-| GPU Memory Free      | GPU memory free in GB                               |
-| GPU Usage %          | GPU usage percentage                                |
-| Kernel               | Version information of the Kernel                   |
-| Latest Version       | System Bridge Latest Version                        |
-| Load                 | System load percentage                              |
-| Load Average (1 min) | Load average over 1 minute                          |
-| Power Usage          | Power usage in watts (if available)                 |
-| Memory Free          | Memory (RAM) free in GB                             |
-| Memory Used          | Memory (RAM) used in GB                             |
-| Memory Used %        | Memory (RAM) % used                                 |
-| Operating System     | Version information of the Operating System         |
-| Processes            | Shows count of processes on the system              |
-| Version              | System Bridge Version                               |
+| Name                      | Description                                                       |
+| ------------------------- | ----------------------------------------------------------------- |
+| Battery                   | Battery level of the device                                       |
+| Boot Time                 | Time the device was turned on                                     |
+| CPU Speed                 | The current CPU speed                                             |
+| Disk Read Rate            | Total read rate across all disks                                  |
+| Disk Write Rate           | Total write rate across all disks                                 |
+| Displays Connected        | Number of displays connected                                      |
+| Display Resolution X      | Display resolution (across)                                       |
+| Display Resolution Y      | Display resolution (down)                                         |
+| Display Refresh Rate      | Display refresh rate                                              |
+| Filesystem(s)             | Space used for each drive letter / filesystem mount               |
+| GPU Memory Free           | GPU memory free in GB                                             |
+| GPU Usage %               | GPU usage percentage                                              |
+| Kernel                    | Version information of the Kernel                                 |
+| Latest Version            | System Bridge Latest Version                                      |
+| Load                      | System load percentage                                            |
+| Load Average (1 min)      | Load average over 1 minute                                        |
+| Power Usage               | Power usage in watts (if available)                               |
+| Memory Free               | Memory (RAM) free in GB                                           |
+| Memory Used               | Memory (RAM) used in GB                                           |
+| Memory Used %             | Memory (RAM) % used                                               |
+| Network Download Rate     | Total download rate System Bridge reports for the device          |
+| Network Upload Rate       | Total upload rate System Bridge reports for the device            |
+| Interface SSID            | The Wi-Fi network a wireless interface is connected to            |
+| Interface Signal Strength | Wi-Fi signal strength of a wireless interface in dBm              |
+| Operating System          | Version information of the Operating System                       |
+| Processes                 | Shows count of processes on the system                            |
+| Version                   | System Bridge Version                                             |
 
 These sensors are also available, but are not enabled by default:
 
-| Name                   | Description                        |
-| ---------------------- | ---------------------------------- |
-| CPU Temperature        | The current temperature of the CPU |
-| CPU Voltage            | The current voltage of the CPU     |
-| Per-disk Read Rate     | Read rate of each disk             |
-| Per-disk Write Rate    | Write rate of each disk            |
-| GPU Core Clock Speed   | GPU core clock speed in MHz        |
-| GPU Memory Clock Speed | GPU memory clock speed in MHz      |
-| GPU Fan Speed          | GPU fan speed percentage           |
-| GPU Memory Used        | GPU memory used in GB              |
-| GPU Memory Used %      | GPU memory used percentage         |
-| GPU Power Usage        | GPU power usage                    |
-| GPU Temperature        | The current temperature of the GPU |
-| Load Average (5 min)   | Load average over 5 minutes        |
-| Load Average (15 min)  | Load average over 15 minutes       |
+| Name                    | Description                                      |
+| ----------------------- | ------------------------------------------------ |
+| CPU Temperature         | The current temperature of the CPU               |
+| CPU Voltage             | The current voltage of the CPU                   |
+| Per-disk Read Rate      | Read rate of each disk                           |
+| Per-disk Write Rate     | Write rate of each disk                          |
+| GPU Core Clock Speed    | GPU core clock speed in MHz                      |
+| GPU Memory Clock Speed  | GPU memory clock speed in MHz                    |
+| GPU Fan Speed           | GPU fan speed percentage                         |
+| GPU Memory Used         | GPU memory used in GB                            |
+| GPU Memory Used %       | GPU memory used percentage                       |
+| GPU Power Usage         | GPU power usage                                  |
+| GPU Temperature         | The current temperature of the GPU               |
+| Interface Download Rate | Download rate of each network interface          |
+| Interface Upload Rate   | Upload rate of each network interface            |
+| Interface Link Rate     | Wi-Fi link rate of a wireless interface in Mbps  |
+| Load Average (5 min)    | Load average over 5 minutes                      |
+| Load Average (15 min)   | Load average over 15 minutes                     |
 
-The load average sensors are only added on devices that report a load average.
+Load average sensors are only added on devices that report a load average.
+
+Network interface sensors are named after the interface, such as `eth0 download rate`. The download and upload rate sensors show Mbit/s by default, and you can change the unit in the entity settings. Loopback interfaces are left out, and sensors for an interface that appears later, such as a USB network adapter, are added when it first shows up. The Wi-Fi sensors are unknown while the interface isn't connected, and aren't available on macOS.
 
 Per-disk sensors are named after the disk, such as `/dev/sda1 read rate`. They're only added for disks that report read and write activity, and a disk that appears later, such as a USB drive, gets its sensors when it first shows up.
 

@@ -1,24 +1,7 @@
 ---
-title: LG Infrared
 description: Integration to control LG TVs and LG split air conditioners using an infrared emitter and to receive commands from an LG remote using an infrared receiver.
-ha_categories:
-  - media_entertainment.tv_streaming
-  - climate.heat_pumps_air_conditioning
 ha_release: 2026.4
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@abmantis'
 ha_domain: lg_infrared
-ha_config_flow: true
-ha_platforms:
-  - button
-  - climate
-  - event
-  - media_player
-  - select
-  - switch
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **LG Infrared** {% term integration %} lets you control an LG TV or a compatible LG split air conditioner using any infrared emitter previously configured in Home Assistant. It can also receive commands from an LG remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
@@ -173,7 +156,7 @@ When an infrared emitter is configured, these button entities are created for th
 
 - **Jet mode**: Runs the unit at maximum power for fast cooling or heating.
 - **Eco mode**: Reduces the unit's power draw. Some remotes label this button Diet.
-- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable it if your remote has a Viraat button.
+- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Enable it if your remote has a Viraat button.
 - **AI mode**: Turns on the automatic AI operating mode.
 
 To turn one of these modes off, select any other mode, such as **Cool**.

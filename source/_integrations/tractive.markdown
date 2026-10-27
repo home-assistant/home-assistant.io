@@ -1,23 +1,7 @@
 ---
-title: Tractive
 description: Instructions on how to integrate Tractive within Home Assistant.
-ha_categories:
-  - pets
 ha_release: 2021.9
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Danielhiversen'
-  - '@zhulik'
-  - '@bieniu'
 ha_domain: tractive
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 [Tractive](https://tractive.com/en/) is an Austrian company that develops real-time location trackers for pets and other animals using GPS and GSM technology.

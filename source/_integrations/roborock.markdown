@@ -1,30 +1,7 @@
 ---
-title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
-ha_categories:
-  - appliances_cleaning.cleaning
-  - appliances_cleaning.laundry
-ha_iot_class: Local Polling
 ha_release: 2023.5
-ha_config_flow: true
-ha_codeowners:
-  - '@Lash-L'
-  - '@allenporter'
 ha_domain: roborock
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - image
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-  - vacuum
-ha_integration_type: hub
-ha_quality_scale: silver
-ha_dhcp: true
 ---
 
 The **Roborock** {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
@@ -283,7 +260,7 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 #### Button
 
-There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to make sure they are not pressed unintentionally.
+There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to make sure they are not pressed unintentionally.
 
 - **Reset sensor consumable**
   - **Description**: The sensors on your vacuum are expected to be cleaned after 30 hours of use.

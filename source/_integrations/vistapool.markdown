@@ -1,27 +1,7 @@
 ---
-title: Vistapool
 description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
-ha_categories:
-  - water.pools_spas
 ha_release: 2026.6
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@fdebrus'
 ha_domain: vistapool
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_integration_type: hub
-ha_dhcp: true
-ha_quality_scale: bronze
 ---
 
 The **Vistapool** integration connects Home Assistant to **Vistapool-compatible pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
@@ -163,7 +143,7 @@ The integration provides the following sensors:
 - **UV**: UV module reading (if UV module installed)
 - **Electrolysis / Hydrolysis**: current production level in gr/h
 - **Filtration intel time**: daily runtime in Intel mode
-- **Wi-Fi signal strength**: controller RSSI (diagnostic, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
+- **Wi-Fi signal strength**: controller RSSI (diagnostic, [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 
 ### Binary sensors
 

@@ -1,23 +1,7 @@
 ---
-title: Sofar
 description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP or a serial RS485 connection.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 2026.9
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@darkrain-nl'
 ha_domain: sofar
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - select
-  - sensor
-  - switch
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus. You can reach the inverter over the network (Modbus TCP), either directly or through a Modbus TCP bridge, or over a serial port wired to its RS485 terminals (Modbus RTU).
@@ -115,7 +99,7 @@ The inverter's power limits and its passive-mode setpoints each span several reg
 ### Binary sensors
 
 - **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which still writes the limit while this is off, but the inverter ignores it until it's enabled again. Disabled by default.
-- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
+- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
 
 ### Buttons
 
