@@ -74,7 +74,7 @@ The target temperature is the setpoint the controller uses right now. The mode a
 | Heat | Eco | Heats to the reduced setpoint until you change the mode or preset. |
 | Off | | Only heats to protect against frost. |
 
-In **Auto** mode, selecting a preset overrides the time program until its next switch point. Selecting **Auto** again ends the override earlier.
+In **Auto** mode, selecting a preset overrides the time program until its next switch point.
 
 In **Heat** mode, changing the target temperature changes the comfort setpoint, or the reduced setpoint when the **Eco** preset is active. In **Auto** and **Off** modes, changing it does nothing, because BSB-LAN can't override the setpoint the controller applies there. To change the temperatures **Auto** mode uses, change the **Comfort temperature** or **Reduced temperature** entity of the heating circuit.
 
