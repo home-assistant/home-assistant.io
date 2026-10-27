@@ -2,9 +2,6 @@
 description: Instructions on how to integrate LaCrosse sensor data received from Jeelink into Home Assistant.
 ha_release: 0.58
 ha_domain: lacrosse
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ---
 
 The **LaCrosse** {% term integration %} uses the [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle to receive sensor data. Alternatively, you can use an [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip) to create your own receiver.
