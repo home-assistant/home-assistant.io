@@ -93,7 +93,7 @@ This automation starts the dishwasher at 22:00, but only when the price of that 
 
 - **Trigger**: Time (at `22:00:00`)
 - **Condition**: EPEX hourly price is in range
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
   - **Below**: 0.10
 - **Action**: Turn on switch
   - **Target**: Dishwasher (`switch.dishwasher`)

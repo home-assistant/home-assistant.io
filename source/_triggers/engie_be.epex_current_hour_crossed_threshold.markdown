@@ -116,7 +116,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 When the price of the current hour goes above 0.25 EUR/kWh, this automation sends a notification so you can postpone heavy appliances until a cheaper hour.
 
 - **Trigger**: EPEX current hourly price crossed threshold
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
   - **Above**: 0.25
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

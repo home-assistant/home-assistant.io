@@ -116,7 +116,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 When the price of the current quarter hour goes below 0.08 EUR/kWh, this automation turns on the EV charger.
 
 - **Trigger**: EPEX current quarter-hourly price crossed threshold
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
   - **Below**: 0.08
 - **Action**: Turn on switch
   - **Target**: EV charger (`switch.ev_charger`)

@@ -103,7 +103,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 When the price of the current hour turns negative, this automation starts the EV charger.
 
 - **Trigger**: EPEX hourly price became negative
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
 - **Action**: Turn on switch
   - **Target**: EV charger (`switch.ev_charger`)
 

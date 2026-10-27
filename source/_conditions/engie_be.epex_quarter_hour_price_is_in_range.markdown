@@ -93,7 +93,7 @@ Every quarter hour, this automation starts the EV charger, but only when the pri
 
 - **Trigger**: Time pattern (every 15 minutes)
 - **Condition**: EPEX quarter-hourly price is in range
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
   - **Above**: -0.05
   - **Below**: 0.08
 - **Action**: Turn on switch

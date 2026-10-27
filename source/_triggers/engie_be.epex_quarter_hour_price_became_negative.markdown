@@ -85,7 +85,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 When the price of the current quarter hour turns negative, this automation starts charging the home battery.
 
 - **Trigger**: EPEX quarter-hourly price became negative
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
 - **Action**: Turn on switch
   - **Target**: Battery charging (`switch.battery_charging`)
 

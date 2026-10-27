@@ -75,7 +75,7 @@ Every quarter hour, this automation starts charging the home battery, but only w
 
 - **Trigger**: Time pattern (every 15 minutes)
 - **Condition**: EPEX quarter-hourly price is negative
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
 - **Action**: Turn on switch
   - **Target**: Battery charging (`switch.battery_charging`)
 

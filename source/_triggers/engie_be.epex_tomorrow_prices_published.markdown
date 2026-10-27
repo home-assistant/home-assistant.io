@@ -83,7 +83,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 This automation sends a notification once tomorrow's EPEX prices are published, so you can plan the next day.
 
 - **Trigger**: EPEX prices for tomorrow published
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

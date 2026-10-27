@@ -75,7 +75,7 @@ At the start of every hour, this automation starts the EV charger, but only when
 
 - **Trigger**: Time pattern (every hour)
 - **Condition**: EPEX hourly price is negative
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
 - **Action**: Turn on switch
   - **Target**: EV charger (`switch.ev_charger`)
 

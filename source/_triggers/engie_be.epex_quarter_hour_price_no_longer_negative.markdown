@@ -85,7 +85,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 When the price of the current quarter hour returns to zero or above, this automation stops charging the home battery.
 
 - **Trigger**: EPEX quarter-hourly price no longer negative
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
 - **Action**: Turn off switch
   - **Target**: Battery charging (`switch.battery_charging`)
 

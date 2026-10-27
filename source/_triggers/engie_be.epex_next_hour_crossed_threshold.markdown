@@ -116,7 +116,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 When the price of the next hour goes below 0.05 EUR/kWh, this automation sends a notification so you can get appliances ready.
 
 - **Trigger**: EPEX next hourly price crossed threshold
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
   - **Below**: 0.05
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

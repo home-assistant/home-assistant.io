@@ -116,7 +116,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %}, crea
 When the price of the next quarter hour goes above 0.30 EUR/kWh, this automation sends a notification so you can switch heavy loads off in time.
 
 - **Trigger**: EPEX next quarter-hourly price crossed threshold
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
   - **Above**: 0.30
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

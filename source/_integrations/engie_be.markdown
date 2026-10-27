@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **ENGIE Belgium** {% term integration %} integrates the [ENGIE Belgium](https://www.engie.be) API with Home Assistant.
@@ -127,7 +127,7 @@ These examples cover common dynamic-tariff automations: run an appliance when el
 This automation starts the dishwasher the moment the price of the current hour goes below 0.10 EUR/kWh, so the program runs during the cheap hours of the day.
 
 - **Trigger**: EPEX current hourly price crossed threshold
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
   - **Below**: 0.10
 - **Action**: Turn on switch
   - **Target**: Dishwasher (`switch.dishwasher`)
@@ -155,7 +155,7 @@ automation: |
 This automation sends a notification once tomorrow's EPEX prices are published, so you can plan the next day while the evening is still ahead.
 
 - **Trigger**: EPEX prices for tomorrow published
-  - **Contracts**: Main Street 1
+  - **Contracts**: Main Street 1, 1000 Brussels
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
