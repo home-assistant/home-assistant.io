@@ -1,0 +1,29 @@
+<section id="hero">
+  {% include_relative components/_hero-background.html %}
+
+  <div class="container">
+    <p class="hero-date">All of November 2026</p>
+
+    <div class="content">
+      <h1 class="hero-heading">
+        <span class="wth-sr-only">Month of &ldquo;What the Heck?!&rdquo;, November 2026</span>
+        {% comment %}
+          `include_relative` resolves against the top-level page
+          (source/wth/index.html), not against this file.
+        {% endcomment %}
+        {% include_relative components/_wordmark.html %}
+      </h1>
+
+      <p class="hero-tagline">Everyone in the house gets a say</p>
+      <p class="lead">Tell us what makes Home Assistant hard, confusing, or annoying.</p>
+
+      <div class="buttons-container">
+        <a href="{{ page.forum_url }}" class="button primary" target="_blank" rel="noopener">
+          Share your WTH
+          <span class="icon-inline" aria-hidden="true">{% icon "mdi:arrow-right" %}</span>
+        </a>
+        <a href="#how-it-works" class="button hollow">How it works</a>
+      </div>
+    </div>
+  </div>
+</section>

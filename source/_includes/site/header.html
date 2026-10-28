@@ -27,6 +27,30 @@
     </label>
 
     <ul class="menu">
+      {%- comment -%}
+        Promotes the Month of "What the Heck?!" for as long as it runs. The
+        routing lines echo the ones on the /wth/ landing page and draw
+        themselves in from the edges of the bar. Remove this item, its
+        stylesheet partial and the `nav_wth` entry in
+        sass/homeassistant/_homeassistant.scss when the month is over.
+      {%- endcomment %}
+      <li class="nav-wth">
+        <a {% if root == 'wth' %}class="active"{% endif %} href="/wth/" title='Month of "What the Heck?!"'>
+          {%- comment -%}
+            The routing sits inside the label, not beside it, so it is
+            centred on the word itself. The bar's link is the word plus its
+            padding, but the panel's runs the full width of the row.
+          {%- endcomment -%}
+          <span class="nav-wth__label">WTH<svg class="nav-wth__routing" viewBox="0 0 96 68" fill="none" aria-hidden="true" focusable="false">
+            <g stroke-width="2.5" stroke-linecap="round" fill="none">
+              <path class="nav-wth__line nav-wth__line--mint" pathLength="1" d="M18 0v8a8 8 0 0 0 8 8h44" />
+              <path class="nav-wth__line nav-wth__line--blue" pathLength="1" d="M78 68v-4a8 8 0 0 0-8-8H26" />
+            </g>
+            <circle class="nav-wth__node nav-wth__node--mint" cx="70" cy="16" r="3" />
+            <circle class="nav-wth__node nav-wth__node--blue" cx="26" cy="56" r="3" />
+          </svg></span>
+        </a>
+      </li>
       <li>
         <a {% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'common-tasks' %}class="active"{% endif %} href="/docs/">Documentation {% icon "mdi:chevron-down" %}</a>
         <ul>

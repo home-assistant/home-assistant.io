@@ -1,0 +1,19 @@
+{% comment %}
+  The "What the Heck?!" wordmark. source/javascripts/wth/logo.js reads the
+  words below and draws them in 3D with three.js, so edit the text here. This
+  CSS version shows until the 3D one is ready, and stays when WebGL is not
+  available.
+
+  It is three units -- WHAT, THE and HECK?! -- each rotated in 3D on its own.
+  Layers per unit, inside out: white core, blue stroke, black 3D extrude,
+  mint sticker outline.
+{% endcomment %}
+<span class="wth-mark" data-wth-logo aria-hidden="true">
+  <span class="wth-mark__line">
+    <span class="wth-mark__word wth-mark__word--what" data-text="WHAT">WHAT</span>
+    <span class="wth-mark__word wth-mark__word--the" data-text="THE">THE</span>
+  </span>
+  <span class="wth-mark__line wth-mark__line--lg">
+    <span class="wth-mark__word wth-mark__word--heck" data-text="HECK?!">HECK?!</span>
+  </span>
+</span>
