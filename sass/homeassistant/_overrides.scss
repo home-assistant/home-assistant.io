@@ -250,15 +250,22 @@ h1.title.indent {
     max-height: 80%;
     display: block;
     position: fixed;
-    top: 68px;
+    /* Tuck the top 4px under the fixed site header (z-index 999) so a
+       sub-pixel or viewport offset on mobile Safari cannot leave a gap
+       the page text shows through. The padding keeps the content where
+       it was, and the 1px line is drawn at the header's bottom edge. */
+    top: calc(var(--header-height) - 4px);
     left: 0;
     z-index: 10;
-    padding: 0;
+    padding: 5px 0 0;
     overflow: hidden;
     border-radius: 0;
     background-color: $site-background;
+    background-image: linear-gradient(rgba(0, 0, 0, .12), rgba(0, 0, 0, .12));
+    background-position: 0 4px;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
     box-shadow: 0px 8px 4px hsla(0, 0%, 0%, .03), 0px 5px 2px hsla(0, 0%, 0%, .03), 0px 3px 2px hsla(0, 0%, 0%, .06), 0px 1px 1px hsla(0, 0%, 0%, .06);
-    border-top: 1px solid rgba(0, 0, 0, .12);
 
     &:has(label input[type="checkbox"]:checked) {
       height: 100%;
@@ -2056,6 +2063,7 @@ h6 {
 
 .site-header {
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 999;
 }
