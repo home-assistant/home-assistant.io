@@ -76,13 +76,13 @@ Please read [this information](https://otgw.tclcode.com/standalone.html) from th
 
 To reduce the risks involved as much as possible, use the following guidelines:
 
-- Update your OpenTherm Gateway to firmware version 5.2 or greater
-- Send values greater than `8` at intervals of at most 1 minute as long as there is a heating need
+- Update your OpenTherm Gateway to firmware version 5.8/6.5 or greater
+- Send values of 8 °C (46.4 °F) or higher at intervals of at most 1 minute as long as there is a heating need
 - Keep values as low as possible
 
 {% endwarning %}
 
-These number entities, which can be found on the `OpenTherm Gateway` device, allow you to override the control setpoint for the respective central heating circuit. When active, the OpenTherm Gateway overrides the control setpoint determined by the thermostat. Set to `0` to return control to the thermostat.
+These number entities, which can be found on the `OpenTherm Gateway` device, allow you to override the control setpoint for the respective central heating circuit. When active, the OpenTherm Gateway overrides the control setpoint determined by the thermostat. Set the entity to 0 °C (32 °F) to return control to the thermostat.
 These entities are disabled by default.
 
 ### Select
