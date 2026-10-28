@@ -60,12 +60,20 @@ These regions correspond to the API endpoints used by the integration.
 After setup, you can change the **App secret** and **Server region** without removing the integration:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Imou** integration, then **Configure**.
+2. Select the **Imou** integration, then **Reconfigure**.
 3. Enter the updated **App secret** and choose the correct **Server region**.
 
 Home Assistant validates the credentials against the Imou Open Platform before saving the changes.
 
 If the platform rejects your App ID or App secret during normal operation, Home Assistant prompts you to **Reauthenticate** instead. Use that flow when only the App secret changed and you are fixing an authentication error.
+
+### Polling interval
+
+**Configure** sets **Polling interval**, in seconds. The default is 2 minutes (120 seconds). The shortest is 2 minutes and the longest is 60 minutes (3600 seconds), in steps of 1 minute.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Imou** integration, then **Configure**.
+3. Set **Polling interval**.
 
 ## API usage
 
@@ -172,7 +180,7 @@ Battery, storage used, and status sensors are shown under **Diagnostic** on the 
 
 ## Data updates
 
-The integration {% term polling polls %} the Imou cloud every 2 minutes. Each poll refreshes the device list and the status of devices already on the account.
+By default, the integration {% term polling polls %} the Imou cloud every 2 minutes. Change that under [Polling interval](#polling-interval). Each poll refreshes the device list and the status of devices already on the account.
 
 - A device you add in the Imou app or Open Platform is added on the next poll, including its entities.
 - A device you remove from the account is removed from Home Assistant, including its entities.
@@ -250,17 +258,17 @@ This integration communicates with Imou cloud services. Device control commands 
 
 Verify that **App ID**, **App secret**, and **Server region** match your Imou Open Platform application and account region.
 
-If you changed the **App secret**, Home Assistant may ask you to reauthenticate the Imou integration. Enter the new **App secret**; you do not need to remove the integration. You can also update the **App secret** and **Server region** at any time from **Configure** (see [Updating credentials and server region](#updating-credentials-and-server-region)).
+If you changed the **App secret**, Home Assistant may ask you to reauthenticate the Imou integration. Enter the new **App secret**; you do not need to remove the integration. You can also update the **App secret** and **Server region** at any time from **Reconfigure** (see [Updating credentials and server region](#updating-credentials-and-server-region)).
 
 ### API quota is used quickly
 
-The integration polls the platform every 2 minutes. For one device, each poll sends at least two requests: the device list and the device status. Over 30 days that is about 43,000 requests, which is more than the 30,000 free requests. More devices, and extra readings such as sensors, use more. When the quota is used up, the device list, live view, and controls cannot reach the cloud until you add quota or the month resets.
+With the default 2-minute **Polling interval**, one device sends at least two requests on each poll: the device list and the device status. Over 30 days that is about 43,000 requests, which is more than the 30,000 free requests. At 5 minutes the same device uses about 17,000 requests. More devices, and extra readings such as sensors, use more. When the quota is used up, the device list, live view, and controls cannot reach the cloud until you add quota or the month resets. Set a longer **Polling interval** under **Configure**, or add quota.
 
 Open **My Resources** in the Open Platform console to check or add quota, then reload the Imou integration.
 
 ### A device does not appear
 
-Confirm the device is on the same Open Platform account as the App ID, and that **Server region** matches that account. A device found only by MAC address on your network is not added automatically. After you add it in the Imou app, wait for the next poll (up to 2 minutes) or reload the integration.
+Confirm the device is on the same Open Platform account as the App ID, and that **Server region** matches that account. A device found only by MAC address on your network is not added automatically. After you add it in the Imou app, wait for the next poll (2 minutes by default, or whatever **Polling interval** is set to) or reload the integration.
 
 ### Live view does not start
 
@@ -299,8 +307,8 @@ The alarm control panel is unavailable when the device is offline or no longer o
 ## Known limitations
 
 - The integration only talks to the Imou cloud. Live view and controls stop when Home Assistant cannot reach the cloud, even if the device is on your local network.
-- Each App ID includes 30,000 free API requests per month. The 2-minute poll uses more than that for one device. After the quota is used up, cloud calls fail until you add quota or the month resets. See [API usage](#api-usage).
-- Status such as online, battery, power, and door contact state can be up to 2 minutes old. The system does not detect a door that opens and closes again between polls.
+- Each App ID includes 30,000 free API requests per month. The default 2-minute poll uses more than that for one device. A longer **Polling interval** uses fewer requests. After the quota is used up, cloud calls fail until you add quota or the month resets. See [API usage](#api-usage) and [API quota is used quickly](#api-quota-is-used-quickly).
+- Status such as online, battery, power, and door contact state can be as old as the **Polling interval** (2 minutes by default). The system does not detect a door that opens and closes again between polls.
 - An entity is created only when the cloud API reports that the device supports it.
 - **Live view HD** is disabled by default.
 - The cloud API doesn't report whether the siren is sounding. Until you turn it on or off, the state is **Unknown**. If the device supports both commands, the state then shows the last command you sent, which might not match the device if the siren stops by itself. See [Siren](#siren).
