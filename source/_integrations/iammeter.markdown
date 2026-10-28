@@ -23,12 +23,6 @@ The integration supports these models:
 
 Available measurements depend on the model and the fields returned by its firmware.
 
-### WEM3050T
-
-The [WEM3050T](https://www.iammeter.com/products/3phase-meter-3050t) is a compact three-channel Wi-Fi energy meter for residential electricity and solar PV monitoring. It supports single-phase, split-phase, and three-phase Wye systems, with bidirectional power and energy measurements.
-
-WEM3050T includes IAMMETER-Cloud Basic, while [WEM3080T](https://www.iammeter.com/products/three-phase-meter) includes IAMMETER-Cloud Pro. Both models support this local Home Assistant integration without an IAMMETER cloud account. Refer to their product pages for current hardware and cloud-service details.
-
 ## Prerequisites
 
 - Connect your meter to your local network.
