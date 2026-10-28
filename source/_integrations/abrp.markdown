@@ -9,7 +9,7 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@mtandersson'
-ha_domain: abetterrouteplanner
+ha_domain: abrp
 ha_platforms:
   - sensor
 ha_integration_type: hub
