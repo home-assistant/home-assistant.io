@@ -9,11 +9,13 @@ ha_config_flow: true
 ha_domain: bosch_smart_camera
 ha_codeowners:
   - "@mosandlt"
+ha_platforms:
+  - camera
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Bosch Smart Camera** {% term integration %} connects your Bosch SingleKey ID account to Home Assistant. Each camera of the account is added as a camera entity that shows the image of its latest event.
+The **Bosch Smart Camera** {% term integration %} connects your Bosch SingleKey ID account to Home Assistant. Each camera of the account is added as a camera entity that shows the latest available event image.
 
 ## Supported devices
 
@@ -30,11 +32,11 @@ You need a Bosch SingleKey ID account that has at least one camera registered in
 
 {% include integrations/config_flow.md %}
 
-You are redirected to the Bosch login page to sign in with your SingleKey ID. Only one account can be set up.
+You are redirected to the Bosch login page to sign in with your SingleKey ID.
 
 ## Supported functionality
 
-The integration adds one camera entity per camera of the account. The entity shows the image of the camera's latest event, for example a motion or person event. It is not a live image. The image is cached for 60 seconds, so dashboards and automations can request it often without extra load on the Bosch cloud.
+The integration adds one camera entity per camera of the account. The entity shows the latest available event image, for example a motion or person event. It is not a live image. The image is cached for 60 seconds, so dashboards and automations can request it often without extra load on the Bosch cloud.
 
 Each camera is also added as a device, together with its model and firmware version. Cameras that are added to or removed from the account are added or removed in Home Assistant automatically.
 
@@ -44,9 +46,13 @@ The integration polls the Bosch cloud for the list of cameras every 5 minutes. T
 
 ## Known limitations
 
-- Live streaming is not available yet. The camera entity only shows the image of the latest event.
-- A camera without any event image has no image to show.
-- A cloud connection is required.
+### Event images
+
+Live streaming is not available yet. The camera entity only shows the latest available event image. A camera without any event image has no image to show.
+
+### Cloud connection
+
+A cloud connection is required.
 
 ## Troubleshooting
 
