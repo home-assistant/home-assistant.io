@@ -159,7 +159,7 @@ The list shows the following columns:
      - **User**: The user the action was performed for, if this user isn't already shown as the cause.
      - **Context ID**: The ID of the context that the action was performed in. You can use it to find related events.
      - **Data**: The data the action was performed with, in YAML, such as the targets and options.
-2. Optional: If an automation or a script performed the action, select **View trace** to open its [trace](/docs/automation/troubleshooting/#traces) and see why it ran.
+2. Optional: If **View trace** is shown, select it to open the automation or script's [trace](/docs/automation/troubleshooting/#traces) and see why it ran. This option is only shown while Home Assistant still keeps the trace of that run.
 
 ## Template editor tab
 
