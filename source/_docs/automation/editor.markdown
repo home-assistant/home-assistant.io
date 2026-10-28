@@ -131,8 +131,8 @@ To swap a trigger, condition, or action for a different one, replace it. The new
 
 The following settings are kept:
 
-- The target. Entities, devices, areas, floors, and labels that the new one doesn't work with are removed from it.
-- Each option that the new one has in exactly the same form, with the same name and the same kind of input.
+- The target. However, entities, devices, areas, floors, and labels that do not work with the new trigger, condition, or action are removed from it.
+- Each option with the same name and the same kind of input.
 - The trigger ID, the trigger variables, the note, **Continue on error**, and whether it's turned off.
 - The response variable, if the new action returns a response.
 
