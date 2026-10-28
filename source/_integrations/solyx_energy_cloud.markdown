@@ -20,7 +20,7 @@ related:
   - url: https://www.solyxenergy.nl/contact/
     title: Ask a question or report device issues
   - url: https://github.com/home-assistant/core/issues?q=label%3A%22integration%3A+solyx_energy_cloud%22
-    title: Issues list for the Solyx Energy integration
+    title: Issues list for the Solyx Energy Cloud integration
 ---
 
 The **Solyx Energy Cloud** {% term integration %} is used to integrate with Nymo devices from [Solyx Energy](https://www.solyxenergy.nl). The Nymo controls an electric boiler with exactly the amount of solar energy that would otherwise be fed back into the grid. It allows households to store their surplus solar power and minimize feed-in, without huge investments.
