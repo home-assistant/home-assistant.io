@@ -33,7 +33,7 @@ Model:
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 AI tools:
-  description: **Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices. Controlling Home Assistant with Ollama is experimental. See [Controlling Home Assistant](#controlling-home-assistant) below for model limitations.
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices. Controlling Home Assistant with Ollama is experimental. See [Controlling Home Assistant](#controlling-home-assistant) below for model limitations."
 Context window size:
   description: "The context window size is the number of tokens the model can take as input. Home Assistant defaults to 8k, which is larger than the default value in Ollama Server (2k), and you may adjust it based on the maximum context size of the specific model used. A larger value will better support larger homes with more entities, and smaller values may lower Ollama server RAM usage."
 Max history messages:
