@@ -1200,13 +1200,18 @@ Home Assistant Operating System, Home Assistant Supervised, and Home Assistant C
 
 {% details "Ring" %}
 
-The `siren` switch entity has been removed and replaced by a siren entity. If
-you use the switch entity in an automation or script, update it to use the
-siren entity. The deprecation was announced in 2024.9. Removal, originally planned for
-2025.4, takes effect in this release.
+Several Ring entities that were deprecated in 2024.9, and originally scheduled for removal in 2025.4, have now been removed:
 
-([@tr4nt0r] - [#188108]) ([Ring documentation])
+- The ding and motion binary sensors, and the last ding and last motion sensors. Use the event entities instead.
+- The volume sensors, including the doorbell, microphone, and voice volume sensors. Use the number entities instead, which also let you change the volume.
+- The siren switch. Use the siren entity instead.
 
+If you use any of these entities in an automation, script, or dashboard, update it to use its replacement.
+
+([@tr4nt0r] - [#187592]) ([@tr4nt0r] - [#187596]) ([@tr4nt0r] - [#188108]) ([Ring documentation])
+
+[#187592]: https://github.com/home-assistant/core/pull/187592
+[#187596]: https://github.com/home-assistant/core/pull/187596
 [#188108]: https://github.com/home-assistant/core/pull/188108
 [Ring documentation]: /integrations/ring/
 
