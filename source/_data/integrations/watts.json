@@ -1,0 +1,21 @@
+{
+  "domain": "watts",
+  "name": "Watts Vision +",
+  "integration_type": "hub",
+  "codeowners": [
+    "@theobld-ww",
+    "@devender-verma-ww",
+    "@ssi-spyro"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate",
+    "diagnostics",
+    "switch"
+  ]
+}

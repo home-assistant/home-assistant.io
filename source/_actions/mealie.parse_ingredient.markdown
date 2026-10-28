@@ -4,6 +4,7 @@ action: mealie.parse_ingredient
 domain: mealie
 description: "Parses an ingredient from Mealie attempting to match food items, quantity, and units."
 related_actions:
+  - mealie.add_ingredient
   - mealie.get_recipe
   - mealie.get_shopping_list_items
   - todo.add_item

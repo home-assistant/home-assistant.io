@@ -26,6 +26,20 @@ blueprint:
       selector:
         text: {}
       default:
+    notify_entity:
+      name: Notify entity
+      description:
+        The notify entity to send the notification to, for example a Telegram
+        bot chat. When set, the notification is sent with the
+        notify.send_message action, and the notify service name and target are
+        not used.
+      selector:
+        entity:
+          multiple: false
+          filter:
+            - domain:
+                - notify
+      default: ""
     calendar_entity:
       name: Calendar
       description: The calendar entity to use for finding upcoming calendar events.
@@ -95,6 +109,7 @@ action:
       zone_entity: !input zone_entity
       calendar_duration: !input calendar_duration
       prompt: !input prompt
+      notify_entity: !input notify_entity
   - alias: Fetch Weather Forecast
     action: weather.get_forecasts
     data:
@@ -144,8 +159,19 @@ action:
       agent_id: !input conversation_agent
     response_variable: agent
   - alias: "Send notification"
-    action: !input notify_service
-    data:
-      target: !input notify_target
-      title: "{{ now().strftime('%A') }} Agenda"
-      message: "{{ agent.response.speech.plain.speech }}"
+    if:
+      - condition: template
+        value_template: "{{ notify_entity != '' }}"
+    then:
+      - action: notify.send_message
+        target:
+          entity_id: "{{ notify_entity }}"
+        data:
+          title: "{{ now().strftime('%A') }} Agenda"
+          message: "{{ agent.response.speech.plain.speech }}"
+    else:
+      - action: !input notify_service
+        data:
+          target: !input notify_target
+          title: "{{ now().strftime('%A') }} Agenda"
+          message: "{{ agent.response.speech.plain.speech }}"

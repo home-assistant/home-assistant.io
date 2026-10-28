@@ -1,0 +1,16 @@
+{
+  "domain": "kaiterra",
+  "name": "Kaiterra",
+  "codeowners": [
+    "@Michsior14"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "platforms": [
+    "air_quality",
+    "sensor"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "domain": "facebook",
+  "name": "Facebook Messenger",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "messaging_notifications.chat_apps"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

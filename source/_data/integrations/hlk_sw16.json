@@ -1,0 +1,16 @@
+{
+  "domain": "hlk_sw16",
+  "name": "Hi-Link HLK-SW16",
+  "integration_type": "device",
+  "codeowners": [
+    "@jameshilliard"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "plugs_switches"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

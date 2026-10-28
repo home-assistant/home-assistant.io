@@ -1,0 +1,18 @@
+{
+  "domain": "keba",
+  "name": "Keba Charging Station",
+  "codeowners": [
+    "@dannerph"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "energy.ev_charging"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "lock",
+    "notify",
+    "sensor"
+  ]
+}

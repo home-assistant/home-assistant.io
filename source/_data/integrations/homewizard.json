@@ -1,0 +1,29 @@
+{
+  "domain": "homewizard",
+  "name": "HomeWizard",
+  "integration_type": "device",
+  "codeowners": [
+    "@DCSBL",
+    "@lexpostma"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.meters_monitoring",
+    "water.meters_leak_detection",
+    "plugs_switches"
+  ],
+  "platforms": [
+    "button",
+    "diagnostics",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

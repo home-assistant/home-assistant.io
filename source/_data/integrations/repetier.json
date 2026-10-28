@@ -1,0 +1,15 @@
+{
+  "domain": "repetier",
+  "name": "Repetier-Server",
+  "codeowners": [
+    "@ShadowBr0ther"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.printers"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -16,7 +16,7 @@ The **Choose** building block has several options, each with its own conditions 
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Select **Blocks**, then select **Choose**.
 4. Under **Option 1**, add the conditions under **Conditions**, and the actions under **Actions**.
-5. Optional: To give the option a name, select **Menu** {% icon "mdi:dots-vertical" %} > **Rename option**.
+5. Optional: To give the option a name, select **Menu** {% icon "mdi:dots-vertical" %} > **Rename**.
 6. Optional: To add another option, select **Add option**.
 7. Optional: To add actions that run if no option matches, select **Add default actions**.
 8. Select **Save**.

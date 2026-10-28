@@ -1,0 +1,25 @@
+{
+  "domain": "rfxtrx",
+  "name": "RFXCOM RFXtrx",
+  "integration_type": "hub",
+  "codeowners": [
+    "@danielhiversen",
+    "@elupus",
+    "@RobBie1221"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "hubs_protocols.wireless_protocols"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "cover",
+    "diagnostics",
+    "event",
+    "light",
+    "sensor",
+    "siren",
+    "switch"
+  ]
+}

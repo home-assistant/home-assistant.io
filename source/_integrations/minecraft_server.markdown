@@ -1,21 +1,7 @@
 ---
-title: Minecraft Server
 description: Instructions on how to integrate a Minecraft server into Home Assistant.
 ha_release: 0.106
-ha_categories:
-  - media_entertainment.gaming
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@elmurato'
-  - '@zachdeibert'
 ha_domain: minecraft_server
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 [Minecraft](https://www.minecraft.net/en-us) is a sandbox video game developed by Mojang Studios. Minecraft servers allow players to play the game online or via a local area network with other players. The **Minecraft Server** integration lets you retrieve information from a Minecraft server within Home Assistant. It supports **Legacy Java Edition**, **Java Edition** and **Bedrock Edition** servers.
