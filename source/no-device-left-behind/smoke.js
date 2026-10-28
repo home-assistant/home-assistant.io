@@ -3,15 +3,12 @@
  * Adapted from the Music Assistant website hero (music-assistant.io,
  * src/components/home/smoke.ts, Apache-2.0) for the Home Assistant holding
  * page: Home Assistant colours, full-page (no top/bottom fade), and the
- * music notes behind a switch (NOTES), and a hidden word (WORD). The smoke
- * keeps a fading memory of the brightest it has been at each spot. Where the smoke over a letter
- * has thinned well below what was there a moment ago (the wake behind the
- * cursor, mostly), the letter shows through as a dim copy of that
- * remembered smoke, and fades out again as the memory catches up.
- * COLLIDE (set at build time) picks between two versions: A, where the
- * smoke and notes pass through the letters, and B, where an uncovered part
- * turns solid until its memory has faded, so the smoke and notes go round
- * it and only flow back in once it gives way.
+ * music notes behind a switch (NOTES), and hidden words (WORD_LINES). The
+ * smoke keeps a fading memory of the brightest it has been at each spot.
+ * Where the smoke over a letter has thinned well below that (the wake
+ * behind the cursor, mostly), the letter shows through as a dim copy of the
+ * remembered smoke, and fades out again as the memory does. The smoke and
+ * notes pass straight through the letters.
  *
  * Smoke for the homepage hero: a small fluid simulation (advection,
  * vorticity and a pressure solve, after Jos Stam's "Stable Fluids") that the
@@ -93,13 +90,9 @@ const NARROW_HEIGHT = 0.6;
 const LINE_HEIGHT = 0.95;
 const WORD_FONT = `${WORD_WEIGHT} 100px Figtree, "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif`;
 // Uncovering: how bright an uncovered part is (the remembered smoke at this
-// opacity), how long the memory takes to catch up (seconds), and (version B)
-// how faint the memory gets before a solid part gives way.
+// opacity), and how long the memory takes to fade (seconds).
 const REVEAL_SHADE = 0.4;
 const MEMORY_TIME = 12;
-const MEMORY_FLOOR = 0.02;
-// A or B, set at build time.
-const COLLIDE = false;
 
 // The music notes gathering out of the smoke.
 const NOTES = true;
@@ -149,11 +142,6 @@ precision highp float;
 precision highp sampler2D;
 in vec2 vUv, vL, vR, vT, vB;
 out vec4 o;
-uniform sampler2D solid, reveal;
-// Solid where the word has been uncovered (version B only).
-float wall(vec2 uv) {
-  return ${COLLIDE ? "step(0.5, texture(reveal, uv).r)" : "0.0"};
-}
 ${body}`;
 
 // Adds a frame's worth of soft round splats in one pass: each a point and
@@ -174,7 +162,7 @@ void main() {
     p.x *= aspect;
     sum += exp(-dot(p, p) / points[i].z) * colors[i];
   }
-  o = vec4(sum * (1.0 - wall(vUv)), 1.0);
+  o = vec4(sum, 1.0);
 }`);
 
 // Condenses dye into every live note in one pass. Each is a glyph from the
@@ -207,7 +195,7 @@ void main() {
     float halo = smoothstep(size * 1.1, size * 0.4, length(p)) * (1.0 - m);
     dye = mix(dye, colors[i], looks[i].y * m) * (1.0 - looks[i].z * halo);
   }
-  o = vec4(dye * (1.0 - wall(vUv)), 1.0);
+  o = vec4(dye, 1.0);
 }`);
 
 const ADVECT = frag(`
@@ -216,17 +204,17 @@ uniform vec2 texel;
 uniform float dt, dissipation;
 void main() {
   vec2 from = vUv - dt * texture(velocity, vUv).xy * texel;
-  o = vec4(texture(source, from).xyz / (1.0 + dissipation * dt) * (1.0 - wall(vUv)), 1.0);
+  o = vec4(texture(source, from).xyz / (1.0 + dissipation * dt), 1.0);
 }`);
 
 const DIVERGENCE = frag(`
 uniform sampler2D velocity;
 void main() {
   vec2 c = texture(velocity, vUv).xy;
-  float l = vL.x < 0.0 || wall(vL) > 0.0 ? -c.x : texture(velocity, vL).x;
-  float r = vR.x > 1.0 || wall(vR) > 0.0 ? -c.x : texture(velocity, vR).x;
-  float t = vT.y > 1.0 || wall(vT) > 0.0 ? -c.y : texture(velocity, vT).y;
-  float b = vB.y < 0.0 || wall(vB) > 0.0 ? -c.y : texture(velocity, vB).y;
+  float l = vL.x < 0.0 ? -c.x : texture(velocity, vL).x;
+  float r = vR.x > 1.0 ? -c.x : texture(velocity, vR).x;
+  float t = vT.y > 1.0 ? -c.y : texture(velocity, vT).y;
+  float b = vB.y < 0.0 ? -c.y : texture(velocity, vB).y;
   o = vec4(0.5 * (r - l + t - b), 0.0, 0.0, 1.0);
 }`);
 
@@ -253,35 +241,27 @@ void main() {
   force *= strength * c / (length(force) + 1e-4);
   force.y *= -1.0;
   vec2 v = texture(velocity, vUv).xy + force * dt;
-  o = vec4(clamp(v, -1000.0, 1000.0) * (1.0 - wall(vUv)), 0.0, 1.0);
+  o = vec4(clamp(v, -1000.0, 1000.0), 0.0, 1.0);
 }`);
 
 const PRESSURE = frag(`
 uniform sampler2D pressure, divergence;
 void main() {
-  float c = texture(pressure, vUv).x;
-  float l = mix(texture(pressure, vL).x, c, wall(vL));
-  float r = mix(texture(pressure, vR).x, c, wall(vR));
-  float t = mix(texture(pressure, vT).x, c, wall(vT));
-  float b = mix(texture(pressure, vB).x, c, wall(vB));
+  float l = texture(pressure, vL).x;
+  float r = texture(pressure, vR).x;
+  float t = texture(pressure, vT).x;
+  float b = texture(pressure, vB).x;
   o = vec4((l + r + b + t - texture(divergence, vUv).x) * 0.25, 0.0, 0.0, 1.0);
 }`);
 
 const GRADIENT = frag(`
 uniform sampler2D pressure, velocity;
 void main() {
-  float c = texture(pressure, vUv).x;
-  float l = mix(texture(pressure, vL).x, c, wall(vL));
-  float r = mix(texture(pressure, vR).x, c, wall(vR));
-  float t = mix(texture(pressure, vT).x, c, wall(vT));
-  float b = mix(texture(pressure, vB).x, c, wall(vB));
-  vec2 v = texture(velocity, vUv).xy - vec2(r - l, t - b);
-  // Nothing flows into the word: drop any push straight at a wall.
-  if (wall(vL) > 0.0) v.x = max(v.x, 0.0);
-  if (wall(vR) > 0.0) v.x = min(v.x, 0.0);
-  if (wall(vB) > 0.0) v.y = max(v.y, 0.0);
-  if (wall(vT) > 0.0) v.y = min(v.y, 0.0);
-  o = vec4(v * (1.0 - wall(vUv)), 0.0, 1.0);
+  float l = texture(pressure, vL).x;
+  float r = texture(pressure, vR).x;
+  float t = texture(pressure, vT).x;
+  float b = texture(pressure, vB).x;
+  o = vec4(texture(velocity, vUv).xy - vec2(r - l, t - b), 0.0, 1.0);
 }`);
 
 const SCALE = frag(`
@@ -297,7 +277,7 @@ void main() { o = value * texture(source, vUv); }`);
 // smoke, whichever is brighter: where smoke sits as it was, nothing shows;
 // where it has cleared, the letter does.
 const DISPLAY = frag(`
-uniform sampler2D dye, memory;
+uniform sampler2D dye, memory, solid;
 uniform float strength, deepen, shade;
 vec4 look(vec3 dyed) {
   vec3 c = 1.0 - exp(-dyed * 1.4);
@@ -323,21 +303,6 @@ uniform sampler2D dye, memory;
 uniform float keep;
 void main() {
   o = vec4(max(texture(dye, vUv).rgb, texture(memory, vUv).rgb * keep), 1.0);
-}`);
-
-// Version B: where the word is solid. A letter turns solid where its smoke
-// has fallen below a dim copy of the remembered smoke, and stays solid
-// (nothing gets back in) until the memory itself has faded.
-const REVEAL = frag(`
-uniform sampler2D dye, memory;
-uniform float shade, floor_;
-void main() {
-  vec3 d = texture(dye, vUv).rgb;
-  vec3 m = texture(memory, vUv).rgb;
-  float now = max(d.r, max(d.g, d.b));
-  float was = max(m.r, max(m.g, m.b));
-  float cleared = step(now, shade * was) * step(floor_, was);
-  o = vec4(step(0.5, texture(solid, vUv).r) * cleared, 0.0, 0.0, 1.0);
 }`);
 
 // White note shapes drawn side by side on a 2D canvas, one per 128px cell:
@@ -424,35 +389,6 @@ function drawWord(
   );
   ctx.restore();
   return 0.5 + (textH * scale) / (2 * h);
-}
-
-// Distance from each cell to the nearest cell on the other side of the
-// word's edge (two-pass chamfer), in cells.
-function distanceTo(inside            , w        , h        , want        ) {
-  const d = new Float32Array(w * h);
-  for (let i = 0; i < d.length; i++) d[i] = inside[i] === want ? 0 : 1e6;
-  const D = Math.SQRT2;
-  for (let y = 0; y < h; y++)
-    for (let x = 0; x < w; x++) {
-      const i = y * w + x;
-      if (x > 0) d[i] = Math.min(d[i], d[i - 1] + 1);
-      if (y > 0) {
-        d[i] = Math.min(d[i], d[i - w] + 1);
-        if (x > 0) d[i] = Math.min(d[i], d[i - w - 1] + D);
-        if (x < w - 1) d[i] = Math.min(d[i], d[i - w + 1] + D);
-      }
-    }
-  for (let y = h - 1; y >= 0; y--)
-    for (let x = w - 1; x >= 0; x--) {
-      const i = y * w + x;
-      if (x < w - 1) d[i] = Math.min(d[i], d[i + 1] + 1);
-      if (y < h - 1) {
-        d[i] = Math.min(d[i], d[i + w] + 1);
-        if (x < w - 1) d[i] = Math.min(d[i], d[i + w + 1] + D);
-        if (x > 0) d[i] = Math.min(d[i], d[i + w - 1] + D);
-      }
-    }
-  return d;
 }
 
 
@@ -555,7 +491,6 @@ function startSmoke(
     SCALE,
     DISPLAY,
     MEMORY,
-    REVEAL,
   ].map(program);
   if (programs.some((p) => !p)) return;
   const [
@@ -570,13 +505,10 @@ function startSmoke(
     scaleP,
     displayP,
     memoryP,
-    revealP,
   ] = programs             ;
 
-  // The word on texture unit 3, and (version B) which of it is solid on 4,
-  // for every pass (the passes use 0 to 2).
+  // The word, on texture unit 3 (the passes use 0 and 1).
   const SOLID_UNIT = 3;
-  const REVEAL_UNIT = 4;
   const solid = gl.createTexture() ;
   gl.activeTexture(gl.TEXTURE0 + SOLID_UNIT);
   gl.bindTexture(gl.TEXTURE_2D, solid);
@@ -585,11 +517,8 @@ function startSmoke(
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
   gl.activeTexture(gl.TEXTURE0);
-  for (const p of programs             ) {
-    p.use();
-    p.setInt("solid", SOLID_UNIT);
-    p.setInt("reveal", REVEAL_UNIT);
-  }
+  displayP.use();
+  displayP.setInt("solid", SOLID_UNIT);
   const wordCanvas = document.createElement("canvas");
   const wordCtx = wordCanvas.getContext("2d") ;
   const drawSolid = () => {
@@ -612,15 +541,6 @@ function startSmoke(
     );
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
     gl.activeTexture(gl.TEXTURE0);
-  };
-  // Version B: the solid parts as a signed distance on the fluid's grid (in
-  // page heights, negative inside), for the notes to feel their way around.
-  let field = { w: 1, h: 1, sdf: new Float32Array(1).fill(1) };
-  const sdfAt = (x        , y        ) => {
-    const { w, h, sdf } = field;
-    const gx = Math.min(w - 1, Math.max(0, Math.round(x * w - 0.5)));
-    const gy = Math.min(h - 1, Math.max(0, Math.round(y * h - 0.5)));
-    return sdf[gy * w + gx];
   };
 
   gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
@@ -713,66 +633,7 @@ function startSmoke(
   const memory = double(dyeW, dyeH);
   if (!velocity || !dye || !pressure || !divergence || !curl || !memory) return;
 
-  // Version B: which of the word is solid, at the fluid's resolution, in
-  // plain bytes so it can be read back for the notes.
-  const revealTex = gl.createTexture() ;
-  gl.bindTexture(gl.TEXTURE_2D, revealTex);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, simW, simH, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
-  const revealFbo = gl.createFramebuffer() ;
-  gl.bindFramebuffer(gl.FRAMEBUFFER, revealFbo);
-  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, revealTex, 0);
-  gl.clearColor(0, 0, 0, 1);
-  gl.clear(gl.COLOR_BUFFER_BIT);
-  const reveal         = { fbo: revealFbo, tex: revealTex, w: simW, h: simH, texel: [1 / simW, 1 / simH] };
-  const bindReveal = (t                     ) => {
-    gl.activeTexture(gl.TEXTURE0 + REVEAL_UNIT);
-    gl.bindTexture(gl.TEXTURE_2D, t);
-    gl.activeTexture(gl.TEXTURE0);
-  };
-  bindReveal(revealTex);
-  const revealBytes = new Uint8Array(simW * simH * 4);
-  // Read back in the background (into a buffer, picked up once the GPU says
-  // it's done) so the page never waits on it; at most ten times a second.
-  const pack = gl.createBuffer() ;
-  gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pack);
-  gl.bufferData(gl.PIXEL_PACK_BUFFER, revealBytes.byteLength, gl.STREAM_READ);
-  gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
-  let pending                   = null;
-  let lastRead = 0;
-  // Rebuilds the notes' distance field from the solid parts.
-  const readReveal = (now        ) => {
-    if (pending) {
-      const status = gl.clientWaitSync(pending, 0, 0);
-      if (status !== gl.ALREADY_SIGNALED && status !== gl.CONDITION_SATISFIED)
-        return;
-      gl.deleteSync(pending);
-      pending = null;
-      gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pack);
-      gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, 0, revealBytes);
-      gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
-      const walls = new Uint8Array(simW * simH);
-      for (let i = 0; i < walls.length; i++) walls[i] = revealBytes[i * 4] > 127 ? 1 : 0;
-      const out = distanceTo(walls, simW, simH, 1);
-      const inn = distanceTo(walls, simW, simH, 0);
-      const sdf = new Float32Array(simW * simH);
-      for (let i = 0; i < sdf.length; i++) sdf[i] = (out[i] - inn[i]) / simH;
-      field = { w: simW, h: simH, sdf };
-      return;
-    }
-    if (now - lastRead < 100) return;
-    lastRead = now;
-    gl.bindFramebuffer(gl.FRAMEBUFFER, revealFbo);
-    gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pack);
-    gl.readPixels(0, 0, simW, simH, gl.RGBA, gl.UNSIGNED_BYTE, 0);
-    gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
-    pending = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
-    gl.flush();
-  };
-  // Remembers the smoke, then (version B) works out what's solid.
+  // Remembers the smoke.
   const remember = (dt        ) => {
     memoryP.use();
     memoryP.set("texel", ...dye.read.texel);
@@ -781,17 +642,6 @@ function startSmoke(
     memoryP.bind("memory", memory.read, 1);
     draw(memory.write);
     memory.swap();
-    if (!COLLIDE) return;
-    // Not sampled while it's being drawn into.
-    bindReveal(null);
-    revealP.use();
-    revealP.set("texel", ...reveal.texel);
-    revealP.set("shade", REVEAL_SHADE);
-    revealP.set("floor_", MEMORY_FLOOR);
-    revealP.bind("dye", dye.read, 0);
-    revealP.bind("memory", memory.read, 1);
-    draw(reveal);
-    bindReveal(revealTex);
   };
 
   const draw = (dest               ) => {
@@ -858,8 +708,6 @@ function startSmoke(
 
 
 
-
-
   let notes         = [];
   const notePlaces = new Float32Array(NOTE_LIMIT * 4);
   const noteLooks = new Float32Array(NOTE_LIMIT * 4);
@@ -886,49 +734,16 @@ function startSmoke(
         age: 0,
         sway: Math.random() * Math.PI * 2,
         rise: NOTE_RISE * (0.6 + Math.random() * 0.8),
-        vx: 0,
-        slide: Math.random() < 0.5 ? -1 : 1,
       };
-      // None start inside the word.
-      if (sdfAt(n.x, n.y) < n.size * 0.5) continue;
       notes.push(n);
     }
-  };
-  // Keeps a note out of the word: pushed back out along the edge's normal,
-  // and nudged along the edge (upward where it can be) so a rising note
-  // slides round a letter instead of sticking under it.
-  const collide = (n      ) => {
-    const aspect = canvas.width / Math.max(1, canvas.height);
-    const r = n.size * 0.45;
-    const d = sdfAt(n.x, n.y);
-    if (d >= r) return;
-    const e = 1.5 / field.h;
-    let nx = (sdfAt(n.x + e / aspect, n.y) - sdfAt(n.x - e / aspect, n.y)) / 2;
-    let ny = (sdfAt(n.x, n.y + e) - sdfAt(n.x, n.y - e)) / 2;
-    const len = Math.hypot(nx, ny);
-    if (len < 1e-6) {
-      nx = 0;
-      ny = -1;
-    } else {
-      nx /= len;
-      ny /= len;
-    }
-    n.x += ((r - d) * nx) / aspect;
-    n.y += (r - d) * ny;
-    let tx = -ny;
-    const ty = nx;
-    if (Math.abs(ty) < 0.2) tx = Math.abs(tx) * n.slide;
-    else if (ty < 0) tx = -tx;
-    n.vx = tx * n.rise * 1.5;
   };
   const updateNotes = (dt        ) => {
     let count = 0;
     for (const n of notes) {
       n.age += dt;
       n.y += n.rise * dt;
-      n.x += Math.sin(n.sway + n.age * 3) * 0.01 * dt + n.vx * dt;
-      n.vx *= Math.max(0, 1 - dt * 1.5);
-      if (COLLIDE) collide(n);
+      n.x += Math.sin(n.sway + n.age * 3) * 0.01 * dt;
       const gather = (n.age - NOTE_DELAY) / NOTE_GATHER;
       const fade = (n.age - NOTE_DELAY - NOTE_GATHER - NOTE_HOLD) / NOTE_FADE;
       if (gather <= 0) continue;
@@ -1275,7 +1090,7 @@ function startSmoke(
   const renderStill = () => {
     if (stopped) return;
     notes = [];
-    for (const t of [velocity.read, velocity.write, dye.read, dye.write, memory.read, memory.write, reveal]) {
+    for (const t of [velocity.read, velocity.write, dye.read, dye.write, memory.read, memory.write]) {
       gl.bindFramebuffer(gl.FRAMEBUFFER, t.fbo);
       gl.clearColor(0, 0, 0, 1);
       gl.clear(gl.COLOR_BUFFER_BIT);
@@ -1343,7 +1158,6 @@ function startSmoke(
     updateNotes(dt);
     step(dt);
     remember(dt);
-    if (COLLIDE) readReveal(now);
     present();
     queue();
   };
