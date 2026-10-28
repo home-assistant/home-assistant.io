@@ -339,6 +339,7 @@ source/_integrations/event.markdown @home-assistant/core
 source/_integrations/event.mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/evergy.markdown @tronikos
 source/_integrations/evohome.markdown @zxdavb
+source/_integrations/exicom_spin_ble.markdown @Dr-Blank
 source/_integrations/ezviz.markdown @RenierM26
 source/_integrations/faa_delays.markdown @ntilley905
 source/_integrations/fan.markdown @home-assistant/core
@@ -1085,7 +1086,6 @@ source/_integrations/soundtouch.markdown @kroimon
 source/_integrations/spaceapi.markdown @fabaff
 source/_integrations/specialized_turbo.markdown @JamieMagee
 source/_integrations/speedtestdotnet.markdown @rohankapoorcom @engrbm87
-source/_integrations/spin_ble.markdown @Dr-Blank
 source/_integrations/splunk.markdown @Bre77
 source/_integrations/spotify.markdown @frenck @joostlek
 source/_integrations/sql.markdown @gjohansson-ST @dougiteixeira
