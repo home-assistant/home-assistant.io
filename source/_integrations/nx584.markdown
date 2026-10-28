@@ -22,7 +22,7 @@ The **NX584** {% term integration %} provides integration with GE, Caddx, Interl
 
 There is currently support for the following device types within Home Assistant:
 
-- Alarm
+- Alarm control panel
 - [Binary sensor](#binary-sensor)
 
 {% include integrations/config_flow.md %}
