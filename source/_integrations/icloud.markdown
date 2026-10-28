@@ -41,6 +41,8 @@ For the notification, press "Allow", then "OK".
 
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 
+If you remove a device from your Apple Account, or Apple otherwise stops listing it, Home Assistant removes the device and all of its entities automatically the next time the account updates. If the device is listed again later, it returns with the area, name, labels and entity settings it had before.
+
 ## Two-factor authentication
 
 Use your regular Apple Account password when setting up the integration. If Apple requires two-factor authentication, Home Assistant asks you to enter the six-digit verification code displayed on one of your trusted Apple devices or sent to your trusted phone number.
@@ -56,8 +58,6 @@ Delete the integration's configuration (most likely in `/config/.storage/icloud`
 The integration provides the following configuration options:
 
 {% configuration_basic %}
-Automatically delete devices no longer reported by Apple:
-  description: Remove a device and its entities from Home Assistant as soon as Apple stops listing it in your account. Defaults to `false`. You can always remove a device manually from its device page.
 Include completed reminders:
   description: Fetch completed reminders as well as unfinished ones. Defaults to `false`.
 {% endconfiguration_basic %}
