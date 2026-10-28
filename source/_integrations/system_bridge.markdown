@@ -96,6 +96,12 @@ Per-disk sensors are named after the disk, such as `/dev/sda1 read rate`. They'r
 
 Each battery System Bridge finds, including ones in connected devices such as a wireless mouse or headset, also gets a level and a state sensor named after its model, such as `PRO X SUPERLIGHT 2c battery`. They're enabled for connected devices, and disabled by default for the device's own batteries, which the battery sensors above already cover. Sensors for a battery that appears later, such as a headset being switched on, are added when it first shows up. The AC Power binary sensor is only added on devices that report it, so desktops don't get one.
 
+## Display controls
+
+Each display that reports its brightness gets a `Display <id> brightness` number to set it, from 0 to 100%. Each display that reports its power state gets a `Display <id> power` switch to turn it on or off. The switch shows off when the display is in standby, suspended or off.
+
+Brightness is set through the backlight on built-in screens and over DDC/CI on external monitors. Power is set over DDC/CI, or on Linux with Hyprland through Hyprland itself for screens without it. A display that System Bridge can't control doesn't get these entities, and they aren't available on macOS. Some monitors stop answering DDC/CI once they're off, so they can't be turned back on this way.
+
 ## Media player
 
 The integration also provides a media player. This allows you control the currently playing media on your device.
