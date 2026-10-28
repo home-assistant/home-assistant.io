@@ -1,0 +1,200 @@
+---
+// The "What the Heck?!" wordmark, rebuilt from the key visual as live
+// text. source/javascripts/wth/logo.js reads the words below and draws
+// them in 3D with three.js; this CSS version shows until that is ready,
+// and stays when WebGL is not available.
+//
+// It is three units -- WHAT, THE and HECK?! -- each rotated in 3D on its
+// own. Layers per unit, inside out: white core, blue stroke, black 3D
+// extrude, mint sticker outline.
+//
+// Fidelity: copy. This is the campaign's artwork, not page furniture: the
+// sizes are relative to the type (`em`) on purpose, so the whole lockup
+// scales as one, and the angles are tuned per word against the key
+// visual. Carried over from sass/homeassistant/pages/wth/_base.scss as
+// drawn, scoped to this component.
+//
+// The class names are the Jekyll page's and are deliberately not
+// renamed: logo.js selects `.wth-mark__line`, `.wth-mark__word` and the
+// per-word `--what`/`--the`/`--heck` modifiers, and both stacks share
+// that script. The elements it injects for the 3D version are styled
+// through `:global`, since they are created after rendering.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+---
+
+<span class="wth-mark" data-wth-logo aria-hidden="true">
+  <span class="wth-mark__line">
+    <span class="wth-mark__word wth-mark__word--what" data-text="WHAT">WHAT</span>
+    <span class="wth-mark__word wth-mark__word--the" data-text="THE">THE</span>
+  </span>
+  <span class="wth-mark__line wth-mark__line--lg">
+    <span class="wth-mark__word wth-mark__word--heck" data-text="HECK?!">HECK?!</span>
+  </span>
+</span>
+
+<style lang="scss">
+  @use "sass:list";
+
+  // Builds a solid extrude by stacking one hard shadow per step.
+  @function extrude($color, $steps, $dx, $dy) {
+    $shadows: ();
+
+    @for $i from 1 through $steps {
+      $shadows: list.append($shadows, ($dx * $i) ($dy * $i) 0 $color, comma);
+    }
+
+    @return $shadows;
+  }
+
+  .wth-mark {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    font-family: "Archivo Black", var(--font-heading);
+    // Drives the large line; the small line is sized relative to it.
+    font-size: clamp(2.375rem, 9.5vw, 6rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 0.86;
+    text-transform: uppercase;
+  }
+
+  // The 3D wordmark replaces this one once it has drawn.
+  .wth-mark:global(.wth-mark--replaced) {
+    display: none;
+  }
+
+  .wth-mark__line {
+    align-items: flex-end;
+    display: flex;
+    gap: 0.16em;
+
+    // The top line is roughly half the size of the bottom one.
+    &:not(.wth-mark__line--lg) {
+      font-size: 0.49em;
+    }
+  }
+
+  .wth-mark__line--lg {
+    margin-top: 0.06em;
+  }
+
+  // Layers, back to front: a mint sticker outline on a pseudo-element, a
+  // stepped ink extrude built from stacked text shadows, then the sky-blue
+  // letter outline and white fill on the word itself. `text-shadow` paints
+  // beneath the element's own fill and stroke, which keeps the extrude
+  // behind the letter without a third copy of the text.
+  .wth-mark__word {
+    // Per-word orientation. Overridden by the modifiers below.
+    --persp: 75rem;
+    --ry: 0deg;
+    --rz: 0deg;
+    --tx: 0em;
+    --ty: 0em;
+
+    color: #fff;
+    display: inline-block;
+    // Keeps each word's layers together so later words paint cleanly over
+    // earlier ones where they overlap.
+    isolation: isolate;
+    paint-order: stroke fill;
+    position: relative;
+    text-shadow: extrude(#1e2126, 18, 0.0052em, 0.0037em);
+    transform: translate(var(--tx), var(--ty)) perspective(var(--persp))
+      rotateY(var(--ry)) rotate(var(--rz));
+    white-space: pre;
+    // `paint-order: stroke` puts the stroke behind the fill, so only half
+    // the declared width shows outside the glyph. Widths here are doubled
+    // to suit.
+    -webkit-text-stroke: 0.22em var(--wth-sky);
+
+    // Mint sticker outline.
+    &::before {
+      color: var(--wth-mint);
+      content: attr(data-text);
+      left: 0;
+      paint-order: stroke fill;
+      position: absolute;
+      text-shadow: none;
+      top: 0;
+      white-space: pre;
+      z-index: -1;
+      -webkit-text-stroke: 0.44em var(--wth-mint);
+    }
+
+    // The small line needs thicker em-based strokes to match the absolute
+    // weight of the outlines on the large line.
+    .wth-mark__line:not(.wth-mark__line--lg) & {
+      text-shadow: extrude(#1e2126, 18, 0.0106em, 0.0076em);
+      -webkit-text-stroke-width: 0.45em;
+
+      &::before {
+        -webkit-text-stroke-width: 0.9em;
+      }
+    }
+  }
+
+  // Per-word orientation, derived from the key visual. Each word sits on
+  // its own plane: the taper comes from `rotateY` under perspective, the
+  // tilt from `rotate`. Perspective is in `em` so the whole lockup stays
+  // scale-invariant.
+  .wth-mark__word--what {
+    --persp: 7em;
+    --ry: -14deg;
+    --rz: -1.5deg;
+  }
+
+  .wth-mark__word--the {
+    --persp: 5.5em;
+    --ry: -24deg;
+    --rz: -3deg;
+    --tx: 0.08em;
+    --ty: -0.05em;
+  }
+
+  .wth-mark__word--heck {
+    --persp: 7em;
+    --ry: -18deg;
+    --rz: 3.5deg;
+  }
+
+  // The 3D wordmark from logo.js, injected once it has drawn. The script
+  // sets the box's aspect ratio and sizes the canvas to reach past the box
+  // on every side, so the intro and the tilt have room. The negative
+  // margins cancel the room the box leaves around the wordmark, except at
+  // the top, which keeps it clear of the date above.
+  :global(.wth-logo-3d) {
+    display: block;
+    margin: 0 0 -3% -4%;
+    max-width: 40rem;
+    pointer-events: none;
+    position: relative;
+    width: 104%;
+  }
+
+  :global(.wth-logo-3d__canvas) {
+    display: block;
+    position: absolute;
+  }
+
+  // Without `paint-order`, the stroke paints centred on the glyph edge and
+  // eats into the fill. Thin every layer so the wordmark stays legible.
+  @supports not (paint-order: stroke) {
+    .wth-mark__word {
+      -webkit-text-stroke-width: 0.03em;
+
+      &::before {
+        -webkit-text-stroke-width: 0.16em;
+      }
+
+      .wth-mark__line:not(.wth-mark__line--lg) & {
+        -webkit-text-stroke-width: 0.06em;
+
+        &::before {
+          -webkit-text-stroke-width: 0.32em;
+        }
+      }
+    }
+  }
+</style>

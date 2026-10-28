@@ -13,7 +13,7 @@
 // stays, for the search box in the header.
 import { setting } from "../lib/site.mjs";
 
-const { title, description } = Astro.props;
+const { title, description, image } = Astro.props;
 
 const siteTitle = setting("title");
 const siteUrl = setting("url");
@@ -26,7 +26,9 @@ const truncate = (text, length) =>
 const pageDescription = description ?? setting("description");
 
 const socialTitle = title ?? siteTitle;
-const socialImage = new URL("/images/default-social.png", siteUrl).href;
+// A page can share its own picture; Jekyll calls this `og_image`.
+const socialImage = new URL(image ?? "/images/default-social.png", siteUrl)
+  .href;
 ---
 
 <meta charset="utf-8" />

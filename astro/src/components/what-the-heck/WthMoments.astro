@@ -1,0 +1,124 @@
+---
+// "One month, one question": what a WTH sounds like, in three tiles.
+//
+// Replaces source/what-the-heck/components/_moments.html and the `#moments` rules in
+// sass/homeassistant/pages/wth/_sections.scss.
+//
+// Fidelity: revamp. Same tiles and copy; the grid follows the space
+// available, and the sizes come from the theme.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import WthSection from "./WthSection.astro";
+import WthIcon from "./WthIcon.astro";
+import { forumUrl } from "../../lib/wth.mjs";
+
+const moments = [
+  {
+    icon: "mdi:magnify",
+    quote: "“I can never find this setting on my dashboard!”",
+  },
+  {
+    icon: "mdi:help-circle-outline",
+    quote: "“We don’t know why our home keeps doing that!”",
+  },
+  {
+    icon: "mdi:lightbulb-question-outline",
+    quote: "“I can’t believe it’s not possible to do this yet!”",
+  },
+];
+---
+
+<WthSection
+  id="moments"
+  tone="surface"
+  heading="One month, one question"
+  lead="What in Home Assistant makes you go “what the heck?!”"
+>
+  <ul class="tiles">
+    {
+      moments.map((moment) => (
+        <li class="tile">
+          <span class="icon" aria-hidden="true">
+            <WthIcon name={moment.icon} />
+          </span>
+          <p>{moment.quote}</p>
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="note">
+    Big or small, post them all on the <a
+      href={forumUrl}
+      target="_blank"
+      rel="noopener">Month of What the Heck?! category</a
+    > on our community forum.
+  </p>
+</WthSection>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  .tiles {
+    display: grid;
+    gap: var(--space-medium);
+    grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+    list-style: none;
+    margin: var(--space-xxlarge) 0 0;
+    padding: 0;
+  }
+
+  .tile {
+    background-color: var(--wth-wash);
+    border: 1px solid var(--wth-wash-edge);
+    border-radius: var(--radius-large);
+    padding: var(--space-xlarge);
+
+    p {
+      color: var(--wth-ink);
+      font-size: var(--font-size-prose);
+      font-weight: 600;
+      line-height: 1.4;
+      margin: var(--space-medium) 0 0;
+    }
+  }
+
+  /* The icons are <iconify-icon> elements, which size from font-size. */
+  .icon {
+    align-items: center;
+    background-color: var(--wth-mint);
+    border-radius: 50%;
+    color: var(--wth-ink);
+    display: inline-flex;
+    font-size: var(--font-size-xxlarge);
+    height: 3rem;
+    justify-content: center;
+    width: 3rem;
+  }
+
+  .note {
+    color: var(--wth-ink-soft);
+    font-size: var(--font-size-large);
+    line-height: 1.55;
+    margin: var(--space-xlarge) 0 0;
+
+    a {
+      color: var(--wth-link);
+      text-decoration: underline;
+
+      &:hover {
+        color: var(--wth-ink);
+      }
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    .tiles {
+      gap: var(--space-large);
+    }
+
+    .tile {
+      text-align: center;
+    }
+  }
+</style>

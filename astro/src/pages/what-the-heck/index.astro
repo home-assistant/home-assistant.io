@@ -1,0 +1,161 @@
+---
+// The Month of "What the Heck?!" page, /what-the-heck/.
+//
+// Ports source/what-the-heck/index.html and the sections it includes from
+// source/what-the-heck/components/. Jekyll keeps building the page as the fallback
+// while the migration runs, but the styling here is the Astro build's own
+// (components, scoped SCSS, theme tokens) rather than the Jekyll
+// stylesheet, so a change of design has to be made on both sides until
+// the Jekyll page goes.
+//
+// A page of its own rather than the `pages` collection: it is a designed
+// landing page, not Markdown in the site's reading column. It keeps the
+// site header and footer, as the Jekyll page does.
+//
+// The campaign's palette and scale are in src/styles/wth.scss, which the
+// components import the way they import the site's tokens.
+import SiteHead from "../../components/SiteHead.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import NavPills from "../../components/NavPills.astro";
+import WthHero from "../../components/what-the-heck/WthHero.astro";
+import WthMoments from "../../components/what-the-heck/WthMoments.astro";
+import WthEveryone from "../../components/what-the-heck/WthEveryone.astro";
+import WthTips from "../../components/what-the-heck/WthTips.astro";
+import WthFix from "../../components/what-the-heck/WthFix.astro";
+import WthCta from "../../components/what-the-heck/WthCta.astro";
+import { release } from "../../lib/site.mjs";
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+
+// The pill row under the header: one pill for each section it jumps to.
+const sections = [
+  { href: "#moments", label: "What it is" },
+  { href: "#everyone", label: "Who" },
+  { href: "#how-it-works", label: "Tips" },
+  { href: "#fix", label: "Fix a WTH" },
+];
+
+const title = "Month of 'What the Heck?!' 2026";
+const description =
+  "Home Assistant's Month of 'What the Heck?!' is back for November 2026. Tell us what makes Home Assistant hard, whether you set it up or just live with it.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SiteHead
+      title={title}
+      description={description}
+      image="/images/wth/wth-2026-key-visual.png"
+    />
+    <!-- Archivo Black is the lettering for the CSS fallback of the
+         "What the Heck?!" wordmark only. -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+    />
+    <!-- The icons on this page are <iconify-icon> elements, as they are on
+         the Jekyll page; see WthIcon.astro. -->
+    <script
+      is:inline
+      src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
+      integrity="sha384-GPb5RlngihS9H0z1D137JsvzmeZ7tCpWEF4t5YDoTZyMsPP8S7h7vFDh4XhheU83"
+      crossorigin="anonymous"></script>
+    <script
+      type="importmap"
+      is:inline
+      set:html={JSON.stringify({
+        imports: { three: "/javascripts/wth/three.min.js" },
+      })}
+    />
+    <!-- Shared with the Jekyll build, which publishes them at the site
+         root: the 3D wordmark and the moving backgrounds. -->
+    <script is:inline src="/javascripts/wth/logo.js" type="module"></script>
+    <script is:inline src="/javascripts/wth/flow-lines.js" type="module"
+    ></script>
+  </head>
+  <body>
+    <div class="masthead">
+      <SiteHeader
+        pathname={Astro.url.pathname}
+        version={release.version}
+        versionUrl={release.url}
+        releasedOn={release.releasedOn}
+      />
+    </div>
+
+    <main class="wth">
+      <div class="top">
+        <NavPills links={sections} />
+        <WthHero />
+      </div>
+      <WthMoments />
+      <WthEveryone />
+      <WthTips />
+      <WthFix />
+      <WthCta />
+    </main>
+
+    <SiteFooter />
+
+    <script>
+      // The links in the pills and the hero scroll rather than jump, as the
+      // Jekyll `landingpage` layout does.
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (event) => {
+          const href = anchor.getAttribute("href");
+          if (!href || href === "#") return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  .wth {
+    /* No surface of its own: the sections that want one paint it, and
+       the rest inherit the page, which carries on into the footer. */
+    background-color: transparent;
+    color: var(--wth-ink);
+    font-family: var(--font-heading);
+    /* The hero card and the artwork in it reach past the page edge. */
+    overflow-x: clip;
+
+    /* The campaign colors for the page navigation pills. */
+    --nav-pills-bg: var(--wth-wash);
+    --nav-pills-color: var(--wth-ink);
+    --nav-pills-hover-bg: var(--wth-mint);
+    --nav-pills-hover-color: var(--wth-ink);
+    --nav-pills-focus: var(--wth-focus);
+  }
+
+  /* The pill row and the hero sit on white. */
+  .top {
+    background-color: var(--wth-surface);
+  }
+</style>
+
+<style is:global>
+  html {
+    /* Clears the header, which stays on top as the page scrolls. */
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+  }
+
+  body {
+    background: var(--color-page);
+    margin: 0;
+  }
+
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+</style>

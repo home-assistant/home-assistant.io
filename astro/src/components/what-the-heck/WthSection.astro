@@ -1,0 +1,112 @@
+---
+// A section of the Month of "What the Heck?!" page: the band, the content
+// container, and the heading with the mint rule above it that ties the
+// sections together.
+//
+// Replaces the per-section `#id` rules in
+// sass/homeassistant/pages/wth/_sections.scss, where the band color, the
+// heading rule and the container were repeated for each section in turn.
+//
+// Fidelity: revamp. The three surfaces (page, white, ink) are the Jekyll
+// page's; each is a `tone` here rather than a block of overrides.
+
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+interface Props {
+  /** The fragment the page navigation jumps to. */
+  id: string;
+  heading: string;
+  /** The sentence under the heading. */
+  lead?: string;
+  /** The surface the section sits on. "band" is the tinted blue band, and
+   *  "inherit" paints nothing so the page shows through. */
+  tone?: "page" | "surface" | "band" | "ink" | "inherit";
+}
+
+const { id, heading, lead, tone = "page" } = Astro.props;
+---
+
+<section id={id} class:list={["section", tone]}>
+  <div class="content">
+    <h2>{heading}</h2>
+    {lead && <p class="lead">{lead}</p>}
+    <slot />
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  .section {
+    padding-block: var(--wth-section-space);
+    position: relative;
+    /* Sections paint their own surface, so they also set what sits on it. */
+    background-color: var(--wth-section-surface);
+    color: var(--wth-ink);
+  }
+
+  .surface {
+    --wth-section-surface: var(--wth-surface);
+  }
+
+  .inherit {
+    --wth-section-surface: transparent;
+  }
+
+  .band {
+    --wth-section-surface: var(--wth-wash);
+  }
+
+  /* An inverted band: the campaign colors at full strength, and one set of
+     local properties instead of a per-element override block. */
+  .ink {
+    --wth-section-surface: var(--wth-ink-base);
+    --wth-ink: var(--wth-on-ink);
+    --wth-ink-soft: var(--wth-on-ink-soft);
+    --wth-focus: var(--wth-on-ink);
+    --wth-number: var(--wth-mint);
+    --wth-number-rule: rgb(22 243 190 / 50%);
+  }
+
+  .content {
+    margin-inline: auto;
+    max-width: var(--wth-measure);
+    padding-inline: var(--wth-gutter);
+  }
+
+  h2 {
+    font-size: var(--wth-font-size-heading);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin: 0;
+    padding-top: var(--space-xlarge);
+    position: relative;
+
+    /* The mint rule above the heading. */
+    &::before {
+      background-color: var(--wth-mint);
+      border-radius: 2px;
+      content: "";
+      height: 0.3125rem;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 3.5rem;
+    }
+  }
+
+  .lead {
+    color: var(--wth-ink-soft);
+    font-size: var(--wth-font-size-lead);
+    line-height: 1.5;
+    margin: var(--space-medium) 0 0;
+    max-width: 45rem;
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    .content {
+      padding-inline: var(--wth-gutter-wide);
+    }
+  }
+</style>

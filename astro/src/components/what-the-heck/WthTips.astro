@@ -1,0 +1,51 @@
+---
+// "Four tips for a great WTH", on ink: how to write one that can be acted
+// on.
+//
+// Replaces source/what-the-heck/components/_how.html and the `#how-it-works` rules in
+// sass/homeassistant/pages/wth/_sections.scss.
+//
+// Fidelity: revamp. Same tips and the same inverted band; the section's
+// dark surface is now the shared section's `ink` tone rather than a block
+// of per-element overrides.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import WthSection from "./WthSection.astro";
+import WthSteps from "./WthSteps.astro";
+import Button from "../Button.astro";
+import { forumUrl } from "../../lib/wth.mjs";
+
+const tips = [
+  {
+    title: "Check it’s not already there",
+    text: "If it is, there’s no need to post again.",
+  },
+  {
+    title: "Share one at a time",
+    text: "So each can be discussed and followed on its own.",
+  },
+  {
+    title: "Tell it like it is",
+    text: "Explain the problem, we’ll figure out the fix.",
+  },
+  {
+    title: "Be kind",
+    text: "We’re all here because we care about Home Assistant, our homes and the people in them: that includes everyone on our forum!",
+  },
+];
+---
+
+<WthSection id="how-it-works" tone="ink" heading="Four tips for a great WTH">
+  <WthSteps steps={tips} />
+  <div class="actions">
+    <Button href={forumUrl} scheme="green" icon onDark target="_blank" rel="noopener">
+      Share your WTH
+    </Button>
+  </div>
+</WthSection>
+
+<style lang="scss">
+  .actions {
+    margin-top: var(--space-xxlarge);
+  }
+</style>
