@@ -226,8 +226,8 @@ automation:
 The battery limits range from `-100 %` to `100 %`, and a negative value reverses the direction: it sets a _minimum_ rate in the opposite direction instead of a maximum. A `Battery discharge power limit` of `-100 %` makes the battery **charge** at its full rate, and a `Battery charge power limit` of `-50 %` makes it **discharge** at least at half its rate, more if the house needs it and the discharge limit allows. This is how Fronius documents forcing the battery, and what other tools writing these registers set.
 
 - The limit only takes effect while its switch is on: `Battery discharge power limiting` for forced charging, `Battery charge power limiting` for forced discharging.
-- With `Battery grid charging` on, a negative discharge limit charges at least at that rate, from the grid whenever there isn't enough photovoltaic power, for example at night. With it off, forced charging can only use photovoltaic power.
-- With both limits on, the charge limit plus the discharge limit must not be below `0 %`. The inverter refuses anything else, including both limits negative at once, and Home Assistant rejects such a change with an error before sending it. With a `Battery charge power limit` of `40 %` on, for example, a discharge limit of `-100 %` is refused, while `-40 %` charges at `40 %`.
+- With `Battery grid charging` on, a negative discharge limit charges at least at that rate, from the grid or photovoltaic power if available. With it off, forced charging can only use photovoltaic power.
+- With both limits on, the charge limit plus the discharge limit must not be below `0 %`. The inverter refuses anything else, including both limits negative at once, and Home Assistant rejects such a change with an error before sending it. With a `Battery charge power limit` of `40 %` on, for example, a discharge limit of `-100 %` is refused, while `-40 %` will force a charge at `40 %`.
 - Forcing replaces the value of the limit it uses. If that limit was set to something else before, set it back yourself afterwards.
 
 To charge the battery from the grid during a cheap night tariff, with `Battery charge power limiting` off or at `100 %`:
