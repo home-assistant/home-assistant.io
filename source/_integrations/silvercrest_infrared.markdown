@@ -7,6 +7,12 @@ ha_codeowners:
   - '@tr4nt0r'
 ha_domain: silvercrest_infrared
 ha_integration_type: device
+ha_categories:
+  - climate.fans_ventilation
+ha_config_flow: true
+ha_platforms:
+  - button
+ha_quality_scale: bronze
 ---
 
 The **SilverCrest Infrared** {% term integration %} lets you control SilverCrest infrared devices with any infrared emitter that has been previously configured in Home Assistant.
