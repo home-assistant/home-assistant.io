@@ -1234,7 +1234,7 @@ Use the notify entities of the [Telegram bot](/integrations/telegram_bot/#notifi
 ([@jbouwh] - [#188196]) ([Telegram documentation])
 
 [#188196]: https://github.com/home-assistant/core/pull/188196
-[Telegram documentation]: /integrations/telegram/
+[Telegram documentation]: /integrations/telegram_bot/
 
 {% enddetails %}
 
