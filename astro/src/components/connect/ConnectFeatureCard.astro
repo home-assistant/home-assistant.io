@@ -19,7 +19,14 @@
 //
 // `large` is the variant of "Incredible audio" (nodes 2022:8454 and
 // 2022:8461): a large blue line icon without a ring above a 28px title,
-// at every width. The `media` slot adds an illustration below the text.
+// at every width. With `beside` (the short "Incredible audio" cards,
+// Figma nodes 2022:8454 and 2948:1440) the icon sits beside the title
+// and text from the desk width instead, 40px wide with a 20px gap, so
+// the cards take less height; on phones and tablets it stays above, as
+// in the mobile frame. The `media` slot adds an illustration below the
+// text.
+// With `href` the whole card is a link (to the section of the page that
+// tells more about the feature).
 //
 // Deliberate differences from the Figma file:
 //   - The "Audio and so much more" and "Deep control with serial"
@@ -41,25 +48,33 @@ interface Props {
   icon: ImageMetadata;
   title: string;
   large?: boolean;
+  // For `large`: the icon beside the text from the desk width.
+  beside?: boolean;
   // The icon is an animated SVG (its animation is CSS inside the
   // file): it is inlined, still at rest and plays from the start while
   // the pointer is over the card.
   animated?: boolean;
+  // Makes the card a link, such as "#serial".
+  href?: string;
 }
 
 const {
   icon,
   title,
   large = false,
+  beside = false,
   animated = false,
+  href,
 } = Astro.props;
+const Card = href ? "a" : "article";
 const Ring = large ? Fragment : "span";
 // An imported SVG is also a component that inlines it.
 const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
 ---
 
-<article
-  class:list={["connect-feature-card", { large }]}
+<Card
+  class:list={["connect-feature-card", { large, beside: large && beside }]}
+  href={href}
   data-shimmer="hover"
 >
   <Ring class={large ? undefined : "ring"}>
@@ -76,7 +91,7 @@ const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
     <p><slot /></p>
   </div>
   {Astro.slots.has("media") && <div class="media"><slot name="media" /></div>}
-</article>
+</Card>
 
 <script>
   import { initShimmer } from "../../lib/shimmer";
@@ -96,6 +111,7 @@ const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
     font-family: var(--font-heading);
     gap: var(--space-small);
     padding: var(--space-medium) var(--space-xlarge);
+    text-decoration: none;
     @include fade-border(180deg);
   }
 
@@ -176,7 +192,7 @@ const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
     margin-top: var(--space-xlarge);
   }
 
-  @media only screen and (min-width: breakpoints.$desk) {
+  @media only screen and (min-width: breakpoints.$connect-desk) {
     .connect-feature-card {
       flex-direction: row;
       gap: var(--space-medium);
@@ -197,6 +213,23 @@ const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
 
       p {
         font-size: var(--font-size-large);
+      }
+    }
+
+    /* The icon in a box as tall as the title's line, centred on it
+       whatever the icon's shape (the Sendspin logo is squarer). */
+    .beside {
+      flex-direction: row;
+      gap: 1.25rem;
+      padding: var(--space-xlarge) 1.25rem;
+
+      > img {
+        align-self: flex-start;
+        flex: none;
+        height: calc(var(--font-size-heading) + 2 * var(--space-medium));
+        margin-bottom: 0;
+        object-fit: contain;
+        width: 2.5rem;
       }
     }
 

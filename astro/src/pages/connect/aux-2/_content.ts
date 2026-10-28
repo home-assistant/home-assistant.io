@@ -53,7 +53,7 @@ export const specs = [
           },
           {
             term: "Analogue audio capabilities",
-            value: ["24-bit/48kHz", "Stereo Audio DAC with 100dB SN"],
+            value: ["24-bit/48kHz", "Stereo Audio DAC with 100dB SNR"],
           },
           {
             term: "Digital audio capabilities",
@@ -72,7 +72,7 @@ export const specs = [
           },
           {
             term: "Internal audio codec support",
-            value: ["FLAC, MP3, OPUS, and WA"],
+            value: ["FLAC, MP3, OPUS, and WAV"],
           },
         ],
       },

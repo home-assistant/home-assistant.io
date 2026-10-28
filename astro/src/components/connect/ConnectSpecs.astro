@@ -23,7 +23,7 @@
 // reduced motion, the drawing is simply exploded.
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import { desk } from "../../lib/breakpoints";
+import { connectDesk } from "../../lib/breakpoints";
 
 interface Detail {
   term: string;
@@ -133,7 +133,7 @@ const svgLayer = (layer: Layer) => ({
       src={drawing.board.image}
       alt=""
       widths={[Math.round(drawing.board.image.width / 2), drawing.board.image.width]}
-      sizes={`${desk} 28rem, 90vw`}
+      sizes={`${connectDesk} 28rem, 90vw`}
       quality={90}
       style={place(drawing.board)}
     />
@@ -257,7 +257,7 @@ const svgLayer = (layer: Layer) => ({
 
   /* The list beside the drawing, in Figma's 660 : 500 proportion; the
      drawing stays in view while the list scrolls past. */
-  @media only screen and (min-width: breakpoints.$desk) {
+  @media only screen and (min-width: breakpoints.$connect-desk) {
     .connect-specs {
       align-items: start;
       grid-template-columns: minmax(0, 660fr) minmax(0, 500fr);

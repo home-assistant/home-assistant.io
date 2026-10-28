@@ -12,7 +12,8 @@ everything is, what was decided, and what is still open.
   published under `/astro-preview/connect/aux-2/`. It is not in
   `served-routes.json`, and the copy step in `rake generate` only
   handles routes Jekyll also builds (see "Not done yet").
-- Copy follows the Figma file as the source of truth for now.
+- Copy follows "Connect AUX-2 - Website copy.docx" (October 2026);
+  Figma was the source before it.
 - Photos are placeholders exported from Figma (updated October 2026).
 
 ## Sources
@@ -36,7 +37,7 @@ naming its Figma frame and node IDs.
 Page:
 
 - `src/pages/connect/aux-2/index.astro`: the page, its section data
-  (cables, diagram) and page-level styles.
+  ("Connect everything" ports, diagram) and page-level styles.
 - `src/pages/connect/aux-2/_content.ts`: specifications and FAQ data.
 
 Layouts:
@@ -55,6 +56,7 @@ Components in `src/components/connect/`, each with a `.fixtures.mjs`:
 | `ConnectSectionHeader` | Centered `h2` and lead ("Audio and so much more", "Incredible audio", "Deep control with serial"). |
 | `ConnectFeatureCard` | Dark card with an icon; background and border fade out, with a border shimmer on hover. Variants: `large` ("Incredible audio"), `animated` (inline icon that plays on hover), `media` slot. |
 | `ConnectLabel` | Blue pill label ("The smart home multi-tool", "Connect anywhere"). |
+| `ConnectHotspots` | "Connect everything": a photo of the AUX-2 on a pale blue panel, a "+" point under each port, a list of glass cards (one per port, with an icon) that a point or title opens, a line from the open point to its card, and a button that fades to a photo of the back. Port data (`ports`) is in the page. |
 | `ConnectPrice` | Price section, `id="buy"`. |
 | `ConnectCollaboration` | "Every purchase supports the Open Home" banner. |
 | `ConnectSpecs` | Specifications, `id="specs"`. |
@@ -64,9 +66,34 @@ Shared component: `src/components/CollaborationBadge.astro` ("Designed
 and built by"), a port of `source/_includes/collaboration/ohf-x-nabu-casa.html`
 for every product page.
 
+"Connect everything" (`ConnectHotspots`):
+
+- `src/assets/connect/aux-2/aux-2-side-audio.webp` and
+  `aux-2-side-back.webp` (quality 100, served at 100) are the photos,
+  from design's `1.png` and `2.png` (3926 × 2892), both cropped to the
+  same 2375 × 1600 frame from 1060, 501 so the product sits left of
+  centre. They are shown as the Voice PE page's features are: each
+  fills the panel (from the desk width; on phones and tablets, zoomed
+  1.5× on the product and faded into the panel above and below),
+  "Click to rotate" fades to the other, and each point sits at its
+  port's `spot` on the photo (fractions of the photo's width and
+  height). The panel is the photos' backdrop blue (#a8c8e3).
+- The cards are Figma's frosted glass ("Card 1/end", node 2935:8716),
+  all listed, collapsed to their titles; each has an icon from the
+  page's other sections (`icon` on a port), which plays once as its
+  card opens (the SMIL ones are paused and played from the script). On
+  phones and tablets only the open card shows, under the photo.
+- From the desk width a Connect-blue line joins the open point to its
+  card, with a dot at the card that sits over it.
+- October 2026: eight options were shown to the team (a realistic 3D
+  model, line art in several styles, and these photos); the photos were
+  chosen. The 3D models, their renderer (`src/lib/line-model.ts`,
+  `ConnectModel`) and the `three` dependency were then removed; they
+  are in the history before that change.
+
 Assets:
 
-- `src/assets/connect/aux-2/`: photos (WebP), cables, serial diagram
+- `src/assets/connect/aux-2/`: photos (WebP), serial diagram
   parts, coverage map, the specs drawing's three layers
   (`exploded-*`). See "Photos" below.
 - `src/assets/connect/icons/`: card icons exported from Figma.
@@ -105,8 +132,8 @@ Shared styles, scripts and components:
   `reveal(el, options)` for one-off entrance animations. `reveal` adds
   `.is-armed` at once and `.is-revealed` when the element scrolls into
   view, and does nothing with reduced motion, so an element's own
-  styles are its final state. Used by the cables, the price glow and
-  the specs drawing; the serial loop and the shimmer use
+  styles are its final state. Used by the price glow and the specs
+  drawing; the serial loop and the shimmer use
   `reducedMotion`.
 - `src/lib/breakpoints.ts`: the tablet and desk breakpoints as media
   queries for `media` and `sizes` attributes. Keep it in step with
@@ -159,7 +186,8 @@ Other changes:
   earlier decision to use the mobile frame only as a guide.)
 - Keep colors and text styles consistent with the marketing design
   system's variables.
-- Figma copy is the source of truth for now.
+- The website copy doc is the source of truth for copy (it replaced
+  Figma's copy in October 2026).
 - Collaboration badge: copy the live badge's structure and clean the
   styling; larger size from the desk breakpoint (1140px) instead of
   768px; width fits content; Open Home Foundation logo from the brand
@@ -180,22 +208,32 @@ These are also recorded in each component's header comment.
   "Brought to you by" with the Nabu Casa logo only, without
   the Open Home Foundation logo (the hero's `badge` prop); Figma still
   shows "Designed and built by:" with both logos.
-- The decorative cables are positioned from Figma's 1200px column
-  (not the page's 1300px content), then pulled 20% of their width
-  further out (`--pull`), so they clear the heading and cards. They lie
-  over the top of "Connect everything" as in Figma. They draw
-  on when the section scrolls into view: each plug fades in, then its
-  wire draws out from it (left out for reduced motion; without the
-  script they are simply shown). The SVGs are inlined for this, with
-  Figma's layer IDs removed and `.wire` and `.plug` classes added. The
-  cables are hidden below 1140px.
-- The "Click to rotate" button is left out until there is something to
-  rotate to.
+- "Hardware with a mission" and its decorative cables are gone (October
+  2026): its text is now the lead under "Audio and so much more",
+  replacing Figma's "Plug in, or wirelessly connect…" subtext, and
+  "Connect everything" has extra space above it instead (80px on
+  phones, 104px from the desk width).
+- "Connect everything" (`ConnectHotspots`) follows Figma's "Group 162"
+  (node 2935:8711): the photo fills the panel, the intro at the top
+  left, "Click to rotate" at the bottom left and the cards on the right.
+  "Click to rotate" fades to the other photo (0.5s), closing the card,
+  then opens one of the new side's cards at random.
+  "Stream audio" is open at first, as in Figma (`open`); a "+" or a
+  title opens its card, and selecting it again or Escape closes it.
+  The open point is white in a halo (tinted Connect blue, where
+  Figma's white halo disappears on the product's white). With motion,
+  the halo is two rings that each grow out from the dot and fade, half
+  a beat apart (2.4s); with reduced motion, it is a still halo. Points
+  sit just under their ports: USB-A, RS-232 (between its two jacks;
+  Figma has it under Port 2), Grove and audio on the audio side; USB-C
+  and Ethernet on the back (Figma's "Section 2 alt", node 2546:1233,
+  has no point on the reset button). There is no Wi-Fi and Bluetooth
+  point. The cards' padding is tighter than Figma's 20px.
 - Diagram, house map, device mockup and glow are rebuilt from exported
   parts and CSS rather than flattened screenshots, except where noted
   under "Low-resolution exports".
 - Animation so far: the hover effects on the dark feature cards
-  (border shimmer, icon bounce), the cables drawing on, the serial
+  (border shimmer, icon bounce), the serial
   diagram's loop (below), the price glow fading in on scroll (as on
   the ZBT-2 page, 1.5s ease-out, with a slight grow), and the specs
   drawing opening.
@@ -249,11 +287,10 @@ their far ends; no icon bounce on the feature cards; Clelia's animated
 icons for "Audio and so much more" (recolored white for the dark
 cards, with a reduced-motion rule in each file); an ease-out shimmer;
 a `powerfulShimmer` switch in the page (on); TODO comments at the Zigbee
-copy. Open: the Sendspin card, the "hardware with a mission" box-out
-and the other cards' animated icons (blocked on design and assets),
-the ZWA-2 line and the
-"Connect everything" section (a placeholder: its hotspot build,
-`ConnectHotspots` and its data, was removed for a rebuild).
+copy. Open: a Sendspin logo for the Sendspin card (it uses the whole
+home audio icon), and the other cards' animated icons (blocked on
+design and assets). The copy doc drops the "hardware with a mission"
+box-out. "Connect everything" is rebuilt as `ConnectHotspots`.
 
 ## Not done yet (TODO)
 
@@ -276,27 +313,23 @@ Assets:
   animated pulses that replace them (`.pulse-zwa`, `.pulse-aux`,
   `.pulse-green`) are not in Figma: they were added to the file by
   hand, under each badge.
-- A back-side photo or 3D model, then add the rotate button. Figma's
-  mobile frame shows a 3D line-art viewer ("Line art", "Rotate",
-  "Export GLB") with spec tables in the cards; that is not built.
+- "Connect everything": the back's card copy (USB-C, Ethernet) is not
+  in Figma and needs checking with the product team.
 
 Content (check with the product and docs teams):
 
-- Price is not final ("$69 / €59", Figma note).
+- Price is not final. The page shows "$69 / €59" (Figma); the copy doc
+  says "$69/€69", waiting for confirmation from Gordon.
 - Dimensions and weights are empty placeholders in Figma.
 - FAQ is placeholder ("Can I speak my mind?" five times). The other
   Connect pages read theirs from `source/_data/product/connect/`.
 - The "Best spot" footnote should link to an FAQ entry about which
   adapters work (ZBT-1, ZBT-2, ZWA-2). It links to `#faq` for now.
 - Copy issues:
-  - "Easily add PoE or WiFi to your ZWA-2." names another product.
-  - "WiFi" should be "Wi-Fi".
   - "Digital-to-Audio (DAC) chip": a DAC is a digital-to-analog
     converter.
-  - "FLAC, MP3, OPUS, and WA" is probably "WAV".
   - British spelling ("Analogue") on an American English site.
   - "3,5mm" uses a decimal comma.
-  - "when you plug in AUX-2 into them" is ungrammatical.
 - Mobile copy in Figma differs in places. The page uses the desktop
   copy. Mobile-only differences (checked October 2026): the Music
   Assistant card's body ("But also works out-of-the-box with Home

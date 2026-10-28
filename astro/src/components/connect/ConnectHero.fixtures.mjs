@@ -14,7 +14,7 @@ export default {
   wide: true,
   description:
     "Product photo with the tagline, product name, lead text and " +
-    "partner credits. Stacks below 1140px.",
+    "partner credits. Stacks below 992px.",
   variants: [
     {
       name: "AUX-2",

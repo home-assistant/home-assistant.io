@@ -7,7 +7,7 @@ export default {
   wide: true,
   description:
     "Spec groups beside an exploded drawing; the drawing stays in view " +
-    "from 1140px.",
+    "from 992px.",
   variants: [
     {
       name: "AUX-2 excerpt",

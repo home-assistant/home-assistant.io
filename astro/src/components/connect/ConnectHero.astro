@@ -17,8 +17,8 @@
 //   - The "Designed and built by" credits are the site's collaboration
 //     badge, as on the other product pages, not Figma's variant of it
 //     (colon, smaller logos, 8% panel).
-//   - The lead text lines up with the badge's text on desktop instead
-//     of sitting 4px further in.
+//   - The lead text lines up with the badge's left edge on desktop
+//     instead of sitting further in.
 import type { ImageMetadata } from "astro";
 import ArtDirectedImage from "../ArtDirectedImage.astro";
 import CollaborationBadge from "../CollaborationBadge.astro";
@@ -27,7 +27,7 @@ interface Props {
   // Product photo, a wide band of the scene that covers the hero at
   // any width, centered on the product.
   image: ImageMetadata;
-  // Optional phone crop, used below the desk breakpoint (1140px) when
+  // Optional phone crop, used below the desk breakpoint (992px) when
   // the design frames the scene differently on phones.
   mobileImage?: ImageMetadata;
   imageAlt: string;
@@ -221,7 +221,7 @@ const {
     margin: 0;
   }
 
-  @media only screen and (min-width: breakpoints.$desk) {
+  @media only screen and (min-width: breakpoints.$connect-desk) {
     .photo :global(img) {
       height: 100%;
       translate: none;
@@ -250,13 +250,11 @@ const {
       gap: var(--space-xlarge);
     }
 
-    /* The lead keeps Figma's 407px column; the badge sizes to its
-       content, a little wider. */
+    /* The lead keeps Figma's 407px column, flush with the badge's
+       left edge; the badge sizes to its content. */
     .lead {
-      box-sizing: border-box;
       font-size: var(--font-size-xxlarge);
       max-width: 25.5rem;
-      padding-inline: var(--space-xlarge);
     }
   }
 </style>

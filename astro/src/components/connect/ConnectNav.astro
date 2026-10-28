@@ -40,8 +40,8 @@
 // Deliberate differences from the Jekyll bar:
 //   - The product name is text, as in Figma, not an image logo; two
 //     lines on phones, one from the desk width.
-//   - It folds at the site's desk breakpoint (1140px) rather than
-//     1025px, where the name and the links no longer fit side by side.
+//   - It folds below the Connect desk breakpoint (992px) rather than
+//     1025px, as the rest of the page switches layout there.
 //   - Choosing a link in the open menu closes it.
 import Button from "../Button.astro";
 
@@ -413,7 +413,7 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
     }
   }
 
-  @media only screen and (min-width: breakpoints.$desk) {
+  @media only screen and (min-width: breakpoints.$connect-desk) {
     .name {
       font-size: var(--font-size-heading);
 

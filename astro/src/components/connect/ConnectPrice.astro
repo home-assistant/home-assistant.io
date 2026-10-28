@@ -99,7 +99,7 @@ const { usd, eur, buyHref } = Astro.props;
       transform: none;
     }
 
-    @media only screen and (min-width: breakpoints.$desk) {
+    @media only screen and (min-width: breakpoints.$connect-desk) {
       padding-block: calc(var(--space-xxxlarge) + var(--space-xxlarge));
     }
   }
@@ -110,13 +110,15 @@ const { usd, eur, buyHref } = Astro.props;
     margin: 0;
   }
 
+  /* Balanced, so a line never ends with one word on its own. */
   .strap {
     font-size: var(--font-size-xlarge);
     font-weight: 500;
     line-height: 1.2;
     padding-block: var(--space-medium);
+    text-wrap: balance;
 
-    @media only screen and (min-width: breakpoints.$desk) {
+    @media only screen and (min-width: breakpoints.$connect-desk) {
       font-size: var(--font-size-heading);
     }
   }

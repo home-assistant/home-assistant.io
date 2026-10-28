@@ -9,9 +9,10 @@
 // structure and cleans the styling, as agreed:
 //   - The panel, its border, the gaps and the padding snap to the
 //     theme: the glass surface token for both the 5% fill and the 3%
-//     border, 24px gaps instead of 20px.
-//   - It switches to its larger size at the site's desk width
-//     (1140px) instead of a one-off 768px.
+//     border, 24px between the logos instead of 20px. The text sits
+//     8px from the logos, closer than the live badge's 20px.
+//   - It switches to its larger size at the Connect desk width
+//     (992px) instead of a one-off 768px.
 //   - Below the lap width (480px) it is a step smaller: 16px logos and
 //     12px gaps, as in the Connect AUX-2 Figma file, so it fits a
 //     phone's column on one line (the live badge needs some 370px).
@@ -67,7 +68,7 @@ const logos = [
     font-family: var(--font-heading);
     font-size: var(--font-size-small);
     font-weight: 300;
-    gap: var(--space-medium);
+    gap: var(--space-small);
     line-height: 1.5;
     padding: var(--space-medium);
     white-space: nowrap;
@@ -91,8 +92,9 @@ const logos = [
     }
   }
 
+  /* The logos spread out from the lap width; the text stays close to
+     them. */
   @media only screen and (min-width: breakpoints.$lap) {
-    .collaboration-badge,
     .collaborators {
       gap: var(--space-xlarge);
     }
@@ -102,7 +104,7 @@ const logos = [
     }
   }
 
-  @media only screen and (min-width: breakpoints.$desk) {
+  @media only screen and (min-width: breakpoints.$connect-desk) {
     .collaboration-badge {
       font-size: var(--font-size-large);
       padding: var(--space-small) var(--space-xlarge);

@@ -29,7 +29,7 @@ const { image, imageAlt } = Astro.props;
     src={image}
     alt={imageAlt}
     widths={[486, 972, 1440, image.width]}
-    sizes="(min-width: 71.25rem) 30.375rem, (min-width: 48rem) 40vw, 100vw"
+    sizes="(min-width: 62rem) 30.375rem, (min-width: 48rem) 40vw, 100vw"
   />
   <div class="text">
     <p class="partner">
@@ -137,7 +137,7 @@ const { image, imageAlt } = Astro.props;
     }
   }
 
-  @media only screen and (min-width: breakpoints.$desk) {
+  @media only screen and (min-width: breakpoints.$connect-desk) {
     .connect-collaboration {
       align-items: center;
       /* Figma's 486 × 330px photo at its own size, whatever the width:

@@ -8,7 +8,7 @@ export default {
   wide: true,
   description:
     "Centered heading and lead text that open a section of a Connect " +
-    "product page. Larger from 1140px.",
+    "product page. Larger from 992px.",
   variants: [
     {
       name: "AUX-2",

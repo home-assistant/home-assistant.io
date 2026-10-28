@@ -13,8 +13,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "7.4.0",
-    "three": "0.186.1"
+    "astro": "7.4.0"
   },
   "devDependencies": {
     "sass": "^1.104.1"

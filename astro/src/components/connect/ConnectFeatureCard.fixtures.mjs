@@ -1,7 +1,7 @@
 // Fixtures for the Connect feature card, with the four features of the
 // AUX-2 page's "Audio and so much more" section. Drawn for the page's
 // black, so they render on black here. The icon moves beside the text
-// from 1140px.
+// from 992px.
 //
 // Not a port of a Jekyll element, so there is no `liquid` source.
 import wholeHomeAudio from "../../assets/connect/icons/whole-home-audio.svg";
@@ -15,7 +15,7 @@ export default {
   title: "Connect feature card",
   description:
     "Icon, title and description of a product feature on a dark card. " +
-    "Icon above the text on phones, beside it from 1140px.",
+    "Icon above the text on phones, beside it from 992px.",
   variants: [
     {
       name: "AUX-2 features",
