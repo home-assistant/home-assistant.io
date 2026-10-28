@@ -1,19 +1,7 @@
 ---
-title: BLUETTI Modbus
 description: Instructions on how to integrate a BLUETTI power station with Home Assistant over Modbus TCP.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 2026.11
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@chpego'
 ha_domain: bluetti_modbus
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **BLUETTI Modbus** {% term integration %} connects Home Assistant to your [BLUETTI](https://www.bluettipower.com/) power station over your own network, using the Modbus TCP interface built into the device. There is no account, no API key, and no cloud service involved, so your readings keep arriving in Home Assistant even when your internet connection or the BLUETTI cloud service is down.
@@ -54,6 +42,8 @@ Port:
 Device ID:
   description: "The Modbus device ID of the power station, as configured on the device itself. The default is `1`. You only need to change this if your device was given another ID."
 {% endconfiguration_basic %}
+
+You change the host, port, or device ID later, for example after your power station gets a new IP address. Go to {% my integrations title="**Settings** > **Devices & services**" %}. From the listed integrations, select **BLUETTI Modbus**, select **Menu** {% icon "mdi:dots-vertical" %} and then **Reconfigure**.
 
 ## Supported functionality
 
@@ -102,7 +92,6 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 ### Connection management
 
 - The device is not discovered automatically yet; add it by its address.
-- There is no way yet to change a device's address, port, or device ID without removing and re-adding the integration.
 - Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and the Home Assistant log says why.
 - A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
 
@@ -129,9 +118,41 @@ Setup stops with this error when the device at that address does not report itse
 
 Setup stops with this error when the device answers but reports no serial number, which Home Assistant needs to tell your power station apart from any other. Restart the power station and try again.
 
-### A different device answers at the address
+{% details "A different device answers at the address" %}
 
-If the entities are unavailable and the Home Assistant log says a different device answers at the address, the power station this entry was set up for has moved or been replaced. Its entities stay unavailable until it answers at that address again. If it has moved, remove the integration entry and add the power station again at its new address.
+### Symptom: The entities are unavailable and the log mentions a different device
+
+The entities of this entry are unavailable, and the Home Assistant log says a different device answers at the address.
+
+#### Description
+
+Home Assistant recognizes your power station by its serial number, not by its address. The power station this entry was set up for has moved or been replaced, and another device now answers at its address. The entities stay unavailable until the power station answers at that address again.
+
+#### Resolution
+
+1. Find the new address of your power station, for example by looking it up in your router.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. From the listed integrations, select **BLUETTI Modbus**, select **Menu** {% icon "mdi:dots-vertical" %} and then **Reconfigure**.
+4. Enter the new address, and select **Submit**.
+
+{% enddetails %}
+
+{% details "Reconfiguring reports a different serial number" %}
+
+### Symptom: "The power station at this address has a different serial number than expected. Make sure you enter the address for the correct power station."
+
+When you reconfigure the entry, the flow stops with this error.
+
+#### Description
+
+Home Assistant recognizes your power station by its serial number, not by its address. The power station answering at the new address is not the one this entry was set up for.
+
+#### Resolution
+
+1. Check that you entered the address and device ID of the right power station.
+2. To add a different power station, set it up as a new entry instead.
+
+{% enddetails %}
 
 ## Removing the integration
 

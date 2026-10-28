@@ -1,14 +1,7 @@
 ---
-title: Home Assistant Core
 description: Set up core Home Assistant settings, automation triggers, and generic actions.
 ha_release: 0.0
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: homeassistant
-ha_platforms:
-  - scene
-ha_integration_type: system
 related:
   - docs: /docs/configuration/basic/
     title: Basic information
@@ -138,7 +131,7 @@ country:
   required: false
   type: string
 debug:
-  description: Enable Home Assistant's built-in debug, which can help locate misbehaving integrations by enabling run-time checks for implementation errors. It can block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use.
+  description: Turns on extra checks that report programming errors in integrations to the log. Meant for developers. To get more detailed log messages from an integration, use [debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) instead.
   required: false
   type: boolean
   default: false

@@ -1,28 +1,10 @@
 ---
-title: zimi
 description: Access and control your Zimi Cloud Controller and its connected Zimi-based devices.
 featured: false
-ha_iot_class: Local Push
 ha_release: 2025.6
-ha_codeowners:
-  - '@markhannon'
-ha_categories:
-  - plugs_switches
-  - hubs_protocols.smart_home_hubs
 ha_domain: zimi
-ha_platforms:
-  - cover
-  - fan
-  - light
-  - sensor
-  - switch
-ha_config_flow: true
-quality_scale: bronze
-integration_type: hub
 related:
   - url: https://zimi.life/
-ha_quality_scale: bronze
-ha_integration_type: hub
 ---
 
 The **Zimi Cloud Controller** {% term integration %} allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration, control local devices connected to the Zimi mesh.

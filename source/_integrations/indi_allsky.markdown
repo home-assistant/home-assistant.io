@@ -1,30 +1,18 @@
 ---
-title: INDI Allsky
 description: Instructions on how to integrate INDI Allsky with Home Assistant.
-ha_categories:
-  - diy_makers
-  - weather_alerts
 ha_release: '2026.10'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@TN-1'
 ha_domain: indi_allsky
-ha_integration_type: service
-ha_platforms:
-  - binary_sensor
-  - camera
-  - image
-  - sensor
-ha_quality_scale: bronze
 ---
 
 The **INDI Allsky** {% term integration %} connects Home Assistant with your [INDI Allsky](https://github.com/aaronwmorris/indi-allsky) camera server. INDI Allsky is an allsky camera system designed for astrophotography, night sky capture, cloud cover monitoring, and atmospheric monitoring.
 
 ## Prerequisites
 
-- You need the connection details of your INDI Allsky web server instance, including the hostname or IP address and port number (defaults to port `443` with SSL enabled). 
-- If your instance requires a login, you also need the username and password of an INDI Allsky user account.
+Your INDI Allsky server must be running and connected to your local network. In most cases, Home Assistant automatically discovers your server using Zeroconf/mDNS.
+
+If your server is not automatically discovered, you need the connection details of your INDI Allsky web server instance, including the hostname or IP address and port number (defaults to port `443` with SSL enabled).
+
+If your instance requires a login, you also need the username and password of an INDI Allsky user account.
 
 {% include integrations/config_flow.md %}
 
@@ -92,6 +80,18 @@ Additional hardware sensors connected to your INDI Allsky instance (such as ambi
 ## Data updates
 
 The camera entity fetches the latest image on-demand from the INDI Allsky server whenever requested by Home Assistant. Sensor data is pushed in real time via a persistent local WebSocket connection.
+
+## Troubleshooting
+
+### Cannot connect during setup
+
+If you see a "Cannot connect" error during setup, verify that:
+
+1. The INDI Allsky server is powered on and connected to your local network.
+2. The hostname or IP address and port number are correct and reachable from Home Assistant.
+3. If connecting using HTTPS with a self-signed SSL certificate, disable **Verify SSL** in the configuration options.
+
+Most INDI Allsky servers are discovered automatically via Zeroconf. If your server is not discovered, verify that Zeroconf/mDNS (Avahi) is enabled on your INDI Allsky server and that multicast traffic is not blocked across network subnets or VLANs.
 
 ## Known limitations
 

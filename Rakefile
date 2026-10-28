@@ -303,7 +303,15 @@ task :newsletter_data do
                 image.split('/content/images/', 2).last
       end
 
-      { 'title' => title, 'image' => image }
+      # The bio page (source/_data/bio.yml) links to the latest edition, so
+      # keep its address and date too. The community page ignores them.
+      published = item.elements['pubDate']&.text
+      {
+        'title' => title,
+        'image' => image,
+        'url' => item.elements['link']&.text.to_s.strip,
+        'date' => published && Time.parse(published).utc.iso8601,
+      }
     end.first(3)
     raise "feed does not contain any usable editions" if editions.empty?
 
@@ -395,7 +403,42 @@ task :integrations_data do
 
   puts "## Wrote metadata for #{manifests.length} integrations to #{output_dir}"
 
+  Rake::Task[:integration_front_matter].invoke
   Rake::Task[:codeowners].invoke
+end
+
+desc "Remove the front matter keys that come from core from the integration pages"
+task :integration_front_matter do
+  require "jekyll"
+  require_relative "plugins/integration_metadata"
+
+  integrations = Dir["#{source_dir}/_data/integrations/*.json"].to_h do |file|
+    [File.basename(file, ".json"), JSON.parse(File.read(file))]
+  end
+  abort("No integration metadata found, run `rake integrations_data` first") if integrations.empty?
+
+  cleaned = 0
+  Dir["#{source_dir}/_integrations/*.markdown"].sort.each do |file|
+    integration = integrations[File.basename(file, ".markdown")]
+    next unless integration
+
+    keys = Jekyll::IntegrationMetadata.synced_keys(integration, integrations)
+    _, front_matter, body = File.read(file).split(/^---[ \t]*\n/, 3)
+
+    # Line based, so the rest of the front matter keeps its formatting. A
+    # key owns the indented and list lines below it.
+    skipping = false
+    kept = front_matter.lines.reject do |line|
+      skipping = keys.include?(line[/\A([\w-]+):/, 1]) if line.match?(/\A[^\s#-]/)
+      skipping
+    end
+    next if kept.length == front_matter.lines.length
+
+    File.write(file, "---\n#{kept.join}---\n#{body}")
+    cleaned += 1
+  end
+
+  puts "## Removed front matter that comes from core from #{cleaned} integration pages"
 end
 
 CODEOWNERS_HEADER = <<~HEADER

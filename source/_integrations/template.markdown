@@ -1,37 +1,7 @@
 ---
-title: Template
 description: Instructions on how to create template entities in Home Assistant.
-ha_categories:
-  - helpers.calculate_value
 ha_release: 0.12
-ha_iot_class: Local Push
-ha_quality_scale: internal
-ha_codeowners:
-  - '@Petro31'
-  - '@home-assistant/core'
 ha_domain: template
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - device_tracker
-  - event
-  - fan
-  - image
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-  - vacuum
-  - water_heater
-  - weather
-ha_integration_type: helper
-ha_config_flow: true
 related:
   - docs: /docs/templating/
     title: About templating

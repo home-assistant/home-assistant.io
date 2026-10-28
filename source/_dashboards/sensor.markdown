@@ -44,6 +44,11 @@ name:
   required: false
   description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
+color: 
+  required: false 
+  description: Color of the icon and graph when the entity is active. Can be a theme color name (such as `primary`, `red`, or `teal`) or any CSS color code.
+  type: string 
+  default: state
 graph:
   required: false
   description: Type of graph (`none` or `line`).

@@ -1,19 +1,7 @@
 ---
-title: Radarr
 description: Instructions on how to integrate Radarr sensors with Home Assistant
-ha_categories:
-  - media_entertainment.tv_streaming
 ha_release: 0.47
-ha_config_flow: true
-ha_iot_class: Local Polling
 ha_domain: radarr
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - sensor
-ha_codeowners:
-  - '@tkdrob'
-ha_integration_type: service
 ---
 
 The **Radarr** {% term integration %} pulls data from a given [Radarr](https://radarr.video/) instance.

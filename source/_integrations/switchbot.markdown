@@ -1,42 +1,9 @@
 ---
-title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
-ha_categories:
-  - sensors
-  - blinds_curtains
-  - plugs_switches
 ha_release: 0.78
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@danielhiversen'
-  - '@RenierM26'
-  - '@murtas'
-  - '@Eloston'
-  - '@dsypniewski'
-  - '@zerzhang'
 ha_domain: switchbot
 works_with:
   - bluetooth
-ha_bluetooth: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: gold
 ---
 
 The **SwitchBot Bluetooth** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, and hubs.

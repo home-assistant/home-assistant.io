@@ -1,27 +1,7 @@
 ---
-title: Enphase Envoy
 description: Instructions on how to set up Enphase Envoy with Home Assistant.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 0.76
-ha_iot_class: Local Polling
 ha_domain: enphase_envoy
-ha_zeroconf: true
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-  - '@cgarwood'
-  - '@catsmanac'
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Enphase Envoy** {% term integration %} is used to integrate with the [Enphase IQ Gateway](https://enphase.com/installers/communication), a communication device for [Enphase](https://enphase.com/homeowners) solar inverters and batteries. In this documentation, as well as in integration entity names, the Enphase IQ Gateway is commonly referred to as `Envoy`, a name from the conception times of this integration and retained for its compact format.

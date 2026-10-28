@@ -1,31 +1,7 @@
 ---
-title: Reolink
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
-ha_categories:
-  - security_safety.cameras
-  - security_safety.doorbells_intercoms
-ha_iot_class: Local Push
 ha_release: 2023.1
 ha_domain: reolink
-ha_codeowners:
-  - '@starkillerOG'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - time
-  - update
-ha_integration_type: hub
-ha_dhcp: true
-ha_quality_scale: platinum
 related:
   - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
     title: Controlling the camera from the dashboard
@@ -136,7 +112,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - IO input+
 - Sleep status+
 
-\++ These sensors receive events using the following methods (in order): TCP push, Webhook push (battery cameras), ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+\++ These sensors receive events using the following methods (in order): TCP push, Webhook push (directly connected battery cameras), ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for TCP push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 To ensure you have the best latency possible, or if motion/AI events are not received, refer to the [Motion/AI events not working or delayed](#motionai-events-not-working-or-delayed) section.
@@ -472,11 +448,19 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Lumus](https://reolink.com/product/reolink-lumus/)
 - Reolink Video Doorbell ([PoE Black](https://reolink.com/product/reolink-video-doorbell/), [PoE White](https://reolink.com/product/reolink-video-doorbell/))
 
+The following battery-powered models have been tested and confirmed to work with a direct link to Home Assistant:
+
+- [Reolink Battery Video Doorbell (2nd Gen)](https://reolink.com/product/reolink-video-doorbell-2nd-gen/)
+
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
 
 ### Tested battery-powered models
 
-Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/) or NVR. The Home Hub/NVR will act as a bridge between the battery-powered cameras and Home Assistant, conserving the battery life. All features of the battery-powered cameras will be available just like regular-powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore, ensure you do not use the camera stream on a dashboard that is constantly being viewed, like a wall panel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
+Battery-powered Reolink cameras can be used with Home Assistant with the help of a Reolink Home Hub or NVR. The Home Hub/NVR will act as a bridge between the battery-powered cameras and Home Assistant, conserving the battery life. All features of the battery-powered cameras will be available just like regular-powered cameras.
+
+Some battery-powered models can also be connected directly to Home Assistant, without a Home Hub or NVR. These models are listed under [tested directly connected models](#tested-directly-connected-models). Directly connected battery cameras push their motion/AI events to Home Assistant using a webhook, see [Motion/AI events not working or delayed](#motionai-events-not-working-or-delayed) for the requirements.
+
+Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore, ensure you do not use the camera stream on a dashboard that is constantly being viewed, like a wall panel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
 
 The following hubs/NVRs have been tested and confirmed to work with battery-powered models in Home Assistant:
 
@@ -498,12 +482,13 @@ The following battery-powered models have been tested and confirmed to work thro
 - [Argus PT](https://reolink.com/product/argus-pt/)
 - [Reolink Altas](https://reolink.com/product/reolink-altas/)
 - [Reolink Altas PT Ultra](https://reolink.com/product/altas-pt-ultra/)
+- [Reolink Video Doorbell (Battery)](https://reolink.com/product/reolink-doorbell-battery/)
 
 Reolink provides [this larger list of battery camera models](https://support.reolink.com/hc/en-us/articles/32379509281561-Reolink-Home-Hub-Compatibility/) which are compatible with the Home Hub and should work with Home Assistant.
 
 ### Models only compatible using a NVR/Home Hub
 
-The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
+The following models do not support a direct connection.
 However, these cameras can work with this integration through an NVR or Home Hub in which the NVR/Home Hub is connected to Home Assistant.
 
 - B400*
@@ -839,11 +824,15 @@ Prerequisites:
 ### Can’t set up the integration
 
 - Newer Reolink devices can be set up as an **Account device** instead of a **Local device**. An account device is bound to a Reolink cloud account and does not allow local login with a username and password, therefore Home Assistant can't connect to it. In the Reolink app, account devices are marked with a profile icon {% icon "mdi:account" %} next to the device name (see the [Reolink article on the icons in the Reolink app](https://support.reolink.com/articles/22170873096729-Introduction-to-the-Icons-on-Reolink-App/)). You can also use the selector in the top left of the Reolink app device list to switch between **All devices**, **Local devices**, and **Account devices** to see under which category your device is listed. If you get an error that the device is configured as an account device, switch the device to a **Local device** in the Reolink app: open the device and go to **Device Settings** > **Advanced** > **Restore**. Afterwards, the device shows an **Access Error** in the account devices list; tap it and select **Delete**. Then add the device again using the **+** icon (by QR code, UID, or LAN) and complete the initial setup by creating a password, so it is added as a local device. See the [Reolink article on Local Device and Account Device](https://support.reolink.com/articles/61043321354265-Introduction-to-Reolink-Local-Device-and-Account-Device/) for more information.
-- Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) before setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
-- Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC). See [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
-- On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
-- If the integration and the browser can't connect to the camera even after you enable the HTTP/HTTPS ports, try to create a new user on the camera; that fixes the problem in some cases.
 - Using a VLAN or other network restrictions between the Home Assistant device and the Reolink device is possible, but is also known to cause issues when not properly configured. Ensure HTTP (port 80), HTTPS (port 443), RTMP (port 1935), RTSP (port 554), ONVIF (port 8000) and TCP (port 9000) communication is not being blocked. For directly connecting a Reolink battery camera, all UDP ports between the Home Assistant device and the battery camera need to be unrestricted. When experiencing issues, please first test if moving the Reolink device to the same VLAN as the Home Assistant device and lifting all restrictions between them solves the issue.
+- Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) before setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
+- When setting up a battery camera, directly or through a Home Hub or NVR, make sure the camera is online during setup. A battery camera that is asleep and can't be woken, has a drained battery, or is out of Wi-Fi range can't be reached by Home Assistant. Check if you can open the live view of the camera in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/), charge the battery if needed, or move the camera closer to the Wi-Fi access point.
+
+The following steps do not apply to directly connected battery cameras because these cameras do not have an HTTP(S) web server.
+
+- Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC). See [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
+- On some older camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
+- If the integration and the browser can't connect to the camera even after you enable the HTTP/HTTPS ports, try to create a new user on the camera; that fixes the problem in some cases.
 
 ### Entities intermittently become unavailable
 

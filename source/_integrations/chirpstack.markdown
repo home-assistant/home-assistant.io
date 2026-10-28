@@ -1,16 +1,7 @@
 ---
-title: ChirpStack
 description: Connect ChirpStack LoRaWAN applications to Home Assistant.
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: 2026.11
-ha_iot_class: Local Push
-ha_quality_scale: bronze
-ha_config_flow: true
-ha_codeowners:
-  - '@balloob'
 ha_domain: chirpstack
-ha_integration_type: hub
 ---
 
 The **ChirpStack** {% term integration %} connects your [ChirpStack](https://www.chirpstack.io/) LoRaWAN network to Home Assistant. Select a tenant and its applications to make their devices available to [LoRaWAN](/integrations/lorawan/) device integrations.

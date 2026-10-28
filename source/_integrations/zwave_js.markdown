@@ -1,34 +1,8 @@
 ---
-title: Z-Wave
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 featured: true
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: '2021.2'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/z-wave'
 ha_domain: zwave_js
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-ha_integration_type: hub
-ha_zeroconf: true
 related:
   - docs: /connect/zwa-2
     title: Home Assistant Connect ZWA-2 Z-Wave adapter
@@ -344,7 +318,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
 
 5. Remove the temporary files you uploaded to the `/tmp` folder for the migration.
-6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app.
+6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app. For the steps, refer to [Uninstalling an app](/common-tasks/os/apps/#uninstalling-an-app).
 
 ## Overriding the radio frequency region of the adapter in the Z-Wave JS app
 
