@@ -37,12 +37,10 @@
       <li class="nav-wth">
         <a class="nav-button nav-wth__button{% if root == 'wth' %} active{% endif %}" href="/wth/" title='Month of "What the Heck?!"'>
           {%- comment -%}
-            The doodle, in two layers. The flow is clipped to the pill: hero
-            routing with pulses running through it. The breakout is not: now
-            and then a run grows out of the node in the icon's place, leaves
-            the button and retracts; the node itself never moves. Both are
-            anchored to the right edge, where the node sits, so the label's
-            width never moves them.
+            The doodle: hero routing clipped to the pill, with a pulse
+            running through it, and the hero's node in the icon's place. The
+            routing is anchored to the right edge, where the node sits, so
+            the label's width never moves it.
           {%- endcomment %}
           <span class="nav-wth__flow" aria-hidden="true"><svg viewBox="0 0 120 38" fill="none" focusable="false">
             <g stroke-linecap="round" fill="none">
@@ -52,10 +50,6 @@
             </g>
           </svg></span>
           <span class="label">WTH</span>
-          <svg class="nav-wth__breakout" viewBox="0 0 80 48" fill="none" aria-hidden="true" focusable="false">
-            <path class="nav-wth__trail" pathLength="1" d="M68 12v20a8 8 0 0 1-8 8H28" stroke-linecap="round" />
-            <circle class="nav-wth__stop" cx="28" cy="40" r="2.5" />
-          </svg>
           <span class="icon nav-wth__node" aria-hidden="true"><span class="nav-wth__mark">?!</span></span>
         </a>
       </li>
@@ -73,13 +67,11 @@
             </g>
           </svg></span>
           <span class="label">WTH</span>
-          <svg class="nav-wth__breakout" viewBox="0 0 80 48" fill="none" aria-hidden="true" focusable="false">
-            <path class="nav-wth__trail" pathLength="1" d="M68 12v20a8 8 0 0 1-8 8H28" stroke-linecap="round" />
-            <circle class="nav-wth__stop" cx="28" cy="40" r="2.5" />
-          </svg>
           <span class="icon nav-wth__node" aria-hidden="true"><span class="nav-wth__mark">?!</span></span>
         </a>
       </li>
+      {%- comment -%} Eases the doodle's speed on hover; see the script. {%- endcomment %}
+      <script src="/javascripts/wth/nav-button.js" type="module"></script>
       <li>
         <a {% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'common-tasks' %}class="active"{% endif %} href="/docs/">Documentation {% icon "mdi:chevron-down" %}</a>
         <ul>
