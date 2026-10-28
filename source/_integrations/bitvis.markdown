@@ -1,22 +1,7 @@
 ---
-title: Bitvis Power Hub
 description: Read real-time electricity data from your smart meter with the Bitvis Power Hub integration for Home Assistant.
 ha_release: '2026.10'
-ha_category:
-  - Energy
-  - Sensor
-ha_platforms:
-  - sensor
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_zeroconf: true
-ha_codeowners:
-  - '@MandusBorjesson'
-  - '@real-tintin'
-  - '@simontegelid'
 ha_domain: bitvis
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Bitvis Power Hub** {% term integration %} reads real-time electricity data from a [Bitvis Power Hub](https://bitvis.se/) device. The Power Hub connects to the <abbr title="Home Area Network">HAN</abbr> port (a standard port on European smart meters) on your smart electricity meter and pushes measurements to Home Assistant over your local network using UDP.

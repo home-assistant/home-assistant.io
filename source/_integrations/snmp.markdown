@@ -1,22 +1,7 @@
 ---
-title: SNMP
 description: Instructions on how to integrate SNMP into Home Assistant.
-ha_category:
-  - Network
-  - Presence detection
-  - Sensor
-  - Switch
-ha_iot_class: Local Polling
 ha_release: 0.57
 ha_domain: snmp
-ha_platforms:
-  - device_tracker
-  - sensor
-  - switch
-ha_integration_type: integration
-ha_codeowners:
-  - '@nmaggioni'
-ha_quality_scale: legacy
 ---
 
 Many routers, Wi-Fi access points, printers, and other network-connected devices support the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). This is a standardized method for monitoring/managing network-connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain continuously updated lists of metrics like network interfaces throughput, disk activity, active devices on the network, toner levels, and such.
@@ -189,7 +174,7 @@ priv_protocol:
   type: string
   default: 'none'
 state_class:
-  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  description: The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor.
   required: false
   type: string
 unique_id:

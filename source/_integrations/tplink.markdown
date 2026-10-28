@@ -1,45 +1,7 @@
 ---
-title: TP-Link Smart Home
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Climate
-  - Fan
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Vacuum
 ha_release: 0.89
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@rytilahti'
-  - '@bdraco'
-  - '@sdb9696'
 ha_domain: tplink
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - diagnostics
-  - fan
-  - light
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - vacuum
-ha_dhcp: true
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **TP-Link Smart Home** {% term integration %} allows you to control your [TP-Link Kasa Smart Home Devices](https://www.kasasmart.com/) and [TP-Link Tapo Devices](https://www.tapo.com/) such as cameras, doorbells, chimes, lights, plugs, wall switches, robot vacuums, hubs, and hub-attached devices.

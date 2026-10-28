@@ -1,18 +1,10 @@
 ---
-title: VoiceRSS
 description: Instructions on how to set up VoiceRSS TTS with Home Assistant.
-ha_category:
-  - Text-to-speech
-ha_iot_class: Cloud Push
 ha_release: 0.35
 ha_domain: voicerss
-ha_platforms:
-  - tts
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **VoiceRSS** {% term integration %} uses [VoiceRSS](http://www.voicerss.org/) text-to-speech engine to read a text with natural sounding voices.

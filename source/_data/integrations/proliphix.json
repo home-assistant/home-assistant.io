@@ -1,0 +1,12 @@
+{
+  "domain": "proliphix",
+  "name": "Proliphix",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate"
+  ]
+}

@@ -1,14 +1,7 @@
 ---
-title: Diagnostics
 description: The diagnostics integration lets you download integration and device diagnostic information for debugging.
-ha_category:
-  - Other
 ha_release: 2022.2
-ha_quality_scale: internal
 ha_domain: diagnostics
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: system
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics

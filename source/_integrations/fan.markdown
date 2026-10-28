@@ -1,14 +1,7 @@
 ---
-title: Fan
 description: Instructions on how to set up Fan devices within Home Assistant.
-ha_category:
-  - Fan
 ha_release: 0.27
-ha_quality_scale: internal
 ha_domain: fan
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 The **Fan** {% term integration %} allows you to control and monitor fan devices.

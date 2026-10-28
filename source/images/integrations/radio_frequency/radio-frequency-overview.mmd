@@ -13,11 +13,20 @@ flowchart LR
 
     subgraph ADAPTER["Radio frequency remote adapter (proxy)"]
         TX["Radio frequency transmitter<br/>(radio frequency entity)"]
+        RX["Radio frequency receiver<br/>(radio frequency entity)"]
     end
 
     DEVICE["RF-controlled device<br/>(remote outlet, garage door)"]
+    REMOTE["Handheld RF remote"]
 
     DEV --> RFINT
     RFINT --> PROXYINT
     PROXYINT --> TX
     TX -->|"RF"| DEVICE
+    %% Invisible links keep the receiver next to the transmitter
+    PROXYINT ~~~ RX
+    RX ~~~ REMOTE
+    REMOTE -->|"RF"| RX
+    RX --> PROXYINT
+    PROXYINT --> RFINT
+    RFINT --> DEV

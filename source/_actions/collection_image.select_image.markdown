@@ -16,7 +16,7 @@ To update the image from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select your collection_image entity.
-6. From the actions shown for that target, select **Select image**.
+6. From the actions shown for that target, under **Collection image**, select **Select image**.
 7. Under **Image**, choose the image to display from the media browser.
 8. Select **Save**.
 
@@ -59,7 +59,7 @@ image:
       type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="image" %}
+{% include actions/targets.md entity_type="Collection image entity" example="image.my_photos" %}
 
 {% include actions/try_it.md %}
 
@@ -70,9 +70,9 @@ image:
 Show a festive picture on your dashboard on December 31. This example uses the **Date** sensor from the [Time & Date](/integrations/time_date/) integration, and a picture stored in a **holidays** folder in your [local media](/integrations/media_source/#local-media).
 
 - **Trigger**: Template, {% raw %}`{{ states('sensor.date').endswith('-12-31') }}`{% endraw %}
-- **Action**: Select image
+- **Action**: Collection image: Select image
   - **Target**: My photos (`image.my_photos`)
-  - **Image**: `holidays/happy_new_year.jpg`
+  - **Image**: Select `happy_new_year.jpg` from the `holidays` folder in the media browser
 
 {% details "YAML example for showing a holiday image on New Year's Eve" %}
 

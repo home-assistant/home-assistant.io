@@ -1,24 +1,7 @@
 ---
-title: GoodWe Inverter
 description: Instructions on how to connect your GoodWe Inverter to Home Assistant.
-ha_category:
-  - Energy
-  - Modbus-controlled
-  - Sensor
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: 2022.2
-ha_codeowners:
-  - '@mletenay'
-  - '@starkillerOG'
 ha_domain: goodwe
-ha_platforms:
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-ha_integration_type: device
 related:
   - docs: /integrations/modbus/
     title: Modbus

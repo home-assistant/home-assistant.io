@@ -1,18 +1,7 @@
 ---
-title: Trafikverket Ferry
 description: Instructions how to integrate Trafikverket Ferry within Home Assistant.
-ha_category:
-  - Sensor
-  - Transport
 ha_release: 2022.5
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@gjohansson-ST'
 ha_domain: trafikverket_ferry
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 Retrieve ferry departure information from [Trafikverket](https://www.trafikverket.se/).
@@ -33,7 +22,7 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 ## Sensors
 
 - Departure date and time by made selections.
-- Departure sensor for following two departures after next (disabled by default)
+- Departure sensor for following two departures after next ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - Departure harbor.
 - Destination harbor.
 - Modified time (this sensor is deactivated as standard).

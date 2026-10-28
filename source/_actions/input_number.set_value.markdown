@@ -19,7 +19,7 @@ To set an input number value from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the input number you want to set.
-6. From the actions shown for that target, select **Set input number value**.
+6. From the actions shown for that target, under **Input number**, select **Set input number value**.
 7. Enter the **Value** you want to set.
 8. Select **Save**.
 

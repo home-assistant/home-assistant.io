@@ -1,17 +1,9 @@
 ---
-title: Azure Data Explorer
 description: Setup for Azure Data Explorer integration
-ha_category:
-  - History
 ha_release: 2024.6
-ha_config_flow: true
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@kaareseras'
 ha_domain: azure_data_explorer
 related:
   - docs: /docs/configuration/
-ha_integration_type: service
 ---
 
 [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/) is a high-performance time-series database, query engine, and dashboarding tool. The Home Assistant **Azure Data Explorer** {% term integration %} allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding. From here, data can be viewed in building dashboards, PowerBi, and Grafana, among others.

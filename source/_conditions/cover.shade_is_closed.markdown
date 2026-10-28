@@ -50,8 +50,6 @@ This passes when `cover.bedroom_shade` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -63,22 +61,20 @@ behavior:
 for:
   description: >
     How long the shade must have stayed closed before the condition
-    passes. Accepts a duration like `00:05:00` for five minutes.
+    passes. Accepts a duration like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="motorized shade" example="cover.bedroom_shade" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
 - The target must be a cover entity with the shade device class.
-- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted shade is closed.
-- With **All**, the condition passes only if every available targeted shade is closed. If every targeted shade is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
+{% include conditions/unavailable_targets.md entities="shades" %}
 
 {% include conditions/try_it.md %}
 
@@ -116,7 +112,9 @@ automation: |
 
 If the shade is still closed when motion is detected, this automation turns on a nearby light so the area is easier to see.
 
-- **Trigger**: Motion detected
+- **Trigger**: State changed
+  - **Entity**: Hallway motion sensor
+  - **To**: Detected
 - **Condition**: Shade is closed
   - **Target**: Bedroom shade
 - **Action**: Turn on light

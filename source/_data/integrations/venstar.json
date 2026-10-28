@@ -1,0 +1,19 @@
+{
+  "domain": "venstar",
+  "name": "Venstar",
+  "integration_type": "device",
+  "codeowners": [
+    "@garbled1",
+    "@jhollowe"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "sensor"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "domain": "sfr_box",
+  "name": "SFR Box",
+  "integration_type": "device",
+  "codeowners": [
+    "@epenet"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "sensor"
+  ]
+}

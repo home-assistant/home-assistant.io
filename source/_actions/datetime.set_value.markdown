@@ -1,5 +1,5 @@
 ---
-title: "Set date/time value"
+title: "Set date/time"
 action: datetime.set_value
 domain: datetime
 description: "Sets the value of a date/time entity."

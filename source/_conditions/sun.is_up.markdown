@@ -48,7 +48,9 @@ This passes while the sun is above the horizon.
 
 When motion is detected at the front door, turn on the porch light, but only when the sun is down.
 
-- **Trigger**: Motion detected at the front door
+- **Trigger**: State changed
+  - **Entity**: Front door motion sensor
+  - **To**: Detected
 - **Condition**: Not
   - **Condition**: Sun is up
 - **Action**: Turn on light

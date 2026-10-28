@@ -1,0 +1,17 @@
+{
+  "domain": "hp_printer",
+  "name": "HP Printer",
+  "integration_type": "device",
+  "codeowners": [
+    "@chemelli74"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "computers_network.printers"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

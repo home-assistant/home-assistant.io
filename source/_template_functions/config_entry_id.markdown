@@ -7,7 +7,7 @@ available_as:
   - filter
 category: entity
 return_type: "string or None"
-limited: false
+limited: true
 since: "2023.3"
 related_functions:
   - config_entry_attr

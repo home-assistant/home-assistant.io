@@ -1,0 +1,17 @@
+{
+  "domain": "bayesian",
+  "name": "Bayesian",
+  "integration_type": "service",
+  "codeowners": [
+    "@HarvsG"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

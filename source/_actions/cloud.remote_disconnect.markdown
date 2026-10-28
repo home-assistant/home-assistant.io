@@ -56,10 +56,9 @@ This action has no additional options in YAML.
 
 When you're home, you reach Home Assistant on your local network. This automation turns remote access off when you arrive.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone entered
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Enter
 - **Action**: Home Assistant Cloud: Disable Home Assistant Cloud remote access
 
 {% details "YAML example for turning off remote access when you get home" %}
@@ -68,10 +67,11 @@ When you're home, you reach Home Assistant on your local network. This automatio
 automation: |
   alias: "Turn off remote access when I get home"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: cloud.remote_disconnect
 {% endexample %}

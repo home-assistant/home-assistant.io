@@ -8,7 +8,7 @@ related_actions:
   - rainmachine.pause_watering
 ---
 
-The **Restrict all watering** action prevents any watering from starting on a RainMachine controller for a set time period. Unlike pausing, which interrupts running activities, a restriction stops new watering from beginning.
+The **RainMachine: Restrict all watering** action prevents any watering from starting on a RainMachine controller for a set time period. Unlike pausing, which interrupts running activities, a restriction stops new watering from beginning.
 
 This is helpful when you know watering should not run for a while, for example during an outdoor event or while you work in the garden.
 

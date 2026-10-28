@@ -1,29 +1,7 @@
 ---
-title: Peblar
 description: Instructions on how to integrate Peblar Rocksolid EV Charger with Home Assistant.
-ha_category:
-  - Car
-  - Energy
-  - Update
 ha_release: 2025.1
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: peblar
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: platinum
 ---
 
 The **Peblar** {% term integration %} integrates the [Peblar Rocksolid EV Charger] into your smart home ecosystem. It enables real-time monitoring of charging status, tracking energy consumption, controlling charging behavior, and integrating EV charging data into the Home Assistant energy dashboard.
@@ -92,7 +70,7 @@ or warning.
 
 {% important %}
 Some of these binary sensors are disabled by default. If you want to use them, you need
-to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 
@@ -111,7 +89,7 @@ the charger. The following buttons are available:
 
 {% important %}
 Some of these buttons are disabled by default. If you want to use them, you need
-to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 
@@ -133,11 +111,14 @@ Home Assistant doesn't report a session that was already running when it started
 
 ### Numbers
 
-This integration provides a single number entity: **Charge limit**.
+This integration provides the following number entities.
 
-Using this entity, you can set the maximum current the charger can provide to your electric vehicle. The value of this entity is in amperes (A).
+- **Charge limit**: Using this entity, you can set the maximum current the charger can provide to your electric vehicle. The value of this entity is in amperes (A). The minimum value for this entity is 6 A, and the maximum value is depending on your charger's configuration. The value can be set in increments of 1 A.
 
-The minimum value for this entity is 6A, and the maximum value is depending on your charger's configuration. The value can be set in increments of 1A.
+Two more number entities configure the **Custom solar** charging mode. Both are a power on your grid connection in watts (W), where a negative value means power going out to the grid:
+
+- **Custom solar start threshold**: The net power at which charging starts. The charger's default is -1300 W, so charging begins once your house exports 1300 W, and stops again once it exports less than that. A value closer to zero starts earlier and takes some power from the grid. A positive value lets charging start while your house still draws from the grid, as long as that draw stays below the value you set.
+- **Custom solar grid target**: What the charger aims for on your connection once it is charging. A target of 0 W comes down to charging on your surplus and little else, a negative value keeps some power going out to the grid, and a positive value draws extra from it to charge faster. It is a target rather than a guarantee: the charger never delivers less than 6 A while charging, so with little or no surplus it draws from the grid whatever you set here.
 
 ### Selects
 
@@ -181,11 +162,11 @@ The following options are available:
 - **Fast solar** ({% term state %}: `fast_solar`): The charger will fast charge the electric vehicle with the overproduction of solar energy, but will also use grid power if the solar production is not sufficient.
 - **Smart solar** ({% term state %}: `smart_solar`): The charger will charge the electric vehicle with the overproduction of solar energy, but will also use grid power if the solar production is not sufficient.
 - **Pure solar** ({% term state %}: `pure_solar`): The charger will only charge the electric vehicle with the overproduction of solar energy.
-- **Custom solar** ({% term state %}: `custom_solar`): The charger will charge the electric vehicle on solar energy, using the thresholds and grid power target you set on the charger itself.
+- **Custom solar** ({% term state %}: `custom_solar`): The charger will charge the electric vehicle on solar energy, following the start threshold and grid power target you set yourself in **Custom solar start threshold** and **Custom solar grid target**.
 - **Scheduled** ({% term state %}: `scheduled`): The charger will charge the electric vehicle according to the schedule configured on the charger.
 
 {% note %}
-**Custom solar** is only offered by chargers running firmware 1.10 or later, and only when the charger has a power meter configured. The thresholds are set in the charger's web interface. Home Assistant selects the mode but doesn't change those settings.
+**Custom solar** is only offered by chargers running firmware 1.10 or later, and only when the charger has a power meter configured. The settings it runs on are the **Custom solar** entities described in [numbers](#numbers) and [switches](#switches).
 {% endnote %}
 
 ### Sensors
@@ -245,7 +226,7 @@ as a device.
 
 {% important %}
 The sensors marked with \*\* are disabled by default. If you want to use them,
-you need to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 
@@ -256,10 +237,12 @@ This integration provides the following switch entities:
 - **Charge**: This switch allows you to start or stop/pause the charging of your electric vehicle. This can be helpful if you want to temporarily stop charging your electric vehicle, for example, to avoid charging during expensive peak hours.
 - **Force single phase**: This switch can be used to force the charger to use a single phase for charging your electric vehicle. This can be useful if you want to limit your current draw from the charger to a single phase, for example, to prevent overloading your electrical installation.
 - **Keep socket locked**: When enabled, the cable stays locked in the charger. When disabled, the charger releases the cable once your vehicle is disconnected, so anyone can unplug it and take it with them. Turning this on while nothing is plugged in has no immediate effect: the charger locks the cable the next time one is inserted.
+- **Custom solar always charge**: When enabled, the **Custom solar** mode ignores its start threshold. Charging begins as soon as you plug in and follows the grid power target from the first second, with a minimum of 6 A.
 
 {% note %}
 - The **Force single phase** switch is only available if your charger is connected to multiple phases. If your charger is connected to a single-phase power source, this switch will not be created.
 - The **Keep socket locked** switch is only available on Peblar chargers that are equipped with a socket.
+- The **Custom solar always charge** switch entity is only available on chargers that support the **Custom solar** mode, which needs firmware 1.10 or later and a configured power meter. It can be set at any time, and takes effect whenever that mode is selected.
 {% endnote %}
 
 ### Updates
@@ -388,13 +371,30 @@ automation:
             Please check the charger's local web interface for more information.
 ```
 
+## How this integration talks to your charger
+
+The charger offers more than one way in, and this integration uses most of them.
+
+The integration uses the local REST API to {% term polling poll %} the meter, system state, and EV interface, and to authorize charging sessions. It uses the charger's internal web interfaces for configuration, firmware versions and updates, RFID and vehicle lists, and meter history. A WebSocket connection reports charging-session state changes, which prompts the integration to refresh the relevant polled data.
+
+The one thing it leaves alone is the Modbus API, which stays entirely yours to use.
+
 ## Known limitations
 
 Not all functionality of the Peblar charger is available through this integration. The following limitations are known:
 
 - The Peblar APIs currently don't communicate when the charger is awaiting authentication (for example, using an RFID card) before it can start charging. As a result, you will see a suspended charging status in Home Assistant when the charger is actually awaiting authentication.
-- Home Assistant uses and manages the charger's REST API. This means that the use of this integration will enable the REST API on the charger automatically. It is possible to use the REST API directly in parallel with this integration.
-- Peblar is also sold as white-label products, such as [CoolBlue BlueBuilt](https://www.coolblue.nl/en/charging-stations/our-charging-stations), [Eneco Connectric®](https://www.eneco.nl/campagnes/laadpalen/) and [Shell Recharge](https://www.shell.nl/b2b-business/shell-fleet-solutions/electric-charging/at-home-ev-charging.html#thuisladers). This integration has been tested only with Peblar branded products, and it's unknown whether it works with these white-label versions.
+- Home Assistant manages the charger's local REST API for you. If it is switched off, setting up this integration switches it on, and it stays on afterwards. You can keep using that API yourself alongside the integration.
+- Peblar is also sold as white-label products, such as [CoolBlue BlueBuilt](https://www.coolblue.nl/en/charging-stations/our-charging-stations), [Eneco Connectric®](https://www.eneco.nl/campagnes/laadpalen/) and [Shell Recharge](https://www.shell.nl/bedrijven/shell-fleet-solutions/elektrisch-laden/charging-at-home-and-office.html#laadoplossingen-voor-thuis). Some of these run firmware that is locked by the reseller: they reject generic Peblar firmware and may stay on an older version. On a CoolBlue BlueBuilt charger, the integration works, with these exceptions:
+  - On firmware 1.6.1+1+COOLBLUE-1:
+    - The **Firmware** and **Customization** update entities are not created, because the charger does not report any available update.
+    - The **Socket lock** binary sensor always shows the socket as unlocked, because this firmware reports the socket as unlocked even while the cable is locked in. The **Keep socket locked** switch does lock the cable.
+    - The **List autocharge vehicles**, **Add autocharge vehicle** and **Delete autocharge vehicle** actions do not work, because this firmware does not provide the autocharge vehicle list.
+    - The **Custom solar** smart charging mode is not offered, as it needs firmware 1.10 or later.
+  - On firmware 1.9.2+1+COOLBLUE-1:
+    - The **Socket lock** binary sensor shows whether the cable is locked, and the **Unlock socket** button releases the cable.
+    - The **List autocharge vehicles** action works, but **Add autocharge vehicle** and **Delete autocharge vehicle** fail with the charger error "This endpoint is not available when PLC hardware is not present or enabled".
+    - The other exceptions for firmware 1.6.1+1+COOLBLUE-1 still apply.
 
 ## Troubleshooting
 

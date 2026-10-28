@@ -19,8 +19,8 @@ To set the tracked switch power state from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to control.
-6. From the actions shown for that target, select **Set switch power tracked state**.
+5. From the search box, search for and select **Bond: Set switch power tracked state**.
+6. In **Entity**, select the switch you want to control.
 7. Turn **Power state** on or off to match the switch's actual state.
 8. Select **Save**.
 
@@ -56,7 +56,9 @@ power_state:
   default: false
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="switch" %}
+{% include actions/targets.md domain="switch" entity_type="Bond switch" %}
+
+In the UI, this action has an **Entity** field instead of targets. There, you can select one switch. To use a device, an area, a floor, or a label as the target, select the three dots menu {% icon "mdi:dots-vertical" %} on the action, and then select **Edit in YAML**.
 
 ## Good to know
 
@@ -71,9 +73,11 @@ power_state:
 
 Use this automation when a physical remote tells Home Assistant the switch was turned on, so the tracked state matches reality.
 
-- **Trigger**: Remote "on" button pressed
-- **Action**: Set switch power tracked state
-  - **Target**: Patio heater switch
+- **Trigger**: State changed
+  - **Entity**: Heater remote button sensor
+  - **To**: On
+- **Action**: Bond: Set switch power tracked state
+  - **Entity**: Patio heater switch
   - **Power state**: On
 
 {% details "Show example YAML" %}

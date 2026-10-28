@@ -1,0 +1,24 @@
+{
+  "domain": "eq3btsmart",
+  "name": "eQ-3 Bluetooth Smart Thermostats",
+  "integration_type": "device",
+  "codeowners": [
+    "@eulemitkeule",
+    "@dbuezas"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "number",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "domain": "vicare",
+  "name": "Viessmann ViCare",
+  "integration_type": "hub",
+  "codeowners": [
+    "@CFenner",
+    "@lackas"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "climate.thermostats_heating",
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "diagnostics",
+    "fan",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "water_heater"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

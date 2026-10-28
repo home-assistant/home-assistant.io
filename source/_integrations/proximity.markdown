@@ -1,20 +1,7 @@
 ---
-title: Proximity
 description: Instructions on how to set up Proximity monitoring within Home Assistant.
-ha_category:
-  - Automation
-  - Presence detection
 ha_release: 0.13
-ha_quality_scale: internal
 ha_domain: proximity
-ha_iot_class: Calculated
-ha_integration_type: integration
-ha_codeowners:
-  - '@mib1185'
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_config_flow: true
 ---
 
 The **Proximity** {% term integration %} allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.

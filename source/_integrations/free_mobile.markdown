@@ -1,18 +1,10 @@
 ---
-title: Free Mobile
 description: Instructions on how to add Free Mobile SMS notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_release: 0.11
-ha_iot_class: Cloud Push
 ha_domain: free_mobile
-ha_platforms:
-  - notify
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Free Mobile** {% term integration %} uses the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone.

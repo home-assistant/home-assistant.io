@@ -1,19 +1,7 @@
 ---
-title: Ruckus
 description: Instructions on how to integrate your Ruckus Networks device into Home Assistant.
-ha_category:
-  - Presence detection
 ha_release: 0.117
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@lanrat'
-  - '@ms264556'
-  - '@gabe565'
 ha_domain: ruckus_unleashed
-ha_platforms:
-  - device_tracker
-ha_integration_type: hub
 ---
 
 The **Ruckus** {% term integration %} allows you to connect to [Ruckus](https://www.ruckusnetworks.com/) access points.

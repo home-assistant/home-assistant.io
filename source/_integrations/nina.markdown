@@ -1,21 +1,7 @@
 ---
-title: NINA
 description: Instructions on how to set up NINA warnings in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_release: 2022.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@DeerMaximum'
 ha_domain: nina
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html) {% term integration %} displays warnings from the [Bundesamt für Bevölkerungsschutz und Katastrophenhilfe](https://www.bbk.bund.de/) in Germany.

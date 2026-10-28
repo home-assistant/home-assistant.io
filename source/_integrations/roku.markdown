@@ -1,29 +1,7 @@
 ---
-title: Roku
 description: Instructions how to integrate Roku devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Hub
-  - Media player
-  - Remote
-  - Select
-  - Sensor
-ha_iot_class: Local Polling
 ha_release: 0.86
 ha_domain: roku
-ha_config_flow: true
-ha_codeowners:
-  - '@ctalkington'
-ha_ssdp: true
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - media_player
-  - remote
-  - select
-  - sensor
-ha_integration_type: device
 ---
 
 The **Roku** {% term integration %} allows you to control a [Roku](https://www.roku.com/) media playback device. This integration only supports Roku media playback devices (such as sticks, streaming boxes, and televisions). All other smart home products (such as light bulbs and cameras) are part of a different ecosystem.

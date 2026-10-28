@@ -11,7 +11,7 @@ related_actions:
   - hdmi_cec.volume
 ---
 
-The **Power on** action wakes up every device on the HDMI-CEC bus that supports being powered on over CEC. It sends a single command that the connected devices, such as your TV, AV receiver, or media player, act on together.
+The **HDMI-CEC: Power on** action wakes up every device on the HDMI-CEC bus that supports being powered on over CEC. It sends a single command that the connected devices, such as your TV, AV receiver, or media player, act on together.
 
 This is handy as the start of a "movie night" automation, where one tap powers on your screen and sound system at the same time.
 
@@ -59,7 +59,9 @@ This action has no additional options in YAML.
 
 When you start a movie night, power on every connected CEC device at once.
 
-- **Trigger**: A movie-night helper turns on
+- **Trigger**: State changed
+  - **Entity**: Movie night helper
+  - **To**: On
 - **Action**: HDMI-CEC: Power on
 
 {% details "YAML example for powering on devices at movie night" %}

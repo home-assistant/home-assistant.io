@@ -1,21 +1,7 @@
 ---
-title: Data Grand Lyon
 description: Instructions on how to integrate Grand Lyon open data into Home Assistant.
 ha_release: 2026.6
-ha_category:
-  - Sensor
-  - Transport
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@Crocmagnon'
 ha_domain: data_grand_lyon
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **Data Grand Lyon** {% term integration %} lets you monitor data from the [Grand Lyon open data platform](https://data.grandlyon.com/) (city of Lyon, France).
@@ -146,7 +132,7 @@ For each Vélo'v station you add, the following sensor entities are created:
   - **Description**: The number of free docking stands available at the station.
 
 - **Capacity**
-  - **Description**: The total number of docking stands at the station. Disabled by default.
+  - **Description**: The total number of docking stands at the station. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **Electrical internal battery bikes**
   - **Description**: The number of electrical bikes with an internal battery available at the station. Disabled by default.

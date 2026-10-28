@@ -36,8 +36,8 @@ On the **Security** page, you can:
 - [Change your password](#changing-your-account-password).
 - Turn [multi-factor authentication](/docs/authentication/multi-factor-auth/) on or off for an extra level of security.
 - Manage your **Refresh tokens**. A refresh token is created each time you sign in from a device. Delete one to force that device to sign out.
-  - Unused refresh tokens are automatically removed. A refresh token is considered unused if it has not been used to sign in within 90 days. If you need a permanent token, we recommend using a [long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) instead.
-- Create [long-lived access tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts and apps can securely interact with Home Assistant.
+  - Unused refresh tokens are automatically removed. A refresh token is considered unused if it has not been used to sign in within 90 days. If you need a permanent token, we recommend using a [long-lived access token](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens) instead.
+- Create [long-lived access tokens](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens) so scripts and apps can securely interact with Home Assistant.
 
 ## Changing your account password
 

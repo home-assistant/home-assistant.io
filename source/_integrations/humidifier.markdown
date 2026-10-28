@@ -1,17 +1,9 @@
 ---
-title: Humidifier
 description: Instructions on how to set up humidity control devices within Home Assistant.
-ha_category:
-  - Humidifier
 ha_release: '0.112'
 ha_domain: humidifier
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-  - '@Shulyaka'
-ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard

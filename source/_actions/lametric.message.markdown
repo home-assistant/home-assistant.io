@@ -7,7 +7,7 @@ related_actions:
   - lametric.chart
 ---
 
-The **Display a message** action shows a short text message on your LaMetric device. You can enrich the message with an icon or animation and play a sound alongside it.
+The **LaMetric: Display a message** action shows a short text message on your LaMetric device. You can enrich the message with an icon or animation and play a sound alongside it.
 
 {% include actions/ui_header.md %}
 
@@ -20,7 +20,7 @@ To display a message from an automation or a script:
 5. From the search box, search for and select **LaMetric: Display a message**.
 6. Select the LaMetric device to display the message on.
 7. Enter the text to show in the **Message** field.
-8. _Optional_: add an icon, a sound, the number of cycles, an icon type, and a priority.
+8. _Optional_: add an icon, a sound, how many times the sound repeats, the number of cycles, an icon type, and a priority.
 9. Select **Save**.
 
 ### Options in the UI
@@ -44,6 +44,9 @@ Icon type:
   required: false
 Priority:
   description: "The priority of the notification. When the device is running in screensaver or kiosk mode, only critical notifications are accepted. One of info, warning, or critical."
+  required: false
+Repeat:
+  description: "How many times to play the sound with the message. Set to 0 to keep playing it until the notification is dismissed. Does not apply to sounds fetched from a URL."
   required: false
 {% endoptions_ui %}
 
@@ -102,6 +105,12 @@ priority:
   required: false
   type: string
   default: info
+repeat:
+  description: >
+    How many times to play the sound with the message. Set to `0` to keep playing it until the notification is dismissed. Does not apply to sounds fetched from a URL.
+  required: false
+  type: integer
+  default: 1
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}

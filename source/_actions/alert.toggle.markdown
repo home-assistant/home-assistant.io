@@ -1,5 +1,5 @@
 ---
-title: "Toggle alert"
+title: "Toggle"
 action: alert.toggle
 domain: alert
 description: "Acknowledges an alert, or removes the acknowledgement if it's already acknowledged."
@@ -18,7 +18,7 @@ To toggle an alert from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Toggle**.
+5. From the search box, search for and select **Alert: Toggle**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), select the alert. You can also select an area, a device, or a label.
 7. Select **Save**.
 
@@ -60,7 +60,7 @@ Place an NFC tag next to your front door. Scanning it acknowledges the garage do
 
 - **Trigger**: Tag
   - **Tag**: Front door tag
-- **Action**: Toggle
+- **Action**: Alert: Toggle
   - **Target**: Garage door alert
 
 {% details "YAML example for toggling an alert with an NFC tag" %}
@@ -86,7 +86,7 @@ Your alert notification has a button with the ID `TOGGLE_LEAK_ALERT`. Selecting 
 - **Trigger**: Manual event received
   - **Event type**: `mobile_app_notification_action`
   - **Event data**: `action: TOGGLE_LEAK_ALERT`
-- **Action**: Toggle
+- **Action**: Alert: Toggle
   - **Target**: Water leak alert
 
 {% details "YAML example for toggling an alert from a phone notification" %}

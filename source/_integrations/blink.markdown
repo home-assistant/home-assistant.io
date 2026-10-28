@@ -1,28 +1,7 @@
 ---
-title: Blink
 description: Instructions for how to integrate Blink camera/security system within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Camera
-  - Hub
-  - Sensor
-  - Switch
 ha_release: '0.40'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fronzbot'
 ha_domain: blink
-ha_config_flow: true
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - camera
-  - diagnostics
-  - sensor
-  - switch
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 The **Blink** {% term integration %}  lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.

@@ -1,30 +1,7 @@
 ---
-title: IntelliFire
 description: Instructions on the IntelliFire Fireplace integration for Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Fan
-  - Light
-  - Number
-  - Sensor
-  - Switch
-ha_iot_class: Local Polling
 ha_release: 2022.2
-ha_codeowners:
-  - '@jeeftor'
 ha_domain: intellifire
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - climate
-  - fan
-  - light
-  - number
-  - sensor
-  - switch
-ha_dhcp: true
-ha_integration_type: device
 ---
 
 IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to various fireplaces. The modules do expose an unencrypted HTTP endpoint on the network that provides status information. This integration will read that URL and create a set of sensors displaying the current fireplace state.
@@ -105,7 +82,7 @@ The following sensors are available as a **binary sensor** when dealing with on/
 
 ### Diagnostic Sensors
 
-- **Connection Quality** - Local network connection quality _(disabled by default)_.
+- **Connection Quality** - Local network connection quality _([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))_.
 - **Downtime** - Unit downtime. Will read `Unknown` if there is currently no downtime.
 - **ECM Latency** - Electronic Control Module Latency value _(disabled by default)_.
 - **IP** - IP Address of the unit.

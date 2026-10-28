@@ -5,7 +5,7 @@ domain: homeworks
 description: "Sends a custom command to a Lutron Homeworks controller."
 ---
 
-The **Send command** action sends a custom command to your Lutron Homeworks controller. You can send a single command or a list of commands.
+The **Lutron Homeworks: Send command** action sends a custom command to your Lutron Homeworks controller. You can send a single command or a list of commands.
 
 This action does not target an entity. Instead, you provide the controller to send to and the command to send.
 
@@ -87,7 +87,7 @@ action: |
 
 This automation simulates a keypad button press on your Homeworks controller every day at sunset, which you can use to recall a scene programmed on the keypad.
 
-- **Trigger**: the sun sets
+- **Trigger**: Sunset
 - **Action**: Lutron Homeworks: Send command (press and release the keypad button with a short delay in between)
   - **Controller**: `homeworks`
 
@@ -97,8 +97,7 @@ This automation simulates a keypad button press on your Homeworks controller eve
 automation: |
   alias: "Recall evening scene at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: homeworks.send_command
       data:

@@ -57,7 +57,7 @@ Switch on a second automation that fakes presence while nobody is home.
 - **Trigger**: Zone left
   - **Target**: Paulus
   - **Zone**: Home
-- **Action**: Turn on automation
+- **Action**: Automation: Turn on automation
   - **Target**: Away lighting
 
 {% details "Show example YAML" %}

@@ -5,7 +5,7 @@ domain: waze_travel_time
 description: "Retrieves route alternatives and travel times between two locations."
 ---
 
-The **Get travel times** action retrieves route alternatives and travel times between two locations.
+The **Waze Travel Time: Get travel times** action retrieves route alternatives and travel times between two locations.
 
 This is useful when you want an automation or script to look up live travel times on demand, for example to decide when to leave or to find the exact street names along a route.
 

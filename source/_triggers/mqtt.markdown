@@ -11,7 +11,7 @@ related_triggers:
 The **MQTT message received** trigger fires an automation when Home Assistant receives a message on a specific MQTT topic. Use it when a device or service publishes MQTT messages that you want to use in an automation, and the device is not already represented by an entity.
 
 {% note %}
-This trigger listens directly to an MQTT topic. It is different from [MQTT device triggers](/integrations/device_trigger.mqtt/), which are discovered as part of an MQTT device and appear as device triggers in the automation editor.
+This trigger listens directly to an MQTT topic. It is different from [MQTT device triggers](/integrations/device_trigger.mqtt/), which are discovered as part of an MQTT device and appear as device triggers in the visual automation editor.
 {% endnote %}
 
 ## Prerequisites
@@ -64,7 +64,7 @@ trigger: |
   value_template: "{{ value_json.state }}"
 {% endexample %}
 
-You can use [limited templates](/docs/templating/where-to-use/#limited-templates) in `topic` and `payload`, for example with [trigger variables](/docs/automation/trigger/#trigger-variables).
+You can use templates in `topic` and `payload`, for example with [trigger variables](/docs/automation/trigger/#trigger-variables). `topic` only supports [limited templates](/docs/templating/limited-templates/).
 
 {% example %}
 automation: |
@@ -90,7 +90,7 @@ topic:
   required: true
   type: string
 payload:
-  description: The payload the message must have. If omitted, any message on the topic starts the automation. Supports limited templates.
+  description: The payload the message must have. If omitted, any message on the topic starts the automation. Supports templates.
   required: false
   type: string
 value_template:
@@ -112,7 +112,7 @@ qos:
 ## Good to know
 
 - If you do not set **Payload** (`payload`), the trigger fires for any message on the configured topic.
-- The `topic` and `payload` options support [limited templates](/docs/templating/where-to-use/#limited-templates). These templates are evaluated when the trigger is set up. They are not re-evaluated for each incoming MQTT message.
+- The `topic` option supports [limited templates](/docs/templating/limited-templates/), and the `payload` option supports templates. Both are evaluated when the trigger is set up. They are not re-evaluated for each incoming MQTT message.
 - By default, MQTT payloads are decoded as `utf-8`. If the payload is binary data, such as an image or another byte payload, set `encoding` to an empty string in YAML.
 - If the incoming payload contains valid JSON, the trigger data includes `trigger.payload_json`.
 

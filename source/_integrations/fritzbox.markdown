@@ -1,31 +1,7 @@
 ---
-title: FRITZ!SmartHome
 description: Instructions on how to integrate FRITZ! Smart Home (former AVM FRITZ!DECT) components into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Light
-  - Sensor
-  - Switch
 ha_release: 0.68
-ha_iot_class: Local Polling
 ha_domain: fritzbox
-ha_config_flow: true
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - light
-  - sensor
-  - switch
-ha_codeowners:
-  - '@mib1185'
-  - '@flabbamann'
-ha_integration_type: hub
 ---
 
 The **FRITZ!SmartHome** {% term integration %} for Home Assistant allows you to integrate [FRITZ! Smart Home](https://fritz.com/en/collections/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).

@@ -54,8 +54,6 @@ This fires every time `valve.garden_irrigation` transitions to the **Closed** st
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -69,9 +67,9 @@ behavior:
   default: each
 for:
   description: >
-    How long the valve must stay closed before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the valve has stayed closed for 10 seconds, which helps ignore brief or accidental closures.
+    How long the valve must stay closed before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the valve has stayed closed for 10 seconds, which helps ignore brief or accidental closures. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -99,9 +97,9 @@ A water-awareness automation that calculates how long the irrigation valve was o
 - **Trigger**: Valve closed
   - **Target**: `valve.garden_irrigation`
 - **Action**: Define variables (configured in YAML editor only)
-- **Action**: Activity: log activity
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+- **Action**: Log activity
 
 {% details "YAML example for logging total watering time and estimated water use" %}
 

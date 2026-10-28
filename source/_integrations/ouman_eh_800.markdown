@@ -1,28 +1,7 @@
 ---
-title: Ouman EH-800
 description: Instructions on how to integrate the Ouman EH-800 heating controller with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Number
-  - Select
-  - Sensor
-  - Valve
 ha_release: 2026.6
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Markus98'
 ha_domain: ouman_eh_800
-ha_platforms:
-  - binary_sensor
-  - climate
-  - number
-  - select
-  - sensor
-  - valve
-ha_integration_type: device
-ha_quality_scale: silver
 related:
   - url: https://ouman.fi/en/product/ouman-eh-800-and-eh-800b/
     title: Ouman EH-800 manufacturer website
@@ -97,7 +76,7 @@ Enabled by default (categorized as configuration):
 - **Autumn drying outdoor temperature limit** (on the main device): The 24-hour average outside temperature below which autumn drying activates. The setting is shared by H1 and H2.
 - **H1/H2 Autumn drying setpoint**: The amount the room temperature (with a room sensor) or the supply water temperature (without a room sensor) is raised while autumn drying is active.
 
-Disabled by default (see [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)):
+Disabled by default (see [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)):
 
 - **Trend sampling interval** (on the main device): The polling interval used by the controller's trend recorder, in seconds.
 
@@ -122,7 +101,7 @@ The exact set of sensors depends on which features and circuits are active on yo
 - **H1/H2 room temperature setpoint**: The target room temperature.
 - **Return water temperature**, **Accumulator temperature**, **Boiler temperature** (on the main device, only when a measurement channel is assigned to that measurement): The temperature measured by the optional sensor.
 
-Additional diagnostic sensors are exposed but disabled by default. See [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) to enable them if needed:
+Additional diagnostic sensors are exposed but disabled by default. See [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to enable them if needed:
 
 - **H1/H2 curve supply water temperature**: The supply water temperature derived from the heating curve.
 - **H1/H2 delayed room temperature**: A smoothed/delayed room temperature reading.

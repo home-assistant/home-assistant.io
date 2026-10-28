@@ -20,7 +20,7 @@ This is why:
 
 - A **Temperature crossed threshold** trigger with **Threshold type** set to **Above** and a threshold of 25&nbsp;°C does not react when you save the automation while the temperature is already 26&nbsp;°C. It reacts only after the temperature drops to 25&nbsp;°C or below and then rises above 25&nbsp;°C again.
 - An automation that should run while it's dark doesn't start just because it is dark. It starts when it becomes dark, for example, when the sun sets.
-- [**Wait for a trigger**](/docs/scripts/#wait-for-a-trigger) works like a trigger: it waits for a change. If the state it waits for is already there when the wait starts, it keeps waiting.
+- [**Wait for a trigger**](/building-blocks/wait_for_trigger/) works like a trigger: it waits for a change. If the state it waits for is already there when the wait starts, it keeps waiting.
 
 ## What counts as a change
 
@@ -39,7 +39,7 @@ This is why:
 
 - If the condition isn't met when the trigger reacts, nothing happens, even if the condition is met a minute later.
 - If a switch is turned on and quickly off again, the automation starts, but a condition that checks whether the switch is on is not met anymore.
-- [**Wait for a template**](/docs/scripts/#wait-for-a-template) works like a condition: if the template is already true when the wait starts, the automation continues right away.
+- [**Wait for a template**](/building-blocks/wait_template/) works like a condition: if the template is already true when the wait starts, the automation continues right away.
 
 ## When two things must both be true
 

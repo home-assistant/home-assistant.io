@@ -75,7 +75,7 @@ When you use a timestamp sensor with `entity_id` and `offset`, Home Assistant ad
 
 You can also provide more than one value in `at`. A YAML list can combine fixed times, helpers, timestamp sensors, and entity-plus-offset mappings.
 
-Limited templates are also supported in `at`. Home Assistant evaluates them when the trigger is set up.
+[Limited templates](/docs/templating/limited-templates/) are also supported in `at`. Home Assistant evaluates them when the trigger is set up.
 
 The `weekday` option accepts one weekday such as `mon` or a list of weekdays. It works with all supported `at` formats, including `input_datetime` entities.
 

@@ -59,7 +59,8 @@ This action has no additional YAML options beyond the target.
 
 Set a select entity to its last option when you press a button.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Fan max helper
 - **Action**: Select last option
   - **Target**: Fan speed preset
 

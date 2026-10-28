@@ -38,7 +38,7 @@ You will typically see this on entities you created manually in YAML, or on enti
 - Entity with a unique ID: the entity ID can be changed freely, as long as it follows the format `<domain>.<id>` and does not collide with another entity. If you change the entity ID, remember to update the references in automations and dashboards.
 - Entity without a unique ID: the entity ID is treated as a fixed identifier and cannot be changed.
 
-If your entity has no unique ID, you can still adjust some properties through the [manual customization options](/docs/configuration/customizing-devices) in YAML.
+If your entity has no unique ID, you can still adjust some properties through the [manual customization options](/docs/configuration/customizing-entities/) in YAML.
 
 ### How do I remove an entity without a unique ID?
 
@@ -54,4 +54,4 @@ It depends on the integration.
 - If you created the entity in YAML, check the documentation of its integration for a `unique_id` option. Some integrations, such as [Template](/integrations/template/) and [MQTT](/integrations/mqtt/), let you set one yourself. Once the entity has a unique ID, you can rename it and change its settings from the UI.
 - If the integration doesn't offer that option, you can't add a unique ID yourself. It has to come from the integration, because it needs to identify the same device or service every time Home Assistant starts.
 
-If an integration does not provide unique IDs, it could potentially be improved to do so. Contributions are welcome. See the [developer documentation](https://developers.home-assistant.io/docs/development_index) to get started, and the [entity registry documentation](https://developers.home-assistant.io/docs/entity_registry_index/) for more on unique IDs.
+If an integration does not provide unique IDs, it could potentially be improved to do so. Contributions are welcome. See the [developer documentation](https://contributors.home-assistant.io/core/) to get started, and the [entity registry documentation](https://contributors.home-assistant.io/core/entities/registry/) for more on unique IDs.

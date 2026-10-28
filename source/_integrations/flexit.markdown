@@ -1,23 +1,7 @@
 ---
-title: Flexit
 description: Instructions on how to integrate a Flexit air handling unit into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Modbus-controlled
-  - Sensor
 ha_release: 0.47
-ha_iot_class: Local Polling
 ha_domain: flexit
-ha_platforms:
-  - binary_sensor
-  - climate
-  - sensor
-ha_integration_type: device
-ha_quality_scale: legacy
-ha_codeowners:
-  - '@troelde'
-ha_config_flow: true
 ---
 
 The **Flexit** {% term integration %} connects [Flexit](https://www.flexit.no/en/) air handling units equipped with a CI66 Modbus adapter to Home Assistant.

@@ -1,29 +1,7 @@
 ---
-title: Qube heat pump
 description: Instructions on how to integrate your Qube heat pump with Home Assistant.
 ha_release: 2026.4
-ha_category:
-  - Binary sensor
-  - Modbus-controlled
-  - Select
-  - Sensor
-  - Switch
-  - Water heater
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@MattieGit'
 ha_domain: hr_energy_qube
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: hub
-ha_quality_scale: silver
-ha_zeroconf: true
 ---
 
 The **Qube heat pump** {% term integration %} allows you to monitor and control [Qube](https://www.hr-energy.com/nl/pvt-systemen/onderdelen/qube-warmtepomp/) heat pumps via the Modbus TCP protocol.
@@ -132,7 +110,7 @@ Home Assistant checks that the new address belongs to a Qube heat pump and, when
 - **Compressor alarm**
   - **Description**: Indicates a compressor-related alarm condition.
 - **Room sensor enabled**
-  - **Description**: Indicates whether the room temperature sensor is enabled. Disabled by default.
+  - **Description**: Indicates whether the room temperature sensor is enabled. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Plant sensor enabled**
   - **Description**: Indicates whether the plant temperature sensor is enabled. Disabled by default.
 - **Buffer sensor enabled**

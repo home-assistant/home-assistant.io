@@ -1,25 +1,8 @@
 ---
-title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
-ha_category:
-  - Button
-  - Media player
-  - Sensor
-  - Update
 featured: true
 ha_release: 0.7.4
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@jjlawren'
 ha_domain: plex
-ha_platforms:
-  - button
-  - media_player
-  - sensor
-  - update
-ha_zeroconf: true
-ha_integration_type: service
 ---
 
 The **Plex Media Server** {% term integration %} allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [media players](/integrations/media_player/) and report playback status and library sizes via [sensors](/integrations/sensor/) in Home Assistant. Media players will allow you to control media playback and see the current playing item.
@@ -120,7 +103,7 @@ automation: |
 {% enddetails %}
 
 {% important %}
-The library sensors are disabled by default, but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
+The library sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
 {% endimportant %}
 
 ## Button
@@ -135,9 +118,9 @@ To create this script from the UI:
 
 1. Go to {% my scripts title="**Settings** > **Automations & scenes**" %}.
 2. Select **Create script**.
-3. Add a **Select source** action for your TV media player and select **Plex** as the source.
+3. Add a **Select media player source** action for your TV media player and select **Plex** as the source.
 4. Add a wait until the TV media player turns on.
-5. Add a **Press** action for the Plex scan clients button.
+5. Add a **Press button** action for the Plex scan clients button.
    - **Target**: Scan clients Plex (`button.scan_clients_plex`)
 6. Add a wait template that checks whether the Plex media player is available.
 7. Add a **Play specified media** action for the Plex media player.
@@ -210,7 +193,7 @@ The `media_content_id` value can be a JSON payload that identifies the Plex medi
 
 - `library_name`: The Plex library to search. Required for most searches.
 - `shuffle`: Shuffles the playback order of the media. Use `true` to enable it.
-- `resume`: Resumes playback at the last partially watched position if available. Otherwise, playback starts from the beginning.
+- `resume`: Resumes playback at the last partially watched position if available. Otherwise, playback starts from the beginning. For a TV show, playback starts with the show's On Deck episode in Plex. This is the episode you were watching, at the position where you stopped, or else the next unwatched episode. If the show has no On Deck episode, playback starts from the first episode.
 - `offset`: The playback start position in seconds.
 - `allow_multiple`: Allows multiple matches in a search and enqueues all found items for playback. Use `true` to enable it.
 - `username`: The local Plex user account to use. This is only needed when the Plex server has multiple users and you want to play media for a specific user.

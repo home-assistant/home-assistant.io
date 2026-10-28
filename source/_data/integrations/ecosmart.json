@@ -1,0 +1,17 @@
+{
+  "domain": "ecosmart",
+  "name": "ecosmart",
+  "integration_type": "service",
+  "codeowners": [
+    "@Daryn-L"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.energy_prices"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

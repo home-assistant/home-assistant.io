@@ -1,18 +1,11 @@
 ---
-title: Event
 description: Instructions on how to use event entities in Home Assistant.
-ha_category:
-  - Event
 ha_release: 2023.8
-ha_quality_scale: internal
 ha_domain: event
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
   - docs: /triggers/event.received/
     title: Event received trigger
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard

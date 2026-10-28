@@ -1,0 +1,23 @@
+{
+  "domain": "energieleser",
+  "name": "energieleser",
+  "integration_type": "device",
+  "codeowners": [
+    "@AjinkyaGokhale",
+    "@NiccoFink"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.meters_monitoring",
+    "water.meters_leak_detection"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

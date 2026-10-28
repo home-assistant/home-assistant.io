@@ -1,29 +1,12 @@
 ---
-title: Saunum
 description: Instructions on how to integrate Saunum sauna control units into Home Assistant.
-ha_iot_class: Local Polling
 ha_release: 2025.12
-ha_codeowners:
-  - '@mettolen'
 ha_domain: saunum
-ha_integration_type: device
-ha_config_flow: true
-ha_quality_scale: platinum
 related:
   - url: https://www.saunum.com/
     title: Saunum
   - url: https://saunum.com/en/product/control-devices/
     title: Saunum Leil product page
-ha_category:
-  - Climate
-  - Modbus-controlled
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - light
-  - number
-  - sensor
 ---
 
 The **Saunum** {% term integration %} integrates your [Saunum Leil](https://saunum.com/en/product/control-devices/) sauna control unit with Home Assistant. [Saunum](https://saunum.com/) is an Estonian company that creates advanced sauna heaters and control systems with smart features.
@@ -183,7 +166,7 @@ The **Saunum** integration provides the following entities.
 - **On time**
   - **Description**: Total accumulated operating time of the Leil touch screen control panel since last restart.
   - **Unit**: Seconds
-  - **Remarks**: This sensor is disabled by default. Enable it in the entity settings if you want to track usage statistics.
+  - **Remarks**: This sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Enable it in the entity settings if you want to track usage statistics.
 
 ### Binary sensors
 

@@ -1,5 +1,5 @@
 ---
-title: "Add music to the Kodi playlist"
+title: "Add to playlist"
 action: kodi.add_to_playlist
 domain: kodi
 description: "Adds music to the default Kodi playlist."
@@ -18,7 +18,7 @@ To add music to the playlist from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Kodi media player.
-6. From the actions shown for that target, select **Kodi: Add to playlist**.
+6. From the actions shown for that target, under **Kodi**, select **Add to playlist**.
 7. Enter the **Media type** and the details of the music to add.
 8. Select **Save**.
 

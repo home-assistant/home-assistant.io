@@ -8,7 +8,7 @@ related_actions:
   - seventeentrack.add_package
 ---
 
-The **Archive package** action archives a package in your 17Track account by its tracking number, so 17Track stops actively following it.
+The **17TRACK: Archive package** action archives a package in your 17Track account by its tracking number, so 17Track stops actively following it.
 
 This is handy when you want to tidy up after a delivery, for example by automatically archiving a package once it has been marked as delivered.
 
@@ -74,7 +74,8 @@ package_tracking_number:
 
 When a helper that holds a delivered tracking number changes, archive that package in 17Track.
 
-- **Trigger**: A text helper with a delivered tracking number changes
+- **Trigger**: State changed
+  - **Entity**: Delivered tracking number helper
 - **Action**: 17TRACK: Archive package
 
 {% details "YAML example for archiving a delivered package" %}

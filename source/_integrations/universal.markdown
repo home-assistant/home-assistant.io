@@ -1,15 +1,7 @@
 ---
-title: Universal media player
 description: Instructions on how to create a universal media player in Home Assistant.
-ha_category:
-  - Media player
-ha_iot_class: Calculated
 ha_release: 0.11
-ha_quality_scale: internal
 ha_domain: universal
-ha_platforms:
-  - media_player
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -226,7 +218,7 @@ media_player:
       - action: input_boolean.turn_on
         target:
           entity_id: input_boolean.kodi_tv_state
-      - action: media_player.kodi_call_method
+      - action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -242,7 +234,7 @@ media_player:
       - action: media_player.media_stop
         target:
           entity_id: media_player.kodi
-      - action: media_player.kodi_call_method
+      - action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:

@@ -86,8 +86,8 @@ threshold:
 
     - `type: above`: fires when the volume crosses above `value`.
     - `type: below`: fires when the volume crosses below `value`.
-    - `type: between`: fires when the volume crosses into the range between `value_min` and `value_max`.
-    - `type: outside`: fires when the volume crosses out of the range and moves to or beyond `value_min` or `value_max`.
+    - `type: between` (inclusive): fires when the volume crosses into the range between `value_min` and `value_max`. A volume equal to either bound is inside the range.
+    - `type: outside` (exclusive): fires when the volume crosses out of the range, to below `value_min` or above `value_max`. A volume equal to either bound is still inside the range.
 
     For a fixed threshold, use `number` with a percentage from 0 to 100. For a dynamic threshold, use `entity` with an `input_number`, `number`, or `sensor` entity that uses `%` as the unit.
   required: true
@@ -103,9 +103,9 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the crossed state must remain true before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the crossed state must remain true before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

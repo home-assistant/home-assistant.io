@@ -1,21 +1,7 @@
 ---
-title: APsystems
 description: Control and monitor your APsystems EZ1 microinverters locally without the cloud
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: 2024.6
-ha_category:
-  - Energy
 ha_domain: apsystems
-ha_platforms:
-  - binary_sensor
-  - number
-  - sensor
-  - switch
-ha_integration_type: device
-ha_codeowners:
-  - '@mawoka-myblock'
-  - '@SonnenladenGmbH'
 ---
 
 The **APsystems** {% term integration %} allows you to read the data from your [APsystems EZ1](https://emea.apsystems.com/diy/ez1/) microinverter. It also allows you to set the output limit to anything above 30 watts.

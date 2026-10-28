@@ -8,7 +8,7 @@ related_actions:
   - nzbget.set_speed
 ---
 
-The **Pause** action pauses the NZBGet download queue. Downloads stop until you resume them again with [Resume](/actions/nzbget.resume/).
+The **NZBGet: Pause** action pauses the NZBGet download queue. Downloads stop until you resume them again with [Resume](/actions/nzbget.resume/).
 
 This is handy for freeing up your internet connection automatically, for example, pausing downloads while you are on a video call or streaming a movie.
 
@@ -52,7 +52,9 @@ This action has no additional options in YAML.
 
 When a video call starts, pause NZBGet so it does not compete for bandwidth.
 
-- **Trigger**: A "video call" helper turns on
+- **Trigger**: State changed
+  - **Entity**: Video call helper
+  - **To**: On
 - **Action**: NZBGet: Pause
 
 {% details "YAML example for pausing downloads during a call" %}

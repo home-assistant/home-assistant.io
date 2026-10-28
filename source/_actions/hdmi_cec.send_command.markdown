@@ -11,7 +11,7 @@ related_actions:
   - hdmi_cec.volume
 ---
 
-The **Send command** action sends a raw CEC command onto the HDMI-CEC bus. It gives you direct control for cases the other actions don't cover, letting you craft a command from its source, destination, and command bytes, or pass a complete raw command string.
+The **HDMI-CEC: Send command** action sends a raw CEC command onto the HDMI-CEC bus. It gives you direct control for cases the other actions don't cover, letting you craft a command from its source, destination, and command bytes, or pass a complete raw command string.
 
 This is meant for situations where you know exactly which CEC command you need. If you just want to power devices on or off, switch inputs, or change volume, the other HDMI-CEC actions are easier to use.
 
