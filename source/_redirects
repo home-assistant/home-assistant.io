@@ -753,7 +753,8 @@ layout: null
 /images/dashboards/lovelace_* /images/dashboards/:splat
 
 # Old URLs that still get visitors
-/addons /apps/ 301
+/addons /docs/apps-and-integrations/#apps 301
+/apps /docs/apps-and-integrations/#apps 301
 /hassio/getting-started/* /getting-started/:splat 301
 /common-tasks/core /installation/ 301
 /common-tasks/supervised /installation/ 301
