@@ -58,7 +58,7 @@ A probe exposes the following sensors:
 
 {% include docs/paste_yaml_tip.md %}
 
-The entity IDs below belong to a probe named `CQ60 079A`; replace them with the ones of your probe.
+The entity IDs below belong to a probe named `CQ60 079A`; replace them with the ones of your probe. The thresholds are in °C. If your Home Assistant uses °F, the sensors report °F as well, so use 145 for the roast and 212 to 275 for the smoker range.
 
 ### Automation: Notify when the food is done
 
@@ -67,8 +67,7 @@ Waiting next to the grill is no fun. Send a notification when the food core temp
 - **Trigger**: Numeric state
   - **Entity**: Food temperature (`sensor.cq60_079a_food_temperature`)
   - **Above**: `63`
-- **Action**: Send a notification
-  - **Target**: My phone (`notify.mobile_app_phone`)
+- **Action**: Notifications: Send a notification via mobile_app_phone (`notify.mobile_app_phone`)
   - **Message**: The current food temperature
 
 {% details "YAML example for notifying when the food is done" %}
@@ -84,7 +83,7 @@ automation: |
     - action: notify.mobile_app_phone
       data:
         message: >
-          Roast is at {{ states('sensor.cq60_079a_food_temperature') }} °C.
+          Roast is at {{ states('sensor.cq60_079a_food_temperature') }}°.
           Time to take it out.
 {% endexample %}
 
@@ -102,8 +101,7 @@ A fire that dies down or runs away ruins a long cook. Send a notification when t
   - **Entity**: Ambient temperature (`sensor.cq60_079a_ambient_temperature`)
   - **Above**: `135`
   - **For**: 5 minutes
-- **Action**: Send a notification
-  - **Target**: My phone (`notify.mobile_app_phone`)
+- **Action**: Notifications: Send a notification via mobile_app_phone (`notify.mobile_app_phone`)
   - **Message**: `The smoker is out of range. Check the fire.`
 
 {% details "YAML example for warning when the smoker drifts out of range" %}
@@ -135,8 +133,7 @@ A flat probe on cook day is annoying. Send a notification when the battery drops
 - **Trigger**: Numeric state
   - **Entity**: Battery (`sensor.cq60_079a_battery`)
   - **Below**: `20`
-- **Action**: Send a notification
-  - **Target**: My phone (`notify.mobile_app_phone`)
+- **Action**: Notifications: Send a notification via mobile_app_phone (`notify.mobile_app_phone`)
   - **Message**: `The meat probe battery is below 20%. Put it back on its dock.`
 
 {% details "YAML example for reminding yourself to charge the probe" %}
