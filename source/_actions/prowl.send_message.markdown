@@ -90,14 +90,14 @@ url:
 
 ### Automation: send a high-priority notification when the front door opens
 
-When the front door opens, send a high-priority Prowl notification that links to your Home Assistant instance.
+When the front door opens, send a high-priority Prowl notification that links to your Home Assistant instance. Replace `https://homeassistant.example.com/` with the URL of your own Home Assistant instance, for example its external URL, so the link also works when you are away from home.
 
 - **Trigger**: Door opened
   - **Target**: Front door (`binary_sensor.front_door`)
 - **Action**: Send message
   - **Target**: Prowl (`notify.prowl`)
   - **Priority**: High
-  - **URL**: `https://my.home-assistant.io/`
+  - **URL**: `https://homeassistant.example.com/`
 
 {% details "Show example YAML" %}
 
@@ -116,7 +116,7 @@ automation: |
         title: "Front door"
         message: "The front door was opened."
         priority: high
-        url: "https://my.home-assistant.io/"
+        url: "https://homeassistant.example.com/"
 {% endexample %}
 
 {% enddetails %}
