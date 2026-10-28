@@ -2,6 +2,7 @@
 title: Seafile
 description: Instructions on how to integrate a Seafile server into Home Assistant.
 ha_category:
+  - Backup
   - Sensor
   - Utility
 ha_release: '2026.11'
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@erwindouna'
 ha_domain: seafile
 ha_platforms:
+  - backup
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -18,12 +20,13 @@ ha_quality_scale: bronze
 
 The **Seafile** {% term integration %} connects Home Assistant to your [Seafile](https://www.seafile.com/) server.
 
-Seafile is a self-hosted file sync and share server. Files are stored in libraries. This integration shows the size, number of files, and last modification time of the libraries you choose.
+Seafile is a self-hosted file sync and share server. Files are stored in libraries. This integration shows the size, number of files, and last modification time of the libraries you choose, and can store Home Assistant backups in them.
 
 ## Use cases
 
 - Keep an eye on how much storage your libraries use and get notified when one grows too large.
 - Check that a library you back up to is still being updated.
+- Store your Home Assistant backups on your own Seafile server.
 
 ## Prerequisites
 
@@ -54,6 +57,18 @@ After logging in, you can select the libraries to add. You can also skip this st
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Seafile** integration.
 2. Select **Add library**.
 3. Select the library you want to add.
+4. Optionally, turn on **Store backups** and choose a **Backup folder**. See [Backups](#backups).
+
+To change the backup settings of a library later, select the {% icon "mdi:dots-vertical" %} menu next to the library and select **Reconfigure**.
+
+{% configuration_basic %}
+Library:
+  description: "The library to add. Encrypted libraries are not supported."
+Store backups:
+  description: "Make this library available as a backup location in Home Assistant."
+Backup folder:
+  description: "The folder in the library to store backups in. Defaults to `/Home Assistant backups`. It is created when the first backup is uploaded."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
@@ -68,9 +83,21 @@ Each library is added as a separate device in Home Assistant, with the following
 - **Last modified**
   - **Description**: Time the library was last changed.
 
+### Backups
+
+Each library with **Store backups** turned on is available as a backup location in Home Assistant, named after the account and the library, for example, **admin@example.com (seafile.example.com) - Documents**. Libraries you select while setting up the integration have backups turned off; turn them on by reconfiguring the library.
+
+Each backup is stored in the backup folder as a `.tar` file, with a `_meta.json` file next to it that describes the backup. Don't rename or delete only one of the two files: backups without both files are not listed.
+
+Backups are uploaded in parts of 50 MiB, so they also work when Seafile is behind a proxy that limits the request size, such as Cloudflare.
+
+For more information on backups, see [backups](/common-tasks/general/#backups).
+
 ## Data updates
 
 The **Seafile** integration {% term polling polls %} your Seafile server every 5 minutes.
+
+The list of backups is cached for 5 minutes. Backups that you add or delete in Seafile directly can take up to 5 minutes to show up in Home Assistant.
 
 ## Supported versions
 
@@ -97,6 +124,20 @@ Home Assistant can't reach the Seafile server, or the library is no longer avail
 1. Check that Home Assistant can reach the Seafile server, and look for connection errors in {% my logs title="**Settings** > **System** > **Logs**" %}.
 2. Sign in to the Seafile web interface with the same account and check that the library is still listed.
 3. Only if the library is gone from your account, delete its library entry from the **Seafile** integration page.
+
+### Symptom: A library is not listed as a backup location
+
+The library is not shown as a location when you create a backup.
+
+#### Description
+
+**Store backups** is turned off for the library, or the Seafile account is not loaded.
+
+#### Resolution
+
+1. On the **Seafile** integration page, select the {% icon "mdi:dots-vertical" %} menu next to the library and select **Reconfigure**.
+2. Turn on **Store backups** and select **Submit**.
+3. If the library still isn't listed, check that the integration is loaded and its sensors are available.
 
 ### Symptom: The integration fails to load with an authentication error
 
