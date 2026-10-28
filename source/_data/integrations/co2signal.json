@@ -1,0 +1,18 @@
+{
+  "domain": "co2signal",
+  "name": "Electricity Maps",
+  "integration_type": "service",
+  "codeowners": [
+    "@jpbede",
+    "@VIKTORVAV99"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "energy"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

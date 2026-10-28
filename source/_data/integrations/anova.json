@@ -1,0 +1,16 @@
+{
+  "domain": "anova",
+  "name": "Anova",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Lash-L"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

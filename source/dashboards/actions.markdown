@@ -24,6 +24,7 @@ Some cards have support for tap actions. These actions define what will happen w
 
 Actions can be enabled on the following cards:
 
+- [Alert](/dashboards/alert/)
 - [Button](/dashboards/button/)
 - [Entities](/dashboards/entities/)
 - [Gauge](/dashboards/gauge/)

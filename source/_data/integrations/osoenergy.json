@@ -1,0 +1,18 @@
+{
+  "domain": "osoenergy",
+  "name": "OSO Energy",
+  "integration_type": "hub",
+  "codeowners": [
+    "@osohotwateriot"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "climate.water_heaters"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor",
+    "water_heater"
+  ]
+}

@@ -1,31 +1,8 @@
 ---
-title: Lutron Caséta
 description: Instructions on how to use Lutron Caseta devices with Home Assistant.
 featured: true
-ha_categories:
-  - lighting.lighting_systems
-  - plugs_switches
-  - blinds_curtains
 ha_release: 0.41
-ha_iot_class: Local Push
 ha_domain: lutron_caseta
-ha_config_flow: true
-ha_codeowners:
-  - '@swails'
-  - '@danaues'
-  - '@eclair4151'
-ha_zeroconf: true
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - cover
-  - diagnostics
-  - fan
-  - light
-  - scene
-  - switch
-ha_integration_type: hub
 ---
 
 [Lutron](https://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, and HVAC controls. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](https://www.lutron.com/controls/systems/ra2select) product line of dimmers, switches, shades, and sensors.
@@ -50,6 +27,7 @@ The currently supported devices are:
 - Lutron shades as [covers](#cover)
 - Lutron smart [fan](#fan) speed control
 - Lutron Occupancy/Vacancy [sensors](#sensor)
+- Pico remote and keypad buttons as [events](#event)
 - Pico Remotes as [device triggers](/integrations/device_automation/)
 - Shade Remotes as [device triggers](/integrations/device_automation/)
 
@@ -168,7 +146,22 @@ For more information on working with binary sensors in Home Assistant, see the [
 Button Entities are created for each Keypad button and Pico Remote button present within the system.
 Radio RA3 and HomeWorks QSX systems can use these button entities to activate scenes that are defined within the Lutron system.
 
+These button entities let Home Assistant press a Lutron button. They do not change when someone presses the physical button, so they can't be used to trigger an automation from a button press. Use the event entities below for that.
+
 For more information on working with buttons in Home Assistant, see the [Buttons integration](/integrations/button/).
+
+## Event
+
+An event entity is created for each keypad button and Pico remote button in the system. It fires when someone presses the physical button, so you can use it to trigger an automation, for example with the **Event received** trigger.
+
+The event types depend on the device:
+
+- **Pico remotes**: `press_start` when the button is pressed down and `press_end` when it is released.
+- **Keypads** (Palladiom, SeeTouch, Sunnata, and others): `press_start` when the button is pressed. Keypads do not reliably report when a button is released, so there is no `press_end` event.
+
+Multi-tap and long-press actions are not available as event types. Use the device triggers described in the next section for those.
+
+For more information on working with events in Home Assistant, see the [Event integration](/integrations/event/).
 
 ## Keypads and remotes
 

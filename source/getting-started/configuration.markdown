@@ -8,7 +8,7 @@ related:
     title: configuration.yaml file
   - docs: /common-tasks/os/#network-storage
     title: Network storage
-  - docs: /common-tasks/general/#backups
+  - docs: /common-tasks/general/backups/
     title: Backups
   - docs: /voice_control/
     title: Voice control
@@ -38,7 +38,7 @@ To change basic settings such as location, unit system, and language, refer to [
 
 You can back up your Home Assistant configuration and Home Assistant app data. Backups are used to restore the system (or parts of the system) if a rollback is needed. Backups are also used to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
 
-To learn how to create a backup of your Home Assistant installation, refer to the documentation on [creating a backup](/common-tasks/general/#backups).
+To learn how to create a backup of your Home Assistant installation, refer to the documentation on [creating a backup](/common-tasks/general/backups/).
 
 ## Editing the configuration.yaml and configuring file access
 

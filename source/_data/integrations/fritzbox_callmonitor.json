@@ -1,0 +1,13 @@
+{
+  "domain": "fritzbox_callmonitor",
+  "name": "FRITZ!Box Call Monitor",
+  "integration_type": "device",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "messaging_notifications.email_sms_calls"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

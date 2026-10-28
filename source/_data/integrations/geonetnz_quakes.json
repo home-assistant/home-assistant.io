@@ -1,0 +1,18 @@
+{
+  "domain": "geonetnz_quakes",
+  "name": "GeoNet NZ Quakes",
+  "integration_type": "service",
+  "codeowners": [
+    "@exxamalte"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.public_warnings"
+  ],
+  "platforms": [
+    "diagnostics",
+    "geo_location",
+    "sensor"
+  ]
+}

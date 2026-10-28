@@ -1,0 +1,15 @@
+{
+  "domain": "noaa_tides",
+  "name": "NOAA Tides",
+  "codeowners": [
+    "@jdelaney72"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

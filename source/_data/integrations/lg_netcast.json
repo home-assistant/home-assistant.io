@@ -1,0 +1,18 @@
+{
+  "domain": "lg_netcast",
+  "name": "LG Netcast",
+  "integration_type": "device",
+  "codeowners": [
+    "@Drafteed",
+    "@splinter98"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "media_player",
+    "remote"
+  ]
+}

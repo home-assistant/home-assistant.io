@@ -1,0 +1,35 @@
+{
+  "domain": "midea",
+  "name": "Midea",
+  "integration_type": "device",
+  "codeowners": [
+    "@chemelli74",
+    "@rokam"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "climate.heat_pumps_air_conditioning",
+    "appliances_cleaning",
+    "climate.water_heaters"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "diagnostics",
+    "fan",
+    "humidifier",
+    "light",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "time",
+    "water_heater"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

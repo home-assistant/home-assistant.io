@@ -1,0 +1,9 @@
+{
+  "domain": "lawn_mower",
+  "name": "Lawn mower",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

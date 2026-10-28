@@ -1,34 +1,8 @@
 ---
-title: Z-Wave
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 featured: true
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: '2021.2'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/z-wave'
 ha_domain: zwave_js
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-ha_integration_type: hub
-ha_zeroconf: true
 related:
   - docs: /connect/zwa-2
     title: Home Assistant Connect ZWA-2 Z-Wave adapter
@@ -250,18 +224,19 @@ There is no easy way to update that device.
 
 1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Under **Migrate adapter**, select **Migrate**.
-3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
+3. When the **Unplug your old adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
 4. Connect the new adapter.
 5. Select **Submit**.
-6. In the **Select your device** dialog, select the Z-Wave adapter you just connected.
+6. In the **Select your Z-Wave device** dialog, select the Z-Wave adapter you just connected.
    - Typically, you can select the device you connected to a USB port.
-   - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
+   - If the new adapter is connected over your network, select **Use Socket**. Then, enter its address in **Socket device path**.
+     - For an adapter connected to an ESPHome device, enter `esphome://` followed by the IP address of the ESPHome device. Home Assistant usually finds these adapters on its own. For details, refer to [Using a Z-Wave adapter connected to an ESPHome device](#using-a-z-wave-adapter-connected-to-an-esphome-device).
 7. Select **Submit**.
    - The new adapter is now being paired with your existing Z-Wave network.
-   - Troubleshooting: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
+   - Troubleshooting: If the migration fails, it might be because you selected **Use Socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
      - Once your old adapter is connected and the network is operational, repeat the migration steps.
-     - Make sure to select the new controller this time (instead of **Use socket**).
+     - Make sure to select the new controller this time (instead of **Use Socket**).
 8. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
    - In the top-left corner, select the back button to go back to the integration page.
    - In the list of devices, check the device name.
@@ -283,7 +258,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
    - Do not start the app yet.
 3. Install necessary helper apps:
    - Install the [**Terminal & SSH** app](/common-tasks/os/#installing-and-using-the-ssh-app) so you can run commands on the Home Assistant host.
-   - Install an app that lets you upload and edit files on the Home Assistant host, like the [**File Editor** app](/common-tasks/os/#installing-and-using-the-file-editor-app) or the [**Studio Code Server** app](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app).
+   - Install an app that lets you upload and edit files on the Home Assistant host, like the [**File Editor** app](/common-tasks/os/#installing-and-using-the-file-editor-app) or the [**Studio Code Server** app](/common-tasks/os/#installing-and-using-the-studio-code-server-app).
 
 ### Downloading the backup from Z-Wave JS UI
 
@@ -343,7 +318,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
 
 5. Remove the temporary files you uploaded to the `/tmp` folder for the migration.
-6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app.
+6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app. For the steps, refer to [Uninstalling an app](/common-tasks/os/apps/#uninstalling-an-app).
 
 ## Overriding the radio frequency region of the adapter in the Z-Wave JS app
 
@@ -471,7 +446,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ### Entities available for every Z-Wave device
 
-1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
+1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
 2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` action.
 3. **Adapter/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [adapter](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot). The statistics can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
 
@@ -666,7 +641,7 @@ Value Notification example:
 
 ### Value updated events
 
-Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to in order to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/docs/configuration/customizing-devices/#assumed_state).
+Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to in order to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/integrations/homeassistant/#assumed_state).
 
 The following devices currently support this event:
 
