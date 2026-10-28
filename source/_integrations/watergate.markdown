@@ -36,6 +36,20 @@ The following devices are not supported by the integration:
 
 The Watergate integration provides the following entities.
 
+#### Binary sensors
+
+- **Water flowing**
+  - **Description**: Whether water is currently flowing through the device.
+  - **Remarks**: It is updated when the device is polled (see [Data updates](#data-updates)), so it can lag behind the real state by up to 2 minutes. Use the **Water flow rate** sensor for live flow information.
+
+- **MQTT connected**
+  - **Description**: Whether the device is connected to its MQTT broker.
+  - **Remarks**: This is a diagnostic entity and is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+
+- **Wi-Fi connected**
+  - **Description**: Whether the device is connected to Wi-Fi.
+  - **Remarks**: This is a diagnostic entity and is disabled by default.
+
 #### Sensors
 
 
