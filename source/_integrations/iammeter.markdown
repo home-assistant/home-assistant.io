@@ -3,7 +3,7 @@ description: Instructions on how to integrate IAMMETER energy meters with Home A
 ha_release: 0.107
 ha_domain: iammeter
 related:
-  - docs: /energy/
+  - docs: /docs/energy/
     title: Energy management
 ---
 
