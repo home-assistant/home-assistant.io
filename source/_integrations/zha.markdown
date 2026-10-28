@@ -380,7 +380,7 @@ With other radio types, such as Texas Instruments (`znp`), ZiGate (`zigate`), an
 
 Most Green Power devices do not have enough power to search for your Zigbee network. Instead, you may need to manually pick the Zigbee channel of your device, usually by pressing a combination of buttons when joining. If your Green Power device requires manual channel selection, first find the channel of your Zigbee network.
 
-**To find the channel of your Zigbee network:**
+To find the channel of your Zigbee network:
 
 1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. Select **Network information**.
@@ -388,7 +388,7 @@ Most Green Power devices do not have enough power to search for your Zigbee netw
 
 Check that your Green Power device supports this channel. If it does not, you can [change the Zigbee channel](#to-change-the-zigbee-channel) to one that it supports, but other devices in your network must support that channel too. For more information, refer to [About Zigbee channels](#about-zigbee-channels).
 
-**To add a Green Power device:**
+To add a Green Power device:
 
 1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Add device**.
 2. If your device requires manual channel selection, set the device to the channel of your Zigbee network according to the instructions provided by the manufacturer.
