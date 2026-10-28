@@ -55,6 +55,8 @@ When adding the integration, select **Server region** to match your Open Platfor
 
 These regions correspond to the API endpoints used by the integration.
 
+If you added Imou before this update, Home Assistant keeps the server that entry was already using and changes the saved **Server region** to the name of that server. If the name does not match your account, update **Server region** as described below.
+
 ### Updating credentials and server region
 
 After setup, you can change the **App secret** and **Server region** without removing the integration:
