@@ -215,5 +215,5 @@ These are exposed as device triggers in the automation editor, and also fire `lu
 {% endraw %}
 
 {% note %}
-The `long_press` action relies on a native `LongHold` event sent by the Lutron LEAP protocol. It is currently only confirmed to work on **HomeWorks QSX** processors (for example, HQP7) and **Athena** processors (for example, REP-QP-2L). Caséta and RadioRA 3 bridges do not emit this event, so the `long_press` trigger will not appear in the automation editor for those systems.
+The `long_press` action relies on a native `LongHold` event sent by the Lutron LEAP protocol. It is currently only confirmed to work on _HomeWorks QSX_ processors (for example, HQP7) and _Athena_ processors (for example, REP-QP-2L). Caséta and RadioRA 3 bridges do not emit this event, so the `long_press` trigger will not appear in the automation editor for those systems.
 {% endnote %}
