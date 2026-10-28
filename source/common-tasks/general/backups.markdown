@@ -61,7 +61,7 @@ Before creating a backup, check if you can reduce the size of the backup. This i
    - Note the `purge_keep_days` option, and the include and exclude options.
 2. On Home Assistant OS, to check how much space you've used in total, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
    - From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information**, and check under **Home Assistant Supervisor** > **Disk used**.
-   - If you have apps installed that you no longer use, uninstall those apps. Some apps require quite a bit of space.
+   - If you have apps installed that you no longer use, uninstall those apps. Some apps require quite a bit of space. For the steps, refer to [Uninstalling an app](/common-tasks/os/apps/#uninstalling-an-app).
 3. If you want to store the backup on your network storage instead of just locally on your system, follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
 
 ## Setting up an automatic backup process
