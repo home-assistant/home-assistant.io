@@ -176,6 +176,7 @@ climate:
     initial_hvac_mode: "off"
     away_temp: 16
     precision: 0.1
+    target_temp_step: 0.5
 ```
 
 {% include integrations/actions.md %}
