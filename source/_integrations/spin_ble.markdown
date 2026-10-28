@@ -57,7 +57,7 @@ The integration {% term polling polls %} the charger over Bluetooth. The interva
 - Every 60 seconds while a charging session is open, which includes sessions paused by the vehicle or by the charger, since those can resume without a command.
 - Every 5 minutes otherwise, so that a slot handed back between polls leaves the phone app long uncontested stretches.
 
-The charger is also read again straight after a command. The interval is not configurable. Entities become unavailable when the charger cannot be reached, for example when it is out of range or another Bluetooth client holds its slot.
+The charger is also read again about 2 seconds after a command, once it has had time to report the new state. The interval is not configurable. Entities become unavailable when the charger cannot be reached, for example when it is out of range or another Bluetooth client holds its slot.
 
 ## Known limitations
 
