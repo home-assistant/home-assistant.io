@@ -251,7 +251,7 @@ What doesn't change: entity IDs. Your {% term automations %}, {% term scripts %}
 
 We are upfront about one thing: this is a backward-incompatible change. Some names look different after the update, and you notice that most on your dashboards. Cards, badges, and rows without a name now show the device name followed by the entity name, instead of the friendly name. Making them shorter is quick: rename the device or the entity, turn on **Use device name** for the main entity, or set a name on the card. The details are in the [backward-incompatible changes](#backward-incompatible-changes) below.
 
-This is the short version. A separate blog post about entity naming is published on November 2, two days before this release, and tells the full story: [TODO: Title of the entity naming blog post](/blog/2026/11/02/todo-entity-naming-blog-post/).
+This is the short version. A separate blog post about entity naming follows before the release, and tells the full story.
 
 This project ran for more than four years, and many people worked on it along the way. Thank you to everyone who helped make this happen! 🙏
 
@@ -365,7 +365,7 @@ We welcome the following new integrations in this release:
   Bring the vehicles in your A Better Routeplanner (ABRP) account into Home Assistant. Each vehicle gets sensors for its state of charge, range, battery temperature, odometer, and charging state. Sign in with your ABRP account. <!-- TODO: docs not merged yet, see home-assistant.io#48148 -->
 
 - **[aerosmart]**, added by [@kayloehmann]  
-  Monitor an aerosmart ventilation and heat pump system over your local network. Sensors show values like the outdoor temperature, carbon dioxide, and the status of the fans and heat pump. No cloud account is needed. <!-- TODO: docs not merged yet, see home-assistant.io#49199 -->
+  Monitor an aerosmart ventilation and heat-pump installation over Modbus, through a TCP gateway or a serial connection. No vendor app or cloud service is needed. Home Assistant reads operating values, filter information, and controller status. <!-- TODO: docs not merged yet, see home-assistant.io#49199 -->
 
 - **[Alpha Bidet Infrared]**, added by [@eseverson]  
   Control an Alpha Bidet bidet seat with an infrared transmitter already set up in Home Assistant. Start or stop a wash, run the dryer, and set water pressure, nozzle position, and temperatures. Infrared is one-way, so the integration cannot confirm the bidet's state.
@@ -377,7 +377,7 @@ We welcome the following new integrations in this release:
   Connect a [BLUETTI](https://www.bluettipower.com/) power station over your network using its built-in Modbus TCP interface. No account, API key, or cloud connection is needed, so readings continue if your internet connection is down.
 
 - **[Bosch Smart Camera]**, added by [@mosandlt]  
-  See the image from the latest event of your Bosch Smart Home cameras, such as the Eyes Outdoor and 360° Indoor. Sign in with your Bosch SingleKey ID account. Live video is not available yet. <!-- TODO: docs not merged yet, see home-assistant.io#49724 -->
+  Connect your Bosch SingleKey ID account to use [Bosch Smart Home](https://www.bosch-smarthome.com/) cameras, such as the Eyes Outdoor and the 360° Indoor camera. This first version sets up the account connection, and the cameras themselves follow in a later release. <!-- TODO: docs not merged yet, see home-assistant.io#49724 -->
 
 - **[ChirpStack]**, added by [@balloobbot]  
   Connect your [ChirpStack](https://www.chirpstack.io/) LoRaWAN network server to Home Assistant. Select a tenant and its applications to make supported devices available.
@@ -419,7 +419,7 @@ We welcome the following new integrations in this release:
   Read [KACO new energy](https://kaco-newenergy.com/) Powador xi solar inverters over their RS485 serial bus. These inverters have no network port. Up to 32 inverters can share one bus, and their production appears on the [Energy dashboard](/docs/energy/).
 
 - **[LibreSync]**, added by [@drsound]  
-  Control audio hubs built on the LibreSync platform, such as the Platin Stereo Hub, over your local network. Play and pause, pick the source, and set the volume. Home Assistant finds supported hubs on your network.
+  Control audio hubs built on the Libre Wireless LibreSync platform over your local network, such as the Platin Stereo Hub. See what is playing and from which source, and change the volume from a dashboard or an {% term automation %}. No account or cloud connection is needed.
 
 - **[LoRaWAN]**, added by [@balloobbot]  
   Connect LoRaWAN network server integrations, such as ChirpStack and The Things Network, with supported device integrations, such as SenseCAP.
@@ -440,25 +440,25 @@ We welcome the following new integrations in this release:
   Connect a Bluetooth scale that works with the [OKOK·International](https://okokapp.com/) app. Chart your weight on a dashboard and use each new measurement in {% term automations %}. The integration does not depend on the OKOK cloud app.
 
 - **[Philips Infrared]**, added by [@javitonino]  
-  Control a Philips TV with an infrared transmitter already set up in Home Assistant. Turn it on and off, change the volume and channel, and control playback. Infrared is one-way, so the integration cannot confirm the TV's state.
+  Control a [Philips](https://www.philips.com/) TV with an infrared emitter already set up in Home Assistant. Turn the TV on or off, change the volume, and switch channels. Infrared is one-way, so the integration cannot confirm the TV's state. If your TV is on your network, the [Philips TV](/integrations/philips_js/) integration can read it.
 
 - **[RainbowMiner]**, added by [@El1t3Mult1pl3x0r]  
-  Monitor the RainbowMiner cryptocurrency mining software over your local network. See the active miners, power use, uptime, and earnings, also in your own currency.
+  Monitor [RainbowMiner](https://github.com/RainbowMiner/RainbowMiner), open-source cryptocurrency mining software that switches between algorithms, pools, and coins on its own. Home Assistant reads its local API, so you can follow the mining status, earnings, and power consumption.
 
 - **[Seafile]**, added by [@erwindouna]  
-  Connect your Seafile file sync and share server. Each library you add gets sensors for its size, number of files, and last change. You can also store your Home Assistant {% term backups %} in a Seafile library. <!-- TODO: docs not merged yet, see home-assistant.io#49251 -->
+  Connect your own [Seafile](https://www.seafile.com/) file sync and share server. See the size, number of files, and last change of the libraries you pick, and store your {% term backups %} on the server. <!-- TODO: docs not merged yet, see home-assistant.io#49251 -->
 
 - **[SenseCAP]**, added by [@balloob]  
   Add supported [Seeed Studio SenseCAP](https://www.seeedstudio.com/SenseCAP-c-1825.html) sensors from your LoRaWAN connections. Depending on the model, Home Assistant provides temperature, humidity, illuminance, carbon dioxide, soil, and weather readings, plus battery level.
 
 - **[SilverCrest Infrared]**, added by [@tr4nt0r]  
-  Control SilverCrest pedestal and tower fans with an infrared transmitter already set up in Home Assistant. Buttons change the mode, speed, and timer, just like the remote. Infrared is one-way, so the integration cannot confirm the fan's state. <!-- TODO: docs not merged yet, see home-assistant.io#49921 -->
+  Control SilverCrest fans and air coolers with an infrared emitter already set up in Home Assistant. Turn a device on or off and set its other functions. Infrared is one-way, so the integration cannot confirm the device's state. <!-- TODO: docs not merged yet, see home-assistant.io#49921 -->
 
 - **[SmartyPlants]**, added by [@bigbimbs]  
   Connect SmartyPlants plant sensors to Home Assistant. See soil moisture, temperature, humidity, and light, along with each plant's health score and fertilizing countdown. You can get a reminder when a plant needs water.
 
 - **[Solyx Energy Cloud]**, added by [@MartinaeyNL]  
-  Connect a Nymo smart water boiler from Solyx Energy, which stores surplus energy as hot water. Home Assistant adds all devices on your account. Create the client ID and secret in the Solyx Energy app. <!-- TODO: docs not merged yet, see home-assistant.io#46887 -->
+  Monitor and control a Nymo device from [Solyx Energy](https://www.solyxenergy.nl). The Nymo heats an electric boiler with the solar power you would otherwise feed back to the grid, so your surplus is stored as hot water. <!-- TODO: docs not merged yet, see home-assistant.io#46887 -->
 
 - **[Spin EV Charger]**, added by [@Dr-Blank]  
   Connect an [Exicom](https://www.exicom.in/) Spin EV charger directly over Bluetooth Low Energy, without a cloud service or vendor account.
@@ -476,10 +476,10 @@ We welcome the following new integrations in this release:
   Monitor your [Škoda](https://www.skoda-auto.com) vehicle through Škoda Connect. See the mileage, fuel or battery level, charging state, range, and climate control target temperature. The integration is read-only. Create its API key in the MyŠkoda app.
 
 [@balloob]: https://github.com/balloob
+[@alhia]: https://github.com/alhia
 [@balloobbot]: https://github.com/balloobbot
 [@bbayszczak]: https://github.com/bbayszczak
 [@Beat-YT]: https://github.com/Beat-YT
-[@alhia]: https://github.com/alhia
 [@bigbimbs]: https://github.com/bigbimbs
 [@BookCatKid]: https://github.com/BookCatKid
 [@chemelli74]: https://github.com/chemelli74
@@ -756,13 +756,16 @@ setup or afterward in the integration options under **Settings** >
 
 {% details "Auth" %}
 
-Logging in to Home Assistant through a URL that uses a public IP address with a port, such as `http://203.0.113.10:8123` or `http://[2001:db8::1]:8123`, now fails with "Invalid client id". This also applies to Tailscale addresses (`100.64.0.0/10`). Previously these were accepted because of a bug in the check, while the same address without a port was already rejected.
+When you reach Home Assistant at an IP address that is not on a local network, such as a public address, a global IPv6 address, or a Tailscale address (`100.64.0.0/10`), the address in your browser now has to match the address Home Assistant sees the request coming in on. Scheme, host, and port all have to match. If they do not, logging in fails with "Invalid client id". Previously, such an address was accepted without that check as soon as it had a port, because of a bug in the check.
 
-To keep logging in, access Home Assistant through a domain name (for example, a Tailscale MagicDNS name or your own DNS name) or a local network IP address.
+Most setups are not affected. Opening Home Assistant directly at such an address keeps working, and so does a reverse proxy that you have set up as a trusted proxy in the [HTTP](/integrations/http/) integration, because Home Assistant then uses the forwarded scheme and host. Domain names and local network IP addresses are accepted the same way as before.
 
-([@elupus] - [#186537]) ([Auth documentation])
+If you do run into "Invalid client id", add your proxy to the trusted proxies of the [HTTP](/integrations/http/) integration, or reach Home Assistant through a domain name.
+
+([@elupus] - [#186537]) ([@elupus] - [#186543]) ([Auth documentation])
 
 [#186537]: https://github.com/home-assistant/core/pull/186537
+[#186543]: https://github.com/home-assistant/core/pull/186543
 [Auth documentation]: /integrations/auth/
 
 {% enddetails %}
@@ -908,6 +911,17 @@ GTFS stop times are in the agency's local time. Previously, when the time zone c
 
 {% enddetails %}
 
+{% details "Hayward Omnilogic" %}
+
+The Hayward Omnilogic integration no longer lets you set the {% term polling %} interval in its options. A previously configured interval is ignored, and the default is used.
+
+([@tr4nt0r] - [#184380]) ([Hayward Omnilogic documentation])
+
+[#184380]: https://github.com/home-assistant/core/pull/184380
+[Hayward Omnilogic documentation]: /integrations/omnilogic/
+
+{% enddetails %}
+
 {% details "Hive" %}
 
 Custom {% term polling %} intervals are no longer supported. Previously configured
@@ -959,19 +973,6 @@ controller's climate entity ID.
 ([@zxdavb] - [#185705]) ([Honeywell Total Connect Comfort (Europe) documentation])
 
 [#185705]: https://github.com/home-assistant/core/pull/185705
-
-{% enddetails %}
-
-{% details "Uptime Kuma" %}
-
-Support for Uptime Kuma versions earlier than 2.0.0 has been dropped. Version
-2.0.0 was released more than a year ago. Update Uptime Kuma before updating
-Home Assistant if you use an older version.
-
-([@tr4nt0r] - [#187418]) ([Uptime Kuma documentation])
-
-[#187418]: https://github.com/home-assistant/core/pull/187418
-[Uptime Kuma documentation]: /integrations/uptime_kuma/
 
 {% enddetails %}
 
@@ -1072,18 +1073,20 @@ The device triggers were deprecated in Home Assistant 2024.7 and scheduled for r
 
 {% details "NINA" %}
 
-The NINA warning attributes that were deprecated earlier have been removed. Use these instead:
+The NINA attributes that were deprecated in Home Assistant 2026.5 have been removed. Each one has an {% term entity %} or an {% term action %} that takes its place:
 
 - `headline`: the **Headline** sensor
-- `description`: the `get_details` action
+- `description`: the `nina.get_details` action
 - `sender`: the **Sender** sensor
 - `severity`: the **Severity** sensor
-- `recommended_actions`: the `get_details` action
-- `affected_areas`: the **Affected areas** sensor for a shortened list, or the `get_details` action for the full list
+- `recommended_actions`: the `nina.get_details` action
+- `affected_areas`: the **Affected areas** sensor for the shortened list, or the `nina.get_details` action for the full one
 - `web`: the **More information URL** sensor
 - `sent`: the **Sent** sensor
 - `start`: the **Start** sensor
 - `expires`: the **Expires** sensor
+
+Update {% term automations %}, {% term scripts %}, {% term templates %}, and dashboard cards that read one of these attributes.
 
 ([@DeerMaximum] - [#188355]) ([NINA documentation])
 
@@ -1095,7 +1098,7 @@ The NINA warning attributes that were deprecated earlier have been removed. Use 
 
 {% details "Philips Hue" %}
 
-The `None` effect for Hue lights, deprecated in 2025.4, has been removed. Use the `off` effect instead, and update any automations and scripts that still use `None`.
+The `"None"` light effect has been removed. It was deprecated in Home Assistant 2025.4 in favor of `"off"`, and the mapping that kept the old value working is now gone. Update {% term automations %} and {% term scripts %} that set the effect to `"None"` so that they use `"off"` instead.
 
 ([@MartinHjelmare] - [#188867]) ([Philips Hue documentation])
 
@@ -1112,6 +1115,18 @@ Custom scan intervals are ignored, and the default interval is used.
 
 [#184376]: https://github.com/home-assistant/core/pull/184376
 [Plaato documentation]: /integrations/plaato/
+
+{% enddetails %}
+
+{% details "Python dependencies" %}
+
+Home Assistant no longer installs Python packages into the `deps` folder of your configuration directory. This only affects Home Assistant Core installations that run outside a virtual environment, which is where that folder was used. Run Home Assistant Core in a virtual environment, as the installation instructions describe, and the packages are installed there instead.
+
+Home Assistant Operating System, Home Assistant Supervised, and Home Assistant Container are not affected. Once you have updated, you can remove the `deps` folder from your configuration directory.
+
+([@emontnemery] - [#168155])
+
+[#168155]: https://github.com/home-assistant/core/pull/168155
 
 {% enddetails %}
 
@@ -1155,7 +1170,9 @@ The **Perfume** sensor is now unknown when no cartridge is inserted, instead of 
 
 {% details "SMTP" %}
 
-If a file attached to a message from the legacy SMTP notify action can't be read, the action now fails with an error. Before, it skipped the attachment.
+When an attachment cannot be read, the SMTP notify action now reports an error instead of sending the message without it. Before, a missing file was only logged as a warning and the rest of the email went out, so a wrong path could go unnoticed for a long time.
+
+If one of your {% term automations %} or {% term scripts %} attaches a file that is not always there, such as a camera snapshot, check the path, or build the list of attachments so that it only contains files that exist.
 
 ([@tr4nt0r] - [#188876]) ([SMTP documentation])
 
@@ -1203,12 +1220,19 @@ Tomorrow.io config entries are now one per API key instead of one per location; 
 
 {% details "Tuya" %}
 
-Multi-channel Tuya devices, such as switches and energy meters with several channels, now put the entities of each channel on their own "Channel N" device.
+Multi-channel Tuya devices now put the {% term entities %} of each channel on their own **Channel** {% term device %}, as a child device of the main one.
 
-Entity IDs and history are kept, and actions and areas that target the main device still include the channel entities. The entities are renamed, though. For example, "Switch 1" becomes "Switch" on the "Channel 1" device, and "Current channel 1" becomes "Current". Single-channel devices also go from "Switch 1" to "Switch". The `friendly_name` attribute no longer includes the main device name, for example "Channel 1 Switch", so dashboards, templates, and notifications that rely on it may need updating.
+Entity IDs and history are kept, and a {% term trigger %}, {% term condition %}, or {% term action %} that targets the main device still covers the channel entities. What changes is the name. An entity called "Socket 1" becomes "Socket" on the "Channel 1" device, and its `friendly_name` attribute is now built from that channel device, so it reads "Channel 1 Socket" instead of the name of the main device followed by "Socket 1". Single-channel devices go from "Socket 1" to "Socket" as well.
 
-([@epenet] - [#188674]) ([@epenet] - [#188675]) ([Tuya documentation])
+Update {% term templates %}, dashboard cards, and notifications that use `friendly_name` or the old entity name.
 
+([@epenet] - [#184915]) ([@epenet] - [#188169]) ([@epenet] - [#188237]) ([@epenet] - [#188255]) ([@epenet] - [#188258]) ([@epenet] - [#188674]) ([@epenet] - [#188675]) ([Tuya documentation])
+
+[#184915]: https://github.com/home-assistant/core/pull/184915
+[#188169]: https://github.com/home-assistant/core/pull/188169
+[#188237]: https://github.com/home-assistant/core/pull/188237
+[#188255]: https://github.com/home-assistant/core/pull/188255
+[#188258]: https://github.com/home-assistant/core/pull/188258
 [#188674]: https://github.com/home-assistant/core/pull/188674
 [#188675]: https://github.com/home-assistant/core/pull/188675
 [Tuya documentation]: /integrations/tuya/
@@ -1232,6 +1256,19 @@ The read-only UniFi Protect UP Sense setting entities deprecated in 2026.9 are r
 ([@RaHehl] - [#184473]) ([UniFi Protect documentation])
 
 [#184473]: https://github.com/home-assistant/core/pull/184473
+
+{% enddetails %}
+
+{% details "Uptime Kuma" %}
+
+Support for Uptime Kuma versions earlier than 2.0.0 has been dropped. Version
+2.0.0 was released more than a year ago. Update Uptime Kuma before updating
+Home Assistant if you use an older version.
+
+([@tr4nt0r] - [#187418]) ([Uptime Kuma documentation])
+
+[#187418]: https://github.com/home-assistant/core/pull/187418
+[Uptime Kuma documentation]: /integrations/uptime_kuma/
 
 {% enddetails %}
 
@@ -1314,13 +1351,13 @@ With this release, you will need to update your zwave-js-server instance. You mu
 
 ---
 
-Some Z-Wave devices with several parts, like a thermostat with multiple temperature sensors or an energy meter with multiple clamps, now get a child device for each part. This only applies to devices whose parts are described in the Z-Wave JS device database. Other devices are unchanged.
+Entities for features on non-root endpoints of multi-endpoint Z-Wave devices now live on their own child {% term devices %} of the main device, when the Z-Wave JS device database describes those endpoints as separate parts. Only devices with that information are affected: endpoints that carry a label, or that belong to an endpoint group.
 
-The entities of those parts move to the child devices and get clearer names. For example, a thermostat with three temperature sensors used to have "Air temperature (2)", "Air temperature (3)", and "Air temperature (4)". It now has a child device for each sensor, such as "Room Sensor", with an "Air temperature" entity. The `friendly_name` attribute is now built from the child device name, for example "Room Sensor Air temperature", so it no longer includes the main device name.
+Because the name of an {% term entity %} is built from the device it belongs to, the name of the main device no longer appears in it. A thermostat with three temperature sensors used to be one device with "Air temperature (2)", "Air temperature (3)", and "Air temperature (4)". It is now a main device with one child device per sensor, each named after its endpoint label, such as "Room Sensor", and each with a single "Air temperature" entity. A multi-clamp energy meter becomes the main device plus one child device per clamp.
 
-Entity IDs don't change. Automations and scripts that target the main device keep working, because targeting a device also includes its child devices.
+Entity IDs stay the same, and {% term automations %} and {% term scripts %} that target the main device keep working, because targeting a device also targets the entities of its child devices.
 
-The disabled slat cover entity of the Fibaro FGR223 and the Shelly Qubino Wave Shutter (QNSH-001P10) is no longer created. If you had enabled it, it is now gone.
+One entity does disappear: the redundant endpoint-2 "slat" value of the Fibaro FGR223 and the Shelly Qubino Wave Shutter (QNSH-001P10) is no longer created. If you had enabled that cover entity, it is gone.
 
 ([@MartinHjelmare] - [#185985]) ([Z-Wave documentation])
 
@@ -1330,12 +1367,12 @@ The disabled slat cover entity of the Fibaro FGR223 and the Shelly Qubino Wave S
 
 {% details "Zigbee Home Automation" %}
 
-Each ZHA group now gets its own device, named after the group. The group entities move from the coordinator device to this new device. Their entity IDs and settings are kept, and a custom name or area moves along, so automations, scripts, and dashboards that use the group entities keep working.
+Each ZHA {% term group %} that has group {% term entities %} now gets its own {% term device %}, named after the group, and those entities move there from the coordinator device. Entity IDs and settings are kept, and a name or {% term area %} you set yourself moves along, so {% term automations %}, {% term scripts %}, and dashboards that use the group entities keep working.
 
-This only affects you if you:
+Two things need your attention:
 
-- Target the coordinator device in automations or scripts to control your groups. Target the group entities or the new group devices instead. The device page of the coordinator also no longer lists the group entities.
-- Rely on group entities being in the area of the coordinator. Assign the new group devices, or the entities, to an area.
+- If you target the **coordinator device** to control your groups, target the group entities or the new group devices instead. The device page of the coordinator no longer lists the group entities.
+- If you relied on the group entities being in the area of the coordinator device, give the new group devices or their entities an area of their own.
 
 ([@TheJulianJES] - [#188830]) ([Zigbee Home Automation documentation])
 
