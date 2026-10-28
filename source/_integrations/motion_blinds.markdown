@@ -187,6 +187,12 @@ For some routers "IGMP snooping" on the used wireless interface needs to be disa
 
 For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" should be disabled.
 
+### Removing a stale device
+
+If a blind is removed from the gateway or the gateway is reset, its device entry may remain in Home Assistant. To remove a stale entry, go to {% my integration domain="motion_blinds" title="**Settings** > **Devices & services** > **Motionblinds**" %}, open the device's info page, and select **Delete** from the device info menu.
+
+Only blinds that are no longer in the gateway's device list can be removed. The gateway itself and connected blinds cannot be removed.
+
 ### Bypassing UDP multicast
 
 If UDP Multicast does not work in your setup (due to network limitations), this integration can be used in local polling mode.
