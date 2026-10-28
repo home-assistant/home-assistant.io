@@ -61,9 +61,17 @@ Which entities are created depends on your device model, its firmware, and how i
 
 When the device is configured for hot water heating and has a temperature sensor connected, a [water heater](/integrations/water_heater/) entity is created. It provides:
 
-- **Current temperature**: The temperature measured by the first temperature sensor.
-- **Target temperature**: The hot water target temperature. The minimum, maximum, and step size are taken from the device's own configuration.
+- **Current temperature**: The temperature measured by the temperature sensor.
+- **Target temperature**: The hot water target temperature.
 - **Operation mode**: `Off` or `Electric`. You can also use the turn on and turn off actions.
+
+### Climate
+
+When the device is configured for space heating and has a temperature sensor connected, a [climate](/integrations/climate/) entity is created. It provides:
+
+- **Current temperature**: The temperature measured by the temperature sensor.
+- **Target temperature**: The space target temperature.
+- **Operation mode**: `Off` or `Heat`. You can also use the turn on and turn off actions.
 
 ### Switches
 
