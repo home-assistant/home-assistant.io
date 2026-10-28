@@ -56,7 +56,7 @@ This integration provides the following sensors:
 | Power Usage               | Power usage in watts (if available)                               |
 | Memory Free               | Memory (RAM) free in GB                                           |
 | Memory Used               | Memory (RAM) used in GB                                           |
-| Memory Used %             | Memory (RAM) % used                                               |
+| Memory Usage              | Memory (RAM) % used                                               |
 | Network Download Rate     | Total download rate System Bridge reports for the device          |
 | Network Upload Rate       | Total upload rate System Bridge reports for the device            |
 | Interface SSID            | The Wi-Fi network a wireless interface is connected to            |
@@ -79,7 +79,7 @@ These sensors are also available, but are not enabled by default:
 | GPU Memory Clock Speed  | GPU memory clock speed in MHz                    |
 | GPU Fan Speed           | GPU fan speed percentage                         |
 | GPU Memory Used         | GPU memory used in GB                            |
-| GPU Memory Used %       | GPU memory used percentage                       |
+| GPU Memory Usage        | GPU memory used percentage                       |
 | GPU Power Usage         | GPU power usage                                  |
 | GPU Temperature         | The current temperature of the GPU               |
 | Interface Download Rate | Download rate of each network interface          |
