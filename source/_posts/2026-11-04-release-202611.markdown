@@ -80,7 +80,7 @@ Enjoy the (beta) release!
   - [Thank you, HACS](#thank-you-hacs)
 - [Exclude items from a target](#exclude-items-from-a-target)
 - [Copy and paste dashboard sections](#copy-and-paste-dashboard-sections)
-- [More control over dashboard sections](#more-control-over-dashboard-sections)
+- [Sections that fill themselves](#sections-that-fill-themselves)
 - [New cards and badges](#new-cards-and-badges)
   - [Alert card, now without YAML](#alert-card-now-without-yaml)
 - [Color control on light tiles](#color-control-on-light-tiles)
@@ -128,19 +128,19 @@ The Marketplace brings the existing HACS experience into Home Assistant and the 
 
 You can find the Marketplace under **Settings** > **Marketplace**. It comes with Home Assistant, so there is nothing to set up. As an administrator, you can browse the catalog and install integrations, dashboard cards, themes, and templates. You do not need a GitHub account to install or update projects.
 
-<img src='/images/blog/2026-11/marketplace-settings.webp' alt='Screenshot of the Home Assistant settings page, with a new Marketplace item between Apps and Dashboards, described as: Install integrations, dashboard cards, themes, and templates shared by the community.' class='no-shadow' />
+<img src='/images/blog/2026-11/marketplace-settings.png' alt='Screenshot of the Home Assistant settings page, with a new Marketplace item between Apps and Dashboards, described as: Install integrations, dashboard cards, themes, and templates shared by the community.' class='no-shadow' />
 
 Installing a new {% term integration %} got shorter, too. In HACS, you downloaded it, restarted Home Assistant, went to **Devices & services**, and searched for it again to set it up. In the Marketplace, you select **Install**, and you land straight in its setup flow, without a restart. Updates still need a restart for now.
 
 The page of each project now shows more than its README: how often it was downloaded, its stars on GitHub, and the Home Assistant version it requires, so you know what you're getting into before you install.
 
-<img src='/images/blog/2026-11/marketplace-project.webp' alt='Screenshot of the Marketplace page of the Spook integration, with an Install button, a notice that it is made by the community, and its downloads, stars on GitHub, open issues, and required Home Assistant version.' class='no-shadow' />
+<img src='/images/blog/2026-11/marketplace-project.png' alt='Screenshot of the Marketplace page of the Spook integration, installed and ready to set up, with a notice that it is made by the community, and its required Home Assistant version, last change, downloads, stars on GitHub, and open issues.' class='no-shadow' />
 
 Every project you install gets an {% term update "update entity" %}, so updates show up under **Settings** > **Updates**, next to the updates of Home Assistant itself. After an update, a repair tells you when a restart is needed, and can restart Home Assistant for you.
 
 The first time you open the Marketplace, it shows a notice. Everything in the Marketplace is made by the community. It is not tested, audited, or supported by the Home Assistant project, and it runs inside your Home Assistant. Read the notice, select **I understand the risks and agree**, and you're in. Browsing works before that. Installing and updating does not.
 
-<img src='/images/blog/2026-11/marketplace-warning.png' alt='Screenshot of the Marketplace notice, titled Before you install from the Marketplace. It explains that anything you install can connect to the internet, share your data, or slow down Home Assistant, followed by three tips and an I understand the risks and agree checkbox.' />
+<img src='/images/blog/2026-11/marketplace-warning.png' alt='Screenshot of the Marketplace notice, titled Before you install from the Marketplace. It explains that anything you install can connect to the internet, share your data, or slow down Home Assistant, followed by three tips and an I understand the risks and agree checkbox.' class='no-shadow' />
 
 The Marketplace adds several improvements:
 
@@ -151,7 +151,7 @@ The Marketplace adds several improvements:
 - Search, filters, and sorting are saved in the URL, so you can share a link to a specific Marketplace view.
 - Integrations show their brand images before you install them.
 
-<img src='/images/blog/2026-11/marketplace-group-by.png' alt='Screenshot of the Marketplace Browse tab, grouped by status into Installed and Available, with the Group by menu open showing Status, Type, Source, and Don&#39;t group.' />
+<img src='/images/blog/2026-11/marketplace-group-by.png' alt='Screenshot of the Marketplace Browse tab, grouped by status into Installed and New, with the Group by menu open showing Status, Type, Source, and Don&#39;t group.' class='no-shadow' />
 
 ### Custom repositories
 
@@ -177,7 +177,7 @@ Targets are a great way to keep your {% term automations %} and {% term scripts 
 
 You can now exclude entities, devices, areas, floors, and labels from a target. In a {% term trigger %}, {% term condition %}, or {% term action %}, select **Exclude target** next to **Add target**, then choose what to leave out. You can also open a target's details, clear the checkboxes of the items to exclude, and select **Apply**.
 
-<img src='/images/blog/2026-11/exclude-target-details.png' alt='Screenshot of the target details of the Ground floor, with checkboxes to include or exclude each area, device, and entity. The Kitchen Lights are struck through and marked as excluded.' />
+<img src='/images/blog/2026-11/exclude-target-details.png' alt='Screenshot of the target details of the Ground floor, with checkboxes to include or exclude each area, device, and entity. The Laundry room and its ceiling light are struck through, and the light is marked as excluded by the Laundry room.' class='no-shadow' />
 
 Each exclusion is listed below the targets it takes entities out of, with the number of entities it removes. An exclusion that doesn't match anything has no effect, and is listed under **Exclusions with no effect**, where you can remove it.
 
@@ -210,15 +210,27 @@ The automation editor also has a few improvements:
 
 ## Copy and paste dashboard sections
 
-In dashboard edit mode, you can copy or cut a section, then paste it above or below another section. You can move sections between views and dashboards without dragging them across the screen. Thanks, [@jce200]!
+In dashboard edit mode, you can copy or cut a section, then paste it after another section. You can move sections between views and dashboards without dragging them across the screen. Thanks, [@jce200]!
 
-<p class='img'><img src='/images/blog/2026-11/dashboard-section-copy-paste.png' alt='Dashboard section menu with Copy, Cut, Paste above, and Paste below options.'/>Copy, cut, and paste sections from the section menu.</p>
+<p class='img'><img class='no-shadow' src='/images/blog/2026-11/dashboard-section-copy-paste.png' alt='Screenshot of a dashboard in edit mode, with the menu of the Motion sensor section open showing Edit, Duplicate, Copy, Cut, Paste, and Delete, and Copy highlighted.'/>Copy, cut, and paste sections from the section menu.</p>
 
-## More control over dashboard sections
+## Sections that fill themselves
 
-A section that a strategy builds for you, like the one for an {% term area %}, keeps itself up to date, but every card in it is out of your hands. You can now take over: select **Convert to manual section** in the section menu, and you keep the cards the strategy generated, free to edit, move, and remove them. Home Assistant asks you to confirm first, because in exchange the section stops following your setup on its own.
+A dashboard section is usually a list of cards you put together by hand. Add a new light to the living room, and you have to remember to add its card too. Automatic sections take care of that for you: they pick their cards themselves, and stay up to date when you add or remove {% term devices %} and {% term entities %}.
 
-There is also a new **Device** section strategy. It shows the {% term entities %} of one {% term device %} and follows that device as entities come and go. You choose which categories to show, like controls, sensors, and diagnostics, whether they appear as tiles or as a single entities card, and which entities to leave out. The heading carries the device name, its area, and its battery level. For now, you add this section in {% term YAML %} and then adjust it in the visual editor. Adding it straight from the dashboard editor is planned.
+When you create a section, Home Assistant now asks what you want: a manual section you fill card by card, an automatic section, or the section you just copied. Pick **Automatic section**, and you get the list of automatic sections, each with a live preview, so you see what you get before adding it.
+
+<p class='img'><img class='no-shadow' src='/images/blog/2026-11/automatic-section-picker.png' alt='Screenshot of the Choose an automatic section dialog, with live previews of the Common controls, Device, and Entities sections.'/>Pick an automatic section, and see what it looks like before adding it.</p>
+
+**Common controls** shows the entities you use the most, just like on the **Overview** dashboard. Next to it, two automatic sections are new in this release. The **Device** section shows the entities of one {% term device %}, as tiles or in a single entities card, grouped by category, with the device name, its {% term area %}, and its battery level in the heading. The **Entities** section shows every {% term entity %} of the types you pick, like all your lights or all your batteries, in the areas, floors, devices, or labels you choose. Add a light to the ground floor, and it shows up in your ground floor lights section on its own. If you installed sections made by the community, they are listed too, under **Community sections**.
+
+You can also start from the device. On its device page, select **Add to…** > **Add to a dashboard**, and pick a dashboard and a view. In a sections view, you get a **Device** section for that device. In other views, you get an **Entities** card, and you choose which categories of entities to include. This replaces the **Add to dashboard** buttons at the bottom of each list of entities on the device page.
+
+<p class='img'><img class='no-shadow' src='/images/blog/2026-11/device-add-to-dashboard.png' alt='Screenshot of the Add Air purifier to dialog on the device page, with Add to a dashboard at the top, above the options to create a trigger, condition, or action.'/>Add a device to a dashboard, straight from its device page.</p>
+
+If you want more control over an automatic section, select **Convert to manual section** in the section menu. The section keeps its cards, and you can edit, move, or remove each of them. In return, it no longer updates on its own, so Home Assistant asks you to confirm first.
+
+<p class='img'><img class='no-shadow' src='/images/blog/2026-11/convert-to-manual-section.png' alt='Screenshot of the menu of an automatic Common controls section in edit mode, with Convert to manual section highlighted below Edit, followed by Duplicate, Copy, Cut, Paste, and Delete.'/>Convert an automatic section to edit its cards one by one.</p>
 
 Thanks, [@piitaya]!
 
@@ -226,11 +238,9 @@ Thanks, [@piitaya]!
 
 The new **Date** card shows the current date. The **Alert** badge shows an {% term entity %}'s state on a colored background that can pulse. The **Sensor** card takes a color, which tints both its icon and its graph. For target temperature controls, you can choose buttons or a slider. When adding a card or badge, a paste bar lets you add a copied item.
 
-<p class='img'><img src='/images/blog/2026-11/date-card-configuration.png' alt='Date card configuration with a preview of the current date.'/>Configure the Date card and preview how it looks.</p>
+<p class='img'><img class='no-shadow' src='/images/blog/2026-11/date-card.png' alt='Screenshot of a dashboard with three Date cards, each showing the current date in a different format: Wednesday 28 October 2026, Wednesday, October 28, and 10/28/2026 below the word Today.'/>Show the current date in the format you like.</p>
 
-<p class='img'><img src='/images/blog/2026-11/target-temperature-buttons-slider.png' alt='Target temperature controls shown with buttons and slider styles.'/>Choose buttons or a slider for target temperature controls.</p>
-
-<p class='img'><img src='/images/blog/2026-11/alert-badge-configuration.jpg' alt='Alert badge configuration with a preview badge.'/>Configure the Alert badge and preview its appearance.</p>
+<p class='img'><img class='no-shadow' src='/images/blog/2026-11/target-temperature-buttons-slider.png' alt='Screenshot of two tile cards for the Downstairs thermostat: one with minus and plus buttons around 21.5 °C, and one with a slider to set the target temperature.'/>Choose buttons or a slider for target temperature controls.</p>
 
 Thanks to [@Lackmake], [@pcan08], [@timmo001], [@piitaya], and [@wendevlin].
 
@@ -238,13 +248,13 @@ Thanks to [@Lackmake], [@pcan08], [@timmo001], [@piitaya], and [@wendevlin].
 
 The Alert card now has a visual editor. You can set separate colors for alert and clear states without editing {% term YAML %}. Thanks, [@timmo001]!
 
-<p class='img'><img src='/images/blog/2026-11/alert-card-visual-editor.jpg' alt='Alert card visual editor showing separate color settings for alert and inactive states, with a preview of the alert badge.'/>Set separate colors for alert and clear states in the visual editor.</p>
+<p class='img'><img class='no-shadow' src='/images/blog/2026-11/alert-card-visual-editor.png' alt='Screenshot of the Alert card visual editor for the Back door lock, with a green clear color, a red alert color, and a Pulse toggle, next to a preview of the card in green.'/>Set separate colors for alert and clear states in the visual editor.</p>
 
 ## Color control on light tiles
 
 Light tiles now have a color strip for setting hue, with an optional saturation slider. The color controls fade when the {% term light %} is off, and light {% term group %} members show the color control in their more-info dialog. Thanks, [@piitaya]!
 
-<p class='img'><img src='/images/blog/2026-11/light-tile-color.png' alt='Light tiles with hue color strips and saturation sliders.'/>Adjust hue and saturation from a light tile.</p>
+<p class='img'><img class='no-shadow' src='/images/blog/2026-11/light-tile-color.png' alt='Screenshot of three light tiles, Ambilight, Hue Play 2, and Hue Play 1, each with a hue color strip. The wide Hue Play 1 tile also has a small saturation slider.'/>Adjust hue and saturation from a light tile.</p>
 
 ## Name it once, Home Assistant adds the context
 
@@ -295,7 +305,7 @@ Thanks, [@piitaya]!
 
 When an automation or script runs another script, or triggers an automation, the step in its trace now has a **View trace of** link to exactly that run. Before, you had to find the right run yourself, by timestamp. It works from automation to script, script to script, and automation to automation, for each iteration of a repeat, and for a script that starts itself. The link shows up in the step details and in the trace timeline. The page also keeps the run you are looking at in its address, so going back in your browser takes you back to the previous run.
 
-<img src='/images/blog/2026-11/trace-link.png' alt='Screenshot of the trace of a script named Child A, with the step details of an action that runs the script Child B, and a link: View trace of Child B.' />
+<img src='/images/blog/2026-11/trace-link.png' alt='Screenshot of the trace of the Good night script, with the step details of an action that runs the Turn off downstairs lights script, and a link: View trace of Turn off downstairs lights.' class='no-shadow' />
 
 Thanks, [@Xyolyp]!
 
@@ -311,7 +321,7 @@ Thanks, [@erwindouna] and [@timmo001]!
 
 One bad measurement can ruin the graph of a {% term sensor %}. {% term "long-term statistics" "Statistics" %} of values like temperature can't be adjusted, so the only fix was to delete the whole statistic and lose its history. Now you can delete just a time range. In **Tools** > **Statistics**, select the delete option of a statistic, pick the time range, and the dialog previews the data before you delete anything. Everything outside that range stays.
 
-<img src='/images/blog/2026-11/statistics-delete-range.png' alt='Screenshot of the dialog to delete statistics in a time range for Living room Temperature, with a graph showing one spike of bad measurements.' />
+<img src='/images/blog/2026-11/statistics-delete-range.png' alt='Screenshot of the dialog to delete statistics in a time range for Living room temperature, with a start and end date picker and a graph of the statistics in that range.' class='no-shadow' />
 
 Thanks, [@balloob]!
 
@@ -325,7 +335,7 @@ Thanks, [@MindFreeze]!
 
 **Tools** has a new **Action history** tab. It lists the {% term actions %} that were called in Home Assistant, with the action, its targets, what caused it, and when. You can search the list and pick a time range. Select an action to see its details: the cause, the user, the context ID, and the data it was called with. Copy that data as {% term YAML %} with one button, and when there is a trace, **View trace** opens it.
 
-<img src='/images/blog/2026-11/action-history.png' alt='Screenshot of the Action history tab in Tools, listing actions with their targets, the cause of each, like By automation: Hallway motion light, and the time.' />
+<img src='/images/blog/2026-11/action-history.png' alt='Screenshot of the Action history tab in Tools, with the details of a Turn on light action open: its time, its cause, the user Paul, its context ID, and the data it was called with, above a Perform again button.' class='no-shadow' />
 
 The details of an entry in **Activity** got better too. When an automation calls scripts, each run now links to its own trace. Before, they all opened the same one.
 
