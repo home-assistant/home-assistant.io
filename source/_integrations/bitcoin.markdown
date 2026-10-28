@@ -24,29 +24,29 @@ The **Bitcoin** integration provides the following entities. All of them are cre
 
 ### Sensors
 
-- **Exchange rate (1 BTC)**
+- **Exchange rate**
   - **Description**: Price of 1 BTC in the currency you selected, based on the 15 minute average price.
 - **Market price**
   - **Description**: Price of 1 BTC in USD.
 - **Trade volume**
   - **Description**: BTC traded on major exchanges in the last 24 hours.
-- **Trade volume**
+- **Trade volume in USD**
   - **Description**: The same trade volume, expressed in USD.
 - **Miners revenue**
-  - **Description**: Coins earned by miners in the last 24 hours, in USD.
-- **Miners revenue**
-  - **Description**: The same revenue, expressed in BTC.
+  - **Description**: Coins earned by miners in the last 24 hours, in BTC.
+- **Miners revenue in USD**
+  - **Description**: The same revenue, expressed in USD.
 - **Mined**
   - **Description**: New BTC created in the last 24 hours.
 - **Mined blocks**
   - **Description**: Number of blocks mined in the last 24 hours.
-- **Block size**
+- **Blocks size**
   - **Description**: Combined size of the blocks mined in the last 24 hours, in bytes.
 - **Difficulty**
   - **Description**: How hard it currently is to mine a block.
 - **Time between blocks**
   - **Description**: Average number of minutes between blocks.
-- **No. of transactions**
+- **Transactions**
   - **Description**: Number of transactions confirmed in the last 24 hours.
 - **Hash rate**
   - **Description**: Estimated computing power of the whole network, in PH/s.
@@ -56,18 +56,18 @@ The **Bitcoin** integration provides the following entities. All of them are cre
   - **Description**: Value of all transaction outputs in the last 24 hours, in BTC.
 - **Estimated sent**
   - **Description**: Estimate of the same value with change outputs left out, in BTC.
-- **Total**
+- **Total supply**
   - **Description**: All BTC in circulation.
 - **Total blocks**
   - **Description**: Number of blocks in the chain.
 - **Next retarget**
   - **Description**: Block height at which the mining difficulty changes next.
-- **Est. transaction volume**
+- **Estimated transaction volume**
   - **Description**: Estimated value moved in the last 24 hours, in USD.
-- **Timestamp**
+- **Statistics timestamp**
   - **Description**: When blockchain.com produced these numbers.
 
-Two names are used twice. **Trade volume** and **Miners revenue** each exist once in BTC and once in USD, so one of each pair gets a `_2` suffix in its entity ID. When you set Bitcoin up from the UI, `sensor.trade_volume` is the BTC one and `sensor.trade_volume_2` the USD one, while `sensor.miners_revenue` is the USD one and `sensor.miners_revenue_2` the BTC one. If your setup was imported from YAML, the sensors you already had keep their entity IDs, so a pair can be the other way round.
+The entity IDs come from these names, for example `sensor.bitcoin_trade_volume_in_usd`. Sensors that already existed in Home Assistant keep the entity IDs they had, so an older setup can have two trade volume sensors or two miners revenue sensors told apart by a `_2` suffix, for example `sensor.trade_volume` and `sensor.trade_volume_2`.
 
 ## Data updates
 
@@ -122,7 +122,7 @@ To resolve this issue, try the following steps:
    - The currency in your YAML file is not one that blockchain.com quotes. Correct it and restart, or remove the YAML and add the integration from the UI.
    - You had the `bitcoin` sensor platform listed more than once with different currencies. Bitcoin can only be set up once, so only the first currency was imported. Remove the YAML, then remove the integration and add it again with the currency you want.
 
-Your existing sensors keep the entity IDs they already had, so dashboards and automations that use them keep working. If you used `entity_namespace` on the YAML platform, that prefix is not carried over, so `sensor.wallet_exchange_rate_1_btc` becomes `sensor.exchange_rate_1_btc`. You do get extra sensors: the YAML `display_options` setting is gone, because a config flow should not ask you to pick entities, so all 21 sensors are now created.
+The imported sensors get new entity IDs from the new names, for example `sensor.exchange_rate_1_btc` becomes `sensor.bitcoin_exchange_rate`. Update the dashboards and automations that use them. You also get extra sensors: the YAML `display_options` setting is gone, because a config flow should not ask you to pick entities, so all 21 sensors are now created.
 
 ## Removing the integration
 
