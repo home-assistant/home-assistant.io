@@ -28,7 +28,8 @@ To use this trigger in an automation:
 10. Set **Above**, **Below**, or both. If you set both, the trigger reacts when the value of the numeric state or attribute enters the range between them.
 11. Optional: In **Value template**, enter a template that will be used to calculate the numeric value.
 12. Optional: In **For at least**, enter how long the numeric state or attribute value must remain unchanged or stay within the configured threshold before the trigger fires. You can enter a template by selecting **Template** instead of **Duration**.
-13. Select **Save**.
+13. Optional: Turn on **Ignore unknown and unavailable states** to skip `unknown` and `unavailable` values, so the trigger only fires when the value actually crosses the threshold.
+14. Select **Save**.
 
 ### Options in the UI
 
@@ -50,6 +51,9 @@ Value template:
   required: false
 For at least:
   description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Default is `0` hours, `00` minutes and `00` seconds (fires immediately).
+  required: false
+Ignore unknown and unavailable states:
+  description: Skips `unknown` and `unavailable` values and compares the next number with the last valid one, instead of treating them as outside the threshold. Turned off by default.
   required: false
 {% endoptions_ui %}
 
@@ -120,8 +124,8 @@ This trigger watches one or more entities selected in the UI options **Entity** 
 - If you use an entity in **Above** (`above`) or **Below** (`below`), Home Assistant compares the value of the watched entity against the value of that entity only when the watched entity updates.
 - If you use **For at least** (`for`), the timer resets if Home Assistant restarts or automations reload.
 - When you use `value_template`, the `state` variable is the [state object](/docs/configuration/state_object) for the entity you selected with `entity_id`.
-- By default, `unknown` and `unavailable` count as outside the threshold. If a sensor goes `unavailable` and comes back with a value inside the threshold, the trigger fires, even if the value did not change. This also happens after Home Assistant restarts, when the value changes from `unknown` to its first reading. To prevent this, set `ignore_invalid_states: true` in YAML. The trigger then remembers the last valid value. After a restart, or if the entity has no valid value yet, the first valid value is only used as a starting point and does not fire the trigger.
-- With `ignore_invalid_states: true`, a **For at least** (`for`) timer that is running still stops if the entity becomes `unknown` or `unavailable`, because Home Assistant cannot confirm the value stayed within the threshold. When you also use `value_template`, Home Assistant only checks the state of the entity itself, so your template can still turn an `unknown` or empty attribute into a fallback value.
+- By default, `unknown` and `unavailable` count as outside the threshold. If a sensor goes `unavailable` and comes back with a value inside the threshold, the trigger fires, even if the value did not change. This also happens after Home Assistant restarts, when the value changes from `unknown` to its first reading. To prevent this, turn on **Ignore unknown and unavailable states** (`ignore_invalid_states: true`). The trigger then remembers the last valid value. After a restart, or if the entity has no valid value yet, the first valid value is only used as a starting point and does not fire the trigger.
+- With **Ignore unknown and unavailable states** (`ignore_invalid_states`) turned on, a **For at least** (`for`) timer that is running still stops if the entity becomes `unknown` or `unavailable`, because Home Assistant cannot confirm the value stayed within the threshold. When you also use `value_template`, Home Assistant only checks the state of the entity itself, so your template can still turn an `unknown` or empty attribute into a fallback value.
 
 {% include triggers/try_it.md %}
 
@@ -189,7 +193,7 @@ automation: |
 
 ### Automation: announce when the washing machine finishes, without false alarms
 
-If the washing machine power drops below 5 W, this automation announces that the cycle is finished. It ignores `unknown` and `unavailable` values, so a smart plug that drops off the network, or a Home Assistant restart, does not trigger the announcement.
+If the washing machine power drops below 5 W, this automation announces that the cycle is finished. It ignores `unknown` and `unavailable` values, so a smart plug that drops off the network, or a Home Assistant restart, only triggers the announcement if the power actually dropped below 5 W.
 
 {% details "YAML example for a washing machine that ignores invalid states" %}
 
