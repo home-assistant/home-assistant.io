@@ -100,12 +100,12 @@ In the Blindsgalore AMP app go to the home screen, go to settings (three bars in
 
 ### Connector app
 
- To get the API key ([iOS app](https://apps.apple.com/app/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)), follow these steps:
- 
-  1. In the left sidebar of the app, open the **Settings** {% icon "mdi:gear-outline" %} (gear icon). 
-  2. Select the **About** page of the Connector app.
-  3. Tap the screen 5 times while being on the **About** page. 
-      - This opens a window with the API key.
+To get the API key ([iOS app](https://apps.apple.com/app/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)), follow these steps:
+
+1. In the left sidebar of the app, open the **Settings** {% icon "mdi:gear-outline" %} (gear icon).
+2. Select the **About** page of the Connector app.
+3. Tap the screen 5 times while being on the **About** page.
+   - This opens a window with the API key.
 
 ### Avosdim app
 
@@ -189,7 +189,11 @@ For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" s
 
 ### Removing a stale device
 
-If a blind is removed from the gateway or the gateway is reset, its device entry may remain in Home Assistant. To remove a stale entry, go to {% my integration domain="motion_blinds" title="**Settings** > **Devices & services** > **Motionblinds**" %}, open the device's info page, and select **Delete** from the device info menu.
+If a blind is removed from the gateway or the gateway is reset, its device entry may remain in Home Assistant. To remove the device entry:
+
+1. Go to {% my integration domain="motion_blinds" title="**Settings** > **Devices & services** > **Motionblinds**" %}.
+2. Open the device's info page.
+3. Select **Delete** from the device info menu.
 
 Only blinds that are no longer in the gateway's device list can be removed. The gateway itself and connected blinds cannot be removed.
 
