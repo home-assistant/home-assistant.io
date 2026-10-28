@@ -14,7 +14,7 @@ This page explains how to expose a script to an LLM, and how to write descriptio
 ## Prerequisites
 
 - An LLM conversation integration must be set up and used in your voice pipeline, for example [OpenAI Conversation](/integrations/openai_conversation/) or [Google Generative AI](/integrations/google_generative_ai_conversation/).
-- The integration must be configured to allow **home control**, that is, **Assist mode**, not **No control**.
+- The conversation agent must have **Device control** selected in **AI tools**.
 
 ## Exposing a script to Assist
 
