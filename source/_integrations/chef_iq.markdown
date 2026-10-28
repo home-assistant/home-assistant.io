@@ -20,10 +20,9 @@ The **Chef iQ** {% term integration %} lets you read the temperatures from Chef 
 
 ## Supported devices
 
-The following Chef iQ wireless probes are supported:
+The following Chef iQ wireless probe is supported:
 
 - Chef iQ Smart Wireless Meat Thermometer (CQ60)
-- Chef iQ Smart Wireless Meat Thermometer (CQ50)
 
 The **iQ Sense** base station broadcasts under the same Bluetooth identifier, but it is a Wi-Fi appliance rather than a passive probe and is not supported by this integration.
 
