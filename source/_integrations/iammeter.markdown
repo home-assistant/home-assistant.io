@@ -19,7 +19,7 @@ The integration supports these models:
 - [WEM3046T](https://www.iammeter.com/products/3046t): Three-phase meter
 - [WEM3050T](https://www.iammeter.com/products/3phase-meter-3050t): Three-phase meter
 - [WEM3063T](https://www.iammeter.com/newsshow/firmware-i-91-065-17-admin-security-recovery-swagger): Three-phase meter (manufacturer support information)
-- [WEM2067](https://www.iammeter.com/products/split-phase-meter-wem2067): Two-channel meter
+- [WEM2067](https://www.iammeter.com/products/split-phase-meter-wem2067): Split-phase / two-channel meter
 
 Available measurements depend on the model and the fields returned by its firmware.
 
