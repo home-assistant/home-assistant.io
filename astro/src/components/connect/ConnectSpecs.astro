@@ -58,15 +58,38 @@ interface Drawing {
   lid: Layer;
   // How far the lid starts lowered, in percent of its own height.
   closed: number;
+  // A rendered image of the exploded device in the drawing's
+  // proportions; replaces the layers when given.
+  render?: ImageMetadata;
+  // The render's opening animation, assembled to exploded, ending on the
+  // render. `open` is an ordinary H.264 MP4 for playing it; `scrub` the
+  // same with every frame a keyframe, so scroll position can seek it.
+  // `poster` is its first frame. Import the videos for their URLs.
+  video?: { open: string; scrub: string; poster: ImageMetadata };
 }
 
 interface Props {
   groups: Group[];
   drawing: Drawing;
   drawingAlt: string;
+  // The section's id and heading; change them when a page shows the
+  // section more than once.
+  id?: string;
+  title?: string;
+  // How a drawing with a video opens: "view" plays it when the drawing
+  // comes into view and rewinds it once it has left; "scroll" ties its
+  // progress to how far the section has scrolled up.
+  mode?: "view" | "scroll";
 }
 
-const { groups, drawing, drawingAlt } = Astro.props;
+const {
+  groups,
+  drawing,
+  drawingAlt,
+  id = "specs",
+  title = "Specifications",
+  mode = "view",
+} = Astro.props;
 const place = ({ x, y, w }: Layer) => `--x: ${x}%; --y: ${y}%; --w: ${w}%`;
 // The lid and base are SVGs, served as they are.
 const svgLayer = (layer: Layer) => ({
@@ -80,9 +103,9 @@ const svgLayer = (layer: Layer) => ({
 });
 ---
 
-<section class="connect-specs" id="specs">
+<section class="connect-specs" id={id}>
   <div class="list">
-    <h2>Specifications</h2>
+    <h2>{title}</h2>
     {
       groups.map(({ title, items }: Group) => (
         <div class="group">
@@ -125,29 +148,115 @@ const svgLayer = (layer: Layer) => ({
     role="img"
     aria-label={drawingAlt}
     data-specs-drawing
-    style={`--ratio: ${drawing.ratio}; --closed: ${drawing.closed}%`}
+    style={`--ratio: ${drawing.render ? drawing.render.width / drawing.render.height : drawing.ratio}; --closed: ${drawing.closed}%`}
   >
-    <img class="layer" {...svgLayer(drawing.base)} />
-    <Image
-      class="layer"
-      src={drawing.board.image}
-      alt=""
-      widths={[Math.round(drawing.board.image.width / 2), drawing.board.image.width]}
-      sizes={`${connectDesk} 28rem, 90vw`}
-      quality={90}
-      style={place(drawing.board)}
-    />
-    <img class="layer lid" {...svgLayer(drawing.lid)} />
+    {
+      drawing.render ? (
+        <Fragment>
+          <Image
+            class="render"
+            src={drawing.render}
+            alt=""
+            widths={[Math.round(drawing.render.width / 2), drawing.render.width]}
+            sizes={`${connectDesk} 31.25rem, 90vw`}
+            quality={90}
+          />
+          {drawing.video && (
+            <video
+              class="render opening"
+              poster={drawing.video.poster.src}
+              data-open={drawing.video.open}
+              data-scrub={drawing.video.scrub}
+              data-mode={mode}
+              muted
+              playsinline
+              preload="none"
+              disablepictureinpicture
+              hidden
+            />
+          )}
+        </Fragment>
+      ) : (
+        <Fragment>
+          <img class="layer" {...svgLayer(drawing.base)} />
+          <Image
+            class="layer"
+            src={drawing.board.image}
+            alt=""
+            widths={[Math.round(drawing.board.image.width / 2), drawing.board.image.width]}
+            sizes={`${connectDesk} 28rem, 90vw`}
+            quality={90}
+            style={place(drawing.board)}
+          />
+          <img class="layer lid" {...svgLayer(drawing.lid)} />
+        </Fragment>
+      )
+    }
   </div>
 </section>
 
 <script>
-  import { reveal } from "../../lib/motion";
+  import { reducedMotion, reveal } from "../../lib/motion";
 
   // Lift the lid when the drawing scrolls into view (styles: .is-armed
   // lowers it, .is-revealed lifts it).
   for (const drawing of document.querySelectorAll("[data-specs-drawing]")) {
     reveal(drawing, { threshold: 0.25 });
+  }
+
+  // The rendered drawing's opening animation, in the section's mode (see
+  // the `mode` prop). Without the script or with reduced motion the
+  // exploded still shows.
+  for (const video of document.querySelectorAll<HTMLVideoElement>("video.opening")) {
+    if (reducedMotion.matches) continue;
+    const mode = video.dataset.mode === "scroll" ? "scroll" : "view";
+    const drawing = video.closest<HTMLElement>("[data-specs-drawing]")!;
+    const section = drawing.closest<HTMLElement>("section")!;
+    video.src = (mode === "scroll" ? video.dataset.scrub : video.dataset.open)!;
+    video.preload = "auto";
+    video.hidden = false;
+
+    if (mode === "view") {
+      new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+            video.currentTime = 0;
+          }
+        },
+        { threshold: 0.35 },
+      ).observe(drawing);
+      continue;
+    }
+
+    // Scroll mode: closed until the section's top has risen above 60% of
+    // the viewport, open once it reaches the top, where the drawing is
+    // pinned and the section fills the screen.
+    const progress = () => {
+      const top = section.getBoundingClientRect().top;
+      const vh = innerHeight;
+      return Math.min(1, Math.max(0, (vh * 0.6 - top) / (vh * 0.6)));
+    };
+    let pending = false;
+    const seek = () => {
+      pending = false;
+      if (!video.duration) return;
+      // Stop a frame short of the end so the last frame stays shown.
+      const t = progress() * (video.duration - 1 / 60);
+      if (!video.seeking && Math.abs(video.currentTime - t) > 1 / 120) video.currentTime = t;
+    };
+    const queue = () => {
+      if (!pending) {
+        pending = true;
+        requestAnimationFrame(seek);
+      }
+    };
+    addEventListener("scroll", queue, { passive: true });
+    addEventListener("resize", queue);
+    video.addEventListener("seeked", queue);
+    video.addEventListener("loadedmetadata", queue);
   }
 </script>
 
@@ -241,6 +350,24 @@ const svgLayer = (layer: Layer) => ({
     position: absolute;
     top: var(--y);
     width: var(--w);
+  }
+
+  .render {
+    display: block;
+    height: 100%;
+    inset: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  /* The opening video sits over the still and shows its own poster
+     (the assembled device) until it plays. */
+  video.render {
+    object-fit: cover;
+  }
+
+  video.render[hidden] {
+    display: none;
   }
 
   .lid {

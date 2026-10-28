@@ -54,7 +54,7 @@ import ConnectPrice from "../../../components/connect/ConnectPrice.astro";
 import ConnectCollaboration from "../../../components/connect/ConnectCollaboration.astro";
 import ConnectSpecs from "../../../components/connect/ConnectSpecs.astro";
 import ConnectFaq from "../../../components/connect/ConnectFaq.astro";
-import { specs, faq, drawing } from "./_content";
+import { specs, faq, drawing, renderDrawing } from "./_content";
 import heroImage from "../../../assets/connect/aux-2/hero.webp";
 import heroMobileImage from "../../../assets/connect/aux-2/hero-mobile.webp";
 import atHomeVideo from "../../../assets/connect/aux-2/at-home.mp4";
@@ -488,6 +488,26 @@ const diagram = [
       groups={specs}
       drawing={drawing}
       drawingAlt="Exploded line drawing of the Connect AUX-2: the lid lifted off the base, showing the circuit board inside"
+    />
+
+    <!-- For comparison while we decide: the same section with the
+         photoreal render, once opening when it comes into view and once
+         opening as it scrolls. Remove the two that are not chosen. -->
+    <ConnectSpecs
+      id="specs-render-view"
+      title="Specifications (render, opens in view)"
+      groups={specs}
+      drawing={renderDrawing}
+      mode="view"
+      drawingAlt="Exploded render of the Connect AUX-2: the feet, screws, case, circuit board and lid lifted apart"
+    />
+    <ConnectSpecs
+      id="specs-render-scroll"
+      title="Specifications (render, opens on scroll)"
+      groups={specs}
+      drawing={renderDrawing}
+      mode="scroll"
+      drawingAlt="Exploded render of the Connect AUX-2: the feet, screws, case, circuit board and lid lifted apart"
     />
 
     <!-- Figma frame "FAQ" (desktop node 2002:36189). -->

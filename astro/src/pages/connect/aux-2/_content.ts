@@ -4,6 +4,10 @@
 import explodedBase from "../../../assets/connect/aux-2/exploded-base.svg";
 import explodedBoard from "../../../assets/connect/aux-2/exploded-board.webp";
 import explodedLid from "../../../assets/connect/aux-2/exploded-lid.svg";
+import explodedRender from "../../../assets/connect/aux-2/exploded-render.png";
+import explodedOpen from "../../../assets/connect/aux-2/exploded-open.mp4";
+import explodedScrub from "../../../assets/connect/aux-2/exploded-scrub.mp4";
+import explodedPoster from "../../../assets/connect/aux-2/exploded-poster.webp";
 
 // The exploded drawing beside the specs (node 2142:53785, 500 × 620.29)
 // in three layers: the lid and base shell as SVG, the circuit board as
@@ -14,6 +18,19 @@ export const drawing = {
   board: { image: explodedBoard, x: 3.44, y: 41.78, w: 90.4 },
   lid: { image: explodedLid, x: 1.31, y: 0, w: 97.8 },
   closed: 60,
+};
+
+// The same drawing as a photoreal Blender render of the exploded device
+// (1000 × 1898: feet, screws, shell, board and lid), cropped so the
+// device spans the full width; it replaces the line-drawing layers and
+// the box takes the render's proportions. Its opening animation runs
+// 2 s at 60 fps, H.264 without sound (665 KB to play, 2.7 MB with every
+// frame a keyframe for scroll scrubbing). Shown below the line drawing
+// while we compare the two.
+export const renderDrawing = {
+  ...drawing,
+  render: explodedRender,
+  video: { open: explodedOpen, scrub: explodedScrub, poster: explodedPoster },
 };
 
 // TODO: the dimensions and weights are empty placeholders in the Figma
