@@ -146,7 +146,7 @@ You can use only one SilverCrest fan with each infrared emitter. Different Silve
 
 {% details "The device does not respond to commands" %}
 
-#### Symptom
+### Symptom
 
 You press a button in Home Assistant, but the device does not respond.
 
@@ -162,7 +162,7 @@ You press a button in Home Assistant, but the device does not respond.
 
 {% details "More than one fan responds to commands" %}
 
-#### Symptom
+### Symptom
 
 A command sent to one SilverCrest fan also affects another fan.
 
@@ -176,13 +176,11 @@ more information, see [Multiple fans](#multiple-fans).
 
 {% enddetails %}
 
-{% details "The problem persists after these checks" %}
-
 For additional troubleshooting steps and guidance, see the [infrared troubleshooting](/integrations/infrared/#troubleshooting) section.
 
 If you need to report an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), then reload the integration. Reproduce the issue, disable debug logging, and attach the automatically downloaded debug log to your report.
 
-{% enddetails %}
+
 
 ## Removing the integration
 
