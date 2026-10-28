@@ -44,11 +44,14 @@ prefix:
   description: Metric prefix to use.
 rate:
   description: The sample rate of UDP packets sent to Datadog.
-Resend unchanged states:
-  description: Send the current state of every entity to Datadog once a minute, even if it hasn't changed. This prevents gaps in graphs and false "no data" alerts for values that rarely change. It's off by default, because sending more data can increase your Datadog usage.
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Resend unchanged states:
+  description: Send the current state of every entity to Datadog once a minute, even if it hasn't changed. This prevents gaps in graphs and false "no data" alerts for values that rarely change. It's off by default, because sending more data can increase your Datadog usage.
+{% endconfiguration_basic %}
 
 ## Removing the integration
 
