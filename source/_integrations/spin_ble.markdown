@@ -55,6 +55,11 @@ The integration creates the following sensors:
 - **Session energy**: Energy delivered during the current or most recent charging session, in kilowatt-hours (kWh). This value resets when a new session starts.
 - **Lifetime energy**: Total energy the charger has delivered over its life, in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
 
+### Binary sensors
+
+- **Plug**: On while a vehicle is plugged in. The charger cannot tell while it is starting up or out of service, so the sensor is off then.
+- **Problem**: On while the charger reports at least one active alarm, such as a mains fault or an open earth wire.
+
 ## Spin EV Charger automation examples
 
 The integration talks to the charger locally, so automations that read or control the charger keep working without an internet connection. Here are a few ideas to get you started.
