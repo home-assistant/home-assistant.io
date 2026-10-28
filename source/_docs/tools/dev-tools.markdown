@@ -133,7 +133,7 @@ Some options, and {% term templates %}, are only available in **YAML mode**. In 
 
 The **Action history** tab lists the {% term actions %} that were performed in Home Assistant during a time range you choose. For each action, it shows what the action targeted, what performed it, and when. Use it to find out why a {% term device %} turned on or off, which {% term automation %} or {% term script %} performed an action, or which data an action was performed with.
 
-The tab is only shown if the [Activity](/integrations/logbook/) integration is loaded. **Activity is part of the [default configuration](/integrations/default_config/). The action history comes from the database that the [Recorder](/integrations/recorder/) maintains, so it only covers the period that the Recorder keeps.
+The tab is only shown if the [Activity](/integrations/logbook/) integration is loaded. **Activity** is part of the [default configuration](/integrations/default_config/). The action history comes from the database that the [Recorder](/integrations/recorder/) maintains, so it only covers the period that the Recorder keeps.
 
 The list shows the following columns:
 
