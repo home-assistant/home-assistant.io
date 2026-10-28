@@ -78,7 +78,7 @@ The **Solyx Energy Cloud** integration provides the following entities.
 
 ## Data updates
 
-The **Solyx Energy Cloud** integration polls data from the device every minute. This uses a cloud connection; therefore, an internet connection is required for the integration to work.
+The **Solyx Energy Cloud** integration polls data from the device every minute. Since it uses a cloud connection, an internet connection is required for the integration to work.
 
 ## Known limitations
 
