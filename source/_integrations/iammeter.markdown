@@ -107,6 +107,10 @@ The integration shows a repair notification if polling returns a different meter
 
 To use a replacement meter, add it separately.
 
+## Community notes
+
+For an overview of other ways to connect IAMMETER meters to Home Assistant, see the [community guide to integration methods](https://community.home-assistant.io/t/four-ways-to-integrate-the-electricity-usage-monitor-iammeter-into-the-home-assistant/485520).
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
