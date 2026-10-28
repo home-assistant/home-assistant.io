@@ -884,6 +884,8 @@ Entity names are now composed from the entity name and its context, which is usu
 
 Cards, badges, and rows on dashboards that don't have a name set now show the device name followed by the entity name, instead of the friendly name. For example, an entity you named "Off-peak consumption" on the "Power meter" device now shows as "Power meter Off-peak consumption". To keep a short name, rename the device and turn on **Use device name** for the entity, or set a name on the card.
 
+Using custom cards? We worked with the creators of dozens of popular custom cards and sent them updates, so they show names the same way as the built-in cards. Many have already added them, so update your custom cards first. If a card still shows a name you don't expect, set a name in the card, or let its creator know. <!-- TODO before final: check the custom card PRs in frontend#51686 and update this if more (or all) are merged -->
+
 Entity IDs, automations, and scripts are not affected. In {% term templates %}, use `entity_name()`, `device_name()`, and `area_name()` instead of the `friendly_name` attribute, which is going to be deprecated.
 
 ([@arturpragacz] - [#184340]) ([@arturpragacz] - [#184341]) ([@piitaya] - [frontend#54725])
