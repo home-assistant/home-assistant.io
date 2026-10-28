@@ -1,8 +1,8 @@
 ---
 title: LibreSync
 description: Instructions on how to integrate audio hubs built on the Libre Wireless LibreSync platform, such as the Platin Stereo Hub, into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_domain: libresync
 ha_ssdp: true
 ha_integration_type: device
