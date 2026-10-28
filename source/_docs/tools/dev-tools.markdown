@@ -133,7 +133,7 @@ Some options, and {% term templates %}, are only available in **YAML mode**. In 
 
 The **Action history** tab lists the {% term actions %} that were performed in Home Assistant during a time range you choose. For each action, it shows what the action targeted, what performed it, and when. Use it to find out why a {% term device %} turned on or off, which {% term automation %} or {% term script %} performed an action, or which data an action was performed with.
 
-The tab is only shown if the [Activity](/integrations/logbook/) integration is loaded. **Activity is part of the [default configuration](/integrations/default_config/). The action history comes from the database that the [Recorder](/integrations/recorder/) maintains, so it only covers the period that the Recorder keeps.
+The tab is only shown if the [Activity](/integrations/logbook/) integration is loaded. **Activity** is part of the [default configuration](/integrations/default_config/). The action history comes from the database that the [Recorder](/integrations/recorder/) maintains, so it only covers the period that the Recorder keeps.
 
 The list shows the following columns:
 
@@ -159,7 +159,7 @@ The list shows the following columns:
      - **User**: The user the action was performed for, if this user isn't already shown as the cause.
      - **Context ID**: The ID of the context that the action was performed in. You can use it to find related events.
      - **Data**: The data the action was performed with, in YAML, such as the targets and options.
-2. Optional: If an automation or a script performed the action, select **View trace** to open its [trace](/docs/automation/troubleshooting/#traces) and see why it ran.
+2. Optional: If **View trace** is shown, select it to open the automation or script's [trace](/docs/automation/troubleshooting/#traces) and see why it ran. This option is only shown while Home Assistant still keeps the trace of that run.
 
 ### Copying the YAML of an action
 
