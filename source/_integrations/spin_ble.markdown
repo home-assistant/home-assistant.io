@@ -1,19 +1,7 @@
 ---
-title: Spin EV Charger
 description: Instructions on how to integrate Exicom Spin EV chargers over Bluetooth Low Energy with Home Assistant.
-ha_categories:
-  - energy.ev_charging
 ha_release: "2026.11"
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Dr-Blank'
 ha_domain: spin_ble
-ha_bluetooth: true
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Spin EV Charger** {% term integration %} connects Home Assistant to [Exicom](https://www.exicom.in/) Spin EV chargers over Bluetooth Low Energy.
@@ -55,6 +43,11 @@ The integration creates the following sensors:
 - **Current**: Current currently being delivered, in amperes (A).
 - **Session energy**: Energy delivered during the current or most recent charging session, in kilowatt-hours (kWh). This value resets when a new session starts.
 - **Lifetime energy**: Total energy the charger has delivered over its life, in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
+
+### Binary sensors
+
+- **Plug**: On while a vehicle is plugged in. The charger cannot tell while it is starting up or out of service, so the sensor is off then.
+- **Problem**: On while the charger reports at least one active alarm, such as a mains fault or an open earth wire.
 
 ## Data updates
 

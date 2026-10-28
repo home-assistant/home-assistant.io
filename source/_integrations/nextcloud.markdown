@@ -1,19 +1,7 @@
 ---
-title: Nextcloud
 description: Instructions on how to integrate Nextcloud monitor api data into Home Assistant.
-ha_categories:
-  - computers_network.nas_servers
-ha_iot_class: Cloud Polling
 ha_release: 0.108
 ha_domain: nextcloud
-ha_config_flow: true
-ha_codeowners:
-  - '@mib1185'
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - update
-ha_integration_type: service
 ---
 
 The **Nextcloud** {% term integration %} pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.

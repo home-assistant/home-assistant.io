@@ -1,21 +1,7 @@
 ---
-title: LED Infrared
 description: Integration to control LED infrared lights using an infrared emitter and to receive commands from a remote using an infrared receiver.
-ha_categories:
-  - lighting
 ha_release: 2026.8
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@tr4nt0r'
 ha_domain: led_infrared
-ha_config_flow: true
-ha_platforms:
-  - button
-  - diagnostics
-  - event
-  - light
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **LED Infrared** {% term integration %} lets you control lights with any infrared emitter that has been previously configured in Home Assistant. It can also receive commands from a remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
@@ -225,8 +211,7 @@ The following example demonstrates how to automate an LED Infrared device. For a
 
 ### Automation: Turning on the LED strip at night
 
-- **Trigger**: Sun: after sunset
-  - **Target**: Optional trigger target if needed
+- **Trigger**: Sunset
 - **Condition**: Optional condition if needed
 - **Action**: Turn on light
 
@@ -236,8 +221,7 @@ The following example demonstrates how to automate an LED Infrared device. For a
 automation: |
   alias: "Turn on the LEDs during the night"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: light.turn_on
       target:
