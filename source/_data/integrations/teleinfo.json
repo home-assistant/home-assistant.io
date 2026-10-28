@@ -1,0 +1,17 @@
+{
+  "domain": "teleinfo",
+  "name": "Teleinfo",
+  "integration_type": "device",
+  "codeowners": [
+    "@esciara"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

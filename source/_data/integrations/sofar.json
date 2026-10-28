@@ -1,0 +1,22 @@
+{
+  "domain": "sofar",
+  "name": "Sofar",
+  "integration_type": "device",
+  "codeowners": [
+    "@darkrain-nl"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "select",
+    "sensor",
+    "switch"
+  ]
+}

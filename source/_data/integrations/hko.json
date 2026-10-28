@@ -1,0 +1,16 @@
+{
+  "domain": "hko",
+  "name": "Hong Kong Observatory",
+  "integration_type": "service",
+  "codeowners": [
+    "@MisterCommand"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "platforms": [
+    "weather"
+  ]
+}

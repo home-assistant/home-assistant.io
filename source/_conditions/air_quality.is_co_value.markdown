@@ -58,7 +58,7 @@ This passes when the hallway CO sensor reads above 35 ppm.
    unit_example_value="9"
    threshold_required="true" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="carbon monoxide sensor" example="sensor.hallway_carbon_monoxide" %}
 
 {% include conditions/behavior.md %}
 

@@ -1,0 +1,13 @@
+{
+  "domain": "mochad",
+  "name": "Mochad",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "hubs_protocols.wireless_protocols"
+  ],
+  "platforms": [
+    "light",
+    "switch"
+  ]
+}

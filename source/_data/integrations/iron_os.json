@@ -1,0 +1,27 @@
+{
+  "domain": "iron_os",
+  "name": "IronOS",
+  "integration_type": "device",
+  "codeowners": [
+    "@tr4nt0r"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "diy_makers.boards_hardware"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

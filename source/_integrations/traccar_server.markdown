@@ -1,18 +1,7 @@
 ---
-title: Traccar Server
 description: Documentation for the Traccar Server integration.
 ha_release: 2024.2
-ha_categories:
-  - presence_location.trackers
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: traccar_server
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - diagnostics
-  - sensor
-ha_integration_type: integration
 ---
 
 Traccar uses GPS for tracking and has support for over 1500 different types of devices. You can use the Traccar Server integration to communicate with your own [Traccar Server](https://www.traccar.org/server/), which is also available as [Home Assistant add-on](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_traccar).
@@ -85,7 +74,7 @@ For more details about each of these, see the sections below.
 
 The Traccar Server integration will create a [binary_sensor](/integrations/binary_sensor) entity for each device registered in Traccar Server to show the motion reported by the Traccar Server.
 
-This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 {% configuration_basic %}
 Name:

@@ -1,0 +1,9 @@
+{
+  "domain": "binary_sensor",
+  "name": "Binary sensor",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}
