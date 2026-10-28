@@ -270,14 +270,14 @@ You see this in dashboards, settings, the activity and logbook, the voice assist
 
 A few things to know:
 
-- **Renaming an entity** only renames the entity. If you want to change the name of the device, rename the device. For the main entity of a device, which should go by the name of the device, turn on **Use device name** in its settings.
+- **Renaming an entity** only renames the entity. If you want to change the name of the device, rename the device. If an entity represents the main function of its device, turn on **Main entity of the device** in its settings, and it goes by the name and the area of the device.
 - **Devices with multiple parts**, like a power strip, now get a {% term device %} per part, each with its own name and {% term area %}. These are called child devices. A child device inherits the area of its parent, until you give it one of its own. Integrations are moving to them one by one, starting with the multi-channel switches in Tuya.
 - **Your own names are kept.** Home Assistant migrates names you set. If an entity's displayed name changes, the old name remains an alias for voice assistants. For example, "turn on the ceiling light" continues to work.
 - **Templates:** The `friendly_name` attribute is planned for deprecation. Use [`entity_name()`](/template-functions/entity_name/), [`device_name()`](/template-functions/device_name/), and [`area_name()`](/template-functions/area_name/) to build the name you need.
 
 What doesn't change: entity IDs. Your {% term automations %}, {% term scripts %}, and dashboards keep working.
 
-We are upfront about one thing: this is a backward-incompatible change. Some names look different after the update, and you notice that most on your dashboards. Cards, badges, and rows without a name now show the device name followed by the entity name, instead of the friendly name. Making them shorter is quick: rename the device or the entity, turn on **Use device name** for the main entity, or set a name on the card. The details are in the [backward-incompatible changes](#backward-incompatible-changes) below.
+We are upfront about one thing: this is a backward-incompatible change. Some names look different after the update, and you notice that most on your dashboards. Cards, badges, and rows without a name now show the device name followed by the entity name, instead of the friendly name. Making them shorter is quick: rename the device or the entity, turn on **Main entity of the device** for the entity that represents the device, or set a name on the card. The details are in the [backward-incompatible changes](#backward-incompatible-changes) below.
 
 This is the short version. A separate blog post about entity naming follows before the release, and tells the full story.
 
@@ -941,7 +941,7 @@ For units that don't report a previous mode, `turn_on` falls back to cooling rat
 
 Entity names are now composed from the entity name and its context, which is usually the name of its device. Names you gave an entity yourself are migrated and follow the same rules. Where the full name of an entity changes because of this, the old name is kept as an alias for your voice assistants, and in the `friendly_name` attribute until the name is changed.
 
-Cards, badges, and rows on dashboards that don't have a name set now show the device name followed by the entity name, instead of the friendly name. For example, an entity you named "Off-peak consumption" on the "Power meter" device now shows as "Power meter Off-peak consumption". To keep a short name, rename the device and turn on **Use device name** for the entity, or set a name on the card.
+Cards, badges, and rows on dashboards that don't have a name set now show the device name followed by the entity name, instead of the friendly name. For example, an entity you named "Off-peak consumption" on the "Power meter" device now shows as "Power meter Off-peak consumption". To keep a short name, rename the device and turn on **Main entity of the device** for the entity, or set a name on the card.
 
 Using custom cards? We worked with the creators of dozens of popular custom cards and sent them updates, so they show names the same way as the built-in cards. Many have already added them, so update your custom cards first. If a card still shows a name you don't expect, set a name in the card, or let its creator know. <!-- TODO before final: check the custom card PRs in frontend#51686 and update this if more (or all) are merged -->
 
