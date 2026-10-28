@@ -83,7 +83,7 @@ Power factor uses a unitless ratio by default, such as `0.95`. Earlier versions 
 
 ## Data updates
 
-The integration polls the meter every 30 seconds by default. An existing polling interval imported from YAML is retained. There is no integration-specific polling interval setting in the setup form.
+The integration polls the meter every 30 seconds. There is no integration-specific polling interval setting. An old `scan_interval` value in YAML is ignored, matching the previous integration's fixed polling behavior.
 
 If a read fails, the affected sensors become unavailable. They recover automatically after a successful poll.
 
