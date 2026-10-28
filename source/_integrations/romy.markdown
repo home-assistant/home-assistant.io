@@ -1,20 +1,7 @@
 ---
-title: ROMY Vacuum Cleaner
 description: Integrate your ROMY vacuum robot with Home Assistant.
-ha_category:
-  - Vacuum
-ha_iot_class: Local Polling
 ha_release: 2024.2
-ha_config_flow: true
-ha_codeowners:
-  - '@xeniter'
 ha_domain: romy
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - vacuum
-ha_integration_type: device
-ha_zeroconf: true
 ---
 
 The **ROMY** {% term integration %} allows you to control your [ROMY](https://www.romyrobot.com) vacuum robot.

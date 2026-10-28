@@ -1,19 +1,7 @@
 ---
-title: Fresh-r
 description: Instructions on how to integrate Fresh-r ventilation solutions within Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 2026.4
-ha_iot_class: Cloud Polling
 ha_domain: freshr
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_codeowners:
-  - '@SierraNL'
-ha_quality_scale: platinum
 ---
 
 The **Fresh-r** {% term integration %} connects to the [fresh-r.me](https://www.fresh-r.me/) cloud dashboard, letting you monitor all Fresh-r ventilation devices linked to your account. It polls the Fresh-r cloud to keep your data up to date. Use it to keep an eye on your indoor air quality and ventilation performance, or to trigger automations when CO2 or humidity levels need attention.
@@ -69,7 +57,7 @@ The integration provides the following sensors:
 - **Dew point**
   - **Description**: Dew point temperature of the indoor air, in °C.
   - **Available for**: All devices
-  - **Remarks**: Disabled by default.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **Temperature**
   - **Description**: Indoor temperature, in °C.

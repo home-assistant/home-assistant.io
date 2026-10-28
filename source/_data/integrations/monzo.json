@@ -1,0 +1,19 @@
+{
+  "domain": "monzo",
+  "name": "Monzo",
+  "integration_type": "service",
+  "codeowners": [
+    "@jakemartin-icl"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "finance"
+  ],
+  "platforms": [
+    "diagnostics",
+    "event",
+    "sensor"
+  ]
+}

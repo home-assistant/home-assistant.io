@@ -1,5 +1,5 @@
 ---
-title: "Put file"
+title: "Put"
 action: minio.put
 domain: minio
 description: "Uploads a file from the local file system to a MinIO bucket."
@@ -8,7 +8,7 @@ related_actions:
   - minio.remove
 ---
 
-The **Put** action uploads a file from the local file system to a MinIO bucket.
+The **Minio: Put** action uploads a file from the local file system to a MinIO bucket.
 
 This is useful when you want to store a file in MinIO, for example to keep a camera snapshot or a generated report in object storage.
 
@@ -87,7 +87,9 @@ file_path:
 
 When motion is detected, take a snapshot and upload it to a MinIO bucket for storage.
 
-- **Trigger**: A motion sensor turns on
+- **Trigger**: State changed
+  - **Entity**: Front door motion sensor
+  - **To**: Detected
 - **Action**: Camera: Take snapshot, followed by Minio: Put
 
 {% details "YAML example for uploading a snapshot" %}

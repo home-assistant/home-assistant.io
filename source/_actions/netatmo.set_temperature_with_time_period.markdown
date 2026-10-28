@@ -21,7 +21,7 @@ To set a temperature for a time period from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Netatmo climate device you want to control.
-6. From the actions shown for that target, select **Set temperature with time period**.
+6. From the actions shown for that target, under **Netatmo**, select **Set temperature with time period**.
 7. Set the **Target temperature** and the **Time period**.
 8. Select **Save**.
 
@@ -64,7 +64,7 @@ time_period:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Netatmo thermostat" example="climate.living_room" %}
 
 ## Good to know
 

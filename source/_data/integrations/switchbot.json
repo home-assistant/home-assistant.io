@@ -1,0 +1,41 @@
+{
+  "domain": "switchbot",
+  "name": "SwitchBot Bluetooth",
+  "integration_type": "device",
+  "codeowners": [
+    "@danielhiversen",
+    "@RenierM26",
+    "@murtas",
+    "@Eloston",
+    "@dsypniewski",
+    "@zerzhang"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "gold",
+  "categories": [
+    "sensors",
+    "blinds_curtains",
+    "plugs_switches"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "diagnostics",
+    "event",
+    "fan",
+    "humidifier",
+    "light",
+    "lock",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "vacuum"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

@@ -1,21 +1,7 @@
 ---
-title: Gatus
 description: Instructions on how to integrate Gatus with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_release: 2026.8
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@TN-1'
 ha_domain: gatus
-ha_integration_type: service
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_quality_scale: platinum
 ---
 
 The **Gatus** {% term integration %} connects Home Assistant with your [Gatus](https://gatus.io) monitoring instance. Gatus is a developer-oriented health dashboard that lets you monitor your services using HTTP, ICMP, TCP, and DNS queries, and evaluate results based on conditions like status codes, response times, certificate expiration, and response bodies.

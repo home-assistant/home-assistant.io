@@ -1,14 +1,7 @@
 ---
-title: Calendar
 description: Instructions on how to integrate calendars within Home Assistant.
 ha_release: 0.33
 ha_domain: calendar
-ha_quality_scale: internal
-ha_category:
-  - Calendar
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 The **Calendar** {% term integration %} provides calendar {% term entities %}, allowing other integrations to integrate calendars into Home Assistant. Calendars are shown on the calendar dashboard and can be used with automations.
@@ -90,7 +83,7 @@ automation:
 
 Calendar triggers should not generally use automation mode `single` to ensure the trigger can fire when multiple events start at the same time. For example, use `queued` or `parallel` instead. Note that calendars are read once every 15 minutes. When testing, make sure you do not plan events less than 15 minutes away from the current time, or your {% term trigger %} might not fire.
 
-See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
+See [Automation Trigger Variables: Calendar](/docs/automation/trigger-data/#calendar-triggers) for additional trigger data available for conditions or actions.
 
 ### Automation recipes
 

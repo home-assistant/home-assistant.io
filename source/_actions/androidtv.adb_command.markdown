@@ -72,8 +72,9 @@ command:
 
 Send the `SLEEP` command to put the device to sleep on a schedule.
 
-- **Trigger**: Time is 11:00 PM
-- **Action**: ADB command
+- **Trigger**: Time
+  - **At time**: `23:00`
+- **Action**: Android Debug Bridge: ADB command
   - **Target**: Living room Fire TV
   - **Command**: `SLEEP`
 

@@ -1,0 +1,13 @@
+{
+  "domain": "otbr",
+  "name": "OpenThread Border Router",
+  "integration_type": "service",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "hubs_protocols.wireless_protocols"
+  ]
+}

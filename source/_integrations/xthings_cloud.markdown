@@ -1,21 +1,7 @@
 ---
-title: Xthings Cloud
 description: Connect and control Xthings Cloud smart home devices with Home Assistant.
 ha_release: 2026.6
-ha_category:
-  - Light
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@XthingsJacobs'
 ha_domain: xthings_cloud
-ha_integration_type: hub
-ha_platforms:
-  - camera
-  - light
-  - lock
-  - switch
-ha_quality_scale: bronze
 ---
 
 The **Xthings Cloud** {% term integration %} allows you to control and monitor your [Xthings](https://xthings.com) smart home devices through the Xthings Cloud service. This integration currently supports the **U-tec Bright A19 Color** smart light bulb.

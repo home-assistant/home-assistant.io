@@ -1,18 +1,10 @@
 ---
-title: Edimax
 description: Instructions on how to integrate Edimax switches into Home Assistant.
-ha_category:
-  - Switch
 ha_release: pre 0.7
-ha_iot_class: Local Polling
 ha_domain: edimax
-ha_platforms:
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 This **Edimax** {% term integration %} allows you to control the state of your [Edimax](https://www.edimax.com/edimax/merchandise/merchandise_list/data/edimax/global/home_automation_smart_plug/) switches.

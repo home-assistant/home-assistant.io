@@ -1,0 +1,9 @@
+{
+  "domain": "lock",
+  "name": "Lock",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

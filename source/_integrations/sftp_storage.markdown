@@ -1,18 +1,9 @@
 ---
-title: SFTP Storage
 description: Allows storing backups created with Backup system onto remote SFTP host.
-ha_category:
-  - Backup
 ha_release: '2025.10'
-ha_quality_scale: silver
 ha_domain: sftp_storage
-ha_codeowners:
-  - '@maretodoric'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_integration_type: service
 related:
-  - docs: /common-tasks/general/#backups
+  - docs: /common-tasks/general/backups/
     title: Backups
   - docs: /more-info/backup-emergency-kit/
     title: Backup emergency kit
@@ -20,7 +11,7 @@ related:
 
 The **SFTP Storage** {% term integration %} works with the core [Backup](/integrations/backup) integration. When you enable **SFTP Storage** in the **Locations** section of your [Backup](/integrations/backup) integration settings, Home Assistant automatically stores manual and automatic backups on your remote SSH/SFTP server.
 
-To learn how to create and restore a backup, refer to the backup section under [common tasks](/common-tasks/general/#backups).
+To learn how to create and restore a backup, refer to the backup section under [common tasks](/common-tasks/general/backups/).
 
 {% include integrations/config_flow.md %}
 

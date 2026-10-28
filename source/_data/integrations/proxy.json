@@ -1,0 +1,11 @@
+{
+  "domain": "proxy",
+  "name": "Camera Proxy",
+  "quality_scale": "legacy",
+  "categories": [
+    "security_safety.cameras"
+  ],
+  "platforms": [
+    "camera"
+  ]
+}

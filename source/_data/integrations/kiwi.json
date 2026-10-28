@@ -1,0 +1,12 @@
+{
+  "domain": "kiwi",
+  "name": "KIWI",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "security_safety.locks_access"
+  ],
+  "platforms": [
+    "lock"
+  ]
+}

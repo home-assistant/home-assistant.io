@@ -8,7 +8,7 @@ related_actions:
   - rainmachine.stop_all
 ---
 
-The **Stop program** action stops a running RainMachine watering program. Each program is represented by a switch entity, and this action turns that program off.
+The **RainMachine: Stop program** action stops a running RainMachine watering program. Each program is represented by a switch entity, and this action turns that program off.
 
 {% include actions/ui_header.md %}
 

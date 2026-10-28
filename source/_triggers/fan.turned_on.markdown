@@ -58,9 +58,9 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the fan must stay on before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the fan must stay on before the trigger fires. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

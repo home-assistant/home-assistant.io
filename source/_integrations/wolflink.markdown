@@ -1,19 +1,7 @@
 ---
-title: Wolf SmartSet Service
 description: Instructions on how to integrate Wolf Smart-Set cloud within Home Assistant.
-ha_category:
-  - Climate
 ha_release: 0.114
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@adamkrol93'
-  - '@EnjoyingM'
 ha_domain: wolflink
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Wolf SmartSet Service** {% term integration %} uses the [Wolf Smart-Set](https://www.wolf-smartset.com/) web service as a source to fetch the status of your Wolf heating, heat pump, and solar thermal systems.

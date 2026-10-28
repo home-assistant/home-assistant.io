@@ -11,8 +11,8 @@ source/_data/alerts_data.json
 source/_data/language_scores.json
 source/_data/codeowners.json
 source/_data/wwha_devices.json
-source/_data/allowed_referrers.json
 source/_data/meetups_data.json
+source/_data/newsletter_data.json
 source/_stash
 source/stylesheets/homeassistant/pages/**/*.css
 source/stylesheets/screen.css

@@ -9,7 +9,7 @@ related_actions:
   - icloud.update
 ---
 
-The **Display message** action shows a message on one of your Apple devices. It can also play a sound at the same time.
+The **Apple iCloud: Display message** action shows a message on one of your Apple devices. It can also play a sound at the same time.
 
 This is useful for getting a note to a device, for example to leave instructions on a lost device or to alert whoever has it.
 
@@ -95,7 +95,8 @@ sound:
 
 When dinner time arrives, show a message on a family member's phone.
 
-- **Trigger**: A daily time trigger
+- **Trigger**: Time
+  - **At time**: `18:00`
 - **Action**: Apple iCloud: Display message
 
 {% details "YAML example for showing a dinner reminder" %}

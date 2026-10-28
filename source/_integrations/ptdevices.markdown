@@ -1,21 +1,7 @@
 ---
-title: PTDevices
 description: Instructions on how to integrate your PTLevel into Home Assistant.
 ha_release: 2026.6
-ha_category:
-  - Binary sensor
-  - Sensor
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_iot_class: Cloud Polling
-ha_quality_scale: bronze
-ha_config_flow: true
-ha_codeowners:
-  - '@ParemTech-Inc'
-  - '@frogman85978'
 ha_domain: ptdevices
-ha_integration_type: hub
 ---
 
 The **PTDevices** {% term integration %} allows you to integrate your [PTLevel](https://paremtech.com/wireless-ptlevel/) into Home Assistant.
@@ -75,7 +61,7 @@ The PTDevices integration provides the following entities.
 
 {% note %}
 
-Some sensors are disabled by default because they provide information that is only useful for particular use cases. You can manually enable them in {% my entities title="**Settings** > **Devices & services** > **Entities**" %}> the sensor entity you want to enable > **Advanced settings** > **Enabled**.
+Some sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because they provide information that is only useful for particular use cases. You can manually enable them in {% my entities title="**Settings** > **Devices & services** > **Entities**" %}> the sensor entity you want to enable > **Advanced settings** > **Enabled**.
 
 {% endnote %}
 

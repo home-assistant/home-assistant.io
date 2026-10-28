@@ -1,30 +1,7 @@
 ---
-title: LG ThinQ
 description: Setup for LG ThinQ Integration.
-ha_category:
-  - Hub
 ha_release: '2024.11'
-ha_iot_class: Cloud Push
-ha_code_owners:
-  - '@LG-ThinQ-Integration'
-ha_config_flow: true
 ha_domain: lg_thinq
-ha_platforms:
-  - binary_sensor
-  - climate
-  - event
-  - fan
-  - humidifier
-  - number
-  - select
-  - sensor
-  - switch
-  - vacuum
-  - water_heater
-ha_integration_type: hub
-ha_codeowners:
-  - '@LG-ThinQ-Integration'
-ha_dhcp: true
 ---
 
 The **LG ThinQ** {% term integration %} allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:

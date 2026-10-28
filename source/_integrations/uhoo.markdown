@@ -1,18 +1,7 @@
 ---
-title: uHoo
 description: Instructions on how to integrate uHoo with Home Assistant
 ha_release: 2026.2
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@getuhoo'
-  - '@joshsmonta'
 ha_domain: uhoo
-ha_integration_type: hub
-ha_category: []
-ha_quality_scale: silver
-ha_platforms:
-  - sensor
-ha_config_flow: true
 ---
 
 The **uHoo** {% term integration %} lets you integrate [uHoo](https://getuhoo.com) devices into Home Assistant.

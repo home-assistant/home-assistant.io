@@ -1,5 +1,5 @@
 ---
-title: "Set the full state of a Sensibo device"
+title: "Set full state"
 action: sensibo.full_state
 domain: sensibo
 description: "Sends a complete state to a Sensibo climate device in a single command."
@@ -21,7 +21,7 @@ To set the full state from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sensibo climate device.
-6. From the actions shown for that target, select **Sensibo: Set full state**.
+6. From the actions shown for that target, under **Sensibo**, select **Set full state**.
 7. Select the **HVAC mode** and set the other options your device supports.
 8. Select **Save**.
 
@@ -105,7 +105,8 @@ light:
 
 Apply a complete state to the HVAC device every day at 6 PM.
 
-- **Trigger**: Every day at 18:00
+- **Trigger**: Time
+  - **At time**: `18:00`
 - **Action**: Sensibo: Set full state
   - **Target**: Living room
 

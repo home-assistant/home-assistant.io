@@ -84,9 +84,9 @@ code:
 
 Arm the home alarm in away mode using a PIN code. Useful as a quick action on a dashboard tile before you head out.
 
-- **Action**: Alarm control panel: Arm alarm away
-- **Target**: Home alarm
-- **Code**: 1234
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming away with a code" %}
 
@@ -107,8 +107,9 @@ When the last person walks out the door, arm the alarm in away mode. A simple wa
 
 - **Trigger**: Zone occupancy cleared
   - **Zone**: Home (`zone.home`)
-- **Action**: Alarm control panel: Arm alarm away
-- **Target**: Home alarm
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming when everyone leaves" %}
 
@@ -134,10 +135,13 @@ automation: |
 If you leave for work at the same time every day, arm the alarm automatically at 8:30 in the morning on weekdays.
 
 - **Trigger**: Time: 08:30
-- **Condition**: Day of the week is Monday to Friday
-- **Condition**: Nobody is home
-- **Action**: Alarm control panel: Arm alarm away
-- **Target**: Home alarm
+- **Condition**: Time
+  - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, Friday
+- **Condition**: Zone occupancy is not detected
+  - **Zone**: Home
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for a scheduled workday arm" %}
 

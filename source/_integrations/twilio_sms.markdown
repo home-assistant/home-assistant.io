@@ -1,15 +1,7 @@
 ---
-title: Twilio SMS
 description: Instructions on how to add Twilio SMS notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_release: '0.20'
 ha_domain: twilio_sms
-ha_iot_class: Cloud Push
-ha_platforms:
-  - notify
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **Twilio SMS** {% term integration %} enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
@@ -57,8 +49,7 @@ Media can be included with messages by setting the optional `media_url` variable
 automation:
   - alias: "The sun has set"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: notify.twilio_sms
         data:

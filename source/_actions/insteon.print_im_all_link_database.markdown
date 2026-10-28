@@ -8,7 +8,7 @@ related_actions:
   - insteon.print_all_link_database
 ---
 
-The **Print IM All-Link database** action prints the All-Link database (ALDB) for the Insteon Modem (IM) to the Home Assistant log.
+The **Insteon: Print IM All-Link database** action prints the All-Link database (ALDB) for the Insteon Modem (IM) to the Home Assistant log.
 
 This is useful when you want to review which links the modem itself has stored, for example to troubleshoot how your Insteon network is set up.
 

@@ -1,31 +1,7 @@
 ---
-title: LCN
 description: Instructions on how to integrate LCN components with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Hub
-  - Light
-  - Scene
-  - Sensor
-  - Switch
 ha_release: 0.85
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@alengwenus'
 ha_domain: lcn
-ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - light
-  - scene
-  - sensor
-  - switch
-ha_config_flow: true
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **LCN** {% term integration %} for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
@@ -98,7 +74,7 @@ From the LCN Configuration Panel, you can configure your LCN modules, groups, an
 
 ### Configuring devices
 
-You can add and remove modules and groups directly from the configuration panel. Once added, they will appear in Home Assistant as devices, which can be used to trigger [specific actions](#actions) within scripts or automations. For examples, refer to the [Performing actions](/docs/scripts/perform-actions/) page.
+You can add and remove modules and groups directly from the configuration panel. Once added, they will appear in Home Assistant as devices, which can be used to trigger [specific actions](#actions) within scripts or automations. For examples, refer to [Actions in automations and scripts](/docs/automation/action/).
 
 The **Modules / Groups** tab provides an overview of your configured LCN modules and groups, showing their name, ID, and segment ID. The LCN Configuration Panel attempts to derive names from the LCN modules; if a module has no name or is part of a group, a standard name is assigned.
 

@@ -1,0 +1,19 @@
+{
+  "domain": "command_line",
+  "name": "Command line",
+  "codeowners": [
+    "@gjohansson-ST"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "diy_makers"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "cover",
+    "notify",
+    "sensor",
+    "switch"
+  ]
+}

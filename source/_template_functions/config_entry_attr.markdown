@@ -7,7 +7,7 @@ available_as:
   - filter
 category: entity
 return_type: any
-limited: false
+limited: true
 since: "2023.3"
 related_functions:
   - config_entry_id
@@ -71,8 +71,9 @@ The following attributes can be retrieved from a config entry:
 
 ## Good to know
 
-- Returns `None` when the config entry does not exist or when the attribute name is not one of the supported ones.
-- Only the fixed attribute names listed above are allowed. Arbitrary field names are rejected.
+- Returns `None` when the config entry does not exist.
+- Only the fixed attribute names listed above are allowed. Any other attribute name causes the error **Invalid config entry attribute**, even if the config entry doesn't exist.
+- The config entry ID must be text. If it's `None`, the template fails with the error **Must provide a config entry ID**. This happens, for example, when you pass the result of [`config_entry_id`](/template-functions/config_entry_id/) for an entity that you set up in YAML, because that entity has no config entry.
 - The input is the config entry ID, not an entity ID. Resolve from an entity with [`config_entry_id`](/template-functions/config_entry_id/) first.
 
 {% include template_functions/try_it.md %}

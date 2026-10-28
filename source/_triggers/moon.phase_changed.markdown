@@ -60,11 +60,20 @@ phase:
   default: any
 {% endoptions_yaml %}
 
+## Trigger variables
+
+When the trigger reacts, the `trigger` variable contains the following data:
+
+- `trigger.phase`: The new moon phase, such as `full_moon`.
+- `trigger.previous_phase`: The previous moon phase, such as `waxing_gibbous`.
+
+This trigger doesn't include `trigger.entity_id`, `trigger.from_state`, or `trigger.to_state`. For the data that all triggers include, refer to [Trigger data in templates](/docs/automation/trigger-data/#properties-of-all-triggers).
+
 ## Good to know
 
 - This trigger does not use a target. It follows the moon phase, which is the same everywhere on Earth, so it does not depend on your [home location](/docs/configuration/basic/).
 - The phase is based on the date, so the trigger fires at most once a day, when the phase changes.
-- With a specific phase selected, the trigger fires the moment the moon enters that phase, not for the whole time the moon stays in it. To check whether the moon is currently in a phase, use a [state condition](/docs/scripts/conditions/#state-condition) for `sensor.moon` instead.
+- With a specific phase selected, the trigger fires the moment the moon enters that phase, not for the whole time the moon stays in it. To check whether the moon is currently in a phase, use a [State condition](/conditions/state/) for `sensor.moon` instead.
 
 {% include triggers/try_it.md %}
 

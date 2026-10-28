@@ -1,26 +1,8 @@
 ---
-title: Music Assistant
 description: Instructions on how to integrate Music Assistant into Home Assistant.
 featured: true
-ha_category:
-  - Media player
 ha_release: 2024.12
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@music-assistant'
-  - '@arturpragacz'
 ha_domain: music_assistant
-ha_platforms:
-  - button
-  - media_player
-  - number
-  - select
-  - switch
-  - text
-ha_zeroconf: true
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://www.music-assistant.io/). Once configured, all [MA Players](https://www.music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.

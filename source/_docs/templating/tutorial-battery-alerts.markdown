@@ -63,7 +63,8 @@ template: |
     | selectattr('attributes.device_class', 'eq', 'battery')
     | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
     {% if sensor.state | float(100) < 20 %}
-      {% set low.batteries = low.batteries + [device_name(sensor.entity_id)] %}
+      {% set device = device_name(sensor.entity_id) or sensor.name %}
+      {% set low.batteries = low.batteries + [device] %}
     {% endif %}
   {% endfor %}
   {{ low.batteries }}
@@ -77,7 +78,7 @@ Read it left to right:
 3. If its state (converted to a number) is below `20`...
 4. Add that sensor's **device** name to `low.batteries`.
 
-Why the device name? With modern Home Assistant naming, a battery sensor's own name is often only "Battery", which is not very helpful in a notification. The [`device_name`](/template-functions/device_name/) function gives you back the friendly name of the device the sensor is attached to (like "Front door lock" or "Motion sensor").
+Why the device name? With modern Home Assistant naming, a battery sensor's own name is often only "Battery", which is not very helpful in a notification. The [`device_name`](/template-functions/device_name/) function gives you back the friendly name of the device the sensor is attached to (like "Front door lock" or "Motion sensor"). Some sensors don't belong to a device, for example, a battery sensor you created as a helper. For those, `device_name` returns `None`, so `or sensor.name` uses the sensor's own name instead.
 
 You should see a list of device names with low batteries. If the list is empty, you can temporarily raise the threshold (change `20` to `100`) to confirm the template is working.
 
@@ -96,7 +97,7 @@ template: |
      | selectattr('attributes.device_class', 'eq', 'battery')
      | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
     {% if sensor.state | float(100) < 20 %}
-      {% set device = device_name(sensor.entity_id) %}
+      {% set device = device_name(sensor.entity_id) or sensor.name %}
       {% set area = area_name(sensor.entity_id) %}
       {% set label = device ~ (' in ' ~ area if area else '')
          ~ ' (' ~ sensor.state ~ '%)' %}
@@ -108,7 +109,8 @@ template: |
   {% elif low.batteries | count == 1 %}
     1 device needs a new battery: {{ low.batteries[0] }}.
   {% else %}
-    {{ low.batteries | count }} devices need new batteries: {{ low.batteries | join(', ') }}.
+    {{ low.batteries | count }} devices need new batteries: {{
+       low.batteries | join(', ') }}.
   {% endif %}
 output: |-
   3 devices need new batteries: Front door lock in Hallway (15%),
@@ -160,7 +162,7 @@ action: |
            | selectattr('attributes.device_class', 'eq', 'battery')
            | rejectattr('state', 'in', ['unknown', 'unavailable']) %}
           {% if sensor.state | float(100) < 20 %}
-            {% set device = device_name(sensor.entity_id) %}
+            {% set device = device_name(sensor.entity_id) or sensor.name %}
             {% set area = area_name(sensor.entity_id) %}
             {% set label = device ~ (' in ' ~ area if area else '')
                ~ ' (' ~ sensor.state ~ '%)' %}
@@ -172,7 +174,8 @@ action: |
         {% elif low.batteries | count == 1 %}
           1 device needs a new battery: {{ low.batteries[0] }}.
         {% else %}
-          {{ low.batteries | count }} devices need new batteries: {{ low.batteries | join(', ') }}.
+          {{ low.batteries | count }} devices need new batteries: {{
+             low.batteries | join(', ') }}.
         {% endif %}
 {% endexample %}
 
@@ -206,7 +209,8 @@ template: |
   {% for binary_sensor in states.binary_sensor
      | selectattr('attributes.device_class', 'eq', 'battery')
      | selectattr('state', 'eq', 'on') %}
-    {% set device = device_name(binary_sensor.entity_id) %}
+    {% set device = device_name(binary_sensor.entity_id)
+       or binary_sensor.name %}
     {% set area = area_name(binary_sensor.entity_id) %}
     {% set label = device ~ (' in ' ~ area if area else '')
        ~ ' (Low)' %}

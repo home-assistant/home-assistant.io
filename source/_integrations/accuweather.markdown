@@ -1,19 +1,7 @@
 ---
-title: AccuWeather
 description: Instructions on how to integrate AccuWeather within Home Assistant.
-ha_category:
-  - Weather
 ha_release: 0.114
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bieniu'
 ha_domain: accuweather
-ha_platforms:
-  - diagnostics
-  - sensor
-  - weather
-ha_integration_type: service
 ---
 
 The **AccuWeather** {% term integration %} uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location. A paid subscription is required to use this integration.

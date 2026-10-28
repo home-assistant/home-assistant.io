@@ -1,0 +1,14 @@
+{
+  "domain": "tod",
+  "name": "Times of the Day",
+  "integration_type": "helper",
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

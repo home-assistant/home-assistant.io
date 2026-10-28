@@ -1,22 +1,7 @@
 ---
-title: Kaleidescape
 description: Instructions on how to integrate Kaleidescape into Home Assistant.
-ha_category:
-  - Media player
-  - Remote
-  - Sensor
 ha_release: '2022.4'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_ssdp: true
-ha_codeowners:
-  - '@SteveEasley'
 ha_domain: kaleidescape
-ha_platforms:
-  - media_player
-  - remote
-  - sensor
-ha_integration_type: device
 ---
 
 The **Kaleidescape** {% term integration %} allows for the automation of [Kaleidescape](https://www.kaleidescape.com/) movie players.

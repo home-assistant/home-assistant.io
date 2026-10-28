@@ -48,8 +48,6 @@ This fires when `timer.movie_break` is paused.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple timers are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
@@ -57,9 +55,9 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the timer must remain paused before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the timer must remain paused before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

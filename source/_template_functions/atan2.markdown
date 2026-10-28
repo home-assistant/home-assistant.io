@@ -39,7 +39,7 @@ output: "0.7853981633974483"
 atan2(
     y: Any,
     x: Any,
-    default: Any = None,
+    default: Any,
 ) -> float
 ```
 
@@ -60,7 +60,7 @@ x:
   type: float
 default:
   description: >
-    Value to return if the calculation fails (for example, if either input is not numeric). If not provided, an error is raised instead.
+    The value to return if the calculation fails, such as `0`. For example, the calculation fails if either input is not numeric. If you leave out `default` and the calculation fails, `atan2` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}

@@ -1,20 +1,10 @@
 ---
-title: Sinch SMS
 description: Instructions on how to add Sinch notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_release: 0.101
-ha_codeowners:
-  - '@bendikrb'
 ha_domain: sinch
-ha_iot_class: Cloud Push
-ha_platforms:
-  - notify
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Sinch SMS** {% term integration %} uses [Sinch](https://www.sinch.com/products/apis/messaging/sms/) to deliver notifications from Home Assistant.

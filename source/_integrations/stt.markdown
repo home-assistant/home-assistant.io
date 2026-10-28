@@ -1,13 +1,7 @@
 ---
-title: Speech-to-text (STT)
 description: Instructions on how to set up speech-to-text (STT) with Home Assistant.
 ha_release: '0.102'
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: stt
-ha_quality_scale: internal
-ha_category: []
-ha_integration_type: entity
 related:
   - url: https://support.nabucasa.com/hc/articles/29718084245149
     title: Nabu Casa Cloud speech-to-text service

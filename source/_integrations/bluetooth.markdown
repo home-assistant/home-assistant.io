@@ -1,18 +1,7 @@
 ---
-title: Bluetooth
 description: Discover, connect, and monitor bluetooth devices.
-ha_category:
-  - Utility
-ha_iot_class: Local Push
 ha_release: 2022.8
 ha_domain: bluetooth
-ha_quality_scale: internal
-ha_codeowners:
-  - '@bdraco'
-ha_integration_type: integration
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -70,11 +59,11 @@ For Bluetooth to function on Linux systems:
 
 ### Additional details for Container
 
-{% details "Container configuration for Bluetooth" %}
-
 {% note %}
-You only need these configuration steps for Home Assistant Container installations. Home Assistant Operating System automatically handles all Bluetooth configuration.
+You only need these configuration steps for Home Assistant Container installations. Home Assistant Operating System automatically handles all Bluetooth configuration. To check your installation type, go to {% my info title="**Settings** > **About**" %} and look for **Installation method**.
 {% endnote %}
+
+{% details "Container configuration for Bluetooth" %}
 
 Home Assistant Container requires specific configuration to access Bluetooth adapters.
 
@@ -304,7 +293,7 @@ The following methods are known to work to add multiple adapters:
 - USB-Ethernet extenders
 - [USB/IP](https://usbip.sourceforge.net/)
 
-Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
+Integrations that have followed the [Best practices for library authors](https://contributors.home-assistant.io/core/integrations/bluetooth/#best-practices) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
 ## Scanning modes
 
@@ -358,7 +347,27 @@ The following remote adapters are supported:
 
 Bluetooth advertisement bundling reduces traffic between Home Assistant and the proxy, significantly improving performance and reducing the time that Bluetooth and WiFi compete for air time for devices that share a radio.
 
+On ESPHome ESP32 devices, [active connections](#connection) are turned on by default. To turn them off, use the `active` option of the [Bluetooth proxy component](https://esphome.io/components/bluetooth_proxy/#configuration).
+
 ## Troubleshooting
+
+{% details "Bluetooth adapter requires additional permissions" %}
+
+### Symptom: "Bluetooth adapter requires additional permissions"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, you see a repair saying that your Bluetooth adapter is operating in degraded mode, because your container needs additional permissions.
+
+#### Description
+
+Home Assistant can use your Bluetooth adapter, but only with limited functions. For example, it can't reset an adapter that stops responding, and updates from your devices can be less reliable. This happens when Home Assistant runs in a container that doesn't have the permissions it needs to manage Bluetooth.
+
+#### Resolution
+
+1. Go to {% my info title="**Settings** > **About**" %} and check the **Installation method**.
+2. If it says **Home Assistant Container** or **Unsupported Third Party Container**, add the required permissions to your container. Follow the steps in [Additional details for Container](#additional-details-for-container), then recreate the container with the new settings. For example, with Docker Compose, run `docker compose up -d`. Restarting the container isn't enough, because Docker only applies the new permissions when it creates the container.
+3. If it says **Home Assistant OS** or **Home Assistant Supervised**, you don't need to change any permissions yourself, because they're set up automatically. If you still see the repair, [report the issue](/help/reporting_issues/) and include your [system information](/more-info/system-information/).
+
+{% enddetails %}
 
 ### Advertisement monitor
 
@@ -508,7 +517,7 @@ A small message that a Bluetooth device broadcasts to announce itself and share 
 
 ### Connection
 
-An active, two-way link between Home Assistant and a Bluetooth device. Some devices only broadcast advertisements, while others need a connection so Home Assistant can read from them or send commands. Making connections requires a scanner that supports active connections. Some proxies can only listen for advertisements and cannot connect to devices.
+An active, two-way link between Home Assistant and a Bluetooth device, also called an active connection. Some devices only broadcast advertisements, while others need a connection so Home Assistant can read from them or send commands. To make a connection, Home Assistant needs an adapter or proxy that can connect to devices. Some proxies can only listen for advertisements and cannot connect to devices.
 
 ### Scanning mode
 

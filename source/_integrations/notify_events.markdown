@@ -1,21 +1,10 @@
 ---
-title: Notify.Events
 description: Instructions on how to integrate Notify.Events service with your Home Assistant notifications.
 ha_release: 0.112
-ha_category:
-  - Notifications
 ha_domain: notify_events
-ha_codeowners:
-  - '@matrozov'
-  - '@papajojo'
-ha_iot_class: Cloud Push
-ha_platforms:
-  - notify
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 ## Description

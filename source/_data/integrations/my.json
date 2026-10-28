@@ -1,0 +1,9 @@
+{
+  "domain": "my",
+  "name": "My Home Assistant",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

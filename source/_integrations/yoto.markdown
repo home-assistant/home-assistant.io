@@ -1,33 +1,7 @@
 ---
-title: Yoto
 description: Instructions on how to integrate Yoto players with Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Media Player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
-ha_iot_class: Cloud Push
 ha_release: 2026.6
-ha_quality_scale: platinum
-ha_config_flow: true
-ha_codeowners:
-  - '@cdnninja'
-  - '@piitaya'
 ha_domain: yoto
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_integration_type: hub
-ha_dhcp: true
 ---
 
 The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, see what is currently playing, and browse your card library to start a specific card, chapter, or track. You can also monitor each player's battery level, what content source it is playing from, and its current day or night mode.

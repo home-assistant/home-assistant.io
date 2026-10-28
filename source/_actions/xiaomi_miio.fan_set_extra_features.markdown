@@ -7,7 +7,7 @@ related_actions:
   - xiaomi_miio.fan_reset_filter
 ---
 
-The **Fan set extra features** action writes a storage register on a Xiaomi air purifier that advertises extra features. The Mi Home app reads this value. Setting it to `1` unlocks a feature called turbo mode in the app.
+The **Xiaomi Home: Fan set extra features** action writes a storage register on a Xiaomi air purifier that advertises extra features. The Mi Home app reads this value. Setting it to `1` unlocks a feature called turbo mode in the app.
 
 {% include actions/ui_header.md %}
 

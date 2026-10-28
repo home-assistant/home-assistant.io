@@ -1,31 +1,7 @@
 ---
-title: OpenEVSE
 description: Instructions on how to integrate OpenEVSE charging stations with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Car
-  - Energy
-  - Select
-  - Sensor
-  - Switch
 ha_release: 0.38
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@c00w'
-  - '@firstof9'
 ha_domain: openevse
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **OpenEVSE** {% term integration %} connects your Home Assistant installation to an [OpenEVSE](https://www.openevse.com/) electric vehicle charging station that runs the OpenEVSE Wi-Fi firmware. The integration talks to the charger locally over your home network, so it works without an internet connection and without a cloud account.
@@ -76,7 +52,7 @@ If the credentials on the charger change later, Home Assistant prompts you to re
 
 ## Supported functionality
 
-The integration adds a single device per charger to Home Assistant and exposes the following entities. Some entities are disabled by default to keep the device page tidy. You can enable them from the device page if you need them.
+The integration adds a single device per charger to Home Assistant and exposes the following entities. Some entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to keep the device page tidy. You can enable them from the device page if you need them.
 
 ### Sensors
 
@@ -133,6 +109,7 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 ### Binary sensors
 
 - **Vehicle connected**: On when a vehicle is plugged in to the charger.
+- **Station status**: On when the charging station is active and ready to deliver power, and off when disabled.
 - **Divert active**: On when the charger is in solar divert (eco) mode and is matching its output to available surplus power.
 - **Shaper active**: On when the power shaper is actively limiting the charge rate to stay below a household power limit.
 - **Limit active** (disabled by default): On when an energy, time, or session limit is currently being enforced.
@@ -160,9 +137,11 @@ Home Assistant only enables or disables solar divert mode. It does not send sola
 
 - **Override state**: Sets the manual override state on the charger. Options are **Auto** (clears the override), **Active** (forces charging to start), and **Disabled** (forces charging to pause). This entity requires OpenEVSE Wi-Fi firmware version 4.0.1 or later.
 
-## Examples
+{% include integrations/actions.md %}
 
-### Notify when your car is plugged in
+## OpenEVSE automation examples
+
+### Automation: Notify when your car is plugged in
 
 This automation sends a notification whenever a vehicle is connected to the charger.
 
@@ -181,7 +160,7 @@ automation:
           message: "Your car is now connected to the charger."
 {% endexample %}
 
-### Lower the charge rate during peak hours
+### Automation: Lower the charge rate during peak hours
 
 This automation reduces the charge rate to 10A between 5 PM and 9 PM, then returns it to 32A afterwards. Adjust the times and current values to match your electricity tariff and your charger’s limits.
 
@@ -210,7 +189,7 @@ automation:
           value: 32
 {% endexample %}
 
-### Add EV charging to the Energy dashboard
+## Energy dashboard
 
 Use the **Total energy usage** sensor as an individual device on the [Energy dashboard](/home-energy-management):
 

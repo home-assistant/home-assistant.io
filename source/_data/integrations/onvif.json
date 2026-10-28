@@ -1,0 +1,24 @@
+{
+  "domain": "onvif",
+  "name": "ONVIF",
+  "integration_type": "device",
+  "codeowners": [
+    "@jterrace"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "security_safety.cameras"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "camera",
+    "diagnostics",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

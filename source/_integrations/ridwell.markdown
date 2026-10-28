@@ -1,20 +1,7 @@
 ---
-title: Ridwell
 description: Instructions on how to set up the Ridwell
-ha_category:
-  - Sensor
 ha_release: 2021.12
-ha_iot_class: Cloud Polling
 ha_domain: ridwell
-ha_codeowners:
-  - '@bachya'
-ha_config_flow: true
-ha_platforms:
-  - calendar
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: service
 ---
 
 The **Ridwell** {% term integration %} allows users to track waste recycling pickups scheduled with [Ridwell](https://www.ridwell.com).

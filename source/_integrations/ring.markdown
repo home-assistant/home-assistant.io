@@ -1,36 +1,7 @@
 ---
-title: Ring
 description: Instructions on integrating Ring.com devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Light
-  - Number
-  - Sensor
-  - Switch
 ha_release: 0.42
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: ring
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - event
-  - light
-  - number
-  - sensor
-  - siren
-  - switch
-ha_integration_type: hub
-ha_codeowners:
-  - '@sdb9696'
-ha_quality_scale: bronze
 ---
 
 The **Ring** {% term integration %} allows you to control your [Ring.com](https://ring.com/) doorbell, stick up cam, chime, and intercom devices in Home Assistant.
@@ -101,7 +72,7 @@ The event entity captures events like doorbell rings, motion alerts, and interco
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level, Wi-Fi signal, and the last recording timestamp for subscribed video devices.
 
-The `last_recording` timestamp sensor is disabled by default. When enabled, it shows when Ring created the latest ready recording. Its state is `unknown` until Home Assistant retrieves recording history.
+The `last_recording` timestamp sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). When enabled, it shows when Ring created the latest ready recording. Its state is `unknown` until Home Assistant retrieves recording history.
 
 The volume sensors are being replaced with the number entity, which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
 

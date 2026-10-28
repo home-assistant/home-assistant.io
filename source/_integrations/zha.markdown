@@ -1,58 +1,8 @@
 ---
-title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Device tracker
-  - Event
-  - Fan
-  - Hub
-  - Infrared
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
-  - Valve
 ha_release: 0.44
-ha_iot_class: Local Polling
 featured: true
-ha_config_flow: true
-ha_codeowners:
-  - '@dmulcahey'
-  - '@adminiuga'
-  - '@puddly'
-  - '@TheJulianJES'
 ha_domain: zha
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - device_tracker
-  - diagnostics
-  - event
-  - fan
-  - infrared
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-  - valve
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.
@@ -90,6 +40,7 @@ If you do not have a coordinator yet, the [Home Assistant Connect ZBT-2](/connec
 - **Zigbee coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation.
 - **Zigbee router device**: A hardware device that is always mains-powered (AC) such as outlets or fans.
 - **Zigbee end device**: A hardware device that is typically battery-powered (DC) such as remotes or motion sensors.
+- **Zigbee Green Power device**: A hardware device without a battery that powers itself from the energy of a button press or its surroundings, such as some light switches.
 - **Zigbee group**: A collection of two or more Zigbee devices of the same type, different from Home Assistant's [Groups](/integrations/group/).
 
 ### Zigbee concepts
@@ -379,9 +330,46 @@ These sections both provide helpful advice on improving your Zigbee network perf
 **To add a new Zigbee device:**
 
 1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
-2. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
+2. To open your Zigbee network for new devices to join, on the bottom right corner of the screen, select **Add device**.
 3. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (for example, turn lights on and off up to 10 times; switches usually have a reset button or pin). It might take a few seconds for the devices to appear. You can select **Show logs** for more verbose output.
-4. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
+4. Once the device joins, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). If the network has closed, select **Try again** to add another device, or go back to the list of added devices.
+
+### Adding Green Power devices
+
+Zigbee Green Power devices, such as the Philips Hue Tap and some "Friends of Hue" switches, have no battery. They send short messages that nearby Zigbee router devices pass on to the Zigbee coordinator.
+
+Support for Green Power devices was added in Home Assistant 2026.11.0. Some Zigbee coordinators can also receive messages from Green Power devices directly, usually with no limit on the number of devices. With these coordinators, Green Power devices in range of the coordinator work without a router device. The following radio types receive Green Power messages directly:
+
+- Ziggurat (`ziggurat`)
+- Silicon Labs (`ezsp`)
+- deCONZ (`deconz`)
+
+With other radio types, such as Texas Instruments (`znp`), ZiGate (`zigate`), and XBee (`xbee`), Green Power devices only work through router devices that pass on their messages. To check which radio type your coordinator uses, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}, select **Network information**, and look at **Radio type**.
+
+Most Green Power devices do not have enough power to search for your Zigbee network. Instead, you may need to manually pick the Zigbee channel of your device, usually by pressing a combination of buttons when joining. If your Green Power device requires manual channel selection, first find the channel of your Zigbee network.
+
+To find the channel of your Zigbee network:
+
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
+2. Select **Network information**.
+3. Note the number shown under **Channel**.
+
+Check that your Green Power device supports this channel. If it does not, you can [change the Zigbee channel](#to-change-the-zigbee-channel) to one that it supports, but other devices in your network must support that channel too. For more information, refer to [About Zigbee channels](#about-zigbee-channels).
+
+To add a Green Power device:
+
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Add device**.
+2. If your device requires manual channel selection, set the device to the channel of your Zigbee network according to the instructions provided by the manufacturer.
+3. Put the device in pairing mode according to the instructions provided by the manufacturer.
+4. Once the device joins, it will appear on that page and will be automatically added to your devices.
+
+Unlike other Zigbee end devices, a Green Power device is not connected to a single parent router device. Instead, every router device that receives its messages passes them on. Each router device can only do this for a limited number of Green Power devices. Depending on the manufacturer, this limit is anywhere from 5 to more than 40. Philips Hue lights and other Philips Hue router devices have a high limit. If you have more than a few Green Power devices, make sure enough router devices with a high limit are in range of them.
+
+Green Power devices work differently from other Zigbee devices:
+
+- They always show as available, because they only send messages when you use them.
+- They show a source ID instead of a network (NWK) address.
+- You cannot reconfigure them, bind them, or manage their clusters.
 
 ### Using router devices to add more devices
 
@@ -619,8 +607,6 @@ The list of ZHA limitations may not be exhaustive.
 
 **ZHA does _not_ currently support devices that can only use:**
 
-- The ZGP ("Zigbee Green Power") profile:
-  - This is used in a few batteryless self-powered or energy harvesting devices, (such as Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches).
 - The ZSE ("Zigbee Smart Energy") profile:
   - This is due to the "Zigbee SE" specification not being part of the standard Zigbee 3.0 specification and thus not implemented in most of the Zigbee protocol stacks that are commonly available Zigbee Coordinator radio adapters and modules.
 
@@ -876,7 +862,7 @@ To enable debug logging, follow the steps on [Debug logs and diagnostics](/docs/
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
-Philips Hue bulbs that have previously been paired to another bridge or gateway will not show up during search in ZHA to add a Zigbee device. Bulbs must be restored to their factory default settings.
+Philips Hue bulbs that have previously been paired to another bridge or gateway will not join ZHA when you add a Zigbee device. Bulbs must be restored to their factory default settings.
 
 {% important %}
 You must factory-reset the device.

@@ -1,20 +1,7 @@
 ---
-title: Solarman
 description: Instructions on how to integrate your Solarman device with Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
-ha_config_flow: true
 ha_release: 2026.4
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@solarmanpv'
 ha_domain: solarman
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: silver
 ---
 
 The Solarman {% term integration %} enables direct local communication between Home Assistant and your [Solarman](https://www.solarmanpv.com/) devices. This solution provides real-time monitoring of energy production and consumption while enabling device control, all through secure local communication.
@@ -100,6 +87,14 @@ The MR1-D5-W/MR1-D5-WR provides the following sensors:
 - Frequency (Hz)
 - Total actual energy (kWh)
 - Total actual returned energy (kWh)
+
+## Solarman automation examples
+
+### Automation: Notify when the voltage exceeds a threshold
+
+When the reading from a Solarman voltage sensor stays above your chosen threshold for 5 minutes, this blueprint creates a persistent notification. After importing the blueprint, select a voltage sensor with a unit of V and set your threshold.
+
+{% blueprint_example blueprint="solarman/solarman_voltage_threshold_notification.yaml" %}
 
 ## Data updates
 

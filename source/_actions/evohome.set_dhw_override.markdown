@@ -19,7 +19,7 @@ To override the hot water state from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the hot water controller you want to override.
-6. From the actions shown for that target, select **Set DHW override**.
+6. From the actions shown for that target, under **Honeywell Total Connect Comfort (Europe)**, select **Set DHW override**.
 7. Set the **State** and, optionally, a **Duration**.
 8. Select **Save**.
 
@@ -83,8 +83,13 @@ duration:
 
 When your off-peak electricity rate begins, override the hot water on for two hours so it heats up while power is cheaper.
 
-- **Trigger**: Off-peak tariff starts
-- **Action**: Set DHW override on, for two hours
+- **Trigger**: State changed
+  - **Entity**: Off peak tariff sensor
+  - **To**: On
+- **Action**: Honeywell Total Connect Comfort (Europe): Set DHW override
+  - **Target**: Dhw controller water heater
+  - **State**: On
+  - **Duration**: `02:00`
 
 {% details "YAML example for heating water off-peak" %}
 

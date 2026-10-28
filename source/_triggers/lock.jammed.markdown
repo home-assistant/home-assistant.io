@@ -48,8 +48,6 @@ This fires when `lock.front_door` enters the jammed state.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,9 +59,9 @@ behavior:
 for:
   description: >
     How long the lock must stay jammed before the trigger fires. Accepts a
-    duration like `00:01:00` for one minute.
+    duration like `00:01:00` for one minute. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -124,7 +122,7 @@ If a lock at an outside entry jams after dark, extra light can help you see what
 - **Trigger when**: Each
 - **For at least**: 00:00:10
 - **Condition**: Sun is below the horizon
-- **Action**: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for lighting the entry when a lock jams" %}
 

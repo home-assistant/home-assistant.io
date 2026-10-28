@@ -1,0 +1,17 @@
+{
+  "domain": "upcloud",
+  "name": "UpCloud",
+  "integration_type": "service",
+  "codeowners": [
+    "@scop"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "switch"
+  ]
+}

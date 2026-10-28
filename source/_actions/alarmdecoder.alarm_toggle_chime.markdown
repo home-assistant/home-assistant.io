@@ -18,7 +18,7 @@ To toggle the chime from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the alarm panel you want to toggle the chime on.
-6. From the actions shown for that target, select **AlarmDecoder: Toggle chime**.
+6. From the actions shown for that target, select **Toggle chime**.
 7. Enter the **Code** to toggle the chime with.
 8. Select **Save**.
 

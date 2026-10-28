@@ -3,8 +3,10 @@ title: Eve
 description: Connect and control your Eve Matter devices using the Matter integration
 ha_release: '2025.4'
 ha_iot_class: Local Push
-ha_category:
-  - Energy
+ha_categories:
+  - sensors
+  - plugs_switches
+  - climate.thermostats_heating
 ha_domain: eve
 ha_integration_type: brand
 ha_platforms:
@@ -19,7 +21,7 @@ works_with:
 
 {% include integrations/wwha.md url="https://www.evehome.com/" %}
 
-## Supported devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="eve" %}
 

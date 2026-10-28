@@ -1,21 +1,7 @@
 ---
-title: Powerfox Cloud
 description: Instructions on how to integrate Powerfox Cloud within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2025.1
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@klaasnicolaas'
 ha_domain: powerfox
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: silver
-ha_zeroconf: true
 ---
 
 The **Powerfox Cloud** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetching the data in Home Assistant.
@@ -138,7 +124,7 @@ FLOW data is exposed via the Powerfox report endpoint and provides daily/hourly 
 - **Average consumption energy today (kWh)**: Average hourly energy consumption observed so far today.
 - **Maximum gas cost today (€)**: Highest hourly gas cost observed so far today.
 
-The energy-based variants are disabled by default in the entity registry. Enable them if you have a gas-to-kWh conversion configured in Powerfox.
+The energy-based variants are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) in the entity registry. Enable them if you have a gas-to-kWh conversion configured in Powerfox.
 
 ## Troubleshooting
 

@@ -9,7 +9,7 @@ related_actions:
   - yeelight.set_color_flow_scene
 ---
 
-The **Set auto delay off scene** action turns a Yeelight light on at a set brightness and schedules it to turn off again after a given number of minutes. If the light is off, it turns on.
+The **Yeelight: Set auto delay off scene** action turns a Yeelight light on at a set brightness and schedules it to turn off again after a given number of minutes. If the light is off, it turns on.
 
 This is useful for a built-in sleep timer, for example turning the light on at a low brightness and having it switch off on its own after you fall asleep.
 
@@ -22,7 +22,7 @@ To set an auto delay off scene from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Yeelight light you want to control.
-6. From the actions shown for that target, select **Set auto delay off scene**.
+6. From the actions shown for that target, under **Yeelight**, select **Set auto delay off scene**.
 7. Enter the **Minutes** and the **Brightness**.
 8. Select **Save**.
 

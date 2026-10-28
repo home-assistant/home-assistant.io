@@ -1,0 +1,25 @@
+{
+  "domain": "nexia",
+  "name": "Nexia/American Standard/Trane",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "diagnostics",
+    "number",
+    "scene",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

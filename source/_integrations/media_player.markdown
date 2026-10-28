@@ -1,22 +1,19 @@
 ---
-title: Media player
-description: Instructions on how to set up your media players with Home Assistant.
-ha_category:
-  - Media player
+description: Control and automate your TVs, speakers, and other media players in Home Assistant.
 ha_release: 0.7
-ha_quality_scale: internal
+ha_categories:
+  - media_entertainment
 ha_domain: media_player
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard
+  - docs: /integrations/media_source/
+    title: Media source
 ---
 
-Interacts with media players on your network.
+The **Media player** {% term integration %} provides the media player entities in Home Assistant, such as TVs, speakers, and receivers. Other integrations create these entities, for example, [Sonos](/integrations/sonos/) or [Google Cast](/integrations/cast/). You can control your media players from your dashboards, and use them in automations.
 
 {% include integrations/building_block_integration.md %}
 
@@ -32,6 +29,13 @@ A media player can have the following states. Each item shows the label you see 
 - **Buffering** (`buffering`): The media player is preparing to start playback of media.
 - **Unavailable** (`unavailable`): The entity is currently unavailable.
 - **Unknown** (`unknown`): The state is not yet known.
+
+## Playing media from the media browser
+
+You can browse your media in the media browser, and play it on a media player, such as a speaker or a TV. To choose the media player, open the list of players in the bottom-right corner of the media browser. The list only shows media players that support browsing media.
+
+- For the steps, refer to [Browsing your media](/integrations/media_source/#browsing-your-media).
+- If a media player is missing from the list or grayed out, refer to [Troubleshooting](/integrations/media_source/#troubleshooting).
 
 {% include integrations/triggers.md %}
 
@@ -53,6 +57,7 @@ When the living room TV starts playing, dim the lights so the room is ready for 
   - **Target**: Living room TV
 - **Action**: Turn on light
   - **Target**: Living room lights
+  - **Brightness**: 25%
 
 {% details "YAML example for dimming the room when a movie starts" %}
 

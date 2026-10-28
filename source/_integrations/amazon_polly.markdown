@@ -1,20 +1,10 @@
 ---
-title: Amazon Polly
 description: Instructions on how to set up Amazon Polly with Home Assistant.
-ha_category:
-  - Text-to-speech
 ha_release: 0.37
 ha_domain: amazon_polly
-ha_iot_class: Cloud Push
-ha_platforms:
-  - tts
-ha_integration_type: integration
-ha_codeowners:
-  - '@jschlyter'
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Amazon Polly** {% term integration %} works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.

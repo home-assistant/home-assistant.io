@@ -66,16 +66,6 @@ output: "2024-03-15T13:30:00Z"
 
 {% include template_functions/more_examples.md %}
 
-### Calculate the UTC offset
-
-Compare [`now`](/template-functions/now/) with `utcnow()` to determine your current UTC offset in hours.
-
-{% example %}
-template: '{{ ((now() - utcnow()).total_seconds() / 3600) | round(0) | int }}'
-type: integer
-output: "1"
-{% endexample %}
-
 ### ISO 8601 formatted UTC timestamp
 
 Create a standard ISO 8601 timestamp string, useful for logging or sending to external APIs.

@@ -1,0 +1,17 @@
+{
+  "domain": "google_travel_time",
+  "name": "Google Maps Travel Time",
+  "integration_type": "service",
+  "codeowners": [
+    "@eifinger",
+    "@tronikos"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "vehicles_transport"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

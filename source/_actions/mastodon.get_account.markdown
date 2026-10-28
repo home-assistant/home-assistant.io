@@ -10,7 +10,7 @@ related_actions:
   - mastodon.update_profile
 ---
 
-The **Get account** action looks up a Mastodon account and returns its details, such as the display name, follower count, and number of posts.
+The **Mastodon: Get account** action looks up a Mastodon account and returns its details, such as the display name, follower count, and number of posts.
 
 This is handy when you want to react to changes on an account you follow, for example showing a follower count on your dashboard or triggering an automation when an account publishes a new post. It only returns accounts that are federated with your instance.
 

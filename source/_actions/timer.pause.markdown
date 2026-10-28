@@ -1,5 +1,5 @@
 ---
-title: "Pause a timer"
+title: "Pause timer"
 action: timer.pause
 domain: timer
 description: "Pauses a running timer, keeping the remaining time."
@@ -21,7 +21,7 @@ To pause a timer from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the timer you want to pause.
-6. From the actions shown for that target, select **Timer: Pause timer**.
+6. From the actions shown for that target, under **Timer**, select **Pause timer**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -43,7 +43,7 @@ action: |
 
 ## Good to know
 
-- To continue a paused timer, use the [Start a timer](/actions/timer.start/) action without a duration. It resumes with the time that was left.
+- To continue a paused timer, use the [Start timer](/actions/timer.start/) action without a duration. It resumes with the time that was left.
 
 {% include actions/stuck.md %}
 

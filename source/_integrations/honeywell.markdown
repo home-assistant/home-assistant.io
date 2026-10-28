@@ -1,22 +1,7 @@
 ---
-title: Honeywell Total Connect Comfort (US)
 description: Instructions on how to integrate Honeywell thermostats within Home Assistant.
-ha_category:
-  - Climate
-  - Sensor
 ha_release: pre 0.7
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@mkmer'
 ha_domain: honeywell
-ha_platforms:
-  - climate
-  - diagnostics
-  - humidifier
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **Honeywell Total Connect Comfort** {% term integration %} integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.
@@ -122,7 +107,7 @@ For more details, see the [humidifier](/integrations/humidifier) integration doc
 automation:
   - alias: "Maintain Comfortable Humidity"
     trigger:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.indoor_humidity
         below: 30 # Trigger when humidity drops below 30%
     actions:
