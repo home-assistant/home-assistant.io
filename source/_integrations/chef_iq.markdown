@@ -156,7 +156,7 @@ automation: |
 
 ## Data updates
 
-The integration is passive: it never polls or connects to the probe. Entities update whenever Home Assistant receives one of the probe's Bluetooth advertisements, which the probe broadcasts while it is awake. The battery level and <abbr title="system-on-chip">SoC</abbr> temperature are sent in a separate advertisement from the cooking temperatures (food, ambient, and probe tip), so they may appear a few seconds later after setup. When the probe stops broadcasting, for example once it is docked and asleep, the entities keep their last readings and are flagged as assumed state until the probe is seen again.
+The integration is passive: it never polls or connects to the probe. Entities update whenever Home Assistant receives one of the probe's Bluetooth advertisements, which the probe broadcasts while it is awake. The battery level and <abbr title="system-on-chip">SoC</abbr> temperature are sent in a separate advertisement from the cooking temperatures (food, ambient, and probe tip), so they may appear a few seconds later after setup. When the probe stops broadcasting, for example once it is docked and asleep, no new readings arrive until it is seen again.
 
 ## Known limitations
 
