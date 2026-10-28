@@ -78,7 +78,7 @@ The **Bitcoin** integration provides the following entities. All of them are cre
 - **Statistics timestamp**
   - **Description**: When blockchain.com produced these numbers.
 
-When you set Bitcoin up, the entity IDs come from these names, for example `sensor.bitcoin_trade_volume_in_usd`. A setup that already existed keeps the entity IDs it had. A setup imported from YAML keeps the entity IDs of the sensors you listed there, and the others get IDs from these names. Setups from before this change can have two trade volume sensors or two miners revenue sensors told apart by a `_2` suffix, for example `sensor.trade_volume` and `sensor.trade_volume_2`.
+The entity IDs come from these names, for example `sensor.bitcoin_trade_volume_in_usd`. Sensors that already existed in Home Assistant keep the entity IDs they had, so an older setup can have two trade volume sensors or two miners revenue sensors told apart by a `_2` suffix, for example `sensor.trade_volume` and `sensor.trade_volume_2`.
 
 ## Data updates
 
@@ -133,7 +133,7 @@ To resolve this issue, try the following steps:
    - The currency in your YAML file is not one that blockchain.com quotes. Correct it and restart, or remove the YAML and add the integration from the UI.
    - You had the `bitcoin` sensor platform listed more than once with different currencies. Bitcoin can only be set up once, so only the first currency was imported. Remove the YAML, then remove the integration and add it again with the currency you want.
 
-Your existing sensors keep the entity IDs they already had, so dashboards and automations that use them keep working. If you used `entity_namespace` on the YAML platform, that prefix is not carried over, so `sensor.wallet_exchange_rate_1_btc` becomes `sensor.exchange_rate_1_btc`. You do get extra sensors: the YAML `display_options` setting is gone, because a config flow should not ask you to pick entities, so all 21 sensors are now created.
+The imported sensors get new entity IDs from the new names, for example `sensor.exchange_rate_1_btc` becomes `sensor.bitcoin_exchange_rate`. Update the dashboards and automations that use them. You also get extra sensors: the YAML `display_options` setting is gone, because a config flow should not ask you to pick entities, so all 21 sensors are now created.
 
 ## Removing the integration
 
