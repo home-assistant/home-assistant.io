@@ -19,6 +19,7 @@ The Tools page has the following tabs:
 - [**YAML** tab](#yaml-tab): Check your configuration, reload YAML configuration, and restart Home Assistant.
 - [**States** tab](#states-tab): See the current state and attributes of your entities, and set a state to test automations.
 - [**Actions** tab](#actions-tab): Perform any {% term action %}, for example, to control a device.
+- [**Action history** tab](#action-history-tab): See the actions that were performed during a time range you choose.
 - [**Template** tab](#template-editor-tab): Write a template and see its result right away.
 - [**Events** tab](#events-tab): Fire an event, or listen to events to see what happens.
 - [**Statistics** tab](#statistics-tab): Find, fix, and adjust {% term "long-term statistics" %}.
@@ -127,6 +128,38 @@ Some options, and {% term templates %}, are only available in **YAML mode**. In 
 
 4. Select **Perform action**.
    - Result: The action runs. If the action returns data, the data is shown under **Response**.
+
+## Action history tab
+
+The **Action history** tab lists the {% term actions %} that were performed in Home Assistant during a time range you choose. For each action, it shows what the action targeted, what performed it, and when. Use it to find out why a {% term device %} turned on or off, which {% term automation %} or {% term script %} performed an action, or which data an action was performed with.
+
+The tab is only shown if the [Activity](/integrations/logbook/) integration is loaded. **Activity is part of the [default configuration](/integrations/default_config/). The action history comes from the database that the [Recorder](/integrations/recorder/) maintains, so it only covers the period that the Recorder keeps.
+
+The list shows the following columns:
+
+- **Action**: The name of the action. Under the name, the action ID is shown, for example, **Turn on light** with `light.turn_on`.
+- **Targets**: The {% term entities %}, devices, {% term areas %}, floors, and labels that the action targeted.
+- **Cause**: What performed the action, for example, a user, an automation, a script, a state change, or an {% term integration %}.
+- **Time**: The date and time the action was performed, to the second. The newest actions are shown first.
+
+### Viewing the action history
+
+1. Go to **Settings** > **Tools** > **Action history**.
+   - Result: The list shows the actions performed from the start of the previous hour until now.
+2. Optional: To show a different period, at the top of the list, select the date range. Select a preset, or select a start and end date and time.
+3. Optional: To find an action, enter text in the search box. The search matches the action name, the action ID, the targets, and the cause.
+4. Optional: To show actions performed since you opened the tab, select **Refresh** {% icon "mdi:refresh" %}. The list doesn't update on its own.
+
+### Viewing the details of an action
+
+1. In the **Action history** tab, select an action in the list.
+   - Result: A dialog shows the details of the action:
+     - **Time**: The date and time the action was performed, to the second.
+     - **Cause**: What performed the action and, if available, what triggered it.
+     - **User**: The user the action was performed for, if this user isn't already shown as the cause.
+     - **Context ID**: The ID of the context that the action was performed in. You can use it to find related events.
+     - **Data**: The data the action was performed with, in YAML, such as the targets and options.
+2. Optional: If an automation or a script performed the action, select **View trace** to open its [trace](/docs/automation/troubleshooting/#traces) and see why it ran.
 
 ## Template editor tab
 
