@@ -40,7 +40,7 @@ HTTP authentication:
 Username:
   description: "Endpoint username."
 Password:
-  description: "Endpoint password, required if username specified."
+  description: "Endpoint password, required if username is specified."
 HTTP Headers:
   description: "HTTP headers as key/value pairs, values support templates. Can support header authorization `Authorization: Bearer **auth_code**`."
 Query Parameters:
