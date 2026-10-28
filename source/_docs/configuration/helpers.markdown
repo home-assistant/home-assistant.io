@@ -141,7 +141,7 @@ For a helper that you set up in YAML, you can't change its own settings in the U
 Some helpers allow you to duplicate existing setups.
 
 1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
-2. Select the helper to be duplicated, and choose the option **Duplicate**.
+2. Choose the option **Duplicate** on the helper to be duplicated.
 3. Adjust the options as needed.
 4. Select **Create** or **Submit**, depending on the type of helper.
 
