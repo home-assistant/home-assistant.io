@@ -318,6 +318,8 @@ You can only set a Thread network as preferred if the credentials are known.
 3. If the **Make preferred network** button is shown, select it.
    - For more information, refer to the section on [combining Thread networks](#combining-thread-networks).
 
+If the border router of the network is a Matter device that can share its Thread network, you can also import the credentials from the border router instead of using the companion app. For the steps, refer to [Importing a Thread network from a Matter border router](/integrations/matter/#importing-a-thread-network-from-a-matter-border-router).
+
 ### Combining Thread networks
 
 Having multiple <abbr title="Thread border routers">TBRs</abbr> from different vendors can result in separate networks using different credentials. This prevents devices from roaming between the Thread networks. In theory, it would be better to join all Thread networks into a single network to increase the size of the mesh network. A dense mesh network should lead to better <abbr title="radio frequency">RF</abbr> coverage and better link quality, which lowers transmission latencies, making communication faster.
