@@ -740,7 +740,7 @@ HomeKit provides five values to represent air quality: Excellent, Good, Fair, In
 | Inferior  | Unhealthy (151-200)                      | 55.5 to 125.4 |
 | Poor      | Very Unhealthy (201+)                    | 125.5+        |
 
-Ozone and sulphur dioxide sensor entities are mapped using the US AQI breakpoints for 8-hour ozone and 1-hour sulphur dioxide. The value is converted to ppb first, so sensors that report in `ppb`, `ppm`, or `µg/m³` are all supported. Sensors without a unit are assumed to report in `µg/m³`. The mapping is as follows:
+Ozone and sulphur dioxide sensor entities are mapped using the US AQI breakpoints for 8-hour ozone and 1-hour sulphur dioxide. The value is converted to ppb first. Ozone sensors can report in `ppb`, `ppm`, or `µg/m³`. Sulphur dioxide sensors can report in `ppb` or `µg/m³`. Sensors without a unit, or with a unit not listed here, are assumed to report in `µg/m³`. The mapping is as follows:
 
 | HomeKit   | US AQI                                   | Ozone ppb | Sulphur dioxide ppb |
 |-----------|------------------------------------------|-----------|---------------------|
