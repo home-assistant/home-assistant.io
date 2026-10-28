@@ -58,7 +58,7 @@ A probe exposes the following sensors:
 
 {% include docs/paste_yaml_tip.md %}
 
-The entity IDs below belong to a probe named `CQ60 079A`; replace them with the ones of your probe. The thresholds are in °C. If your Home Assistant uses °F, the sensors report °F as well, so use 145 for the roast and 212 to 275 for the smoker range.
+The entity IDs below belong to a probe named `CQ60 079A`; replace them with the ones of your probe. The thresholds are in °C. If your Home Assistant uses °F, the sensors report °F as well, so use 145 for the roast and 212 to 275 for the smoker range. The notifications go to a phone running the [Home Assistant Companion app](/integrations/mobile_app/) through its `notify.mobile_app_<device>` action; replace `notify.mobile_app_phone` with the action for your phone, or with any other notify action you use.
 
 ### Automation: Notify when the food is done
 
@@ -68,7 +68,7 @@ Waiting next to the grill is no fun. Send a notification when the food core temp
   - **Entity**: Food temperature (`sensor.cq60_079a_food_temperature`)
   - **Above**: `63`
 - **Action**: Notifications: Send a notification via mobile_app_phone (`notify.mobile_app_phone`)
-  - **Message**: The current food temperature
+  - **Message**: `Roast is at {% raw %}{{ states('sensor.cq60_079a_food_temperature') }}{% endraw %}°. Time to take it out.`
 
 {% details "YAML example for notifying when the food is done" %}
 
