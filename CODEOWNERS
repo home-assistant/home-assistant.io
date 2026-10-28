@@ -339,6 +339,7 @@ source/_integrations/event.markdown @home-assistant/core
 source/_integrations/event.mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/evergy.markdown @tronikos
 source/_integrations/evohome.markdown @zxdavb
+source/_integrations/exicom_spin_ble.markdown @Dr-Blank
 source/_integrations/ezviz.markdown @RenierM26
 source/_integrations/faa_delays.markdown @ntilley905
 source/_integrations/fan.markdown @home-assistant/core
@@ -930,6 +931,7 @@ source/_integrations/radio_browser.markdown @frenck
 source/_integrations/radio_frequency.markdown @home-assistant/core
 source/_integrations/radiotherm.markdown @vinnyfuria
 source/_integrations/rainbird.markdown @konikvranik @allenporter
+source/_integrations/rainbowminer.markdown @El1t3Mult1pl3x0r
 source/_integrations/rainforest_eagle.markdown @gtdiehl @jcalbert @hastarin
 source/_integrations/rainforest_raven.markdown @cottsay
 source/_integrations/rainmachine.markdown @bachya
@@ -1084,7 +1086,6 @@ source/_integrations/soundtouch.markdown @kroimon
 source/_integrations/spaceapi.markdown @fabaff
 source/_integrations/specialized_turbo.markdown @JamieMagee
 source/_integrations/speedtestdotnet.markdown @rohankapoorcom @engrbm87
-source/_integrations/spin_ble.markdown @Dr-Blank
 source/_integrations/splunk.markdown @Bre77
 source/_integrations/spotify.markdown @frenck @joostlek
 source/_integrations/sql.markdown @gjohansson-ST @dougiteixeira
