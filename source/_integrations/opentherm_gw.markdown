@@ -72,13 +72,13 @@ The restart button on the `OpenTherm Gateway` device can be used to restart the 
 {% warning %}
 The use of these entities involves a level of risk and is not recommended. Possible consequences of using these entities are uncontrolled heating of the boiler, inefficient and inaccurate heating of your home and disturbing your thermostat's internal heating algorithm. This may have a long-term impact even after you stop using these entities.
 
-Please read [this information](https://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using these entities.
+Read the [stand-alone operation notes](https://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using these entities.
 
 To reduce the risks involved as much as possible, use the following guidelines:
 
-- Update your OpenTherm Gateway to firmware version 5.8/6.5 or greater
-- Send values of 8 °C (46.4 °F) or higher at intervals of at most 1 minute as long as there is a heating need
-- Keep values as low as possible
+- Update your OpenTherm Gateway to firmware version 5.8/6.5 or greater.
+- Send values of 8 °C (46.4 °F) or higher at intervals of at most 1 minute as long as there is a heating need.
+- Keep values as low as possible.
 
 {% endwarning %}
 
