@@ -86,8 +86,6 @@ If a read fails, the affected sensors become unavailable. They recover automatic
 ## Known limitations
 
 - The meter must return a serial number or a valid, stable MAC address so that the integration can identify it.
-- The separately installed IAMMETER HTTP and Modbus integrations remain independent. This integration does not migrate their entries or entities automatically.
-- If you use more than one integration for the same meter, select the energy sensors carefully to avoid counting the same energy twice in the Energy dashboard.
 
 ## Troubleshooting
 
