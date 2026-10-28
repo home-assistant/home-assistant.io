@@ -266,19 +266,25 @@ const diagram = [
         </ConnectHotspots>
       </div>
     </section>
-    <!-- Figma frame "Frame 15155" (desktop node 2022:8447, mobile node
-         2022:8317). -->
+    <!-- Figma frame "Mobile Grid" (node 2955:1722), under the section
+         header of "Frame 15155" (desktop node 2022:8447). -->
     <section class="audio content" id="audio">
       <ConnectSectionHeader title="Incredible audio" />
       <div class="audio-grid" data-white-icons={whiteAudioIcons ? "" : undefined}>
-        <ConnectFeatureCard icon={musicAssistantIcon} title="Music Assistant ready" large beside>
-          Seamlessly stream local files and streaming services.
+        <ConnectFeatureCard icon={syncIcon} title="Syncs old with new" large beside>
+          Classic gear and modern smart speakers play in harmony.
+        </ConnectFeatureCard>
+        <ConnectFeatureCard icon={losslessIcon} title="Lossless sound" large beside>
+          Choose a clean analogue output, or bit-perfect digital output.
+        </ConnectFeatureCard>
+        <ConnectFeatureCard icon={seamlessControlIcon} title="Increased control" large beside>
+          Get power and volume control by connecting a serial (RS-232) cable.
         </ConnectFeatureCard>
         <ConnectFeatureCard icon={sendspinIcon} title="Whole home audio with Sendspin" large beside>
           The open standard for a multi-room music experience.
         </ConnectFeatureCard>
-        <ConnectFeatureCard icon={syncIcon} title="Syncs old with new" large>
-          Classic gear and modern smart speakers play in harmony.
+        <ConnectFeatureCard icon={musicAssistantIcon} title="Music Assistant ready" large beside>
+          Seamlessly stream local files and streaming services.
           <div class="devices" slot="media">
             <div class="laptop">
               <Image
@@ -298,12 +304,6 @@ const diagram = [
               />
             </div>
           </div>
-        </ConnectFeatureCard>
-        <ConnectFeatureCard icon={losslessIcon} title="Lossless sound" large beside>
-          Choose a clean analogue output, or bit-perfect digital output.
-        </ConnectFeatureCard>
-        <ConnectFeatureCard icon={seamlessControlIcon} title="Increased control" large beside>
-          Get power and volume control by connecting a serial (RS-232) cable.
         </ConnectFeatureCard>
       </div>
     </section>
@@ -869,9 +869,15 @@ const diagram = [
     gap: var(--space-xlarge);
   }
 
+  /* Figma's 10px between the cards and 20px between the columns. */
+  .audio-grid {
+    gap: var(--space-medium) var(--space-xlarge);
+  }
+
   /* The blue icons drawn white (whiteAudioIcons), all but the Sendspin
-     logo (the second card). The cards are components, hence :global(). */
-  .audio-grid[data-white-icons] > :global(:not(:nth-child(2)) > img) {
+     and Music Assistant logos (the last two cards). The cards are
+     components, hence :global(). */
+  .audio-grid[data-white-icons] > :global(:nth-child(-n + 3) > img) {
     filter: brightness(0) invert(1);
   }
 
@@ -1052,16 +1058,14 @@ const diagram = [
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /* Incredible audio: the four short cards two by two, the "Syncs old
-       with new" card with the devices (the third) across the row
-       between them. The cards are components, hence :global(). */
+    /* Incredible audio: the four short cards two by two, the "Music
+       Assistant ready" card with the devices (the last) across the row
+       below them. The cards are components, hence :global(). */
     .audio-grid {
-      grid-auto-flow: dense;
       grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      > :global(:nth-child(3)) {
+      > :global(:nth-child(5)) {
         grid-column: 1 / -1;
-        grid-row: 2;
       }
     }
 
@@ -1116,19 +1120,18 @@ const diagram = [
       padding-block: var(--space-xxxlarge);
     }
 
-    /* Four cards in a 388px column, the "Syncs old with new" card
-       beside them across all four rows, at its own height: it sticks
-       below the product bar while the column scrolls past. */
+    /* Four cards in Figma's 396px column, the "Music Assistant ready"
+       card beside them across all four rows, at its own height: it
+       sticks below the product bar while the column scrolls past. */
     .audio-grid {
-      grid-auto-flow: dense;
-      grid-template-columns: 24.25rem minmax(0, 1fr);
+      grid-template-columns: 24.75rem minmax(0, 1fr);
 
       /* The cards are components, so placing them needs :global(). */
       > :global(*) {
         grid-column: 1;
       }
 
-      > :global(:nth-child(3)) {
+      > :global(:nth-child(5)) {
         align-self: start;
         grid-column: 2;
         grid-row: 1 / span 4;
@@ -1238,20 +1241,16 @@ const diagram = [
     }
   }
 
-  /* From 1280px the left column is about as tall as the "Syncs old
-     with new" card on its own, as in Figma: the card stretches to match
-     it instead of sticking, its devices at the bottom. Relative, not
-     static: the card's border rings are positioned against it. */
+  /* From 1280px the left column is about as tall as the "Music
+     Assistant ready" card on its own, as in Figma: the card stretches
+     to match it instead of sticking, its devices at the bottom (the
+     card's own layout). Relative, not static: the card's border rings
+     are positioned against it. */
   @media only screen and (min-width: breakpoints.$desk-wide) {
-    .audio-grid > :global(:nth-child(3)) {
+    .audio-grid > :global(:nth-child(5)) {
       align-self: stretch;
       position: relative;
       top: auto;
-
-      > :global(.media) {
-        margin-top: auto;
-        padding-top: var(--space-xlarge);
-      }
     }
   }
 

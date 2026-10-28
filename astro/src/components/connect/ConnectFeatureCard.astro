@@ -19,12 +19,11 @@
 //
 // `large` is the variant of "Incredible audio" (nodes 2022:8454 and
 // 2022:8461): a large blue line icon without a ring above a 28px title,
-// at every width. With `beside` (the short "Incredible audio" cards,
-// Figma nodes 2022:8454 and 2948:1440) the icon sits beside the title
-// and text from the desk width instead, 40px wide with a 20px gap, so
-// the cards take less height; on phones and tablets it stays above, as
-// in the mobile frame. The `media` slot adds an illustration below the
-// text.
+// at every width. With `beside` (the "Incredible audio" cards, Figma's
+// "Mobile Grid", node 2955:1722) the icon sits beside the title and
+// text instead, at every width, 40px wide with a 20px gap, so the cards
+// take less height. The `media` slot adds an illustration below the
+// text (across the card, below the icon too, with `beside`).
 // With `href` the whole card is a link (to the section of the page that
 // tells more about the feature).
 //
@@ -48,7 +47,7 @@ interface Props {
   icon: ImageMetadata;
   title: string;
   large?: boolean;
-  // For `large`: the icon beside the text from the desk width.
+  // For `large`: the icon beside the text.
   beside?: boolean;
   // The icon is an animated SVG (its animation is CSS inside the
   // file): it is inlined, still at rest and plays from the start while
@@ -73,7 +72,10 @@ const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
 ---
 
 <Card
-  class:list={["connect-feature-card", { large, beside: large && beside }]}
+  class:list={[
+    "connect-feature-card",
+    { large, beside: large && beside, "has-media": Astro.slots.has("media") },
+  ]}
   href={href}
   data-shimmer="hover"
 >
@@ -192,6 +194,39 @@ const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
     margin-top: var(--space-xlarge);
   }
 
+  /* The icon in a 40px column beside the title and text, in a box as
+     tall as the title's line, centred on it whatever the icon's shape
+     (the Sendspin logo is squarer, the Music Assistant one square). The
+     media goes across both columns, in the middle of the space below
+     the text when the card is stretched taller than its content.
+     Figma's 24px × 20px padding. */
+  .beside {
+    column-gap: 1.25rem;
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    padding: var(--space-xlarge) 1.25rem;
+
+    > img {
+      height: calc(var(--font-size-xxlarge) + 2 * var(--space-medium));
+      margin-bottom: 0;
+      object-fit: contain;
+      width: 2.5rem;
+    }
+
+    /* Centred between the text and the card's bottom edge: the bottom
+       margin and the card's padding add up to the top margin. */
+    > .media {
+      align-self: center;
+      grid-column: 1 / -1;
+      margin-block: var(--space-xxlarge)
+        calc(var(--space-xxlarge) - var(--space-xlarge));
+    }
+  }
+
+  .beside.has-media {
+    grid-template-rows: auto 1fr;
+  }
+
   @media only screen and (min-width: breakpoints.$connect-desk) {
     .connect-feature-card {
       flex-direction: row;
@@ -216,21 +251,20 @@ const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
       }
     }
 
-    /* The icon in a box as tall as the title's line, centred on it
-       whatever the icon's shape (the Sendspin logo is squarer). */
+    /* Figma's 28px title over 16px text; the card with media keeps
+       Figma's 40px side padding. */
     .beside {
-      flex-direction: row;
-      gap: 1.25rem;
+      column-gap: 1.25rem;
       padding: var(--space-xlarge) 1.25rem;
 
       > img {
-        align-self: flex-start;
-        flex: none;
         height: calc(var(--font-size-heading) + 2 * var(--space-medium));
-        margin-bottom: 0;
-        object-fit: contain;
         width: 2.5rem;
       }
+    }
+
+    .beside.has-media {
+      padding-inline: var(--space-xxlarge);
     }
 
     .ring {

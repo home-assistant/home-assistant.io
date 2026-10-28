@@ -58,7 +58,7 @@ Components in `src/components/connect/`, each with a `.fixtures.mjs`:
 | `ConnectLabel` | Blue pill label ("The smart home multi-tool", "Connect anywhere"). |
 | `ConnectHotspots` | "Connect everything": a photo of the AUX-2 on a pale blue panel, a "+" point under each port, a list of glass cards (one per port, with an icon) that a point or title opens, a line from the open point to its card, and a button that fades to a photo of the back. Port data (`ports`) is in the page. |
 | `ConnectPrice` | Price section, `id="buy"`. |
-| `ConnectCollaboration` | "Every purchase supports the Open Home" banner. |
+| `ConnectCollaboration` | "Every purchase supports the Open Home" banner, with "Brought to you by" Nabu Casa and "A commercial partner of the" Open Home Foundation. |
 | `ConnectSpecs` | Specifications, `id="specs"`. |
 | `ConnectFaq` | FAQ accordion, `id="faq"`. |
 
@@ -141,7 +141,7 @@ Shared styles, scripts and components:
 - Three layouts: phones, tablets from 768px (`breakpoints.$tab`) and
   desktop from 1140px (`breakpoints.$desk`). Tablets keep the stacked
   sections of phones, with the feature and serial cards two to a row,
-  the three short "Incredible audio" cards in a row above the Music
+  the four short "Incredible audio" cards two by two above the Music
   Assistant card, the serial diagram at most 640px wide, the house
   map across the column, "Powerful options" and the collaboration
   banner side by side, and the video at its own shape. The photos
@@ -274,6 +274,13 @@ These are also recorded in each component's header comment.
   asterisk needs it. The text starts 42% of the card's width down, so
   it stays below the board at any width, and the card grows to fit
   instead of keeping Figma's fixed 345 × 284 shape.
+- "Incredible audio" follows Figma's "Mobile Grid" (node 2955:1722),
+  which replaces the section's cards in the desktop and mobile frames:
+  four short cards in a 396px column beside the "Music Assistant
+  ready" card with the devices. The Music Assistant logo sits beside
+  the title like the other cards' icons (Figma has it above), and the
+  icon stays beside the text on phones too. Figma's 10px between the
+  cards is 12px.
 
 ## Dev feedback round 1 (October 2026)
 
