@@ -98,9 +98,9 @@ Each battery System Bridge finds, including ones in connected devices such as a 
 
 ## Display controls
 
-Each display that reports its brightness gets a `Display <id> brightness` number to set it, from 0 to 100%. Each display that reports its power state gets a `Display <id> power` switch to turn it on or off. The switch shows off when the display is in standby, suspended or off.
+Each display that reports its brightness gets a `Display <id> brightness` number to set it, from 0 to 100%. Each display that reports its power state gets a `Display <id> power` switch to turn it on or off. The switch shows off when the display is in standby, suspended or off. A display connected later gets its entities when it first reports these values.
 
-Brightness is set through the backlight on built-in screens and over DDC/CI on external monitors. Power is set over DDC/CI, or on Linux with Hyprland through Hyprland itself for screens without it. A display that System Bridge can't control doesn't get these entities, and they aren't available on macOS. Some monitors stop answering DDC/CI once they're off, so they can't be turned back on this way.
+Brightness is set through the backlight on built-in screens and over DDC/CI on external monitors. Power is set over DDC/CI, or on Linux with Hyprland through Hyprland itself for screens without it. A display that reports neither value doesn't get these entities, and they aren't available on macOS. Reporting a value doesn't guarantee the display can be controlled: if System Bridge can't change it, the action fails with System Bridge's error. Some monitors stop answering DDC/CI once they're off, so they can't be turned back on this way.
 
 ## Media player
 
