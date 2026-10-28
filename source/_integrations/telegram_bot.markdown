@@ -146,6 +146,8 @@ To allowlist the chat ID, [retrieve the chat ID](#create-a-bot-in-telegram) and 
 {% configuration_basic %}
 Chat ID:
   description: ID representing the user or group chat to which messages can be sent.
+Message thread ID:
+  description: Optional Telegram forum topic thread ID. Leave empty for chats without topics or to send messages to the default thread.
 {% endconfiguration_basic %}
 
 ### Recipients of send actions
@@ -172,6 +174,7 @@ If you have more than one Telegram bot and specify neither `entity_id` nor `conf
 ## Notifiers
 
 This integration will add a notify {% term entity %} for each configured chat ID.
+If the chat ID includes a message thread ID, messages sent through that notify entity are sent to that Telegram forum topic.
 You can use the `notify.send_message` action to publish notifications.
 
 {% details "Example YAML configuration" %}
