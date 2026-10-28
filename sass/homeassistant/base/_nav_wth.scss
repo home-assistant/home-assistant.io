@@ -5,269 +5,310 @@
 // _homeassistant.scss and the `nav-wth` item in
 // source/_includes/site/header.html once the month is over.
 //
-// The header gives every link one style and recolours it through three
-// custom properties, so this item changes those rather than restyling the
-// link. All it adds of its own is the routing decoration.
+// It is a second call to action: the header's "Get started" button
+// (`.nav-button`, in _header.scss) with its palette swapped for the
+// campaign's and a doodle drawn into it, the way a search page dresses up
+// its logo for a day. The doodle borrows the /wth/ hero: routing with
+// pulses running along it, a node where a run ends, and every so often the
+// node leaving the button along a run of its own before it comes home.
 
-// The routing box, in rem so it tracks --header-height (4.25rem) and the
-// root font size, which the stylesheet drops to .95rem below $desk. Height
-// matches the bar, so the lines run to its edges; the link is shorter and
-// centred in the bar, so the box reaches past it top and bottom.
-$nav-wth-routing-width: 6rem;
-$nav-wth-routing-height: 4.25rem;
+// The campaign palette, from sass/homeassistant/pages/wth/_variables.scss.
+// The ink clears 8.6:1 on the mint end of the gradient and 5.6:1 on the
+// teal end, so the label reads anywhere along it.
+$nav-wth-ink: #033D2E;
+$nav-wth-mint: #16F3BE;
+$nav-wth-teal: #29C0D5;
+$nav-wth-node: #F2F4F9;
 
-// On the light bar, and in the menu panel, which is light on every page.
-// Dark ink on bright lines, with the node carrying the ink so it reads
-// against the line it sits on.
-$nav-wth-green: #056B51;
-$nav-wth-line-mint: #16F3BE;
-$nav-wth-line-blue: #5AB9EE;
+// Where the node sits, measured from the button's right edge to its centre:
+// the button's right padding plus half the 1.5rem icon. Both doodle layers
+// are anchored here, so the label's width never moves them.
+$nav-wth-node-inset: 1.25rem;
 
-// On the dark bar. The only page that uses it is the home page, whose hero
-// is a bright cyan gradient — rgb(0, 181, 255) behind the nav. "Dark" is
-// about the page, not the backdrop, so the light bar's colours are the wrong
-// way round there: measured against that cyan the mint label scores 1.61 and
-// the sky line 1.06. The scheme inverts, and the node turns bright so it
-// still reads against the line it sits on.
-//
-// Contrast against rgb(0, 181, 255), or against the line for the node:
-//   label 5.3:1   mint line 4.4:1   sky line 4.2:1   node 7.2:1
-$nav-wth-green-on-hero: #033D2E;
-$nav-wth-line-mint-on-hero: #044A38;
-$nav-wth-line-blue-on-hero: #0A4A63;
-$nav-wth-node-on-hero: #16F3BE;
+// The loop. Most of it is rest, so the breakout stays a surprise rather
+// than a fidget.
+$nav-wth-cycle: 9s;
 
-// Recolouring the item means setting the header's own navigation variables
-// and resolving `color` from them here. The header resolves `color:
-// var(--nav-color)` once, on itself, and every link below is `color:
-// inherit`, so overriding the variable alone would never reach the link —
-// it has to be resolved again on this item. Nothing else is restyled: the
-// link keeps the shared padding, radius, font and hover wash.
-.site-header .menu > li.nav-wth {
-  --nav-color: #{$nav-wth-green};
-  --nav-color-active: #{$nav-wth-green};
+.site-header .nav-wth__button {
+  --rest-surface: linear-gradient(100deg, #{$nav-wth-mint} 20%, #{$nav-wth-teal});
+  --rest-text: #{$nav-wth-ink};
+  --hover-surface: #{$nav-wth-mint};
+  --hover-text: #{$nav-wth-ink};
+  --active-surface: #{$nav-wth-ink};
+  --active-text: #{$nav-wth-mint};
+  --focus-ring: #{$nav-wth-teal};
+  // The doodle's colours, which the dark header swaps.
+  --wth-run: rgb(255 255 255 / 55%);
+  --wth-pulse: #fff;
+  --wth-trail: #{$nav-wth-ink};
 
-  color: var(--nav-color);
-}
-
-// The positioning context for the routing. The runs pass above and below
-// the word and never cross it, so the decoration needs no stacking order of
-// its own.
-.nav-wth__label {
+  // The positioning context for both doodle layers. The button itself is
+  // not clipped, so the breakout can leave it.
   position: relative;
+  isolation: isolate;
+
+  // On the page it promotes, it reads as the current item.
+  &.active {
+    --rest-surface: #{$nav-wth-ink};
+    --rest-text: #{$nav-wth-mint};
+    --wth-run: rgb(22 243 190 / 30%);
+    --wth-pulse: #{$nav-wth-mint};
+    --wth-trail: #{$nav-wth-mint};
+  }
+
+  .label {
+    position: relative;
+  }
+
+  // The icon's place becomes the node's socket: an empty ring while the
+  // node is away. The header's arrow is not painted here.
+  .icon {
+    background: none;
+    box-shadow: inset 0 0 0 1.5px rgb(3 61 46 / 35%);
+    position: relative;
+
+    &::before {
+      content: none;
+    }
+  }
 }
 
-// Routing lines running past the label, drawn from the same vocabulary as
-// the landing page: one stroke weight, rounded corners, and a node where a
-// run ends. Each line enters from an edge of the bar, turns once and runs
-// past the word to a node, so the pair reads as routing passing through
-// rather than as a bracket around it.
-//
-// Centred on the word rather than sized to the link, so the strokes keep
-// their weight whatever the header's link padding does between breakpoints,
-// and so the panel's full-width row does not drag it off to the middle.
-.nav-wth__routing {
-  display: none;
-  height: $nav-wth-routing-height;
-  left: 50%;
+// The hero's routing, clipped to the pill, with a pulse running along it
+// and the dashed run marching. It sits under the label and never stops.
+.nav-wth__flow {
+  border-radius: inherit;
+  inset: 0;
+  overflow: hidden;
   pointer-events: none;
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: $nav-wth-routing-width;
+  z-index: -1;
+
+  svg {
+    height: 100%;
+    position: absolute;
+    right: calc(#{$nav-wth-node-inset} - 2.5rem);
+    top: 0;
+  }
 }
 
-.nav-wth__line--mint {
-  stroke: $nav-wth-line-mint;
+.nav-wth__run {
+  stroke: var(--wth-run);
+  stroke-width: 3;
 }
 
-.nav-wth__line--blue {
-  stroke: $nav-wth-line-blue;
+.nav-wth__run--dashed {
+  stroke-dasharray: 3 3;
+  animation: nav-wth-march 0.9s linear infinite;
 }
 
-// A node sits on top of a line, so it has to contrast with the line rather
-// than match it. The landing page knocks its nodes out of the section
-// surface, which is not available here: the bar is translucent. Carrying the
-// ink instead reads as a junction and ties the decoration to the word.
-.nav-wth__node {
-  fill: $nav-wth-green;
-  // Pops from its own centre rather than the corner of the viewBox.
+// One short dash on a path normalised to a length of 1, so it can run
+// the whole way along and off the end before it starts again.
+.nav-wth__pulse {
+  stroke: var(--wth-pulse);
+  stroke-dasharray: 0.18 1.18;
+  stroke-width: 3;
+  animation: nav-wth-pulse 3s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+// The node: the hero's, a pale disc with a mint ring, carrying "?!" for
+// the question the month asks.
+.nav-wth__mark {
+  align-items: center;
+  animation: nav-wth-breakout $nav-wth-cycle cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background: $nav-wth-node;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px $nav-wth-mint;
+  color: $nav-wth-ink;
+  display: flex;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  inset: 0;
+  justify-content: center;
+  letter-spacing: -0.03em;
+  position: absolute;
+  z-index: 2;
+}
+
+// The run the node takes when it breaks out: straight down out of the
+// pill, a turn, then back underneath the label to a stop. Its viewBox is
+// in pixels at the bar's root size, with the node's home at (68, 12).
+.nav-wth__breakout {
+  height: 3rem;
+  overflow: visible;
+  pointer-events: none;
+  position: absolute;
+  right: calc(#{$nav-wth-node-inset} - 0.75rem);
+  top: calc(50% - 0.75rem);
+  width: 5rem;
+  z-index: 1;
+}
+
+.nav-wth__trail {
+  animation: nav-wth-trail $nav-wth-cycle cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  stroke: var(--wth-trail);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-width: 2.5;
+}
+
+.nav-wth__stop {
+  animation: nav-wth-stop $nav-wth-cycle ease infinite;
+  fill: var(--wth-trail);
+  opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
 }
 
-// On the bar, from the wide breakpoint up. Below it the header tightens its
-// own link padding because, in its words, the bar "has only a few pixels to
-// spare" — measured there, the routing's ink comes within a pixel of the
-// next item's text, so only the label is shown. The label itself fits at
-// every desktop width: the flex bar still clears the logo by 68px at $desk
-// with this item in.
-@media only screen and (min-width: breakpoints.$desk-wide) {
-  .nav-wth__routing {
-    display: block;
-  }
+// Over the homepage hero, whose cyan swallows the mint, the button turns
+// to ink, the way "Get started" turns to its on-dark scheme there. Only the
+// bar goes transparent over the hero; the panel is light on every page.
+@media only screen and (min-width: breakpoints.$desk) {
+  .site-header.dark .nav-wth__button {
+    --rest-surface: #{$nav-wth-ink};
+    --rest-text: #{$nav-wth-mint};
+    --hover-surface: #022a20;
+    --hover-text: #{$nav-wth-mint};
+    --active-surface: #{$nav-wth-mint};
+    --active-text: #{$nav-wth-ink};
+    --focus-ring: #{$nav-wth-mint};
+    --wth-run: rgb(22 243 190 / 30%);
+    --wth-pulse: #{$nav-wth-mint};
 
-  // Only the bar goes transparent over the hero; the panel is light on every
-  // page, so the inverted scheme belongs here and nowhere else.
-  .site-header.dark .menu > li.nav-wth {
-    --nav-color: #{$nav-wth-green-on-hero};
-    --nav-color-active: #{$nav-wth-green-on-hero};
-  }
-
-  .site-header.dark .nav-wth__line--mint {
-    stroke: $nav-wth-line-mint-on-hero;
-  }
-
-  .site-header.dark .nav-wth__line--blue {
-    stroke: $nav-wth-line-blue-on-hero;
-  }
-
-  .site-header.dark .nav-wth__node {
-    fill: $nav-wth-node-on-hero;
+    .icon {
+      box-shadow: inset 0 0 0 1.5px rgb(22 243 190 / 45%);
+    }
   }
 }
 
-// In the panel. The routing straddles the word, so it needs the same height
-// it has on the bar to clear the text top and bottom: at the bar's size the
-// runs leave 10px above the label and 14px below. The panel's default row is
-// 38px, which would scale that down to 1px and 3px — the lines close in on
-// the word. So the row is given the bar's height instead and the routing
-// keeps its size.
+// In the panel it leads the row of calls to action, ahead of
+// "Get started". The breakout drops 1.5rem below the pill, so the row keeps
+// that clear of the first link under it.
 @media only screen and (max-width: (breakpoints.$desk - 0.0625rem)) {
-  .nav-wth__routing {
-    display: block;
-  }
-
-  .site-header .menu > li.nav-wth > a {
-    // 26px either side of a 16px line box makes the bar's 68px row.
-    padding-block: 1.625rem;
-    // Nothing should reach a neighbouring row.
-    overflow: hidden;
+  .site-header .menu > li.nav-wth {
+    margin: 0 0 1.5rem var(--layout-gutter);
+    order: -2;
+    width: auto;
   }
 }
 
-// The routing runs on a loop: each line draws itself in from the edge of the
-// bar it enters by, holds, then retracts the way it came, with the node that
-// terminates the run landing and leaving inside that hold. `pathLength="1"`
-// in the markup normalises both paths, so one dash length covers either of
-// them; a dash offset past zero empties a path from the end it was drawn
-// from, which is what retracts it rather than wiping it the other way.
-//
-// The label is not part of the loop. It is the item's actual text, so it
-// fades up once and then stays put.
-$nav-wth-cycle: 6s;
-
-.nav-wth__label {
-  animation: nav-wth-label-in 0.45s cubic-bezier(0.2, 0.7, 0.3, 1) both;
-}
-
-.nav-wth__line {
-  stroke-dasharray: 1;
-  animation: nav-wth-draw $nav-wth-cycle cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-  transition: stroke-dashoffset 0.25s ease;
-}
-
-.nav-wth__node {
-  animation: nav-wth-pop $nav-wth-cycle ease infinite both;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-// A line and the node that ends it share one delay, so the pair stays
-// together through every cycle.
-.nav-wth__line--mint,
-.nav-wth__node--mint {
-  animation-delay: 0.1s;
-}
-
-.nav-wth__line--blue,
-.nav-wth__node--blue {
-  animation-delay: 0.25s;
-}
-
-// Pointing at the item settles the routing in its drawn state instead of
-// leaving it to carry on mid-cycle.
-.site-header .menu > li.nav-wth > a {
-  &:hover,
-  &:focus {
-    .nav-wth__line {
-      animation: none;
-      stroke-dashoffset: 0;
-    }
-
-    .nav-wth__node {
-      animation: none;
-      opacity: 1;
-      transform: scale(1);
-    }
+// In the bar it follows the navigation, just ahead of search.
+@media only screen and (min-width: breakpoints.$desk) {
+  .site-header .menu > li.nav-wth {
+    margin-right: var(--space-small);
+    order: 0;
   }
 }
 
-@keyframes nav-wth-draw {
-  0% {
+// One cycle of the breakout. The node rests at home for most of it, then
+// drops out of the pill, turns, and runs back under the label, drawing its
+// trail behind it; it bounces at the stop, and returns the way it came,
+// taking the trail with it. The waypoints are the trail's own: down 20,
+// round an 8px corner, then 44 along, so node and line stay together.
+@keyframes nav-wth-breakout {
+  0%,
+  56% {
+    transform: none;
+  }
+  59.5% {
+    transform: translate(0, 20px);
+  }
+  60.5% {
+    transform: translate(-2.3px, 25.7px);
+  }
+  61.5% {
+    transform: translate(-8px, 28px);
+  }
+  67% {
+    transform: translate(-52px, 28px) rotate(-360deg);
+  }
+  69% {
+    transform: translate(-52px, 22px) rotate(-360deg) scale(1.1);
+  }
+  71% {
+    transform: translate(-52px, 28px) rotate(-360deg);
+  }
+  72.5% {
+    transform: translate(-52px, 25px) rotate(-360deg);
+  }
+  74%,
+  76% {
+    transform: translate(-52px, 28px) rotate(-360deg);
+  }
+  81.5% {
+    transform: translate(-8px, 28px) rotate(0deg);
+  }
+  82.5% {
+    transform: translate(-2.3px, 25.7px);
+  }
+  83.5% {
+    transform: translate(0, 20px);
+  }
+  87%,
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes nav-wth-trail {
+  0%,
+  56% {
     stroke-dashoffset: 1;
   }
-  12% {
-    stroke-dashoffset: 0;
-  }
-  64% {
-    stroke-dashoffset: 0;
-  }
+  67%,
   76% {
-    stroke-dashoffset: -1;
+    stroke-dashoffset: 0;
   }
+  87%,
   100% {
-    stroke-dashoffset: -1;
+    stroke-dashoffset: 1;
   }
 }
 
-@keyframes nav-wth-pop {
+@keyframes nav-wth-stop {
   0%,
-  12% {
+  66% {
     opacity: 0;
     transform: scale(0.3);
   }
-  18% {
+  68%,
+  76% {
     opacity: 1;
     transform: scale(1);
   }
-  58% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  64%,
+  78%,
   100% {
     opacity: 0;
     transform: scale(0.3);
   }
 }
 
-@keyframes nav-wth-label-in {
+@keyframes nav-wth-pulse {
   from {
-    opacity: 0;
-    transform: translateY(4px);
+    stroke-dashoffset: 0.18;
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    stroke-dashoffset: -1;
   }
 }
 
-// The loop runs for as long as the page is open, so opting out of motion has
-// to stop it outright and leave the routing drawn.
+@keyframes nav-wth-march {
+  to {
+    stroke-dashoffset: -6;
+  }
+}
+
+// The doodle runs for as long as the page is open, so opting out of motion
+// stops all of it and leaves the node at home.
 @media (prefers-reduced-motion: reduce) {
-  .nav-wth__label,
-  .nav-wth__line,
-  .nav-wth__node {
+  .nav-wth__run--dashed,
+  .nav-wth__pulse,
+  .nav-wth__mark,
+  .nav-wth__trail,
+  .nav-wth__stop {
     animation: none;
-    transition: none;
   }
 
-  .nav-wth__line {
-    stroke-dashoffset: 0;
-  }
-
-  .nav-wth__node {
-    opacity: 1;
-    transform: none;
+  .nav-wth__pulse {
+    display: none;
   }
 }
