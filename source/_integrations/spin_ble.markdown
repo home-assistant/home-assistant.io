@@ -50,6 +50,11 @@ The integration creates the following sensors:
 
 - **Charging**: Starts and stops a charging session. The switch is on while a session is open, including while it is paused by the vehicle or by the charger, since a paused session resumes without a command. A vehicle must be plugged in for charging to start.
 
+### Binary sensors
+
+- **Plug**: On while a vehicle is plugged in. The charger cannot tell while it is starting up or out of service, so the sensor is off then.
+- **Problem**: On while the charger reports at least one active alarm, such as a mains fault or an open earth wire.
+
 ## Data updates
 
 The integration {% term polling polls %} the charger over Bluetooth. The interval follows what the charger is doing:
