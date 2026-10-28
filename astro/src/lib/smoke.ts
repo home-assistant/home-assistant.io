@@ -45,6 +45,9 @@ const PRESSURE_DECAY = 0.8;
 // The cursor's reach. It's a Gaussian's variance, so it grows with the
 // square of the radius: 0.004 was the original, and 1.3² widens it by 30%.
 const SPLAT_RADIUS = 0.004 * 1.3 ** 2;
+// A finger stirs four times the area (twice the radius), so a few swipes
+// are enough on a small screen.
+const TOUCH_SPLAT_AREA = 4;
 const SPLAT_FORCE = 560;
 // The resting patches: where they sit (0–1, y up), how big, how dense at
 // rest, and how hard each one gently churns.
@@ -434,6 +437,8 @@ export function startSmoke(
   // with a mouse, so any real mouse or finger moving counts too.
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
   let mouseSeen = false;
+  // Whether the last stroke came from a finger.
+  let touching = false;
   let ready = false;
 
   const gl = canvas.getContext("webgl2", {
@@ -944,6 +949,7 @@ export function startSmoke(
   host.addEventListener("pointermove", (e) => {
     if (still) return;
     mouseSeen = true;
+    touching = e.pointerType === "touch";
     const r = host.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width;
     const y = 1 - (e.clientY - r.top) / r.height;
@@ -1167,6 +1173,7 @@ export function startSmoke(
         dx * SPLAT_FORCE,
         dy * SPLAT_FORCE,
         colorAt(hue, 0.03 + 0.075 * speed),
+        touching || auto ? SPLAT_RADIUS * TOUCH_SPLAT_AREA : SPLAT_RADIUS,
       );
       travel += Math.hypot(moved.dx * aspect, moved.dy);
       if (NOTES && !auto && travel > NOTE_SPACING) {
