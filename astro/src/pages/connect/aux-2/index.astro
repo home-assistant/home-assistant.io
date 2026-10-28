@@ -1240,11 +1240,13 @@ const diagram = [
 
   /* From 1280px the left column is about as tall as the "Syncs old
      with new" card on its own, as in Figma: the card stretches to match
-     it instead of sticking, its devices at the bottom. */
+     it instead of sticking, its devices at the bottom. Relative, not
+     static: the card's border rings are positioned against it. */
   @media only screen and (min-width: breakpoints.$desk-wide) {
     .audio-grid > :global(:nth-child(3)) {
       align-self: stretch;
-      position: static;
+      position: relative;
+      top: auto;
 
       > :global(.media) {
         margin-top: auto;
