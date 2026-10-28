@@ -77,7 +77,11 @@ Each exclusion is listed below the targets it excludes, with the number of entit
 
 Exclusions stay up to date, like targets. If you exclude an area and later add a light to that area, the light is left out as well. An entity excluded by an area, a device, a floor, or a label can't be included again on its own. The same applies to an entity whose exclusion also leaves out entities from another target. To include it again, remove that exclusion.
 
-Excluding an [old-style group](/integrations/group/#old-style-groups), such as `group.downstairs_lights`, leaves out only the group entity, not its members. This also applies to actions, even though they include old-style group members in the target. To exclude members, exclude them, their area, or their label.
+If you exclude a {% term group %}, only the group entity is excluded, not its members.
+If you exclude an [old-style group](/integrations/group/#old-style-groups), such as `group.downstairs_lights`:
+
+- In actions: the group entity is excluded, as well as its members and any groups nested inside it.
+- In triggers and conditions: only the group entity is excluded, not its members. Exclude its members, their area, or their label separately.
 
 ## When a target covers several entities
 
