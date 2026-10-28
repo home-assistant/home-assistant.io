@@ -155,7 +155,7 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
 
 1. Install [Mistral Vibe](https://mistral.ai/products/vibe/).
 
-2. In your terminal, run the following command. Replace `<your_mcp_server_url>` with your MCP server URL.
+2. In your terminal, run the following command. Replace `<your_mcp_server_url>` with your MCP server URL. Replace `<your_api_key_env_var>` with an environment variable name, such as `HOME_ASSISTANT_TOKEN`, not the access token itself. Use the same variable name in step 4.
 
    ```bash
    vibe mcp add home-assistant --url <your_mcp_server_url> --transport http --api-key-env <your_api_key_env_var>
