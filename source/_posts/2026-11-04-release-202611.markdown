@@ -389,9 +389,9 @@ Thanks, [@MindFreeze], [@agners], [@KapJI], and [@erwindouna]!
 
 All of it comes together in a new **LoRaWAN** page in **Settings** > **Connectivity**. It shows your connections and how many devices each has, and a table of all your devices that you can search and filter by connection. A map shows how your network hangs together: which gateways receive which devices, and which devices no gateway has seen. On the page of a device, you find its radio details, like signal strength, the last time it reported in, and its battery. A device that Home Assistant doesn't support yet still shows up, with a note on what is missing. And when you want to add a new device, Home Assistant takes you straight to the management console of its connection.
 
-<img src='/images/blog/2026-11/lorawan-network.png' alt='Screenshot of the LoRaWAN network map, with two connections, ChirpStack and The Things Network, linked to their gateways and the devices each gateway receives. A dotted line marks a device that no gateway has observed.' />
+<img src='/images/blog/2026-11/lorawan-page.png' alt='Screenshot of the LoRaWAN page, showing 2 connections and 6 devices, with links to the devices and connections, a Show map button, and an Add device button.' class='no-shadow' />
 
-<img src='/images/blog/2026-11/lorawan-devices.png' alt='Screenshot of the LoRaWAN devices table, grouped by connection, with the last uplink, signal strength, and battery level of each device.' />
+<img src='/images/blog/2026-11/lorawan-network.png' alt='Screenshot of the LoRaWAN network map, with two connections, Home ChirpStack and The Things Network, linked to their gateways and the devices each gateway receives. A dotted line marks a new soil sensor that no gateway has observed.' class='no-shadow' />
 
 Thanks, [@balloob]!
 
