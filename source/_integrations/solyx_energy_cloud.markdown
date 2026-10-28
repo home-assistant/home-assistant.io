@@ -64,8 +64,8 @@ The **Solyx Energy Cloud** integration provides the following entities.
 - **Grid power**
   - **Description**: Measures the power exchanged with the electrical grid in watts (W). This can be a positive or negative value.
 
-- **Legionella days**
-  - **Description**: Shows the number of days associated with the boiler's legionella protection cycle.
+- **Days since last legionella prevention**
+  - **Description**: Number of days since the boiler last ran its legionella prevention cycle, in days (d).
 
 - **Saved today**
   - **Description**: Shows the amount of energy saved during the current day, in watt-hours (Wh).
