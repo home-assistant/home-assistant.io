@@ -157,17 +157,10 @@ The schedule stays `on` across midnight when these blocks touch.
 
 ## Copying a schedule
 
-To create a new schedule based on another one, read the time blocks of the existing schedule with the [**Get schedule**](/actions/schedule.get_schedule/) action and then use them to create the new one.
-
-1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
-2. Search for and select **Get schedule**.
-3. Make sure the **UI mode** is selected.
-4. Select **Add target** and then select the schedule you want to copy.
-5. Select **Perform action**.
-   - Result: Under **Response**, the time blocks of the schedule for each day of the week are listed, including any additional data.
-6. Create the new schedule in one of these ways:
-   - **In the UI**: Add the time blocks shown in the response to a new schedule helper.
-   - **In YAML**: Copy the time blocks of the response into a `schedule:` section in your {% term "`configuration.yaml`" %} file and then run the [**Reload schedules**](/actions/schedule.reload) action. For the steps on how to access and edit the YAML configuration file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configurationyaml).
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
+2. Select the helper to be duplicated, and choose the option **Duplicate**.
+3. Adjust the options as needed.
+4. Select **Create** or **Submit**, depending on the type of helper.
 
 {% note %}
 Schedules created in YAML can't be edited in the UI. To edit them, change the YAML and reload the schedules.
