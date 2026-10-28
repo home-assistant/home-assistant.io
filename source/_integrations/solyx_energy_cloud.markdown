@@ -2,7 +2,9 @@
 title: Solyx Energy Cloud
 description: Instructions on how to monitor your Solyx Energy Nymo devices in Home Assistant.
 ha_release: 2026.11
-ha_categories: ["energy.meters_monitoring", "energy.solar_batteries"]
+ha_categories:
+  - energy.meters_monitoring
+  - energy.solar_batteries
 ha_platforms:
   - sensor
 ha_iot_class: Cloud Polling
