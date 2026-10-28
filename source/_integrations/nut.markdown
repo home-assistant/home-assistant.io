@@ -135,7 +135,7 @@ Most of this integration's diagnostic sensors are disabled by default
 to reduce storage overhead for Home Assistant. The diagnostic sensors
 marked with an asterisk \* are enabled by default. To use a disabled
 sensor, you need to enable them first. See the [enabling or disabling
-entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 

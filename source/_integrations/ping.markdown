@@ -85,7 +85,7 @@ The integration exposes the different round trip times milliseconds as entities:
 - `Jitter` - the variation in round trip times
 - `Packet loss` - the percentage of missed ICMP replies
 
-**These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and can be enabled in the UI if needed.**
+**These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and can be enabled in the UI if needed.**
 
 ## Presence detection
 

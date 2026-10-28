@@ -71,7 +71,7 @@ Additionally, binary sensors for possible issues are available:
   - Available for LetPot Max devices.
 
 {% important %}
-Binary sensors for issues are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) documentation for information on how to do this.
+Binary sensors for issues are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) documentation for information on how to do this.
 {% endimportant %}
 
 ### Numbers

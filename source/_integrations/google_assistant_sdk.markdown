@@ -198,4 +198,4 @@ Note: due to a bug in the Google Assistant API, not all responses contain text, 
 
 {% include integrations/remove_device_service.md %}
 
-Removing the Google Assistant SDK integration does not remove its [Application Credentials](/integrations/application_credentials/). If you want to use a different OAuth Client ID and Client Secret, go to **Settings** > **Devices & services**, select the three dots menu in the top right, select **Application credentials**, and delete the existing credentials before adding the integration again.
+If you keep the application credentials and later want to use a different OAuth client ID and client secret, delete the application credentials before you add the integration again. For the steps, refer to [Deleting application credentials](/integrations/application_credentials/#deleting-application-credentials).

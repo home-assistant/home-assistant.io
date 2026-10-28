@@ -146,7 +146,7 @@ For each Vélo'v station you add, the following sensor entities are created:
   - **Description**: The number of free docking stands available at the station.
 
 - **Capacity**
-  - **Description**: The total number of docking stands at the station. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - **Description**: The total number of docking stands at the station. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **Electrical internal battery bikes**
   - **Description**: The number of electrical bikes with an internal battery available at the station. Disabled by default.

@@ -150,7 +150,7 @@ The following binary sensors indicate component operating status and are categor
 
 - Boiler
 - Booster heater 1
-- Booster heater 2 _([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))_
+- Booster heater 2 _([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))_
 - Booster heater 2+ _(disabled by default)_
 - Immersion heater
 - Water pump 1

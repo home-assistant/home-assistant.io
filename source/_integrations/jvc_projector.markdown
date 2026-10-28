@@ -92,7 +92,7 @@ The JVC Projector device information includes the projector model and firmware v
 
 ## Sensor
 
-The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. The Color depth, Color space, HDR, Resolution, Colorimetry, and Link Rate sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Some sensors may not be available for your model.
+The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. The Color depth, Color space, HDR, Resolution, Colorimetry, and Link Rate sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Some sensors may not be available for your model.
 
 - **Status**
   - **Description**: The power status of the projector.

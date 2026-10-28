@@ -200,7 +200,7 @@ These sensors are only available on NRGkick SIM models.
 - **Domestic plug 2 temperature** (°C): Domestic attachment pin 2 temperature.
 
 {% important %}
-The sensors marked with \*\* are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) documentation for information on how to do this.
+The sensors marked with \*\* are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) documentation for information on how to do this.
 {% endimportant %}
 
 ### Device tracker

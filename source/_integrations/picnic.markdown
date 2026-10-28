@@ -22,7 +22,7 @@ The **Picnic** {% term integration %} allows one to get information from [Picnic
 
 ## Sensors
 
-This integration provides the following sensors. Some sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) when adding the integration.
+This integration provides the following sensors. Some sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) when adding the integration.
 
 | Name                           | Description                                                                                                                                         |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |

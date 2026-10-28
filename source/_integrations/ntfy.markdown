@@ -155,7 +155,7 @@ The **ntfy** integration adds a device representing the service, along with vari
   - **Description**: The total number of messages sent today.
 - **Messages remaining**
   - **Description**: The number of messages that can still be sent before the daily limit is reached.
-  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **Messages usage limit**
   - **Description**: The maximum number of messages allowed per day on the account.
   - **Category**: Diagnostic

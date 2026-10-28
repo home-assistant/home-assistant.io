@@ -105,7 +105,7 @@ The following sensors are enabled by default:
 - **Highest power peak time - today**: The time of the highest expected power peak today.
 - **Highest power peak time - tomorrow**: The time of the highest expected power peak tomorrow.
 
-The following sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable them in the user interface if you want to use them:
+The following sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Enable them in the user interface if you want to use them:
 
 - **Estimated power production - in 1 hour**: Estimated power production one hour from now, in Watt.
 - **Estimated power production - in 12 hours**: Estimated power production twelve hours from now, in Watt.

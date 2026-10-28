@@ -35,7 +35,7 @@ A {% term calendar %} entity is created that shows your upcoming episodes. Each 
 The Sonarr integration will add the following sensors:
 
 - **Upcoming**: The number of upcoming episodes.
-- **Commands**: The number of commands being run. ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
+- **Commands**: The number of commands being run. ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - **Disk space**: Available disk space in gigabytes. (disabled by default)
 - **Queue**: The number of episodes in the download queue. (disabled by default)
 - **Shows**: The number of series in Sonarr. (disabled by default)

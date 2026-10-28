@@ -27,6 +27,6 @@ The **nVent RAYCHEM SENZ** {% term integration %} allows you to control and moni
 
 ## Removing the integration
 
-This integration follows standard integration removal. If you have entered your own credentials, you will be asked if you want to keep them or delete them. If you want to delete them later you can do that from the tree-dot menu in {% my integrations title="**Settings** > **Devices & services**" %}.
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}

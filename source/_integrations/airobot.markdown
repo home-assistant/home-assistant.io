@@ -135,7 +135,7 @@ The integration provides the following sensor entities to monitor your thermosta
 
 #### Diagnostic sensors
 
-The following diagnostic sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). You can enable them in the entity settings if needed.
+The following diagnostic sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). You can enable them in the entity settings if needed.
 
 - **Device uptime**
   - **Description**: The timestamp when the thermostat was last restarted.

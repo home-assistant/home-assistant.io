@@ -32,6 +32,10 @@ If no integration supports your device, you can still get to its data by manuall
 
 Some devices have a Modbus interface, such as solar inverters, heat pumps, and ventilation units. Home Assistant can read data from these devices and control them.
 
+{% warning %}
+Modbus TCP does not authenticate clients, and it does not encrypt traffic. Another device that can reach the Modbus TCP port can read data and write values the device accepts, without going through Home Assistant. Keep your Modbus TCP devices on a trusted network segment.
+{% endwarning %}
+
 To set up your Modbus device, add the integration for your device. For the steps, refer to [Setting up a device integration that uses Modbus](#setting-up-a-device-integration-that-uses-modbus).
 
 - To find out if an integration is available for your device, browse the [Modbus-controlled category](/integrations/#modbus-controlled).

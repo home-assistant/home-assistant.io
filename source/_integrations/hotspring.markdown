@@ -99,7 +99,7 @@ The **Hot Spring** integration provides the following entities:
   - **Availability**: Available when a FreshWater Salt System cartridge is installed.
 - **Control box version**
   - **Description**: Firmware version of the spa control box.
-  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **FreshWater Salt System version**
   - **Description**: Firmware version of the FreshWater Salt System module.
   - **Remarks**: Disabled by default. Available when a FreshWater Salt System is detected.

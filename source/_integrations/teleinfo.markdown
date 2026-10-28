@@ -65,7 +65,7 @@ The sensors created depend on your electricity contract type. The integration au
   - **Device class**: `apparent_power`
 
 - **Instantaneous current** (`IINST`)
-  - **Description**: Instantaneous current draw (A). [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - **Description**: Instantaneous current draw (A). [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   - **Device class**: `current`
 
 - **Current tariff period** (`PTEC`)

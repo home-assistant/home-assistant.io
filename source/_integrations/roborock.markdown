@@ -279,7 +279,7 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 #### Button
 
-There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to make sure they are not pressed unintentionally.
+There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to make sure they are not pressed unintentionally.
 
 - **Reset sensor consumable**
   - **Description**: The sensors on your vacuum are expected to be cleaned after 30 hours of use.

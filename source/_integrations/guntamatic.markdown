@@ -129,7 +129,7 @@ Each connected heating circuit device provides the following sensors:
 
 ### Additional sensors
 
-Additional sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and can be enabled in the entity settings. These include buffer stage temperatures (top/bottom 0–2), auxiliary and extra domestic hot water pumps, extra domestic hot water temperatures, boiler shunt pump, suction fan, primary and secondary air, CO₂ content, interruptions, operating time (in hours) and service date (next service as an ISO date).
+Additional sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and can be enabled in the entity settings. These include buffer stage temperatures (top/bottom 0–2), auxiliary and extra domestic hot water pumps, extra domestic hot water temperatures, boiler shunt pump, suction fan, primary and secondary air, CO₂ content, interruptions, operating time (in hours) and service date (next service as an ISO date).
 
 ## Examples
 

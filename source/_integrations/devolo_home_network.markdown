@@ -41,7 +41,7 @@ Currently, the following entities within Home Assistant are supported.
 
 - Device attached to the router
   - Updates every 5 minutes
-  - Is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) because it typically rarely changes
+  - Is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because it typically rarely changes
 
 ### Buttons
 

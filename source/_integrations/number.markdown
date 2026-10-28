@@ -9,7 +9,7 @@ ha_codeowners:
   - '@Shulyaka'
 ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard

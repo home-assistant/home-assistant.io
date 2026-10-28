@@ -2,13 +2,13 @@
 title: "Backup emergency kit"
 description: "What the backup emergency kit is, how to download it and store it safely, and how to change your backup encryption key."
 related:
-  - docs: /common-tasks/general/#backups
+  - docs: /common-tasks/general/backups/
     title: Backups
-  - docs: /common-tasks/general/#restoring-a-backup
+  - docs: /common-tasks/general/backups/#restoring-a-backup
     title: Restoring a backup
 ---
 
-Home Assistant encrypts your [backups](/common-tasks/general/#backups) by default. Backups stored on Home Assistant Cloud are always encrypted. For backups stored on [other backup locations](/common-tasks/general/#defining-backup-locations), you can choose whether to encrypt them. To [restore an encrypted backup](/common-tasks/general/#restoring-a-backup), you need its encryption key. The backup emergency kit is a text file with this key. It also contains the name and address of your Home Assistant, and the date when you downloaded the kit.
+Home Assistant encrypts your [backups](/common-tasks/general/backups/) by default. Backups stored on Home Assistant Cloud are always encrypted. For backups stored on [other backup locations](/common-tasks/general/backups/#defining-backup-locations), you can choose whether to encrypt them. To [restore an encrypted backup](/common-tasks/general/backups/#restoring-a-backup), you need its encryption key. The backup emergency kit is a text file with this key. It also contains the name and address of your Home Assistant, and the date when you downloaded the kit.
 
 ## What is encryption, and why are backups encrypted?
 
@@ -18,17 +18,17 @@ Encryption is a method of converting data into a coded format so that it can onl
 
 1. Go to {% my backup title="**Settings** > **System** > **Backups**" %}.
 2. Download the emergency kit:
-   - If you haven't set up backups yet, select **Set up backups**. The first step of the setup is **Encryption key**, where you can download the emergency kit. For the full steps, refer to [setting up an automatic backup process](/common-tasks/general/#setting-up-an-automatic-backup-process).
+   - If you haven't set up backups yet, select **Set up backups**. The first step of the setup is **Encryption key**, where you can download the emergency kit. For the full steps, refer to [setting up an automatic backup process](/common-tasks/general/backups/#setting-up-an-automatic-backup-process).
    - If you have already set up backups, on the **Encryption key** card, next to **Download emergency kit**, select **Download**.
    - If the card shows **Set encryption key** instead, you don't have an encryption key yet. Select **Set** to create one. Download the emergency kit, and then select **Set encryption key** to save the key.
    - To see the encryption key without downloading it, next to **Show my encryption key**, select **Show**.
 3. Store the kit somewhere safe, outside Home Assistant.
-   - Without the encryption key, there is no way to [restore an encrypted backup](/common-tasks/general/#restoring-a-backup).
+   - Without the encryption key, there is no way to [restore an encrypted backup](/common-tasks/general/backups/#restoring-a-backup).
    - If you change the encryption key later, keep the old kit too. You need it to restore the backups that you made before the change.
 
 ## Changing your encryption key
 
-When you set up your [backups](/common-tasks/general/#backups), Home Assistant creates an encryption key automatically. It uses this key for all your backups. You can replace it with a new key, which Home Assistant then uses for all future backups. To restore a backup that you made before the change, you still need the previous encryption key.
+When you set up your [backups](/common-tasks/general/backups/), Home Assistant creates an encryption key automatically. It uses this key for all your backups. You can replace it with a new key, which Home Assistant then uses for all future backups. To restore a backup that you made before the change, you still need the previous encryption key.
 
 1. Go to {% my backup title="**Settings** > **System** > **Backups**" %}.
 2. On the **Encryption key** card, next to **Change encryption key**, select **Change**.

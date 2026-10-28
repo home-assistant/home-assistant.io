@@ -51,7 +51,7 @@ This integration provides the following binary sensors to help you keep track of
   Monitors the oil pressure sensor. If this sensor is *on*, it means there is a problem with the oil pressure.
 
 - **Load shed**  
-  Monitors load shedding status for managed loads. If this sensor is *on*, it means the load is being shed. Generators can manage up to 6 loads. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  Monitors load shedding status for managed loads. If this sensor is *on*, it means the load is being shed. Generators can manage up to 6 loads. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Sensors
 

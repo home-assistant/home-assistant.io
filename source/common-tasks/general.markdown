@@ -5,7 +5,9 @@ installation_name: "Installation independent"
 ---
 This section provides tasks that do not depend on a specific Home Assistant installation type or a specific integration. They may be referenced in other procedures.
 
-{% include common-tasks/backups.md %}
+## Backups
+
+To create, store, download, or restore a backup, refer to [Backups](/common-tasks/general/backups/).
 
 {% include common-tasks/enable_entities.md %}
 
@@ -28,10 +30,8 @@ Creating an automation for polling gives you more flexibility on when to poll:
 
 ## Removing an integration instance
 
-If you no longer want to use a device or service in Home Assistant, you can remove the integration instance including the device or service with all its entities.
+If you no longer want to use a device or service in Home Assistant, you can remove its integration instance, including all its devices and entities.
 
-The following steps describe the general steps needed to remove an integration instance. Depending on the integration, additional steps can be needed, such as resetting the device or to delete credentials. Refer to the integration documentation to see if additional steps are needed.
+The following steps work for most integrations. Some integrations need more steps, such as resetting the device or deleting credentials. For these steps, refer to the documentation of the integration.
 
 {% include integrations/remove_device_service.md %}
-
-![Screenshot showing how to remove an integration instance](/images/docs/configuration/integration_instance_delete.png)

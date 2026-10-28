@@ -65,7 +65,7 @@ The APC UPS Daemon integration provides the following entities.
 
 {% note %}
 
-Some sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), since they are primarily useful for diagnostics or troubleshooting. You can manually enable them in **{% my entities title="**Settings** > **Devices & services** > **Entities**" %}** > the sensor entity you want to enable > {% icon "mdi:cog" %} > **Enabled**.
+Some sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), since they are primarily useful for diagnostics or troubleshooting. You can manually enable them in **{% my entities title="**Settings** > **Devices & services** > **Entities**" %}** > the sensor entity you want to enable > {% icon "mdi:cog" %} > **Enabled**.
 
 {% endnote %}
 

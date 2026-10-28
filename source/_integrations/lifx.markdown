@@ -122,7 +122,7 @@ Both buttons are configuration entities.
 - **RSSI**
   - **Description**: Reports the current Wi-Fi signal strength of the light.
   - **Available for**: all LIFX lights
-  - **Remarks**: Diagnostic entity, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). To use it, enable the entity first. Home Assistant only asks the light for its signal strength while the entity is enabled, which saves a request on every update. The unit depends on the light's firmware.
+  - **Remarks**: Diagnostic entity, [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). To use it, enable the entity first. Home Assistant only asks the light for its signal strength while the entity is enabled, which saves a request on every update. The unit depends on the light's firmware.
 
 ### Binary sensors
 

@@ -80,7 +80,7 @@
     of your configuration. This can be used to restore your Home Assistant as
     well as migrate to a new system. The backup feature is available for all
     [installation types](/installation/#about-installation-types).
-  link: /common-tasks/general/#backups
+  link: /common-tasks/general/backups/
   aliases:
     - backups
 - term: Binary sensor

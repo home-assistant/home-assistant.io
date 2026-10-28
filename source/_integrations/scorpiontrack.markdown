@@ -63,7 +63,7 @@ The **ScorpionTrack** integration creates one device for each vehicle included i
 - A **Speed** sensor entity that shows the latest vehicle speed reported through the share.
 - A **Last reported** diagnostic sensor entity that shows when the vehicle last reported its position through the share.
 - An **Ignition** binary sensor entity that shows the latest ignition state reported through the share.
-- A **Heading** sensor entity that shows the bearing of the latest shared position in degrees. It is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+- A **Heading** sensor entity that shows the bearing of the latest shared position in degrees. It is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
 

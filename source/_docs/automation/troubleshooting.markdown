@@ -375,7 +375,7 @@ When you add a trigger, the device or entity is not in the list.
 
 #### Description
 
-The device or entity is disabled. Disabled devices and entities are not shown when you add a trigger. For what disabling does, refer to [Hidden versus disabled entities](/docs/configuration/customizing-devices/#hidden-versus-disabled-entities).
+The device or entity is disabled. Disabled devices and entities are not shown when you add a trigger. For what disabling does, refer to [Hidden versus disabled entities](/docs/configuration/customizing-entities/#hidden-versus-disabled-entities).
 
 #### Resolution
 

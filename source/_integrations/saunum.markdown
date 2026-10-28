@@ -183,7 +183,7 @@ The **Saunum** integration provides the following entities.
 - **On time**
   - **Description**: Total accumulated operating time of the Leil touch screen control panel since last restart.
   - **Unit**: Seconds
-  - **Remarks**: This sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable it in the entity settings if you want to track usage statistics.
+  - **Remarks**: This sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Enable it in the entity settings if you want to track usage statistics.
 
 ### Binary sensors
 

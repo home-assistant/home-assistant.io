@@ -256,7 +256,7 @@ Some fixes delete the statistics of the entity. Deleted statistics can't be rest
 To avoid this:
 
 - Read the dialog carefully before you select **Delete**.
-- Before you delete statistics, [create a backup](/common-tasks/general/#creating-a-manual-backup).
+- Before you delete statistics, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup).
 {% endimportant %}
 
 #### To fix a statistics issue
@@ -304,7 +304,7 @@ Deleted statistics can't be restored, except from a backup.
 To avoid this:
 
 - Check that you selected the right statistics.
-- Before you delete statistics, [create a backup](/common-tasks/general/#creating-a-manual-backup).
+- Before you delete statistics, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup).
 {% endimportant %}
 
 #### To delete statistics

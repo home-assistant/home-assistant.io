@@ -74,7 +74,7 @@ The PTDevices integration provides the following entities.
 
 {% note %}
 
-Some sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) because they provide information that is only useful for particular use cases. You can manually enable them in {% my entities title="**Settings** > **Devices & services** > **Entities**" %}> the sensor entity you want to enable > **Advanced settings** > **Enabled**.
+Some sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because they provide information that is only useful for particular use cases. You can manually enable them in {% my entities title="**Settings** > **Devices & services** > **Entities**" %}> the sensor entity you want to enable > **Advanced settings** > **Enabled**.
 
 {% endnote %}
 

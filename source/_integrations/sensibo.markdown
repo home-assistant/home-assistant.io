@@ -62,7 +62,7 @@ API key:
 
 {% note %}
 
-Some entities are disabled by default, so you need to [enable them](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to use them.
+Some entities are disabled by default, so you need to [enable them](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to use them.
 
 Depending on device support, some entities might not be available as the device does not support them.
 
