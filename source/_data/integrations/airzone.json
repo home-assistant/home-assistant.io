@@ -1,0 +1,25 @@
+{
+  "domain": "airzone",
+  "name": "Airzone",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Noltari"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "diagnostics",
+    "select",
+    "sensor",
+    "switch",
+    "water_heater"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

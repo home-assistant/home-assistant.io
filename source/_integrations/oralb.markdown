@@ -1,19 +1,7 @@
 ---
-title: Oral-B
 description: Instructions on how to integrate Oral-B devices into Home Assistant.
-ha_category:
-  - Sensor
-ha_bluetooth: true
 ha_release: 2022.11
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@bdraco'
-  - '@Lash-L'
 ha_domain: oralb
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: device
 ---
 
 Integrates [Oral-B](https://oralb.com/) devices into Home Assistant.

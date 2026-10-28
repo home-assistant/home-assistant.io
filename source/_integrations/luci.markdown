@@ -1,18 +1,7 @@
 ---
-title: OpenWrt (luci)
 description: Instructions on how to integrate OpenWrt routers into Home Assistant.
-ha_category:
-  - Presence detection
-ha_iot_class: Local Polling
 ha_release: pre 0.7
-ha_config_flow: true
-ha_codeowners:
-  - '@mzdrale'
 ha_domain: luci
-ha_platforms:
-  - device_tracker
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **OpenWrt (luci)** {% term integration %} tracks the devices connected to a router that runs [OpenWrt](https://openwrt.org/) with the [LuCI](https://openwrt.org/docs/techref/luci) web interface. Home Assistant polls the router locally, so you can use the presence of a phone or another device to tell who is home and trigger automations based on that.

@@ -20,7 +20,7 @@ To change the displayed file from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the local file camera entity you want to update.
-6. From the actions shown for that target, select **Local file: Update file path**.
+6. From the actions shown for that target, under **Local file**, select **Update file path**.
 7. In the **File path** field, enter the full path to the new image file.
 8. Select **Save**.
 

@@ -1,30 +1,7 @@
 ---
-title: Yale Smart Living
 description: Instructions on how to integrate Yale Smart Alarms into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Lock
-  - Select
-  - Sensor
-  - Switch
 ha_release: 0.78
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@gjohansson-ST'
 ha_domain: yale_smart_alarm
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - diagnostics
-  - lock
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **Yale Smart Living** {% term integration %} provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.

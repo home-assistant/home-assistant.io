@@ -1,14 +1,7 @@
 ---
-title: Window
 description: Use window triggers and conditions in Home Assistant automations.
-ha_category:
-  - Automation
 ha_release: 2026.4
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: window
-ha_integration_type: system
 ---
 
 The **Window** {% term integration %} provides dedicated triggers and conditions for windows in Home Assistant. It works with binary sensors and covers that use the `window` device class, so you can react when a window opens or closes, or check whether one is open before running an automation.
@@ -45,8 +38,7 @@ automation: |
         behavior: each
         for: "00:00:00"
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: notify.send_message
       target:

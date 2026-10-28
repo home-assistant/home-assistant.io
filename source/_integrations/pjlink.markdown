@@ -1,15 +1,7 @@
 ---
-title: PJLink
 description: Instructions on how to integrate PJLink enabled projectors into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 0.76
-ha_iot_class: Local Polling
 ha_domain: pjlink
-ha_platforms:
-  - media_player
-ha_config_flow: true
-ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file

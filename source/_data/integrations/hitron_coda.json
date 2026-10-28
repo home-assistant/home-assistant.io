@@ -1,0 +1,12 @@
+{
+  "domain": "hitron_coda",
+  "name": "Rogers Hitron CODA",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "presence_location.network_presence"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

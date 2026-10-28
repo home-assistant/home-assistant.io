@@ -1,5 +1,5 @@
 ---
-title: "Start charging a Renault vehicle"
+title: "Start charging"
 action: renault.charge_start
 domain: renault
 description: "Starts charging a Renault vehicle."

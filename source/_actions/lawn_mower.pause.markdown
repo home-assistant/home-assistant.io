@@ -59,7 +59,7 @@ This action has no additional YAML options beyond the target.
 
 Pause the mower when someone steps into the garden, for example when a gate or back door opens.
 
-- **Trigger**: State: Back door opens
+- **Trigger**: State changed: Back door opens
 - **Action**: Pause lawn mower
   - **Target**: Backyard mower
 

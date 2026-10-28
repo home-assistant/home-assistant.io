@@ -1,27 +1,10 @@
 ---
-title: Tailwind
 description: Instructions on how to integrate a Tailwind garage door controller with Home Assistant.
-ha_category:
-  - Cover
 ha_release: 2024.1
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: tailwind
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - cover
-  - diagnostics
-  - number
-ha_integration_type: device
-ha_dhcp: true
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
-ha_quality_scale: platinum
 ---
 
 The **Tailwind** {% term integration %} lets you control your [Tailwind](https://gotailwind.com/) garage door controller fully locally, without relying on cloud services.

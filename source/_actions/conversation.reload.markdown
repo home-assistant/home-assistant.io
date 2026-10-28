@@ -19,7 +19,7 @@ To reload conversation agents from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Conversation: Reload conversation agents**.
+5. From the search box, search for and select **Reload conversation agents**.
 6. Optionally, choose a **Language** to limit what gets reloaded.
 7. Select **Save**.
 
@@ -71,7 +71,7 @@ language:
 
 While iterating on custom sentences, run a script that reloads the conversation agents so your changes take effect right away.
 
-- **Action**: Conversation: Reload conversation agents
+- **Action**: Reload conversation agents
 
 {% details "YAML example for reloading after editing sentences" %}
 

@@ -1,14 +1,7 @@
 ---
-title: Logger
 description: Instructions on how to enable the logger integration for Home Assistant.
-ha_category:
-  - Utility
 ha_release: 0.8
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: logger
-ha_integration_type: system
 ---
 
 The **Logger** {% term integration %} lets you define logging levels and filters in Home Assistant.

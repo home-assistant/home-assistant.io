@@ -8,7 +8,7 @@ related_actions:
   - ombi.submit_tv_request
 ---
 
-The **Submit music request** action searches your Ombi instance for a music album by name and submits a request for the first matching result.
+The **Ombi: Submit music request** action searches your Ombi instance for a music album by name and submits a request for the first matching result.
 
 This is handy when you want to request an album without opening the Ombi interface, for example from a voice assistant or a dashboard button.
 
@@ -65,7 +65,8 @@ name:
 
 When you press a dashboard button, request a specific album in Ombi.
 
-- **Trigger**: A button helper is pressed
+- **Trigger**: State changed
+  - **Entity**: Music request helper
 - **Action**: Ombi: Submit music request
 
 {% details "YAML example for requesting an album from a button" %}

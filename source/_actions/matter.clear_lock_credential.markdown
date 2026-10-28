@@ -1,5 +1,5 @@
 ---
-title: "Clear a Matter lock credential"
+title: "Clear lock credential"
 action: matter.clear_lock_credential
 domain: matter
 description: "Removes a credential, such as a PIN, from a Matter lock."
@@ -20,7 +20,7 @@ To clear a lock credential from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the lock you want to manage.
-6. From the actions shown for that target, select **Clear a Matter lock credential**.
+6. From the actions shown for that target, under **Matter**, select **Clear lock credential**.
 7. Set the **Credential type** and **Credential index** to remove.
 8. Select **Save**.
 
@@ -51,7 +51,7 @@ action: |
 
 {% options_yaml %}
 credential_type:
-  description: The type of credential to remove. See the credential types on the [Set a Matter lock credential](/actions/matter.set_lock_credential/) action.
+  description: The type of credential to remove. See the credential types on the [Set lock credential](/actions/matter.set_lock_credential/) action.
   required: true
   type: string
 credential_index:
@@ -60,11 +60,11 @@ credential_index:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Good to know
 
-- This action removes only the credential you specify. The user it belonged to stays on the lock, along with any of their other credentials. To remove a user and all their credentials, use the [Clear a Matter lock user](/actions/matter.clear_lock_user/) action.
+- This action removes only the credential you specify. The user it belonged to stays on the lock, along with any of their other credentials. To remove a user and all their credentials, use the [Clear lock user](/actions/matter.clear_lock_user/) action.
 
 {% include actions/stuck.md %}
 

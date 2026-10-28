@@ -1,18 +1,7 @@
 ---
-title: ekey bionyx
 description: Instructions on how to integrate ekey bionyx devices into Home Assistant.
-ha_category:
-  - Event
 ha_release: '2025.10'
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: ekeybionyx
-ha_codeowners:
-  - '@richardpolzer'
-ha_platforms:
-  - event
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **ekey bionyx** {% term integration %} allows Home Assistant to receive events from your [ekey fingerprint reader](https://www.ekey.net).

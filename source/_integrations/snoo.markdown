@@ -1,27 +1,7 @@
 ---
-title: Happiest Baby Snoo
 description: Instructions on how to integrate Snoo into Home Assistant
-ha_category:
-  - Binary Sensor
-  - Event
-  - Select
-  - Sensor
-  - Switch
-ha_iot_class: Cloud Push
 ha_release: 2025.3
-ha_config_flow: true
-ha_codeowners:
-  - '@Lash-L'
 ha_domain: snoo
-ha_platforms:
-  - binary_sensor
-  - button
-  - event
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The [Snoo](https://www.happiestbaby.com/products/snoo-smart-bassinet) is a smart bassinet made by [Happiest Baby](https://www.happiestbaby.com/) that helps get your baby to sleep and helps keep them asleep.

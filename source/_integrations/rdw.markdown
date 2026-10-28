@@ -1,22 +1,7 @@
 ---
-title: RDW
 description: Instructions on how to integrate RDW vehicle information with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Car
-  - Sensor
 ha_release: 2021.12
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
-  - '@joostlek'
 ha_domain: rdw
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **RDW** {% term integration %} connects with the [RDW](https://www.rdw.nl) (Netherlands Vehicle Authority) open data service to retrieve and monitor information about your Dutch registered vehicles in Home Assistant. RDW is the government organization responsible for vehicle registration, licensing, supervision, and enforcement in the Netherlands.

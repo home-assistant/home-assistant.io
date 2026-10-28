@@ -5,7 +5,7 @@ domain: unifiprotect
 description: "Returns the UniFi Protect users along with their NFC and fingerprint keys."
 ---
 
-With this action, you can fetch the list of users known to a UniFi Protect instance, together with their NFC and fingerprint associations. It returns the information as [response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data) so you can use it in automations, for example to react when a specific person unlocks a door with their fingerprint.
+With this action, you can fetch the list of users known to a UniFi Protect instance, together with their NFC and fingerprint associations. It returns the information as [response data](/docs/automation/action/#action-response-data) so you can use it in automations, for example to react when a specific person unlocks a door with their fingerprint.
 
 {% include actions/ui_header.md %}
 

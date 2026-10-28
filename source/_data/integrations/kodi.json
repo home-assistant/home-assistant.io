@@ -1,0 +1,20 @@
+{
+  "domain": "kodi",
+  "name": "Kodi",
+  "integration_type": "service",
+  "codeowners": [
+    "@OnFreund"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "media_player",
+    "notify"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

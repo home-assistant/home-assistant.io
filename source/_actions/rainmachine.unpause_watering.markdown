@@ -8,7 +8,7 @@ related_actions:
   - rainmachine.stop_all
 ---
 
-The **Unpause all watering** action resumes every watering activity on a RainMachine controller that was paused with [Pause all watering](/actions/rainmachine.pause_watering/). Use it when you want watering to continue before the pause would have ended on its own.
+The **RainMachine: Unpause all watering** action resumes every watering activity on a RainMachine controller that was paused with [Pause all watering](/actions/rainmachine.pause_watering/). Use it when you want watering to continue before the pause would have ended on its own.
 
 {% include actions/ui_header.md %}
 

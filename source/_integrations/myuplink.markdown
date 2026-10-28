@@ -1,33 +1,10 @@
 ---
-title: myUplink
 description: Instructions on how to set up the myUplink integration within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
-ha_iot_class: Cloud Polling
 ha_release: '2024.2'
 ha_domain: myuplink
-ha_codeowners:
-  - '@pajzo'
-  - '@astrandb'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: hub
 related:
   - url: https://myuplink.com/
     title: myUplink web portal
-ha_quality_scale: silver
 ---
 
 The **myUplink** {% term integration %} lets you get information about and control heat-pump devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).

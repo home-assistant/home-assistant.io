@@ -1,37 +1,7 @@
 ---
-title: Husqvarna Automower
 description: Instructions on how to integrate Husqvarna Automower lawn mowers into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Calendar
-  - Device tracker
-  - Event
-  - Lawn Mower
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_release: 2024.3
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Thomas55555'
-ha_platforms:
-  - binary_sensor
-  - button
-  - calendar
-  - device_tracker
-  - diagnostics
-  - event
-  - lawn_mower
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
 ha_domain: husqvarna_automower
-ha_quality_scale: silver
 ---
 
 The **Husqvarna Automower** {% term integration %} provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
@@ -157,7 +127,7 @@ The integration will create a lawn mower entity to control the mower. This entit
 
 #### Cutting height
 
-The integration will create a number entity for changing the cutting height of the mower. This entity is disabled by default. You have to enable it manually. It can't be detected with the API if the mower has the capability to change the cutting height remotely. Before enabling this function, refer to the mower documentation. Depending on the mower, it is possible that you can use this entity only passively as a sensor and not actively to change the cutting height.
+The integration will create a number entity for changing the cutting height of the mower. This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). You have to enable it manually. It can't be detected with the API if the mower has the capability to change the cutting height remotely. Before enabling this function, refer to the mower documentation. Depending on the mower, it is possible that you can use this entity only passively as a sensor and not actively to change the cutting height.
 Possible values are 1 (grass stays short) to 9 (grass stays high).
 
 #### Cutting height for work areas

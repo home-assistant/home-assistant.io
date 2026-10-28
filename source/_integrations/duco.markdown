@@ -1,31 +1,7 @@
 ---
-title: Duco
 description: Instructions on how to integrate Duco ventilation with Home Assistant.
 ha_release: 2026.5
-ha_category:
-  - Binary Sensor
-  - Fan
-  - Number
-  - Select
-  - Sensor
-  - Switch
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@ronaldvdmeer'
 ha_domain: duco
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - fan
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: platinum
-ha_dhcp: true
-ha_zeroconf: true
 ---
 
 The **Duco** {% term integration %} allows you to monitor and control [Duco](https://www.duco.eu/) demand-controlled ventilation (DCV) systems from Home Assistant. Duco produces ventilation boxes for residential buildings that regulate air quality based on CO₂ and humidity sensors. This integration communicates locally with the Duco box over your home network, requiring no cloud connection.
@@ -184,7 +160,7 @@ Available for the supported node types with a built-in humidity sensor listed in
 
 #### CO₂ air quality index
 
-Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sensor. Shows the CO₂ air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sensor. Shows the CO₂ air quality score as a percentage (0–100%). This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 Indoor air quality ranges for CO₂:
 
@@ -289,65 +265,17 @@ When the last person leaves home, the ventilation hands control back to Duco (au
         percentage: 66
 ```
 
-### Boost ventilation when CO₂ is high
+### Boost ventilation based on CO₂
 
-This automation switches to high speed when the CO₂ level rises above 1000 ppm on a UCCO2 sensor module, and returns to automatic mode when it drops back below 800 ppm.
+Boost a Duco fan when CO₂ rises above a chosen threshold and return it to automatic mode when CO₂ drops below a lower threshold.
 
-```yaml
-- alias: "Boost ventilation on high CO2"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.node_2_carbon_dioxide
-      above: 1000
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.node_1
-      data:
-        percentage: 100
+{% blueprint_example blueprint="duco/co2_ventilation.yaml" %}
 
-- alias: "Return to auto when CO2 is low"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.node_2_carbon_dioxide
-      below: 800
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.node_1
-      data:
-        percentage: 0
-```
+### Boost ventilation based on humidity
 
-### Boost ventilation when humidity is high
+Boost a Duco fan when humidity rises above a chosen threshold and return it to automatic mode when humidity drops below a lower threshold.
 
-This automation switches to medium speed when relative humidity rises above 70% on a UCRH or BSRH sensor module, and returns to automatic mode when it drops back below 60%.
-
-```yaml
-- alias: "Boost ventilation on high humidity"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.node_113_humidity
-      above: 70
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.node_1
-      data:
-        percentage: 66
-
-- alias: "Return to auto when humidity is normal"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.node_113_humidity
-      below: 60
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.node_1
-      data:
-        percentage: 0
-```
+{% blueprint_example blueprint="duco/humidity_ventilation.yaml" %}
 
 ## Data updates
 

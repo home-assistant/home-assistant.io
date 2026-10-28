@@ -1,20 +1,10 @@
 ---
-title: BT Smart Hub
 description: Instructions on how to integrate BT Smart Hub router into Home Assistant.
-ha_category:
-  - Presence detection
 ha_release: 0.82
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@typhoon2099'
 ha_domain: bt_smarthub
-ha_platforms:
-  - device_tracker
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 This {% term integration %} offers presence detection by looking at connected devices to a [BT Smart Hub](https://en.wikipedia.org/wiki/BT_Smart_Hub) based router.

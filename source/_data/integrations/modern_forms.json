@@ -1,0 +1,26 @@
+{
+  "domain": "modern_forms",
+  "name": "Modern Forms",
+  "codeowners": [
+    "@wonderslug"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.fans_ventilation",
+    "lighting.bulbs_lamps"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "fan",
+    "light",
+    "number",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

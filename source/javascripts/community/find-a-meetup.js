@@ -1,13 +1,25 @@
 // Renders the community meetups on a Leaflet map. Both the events and
 // Leaflet itself are already on the page: the events as a build-time JSON
 // blob, Leaflet from the CDN script tags on the community page.
+//
+// The events come from two Luma calendars (see the meetups_data task in the
+// Rakefile): the regular Home Assistant meetups and the Open Home Foundation
+// Community Day. Each calendar gets its own marker colour and layer, so the
+// filter above the map can show one or both.
 (function () {
   const mapContainer = document.getElementById("meetup-map");
   const eventsDataEl = document.getElementById("meetup-map-events");
+  const filter = document.querySelector("[data-map-filter]");
 
   if (!mapContainer || !eventsDataEl || typeof L === "undefined") {
     return;
   }
+
+  const CALENDARS = ["home-assistant-meetups", "ohf-community-day"];
+
+  // Anything longer than this is not an address line but a note from the
+  // host (directions, parking tips), so it is left out of the place line.
+  const MAX_ADDRESS_LINE_LENGTH = 80;
 
   const timeFormatter = new Intl.DateTimeFormat("en-GB", {
     timeZone: "UTC",
@@ -24,9 +36,13 @@
     const address = Array.isArray(event.address) ? event.address : [];
     // The first line is the venue and becomes the title, so the place line
     // uses the last two lines, never repeating the title on its own.
-    const place = address.slice(Math.max(1, address.length - 2));
+    const place = address
+      .slice(1)
+      .filter((line) => line.length <= MAX_ADDRESS_LINE_LENGTH)
+      .slice(-2);
 
     return {
+      calendar: CALENDARS.includes(event.calendar) ? event.calendar : CALENDARS[0],
       title: address[0] || event.summary,
       starts: timeFormatter.format(new Date(event.start)),
       location: place.length > 0 ? place.join(", ") : null,
@@ -51,14 +67,10 @@
       [90, 180],
     ],
     maxBoundsViscosity: 1.0,
-    // Events span close to the full width of the world, so fitBounds()
-    // zooms out quite far just to fit that - on a tall portrait container
-    // (mobile), the resulting view doesn't reach the container's own top/
-    // bottom edges, leaving grey bands above and below a horizontal strip
-    // of tiles. A floor on how far out it can go trades a few very remote
-    // markers being just outside the initial view (still reachable by
-    // panning) for the map actually filling its box.
-    minZoom: 2,
+    // Fractional zoom levels, so the world can be scaled to exactly fill
+    // the container (see worldZoom) instead of snapping to a whole level
+    // that leaves grey bands at the edges.
+    zoomSnap: 0,
     center: [20, 0],
     zoom: 2,
   });
@@ -73,11 +85,16 @@
     noWrap: true,
   }).addTo(map);
 
-  const markerIcon = L.divIcon({
-    className: "map-marker",
-    iconSize: [12, 12],
-    iconAnchor: [6, 6],
-  });
+  const markerIcons = Object.fromEntries(
+    CALENDARS.map((calendar) => [
+      calendar,
+      L.divIcon({
+        className: `map-marker ${calendar}`,
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+      }),
+    ])
+  );
 
   function slugify(text) {
     return text
@@ -132,7 +149,12 @@
     return wrapper;
   }
 
-  const bounds = [];
+  // One layer group per calendar, so the filter can add or remove a whole
+  // calendar at once. The coordinates are kept alongside to fit the view to
+  // whatever is currently shown.
+  const layers = Object.fromEntries(CALENDARS.map((calendar) => [calendar, L.layerGroup().addTo(map)]));
+  const coordinates = Object.fromEntries(CALENDARS.map((calendar) => [calendar, []]));
+
   for (const event of events) {
     // Some events come back from the API with no coordinates at all - a
     // few of them are missing lat/lng outright (undefined, not NaN), so
@@ -146,23 +168,68 @@
       continue;
     }
 
-    const marker = L.marker([event.lat, event.lng], { icon: markerIcon }).addTo(map);
+    const marker = L.marker([event.lat, event.lng], { icon: markerIcons[event.calendar] });
     marker.bindPopup(buildPopupContent(event));
     // "Active" = its popup is open - kept highlighted even once the pointer
     // leaves the marker for the popup content (see .map-marker.is-active).
     marker.on("popupopen", () => marker.getElement()?.classList.add("is-active"));
     marker.on("popupclose", () => marker.getElement()?.classList.remove("is-active"));
-    bounds.push([event.lat, event.lng]);
+    marker.addTo(layers[event.calendar]);
+    coordinates[event.calendar].push([event.lat, event.lng]);
+  }
+
+  let shownCalendars = CALENDARS;
+
+  function visibleBounds() {
+    return shownCalendars.flatMap((calendar) => coordinates[calendar]);
+  }
+
+  // Zoom at which the world covers the container's longest side. Used as
+  // the minimum zoom, so the tiles always fill the box: a few very remote
+  // markers may sit just outside the initial view, but they stay reachable
+  // by panning.
+  function worldZoom() {
+    const size = Math.max(mapContainer.clientWidth, mapContainer.clientHeight);
+    return Math.max(0, Math.log2(size / 256));
   }
 
   function fitToEvents() {
+    const bounds = visibleBounds();
     if (bounds.length === 0) return;
 
     map.invalidateSize({ pan: false });
+    map.setMinZoom(worldZoom());
     // Upcoming meetups are often clustered in one region, which on its own
     // would fit to a street-level zoom. The cap keeps the view at roughly
     // continent scale so the markers still read as places on a world map.
     map.fitBounds(bounds, { padding: [16, 16], animate: false, maxZoom: 3 });
+  }
+
+  function applyFilter(value) {
+    shownCalendars = CALENDARS.includes(value) ? [value] : CALENDARS;
+    map.closePopup();
+    for (const calendar of CALENDARS) {
+      if (shownCalendars.includes(calendar)) {
+        layers[calendar].addTo(map);
+      } else {
+        layers[calendar].remove();
+      }
+    }
+    fitToEvents();
+  }
+
+  if (filter) {
+    filter.addEventListener("change", (changeEvent) => {
+      if (changeEvent.target.name === "map-filter") {
+        applyFilter(changeEvent.target.value);
+      }
+    });
+    // Browsers restore the last picked radio on reload, so start from
+    // whatever is checked rather than assuming "all".
+    const checked = filter.querySelector("input[name='map-filter']:checked");
+    if (checked && checked.value !== "all") {
+      applyFilter(checked.value);
+    }
   }
 
   let revealed = false;
@@ -180,8 +247,9 @@
   tiles.on("load", reveal);
 
   new ResizeObserver(() => {
-    if (revealed || bounds.length === 0) {
+    if (revealed || visibleBounds().length === 0) {
       map.invalidateSize();
+      map.setMinZoom(worldZoom());
     } else {
       fitToEvents();
     }

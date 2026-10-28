@@ -1,0 +1,18 @@
+{
+  "domain": "edifier_infrared",
+  "name": "Edifier Infrared",
+  "integration_type": "device",
+  "codeowners": [
+    "@abmantis"
+  ],
+  "config_flow": true,
+  "iot_class": "assumed_state",
+  "quality_scale": "bronze",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "button",
+    "media_player"
+  ]
+}

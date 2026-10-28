@@ -1,0 +1,16 @@
+{
+  "domain": "feedreader",
+  "name": "Feedreader",
+  "integration_type": "service",
+  "codeowners": [
+    "@mib1185"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "news_social_media"
+  ],
+  "platforms": [
+    "event"
+  ]
+}

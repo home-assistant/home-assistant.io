@@ -9,7 +9,7 @@ related_actions:
   - ntfy.clear
 ---
 
-The **Delete notification** action deletes a notification from a ntfy topic.
+The **ntfy: Delete notification** action deletes a notification from a ntfy topic.
 
 To delete a notification, you must provide its message ID or sequence ID. The sequence ID can be specified when sending a notification.
 

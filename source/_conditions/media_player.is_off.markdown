@@ -76,9 +76,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the media player must stay off before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the media player must stay off before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -89,7 +89,7 @@ for:
 ## Good to know
 
 - This condition checks whether the device is powered off. If the device is still on but playback has ended, use [Media player is not playing](/conditions/media_player.is_not_playing/) instead.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you want the opposite test, use [Media player is on](/conditions/media_player.is_on/).
 
 {% include conditions/try_it.md %}
@@ -98,12 +98,14 @@ for:
 
 ### Automation: only run the vacuum when the TV is off
 
-When everyone leaves home, start the vacuum only if the bedroom TV is off.
+When Alex leaves home, start the vacuum only if the bedroom TV is off.
 
-- **Trigger**: Person leaves home
+- **Trigger**: Zone left
+  - **Target**: Alex
+  - **Zone**: Home
 - **Condition**: Media player is off
   - **Target**: Bedroom TV
-- **Action**: Start vacuuming
+- **Action**: Start vacuum cleaner
   - **Target**: Robot vacuum
 
 {% details "YAML example for starting the vacuum only when the TV is off" %}
@@ -112,10 +114,11 @@ When everyone leaves home, start the vacuum only if the bedroom TV is off.
 automation: |
   alias: "Start the vacuum only when the TV is off"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
   conditions:
     - condition: media_player.is_off
       target:

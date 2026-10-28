@@ -1,17 +1,7 @@
 ---
-title: Govee lights local
 description: Instructions on how to integrate Govee lights with Govee local API
-ha_category:
-  - light
 ha_release: 2024.2
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Galorhallen'
 ha_domain: govee_light_local
-ha_config_flow: true
-ha_platforms:
-  - light
-ha_integration_type: integration
 ---
 
 Integrates [Govee](https://www.govee.com/) lights into Home Assistant using Local API control.
@@ -161,6 +151,7 @@ H61C2,
 H61C3,
 H61C5,
 H61D3,
+H61D4,
 H61D5,
 H61D6,
 H61E0,

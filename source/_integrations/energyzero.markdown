@@ -1,18 +1,7 @@
 ---
-title: EnergyZero
 description: Instructions on how to integrate EnergyZero within Home Assistant.
-ha_category:
-  - Energy
 ha_release: 2023.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@klaasnicolaas'
 ha_domain: energyzero
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **EnergyZero** {% term integration %} integrates the [EnergyZero](https://www.energyzero.nl/) API platform with Home Assistant.
@@ -107,6 +96,43 @@ For the dynamic gas prices, only entities are created that display the
 24 hours; new prices are published every morning at **05:00 UTC time**.
 
 {% include integrations/actions.md %}
+
+## Examples
+
+### Automation: Run an action when the electricity price is low
+
+This example runs an action when the current electricity price drops below €0.10/kWh.
+
+```yaml
+alias: "EnergyZero low electricity price"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.energyzero_today_energy_current_hour_price
+    below: 0.10
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The current electricity price is below €0.10/kWh."
+```
+
+### Automation: Run an action at the lowest price time
+
+This example runs an action when the lowest electricity price time for today is reached.
+
+```yaml
+alias: "EnergyZero lowest electricity price time"
+triggers:
+  - trigger: time
+    at: sensor.energyzero_today_energy_lowest_price_time
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The lowest electricity price time for today has started."
+```
 
 ## Templates
 

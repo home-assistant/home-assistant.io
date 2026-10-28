@@ -18,7 +18,7 @@ To set continuous mode from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to control.
-6. From the actions shown for that target, select **Set continuous mode**.
+6. From the actions shown for that target, under **Nuki Bridge**, select **Set continuous mode**.
 7. Turn **Enable** on to enable continuous mode, or leave it off to disable it.
 8. Select **Save**.
 
@@ -70,7 +70,7 @@ enable:
 Use this automation to enable continuous mode every morning and disable it again in the evening, so visitors can come in while you're open.
 
 - **Trigger**: Time: 09:00
-- **Action**: Set continuous mode
+- **Action**: Nuki Bridge: Set continuous mode
   - **Target**: Front door opener
   - **Enable**: On
 

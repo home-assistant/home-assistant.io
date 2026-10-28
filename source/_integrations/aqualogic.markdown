@@ -1,18 +1,7 @@
 ---
-title: AquaLogic
 description: Instructions on how to integrate an AquaLogic controller within Home Assistant.
-ha_category:
-  - Hub
-  - Sensor
-  - Switch
 ha_release: '0.80'
-ha_iot_class: Local Push
 ha_domain: aqualogic
-ha_config_flow: true
-ha_platforms:
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **AquaLogic** {% term integration %} provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet adapter connected to the pool controller is required.

@@ -1,0 +1,30 @@
+{
+  "domain": "my_pv",
+  "name": "my-PV",
+  "integration_type": "device",
+  "codeowners": [
+    "@my-pv",
+    "@rrooggiieerr"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "energy.solar_batteries",
+    "climate.water_heaters"
+  ],
+  "platforms": [
+    "button",
+    "diagnostics",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "update",
+    "water_heater"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

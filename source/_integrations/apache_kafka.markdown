@@ -1,15 +1,7 @@
 ---
-title: Apache Kafka
 description: Send data and events to Apache Kafka.
-ha_category:
-  - History
 ha_release: 0.97
-ha_codeowners:
-  - '@bachya'
 ha_domain: apache_kafka
-ha_iot_class: Local Push
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **Apache Kafka** {% term integration %} sends all state changes to a

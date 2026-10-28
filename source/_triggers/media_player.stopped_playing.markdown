@@ -79,9 +79,9 @@ behavior:
   type: string
   default: each
 for:
-  description: How long playback must stay stopped before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long playback must stay stopped before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -131,7 +131,7 @@ When the patio speakers stop playing, set the patio climate back to a more comfo
 
 - **Trigger**: Media player stopped playing
   - **Target**: Patio speakers
-- **Action**: Set temperature
+- **Action**: Set thermostat target temperature
   - **Target**: Patio thermostat
 
 {% details "YAML example for restoring temperature after playback stops" %}

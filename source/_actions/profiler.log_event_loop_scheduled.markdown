@@ -1,5 +1,5 @@
 ---
-title: "Profiler: Log event loop scheduled"
+title: "Log event loop scheduled"
 action: profiler.log_event_loop_scheduled
 domain: profiler
 description: "Logs what is scheduled in the event loop."

@@ -1,19 +1,7 @@
 ---
-title: Garages Amsterdam
 description: Instructions on how to integrate Garages Amsterdam within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_release: 2021.6
-ha_codeowners:
-  - '@klaasnicolaas'
-ha_config_flow: true
-ha_iot_class: Cloud Polling
 ha_domain: garages_amsterdam
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: service
 ---
 
 The **Garages Amsterdam** {% term integration %} uses an API provided by the municipality of Amsterdam, to measure the occupancy of Amsterdam parking garages in the Netherlands. You can track multiple garages by adding the integration multiple times.
@@ -45,6 +33,44 @@ Some parking garages don't have long-term parking spaces, in which case the 2 sp
 ### Binary sensor
 
 Each parking garage also has a binary sensor, which indicates whether there are problems in the data provision from the API. When it indicates `ok` everything is fine. If the state changes to `problem`, the upstream data might not be up to date or reliable and will remain in this state until new data is coming in.
+
+## Examples
+
+### Automation: Act when parking availability is low
+
+This example sends a notification when fewer than 25 short-term parking spaces are available.
+
+```yaml
+alias: "Parking garage availability is low"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.garage_free_space_short
+    below: 25
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Fewer than 25 short-term parking spaces are available."
+```
+
+### Automation: Act when garage data has a problem
+
+This example sends a notification when the garage data problem sensor turns on.
+
+```yaml
+alias: "Parking garage data problem"
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.garage_data_problem
+    to: "on"
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The parking garage data may be outdated or unreliable."
+```
 
 ## Removing the integration
 

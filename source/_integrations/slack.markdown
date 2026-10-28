@@ -1,19 +1,7 @@
 ---
-title: Slack
 description: Instructions on how to add Slack notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_release: pre 0.7
-ha_config_flow: true
 ha_domain: slack
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@tkdrob'
-  - '@fletcherau'
-ha_platforms:
-  - notify
-  - sensor
-ha_integration_type: service
 ---
 
 The **Slack** {% term integration %} allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).

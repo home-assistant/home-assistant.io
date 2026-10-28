@@ -69,7 +69,9 @@ swing_mode:
 
 Set a climate device to swing the airflow in both directions when it starts cooling.
 
-- **Trigger**: Indoor temperature rises above 26 °C
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Living room temperature
+  - **Above**: `26`
 - **Action**: Set thermostat swing mode
   - **Target**: Living room thermostat
   - **Swing mode**: both

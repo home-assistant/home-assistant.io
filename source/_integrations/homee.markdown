@@ -1,47 +1,7 @@
 ---
-title: Homee
 description: Instructions on how to set up homee devices in Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Valve
-ha_config_flow: true
-ha_zeroconf: true
 ha_release: 2025.2
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Taraman17'
 ha_domain: homee
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - valve
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 [homee](https://hom.ee) is a smart home system, able to integrate various protocols such as Z-Wave, Zigbee, EnOcean, and more. The homee {% term integration %} will let you use the {% term devices %} from your homee in Home Assistant.

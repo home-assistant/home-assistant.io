@@ -40,7 +40,7 @@ To use **Battery level** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The battery level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter a fixed percentage (0–100), or **Entity** to use a sensor or number helper as a dynamic threshold.
+    The battery level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** includes both bounds: a reading equal to either bound passes. **Outside range** excludes both bounds: a reading equal to either bound does not pass. Choose **Number** to enter a fixed percentage (0–100), or **Entity** to use a sensor or number helper as a dynamic threshold.
 Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
@@ -99,10 +99,10 @@ condition: |
       value_min:
         number: 20
       value_max:
-        number: 101
+        number: 100
 {% endexample %}
 
-This passes when at least one of the batteries reads between 21% and 100%. The `between` threshold is exclusive, so `value_max` with `number: 101` is used to include a reading of 100%.
+This passes when at least one of the batteries reads between 20% and 100%. The range includes both bounds.
 
 To use a number helper as a dynamic threshold that you can adjust without editing the automation:
 
@@ -129,10 +129,10 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
     - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
-    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
-    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: between` (inclusive): Defines a range. The reading must be between the two bounds, or equal to one of them, to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: outside` (exclusive): Defines an outside-range. The reading must be beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
 
-    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
+    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity. The entity must use `%` as its unit. If it has a different unit, or no unit, the condition doesn't pass.
   required: true
   type: map
 behavior:
@@ -146,14 +146,14 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="battery level sensor" example="sensor.phone_battery" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
 - The target sensor must have the battery device class.
-- Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md %}
 - Battery level is expressed as a percentage from 0 to 100.
 - This condition checks the entity's current battery reading. To react to changes in the reading, use the [Battery level changed](/triggers/battery.level_changed/) or [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/) trigger instead.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
@@ -165,7 +165,7 @@ behavior:
 
 ### Automation: skip a weekly reminder when batteries are low
 
-This automation sends a weekly reminder to test your smoke detectors, but only when every detector still has at least 25% battery. If any battery is low, the reminder is skipped so you can replace the batteries first.
+This automation sends a weekly reminder to test your smoke detectors, but only when every detector still has more than 25% battery. If any battery is low, the reminder is skipped so you can replace the batteries first.
 
 - **Trigger**: Time: Every Sunday at 10:00
 - **Condition**: Battery level (above 25%)

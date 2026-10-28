@@ -1,16 +1,10 @@
 ---
-title: Graphite
 description: Instructions on how to record Home Assistant history in Graphite.
-ha_category:
-  - History
 ha_release: 0.13
 ha_domain: graphite
-ha_iot_class: Local Push
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Graphite** {% term integration %} records all events and state changes and feeds the data to a [graphite](http://graphiteapp.org/) instance.

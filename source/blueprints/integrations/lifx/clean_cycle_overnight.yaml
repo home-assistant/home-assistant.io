@@ -1,0 +1,60 @@
+blueprint:
+  name: Run a LIFX Clean cycle overnight
+  description: >
+    Start a Clean cycle using the HEV LEDs on one or more LIFX Clean lights
+    at the same time every night. The default start time of 2:00 AM is when
+    rooms are most likely to be empty. If your schedule is different, adjust
+    the start time.
+
+    Only LIFX Clean lights have HEV LEDs. We strongly recommend running each
+    Clean cycle for at least 2 continuous hours.
+  domain: automation
+  author: Djelibeybi
+  homeassistant:
+    min_version: 2024.10.0
+
+  input:
+    start_time:
+      name: Start time
+      description: >
+        The time the Clean cycle starts each night. The default of 2:00 AM
+        with a 2-hour cycle runs it from 2:00 AM to 4:00 AM.
+      default: "02:00:00"
+      selector:
+        time:
+
+    lifx_lights:
+      name: LIFX Clean lights
+      description: >
+        The LIFX Clean lights that run the cycle.
+      selector:
+        target:
+          entity:
+            - integration: lifx
+              domain: light
+
+    cycle_duration:
+      name: Cycle duration
+      description: >
+        How long the Clean cycle runs. We strongly recommend at least 120 minutes.
+      default: 120
+      selector:
+        number:
+          min: 5
+          max: 240
+          unit_of_measurement: minutes
+          mode: slider
+
+variables:
+  cycle_duration: !input cycle_duration
+
+triggers:
+  - trigger: time
+    at: !input start_time
+
+actions:
+  - action: lifx.set_hev_cycle_state
+    target: !input lifx_lights
+    data:
+      power: true
+      duration: "{{ cycle_duration | int * 60 }}"

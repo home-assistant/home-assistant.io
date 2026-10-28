@@ -1,24 +1,7 @@
 ---
-title: Yeelight
 description: Instructions on how to set up Yeelight Wifi devices within Home Assistant.
-ha_category:
-  - Light
 ha_release: 0.32
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@zewelor'
-  - '@shenxn'
-  - '@starkillerOG'
-  - '@alexyao2015'
 ha_domain: yeelight
-ha_platforms:
-  - binary_sensor
-  - light
-ha_homekit: true
-ha_dhcp: true
-ha_zeroconf: true
-ha_integration_type: device
 ---
 
 The **Yeelight** {% term integration %} allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
@@ -162,7 +145,7 @@ In the bulb property, you have to enable "LAN Control" (previously called "Devel
 Determine your bulb IP (using router, software, ping...).
 Currently, there is no official way to change LAN mode. However, some methods might be found here:
 - [Desktop app](https://community.home-assistant.io/t/727360)
-- CLI using the python-miio library: [1](https://community.home-assistant.io/t/312174), [2](https://community.home-assistant.io/t/290404)
+- CLI using the python-miio library: [1](https://community.home-assistant.io/t/312174), [2](https://community.home-assistant.io/t/290404), [3](https://github.com/vicirdek/yeelight-ctl)
 
 {% endimportant %}
 
@@ -206,7 +189,7 @@ This {% term integration %} is tested to work with the following models. If you 
 | `ceiling13`| YLXD01YL     | Yeelight LED Ceiling Light                       |
 | `ceil26`   | YLXD76YL     | Yeelight Ceiling Light - Updated HomeKit 23w     |
 | ?, may be `ceilb` | YLXD013-B    | Yeelight Arwen Ceiling Light 450C         |
-| ?, may be `ceilb` | YLXD013-C    | Yeelight Arwen Ceiling Light 550C         |
+| `ceilc`    | YLXD013-C    | Yeelight Arwen Ceiling Light 550C         |
 | `ceilb`    | YLXD013      | Yeelight Arwen Ceiling Light 450S                |
 
 {% include integrations/actions.md %}

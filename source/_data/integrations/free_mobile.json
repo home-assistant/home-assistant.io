@@ -1,0 +1,12 @@
+{
+  "domain": "free_mobile",
+  "name": "Free Mobile",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "messaging_notifications.email_sms_calls"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

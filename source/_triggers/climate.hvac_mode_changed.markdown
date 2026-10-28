@@ -12,7 +12,7 @@ The **Thermostat mode changed** trigger fires after the HVAC mode of a climate {
 
 Note: The UI labels this trigger as "Thermostat," but it works with all climate entities.
 
-You can optionally filter the trigger to fire only when the thermostat switches to one or more specific modes. Leave the mode option empty to fire on any mode change.
+You choose one or more modes, and the trigger reacts when the thermostat switches to one of them.
 
 {% include triggers/ui_header.md %}
 
@@ -23,7 +23,7 @@ To use **Thermostat mode changed** in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your thermostat is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Thermostat mode changed**.
-6. Optionally, under **Modes**, select one or more modes you want to watch for. Leave it empty to trigger on any mode change.
+6. Under **Modes**, select one or more modes you want to monitor.
 7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple thermostats are targeted.
 8. Under **For at least**, set how long the thermostat must remain in the new mode before the trigger fires. Leave it at zero to fire immediately.
 9. Select **Save**.
@@ -32,7 +32,8 @@ To use **Thermostat mode changed** in an automation:
 
 {% options_ui %}
 Modes:
-  description: The HVAC mode or modes the thermostat must switch to for the trigger to fire. Typical modes include **Off**, **Heat**, **Cool**, **Auto**, **Dry**, **Fan only**, and **Heat/Cool**, though the exact modes available depend on your device. Default is empty, which fires on any mode change.
+  description: The HVAC mode or modes the thermostat must switch to for the trigger to fire. Typical modes include **Off**, **Heat**, **Cool**, **Auto**, **Dry**, **Fan only**, and **Heat/Cool**, though the exact modes available depend on your device.
+  required: true
 Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
@@ -54,32 +55,20 @@ trigger: |
   trigger: climate.hvac_mode_changed
   target:
     entity_id: climate.living_room
-{% endexample %}
-
-This fires every time the HVAC mode of `climate.living_room` changes to any mode.
-
-To fire only when the thermostat switches to a specific mode:
-
-{% example %}
-trigger: |
-  trigger: climate.hvac_mode_changed
-  target:
-    entity_id: climate.living_room
   options:
     hvac_mode: "heat"
 {% endexample %}
 
-### Options in YAML
+This reacts when `climate.living_room` switches to the **Heat** mode.
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+### Options in YAML
 
 {% options_yaml %}
 hvac_mode:
   description: >
-    The HVAC mode or modes the thermostat must switch to for the trigger to fire. Accepts a single mode string or a list of modes. Typical modes include `off`, `heat`, `cool`, `auto`, `dry`, `fan_only`, and `heat_cool`, though the exact modes available depend on your device. Omit to fire on any mode change.
-  required: false
+    The HVAC mode or modes the thermostat must switch to for the trigger to fire. Accepts a single mode string or a list of modes. Typical modes include `off`, `heat`, `cool`, `auto`, `dry`, `fan_only`, and `heat_cool`, though the exact modes available depend on your device.
+  required: true
   type: string
-  default: (empty, fires on any mode change)
 behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
@@ -92,9 +81,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the thermostat must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has stayed in the new mode for 10 seconds, which is useful to ignore brief mode changes.
+    How long the thermostat must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has stayed in the new mode for 10 seconds, which is useful to ignore brief mode changes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -106,7 +95,7 @@ for:
 
 - The target climate entity must support the HVAC mode you want to use.
 - The available modes depend entirely on the device. Check your climate entity's documentation or the entity's attributes to see which modes are supported.
-- If you filter by mode, the trigger only fires when the device _enters_ that mode, not when it leaves it.
+- The trigger only reacts when the thermostat changes to one of the selected modes, not when it changes from a selected mode to a mode that isn't selected. It also doesn't react when the thermostat switches between two selected modes. For example, with **Heat** and **Cool** selected, switching from **Heat** to **Cool** doesn't make the trigger react.
 - The HVAC mode is different from the current HVAC action. The mode is what you set the device to do, while the action is what the device is currently doing, such as heating, cooling, or idle.
 
 {% include triggers/try_it.md %}

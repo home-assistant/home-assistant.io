@@ -1,0 +1,18 @@
+{
+  "domain": "html5",
+  "name": "HTML5 Push Notifications",
+  "integration_type": "service",
+  "codeowners": [
+    "@alexyao2015",
+    "@tr4nt0r"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "messaging_notifications.push_notifications"
+  ],
+  "platforms": [
+    "event",
+    "notify"
+  ]
+}

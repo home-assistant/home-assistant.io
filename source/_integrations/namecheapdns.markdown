@@ -1,19 +1,10 @@
 ---
-title: Namecheap DynamicDNS
 description: Keep your namecheap dynamic DNS up to date
-ha_category:
-  - Network
-ha_iot_class: Cloud Push
 ha_release: 0.56
 ha_domain: namecheapdns
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_codeowners:
-  - '@tr4nt0r'
-ha_config_flow: true
-ha_quality_scale: platinum
 ---
 
 With the **Namecheap DynamicDNS** {% term integration %} you can automatically update your dynamic DNS entry hosted by Namecheap's [FreeDNS](https://www.namecheap.com/store/domains/freedns/) or [PremiumDNS](https://www.namecheap.com/security/premiumdns/) services.

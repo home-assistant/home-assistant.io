@@ -1,0 +1,27 @@
+{
+  "domain": "wiz",
+  "name": "WiZ",
+  "integration_type": "device",
+  "codeowners": [
+    "@sbidy",
+    "@arturpragacz"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "lighting.bulbs_lamps",
+    "plugs_switches"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "fan",
+    "light",
+    "number",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

@@ -19,7 +19,7 @@ To override a zone's setpoint from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the heating zone you want to override.
-6. From the actions shown for that target, select **Set zone override**.
+6. From the actions shown for that target, under **Honeywell Total Connect Comfort (Europe)**, select **Set zone override**.
 7. Set the **Setpoint** and, optionally, a **Duration**.
 8. Select **Save**.
 
@@ -83,7 +83,10 @@ duration:
 Half an hour before the weekday alarm, override the bathroom zone to a comfortable temperature, then let it return to its schedule.
 
 - **Trigger**: Time, 06:00 on weekdays
-- **Action**: Set zone override on the bathroom, with a higher setpoint for one hour
+- **Action**: Honeywell Total Connect Comfort (Europe): Set zone override
+  - **Target**: Bathroom thermostat
+  - **Setpoint**: `21`
+  - **Duration**: `01:00`
 
 {% details "YAML example for warming the bathroom" %}
 

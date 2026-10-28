@@ -1,29 +1,7 @@
 ---
-title: Magic Home
 description: Instructions on how to set up Magic Home within Home Assistant.
-ha_category:
-  - Button
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-ha_iot_class: Local Push
 ha_release: 0.25
 ha_domain: flux_led
-ha_platforms:
-  - button
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-ha_codeowners:
-  - '@icemanch'
-ha_config_flow: true
-ha_dhcp: true
-ha_integration_type: integration
 ---
 
 The **Magic Home** {% term integration %} supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app or the Surp Life app.

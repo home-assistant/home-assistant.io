@@ -8,7 +8,7 @@ related_actions:
   - hive.boost_hot_water
 ---
 
-The **Boost heating on** action sets a Hive heating zone to boost for a set time at a target temperature. You can boost a whole zone or an individual radiator valve (TRV) the same way. When the time runs out, the zone returns to its schedule.
+The **Hive: Boost heating on** action sets a Hive heating zone to boost for a set time at a target temperature. You can boost a whole zone or an individual radiator valve (TRV) the same way. When the time runs out, the zone returns to its schedule.
 
 {% include actions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To boost heating from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the heating zone or radiator valve you want to boost.
-6. From the actions shown for that target, select **Hive: Boost heating on**.
+6. From the actions shown for that target, under **Hive**, select **Boost heating on**.
 7. Enter the **Time period**, and optionally a **Temperature**.
 8. Select **Save**.
 

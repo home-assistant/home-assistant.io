@@ -5,10 +5,10 @@ domain: kiosker
 description: "Navigate your Kiosker device to a specific URL."
 since: "2026.5"
 related_actions:
-  - kiosker.blackout_set
+  - kiosker.set_blackout
 ---
 
-The **Navigate to URL** action opens a specific web page on your Kiosker device. Use it in automations to display a page based on time, presence, sensor readings, or any other trigger.
+The **Kiosker: Navigate to URL** action opens a specific web page on your Kiosker device. Use it in automations to display a page based on time, presence, sensor readings, or any other trigger.
 
 {% include actions/ui_header.md %}
 
@@ -74,10 +74,12 @@ url:
 
 When a household member arrives, navigate the hallway display to a personalized welcome page.
 
-- **Trigger**: Person: Arrives home
+- **Trigger**: State changed
+  - **Entity**: Jane person
+  - **To**: Home
 - **Action**: Kiosker: Navigate to URL
-- **Device**: Hallway display
-- **URL**: `https://homeassistant.local/lovelace/welcome`
+  - **Device**: Hallway display
+  - **URL**: `https://homeassistant.local/lovelace/welcome`
 
 {% details "YAML example for showing a welcome screen on arrival" %}
 
@@ -103,8 +105,8 @@ After 10 PM, navigate your kiosk back to the home dashboard so it always shows t
 
 - **Trigger**: Time: 22:00
 - **Action**: Kiosker: Navigate to URL
-- **Device**: Living room kiosk
-- **URL**: `https://homeassistant.local/lovelace/home`
+  - **Device**: Living room kiosk
+  - **URL**: `https://homeassistant.local/lovelace/home`
 
 {% details "YAML example for returning to the home dashboard at night" %}
 

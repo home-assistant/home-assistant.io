@@ -7,7 +7,7 @@ related_actions:
   - ness_alarm.aux
 ---
 
-The **Panic** action triggers a panic alarm on your Ness alarm panel, using a user code.
+The **Ness Alarm: Panic** action triggers a panic alarm on your Ness alarm panel, using a user code.
 
 This is handy when you want a fast way to raise the alarm, for example from a dashboard button or a wall-mounted tablet during an emergency.
 
@@ -64,7 +64,8 @@ code:
 
 When a dashboard button is pressed, trigger a panic alarm on the panel.
 
-- **Trigger**: A button helper is pressed
+- **Trigger**: State changed
+  - **Entity**: Panic helper
 - **Action**: Ness Alarm: Panic
 
 {% details "YAML example for triggering panic from a button" %}

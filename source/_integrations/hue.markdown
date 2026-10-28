@@ -1,28 +1,8 @@
 ---
-title: Philips Hue
 description: Instructions on setting up Philips Hue within Home Assistant.
-ha_category:
-  - Hub
-  - Light
-ha_iot_class: Local Push
 featured: true
 ha_release: '0.60'
-ha_config_flow: true
-ha_codeowners:
-  - '@marcelveldt'
 ha_domain: hue
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - event
-  - light
-  - scene
-  - select
-  - sensor
-  - switch
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **Philips Hue** {% term integration %} allows you to control and monitor the lights and sensors connected to your Hue bridge. The integration supports:
@@ -78,7 +58,7 @@ Allow unreachable bulbs to report their state correctly:
 
 ## Hue remotes and switches
 
-Hue remotes such as the Dimmer Switch are stateless devices, meaning that they do not have an on/off state like regular entities in Home Assistant. Instead, these devices emit the event `hue_event` when a button is pressed. You can test what events come in by going to {% my developer_events title="**Settings** > **Tools** > **Events**" %} and subscribing to `hue_event`. Once you know what the event data looks like, you can use it to create automations.
+Hue remotes such as the Dimmer Switch are stateless devices, meaning that they do not have an on/off state like regular entities in Home Assistant. Instead, these devices emit the event `hue_event` when a button is pressed. You can test what events come in by going to {% my tools_events title="**Settings** > **Tools** > **Events**" %} and subscribing to `hue_event`. Once you know what the event data looks like, you can use it to create automations.
 
 {% note %}
 The Hue API limits each device to one event per second. This means that button events are rate-limited to one per second.

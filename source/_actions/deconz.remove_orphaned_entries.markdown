@@ -22,7 +22,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Remove orphaned entries**.
+5. Search for and select **deCONZ: Remove orphaned entries**.
 6. Fill in the options you want to use.
 7. Select **Save**.
 

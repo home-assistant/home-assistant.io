@@ -1,34 +1,7 @@
 ---
-title: Qbus
 description: Instructions on how to integrate your Qbus installation with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Hub
-  - Light
-  - Scene
-  - Select
-  - Sensor
-  - Switch
-ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - light
-  - scene
-  - select
-  - sensor
-  - switch
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Qbus-iot'
-  - '@thomasddn'
 ha_release: 2025.2
 ha_domain: qbus
-ha_integration_type: hub
-ha_config_flow: true
-ha_quality_scale: bronze
 ---
 
 The **Qbus** {% term integration %} allows you to integrate your [Qbus Control](https://www.qbus.be) into Home Assistant. **Qbus** is a Belgian manufacturer of Home Automation systems.
@@ -38,6 +11,8 @@ The **Qbus** {% term integration %} allows you to integrate your [Qbus Control](
 This integration communicates with a **Qbus** controller over an MQTT server.
 
 The controllers cannot communicate directly with MQTT. Therefore, you need to install the Qbus gateway before enabling this integration. The Qbus gateway is a software tool that runs on all Linux platforms. It can be installed by running a script or a Docker container. For detailed instructions, please refer to the [Qbus MQTT Gateway documentation](https://github.com/Qbus-iot/qbus-mqttgw).
+
+The Qbus gateway finds your controller by searching your local network. For this to work, the gateway must be on the same subnet as the controller. If the gateway is on a different subnet, the controller is not discovered.
 
 For information on setting up Home Assistant with a **Qbus** controller, refer to the [Qbus documentation](https://iot.qbus.be/). The documentation is currently only available in Dutch, but translations are planned for the future.
 
@@ -142,7 +117,7 @@ The integration does not provide a way to update the firmware on the devices. Th
 
 ## Troubleshooting
 
-### Can’t set up the device
+### Can't set up the device
 
 #### Symptom: "No devices are discovered"
 
@@ -158,5 +133,6 @@ To resolve this issue, try the following steps:
 
 1. Make sure your controller is online and not connected to System Manager.
 2. Make sure you have an MQTT broker running.
-3. Make sure that the gateway software is up and running (see [Prerequisites](#prerequisites)) and connected to the broker.
-4. Make sure you have an MQTT client integration (see [Prerequisites](#prerequisites)) connected to the broker.
+3. Make sure that the gateway software is up and running and connected to the broker.
+4. Make sure the gateway is on the same subnet as your controller. If it isn't, the controller is not discovered.
+5. Make sure you have an MQTT client integration connected to the broker.
