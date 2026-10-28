@@ -7,7 +7,7 @@ related_actions:
   - teslemetry.dispatch_battery_power
 ---
 
-The **Teslemetry: Resume battery operation** action ends a [battery power dispatch](/actions/teslemetry.dispatch_battery_power/) before its duration ends, and returns the Powerwall to its normal operation. It is sent directly to your Powerwall over your local network, so the energy site must be [paired for local control](/integrations/teslemetry/#local-powerwall-control).
+The **Teslemetry: Resume battery operation** action ends a [battery power dispatch](/actions/teslemetry.dispatch_battery_power/) before its duration ends, and returns the Powerwall to its normal operation. If the energy site is [paired for local control](/integrations/teslemetry/#local-powerwall-control), it is sent directly to your Powerwall over your local network first, and through Teslemetry whenever your Powerwall can't be reached. Otherwise, it is sent through Teslemetry.
 
 Use it to hand control back to your Powerwall as soon as the reason for a dispatch is gone, for example when a demand response event ends early.
 
@@ -27,7 +27,7 @@ To resume battery operation from an automation or a script:
 
 {% options_ui %}
 Energy site:
-  description: The energy site to control. It must be paired with its Powerwall for local control.
+  description: The energy site to control.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -46,7 +46,7 @@ action: |
 {% options_yaml %}
 device_id:
   description: >
-    The ID of the energy site to control. It must be paired with its Powerwall for local control.
+    The ID of the energy site to control.
   required: true
   type: string
 {% endoptions_yaml %}
