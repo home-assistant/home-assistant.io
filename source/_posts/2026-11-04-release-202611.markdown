@@ -107,9 +107,10 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@abb848] who helped write the release notes this release. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@abb848] and [@bramkragten] who helped write the release notes this release. ❤️_
 
 [@abb848]: https://github.com/abb848
+[@bramkragten]: https://github.com/bramkragten
 [@frenck]: https://github.com/frenck
 [@ludeeus]: https://github.com/ludeeus
 
