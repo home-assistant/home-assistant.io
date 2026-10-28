@@ -1087,6 +1087,16 @@ If no previous supported mode is known, the previous fallback order is still use
 [@wardmatter]: https://github.com/wardmatter
 [#181458]: https://github.com/home-assistant/core/pull/181458
 
+---
+
+Matter covers that can only tilt, without moving up and down, such as tilt-only blind controllers, are now shown as tilt covers. Before, their state was always unknown.
+
+They now use the `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, and `cover.toggle_cover_tilt` actions, instead of `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, and `cover.toggle`. Update automations, scripts, and device actions that use the old actions on these covers. Voice assistants that open or close these covers may also no longer work for them. Covers that can move up and down are not affected.
+
+([@TheJulianJES] - [#188787]) ([Matter documentation])
+
+[#188787]: https://github.com/home-assistant/core/pull/188787
+
 {% enddetails %}
 
 {% details "MQTT" %}
