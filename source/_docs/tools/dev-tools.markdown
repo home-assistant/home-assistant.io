@@ -152,14 +152,30 @@ The list shows the following columns:
 
 ### Viewing the details of an action
 
-1. In the **Action history** tab, select an action in the list.
+1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
    - Result: A dialog shows the details of the action:
      - **Time**: The date and time the action was performed, to the second.
-     - **Cause**: What performed the action and, if available, what triggered it.
+     - **Cause**: What or who performed the action and, if available, what triggered it.
      - **User**: The user the action was performed for, if this user isn't already shown as the cause.
      - **Context ID**: The ID of the context that the action was performed in. You can use it to find related events.
      - **Data**: The data the action was performed with, in YAML, such as the targets and options.
 2. Optional: If an automation or a script performed the action, select **View trace** to open its [trace](/docs/automation/troubleshooting/#traces) and see why it ran.
+
+### Copying the YAML of an action
+
+You can copy the YAML of an action and use it in an automation or a script.
+
+1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+2. In the action dialog, select **Copy as YAML** {% icon "mdi:content-copy" %} button to copy the YAML.
+   - Result: The action is copied with its targets and data, in the same format as an action in an automation.
+
+### Performing an action again
+
+To perform an action again with the same data:
+
+1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+2. In the action dialog, select **Perform again**. This button is only shown if the action is still available.
+   - Result: The action runs again, and controls the same devices as the first time.
 
 ## Template editor tab
 
