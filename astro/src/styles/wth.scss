@@ -47,6 +47,9 @@
 	/* The page's own measure and rhythm. Wider than the site's reading
 	   column, which is for running text. */
 	--wth-measure: 70rem;
+	/* The corner of the hero card, the tiles, the cards and the closing
+	   call to action: the Jekyll page's 20px card radius. */
+	--radius-large: 1.25rem;
 	--wth-measure-wide: 87.5rem;
 	--wth-gutter: var(--layout-gutter);
 	--wth-gutter-wide: var(--layout-gutter-wide);

@@ -437,6 +437,11 @@ main#page-wth {
 // Local section nav, matching the pill row other landing pages carry under
 // the site header.
 main#page-wth {
+    // The pill row and the hero sit on white.
+    .wth-top {
+        background-color: var(--wth-surface);
+    }
+
     #nav {
         --section-spacing-y: 28px;
         // The row needs air on both sides: it sits between the site header

@@ -86,8 +86,10 @@ const description =
     </div>
 
     <main class="wth">
-      <NavPills links={sections} />
-      <WthHero />
+      <div class="top">
+        <NavPills links={sections} />
+        <WthHero />
+      </div>
       <WthMoments />
       <WthEveryone />
       <WthTips />
@@ -132,6 +134,11 @@ const description =
     --nav-pills-hover-bg: var(--wth-mint);
     --nav-pills-hover-color: var(--wth-ink);
     --nav-pills-focus: var(--wth-focus);
+  }
+
+  /* The pill row and the hero sit on white. */
+  .top {
+    background-color: var(--wth-surface);
   }
 </style>
 
