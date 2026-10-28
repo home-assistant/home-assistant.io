@@ -39,9 +39,10 @@
           {%- comment -%}
             The doodle, in two layers. The flow is clipped to the pill: hero
             routing with pulses running through it. The breakout is not: now
-            and then the node in the icon's place leaves the button along a
-            run of its own, and comes back. Both are anchored to the right
-            edge, where the node sits, so the label's width never moves them.
+            and then a run grows out of the node in the icon's place, leaves
+            the button and retracts; the node itself never moves. Both are
+            anchored to the right edge, where the node sits, so the label's
+            width never moves them.
           {%- endcomment %}
           <span class="nav-wth__flow" aria-hidden="true"><svg viewBox="0 0 120 38" fill="none" focusable="false">
             <g stroke-linecap="round" fill="none">
@@ -52,10 +53,31 @@
           </svg></span>
           <span class="label">WTH</span>
           <svg class="nav-wth__breakout" viewBox="0 0 80 48" fill="none" aria-hidden="true" focusable="false">
-            <path class="nav-wth__trail" pathLength="1" d="M68 12v8a6 6 0 0 1-6 6H40" stroke-linecap="round" />
-            <circle class="nav-wth__stop" cx="40" cy="26" r="2.5" />
+            <path class="nav-wth__trail" pathLength="1" d="M68 12v20a8 8 0 0 1-8 8H28" stroke-linecap="round" />
+            <circle class="nav-wth__stop" cx="28" cy="40" r="2.5" />
           </svg>
-          <span class="icon nav-wth__node" aria-hidden="true"><span class="nav-wth__hop"><span class="nav-wth__mark">?!</span></span></span>
+          <span class="icon nav-wth__node" aria-hidden="true"><span class="nav-wth__mark">?!</span></span>
+        </a>
+      </li>
+      {%- comment -%}
+        The same button in its light variant, so the two can be compared on
+        the deploy preview. Keep whichever wins and delete the other.
+      {%- endcomment %}
+      <li class="nav-wth nav-wth--light">
+        <a class="nav-button nav-wth__button nav-wth__button--light{% if root == 'wth' %} active{% endif %}" href="/wth/" title='Month of "What the Heck?!"'>
+          <span class="nav-wth__flow" aria-hidden="true"><svg viewBox="0 0 120 38" fill="none" focusable="false">
+            <g stroke-linecap="round" fill="none">
+              <path class="nav-wth__run" d="M0 10h52a8 8 0 0 1 8 8v4a8 8 0 0 0 8 8h52" />
+              <path class="nav-wth__run nav-wth__run--dashed" d="M30 38v-6a8 8 0 0 1 8-8h14" />
+              <path class="nav-wth__pulse" pathLength="1" d="M0 10h52a8 8 0 0 1 8 8v4a8 8 0 0 0 8 8h52" />
+            </g>
+          </svg></span>
+          <span class="label">WTH</span>
+          <svg class="nav-wth__breakout" viewBox="0 0 80 48" fill="none" aria-hidden="true" focusable="false">
+            <path class="nav-wth__trail" pathLength="1" d="M68 12v20a8 8 0 0 1-8 8H28" stroke-linecap="round" />
+            <circle class="nav-wth__stop" cx="28" cy="40" r="2.5" />
+          </svg>
+          <span class="icon nav-wth__node" aria-hidden="true"><span class="nav-wth__mark">?!</span></span>
         </a>
       </li>
       <li>

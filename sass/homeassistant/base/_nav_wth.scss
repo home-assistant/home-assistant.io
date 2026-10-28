@@ -9,8 +9,8 @@
 // (`.nav-button`, in _header.scss) with its palette swapped for the
 // campaign's and a doodle drawn into it, the way a search page dresses up
 // its logo for a day. The doodle borrows the /wth/ hero: routing with
-// pulses running along it, a node where a run ends, and every so often the
-// node leaving the button along a run of its own before it comes home.
+// pulses running along it, a node where a run ends, and every so often a
+// run of the node's own breaking out of the button before it retracts.
 
 // The campaign's mint and teal, from sass/homeassistant/pages/wth/_variables.scss,
 // inked with the header button's own navy so the two calls to action read as
@@ -33,9 +33,11 @@ $nav-wth-node-inset: 1.25rem;
 $nav-wth-cycle: 9s;
 
 .site-header .nav-wth__button {
-  --rest-surface: linear-gradient(100deg, #{$nav-wth-mint} 20%, #{$nav-wth-teal});
+  // Twice the button's width, mint to teal and back, so hovering can slide
+  // it along; at rest the first half shows.
+  --rest-surface: linear-gradient(100deg, #{$nav-wth-mint} 10%, #{$nav-wth-teal} 50%, #{$nav-wth-mint} 90%);
   --rest-text: #{$nav-wth-ink};
-  // Hovering changes what the doodle does, not the fill; see below.
+  // Hovering animates the background rather than swapping it; see below.
   --hover-surface: var(--rest-surface);
   --hover-text: var(--rest-text);
   --active-surface: #{$nav-wth-ink};
@@ -50,6 +52,9 @@ $nav-wth-cycle: 9s;
   // not clipped, so the breakout can leave it.
   position: relative;
   isolation: isolate;
+  // After the header's `background` shorthand, which resets the size.
+  background-position: 0% 50%;
+  background-size: 200% 100%;
 
   // On the page it promotes, it reads as the current item.
   &.active {
@@ -64,11 +69,9 @@ $nav-wth-cycle: 9s;
     position: relative;
   }
 
-  // The icon's place becomes the node's socket: an empty ring while the
-  // node is away. The header's arrow is not painted here.
+  // The icon's place holds the node instead of the header's arrow.
   .icon {
     background: none;
-    box-shadow: inset 0 0 0 1.5px rgb(0 46 62 / 35%);
     position: relative;
 
     &::before {
@@ -114,22 +117,10 @@ $nav-wth-cycle: 9s;
   animation: nav-wth-pulse 3s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
-// Carries the node's hover move down, out of the pill, while the node
-// itself carries the move along; see the hover state below.
-.nav-wth__hop {
-  inset: 0;
-  position: absolute;
-  transition: translate 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.22s;
-  // Above the breakout's trail. Translating makes this a stacking context,
-  // so the node's own z-index no longer reaches past it.
-  z-index: 2;
-}
-
 // The node: the hero's, a pale disc with a mint ring, carrying "?!" for
 // the question the month asks.
 .nav-wth__mark {
   align-items: center;
-  animation: nav-wth-breakout $nav-wth-cycle cubic-bezier(0.4, 0, 0.2, 1) infinite;
   background: $nav-wth-node;
   border-radius: 50%;
   box-shadow: inset 0 0 0 2px $nav-wth-mint;
@@ -141,12 +132,11 @@ $nav-wth-cycle: 9s;
   justify-content: center;
   letter-spacing: -0.03em;
   position: absolute;
-  transition: translate 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
 }
 
-// The run the node takes when it breaks out: a short drop so it peeks out
-// under the pill, a turn, then a little way back under the label to a stop.
+// The run that breaks out of the node: down and out of the pill, a turn,
+// then back under the label to a stop.
 // Its viewBox is in pixels at the bar's root size, with the node's home at
 // (68, 12).
 .nav-wth__breakout {
@@ -178,12 +168,41 @@ $nav-wth-cycle: 9s;
   transform-origin: center;
 }
 
+// The light variant, for trying the two side by side: a white pill with a
+// mint rim, the routing drawn in mint with a brand-blue pulse. It needs no
+// scheme of its own over the homepage hero, where white reads on the cyan.
+// Its loop runs half a cycle behind the mint button's, so the two never
+// break out together.
+//
+// Doubled up so it outranks the header's on-dark button, which would
+// otherwise repaint it over the hero.
+.site-header .nav-wth__button.nav-wth__button--light {
+  --rest-surface: linear-gradient(100deg, #fff 10%, #DDFBF3 50%, #fff 90%);
+  --rest-text: #{$nav-wth-ink};
+  --hover-surface: var(--rest-surface);
+  --hover-text: var(--rest-text);
+  --ring: #{$nav-wth-mint};
+  --ring-width: 1.5px;
+  --wth-run: rgb(22 243 190 / 55%);
+  --wth-pulse: #{$nav-wth-blue};
+  --wth-trail: #{$nav-wth-blue};
+
+  .nav-wth__trail,
+  .nav-wth__stop {
+    animation-delay: calc(#{$nav-wth-cycle} / -2);
+  }
+
+  .nav-wth__pulse {
+    animation-delay: -1.5s;
+  }
+}
+
 // Over the homepage hero, whose cyan swallows the mint, the button turns
 // to ink, the way "Get started" turns to its on-dark scheme there. Only the
 // bar goes transparent over the hero; the panel is light on every page.
 @media only screen and (min-width: breakpoints.$desk) {
-  .site-header.dark .nav-wth__button {
-    --rest-surface: #{$nav-wth-ink};
+  .site-header.dark .nav-wth__button:not(.nav-wth__button--light) {
+    --rest-surface: linear-gradient(100deg, #{$nav-wth-ink} 10%, #004E66 50%, #{$nav-wth-ink} 90%);
     --rest-text: #{$nav-wth-mint};
     // The header's on-dark button sets its own hover fill; undo it here too.
     --hover-surface: var(--rest-surface);
@@ -195,19 +214,21 @@ $nav-wth-cycle: 9s;
     --wth-pulse: #{$nav-wth-mint};
     // The brand blue disappears into the hero's cyan; white does not.
     --wth-trail: #fff;
+  }
 
-    .icon {
-      box-shadow: inset 0 0 0 1.5px rgb(22 243 190 / 45%);
-    }
+  // The light variant keeps its white pill, but its trail leaves the pill
+  // onto the cyan too.
+  .site-header.dark .nav-wth__button--light {
+    --wth-trail: #fff;
   }
 }
 
 // In the panel it leads the row of calls to action, ahead of
-// "Get started". The breakout peeks under the pill, so the row keeps that
+// "Get started". The breakout drops below the pill, so the row keeps that
 // clear of the first link under it.
 @media only screen and (max-width: (breakpoints.$desk - 0.0625rem)) {
   .site-header .menu > li.nav-wth {
-    margin: 0 0 0.75rem var(--layout-gutter);
+    margin: 0 0 1.25rem var(--layout-gutter);
     order: -2;
     width: auto;
   }
@@ -221,98 +242,42 @@ $nav-wth-cycle: 9s;
   }
 }
 
-// Hovering, or focusing from the keyboard, answers the question: the
-// node steps out to its stop at once and waits there, its trail drawn, while
-// the pulse and the dashes inside the pill speed up. The step out is two
-// moves on two elements, down and then along, so it follows the run's
-// corner; leaving reverses them, along and then up, and the loop starts
-// over from rest.
+// Hovering, or focusing from the keyboard, wakes the background up rather
+// than filling it: the gradient flows back and forth, the routing brightens
+// and its pulse and dashes speed up. The node stays home, and holds still,
+// so the button keeps one target under the pointer.
 .site-header .nav-wth__button:is(:hover, :focus-visible) {
-  .nav-wth__hop {
-    translate: 0 14px;
-    transition-delay: 0s;
-  }
+  animation: nav-wth-current 1.4s ease-in-out infinite alternate;
 
-  .nav-wth__mark {
-    animation: none;
-    transform: none;
-    transition-delay: 0.16s;
-    translate: -28px 0;
-  }
-
-  .nav-wth__trail {
-    animation: nav-wth-trail-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
-  }
-
-  .nav-wth__stop {
-    animation: none;
-    opacity: 1;
-    transform: none;
+  .nav-wth__run {
+    stroke: var(--wth-pulse);
+    stroke-opacity: 0.6;
   }
 
   .nav-wth__pulse {
-    animation-duration: 1.2s;
+    animation-duration: 1.1s;
   }
 
   .nav-wth__run--dashed {
     animation-duration: 0.4s;
   }
+
+  .nav-wth__trail,
+  .nav-wth__stop {
+    animation: none;
+  }
 }
 
-@keyframes nav-wth-trail-in {
-  from {
-    stroke-dashoffset: 1;
-  }
+@keyframes nav-wth-current {
   to {
-    stroke-dashoffset: 0;
+    background-position: 100% 50%;
   }
 }
 
-// One cycle of the breakout. The node rests at home for most of it, then
-// drops just out of the pill, turns, and slides a short way under the
-// label, drawing its trail behind it; it hops once at the stop and returns
-// the way it came, taking the trail with it. The waypoints are the trail's
-// own: down 8, round a 6px corner, then 22 along, so node and line stay
-// together.
-@keyframes nav-wth-breakout {
-  0%,
-  58% {
-    transform: none;
-  }
-  60% {
-    transform: translate(0, 8px);
-  }
-  60.75% {
-    transform: translate(-1.8px, 12.2px);
-  }
-  61.5% {
-    transform: translate(-6px, 14px);
-  }
-  65% {
-    transform: translate(-28px, 14px);
-  }
-  67% {
-    transform: translate(-28px, 11px);
-  }
-  69%,
-  75% {
-    transform: translate(-28px, 14px);
-  }
-  78.5% {
-    transform: translate(-6px, 14px);
-  }
-  79.25% {
-    transform: translate(-1.8px, 12.2px);
-  }
-  80% {
-    transform: translate(0, 8px);
-  }
-  82%,
-  100% {
-    transform: none;
-  }
-}
-
+// One cycle of the breakout. The node never leaves its socket: for most of
+// the cycle nothing happens, then a run grows out of the node, drops just out
+// of the pill and turns back under the label, a stop pops at its end, and
+// the run retracts into the node the way it came.
 @keyframes nav-wth-trail {
   0%,
   58% {
@@ -366,7 +331,6 @@ $nav-wth-cycle: 9s;
 @media (prefers-reduced-motion: reduce) {
   .nav-wth__run--dashed,
   .nav-wth__pulse,
-  .nav-wth__mark,
   .nav-wth__trail,
   .nav-wth__stop {
     animation: none;
@@ -377,13 +341,7 @@ $nav-wth-cycle: 9s;
   }
 
   // Hover still shows the node at its stop, without the move.
-  .nav-wth__hop,
-  .nav-wth__mark {
-    transition: none;
-  }
-
-  .site-header .nav-wth__button:is(:hover, :focus-visible) .nav-wth__trail {
+  .site-header .nav-wth__button:is(:hover, :focus-visible) {
     animation: none;
-    stroke-dashoffset: 0;
   }
 }
