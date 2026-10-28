@@ -1,6 +1,6 @@
 ---
 title: Solyx Energy Cloud
-description: Monitor and control your Solyx Energy devices within Home Assistant
+description: Instructions on how to monitor your Solyx Energy Nymo devices in Home Assistant.
 ha_release: 2026.11
 ha_category: Energy
 ha_platforms:
