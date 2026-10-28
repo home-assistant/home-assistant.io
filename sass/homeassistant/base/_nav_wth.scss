@@ -12,10 +12,13 @@
 // pulses running along it, a node where a run ends, and every so often the
 // node leaving the button along a run of its own before it comes home.
 
-// The campaign palette, from sass/homeassistant/pages/wth/_variables.scss.
-// The ink clears 8.6:1 on the mint end of the gradient and 5.6:1 on the
-// teal end, so the label reads anywhere along it.
-$nav-wth-ink: #033D2E;
+// The campaign's mint and teal, from sass/homeassistant/pages/wth/_variables.scss,
+// inked with the header button's own navy so the two calls to action read as
+// a pair. The navy clears 9.9:1 on the mint end of the gradient and 6.5:1 on
+// the teal end, so the label reads anywhere along it. The trail takes the
+// brand blue, the hero's other line colour.
+$nav-wth-ink: #002E3E;
+$nav-wth-blue: #18BCF2;
 $nav-wth-mint: #16F3BE;
 $nav-wth-teal: #29C0D5;
 $nav-wth-node: #F2F4F9;
@@ -32,15 +35,16 @@ $nav-wth-cycle: 9s;
 .site-header .nav-wth__button {
   --rest-surface: linear-gradient(100deg, #{$nav-wth-mint} 20%, #{$nav-wth-teal});
   --rest-text: #{$nav-wth-ink};
-  --hover-surface: #{$nav-wth-mint};
-  --hover-text: #{$nav-wth-ink};
+  // Hovering changes what the doodle does, not the fill; see below.
+  --hover-surface: var(--rest-surface);
+  --hover-text: var(--rest-text);
   --active-surface: #{$nav-wth-ink};
   --active-text: #{$nav-wth-mint};
   --focus-ring: #{$nav-wth-teal};
   // The doodle's colours, which the dark header swaps.
   --wth-run: rgb(255 255 255 / 55%);
   --wth-pulse: #fff;
-  --wth-trail: #{$nav-wth-ink};
+  --wth-trail: #{$nav-wth-blue};
 
   // The positioning context for both doodle layers. The button itself is
   // not clipped, so the breakout can leave it.
@@ -64,7 +68,7 @@ $nav-wth-cycle: 9s;
   // node is away. The header's arrow is not painted here.
   .icon {
     background: none;
-    box-shadow: inset 0 0 0 1.5px rgb(3 61 46 / 35%);
+    box-shadow: inset 0 0 0 1.5px rgb(0 46 62 / 35%);
     position: relative;
 
     &::before {
@@ -110,6 +114,17 @@ $nav-wth-cycle: 9s;
   animation: nav-wth-pulse 3s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
+// Carries the node's hover move down, out of the pill, while the node
+// itself carries the move along; see the hover state below.
+.nav-wth__hop {
+  inset: 0;
+  position: absolute;
+  transition: translate 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.22s;
+  // Above the breakout's trail. Translating makes this a stacking context,
+  // so the node's own z-index no longer reaches past it.
+  z-index: 2;
+}
+
 // The node: the hero's, a pale disc with a mint ring, carrying "?!" for
 // the question the month asks.
 .nav-wth__mark {
@@ -126,12 +141,14 @@ $nav-wth-cycle: 9s;
   justify-content: center;
   letter-spacing: -0.03em;
   position: absolute;
+  transition: translate 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
 }
 
-// The run the node takes when it breaks out: straight down out of the
-// pill, a turn, then back underneath the label to a stop. Its viewBox is
-// in pixels at the bar's root size, with the node's home at (68, 12).
+// The run the node takes when it breaks out: a short drop so it peeks out
+// under the pill, a turn, then a little way back under the label to a stop.
+// Its viewBox is in pixels at the bar's root size, with the node's home at
+// (68, 12).
 .nav-wth__breakout {
   height: 3rem;
   overflow: visible;
@@ -146,7 +163,9 @@ $nav-wth-cycle: 9s;
 .nav-wth__trail {
   animation: nav-wth-trail $nav-wth-cycle cubic-bezier(0.4, 0, 0.2, 1) infinite;
   stroke: var(--wth-trail);
-  stroke-dasharray: 1;
+  // A gap longer than the path, or the round cap of the next dash shows
+  // as a dot at the stop while the trail is hidden.
+  stroke-dasharray: 1 2;
   stroke-dashoffset: 1;
   stroke-width: 2.5;
 }
@@ -166,13 +185,16 @@ $nav-wth-cycle: 9s;
   .site-header.dark .nav-wth__button {
     --rest-surface: #{$nav-wth-ink};
     --rest-text: #{$nav-wth-mint};
-    --hover-surface: #022a20;
-    --hover-text: #{$nav-wth-mint};
+    // The header's on-dark button sets its own hover fill; undo it here too.
+    --hover-surface: var(--rest-surface);
+    --hover-text: var(--rest-text);
     --active-surface: #{$nav-wth-mint};
     --active-text: #{$nav-wth-ink};
     --focus-ring: #{$nav-wth-mint};
     --wth-run: rgb(22 243 190 / 30%);
     --wth-pulse: #{$nav-wth-mint};
+    // The brand blue disappears into the hero's cyan; white does not.
+    --wth-trail: #fff;
 
     .icon {
       box-shadow: inset 0 0 0 1.5px rgb(22 243 190 / 45%);
@@ -181,11 +203,11 @@ $nav-wth-cycle: 9s;
 }
 
 // In the panel it leads the row of calls to action, ahead of
-// "Get started". The breakout drops 1.5rem below the pill, so the row keeps
-// that clear of the first link under it.
+// "Get started". The breakout peeks under the pill, so the row keeps that
+// clear of the first link under it.
 @media only screen and (max-width: (breakpoints.$desk - 0.0625rem)) {
   .site-header .menu > li.nav-wth {
-    margin: 0 0 1.5rem var(--layout-gutter);
+    margin: 0 0 0.75rem var(--layout-gutter);
     order: -2;
     width: auto;
   }
@@ -199,51 +221,93 @@ $nav-wth-cycle: 9s;
   }
 }
 
-// One cycle of the breakout. The node rests at home for most of it, then
-// drops out of the pill, turns, and runs back under the label, drawing its
-// trail behind it; it bounces at the stop, and returns the way it came,
-// taking the trail with it. The waypoints are the trail's own: down 20,
-// round an 8px corner, then 44 along, so node and line stay together.
-@keyframes nav-wth-breakout {
-  0%,
-  56% {
+// Hovering, or focusing from the keyboard, answers the question: the
+// node steps out to its stop at once and waits there, its trail drawn, while
+// the pulse and the dashes inside the pill speed up. The step out is two
+// moves on two elements, down and then along, so it follows the run's
+// corner; leaving reverses them, along and then up, and the loop starts
+// over from rest.
+.site-header .nav-wth__button:is(:hover, :focus-visible) {
+  .nav-wth__hop {
+    translate: 0 14px;
+    transition-delay: 0s;
+  }
+
+  .nav-wth__mark {
+    animation: none;
+    transform: none;
+    transition-delay: 0.16s;
+    translate: -28px 0;
+  }
+
+  .nav-wth__trail {
+    animation: nav-wth-trail-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .nav-wth__stop {
+    animation: none;
+    opacity: 1;
     transform: none;
   }
-  59.5% {
-    transform: translate(0, 20px);
+
+  .nav-wth__pulse {
+    animation-duration: 1.2s;
   }
-  60.5% {
-    transform: translate(-2.3px, 25.7px);
+
+  .nav-wth__run--dashed {
+    animation-duration: 0.4s;
+  }
+}
+
+@keyframes nav-wth-trail-in {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+// One cycle of the breakout. The node rests at home for most of it, then
+// drops just out of the pill, turns, and slides a short way under the
+// label, drawing its trail behind it; it hops once at the stop and returns
+// the way it came, taking the trail with it. The waypoints are the trail's
+// own: down 8, round a 6px corner, then 22 along, so node and line stay
+// together.
+@keyframes nav-wth-breakout {
+  0%,
+  58% {
+    transform: none;
+  }
+  60% {
+    transform: translate(0, 8px);
+  }
+  60.75% {
+    transform: translate(-1.8px, 12.2px);
   }
   61.5% {
-    transform: translate(-8px, 28px);
+    transform: translate(-6px, 14px);
+  }
+  65% {
+    transform: translate(-28px, 14px);
   }
   67% {
-    transform: translate(-52px, 28px) rotate(-360deg);
+    transform: translate(-28px, 11px);
   }
-  69% {
-    transform: translate(-52px, 22px) rotate(-360deg) scale(1.1);
+  69%,
+  75% {
+    transform: translate(-28px, 14px);
   }
-  71% {
-    transform: translate(-52px, 28px) rotate(-360deg);
+  78.5% {
+    transform: translate(-6px, 14px);
   }
-  72.5% {
-    transform: translate(-52px, 25px) rotate(-360deg);
+  79.25% {
+    transform: translate(-1.8px, 12.2px);
   }
-  74%,
-  76% {
-    transform: translate(-52px, 28px) rotate(-360deg);
+  80% {
+    transform: translate(0, 8px);
   }
-  81.5% {
-    transform: translate(-8px, 28px) rotate(0deg);
-  }
-  82.5% {
-    transform: translate(-2.3px, 25.7px);
-  }
-  83.5% {
-    transform: translate(0, 20px);
-  }
-  87%,
+  82%,
   100% {
     transform: none;
   }
@@ -251,14 +315,14 @@ $nav-wth-cycle: 9s;
 
 @keyframes nav-wth-trail {
   0%,
-  56% {
+  58% {
     stroke-dashoffset: 1;
   }
-  67%,
-  76% {
+  65%,
+  75% {
     stroke-dashoffset: 0;
   }
-  87%,
+  82%,
   100% {
     stroke-dashoffset: 1;
   }
@@ -266,16 +330,16 @@ $nav-wth-cycle: 9s;
 
 @keyframes nav-wth-stop {
   0%,
-  66% {
+  64% {
     opacity: 0;
     transform: scale(0.3);
   }
-  68%,
-  76% {
+  66%,
+  75% {
     opacity: 1;
     transform: scale(1);
   }
-  78%,
+  77%,
   100% {
     opacity: 0;
     transform: scale(0.3);
@@ -310,5 +374,16 @@ $nav-wth-cycle: 9s;
 
   .nav-wth__pulse {
     display: none;
+  }
+
+  // Hover still shows the node at its stop, without the move.
+  .nav-wth__hop,
+  .nav-wth__mark {
+    transition: none;
+  }
+
+  .site-header .nav-wth__button:is(:hover, :focus-visible) .nav-wth__trail {
+    animation: none;
+    stroke-dashoffset: 0;
   }
 }
