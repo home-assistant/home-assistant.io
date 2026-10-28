@@ -102,7 +102,8 @@ On Linux edit the `/etc/hosts` file, and add following entry:
 
 Replace `12.34.56.78` with your Home Assistant's public IP address.
 
-This will allow you to open Home Assistant at `http://homeassistant.home:8123/`
+This will allow you to open Home Assistant at `http://homeassistant.home/`  
+(Or, if you are using HA 2026.7 or earlier, use `http://homeassistant.home:8123/`)
 
 ### Stuck on loading data
 
