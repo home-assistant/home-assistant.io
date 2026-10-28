@@ -131,13 +131,41 @@ Setup stops with this error when the device at that address does not report itse
 
 Setup stops with this error when the device answers but reports no serial number, which Home Assistant needs to tell your power station apart from any other. Restart the power station and try again.
 
-### A different device answers at the address
+{% details "A different device answers at the address" %}
 
-If the entities are unavailable and the Home Assistant log says a different device answers at the address, the power station this entry was set up for has moved or been replaced. Its entities stay unavailable until it answers at that address again. If it has moved, reconfigure the entry with its new address.
+### Symptom: The entities are unavailable and the log mentions a different device
 
-### Reconfiguring reports a different serial number
+The entities of this entry are unavailable, and the Home Assistant log says a different device answers at the address.
 
-Reconfiguring stops with this error when the power station at the new address is not the one the entry was set up for. Home Assistant recognizes your power station by its serial number, not by its address. Check that you entered the address and device ID of the right power station. To add a different power station, set it up as a new entry instead.
+#### Description
+
+Home Assistant recognizes your power station by its serial number, not by its address. The power station this entry was set up for has moved or been replaced, and another device now answers at its address. The entities stay unavailable until the power station answers at that address again.
+
+#### Resolution
+
+1. Find the new address of your power station, for example by looking it up in your router.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. From the listed integrations, select **BLUETTI Modbus**, select **Menu** {% icon "mdi:dots-vertical" %} and then **Reconfigure**.
+4. Enter the new address, and select **Submit**.
+
+{% enddetails %}
+
+{% details "Reconfiguring reports a different serial number" %}
+
+### Symptom: "The power station at this address has a different serial number than expected. Make sure you enter the address for the correct power station."
+
+When you reconfigure the entry, the flow stops with this error.
+
+#### Description
+
+Home Assistant recognizes your power station by its serial number, not by its address. The power station answering at the new address is not the one this entry was set up for.
+
+#### Resolution
+
+1. Check that you entered the address and device ID of the right power station.
+2. To add a different power station, set it up as a new entry instead.
+
+{% enddetails %}
 
 ## Removing the integration
 
