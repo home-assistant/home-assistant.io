@@ -11,12 +11,13 @@ import SiteHead from "../../components/SiteHead.astro";
 
 const title = "No device left behind";
 const description = "Something new from Home Assistant is coming on November 11.";
+const image = "/images/no-device-left-behind/social.webp";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <SiteHead title={title} description={description} />
+    <SiteHead title={title} description={description} image={image} noindex />
   </head>
   <body>
     <main class="hero" data-hero>

@@ -3,6 +3,7 @@ title: No device left behind
 description: Something new from Home Assistant is coming on November 11.
 layout: null
 permalink: /no-device-left-behind/
+og_image: /images/no-device-left-behind/social.webp
 sitemap: false
 ---
 {%- comment -%}
@@ -19,7 +20,13 @@ sitemap: false
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }} - {{ site.title }}</title>
     <meta name="description" content="{{ page.description }}">
+    <meta name="robots" content="noindex">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:image" content="{{ page.og_image | absolute_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ page.og_image | absolute_url }}">
     <style>
       body { margin: 0; padding: 3rem 1rem; background: #0b0f14; color: #e6eef6; font: 1rem/1.5 system-ui, sans-serif; text-align: center; }
       a { display: inline-block; margin-top: 1rem; padding: .75rem 1.25rem; border: 1px solid rgba(230, 238, 246, .2); border-radius: 999px; color: inherit; font-weight: 600; text-decoration: none; }
