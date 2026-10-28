@@ -467,8 +467,13 @@ main#page-wth {
             transition: grid-template-rows 0.25s ease;
         }
 
+        // A closed answer is hidden, not only collapsed, so its links leave
+        // the tab order and the accessibility tree. The switch waits for the
+        // collapse to finish, so the answer stays drawn while it closes.
         .accordion-item-content-inner {
             overflow: hidden;
+            transition: visibility 0s linear 0.25s;
+            visibility: hidden;
 
             p,
             pre {
@@ -518,6 +523,8 @@ main#page-wth {
 
         .accordion-item-checkbox:checked ~ .accordion-item-content .accordion-item-content-inner {
             padding-bottom: 24px;
+            transition-delay: 0s;
+            visibility: visible;
         }
     }
 

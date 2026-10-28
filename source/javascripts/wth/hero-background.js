@@ -15,10 +15,13 @@ const SHOWN = '(min-width: 768px)';
 const PULSE = 80;
 // How far pulses and dashes move along their lines per pixel scrolled.
 const SPEED = { pulse: 1.4, dashes: 0.3 };
+// Checked on every frame as well as at start, so turning reduced motion on
+// while the page is open stops lines that are already moving.
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function init() {
     const background = document.querySelector('.wth-hero-bg');
-    if (!background || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!background || REDUCED.matches) return;
 
     // Hidden lines cannot be measured, so wait until they show.
     const shown = window.matchMedia(SHOWN);
@@ -59,7 +62,7 @@ function animate(background) {
     let frame = 0;
     const update = () => {
         frame = 0;
-        if (background.getBoundingClientRect().bottom < 0) return;
+        if (REDUCED.matches || background.getBoundingClientRect().bottom < 0) return;
         const scrolled = window.scrollY;
         flows.forEach(({ element, period, start, speed }) => {
             element.style.strokeDashoffset = String(-((start + scrolled * speed) % period));
@@ -67,6 +70,12 @@ function animate(background) {
     };
 
     update();
+    // With reduced motion on, the lines hold where they are and the pulses,
+    // which only make sense in motion, are hidden until it is turned off.
+    REDUCED.addEventListener('change', () => {
+        pulses.style.display = REDUCED.matches ? 'none' : '';
+        update();
+    });
     window.addEventListener('scroll', () => {
         frame ||= requestAnimationFrame(update);
     }, { passive: true });
