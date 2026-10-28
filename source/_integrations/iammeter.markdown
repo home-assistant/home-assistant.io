@@ -13,9 +13,13 @@ The **IAMMETER** {% term integration %} connects your [IAMMETER energy meter](ht
 
 The integration supports these models:
 
-- WEM3080 and WEM3162 single-phase meters
-- WEM3080T, WEM3046T, WEM3050T, and WEM3063T three-phase meters
-- WEM2067 two-channel meters
+- [WEM3080](https://www.iammeter.com/products/single-phase-meter): Single-phase meter
+- [WEM3162](https://cloud.iammeter.com/doc/iammeter/wem3162-quickstart.html): Single-phase meter (legacy quickstart)
+- [WEM3080T](https://www.iammeter.com/products/three-phase-meter): Three-phase meter
+- [WEM3046T](https://www.iammeter.com/products/3046t): Three-phase meter
+- [WEM3050T](https://www.iammeter.com/products/3phase-meter-3050t): Three-phase meter
+- [WEM3063T](https://www.iammeter.com/newsshow/firmware-i-91-065-17-admin-security-recovery-swagger): Three-phase meter (manufacturer support information)
+- [WEM2067](https://www.iammeter.com/products/split-phase-meter-wem2067): Two-channel meter
 
 Available measurements depend on the model and the fields returned by its firmware.
 
