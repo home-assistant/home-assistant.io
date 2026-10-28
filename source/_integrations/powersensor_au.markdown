@@ -98,12 +98,16 @@ Every plug has the following entities.
   - **Description**: The power used by the appliance connected to the plug.
 - **Voltage**
   - **Description**: The mains voltage at the plug.
+  - **Remarks**: This entity is disabled by default
 - **Apparent current**
   - **Description**: The total current drawn by the appliance connected to the plug.
+  - **Remarks**: This entity is disabled by default
 - **Active current**
   - **Description**: The part of the current that is in phase with the voltage and delivers power to the appliance.
+  - **Remarks**: This entity is disabled by default
 - **Reactive current**
   - **Description**: The part of the current that is out of phase with the voltage and does not deliver power to the appliance.
+  - **Remarks**: This entity is disabled by default
 - **Energy**
   - **Description**: The total energy used by the appliance connected to the plug.
 - **Device role**
