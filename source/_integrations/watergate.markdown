@@ -44,7 +44,7 @@ The Watergate integration provides the following entities.
 
 - **MQTT connected**
   - **Description**: Whether the device is connected to its MQTT broker.
-  - **Remarks**: This is a diagnostic entity and is disabled by default.
+  - **Remarks**: This is a diagnostic entity and is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **Wi-Fi connected**
   - **Description**: Whether the device is connected to Wi-Fi.
