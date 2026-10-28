@@ -110,6 +110,12 @@ const SWEEP_JITTER = 3;
 const SWEEP_TIME = 1.6;
 const SWEEP_LENGTH = 0.3;
 
+// On load, an unseen cursor sweeps once across the words, left to right,
+// to show the page can be stirred: after INTRO_DELAY seconds, taking
+// INTRO_TIME. It stops as soon as anyone moves a mouse or finger.
+const INTRO_DELAY = 0.8;
+const INTRO_TIME = 2.2;
+
 // Frames closer together than this are skipped, capping at about 60fps.
 // After IDLE_AFTER seconds with nothing happening (no cursor, sweep, notes
 // or colour change) it drops to about 30fps: the patches drift so slowly
@@ -361,7 +367,8 @@ function drawGlyphs() {
 // The word in white on black, centred and sized to the page's shape. Its
 // bottom stays above `room` (a fraction of the height from the top): it
 // moves up from the centre if it has to, and shrinks if it still doesn't
-// fit. Returns where its bottom edge falls, as the same kind of fraction.
+// fit. Returns where its bottom edge and its middle fall, as the same kind
+// of fraction.
 function drawWord(
   ctx: CanvasRenderingContext2D,
   w: number,
@@ -403,7 +410,7 @@ function drawWord(
     ),
   );
   ctx.restore();
-  return (centre + half) / h;
+  return { bottom: (centre + half) / h, middle: centre / h };
 }
 
 type Target = {
@@ -538,6 +545,8 @@ export function startSmoke(
   gl.activeTexture(gl.TEXTURE0);
   displayP.use();
   displayP.setInt("solid", SOLID_UNIT);
+  // Where the words sit (0–1, y up), for the intro sweep.
+  let wordMiddle = 0.5;
   const wordCanvas = document.createElement("canvas");
   const wordCtx = wordCanvas.getContext("2d")!;
   const drawSolid = () => {
@@ -558,8 +567,10 @@ export function startSmoke(
         : b.top - r.top - WORD_GAP;
       room = Math.min(1, Math.max(0, limit / Math.max(1, r.height)));
     }
-    const bottom = drawWord(wordCtx, canvas.width, canvas.height, narrow, room);
-    host.style.setProperty("--word-bottom", `${bottom * 100}%`);
+    const word = drawWord(wordCtx, canvas.width, canvas.height, narrow, room);
+    host.style.setProperty("--word-bottom", `${word.bottom * 100}%`);
+    // The fluid's y runs bottom up.
+    wordMiddle = 1 - word.middle;
     gl.activeTexture(gl.TEXTURE0 + SOLID_UNIT);
     gl.bindTexture(gl.TEXTURE_2D, solid);
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
@@ -1105,6 +1116,38 @@ export function startSmoke(
       nextSweep = t + SWEEP_EVERY + Math.random() * SWEEP_JITTER;
     }
   };
+  // The intro sweep: across the words with a gentle wave, eased in and out.
+  // Its clock runs on the frames actually drawn, so a slow start (shaders
+  // compiling on a slow phone) pauses it rather than skipping it.
+  let intro = true;
+  let introClock = -INTRO_DELAY;
+  let introAt = { x: 0, y: 0 };
+  const introPath = (f: number) => {
+    const e = f * f * (3 - 2 * f);
+    return { x: 0.05 + 0.9 * e, y: wordMiddle + 0.05 * Math.sin(e * Math.PI * 2) };
+  };
+  const updateIntro = (dt: number) => {
+    if (mouseSeen) {
+      intro = false;
+      return;
+    }
+    introClock += dt;
+    if (introClock < 0) {
+      introAt = introPath(0);
+      return;
+    }
+    const f = introClock / INTRO_TIME;
+    const p = introPath(Math.min(1, f));
+    moved = {
+      x: p.x,
+      y: p.y,
+      dx: p.x - introAt.x,
+      dy: p.y - introAt.y,
+      pending: true,
+    };
+    introAt = p;
+    if (f >= 1) intro = false;
+  };
   // Draws the dye to the page, fading the canvas in the first time.
   const present = () => {
     displayP.use();
@@ -1159,7 +1202,8 @@ export function startSmoke(
     blendPalette(now);
     if (!ready) seedPatches(t);
     const auto = !finePointer.matches && !mouseSeen;
-    if (auto) updateSweep(t);
+    if (intro && ready) updateIntro(dt);
+    else if (auto) updateSweep(t);
 
     if (moved.pending) {
       lastActive = now;

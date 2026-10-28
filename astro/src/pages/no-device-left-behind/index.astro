@@ -50,6 +50,7 @@ const description = "Something new from Home Assistant is coming on November 11.
     --fg: #e6eef6;
     --muted: #8a9bad;
     --line: rgba(230, 238, 246, 0.2);
+    --hover: rgba(255, 255, 255, 0.12);
     --youtube: #ff0033;
     --font: Figtree, "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
     color-scheme: dark;
@@ -98,7 +99,7 @@ const description = "Something new from Home Assistant is coming on November 11.
     backdrop-filter: blur(6px);
     transition: border-color 0.2s ease, background-color 0.2s ease;
   }
-  .subscribe:hover { border-color: var(--youtube); }
+  .subscribe:hover { border-color: var(--youtube); background-color: var(--hover); }
   .subscribe:focus-visible { outline: 2px solid var(--youtube); outline-offset: 3px; }
   .subscribe svg { width: 22px; height: auto; flex: none; }
   /* Narrow screens: the line and the link stacked, at the foot of the page.
