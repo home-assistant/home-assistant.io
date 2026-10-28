@@ -726,6 +726,7 @@ While most {% term integrations %} can be set up directly from the Home Assistan
 The following integrations are now available via the Home Assistant UI:
 
 - **[Bitcoin]**, done by [@Nihvel]
+- **[Folder]**, done by [@gjohansson-ST]
 - **[Keyboard Remote]**, done by [@lanrat]
 - **[OpenWrt (ubus)]**, done by [@apoorva-01]
 - **[Sky Hub]**, done by [@jackstevenson]
@@ -735,6 +736,7 @@ The following integrations are now available via the Home Assistant UI:
 [@lanrat]: https://github.com/lanrat
 [@Nihvel]: https://github.com/Nihvel
 [Bitcoin]: /integrations/bitcoin
+[Folder]: /integrations/folder
 [Keyboard Remote]: /integrations/keyboard_remote
 [OpenWrt (ubus)]: /integrations/ubus
 [Sky Hub]: /integrations/sky_hub
