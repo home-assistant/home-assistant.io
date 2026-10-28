@@ -59,7 +59,7 @@ After logging in, you can select the libraries to add. You can also skip this st
 3. Select the library you want to add.
 4. Optionally, turn on **Store backups** and choose a **Backup folder**. See [Backups](#backups).
 
-To change the backup settings of a library later, select the {% icon "mdi:dots-vertical" %} menu next to the library and select **Reconfigure**.
+To change the backup settings of a library later, select the {% icon "mdi:cog-outline" %} **Reconfigure library** button next to the library.
 
 {% configuration_basic %}
 Library:
