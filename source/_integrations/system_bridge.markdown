@@ -76,8 +76,8 @@ These sensors are also available, but are not enabled by default:
 | Per-disk Read Rate       | Read rate of each disk                          |
 | Per-disk Write Rate      | Write rate of each disk                         |
 | GPU Core Clock Speed     | GPU core clock speed in MHz                     |
-| GPU Decoder Usage %      | GPU video decoder usage percentage              |
-| GPU Encoder Usage %      | GPU video encoder usage percentage              |
+| GPU Decoder Usage        | GPU video decoder usage percentage              |
+| GPU Encoder Usage        | GPU video encoder usage percentage              |
 | GPU Memory Clock Speed   | GPU memory clock speed in MHz                   |
 | GPU Fan Speed            | GPU fan speed in RPM                            |
 | GPU Fan Speed Percentage | GPU fan speed percentage                        |
