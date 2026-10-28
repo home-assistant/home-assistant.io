@@ -63,6 +63,7 @@ This integration provides the following sensors:
 | Interface Signal Strength | Wi-Fi signal strength of a wireless interface in dBm              |
 | Operating System          | Version information of the Operating System                       |
 | Processes                 | Shows count of processes on the system                            |
+| Swap Usage                | Swap % used                                                       |
 | Version                   | System Bridge Version                                             |
 
 These sensors are also available, but are not enabled by default:
@@ -87,6 +88,7 @@ These sensors are also available, but are not enabled by default:
 | Interface Link Rate     | Wi-Fi link rate of a wireless interface in Mbps  |
 | Load Average (5 min)    | Load average over 5 minutes                      |
 | Load Average (15 min)   | Load average over 15 minutes                     |
+| Swap Used               | Swap used in GB                                  |
 
 Load average sensors are only added on devices that report a load average.
 
