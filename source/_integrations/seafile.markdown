@@ -121,7 +121,7 @@ Home Assistant can't reach the Seafile server, or the library is no longer avail
 
 #### Resolution
 
-1. Check that Home Assistant can reach the Seafile server, and look for connection errors in {% my logs title="**Settings** > **System** > **Logs**" %}.
+1. On the **Seafile** integration page, select the {% icon "mdi:cog-outline" %} **Reconfigure library** button next to the library.
 2. Sign in to the Seafile web interface with the same account and check that the library is still listed.
 3. Only if the library is gone from your account, delete its library entry from the **Seafile** integration page.
 
