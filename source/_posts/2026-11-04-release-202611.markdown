@@ -659,7 +659,7 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [DNS IP], thanks to [@gjohansson-ST]
   - [Eurotronic Comet Blue], thanks to [@rikroe]
   - [my-PV], thanks to [@rrooggiieerr]
-  - [Rejseplanen], thanks to [@Jawar19] and [@tr4nt0r]
+  - [Rejseplanen], thanks to [@Jawar19]
   - [Threema], thanks to [@LukasQ]
   - [Tractive], thanks to [@bieniu]
 
