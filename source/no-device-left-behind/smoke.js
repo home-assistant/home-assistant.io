@@ -87,6 +87,10 @@ const WORD_WIDTH = 0.72;
 // breakpoint), one word to a line, allowed a little more of the height.
 const NARROW_WIDTH = 600;
 const NARROW_HEIGHT = 0.6;
+// Space kept clear above the words, and between them and whatever the page
+// puts below them (`below`), as fractions of the height and in CSS pixels.
+const WORD_TOP_MARGIN = 0.06;
+const WORD_GAP = 24;
 const LINE_HEIGHT = 0.95;
 const WORD_FONT = `${WORD_WEIGHT} 100px Figtree, "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif`;
 // Uncovering: how bright an uncovered part is (the remembered smoke at this
@@ -352,14 +356,16 @@ function drawGlyphs() {
   return c;
 }
 
-// The word in white on black, centred and sized to the page's shape.
-// Returns where its bottom edge falls, as a fraction of the height from the
-// top.
+// The word in white on black, centred and sized to the page's shape. Its
+// bottom stays above `room` (a fraction of the height from the top): it
+// moves up from the centre if it has to, and shrinks if it still doesn't
+// fit. Returns where its bottom edge falls, as the same kind of fraction.
 function drawWord(
   ctx                          ,
   w        ,
   h        ,
   narrow         ,
+  room = 1,
 ) {
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, w, h);
@@ -373,9 +379,16 @@ function drawWord(
   const textW = Math.max(...lines.map((m) => m.actualBoundingBoxRight + m.actualBoundingBoxLeft));
   const textH = bottom - top;
   const height = narrow ? NARROW_HEIGHT : WORD_HEIGHT;
-  const scale = Math.min((w * WORD_WIDTH) / textW, (h * height) / textH);
+  const space = Math.max(0.1, room - WORD_TOP_MARGIN) * h;
+  const scale = Math.min(
+    (w * WORD_WIDTH) / textW,
+    (h * height) / textH,
+    space / textH,
+  );
+  const half = (textH * scale) / 2;
+  const centre = Math.min(h / 2, room * h - half);
   ctx.save();
-  ctx.translate(w / 2, h / 2);
+  ctx.translate(w / 2, centre);
   ctx.scale(scale, scale);
   ctx.fillStyle = "#fff";
   ctx.textAlign = "left";
@@ -388,7 +401,7 @@ function drawWord(
     ),
   );
   ctx.restore();
-  return 0.5 + (textH * scale) / (2 * h);
+  return (centre + half) / h;
 }
 
 
@@ -412,6 +425,8 @@ function startSmoke(
   host             ,
   canvas                   ,
   covered                 ,
+  // Anything shown under the words, which they must not run into.
+  below                     ,
 ) {
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
   let still = reduceMotion.matches;
@@ -526,7 +541,20 @@ function startSmoke(
     wordCanvas.height = canvas.height;
     // The page can place things under the word with --word-bottom.
     const narrow = host.clientWidth < NARROW_WIDTH;
-    const bottom = drawWord(wordCtx, canvas.width, canvas.height, narrow);
+    // How far down the words can reach. Where `below` is pinned to the foot
+    // of the page (narrow screens), above its top; where it follows the
+    // words, far enough up that it still fits underneath.
+    let room = 1;
+    if (below) {
+      const r = host.getBoundingClientRect();
+      const b = below.getBoundingClientRect();
+      const followsWords = getComputedStyle(below).top !== "auto" && !narrow;
+      const limit = followsWords
+        ? r.height - b.height - WORD_GAP
+        : b.top - r.top - WORD_GAP;
+      room = Math.min(1, Math.max(0, limit / Math.max(1, r.height)));
+    }
+    const bottom = drawWord(wordCtx, canvas.width, canvas.height, narrow, room);
     host.style.setProperty("--word-bottom", `${bottom * 100}%`);
     gl.activeTexture(gl.TEXTURE0 + SOLID_UNIT);
     gl.bindTexture(gl.TEXTURE_2D, solid);
@@ -893,7 +921,9 @@ function startSmoke(
     if (still && ready) renderStill();
   };
   resize();
-  new ResizeObserver(resize).observe(host);
+  const sizes = new ResizeObserver(resize);
+  sizes.observe(host);
+  if (below) sizes.observe(below);
   // The word's face may still be loading: redraw it once it's there.
   document.fonts?.load(WORD_FONT).then(() => {
     drawSolid();
@@ -1186,5 +1216,6 @@ function startSmoke(
 
 const host = document.querySelector("[data-hero]");
 const canvas = document.querySelector("[data-smoke]");
-if (host && canvas) startSmoke(host, canvas);
+const below = document.querySelector("[data-below-word]");
+if (host && canvas) startSmoke(host, canvas, null, below);
 })();
