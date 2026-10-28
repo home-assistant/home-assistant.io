@@ -1,10 +1,8 @@
 ---
 title: Seafile
 description: Instructions on how to integrate a Seafile server into Home Assistant.
-ha_category:
-  - Backup
-  - Sensor
-  - Utility
+ha_categories:
+  - computers_network.nas_servers
 ha_release: '2026.11'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -121,7 +119,7 @@ Home Assistant can't reach the Seafile server, or the library is no longer avail
 
 #### Resolution
 
-1. On the **Seafile** integration page, select the {% icon "mdi:cog-outline" %} **Reconfigure library** button next to the library.
+1. Check that Home Assistant can reach the Seafile server, and look for connection errors in {% my logs title="**Settings** > **System** > **Logs**" %}.
 2. Sign in to the Seafile web interface with the same account and check that the library is still listed.
 3. Only if the library is gone from your account, delete its library entry from the **Seafile** integration page.
 
@@ -135,7 +133,7 @@ The library is not shown as a location when you create a backup.
 
 #### Resolution
 
-1. On the **Seafile** integration page, select the {% icon "mdi:dots-vertical" %} menu next to the library and select **Reconfigure**.
+1. On the **Seafile** integration page, select the {% icon "mdi:cog-outline" %} **Reconfigure library** button next to the library.
 2. Turn on **Store backups** and select **Submit**.
 3. If the library still isn't listed, check that the integration is loaded and its sensors are available.
 
