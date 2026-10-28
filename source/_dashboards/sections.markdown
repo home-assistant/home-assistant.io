@@ -243,7 +243,7 @@ type:
   type: string
 max_columns:
   required: false
-  description: "Maximum number of sections placed side by side, from 1 to 10. Smaller screens fit fewer sections side by side."
+  description: "Maximum number of sections placed side by side. Smaller screens fit fewer sections side by side."
   type: integer
   default: 4
 {% endconfiguration %}
