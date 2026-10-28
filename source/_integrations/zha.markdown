@@ -378,7 +378,7 @@ Support for Green Power devices was added in Home Assistant 2026.11.0. Some Zigb
 
 With other radio types, such as Texas Instruments (`znp`), ZiGate (`zigate`), and XBee (`xbee`), Green Power devices only work through router devices that pass on their messages. To check which radio type your coordinator uses, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}, select **Network information**, and look at **Radio type**.
 
-Green Power devices do not have enough power to search for your Zigbee network. Instead, you set the channel on the device yourself, usually by pressing a combination of buttons. Before you add a Green Power device, find the channel of your Zigbee network.
+Most Green Power devices do not have enough power to search for your Zigbee network. Instead, you may need to manually pick the Zigbee channel of your device, usually by pressing a combination of buttons when joining. If your Green Power device requires manual channel selection, first find the channel of your Zigbee network.
 
 **To find the channel of your Zigbee network:**
 
@@ -390,8 +390,8 @@ Check that your Green Power device supports this channel. If it does not, you ca
 
 **To add a Green Power device:**
 
-1. Set the device to the channel of your Zigbee network according to the instructions provided by the manufacturer.
-2. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Add device**.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Add device**.
+2. If your device requires manual channel selection, set the device to the channel of your Zigbee network according to the instructions provided by the manufacturer.
 3. Put the device in pairing mode according to the instructions provided by the manufacturer.
 4. Once the device joins, it will appear on that page and will be automatically added to your devices.
 
