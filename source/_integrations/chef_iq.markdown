@@ -58,7 +58,7 @@ A probe exposes the following sensors:
 
 {% include docs/paste_yaml_tip.md %}
 
-The entity IDs below belong to a probe named `CQ60 079A`; replace them with the ones of your probe. The thresholds are in °C. If your Home Assistant uses °F, the sensors report °F as well, so use 145 for the roast and 212 to 275 for the smoker range. The notifications go to a phone running the [Home Assistant Companion app](/integrations/mobile_app/) through its `notify.mobile_app_<device>` action; replace `notify.mobile_app_phone` with the action for your phone, or with any other notify action you use.
+The entity IDs below belong to a probe named `CQ60 079A`; replace them with the ones of your probe. The thresholds are in °C. If your Home Assistant uses °F, the sensors report °F as well, so use 145 for the roast and 212 to 275 for the smoker range. The notifications go to a phone running the [Home Assistant Companion app](/integrations/mobile_app/) through its `notify.mobile_app_<device>` action; replace `notify.mobile_app_phone` with the action for your phone. If your destination is a notify entity instead, use the `notify.send_message` action with that entity as its target, since the action alone does not pick a destination.
 
 ### Automation: Notify when the food is done
 
