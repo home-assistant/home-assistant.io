@@ -70,8 +70,18 @@ The restart button on the `OpenTherm Gateway` device can be used to restart the 
 #### Control setpoint 1 override - Control setpoint 2 override
 
 {% warning %}
-Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using these entities.
+The use of these entities involves a level of risk and is not recommended. Possible consequences of using these entities are uncontrolled heating of the boiler, inefficient and inaccurate heating of your home and disturbing your thermostat's internal heating algorithm. This may have a long-term impact even after you stop using these entities.
+
+Please read [this information](https://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using these entities.
+
+To reduce the risks involved as much as possible, use the following guidelines:
+
+- Update your OpenTherm Gateway to firmware version 5.2 or greater
+- Send values greater than `8` at intervals of at most 1 minute as long as there is a heating need
+- Keep values as low as possible
+
 {% endwarning %}
+
 These number entities, which can be found on the `OpenTherm Gateway` device, allow you to override the control setpoint for the respective central heating circuit. When active, the OpenTherm Gateway overrides the control setpoint determined by the thermostat. Set to `0` to return control to the thermostat.
 These entities are disabled by default.
 
