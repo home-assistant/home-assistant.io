@@ -8,6 +8,8 @@ The **Spin EV Charger** {% term integration %} connects Home Assistant to [Exico
 
 The charger is read directly through Home Assistant's [Bluetooth](/integrations/bluetooth) stack. There is no cloud service and no vendor account involved.
 
+Use it to track the energy your vehicle uses in the [Energy dashboard](/home-energy-management), start and stop charging from automations, for example to charge during off-peak hours, and get notified when the charger reports a problem.
+
 ## Supported devices
 
 The following device has been verified to work with this integration:
@@ -43,6 +45,91 @@ The integration creates the following sensors:
 - **Current**: Current currently being delivered, in amperes (A).
 - **Session energy**: Energy delivered during the current or most recent charging session, in kilowatt-hours (kWh). This value resets when a new session starts.
 - **Lifetime energy**: Total energy the charger has delivered over its life, in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
+
+## Spin EV Charger automation examples
+
+Because the charger is reached locally, automations keep working without an internet connection. Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Charge during off-peak hours
+
+If your electricity tariff is cheaper at night, you can leave the vehicle plugged in and start charging when the off-peak period begins.
+
+- **Trigger**: Time: 22:00
+- **Condition**: The **Plug** binary sensor is on
+- **Action**: Turn on the **Charging** switch
+
+{% details "YAML example for charging during off-peak hours" %}
+
+{% example %}
+automation: |
+  alias: "Start EV charging at off-peak hours"
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.ev_charger_plug
+      state: "on"
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.ev_charger_charging
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Get notified when the charger reports a problem
+
+The **Problem** binary sensor turns on when the charger reports an alarm, such as a mains fault. A notification lets you check on the charger before you need the vehicle.
+
+- **Trigger**: The **Problem** binary sensor turns on
+- **Action**: Send a notification
+
+{% details "YAML example for a problem notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the EV charger reports a problem"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.ev_charger_problem
+      to: "on"
+  actions:
+    - action: notify.notify
+      data:
+        message: "The EV charger reports a problem."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Get notified when a charging session ends
+
+When the charging session closes, a notification tells you how much energy the session delivered.
+
+- **Trigger**: The **Charging** switch turns off
+- **Action**: Send a notification with the **Session energy** sensor value
+
+{% details "YAML example for a session summary notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify when EV charging ends"
+  triggers:
+    - trigger: state
+      entity_id: switch.ev_charger_charging
+      from: "on"
+      to: "off"
+  actions:
+    - action: notify.notify
+      data:
+        message: >
+          Charging finished after
+          {{ states('sensor.ev_charger_session_energy') }} kWh.
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
