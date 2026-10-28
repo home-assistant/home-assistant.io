@@ -80,21 +80,25 @@ Enjoy the (beta) release!
   - [Thank you, HACS](#thank-you-hacs)
 - [Exclude items from a target](#exclude-items-from-a-target)
 - [Copy and paste dashboard sections](#copy-and-paste-dashboard-sections)
+- [More control over dashboard sections](#more-control-over-dashboard-sections)
 - [New cards and badges](#new-cards-and-badges)
   - [Alert card, now without YAML](#alert-card-now-without-yaml)
 - [Color control on light tiles](#color-control-on-light-tiles)
 - [Name it once, Home Assistant adds the context](#name-it-once-home-assistant-adds-the-context)
+- [Forms that ask only what they need](#forms-that-ask-only-what-they-need)
 - [Why did that happen?](#why-did-that-happen)
   - [See what triggered it](#see-what-triggered-it)
   - [Follow a trace into the script it called](#follow-a-trace-into-the-script-it-called)
   - [Live logs for each integration](#live-logs-for-each-integration)
   - [Remove bad readings from your history](#remove-bad-readings-from-your-history)
+  - [Zoom in on a chart](#zoom-in-on-a-chart)
   - [Every action, on the record](#every-action-on-the-record)
 - [Cameras Matter](#cameras-matter)
   - [Matter cameras](#matter-cameras)
   - [Talk back through your cameras](#talk-back-through-your-cameras)
 - [Store backups and media on local drives](#store-backups-and-media-on-local-drives)
 - [Reach the far corners with LoRaWAN](#reach-the-far-corners-with-lorawan)
+- [Batteryless switches with Zigbee Green Power](#batteryless-switches-with-zigbee-green-power)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -185,6 +189,7 @@ Thanks, [@jpbede], [@emontnemery], and [@marcinbauer-ohf]! 🙏
 
 The automation editor also has a few improvements:
 
+- **Replace a step**: Changed your mind about a {% term trigger %}, {% term condition %}, or {% term action %}? Select **Replace** in its menu to swap it for another one in the same place. Home Assistant keeps the settings the new item accepts, so you don't have to pick the target and fill in the options again. It works in the script editor as well. Thanks, [@nielsrowinbik]!
 - **Is not for the state trigger**: Set **From** or **To** to **Is not** to make a {% term trigger %} fire when the state changes to or from any value other than the one you select. No YAML is needed. Thanks, [@Skaronator]!
 - **Recently used**: The dialog for adding a trigger, condition, or action now starts with the ones you used recently, including your recently selected targets. Thanks, [@wendevlin]!
 - **People in the target picker**: When adding a trigger or condition, find **People** under **Other**, next to **Time** and **Sun**. This makes it easier to create a rule for when someone comes home. Thanks, [@marcinbauer-ohf]!
@@ -195,7 +200,9 @@ The automation editor also has a few improvements:
 [@emontnemery]: https://github.com/emontnemery
 [@jce200]: https://github.com/jce200
 [@jpbede]: https://github.com/jpbede
+[@Lackmake]: https://github.com/Lackmake
 [@marcinbauer-ohf]: https://github.com/marcinbauer-ohf
+[@nielsrowinbik]: https://github.com/nielsrowinbik
 [@oneseventhree]: https://github.com/oneseventhree
 [@pcan08]: https://github.com/pcan08
 [@Skaronator]: https://github.com/Skaronator
@@ -207,9 +214,17 @@ In dashboard edit mode, you can copy or cut a section, then paste it above or be
 
 <p class='img'><img src='/images/blog/2026-11/dashboard-section-copy-paste.png' alt='Dashboard section menu with Copy, Cut, Paste above, and Paste below options.'/>Copy, cut, and paste sections from the section menu.</p>
 
+## More control over dashboard sections
+
+A section that a strategy builds for you, like the one for an {% term area %}, keeps itself up to date, but every card in it is out of your hands. You can now take over: select **Convert to manual section** in the section menu, and you keep the cards the strategy generated, free to edit, move, and remove them. Home Assistant asks you to confirm first, because in exchange the section stops following your setup on its own.
+
+There is also a new **Device** section strategy. It shows the {% term entities %} of one {% term device %} and follows that device as entities come and go. You choose which categories to show, like controls, sensors, and diagnostics, whether they appear as tiles or as a single entities card, and which entities to leave out. The heading carries the device name, its area, and its battery level. For now, you add this section in {% term YAML %} and then adjust it in the visual editor. Adding it straight from the dashboard editor is planned.
+
+Thanks, [@piitaya]!
+
 ## New cards and badges
 
-The new **Date** card shows the current date. The **Alert** badge shows an {% term entity %}'s state on a colored background that can pulse. For target temperature controls, you can choose buttons or a slider. A new device section strategy automatically shows {% term entities %} from a {% term device %}. When adding a card or badge, a paste bar lets you add a copied item.
+The new **Date** card shows the current date. The **Alert** badge shows an {% term entity %}'s state on a colored background that can pulse. The **Sensor** card takes a color, which tints both its icon and its graph. For target temperature controls, you can choose buttons or a slider. When adding a card or badge, a paste bar lets you add a copied item.
 
 <p class='img'><img src='/images/blog/2026-11/date-card-configuration.png' alt='Date card configuration with a preview of the current date.'/>Configure the Date card and preview how it looks.</p>
 
@@ -217,7 +232,7 @@ The new **Date** card shows the current date. The **Alert** badge shows an {% te
 
 <p class='img'><img src='/images/blog/2026-11/alert-badge-configuration.jpg' alt='Alert badge configuration with a preview badge.'/>Configure the Alert badge and preview its appearance.</p>
 
-Thanks to [@pcan08], [@timmo001], [@piitaya], and [@wendevlin].
+Thanks to [@Lackmake], [@pcan08], [@timmo001], [@piitaya], and [@wendevlin].
 
 ### Alert card, now without YAML
 
@@ -256,6 +271,16 @@ This is the short version. A separate blog post about entity naming follows befo
 
 This project ran for more than four years, and many people worked on it along the way. Thank you to everyone who helped make this happen! 🙏
 
+## Forms that ask only what they need
+
+Setting up an {% term integration %} sometimes meant reading past options that had nothing to do with your choices. A field can now appear only when another field has a certain value, so a form asks what is relevant and leaves out the rest. While a field is hidden, it isn't required, and its value isn't saved.
+
+You can already see it in the integrations for AI conversation agents, where the settings you rarely touch stay out of the way until you ask for them.
+
+The same works for a {% term blueprint %}. An input, or a whole group of inputs, can depend on the answers you gave earlier, so a blueprint only asks what still applies.
+
+Thanks, [@piitaya]!
+
 ## Why did that happen?
 
 A light turned on, and nobody touched it. Or an {% term automation %} did something you didn't expect. Finding out why is part of living with a smart home, so this release adds a handful of ways to find the answer faster.
@@ -278,7 +303,7 @@ Thanks, [@Xyolyp]!
 
 While debug logging is enabled for an integration, the banner on its page now has a **Show logs** button, next to **Disable**. It opens a dialog with only the log lines of that integration, including the libraries it uses: first what it logged since Home Assistant started, then new lines as they come in. You can search, turn line wrapping on or off, and download what you captured. Handy while you're trying to reproduce an issue, without digging through the full log.
 
-The logs page under {% my logs title="**Settings** > **System** > **Logs**" %} got a filter as well. Select one or more integrations, and the errors list and the raw logs only show their lines. Your search, your filter, and the raw view are kept in the address, so you can bookmark a filtered view or share a link to it.
+The logs page under {% my logs title="**Settings** > **System** > **Logs**" %} got a filter as well. Select one or more integrations, and the errors list and the raw logs only show their lines. Your search, your filter, and the raw view are kept in the address, so you can bookmark a filtered view or share a link to it. Searching the raw logs now shows each match with three lines around it, the way a diff does, and a button reveals the lines in between. When an app update fails, opening its logs takes you straight to the lines of that app.
 
 Thanks, [@erwindouna] and [@timmo001]!
 
@@ -289,6 +314,12 @@ One bad measurement can ruin the graph of a {% term sensor %}. {% term "long-ter
 <img src='/images/blog/2026-11/statistics-delete-range.png' alt='Screenshot of the dialog to delete statistics in a time range for Living room Temperature, with a graph showing one spike of bad measurements.' />
 
 Thanks, [@balloob]!
+
+### Zoom in on a chart
+
+Charts that plot values over time now zoom with a plain drag: drag across the part you want to see, and the chart follows. A slim slider appears underneath to move or resize the range, and scrolling sideways pans along. On the history page, one zoom bar drives every chart at once, so you can line up what happened across several {% term entities %}.
+
+Thanks, [@MindFreeze]!
 
 ### Every action, on the record
 
@@ -353,6 +384,16 @@ All of it comes together in a new **LoRaWAN** page in **Settings** > **Connectiv
 <img src='/images/blog/2026-11/lorawan-devices.png' alt='Screenshot of the LoRaWAN devices table, grouped by connection, with the last uplink, signal strength, and battery level of each device.' />
 
 Thanks, [@balloob]!
+
+## Batteryless switches with Zigbee Green Power
+
+[Zigbee Home Automation](/integrations/zha/) now supports Zigbee Green Power. These are the {% term devices %} that run without a battery: a wall switch powered by the energy of your press, or a sensor that lives off the light in the room. Friends of Hue switches are the best-known example. Until now, Home Assistant passed them by.
+
+They work differently from other Zigbee devices, and the interface follows along. A Green Power device lists its **Source ID** with its network details, and the options that don't apply to it, like reconfiguring it or managing its clusters, are left out. In the network visualization it shows up without a line to a parent, because a Green Power device doesn't have one.
+
+Thanks, [@puddly]!
+
+[@puddly]: https://github.com/puddly
 
 ## Integrations
 
@@ -538,7 +579,7 @@ We welcome the following new integrations in this release:
 [SilverCrest Infrared]: /integrations/silvercrest_infrared
 [SmartyPlants]: /integrations/smartyplants
 [Solyx Energy Cloud]: /integrations/solyx_energy_cloud
-[Spin EV Charger]: /integrations/spin_ble
+[Spin EV Charger]: /integrations/exicom_spin_ble
 [SteamVR Base Station]: /integrations/steamvr_base_station
 [The Things Network]: /integrations/thethingsnetwork_lorawan
 [Xiaomi Weather]: /integrations/xiaomi_weather
@@ -701,13 +742,15 @@ There is even more packed into this release. Here are some of the other changes 
 
 ### Your AI assistant can help troubleshoot
 
-Home Assistant's <abbr title="Large language model">LLM</abbr> API gives compatible AI assistants tools to search for
-{% term devices %} and {% term automations %}, review logs, and look up historical statistics. Log
-access requires an administrator account. You can also set the <abbr title="Model Context Protocol">MCP</abbr> server to
-expose only read-only tools, so an AI assistant can investigate without making
-changes to your setup.
+Home Assistant's <abbr title="Large language model">LLM</abbr> API gives compatible AI assistants tools to search for {% term devices %} and {% term automations %}, review logs, and look up historical statistics. Log access requires an administrator account.
 
-An AI conversation can now only be continued by the user who started it.
+This release goes a step further. An assistant can look up your system information, search the {% term actions %} that are available, and call one. It can list your {% term integrations %} and reload one. That makes it something that can act on your setup, not only read it, so give it the access you are comfortable with and no more. You can set the <abbr title="Model Context Protocol">MCP</abbr> server to expose only read-only tools, and an AI conversation can now only be continued by the user who started it.
+
+The [KNX](/integrations/knx/) integration brings an LLM API of its own, with tools for its telegram store, its project file, and its data point types. Any LLM API becomes available only once an administrator attaches it to a conversation agent or to the MCP server.
+
+Thanks, [@balloob], [@allenporter], and [@martinhoefling]!
+
+[@martinhoefling]: https://github.com/martinhoefling
 
 ## Need help? Join the community
 
