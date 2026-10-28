@@ -186,8 +186,6 @@ For additional troubleshooting steps and guidance, see the [infrared troubleshoo
 
 If you need to report an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), then reload the integration. Reproduce the issue, disable debug logging, and attach the automatically downloaded debug log to your report.
 
-
-
 ## Removing the integration
 
 This integration follows standard integration removal.
