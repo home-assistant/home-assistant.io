@@ -67,28 +67,36 @@ This integration provides the following sensors:
 
 These sensors are also available, but are not enabled by default:
 
-| Name                    | Description                                      |
-| ----------------------- | ------------------------------------------------ |
-| Battery Power           | Battery power draw in watts                      |
-| Battery Voltage         | Battery voltage in volts                         |
-| CPU Temperature         | The current temperature of the CPU               |
-| CPU Voltage             | The current voltage of the CPU                   |
-| Per-disk Read Rate      | Read rate of each disk                           |
-| Per-disk Write Rate     | Write rate of each disk                          |
-| GPU Core Clock Speed    | GPU core clock speed in MHz                      |
-| GPU Memory Clock Speed  | GPU memory clock speed in MHz                    |
-| GPU Fan Speed           | GPU fan speed percentage                         |
-| GPU Memory Used         | GPU memory used in GB                            |
-| GPU Memory Used %       | GPU memory used percentage                       |
-| GPU Power Usage         | GPU power usage                                  |
-| GPU Temperature         | The current temperature of the GPU               |
-| Interface Download Rate | Download rate of each network interface          |
-| Interface Upload Rate   | Upload rate of each network interface            |
-| Interface Link Rate     | Wi-Fi link rate of a wireless interface in Mbps  |
-| Load Average (5 min)    | Load average over 5 minutes                      |
-| Load Average (15 min)   | Load average over 15 minutes                     |
+| Name                     | Description                                     |
+| ------------------------ | ----------------------------------------------- |
+| Battery Power            | Battery power draw in watts                     |
+| Battery Voltage          | Battery voltage in volts                        |
+| CPU Temperature          | The current temperature of the CPU              |
+| CPU Voltage              | The current voltage of the CPU                  |
+| Per-disk Read Rate       | Read rate of each disk                          |
+| Per-disk Write Rate      | Write rate of each disk                         |
+| GPU Core Clock Speed     | GPU core clock speed in MHz                     |
+| GPU Decoder Usage %      | GPU video decoder usage percentage              |
+| GPU Encoder Usage %      | GPU video encoder usage percentage              |
+| GPU Memory Clock Speed   | GPU memory clock speed in MHz                   |
+| GPU Fan Speed            | GPU fan speed in RPM                            |
+| GPU Fan Speed Percentage | GPU fan speed percentage                        |
+| GPU Memory Total         | Total GPU memory                                |
+| GPU Memory Used          | GPU memory used in GB                           |
+| GPU Memory Used %        | GPU memory used percentage                      |
+| GPU Performance State    | GPU performance state, such as `P0`             |
+| GPU Power Limit          | GPU power limit in watts                        |
+| GPU Power Usage          | GPU power usage                                 |
+| GPU Temperature          | The current temperature of the GPU              |
+| Interface Download Rate  | Download rate of each network interface         |
+| Interface Upload Rate    | Upload rate of each network interface           |
+| Interface Link Rate      | Wi-Fi link rate of a wireless interface in Mbps |
+| Load Average (5 min)     | Load average over 5 minutes                     |
+| Load Average (15 min)    | Load average over 15 minutes                    |
 
 Load average sensors are only added on devices that report a load average.
+
+Not every GPU reports every value. GPU sensors System Bridge can't read for a GPU, such as encoder and decoder usage on some integrated GPUs, show as unknown.
 
 Network interface sensors are named after the interface, such as `eth0 download rate`. The download and upload rate sensors show Mbit/s by default, and you can change the unit in the entity settings. Loopback interfaces are left out, and sensors for an interface that appears later, such as a USB network adapter, are added when it first shows up. The Wi-Fi sensors are unknown while the interface isn't connected, and aren't available on macOS.
 
