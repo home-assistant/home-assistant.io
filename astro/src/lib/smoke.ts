@@ -1,14 +1,14 @@
-(() => {
 /*
  * Adapted from the Music Assistant website hero (music-assistant.io,
- * src/components/home/smoke.ts, Apache-2.0) for the Home Assistant holding
- * page: Home Assistant colours, full-page (no top/bottom fade), and the
- * music notes behind a switch (NOTES), and hidden words (WORD_LINES). The
- * smoke keeps a fading memory of the brightest it has been at each spot.
- * Where the smoke over a letter has thinned well below that (the wake
- * behind the cursor, mostly), the letter shows through as a dim copy of the
- * remembered smoke, and fades out again as the memory does. The smoke and
- * notes pass straight through the letters.
+ * src/components/home/smoke.ts, Apache-2.0) for the No device left behind
+ * page (src/pages/no-device-left-behind/index.astro): Home Assistant
+ * colours, full-page (no top/bottom fade), the music notes behind a switch
+ * (NOTES), and hidden words (WORD_LINES). The smoke keeps a fading memory
+ * of the brightest it has been at each spot. Where the smoke over a letter
+ * has thinned well below that (the wake behind the cursor, mostly), the
+ * letter shows through as a dim copy of the remembered smoke, and fades
+ * out again as the memory does. The smoke and notes pass straight through
+ * the letters.
  *
  * Smoke for the homepage hero: a small fluid simulation (advection,
  * vorticity and a pressure solve, after Jos Stam's "Stable Fluids") that the
@@ -75,10 +75,9 @@ const NOTE_FADE = 0.6;
 const NOTE_LIFE = NOTE_DELAY + NOTE_GATHER + NOTE_HOLD + NOTE_FADE;
 const NOTE_RISE = 0.04;
 
-// The hidden word, set at build time: one line each, left-aligned as a
-// block centred on the page, in Figtree at WORD_WEIGHT. The block's width
-// as a fraction of the page, capped by its height; and the line spacing
-// (in ems).
+// The hidden words: one line each, left-aligned as a block centred on the
+// page, in Figtree at WORD_WEIGHT. The block's width as a fraction of the
+// page, capped by its height; and the line spacing (in ems).
 const WORD_LINES = ["No device", "left behind"];
 const WORD_WEIGHT = 500;
 const WORD_HEIGHT = 0.5;
@@ -121,7 +120,7 @@ const IDLE_AFTER = 5;
 const PALETTE_BLEND = 1.2;
 
 // Home Assistant blues, with a violet to keep the trail from going flat.
-const DEFAULT_PALETTE             = [
+const DEFAULT_PALETTE: number[][] = [
   [24, 188, 242],
   [3, 105, 200],
   [65, 189, 245],
@@ -141,7 +140,7 @@ void main() {
   gl_Position = vec4(aPos, 0.0, 1.0);
 }`;
 
-const frag = (body        ) => `#version 300 es
+const frag = (body: string) => `#version 300 es
 precision highp float;
 precision highp sampler2D;
 in vec2 vUv, vL, vR, vT, vB;
@@ -317,14 +316,14 @@ function drawGlyphs() {
   const c = document.createElement("canvas");
   c.width = cell * GLYPH_COUNT;
   c.height = cell;
-  const ctx = c.getContext("2d") ;
+  const ctx = c.getContext("2d")!;
   ctx.fillStyle = "#fff";
-  const head = (x        , y        ) => {
+  const head = (x: number, y: number) => {
     ctx.beginPath();
     ctx.ellipse(x, y, 19, 13, -0.4, 0, Math.PI * 2);
     ctx.fill();
   };
-  const stem = (x        , top        , bottom        ) =>
+  const stem = (x: number, top: number, bottom: number) =>
     ctx.fillRect(x - 3.5, top, 7, bottom - top);
 
   // Quaver.
@@ -361,10 +360,10 @@ function drawGlyphs() {
 // moves up from the centre if it has to, and shrinks if it still doesn't
 // fit. Returns where its bottom edge falls, as the same kind of fraction.
 function drawWord(
-  ctx                          ,
-  w        ,
-  h        ,
-  narrow         ,
+  ctx: CanvasRenderingContext2D,
+  w: number,
+  h: number,
+  narrow: boolean,
   room = 1,
 ) {
   ctx.fillStyle = "#000";
@@ -404,29 +403,29 @@ function drawWord(
   return (centre + half) / h;
 }
 
+type Target = {
+  fbo: WebGLFramebuffer;
+  tex: WebGLTexture;
+  w: number;
+  h: number;
+  texel: [number, number];
+};
+type Double = { read: Target; write: Target; swap(): void };
+type Program = {
+  use(): void;
+  set(name: string, ...v: number[]): void;
+  setInt(name: string, v: number): void;
+  setVec3s(name: string, v: Float32Array): void;
+  setVec4s(name: string, v: Float32Array): void;
+  bind(name: string, target: { tex: WebGLTexture }, unit: number): void;
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function startSmoke(
-  host             ,
-  canvas                   ,
-  covered                 ,
+export function startSmoke(
+  host: HTMLElement,
+  canvas: HTMLCanvasElement,
+  covered?: Element | null,
   // Anything shown under the words, which they must not run into.
-  below                     ,
+  below?: HTMLElement | null,
 ) {
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
   let still = reduceMotion.matches;
@@ -457,24 +456,24 @@ function startSmoke(
     return;
 
   // Shaders and full-screen quad.
-  const compile = (type        , src        ) => {
-    const s = gl.createShader(type) ;
+  const compile = (type: number, src: string) => {
+    const s = gl.createShader(type)!;
     gl.shaderSource(s, src);
     gl.compileShader(s);
     return s;
   };
   const vs = compile(gl.VERTEX_SHADER, VERTEX);
-  const program = (src        )                 => {
-    const p = gl.createProgram() ;
+  const program = (src: string): Program | null => {
+    const p = gl.createProgram()!;
     gl.attachShader(p, vs);
     gl.attachShader(p, compile(gl.FRAGMENT_SHADER, src));
     gl.bindAttribLocation(p, 0, "aPos");
     gl.linkProgram(p);
     if (!gl.getProgramParameter(p, gl.LINK_STATUS)) return null;
-    const loc = new Map                                     ();
-    const at = (n        ) => {
+    const loc = new Map<string, WebGLUniformLocation | null>();
+    const at = (n: string) => {
       if (!loc.has(n)) loc.set(n, gl.getUniformLocation(p, n));
-      return loc.get(n) ;
+      return loc.get(n)!;
     };
     return {
       use: () => gl.useProgram(p),
@@ -520,11 +519,11 @@ function startSmoke(
     scaleP,
     displayP,
     memoryP,
-  ] = programs             ;
+  ] = programs as Program[];
 
   // The word, on texture unit 3 (the passes use 0 and 1).
   const SOLID_UNIT = 3;
-  const solid = gl.createTexture() ;
+  const solid = gl.createTexture()!;
   gl.activeTexture(gl.TEXTURE0 + SOLID_UNIT);
   gl.bindTexture(gl.TEXTURE_2D, solid);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
@@ -535,7 +534,7 @@ function startSmoke(
   displayP.use();
   displayP.setInt("solid", SOLID_UNIT);
   const wordCanvas = document.createElement("canvas");
-  const wordCtx = wordCanvas.getContext("2d") ;
+  const wordCtx = wordCanvas.getContext("2d")!;
   const drawSolid = () => {
     wordCanvas.width = canvas.width;
     wordCanvas.height = canvas.height;
@@ -580,7 +579,7 @@ function startSmoke(
   gl.enableVertexAttribArray(0);
   gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
 
-  const glyphs = gl.createTexture() ;
+  const glyphs = gl.createTexture()!;
   gl.bindTexture(gl.TEXTURE_2D, glyphs);
   gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
   gl.texImage2D(
@@ -598,13 +597,13 @@ function startSmoke(
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
 
   // Render targets, sized to the hero's shape when the page loads.
-  const size = (res        ) => {
+  const size = (res: number) => {
     const aspect = host.clientWidth / Math.max(1, host.clientHeight);
     const long = Math.round(res * Math.max(aspect, 1 / aspect));
     return aspect >= 1 ? [long, res] : [res, long];
   };
-  const target = (w        , h        )                => {
-    const tex = gl.createTexture() ;
+  const target = (w: number, h: number): Target | null => {
+    const tex = gl.createTexture()!;
     gl.bindTexture(gl.TEXTURE_2D, tex);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
@@ -621,7 +620,7 @@ function startSmoke(
       gl.HALF_FLOAT,
       null,
     );
-    const fbo = gl.createFramebuffer() ;
+    const fbo = gl.createFramebuffer()!;
     gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
     gl.framebufferTexture2D(
       gl.FRAMEBUFFER,
@@ -636,7 +635,7 @@ function startSmoke(
     gl.clear(gl.COLOR_BUFFER_BIT);
     return { fbo, tex, w, h, texel: [1 / w, 1 / h] };
   };
-  const double = (w        , h        )                => {
+  const double = (w: number, h: number): Double | null => {
     const a = target(w, h);
     const b = target(w, h);
     if (!a || !b) return null;
@@ -662,7 +661,7 @@ function startSmoke(
   if (!velocity || !dye || !pressure || !divergence || !curl || !memory) return;
 
   // Remembers the smoke.
-  const remember = (dt        ) => {
+  const remember = (dt: number) => {
     memoryP.use();
     memoryP.set("texel", ...dye.read.texel);
     memoryP.set("keep", Math.exp(-dt / MEMORY_TIME));
@@ -672,7 +671,7 @@ function startSmoke(
     memory.swap();
   };
 
-  const draw = (dest               ) => {
+  const draw = (dest: Target | null) => {
     if (dest) {
       gl.viewport(0, 0, dest.w, dest.h);
       gl.bindFramebuffer(gl.FRAMEBUFFER, dest.fbo);
@@ -708,11 +707,11 @@ function startSmoke(
   };
   // Pushes velocity and colour into the fluid at a point (0–1, y up).
   const splat = (
-    x        ,
-    y        ,
-    dx        ,
-    dy        ,
-    color          ,
+    x: number,
+    y: number,
+    dx: number,
+    dy: number,
+    color: number[],
     radius = SPLAT_RADIUS,
   ) => {
     if (splatCount === MAX_SPLATS) flushSplats();
@@ -725,29 +724,29 @@ function startSmoke(
 
   // Notes rise on their own path, condensed into the dye every frame so
   // they stay crisp while the flow carries smoke past them.
-
-
-
-
-
-
-
-
-
-
-
-  let notes         = [];
+  type Note = {
+    x: number;
+    y: number;
+    size: number;
+    angle: number;
+    glyph: number;
+    color: number[];
+    age: number;
+    sway: number;
+    rise: number;
+  };
+  let notes: Note[] = [];
   const notePlaces = new Float32Array(NOTE_LIMIT * 4);
   const noteLooks = new Float32Array(NOTE_LIMIT * 4);
   const noteColors = new Float32Array(NOTE_LIMIT * 3);
   // A loose cluster around the point: each note its own shape, size,
   // shade of the current colour and rising speed, so the cluster spreads.
   const addNotes = (
-    x        ,
-    y        ,
-    hue        ,
-    intensity        ,
-    count        ,
+    x: number,
+    y: number,
+    hue: number,
+    intensity: number,
+    count: number,
   ) => {
     const aspect = canvas.width / Math.max(1, canvas.height);
     for (let i = 0; i < count && notes.length < NOTE_LIMIT; i++) {
@@ -766,7 +765,7 @@ function startSmoke(
       notes.push(n);
     }
   };
-  const updateNotes = (dt        ) => {
+  const updateNotes = (dt: number) => {
     let count = 0;
     for (const n of notes) {
       n.age += dt;
@@ -805,7 +804,7 @@ function startSmoke(
     dye.swap();
   };
 
-  const step = (dt        ) => {
+  const step = (dt: number) => {
     const texel = velocity.read.texel;
 
     curlP.use();
@@ -871,7 +870,7 @@ function startSmoke(
   let fromPalette = DEFAULT_PALETTE;
   let toPalette = DEFAULT_PALETTE;
   let blendStart = -Infinity;
-  const blendPalette = (now        ) => {
+  const blendPalette = (now: number) => {
     // Nothing to do once the blend has finished.
     if (palette === toPalette) return;
     const f = Math.min(1, (now - blendStart) / 1000 / PALETTE_BLEND);
@@ -888,7 +887,7 @@ function startSmoke(
 
   // Colour drifts around the palette over time, so a trail fades from one
   // cover colour into the next.
-  const colorAt = (t        , intensity        ) => {
+  const colorAt = (t: number, intensity: number) => {
     const n = palette.length;
     // Wrapped so that t can go below zero.
     const i = ((Math.floor(t) % n) + n) % n;
@@ -940,7 +939,7 @@ function startSmoke(
   );
 
   // The visitor's pointer.
-  let pointer                                  = null;
+  let pointer: { x: number; y: number } | null = null;
   let moved = { x: 0, y: 0, dx: 0, dy: 0, pending: false };
   host.addEventListener("pointermove", (e) => {
     if (still) return;
@@ -1007,11 +1006,11 @@ function startSmoke(
 
   // Each patch drifts a little around its spot, slowly shifting colour, and
   // is topped up just enough to hold its density against the fade.
-  const patchAt = (i        , t        ) => ({
+  const patchAt = (i: number, t: number) => ({
     x: PATCHES[i].x + 0.03 * Math.sin(t * 0.13 + i * 1.7),
     y: PATCHES[i].y + 0.03 * Math.sin(t * 0.17 + i * 2.3),
   });
-  const updatePatches = (t        , dt        ) => {
+  const updatePatches = (t: number, dt: number) => {
     PATCHES.forEach((_, i) => {
       const p = patchAt(i, t);
       const turn = t * 0.4 + i * 1.6;
@@ -1027,7 +1026,7 @@ function startSmoke(
   };
   // Start with them already there, in whatever colours are playing by the
   // first frame.
-  const seedPatches = (t        ) =>
+  const seedPatches = (t: number) =>
     PATCHES.forEach((_, i) => {
       const p = patchAt(i, t);
       splat(p.x, p.y, 0, 0, colorAt(i, PATCH_DENSITY), PATCH_RADIUS);
@@ -1036,16 +1035,16 @@ function startSmoke(
 
   // The automatic sweep for touch screens: a gentle arc starting near the
   // left or right edge, eased in and out, with notes halfway along.
-  let sweep
-
-
-
-
-
-
-           = null;
+  let sweep: {
+    start: number;
+    x: number;
+    y: number;
+    angle: number;
+    bend: number;
+    noted: boolean;
+  } | null = null;
   let nextSweep = 0;
-  const sweepAt = (s                           , f        ) => {
+  const sweepAt = (s: NonNullable<typeof sweep>, f: number) => {
     const e = f * f * (3 - 2 * f);
     const angle = s.angle + s.bend * e;
     return {
@@ -1053,7 +1052,7 @@ function startSmoke(
       y: s.y + Math.sin(angle) * SWEEP_LENGTH * e,
     };
   };
-  const updateSweep = (t        ) => {
+  const updateSweep = (t: number) => {
     if (!sweep) {
       if (!nextSweep) nextSweep = t + 1.5;
       if (t < nextSweep) return;
@@ -1131,7 +1130,7 @@ function startSmoke(
     present();
   };
 
-  const frame = (now        ) => {
+  const frame = (now: number) => {
     queued = 0;
     if (!visible || stopped || still) return;
     // About 60fps at most: faster screens skip frames rather than doing
@@ -1196,7 +1195,7 @@ function startSmoke(
 
   return {
     /** Blends to new colours (hex). */
-    setColors(colors          ) {
+    setColors(colors: string[]) {
       const next = colors.map((hex) =>
         [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255),
       );
@@ -1213,9 +1212,3 @@ function startSmoke(
     },
   };
 }
-
-const host = document.querySelector("[data-hero]");
-const canvas = document.querySelector("[data-smoke]");
-const below = document.querySelector("[data-below-word]");
-if (host && canvas) startSmoke(host, canvas, null, below);
-})();
