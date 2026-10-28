@@ -1,0 +1,21 @@
+{
+  "domain": "droplet",
+  "name": "Droplet",
+  "integration_type": "device",
+  "codeowners": [
+    "@sarahseidman"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "water.meters_leak_detection"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

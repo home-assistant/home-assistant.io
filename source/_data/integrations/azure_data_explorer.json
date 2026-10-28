@@ -1,0 +1,13 @@
+{
+  "domain": "azure_data_explorer",
+  "name": "Azure Data Explorer",
+  "integration_type": "service",
+  "codeowners": [
+    "@kaareseras"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ]
+}

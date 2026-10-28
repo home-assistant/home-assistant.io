@@ -1,0 +1,20 @@
+{
+  "domain": "axle_energy",
+  "name": "Axle Energy",
+  "integration_type": "service",
+  "codeowners": [
+    "@Herbertmt978"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "calendar",
+    "diagnostics",
+    "sensor"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "domain": "peblar",
+  "name": "Peblar",
+  "integration_type": "device",
+  "codeowners": [
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.ev_charging"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "event",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

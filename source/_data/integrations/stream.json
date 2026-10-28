@@ -1,0 +1,15 @@
+{
+  "domain": "stream",
+  "name": "Stream",
+  "integration_type": "system",
+  "codeowners": [
+    "@hunterjm",
+    "@uvjustin",
+    "@allenporter"
+  ],
+  "iot_class": "local_push",
+  "quality_scale": "internal",
+  "platforms": [
+    "diagnostics"
+  ]
+}

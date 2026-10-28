@@ -1,19 +1,12 @@
 ---
-title: Home Assistant Core
 description: Set up core Home Assistant settings, automation triggers, and generic actions.
 ha_release: 0.0
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: homeassistant
-ha_platforms:
-  - scene
-ha_integration_type: system
 related:
   - docs: /docs/configuration/basic/
     title: Basic information
   - docs: /docs/configuration/
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
 ---
 
 The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on` action.
@@ -153,7 +146,7 @@ webrtc:
 The Home Assistant Core integration is also responsible for entity settings.
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
-Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entities](/docs/configuration/customizing-devices/).
+Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entities](/docs/configuration/customizing-entities/).
 
 If you prefer editing in YAML, you can define your general settings in the {% term "`configuration.yaml`" %} file.
 
@@ -357,7 +350,7 @@ If you are about to restart or stop Home Assistant, this automation tells Home A
 
 - **Trigger**: Home Assistant
   - **Event**: Shutdown
-- **Action**: Save persistent states
+- **Action**: Home Assistant Core Integration: Save persistent states
 
 {% details "YAML example for saving persistent states before shutdown" %}
 

@@ -1,0 +1,16 @@
+{
+  "domain": "kmtronic",
+  "name": "KMtronic",
+  "integration_type": "device",
+  "codeowners": [
+    "@dgomes"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "plugs_switches"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

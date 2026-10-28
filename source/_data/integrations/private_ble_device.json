@@ -1,0 +1,17 @@
+{
+  "domain": "private_ble_device",
+  "name": "Private BLE Device",
+  "integration_type": "device",
+  "codeowners": [
+    "@Jc2k"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "presence_location.trackers"
+  ],
+  "platforms": [
+    "device_tracker",
+    "sensor"
+  ]
+}

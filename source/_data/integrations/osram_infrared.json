@@ -1,0 +1,17 @@
+{
+  "domain": "osram_infrared",
+  "name": "OSRAM Infrared",
+  "integration_type": "device",
+  "codeowners": [
+    "@freeDom-"
+  ],
+  "config_flow": true,
+  "iot_class": "assumed_state",
+  "quality_scale": "silver",
+  "categories": [
+    "lighting.bulbs_lamps"
+  ],
+  "platforms": [
+    "light"
+  ]
+}

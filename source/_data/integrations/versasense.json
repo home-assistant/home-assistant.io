@@ -1,0 +1,17 @@
+{
+  "domain": "versasense",
+  "name": "VersaSense",
+  "codeowners": [
+    "@imstevenxyz"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "sensors",
+    "hubs_protocols.wireless_protocols"
+  ],
+  "platforms": [
+    "sensor",
+    "switch"
+  ]
+}

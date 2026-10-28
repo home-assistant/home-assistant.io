@@ -1,21 +1,7 @@
 ---
-title: LinkPlay
 description: Connect and control your LinkPlay media players using the LinkPlay integration
-ha_categories:
-  - media_entertainment.speakers_audio
 ha_domain: linkplay
-ha_zeroconf: true
-ha_integration_type: hub
 ha_release: 2024.8
-ha_codeowners:
-  - '@Velleman'
-ha_config_flow: true
-ha_platforms:
-  - button
-  - diagnostics
-  - media_player
-  - select
-ha_iot_class: Local Polling
 ---
 
 The **LinkPlay** {% term integration %} for Home Assistant allows you to control various media players based on the LinkPlay protocol. The integration supports auto-discovery on your local network through [Zeroconf](/integrations/zeroconf).
