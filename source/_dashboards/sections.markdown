@@ -102,7 +102,7 @@ You can customize the default background color and the section corner rounding i
 
 ## Changing the width of a section
 
-To make a section wider, select the edit {% icon "mdi:edit" %} button on the section, and on the **Appearance** tab, select a **Width**. The cards keep their size: a wider section fits more of them on each row.
+To make a section wider, select the edit {% icon "mdi:edit" %} button on the section, and on the **Appearance** tab, select a **Width**. Cards keep their size, so a wider section fits more of them on each row. Cards with **Full width card** enabled stretch to the new width of the section.
 
 ## Deleting a section
 
