@@ -1,0 +1,153 @@
+---
+// The No device left behind teaser page, /no-device-left-behind/. A
+// smoke simulation (src/lib/smoke.ts) follows the cursor or a finger, and
+// the hidden words show through where its wake clears the smoke. Below
+// them: the release time and a link to subscribe on YouTube.
+//
+// A standalone page on purpose: no site header, navigation or footer. It
+// keeps the site's head (social tags, fonts, Plausible), with a small
+// back button to where the visitor came from.
+import SiteHead from "../../components/SiteHead.astro";
+
+const title = "No device left behind";
+const description = "Something new from Home Assistant is coming on November 11.";
+const image = "/images/no-device-left-behind/social.webp";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SiteHead title={title} description={description} image={image} noindex />
+  </head>
+  <body>
+    <main class="hero" data-hero>
+      <canvas class="smoke" aria-hidden="true" data-smoke></canvas>
+      <a class="back" href="/" aria-label="Back" data-back><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 16.58 10.83 12l4.58-4.59L14 6l-6 6 6 6z" fill="currentColor"/></svg></a>
+      <div class="overlay" data-below-word>
+        <p class="release"><strong>Coming soon</strong> <time datetime="2026-11-11T21:00+01:00">November 11, 12:00PM PT / 3:00PM ET / 21:00 CET</time></p>
+        <a class="subscribe" aria-label="Subscribe to Home Assistant on YouTube" href="https://www.youtube.com/@home_assistant?sub_confirmation=1" target="_blank" rel="noopener">
+          <svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="5" fill="#ff0033"/><path d="M11.2 5.6v8.8l7.6-4.4z" fill="#fff"/></svg>
+          Subscribe
+        </a>
+      </div>
+    </main>
+    <script>
+      import { startSmoke } from "../../lib/smoke";
+
+      const host = document.querySelector<HTMLElement>("[data-hero]");
+      const canvas = document.querySelector<HTMLCanvasElement>("[data-smoke]");
+      const below = document.querySelector<HTMLElement>("[data-below-word]");
+      if (host && canvas) startSmoke(host, canvas, null, below);
+
+      // Back goes to the page the visitor came from on this site, or to the
+      // home page when there's none (a link from elsewhere, a fresh tab).
+      const back = document.querySelector("[data-back]");
+      back?.addEventListener("click", (event) => {
+        let cameFromSite = false;
+        try {
+          cameFromSite =
+            history.length > 1 &&
+            new URL(document.referrer).origin === location.origin;
+        } catch {
+          // No referrer, or not a URL: go home.
+        }
+        if (cameFromSite) {
+          event.preventDefault();
+          history.back();
+        }
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html, body { margin: 0; }
+  /* Always dark. */
+  :root {
+    --bg: #0b0f14;
+    --fg: #e6eef6;
+    --muted: #8a9bad;
+    --line: rgba(230, 238, 246, 0.2);
+    --hover: rgba(255, 255, 255, 0.12);
+    --back: #ffffff;
+    --youtube: #ff0033;
+    --font: Figtree, "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; overflow: hidden; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font); }
+  /* touch-action: a swipe stirs the smoke instead of panning or zooming. */
+  .hero { position: fixed; inset: 0; touch-action: none; }
+  .smoke {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    opacity: 0; transition: opacity 1.2s ease;
+  }
+  .smoke.is-ready { opacity: 1; }
+
+  /* Sits on top of the smoke without catching the pointer, so the cursor
+     keeps stirring underneath; only the link takes clicks. */
+  .overlay {
+    position: absolute;
+    left: 0; right: 0;
+    top: var(--word-bottom, 71%);
+    padding-top: clamp(16px, 3vh, 32px);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: flex; flex-direction: column; align-items: center;
+    gap: 16px;
+    text-align: center;
+    pointer-events: none;
+  }
+  .release {
+    margin: 0;
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: clamp(15px, 1.6vw, 20px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+  }
+  .release strong { color: var(--fg); font-weight: 600; }
+
+  /* Back to where the visitor came from (see the script). */
+  .back {
+    position: absolute;
+    top: max(12px, calc(env(safe-area-inset-top, 0px) + 12px));
+    left: max(8px, calc(env(safe-area-inset-left, 0px) + 8px));
+    display: inline-flex;
+    padding: 8px;
+    border-radius: 999px;
+    color: var(--back);
+    transition: opacity 0.2s ease;
+  }
+  .back:hover { opacity: 0.75; }
+  .back:focus-visible { outline: 2px solid var(--back); outline-offset: 2px; }
+  .back svg { width: 28px; height: 28px; }
+  .subscribe {
+    pointer-events: auto;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 18px 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--fg);
+    font-size: 15px; font-weight: 500;
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .subscribe:hover { border-color: var(--youtube); background-color: var(--hover); }
+  .subscribe:focus-visible { outline: 2px solid var(--youtube); outline-offset: 3px; }
+  .subscribe svg { width: 22px; height: auto; flex: none; }
+  /* Narrow screens: the release time and the link at the foot of the page.
+     (smoke.ts sets one word to a line at the same width.) */
+  @media (max-width: 599px) {
+    .overlay {
+      top: auto;
+      bottom: 0;
+      padding-top: 0;
+      padding-bottom: max(32px, calc(env(safe-area-inset-bottom, 0px) + 24px));
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .smoke, .subscribe, .back { transition: none; }
+  }
+</style>
