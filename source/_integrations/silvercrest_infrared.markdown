@@ -134,21 +134,55 @@ automation: |
 
 ## Known limitations
 
-- The integration uses assumed state, meaning Home Assistant cannot read the actual state of the device (for example, whether it is on or off, or what the current fan speed is).
+### Device state
 
-- You can use only one SilverCrest fan with each infrared emitter. Different
-SilverCrest fan models use the same infrared codes, so one emitter cannot
-control multiple fans independently.
+The integration uses assumed state, meaning Home Assistant cannot read the actual state of the device (for example, whether it is on or off, or what the current fan speed is).
+
+### Multiple fans
+
+You can use only one SilverCrest fan with each infrared emitter. Different SilverCrest fan models use the same infrared codes, so one emitter cannot control multiple fans independently.
 
 ## Troubleshooting
 
-If your SilverCrest Infrared setup is not working as expected, first make sure the infrared emitter entity is available in Home Assistant and that your infrared hardware is placed correctly.
+{% details "The device does not respond to commands" %}
 
-Some remotes can use overlapping infrared codes with other devices, which may cause the same code to be interpreted for different functions. If you notice unexpected behavior, try isolating the remote or checking whether another infrared device is using similar codes.
+#### Symptom
+
+You press a button in Home Assistant, but the device does not respond.
+
+#### Resolution
+
+1. Make sure the infrared emitter selected for the integration is available in
+   Home Assistant.
+2. Make sure the emitter is pointed at the device's infrared receiver and has
+   a clear line of sight. For more details, see [About device placement and
+   coverage](/integrations/infrared/#about-device-placement-and-coverage).
+
+{% enddetails %}
+
+{% details "More than one fan responds to commands" %}
+
+#### Symptom
+
+A command sent to one SilverCrest fan also affects another fan.
+
+#### Resolution
+
+SilverCrest fan models use the same infrared codes. To control multiple fans,
+use a separate emitter for each fan and place the fans and emitters so each
+emitter has a clear line of sight to its fan, but not to the other fans. For
+example, place them in different rooms or out of sight of one another. For
+more information, see [Multiple fans](#multiple-fans).
+
+{% enddetails %}
+
+{% details "The problem persists after these checks" %}
 
 For additional troubleshooting steps and guidance, see the [infrared troubleshooting](/integrations/infrared/#troubleshooting) section.
 
 If you need to report an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), then reload the integration. Reproduce the issue, disable debug logging, and attach the automatically downloaded debug log to your report.
+
+{% enddetails %}
 
 ## Removing the integration
 
