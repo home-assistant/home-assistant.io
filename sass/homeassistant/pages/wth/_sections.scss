@@ -103,7 +103,6 @@ main#page-wth {
     }
 
     // Shared tile and card surfaces
-    .tile-grid,
     .audience-grid,
     .quote-wall {
         display: grid;
@@ -151,43 +150,6 @@ main#page-wth {
             content: '';
             flex: 1;
             height: 2px;
-        }
-    }
-
-    // One month, one question
-    #moments {
-        background-color: var(--wth-surface);
-
-        .tile-grid {
-            @include bp(tablet) {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-        }
-
-        // The same blue as the band behind "This year, we want to hear
-        // from everyone".
-        .tile {
-            background-color: #EAF6FD;
-            border: 1px solid #CDE8F8;
-            border-radius: var(--card-radius);
-            padding: 24px;
-
-            @include bp(tablet) {
-                text-align: center;
-            }
-
-            p {
-                color: var(--wth-ink);
-                font-size: 17px;
-                font-weight: 600;
-                margin-top: 14px;
-            }
-        }
-
-        .tile-icon {
-            color: var(--wth-mint-ink);
-            height: 32px;
-            width: 32px;
         }
     }
 
@@ -486,7 +448,6 @@ main#page-wth {
 // Carrying the campaign colours through the page, not just the hero.
 main#page-wth {
     // A mint rule above each section heading ties the sections together.
-    #moments,
     #everyone,
     #what-is-a-wth,
     #how-it-works,
@@ -512,7 +473,6 @@ main#page-wth {
     // Tinted bands break up the run of flat sections.
     // The icons come from the site's own icon tag, which renders an
     // <iconify-icon>. That sizes from font-size rather than width/height.
-    #moments .tile-icon,
     #everyone .audience-icon {
         align-items: center;
         background-color: var(--wth-mint);

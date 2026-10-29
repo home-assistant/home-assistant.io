@@ -34,7 +34,7 @@ export default {
       name: "what-the-heck",
       props: {
         links: [
-          { href: "#moments", label: "What it is" },
+          { href: "#what-is-a-wth", label: "What it is" },
           { href: "#everyone", label: "Who" },
           { href: "#how-it-works", label: "Tips" },
           { href: "#fix", label: "Fix a WTH" },
