@@ -40,6 +40,12 @@ The integration adds one camera entity per camera of the account. The entity sho
 
 Each camera is also added as a device, together with its model and firmware version. Cameras that are added to or removed from the account are added or removed in Home Assistant automatically.
 
+### Live stream
+
+The camera entity can show a live stream in dashboards and in the more-info dialog. Home Assistant opens the stream when you start watching and closes it when nobody is watching anymore. The camera manages stream sessions of up to 60 minutes, and Home Assistant renews the session automatically while the stream is in use.
+
+Home Assistant must be able to reach the camera in your local network to show the stream.
+
 ## Data updates
 
 The integration polls the Bosch cloud for the list of cameras every 5 minutes. The image of a camera is only retrieved when it is requested.
@@ -48,7 +54,11 @@ The integration polls the Bosch cloud for the list of cameras every 5 minutes. T
 
 ### Event images
 
-Live streaming is not available yet. The camera entity only shows the latest available event image. A camera without any event image has no image to show.
+The image of the camera entity is the latest available event image, not a live image. A camera without any event image has no image to show.
+
+### Live stream
+
+The live stream uses the HLS format, so it is shown with a delay of a few seconds. WebRTC is not supported yet.
 
 ### Cloud connection
 
