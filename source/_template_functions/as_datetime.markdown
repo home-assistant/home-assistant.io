@@ -11,7 +11,7 @@ limited: true
 since: "2021.12"
 related_functions:
   - as_timestamp
-  - datetime_test
+  - datetime
   - as_local
   - as_timedelta
   - strptime
