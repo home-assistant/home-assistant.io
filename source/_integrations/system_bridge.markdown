@@ -96,6 +96,12 @@ Per-disk sensors are named after the disk, such as `/dev/sda1 read rate`. They'r
 
 Each battery System Bridge finds, including ones in connected devices such as a wireless mouse or headset, also gets a level and a state sensor named after its model, such as `PRO X SUPERLIGHT 2c battery`. They're enabled for connected devices, and disabled by default for the device's own batteries, which the battery sensors above already cover. Sensors for a battery that appears later, such as a headset being switched on, are added when it first shows up. The AC Power binary sensor is only added on devices that report it, so desktops don't get one.
 
+## Display controls
+
+Each display that reports its brightness gets a `Display YOUR_DISPLAY_ID brightness` number entity to set its brightness from 0 to 100%. Each display that reports its power state gets a `Display YOUR_DISPLAY_ID power` switch entity to turn it on or off. The switch shows off when the display is in standby, suspended, or off. A display connected later gets its entities when it first reports these values. A display that reports neither value doesn't get these entities.
+
+Brightness is set through the backlight on built-in screens and over Display Data Channel Command Interface (DDC/CI) on external monitors. Power is set over DDC/CI. On Linux with Hyprland, screens that don't support DDC/CI are turned on and off through Hyprland.
+
 ## Media player
 
 The integration also provides a media player. This allows you control the currently playing media on your device.
@@ -181,3 +187,9 @@ Here is an example action that opens a URL in the device's browser:
 This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file, such as an MP3.
 
 {% include integrations/actions.md %}
+
+## Known limitations
+
+- Display brightness and power controls aren't available on macOS.
+- A display can report its brightness or power state without supporting changes to it. In that case, the action fails and shows the error message from System Bridge.
+- Some monitors stop responding to DDC/CI when they're off, so they can't be turned back on from Home Assistant.
