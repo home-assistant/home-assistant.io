@@ -894,7 +894,7 @@ This sensor will be available only if the program is running
   - **Availability**: Hood, Oven
 
 {% note %}
-This sensor will be available only if the program is running
+This sensor is only available while a program is running or paused.
 {% endnote %}
 
 - **Program progress**:
