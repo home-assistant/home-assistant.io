@@ -14,7 +14,7 @@
 <div class="wth-blog-hero-wrap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" />
 <link rel="stylesheet" href="/stylesheets/homeassistant/pages/wth-blog-header/index.css" />
-<img class="wth-blog-hero-fallback" src="{{ include.image }}" alt="{{ include.alt }}" style="border: 0;box-shadow: none;">
+<img class="wth-blog-hero-fallback" src="{{ include.image }}" alt="{{ include.alt }}" width="1200" height="630" style="border: 0;box-shadow: none;height: auto;">
 <template id="wth-blog-hero">
 <div class="wth-blog-hero" role="img" aria-label="{{ include.alt }}">
   <div class="wth-hero-bg" aria-hidden="true">
@@ -184,7 +184,13 @@
     var template = document.getElementById("wth-blog-hero");
     var image = template && template.parentNode.querySelector(".wth-blog-hero-fallback");
     if (!image || !("content" in template)) return;
-    image.replaceWith(template.content.cloneNode(true));
+    var hero = template.content.cloneNode(true);
+    // Same check as logo.js: without WebGL, show the CSS wordmark right away.
+    var canvas = document.createElement("canvas");
+    if (!canvas.getContext || !canvas.getContext("webgl2")) {
+      hero.querySelector(".wth-blog-hero").classList.add("wth-blog-hero--no-webgl");
+    }
+    image.replaceWith(hero);
   })();
 </script>
 <script type="importmap">

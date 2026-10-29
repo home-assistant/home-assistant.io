@@ -109,11 +109,33 @@
     @return $shadows;
 }
 
+// Reveals the CSS wordmark when the 3D one has not replaced it in time.
+@keyframes wth-mark-reveal {
+    to {
+        visibility: visible;
+    }
+}
+
 .wth-blog-hero {
+    // The CSS wordmark holds exactly the box the 3D one draws in, so nothing
+    // moves when it is swapped in. The ratio is the one logo.js sets on that
+    // box, and the margins match `.wth-logo-3d` below.
+    //
+    // It stays hidden while the 3D wordmark loads, so the text does not flash
+    // up before the intro. It shows straight away without WebGL (the script
+    // in the include adds `--no-webgl`), and after a few seconds if the 3D
+    // wordmark has not drawn by then.
     .wth-mark {
         align-items: flex-start;
-        display: inline-flex;
+        animation: wth-mark-reveal 0s 3s forwards;
+        aspect-ratio: 2.187;
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        margin: 0 0 -3% -4%;
+        padding-left: 4%;
+        visibility: hidden;
+        width: 104%;
         font-family: "Archivo Black", "Figtree", "Helvetica Neue", Arial, sans-serif;
         // Drives the large line; the small line is sized relative to it.
         font-size: 15cqi;
@@ -125,6 +147,11 @@
         @include tablet {
             font-size: 9.5cqi;
         }
+    }
+
+    &.wth-blog-hero--no-webgl .wth-mark {
+        animation: none;
+        visibility: visible;
     }
 
     // The 3D wordmark replaces the CSS one once it has drawn. The script sets
