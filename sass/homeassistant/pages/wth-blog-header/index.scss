@@ -13,7 +13,9 @@
 :root {
     --wth-mint: #16F3BE;
     --wth-sky: #5AB9EE;
-    --wth-brand: #18BCF2;
+    // The brand blue, darkened so the date clears 4.5:1 on the header
+    // background at every size.
+    --wth-brand-ink: #03729E;
     --wth-ink: #1E2126;
     --wth-bg: #F2F4F9;
 }
@@ -57,7 +59,7 @@
 }
 
 .wth-blog-hero__date {
-    color: var(--wth-brand);
+    color: var(--wth-brand-ink);
     font-family: "Figtree", sans-serif;
     font-size: clamp(18px, 4.5cqi, 34px);
     font-weight: 600;
