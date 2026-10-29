@@ -95,6 +95,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Smart Plug or Smart Plug Compact gets an **Energy-saving enter duration** value (1 to 3600 seconds), controlling how long the plug stays below the power threshold before energy-saving mode is entered.
 - A Thermostat, Wall Thermostat, or Room Thermostat II that supports it gets a **Temperature offset** value, letting you correct the measured temperature within the range and step the device allows.
 - A Smart Plug or Smart Plug Compact that supports it gets an **LED brightness** value (0 to 100 %), controlling the brightness of the plug's status LED.
+- A Thermostat II or Room Thermostat II that supports display configuration gets a **Display brightness** value (0 to 100 %) and a **Display on-time** value (0 to 3600 seconds), controlling how bright the display is and how long it stays on after a button press.
 
 ### Select
 
