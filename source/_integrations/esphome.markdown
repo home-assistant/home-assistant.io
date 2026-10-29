@@ -77,7 +77,7 @@ An ESPHome device can provide capabilities to the following integrations:
 
 - **Bluetooth** integration: extends the range of Home Assistant, so that it can see and connect to Bluetooth devices all over your home. For more details, refer to the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) integration.
 - **Infrared** integration: sends commands to infrared-controlled devices, such as TVs and air conditioners, and receives signals from handheld remotes. For more details, refer to the [Infrared](/integrations/infrared/) integration.
-- **Radio frequency** integration: sends commands to devices that use sub-GHz radio frequencies, such as remote outlets and string lights. For more details, refer to the [Radio frequency](/integrations/radio_frequency/) integration.
+- **Radio frequency** integration: sends commands to devices that use sub-GHz radio frequencies, such as remote outlets and string lights, and receives signals from devices such as handheld remotes and sensors. For more details, refer to the [Radio frequency](/integrations/radio_frequency/) integration.
 - **Serial** integration: shares one of the serial ports of the ESPHome device over your network, so that integrations can reach a serial-connected device such as an AV receiver or an energy meter. For more details, refer to the [Serial](/integrations/serial/) integration.
 
 Once you add the ESPHome device to Home Assistant, its proxy capabilities become available to the related integrations. You still need to configure the integration that uses the capability, such as selecting the shared serial port.
