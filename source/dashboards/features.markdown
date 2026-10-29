@@ -141,6 +141,49 @@ data:
   type: map
 {% endconfiguration %}
 
+## Calendar forecast
+
+Widget that displays a timeline of upcoming and past events for a [calendar](/integrations/calendar) or [schedule](/integrations/schedule) entity. Periods with an event are filled with the card color, and a marker shows the current time. The timeline moves along as time passes.
+
+<p class='img'>
+  <img src='/images/dashboards/features/calendar_forecast.png' alt='Screenshot of the tile card with the calendar forecast feature'>
+  Screenshot of the tile card with the calendar forecast feature
+</p>
+
+```yaml
+features:
+  - type: "calendar-forecast"
+    hours_to_show: 12
+    focus: future
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`calendar-forecast`"
+  type: string
+hours_to_show:
+  required: false
+  description: "Number of hours to show on the timeline."
+  type: integer
+  default: 12
+focus:
+  required: false
+  description: "Which part of the timeline gets the most space. The value can be `past`, `present`, or `future`. With `past`, the current time is shown at two thirds of the timeline."
+  type: string
+  default: future
+show_all_day_events:
+  required: false
+  description: "Show all-day events as a light tint behind the timeline. Only available for calendar entities."
+  type: boolean
+  default: false
+show_labels:
+  required: false
+  description: "Show hour labels under the timeline."
+  type: boolean
+  default: true
+{% endconfiguration %}
+
 ## Climate fan modes
 
 Widget that displays buttons or icons to control the fan mode for a [climate](/integrations/climate) device.
