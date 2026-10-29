@@ -1,5 +1,5 @@
 ---
-description: Integration for Fantini Cosmi IntelliClima Ecocomfort 2.0 VMC devices.
+description: Integration for Fantini Cosmi IntelliClima Ecocomfort 2.0 and Ecocomfort 3 ventilation devices.
 ha_release: 2026.3
 ha_domain: intelliclima
 related:
@@ -7,13 +7,16 @@ related:
     title: Fantini Cosmi
 ---
 
-The **IntelliClima** {% term integration %} is used to integrate with [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. The Ecocomfort 2.0 is a mechanical ventilation with heat recovery (MVHR) system that monitors indoor air quality and automates ventilation to maintain healthy indoor environments. With this integration, you can control fan modes and speeds, and automate ventilation based on air quality and schedules.
+The **IntelliClima** {% term integration %} connects your [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 and Ecocomfort 3 ventilation devices to Home Assistant. You can control the fan speed and airflow direction, monitor temperature, humidity, and air quality, and automate ventilation using sensor readings and schedules.
 
 ## Supported devices
 
 The following devices are known to be supported by the integration:
 
 - Ecocomfort 2.0 with firmware 0.6.8
+- Ecocomfort 3 with firmware 0.9.6
+
+These are the firmware versions that have been tested, not minimum firmware requirements.
 
 ## Prerequisites
 
@@ -21,7 +24,7 @@ Before setting up this integration, you must complete the following steps in the
 
 1. Install the IntelliClima+ app on your smartphone (iOS or Android).
 2. Create an account or sign in to your existing account.
-3. Add your Ecocomfort 2.0 device to the app via Bluetooth.
+3. Add your Ecocomfort device to the app via Bluetooth.
 4. Complete the device setup and configuration in the app (such as network connection or device name).
 5. Verify that the device appears as Online in the IntelliClima+ app.
 
@@ -38,7 +41,7 @@ Password:
 
 ## Supported functionality
 
-The **IntelliClima** integration provides the following entities for each discovered Ecocomfort 2.0 device.
+The **IntelliClima** integration provides the following entities for each discovered Ecocomfort 2.0 or Ecocomfort 3 device.
 
 ### Binary sensor
 
@@ -46,30 +49,30 @@ The **IntelliClima** integration provides the following entities for each discov
   - **Description**: Indicates whether the device's filter needs cleaning.
   - **Device class**: Problem
   - **Entity category**: Diagnostic
-  - **Remarks**: This entity is unavailable if filter tracking is turned off in the IntelliClima+ app.
-  - **Available for devices**: Ecocomfort 2.0
+  - **Remarks**: For Ecocomfort 2.0, this entity is unavailable if filter tracking is turned off in the IntelliClima+ app. Ecocomfort 3 reports its filter warning directly through its device status.
+  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
 
 The following diagnostic binary sensors show why the **Fan** entity can run at a different speed than the one you set.
 
 - **Boost**
   - **Description**: Indicates whether the device is boosting, which runs the fan above its highest selectable speed. The **Fan** entity shows speed **4** while boosting.
   - **Entity category**: Diagnostic
-  - **Available for devices**: Ecocomfort 2.0
+  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
 
 - **Night mode**
   - **Description**: Indicates whether night mode is active, which limits the fan to sleep speed. The **Fan** entity shows speed **1** while night mode is active.
   - **Entity category**: Diagnostic
-  - **Available for devices**: Ecocomfort 2.0
+  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
 
 - **Advanced control**
   - **Description**: Indicates whether an advanced control threshold set in the IntelliClima+ app is engaged, which runs the fan one speed step faster.
   - **Entity category**: Diagnostic
-  - **Available for devices**: Ecocomfort 2.0
+  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
 
 - **Automatic speed control**
   - **Description**: Indicates whether the device chooses the fan speed itself, either from its sensors in the **auto** preset or from a weekly program set in the IntelliClima+ app. It turns off when you set a speed yourself.
   - **Entity category**: Diagnostic
-  - **Available for devices**: Ecocomfort 2.0
+  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
 
 ### Fan
 
@@ -83,7 +86,7 @@ The following diagnostic binary sensors show why the **Fan** entity can run at a
     - **2**: Low (Vel1 in-app)
     - **3**: Medium (Vel2 in-app)
     - **4**: High (Vel3 in-app), also shown while boosting
-  - **Available for devices**: Ecocomfort 2.0
+  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
 
 ### Select
 
@@ -91,10 +94,10 @@ The following diagnostic binary sensors show why the **Fan** entity can run at a
   - **Description**: Select the ventilation system's direction operation mode. When you change the direction mode, the integration keeps the current fan speed whenever the device is already running at a fixed speed. If you change the direction mode while the device is off, or while the **Fan** entity is in the **auto** preset (which does not have a fixed speed), the fan is started at speed **1** (sleep).
   - **Supported options**:
     - **forward**: Intake mode (supply air into the room)
-    - **reverse**: Extract mode (exhaust air into the room)
+    - **reverse**: Extract mode (exhaust air out of the room)
     - **alternate**: Alternating mode (cycles between intake and extract)
     - **sensor**: Sensor-based mode that uses sensor thresholds configured in the app, with a fixed speed when the thresholds are exceeded. Corresponds to the Manual sensor mode in the app. This option is also shown while the **Fan** entity is in the **auto** preset.
-  - **Available for devices**: Ecocomfort 2.0
+  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
 
 ### Sensors
 
@@ -104,20 +107,20 @@ A sensor shows as unknown while the device has no reading for it.
   - **Description**: Current indoor ambient temperature detected by the device.
   - **Unit**: °C
   - **Measurement type**: Temperature
-  - **Available for devices**: Ecocomfort 2.0
+  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
 
 - **Humidity**
   - **Description**: Current indoor relative humidity detected by the device.
   - **Unit**: %
   - **Measurement type**: Humidity
-  - **Available for devices**: Ecocomfort 2.0
+  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
 
 - **VOC (Volatile Organic Compounds)**
   - **Description**: Air quality indicator based on detected volatile organic compounds.
   - **Unit**: ppm (parts per million)
   - **Measurement type**: Air quality/VOC level
   - **Remarks**: Higher values indicate lower air quality and may trigger automatic ventilation adjustments.
-  - **Available for devices**: Ecocomfort 2.0
+  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
 
 ## Data updates
 
@@ -125,7 +128,7 @@ The **IntelliClima** integration uses **cloud polling** to fetch device status. 
 
 This means:
 - An active internet connection is required on the Home Assistant device.
-- Your Ecocomfort 2.0 device must be connected to the internet and registered with the IntelliClima+ service.
+- Your Ecocomfort device must be connected to the internet and registered with the IntelliClima+ service.
 - Data updates are limited by cloud API availability and latency.
 
 ## Examples
@@ -203,7 +206,8 @@ This integration is based on reverse-engineered communication with the IntelliCl
 - API stability: If Fantini Cosmi changes their cloud API communication protocol or endpoints, this integration may stop working. Updates would be required to restore functionality.
 - Feature support: Only the features and commands that were reverse-engineered are implemented. Future features added by Fantini Cosmi may not be immediately available through this integration.
 - Cloud dependency: The integration requires a working internet connection and access to Fantini Cosmi's cloud servers. It cannot operate with local-only communication.
-- Device support: Currently, only the Ecocomfort 2.0 device with firmware 0.6.8 has been tested. Other devices in the Ecocomfort line may work but have not been verified.
+- Device support: Ecocomfort 2.0 with firmware 0.6.8 and Ecocomfort 3 with firmware 0.9.6 have been tested. Other Ecocomfort models have not been verified.
+- Ecocomfort 3 settings: Season, free cooling, sensor thresholds, and calibration offsets must be configured in the IntelliClima+ app. The integration does not provide entities for these settings.
 
 ## Troubleshooting
 
@@ -222,24 +226,24 @@ logger:
 
 #### Symptom: Device is offline and device shows as unavailable in IntelliClima+ app
 
-The integration cannot communicate with your Ecocomfort 2.0 device through the IntelliClima+ cloud service.
+The integration cannot communicate with your Ecocomfort device through the IntelliClima+ cloud service.
 
 #### Resolution
 
 Try the following steps:
 
-1. Verify device status in IntelliClima+ app: Open the IntelliClima+ mobile app and check that your Ecocomfort 2.0 shows as "Online" and responsive.
+1. Verify device status in IntelliClima+ app: Open the IntelliClima+ mobile app and check that your Ecocomfort device shows as "Online" and responsive.
 
-2. Check your internet connection: Ensure both your Home Assistant device and your Ecocomfort 2.0 have stable internet connectivity.
+2. Check your internet connection: Ensure both your Home Assistant device and your Ecocomfort device have stable internet connectivity.
 
 3. Power cycle the device: 
-   - Turn off the Ecocomfort 2.0 at the power supply for 30 seconds.
+   - Turn off the Ecocomfort device at the power supply for 30 seconds.
    - Turn it back on and wait 2-3 minutes for it to reconnect.
 
 4. Restart via IntelliClima+ app:
    - Open the IntelliClima+ app on your smartphone.
-   - Find your Ecocomfort 2.0 device.
-   - Use the app's restart or reset function if available: Settings > ECOCOMFORT 2.0 MANAGEMENT > RESTART
+   - Find your Ecocomfort device.
+   - Use the app's restart function if available. For Ecocomfort 2.0, go to Settings > ECOCOMFORT 2.0 MANAGEMENT > RESTART
    ECOCOMFORT.
    - Wait for the device to come back online.
 
@@ -267,7 +271,7 @@ The integration authenticated successfully, but no Ecocomfort devices were found
 
 #### Resolution
 
-1. Verify device is set up: Open the IntelliClima+ mobile app and confirm your Ecocomfort 2.0 is listed and shows as "Online".
+1. Verify device is set up: Open the IntelliClima+ mobile app and confirm your Ecocomfort device is listed and shows as "Online".
 2. Check device status: Ensure the device is powered on and connected to the internet (may take a few minutes after powering on).
 3. Re-add the device: If the device doesn't appear, try removing and re-adding it in the IntelliClima+ app.
 4. Wait for sync: After making changes in the IntelliClima+ app, wait a few minutes before retrying the Home Assistant integration setup.
@@ -280,7 +284,7 @@ Cloud polling introduces latency in command execution and data updates.
 
 #### Resolution
 
-1. Check internet connection: Ensure stable, fast internet connectivity for both your Home Assistant device and Ecocomfort 2.0.
+1. Check internet connection: Ensure stable, fast internet connectivity for both your Home Assistant device and Ecocomfort device.
 2. Check cloud service status: Fantini Cosmi's cloud service may occasionally experience slowdowns. Try again in a few minutes.
 3. Monitor polling interval: By default, the integration polls every 1 minute. If real-time responsiveness is critical, you can set up local automations that don't depend on frequent updates.
 
