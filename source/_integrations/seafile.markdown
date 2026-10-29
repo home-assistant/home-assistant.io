@@ -105,7 +105,6 @@ The integration has been tested with Seafile 13 and 14 (Community Edition).
 
 - Encrypted libraries are not supported and are not shown in the list of libraries.
 - An account on a server can only be added once.
-- There is no reauthentication yet. If the access token is no longer accepted, remove the integration and add it again.
 
 ## Troubleshooting
 
@@ -137,17 +136,20 @@ The library is not shown as a location when you create a backup.
 2. Turn on **Store backups** and select **Submit**.
 3. If the library still isn't listed, check that the integration is loaded and its sensors are available.
 
-### Symptom: The integration fails to load with an authentication error
+### Symptom: Home Assistant asks you to log in to Seafile again
 
-The integration shows an authentication error and its entities are unavailable.
+The Seafile integration needs attention and its entities are unavailable.
 
 #### Description
 
-The access token of the integration was revoked or is no longer valid.
+The access token of the integration was revoked or is no longer valid, for example, because the **Home Assistant** entry was removed from the linked devices of your account.
 
 #### Resolution
 
-Remove the integration and add it again with your current password.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Reconfigure** on the Seafile integration.
+2. Log in with the username and password of the same Seafile account. If the account uses two-factor authentication, also enter the code.
+
+Home Assistant creates a new access token and loads the integration again. Logging in with a different account is not accepted.
 
 ## Removing the integration
 
