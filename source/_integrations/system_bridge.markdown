@@ -98,9 +98,9 @@ Each battery System Bridge finds, including ones in connected devices such as a 
 
 ## Display controls
 
-Each display that reports its brightness gets a `Display <id> brightness` number to set it, from 0 to 100%. Each display that reports its power state gets a `Display <id> power` switch to turn it on or off. The switch shows off when the display is in standby, suspended or off. A display connected later gets its entities when it first reports these values.
+Each display that reports its brightness gets a `Display YOUR_DISPLAY_ID brightness` number entity to set its brightness from 0 to 100%. Each display that reports its power state gets a `Display YOUR_DISPLAY_ID power` switch entity to turn it on or off. The switch shows off when the display is in standby, suspended, or off. A display connected later gets its entities when it first reports these values. A display that reports neither value doesn't get these entities.
 
-Brightness is set through the backlight on built-in screens and over DDC/CI on external monitors. Power is set over DDC/CI, or on Linux with Hyprland through Hyprland itself for screens without it. A display that reports neither value doesn't get these entities, and they aren't available on macOS. Reporting a value doesn't guarantee the display can be controlled: if System Bridge can't change it, the action fails with System Bridge's error. Some monitors stop answering DDC/CI once they're off, so they can't be turned back on this way.
+Brightness is set through the backlight on built-in screens and over Display Data Channel Command Interface (DDC/CI) on external monitors. Power is set over DDC/CI. On Linux with Hyprland, screens that don't support DDC/CI are turned on and off through Hyprland.
 
 ## Media player
 
@@ -187,3 +187,9 @@ Here is an example action that opens a URL in the device's browser:
 This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file, such as an MP3.
 
 {% include integrations/actions.md %}
+
+## Known limitations
+
+- Display brightness and power controls aren't available on macOS.
+- A display can report its brightness or power state without supporting changes to it. In that case, the action fails and shows the error message from System Bridge.
+- Some monitors stop responding to DDC/CI when they're off, so they can't be turned back on from Home Assistant.
