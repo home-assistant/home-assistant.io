@@ -67,7 +67,7 @@ time_zone:
   type: string
   required: false
 date_format:
-  description: "Shows the date with the time, either as a preset or as a list of date parts. If left empty, no date is shown. Uses the same presets and parts as the [Date card](/dashboards/date/#formatting-the-date)."
+  description: "Shows the date with the time, either as a preset or as a list of date parts. If left empty, no date is shown. See [Formatting the date](/dashboards/date/#formatting-the-date) on the date card page for the available presets and parts."
   type: [string, list]
   required: false
 analog_options:

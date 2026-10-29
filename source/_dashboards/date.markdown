@@ -58,9 +58,9 @@ time_zone:
 Use `date_format` to choose how the date is shown. Set it to one of the following presets, which follow your language's date format:
 
 - `short`: A short numeric date, for example 8/10/26.
-- `medium`: An abbreviated month name, for example Aug 10, 2026.
-- `long`: The full month name, for example August 10, 2026.
-- `full`: The weekday and full month name, for example Monday, August 10, 2026.
+- `medium`: A date with the abbreviated month name, for example Aug 10, 2026.
+- `long`: A date with the full month name, for example August 10, 2026.
+- `full`: A date with the weekday and full month name, for example Monday, August 10, 2026.
 - `iso`: An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date, always year-month-day, for example 2026-08-10.
 
 The examples above are in English (United States). Other languages order and punctuate the presets in their own way, except `iso`, which is always the same.
