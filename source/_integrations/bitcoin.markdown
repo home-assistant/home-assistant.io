@@ -41,7 +41,7 @@ The **Bitcoin** integration provides the following entities. All of them are cre
 - **Mined blocks**
   - **Description**: Number of blocks mined in the last 24 hours.
 - **Blocks size**
-  - **Description**: Combined size of the blocks mined in the last 24 hours. New setups show it in megabytes, setups that already existed keep showing it in bytes.
+  - **Description**: Combined size of the blocks mined in the last 24 hours. New setups show it in megabytes, while setups that already existed keep showing it in bytes.
 - **Difficulty**
   - **Description**: How hard it currently is to mine a block.
 - **Time between blocks**
