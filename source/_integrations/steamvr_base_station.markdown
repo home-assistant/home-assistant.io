@@ -8,7 +8,7 @@ The **SteamVR Base Station** {% term integration %} lets you control Valve Index
 
 ## Use cases
 
-- Put the base stations to sleep at night or when nobody is home, so they don't keep spinning.
+- Put the base stations to sleep at night or when nobody is home, so their motors and lasers don't keep running.
 - Wake the base stations when your gaming PC turns on, so they are ready when you put on the headset.
 - See at a glance whether a base station is on, booting, in standby, or asleep.
 
@@ -93,8 +93,8 @@ The base stations broadcast their power state and channel over Bluetooth, so Hom
 
 ## Known limitations
 
-- Each command opens a short Bluetooth connection, so it takes a moment and needs an adapter or proxy with a free connection slot.
-- After waking from sleep, a base station needs about 11 seconds before it tracks again.
+- Each command opens a short Bluetooth connection, so commands are not instant. The Bluetooth adapter or proxy needs a free connection slot, or the command fails.
+- A base station takes about 11 seconds to come back on from sleep. If you need the stations ready right away, use standby instead, which takes about a second.
 
 ## Troubleshooting
 
