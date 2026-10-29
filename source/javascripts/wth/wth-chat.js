@@ -1,6 +1,7 @@
 // Plays the WTH statements in "What is a WTH" as a sea of chat bubbles: they
 // drift along the pipes, one is picked out and brought to the front, the reply
-// pops up under it, and after a while another one is picked.
+// pops up under it, and after a while another one is picked while the last one
+// flies back to its place on the track.
 //
 // The markup is source/what-the-heck/components/_what.html and its Astro twin,
 // astro/src/components/what-the-heck/WthChat.astro. The drifting is CSS; this
@@ -16,6 +17,10 @@
 // How long a bubble takes to fly to the front, how long the typing dots show,
 // and how long a reply stays before the next bubble is picked.
 const FLIGHT = 900;
+// How long a statement flown back takes to fade into its bubble, as long as
+// the bubble takes to show again in the styles.
+const FADE = 300;
+const EASING = 'cubic-bezier(0.2, 0.8, 0.2, 1)';
 const TYPING = 1100;
 const HOLD = 4500;
 // How many of the last statements are not picked again.
@@ -41,6 +46,8 @@ function setUp(chat) {
     // The bubble in the sea whose statement is at the front, hidden meanwhile.
     let picked = null;
     let paused = reducedMotion;
+    // Statements flying back to their bubbles, each with how to stop it.
+    const returns = new Map();
     // Reasons it is held still for now: the pointer, focus, or being off screen.
     const holds = new Set();
     // The statements shown so far, for the previous button and to avoid repeats.
@@ -60,21 +67,76 @@ function setUp(chat) {
         });
     }
 
+    // Flies the statement at the front back to the bubble it came from, the
+    // way it came in, following the bubble as it drifts. The bubble shows
+    // again as the statement lands and fades into it. A bubble that has
+    // drifted out of sight meanwhile just shows again, and the statement fades.
+    function sendBack(pair) {
+        const bubble = picked;
+        picked = null;
+        const statement = pair.querySelector('.wth-chat-statement');
+        const box = sea.getBoundingClientRect();
+        const start = bubble?.getBoundingClientRect();
+        if (!bubble || start.right <= box.left || start.left >= box.right) {
+            bubble?.classList.remove('is-picked');
+            flight?.cancel();
+            return;
+        }
+
+        // Leave from wherever a flight in has got to.
+        const { transform, opacity } = getComputedStyle(statement);
+        flight?.cancel();
+        const at = statement.getBoundingClientRect();
+        const frames = () => {
+            const { left, top, width } = bubble.getBoundingClientRect();
+            const onTrack = `translate(${left - at.left}px, ${top - at.top}px) scale(${width / at.width})`;
+            return [
+                { transform, opacity, easing: EASING },
+                { transform: onTrack, opacity: 0.6, offset: FLIGHT / (FLIGHT + FADE), easing: 'ease' },
+                { transform: onTrack, opacity: 0 },
+            ];
+        };
+
+        // It stays faded out on the track until it is brought to the front again.
+        const back = statement.animate(frames(), { duration: FLIGHT + FADE, fill: 'forwards' });
+        pair.classList.add('is-leaving');
+        const land = () => {
+            bubble.classList.remove('is-picked');
+            pair.classList.remove('is-leaving');
+        };
+        const stop = () => {
+            returns.delete(pair);
+            back.cancel();
+            land();
+        };
+        returns.set(pair, stop);
+        back.onfinish = () => {
+            if (returns.get(pair) === stop) land();
+        };
+
+        const follow = () => {
+            if (back.playState !== 'running') return;
+            back.effect.setKeyframes(frames());
+            if (back.currentTime >= FLIGHT) bubble.classList.remove('is-picked');
+            requestAnimationFrame(follow);
+        };
+        requestAnimationFrame(follow);
+    }
+
     function present(next, source) {
         pairs[index].classList.remove('is-active', 'is-typing', 'is-replied');
-        picked?.classList.remove('is-picked');
-        picked = null;
-        flight?.cancel();
+        sendBack(pairs[index]);
         flight = null;
 
         index = next;
         const pair = pairs[index];
+        // If it is still on its way back to its bubble, that stops first.
+        returns.get(pair)?.();
         pair.classList.add('is-active');
         if (reducedMotion) return;
 
         const statement = pair.querySelector('.wth-chat-statement');
         const to = statement.getBoundingClientRect();
-        const easing = 'cubic-bezier(0.2, 0.8, 0.2, 1)';
 
         if (source) {
             // Fly the statement in from where its bubble is drifting.
@@ -85,13 +147,13 @@ function setUp(chat) {
             flight = statement.animate([
                 { transform: `translate(${from.left - to.left}px, ${from.top - to.top}px) scale(${scale})`, opacity: 0.6 },
                 { transform: 'none', opacity: 1 },
-            ], { duration: FLIGHT, easing });
+            ], { duration: FLIGHT, easing: EASING });
         } else {
             // Its bubble is out of sight, so it rises from the sea instead.
             flight = statement.animate([
                 { transform: 'translateY(24px) scale(0.92)', opacity: 0 },
                 { transform: 'none', opacity: 1 },
-            ], { duration: FLIGHT / 2, easing });
+            ], { duration: FLIGHT / 2, easing: EASING });
         }
     }
 

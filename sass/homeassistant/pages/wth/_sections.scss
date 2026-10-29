@@ -767,7 +767,14 @@ main#page-wth {
             visibility: hidden;
             width: 100%;
 
+            // The one at the front sits above the one flying back to its
+            // bubble, which stays shown until it lands.
             &.is-active {
+                z-index: 1;
+            }
+
+            &.is-active,
+            &.is-leaving {
                 opacity: 1;
                 visibility: visible;
             }
@@ -785,7 +792,7 @@ main#page-wth {
             line-height: 1.4;
             margin: 0;
             padding: 18px 22px;
-            // The flight in from the sea scales from the bubble's corner.
+            // The flights to and from the sea scale from the bubble's corner.
             transform-origin: 0 0;
 
             @include bp(tablet) {

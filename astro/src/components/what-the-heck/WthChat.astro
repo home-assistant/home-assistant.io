@@ -1,7 +1,8 @@
 ---
 // The sea of WTHs in "What is a WTH": real WTHs from the forum drift along
 // pipes as chat bubbles, one is picked out and brought to the front, and a
-// reply pops up under it.
+// reply pops up under it. When the next one is picked, it flies back to its
+// place on the track.
 //
 // Replaces the chat in source/what-the-heck/components/_what.html and its
 // `#what-is-a-wth` rules in sass/homeassistant/pages/wth/_sections.scss.
@@ -234,7 +235,14 @@ const lanes = [0, 1, 2, 3].map((lane) => {
     visibility: hidden;
     width: 100%;
 
+    /* The one at the front sits above the one flying back to its bubble,
+       which stays shown until it lands. */
     &.is-active {
+      z-index: 1;
+    }
+
+    &.is-active,
+    &.is-leaving {
       opacity: 1;
       visibility: visible;
     }
@@ -252,7 +260,7 @@ const lanes = [0, 1, 2, 3].map((lane) => {
     line-height: 1.4;
     margin: 0;
     padding: clamp(1.125rem, 1rem + 0.4vw, 1.375rem) clamp(1.375rem, 1.2rem + 0.4vw, 1.625rem);
-    /* The flight in from the sea scales from the bubble's corner. */
+    /* The flights to and from the sea scale from the bubble's corner. */
     transform-origin: 0 0;
   }
 
