@@ -55,6 +55,8 @@ Common use cases include:
 - **Automation**: Adjust the temperature curve offset during holiday mode
 - **Analytics**: View long-term statistics and graphs for the relevant sensors
 
+{% include integrations/actions.md %}
+
 ## Example
 
 Automation that will send a notification to a smartphone when the hot water reserve is getting low. In this example a temperature below 42°C in the middle of the water tank will trigger the notification. Note that actual entity name varies between models of heat pumps. You will have to adapt the yaml code to your own installation.
