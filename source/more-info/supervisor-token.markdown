@@ -73,7 +73,7 @@ template:
           {{ states.update
              | selectattr('state', 'eq', 'on')
              | map(attribute='entity_id')
-             | select('in', integration_entities('hassio'))
+             | select('is_device_attr', 'model', 'Home Assistant App')
              | list | count }}
 ```
 
