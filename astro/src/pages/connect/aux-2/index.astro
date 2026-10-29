@@ -63,15 +63,13 @@ import wholeHomeAudio from "../../../assets/connect/icons/whole-home-audio.svg";
 import advancedControl from "../../../assets/connect/icons/advanced-control.svg";
 import connectAnywhere from "../../../assets/connect/icons/connect-anywhere.svg";
 import bluetooth from "../../../assets/connect/icons/bluetooth.svg";
+// "Powerful options": Figma's "Device" icon (the same on both cards).
+import device from "../../../assets/connect/icons/device.svg";
 // "Connect everything": a photo of each side of the AUX-2.
 import sideAudioPhoto from "../../../assets/connect/aux-2/aux-2-side-audio.webp";
 import sideBackPhoto from "../../../assets/connect/aux-2/aux-2-side-back.webp";
 
 const product = "Connect AUX-2";
-
-// The "Powerful options" card gets the feature cards' border shimmer
-// on hover; false turns it off.
-const powerfulShimmer = true;
 
 // The "Incredible audio" icons in white instead of their blue (the
 // Sendspin logo keeps its red); false turns them blue again.
@@ -432,22 +430,20 @@ const diagram = [
           <p class="note">*not for Bluetooth audio</p>
         </div>
       </div>
+      <!-- Figma frame "Powerful options" (desktop node 2198:82299): the
+           heading over a card for each option, the photo beside them.
+           The mobile frame still has the older single card with a list;
+           phones stack the heading, cards and photo. -->
       <div class="powerful">
-        <div
-          class="powerful-text"
-          data-shimmer={powerfulShimmer ? "hover" : undefined}
-        >
+        <div class="powerful-text">
           <h2 class="heading">Powerful options</h2>
-          <ul>
-            <li>
-              <strong>Power and connect your way</strong> - via Ethernet,
-              USB-C, or Wi-Fi.
-            </li>
-            <li>
-              <strong>Yours to shape</strong> - ready out of the box, or
-              customize using ESPHome and additional Grove sensors.
-            </li>
-          </ul>
+          <ConnectFeatureCard icon={device} title="Power and connect your way">
+            Via Ethernet, USB-C, or Wi-Fi.
+          </ConnectFeatureCard>
+          <ConnectFeatureCard icon={device} title="Yours to shape">
+            Ready out of the box, or customize using ESPHome and additional
+            Grove sensors.
+          </ConnectFeatureCard>
         </div>
         <Image
           quality={85}
@@ -569,7 +565,6 @@ const diagram = [
 
 <style lang="scss">
   @use "../../../styles/breakpoints";
-  @use "../../../styles/fade-border" as *;
   @use "../../../styles/layout";
 
   .connect {
@@ -756,8 +751,8 @@ const diagram = [
     }
   }
 
-  /* Rock-solid Bluetooth: a photo panel. Powerful options: a card and a
-     photo, stacked on phones (Figma's mobile "Second Row"). */
+  /* Rock-solid Bluetooth: a photo panel. Powerful options: a heading
+     over two feature cards, and a photo, stacked on phones. */
 
   .options {
     display: grid;
@@ -791,13 +786,10 @@ const diagram = [
     }
   }
 
-  /* The ZBT-2 fading card the other way round: the border starts blue
-     at the bottom and fades towards the top. */
+  /* Figma's 20px between the heading and the cards. */
   .powerful-text {
-    background: linear-gradient(rgb(0 19 38 / 80%) 11%, rgb(0 0 0 / 80%));
-    @include fade-border(0deg);
-    border-radius: var(--radius-medium);
-    padding: var(--space-xlarge);
+    display: grid;
+    gap: 1.25rem;
   }
 
   /* The board fills the top 40% of the square photo; the text starts
@@ -821,36 +813,6 @@ const diagram = [
       height: auto;
       object-fit: cover;
       width: 100%;
-    }
-
-    ul {
-      list-style: none;
-      margin: var(--space-small) 0 0;
-      padding: 0;
-    }
-
-    /* A white dot with Figma's blue "Glowing" effect. */
-    li {
-      font-size: var(--font-size-large);
-      line-height: 1.2;
-      padding: var(--space-medium) 0 var(--space-medium) var(--space-xlarge);
-      position: relative;
-
-      &::before {
-        background: var(--color-text-inverse);
-        border-radius: 50%;
-        box-shadow: 0 0 0.9375rem 0.125rem var(--color-connect-line);
-        content: "";
-        height: 0.25rem;
-        left: var(--space-xsmall);
-        position: absolute;
-        top: calc(var(--space-medium) + 0.5rem);
-        width: 0.25rem;
-      }
-    }
-
-    strong {
-      font-weight: 700;
     }
   }
 
@@ -1088,21 +1050,20 @@ const diagram = [
       width: 100%;
     }
 
-    /* Powerful options: the card and the photo side by side, the photo
-       as tall as the card. */
+    /* Powerful options: the cards and the photo side by side, the photo
+       as tall as the heading and cards. */
     .powerful {
       grid-template-columns: repeat(2, minmax(0, 1fr));
 
+      /* Size containment keeps the photo's own height out of the row,
+         so the heading and cards set it. */
       img {
         aspect-ratio: auto;
+        contain: size;
         height: 100%;
       }
     }
 
-    .powerful-text {
-      align-content: center;
-      display: grid;
-    }
   }
 
   @media only screen and (min-width: breakpoints.$connect-desk) {
@@ -1197,25 +1158,17 @@ const diagram = [
       padding-block: var(--space-xxxlarge);
     }
 
-    /* Figma's 407px card and 793px photo, in proportion. */
+    /* Figma's 468px column and 712px photo, in proportion, 20px
+       apart. */
     .powerful {
-      grid-template-columns: minmax(0, 407fr) minmax(0, 793fr);
-      /* The row is the panel's height, not the photo's. */
-      grid-template-rows: minmax(0, 1fr);
-      height: 26.625rem;
+      gap: 1.25rem;
+      grid-template-columns: minmax(0, 468fr) minmax(0, 712fr);
 
       img {
-        aspect-ratio: auto;
-        height: 100%;
         object-position: 50% 33%;
       }
     }
 
-    .powerful-text {
-      align-content: center;
-      display: grid;
-      padding: var(--space-xxlarge);
-    }
 
     .features > .content {
       gap: var(--space-xxlarge);

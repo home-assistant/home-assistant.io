@@ -150,8 +150,8 @@ Shared styles, scripts and components:
   element's edge that the fading border and the shimmer draw on.
 - `src/styles/_fade-border.scss`: the ZBT-2 cards' fading Connect-blue
   border as a mixin, `fade-border($angle, $fade)`. The feature cards
-  fade from the top (180deg), the "Powerful options" card from the
-  bottom (0deg). Include it after the element's `background`.
+  fade from the top (180deg). Include it after the element's
+  `background`.
 - `src/styles/shimmer.scss` and `src/lib/shimmer.ts`: the border
   shimmer from the Open Home Foundation web experiment "Card shimmer"
   (<https://web-experiments.openhomefoundation.org/experiments/card-shimmer/>).
@@ -267,8 +267,13 @@ These are also recorded in each component's header comment.
   interactive, so they are not made focusable.
 - Collaboration banner: the near-flat pale blue from Figma
   (`#a0c4d8`), replacing the lighter gradient.
-- The "Powerful options" list sets every lead phrase in bold. Figma
-  leaves the first one regular.
+- "Powerful options" follows the desktop frame's newer layout (node
+  2198:82299, October 2026): the heading over two `ConnectFeatureCard`s
+  with Figma's "Device" icon (`icons/device.svg`), the back photo
+  beside them, 20px apart. The card bodies start with a capital and
+  end with a period, like the other cards (Figma: "via Ethernet,
+  USB-C, or Wi-Fi"). The mobile frame still shows the older single
+  card with a list; phones stack the heading, cards and photo.
 - Rock-solid Bluetooth on phones: Figma leaves out the footnote
   ("*not for Bluetooth audio"). The page keeps it because the lead's
   asterisk needs it. The text starts 42% of the card's width down, so
@@ -293,7 +298,7 @@ pushed further out (`--pull` 0.35) and drawn in one at a time from
 their far ends; no icon bounce on the feature cards; Clelia's animated
 icons for "Audio and so much more" (recolored white for the dark
 cards, with a reduced-motion rule in each file); an ease-out shimmer;
-a `powerfulShimmer` switch in the page (on); TODO comments at the Zigbee
+a `powerfulShimmer` switch in the page (removed when "Powerful options" became feature cards, which always shimmer); TODO comments at the Zigbee
 copy. Open: a Sendspin logo for the Sendspin card (it uses the whole
 home audio icon), and the other cards' animated icons (blocked on
 design and assets). The copy doc drops the "hardware with a mission"
@@ -374,10 +379,10 @@ Behavior and integration:
   gaps throughout.
 - Check every section's phone layout against its mobile layout on the
   marketing design system board (see "Decisions agreed with the
-  user"). Done: Rock-solid Bluetooth, and the "Powerful options" card
-  and photo stacking. Known differences so far: "Powerful options" on
-  phones has four items ("Power your way", "Connect your way", "All at
-  once", "Yours to shape"); the page keeps the desktop's three.
+  user"). Done: Rock-solid Bluetooth. Known differences so far:
+  "Powerful options" on phones is still the older list of four items
+  ("Power your way", "Connect your way", "All at once", "Yours to
+  shape"); the page uses the desktop's two cards.
 
 ## How to check the page
 
