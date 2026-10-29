@@ -57,6 +57,7 @@ A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguar
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
 - A Motion Detector II that supports it gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
+- An Outdoor Siren gets a **Test alarm** button that fires a short alarm at the configured sound level.
 
 ### Climate
 
