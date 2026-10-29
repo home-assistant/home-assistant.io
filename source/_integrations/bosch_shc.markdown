@@ -121,6 +121,7 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Wall Thermostat
 - Room Thermostat II
 - Twinguard
+- Motion Detector II
 - Smart Plug
 - Smart Plug Compact
 - Light Switch
