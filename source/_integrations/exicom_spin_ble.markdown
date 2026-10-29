@@ -110,6 +110,7 @@ The **Problem** binary sensor turns on when the charger reports an alarm, such a
   - **Entity**: Problem sensor of the charger (`binary_sensor.ev_charger_problem`)
 - **Action**: Send a notification message
   - **Target**: Your notification entity (`notify.my_device`)
+  - **Message**: `The EV charger reports a problem.`
 
 {% details "YAML example for a problem notification" %}
 
@@ -138,6 +139,7 @@ When the charging session closes, a notification tells you how much energy the s
   - **Entity**: Charging switch of the charger (`switch.ev_charger_charging`)
 - **Action**: Send a notification message with the **Session energy** sensor value
   - **Target**: Your notification entity (`notify.my_device`)
+  - **Message**: `Charging finished after {{ states('sensor.ev_charger_session_energy') }} kWh.`
 
 {% details "YAML example for a session summary notification" %}
 
