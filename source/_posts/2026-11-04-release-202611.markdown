@@ -613,6 +613,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 
 - **[LLM]** and **[System Log]**: AI assistants that use the Home Assistant LLM API can now read your system log, so they can help you track down problems. Thanks, [@allenporter]!
 - **[Calendar]** and **[Group]**: Combine several calendars into a calendar group, which shows the events of all its member calendars together. Thanks, [@elupus]!
+- **[Zigbee Home Automation]**: Each ZHA group now gets its own device, named after the group. You can give a group its own area, and its entities are all in one place, just like any other device. Thanks, [@TheJulianJES]!
 
 #### Infrared and radio frequency keep growing
 
@@ -635,6 +636,7 @@ Thanks to [@bieniu], [@abmantis], [@Dr-Blank], [@tr4nt0r], and [@eseverson] for 
 [Radio Frequency]: /integrations/radio_frequency
 [Shelly]: /integrations/shelly
 [System Log]: /integrations/system_log
+[Zigbee Home Automation]: /integrations/zha
 
 ### Integration quality scale achievements
 
@@ -764,7 +766,7 @@ There is even more packed into this release. Here are some of the other changes 
 - **Keep an eye on radon.** Radon now has its own triggers and a condition, so you can, for example, turn on a basement fan when [radon levels rise](/triggers/air_quality.radon_crossed_threshold/), or [check the radon level](/conditions/air_quality.is_radon_value/) before running an automation. Thanks, [@abmantis]!
 - **Act after an update.** A new trigger starts an automation once Home Assistant has started after an update, and tells you which version you updated from and to. It doesn't fire on a normal restart. Thanks, [@frenck]!
 - **Expose many entities at once.** Select the entities you want in the table under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, then choose **Expose to voice assistant**, or **Stop exposing to voice assistant**, from the selection menu. Looking each one up separately in the expose dialog is no longer needed. Thanks, [@jpbede]!
-- **Switch to YAML with the keyboard.** Press Ctrl + Shift + Y, or Cmd + Shift + Y on a Mac, to move between the visual editor and the {% term YAML %} editor. It works in the automation, script, and scene editors, in card and dashboard editors, and in **Developer tools** > **Actions**. You can find it in the keyboard shortcuts dialog, under **Other**. Thanks, [@Jump-333]!
+- **Switch to YAML with the keyboard.** Press Ctrl + Shift + Y, or Cmd + Shift + Y on a Mac, to move between the visual editor and the {% term YAML %} editor. It works in the automation, script, and scene editors, in card and dashboard editors, and in **Tools** > **Actions**. You can find it in the keyboard shortcuts dialog, under **Other**. Thanks, [@Jump-333]!
 - **Drag picture elements into place.** In the Picture elements card editor, select an element in the preview and drag it where you want it, instead of working out its coordinates. Thanks, [@RaHehl]!
 
 ### Your AI assistant can help troubleshoot
