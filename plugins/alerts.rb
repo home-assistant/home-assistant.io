@@ -9,7 +9,7 @@ module Jekyll
           #{args}
 
           Valid syntax:
-            {% <note|tip|important|warning|caution> [title="Extra title"] [icon="mdi:alert"] %}
+            {% <note|tip|important|warning|caution> [title="Custom title"] [icon="mdi:alert"] %}
         MSG
 
         @type = tag_name
@@ -21,10 +21,8 @@ module Jekyll
         options = parse_options(@options, context)
         contents = super(context)
 
-        title = @type.capitalize
-        if options.include? :title
-          title += ": #{options[:title]}"
-        end
+        # A custom title replaces the type's name, such as "Note".
+        title = options[:title] || @type.capitalize
 
         if options.include? :icon
           icon = options[:icon]
