@@ -619,6 +619,10 @@ modbus:
     switches:
       - name: Switch1
         address: 700
+    water_heaters:
+      - name: Boiler1
+        address: 800
+        target_temp_register: 801
 ```
 
 The different types of entities are detailed in the following.
@@ -1914,6 +1918,258 @@ modbus:
             address: 127
             state_on: 25
             state_off: 1
+```
+
+### Configuring water heater entities
+
+The Modbus water heater platform lets you monitor a water heater, such as a boiler or a heat pump water heater. You can read the current water temperature, set the target temperature, select the operation mode, and turn the water heater on or off.
+
+The `address` parameter is the register of the current water temperature.
+
+For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
+
+{% configuration %}
+water_heaters:
+  description: "A list of all water heater entities in this Modbus hub."
+  required: false
+  type: map
+  keys:
+    input_type:
+      description: "Modbus register type of the current temperature register."
+      required: false
+      default: holding
+      type: list
+      keys:
+        holding:
+          description: "Holding register."
+        input:
+          description: "Input register."
+    target_temp_register:
+      description: "Holding register of the target temperature."
+      required: true
+      type: integer
+    target_temp_write_registers:
+      description: "If `true`, use `write_registers` to set a 16-bit target temperature, else use `write_register`. Temperatures that span more than 1 register always use `write_registers`."
+      required: false
+      type: boolean
+      default: false
+    data_type:
+      description: "Data type of the current and target temperature registers. The number of registers is calculated from the data type."
+      required: false
+      default: int16
+      type: list
+      keys:
+        int16:
+          description: "16 bit signed integer (1 register holds 1 value)."
+        int32:
+          description: "32 bit signed integer (2 registers hold 1 value)."
+        int64:
+          description: "64 bit signed integer (4 registers hold 1 value)."
+        uint16:
+          description: "16 bit unsigned integer (1 register holds 1 value)."
+        uint32:
+          description: "32 bit unsigned integer (2 registers hold 1 value)."
+        uint64:
+          description: "64 bit unsigned integer (4 registers hold 1 value)."
+        float16:
+          description: "16 bit signed float (1 register holds 1 value)."
+        float32:
+          description: "32 bit signed float (2 registers hold 1 value)."
+        float64:
+          description: "64 bit signed float (4 registers hold 1 value)."
+    swap:
+      description: "Swap the order of bytes or words."
+      required: false
+      default: none
+      type: list
+      keys:
+        byte:
+          description: "Swap bytes AB -> BA."
+        word:
+          description: "Swap word ABCD -> CDAB. Not valid with `int16`, `uint16` and `float16`."
+        word_byte:
+          description: "Swap word ABCD -> DCBA. Not valid with `int16`, `uint16` and `float16`."
+    precision:
+      description: "Number of decimals for the temperatures. Defaults to 0 for integer data types and 2 for float data types."
+      required: false
+      type: integer
+    scale:
+      description: "Scale factor for the current and target temperature (`output` = `scale` * `value` + `offset`). Can't be used together with `current_temp_scale` or `target_temp_scale`."
+      required: false
+      type: float
+      default: 1
+    offset:
+      description: "Offset for the current and target temperature (`output` = `scale` * `value` + `offset`). Can't be used together with `current_temp_offset` or `target_temp_offset`."
+      required: false
+      type: float
+      default: 0
+    current_temp_scale:
+      description: "Scale factor for the current temperature (`output` = `current_temp_scale` * `value` + `current_temp_offset`). Can't be used together with `scale`."
+      required: false
+      type: float
+      default: 1
+    current_temp_offset:
+      description: "Offset for the current temperature. Can't be used together with `offset`."
+      required: false
+      type: float
+      default: 0
+    target_temp_scale:
+      description: "Scale factor for the target temperature (`output` = `target_temp_scale` * `value` + `target_temp_offset`). Can't be used together with `scale`."
+      required: false
+      type: float
+      default: 1
+    target_temp_offset:
+      description: "Offset for the target temperature. Can't be used together with `offset`."
+      required: false
+      type: float
+      default: 0
+    temperature_unit:
+      description: "Temperature unit of the device."
+      required: false
+      default: C
+      type: list
+      keys:
+        C:
+          description: "Celsius"
+        F:
+          description: "Fahrenheit"
+    min_temp:
+      description: "Minimum target temperature."
+      required: false
+      type: integer
+      default: 40
+    max_temp:
+      description: "Maximum target temperature."
+      required: false
+      type: integer
+      default: 60
+    temp_step:
+      description: "Step size of the target temperature."
+      required: false
+      type: float
+      default: 0.5
+    operation_mode_register:
+      description: "Register that holds the operation mode."
+      required: false
+      type: map
+      keys:
+        address:
+          description: "Holding register of the operation mode."
+          required: true
+          type: integer
+        write_registers:
+          description: "If `true`, use `write_registers` to set the operation mode, else use `write_register`."
+          required: false
+          type: boolean
+          default: false
+        values:
+          description: "Mapping between the register values and the operation modes. Configure only the modes your device supports. If a mode has a list of values, any of them is read as that mode, and the first one is written when you select the mode. A value can belong to only 1 mode."
+          required: true
+          type: map
+          keys:
+            state_off:
+              description: "Value of the Off mode. If `onoff_coil` or `onoff_register` is also configured, selecting Off only writes the on/off control and keeps the mode register unchanged, so turning the water heater on resumes the previous mode."
+              required: false
+              type: [integer, list]
+            state_eco:
+              description: "Value of the Eco mode."
+              required: false
+              type: [integer, list]
+            state_electric:
+              description: "Value of the Electric mode."
+              required: false
+              type: [integer, list]
+            state_performance:
+              description: "Value of the Performance mode."
+              required: false
+              type: [integer, list]
+            state_high_demand:
+              description: "Value of the High demand mode."
+              required: false
+              type: [integer, list]
+            state_heat_pump:
+              description: "Value of the Heat pump mode."
+              required: false
+              type: [integer, list]
+            state_gas:
+              description: "Value of the Gas mode."
+              required: false
+              type: [integer, list]
+    onoff_coil:
+      description: "Coil that turns the water heater on (1) or off (0). When the coil is off, the water heater state is Off. Otherwise, the `operation_mode_register` sets the state. Can't be used together with `onoff_register`."
+      required: false
+      type: integer
+    onoff_register:
+      description: "Holding register that turns the water heater on or off. When the register holds `off_value`, the water heater state is Off. Otherwise, the `operation_mode_register` sets the state. Can't be used together with `onoff_coil`."
+      required: false
+      type: integer
+    on_value:
+      description: "Value written to `onoff_register` to turn the water heater on."
+      required: false
+      type: integer
+      default: 1
+    off_value:
+      description: "Value written to `onoff_register` to turn the water heater off."
+      required: false
+      type: integer
+      default: 0
+    write_registers:
+      description: "If `true`, use `write_registers` to write `onoff_register`, else use `write_register`."
+      required: false
+      type: boolean
+      default: false
+
+{% endconfiguration %}
+
+If you configure `onoff_coil` or `onoff_register`, you can turn the water heater on and off. Without `operation_mode_register`, the water heater state is On or Off. With `operation_mode_register`, Off is added to the operation modes, and selecting any other operation mode turns the water heater on first, and then writes the mode. If you configure neither an operation mode register nor an on/off coil or register, the water heater state is unknown, but the temperatures are still shown.
+
+#### Example: Water heater configuration
+
+```yaml
+# Example configuration.yaml entry
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    water_heaters:
+      - name: "Boiler"
+        address: 100
+        target_temp_register: 101
+        min_temp: 30
+        max_temp: 70
+        temp_step: 1
+```
+
+#### Example: Heat pump water heater with operation modes
+
+```yaml
+# Example configuration.yaml entry
+modbus:
+  - name: hub1
+    type: serial
+    port: /dev/ttyUSB0
+    baudrate: 9600
+    bytesize: 8
+    method: rtu
+    parity: N
+    stopbits: 1
+    water_heaters:
+      - name: "Heat pump water heater"
+        slave: 1
+        address: 0x0049
+        target_temp_register: 0x0302
+        min_temp: 15
+        max_temp: 75
+        temp_step: 1
+        onoff_register: 0x0305
+        operation_mode_register:
+          address: 0x0304
+          values:
+            state_heat_pump: 2
+            state_eco: 9
+            state_high_demand: [10, 11]
+            state_electric: 12
 ```
 
 ### Parameters usage matrix
