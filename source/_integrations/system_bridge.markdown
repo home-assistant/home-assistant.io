@@ -22,13 +22,14 @@ You will need your token. For instructions on finding your token, follow the ste
 
 This integration provides the following binary sensors:
 
-| Name                  | Description                         |
-| --------------------- | ----------------------------------- |
-| AC Power              | Whether the device is on AC power   |
-| Battery Is Charging   | Whether the battery is charging     |
-| Camera In Use         | Whether the camera/webcam is in use |
-| Pending Reboot        | Whether a reboot is pending         |
-| New Version Available | Whether a new version is available  |
+| Name                  | Description                          |
+| --------------------- | ------------------------------------ |
+| AC Power              | Whether the device is on AC power    |
+| Battery Is Charging   | Whether the battery is charging      |
+| Camera In Use         | Whether the camera/webcam is in use  |
+| Locked                | Whether the user's session is locked |
+| Pending Reboot        | Whether a reboot is pending          |
+| New Version Available | Whether a new version is available   |
 
 ## Sensors
 
@@ -49,6 +50,7 @@ This integration provides the following sensors:
 | Filesystem(s)             | Space used for each drive letter / filesystem mount               |
 | GPU Memory Free           | GPU memory free in GB                                             |
 | GPU Usage %               | GPU usage percentage                                              |
+| Idle Time                 | Time since the user's last keyboard or mouse input                |
 | Kernel                    | Version information of the Kernel                                 |
 | Latest Version            | System Bridge Latest Version                                      |
 | Load                      | System load percentage                                            |
