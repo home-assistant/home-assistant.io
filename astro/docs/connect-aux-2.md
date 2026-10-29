@@ -332,7 +332,6 @@ Content (check with the product and docs teams):
 
 - Price is not final. The page shows "$69 / €59" (Figma); the copy doc
   says "$69/€69", waiting for confirmation from Gordon.
-- Dimensions and weights are empty placeholders in Figma.
 - FAQ is placeholder ("Can I speak my mind?" five times). The other
   Connect pages read theirs from `source/_data/product/connect/`.
 - The "Best spot" footnote should link to an FAQ entry about which

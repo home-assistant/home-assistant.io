@@ -33,14 +33,12 @@ export const renderDrawing = {
   video: { open: explodedOpen, scrub: explodedScrub, poster: explodedPoster },
 };
 
-// TODO: the dimensions and weights are empty placeholders in the Figma
-// file; fill them in once known.
 export const specs = [
   {
     title: "Dimensions and weight",
     items: [
-      { label: "Device", value: ["… × … × … mm", "… g"] },
-      { label: "With box", value: ["… × … × … mm", "… g"] },
+      { label: "Device", value: ["106 × 63 × 25 mm", "104 g"] },
+      { label: "With box", value: ["110 × 72 × 28 mm", "136 g"] },
     ],
   },
   {
