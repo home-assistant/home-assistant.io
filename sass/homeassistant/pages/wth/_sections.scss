@@ -488,6 +488,7 @@ main#page-wth {
     // A mint rule above each section heading ties the sections together.
     #moments,
     #everyone,
+    #what-is-a-wth,
     #how-it-works,
     #fix {
         > .container > .content > h2:first-child,
@@ -546,8 +547,8 @@ main#page-wth {
 // spine, and puts the campaign colours at full strength twice on the way
 // down rather than only in the hero.
 main#page-wth {
-    // Fix a WTH -- the contributor path, on ink, so it reads as a separate
-    // invitation from the sections aimed at everyone else.
+    // How it works, and Fix a WTH -- the contributor path -- on ink.
+    #how-it-works,
     #fix {
         --wth-routing-surface: var(--wth-ink);
         --wth-focus: #ffffff;
@@ -652,16 +653,10 @@ main#page-wth {
     }
 }
 
-// How it works, on white like the hero above it.
+// What is a WTH, on white like the hero above it.
 main#page-wth {
-    #how-it-works {
-        --wth-routing-surface: var(--wth-surface);
-
+    #what-is-a-wth {
         background-color: var(--wth-surface);
-
-        .buttons-container {
-            margin-top: 28px;
-        }
     }
 
     #fix {
