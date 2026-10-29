@@ -1,12 +1,13 @@
 ---
 // "What is a WTH": what the page is asking people for, on white like the
-// hero above it.
+// hero above it, with real WTHs from the forum playing as a chat.
 //
 // Replaces source/what-the-heck/components/_what.html and the
 // `#what-is-a-wth` rules in sass/homeassistant/pages/wth/_sections.scss.
 import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import WthSection from "./WthSection.astro";
+import WthChat from "./WthChat.astro";
 ---
 
 <WthSection
@@ -14,4 +15,6 @@ import WthSection from "./WthSection.astro";
   tone="surface"
   heading="Placeholder: what is a WTH"
   lead="Placeholder: explain in a paragraph what a WTH is."
-/>
+>
+  <WthChat />
+</WthSection>

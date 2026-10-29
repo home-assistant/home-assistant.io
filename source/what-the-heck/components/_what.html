@@ -3,6 +3,62 @@
     <div class="content">
       <h2>Placeholder: what is a WTH</h2>
       <p class="section-lead">Placeholder: explain in a paragraph what a WTH is.</p>
+
+      {% assign reply_count = page.wth_replies.size %}
+      {% assign pair_count = page.wth_statements.size %}
+      <div class="wth-chat" data-wth-chat role="region" aria-roledescription="carousel" aria-label="What the Heck?! examples">
+        <div class="wth-sea">
+          {% include_relative components/_sea-background.html %}
+
+          {% comment %}
+            The sea: every WTH, short, drifting along the pipes in four lanes.
+            Each lane holds its run twice, so it loops without a seam.
+            Decorative; the WTHs are read from the list at the front.
+          {% endcomment %}
+          <div class="wth-sea-lanes" aria-hidden="true">
+            {% for lane in (0..3) %}
+            <div class="wth-sea-lane">
+              <div class="wth-sea-track">
+                {% for copy in (1..2) %}
+                {% for statement in page.wth_statements %}
+                {% assign statement_lane = forloop.index0 | modulo: 4 %}
+                {% if statement_lane == lane %}
+                <span class="wth-sea-bubble" data-index="{{ forloop.index0 }}">{{ statement | remove: " What the heck?!" }}</span>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <ol class="wth-chat-list" aria-live="polite">
+            {% for statement in page.wth_statements %}
+            {% assign reply = forloop.index0 | modulo: reply_count %}
+            <li class="wth-chat-pair{% if forloop.first %} is-active is-replied{% endif %}" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ pair_count }}">
+              <p class="wth-chat-statement">{{ statement }}</p>
+              <p class="wth-chat-reply">
+                <span class="wth-chat-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span class="wth-chat-reply-text">{{ page.wth_replies[reply] }}</span>
+              </p>
+            </li>
+            {% endfor %}
+          </ol>
+        </div>
+
+        <div class="wth-chat-controls" hidden>
+          <button type="button" class="wth-chat-button" data-wth-chat-prev aria-label="Previous">
+            <span aria-hidden="true">{% icon "mdi:chevron-left" %}</span>
+          </button>
+          <button type="button" class="wth-chat-button" data-wth-chat-next aria-label="Next">
+            <span aria-hidden="true">{% icon "mdi:chevron-right" %}</span>
+          </button>
+          <button type="button" class="wth-chat-button" data-wth-chat-toggle aria-label="Pause">
+            <span class="wth-chat-pause" aria-hidden="true">{% icon "mdi:pause" %}</span>
+            <span class="wth-chat-play" aria-hidden="true">{% icon "mdi:play" %}</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>

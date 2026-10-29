@@ -1,0 +1,61 @@
+{% comment %}
+  The pipes behind the sea of WTHs in "What is a WTH", drawn in the hero
+  artwork's style: its gradients, stroke weights, rounded bends and nodes.
+  The four long pipes run at the heights of the lanes the bubbles drift
+  along, set in `#what-is-a-wth .wth-sea-lane` in
+  sass/homeassistant/pages/wth/_sections.scss, so keep the two in step.
+
+  Lines marked `wth-flow` get a pulse as the page scrolls, as in the hero;
+  see source/javascripts/wth/flow-lines.js.
+{% endcomment %}
+<div class="wth-sea-bg" data-flow-shown="(min-width: 768px)" aria-hidden="true">
+  <svg viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g class="wth-sea-bg__art wth-flow-art" stroke-miterlimit="10">
+      <path class="wth-flow" d="M-20 67H1220" stroke="url(#wth-sea-paint1)" stroke-width="14.2424"/>
+      <path class="wth-flow" d="M1220 173H-20" stroke="url(#wth-sea-paint2)" stroke-width="14.2424"/>
+      <path class="wth-flow" d="M-20 307H1220" stroke="url(#wth-sea-paint1)" stroke-width="14.2424"/>
+      <path class="wth-flow" d="M1220 413H-20" stroke="url(#wth-sea-paint2)" stroke-width="14.2424"/>
+
+      <path class="wth-flow" d="M300 67V149C300 162.255 310.745 173 324 173H360" stroke="url(#wth-sea-paint3)" stroke-width="4.74747"/>
+      <path class="wth-flow" d="M880 173V283C880 296.255 869.255 307 856 307H820" stroke="url(#wth-sea-paint3)" stroke-width="4.74747"/>
+      <path class="wth-flow" d="M560 307V389C560 402.255 570.745 413 584 413H620" stroke="url(#wth-sea-paint3)" stroke-width="4.74747"/>
+      <path class="wth-flow" d="M1040 -20V43C1040 56.2548 1029.25 67 1016 67" stroke="url(#wth-sea-paint3)" stroke-width="4.74747"/>
+      <path class="wth-flow" d="M140 413V500" stroke="url(#wth-sea-paint3)" stroke-width="4.74747"/>
+
+      <path class="wth-flow wth-flow--dashed" d="M700 80V160" stroke="url(#wth-sea-paint4)" stroke-width="7.1212" stroke-dasharray="7.12 7.12"/>
+      <path class="wth-flow wth-flow--dashed" d="M200 186V294" stroke="url(#wth-sea-paint4)" stroke-width="7.1212" stroke-dasharray="7.12 7.12"/>
+      <path class="wth-flow wth-flow--dashed" d="M1000 320V400" stroke="url(#wth-sea-paint4)" stroke-width="7.1212" stroke-dasharray="7.12 7.12"/>
+
+      <g class="wth-flow-shapes">
+        <circle cx="300" cy="67" r="10.68" fill="#FFFFFF" stroke="url(#wth-sea-paint5)" stroke-width="3.5606"/>
+        <circle cx="880" cy="173" r="10.68" fill="#FFFFFF" stroke="url(#wth-sea-paint5)" stroke-width="3.5606"/>
+        <circle cx="560" cy="307" r="10.68" fill="#FFFFFF" stroke="url(#wth-sea-paint5)" stroke-width="3.5606"/>
+        <circle cx="200" cy="307" r="10.68" fill="#FFFFFF" stroke="url(#wth-sea-paint5)" stroke-width="3.5606"/>
+        <circle cx="1000" cy="413" r="10.68" fill="#FFFFFF" stroke="url(#wth-sea-paint5)" stroke-width="3.5606"/>
+      </g>
+    </g>
+    <defs>
+      <linearGradient id="wth-sea-paint1" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#16F3BE"/>
+        <stop offset="0.9" stop-color="#18BCF2"/>
+      </linearGradient>
+      <linearGradient id="wth-sea-paint2" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#18BCF2"/>
+        <stop offset="0.9" stop-color="#16F3BE"/>
+      </linearGradient>
+      <linearGradient id="wth-sea-paint3" x1="0" y1="0" x2="0" y2="480" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#528C77"/>
+        <stop offset="0.9" stop-color="#18BCF2"/>
+      </linearGradient>
+      <linearGradient id="wth-sea-paint4" x1="0" y1="0" x2="0" y2="480" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#16F3BE"/>
+        <stop offset="0.6" stop-color="#2EC2D1"/>
+        <stop offset="1" stop-color="#0FCCB7"/>
+      </linearGradient>
+      <linearGradient id="wth-sea-paint5" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0.02" stop-color="#16F3BE"/>
+        <stop offset="0.61" stop-color="#0FCCB7"/>
+      </linearGradient>
+    </defs>
+  </svg>
+</div>
