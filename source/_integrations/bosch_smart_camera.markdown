@@ -42,7 +42,7 @@ Each camera is also added as a device, together with its model and firmware vers
 
 ### Live stream
 
-The camera entity can show a live stream in dashboards and in the more-info dialog. Home Assistant opens the stream when you start watching and closes it when nobody is watching anymore. The camera manages stream sessions of up to 60 minutes, and Home Assistant renews the session automatically while the stream is in use.
+The camera entity can show a live stream in dashboards and in the more-info dialog. Home Assistant opens a stream session when you start watching. The camera manages stream sessions of up to 60 minutes. Home Assistant renews the session automatically while you are watching, or while **Preload stream** is enabled for the camera. Otherwise, the session stays open until the camera ends it.
 
 Home Assistant must be able to reach the camera in your local network to show the stream.
 
