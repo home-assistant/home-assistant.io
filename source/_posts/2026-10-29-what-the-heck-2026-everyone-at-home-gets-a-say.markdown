@@ -14,7 +14,7 @@ og_image: /images/blog/2026-10-what-the-heck/art.webp
 {% include blog/wth-2026-header.html image="/images/blog/2026-10-what-the-heck/art.webp" alt="“What the Heck?!” 2026: Everyone at home gets a say" %}
 
 {% note title="TL;DR" %}
-All of November is the Month of “What the Heck?!” Tell us what makes Home Assistant hard, confusing, or annoying for you in the <a href="https://community.home-assistant.io/c/month-of-what-the-heck/61" target="_blank" rel="noopener">WTH category on our forum</a>. Everyone is welcome, and this year we’d love to hear from new and non-technical users, and people living in homes where someone else set it all up. Run Home Assistant yourself? Ask the people you live with how they feel about it!
+All of November is the Month of “What the Heck?!” Tell us what makes Home Assistant hard, confusing, or annoying for you in the <a href="https://community.home-assistant.io/c/month-of-what-the-heck/64" target="_blank" rel="noopener">WTH category on our forum</a>. Everyone is welcome, and this year we’d love to hear from new and non-technical users, and people living in homes where someone else set it all up. Run Home Assistant yourself? Ask the people you live with how they feel about it!
 {% endnote %}
 
 Let me start with a confession.
@@ -83,7 +83,7 @@ Then bring what you hear to the forum. Even better: help them post it themselves
 
 ## How it works
 
-All WTHs go into the <a href="https://community.home-assistant.io/c/month-of-what-the-heck/61" target="_blank" rel="noopener">Month of “What the Heck?!” category on our community forum</a>. To keep things useful (and fun) for everyone, a few simple guidelines:
+All WTHs go into the <a href="https://community.home-assistant.io/c/month-of-what-the-heck/64" target="_blank" rel="noopener">Month of “What the Heck?!” category on our community forum</a>. To keep things useful (and fun) for everyone, a few simple guidelines:
 
 - **Search first, then vote.** Someone may have beaten you to it. Give their topic a vote – it tells us how common a problem is – and add your own story in a reply. Every story adds context.
 - **One WTH per topic.** That makes it possible to discuss, vote on, and track each one.
@@ -106,7 +106,7 @@ Whether you’ve been running Home Assistant since the early days, installed it 
 
 Tell us what makes Home Assistant hard, what makes you sigh, or what it’s like to live with it.
 
-<a href="https://community.home-assistant.io/c/month-of-what-the-heck/61" target="_blank" rel="noopener">Head over to the forum and share your WTH!</a>
+<a href="https://community.home-assistant.io/c/month-of-what-the-heck/64" target="_blank" rel="noopener">Head over to the forum and share your WTH!</a>
 
 I’m looking forward to reading every single one of them (well... at least I’ll do my very best 😅).
 
