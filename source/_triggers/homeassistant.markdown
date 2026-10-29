@@ -6,6 +6,7 @@ description: "Triggers when Home Assistant starts up or shuts down."
 related_triggers:
   - event
   - time
+  - homeassistant.updated
 ---
 
 The **Home Assistant** trigger is useful when you want an automation to run when Home Assistant starts or begins shutting down. Use it to restore part of your setup after a restart, send a status message, or save state before maintenance.
