@@ -13,6 +13,7 @@
     "weather_alerts.public_warnings"
   ],
   "platforms": [
+    "diagnostics",
     "sensor",
     "weather"
   ]

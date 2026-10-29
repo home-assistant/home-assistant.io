@@ -12,6 +12,7 @@
     "health_wellbeing"
   ],
   "platforms": [
+    "diagnostics",
     "sensor"
   ],
   "discovery": [

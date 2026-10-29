@@ -13,7 +13,8 @@
   ],
   "platforms": [
     "diagnostics",
-    "media_player"
+    "media_player",
+    "select"
   ],
   "discovery": [
     "zeroconf"

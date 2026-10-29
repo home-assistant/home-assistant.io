@@ -8,6 +8,7 @@
   ],
   "config_flow": true,
   "iot_class": "local_polling",
+  "quality_scale": "bronze",
   "categories": [
     "media_entertainment.speakers_audio"
   ],

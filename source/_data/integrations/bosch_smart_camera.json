@@ -1,0 +1,18 @@
+{
+  "domain": "bosch_smart_camera",
+  "name": "Bosch Smart Camera",
+  "integration_type": "hub",
+  "codeowners": [
+    "@mosandlt"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "security_safety.cameras"
+  ],
+  "platforms": [
+    "camera",
+    "diagnostics"
+  ]
+}

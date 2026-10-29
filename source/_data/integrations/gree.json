@@ -11,6 +11,7 @@
   ],
   "platforms": [
     "climate",
+    "diagnostics",
     "switch"
   ]
 }
