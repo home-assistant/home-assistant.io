@@ -33,6 +33,9 @@ Message:
 Cache:
   description: Store this message locally so that when the same text is requested again, the output can be produced more quickly.
   required: false
+Pregenerate:
+  description: Generates the entire audio before sending it to the media player. This avoids playback stopping early on long messages but delays the start of playback.
+  required: false
 Language:
   description: The language to speak the message in, using the format required by the text-to-speech entity.
   required: false
@@ -73,6 +76,11 @@ cache:
   required: false
   type: boolean
   default: true
+pregenerate:
+  description: Generates the entire audio before sending it to the media player. This avoids playback stopping early on long messages but delays the start of playback.
+  required: false
+  type: boolean
+  default: true
 language:
   description: The language to speak the message in, using the format required by the text-to-speech entity.
   required: false
@@ -90,6 +98,7 @@ The `options` setting can include [preferred audio settings](/integrations/tts/#
 ## Good to know
 
 - Caching stores the spoken result so the same message plays faster next time. For more details, see the [cache section](/integrations/tts/#cache).
+- Pregeneration can be used to avoids playback stopping early on long messages but delays the start of playback. For more details, see the [cache section](/integrations/tts/#pregeneration).
 - If a media player cannot play the audio format a provider produces, set [preferred audio settings](/integrations/tts/#preferred-audio-settings) in `options` to convert it.
 
 {% include actions/try_it.md %}
