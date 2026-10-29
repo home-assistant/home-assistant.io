@@ -13,7 +13,7 @@ ha_domain: abrp
 ha_platforms:
   - sensor
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - docs: /integrations/tesla_fleet/
     title: Tesla Fleet
@@ -182,12 +182,15 @@ To resolve this issue:
 
 ### Authentication errors
 
-If your ABRP session expires, the integration can no longer connect and its entities become unavailable.
+If ABRP no longer accepts your sign-in, Home Assistant asks you to re-authenticate.
 
 To resolve this issue:
 
 1. Confirm you can log in to your account at the [A Better Routeplanner](https://abetterrouteplanner.com/) website.
-2. Remove the integration and add it again.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the re-authentication prompt for A Better Routeplanner.
+3. Sign in again with the same ABRP account. If you sign in with a different ABRP account, re-authentication stops and you need to try again with the original account.
+
+After you sign in, the integration reloads and your entities update again.
 
 ### Setup stops with a message about default_config
 
@@ -202,6 +205,8 @@ Home Assistant shows the same data as the A Better Routeplanner app and website,
 ### The integration shows as unavailable
 
 This can happen if internet connectivity is interrupted, ABRP is temporarily unavailable, or authentication failed.
+
+If authentication failed, follow the re-authentication prompt as described in [Authentication errors](#authentication-errors).
 
 If the issue continues, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the issue, and include the logs in your issue report.
 
