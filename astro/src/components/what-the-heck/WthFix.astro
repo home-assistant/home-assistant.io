@@ -1,11 +1,11 @@
 ---
-// "Happy with how things work?": the contributor path.
+// "Happy with how things work?": the contributor path, on ink.
 //
 // Replaces source/what-the-heck/components/_fix.html and the `#fix` rules in
 // sass/homeassistant/pages/wth/_sections.scss.
 //
 // Fidelity: revamp. Same steps and copy, with the radii and type from the
-// theme.
+// theme. The dark surface is the shared section's `ink` tone.
 import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import WthSection from "./WthSection.astro";
@@ -25,7 +25,7 @@ const steps = [
 
 <WthSection
   id="fix"
-  tone="inherit"
+  tone="ink"
   heading="Happy with how things work?"
   lead="No need to feel left out! If you’re comfortable with code, fix someone else’s WTH. Here’s how:"
 >
@@ -39,7 +39,7 @@ const steps = [
   </p>
 
   <div class="actions">
-    <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">
+    <Button href={forumUrl} scheme="green" icon onDark target="_blank" rel="noopener">
       Browse open WTHs
     </Button>
   </div>
@@ -53,16 +53,17 @@ const steps = [
     margin: var(--space-xlarge) 0 0;
 
     a {
-      color: var(--wth-link);
+      /* --wth-ink is white on the ink tone; the link blue is too dark there. */
+      color: var(--wth-ink);
       text-decoration: underline;
 
       &:hover {
-        color: var(--wth-ink);
+        color: var(--wth-mint);
       }
     }
   }
 
   .actions {
-    margin-top: var(--space-xlarge);
+    margin-top: var(--space-xxlarge);
   }
 </style>

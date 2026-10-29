@@ -546,8 +546,9 @@ main#page-wth {
 // spine, and puts the campaign colours at full strength twice on the way
 // down rather than only in the hero.
 main#page-wth {
-    // How it works, on ink.
-    #how-it-works {
+    // Fix a WTH -- the contributor path, on ink, so it reads as a separate
+    // invitation from the sections aimed at everyone else.
+    #fix {
         --wth-routing-surface: var(--wth-ink);
         --wth-focus: #ffffff;
 
@@ -565,6 +566,15 @@ main#page-wth {
 
         .section-lead {
             color: #CBD5DD;
+        }
+
+        // The usual link blue is too dark to read on ink.
+        .section-note a {
+            color: #ffffff;
+
+            &:hover {
+                color: var(--wth-mint);
+            }
         }
 
         .buttons-container {
@@ -642,22 +652,23 @@ main#page-wth {
     }
 }
 
-// Fix a WTH -- the contributor path. Open to the page colour so it
-// reads as a separate invitation from the sections aimed at everyone else.
+// How it works, on white like the hero above it.
 main#page-wth {
-    #fix {
-        // No background of its own: it sits on the page colour, which carries
-        // on into the footer, and the routing nodes are knocked out of that.
-        --wth-routing-surface: #FBFBFB;
+    #how-it-works {
+        --wth-routing-surface: var(--wth-surface);
 
+        background-color: var(--wth-surface);
+
+        .buttons-container {
+            margin-top: 28px;
+        }
+    }
+
+    #fix {
         .rules {
             @include bp(tablet) {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
             }
-        }
-
-        .buttons-container {
-            margin-top: 28px;
         }
 
         // The heading over the quote wall starts a new block after the buttons.

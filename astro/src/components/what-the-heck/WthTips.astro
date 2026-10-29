@@ -1,13 +1,10 @@
 ---
-// "Four tips for a great WTH", on ink: how to write one that can be acted
-// on.
+// "Four tips for a great WTH": how to write one that can be acted on.
 //
 // Replaces source/what-the-heck/components/_how.html and the `#how-it-works` rules in
 // sass/homeassistant/pages/wth/_sections.scss.
 //
-// Fidelity: revamp. Same tips and the same inverted band; the section's
-// dark surface is now the shared section's `ink` tone rather than a block
-// of per-element overrides.
+// Fidelity: revamp. Same tips, on white like the hero above it.
 import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import WthSection from "./WthSection.astro";
@@ -35,10 +32,10 @@ const tips = [
 ];
 ---
 
-<WthSection id="how-it-works" tone="ink" heading="Four tips for a great WTH">
+<WthSection id="how-it-works" tone="surface" heading="Four tips for a great WTH">
   <WthSteps steps={tips} />
   <div class="actions">
-    <Button href={forumUrl} scheme="green" icon onDark target="_blank" rel="noopener">
+    <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">
       Share your WTH
     </Button>
   </div>
@@ -46,6 +43,6 @@ const tips = [
 
 <style lang="scss">
   .actions {
-    margin-top: var(--space-xxlarge);
+    margin-top: var(--space-xlarge);
   }
 </style>
