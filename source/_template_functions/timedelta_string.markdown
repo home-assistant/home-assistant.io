@@ -12,6 +12,7 @@ since: "2026.10"
 related_functions:
   - timedelta
   - as_timedelta
+  - timedelta_test
   - time_since
   - time_until
   - relative_time  

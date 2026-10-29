@@ -11,6 +11,8 @@ limited: true
 since: "2021.12"
 related_functions:
   - timedelta
+  - timedelta_string
+  - timedelta_test
   - now
   - as_datetime
   - as_timestamp
