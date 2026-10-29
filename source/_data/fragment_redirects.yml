@@ -29,7 +29,11 @@
   enabling-entities: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
   to-enable-or-disable-a-single-entity: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
   to-enable-or-disable-multiple-entities: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
+"/common-tasks/general/logs/":
+  viewing-the-logs-of-other-parts-of-the-system: /common-tasks/os/logs/#viewing-the-logs-of-other-parts-of-the-system
+  viewing-the-logs-of-an-earlier-startup: /common-tasks/os/logs/#viewing-the-logs-of-an-earlier-startup
 "/common-tasks/os/":
+  enable-duplicate-log-file: /common-tasks/os/logs/#writing-the-home-assistant-log-to-a-file
   installing-and-using-the-samba-app: /common-tasks/os/#installing-and-using-the-samba-share-app
   installing-and-using-the-visual-studio-code-vsc-app: /common-tasks/os/#installing-and-using-the-studio-code-server-app
   flashing-an-odroid-m1s: /installation/odroid/#flashing-an-odroid-m1s
@@ -240,6 +244,7 @@
 "/docs/configuration/customizing-entities/":
   device-class: /integrations/homeassistant/#device-class
   customizing-entities: /integrations/homeassistant/#editing-entity-settings-in-yaml
+  about-parent-devices-and-sub-devices: /docs/configuration/customizing-entities/#parent-and-child-devices
 "/more-info/local-media/add-media/":
   accessing-the-media-browser: /integrations/media_source/#browsing-your-media
   adding-media-using-the-media-browser-on-home-assistant-os: /more-info/local-media/add-media/#adding-media-using-the-media-browser
@@ -248,3 +253,6 @@
 # the browser keeps the anchor.
 "/installation/":
   snapshots: /common-tasks/general/backups/
+"/docs/configuration/troubleshooting/":
+  disable-debug-logging-and-download-logs: /docs/configuration/troubleshooting/#disabling-debug-logging-and-downloading-the-log
+  download-diagnostics: /docs/configuration/troubleshooting/#downloading-diagnostics
