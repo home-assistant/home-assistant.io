@@ -185,7 +185,7 @@ When the LED blinks for the first time, press the button you want to learn. Then
 
 #### Learned codes storage location
 
-The learned codes are stored in `/config/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#setting-up-custom-irrf-switches) or to send them as [base64 codes](#sending-a-base64-code).
+The learned codes are stored in `/config/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#setting-up-custom-irrf-switches) or to send them as [base64 codes](#sending-a-base64-code). If you only need the names of the learned commands, use the [List commands](/actions/broadlink.list_commands/) action instead of opening the file.
 
 To view the learned codes using the File Editor {% term app %}:
 
@@ -450,6 +450,8 @@ switch:
 The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
 
 __IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, for example, Bedroom TV.
+
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 
