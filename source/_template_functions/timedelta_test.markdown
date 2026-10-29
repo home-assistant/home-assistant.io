@@ -57,14 +57,13 @@ value:
 - Subtracting two datetimes gives a timedelta.
 - `timedelta()` without `is` is the function that creates a duration. See [`timedelta`](https://www.home-assistant.io/template-functions/timedelta/).
 
-
 {% include template_functions/try_it.md %}
 
 {% include template_functions/more_examples.md %}
 
 ### Distinguish a duration from other values
 
-Check whether a value is a string or a numeric type.
+Check whether a value is a timedelta.
 
 {% example %}
 template: |
