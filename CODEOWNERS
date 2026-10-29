@@ -1747,6 +1747,7 @@ source/_actions/knx.save_scene.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.send.markdown @Julius2342 @farmio @marvin-w
 source/_actions/kodi.add_to_playlist.markdown @OnFreund
 source/_actions/kodi.call_method.markdown @OnFreund
+source/_actions/kodi.send_message.markdown @OnFreund
 source/_actions/lametric.chart.markdown @robbiet480 @frenck @bachya
 source/_actions/lametric.message.markdown @robbiet480 @frenck @bachya
 source/_actions/lawn_mower.dock.markdown @home-assistant/core
