@@ -1,19 +1,7 @@
 ---
-title: Helty Flow Cloud
 description: Instructions on how to integrate cloud-connected Helty Flow ventilation units with Home Assistant.
-ha_categories:
-  - climate.fans_ventilation
 ha_release: 2026.11
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@ebaschiera'
 ha_domain: helty_cloud
-ha_platforms:
-  - fan
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Helty Flow Cloud** {% term integration %} lets you control [Helty Flow](https://www.heltyair.com/) decentralized heat-recovery ventilation units (also known as <abbr title="Mechanical ventilation with heat recovery">MVHR</abbr> units) that are fitted with the recent control panel, the one managed through the Helty Home app.
@@ -68,6 +56,11 @@ The integration creates one device per ventilation unit on the account, each exp
 
 - **Ventilation**
   - **Description**: Turns the ventilation on and off, sets one of four speeds, and selects a preset mode (**Boost**, **Night**, or **Free cooling**). The fan entity has the same name as its device, so it appears under your unit's name. The four speeds correspond to 25%, 50%, 75%, and 100%. If you turn the fan on without choosing a speed or preset, it always starts at speed 1, not at the last speed you used.
+
+### Binary sensors
+
+- **Filter**
+  - **Description**: Turns on when the unit raises its filter alarm, meaning the filter is due for replacement. Helty Flow units raise this alarm on the volume of air the filter has treated, not on hours of use. The sensor turns off again once the filter has been replaced and reset on the unit.
 
 ### Sensors
 

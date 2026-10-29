@@ -1,24 +1,7 @@
 ---
-title: Bosch Alarm
 description: Integrate Bosch Alarms.
-ha_categories:
-  - security_safety.alarm_systems
 ha_release: 2025.4
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@mag1024'
-  - '@sanjay900'
 ha_domain: bosch_alarm
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: platinum
-ha_dhcp: true
 ---
 
 The **Bosch Alarm Panel** {% term integration %} allows you to connect your [Bosch Alarm Panel](https://www.boschsecurity.com) to Home Assistant to control and monitor your Bosch Alarm Panel.

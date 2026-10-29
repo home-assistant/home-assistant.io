@@ -1,23 +1,7 @@
 ---
-title: MELCloud
 description: MELCloud integration
-ha_categories:
-  - climate.heat_pumps_air_conditioning
 ha_release: 0.106
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: melcloud
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - water_heater
-ha_integration_type: device
-ha_codeowners:
-  - '@erwindouna'
 ---
 
 The **MELCloud** {% term integration %} integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
@@ -150,7 +134,7 @@ The following binary sensors indicate component operating status and are categor
 
 - Boiler
 - Booster heater 1
-- Booster heater 2 _([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))_
+- Booster heater 2 _([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))_
 - Booster heater 2+ _(disabled by default)_
 - Immersion heater
 - Water pump 1

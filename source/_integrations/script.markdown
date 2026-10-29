@@ -1,12 +1,7 @@
 ---
-title: Scripts
 description: Create scripts in Home Assistant, ask for input with fields, choose a mode, and start scripts from dashboards, Assist, and automations.
 ha_release: 0.7
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: script
-ha_integration_type: system
 ---
 
 The **Scripts** {% term integration %} lets you use {% term scripts %} in Home Assistant. A script is a saved list of steps that Home Assistant runs when you start it, for example, from a dashboard, with Assist, or from an automation.

@@ -1,19 +1,7 @@
 ---
-title: inexogy
 description: Instructions on how to integrate inexogy smart meters within Home Assistant.
-ha_categories:
-  - energy.meters_monitoring
 ha_release: '2023.7'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@jpbede'
 ha_domain: discovergy
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **inexogy** {% term integration %} allows users to integrate their [inexogy](https://inexogy.com/) smart meters into Home Assistant.
@@ -141,7 +129,7 @@ If your sensors are not showing data or values are stale, check the following:
 ### Missing sensors
 
 - **Production sensors**: The electricity production sensor is only available for bidirectional meters. If you have such a meter but don't see it, check your data in the inexogy portal.
-- **Phase sensors**: Per-phase power and voltage sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and not available for all meters. You can enable them on the integration page under "Entities".
+- **Phase sensors**: Per-phase power and voltage sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and not available for all meters. You can enable them on the integration page under "Entities".
 
 ### Network issues
 
