@@ -9,12 +9,8 @@ The **OpenSky** {% term integration %} allows one to track overhead flights in a
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-latitude:
-  description: The latitude of the center of the area to track. Defaulted with the home's latitude.
-longitude:
-  description: The latitude of the center of the area to track. Defaulted with the home's longitude.
-radius:
-  description: The radius in meters around the latitude/longitude point to track.
+location:
+  description: The location and radius in meters of the area to track. Defaulted with the home's location.
 altitude:
   description: The maximum altitude in meters in which the planes are tracked. No input (or 0) means all planes in the area are tracked.
 {% endconfiguration_basic %}

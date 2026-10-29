@@ -83,6 +83,8 @@ A paired energy site also gets extra entities that are only available from your 
 
 The [Dispatch battery power](/actions/teslemetry.dispatch_battery_power/) action, which charges or discharges the Powerwall at a set power for a set time, and the [Resume battery operation](/actions/teslemetry.resume_battery_operation/) action, which returns it to its normal operation early, work for any energy site with a Powerwall. On a paired energy site, they are sent directly to your Powerwall first, and through Teslemetry whenever your Powerwall can't be reached.
 
+A paired energy site also gets the voltage and current of each solar string connected to your primary Powerwall 3, such as **PV string A voltage** and **PV string A current**. Like the other **Local** entities, each one is only created when your Powerwall reports its value.
+
 {% note %}
 Removing the Teslemetry integration doesn't revoke the access key from your Powerwall system, so other apps or integrations using the same key keep working.
 {% endnote %}
@@ -346,6 +348,18 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 |Sensor|Island status|Yes|Polling|
 |Sensor|Load power|Yes|Polling|
 |Sensor|Percentage charged|Yes|Polling|
+|Sensor|PV string A current|Yes|Local|
+|Sensor|PV string A voltage|Yes|Local|
+|Sensor|PV string B current|Yes|Local|
+|Sensor|PV string B voltage|Yes|Local|
+|Sensor|PV string C current|Yes|Local|
+|Sensor|PV string C voltage|Yes|Local|
+|Sensor|PV string D current|Yes|Local|
+|Sensor|PV string D voltage|Yes|Local|
+|Sensor|PV string E current|Yes|Local|
+|Sensor|PV string E voltage|Yes|Local|
+|Sensor|PV string F current|Yes|Local|
+|Sensor|PV string F voltage|Yes|Local|
 |Sensor|Solar exported|No|Polling|
 |Sensor|Solar generated|Yes|Polling|
 |Sensor|Solar power|Yes|Polling|
@@ -417,7 +431,7 @@ The integration does not wake a sleeping vehicle to fetch data. Updates pause un
 
 Energy site live status, site information, tariffs, and energy history arrive through the Teslemetry data stream. If you've paired a Powerwall for [local control](#local-powerwall-control), Home Assistant also reads its live values directly over your local network every 5 seconds, and its backup reserve and operation mode every 30 seconds. Whenever your Powerwall can't be reached, Home Assistant uses the cloud values instead. Entity availability still follows the Teslemetry data stream.
 
-For an energy site paired for [local Powerwall control](#local-powerwall-control), entities marked **Local** are polled from your Powerwall's status every 10 seconds.
+For an energy site paired for [local Powerwall control](#local-powerwall-control), the local status entities marked **Local**, such as **Grid OK**, are polled from your Powerwall's status every 10 seconds. The solar string entities, such as **PV string A voltage**, are polled from your Powerwall every 30 seconds.
 
 The **Energy delivered** sensor of each Wall Connector is the energy it delivered on the current day, in the site's time zone. Teslemetry streams it while a Wall Connector at the site is charging, and once more after charging stops. A charging session counts on the day it started, so a session that continues past midnight adds to the previous day.
 
