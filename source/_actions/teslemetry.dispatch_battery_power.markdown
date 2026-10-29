@@ -2,13 +2,13 @@
 title: "Dispatch battery power"
 action: teslemetry.dispatch_battery_power
 domain: teslemetry
-description: "Charges or discharges the Powerwall at a set power for a set time over the local gateway connection."
+description: "Charges or discharges the Powerwall at a set power for a set time."
 related_actions:
   - teslemetry.resume_battery_operation
   - teslemetry.time_of_use
 ---
 
-The **Teslemetry: Dispatch battery power** action charges or discharges the Powerwall of a Tesla energy site at a set power for a set time. It is sent directly to your Powerwall over your local network, so the energy site must be [paired for local control](/integrations/teslemetry/#local-powerwall-control).
+The **Teslemetry: Dispatch battery power** action charges or discharges the Powerwall of a Tesla energy site at a set power for a set time. If the energy site is [paired for local control](/integrations/teslemetry/#local-powerwall-control), it is sent directly to your Powerwall over your local network first, and through Teslemetry whenever your Powerwall can't be reached. Otherwise, it is sent through Teslemetry.
 
 Use it to take direct control of your battery for a while, for example to discharge into the grid during a demand response event, or to charge from the grid when your electricity price is negative.
 
@@ -30,7 +30,7 @@ To dispatch battery power from an automation or a script:
 
 {% options_ui %}
 Energy site:
-  description: The energy site to control. It must be paired with its Powerwall for local control.
+  description: The energy site to control.
 Power:
   description: The battery power to hold, in watts. A positive value discharges the battery, a negative value charges it.
 Duration:
@@ -57,7 +57,7 @@ This charges the battery at 5 kW for 30 minutes, then the Powerwall returns to i
 {% options_yaml %}
 device_id:
   description: >
-    The ID of the energy site to control. It must be paired with its Powerwall for local control.
+    The ID of the energy site to control.
   required: true
   type: string
 power:
@@ -78,6 +78,7 @@ duration:
 - To end the dispatch before its duration ends, use the [Resume battery operation](/actions/teslemetry.resume_battery_operation/) action.
 - Your Powerwall still applies its own backup reserve and grid limits, so the battery power it actually reaches can be lower than requested.
 - The action needs Powerwall firmware that supports battery dispatch. On older firmware, the action fails with an error saying so.
+- If your Powerwall rejects the request over your local network, Home Assistant shows the error and doesn't send the request again through Teslemetry.
 
 {% include actions/try_it.md %}
 
