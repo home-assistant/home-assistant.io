@@ -1,32 +1,7 @@
 ---
-title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
-ha_categories:
-  - vehicles_transport.cars_evs
-  - energy.solar_batteries
 ha_release: 2024.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Bre77'
 ha_domain: teslemetry
-ha_platforms:
-  - binary_sensor
-  - button
-  - calendar
-  - climate
-  - cover
-  - device_tracker
-  - diagnostics
-  - lock
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Teslemetry** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
@@ -106,6 +81,10 @@ Once paired, Home Assistant stores your Powerwall's address and password and sen
 
 A paired energy site also gets extra entities that are only available from your Powerwall over your local network, such as **Grid OK** and **Contactor closed**. They are marked **Local** in the [energy site entity table](#energy-sites). Each one is only created when your Powerwall reports its value, and it becomes unavailable while your Powerwall can't be reached. If your Powerwall can't be reached when Home Assistant starts, these entities are still created and stay unavailable, then update on their own once your Powerwall responds, with no reload needed.
 
+A paired energy site can also be charged or discharged at a set power for a set time with the [Dispatch battery power](/actions/teslemetry.dispatch_battery_power/) action, and returned to its normal operation early with the [Resume battery operation](/actions/teslemetry.resume_battery_operation/) action. These actions are sent directly to your Powerwall, so they only work while it can be reached on your local network.
+
+A paired energy site also gets the voltage and current of each solar string connected to your primary Powerwall 3, such as **PV string A voltage** and **PV string A current**. Like the other **Local** entities, each one is only created when your Powerwall reports its value.
+
 {% note %}
 Removing the Teslemetry integration doesn't revoke the access key from your Powerwall system, so other apps or integrations using the same key keep working.
 {% endnote %}
@@ -145,7 +124,7 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 |Binary sensor|DC DC|No|Streaming|No|
 |Binary sensor|Defrost for preconditioning|No|Streaming|No|
 |Binary sensor|Drive rail|No|Streaming|No|
-|Binary sensor|Driver seat belt|No|Streaming|No|
+|Binary sensor|Driver seat belt warning|No|Streaming|No|
 |Binary sensor|Driver seat occupied|No|Streaming|No|
 |Binary sensor|Emergency lane departure avoidance|No|Streaming|No|
 |Binary sensor|Europe vehicle|No|Streaming|No|
@@ -369,6 +348,18 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 |Sensor|Island status|Yes|Polling|
 |Sensor|Load power|Yes|Polling|
 |Sensor|Percentage charged|Yes|Polling|
+|Sensor|PV string A current|Yes|Local|
+|Sensor|PV string A voltage|Yes|Local|
+|Sensor|PV string B current|Yes|Local|
+|Sensor|PV string B voltage|Yes|Local|
+|Sensor|PV string C current|Yes|Local|
+|Sensor|PV string C voltage|Yes|Local|
+|Sensor|PV string D current|Yes|Local|
+|Sensor|PV string D voltage|Yes|Local|
+|Sensor|PV string E current|Yes|Local|
+|Sensor|PV string E voltage|Yes|Local|
+|Sensor|PV string F current|Yes|Local|
+|Sensor|PV string F voltage|Yes|Local|
 |Sensor|Solar exported|No|Polling|
 |Sensor|Solar generated|Yes|Polling|
 |Sensor|Solar power|Yes|Polling|
@@ -440,7 +431,7 @@ The integration does not wake a sleeping vehicle to fetch data. Updates pause un
 
 Energy site live status, site information, tariffs, and energy history arrive through the Teslemetry data stream. If you've paired a Powerwall for [local control](#local-powerwall-control), Home Assistant also reads its live values directly over your local network every 5 seconds, and its backup reserve and operation mode every 30 seconds. Whenever your Powerwall can't be reached, Home Assistant uses the cloud values instead. Entity availability still follows the Teslemetry data stream.
 
-For an energy site paired for [local Powerwall control](#local-powerwall-control), entities marked **Local** are polled from your Powerwall's status every 10 seconds.
+For an energy site paired for [local Powerwall control](#local-powerwall-control), the local status entities marked **Local**, such as **Grid OK**, are polled from your Powerwall's status every 10 seconds. The solar string entities, such as **PV string A voltage**, are polled from your Powerwall every 30 seconds.
 
 The **Energy delivered** sensor of each Wall Connector is the energy it delivered on the current day, in the site's time zone. Teslemetry streams it while a Wall Connector at the site is charging, and once more after charging stops. A charging session counts on the day it started, so a session that continues past midnight adds to the previous day.
 
@@ -477,7 +468,7 @@ Timeouts can occur due to connection issues between Home Assistant, Teslemetry, 
 automation:
   - alias: "Charge Tesla from Solar"
     trigger:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.home_solar_power
         above: 3000
     actions:
@@ -497,7 +488,7 @@ automation:
 automation:
   - alias: "Precondition for Work"
     trigger:
-      - platform: calendar
+      - trigger: calendar
         event: start
         offset: "-00:15:00"
         entity_id: calendar.work
@@ -556,15 +547,17 @@ blueprint:
           filter:
             - domain: cover
 trigger:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id:
       - !input distance_to_arrival_entity
     below: !input distance_to_arrival
     above: 0
 condition:
-  - condition: zone
-    entity_id: !input route_entity
-    zone: !input route_zone
+  - condition: zone.in_zone
+    target:
+      entity_id: !input route_entity
+    options:
+      zone: !input route_zone
 actions:
   - action: cover.open_cover
     target:

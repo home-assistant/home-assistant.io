@@ -52,7 +52,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md domain="binary_sensor" %}
+{% include conditions/targets.md entity_type="smoke detector" example="binary_sensor.hallway_smoke" %}
 
 {% include conditions/behavior.md %}
 

@@ -1,0 +1,12 @@
+{
+  "domain": "gtfs",
+  "name": "General Transit Feed Specification (GTFS)",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "vehicles_transport.public_transport"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

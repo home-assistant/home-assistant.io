@@ -1,18 +1,7 @@
 ---
-title: AEP Texas
 description: Get energy usage from AEP Texas using the Opower integration
 ha_release: 2023.8
 ha_domain: aep_texas
-ha_integration_type: virtual
-ha_supporting_domain: opower
-ha_supporting_integration: Opower
-ha_codeowners:
-  - '@tronikos'
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_iot_class: Cloud Polling
 ---
 
 {% include integrations/supported_brand.md %}

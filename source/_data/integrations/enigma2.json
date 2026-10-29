@@ -1,0 +1,16 @@
+{
+  "domain": "enigma2",
+  "name": "Enigma2 (OpenWebif)",
+  "integration_type": "device",
+  "codeowners": [
+    "@autinerd"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

@@ -1,28 +1,10 @@
 ---
-title: PlayStation Network
 description: Instructions on enabling PlayStation Network support for your Home Assistant
-ha_categories:
-  - media_entertainment.gaming
 ha_release: 2025.7
-ha_iot_class: Cloud Polling
 ha_domain: playstation_network
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - image
-  - media_player
-  - notify
-  - sensor
-ha_codeowners:
-  - '@jackjpowell'
-  - '@tr4nt0r'
-ha_config_flow: true
-ha_quality_scale: bronze
-ha_integration_type: hub
 related:
   - url: https://playstation.com/
     title: Playstation
-ha_dhcp: true
 ---
 
 The **PlayStation Network** {% term integration %} enables you to seamlessly integrate information from your currently playing game in Home Assistant.

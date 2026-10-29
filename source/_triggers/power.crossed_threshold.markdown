@@ -147,7 +147,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="power sensor" example="sensor.washing_machine_power" %}
 
 {% include triggers/behavior.md %}
 

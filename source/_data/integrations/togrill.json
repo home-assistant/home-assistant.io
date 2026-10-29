@@ -1,0 +1,24 @@
+{
+  "domain": "togrill",
+  "name": "ToGrill",
+  "integration_type": "device",
+  "codeowners": [
+    "@elupus"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "button",
+    "event",
+    "number",
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

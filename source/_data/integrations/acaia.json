@@ -1,0 +1,23 @@
+{
+  "domain": "acaia",
+  "name": "Acaia",
+  "integration_type": "device",
+  "codeowners": [
+    "@zweckj"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}
