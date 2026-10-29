@@ -41,7 +41,7 @@ The **Bitcoin** integration provides the following entities. All of them are cre
 - **Mined blocks**
   - **Description**: Number of blocks mined in the last 24 hours.
 - **Blocks size**
-  - **Description**: Combined size of the blocks mined in the last 24 hours, in bytes.
+  - **Description**: Combined size of the blocks mined in the last 24 hours. New setups show it in megabytes, while setups that already existed keep showing it in bytes.
 - **Difficulty**
   - **Description**: How hard it currently is to mine a block.
 - **Time between blocks**
@@ -65,13 +65,15 @@ The **Bitcoin** integration provides the following entities. All of them are cre
 - **Estimated transaction volume**
   - **Description**: Estimated value moved in the last 24 hours, in USD.
 - **Statistics timestamp**
-  - **Description**: When blockchain.com produced these numbers.
+  - **Description**: The date and time when blockchain.com produced these numbers.
 
 The entity IDs come from these names, for example `sensor.bitcoin_trade_volume_in_usd`. Sensors that already existed in Home Assistant keep the entity IDs they had, so an older setup can have two trade volume sensors or two miners revenue sensors told apart by a `_2` suffix, for example `sensor.trade_volume` and `sensor.trade_volume_2`.
 
 ## Data updates
 
 The **Bitcoin** integration {% term polling polls %} blockchain.com every 5 minutes. One poll refreshes every entity. This interval is not configurable.
+
+Most sensors keep long-term statistics, so you can see how they change over months in the history graphs. **Exchange rate** does not, because its unit is the currency you selected. For long-term statistics of the price, use **Market price**, which is always in USD.
 
 ## Known limitations
 
