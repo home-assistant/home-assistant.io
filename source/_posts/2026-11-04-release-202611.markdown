@@ -86,6 +86,7 @@ Enjoy the (beta) release!
 - [Color control on light tiles](#color-control-on-light-tiles)
 - [Name it once, Home Assistant adds the context](#name-it-once-home-assistant-adds-the-context)
 - [Forms that ask only what they need](#forms-that-ask-only-what-they-need)
+- [From power to energy in one step](#from-power-to-energy-in-one-step)
 - [Why did that happen?](#why-did-that-happen)
   - [See what triggered it](#see-what-triggered-it)
   - [Follow a trace into the script it called](#follow-a-trace-into-the-script-it-called)
@@ -200,6 +201,7 @@ The automation editor also has a few improvements:
 [@emontnemery]: https://github.com/emontnemery
 [@jce200]: https://github.com/jce200
 [@jpbede]: https://github.com/jpbede
+[@Jump-333]: https://github.com/Jump-333
 [@Lackmake]: https://github.com/Lackmake
 [@marcinbauer-ohf]: https://github.com/marcinbauer-ohf
 [@nielsrowinbik]: https://github.com/nielsrowinbik
@@ -292,6 +294,14 @@ You can already see it in the integrations for AI conversation agents, where the
 The same works for a {% term blueprint %}. An input, or a whole group of inputs, can depend on the answers you gave earlier, so a blueprint only asks what still applies.
 
 Thanks, [@piitaya]!
+
+## From power to energy in one step
+
+The energy dashboard works with energy in kilowatt-hours, but plenty of {% term devices %} only report power in watts. A device like that could not be added at all: first you had to set up a {% term sensor %} that adds the power up over time, then come back and add the device.
+
+Home Assistant now offers to do that for you. Add an individual device, a solar panel, or your home consumption with only a power sensor, and when you save, Home Assistant offers to derive the energy sensor from it, or to reuse one you derived from the same sensor earlier. Gas and water work the same way: pick a sensor that reports a flow rate, and Home Assistant offers to derive the total from it.
+
+Thanks, [@MindFreeze]!
 
 ## Why did that happen?
 
@@ -753,6 +763,9 @@ There is even more packed into this release. Here are some of the other changes 
 
 - **Keep an eye on radon.** Radon now has its own triggers and a condition, so you can, for example, turn on a basement fan when [radon levels rise](/triggers/air_quality.radon_crossed_threshold/), or [check the radon level](/conditions/air_quality.is_radon_value/) before running an automation. Thanks, [@abmantis]!
 - **Act after an update.** A new trigger starts an automation once Home Assistant has started after an update, and tells you which version you updated from and to. It doesn't fire on a normal restart. Thanks, [@frenck]!
+- **Expose many entities at once.** Select the entities you want in the table under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, then choose **Expose to voice assistant**, or **Stop exposing to voice assistant**, from the selection menu. Looking each one up separately in the expose dialog is no longer needed. Thanks, [@jpbede]!
+- **Switch to YAML with the keyboard.** Press Ctrl + Shift + Y, or Cmd + Shift + Y on a Mac, to move between the visual editor and the {% term YAML %} editor. It works in the automation, script, and scene editors, in card and dashboard editors, and in **Developer tools** > **Actions**. You can find it in the keyboard shortcuts dialog, under **Other**. Thanks, [@Jump-333]!
+- **Drag picture elements into place.** In the Picture elements card editor, select an element in the preview and drag it where you want it, instead of working out its coordinates. Thanks, [@RaHehl]!
 
 ### Your AI assistant can help troubleshoot
 
@@ -790,6 +803,18 @@ The AdGuard Home integration now requires AdGuard Home v0.107.30 or newer for th
 
 [#184349]: https://github.com/home-assistant/core/pull/184349
 [AdGuard Home documentation]: /integrations/adguard/
+
+{% enddetails %}
+
+{% details "Alert card" %}
+
+The Alert card now shows its color and its pulse only while the {% term entity %} is in an alert state, and it supports alarm control panel, binary sensor, cover, and lock entities. The `color` option is renamed to `alert_color`, and a new `clear_color` option sets the color for the rest of the time. Without an `alert_color`, the card is red during an alert. Set `alert_color: none` to leave it uncolored.
+
+The card was made for the home and security dashboards, which are not affected. If you added it to a dashboard in {% term YAML %} yourself, update it to the new options.
+
+([@timmo001] - [frontend#54880])
+
+[frontend#54880]: https://github.com/home-assistant/frontend/pull/54880
 
 {% enddetails %}
 
@@ -954,6 +979,18 @@ Entity IDs, automations, and scripts are not affected. In {% term templates %}, 
 [#184340]: https://github.com/home-assistant/core/pull/184340
 [#184341]: https://github.com/home-assistant/core/pull/184341
 [frontend#54725]: https://github.com/home-assistant/frontend/pull/54725
+
+{% enddetails %}
+
+{% details "Flow-it" %}
+
+The Flow-it {% term integration %} is now called **AriaQ**, because the manufacturer is bringing its products together under that brand. Your {% term devices %} and {% term entities %} keep working and keep their IDs. Only the name you see in Home Assistant changes.
+
+([@albertogeniola] - [#187082]) ([AriaQ documentation])
+
+[@albertogeniola]: https://github.com/albertogeniola
+[#187082]: https://github.com/home-assistant/core/pull/187082
+[AriaQ documentation]: /integrations/flow_it/
 
 {% enddetails %}
 
