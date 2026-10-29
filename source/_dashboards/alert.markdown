@@ -36,7 +36,7 @@ The rest of the time, the card uses the clear color, if you set one, and doesn't
 Entity:
   description: The entity to show. Only alarm control panel, binary sensor, cover, and lock entities are supported.
 Alert:
-  description: The clear color while the entity isn't in an alert state, the alert color while it is (the entity's state color by default), and whether the background pulses during an alert. Colors accept the entity's state color, a [color token](/dashboards/tile/#available-colors), or a hex color code. With no color, the background isn't colored and the icon is gray. When reduced motion is turned on in your system settings, a pulsing background stays tinted instead.
+  description: The clear color while the entity isn't in an alert state, the alert color while it is (the state color by default), and whether the background pulses during an alert. Colors accept a [color token](/dashboards/tile/#available-colors) or a hex color code. With no color, the background isn't colored and the icon is gray. When reduced motion is turned on in your system settings, a pulsing background stays tinted instead.
 Content:
   description: The name, icon, and layout, and whether to hide the state. These options work the same as on the [tile card](/dashboards/tile/).
 Interactions:
@@ -66,7 +66,7 @@ icon:
   type: string
 clear_color:
   required: false
-  description: The color of the icon and background when the entity isn't in an alert state. Set to `state` to use the entity's state color, which follows your theme. Also accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none` for no color.
+  description: The color of the icon and background when the entity isn't in an alert state. Accepts `state`, a [color token](/dashboards/tile/#available-colors), or hex color code. Set to `none` for no color.
   type: string
   default: none
 alert_color:
@@ -105,7 +105,7 @@ double_tap_action:
 
 ## Examples
 
-An alert for a leak, using the state color (red for a leak with the default theme):
+A red alert for a leak, using the default color:
 
 ```yaml
 type: alert

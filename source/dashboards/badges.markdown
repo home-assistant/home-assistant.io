@@ -167,7 +167,7 @@ icon:
   type: string
 alert_color:
   required: false
-  description: The color of the icon and background while the entity is in an alert state. Set to `state` to use the entity's state color, which follows your theme. Also accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none` for no color.
+  description: The color of the icon and background while the entity is in an alert state. Accepts `state`, a [color token](/dashboards/tile/#available-colors), or hex color code. Set to `none` for no color.
   type: string
   default: state
 clear_color:
