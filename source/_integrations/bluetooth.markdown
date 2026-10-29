@@ -114,6 +114,32 @@ If `NET_ADMIN` and `NET_RAW` capabilities are missing:
 
 {% enddetails %}
 
+{% details "Rootless Podman" %}
+
+With rootless Podman, mounting `/run/dbus` fails with:
+
+```txt
+DBus authentication error; make sure the DBus socket is available and the user has the correct permissions: authentication failed: REJECTED: ['EXTERNAL']
+```
+
+Home Assistant runs as `root` inside the container, but D-Bus sees your unprivileged host user, so the user IDs don't match. Using `--userns=keep-id` avoids this, but combined with rootless overlay or vfs storage it can make Home Assistant very slow.
+
+Instead, run [dbus-auth-proxy](https://github.com/5L-Labs/dbus-auth-proxy) as the same user. It corrects the user ID and only accepts connections from that user. Mount its socket volume in place of `/run/dbus`:
+
+```bash
+podman run -v dbus-socket:/run/dbus:rw ...
+```
+
+On SELinux hosts, also add `--security-opt label=disable` so Home Assistant can use the socket created by the proxy container. This turns off SELinux separation for the whole Home Assistant container, so leave it out on hosts without SELinux.
+
+To limit Home Assistant to BlueZ, add [xdg-dbus-proxy](https://github.com/flatpak/xdg-dbus-proxy) as a filter. The dbus-auth-proxy README describes this setup.
+
+{% note %}
+Rootless containers can't use the `NET_ADMIN` and `NET_RAW` capabilities on the host, so Bluetooth runs in degraded mode. If the adapter is blocked by rfkill, unblock it on the host with `sudo rfkill unblock bluetooth`.
+{% endnote %}
+
+{% enddetails %}
+
 {% details "Switching from dbus-daemon to dbus-broker" %}
 
 Follow [the instructions](https://github.com/bus1/dbus-broker/wiki) to switch to dbus-broker.
