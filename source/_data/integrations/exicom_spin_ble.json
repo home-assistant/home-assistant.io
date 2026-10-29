@@ -1,5 +1,5 @@
 {
-  "domain": "spin_ble",
+  "domain": "exicom_spin_ble",
   "name": "Spin EV Charger",
   "integration_type": "device",
   "codeowners": [
