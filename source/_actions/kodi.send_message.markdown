@@ -34,7 +34,7 @@ Title:
   description: Title of the notification. Defaults to **Home Assistant**.
   required: false
 Icon:
-  description: Icon of the notification. Select **Info**, **Warning**, or **Error**, or enter the path or URL of an image. Defaults to **Info**.
+  description: Icon of the notification. Select **Info**, **Warning**, or **Error**, or enter an image that the Kodi device can open, as a URL or as a path on the Kodi device. Defaults to **Info**.
   required: false
 Display time:
   description: How long the notification is shown, in milliseconds. At least 1500. Defaults to 10000.
@@ -70,7 +70,7 @@ title:
   type: string
 icon:
   description: >
-    Icon of the notification. Possible values are `info`, `warning`, `error`, or the path or URL of an image. Defaults to `info`.
+    Icon of the notification. Possible values are `info`, `warning`, `error`, or an image that the Kodi device can open, as a URL or as a path on the Kodi device, such as `special://home/media/doorbell.png`. Defaults to `info`.
   required: false
   type: string
 displaytime:
@@ -80,7 +80,7 @@ displaytime:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="notify" %}
+{% include actions/targets.md domain="notify" entity_type="Kodi notify entity" example="notify.kodi" %}
 
 {% include actions/try_it.md %}
 
@@ -95,6 +95,8 @@ When someone rings the doorbell, show a warning on Kodi for 5 seconds, so you no
   - **To**: On
 - **Action**: Send message
   - **Target**: Kodi (`notify.kodi`)
+  - **Title**: Doorbell
+  - **Message**: Someone is at the door.
   - **Icon**: Warning
   - **Display time**: 5000
 
@@ -129,6 +131,8 @@ Every Sunday evening, show a reminder with a picture of the bins. Replace `https
 - **Condition**: Day of the week is Sunday
 - **Action**: Send message
   - **Target**: Kodi (`notify.kodi`)
+  - **Title**: Bins
+  - **Message**: Put out the bins for tomorrow.
   - **Icon**: `https://homeassistant.example.com/local/bins.png`
   - **Display time**: 20000
 
