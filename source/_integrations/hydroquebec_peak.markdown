@@ -1,21 +1,7 @@
 ---
-title: Hydro-Québec Peak Events
 description: Instructions on how to integrate Hydro-Québec peak events into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
 ha_release: 2026.11
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Beat-YT'
 ha_domain: hydroquebec_peak
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 related:
   - url: https://www.hydroquebec.com/residential/energy-wise/offers-to-save-this-winter/
     title: Hydro-Québec winter savings offers

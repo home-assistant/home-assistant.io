@@ -29,7 +29,7 @@ Latitude:
 Longitude:
   description: The longitude of your location.
 Elevation:
-  description: The elevation of your location above sea level.
+  description: The elevation of your location above sea level, in meters.
   required: false
 {% endoptions_ui %}
 

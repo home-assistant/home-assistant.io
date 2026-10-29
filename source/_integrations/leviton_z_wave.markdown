@@ -5,22 +5,9 @@ ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/z-wave'
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
+ha_categories:
+  - plugs_switches
+  - lighting
 ha_domain: leviton_z_wave
 ha_integration_type: integration
 works_with:

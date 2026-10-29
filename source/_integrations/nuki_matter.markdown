@@ -1,8 +1,8 @@
 ---
 title: Nuki Matter
 description: Control your Nuki Matter devices using the Matter integration.
-ha_category:
-  - Lock
+ha_categories:
+  - security_safety.locks_access
 ha_domain: nuki_matter
 ha_release: '2025.5'
 ha_codeowners:

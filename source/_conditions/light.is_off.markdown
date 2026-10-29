@@ -59,7 +59,7 @@ behavior:
 
 ## Good to know
 
-- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as off. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted light is unavailable.
+{% include conditions/unavailable_targets.md entities="lights" %}
 - To gate an automation on a light being on instead, use [Light is on](/conditions/light.is_on/).
 - Pair with the [Light turned off](/triggers/light.turned_off/) trigger to react only when a transition to off happens.
 

@@ -1,14 +1,7 @@
 ---
-title: My Home Assistant
 description: Support for the my.home-assistant.io redirect service.
-ha_category:
-  - Other
 ha_release: 2021.3
 ha_domain: my
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: system
 related:
   - docs: /docs/tools/quick-search/#my-links
     title: My links

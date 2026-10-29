@@ -76,9 +76,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the media player must stay on before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the media player must stay on before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -89,7 +89,7 @@ for:
 ## Good to know
 
 - This condition checks whether the device is on, even if nothing is playing yet.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you need to make sure playback has actually started, use [Media player is playing](/conditions/media_player.is_playing/) instead.
 
 {% include conditions/try_it.md %}

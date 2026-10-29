@@ -58,9 +58,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the thermostat must have been continuously heating before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the thermostat must have been continuously heating before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -71,7 +71,7 @@ for:
 ## Good to know
 
 - A thermostat can be set to heat mode but not actively heating if it has already reached its target temperature and is idling. Use [Thermostat HVAC mode](/conditions/climate.is_hvac_mode/) if you only care about the mode setting.
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively heating. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted thermostat is unavailable.
+{% include conditions/unavailable_targets.md entities="thermostats" %}
 - This condition checks the current action of the thermostat, not its mode. To check if a thermostat is simply on (any active mode) or off, use [Thermostat is on](/conditions/climate.is_on/) or [Thermostat is off](/conditions/climate.is_off/).
 
 {% include conditions/try_it.md %}

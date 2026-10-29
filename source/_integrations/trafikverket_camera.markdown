@@ -1,23 +1,7 @@
 ---
-title: Trafikverket Camera
 description: Instructions on how to integrate Trafikverket Camera within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Sensor
-ha_categories:
-  - vehicles_transport
 ha_release: 2023.9
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@gjohansson-ST'
 ha_domain: trafikverket_camera
-ha_platforms:
-  - binary_sensor
-  - camera
-  - sensor
-ha_integration_type: service
 ---
 
 The **Trafikverket Camera** {% term integration %} shows images from the public traffic cameras of [Trafikverket](https://www.trafikverket.se/), the Swedish Transport Administration. Use it to check road and traffic conditions on your route in Sweden directly from your Home Assistant dashboard.
@@ -91,7 +75,7 @@ The **Trafikverket Camera** integration provides the following entities for each
   - **Description**: The date and time when the latest picture was taken.
 - **Modified**
   - **Description**: The date and time when the camera information was last changed.
-  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Photo URL**
   - **Description**: The web address of the latest picture.
   - **Remarks**: Disabled by default.
@@ -112,10 +96,11 @@ You can use the camera entities in automations, for example to know when a camer
 
 If you rely on a camera to check your route, it's useful to know when it's no longer active. This automation sends a notification to your phone when the **Active** binary sensor has been off for 30 minutes.
 
-- **Trigger**: Entity: State
+- **Trigger**: State changed
   - **Target**: Hisingsleden norrut Active (`binary_sensor.hisingsleden_norrut_active`)
   - **To**: Off
   - **For**: 00:30:00
+  - **For at least**: `00:30:00`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -147,7 +132,7 @@ This automation saves a picture from the camera every weekday morning, so you ca
 
 - **Trigger**: Time: At 07:00:00
 - **Condition**: Time: Weekdays Monday to Friday
-- **Action**: Take snapshot
+- **Action**: Take camera snapshot
   - **Target**: Hisingsleden norrut (`camera.hisingsleden_norrut`)
   - **Filename**: {% raw %}`/config/www/traffic/hisingsleden_{{ now().strftime('%Y-%m-%d') }}.jpg`{% endraw %}
 

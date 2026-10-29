@@ -1,0 +1,1062 @@
+{%- assign components = site.integrations | sort: 'title' -%}
+{%- assign components_by_version = site.integrations | group_components_by_release -%}
+{%- assign iot_classes = "Local Push,Local Polling,Cloud Push,Cloud Polling,Assumed State,Calculated,Configurable" |
+join: ',' | split: ',' -%}
+{%- assign quality_scales = "platinum,gold,silver,bronze,internal,legacy" | split: "," -%}
+
+{%- unless include.category %}
+<script>
+  // Old links to a category, like /integrations/#climate or ?cat=climate, go
+  // to the page of the new category that fits best. Labels that only said what
+  // Home Assistant creates, like Number or Select, go to all integrations.
+  // This runs in the page, because a browser never sends the # part of a URL.
+  (function () {
+    const OLD_CATEGORIES = {
+      '3d-printing': 'computers_network.printers',
+      'ai': 'ai_voice',
+      'alarm': 'security_safety.alarm_systems',
+      'alarm-control-panel': 'security_safety.alarm_systems',
+      'automation': '',
+      'backup': 'computers_network',
+      'binary-sensor': 'sensors',
+      'button': 'buttons_remotes',
+      'calendar': 'productivity_information.calendars_todos',
+      'camera': 'security_safety.cameras',
+      'car': 'vehicles_transport.cars_evs',
+      'climate': 'climate',
+      'cover': 'blinds_curtains',
+      'date': '',
+      'date-time': '',
+      'device-automation': '',
+      'device-tracker': 'presence_location',
+      'diy': 'diy_makers',
+      'doorbell': 'security_safety.doorbells_intercoms',
+      'downloading': 'computers_network',
+      'energy': 'energy',
+      'environment': 'weather_alerts',
+      'event': '',
+      'fan': 'climate.fans_ventilation',
+      'finance': 'finance',
+      'front-end': '',
+      'gaming': 'media_entertainment.gaming',
+      'geolocation': 'weather_alerts.public_warnings',
+      'health': 'health_wellbeing',
+      'helper': 'helpers',
+      'history': 'helpers',
+      'hub': 'hubs_protocols',
+      'humidifier': 'climate.air_purifiers_humidifiers',
+      'image': '',
+      'image-processing': 'ai_voice.image_recognition',
+      'infrared': 'buttons_remotes',
+      'infrared-controlled': 'buttons_remotes',
+      'intent': 'ai_voice',
+      'irrigation': 'garden_plants',
+      'lawn-mower': 'garden_plants',
+      'light': 'lighting',
+      'lock': 'security_safety.locks_access',
+      'mailbox': 'messaging_notifications',
+      'media-player': 'media_entertainment',
+      'media-source': 'media_entertainment',
+      'modbus': 'diy_makers.boards_hardware',
+      'modbus-controlled': 'diy_makers.boards_hardware',
+      'multimedia': 'media_entertainment',
+      'network': 'computers_network.routers_network',
+      'notifications': 'messaging_notifications',
+      'number': '',
+      'organization': 'productivity_information',
+      'other': '',
+      'plug': 'plugs_switches',
+      'postal-service': 'productivity_information',
+      'presence-detection': 'presence_location',
+      'pump': 'water',
+      'radio-frequency': 'buttons_remotes',
+      'radio-frequency-controlled': 'buttons_remotes',
+      'remote': 'buttons_remotes',
+      'scene': '',
+      'select': '',
+      'sensor': 'sensors',
+      'serial': 'diy_makers.boards_hardware',
+      'serial-controlled': 'diy_makers.boards_hardware',
+      'siren': 'security_safety.alarm_systems',
+      'social': 'news_social_media',
+      'speech-to-text': 'ai_voice.speech',
+      'switch': 'plugs_switches',
+      'system-monitor': 'computers_network.monitoring',
+      'tag-scanner': '',
+      'text': '',
+      'text-to-speech': 'ai_voice.speech',
+      'time': '',
+      'to-do-list': 'productivity_information.calendars_todos',
+      'transport': 'vehicles_transport.public_transport',
+      'update': '',
+      'utility': '',
+      'vacuum': 'appliances_cleaning.cleaning',
+      'valve': 'water',
+      'voice': 'ai_voice.voice_assistants',
+      'water-heater': 'climate.water_heaters',
+      'water-management': 'water',
+      'weather': 'weather_alerts.forecasts',
+    };
+    const NOT_A_CATEGORY = ['all', 'featured', 'works-with-home-assistant', 'search/', 'version/', 'iot_class/', 'quality_scale/', 'connection'];
+    const hash = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+    const old = new URLSearchParams(location.search).get('cat')
+      || (hash && !NOT_A_CATEGORY.some(prefix => hash.startsWith(prefix)) ? hash : '');
+    if (!(old in OLD_CATEGORIES)) return;
+    // Other filters in the link, like a search, go along.
+    const params = new URLSearchParams(location.search);
+    params.delete('cat');
+    const [category, subcategory] = OLD_CATEGORIES[old].split('.');
+    const query = params.toString() ? `?${params}` : '';
+    location.replace(
+      category
+        ? `/integrations/category/${category}/${subcategory ? `${subcategory}/` : ''}${query}`
+        : `/integrations/${query || '#all'}`
+    );
+  })();
+</script>
+{%- endunless %}
+{%- assign current_category = site.data.integration_categories | where: "slug", include.category | first -%}
+{%- if current_category and include.subcategory -%}
+  {%- assign current_subcategory = current_category.subcategories | where: "slug", include.subcategory | first -%}
+{%- endif -%}
+{%- assign main_page = site.pages | where: "url", "/integrations/" | first -%}
+
+<div class="integrations-browser">
+
+{%- comment -%}
+  On wide screens the categories are a sidebar and the filters sit above the
+  integrations. On phones both are a button that opens a full-screen panel.
+  Which one shows is up to the CSS, so resizing the window just works.
+{%- endcomment -%}
+<div class="browse-toolbar">
+  <button type="button" class="browse-button" data-open-panel="category-panel">
+    <iconify-icon class="browse-button-icon" icon="{% if current_category %}{{ current_category.icon }}{% else %}mdi:view-grid-outline{% endif %}"></iconify-icon>
+    <span class="browse-button-label">
+      <span class="browse-button-category">{% if current_category %}{{ current_category.name }}{% else %}All categories{% endif %}</span>
+      <span class="browse-button-subcategory">{% if current_subcategory %} › {{ current_subcategory.name }}{% endif %}</span>
+    </span>
+  </button>
+  <button type="button" class="browse-button" data-open-panel="filters-panel">
+    <iconify-icon icon="mdi:tune-variant"></iconify-icon>
+    <span class="browse-button-label">Filters <span class="filters-count"></span></span>
+  </button>
+</div>
+
+<dialog class="browse-panel category-panel" id="category-panel" aria-label="Categories">
+  <div class="browse-panel-header">
+    <h2>Categories</h2>
+    <button type="button" class="browse-panel-close" data-close-panel aria-label="Close">
+      <iconify-icon icon="mdi:close"></iconify-icon>
+    </button>
+  </div>
+  <div class="browse-panel-content">
+  <nav class="category-sidebar" aria-label="Integration categories">
+    <a href="/integrations/" class="category-link{% unless current_category %} active{% endunless %}" data-category=""{% unless current_category %} aria-current="page"{% endunless %}>
+      <iconify-icon icon="mdi:view-grid-outline"></iconify-icon>
+      <span class="category-name">All integrations</span>
+      <span class="category-count" data-category-count=""></span>
+    </a>
+    {%- for category in site.data.integration_categories %}
+    {%- assign is_current = false %}
+    {%- if current_category.slug == category.slug %}{% assign is_current = true %}{% endif %}
+    <a href="/integrations/category/{{ category.slug }}/" class="category-link{% if is_current %} active{% endif %}" data-category="{{ category.slug }}"{% if is_current %}{% unless current_subcategory %} aria-current="page"{% endunless %}{% endif %}>
+      <iconify-icon icon="{{ category.icon }}"></iconify-icon>
+      <span class="category-name">{{ category.name }}</span>
+      <span class="category-count" data-category-count="{{ category.slug }}"></span>
+    </a>
+    {%- if category.subcategories.size > 0 %}
+    <ul class="subcategory-nav" data-category="{{ category.slug }}" aria-label="Subcategories of {{ category.name }}"{% unless is_current %} hidden{% endunless %}>
+      {%- for subcategory in category.subcategories %}
+      {%- assign is_current_subcategory = false %}
+      {%- if is_current and current_subcategory.slug == subcategory.slug %}{% assign is_current_subcategory = true %}{% endif %}
+      <li>
+        <a href="/integrations/category/{{ category.slug }}/{{ subcategory.slug }}/" class="subcategory-link{% if is_current_subcategory %} active{% endif %}" data-category="{{ category.slug }}" data-subcategory="{{ subcategory.slug }}"{% if is_current_subcategory %} aria-current="page"{% endif %}>
+          <iconify-icon icon="{{ subcategory.icon }}"></iconify-icon>
+          <span class="category-name">{{ subcategory.name }}</span>
+          <span class="category-count" data-subcategory-count="{{ category.slug }}.{{ subcategory.slug }}"></span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {%- endfor %}
+  </nav>
+  </div>
+  <div class="browse-panel-footer">
+    <button type="button" class="browse-panel-show" data-close-panel>Show integrations</button>
+  </div>
+</dialog>
+
+<div class="integrations-main">
+
+
+<dialog class="browse-panel filters-panel" id="filters-panel" aria-label="Filters">
+  <div class="browse-panel-header">
+    <h2>Filters</h2>
+    <button type="button" class="browse-panel-close" data-close-panel aria-label="Close">
+      <iconify-icon icon="mdi:close"></iconify-icon>
+    </button>
+  </div>
+  <div class="browse-panel-content grid">
+
+
+  <div class="grid-filters">
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration-filter integration-filter-select">
+        <label class="filter-title" for="filter-connection">Connection</label>
+        <div class="filter-field">
+          <iconify-icon class="filter-icon" icon="mdi:lan-connect"></iconify-icon>
+          <select class="filter-select" name="connection" data-id="connection" id="filter-connection">
+            <option value="#">All connections</option>
+            <option value="local">Local</option>
+            <option value="cloud">Cloud</option>
+          </select>
+          <iconify-icon class="filter-chevron" icon="mdi:chevron-down"></iconify-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration-filter integration-filter-select">
+        <label class="filter-title" for="filter-version">Version</label>
+        <div class="filter-field">
+          <iconify-icon class="filter-icon" icon="mdi:tag-outline"></iconify-icon>
+          <select class="filter-select" name="versions" data-id="version" id="filter-version">
+            <option value="#">All versions</option>
+            {%- for group in components_by_version -%}
+            <optgroup label="{{ group.label }} ({{group.new_components_count}})">
+              {%- for version in group.versions -%}
+              <option value="{{ version.label }}">{{ version.label }}</option>
+              {%- endfor -%}
+            </optgroup>
+            {%- endfor -%}
+          </select>
+          <iconify-icon class="filter-chevron" icon="mdi:chevron-down"></iconify-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration-filter integration-filter-select">
+        <label class="filter-title" for="filter-iot_class">IoT Class</label>
+        <div class="filter-field">
+          <iconify-icon class="filter-icon" icon="mdi:access-point"></iconify-icon>
+          <select class="filter-select" name="iot_classes" data-id="iot_class" id="filter-iot_class">
+            <option value="#">All IoT classes</option>
+            {%- for iot_class in iot_classes -%}
+              {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
+              {%- if iot_class_count != 0 -%}
+                <option value="{{ iot_class | slugify }}">{{ iot_class }}</option>
+              {%- endif -%}
+            {%- endfor -%}
+          </select>
+          <iconify-icon class="filter-chevron" icon="mdi:chevron-down"></iconify-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration-filter integration-filter-select">
+        <label class="filter-title" for="filter-quality_scale">Quality Scale</label>
+        <div class="filter-field">
+          <iconify-icon class="filter-icon" icon="mdi:medal-outline"></iconify-icon>
+          <select class="filter-select" name="quality_scales" data-id="quality_scale" id="filter-quality_scale">
+            <option value="#">All quality scales</option>
+            {%- for quality_scale in quality_scales -%}
+              {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
+              {%- if quality_scale_count != 0 -%}
+                <option value="{{ quality_scale }}">
+                  {%- case quality_scale -%}
+                    {%- when 'gold', 'silver', 'bronze' -%}{{ quality_scale | capitalize }} or higher
+                    {%- else -%}{{ quality_scale | capitalize }}
+                  {%- endcase -%}
+                </option>
+              {%- endif -%}
+            {%- endfor -%}
+          </select>
+          <iconify-icon class="filter-chevron" icon="mdi:chevron-down"></iconify-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="browse-panel-footer">
+    <button type="button" class="browse-panel-show" data-close-panel>Show integrations</button>
+  </div>
+</dialog>
+
+<div class="grid">
+
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <div class="component-search">
+      <form onsubmit="event.preventDefault(); return false">
+        <input type="text" name="search" id="search" data-id="search" class="search text-input"
+          placeholder="Search integrations..." autofocus />
+        <button type="button" class="search-clear" aria-label="Clear search" style="display: none">
+          <iconify-icon icon="mdi:close-circle"></iconify-icon>
+        </button>
+      </form>
+    </div>
+    <div class="quick-filters" role="group" aria-label="Quick filters">
+      <button type="button" class="quick-filter" data-quick-filter="featured" aria-pressed="false">
+        <iconify-icon icon="mdi:star"></iconify-icon>
+        Featured
+      </button>
+      <button type="button" class="quick-filter" data-quick-filter="partners" aria-pressed="false">
+        <iconify-icon icon="mdi:check-decagram"></iconify-icon>
+        Works with Home Assistant
+      </button>
+      <span class="results-count" aria-live="polite"></span>
+    </div>
+    <header class="category-header"{% unless current_category %} hidden{% endunless %}>
+      <p class="category-description">
+        <iconify-icon icon="{{ current_category.icon }}"></iconify-icon>
+        <span class="category-description-text">{{ current_category.description }}</span>
+      </p>
+    </header>
+  </div>
+
+
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <div class="hass-option-cards" id="componentContainer"> </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  (function () {
+    const SITE_TITLE = {{ site.title | jsonify }};
+    const MAIN_TITLE = {{ main_page.title | jsonify }};
+    const CATEGORIES = {{ site.data.integration_categories | jsonify }};
+    // Letters that are not a letter with an accent, so removing the accents
+    // does not turn them into a plain letter.
+    const SPECIAL_LETTERS = { ß: 'ss', ø: 'o', æ: 'ae', œ: 'oe', ł: 'l', đ: 'd', þ: 'th', ı: 'i' };
+    const CATEGORY_NAMES = {};
+    CATEGORIES.forEach(category => {
+      CATEGORY_NAMES[category.slug] = category.name;
+      category.subcategories.forEach(subcategory => {
+        CATEGORY_NAMES[`${category.slug}.${subcategory.slug}`] = subcategory.name;
+      });
+    });
+
+    // The state of the page lives in the URL, and only there: the category
+    // and subcategory in the path, the filters and the search in the query
+    // string. The URL can be shared, and Back and Forward just work. Every
+    // action builds the next state and adds one entry to the history;
+    // render() then makes the page, the controls, and the list match it.
+    const FILTERS = ['connection', 'version', 'iot_class', 'quality_scale'];
+    const QUICK_FILTERS = ['featured', 'partners'];
+    const QUERY_KEYS = [...QUICK_FILTERS, ...FILTERS, 'search'];
+    // Best first.
+    const QUALITY_TIERS = ['platinum', 'gold', 'silver', 'bronze'];
+
+    const filterSelects = [...document.querySelectorAll('.integration-filter select')];
+    const quickFilterButtons = [...document.querySelectorAll('.quick-filter')];
+    const categoryLinks = [...document.querySelectorAll('.category-link')];
+    const subcategoryLists = [...document.querySelectorAll('.subcategory-nav')];
+    const subcategoryLinks = [...document.querySelectorAll('.subcategory-link')];
+    const panels = [...document.querySelectorAll('.browse-panel')];
+    const desktop = window.matchMedia('(min-width: 1140px)');
+    const searchInputEl = document.querySelector('.component-search input');
+    const searchClearEl = document.querySelector('.search-clear');
+    const componentContainerEl = document.querySelector('#componentContainer');
+    const resultsCountEl = document.querySelector('.results-count');
+    let integrations = [];
+    let noResultsEl;
+    let orderedBy = null;
+    let shownPlace = null;
+    // Typed in the search field, but not in the URL yet.
+    let searchPending = false;
+
+    function findCategory(slug) {
+      return CATEGORIES.find(category => category.slug === slug);
+    }
+
+    // /integrations/category/climate/water_heaters/ is Climate, narrowed down
+    // to Water heaters.
+    function readState(url = location) {
+      const state = {};
+      const [, category, subcategory] =
+        url.pathname.match(/^\/integrations\/category\/([^/]+)\/(?:([^/]+)\/)?/) || [];
+      const categoryData = findCategory(category);
+      if (categoryData) {
+        state.category = category;
+        if (categoryData.subcategories.some(item => item.slug === subcategory)) {
+          state.subcategory = subcategory;
+        }
+      }
+
+      const params = new URLSearchParams(url.search);
+      QUERY_KEYS.forEach(key => {
+        const value = (params.get(key) || '').trim();
+        if (value) state[key] = value;
+      });
+      // Featured is "true" when you turned it on. On the main page it is on
+      // by default, so "false" there means you turned it off.
+      if (!['true', 'false'].includes(state.featured) || state.partners) delete state.featured;
+      if (state.featured === 'false' && state.category) delete state.featured;
+      return state;
+    }
+
+    // The main page as you land on it: nothing picked yet.
+    function isLanding(state) {
+      return !state.category && !QUERY_KEYS.some(key => state[key]);
+    }
+
+    // The main page starts with Featured on. That is only a starting point,
+    // so it stays out of the URL: it goes away as soon as you search or pick
+    // a filter, and it never goes along to a category.
+    function showsFeatured(state) {
+      return state.featured === 'true' || isLanding(state);
+    }
+
+    function urlFor(state) {
+      let path = '/integrations/';
+      if (state.category) {
+        path += `category/${state.category}/`;
+        if (state.subcategory) path += `${state.subcategory}/`;
+      }
+
+      const params = new URLSearchParams();
+      QUERY_KEYS.forEach(key => {
+        if (state[key]) params.set(key, state[key]);
+      });
+      const query = params.toString();
+      return query ? `${path}?${query}` : path;
+    }
+
+    // Undoing everything on the main page shows all integrations, not the
+    // Featured ones you started with. Only a link to the main page lands
+    // there again.
+    function go(state, { replace = false, landing = false } = {}) {
+      if (!landing && isLanding(state)) state.featured = 'false';
+      history[replace ? 'replaceState' : 'pushState'](null, '', urlFor(state));
+      render();
+    }
+
+    // Switching category does not load a new page: every integration is
+    // already here. Opening a link in a new tab still works as usual.
+    function followInPage(link) {
+      link.addEventListener('click', event => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+
+        go(readState(new URL(link.href, location.href)), { landing: true });
+
+        closePanels();
+        if (componentContainerEl.getBoundingClientRect().top < 0) window.scrollTo(0, 0);
+      });
+    }
+
+    // Old URLs keep working: they are turned into the current form once, when
+    // the page loads. Old category links are handled at the top of the page.
+    function upgradeOldURL() {
+      const params = new URLSearchParams(location.search);
+      const hash = decodeURIComponent(location.hash.slice(1));
+      const state = readState();
+
+      const brand = params.get('brands');
+      if (brand === 'featured' || brand === 'partners') state[brand] = 'true';
+      if (hash === 'featured') state.featured = 'true';
+      if (hash === 'works-with-home-assistant') state.partners = 'true';
+      const [hashKey, ...hashValue] = hash.split('/');
+      if (hashValue.length && ['search', ...FILTERS].includes(hashKey)) {
+        state[hashKey] = hashValue.join('/');
+      }
+      if (state.featured && state.partners) delete state.featured;
+      if (hash === 'all' && isLanding(state)) state.featured = 'false';
+      history.replaceState(null, '', urlFor(state));
+    }
+
+    // Once the integrations are in, the list can show.
+    function init() {
+      integrations.forEach(prepareSearch);
+      integrations.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
+      renderCards();
+      render();
+    }
+
+    function render() {
+      const state = readState();
+      const place = `${state.category || ''}/${state.subcategory || ''}`;
+      if (place !== shownPlace) {
+        showPlace(state);
+        shownPlace = place;
+      }
+
+      // Controls
+      filterSelects.forEach(select => {
+        select.value = state[select.dataset.id] || '#';
+        select.parentElement.classList.toggle('active', Boolean(state[select.dataset.id]));
+      });
+      quickFilterButtons.forEach(button => {
+        const isOn = button.dataset.quickFilter === 'featured' ? showsFeatured(state) : Boolean(state.partners);
+        button.setAttribute('aria-pressed', isOn);
+      });
+      // Only overwrite the search field when it says something else, so typing
+      // is never interrupted.
+      if (!searchPending && searchInputEl.value.trim() !== (state.search || '')) {
+        searchInputEl.value = state.search || '';
+      }
+      updateSearchClear();
+      updateBrowseLinks(state);
+      const filterCount = FILTERS.filter(key => state[key]).length;
+      document.querySelector('.filters-count').textContent = filterCount ? `(${filterCount})` : '';
+
+      // The list, once the integrations are in.
+      if (!noResultsEl) return;
+      const scores = state.search ? searchScores(state.search) : null;
+      const featured = showsFeatured(state);
+      const shown = integrations.filter(
+        integration => inPlace(integration, state) && passesFilters(integration, state, scores, featured)
+      );
+      // Featured is a shortcut, not a way to browse: the sidebar keeps
+      // counting every integration, also while Featured is on.
+      const counts = countPerCategory(state, scores, false);
+      showCategoryCounts(state, counts);
+
+      // While searching, the best matches come first. The cards move in the
+      // page itself, so the keyboard and screen readers follow the same order.
+      // Every match is sorted, also the ones a filter hides right now, so the
+      // order holds when that filter goes.
+      const order = scores ? state.search : '';
+      if (order !== orderedBy) {
+        const ranked = scores
+          ? [
+              ...integrations.filter(i => scores.has(i)).sort((a, b) => scores.get(b) - scores.get(a)),
+              ...integrations.filter(i => !scores.has(i)),
+            ]
+          : integrations;
+        ranked.forEach(integration => componentContainerEl.appendChild(integration.card));
+        componentContainerEl.appendChild(noResultsEl);
+        orderedBy = order;
+      }
+      const shownSet = new Set(shown);
+      integrations.forEach(integration => {
+        integration.card.style.display = shownSet.has(integration) ? '' : 'none';
+      });
+
+      noResultsEl.style.display = shown.length ? 'none' : '';
+      if (!shown.length) {
+        updateEmptyState(state, state.featured === 'true' ? countPerCategory(state, scores, true) : counts);
+      }
+
+      const total = integrations.filter(integration => inPlace(integration, state)).length;
+      resultsCountEl.textContent =
+        shown.length === total
+          ? `${total.toLocaleString('en-US')} integrations`
+          : `${shown.length.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} integrations`;
+      document.querySelectorAll('.browse-panel-show').forEach(button => {
+        button.textContent = `Show ${shown.length} integration${shown.length === 1 ? '' : 's'}`;
+      });
+    }
+
+    // The category and subcategory decide the title, the breadcrumbs, the
+    // description, and what is active in the sidebar. A page that was loaded
+    // has them right already; this keeps them right when you switch.
+    function showPlace(state) {
+      const category = findCategory(state.category);
+      const subcategory = category && category.subcategories.find(item => item.slug === state.subcategory);
+      const title = subcategory
+        ? `${subcategory.name} integrations`
+        : category ? `${category.name} integrations` : MAIN_TITLE;
+      document.title = `${title} - ${SITE_TITLE}`;
+      document.querySelector('h1.title').textContent = title;
+      updateBreadcrumbs(category, subcategory);
+
+      const headerEl = document.querySelector('.category-header');
+      headerEl.hidden = !category;
+      if (category) {
+        headerEl.querySelector('iconify-icon').setAttribute('icon', category.icon);
+        headerEl.querySelector('.category-description-text').textContent = category.description;
+      }
+
+      document.querySelector('.browse-button-icon').setAttribute('icon', category ? category.icon : 'mdi:view-grid-outline');
+      document.querySelector('.browse-button-category').textContent = category ? category.name : 'All categories';
+      document.querySelector('.browse-button-subcategory').textContent = subcategory ? ` › ${subcategory.name}` : '';
+
+      categoryLinks.forEach(link => {
+        const isCurrent = link.dataset.category === (state.category || '');
+        link.classList.toggle('active', isCurrent);
+        setCurrentPage(link, isCurrent && !subcategory);
+      });
+      subcategoryLists.forEach(list => {
+        list.hidden = list.dataset.category !== state.category;
+      });
+      subcategoryLinks.forEach(link => {
+        const isCurrent = link.dataset.category === state.category && link.dataset.subcategory === state.subcategory;
+        link.classList.toggle('active', isCurrent);
+        setCurrentPage(link, isCurrent);
+      });
+    }
+
+    function setCurrentPage(link, isCurrent) {
+      if (isCurrent) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    }
+
+    // Home ▸ Integrations ▸ Climate, like the layout builds them.
+    function updateBreadcrumbs(category, subcategory) {
+      let breadcrumbsEl = document.querySelector('article.page .breadcrumbs');
+      if (!breadcrumbsEl) {
+        breadcrumbsEl = document.createElement('div');
+        breadcrumbsEl.className = 'breadcrumbs';
+        document.querySelector('h1.title').before(breadcrumbsEl);
+      }
+
+      const crumbs = [['/', 'Home']];
+      if (category) crumbs.push(['/integrations/', 'Integrations', '']);
+      if (subcategory) crumbs.push([`/integrations/category/${category.slug}/`, category.name, category.slug]);
+      breadcrumbsEl.hidden = crumbs.length === 1;
+      breadcrumbsEl.replaceChildren(...crumbs.flatMap(([href, name, browseCategory], index) => {
+        const link = document.createElement('a');
+        link.href = href;
+        link.textContent = name;
+        // Integrations and a category work like the links in the sidebar.
+        if (browseCategory !== undefined) {
+          link.dataset.category = browseCategory;
+          followInPage(link);
+        }
+        return index ? [' ▸ ', link] : [link];
+      }));
+    }
+
+    // An integration is in a category when it lists the category itself, or
+    // one of its subcategories.
+    function inCategory(integration, category) {
+      return integration.categories.some(c => c === category || c.startsWith(`${category}.`));
+    }
+
+    function inPlace(integration, state) {
+      if (state.subcategory) {
+        return integration.categories.includes(`${state.category}.${state.subcategory}`);
+      }
+      return !state.category || inCategory(integration, state.category);
+    }
+
+    // Everything except the category: the search and the filters.
+    function passesFilters(integration, state, scores, featured) {
+      if (featured && !integration.featured) return false;
+      if (state.partners && !integration.wwha) return false;
+      if (FILTERS.some(key => state[key] && !matchesFilter(integration, key, state[key]))) return false;
+      if (scores && !scores.has(integration)) return false;
+      return true;
+    }
+
+    // A tier of the quality scale also shows the tiers above it: Silver shows
+    // Platinum, Gold, and Silver. Internal and Legacy are not tiers.
+    function matchesFilter(integration, key, value) {
+      if (key === 'quality_scale' && QUALITY_TIERS.includes(value)) {
+        const tier = QUALITY_TIERS.indexOf(integration.quality_scale);
+        return tier !== -1 && tier <= QUALITY_TIERS.indexOf(value);
+      }
+      return integration[key] == value;
+    }
+
+    // How many integrations each category has with the search and filters
+    // that go along when you switch: the numbers in the sidebar, and where
+    // the empty state points to. The key '' is all integrations.
+    function countPerCategory(state, scores, featured) {
+      const counts = new Map();
+      const add = key => counts.set(key, (counts.get(key) || 0) + 1);
+      integrations.forEach(integration => {
+        if (!passesFilters(integration, state, scores, featured)) return;
+        add('');
+        new Set(integration.categories.map(category => category.split('.')[0])).forEach(add);
+        integration.categories.filter(category => category.includes('.')).forEach(add);
+      });
+      return counts;
+    }
+
+    // While you search or filter, a category without matches fades.
+    function showCategoryCounts(state, counts) {
+      const filtering = QUERY_KEYS.some(key => key !== 'featured' && state[key]);
+      document.querySelectorAll('[data-category-count], [data-subcategory-count]').forEach(el => {
+        const count = counts.get(el.dataset.categoryCount ?? el.dataset.subcategoryCount) || 0;
+        el.textContent = count.toLocaleString('en-US');
+        el.closest('a').classList.toggle('no-results', filtering && count === 0);
+      });
+    }
+
+    // The search and the filters that go along to another category. Featured
+    // only when you turned it on yourself.
+    function carriedState(state) {
+      const carried = {};
+      QUERY_KEYS.forEach(key => {
+        if (state[key]) carried[key] = state[key];
+      });
+      if (carried.featured === 'false') delete carried.featured;
+      return carried;
+    }
+
+    // The links in the sidebar and the breadcrumbs are real links, so they
+    // also work in a new tab. The filters you picked go along.
+    function updateBrowseLinks(state) {
+      const carried = carriedState(state);
+
+      [...categoryLinks, ...document.querySelectorAll('article.page .breadcrumbs a[data-category]')].forEach(link => {
+        link.href = urlFor({ ...carried, category: link.dataset.category });
+      });
+      subcategoryLinks.forEach(link => {
+        // Selecting the current subcategory again shows the whole category.
+        const isCurrent = link.dataset.category === state.category && link.dataset.subcategory === state.subcategory;
+        link.href = urlFor({
+          ...carried,
+          category: link.dataset.category,
+          subcategory: isCurrent ? '' : link.dataset.subcategory,
+        });
+      });
+    }
+
+    categoryLinks.forEach(followInPage);
+    subcategoryLinks.forEach(followInPage);
+
+    filterSelects.forEach(select => select.addEventListener('change', () => {
+      const state = readState();
+      if (select.value === '#') {
+        delete state[select.dataset.id];
+      } else {
+        state[select.dataset.id] = select.value;
+      }
+      go(state);
+    }));
+
+    // Featured and Works with Home Assistant: one of them, or neither.
+    quickFilterButtons.forEach(button => button.addEventListener('click', () => {
+      const key = button.dataset.quickFilter;
+      const state = readState();
+      const wasOn = key === 'featured' ? showsFeatured(state) : Boolean(state.partners);
+      QUICK_FILTERS.forEach(quickFilter => delete state[quickFilter]);
+      if (!wasOn) state[key] = 'true';
+      go(state);
+    }));
+
+    function closePanels() {
+      panels.forEach(panel => panel.open && panel.close());
+    }
+
+    document.querySelectorAll('[data-open-panel]').forEach(button => button.addEventListener('click', () => {
+      document.getElementById(button.dataset.openPanel).showModal();
+    }));
+    document.querySelectorAll('[data-close-panel]').forEach(button => button.addEventListener('click', closePanels));
+    // A panel that is open when the window gets wide would stay a modal.
+    desktop.addEventListener('change', closePanels);
+
+    function updateSearchClear() {
+      searchClearEl.style.display = searchInputEl.value ? '' : 'none';
+    }
+
+    function clearSearch() {
+      const state = readState();
+      delete state.search;
+      searchInputEl.value = '';
+      go(state);
+      searchInputEl.focus();
+    }
+
+    // Starting a search adds a history entry; refining it replaces that entry,
+    // so Back does not walk through every word you typed.
+    function search() {
+      searchPending = false;
+      const value = searchInputEl.value.trim();
+      const current = readState();
+      if (value === (current.search || '')) return;
+      const state = readState();
+      if (value) {
+        state.search = value;
+      } else {
+        delete state.search;
+      }
+      go(state, { replace: Boolean(current.search && value) });
+    }
+
+    let searchTimeout;
+    searchInputEl.addEventListener('input', () => {
+      updateSearchClear();
+      searchPending = true;
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(search, 150);
+    });
+    searchInputEl.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && searchInputEl.value) {
+        clearSearch();
+      }
+    });
+    searchClearEl.addEventListener('click', clearSearch);
+
+    // Lowercase, without accents, and words separated by single spaces.
+    // "Möhlenhoff" becomes "mohlenhoff", and "Nobø" becomes "nobo".
+    function normalizeText(text) {
+      return text
+        .toLowerCase()
+        .replace(/[ßøæœłđþı]/g, letter => SPECIAL_LETTERS[letter])
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^\p{L}\p{N}]+/gu, ' ')
+        .trim();
+    }
+
+    // German also writes ä, ö, and ü as ae, oe, and ue, so "moehlenhoff"
+    // finds Möhlenhoff as well.
+    function germanSpelling(text) {
+      return normalizeText(text.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue'));
+    }
+
+    function prepareSearch(integration) {
+      const title = normalizeText(integration.title);
+      const german = germanSpelling(integration.title);
+      integration.searchTitle = german === title ? title : `${title} ${german}`;
+      integration.searchTitleGerman = german;
+      integration.searchTitleWords = [...new Set(integration.searchTitle.split(' '))];
+      integration.searchDomain = normalizeText(integration.domain);
+      integration.searchCategoryWords = normalizeText(
+        integration.categories
+          .flatMap(category => [CATEGORY_NAMES[category.split('.')[0]], CATEGORY_NAMES[category]])
+          .filter(Boolean)
+          .join(' ')
+      ).split(' ').filter(Boolean);
+      integration.searchExtra = normalizeText(`${integration.iot_class} ${integration.quality_scale}`);
+    }
+
+    // The number of edits (a letter added, removed, changed, or two letters
+    // swapped) between two words, or max + 1 when it is more than max.
+    function editDistance(a, b, max) {
+      if (Math.abs(a.length - b.length) > max) return max + 1;
+      let previous = [];
+      let current = Array.from({ length: b.length + 1 }, (_, j) => j);
+      let beforePrevious = [];
+      for (let i = 1; i <= a.length; i++) {
+        beforePrevious = previous;
+        previous = current;
+        current = [i];
+        let rowMin = i;
+        for (let j = 1; j <= b.length; j++) {
+          const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+          let value = Math.min(previous[j] + 1, current[j - 1] + 1, previous[j - 1] + cost);
+          if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+            value = Math.min(value, beforePrevious[j - 2] + 1);
+          }
+          current[j] = value;
+          rowMin = Math.min(rowMin, value);
+        }
+        if (rowMin > max) return max + 1;
+      }
+      return current[b.length];
+    }
+
+    // How well a word with a typo matches: a whole word beats the start of a
+    // longer word, and fewer edits beat more. The start of a word only counts
+    // when the first letter is right, so "philp" finds Philips, but "sonso"
+    // does not find every sensor. Returns 0 when nothing is close enough.
+    function fuzzyScore(term, words, wholeWord, startOfWord) {
+      if (term.length < 4) return 0;
+      const max = term.length >= 7 ? 2 : 1;
+      let best = 0;
+      for (const word of words) {
+        const distance = editDistance(term, word, max);
+        if (distance <= max) {
+          best = Math.max(best, wholeWord - 5 * distance);
+        } else if (word.length > term.length && word[0] === term[0]) {
+          const prefixDistance = editDistance(term, word.slice(0, term.length), max);
+          if (prefixDistance <= max) {
+            best = Math.max(best, startOfWord - 5 * prefixDistance);
+          }
+        }
+      }
+      return best;
+    }
+
+    // How well an integration matches each word of the search: its name counts
+    // most, then its domain, then its categories. Every word has to match.
+    function scoreTerm(integration, term) {
+      if (integration.searchTitleWords.includes(term)) return 120;
+      if (integration.searchTitleWords.some(word => word.startsWith(term))) return 100;
+      if (integration.searchTitle.includes(term)) return 70;
+      if (integration.searchDomain.includes(term)) return 60;
+      const titleTypo = fuzzyScore(term, integration.searchTitleWords, 55, 40);
+      if (titleTypo) return titleTypo;
+      if (integration.searchCategoryWords.some(word => word.startsWith(term))) return 40;
+      const categoryTypo = fuzzyScore(term, integration.searchCategoryWords, 25, 15);
+      if (categoryTypo) return categoryTypo;
+      if (integration.searchExtra.includes(term)) return 10;
+      return 0;
+    }
+
+    function searchScores(search) {
+      const phrase = normalizeText(search);
+      const terms = phrase.split(' ').filter(Boolean);
+      const scores = new Map();
+      if (!terms.length) return scores;
+      integrations.forEach(integration => {
+        let score = 0;
+        for (const term of terms) {
+          const termScore = scoreTerm(integration, term);
+          if (!termScore) return;
+          score += termScore;
+        }
+        if (integration.searchTitle.startsWith(phrase) || integration.searchTitleGerman.startsWith(phrase)) score += 200;
+        // A small nudge for featured integrations, to break ties.
+        if (integration.featured) score += 3;
+        scores.set(integration, score);
+      });
+      return scores;
+    }
+
+    // Say why nothing shows, and offer only the ways out that apply.
+    function updateEmptyState(state, counts) {
+      const filters = [...QUICK_FILTERS, ...FILTERS].filter(key => state[key] && state[key] !== 'false');
+      const placeName = CATEGORY_NAMES[state.subcategory ? `${state.category}.${state.subcategory}` : state.category];
+      const where = placeName ? ` in ${placeName}` : '';
+      const text = noResultsEl.querySelector('.empty-state-text');
+      if (state.search && filters.length) {
+        text.textContent = `Nothing matches “${state.search}”${where} with these filters.`;
+      } else if (state.search) {
+        text.textContent = `Nothing matches “${state.search}”${where}.`;
+      } else {
+        text.textContent = `No integrations${where} match these filters.`;
+      }
+
+      const show = (action, visible) => {
+        noResultsEl.querySelector(`[data-empty-action="${action}"]`).style.display = visible ? '' : 'none';
+      };
+      // Matches in other categories: point there, best first.
+      const carried = carriedState(state);
+      const elsewhere = state.category
+        ? CATEGORIES.filter(category => counts.get(category.slug))
+          .sort((a, b) => counts.get(b.slug) - counts.get(a.slug))
+          .slice(0, 6)
+        : [];
+      noResultsEl.querySelector('.empty-state-elsewhere').hidden = !elsewhere.length;
+      noResultsEl.querySelector('.empty-state-categories').replaceChildren(...elsewhere.map(category => {
+        const link = document.createElement('a');
+        link.className = 'empty-state-category';
+        link.href = urlFor({ ...carried, category: category.slug });
+        link.textContent = `${category.name} `;
+        const count = document.createElement('span');
+        count.className = 'category-count';
+        count.textContent = counts.get(category.slug).toLocaleString('en-US');
+        link.append(count);
+        followInPage(link);
+        return link;
+      }));
+
+      const everywhere = state.category ? counts.get('') || 0 : 0;
+      show('search', Boolean(state.search));
+      show('everywhere', everywhere > 0);
+      show('filters', filters.length > 0);
+      const everywhereEl = noResultsEl.querySelector('[data-empty-action="everywhere"]');
+      everywhereEl.href = urlFor(carried);
+      everywhereEl.textContent = `Show all ${everywhere.toLocaleString('en-US')} in every category`;
+    }
+
+    // The cards are built once; filters only show, hide, and order them, so
+    // the list updates at once and loaded logos stay loaded.
+    function renderCards() {
+      // Note: Assumes all data has already been sanitized
+      componentContainerEl.innerHTML = integrations.map(component => `
+        <a href="${component.url}" class="option-card">
+          <div class="img-container">${buildImageEl(component)}</div>
+          <div class='title'>${component.title}</div>
+        </a>
+        `).join('\n') + `
+        <div class="empty-state" style="display: none">
+          <iconify-icon icon="mdi:magnify-close"></iconify-icon>
+          <h2>No integrations found</h2>
+          <p class="empty-state-text"></p>
+          <div class="empty-state-elsewhere" hidden>
+            <p>Found in other categories:</p>
+            <div class="empty-state-categories"></div>
+          </div>
+          <div class="empty-state-actions">
+            <button type="button" class="empty-state-action" data-empty-action="search">Clear search</button>
+            <a class="empty-state-action" data-empty-action="everywhere" href="/integrations/">Search all categories</a>
+            <button type="button" class="empty-state-action" data-empty-action="filters">Clear filters</button>
+          </div>
+        </div>`;
+      const cards = componentContainerEl.querySelectorAll('.option-card');
+      integrations.forEach((integration, index) => {
+        integration.card = cards[index];
+      });
+      noResultsEl = componentContainerEl.querySelector('.empty-state');
+      noResultsEl.querySelector('[data-empty-action="search"]').addEventListener('click', clearSearch);
+      followInPage(noResultsEl.querySelector('[data-empty-action="everywhere"]'));
+      noResultsEl.querySelector('[data-empty-action="filters"]').addEventListener('click', () => {
+        const state = readState();
+        go({ category: state.category, subcategory: state.subcategory, search: state.search });
+        searchInputEl.focus();
+      });
+    }
+
+    function buildImageEl(component) {
+      const urlBase = [
+        'https://brands.home-assistant.io',
+        component.ha_brand ? 'brands' : '_',
+        component.domain,
+        'icon'
+      ].join('/');
+
+      return `<img src="${urlBase}.png" srcset="${urlBase}@2x.png 2x" loading="lazy">`;
+    }
+
+    // The URL, the headings, the sidebar, and Back and Forward work right
+    // away. The list follows once the integrations are in.
+    upgradeOldURL();
+    window.addEventListener('popstate', render);
+    render();
+    if (document.activeElement === document.body) {
+      searchInputEl.focus({ preventScroll: true });
+    }
+
+    fetch('/integrations/data.json')
+      .then(response => response.json())
+      .then(data => {
+        integrations = data;
+        init();
+      })
+      .catch(() => {
+        resultsCountEl.textContent = "The integrations couldn't be loaded. Reload the page to try again.";
+      });
+  })();
+</script>
+
+</div>
+</div>
+
+{%- comment -%}
+  Without JavaScript, the category panel can't open on phones, so the
+  categories are listed here too. A category or subcategory page only lists
+  its own integrations.
+{%- endcomment -%}
+<noscript>
+  <nav class="noscript-categories" aria-label="Integration categories">
+    <ul>
+      <li><a href="/integrations/">All integrations</a></li>
+      {%- for category in site.data.integration_categories %}
+      <li><a href="/integrations/category/{{ category.slug }}/">{{ category.name }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  <ul>
+    {%- for component in components -%}
+    {%- if component.ha_categories -%}
+    {%- assign listed = true -%}
+    {%- if current_subcategory -%}
+      {%- assign wanted = current_category.slug | append: '.' | append: current_subcategory.slug -%}
+      {%- assign listed = false -%}
+      {%- if component.ha_categories contains wanted -%}{%- assign listed = true -%}{%- endif -%}
+    {%- elsif current_category -%}
+      {%- assign listed = false -%}
+      {%- for category in component.ha_categories -%}
+        {%- assign parent = category | split: '.' | first -%}
+        {%- if parent == current_category.slug -%}{%- assign listed = true -%}{%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if listed %}
+    <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
+    {%- endif -%}
+    {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</noscript>

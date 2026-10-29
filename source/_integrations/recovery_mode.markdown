@@ -1,13 +1,7 @@
 ---
-title: Recovery mode
 description: How Home Assistant starts in recovery mode when the configuration cannot be loaded.
-ha_category: []
 ha_release: 0.105
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: recovery_mode
-ha_quality_scale: internal
-ha_integration_type: system
 related:
   - docs: /docs/troubleshooting_general/
     title: General troubleshooting

@@ -1,23 +1,7 @@
 ---
-title: Modbus
 description: Instructions on how to manually register Modbus entities and platforms.
-ha_category:
-  - Hub
-  - Modbus
-ha_categories:
-  - diy_makers
 ha_release: pre 0.7
-ha_iot_class: Local Polling
 ha_domain: modbus
-ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - fan
-  - light
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -34,6 +18,10 @@ If no integration supports your device, you can still get to its data by manuall
 ## Setting up Modbus control in Home Assistant
 
 Some devices have a Modbus interface, such as solar inverters, heat pumps, and ventilation units. Home Assistant can read data from these devices and control them.
+
+{% warning %}
+Modbus TCP does not authenticate clients, and it does not encrypt traffic. Another device that can reach the Modbus TCP port can read data and write values the device accepts, without going through Home Assistant. Keep your Modbus TCP devices on a trusted network segment.
+{% endwarning %}
 
 To set up your Modbus device, add the integration for your device. For the steps, refer to [Setting up a device integration that uses Modbus](#setting-up-a-device-integration-that-uses-modbus).
 

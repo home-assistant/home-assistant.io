@@ -1,23 +1,7 @@
 ---
-title: Airthings BLE
 description: Instructions on how to set up Airthings Devices over Bluetooth LE.
-ha_category:
-  - Environment
-  - Health
-  - Sensor
-ha_categories:
-  - sensors.air_quality
 ha_release: '2022.11'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@vincegio'
-  - '@LaStrada'
 ha_domain: airthings_ble
-ha_bluetooth: true
-ha_platforms:
-  - sensor
-ha_config_flow: true
-ha_integration_type: device
 ---
 
 Integrates Airthings BLE {% term sensors %} into Home Assistant.
@@ -75,6 +59,7 @@ Sensor entities added to Home Assistant, depending on the device model:
 - Illuminance
 - Pressure (relative depending on home elevation)
 - Radon 1-day and longterm average, as well as levels
+- Radon 7-day, 30-day, and 1-year average, as well as levels (Corentium Home 2). The 7-day and 30-day sensors are disabled by default.
 - Temperature
 - VOC
 - Co2

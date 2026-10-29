@@ -1,0 +1,17 @@
+{
+  "domain": "imap",
+  "name": "IMAP",
+  "integration_type": "service",
+  "codeowners": [
+    "@jbouwh"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "messaging_notifications.email_sms_calls"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

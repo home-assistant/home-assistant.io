@@ -24,7 +24,7 @@ Screenshot of the history graph card, when the sensor has no `unit_of_measuremen
 Screenshot of the history graph card, when the sensor has a `unit_of_measurement` defined.
 </p>
 
-Only the y-axis and logarithmic scale settings can be configured via the user interface. To configure the other options for this card, you need to edit the YAML configuration.
+You can configure all options for this card in the card editor. To choose where entity names appear, turn on **Show entity names**. Then, under **Label position**, select **Beside the graph** or **Below each bar**. **Label position** appears only when at least one entity is shown as bars.
 
 {% include dashboard/edit_dashboard.md %}
 
@@ -55,6 +55,11 @@ show_names:
   description: If false, no entity names are shown in the card.
   type: boolean
   default: true
+label_position:
+  required: false
+  description: "Position of the entity names in timeline graphs. Can be `side` or `below`. With `side`, names are shown in a column next to the timeline. With `below`, each name is shown under its bar, like in the **History** panel, and each row takes more space. If you [resized the card](/dashboards/cards/#resizing-a-card), you might need to give it more rows. Has no effect when `show_names` is `false`."
+  type: string
+  default: side
 logarithmic_scale:
   required: false
   description: If true, numerical values on the Y-axis will be displayed with a logarithmic scale.

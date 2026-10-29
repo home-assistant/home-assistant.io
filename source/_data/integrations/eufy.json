@@ -1,0 +1,14 @@
+{
+  "domain": "eufy",
+  "name": "EufyHome",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "lighting.bulbs_lamps",
+    "plugs_switches"
+  ],
+  "platforms": [
+    "light",
+    "switch"
+  ]
+}
