@@ -143,7 +143,7 @@ To disable or enable several entities at once, follow these steps:
 Home Assistant generates entity IDs for new entities from the parts you include in the entity ID format, such as the floor, area, parent device, device, and entity name.
 For example, a temperature sensor on a thermostat in the living room might have the entity ID `sensor.living_room_thermostat_temperature`.
 By default, the format uses the area, parent device, device, and entity name, in that order.
-For more information about parent devices, refer to [About parent devices and sub-devices](#about-parent-devices-and-sub-devices).
+For more information about parent devices, refer to [Parent and child devices](#parent-and-child-devices).
 Parts without a value are left out.
 To get the most out of the default entity ID format, check the [recommendations on entity naming and related elements](#recommendations-on-entity-naming-and-related-elements).
 
@@ -167,12 +167,12 @@ When you recreate the entity IDs for a device, Home Assistant will use the new f
 
 If your entity is not supported, or you could not customize what you need via the user interface, you need to edit the settings in your {% term "`configuration.yaml`" %} file. For a detailed description of the entity configuration variables and [device class](/integrations/homeassistant/#device-class) information, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).
 
-## About parent devices and sub-devices
+## Parent and child devices
 
-Some devices are made up of smaller parts that each act like a device of their own. For example, a power strip can show each of its outlets as a separate device. In Home Assistant, the power strip is the _parent device_, and each outlet is a _sub-device_ with its own entities, such as the power use of that outlet.
+Some devices are made up of smaller parts that each act like a device of their own. For example, a power strip can show each of its outlets as a separate device. In Home Assistant, the power strip is the _parent device_, and each outlet is a _child device_ with its own entities, such as the power use of that outlet.
 
-Whether a device has sub-devices is decided by the integration that provides it. You can't add or change this yourself.
+Whether a device has child devices is decided by the integration that provides it. You can't add or change this yourself.
 
-You can see which devices belong together in several places, for example, on the page of a parent device, which lists its sub-devices, and on the page of a sub-device, which shows the device it is part of.
+You can see which devices belong together in several places, for example, on the page of a parent device, which lists its child devices, and on the page of a child device, which shows the device it is part of.
 
 By default, new entity IDs include the name of the parent device. For more information, refer to [Changing the entity ID format for new entities](#changing-the-entity-id-format-for-new-entities).
