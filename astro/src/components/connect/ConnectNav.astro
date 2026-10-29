@@ -1,7 +1,7 @@
 ---
 // Product bar of a Connect product page: the product name, links to
 // the page's sections and a Buy button. Below the desk width the links
-// and the button fold into a menu behind a round button.
+// fold into a menu behind a round button; the Buy button stays.
 //
 // Built from the "Nav Bar" in the Figma file "Connect AUX-2" (desktop
 // node 2310:3582, mobile node 2095:7326). Its look and behavior are the
@@ -43,6 +43,8 @@
 //   - It folds below the Connect desk breakpoint (992px) rather than
 //     1025px, as the rest of the page switches layout there.
 //   - Choosing a link in the open menu closes it.
+//   - The Buy button stays in the bar on phones, left of the menu
+//     button, with a smaller product name to make room.
 import Button from "../Button.astro";
 
 interface Link {
@@ -100,13 +102,15 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
           ))
         }
       </ul>
-      <Button
-        href={buyHref}
-        scheme="connect-line"
-        data-buy-dialog
-        data-buy-context="navbar">Buy now</Button
-      >
     </div>
+
+    <Button
+      href={buyHref}
+      scheme="connect-line"
+      class="buy"
+      data-buy-dialog
+      data-buy-context="navbar">Buy now</Button
+    >
   </div>
 </nav>
 
@@ -222,9 +226,9 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
   .name {
     color: var(--nav-text);
     font-family: var(--font-heading);
-    font-size: var(--font-size-xxlarge);
+    font-size: var(--font-size-xlarge);
     line-height: 1.2;
-    margin: 0;
+    margin: 0 auto 0 0;
     transition: color 0.3s ease-out;
 
     /* Two lines on phones, one from the desk width. */
@@ -249,6 +253,13 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
     width: 0;
   }
 
+  /* Left of the menu button on phones. It follows the menu in the
+     page so that from the desk width it sits after the links. */
+  .bar :global(.buy) {
+    flex: none;
+    order: 1;
+  }
+
   .menu-button {
     align-items: center;
     background: var(--color-connect-line);
@@ -259,6 +270,8 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
     flex: none;
     height: 2rem;
     justify-content: center;
+    margin-left: calc(var(--space-small) - var(--space-large));
+    order: 2;
     user-select: none;
     width: 2rem;
 
@@ -447,6 +460,12 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
     .links {
       flex-direction: row;
       gap: var(--space-xlarge);
+    }
+
+    /* After the links, an extra-extra-large space from them. */
+    .bar :global(.buy) {
+      margin-left: calc(var(--space-xxlarge) - var(--space-large));
+      order: 0;
     }
   }
 </style>
