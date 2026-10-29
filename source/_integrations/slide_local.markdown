@@ -1,22 +1,7 @@
 ---
-title: Slide Local
 description: Instructions on how to integrate the Innovation in Motion Slide covers with Home Assistant.
-ha_category:
-  - Cover
-ha_iot_class: Local Polling
 ha_release: 2025.1
-ha_config_flow: true
-ha_codeowners:
-  - '@dontinelli'
 ha_domain: slide_local
-ha_platforms:
-  - button
-  - cover
-  - diagnostics
-  - switch
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: gold
 ---
 
 The **Slide Local** {% term integration %} allows you to integrate your [Slide](https://slide.store/) devices in Home Assistant using the local API.
@@ -34,7 +19,7 @@ Before you can use the integration, you have to make sure the slide is configure
 LED flashes 5x fast: cloud API disabled, local API enabled
 LED flashes 2x slow: local API disabled, cloud API enabled
 
-![screenshot slide bottom](/images/integrations/slide_local/slide_bottom.png)
+![screenshot slide bottom](/images/integrations/slide_local/slide-bottom.png)
 
 {% include integrations/config_flow.md %}
 

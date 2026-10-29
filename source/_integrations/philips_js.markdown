@@ -1,26 +1,7 @@
 ---
-title: Philips TV
 description: Instructions on how to add Philips TVs to Home Assistant.
-ha_category:
-  - Binary sensor
-  - Light
-  - Media player
-  - Remote
-ha_iot_class: Local Polling
 ha_release: 0.34
-ha_codeowners:
-  - '@elupus'
 ha_domain: philips_js
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - light
-  - media_player
-  - remote
-  - switch
-ha_integration_type: device
-ha_zeroconf: true
 ---
 
 The **Philips TV** {% term integration %} allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.

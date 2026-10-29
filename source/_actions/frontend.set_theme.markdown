@@ -19,7 +19,7 @@ To set the theme from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Set theme**.
+5. Search for and select **Home Assistant frontend: Set theme**.
 6. Select the **Theme** to use, and optionally a **Dark theme override**.
 7. Select **Save**.
 
@@ -116,8 +116,11 @@ automation: |
 
 Set both a light-mode theme and a dark-mode override whenever Home Assistant starts, so every user and device falls back to your preferred look.
 
-- **Trigger**: Home Assistant starts
-- **Action**: Set theme, with both a theme and a dark theme override
+- **Trigger**: Home Assistant
+  - **Event**: Start
+- **Action**: Home Assistant frontend: Set theme
+  - **Theme**: `HA Light`
+  - **Dark theme override**: `HA Dark`
 
 {% details "Show example YAML" %}
 

@@ -36,7 +36,13 @@ module Jekyll
         domain = doc.data['ha_domain']
         next unless domain
 
-        integration_titles[domain] ||= doc.data['title'] || domain
+        # Prefer the main integration page (for example, mqtt.markdown) over
+        # platform pages that share its domain (for example,
+        # alarm_control_panel.mqtt.markdown).
+        is_main_integration_page = File.basename(doc.path, File.extname(doc.path)) == domain
+        if is_main_integration_page || !integration_titles.key?(domain)
+          integration_titles[domain] = doc.data['title'] || domain
+        end
       end
 
       KINDS.each do |collection_name, kind|

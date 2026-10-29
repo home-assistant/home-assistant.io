@@ -22,7 +22,7 @@ To decrement a counter from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the counter you want to decrease.
-6. From the actions shown for that target, select **Decrement counter**.
+6. From the actions shown for that target, under **Counter**, select **Decrement counter**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -61,8 +61,10 @@ This action has no additional YAML options beyond the target.
 
 Decrease a counter each time something is used, for example to keep track of how many dishwasher tablets you have left.
 
-- **Trigger**: Dishwasher finishes a cycle
-- **Action**: Decrement counter
+- **Trigger**: State changed
+  - **Entity**: Dishwasher sensor
+  - **To**: Finished
+- **Action**: Counter: Decrement counter
   - **Target**: Dishwasher tablets
 
 {% details "Show example YAML" %}

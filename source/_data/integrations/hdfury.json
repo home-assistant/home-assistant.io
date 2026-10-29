@@ -1,0 +1,25 @@
+{
+  "domain": "hdfury",
+  "name": "HDFury",
+  "integration_type": "device",
+  "codeowners": [
+    "@glenndehaan"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "button",
+    "diagnostics",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

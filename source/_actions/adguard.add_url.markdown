@@ -10,7 +10,7 @@ related_actions:
   - adguard.refresh
 ---
 
-The **Add URL** action subscribes AdGuard Home to a new filter list. AdGuard Home downloads the rules from the URL you provide and starts blocking the domains on that list.
+The **AdGuard Home: Add URL** action subscribes AdGuard Home to a new filter list. AdGuard Home downloads the rules from the URL you provide and starts blocking the domains on that list.
 
 This is handy when you want to bring an extra blocklist online only when you need it, for example a stricter list during exam week or a seasonal list around the holidays, instead of adding it by hand in the AdGuard Home interface.
 
@@ -81,7 +81,9 @@ url:
 
 When study time starts, subscribe to an extra blocklist and refresh AdGuard Home so the rules take effect right away.
 
-- **Trigger**: A study-time helper turns on
+- **Trigger**: State changed
+  - **Entity**: Study time helper
+  - **To**: On
 - **Action**: AdGuard Home: Add URL, followed by AdGuard Home: Refresh
 
 {% details "YAML example for adding a blocklist during study time" %}

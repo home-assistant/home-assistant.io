@@ -1,24 +1,7 @@
 ---
-title: Cambridge Audio
 description: Instructions on how to integrate Cambridge Audio Receivers into Home Assistant.
-ha_category:
-  - Media player
-  - Select
 ha_release: '2024.10'
-ha_iot_class: Local Push
 ha_domain: cambridge_audio
-ha_platforms:
-  - diagnostics
-  - media_player
-  - number
-  - select
-  - switch
-ha_codeowners:
-  - '@noahhusby'
-ha_config_flow: true
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: platinum
 ---
 
 The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the [StreamMagic](https://www.cambridgeaudio.com/usa/en/products/streammagic) app.

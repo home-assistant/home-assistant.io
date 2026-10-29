@@ -11,7 +11,7 @@ related_actions:
   - hdmi_cec.volume
 ---
 
-The **Standby** action puts every device on the HDMI-CEC bus that supports it into standby. It sends a single command that your TV, AV receiver, and other connected devices act on together.
+The **HDMI-CEC: Standby** action puts every device on the HDMI-CEC bus that supports it into standby. It sends a single command that your TV, AV receiver, and other connected devices act on together.
 
 This is the natural counterpart to [Power on](/actions/hdmi_cec.power_on/). Use it to switch off your screen and sound system in one step when you leave the room or head to bed.
 

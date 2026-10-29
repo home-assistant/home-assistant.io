@@ -1,5 +1,5 @@
 ---
-title: "Set primary filtration"
+title: "Update primary filtration settings"
 action: smarttub.set_primary_filtration
 domain: smarttub
 description: "Updates the primary filtration cycle settings on a hot tub."

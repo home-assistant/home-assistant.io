@@ -1,21 +1,7 @@
 ---
-title: Onkyo
 description: Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant.
-ha_category:
-  - Media player
-ha_codeowners:
-  - '@arturpragacz'
-  - '@eclair4151'
-ha_config_flow: true
 ha_domain: onkyo
-ha_integration_type: device
-ha_iot_class: Local Push
-ha_platforms:
-  - media_player
-  - switch
 ha_release: 0.17
-ha_ssdp: true
-ha_quality_scale: bronze
 ---
 
 The **Onkyo** {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.

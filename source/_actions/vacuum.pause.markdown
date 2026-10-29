@@ -1,5 +1,5 @@
 ---
-title: Pause cleaning
+title: "Pause vacuum cleaner"
 action: vacuum.pause
 domain: vacuum
 description: "Pauses the current cleaning task on a vacuum."
@@ -34,8 +34,6 @@ The `entity_id` target is optional. If omitted, all connected vacuums will pause
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum, area, or device to pause.
@@ -57,9 +55,11 @@ target:
 
 If the vacuum is running near the front door, a visitor can be hard to hear. This automation pauses the robot when the doorbell is pressed.
 
-- **Trigger**: Doorbell pressed
-- **Action**: Pause cleaning
-- **Target**: Hallway vacuum
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
+- **Action**: Pause vacuum cleaner
+  - **Target**: Hallway vacuum
 
 {% details "YAML example for pausing a vacuum on doorbell press" %}
 

@@ -1,52 +1,7 @@
 ---
-title: Tuya
 description: Instructions on how to set up the Tuya hub within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Climate
-  - Cover
-  - Doorbell
-  - Event
-  - Fan
-  - Humidifier
-  - Light
-  - Number
-  - Scene
-  - Select
-  - Siren
-  - Switch
-  - Vacuum
-  - Valve
-ha_iot_class: Cloud Push
 ha_release: 0.74
-ha_config_flow: true
 ha_domain: tuya
-ha_codeowners:
-  - '@Tuya'
-  - '@zlinoliver'
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - number
-  - scene
-  - select
-  - sensor
-  - siren
-  - switch
-  - vacuum
-  - valve
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 The **Tuya** {% term integration %} integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.

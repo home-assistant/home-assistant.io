@@ -5,7 +5,7 @@ domain: switchbot
 description: "Adds a password to a SwitchBot Keypad Vision device."
 ---
 
-The **Add password** action adds a password to a SwitchBot Keypad Vision device. After you add it, the password can be used to unlock the linked device on the keypad.
+The **SwitchBot Bluetooth: Add password** action adds a password to a SwitchBot Keypad Vision device. After you add it, the password can be used to unlock the linked device on the keypad.
 
 The password must be 6 to 12 digits long.
 
@@ -17,7 +17,7 @@ To add a password from an automation or a script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **SwitchBot: Add password**.
+5. From the search box, search for and select **SwitchBot Bluetooth: Add password**.
 6. Select the **Device** and enter the **Password**.
 7. Select **Save**.
 

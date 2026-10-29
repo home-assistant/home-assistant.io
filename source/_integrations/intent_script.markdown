@@ -1,14 +1,7 @@
 ---
-title: Intent Script
 description: Instructions on how to set up scripts to run on intents.
-ha_category:
-  - Intent
 ha_release: '0.50'
-ha_quality_scale: internal
 ha_domain: intent_script
-ha_integration_type: integration
-ha_codeowners:
-  - '@arturpragacz'
 ---
 
 The **Intent Script** integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo) and [Dialogflow](/integrations/dialogflow/) (Google Assistant). Internally they can be fired by [custom sentences](/voice_control/custom_sentences_yaml/).
@@ -54,7 +47,7 @@ intent:
       default: false
       type: boolean
     mode:
-      description: The [script mode](/integrations/script/#script-modes) in which to run the intent script. Use this to define if the intent should be able to run multiple times in parallel.
+      description: The [script mode](/docs/script/#script-modes) in which to run the intent script. Use this to define if the intent should be able to run multiple times in parallel.
       required: false
       default: single
       type: string

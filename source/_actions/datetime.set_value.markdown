@@ -1,5 +1,5 @@
 ---
-title: "Set date/time value"
+title: "Set date/time"
 action: datetime.set_value
 domain: datetime
 description: "Sets the value of a date/time entity."
@@ -66,7 +66,7 @@ datetime:
 
 Update a date/time entity to a fixed moment, for example to record the next planned departure.
 
-- **Trigger**: State: Work mode turns on
+- **Trigger**: State changed: Work mode turns on
 - **Action**: Set date/time
   - **Target**: Next departure
   - **Date & time**: A moment of your choosing

@@ -1,5 +1,5 @@
 ---
-title: Stop hub
+title: "Stop"
 action: modbus.stop
 domain: modbus
 description: "Stops a Modbus hub and closes its connection."
@@ -9,7 +9,7 @@ related_actions:
   - modbus.write_coil
 ---
 
-The **Stop hub** action stops a Modbus hub and closes its connection to your hardware. Use it when you need to release the connection, for example before another application takes over the serial port or network connection.
+The **Modbus: Stop** action stops a Modbus hub and closes its connection to your hardware. Use it when you need to release the connection, for example before another application takes over the serial port or network connection.
 
 {% include actions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Modbus: Stop hub**.
+5. From the search box, search for and select **Modbus: Stop**.
 6. Enter the name of the hub you want to stop.
 7. Select **Save**.
 

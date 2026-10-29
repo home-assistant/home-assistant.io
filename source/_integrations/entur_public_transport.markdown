@@ -1,18 +1,7 @@
 ---
-title: Entur
 description: Instructions for how to set up monitoring of public transport departures in Norway.
-ha_category:
-  - Transport
 ha_release: 0.84
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@hfurubotten'
-  - '@SanderBlom'
 ha_domain: entur_public_transport
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_quality_scale: legacy
 ---
 
 The **Entur** {% term integration %} gives real-time departure information for the next departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway.

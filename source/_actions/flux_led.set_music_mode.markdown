@@ -8,7 +8,7 @@ related_actions:
   - flux_led.set_zones
 ---
 
-The **Set music mode** action turns on music mode on Magic Home lights that have a built-in microphone, so the light reacts to sound. It is supported on Controller RGB with MIC (0x08), Addressable v2 (0xA2), and Addressable v3 (0xA3) devices.
+The **Magic Home: Set music mode** action turns on music mode on Magic Home lights that have a built-in microphone, so the light reacts to sound. It is supported on Controller RGB with MIC (0x08), Addressable v2 (0xA2), and Addressable v3 (0xA3) devices.
 
 You can tune how sensitive the microphone is, set the brightness, and pick the foreground and background colors the effect uses.
 
@@ -112,7 +112,8 @@ background_color:
 
 When a party scene is activated, enable music mode at moderate sensitivity and brightness rather than full power, so the lights react to music without running at maximum draw the entire evening.
 
-- **Trigger**: Scene activated (`scene.party`)
+- **Trigger**: State changed
+  - **Entity**: Party scene
 - **Action**: Magic Home: Set music mode
 
 {% details "YAML example for activating music mode using moderate settings" %}

@@ -1,0 +1,7 @@
+// The three widths the site has always used
+// (sass/inuitcss/_defaults.scss: 481px, 1140px, 1280px), in rem and
+// rounded to whole values. Media queries cannot read custom
+// properties, so breakpoints are SCSS variables rather than tokens.
+$lap: 30rem;
+$desk: 71.25rem;
+$desk-wide: 80rem;

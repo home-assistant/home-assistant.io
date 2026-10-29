@@ -1,16 +1,7 @@
 ---
-title: Manual Alarm control panel
 description: Instructions on how to integrate manual alarms into Home Assistant.
-ha_category:
-  - Alarm
-  - Helper
 ha_release: 0.7.6
-ha_quality_scale: internal
 ha_domain: manual
-ha_iot_class: Calculated
-ha_platforms:
-  - alarm_control_panel
-ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -117,7 +108,7 @@ Example automation trigger:
 automation:
   - alias: "Notify on invalid manual alarm code attempt"
     trigger:
-      - platform: event
+      - trigger: event
         event_type: manual_alarm_bad_code_attempt
     actions:
       - action: notify.your_notification_service # Replace with your actual notification service

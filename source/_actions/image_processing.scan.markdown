@@ -1,5 +1,5 @@
 ---
-title: "Scan image"
+title: "Scan"
 action: image_processing.scan
 domain: image_processing
 description: "Processes an image from a camera right away."

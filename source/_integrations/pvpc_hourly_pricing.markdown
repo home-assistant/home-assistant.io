@@ -1,18 +1,7 @@
 ---
-title: Spain electricity hourly pricing (PVPC)
 description: Instructions on how to set up the PVPC Hourly Pricing sensor in Home Assistant.
-ha_category:
-  - Energy
 ha_release: '0.108'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@azogue'
-  - '@chiro79'
 ha_domain: pvpc_hourly_pricing
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 This {% term integration %} uses the official API to get the hourly price of electricity in Spain from <https://www.esios.ree.es/en/pvpc>.

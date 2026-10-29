@@ -74,7 +74,7 @@ pgm:
 
 Trigger a PGM output to activate an auxiliary output wired to your panel, for example a relay that opens a gate, when an input boolean is turned on.
 
-- **Trigger**: State: Gate button turns on
+- **Trigger**: State changed: Gate button turns on
 - **Action**: Envisalink: Invoke custom function
   - **Partition**: `1`
   - **PGM**: `2`

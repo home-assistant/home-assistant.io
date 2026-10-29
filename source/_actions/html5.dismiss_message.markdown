@@ -9,7 +9,7 @@ related_actions:
   - notify.send_message
 ---
 
-The **Dismiss message** action removes messages previously delivered via HTML5 Push Notifications.
+The **HTML5 Push Notifications: Dismiss message** action removes messages previously delivered via HTML5 Push Notifications.
 
 {% include actions/ui_header.md %}
 

@@ -1,32 +1,7 @@
 ---
-title: Huawei LTE
 description: Instructions on how to integrate Huawei LTE router and modem devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Network
-  - Notifications
-  - Presence detection
-  - Select
-  - Sensor
-  - Switch
 ha_release: 0.79
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@fphammerle'
 ha_domain: huawei_lte
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - notify
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **Huawei LTE** router and modem {% term integration %} for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/routers/).
@@ -68,7 +43,7 @@ enabled by default:
 - mobile connection binary sensor
 - device tracker entries
 
-The rest are added to the entity registry, but disabled by default.
+The rest are added to the entity registry, but [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 Support for different categories of information and thus available
 entities varies by device model and firmware version.

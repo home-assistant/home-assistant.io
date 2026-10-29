@@ -1,0 +1,11 @@
+{
+  "domain": "homeassistant_green",
+  "name": "Home Assistant Green",
+  "integration_type": "hardware",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ]
+}

@@ -1,24 +1,7 @@
 ---
-title: Jellyfin
 description: Instructions on how to integrate the Jellyfin integration into Home Assistant.
-ha_category:
-  - Media player
-  - Media source
-  - Remote
-  - Sensor
 ha_release: '2021.12'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@RunC0deRun'
-  - '@ctalkington'
-ha_config_flow: true
 ha_domain: jellyfin
-ha_platforms:
-  - diagnostics
-  - media_player
-  - remote
-  - sensor
-ha_integration_type: service
 ---
 
 The **Jellyfin** {% term integration %} exposes a [Jellyfin](https://jellyfin.org/) server as a media source in Home Assistant. This integration has been tested with Jellyfin server version 10.6.4 and later.
@@ -97,7 +80,7 @@ The following examples show actions you can add to an automation or script to pl
 
 Play a movie on a Jellyfin client that supports playback.
 
-- **Action**: Play media
+- **Action**: Play specified media
   - **Target**: Living room (`media_player.living_room`)
   - **Media content ID**: `a982a31451450daeda02c89952e6d7cf`
   - **Media content type**: `movie`
@@ -120,11 +103,11 @@ action: |
 
 Add a TV episode to play next on a Jellyfin client.
 
-- **Action**: Play media
+- **Action**: Play specified media
   - **Target**: Living room (`media_player.living_room`)
   - **Media content ID**: `5ae55567cae75c26671a0a6b027bdd5b`
   - **Media content type**: `episode`
-  - **Enqueue**: `next`
+  - **Enqueue**: Play next
 
 {% details "YAML example for queueing an episode" %}
 

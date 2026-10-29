@@ -9,7 +9,7 @@ related_actions:
 
 Use this action to create a quick local backup of your Home Assistant instance. It always includes your Home Assistant configuration and the database, and saves the backup to local storage.
 
-This action is meant for simple, no-setup backups. If you want control over what goes into the backup, where it is stored, or whether it is protected with a password, configure [automatic backups](/common-tasks/general/#setting-up-an-automatic-backup-process) and use the [Create automatic backup](/actions/backup.create_automatic/) action instead.
+This action is meant for simple, no-setup backups. If you want control over what goes into the backup, where it is stored, or whether it is protected with a password, configure [automatic backups](/common-tasks/general/backups/#setting-up-an-automatic-backup-process) and use the [Create automatic backup](/actions/backup.create_automatic/) action instead.
 
 This action is only available on [core and container installations](/installation/#about-installation-types). On Home Assistant Operating System and supervised installations, use [Create automatic backup](/actions/backup.create_automatic/).
 
@@ -21,7 +21,7 @@ To create a backup from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Create backup**.
+5. Search for and select **Backup: Create backup**.
 6. Select **Save**.
 
 ### Options in the UI
@@ -56,8 +56,9 @@ This action has no options.
 
 Add a button to your dashboard that creates a local backup whenever you select it, for example just before you try out a configuration change.
 
-- **Trigger**: An input button is pressed
-- **Action**: Create backup
+- **Trigger**: State changed
+  - **Entity**: Create backup helper
+- **Action**: Backup: Create backup
 
 {% details "Show example YAML" %}
 
@@ -78,7 +79,7 @@ automation: |
 Keep a recent local copy by creating a backup at the same time every night.
 
 - **Trigger**: Time: 03:00
-- **Action**: Create backup
+- **Action**: Backup: Create backup
 
 {% details "Show example YAML" %}
 

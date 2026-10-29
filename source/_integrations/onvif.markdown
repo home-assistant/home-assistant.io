@@ -1,23 +1,7 @@
 ---
-title: ONVIF
 description: Instructions on how to integrate a ONVIF camera within Home Assistant.
-ha_category:
-  - Camera
 ha_release: 0.47
-ha_iot_class: Local Push
 ha_domain: onvif
-ha_codeowners:
-  - '@jterrace'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: device
-ha_dhcp: true
 ---
 
 The **ONVIF** {% term integration %} allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` integration](/integrations/ffmpeg/) to be already configured.

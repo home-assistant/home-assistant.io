@@ -97,7 +97,11 @@ The predefined **Activity** dashboard is powered by the [Activity integration](/
 
 ### Map dashboard
 
-The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/). You can edit this dashboard like any other dashboard. For example, you can edit the [view](/dashboards/views/) to use the **Sidebar** instead of the default **Panel** view type if you like.
+The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/). On top of the map, you can see your [people, devices, and zones](/dashboards/map/#people-devices-and-zones-in-a-panel-view), and their recent activity.
+
+You can edit this dashboard like any other dashboard. For example, you can edit the [view](/dashboards/views/) to use the **Sidebar** instead of the default **Panel** view type if you like. The **People**, **Devices**, and **Zones** tabs are only available in the **Panel** view type, so they are no longer shown when you switch. To change the look of the map, such as its **Map style**, edit the map card and expand **Appearance**.
+
+The base map comes from the [Map tiles](/integrations/map_tiles/) integration, which needs no setup. If you want another map, for example with other entities or settings, you can [create a new dashboard](#creating-a-new-dashboard) from the **Map** template.
 
 #### Maps and presence detection
 
@@ -210,6 +214,21 @@ This will leave the default dashboard intact.
 
    ![Screenshot of the undo and redo buttons on top of the dashboard](/images/dashboards/dashboard-undo-redo.png)
 
+## Setting a background for a dashboard
+
+You can set a background image for a whole dashboard. The background is shown behind all views of the dashboard, unless a view has a [background of its own](/dashboards/views/#background).
+
+1. Open the dashboard. In the top right of the screen, select **Edit dashboard** {% icon "mdi:pencil" %}.
+   - On a narrow screen, such as a phone, this option might be under **Menu** {% icon "mdi:dots-vertical" %}.
+2. Next to the dashboard title, select **Edit title** {% icon "mdi:pencil" %}.
+   - Result: A dialog opens with the settings of the dashboard.
+3. Open the **Background** tab.
+4. Select the **Background image**, and adjust the other background settings, such as the opacity and size, if needed.
+   - The settings are the same as for a view. For a description of each setting, refer to [view-specific background settings](/dashboards/views/#view-specific-background-settings).
+5. Select **Update**.
+
+The **Background** tab is not available for [YAML dashboards](#adding-yaml-dashboards) and for dashboards that are still generated automatically. To set a background for a generated dashboard, [take control](#editing-a-new-dashboard) of it first.
+
 ## Deleting a dashboard
 
 If you do not use one of the predefined dashboards, or created a dashboard you no longer need, you can delete that dashboard. It will then no longer show in the sidebar.
@@ -295,7 +314,7 @@ resource_mode:
   default: storage
 resources:
   required: false
-  description: "List of resources that should be loaded. Requires `resource_mode: yaml` to take effect. After changing the YAML configuration, select the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and select **Reload resources** to pick up changes without restarting Home Assistant. You can also call the `lovelace.reload_resources` action directly."
+  description: "List of resources that should be loaded. Requires `resource_mode: yaml` to take effect. After changing the YAML configuration, select the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and select **Reload resources** to pick up changes without restarting Home Assistant. You can also use the [Reload dashboard resources](/actions/lovelace.reload_resources/) action."
   type: list
   keys:
     url:
@@ -338,6 +357,27 @@ dashboards:
       type: boolean
       default: false
 {% endconfiguration %}
+
+You can also add YAML dashboards when your main dashboard is configured in the UI:
+
+```yaml
+lovelace:
+  mode: storage
+  # Add YAML dashboards
+  dashboards:
+    yaml-dashboard: # Needs to contain a hyphen (-)
+      mode: yaml
+      title: YAML
+      icon: mdi:script
+      show_in_sidebar: true
+      filename: yaml-dashboard.yaml
+```
+
+### Refreshing a YAML dashboard
+
+After changing the YAML file of a dashboard that uses `mode: yaml`, or a file it loads with `!include`, open the dashboard, select the three dots {% icon "mdi:dots-vertical" %} menu (top-right), and select **Refresh** to reload its configuration. Reloading the page in your browser does not always pick up these changes.
+
+This is different from **Reload resources**, which reloads the Lovelace resources (JavaScript and CSS) configured under `resources:`.
 
 As a super minimal example of a dashboard config, here's the bare minimum you will need for it to work:
 

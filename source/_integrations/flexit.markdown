@@ -1,20 +1,7 @@
 ---
-title: Flexit
 description: Instructions on how to integrate a Flexit air handling unit into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
 ha_release: 0.47
-ha_iot_class: Local Polling
 ha_domain: flexit
-ha_platforms:
-  - binary_sensor
-  - climate
-ha_integration_type: device
-ha_quality_scale: legacy
-ha_codeowners:
-  - '@troelde'
-ha_config_flow: true
 ---
 
 The **Flexit** {% term integration %} connects [Flexit](https://www.flexit.no/en/) air handling units equipped with a CI66 Modbus adapter to Home Assistant.
@@ -40,7 +27,7 @@ Host:
 Port:
   description: "The port of your Flexit CI66 Modbus bridge. Defaults to `502`. Only shown for a network connection."
 Unit ID:
-  description: "The Modbus unit ID of your Flexit unit. Enter a value from `1` through `32`."
+  description: "The Modbus unit ID of your Flexit unit. Enter a value from `1` through `31`."
 {% endconfiguration_basic %}
 
 {% note %}
@@ -69,6 +56,16 @@ The following binary sensors are categorized as diagnostic entities:
 
 - **Filter alarm**: Indicates whether the unit needs a filter replacement.
 - **Electric heater enabled**: Indicates whether the electric heater is enabled.
+
+### Sensors
+
+The following sensors are categorized as diagnostic entities:
+
+- **Air filter operating time**: The number of hours the current air filter has been in use.
+- **Heat exchanger regulation**: The current regulation level of the heat exchanger.
+- **Electric heater regulation**: The current regulation level of the electric heater.
+- **Cooling regulation**: The current regulation level of the cooling function.
+- **Outdoor air temperature**: The temperature of the air entering the unit from outside.
 
 ## Data updates
 

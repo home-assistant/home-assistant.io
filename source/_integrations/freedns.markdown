@@ -1,13 +1,7 @@
 ---
-title: FreeDNS
 description: Keep your DNS record up to date with FreeDNS.
-ha_category:
-  - Network
-ha_iot_class: Cloud Push
 ha_release: 0.67
 ha_domain: freedns
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 With the **FreeDNS** {% term integration %} you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.

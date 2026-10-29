@@ -26,6 +26,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower starts returning, **First** to fire only when the first targeted mower starts returning, or **All** to fire only after every targeted mower has started returning.
+  required: false
 For at least:
   description: How long the mower must stay in the returning state before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}
@@ -45,8 +46,6 @@ This fires when `lawn_mower.backyard` starts heading back to the dock.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -58,9 +57,9 @@ behavior:
 for:
   description: >
     How long the mower must stay in the returning state before the trigger
-    fires. Accepts a duration like `00:01:00` for one minute.
+    fires. Accepts a duration like `00:01:00` for one minute. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

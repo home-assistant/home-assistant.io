@@ -1,14 +1,7 @@
 ---
-title: Power
 description: This integration provides power automation triggers and conditions.
-ha_category:
-  - Automation
 ha_release: 2026.4
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: power
-ha_integration_type: system
 ---
 
 This {% term integration %} provides automation triggers and conditions for entities with the power device class, like sensors and number entities. Use it when you want to react to how much power a device or circuit is using right now. There are no configuration options for this integration.

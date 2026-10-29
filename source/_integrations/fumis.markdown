@@ -1,25 +1,7 @@
 ---
-title: Fumis
 description: Instructions on how to integrate your Fumis-based pellet stove with Home Assistant.
 ha_release: 2026.5
-ha_category:
-  - Climate
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: fumis
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - number
-  - sensor
-  - switch
-ha_codeowners:
-  - '@frenck'
-ha_integration_type: device
-ha_quality_scale: platinum
-ha_dhcp: true
 ---
 
 The **Fumis** {% term integration %} connects your pellet stove to Home Assistant through the Fumis online service. Fumis, by [ATech Electronics](https://www.atech.si/) in Slovenia, makes the combustion controllers found in pellet stoves from many different manufacturers. The Fumis WiRCU Wi-Fi module connects your stove to the internet, making it possible to monitor and control your stove from anywhere.
@@ -36,7 +18,7 @@ Any pellet stove, pellet boiler, or hybrid wood and pellet stove equipped with a
   - [Clou Duo](https://www.austroflamm.com/en/our-stoves/hybrid-stoves/clou-duo-170) (hybrid wood and pellet stove)
   - [MO DUO](https://www.austroflamm.com/en/our-stoves/hybrid-stoves/mo-duo-pellet-67666) (hybrid wood and pellet stove)
   - Polly 2.0 (pellet stove)
-- [Eco Spar](https://ecospar.com.mk/)
+- [EcoSpar](https://ecospar.com.mk/)
   - [Auriga](https://ecospar.com.mk/product/aurega/) (pellet boiler)
   - Solara (pellet stove)
   - Tukana (pellet stove)
@@ -111,7 +93,7 @@ The integration provides sensors that give you insight into your stove's operati
 - **Misfires**: Number of failed ignition attempts.
 - **Time to service**: Hours remaining until the next scheduled maintenance.
 
-Some additional sensors are available but disabled by default because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
+Some additional sensors are available but [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
 
 #### Binary sensors
 
@@ -158,6 +140,8 @@ The error sensor shows the currently active error on your stove. When an error o
 - **Flue gas overtemperature** (E113): The flue gas temperature is too high. Clean the chimney or heat exchanger.
 - **Fuel ignition timeout** (E114): The fuel did not ignite in time. The burning pot may be empty, or the pellet tank needs refilling.
 - **General error** (E115): A general error has occurred. Contact your service technician.
+
+{% include integrations/triggers.md %}
 
 ## Examples
 

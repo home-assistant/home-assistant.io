@@ -1,17 +1,7 @@
 ---
-title: OurGroceries
 description: Instructions on how to integrate OurGroceries shopping lists into Home Assistant.
-ha_category:
-  - To-do List
 ha_release: '2023.12'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@OnFreund'
 ha_domain: ourgroceries
-ha_platforms:
-  - todo
-ha_integration_type: service
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation

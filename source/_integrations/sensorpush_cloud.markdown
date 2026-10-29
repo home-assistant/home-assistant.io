@@ -1,18 +1,7 @@
 ---
-title: SensorPush Cloud
 description: Instructions on how to integrate SensorPush Cloud devices into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 2025.3
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@sstallion'
 ha_domain: sensorpush_cloud
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 Integrates [SensorPush Cloud](https://www.sensorpush.com/) devices into Home Assistant.
@@ -37,7 +26,7 @@ For each device, the following *sensors* are created:
 
 | Sensor                 | Description                                                   |
 | :--------------------- | :------------------------------------------------------------ |
-| `altitude`             | Measures the altitude. (disabled by default)                  |
+| `altitude`             | Measures the altitude. ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))                  |
 | `atmospheric_pressure` | Measures the barometric pressure. (disabled by default)       |
 | `battery_voltage`      | Measures the battery voltage. (disabled by default)           |
 | `dewpoint`             | Measures the dew point. (disabled by default)                 |

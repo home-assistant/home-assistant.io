@@ -70,14 +70,16 @@ minutes:
 
 When the last person leaves the home zone, set the "time to off" timer to 30 minutes. This gives a short buffer in case someone returns quickly, while ensuring the system does not run indefinitely in an empty house.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Home
   - **To**: 0
-- **Condition**: not
+- **Condition**: Not
   - **Condition**: State
-    - **Entity**: HVAC
+    - **Entity**: My hvac thermostat
     - **State**: Off
-- **Action**: Set time to (30 minutes on the "time to off" sensor)
+- **Action**: Advantage Air: Set time to
+  - **Entity id**: `sensor.myair_time_to_off`
+  - **Minutes**: `30` minutes
 
 {% details "YAML example for turning off HVAC when no one is at home" %}
 

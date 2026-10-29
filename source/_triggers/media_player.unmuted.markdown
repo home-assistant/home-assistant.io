@@ -35,6 +35,7 @@ Trigger when:
     - **Each**: Fires every time any targeted media player is unmuted (default).
     - **First**: Fires when the first targeted media player is unmuted.
     - **All**: Fires when every targeted media player is unmuted.
+  required: false
 For at least:
   description: How long the media player must stay unmuted before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -60,7 +61,7 @@ trigger: |
   target:
     area_id: downstairs
   options:
-    behavior: last
+    behavior: all
     for: "00:01:00"
 {% endexample %}
 
@@ -71,16 +72,16 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted media player is unmuted.
-    - `first` (**First** in the UI): fires when the first targeted media player is unmuted.
-    - `last` (**All** in the UI): fires when every targeted media player is unmuted.
+    - `each` (default): fires every time any targeted media player is unmuted.
+    - `first`: fires when the first targeted media player is unmuted.
+    - `all`: fires when every targeted media player is unmuted.
   required: false
   type: string
-  default: any
+  default: each
 for:
-  description: How long the media player must stay unmuted before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the media player must stay unmuted before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

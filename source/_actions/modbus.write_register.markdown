@@ -9,7 +9,7 @@ related_actions:
   - modbus.reload
 ---
 
-The **Write register** action writes a value to one or more Modbus holding registers on a connected device. Use it to send setpoints, commands, or other numeric values directly to your hardware.
+The **Modbus: Write register** action writes a value to one or more Modbus holding registers on a connected device. Use it to send setpoints, commands, or other numeric values directly to your hardware.
 
 You can write a single value or a list of values. A single value uses Modbus function code `0x06` (write single register), while a list uses function code `0x10` (write multiple registers).
 

@@ -1,0 +1,16 @@
+{
+  "domain": "london_underground",
+  "name": "London Underground",
+  "integration_type": "service",
+  "codeowners": [
+    "@jpbede"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "vehicles_transport.public_transport"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

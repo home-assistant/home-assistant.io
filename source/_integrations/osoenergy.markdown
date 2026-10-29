@@ -1,21 +1,7 @@
 ---
-title: OSO Energy
 description: Instructions on how to integrate OSO Energy devices with Home Assistant.
 ha_release: '2024.1'
-ha_category:
-  - Binary sensor
-  - Sensor
-  - Water Heater
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@osohotwateriot'
 ha_domain: osoenergy
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - water_heater
-ha_config_flow: true
-ha_integration_type: hub
 ---
 
 The **OSO Energy** {% term integration %} for Home Assistant allows you to interact with supported devices and services offered by [OSO Energy](https://www.osoenergy.no)

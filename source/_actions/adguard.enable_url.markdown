@@ -10,7 +10,7 @@ related_actions:
   - adguard.refresh
 ---
 
-The **Enable URL** action switches on a filter subscription that was previously turned off. AdGuard Home starts blocking the domains on that list again, without you having to add the list from scratch.
+The **AdGuard Home: Enable URL** action switches on a filter subscription that was previously turned off. AdGuard Home starts blocking the domains on that list again, without you having to add the list from scratch.
 
 This pairs nicely with [Disable URL](/actions/adguard.disable_url/) to turn a blocklist on and off on a schedule, for example a stricter list that switches on during homework time or at bedtime.
 

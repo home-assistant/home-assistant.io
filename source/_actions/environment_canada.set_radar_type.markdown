@@ -6,6 +6,7 @@ description: "Sets the type of radar imagery shown by an Environment Canada rada
 related_actions:
   - environment_canada.get_alerts
   - environment_canada.get_forecasts
+  - environment_canada.get_precipitation_forecast
 ---
 
 Use this action to set the type of radar imagery that an Environment Canada radar camera retrieves. By default, the camera shows rain radar from 1 April to 30 November and snow radar from 1 December to 31 March. With this action, you can switch the layer yourself, for example to show snow radar during an early cold snap.
@@ -19,7 +20,7 @@ To set the radar type from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the radar camera you want to change.
-6. From the actions shown for that target, select **Set radar type**.
+6. From the actions shown for that target, under **Environment Canada**, select **Set radar type**.
 7. Select the **Radar type** you want the camera to show.
 8. Select **Save**.
 
@@ -68,10 +69,12 @@ radar_type:
 
 When the outdoor temperature drops below freezing, switch the radar camera to show the snow layer.
 
-- **Trigger**: Temperature drops below 0 °C
-- **Action**: Set radar type
-- **Target**: Home radar
-- **Radar type**: Snow
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Home temperature
+  - **Below**: `0`
+- **Action**: Environment Canada: Set radar type
+  - **Target**: Home radar
+  - **Radar type**: Snow
 
 {% details "YAML example for switching to snow radar" %}
 

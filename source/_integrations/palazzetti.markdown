@@ -1,22 +1,7 @@
 ---
-title: Palazzetti
 description: Instructions on how to integrate Palazzetti within Home Assistant.
-ha_category:
-  - Climate
 ha_release: 2024.11
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@dotvav'
 ha_domain: palazzetti
-ha_platforms:
-  - button
-  - climate
-  - diagnostics
-  - number
-  - sensor
-ha_integration_type: device
-ha_dhcp: true
 ---
 
 The **Palazzetti** {% term integration %} integrates the [Palazzetti](https://palazzettigroup.com/)

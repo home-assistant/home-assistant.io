@@ -1,18 +1,7 @@
 ---
-title: Tautulli
 description: Instructions on how to set up Tautulli sensors in Home Assistant.
-ha_category:
-  - Sensor
-ha_config_flow: true
 ha_release: 0.82
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@ludeeus'
-  - '@tkdrob'
 ha_domain: tautulli
-ha_platforms:
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Tautulli** {% term integration %} will monitor activity on a given [Tautulli Server][tautulli]. It will create a sensor that shows the number of currently active streams as the state. If you click the sensor for more details, it will show you more statistics.

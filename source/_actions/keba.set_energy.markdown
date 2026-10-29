@@ -66,7 +66,7 @@ energy:
 
 Top up the car with a set amount of energy whenever it is plugged in.
 
-- **Trigger**: State, the plug sensor changes to plugged in
+- **Trigger**: State changed, the plug sensor changes to plugged in
 - **Action**: Keba Charging Station: Set energy
 
 {% details "YAML example for adding a fixed amount of energy" %}

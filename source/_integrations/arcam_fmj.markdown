@@ -1,20 +1,7 @@
 ---
-title: Arcam FMJ Receivers
 description: Instructions on how to integrate Arcam FMJ Receivers into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 0.96
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@elupus'
 ha_domain: arcam_fmj
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - media_player
-  - sensor
-ha_integration_type: device
 ---
 
 The **Arcam FMJ Receivers** integration allows you to control [Arcam Receivers and Processors](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.
@@ -54,7 +41,7 @@ This integration may also work with [JBL](https://www.jblsynthesis.com/products/
 
 ### Binary sensors
 
-The integration provides the following diagnostic binary sensors, one for each zone. They are disabled by default.
+The integration provides the following diagnostic binary sensors, one for each zone. They are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **Zone incoming video interlaced**
   - **Description**: Indicates whether the incoming video signal is using interlaced scanning. It is `on` when the signal is interlaced, `off` when it is progressive, and `unknown` when video parameters are not available.

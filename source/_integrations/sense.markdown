@@ -1,21 +1,7 @@
 ---
-title: Sense
 description: Instructions on how to integrate Sense within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
-ha_iot_class: Cloud Polling
 ha_release: 0.82
-ha_config_flow: true
-ha_codeowners:
-  - '@kbickar'
 ha_domain: sense
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: hub
 ---
 
 Integrate your [Sense](https://sense.com) meter information into Home Assistant.

@@ -1,33 +1,7 @@
 ---
-title: Tado
 description: Instructions on how to integrate Tado devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Hub
-  - Presence detection
-  - Select
-  - Sensor
-  - Switch
-  - Water heater
-  - Weather
 ha_release: 0.41
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@erwindouna'
 ha_domain: tado
-ha_config_flow: true
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 The **Tado** {% term integration %} platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.

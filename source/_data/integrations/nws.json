@@ -1,0 +1,19 @@
+{
+  "domain": "nws",
+  "name": "National Weather Service (NWS)",
+  "integration_type": "service",
+  "codeowners": [
+    "@MatthewFlamm",
+    "@kamiyo"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor",
+    "weather"
+  ]
+}

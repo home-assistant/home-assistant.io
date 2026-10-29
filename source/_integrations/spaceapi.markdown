@@ -1,18 +1,10 @@
 ---
-title: SpaceAPI
 description: Instructions on how to configure the SpaceAPI for Home Assistant.
-ha_category:
-  - Social
-ha_iot_class: Calculated
 ha_release: '0.70'
-ha_codeowners:
-  - '@fabaff'
 ha_domain: spaceapi
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Space API** {% term integration %} allow Hackerspaces and Makerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/). It does this by exposing an API on Home Assistant that hosts the JSON payload that SpaceAPI uses.

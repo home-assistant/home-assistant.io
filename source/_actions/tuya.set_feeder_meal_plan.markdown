@@ -19,7 +19,7 @@ To set a feeder meal plan from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Set feeder meal plan data**.
+5. Search for and select **Tuya: Set feeder meal plan data**.
 6. Set **Device** to the Tuya feeder you want to manage.
 7. Under **Meal plan**, add one or more feedings, each with its days, time, portion, and whether it is enabled.
 8. Select **Save**.

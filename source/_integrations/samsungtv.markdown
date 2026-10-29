@@ -1,24 +1,7 @@
 ---
-title: Samsung Smart TV
 description: Instructions on how to integrate a Samsung Smart TV into Home Assistant.
-ha_category:
-  - Media player
-  - Remote
 ha_release: 0.13
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@chemelli74'
 ha_domain: samsungtv
-ha_ssdp: true
-ha_platforms:
-  - diagnostics
-  - media_player
-  - remote
-ha_zeroconf: true
-ha_dhcp: true
-ha_integration_type: device
-ha_quality_scale: gold
 ---
 
 The **Samsung Smart TV** {% term integration %} allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).

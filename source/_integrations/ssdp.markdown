@@ -1,18 +1,12 @@
 ---
-title: Simple Service Discovery Protocol (SSDP)
 description: Discover integrations on the network using the SSDP protocol.
-ha_category:
-  - Network
-ha_iot_class: Local Push
 ha_release: 0.94
 ha_domain: ssdp
-ha_quality_scale: internal
-ha_integration_type: system
 ---
 
 The **Simple Service Discovery Protocol (SSDP)** (part of UPnP) {% term integration %} will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.
 
-Integrations can opt-in to be found by adding [an SSDP section](https://developers.home-assistant.io/docs/creating_integration_manifest/#ssdp) to their `manifest.json`.
+Integrations can opt-in to be found by adding [an SSDP section](https://contributors.home-assistant.io/core/integrations/manifest/#ssdp) to their `manifest.json`.
 
 ## Configuration
 

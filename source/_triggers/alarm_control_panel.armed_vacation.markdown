@@ -28,6 +28,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms vacation, **First** to fire only when the first panel in a group arms vacation, or **All** to fire only after every targeted panel is armed vacation.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay armed vacation before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -47,8 +49,6 @@ This fires every time `alarm_control_panel.home_alarm` transitions to the armed 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -58,9 +58,9 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -83,10 +83,11 @@ for:
 When you arm the alarm in vacation mode, turn on a helper that your other automations use for vacation-mode behavior. The house looks lived in even when you are hundreds of miles away.
 
 - **Trigger**: Alarm armed vacation
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn on the vacation mode helper
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn on input boolean
+  - **Target**: Vacation mode helper
 
 {% details "YAML example for occupancy simulation" %}
 
@@ -113,11 +114,13 @@ automation: |
 When vacation mode activates, drop the thermostat to save energy and send a message to every family member confirming that the house is in vacation lockdown.
 
 - **Trigger**: Alarm armed vacation
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Set the thermostat to 15 degrees
-- **Action**: Notify all household members
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Set thermostat target temperature
+  - **Target temperature**: `15` degrees
+- **Action**: Send a notification message
+  - **Target**: All household members
 
 {% details "YAML example for vacation energy saving" %}
 
@@ -137,7 +140,9 @@ automation: |
         entity_id: climate.thermostat
       data:
         temperature: 15
-    - action: notify.notify
+    - action: notify.send_message
+      target:
+        label_id: all_household_members
       data:
         message: >
           Vacation mode activated. The thermostat

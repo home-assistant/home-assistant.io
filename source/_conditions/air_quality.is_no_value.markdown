@@ -12,25 +12,22 @@ The **Nitrogen monoxide value** condition passes when a nitrogen monoxide (NO) s
 
 {% include conditions/ui_header.md %}
 
-To use this condition in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **And if** section, select **Add condition**.
-4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-5. From the conditions shown for that target, select **Nitrogen monoxide value**.
-6. Under **Threshold type**, set the NO level the condition checks against.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
-8. Select **Save**.
+{% include conditions/threshold_value_steps.md
+   title="Nitrogen monoxide value"
+   sensor="nitrogen monoxide sensor"
+   areas="garage or garden"
+   value_long="a fixed level directly, for example `100`"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options="ppb or μg/m³" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: The nitrogen monoxide level the sensor has to meet or exceed for the condition to pass.
-Condition passes if:
-  description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-{% endoptions_ui %}
+{% include conditions/threshold_value_options_ui.md
+   value_short="a fixed level"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options_code="`ppb` or `μg/m³`" %}
 
 {% include conditions/yaml_header.md %}
 
@@ -42,37 +39,32 @@ condition: |
   target:
     entity_id: sensor.outdoor_no
   options:
-    threshold: 100
+    threshold:
+      type: above
+      value:
+        number: 100
+        unit_of_measurement: "μg/m³"
     behavior: any
 {% endexample %}
 
-This passes when the outdoor NO sensor reads at or above 100 µg/m³.
+This passes when the outdoor NO sensor reads above 100 μg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+{% include conditions/threshold_value_options_yaml.md
+   has_unit="true"
+   unit_default="μg/m³"
+   unit_example_entity="input_number.no_alert_level"
+   unit_example_value="150"
+   threshold_required="true" %}
 
-{% options_yaml %}
-threshold:
-  description: >
-    The nitrogen monoxide level the sensor has to meet or exceed for the condition to pass. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
-  type: any
-behavior:
-  description: >
-    When multiple sensors are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
-  type: string
-  default: any
-{% endoptions_yaml %}
-
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="nitrogen monoxide sensor" example="sensor.living_room_nitrogen_monoxide" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - Nitrogen monoxide is closely related to nitrogen dioxide (NO2). For NO2 readings, see [Nitrogen dioxide value](/conditions/air_quality.is_no2_value/). For nitrous oxide, see [Nitrous oxide value](/conditions/air_quality.is_n2o_value/).
 
 {% include conditions/try_it.md %}
@@ -81,13 +73,13 @@ behavior:
 
 ### Automation: keep the garage sealed during the morning commute
 
-If you live near a busy road, rush-hour exhaust raises outdoor NO levels fast. This automation triggers at 7:30 AM and checks the outdoor NO reading. If the level is at or above 100 μg/m3, the garage ventilation closes so fumes stay outside. On mornings with light traffic, the ventilation stays open as usual.
+If you live near a busy road, rush-hour exhaust raises outdoor NO levels fast. This automation triggers at 7:30 AM and checks the outdoor NO reading. If the level is above 100 μg/m³, the garage ventilation closes so fumes stay outside. On mornings with light traffic, the ventilation stays open as usual.
 
 - **Trigger**: Time
   - **At time**: `07:30:00` AM
 - **Condition**: Nitrogen monoxide value
   - **Target**: Outdoor NO sensor
-  - **Threshold type**: 100
+  - **Threshold type**: Above 100 μg/m³
 - **Action**: Close cover
   - **Target**: Garage ventilation
 
@@ -104,7 +96,11 @@ automation: |
       target:
         entity_id: sensor.outdoor_no
       options:
-        threshold: 100
+        threshold:
+          type: above
+          value:
+            number: 100
+            unit_of_measurement: "μg/m³"
   actions:
     - action: cover.close_cover
       target:

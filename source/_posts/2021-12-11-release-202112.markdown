@@ -134,11 +134,6 @@ This card will use the picture you've uploaded for your area, and it
 automatically populates with entities of devices you have assigned
 to that specific area.
 
-<p class='img'>
-<img src='/images/dashboards/area-card.png' alt='Screenshot of a new area Lovelace card'>
-Screenshot of a new area Lovelace card.
-</p>
-
 [@zsarnett]: https://github.com/zsarnett
 
 ## Users that can only log in from the local network

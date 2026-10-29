@@ -18,7 +18,7 @@ To arm away instant from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to control.
-6. From the actions shown for that target, select **Arm away instant**.
+6. From the actions shown for that target, under **Total Connect**, select **Arm away instant**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -57,8 +57,10 @@ This action has no additional YAML options beyond the target.
 
 Use this automation to arm the panel in away mode with no entry delay once the last person leaves home.
 
-- **Trigger**: Everyone leaves the home zone
-- **Action**: Arm away instant
+- **Trigger**: State changed
+  - **Entity**: Home zone
+  - **To**: 0
+- **Action**: Total Connect: Arm away instant
   - **Target**: Home alarm panel
 
 {% details "YAML example for arming away instant when everyone leaves" %}

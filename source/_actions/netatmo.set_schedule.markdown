@@ -21,7 +21,7 @@ To activate a heating schedule from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Netatmo climate device you want to control.
-6. From the actions shown for that target, select **Set heating schedule**.
+6. From the actions shown for that target, under **Netatmo**, select **Set heating schedule**.
 7. Enter the **Schedule name** you want to activate.
 8. Select **Save**.
 
@@ -56,7 +56,7 @@ schedule_name:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Netatmo thermostat" example="climate.living_room" %}
 
 ## Good to know
 
@@ -70,10 +70,12 @@ schedule_name:
 
 Activate an energy-saving schedule when nobody is home.
 
-- **Trigger**: Everyone leaves home
-- **Action**: Set heating schedule
+- **Trigger**: State changed
+  - **Entity**: Home zone
+  - **To**: 0
+- **Action**: Netatmo: Set heating schedule
   - **Target**: Living room thermostat
-  - **Schedule name**: Away
+  - **Schedule**: `Away`
 
 {% details "Show example YAML" %}
 
