@@ -1,10 +1,9 @@
 ---
 title: SpaceXSI
 description: Instructions on how to add Grok as a conversation agent using SpaceXSI
-ha_category:
-  - AI
-  - Voice
-ha_release: '2026.11'
+ha_categories:
+  - ai_voice.ai_models
+ha_release: '2026.12'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -27,9 +26,9 @@ The **SpaceXSI** {% term integration %} adds a Grok-powered conversation agent f
 
 This is a community-maintained integration, not an official SpaceXSI product.
 
-The Assist API is selected by default during setup. It lets Grok provide information about or control only the entities that you [expose to Assist](/voice_control/voice_remote_expose_devices/).
+The **Device control** set of AI tools is selected by default during setup. It lets Grok provide information about or control only the entities that you [expose to Assist](/voice_control/voice_remote_expose_devices/).
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Prerequisites
 
@@ -44,16 +43,16 @@ During setup, you can configure the following settings:
 Model:
   description: "The Grok model used by the conversation agent. The available models come from your signed-in account."
 Instructions:
-  description: "Instructions for how Grok should respond. You can use a [Home Assistant template](/docs/configuration/templating/)."
-Control Home Assistant:
-  description: "The Home Assistant language model APIs that Grok can use. Assist is selected by default. Clear this selection to disable Home Assistant tools."
+  description: "Instructions for how Grok should respond. You can use a [Home Assistant template](/docs/templating/)."
+AI tools:
+  description: "The Home Assistant AI tools that Grok can use. Device control is selected by default. Clear this selection to disable Home Assistant tools."
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
 The integration creates one Grok conversation agent. You can use it in the Assist dialog or select it as the conversation agent for a [voice assistant](/voice_control/).
 
-Grok can answer in any language supported by the selected model. If you allow it to use the Assist API, it can also get information from Home Assistant and control exposed entities.
+Grok can answer in any language supported by the selected model. If you select **Device control** under **AI tools**, it can also get information from Home Assistant and control exposed entities.
 
 ## Data updates
 
@@ -87,7 +86,7 @@ If Home Assistant reports that the selected model is no longer available to your
 
 ### Grok cannot access an entity
 
-Make sure you selected the Assist API during setup and [exposed the entity to Assist](/voice_control/voice_remote_expose_devices/).
+Make sure you selected **Device control** under **AI tools** during setup and [exposed the entity to Assist](/voice_control/voice_remote_expose_devices/).
 
 ### The account is not allowed to use the service
 
