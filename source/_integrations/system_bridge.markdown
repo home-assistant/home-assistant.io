@@ -102,6 +102,12 @@ Each display that reports its brightness gets a `Display YOUR_DISPLAY_ID brightn
 
 Brightness is set through the backlight on built-in screens and over Display Data Channel Command Interface (DDC/CI) on external monitors. Power is set over DDC/CI. On Linux with Hyprland, screens that don't support DDC/CI are turned on and off through Hyprland.
 
+## Power buttons
+
+The integration provides a button for each power command: **Sleep**, **Hibernate**, **Restart**, **Shut down**, **Lock**, and **Log out**. Pressing one sends the command to the device straight away, with no confirmation, so add a confirmation to any dashboard button that uses them. If System Bridge reports an error for a command, pressing the button shows it.
+
+The buttons do the same as the [`system_bridge.power_command`](/actions/system_bridge.power_command/) action, and are easier to add to a dashboard or an automation.
+
 ## Media player
 
 The integration also provides a media player. This allows you control the currently playing media on your device.
