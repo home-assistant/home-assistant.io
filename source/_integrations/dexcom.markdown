@@ -41,9 +41,11 @@ For users in Japan: [uam.dexcom.jp](uam.dexcom.jp).
 
 If you have a sensor session running, and once you have enabled the Dexcom integration, you should see the following sensors:
 
-- Blood glucose value sensor
-- Blood glucose trend sensor
-- Blood glucose reading time sensor (the time Dexcom recorded the reading)
+- **Glucose value**
+- **Glucose trend**
+- **Glucose reading time**: the time Dexcom recorded the latest reading.
+
+The **Glucose reading time** sensor shows when the latest reading was taken. For example, "3 minutes ago". Use it to check how recent the reading is. When your glucose level stays the same, the **Glucose value** sensor doesn't change, so its last-changed time doesn't tell you how old the reading is.
 
 If Dexcom has no reading from the last 10 minutes, for example when the transmitter is out of range, the sensors show as unknown.
 
