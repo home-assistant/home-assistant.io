@@ -1,0 +1,279 @@
+---
+// The link-in-bio page, /bio/: what the "link in bio" on Home Assistant's
+// social profiles points at. Everything on it comes from
+// source/_data/bio.yml (see src/lib/bio.mjs for what it can say), the
+// site's blog posts and release notes, and the newsletter editions
+// `rake newsletter_data` downloads before the build.
+//
+// A standalone page on purpose: no site header, navigation or footer,
+// which a page opened from a social profile doesn't want. It keeps the
+// site's head (social tags, fonts, Plausible).
+//
+// Built from the site's components: a Card for each item of a feed,
+// a Button for each curated link and an Icon for each social link.
+import fs from "node:fs";
+import path from "node:path";
+import { getEntry } from "astro:content";
+import SiteHead from "../../components/SiteHead.astro";
+import Card from "../../components/Card.astro";
+import Button from "../../components/Button.astro";
+import Icon from "../../components/Icon.astro";
+import { loadPosts, resolve, socialLinks, validate } from "../../lib/bio.mjs";
+import { setting } from "../../lib/site.mjs";
+import "../../styles/tokens.scss";
+
+const root = path.resolve(process.cwd(), "..");
+const config = (await getEntry("bio", "bio"))?.data;
+validate(config);
+
+const now = new Date();
+const posts = loadPosts(path.join(root, "source/_posts"), now);
+
+// Lists downloaded before the build, by file name. A missing file (a
+// local build without the Rake data tasks) means no items, not an error.
+const data = Object.fromEntries(
+  Object.values(config.sources ?? {})
+    .filter((source) => source.type === "data")
+    .map((source) => {
+      try {
+        return [source.file, JSON.parse(fs.readFileSync(path.join(root, `source/_data/${source.file}.json`), "utf8"))];
+      } catch {
+        return [source.file, []];
+      }
+    }),
+);
+
+const sections = resolve(config, posts, now, setting("url"), data);
+const socials = socialLinks(config);
+const name = setting("title");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SiteHead description={config.tagline} />
+  </head>
+  <body class="bio-page">
+    <main class="bio">
+      <header class="header">
+        {config.avatar && <img class="avatar" src={config.avatar} width="56" height="56" alt="" />}
+        <h1 class="name">{name}</h1>
+        {config.tagline && <p class="tagline">{config.tagline}</p>}
+      </header>
+
+      {
+        sections.map((section, sectionIndex) =>
+          section.type === "feed" ? (
+            <section class="feed">
+              {section.title && <h2>{section.title}</h2>}
+              <ul class="list">
+                {section.tiles.map((tile, tileIndex) => {
+                  const video = tile.kind === "video";
+                  return (
+                    <li>
+                      <Card
+                        href={tile.url}
+                        title={tile.label}
+                        meta={tile.note}
+                        image={tile.image}
+                        layout={video || tile.kind === "hero" ? "stacked" : "row"}
+                        tone={video ? "dark" : tile.featured ? "accent" : "default"}
+                        eager={sectionIndex === 0 && tileIndex < 2}
+                        rel="noopener"
+                        data-section={section.title ?? "links"}
+                        data-source={tile.source}
+                        data-label={tile.label}
+                      >
+                        {video && (
+                          <svg slot="media" class="play" viewBox="0 0 68 48" width="68" height="48" aria-hidden="true">
+                            <path
+                              d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.6 8.6 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.6 8.6 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.6 8.6 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3Z"
+                              fill="#f00"
+                            />
+                            <path d="M45 24 27 14v20Z" fill="#fff" />
+                          </svg>
+                        )}
+                      </Card>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          ) : (
+            <section class="links">
+              {section.title && <h2>{section.title}</h2>}
+              <ul class="list">
+                {section.tiles.map((tile) => (
+                  <li>
+                    <Button
+                      class="link"
+                      href={tile.url}
+                      scheme={tile.featured ? "green" : "tertiary"}
+                      icon
+                      rel="noopener"
+                      data-section={section.title ?? "links"}
+                      data-source={tile.source}
+                      data-label={tile.label}
+                    >
+                      {tile.label}
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ),
+        )
+      }
+
+      {
+        socials.length > 0 && (
+          <nav class="socials" aria-label="Home Assistant elsewhere">
+            {socials.map((social) => (
+              <a
+                class="social"
+                href={social.url}
+                aria-label={social.label}
+                title={social.label}
+                rel="noopener"
+                data-section="socials"
+                data-source="curated"
+                data-label={social.platform}
+              >
+                <Icon name={social.platform} />
+              </a>
+            ))}
+          </nav>
+        )
+      }
+
+      <footer class="footer">
+        <a href="/">home-assistant.io</a> · An <a href="https://www.openhomefoundation.org/">Open Home Foundation</a> project
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style lang="scss" is:global>
+  body.bio-page {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-page);
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    -webkit-text-size-adjust: 100%;
+  }
+</style>
+
+<style lang="scss">
+  .bio {
+    box-sizing: border-box;
+    max-width: 34rem;
+    margin: 0 auto;
+    padding: var(--space-xlarge) max(var(--space-large), env(safe-area-inset-right)) var(--space-xxlarge)
+      max(var(--space-large), env(safe-area-inset-left));
+  }
+
+  .header {
+    margin-bottom: var(--space-xlarge);
+    text-align: center;
+  }
+
+  .avatar {
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 auto var(--space-medium);
+  }
+
+  .name {
+    margin: 0;
+    font-size: var(--font-size-heading);
+    font-weight: 600;
+  }
+
+  .tagline {
+    max-width: 24rem;
+    margin: var(--space-small) auto 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-large);
+    text-wrap: balance;
+  }
+
+  h2 {
+    margin: 0 0 var(--space-medium);
+    font-size: var(--font-size-large);
+    font-weight: 600;
+  }
+
+  // The feed sits on a light panel, so its white cards stand out.
+  .feed {
+    padding: var(--space-medium);
+    background: var(--color-surface-subtle);
+    border-radius: var(--radius-small);
+  }
+
+  .links {
+    margin-top: var(--space-xlarge);
+  }
+
+  .list {
+    display: grid;
+    gap: var(--space-small);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .link {
+    width: 100%;
+  }
+
+  .play {
+    width: 4.25rem;
+    height: auto;
+  }
+
+  // A row of platform icons, each a 2.75rem tap target.
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-small);
+    margin-top: var(--space-xxlarge);
+  }
+
+  .social {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-pill);
+    color: #002e3e;
+    font-size: var(--font-size-xxlarge);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #18bcf2;
+    }
+
+    &:focus-visible {
+      box-shadow: inset 0 0 0 0.25rem #002e3e;
+      outline: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .footer {
+    margin-top: var(--space-xxlarge);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+    text-align: center;
+
+    a {
+      color: inherit;
+    }
+  }
+</style>

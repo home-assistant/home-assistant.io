@@ -1,0 +1,7 @@
+{
+  "domain": "tplink_lte",
+  "name": "TP-Link LTE",
+  "integration_type": "system",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy"
+}

@@ -1,0 +1,23 @@
+{
+  "domain": "nuki",
+  "name": "Nuki Bridge",
+  "integration_type": "hub",
+  "codeowners": [
+    "@pschmitt",
+    "@pvizeli",
+    "@pree"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "security_safety.locks_access"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "lock",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

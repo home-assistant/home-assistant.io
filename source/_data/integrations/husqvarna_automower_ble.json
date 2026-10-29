@@ -1,0 +1,20 @@
+{
+  "domain": "husqvarna_automower_ble",
+  "name": "Husqvarna Automower BLE",
+  "integration_type": "device",
+  "codeowners": [
+    "@alistair23"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "garden_plants"
+  ],
+  "platforms": [
+    "lawn_mower",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

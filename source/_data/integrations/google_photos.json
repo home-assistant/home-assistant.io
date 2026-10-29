@@ -1,0 +1,13 @@
+{
+  "domain": "google_photos",
+  "name": "Google Photos",
+  "integration_type": "service",
+  "codeowners": [
+    "@allenporter"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "productivity_information.documents_photos"
+  ]
+}

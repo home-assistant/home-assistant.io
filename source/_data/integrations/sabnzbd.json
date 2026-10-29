@@ -1,0 +1,21 @@
+{
+  "domain": "sabnzbd",
+  "name": "SABnzbd",
+  "integration_type": "service",
+  "codeowners": [
+    "@shaiu",
+    "@jpbede"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "computers_network.nas_servers"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "number",
+    "sensor"
+  ]
+}

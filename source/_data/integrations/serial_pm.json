@@ -1,0 +1,13 @@
+{
+  "domain": "serial_pm",
+  "name": "Serial Particulate Matter",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "sensors.air_quality",
+    "diy_makers.boards_hardware"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

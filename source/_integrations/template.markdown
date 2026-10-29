@@ -1,36 +1,7 @@
 ---
-title: Template
 description: Instructions on how to create template entities in Home Assistant.
-ha_categories:
-  - helpers.calculate_value
 ha_release: 0.12
-ha_iot_class: Local Push
-ha_quality_scale: internal
-ha_codeowners:
-  - '@Petro31'
-  - '@home-assistant/core'
 ha_domain: template
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - device_tracker
-  - event
-  - fan
-  - image
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-  - vacuum
-  - weather
-ha_integration_type: helper
-ha_config_flow: true
 related:
   - docs: /docs/templating/
     title: About templating
@@ -61,12 +32,14 @@ There is currently support for the following entity types within Home Assistant:
 - [Image](#image)
 - [Light](#light)
 - [Lock](#lock)
+- [Media player](#media-player)
 - [Number](#number)
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Update](#update)
 - [Vacuum](#vacuum)
+- [Water heater](#water-heater)
 - [Weather](#weather)
 
 {% include integrations/config_flow.md %}
@@ -1023,7 +996,7 @@ cover:
       required: false
       type: template
     set_cover_position:
-      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed.
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed if it is in `supported_speeds`.
       required: false
       type: action
     set_cover_tilt_position:
@@ -1039,7 +1012,7 @@ cover:
       required: false
       type: action
     supported_speeds:
-      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed was requested.
+      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed or a speed not in `supported_speeds` was requested.
       required: false
       type: [string, list]
     tilt:
@@ -2373,6 +2346,324 @@ In `secrets.yaml`:
 garage_door_pin: "1234"
 ```
 
+## Media player
+
+The template media player platform allows you to create media players with templates to define the state and media information, and scripts to define each action. Use it to combine several devices into one media player, such as a TV and a sound bar, or to control a device that doesn't have its own media player entity.
+
+The media player shows only the controls for the actions you define. For example, if you define actions for play and pause, but not for next track, the media player shows **Play** and **Pause** controls, but no **Next track** control.
+
+Media player entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
+
+{% configuration_basic %}
+Name:
+  description: The name of the media player.
+State:
+  description: A template that gets the media player's state. Valid values are `off`, `on`, `idle`, `playing`, `paused`, and `buffering`. If you leave this empty, the state follows the actions you run. For details, see [Media player optimistic mode](#media-player-optimistic-mode).
+Actions on turn on:
+  description: The action or actions run when the media player is turned on.
+Actions on turn off:
+  description: The action or actions run when the media player is turned off.
+Volume level:
+  description: A template that gets the media player's volume level. Valid values are numbers between `0` and `1`.
+Muted:
+  description: A template that gets whether the media player is muted.
+Actions on set volume:
+  description: The action or actions run when the volume is set. The new volume level is available in the `volume_level` variable.
+Actions on volume up:
+  description: The action or actions run when the volume is turned up. If you set this, you must also set **Actions on volume down**.
+Actions on volume down:
+  description: The action or actions run when the volume is turned down. If you set this, you must also set **Actions on volume up**.
+Actions on mute:
+  description: The action or actions run when the media player is muted or unmuted. Whether to mute or unmute is available in the `is_volume_muted` variable.
+Actions on play:
+  description: The action or actions run when the media player is given a play command.
+Actions on pause:
+  description: The action or actions run when the media player is paused.
+Actions on stop:
+  description: The action or actions run when the media player is stopped.
+Actions on next track:
+  description: The action or actions run when the media player is given a next track command.
+Actions on previous track:
+  description: The action or actions run when the media player is given a previous track command.
+Source:
+  description: A template that gets the media player's current source, for example, the input of a TV or receiver. The source must be one of the sources in **Source list**. If you set this, you must also set **Source list**.
+Source list:
+  description: A template that gets the list of sources the media player supports.
+Actions on select source:
+  description: The action or actions run when a source is selected. The selected source is available in the `source` variable. If you set this, you must also set **Source list**.
+Device class:
+  description: The [type of media player](/integrations/media_player/#device-class), such as a TV, speaker, receiver, or projector. You can only set this when you create the helper.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
+{% endconfiguration_basic %}
+
+### Options in YAML
+
+In YAML, you can also define media information, such as the title and artist of what's playing, and actions for features like seeking, shuffle, repeat, and sound modes.
+
+{% configuration media_player %}
+media_player:
+  description: List of media players
+  required: true
+  type: list
+  keys:
+    app_id:
+      description: Defines a template to get the ID of the app that is currently playing.
+      required: false
+      type: template
+    app_name:
+      description: Defines a template to get the name of the app that is currently playing.
+      required: false
+      type: template
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `app_id`, `app_name`, `device_class`, `entity_picture_local`, `group_members`, `is_volume_muted`, `media_album_artist`, `media_album_name`, `media_artist`, `media_channel`, `media_content_id`, `media_content_type`, `media_duration`, `media_episode`, `media_playlist`, `media_position`, `media_position_updated_at`, `media_season`, `media_series_title`, `media_title`, `media_track`, `repeat`, `shuffle`, `sound_mode`, `sound_mode_list`, `source`, `source_list`, and `volume_level`.
+      required: false
+      type: [map, template]
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    clear_playlist:
+      description: Defines an action to run when the media player is given a clear playlist command.
+      required: false
+      type: action
+    device_class:
+      description: Sets the [class of the device](/integrations/media_player/#device-class), changing the device state and icon that is displayed on the UI. Valid values are `tv`, `speaker`, `receiver`, and `projector`.
+      required: false
+      type: string
+    is_volume_muted:
+      description: Defines a template to get whether the media player is muted. The template must return a boolean value.
+      required: false
+      type: template
+    media_album_artist:
+      description: Defines a template to get the album artist of the current media.
+      required: false
+      type: template
+    media_album_name:
+      description: Defines a template to get the album name of the current media.
+      required: false
+      type: template
+    media_artist:
+      description: Defines a template to get the artist of the current media.
+      required: false
+      type: template
+    media_channel:
+      description: Defines a template to get the channel that is currently playing.
+      required: false
+      type: template
+    media_content_id:
+      description: Defines a template to get the content ID of the current media.
+      required: false
+      type: template
+    media_content_type:
+      description: Defines a template to get the content type of the current media, for example, `music`, `tvshow`, or `movie`.
+      required: false
+      type: template
+    media_duration:
+      description: Defines a template to get the duration of the current media, in seconds. The template must return a whole number of `0` or higher.
+      required: false
+      type: template
+    media_episode:
+      description: Defines a template to get the episode of the current TV show.
+      required: false
+      type: template
+    media_image_url:
+      description: Defines a template to get the URL of an image for the current media, such as album art. While the media player is not `off`, this image is used as the entity picture. Otherwise, the image defined in `picture` is used.
+      required: false
+      type: template
+    media_next_track:
+      description: Defines an action to run when the media player is given a next track command.
+      required: false
+      type: action
+    media_pause:
+      description: Defines an action to run when the media player is paused.
+      required: false
+      type: action
+    media_play:
+      description: Defines an action to run when the media player is given a play command.
+      required: false
+      type: action
+    media_playlist:
+      description: Defines a template to get the title of the playlist that is currently playing.
+      required: false
+      type: template
+    media_position:
+      description: Defines a template to get the playback position of the current media, in seconds. The template must return a whole number of `0` or higher. While the media player is `playing`, Home Assistant estimates the position between template updates.
+      required: false
+      type: template
+    media_previous_track:
+      description: Defines an action to run when the media player is given a previous track command.
+      required: false
+      type: action
+    media_season:
+      description: Defines a template to get the season of the current TV show.
+      required: false
+      type: template
+    media_seek:
+      description: Defines an action to run when the media player is given a seek command. The position to seek to, in seconds, is available in the `seek_position` variable.
+      required: false
+      type: action
+    media_series_title:
+      description: Defines a template to get the title of the current TV show.
+      required: false
+      type: template
+    media_stop:
+      description: Defines an action to run when the media player is stopped.
+      required: false
+      type: action
+    media_title:
+      description: Defines a template to get the title of the current media.
+      required: false
+      type: template
+    media_track:
+      description: Defines a template to get the track number of the current media. The template must return a whole number of `0` or higher.
+      required: false
+      type: template
+    optimistic:
+      description: Flag that defines if the media player works in optimistic mode. When enabled, the media player's state updates immediately when a command is sent through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the media player updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the media player works in optimistic mode.
+      required: false
+      type: boolean
+      default: "`true` without a `state` template, otherwise `false`"
+    play_media:
+      description: Defines an action to run when the media player is asked to play specific media. The media is available in the `media_content_type` and `media_content_id` variables. Any other options sent with the command, such as `enqueue` and `announce`, are available as variables with the same name.
+      required: false
+      type: action
+    repeat:
+      description: Defines a template to get the repeat mode of the media player. Valid values are `off`, `all`, and `one`.
+      required: false
+      type: template
+    repeat_set:
+      description: Defines an action to run when the repeat mode is changed. The new repeat mode is available in the `repeat` variable.
+      required: false
+      type: action
+    select_sound_mode:
+      description: Defines an action to run when a sound mode is selected. The selected sound mode is available in the `sound_mode` variable. Requires `sound_mode_list`.
+      required: false
+      type: action
+    select_source:
+      description: Defines an action to run when a source is selected. The selected source is available in the `source` variable. Requires `source_list`.
+      required: false
+      type: action
+    shuffle:
+      description: Defines a template to get whether shuffle is enabled. The template must return a boolean value.
+      required: false
+      type: template
+    shuffle_set:
+      description: Defines an action to run when shuffle is turned on or off. The new value is available in the `shuffle` variable.
+      required: false
+      type: action
+    sound_mode:
+      description: Defines a template to get the current sound mode of the media player. The sound mode must be one of the values returned by `sound_mode_list`. Requires `sound_mode_list`.
+      required: false
+      type: template
+    sound_mode_list:
+      description: Defines a template to get the list of sound modes the media player supports. The template must return a list of strings.
+      required: false
+      type: template
+    source:
+      description: Defines a template to get the current source of the media player. The source must be one of the values returned by `source_list`. Requires `source_list`.
+      required: false
+      type: template
+    source_list:
+      description: Defines a template to get the list of sources the media player supports. The template must return a list of strings.
+      required: false
+      type: template
+    state:
+      description: Defines a template to set the state of the media player. Valid output values from the template are `off`, `on`, `idle`, `playing`, `paused`, and `buffering`, which are directly mapped to the corresponding states. In addition, `1`, `true`, `yes`, `on`, and `enable` are valid as synonyms to `on` while `0`, `false`, `no`, `off`, and `disable` are valid as synonyms to `off`. If the template produces a `None` value, the state is set to `unknown`.
+      required: false
+      default: optimistic
+      type: template
+    turn_off:
+      description: Defines an action to run when the media player is turned off.
+      required: false
+      type: action
+    turn_on:
+      description: Defines an action to run when the media player is turned on.
+      required: false
+      type: action
+    volume_down:
+      description: Defines an action to run when the volume is turned down. Requires `volume_up`.
+      required: inclusive
+      type: action
+    volume_level:
+      description: Defines a template to get the volume level of the media player. The template must return a number between `0` and `1`.
+      required: false
+      type: template
+    volume_mute:
+      description: Defines an action to run when the media player is muted or unmuted. Whether to mute or unmute is available in the `is_volume_muted` variable.
+      required: false
+      type: action
+    volume_set:
+      description: Defines an action to run when the volume is set. The new volume level, between `0` and `1`, is available in the `volume_level` variable.
+      required: false
+      type: action
+    volume_up:
+      description: Defines an action to run when the volume is turned up. Requires `volume_down`.
+      required: inclusive
+      type: action
+{% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - media_player:
+      - name: "Living room TV"
+        device_class: tv
+        state: "{{ states('remote.living_room_tv') }}"
+        turn_on:
+          action: remote.turn_on
+          target:
+            entity_id: remote.living_room_tv
+        turn_off:
+          action: remote.turn_off
+          target:
+            entity_id: remote.living_room_tv
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: remote.living_room_tv
+    media_player:
+      - name: "Living room TV"
+        device_class: tv
+        state: "{{ trigger.to_state.state }}"
+        turn_on:
+          action: remote.turn_on
+          target:
+            entity_id: remote.living_room_tv
+        turn_off:
+          action: remote.turn_off
+          target:
+            entity_id: remote.living_room_tv
+```
+
+### Media player optimistic mode
+
+In optimistic mode, the media player assumes each command succeeds and updates its state right away:
+
+- **Turn on** sets the state to `on`.
+- **Turn off** sets the state to `off`.
+- **Play** and **Play media** set the state to `playing`.
+- **Pause** sets the state to `paused`.
+- **Stop** sets the state to `idle`.
+
+The volume level, muted, source, sound mode, shuffle, and repeat values work the same way. If you define the action for one of these, but not its template, the value updates right away when the action runs. For example, if you define `volume_set` but not `volume_level`, the volume level changes to the new value as soon as you set the volume.
+
+### Media player volume steps
+
+If you define `volume_set` and `volume_level`, but not `volume_up` and `volume_down`, the volume up and volume down commands still work. They change the volume level by 10% and run the `volume_set` action.
+
 ## Number
 
 The template number platform allows you to create number entities with templates to define the state and scripts to define each action.
@@ -3378,6 +3669,174 @@ template:
             {% else %}
               Charging
             {% endif %}
+```
+
+## Water heater
+
+The template water heater platform allows you to create water heater entities with templates to define the state and scripts to define each action.
+
+Water heater entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
+
+{% configuration_basic %}
+Name:
+  description: The name of the water heater.
+  required: true
+Operation modes:
+  description: A template for the list of operation modes the water heater supports, for example `eco`, `electric`, or `heat_pump`.
+  required: true
+Operation mode:
+  description: A template for the water heater's current operation mode. The result must be one of the **Operation modes**. If you leave this empty, the water heater assumes the last mode you selected.
+  required: false
+Actions on set operation mode:
+  description: The action or actions run when an operation mode change is requested. The `operation_mode` variable holds the requested mode.
+  required: true
+Current temperature:
+  description: A template for the water heater's current water temperature.
+  required: false
+Target temperature:
+  description: A template for the water heater's target temperature. Requires **Actions on set temperature**.
+  required: false
+Actions on set temperature:
+  description: The action or actions run when a target temperature change is requested. The `temperature` variable holds the requested temperature, and the `operation_mode` variable holds the requested operation mode, if one was given.
+  required: false
+Away mode:
+  description: A template that gets the away mode state. Requires **Actions on turn away mode on** and **Actions on turn away mode off**. You find this option under **Additional options**.
+  required: false
+Actions on turn away mode on:
+  description: The action or actions run when away mode is turned on. You find this option under **Additional options**.
+  required: false
+Actions on turn away mode off:
+  description: The action or actions run when away mode is turned off. You find this option under **Additional options**.
+  required: false
+Actions on turn on:
+  description: The action or actions run when the water heater is turned on.
+  required: false
+Actions on turn off:
+  description: The action or actions run when the water heater is turned off.
+  required: false
+Temperature unit:
+  description: The unit the temperature templates' output is in. One of **°C**, **°F**, or **K**.
+  required: false
+Device:
+  description: An existing device to attach this helper to.
+  required: false
+Availability:
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
+  required: false
+Minimum temperature:
+  description: The lowest target temperature you can set. You find this option under **Additional options**.
+  required: false
+Maximum temperature:
+  description: The highest target temperature you can set. You find this option under **Additional options**.
+  required: false
+{% endconfiguration_basic %}
+
+### Options in YAML
+
+{% configuration water_heater %}
+water_heater:
+  description: List of water heater entities
+  required: true
+  type: list
+  keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `away_mode`, `current_temperature`, `max_temp`, `min_temp`, `operation_list`, `operation_mode`, `target_temp_high`, `target_temp_low`, `target_temp_step`, `temperature`, and `temperature_unit`.
+      required: false
+      type: [map, template]
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    away_mode:
+      description: Defines a template to get the away mode state of the water heater. If `away_mode` is specified, `turn_away_mode_on` and `turn_away_mode_off` must also be specified.
+      required: false
+      type: template
+      default: optimistic
+    current_temperature:
+      description: Defines a template to get the current water temperature.
+      required: false
+      type: template
+    max_temperature:
+      description: The water heater's maximum target temperature. Unit is defined with `temperature_unit`.
+      required: false
+      type: float
+    min_temperature:
+      description: The water heater's minimum target temperature. Unit is defined with `temperature_unit`.
+      required: false
+      type: float
+    operation_list:
+      description: Defines a template to get the list of supported operation modes. Must render a list.
+      required: true
+      type: template
+    operation_mode:
+      description: Defines a template to get the current operation mode of the water heater. Must render a value in `operation_list`.
+      required: false
+      type: template
+      default: optimistic
+    optimistic:
+      description: Flag that defines if the water heater's operation mode works in optimistic mode. When enabled, the operation mode updates immediately when a change is requested through the UI or actions, without waiting for the `operation_mode` template to update. When disabled, the operation mode updates only when that template returns a new value.
+      required: false
+      type: boolean
+      default: "`true` if `operation_mode` is omitted, otherwise `false`."
+    set_operation_mode:
+      description: Defines an action or actions to set the operation mode. Receives variable `operation_mode`.
+      required: true
+      type: action
+    set_temperature:
+      description: Defines an action or actions to set the target temperature. Receives variables `temperature` and `operation_mode`. If `target_temperature_step` is specified, `temperature` is rounded to the nearest `target_temperature_step`.
+      required: false
+      type: action
+    target_temperature:
+      description: Defines a template to get the target temperature of the water heater. If `target_temperature` is specified, `set_temperature` must also be specified.
+      required: false
+      type: template
+      default: optimistic
+    target_temperature_step:
+      description: Round the `target_temperature` to the nearest `target_temperature_step`. Must be a number of at least `0.1`.
+      required: false
+      type: float
+    temperature_unit:
+      description: Unit for `current_temperature` and `target_temperature` output. Valid options are `°C`, `°F`, and `K`. Defaults to the unit system of your Home Assistant installation.
+      required: false
+      type: string
+    turn_away_mode_off:
+      description: Defines an action or actions to run when away mode is turned off. Must be used together with `turn_away_mode_on`.
+      required: inclusive
+      type: action
+    turn_away_mode_on:
+      description: Defines an action or actions to run when away mode is turned on. Must be used together with `turn_away_mode_off`.
+      required: inclusive
+      type: action
+    turn_off:
+      description: Defines an action or actions to run when the water heater is turned off. Must be used together with `turn_on`.
+      required: inclusive
+      type: action
+    turn_on:
+      description: Defines an action or actions to run when the water heater is turned on. Must be used together with `turn_off`.
+      required: inclusive
+      type: action
+{% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - water_heater:
+      - name: Boiler
+        operation_list: "{{ ['eco', 'electric'] }}"
+        operation_mode: "{{ states('input_select.boiler_mode') }}"
+        set_operation_mode:
+          - action: input_select.select_option
+            target:
+              entity_id: input_select.boiler_mode
+            data:
+              option: "{{ operation_mode }}"
+        current_temperature: "{{ states('sensor.boiler_temperature') }}"
 ```
 
 ## Weather

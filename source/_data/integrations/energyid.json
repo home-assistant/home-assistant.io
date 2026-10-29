@@ -1,0 +1,15 @@
+{
+  "domain": "energyid",
+  "name": "EnergyID",
+  "integration_type": "service",
+  "codeowners": [
+    "@JrtPec",
+    "@Molier"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "silver",
+  "categories": [
+    "energy.meters_monitoring"
+  ]
+}

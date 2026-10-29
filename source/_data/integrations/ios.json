@@ -1,0 +1,17 @@
+{
+  "domain": "ios",
+  "name": "Home Assistant iOS",
+  "codeowners": [
+    "@robbiet480"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "presence_location.phones_companion_apps",
+    "messaging_notifications.push_notifications"
+  ],
+  "platforms": [
+    "notify",
+    "sensor"
+  ]
+}
