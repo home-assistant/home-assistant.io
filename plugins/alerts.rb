@@ -54,7 +54,7 @@ module Jekyll
 
       private
 
-      SYNTAX = /^((\s+\w+(=([\w.]+?|".+?"))?)*)$/
+      SYNTAX = /^((\s*\w+(=([\w.]+?|".+?"))?)*)$/
       OPTIONS_REGEX = /(?:\w="[^"]*"|\w=[\w.]+|\w)+/
 
       def parse_options(input, context)

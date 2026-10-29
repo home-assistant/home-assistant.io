@@ -13,8 +13,8 @@ og_image: /images/blog/2026-10-what-the-heck/art.webp
 
 {% include blog/wth-2026-header.html image="/images/blog/2026-10-what-the-heck/art.webp" alt="“What the Heck?!” 2026: Everyone at home gets a say" %}
 
-{% note %}
-TL;DR: All of November is the Month of “What the Heck?!” Tell us what makes Home Assistant hard, confusing, or annoying for you, in the <a href="https://community.home-assistant.io/c/month-of-what-the-heck/61" target="_blank" rel="noopener">WTH category on our forum</a>. Everyone is welcome, and this year we’d love to hear from new and non-technical users, and people living in homes where someone else set it all up. Run Home Assistant yourself? Ask the people you live with how they feel about it!
+{% note title="TL;DR" %}
+All of November is the Month of “What the Heck?!” Tell us what makes Home Assistant hard, confusing, or annoying for you, in the <a href="https://community.home-assistant.io/c/month-of-what-the-heck/61" target="_blank" rel="noopener">WTH category on our forum</a>. Everyone is welcome, and this year we’d love to hear from new and non-technical users, and people living in homes where someone else set it all up. Run Home Assistant yourself? Ask the people you live with how they feel about it!
 {% endnote %}
 
 Let me start with a confession.
