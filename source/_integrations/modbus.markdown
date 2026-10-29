@@ -1954,20 +1954,31 @@ water_heaters:
       type: boolean
       default: false
     data_type:
-      description: "Data type of the current and target temperature registers. For the available data types, refer to [sensor entities](#configuring-sensor-entities)."
+      description: "Data type of the current and target temperature registers. The number of registers is calculated from the data type."
       required: false
-      type: string
       default: int16
-    count:
-      description: "Number of registers to read for a temperature. Only valid for `data_type: custom` and `data_type: string`. For other data types, the count is calculated automatically."
-      required: false
-      type: integer
-    structure:
-      description: "If `data_type: custom` is used, a double-quoted Python struct format string to unpack the value, for example, `>i`."
-      required: false
-      type: string
+      type: list
+      keys:
+        int16:
+          description: "16 bit signed integer (1 register holds 1 value)."
+        int32:
+          description: "32 bit signed integer (2 registers hold 1 value)."
+        int64:
+          description: "64 bit signed integer (4 registers hold 1 value)."
+        uint16:
+          description: "16 bit unsigned integer (1 register holds 1 value)."
+        uint32:
+          description: "32 bit unsigned integer (2 registers hold 1 value)."
+        uint64:
+          description: "64 bit unsigned integer (4 registers hold 1 value)."
+        float16:
+          description: "16 bit signed float (1 register holds 1 value)."
+        float32:
+          description: "32 bit signed float (2 registers hold 1 value)."
+        float64:
+          description: "64 bit signed float (4 registers hold 1 value)."
     swap:
-      description: "Swap the order of bytes or words. Not valid with `data_type: custom` and `data_type: string`."
+      description: "Swap the order of bytes or words."
       required: false
       default: none
       type: list
@@ -2110,7 +2121,7 @@ water_heaters:
 
 {% endconfiguration %}
 
-If you configure `onoff_coil` or `onoff_register`, you can turn the water heater on and off, and Off is added to the operation modes. Selecting any other operation mode turns the water heater on first, and then writes the mode. If you configure neither an operation mode register nor an on/off coil or register, the water heater state is unknown, but the temperatures are still shown.
+If you configure `onoff_coil` or `onoff_register`, you can turn the water heater on and off. Without `operation_mode_register`, the water heater state is On or Off. With `operation_mode_register`, Off is added to the operation modes, and selecting any other operation mode turns the water heater on first, and then writes the mode. If you configure neither an operation mode register nor an on/off coil or register, the water heater state is unknown, but the temperatures are still shown.
 
 #### Example: Water heater configuration
 
