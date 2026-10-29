@@ -47,14 +47,21 @@ You change the host, port, or device ID later, for example after your power stat
 
 ## Supported functionality
 
-Your power station is added as a single device.
+Your power station is added as a device, with its built-in battery as a child device, **Built-in battery**. The built-in battery is part of the power station rather than a product of its own, so it has no serial number or firmware of its own on its device page.
 
 ### Sensors
 
-- **Battery voltage**: The battery's voltage.
-- **Battery current**: The battery's current. The device only reports its magnitude, so it reads the same whether the battery is charging or discharging.
-- **Battery SoC**: The battery's present charge level.
-- **Total battery charged energy**, **Total battery discharged energy**: Lifetime battery energy counters, in Wh.
+On the **Built-in battery** device:
+
+- **Voltage**: The battery's voltage.
+- **Current**: The battery's current. The device only reports its magnitude, so it reads the same whether the battery is charging or discharging.
+- **SoC**: The battery's present charge level.
+- **Total charged energy**, **Total discharged energy**: Lifetime battery energy counters, in Wh.
+
+The following are added as diagnostic entities on the **Built-in battery** device: **SoH**, **Cycle count**, **Cell count**, **Temperature sensor count**.
+
+On the power station:
+
 - **AC output power**, **AC output voltage**, **AC output current**, **Total AC output energy**: What the device is feeding to AC loads.
 - **PV 1 input voltage**, **PV 1 input current**, **PV 1 input power**, and the same for **PV 2** to **PV 4**: Each of the four solar inputs (MPPT trackers). An input with no panel connected reads 0.
 - **PV AC power**, **PV AC energy**, **Total PV input power**, **Total PV input energy**: Combined solar production.
@@ -63,11 +70,11 @@ Your power station is added as a single device.
 - **Inverter status**: The inverter's current status.
 - **Inverter voltage**, **Inverter current**, **Total inverter power**: The inverter's output. The power is negative while the inverter charges the battery.
 
-The following are added as diagnostic entities: **Battery SoH**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
+The following are added as diagnostic entities on the power station: **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
 
 The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
 
-The device page links to the power station's own web interface. The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
+The device page links to the power station's own web interface. The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions, and the built-in battery's BMS firmware version when the device reports one ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
 
 ## Data updates
 
