@@ -17,7 +17,6 @@
 import SiteHead from "../../components/SiteHead.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
-import NavPills from "../../components/NavPills.astro";
 import WthHero from "../../components/what-the-heck/WthHero.astro";
 import WthMoments from "../../components/what-the-heck/WthMoments.astro";
 import WthEveryone from "../../components/what-the-heck/WthEveryone.astro";
@@ -27,14 +26,6 @@ import WthCta from "../../components/what-the-heck/WthCta.astro";
 import { release } from "../../lib/site.mjs";
 import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
-
-// The pill row under the header: one pill for each section it jumps to.
-const sections = [
-  { href: "#moments", label: "What it is" },
-  { href: "#everyone", label: "Who" },
-  { href: "#how-it-works", label: "Tips" },
-  { href: "#fix", label: "Fix a WTH" },
-];
 
 const title = "Month of 'What the Heck?!' 2026";
 const description =
@@ -87,12 +78,11 @@ const description =
 
     <main class="wth">
       <div class="top">
-        <NavPills links={sections} />
         <WthHero />
       </div>
-      <WthMoments />
-      <WthEveryone />
       <WthTips />
+      <WthEveryone />
+      <WthMoments />
       <WthFix />
       <WthCta />
     </main>
@@ -100,7 +90,7 @@ const description =
     <SiteFooter />
 
     <script>
-      // The links in the pills and the hero scroll rather than jump, as the
+      // The links in the hero scroll rather than jump, as the
       // Jekyll `landingpage` layout does.
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", (event) => {
@@ -127,16 +117,9 @@ const description =
     font-family: var(--font-heading);
     /* The hero card and the artwork in it reach past the page edge. */
     overflow-x: clip;
-
-    /* The campaign colors for the page navigation pills. */
-    --nav-pills-bg: var(--wth-wash);
-    --nav-pills-color: var(--wth-ink);
-    --nav-pills-hover-bg: var(--wth-mint);
-    --nav-pills-hover-color: var(--wth-ink);
-    --nav-pills-focus: var(--wth-focus);
   }
 
-  /* The pill row and the hero sit on white. */
+  /* The hero sits on white. */
   .top {
     background-color: var(--wth-surface);
   }
