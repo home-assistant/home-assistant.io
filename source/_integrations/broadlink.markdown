@@ -23,6 +23,15 @@ The following devices are supported:
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
+Only Broadlink thermostats have options.
+
+{% configuration_basic %}
+Keep the clock in sync:
+  description: "When you enable this option, Home Assistant sets the thermostat clock to the local time of Home Assistant. This occurs when the integration starts, every 30 minutes (on the hour and on the half hour), and when you change the time zone of Home Assistant. Thus, the thermostat gets a daylight saving time change in some seconds. This option is off by default. Refer to [Button](#button)."
+{% endconfiguration_basic %}
+
 ## Entities and subdomains
 
 There is no more need to set up platforms, except for custom IR/RF switches. Once the device is configured, all entities will be created automatically.
@@ -32,6 +41,7 @@ The {% term entities %} have the same name as the device by default. To change t
 The {% term entities %} are divided into the following subdomains:
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Infrared](#infrared)
 - [Number](#number)
@@ -46,6 +56,12 @@ The {% term entities %} are divided into the following subdomains:
 ## Binary sensor
 
 The `binary_sensor` {% term entity %} shows the status of the heating output of a Broadlink thermostat. When the heating output is on, the entity is on. Home Assistant creates this entity automatically when you configure a thermostat.
+
+## Button
+
+The **Sync time** `button` {% term entity %} sets the clock of a Broadlink thermostat to the local time of Home Assistant. Home Assistant creates this entity automatically when you configure a thermostat.
+
+The thermostat uses its own clock for its weekly schedule. This clock can drift by some minutes each day, and it does not change for daylight saving time. If the clock is incorrect, the heating schedule starts at the wrong time. Push the button to correct the clock. To set the clock automatically, enable the **Keep the clock in sync** option. Refer to [Options](#options).
 
 ## Climate
 
