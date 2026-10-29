@@ -4,7 +4,7 @@ description: Instructions on how to integrate WestfalenWIND Ökostrom smart with
 ha_categories:
   - energy.energy_prices
   - sensors
-ha_release: 2026.9.3
+ha_release: 2026.12.0
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -50,8 +50,7 @@ The prices for the following day are published every day around **14:00 UTC**. T
 
 - The integration only provides sensors. It doesn't provide actions or controls.
 - Home Assistant only has the values from the day you set up the integration. Earlier prices and consumption are not imported into the history or the statistics.
-- The integration holds the prices of 48 hours. Until the prices for the following day are published, these are yesterday and today. After the next update following the publication (around 14:00 UTC), these are today and tomorrow.
-- Every 15 minutes, the integration retrieves the most recent 100 quarter-hour price periods (25 hours) from the service and replaces the previous data. Older prices are not kept.
+- Every 15 minutes, the integration retrieves the 100 most recent quarter-hour price periods (25 hours) from the service and replaces the previous data in the price sensor’s attributes. Until the prices for the following day are published, they refer to yesterday and today. After the next update following the publication (around 14:00 UTC), they refer to today and tomorrow.
 - If no measurements are available for your account, the consumption sensor has no value.
 
 ## Sensors
