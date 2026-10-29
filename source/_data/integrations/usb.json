@@ -3,7 +3,8 @@
   "name": "USB Discovery",
   "integration_type": "system",
   "codeowners": [
-    "@bdraco"
+    "@bdraco",
+    "@puddly"
   ],
   "iot_class": "local_push",
   "quality_scale": "internal"

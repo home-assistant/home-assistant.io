@@ -18,6 +18,7 @@
     "button",
     "camera",
     "device_tracker",
+    "diagnostics",
     "sensor",
     "switch"
   ],
