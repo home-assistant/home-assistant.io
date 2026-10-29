@@ -87,7 +87,7 @@ export const specs = [
           },
           {
             term: "Internal audio codec support",
-            value: ["FLAC, MP3, OPUS, and WAV"],
+            value: ["FLAC, MP3, and WAV"],
           },
         ],
       },
