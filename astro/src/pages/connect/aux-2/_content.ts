@@ -108,11 +108,9 @@ export const specs = [
               "Switch transmit and receive lines for Serial 1 and Serial 2 for extra compatibility",
             ],
           },
-          // TODO [copy]: Zigbee won't work at launch; ZBT-1 and ZBT-2
-          // are Zigbee adapters.
           {
             term: "USB input",
-            value: ["USB-A data for Connect ZBT-1/ZBT-2/ZWA-2"],
+            value: ["USB-A data for Connect ZWA-2"],
           },
         ],
       },
