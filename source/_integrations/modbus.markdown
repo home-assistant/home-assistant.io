@@ -2068,7 +2068,7 @@ water_heaters:
           type: map
           keys:
             state_off:
-              description: "Value of the Off mode. Leave it out if the device has a separate on/off coil or register."
+              description: "Value of the Off mode. If `onoff_coil` or `onoff_register` is also configured, selecting Off only writes the on/off control and keeps the mode register unchanged, so turning the water heater on resumes the previous mode."
               required: false
               type: [integer, list]
             state_eco:
