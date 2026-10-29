@@ -60,7 +60,7 @@ For each device it finds on the router, the integration creates a {% term "devic
 
 The integration polls the router every 30 seconds. When the router stops reporting a device, the entity changes to away at the next poll. It keeps its last known IP address and hostname.
 
-To prevent a brief disconnection from starting an automation, use a [**State changed**](/triggers/state/) trigger with **For at least**. The automation runs only if the device stays away for that duration. This delays only the automation, not the device tracker's state change.
+To prevent a brief disconnection from starting an automation, use a [**State changed**](/triggers/state/) trigger with **To** set to **Away** and a **For at least** duration. The automation runs only if the device stays away for that duration. This delays only the automation, not the device tracker's state change.
 
 To choose which devices to track and how they are shown, see the [device tracker integration page](/integrations/device_tracker/).
 
