@@ -39,8 +39,8 @@ date_size:
     large:
       description: Large date size.
 date_format:
-  description: "Selects and orders the parts of the date that are shown. If left empty, the card shows the weekday, day, and month, for example Monday 10 August. See [Formatting the date](#formatting-the-date) for the available parts."
-  type: list
+  description: "Sets how the date is shown, either as a preset or as a list of date parts. If left empty, the card shows the weekday, day, and month, for example Monday 10 August. See [Formatting the date](#formatting-the-date) for the available presets and parts."
+  type: [string, list]
   required: false
 no_background:
   description: Removes the background of the date card.
@@ -55,7 +55,17 @@ time_zone:
 
 ### Formatting the date
 
-Use `date_format` to choose which parts of the date are shown, and in what order. Add one or more of the following parts:
+Use `date_format` to choose how the date is shown. Set it to one of the following presets, which follow your language's date format:
+
+- `short`: A short numeric date, for example 8/10/26.
+- `medium`: An abbreviated month name, for example Aug 10, 2026.
+- `long`: The full month name, for example August 10, 2026.
+- `full`: The weekday and full month name, for example Monday, August 10, 2026.
+- `iso`: An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date, always year-month-day, for example 2026-08-10.
+
+The examples above are in English (United States). Other languages order and punctuate the presets in their own way, except `iso`, which is always the same.
+
+For a custom format, set `date_format` to a list of the parts you want to show, in the order you want them. Choose from the following parts:
 
 - Weekday:
   - `weekday-short`: Short weekday name, for example Mon.
@@ -75,9 +85,12 @@ Use `date_format` to choose which parts of the date are shown, and in what order
   - `separator-dash`: Adds a dash (`-`) between parts.
   - `separator-slash`: Adds a slash (`/`) between parts.
   - `separator-dot`: Adds a dot (`.`) between parts.
+  - `separator-comma`: Adds a comma and a space (`, `) between parts.
   - `separator-new-line`: Starts a new line.
 
 The parts are shown in the order you add them. A space is automatically added between two parts that aren't separators, so you only need to add a separator when you want different punctuation, such as a slash-separated date.
+
+In the card editor, choose **Custom** to build your own format. If a preset was selected, the custom format starts from that preset's parts.
 
 ### Examples
 
@@ -104,6 +117,13 @@ date_size: large
 <img src='/images/dashboards/date_card_large.png' alt='Screenshot of a large date card with a title'>
 Screenshot of a large date card with a title
 </p>
+
+A date card using the full date preset:
+
+```yaml
+type: date
+date_format: full
+```
 
 A date card formatted as day/month/year:
 
