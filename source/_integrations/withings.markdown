@@ -63,7 +63,7 @@ Before starting setup or reauthentication, open Home Assistant using `<HOME_ASSI
 
 For example, if you registered `https://home.example.com/auth/external/callback`, start setup from `https://home.example.com`.
 
-Home Assistant uses your browser address to generate this callback. Opening Home Assistant through a local IP address generates an IP-based callback instead. Changing the **Internet** or **Local Network** URL under **Settings** > **System** > **Network** does not change this sign-in callback. The [webhook URL](#how-the-webhook-url-is-determined) used for data updates is separate.
+Home Assistant uses your browser address to generate this callback. Opening Home Assistant through a local IP address generates an IP-based callback instead. Changing the **Internet** or **Local network** URL under {% my network title="**Settings** > **System** > **Network**" %} does not change this sign-in callback. The [webhook URL](#how-the-webhook-url-is-determined) used for data updates is separate.
 
 Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
 
