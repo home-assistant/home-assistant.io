@@ -25,6 +25,7 @@ The integration has been tested with [NuHeat Signature](https://www.nuheat.com/p
 
 - A NuHeat account with your thermostats already connected and working in the NuHeat app.
 - An internet connection for Home Assistant and your thermostats.
+- Home Assistant's [cloud integration](/integrations/cloud/), included in `default_config`, for official account linking.
 
 {% include integrations/config_flow.md %}
 
@@ -43,21 +44,21 @@ Home Assistant validates the account and thermostat before removing the stored l
 
 ## Supported functionality
 
-Home Assistant creates one climate entity for each thermostat. The entity provides the current temperature, target temperature, heating activity, operating mode, and supported presets. Temperatures use Home Assistant's configured temperature unit.
+Home Assistant creates one climate entity for each thermostat found during setup. Reload the integration to discover thermostats added later. The entity provides the current temperature, target temperature, heating activity, operating mode, and supported presets. Temperatures use Home Assistant's configured temperature unit.
 
 ### Operating modes
 
 - **Auto** resumes the thermostat's programmed schedule and cancels a hold or Manual operation.
-- **Heat** selects Manual operation, which maintains a target without following the schedule.
+- **Heat** selects permanent hold, preserving the behavior of the previous integration.
 - **Off** enters NuHeat Standby. This uses Manual operation at 5 °C (41 °F) and retains frost protection. It does not disconnect power or guarantee that heating can never run.
 
-Turning the entity on resumes the schedule. Turning it off enters Standby. While in Standby, the entity reports **Off** and does not display a target temperature. Setting a target temperature while off exits Standby into Manual operation.
+Turning the entity on resumes the schedule. Turning it off enters Standby. After cloud readback confirms Standby, the entity reports **Off** and does not display a target temperature. Setting a target temperature while off exits Standby into permanent hold at that target. To resume the schedule instead, turn the entity on.
 
 ### Presets
 
-- **Run schedule** resumes the programmed schedule.
-- **Temporary hold** holds the current target until the next scheduled event. To choose a different end time, use **Set temporary hold**.
-- **Permanent hold** maintains the current target indefinitely, until you select another preset or operating mode.
+- **Run Schedule** resumes the programmed schedule.
+- **Temporary Hold** holds the current target until the next scheduled event.
+- **Permanent Hold** maintains the current target indefinitely, until you select another preset or operating mode.
 
 Permanent hold keeps the thermostat in automatic operation with its schedule overridden. Manual operation is a separate operating mode. If the cloud response cannot distinguish them, Home Assistant does not report a permanent-hold preset.
 
@@ -74,8 +75,6 @@ The result depends on the thermostat's current state:
 
 The entity reports **Heating** when the thermostat reports active heating, **Idle** when it is not heating, and **Off** in Standby.
 
-{% include integrations/actions.md %}
-
 The standard climate actions also let you [set the operating mode](/actions/climate.set_hvac_mode/), [select a preset](/actions/climate.set_preset_mode/), and [change the target temperature](/actions/climate.set_temperature/).
 
 ## NuHeat automation examples
@@ -91,15 +90,11 @@ To add thermostat control to an existing automation or script:
 5. Select **Set thermostat target temperature**, **Set thermostat preset mode**, or **Set thermostat HVAC mode**, and enter the settings you want to apply.
 6. Select **Save**.
 
-Use the preset values `run_schedule`, `temporary_hold`, and `permanent_hold` when editing a climate preset action in YAML. Operating-mode values are `auto`, `heat`, and `off`.
-
-### Automation: choose a hold end time
-
-Add [**Set temporary hold**](/actions/nuheat.set_temporary_hold/) to an existing automation or script when the hold should end at a specific future date and time. Select your NuHeat climate entity, enter **Target temperature**, and choose **Hold until**. Local times use Home Assistant's timezone.
+Use the preset values `Run Schedule`, `Temporary Hold`, and `Permanent Hold` when editing a climate preset action in YAML. Operating-mode values are `auto`, `heat`, and `off`.
 
 ## Data updates
 
-The integration polls the NuHeat cloud every five minutes. After a command, it also requests updates to confirm the new settings. Home Assistant may briefly show accepted settings while waiting for cloud confirmation. If they are not confirmed within 30 seconds, it returns to the latest cloud-reported state. It does not automatically repeat the heating command.
+The integration polls the NuHeat cloud every five minutes. After a command, it also schedules a delayed read. Home Assistant displays the latest cloud-reported settings, so you may briefly see the previous value while the cloud updates. It does not automatically repeat the heating command.
 
 ## Known limitations
 
