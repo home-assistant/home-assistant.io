@@ -108,9 +108,11 @@ The integration provides a media player for the media currently playing on your 
 
 What else you can control depends on the operating system:
 
-- **Linux**: You can also seek, set the volume, and turn shuffle and repeat on or off, when the player supports it.
+- **Linux**: With System Bridge 5.20.0 or later, you can also seek, set the volume, and turn shuffle and repeat on or off, when the player supports it.
 - **Windows**: Shuffle and repeat are shown, but can't be changed.
 - **macOS**: Only play, pause and stop are available.
+
+When more than one app is playing, the media player follows the one that's playing, or else the first one that's paused. With System Bridge 5.23.0 or later, its source list holds every player it can see: pick one to show and control that player, or pick `Automatic` to go back to following the playing one. The pick resets when Home Assistant restarts.
 
 ### Audio devices
 
@@ -118,7 +120,7 @@ The `Audio` media player sets the volume of whichever output is the system defau
 
 Each audio output, such as speakers or headphones, also gets a media player named after it, such as `Speakers output`, to set its volume and mute it.
 
-Each audio input, such as a microphone, gets a `Microphone input volume` number entity to set its volume from 0 to 100%, and a `Microphone input mute` switch entity to mute it. The `Audio input` select entity picks the default input.
+Each audio input, such as a microphone, gets a `Microphone input volume` number entity to set its volume from 0 to 100%, and a `Microphone input mute` switch entity to mute it. An input only gets these entities once System Bridge reports its volume or mute state. The `Audio input` select entity picks the default input.
 
 An audio device connected later, such as a USB headset, gets its entities when it first shows up, and they become unavailable while it's disconnected.
 
