@@ -121,9 +121,9 @@ IP address:
 If the IP address of your Sonic device changes, you can update it without removing and re-adding the integration:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select **Watergate**. 
+2. Select **Watergate**.
 3. Next to the entry, select **Menu** {% icon "mdi:dots-vertical" %} and then select **Reconfigure**.
-3. Enter the new IP address and select **Submit**.
+4. Enter the new IP address and select **Submit**.
 
 The new address must belong to the same Sonic device that was originally set up. If it belongs to a different device, the reconfiguration stops with the message "The device at this address is not the one that was originally configured." To add a different Sonic device, [set up a new integration entry](#configuration) instead.
 
