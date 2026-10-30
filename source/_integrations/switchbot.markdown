@@ -186,6 +186,7 @@ In addition to the certified devices, the following devices are also supported:
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- Standing Fan (FAN2)
 
 ### Vacuums
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
@@ -800,7 +801,7 @@ Features:
 
 ### Fans
 
-Fan entities are added for Battery Circulator Fan/Circulator Fan
+Fan entities are added for Battery Circulator Fan/Circulator Fan and Standing Fan.
 
 #### Battery Circulator Fan/Circulator Fan
 
@@ -811,6 +812,18 @@ Features:
 - set mode
 - oscillate left and right
 - get battery level (Battery Circulator Fan only)
+
+#### Standing Fan
+
+Features:
+
+- Turn on or off
+- Set speed
+- Set mode (Normal, Natural, Sleep, Baby, or Custom Natural)
+- Control horizontal and vertical oscillation
+- Set horizontal and vertical oscillation angles (30°, 60°, or 90°)
+- Set the night light level (Off, Level 1, or Level 2)
+- View the battery level
 
 ### Air Purifiers
 
