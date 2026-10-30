@@ -1,26 +1,16 @@
 ---
-title: SteamVR Base Station
 description: Instructions on how to control Valve Index base stations with Home Assistant over Bluetooth.
-ha_categories:
-  - media_entertainment.gaming
-ha_bluetooth: true
 ha_release: '2026.11'
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@g4bri3lDev'
 ha_domain: steamvr_base_station
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **SteamVR Base Station** {% term integration %} lets you control Valve Index base stations over Bluetooth Low Energy.
+
+## Use cases
+
+- Put the base stations to sleep at night or when nobody is home, so their motors and lasers don't keep running.
+- Wake the base stations when your gaming PC turns on, so they are ready when you put on the headset.
+- See at a glance whether a base station is on, booting, in standby, or asleep.
 
 ## Supported devices
 
@@ -100,6 +90,11 @@ automation: |
 ## Data updates
 
 The base stations broadcast their power state and channel over Bluetooth, so Home Assistant updates the entities without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands.
+
+## Known limitations
+
+- Each command opens a short Bluetooth connection, so commands are not instant. The Bluetooth adapter or proxy needs a free connection slot, or the command fails.
+- A base station takes about 11 seconds to come back on from sleep. If you need the stations ready right away, use standby instead, which takes about a second.
 
 ## Troubleshooting
 

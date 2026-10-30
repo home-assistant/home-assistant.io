@@ -265,7 +265,12 @@ join: ',' | split: ',' -%}
             {%- for quality_scale in quality_scales -%}
               {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
               {%- if quality_scale_count != 0 -%}
-                <option value="{{ quality_scale }}">{{ quality_scale | capitalize }}</option>
+                <option value="{{ quality_scale }}">
+                  {%- case quality_scale -%}
+                    {%- when 'gold', 'silver', 'bronze' -%}{{ quality_scale | capitalize }} or higher
+                    {%- else -%}{{ quality_scale | capitalize }}
+                  {%- endcase -%}
+                </option>
               {%- endif -%}
             {%- endfor -%}
           </select>
@@ -341,6 +346,8 @@ join: ',' | split: ',' -%}
     const FILTERS = ['connection', 'version', 'iot_class', 'quality_scale'];
     const QUICK_FILTERS = ['featured', 'partners'];
     const QUERY_KEYS = [...QUICK_FILTERS, ...FILTERS, 'search'];
+    // Best first.
+    const QUALITY_TIERS = ['platinum', 'gold', 'silver', 'bronze'];
 
     const filterSelects = [...document.querySelectorAll('.integration-filter select')];
     const quickFilterButtons = [...document.querySelectorAll('.quick-filter')];
@@ -633,9 +640,19 @@ join: ',' | split: ',' -%}
     function passesFilters(integration, state, scores, featured) {
       if (featured && !integration.featured) return false;
       if (state.partners && !integration.wwha) return false;
-      if (FILTERS.some(key => state[key] && integration[key] != state[key])) return false;
+      if (FILTERS.some(key => state[key] && !matchesFilter(integration, key, state[key]))) return false;
       if (scores && !scores.has(integration)) return false;
       return true;
+    }
+
+    // A tier of the quality scale also shows the tiers above it: Silver shows
+    // Platinum, Gold, and Silver. Internal and Legacy are not tiers.
+    function matchesFilter(integration, key, value) {
+      if (key === 'quality_scale' && QUALITY_TIERS.includes(value)) {
+        const tier = QUALITY_TIERS.indexOf(integration.quality_scale);
+        return tier !== -1 && tier <= QUALITY_TIERS.indexOf(value);
+      }
+      return integration[key] == value;
     }
 
     // How many integrations each category has with the search and filters

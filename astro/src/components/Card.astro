@@ -1,0 +1,233 @@
+---
+// Link card: a title, an optional line of detail and an optional
+// image, with an arrow. The whole card is the link.
+//
+// Two layouts:
+//   - `row` (the default): a thumbnail on the left, for lists.
+//   - `stacked`: the image across the top and a larger title, for the
+//     one item a list puts first.
+//
+// Images are 16:9 in both layouts; `imageWidth` and `imageHeight` set
+// another shape. The box keeps its shape while the image loads, so the
+// page doesn't move. `fit` is `cover` (the default: the image fills the
+// box and is cropped to it) or `contain` (the whole image shows, with
+// space around it when its shape differs).
+//
+// `tone` sets the colors: `default` (white), `accent` (mint, as the
+// green button) or `dark` (navy). Anything in the `media` slot sits
+// centered over the image, such as a video's play button.
+//
+// A row's thumbnail is a fraction of a social image's 1200px width.
+// Scaling down that far, browsers (Chrome drawing on the GPU among
+// them) can skip smoothing, so detail and small text come out jagged.
+// Thumbnails are sent at thumbnail size instead, resized by Netlify's
+// image CDN (see src/lib/images.mjs for which images it can resize).
+//
+// Other attributes (data-*, rel) pass through to the link.
+import Icon from "./Icon.astro";
+import { resized } from "../lib/images.mjs";
+import "../styles/tokens.scss";
+
+const {
+  href,
+  title,
+  meta,
+  image,
+  layout = "row",
+  tone = "default",
+  imageWidth = 16,
+  imageHeight = 9,
+  fit = "cover",
+  eager = false,
+  class: className,
+  ...attributes
+} = Astro.props;
+
+// The thumbnail is 6rem (96px) wide (see .row .media). Each screen
+// gets an image at most twice the size it shows, which every browser
+// scales down smoothly.
+const thumbnail = layout === "row" ? resized(image, 192) : null;
+const srcset = thumbnail ? `${thumbnail} 1x, ${resized(image, 288)} 2x` : undefined;
+---
+
+<a class:list={["card", layout, tone, className]} href={href} {...attributes}>
+  {
+    image && (
+      <span class="media" style={`--aspect: ${imageWidth} / ${imageHeight}`}>
+        <img
+          class:list={["image", fit]}
+          src={thumbnail ?? image}
+          srcset={srcset}
+          width={imageWidth}
+          height={imageHeight}
+          alt=""
+          loading={eager ? undefined : "lazy"}
+          fetchpriority={eager && layout === "stacked" ? "high" : undefined}
+          decoding="async"
+        />
+        {Astro.slots.has("media") && (
+          <span class="overlay">
+            <slot name="media" />
+          </span>
+        )}
+      </span>
+    )
+  }
+  <span class="body">
+    <span class="text">
+      <span class="title">{title}</span>
+      {meta && <span class="meta">{meta}</span>}
+    </span>
+    <span class="arrow" aria-hidden="true"><Icon name="arrow-right" /></span>
+  </span>
+</a>
+
+<style lang="scss">
+  /* Colors as the call-to-action button (Button.astro): its navy ink,
+     the primary blue for hover and focus, the tertiary blue for the
+     arrow circle and the green scheme for the accent. */
+
+  .card {
+    --card-surface: var(--color-surface);
+    --card-text: #002e3e;
+    --card-meta: var(--color-text-muted);
+    --card-arrow-surface: #b9e6fc;
+    --card-arrow: #002e3e;
+    --card-ring: #18bcf2;
+
+    background: var(--card-surface);
+    border-radius: var(--radius-small);
+    box-sizing: border-box;
+    color: var(--card-text);
+    display: flex;
+    font-family: var(--font-heading);
+    gap: var(--space-medium);
+    padding: var(--space-small);
+    text-decoration: none;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+      --card-arrow-surface: #18bcf2;
+      box-shadow: inset 0 0 0 2px var(--card-ring);
+    }
+
+    /* The text color, which contrasts with every tone's surface. */
+    &:focus-visible {
+      box-shadow: inset 0 0 0 0.25rem var(--card-text);
+      outline: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .accent {
+    --card-surface: #16f3be;
+    --card-meta: var(--card-text);
+    --card-arrow-surface: var(--color-surface);
+  }
+
+  .dark {
+    --card-surface: #002e3e;
+    --card-text: var(--color-text-inverse);
+    --card-meta: #16f3be;
+    --card-arrow-surface: #006787;
+    --card-arrow: var(--color-text-inverse);
+  }
+
+  .row {
+    align-items: center;
+  }
+
+  .stacked {
+    flex-direction: column;
+  }
+
+  .media {
+    aspect-ratio: var(--aspect);
+    background: var(--color-surface-subtle);
+    border-radius: var(--radius-xsmall);
+    display: block;
+    flex: none;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .row .media {
+    width: 6rem;
+  }
+
+  .image {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .cover {
+    object-fit: cover;
+  }
+
+  .contain {
+    object-fit: contain;
+  }
+
+  .overlay {
+    display: grid;
+    inset: 0;
+    place-items: center;
+    position: absolute;
+  }
+
+  .body {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    gap: var(--space-medium);
+    min-width: 0;
+  }
+
+  .stacked .body {
+    padding: 0 var(--space-xsmall) var(--space-xsmall);
+  }
+
+  .text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .title {
+    display: block;
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .stacked .title {
+    font-size: var(--font-size-xlarge);
+  }
+
+  .meta {
+    color: var(--card-meta);
+    display: block;
+    font-size: var(--font-size-small);
+    margin-top: var(--space-xsmall);
+  }
+
+  .arrow {
+    background: var(--card-arrow-surface);
+    border-radius: var(--radius-pill);
+    color: var(--card-arrow);
+    display: grid;
+    flex: none;
+    font-size: var(--font-size-medium);
+    height: 1.5rem;
+    place-items: center;
+    transition: background-color 0.2s ease;
+    width: 1.5rem;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+</style>

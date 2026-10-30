@@ -1,19 +1,7 @@
 ---
-title: Edifier Infrared
 description: Integration to control Edifier speakers using an infrared transmitter.
-ha_categories:
-  - media_entertainment.speakers_audio
 ha_release: 2026.7
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@abmantis'
 ha_domain: edifier_infrared
-ha_config_flow: true
-ha_platforms:
-  - button
-  - media_player
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Edifier Infrared** {% term integration %} lets you control an Edifier speaker using any infrared transmitter previously configured in Home Assistant.

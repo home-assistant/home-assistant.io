@@ -1,18 +1,10 @@
 ---
-title: Global Caché iTach TCP/IP to IR
 description: Instructions on how to integrate a Global Caché iTach IP2IR gateway into Home Assistant.
-ha_categories:
-  - buttons_remotes
-ha_iot_class: Assumed State
 ha_release: 0.39
 ha_domain: itach
-ha_platforms:
-  - remote
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Global Caché iTach TCP/IP to IR** {% term integration %} allows you to control IR devices with a Global Caché iTach Device and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.
