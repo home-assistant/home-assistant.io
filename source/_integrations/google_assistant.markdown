@@ -1,6 +1,8 @@
 ---
 title: Google Assistant
 description: Setup for Google Assistant integration
+ha_categories:
+  - other_ecosystems
 featured: true
 ha_release: 0.56
 ha_iot_class: Cloud Push

@@ -1,6 +1,9 @@
 ---
 title: Home Assistant Cloud
 description: Enable the Home Assistant Cloud integration.
+ha_categories:
+  - ai_voice.speech
+  - other_ecosystems
 ha_release: '0.60'
 ha_iot_class: Cloud Push
 ha_codeowners:
