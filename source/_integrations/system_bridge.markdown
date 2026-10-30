@@ -193,3 +193,9 @@ This is an object containing the `source` and `volume` (0-100). The source must 
 - Display brightness and power controls aren't available on macOS.
 - A display can report its brightness or power state without supporting changes to it. In that case, the action fails and shows the error message from System Bridge.
 - Some monitors stop responding to DDC/CI when they're off, so they can't be turned back on from Home Assistant.
+
+## Removing the integration
+
+This integration follows standard integration removal. Removing it doesn't change System Bridge on your computer. To stop System Bridge as well, uninstall it there.
+
+{% include integrations/remove_device_service.md %}
