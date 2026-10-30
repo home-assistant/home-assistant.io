@@ -15,6 +15,7 @@
     "weather_alerts.air_quality_pollen"
   ],
   "platforms": [
+    "diagnostics",
     "sensor",
     "weather"
   ]

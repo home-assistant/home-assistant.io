@@ -8,7 +8,7 @@
   ],
   "config_flow": true,
   "iot_class": "local_polling",
-  "quality_scale": "silver",
+  "quality_scale": "platinum",
   "categories": [
     "media_entertainment.gaming"
   ],

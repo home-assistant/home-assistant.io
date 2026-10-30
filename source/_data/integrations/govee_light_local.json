@@ -10,6 +10,7 @@
     "lighting"
   ],
   "platforms": [
+    "diagnostics",
     "light"
   ]
 }

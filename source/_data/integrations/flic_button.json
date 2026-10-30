@@ -1,0 +1,21 @@
+{
+  "domain": "flic_button",
+  "name": "Flic",
+  "integration_type": "device",
+  "codeowners": [
+    "@50ButtonsEach"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "buttons_remotes"
+  ],
+  "platforms": [
+    "event",
+    "number"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

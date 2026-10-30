@@ -1,6 +1,6 @@
 {
   "domain": "wattwaechter",
-  "name": "WattWächter Plus",
+  "name": "WattWächter",
   "integration_type": "device",
   "codeowners": [
     "@smartcircuits"

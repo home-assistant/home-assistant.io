@@ -13,6 +13,7 @@
     "media_entertainment.speakers_audio"
   ],
   "platforms": [
+    "diagnostics",
     "media_player",
     "switch"
   ],

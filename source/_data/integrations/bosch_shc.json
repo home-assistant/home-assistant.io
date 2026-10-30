@@ -17,6 +17,7 @@
     "button",
     "climate",
     "cover",
+    "diagnostics",
     "event",
     "light",
     "number",

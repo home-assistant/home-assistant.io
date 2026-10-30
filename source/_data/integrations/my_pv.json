@@ -15,6 +15,7 @@
   ],
   "platforms": [
     "button",
+    "climate",
     "diagnostics",
     "number",
     "select",

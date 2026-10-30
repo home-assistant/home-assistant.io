@@ -4,8 +4,7 @@
   "integration_type": "hub",
   "codeowners": [
     "@bdraco",
-    "@kingy444",
-    "@trullock"
+    "@kingy444"
   ],
   "config_flow": true,
   "iot_class": "local_polling",

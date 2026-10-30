@@ -9,6 +9,7 @@
   ],
   "platforms": [
     "device_tracker",
+    "diagnostics",
     "sensor"
   ],
   "discovery": [

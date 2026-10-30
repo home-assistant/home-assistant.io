@@ -15,6 +15,7 @@
     "assist_satellite",
     "binary_sensor",
     "conversation",
+    "diagnostics",
     "number",
     "select",
     "stt",

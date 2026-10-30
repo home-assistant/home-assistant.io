@@ -14,6 +14,7 @@
   "platforms": [
     "binary_sensor",
     "climate",
+    "diagnostics",
     "event",
     "fan",
     "humidifier",

@@ -15,6 +15,7 @@
     "binary_sensor",
     "button",
     "diagnostics",
+    "event",
     "select",
     "sensor",
     "switch"
