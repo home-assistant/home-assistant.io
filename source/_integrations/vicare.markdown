@@ -57,6 +57,8 @@ Represents the heating controls of your device.
 Viessmann devices with room temperature sensing will show the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
 {% endnote %}
 
+The holiday programs appear as **Holiday** and **Holiday at home** binary sensors, with sensors for their start and end dates.
+
 ### Fan
 
 Ventilation units are displayed as fans and enable the change of speed and use of presets.
