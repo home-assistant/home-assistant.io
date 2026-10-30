@@ -2,6 +2,7 @@
 title: "Send chat action"
 action: telegram_bot.send_chat_action
 domain: telegram_bot
+response: optional
 description: "Shows a status such as typing in a Telegram chat."
 ---
 
@@ -75,6 +76,10 @@ chat_id:
   required: false
   type: [integer, list]
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

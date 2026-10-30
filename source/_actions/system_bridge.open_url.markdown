@@ -2,14 +2,13 @@
 title: "Open URL"
 action: system_bridge.open_url
 domain: system_bridge
+response: optional
 description: "Opens a URL on a System Bridge server with the default application."
 related_actions:
   - system_bridge.open_path
 ---
 
 The **System Bridge: Open URL** action opens a URL on a System Bridge server using the default application, such as the default web browser.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -63,6 +62,8 @@ url:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response confirms the URL that was opened and includes the following fields:
 

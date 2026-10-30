@@ -2,12 +2,11 @@
 title: "Get weather forecasts"
 action: weather.get_forecasts
 domain: weather
+response: required
 description: "Retrieves the forecasts from one or more weather entities."
 ---
 
 Use this action to retrieve the forecast from one or more weather entities, for example to read out tomorrow's weather or to drive an automation based on the chance of rain.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -61,6 +60,8 @@ type:
 {% include actions/targets.md %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by each weather entity you targeted, with a `forecast` list. Each entry in the list describes the forecasted conditions at a given point in time and includes the following fields:
 

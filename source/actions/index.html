@@ -47,6 +47,11 @@ toc: true
               <a href="{{ act.url }}">
                 <span class="tf-title">{{ act.title }}</span>
                 <code class="tf-fn">{{ act.action }}</code>
+                {%- if act.response == "required" %}
+                <span class="tf-badge">Returns data</span>
+                {%- elsif act.response == "optional" %}
+                <span class="tf-badge">Can return data</span>
+                {%- endif %}
               </a>
               <span class="tf-desc">{{ act.description }}</span>
             </li>
@@ -111,7 +116,7 @@ toc: true
 <noscript>
   <ul>
     {%- for act in all_actions -%}
-    <li><a href="{{ act.url }}"><code>{{ act.action }}</code></a> - {{ act.description }}</li>
+    <li><a href="{{ act.url }}"><code>{{ act.action }}</code></a> - {{ act.description }}{% if act.response == "required" %} (returns data){% elsif act.response == "optional" %} (can return data){% endif %}</li>
     {%- endfor -%}
   </ul>
 </noscript>

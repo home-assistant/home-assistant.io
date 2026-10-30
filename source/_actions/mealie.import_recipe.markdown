@@ -2,6 +2,7 @@
 title: Import recipe
 action: mealie.import_recipe
 domain: mealie
+response: optional
 description: "Import a recipe into Mealie from a URL."
 related_actions:
   - mealie.get_recipe
@@ -10,7 +11,7 @@ related_actions:
 
 Use this action to import a recipe into Mealie from a URL.
 
-This action can optionally return the imported recipe in a response variable, which you can use in later steps of the same automation or script.
+The data it returns is the imported recipe.
 
 {% include actions/ui_header.md %}
 
@@ -72,6 +73,8 @@ include_tags:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 This action optionally returns the imported recipe. To capture it, set a `response_variable` when you call the action.
 

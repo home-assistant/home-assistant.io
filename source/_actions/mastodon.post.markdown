@@ -2,6 +2,7 @@
 title: "Post"
 action: mastodon.post
 domain: mastodon
+response: optional
 description: "Posts a status on your Mastodon account."
 related_actions:
   - mastodon.get_account
@@ -203,6 +204,10 @@ thumbnail:
   required: false
   type: map
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

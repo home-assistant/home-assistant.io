@@ -2,6 +2,7 @@
 title: "Search media"
 action: media_player.search_media
 domain: media_player
+response: required
 description: "Searches the media available on a media player."
 related_actions:
   - media_player.browse_media
@@ -9,8 +10,6 @@ related_actions:
 ---
 
 Use this action to search the media available on a media player, for example to find a song or album by name before playing it.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -81,6 +80,8 @@ media_filter_classes:
 {% include actions/targets.md %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the search results in a media tree object that you can store in a response variable. The response includes the following fields:
 

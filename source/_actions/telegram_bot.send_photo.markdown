@@ -2,6 +2,7 @@
 title: "Send photo"
 action: telegram_bot.send_photo
 domain: telegram_bot
+response: optional
 description: "Sends a photo through a Telegram bot to one or more chats."
 ---
 
@@ -155,6 +156,8 @@ chat_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 When the photo is sent, the action returns a `chats` list. Each item describes one delivered message:
 

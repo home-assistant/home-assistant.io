@@ -2,6 +2,7 @@
 title: "Get to-do list items"
 action: todo.get_items
 domain: todo
+response: required
 description: "Gets the items on a to-do list."
 related_actions:
   - todo.add_item
@@ -10,8 +11,6 @@ related_actions:
 ---
 
 Use this action to get the items on a to-do list, for example to read them out loud or send them in a notification.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -62,6 +61,8 @@ status:
 {% include actions/targets.md %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the matching items for each to-do list you targeted. The response is keyed by the to-do list, with an `items` list. Each item includes the following fields:
 

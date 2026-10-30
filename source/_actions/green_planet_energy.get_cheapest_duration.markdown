@@ -2,6 +2,7 @@
 title: "Get cheapest time window"
 action: green_planet_energy.get_cheapest_duration
 domain: green_planet_energy
+response: required
 description: "Find the cheapest time window for a given duration in the selected time range."
 related_actions:
   - green_planet_energy.get_prices
@@ -67,6 +68,8 @@ time_range:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is a mapping describing the cheapest window that was found:
 

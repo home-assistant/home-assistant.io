@@ -2,6 +2,7 @@
 title: "Buy a reward"
 action: habitica.score_reward
 domain: habitica
+response: optional
 description: "Buys a custom Habitica reward with gold."
 ---
 
@@ -57,6 +58,10 @@ task:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

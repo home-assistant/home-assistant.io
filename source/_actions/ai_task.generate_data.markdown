@@ -2,6 +2,7 @@
 title: "Generate data"
 action: ai_task.generate_data
 domain: ai_task
+response: required
 description: "Uses AI to run a task that generates data, such as text or structured output."
 related_actions:
   - ai_task.generate_image
@@ -90,6 +91,8 @@ attachments:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response data is a mapping with the following fields:
 

@@ -2,6 +2,7 @@
 title: "Set random mealplan"
 action: mealie.set_random_mealplan
 domain: mealie
+response: optional
 description: "Plan a random recipe on a specific date in Mealie."
 related_actions:
   - mealie.set_mealplan
@@ -12,7 +13,7 @@ related_actions:
 
 Use this action to plan a random recipe on a specific date in Mealie.
 
-This action can optionally return the created meal plan in a response variable, which you can use in later steps of the same automation or script.
+The data it returns is the created meal plan.
 
 {% include actions/ui_header.md %}
 
@@ -70,6 +71,10 @@ entry_type:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 ## Good to know
 

@@ -2,6 +2,7 @@
 title: "Get series"
 action: sonarr.get_series
 domain: sonarr
+response: required
 description: "Retrieves all series in your Sonarr library with their details and statistics."
 related_actions:
   - sonarr.get_episodes
@@ -11,7 +12,7 @@ related_actions:
 
 Use this action to retrieve the list of all series in your Sonarr library, together with their details and statistics.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to build a list of your monitored shows.
+For example, you can use the result to build a list of your monitored shows.
 
 {% include actions/ui_header.md %}
 
@@ -60,6 +61,8 @@ entry_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `shows` key with a mapping of series keyed by series title. Each series includes the following fields:
 

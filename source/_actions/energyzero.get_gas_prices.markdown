@@ -2,6 +2,7 @@
 title: "Get gas prices"
 action: energyzero.get_gas_prices
 domain: energyzero
+response: required
 description: "Requests gas prices from EnergyZero."
 related_actions:
   - energyzero.get_energy_prices
@@ -9,7 +10,7 @@ related_actions:
 
 The **EnergyZero: Get gas prices** action fetches the dynamic gas prices from EnergyZero for a period you choose.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to show the prices in a template sensor.
+For example, you can use the result to show the prices in a template sensor.
 
 {% include actions/ui_header.md %}
 
@@ -86,6 +87,8 @@ end:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `prices` list. Each entry includes the following fields:
 

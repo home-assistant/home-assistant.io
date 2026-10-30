@@ -2,6 +2,7 @@
 title: "Cancel a pending quest"
 action: habitica.cancel_quest
 domain: habitica
+response: optional
 description: "Cancels a Habitica quest that has not started yet and resets invitations."
 ---
 
@@ -54,6 +55,10 @@ config_entry:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

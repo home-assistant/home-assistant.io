@@ -2,14 +2,13 @@
 title: "Open path"
 action: system_bridge.open_path
 domain: system_bridge
+response: optional
 description: "Opens a file on a System Bridge server with the default application."
 related_actions:
   - system_bridge.open_url
 ---
 
 The **System Bridge: Open path** action opens a file on a System Bridge server using the default application for that file type.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -63,6 +62,8 @@ path:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response confirms the path that was opened and includes the following fields:
 

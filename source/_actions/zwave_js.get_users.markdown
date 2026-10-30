@@ -2,6 +2,7 @@
 title: "Get users"
 action: zwave_js.get_users
 domain: zwave_js
+response: required
 description: "Lists all access-control users and their credential references on a Z-Wave lock."
 related_actions:
   - zwave_js.set_user
@@ -9,8 +10,6 @@ related_actions:
 ---
 
 Use this action to list all access-control users on a Z-Wave lock, along with each user's type, credential rule, active state, and the credentials assigned to them. This is handy for auditing who has access or for finding a free user slot.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -44,6 +43,8 @@ action: |
 {% include actions/targets.md domain="lock" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by lock entity. Each entry reports the maximum number of users and a list of the configured users, with their credential references. A shortened example looks like this:
 

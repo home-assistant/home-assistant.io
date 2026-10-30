@@ -2,6 +2,7 @@
 title: "Leave a quest"
 action: habitica.leave_quest
 domain: habitica
+response: optional
 description: "Leaves the quest your Habitica character is participating in."
 ---
 
@@ -48,6 +49,10 @@ config_entry:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

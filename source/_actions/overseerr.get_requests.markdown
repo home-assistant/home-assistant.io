@@ -2,12 +2,13 @@
 title: "Get requests"
 action: overseerr.get_requests
 domain: overseerr
+response: required
 description: "Retrieves a list of media requests from Seerr."
 ---
 
 The **Seerr: Get requests** action retrieves a list of media requests from Seerr. You can filter the results by status and by the user who made the request, and choose the order in which they are returned.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to notify yourself about pending requests.
+For example, you can use the result to notify yourself about pending requests.
 
 {% include actions/ui_header.md %}
 
@@ -76,6 +77,8 @@ requested_by:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `requests` list. Each item describes a single media request, including its status, the media it refers to, and the users who requested and last modified it.
 

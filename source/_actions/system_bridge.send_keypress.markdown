@@ -2,14 +2,13 @@
 title: "Send keyboard keypress"
 action: system_bridge.send_keypress
 domain: system_bridge
+response: optional
 description: "Sends a keyboard keypress to a System Bridge server."
 related_actions:
   - system_bridge.send_text
 ---
 
 The **System Bridge: Send keyboard keypress** action sends a single keyboard keypress to a System Bridge server, as if the key was pressed on the server's keyboard.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -66,6 +65,8 @@ key:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response confirms the key that was pressed and includes the following fields:
 

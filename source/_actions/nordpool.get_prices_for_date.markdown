@@ -2,6 +2,7 @@
 title: "Get prices for date"
 action: nordpool.get_prices_for_date
 domain: nordpool
+response: required
 description: "Retrieves the prices for a specific date."
 related_actions:
   - nordpool.get_price_indices_for_date
@@ -9,7 +10,7 @@ related_actions:
 
 The integration entities provide price information only for the current date. The **Nord Pool: Get prices for date** action retrieves prices for any date within the last two months or for tomorrow.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example in a trigger-based template sensor.
+For example, you can use the result in a trigger-based template sensor.
 
 {% include actions/ui_header.md %}
 
@@ -95,6 +96,8 @@ currency:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains one entry per requested area. Each area holds a list of price intervals with the following fields:
 

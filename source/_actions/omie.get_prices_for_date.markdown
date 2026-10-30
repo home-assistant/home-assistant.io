@@ -2,14 +2,13 @@
 title: "Get prices for date"
 action: omie.get_prices_for_date
 domain: omie
+response: required
 description: "Retrieves OMIE electricity spot prices for a specific date, for Spain, Portugal, or both."
 ---
 
 Use this action to retrieve the day-ahead electricity spot prices for a specific date, for Spain, Portugal, or both countries.
 
 The OMIE sensors always reflect the current price. This action lets you fetch the prices for any published date instead, which is useful when you want to look ahead. For example, you can compare tomorrow's prices or schedule an appliance to run during the cheapest hours.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 Prices for the next day are published daily at around 13:30 CET/CEST. If you request a date that has not been published yet, the action reports that the prices are not available. Similarly if you request a date that is previous to the date when quarter-hourly prices became available, the action reports that no prices exist for that date and tells you the earliest date you can request.
 
@@ -71,6 +70,8 @@ countries:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a key for each requested country: `es` for Spain and `pt` for Portugal. If you request both countries, both keys are present.
 

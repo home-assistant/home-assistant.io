@@ -2,6 +2,7 @@
 title: "Get queue"
 action: sonarr.get_queue
 domain: sonarr
+response: required
 description: "Retrieves the episodes currently in the Sonarr download queue with their progress and details."
 related_actions:
   - sonarr.get_series
@@ -10,7 +11,7 @@ related_actions:
 
 Use this action to retrieve all episodes currently in the download queue, together with their progress and details.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to notify yourself when a download is still in progress.
+For example, you can use the result to notify yourself when a download is still in progress.
 
 {% include actions/ui_header.md %}
 
@@ -68,6 +69,8 @@ max_items:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `shows` key with a mapping of queue items keyed by download title. Each queue item includes the following fields:
 

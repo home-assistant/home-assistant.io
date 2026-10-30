@@ -2,12 +2,11 @@
 title: "Read file"
 action: file.read_file
 domain: file
+response: required
 description: "Reads a file and returns its contents in a response."
 ---
 
 Use this action to read a JSON or YAML file and return its parsed contents in a response variable, for example to load data saved by another automation or an external program.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -68,6 +67,8 @@ file_encoding:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `data` field that holds the parsed contents of the file. For example, reading a file with this JSON content:
 

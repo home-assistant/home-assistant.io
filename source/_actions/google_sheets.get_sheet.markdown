@@ -2,6 +2,7 @@
 title: "Get data from Google sheet"
 action: google_sheets.get_sheet
 domain: google_sheets
+response: required
 description: "Retrieves rows of data from a Google Sheets document."
 related_actions:
   - google_sheets.append_sheet
@@ -74,6 +75,8 @@ rows:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `range` with the requested rows. Each row is a list of cell values.
 

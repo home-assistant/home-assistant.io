@@ -2,6 +2,7 @@
 title: "Get travel times"
 action: google_travel_time.get_travel_times
 domain: google_travel_time
+response: required
 description: "Retrieves route alternatives and travel times between two locations."
 related_actions:
   - google_travel_time.get_transit_times
@@ -131,6 +132,8 @@ response_variable:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response data is a mapping with a `routes` list. Each route has the following fields:
 

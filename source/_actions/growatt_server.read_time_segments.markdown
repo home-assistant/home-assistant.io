@@ -2,6 +2,7 @@
 title: "Read time segments"
 action: growatt_server.read_time_segments
 domain: growatt_server
+response: required
 description: "Reads all battery time segments from a supported MIN inverter."
 related_actions:
   - growatt_server.update_time_segment
@@ -54,6 +55,10 @@ device_id:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

@@ -2,6 +2,7 @@
 title: "Create habit"
 action: habitica.create_habit
 domain: habitica
+response: optional
 description: "Creates a habit for your Habitica character."
 ---
 
@@ -109,6 +110,10 @@ alias:
   required: false
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

@@ -2,6 +2,7 @@
 title: "Track a habit"
 action: habitica.score_habit
 domain: habitica
+response: optional
 description: "Increases the positive or negative streak of a Habitica habit to track its progress."
 ---
 
@@ -67,6 +68,10 @@ direction:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

@@ -2,6 +2,7 @@
 title: "Get upcoming"
 action: sonarr.get_upcoming
 domain: sonarr
+response: required
 description: "Retrieves upcoming episodes from the Sonarr calendar."
 related_actions:
   - sonarr.get_series
@@ -11,7 +12,7 @@ related_actions:
 
 Use this action to retrieve upcoming episodes from the calendar. Episodes are returned when their air date falls between today and today plus the number of days you specify.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to send yourself a weekly overview of what's coming up.
+For example, you can use the result to send yourself a weekly overview of what's coming up.
 
 {% include actions/ui_header.md %}
 
@@ -69,6 +70,8 @@ days:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains an `episodes` key with a mapping of upcoming episodes keyed by series title and episode identifier, for example `Breaking Bad S01E01`. Each episode includes the following fields:
 

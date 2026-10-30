@@ -2,12 +2,13 @@
 title: "Request media"
 action: overseerr.request_media
 domain: overseerr
+response: required
 description: "Creates a media request in Seerr."
 ---
 
 The **Seerr: Request media** action creates a new media request in Seerr, for example to request a movie or series directly from an automation or script. You can find the media ID of the movie or series with the [Search media](/actions/overseerr.search_media/) action or in the Seerr URL of the media.
 
-This action returns its result in a response variable, which you can use in later steps, for example to notify yourself about the created request.
+For example, you can use the result to notify yourself about the created request.
 
 {% include actions/ui_header.md %}
 
@@ -81,6 +82,8 @@ seasons:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `request` object that describes the created media request, including its ID and status.
 

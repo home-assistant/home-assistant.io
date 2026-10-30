@@ -2,14 +2,13 @@
 title: "Get calendar events"
 action: calendar.get_events
 domain: calendar
+response: required
 description: "Gets the events on a calendar within a date range."
 related_actions:
   - calendar.create_event
 ---
 
 Use this action to get the events on one or more calendars within a date range, for example to read out your agenda or send it in a notification.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -77,6 +76,8 @@ duration:
 {% include actions/targets.md %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the matching events for each calendar you targeted. The response is keyed by the calendar, with an `events` list. Each event includes the following fields:
 
