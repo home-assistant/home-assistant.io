@@ -614,6 +614,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[LLM]** and **[System Log]**: AI assistants that use the Home Assistant LLM API can now read your system log, so they can help you track down problems. Thanks, [@allenporter]!
 - **[Calendar]** and **[Group]**: Combine several calendars into a calendar group, which shows the events of all its member calendars together. Thanks, [@elupus]!
 - **[Zigbee Home Automation]**: Each ZHA group now gets its own device, named after the group. You can give a group its own area, and its entities are all in one place, just like any other device. Thanks, [@TheJulianJES]!
+- **[Tractive]**: The integration and its backend library have been rewritten, fixing most known issues and making it more reliable. It also adds a pet weight sensor. Thanks, [@bieniu]!
 
 #### Infrared and radio frequency keep growing
 
