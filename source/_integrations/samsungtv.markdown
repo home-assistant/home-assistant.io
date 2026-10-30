@@ -58,7 +58,7 @@ The Samsung Smart TV integration provides the following entities and functionali
 
 The **SamsungTV** integration uses a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume level, and other state information.
 For older TV models that still use the legacy bridge implementation (internally called `SamsungTvBridge`), the integration polls the TV every 10 seconds to retrieve the latest state information.
-The **Art mode** binary sensor, where present, is also updated on this 10-second poll.
+Separately from that, the **Art mode** binary sensor is updated every 10 seconds on all supported Frame TVs, not only on the older models above.
 
 ### Turn on action
 
