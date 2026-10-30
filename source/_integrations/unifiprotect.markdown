@@ -774,12 +774,12 @@ The `not_from` option keeps the automation from running during startup or power-
 - **Event Attributes**:
   - **event_type**: `smoke` or `co` (carbon monoxide).
   - **event_id**: A unique ID that identifies the alarm.
-- **Description**: This event is triggered when a UniFi Protect smoke detector reports a smoke or carbon monoxide alarm. It fires once for each alarm event UniFi Protect reports. There is no event when the alarm stops.
+- **Description**: This event is triggered when a UniFi Protect smoke detector reports a smoke or carbon monoxide alarm. It fires when the alarm starts. There is no separate event when the alarm stops.
 
-The UP Sense reports the same alarm support for its alarm sound detection, so it gets these entities as well.
+The UP Sense also gets these entities, because UniFi Protect reports smoke support for it.
 
 {% important %}
-The detector sounds its own alarm, whether or not Home Assistant is running. Use this event for additional actions, such as turning on lights or sending notifications. Home Assistant only receives alarms while it is connected to UniFi Protect. An alarm during an outage can be reported late, when the alarm ends, or not at all.
+The detector sounds its own alarm, whether or not Home Assistant is running. Use this event for additional actions, such as turning on lights or sending notifications. Home Assistant only receives alarms while it is connected to UniFi Protect. An alarm that starts during an outage can be reported late, when the alarm ends, or not at all. If Home Assistant restarts while an alarm is sounding, the event can fire again when the alarm ends.
 {% endimportant %}
 
 #### Example Smoke Alarm Automation
@@ -806,7 +806,7 @@ mode: single
 
 - **Event Name**: Maintenance
 - **Event Attributes**:
-  - **event_type**: One of `self_test` (a self-test was started), `battery_low`, `needs_cleaning`, `smoke_fault`, `co_fault`, or `end_of_life`.
+  - **event_type**: One of `self_test` (a self-test ran), `battery_low`, `needs_cleaning`, `smoke_fault`, `co_fault`, or `end_of_life`.
   - **event_id**: A unique ID that identifies the event.
 - **Description**: This event is triggered when a UniFi Protect smoke detector reports a self-test, a low battery, that it needs cleaning, a smoke or carbon monoxide sensor fault, or that it has reached the end of its service life.
 
