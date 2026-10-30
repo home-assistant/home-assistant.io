@@ -1,19 +1,7 @@
 ---
-title: Ghost
 description: Instructions on how to integrate Ghost with Home Assistant.
-ha_category:
-  - Sensor
 ha_release: '2026.3'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@johnonolan'
 ha_domain: ghost
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: gold
 ---
 
 The **Ghost** {% term integration %} allows you to monitor your [Ghost](https://ghost.org) publication metrics in Home Assistant, including member counts, revenue, post statistics, and email newsletter performance.

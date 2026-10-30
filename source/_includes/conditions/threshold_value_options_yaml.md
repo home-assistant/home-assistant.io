@@ -15,6 +15,10 @@ Parameters:
                       "input_number.comfort_temperature_min".
   unit_example_value  Literal number used in the example. For example: "22".
   threshold_required  "true" or "false" for the threshold field. Default "false".
+  entity_unit         Optional (unitless members). Inline code unit a threshold entity must
+                      use. For example: "`%`". Leave out if any unit works (counter).
+  entity_unit_note    Optional (members with a unit). Replaces the sentence about the unit
+                      of a threshold entity, for domains with different unit rules.
 {% endcomment %}
 {% options_yaml %}
 threshold:
@@ -23,8 +27,8 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass.{% unless include.has_unit %} Provide `value` with a `number` key ({{ include.range_note }}) or an `entity` key.{% endunless %}
     - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass.{% unless include.has_unit %} Provide `value` with a `number` key ({{ include.range_note }}) or an `entity` key.{% endunless %}
-    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass.{% unless include.has_unit %} Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.{% endunless %}
-    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass.{% unless include.has_unit %} Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.{% endunless %}
+    - `type: between` (inclusive): Defines a range. The reading must be between the two bounds, or equal to one of them, to pass.{% unless include.has_unit %} Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.{% endunless %}
+    - `type: outside` (exclusive): Defines an outside-range. The reading must be beyond either bound to pass.{% unless include.has_unit %} Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.{% endunless %}
 {% if include.has_unit %}
 
     For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`. For example:
@@ -36,13 +40,13 @@ threshold:
         entity: {{ include.unit_example_entity }}
       value_max:
         number: {{ include.unit_example_value }}
-        unit_of_measurement: {{ include.unit_default }}
+        unit_of_measurement: "{{ include.unit_default }}"
     ```
 
-    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two readings dynamically.
+    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two readings dynamically. {% if include.entity_unit_note %}{{ include.entity_unit_note }}{% else %}Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the condition doesn't pass.{% endif %}
 {% else %}
 
-    For the `number` key, use {{ include.number_final }}. For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
+    For the `number` key, use {{ include.number_final }}. For the `entity` key, use an `input_number`, `number`, or `sensor` entity.{% if include.entity_unit %} The entity must use {{ include.entity_unit }} as its unit. If it has a different unit, or no unit, the condition doesn't pass.{% endif %}
 {% endif %}
   required: {{ include.threshold_required | default: "false" }}
   type: map

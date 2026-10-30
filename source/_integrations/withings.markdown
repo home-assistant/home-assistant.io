@@ -1,22 +1,7 @@
 ---
-title: Withings
 description: Instructions on how to integrate Withings health products within Home Assistant.
-ha_category:
-  - Health
-  - Sensor
 ha_release: 0.99
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@joostlek'
 ha_domain: withings
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_dhcp: true
 ---
 
 The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
@@ -24,6 +9,7 @@ The **Withings** {% term integration %} consumes data from various health produc
 ## Prerequisites
 
 - Withings account
+  - A [Withings+](https://www.withings.com/en-us/pages/withings-plus) subscription is required for accounts created after October 11, 2026.
 - Withings app installed
 - Withings device setup in the app
 - [Withings developer account](#creating-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API

@@ -1,30 +1,8 @@
 ---
-title: Sonos
 description: Instructions on how to integrate Sonos devices into Home Assistant.
-ha_category:
-  - Media player
-  - Sensor
 featured: true
 ha_release: 0.7.3
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: sonos
-ha_codeowners:
-  - '@peterager'
-  - '@jjlawren'
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-ha_zeroconf: true
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Sonos** {% term integration %} allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
@@ -156,7 +134,7 @@ Example templates:
 ```
 
 {% tip %}
-The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
+The Sonos favorites sensor (`sensor.sonos_favorites`) is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
 {% endtip %}
 
 ## Playing media

@@ -8,7 +8,7 @@ related_actions:
   - snapcast.set_latency
 ---
 
-The **Snapshot** action saves the current playback state of one or more Snapcast speakers, so you can return to it later with [Restore](/actions/snapcast.restore/).
+The **Snapcast: Snapshot** action saves the current playback state of one or more Snapcast speakers, so you can return to it later with [Restore](/actions/snapcast.restore/).
 
 This pair is handy when you want to interrupt playback for a doorbell or a notification sound and then pick up right where you left off.
 
@@ -21,7 +21,7 @@ To take a snapshot from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Snapcast speakers you want to snapshot.
-6. From the actions shown for that target, select **Snapshot**.
+6. From the actions shown for that target, under **Snapcast**, select **Snapshot**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -55,7 +55,9 @@ This action has no additional options in YAML.
 
 When the doorbell rings, snapshot the speakers, play a chime, then restore playback.
 
-- **Trigger**: The doorbell button is pressed
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
 - **Action**: Snapcast: Snapshot, play the chime, then Snapcast: Restore
 
 {% details "YAML example for snapshot and restore around a doorbell chime" %}

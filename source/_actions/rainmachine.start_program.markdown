@@ -8,7 +8,7 @@ related_actions:
   - rainmachine.start_zone
 ---
 
-The **Start program** action starts a RainMachine watering program. Each program is represented by a switch entity, and this action turns that program on.
+The **RainMachine: Start program** action starts a RainMachine watering program. Each program is represented by a switch entity, and this action turns that program on.
 
 {% include actions/ui_header.md %}
 

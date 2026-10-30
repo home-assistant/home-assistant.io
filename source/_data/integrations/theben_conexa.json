@@ -1,0 +1,17 @@
+{
+  "domain": "theben_conexa",
+  "name": "Theben Conexa Smart Meter Gateway",
+  "integration_type": "device",
+  "codeowners": [
+    "@mdluhosch"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

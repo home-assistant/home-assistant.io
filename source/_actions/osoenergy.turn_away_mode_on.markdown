@@ -19,7 +19,7 @@ To turn on away mode from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the water heater you want to set.
-6. From the actions shown for that target, select **OSO Energy: Set away mode**.
+6. From the actions shown for that target, under **OSO Energy**, select **Set away mode**.
 7. Set the number of **Duration days** to keep away mode active.
 8. Select **Save**.
 

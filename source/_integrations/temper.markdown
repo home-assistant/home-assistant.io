@@ -1,18 +1,10 @@
 ---
-title: TEMPer
 description: Instructions on how to integrate TEMPer sensors into Home Assistant.
-ha_category:
-  - DIY
-ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: temper
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 This **TEMPer** {% term integration %} allows you to get the current temperature from a TEMPer device.

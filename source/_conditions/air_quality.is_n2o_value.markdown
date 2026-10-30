@@ -12,25 +12,16 @@ The **Nitrous oxide value** condition passes when a nitrous oxide (N2O) sensor's
 
 {% include conditions/ui_header.md %}
 
-To use this condition in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **And if** section, select **Add condition**.
-4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-5. From the conditions shown for that target, select **Nitrous oxide value**.
-6. Under **Threshold type**, set the N2O level the condition checks against.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
-8. Select **Save**.
+{% include conditions/threshold_value_steps.md
+   title="Nitrous oxide value"
+   sensor="nitrous oxide sensor"
+   areas="greenhouse or workshop"
+   value_long="a fixed level directly, for example `900` for 900 μg/m³" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: The nitrous oxide level the sensor has to meet or exceed for the condition to pass.
-Condition passes if:
-  description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-{% endoptions_ui %}
+{% include conditions/threshold_value_options_ui.md
+   value_short="a fixed level in μg/m³" %}
 
 {% include conditions/yaml_header.md %}
 
@@ -42,38 +33,32 @@ condition: |
   target:
     entity_id: sensor.greenhouse_n2o
   options:
-    threshold: 500
+    threshold:
+      type: above
+      value:
+        number: 900
     behavior: any
 {% endexample %}
 
-This passes when the greenhouse N2O sensor reads at or above 500 ppb.
+This passes when the greenhouse N2O sensor reads above 900 μg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+{% include conditions/threshold_value_options_yaml.md
+   range_note="μg/m³"
+   number_final="a value in μg/m³"
+   threshold_required="true"
+   entity_unit="`μg/m³`" %}
 
-{% options_yaml %}
-threshold:
-  description: >
-    The nitrous oxide level the sensor has to meet or exceed for the condition to pass. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
-  type: any
-behavior:
-  description: >
-    When multiple sensors are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
-  type: string
-  default: any
-{% endoptions_yaml %}
-
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="nitrous oxide sensor" example="sensor.living_room_nitrous_oxide" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For related nitrogen-based pollutants, see [Nitrogen monoxide value](/conditions/air_quality.is_no_value/) and [Nitrogen dioxide value](/conditions/air_quality.is_no2_value/).
+- The threshold is in μg/m³. A sensor that reports N2O in another unit never matches. If you use an entity as the threshold, it must also report μg/m³.
 
 {% include conditions/try_it.md %}
 
@@ -81,12 +66,12 @@ behavior:
 
 ### Automation: ventilate the greenhouse each morning only if N2O is elevated
 
-Fertilizer off-gassing raises N2O levels overnight in an enclosed greenhouse, especially on warm nights. This automation runs each morning at sunrise and checks the current reading. If N2O is at or above 500 ppb, the ventilation fan turns on so the air is fresh before you start working. On mornings when levels stayed low, the fan stays off, keeping the greenhouse warm and saving energy.
+Fertilizer off-gassing raises N2O levels overnight in an enclosed greenhouse, especially on warm nights. This automation runs each morning at sunrise and checks the current reading. If N2O is above 900 μg/m³, the ventilation fan turns on so the air is fresh before you start working. On mornings when levels stayed low, the fan stays off, keeping the greenhouse warm and saving energy.
 
 - **Trigger**: Sunrise
-- **Condition**: Air Quality: Nitrous oxide value
+- **Condition**: Nitrous oxide value
   - **Target**: Greenhouse N2O sensor
-  - **Threshold type**: 500
+  - **Threshold type**: Above 900 μg/m³
 - **Action**: Turn on fan
   - **Target**: Greenhouse ventilation
 
@@ -102,7 +87,10 @@ automation: |
       target:
         entity_id: sensor.greenhouse_n2o
       options:
-        threshold: 500
+        threshold:
+          type: above
+          value:
+            number: 900
   actions:
     - action: fan.turn_on
       target:

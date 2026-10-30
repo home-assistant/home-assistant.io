@@ -1,18 +1,7 @@
 ---
-title: HDMI-CEC
 description: Instructions on how to interact with HDMI-CEC via Home Assistant.
-ha_category:
-  - Automation
 ha_release: 0.23
-ha_iot_class: Local Push
 ha_domain: hdmi_cec
-ha_platforms:
-  - media_player
-  - switch
-ha_integration_type: integration
-ha_codeowners:
-  - '@inytar'
-ha_quality_scale: legacy
 ---
 
 The **HDMI-CEC** {% term integration %} provides actions that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
@@ -21,7 +10,7 @@ The **HDMI-CEC** {% term integration %} provides actions that allow selecting th
 
 ### Home Assistant OS
 
-To test if HDMI-CEC will work on your Home Assistant OS installation, you can use the official CEC Scanner app for Home Assistant (formerly known as CEC Scanner add-on). Run this app to see if your hardware has HDMI-CEC capabilities and which devices are connected. Do not have this app **Start on boot**, as it will interfere with the integration.
+To test if HDMI-CEC will work on your Home Assistant OS installation, you can use the official CEC Scanner app for Home Assistant (formerly known as CEC Scanner add-on). Run this app to see if your hardware has HDMI-CEC capabilities and which devices are connected. Do not have this app **Start on boot**, as it will interfere with the integration. To turn off **Start on boot**, refer to [Changing the options of an app](/common-tasks/os/apps/#changing-the-options-of-an-app).
 
 Once you've run the CEC Scanner app, you can use the resulting scan information to configure the integration.
 

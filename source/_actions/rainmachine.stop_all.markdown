@@ -9,7 +9,7 @@ related_actions:
   - rainmachine.stop_zone
 ---
 
-The **Stop all watering** action stops every watering activity that is currently running on a RainMachine controller. Use it when you want to halt all programs and zones at once, rather than stopping them one by one.
+The **RainMachine: Stop all watering** action stops every watering activity that is currently running on a RainMachine controller. Use it when you want to halt all programs and zones at once, rather than stopping them one by one.
 
 {% include actions/ui_header.md %}
 

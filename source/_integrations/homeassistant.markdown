@@ -1,21 +1,12 @@
 ---
-title: Home Assistant Core
 description: Set up core Home Assistant settings, automation triggers, and generic actions.
 ha_release: 0.0
-ha_category:
-  - Other
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: homeassistant
-ha_platforms:
-  - scene
-ha_integration_type: system
 related:
   - docs: /docs/configuration/basic/
     title: Basic information
   - docs: /docs/configuration/
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
 ---
 
 The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on` action.
@@ -140,7 +131,7 @@ country:
   required: false
   type: string
 debug:
-  description: Enable Home Assistant's built-in debug, which can help locate misbehaving integrations by enabling run-time checks for implementation errors. It can block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use.
+  description: Turns on extra checks that report programming errors in integrations to the log. Meant for developers. To get more detailed log messages from an integration, use [debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) instead.
   required: false
   type: boolean
   default: false
@@ -155,7 +146,7 @@ webrtc:
 The Home Assistant Core integration is also responsible for entity settings.
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
-Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entities](/docs/configuration/customizing-devices/).
+Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entities](/docs/configuration/customizing-entities/).
 
 If you prefer editing in YAML, you can define your general settings in the {% term "`configuration.yaml`" %} file.
 
@@ -306,9 +297,19 @@ homeassistant:
       credential: "abc123"
 ```
 
-{% include integrations/triggers.md %}
+{% include integrations/triggers_conditions_actions.md %}
 
-{% include integrations/actions.md %}
+## Restart and reboot required
+
+Some changes only take effect after Home Assistant restarts, like an update of a custom integration, or a setting that is only read at startup. On Home Assistant OS, some updates also need the system to reboot, like an update of Home Assistant OS itself.
+
+When that is the case, administrators see a bar at the top of the screen, saying Home Assistant needs to be restarted, or the system needs to be rebooted. A reboot restarts Home Assistant as well, so when both are pending, the bar only shows the reboot.
+
+- Select **Restart** or **Reboot** to open the restart dialog, where you confirm the restart or reboot.
+- Select **Later** to hide the bar for now. This hides it for every administrator, on every device. A hidden restart bar comes back once another integration asks for a restart. A hidden reboot bar only comes back once a new reboot is needed.
+- Under {% my config title="**Settings**" %}, the bar always shows. When it shows a restart, it also lists the integrations that requested it. The **Settings** item in the sidebar also counts it.
+
+The restart or reboot stays pending until it is done, also when you select **Later**. To act on it in your automations, use the [Restart required](/triggers/homeassistant.restart_required/) and [Host reboot required](/triggers/homeassistant.host_reboot_required/) triggers, and the [Restart required](/conditions/homeassistant.restart_required/) and [Host reboot required](/conditions/homeassistant.host_reboot_required/) conditions.
 
 ## Home Assistant Core automation examples
 
@@ -349,7 +350,7 @@ If you are about to restart or stop Home Assistant, this automation tells Home A
 
 - **Trigger**: Home Assistant
   - **Event**: Shutdown
-- **Action**: Save persistent states
+- **Action**: Home Assistant Core Integration: Save persistent states
 
 {% details "YAML example for saving persistent states before shutdown" %}
 
@@ -372,7 +373,7 @@ If a door stays open longer than expected, this automation sends a message to yo
 - **Trigger**: State changed
   - **Entity**: Back door sensor (`binary_sensor.back_door`)
   - **To**: `on`
-  - **For**: 5 minutes
+  - **For at least**: 5 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

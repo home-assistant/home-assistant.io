@@ -47,8 +47,6 @@ This passes when the living room thermostat is currently on in any active mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -65,9 +63,9 @@ behavior:
 ## Good to know
 
 - This condition passes when the thermostat is in any active HVAC mode: heat, cool, heat/cool, auto, dry, or fan only. It does not pass when the thermostat is off.
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped and do not count as on. With **Any** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition fails. With **All** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition passes.
+{% include conditions/unavailable_targets.md entities="thermostats" %}
 - To gate an automation on a thermostat being off instead, use [Thermostat is off](/conditions/climate.is_off/).
-- To check for a specific HVAC mode, use [Thermostat is in HVAC mode](/conditions/climate.is_hvac_mode/).
+- To check for a specific HVAC mode, use [Thermostat HVAC mode](/conditions/climate.is_hvac_mode/).
 
 {% include conditions/try_it.md %}
 

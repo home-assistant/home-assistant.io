@@ -1,5 +1,5 @@
 ---
-title: "Profiler: Log thread frames"
+title: "Log thread frames"
 action: profiler.log_thread_frames
 domain: profiler
 description: "Logs the current frames for each running thread."

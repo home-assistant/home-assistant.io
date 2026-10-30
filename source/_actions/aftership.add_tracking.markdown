@@ -7,7 +7,7 @@ related_actions:
   - aftership.remove_tracking
 ---
 
-The **Add tracking** action adds a new tracking number to your AfterShip account, so its delivery status starts showing up in Home Assistant.
+The **AfterShip: Add tracking** action adds a new tracking number to your AfterShip account, so its delivery status starts showing up in Home Assistant.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. Instead, you provide the tracking number and, optionally, the carrier and a friendly title.
 

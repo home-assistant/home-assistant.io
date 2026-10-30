@@ -1,31 +1,7 @@
 ---
-title: ecobee
 description: Instructions for how to integrate ecobee thermostats and sensors within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Humidifier
-  - Notifications
-  - Number
-  - Sensor
-  - Switch
-  - Weather
 ha_release: 0.9
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: ecobee
-ha_platforms:
-  - binary_sensor
-  - climate
-  - humidifier
-  - notify
-  - number
-  - sensor
-  - switch
-  - weather
-ha_zeroconf: true
-ha_homekit: true
-ha_integration_type: hub
 ---
 
 The **ecobee** {% term integration %} lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.

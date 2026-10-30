@@ -1,18 +1,7 @@
 ---
-title: ZhongHong
 description: Instructions on how to integrate the air conditioners behind a ZhongHong HVAC gateway into Home Assistant.
-ha_category:
-  - Climate
 ha_release: 0.72
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@crhan'
 ha_domain: zhong_hong
-ha_platforms:
-  - climate
-ha_integration_type: hub
-ha_quality_scale: legacy
 ---
 
 The **ZhongHong** {% term integration %} lets you control the air conditioners behind a ZhongHong HVAC gateway from Home Assistant.

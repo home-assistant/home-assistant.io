@@ -10,6 +10,25 @@ The automation editors let you create and edit automations. You can do it direct
 
 If you're new to automations, start with the [Tutorial: Create your first automation](/getting-started/automation/). It walks you through creating your first automations in the visual editor, step by step.
 
+## Finding and organizing automations
+
+All your automations are listed in a table under {% my automations title="**Settings** > **Automations & scenes**" %}. In this table, you can:
+
+- Search for an automation. The search matches the name, the entity ID, and the names of the area, category, and labels.
+- Filter the table with **Filters**, by areas and floors, devices, entities, labels, categories, voice assistants, or blueprints. For example, filter by a device to see all automations that use it.
+- Group the automations with **Group by**, by category, area, or state. By default, the automations are grouped by category.
+- Change several automations at once. Select **Enter selection mode**, select the automations, and then select one of the following:
+  - **Move to category**
+  - **Add label**
+  - **Move to area**
+  - **Enable** or **Disable**, in the **Action** {% icon "mdi:dots-vertical" %} menu
+
+  On narrow screens, **Move to category**, **Add label**, and **Move to area** are also in the **Action** menu.
+
+Automations without an `id` can't be selected. Only automations that you wrote in a YAML file can be missing an `id`.
+
+The table works like the other tables in Home Assistant. For the steps, refer to [Working with tables](/docs/organizing/tables/). To use categories in tables, refer to [Categories](/docs/organizing/categories/).
+
 ## Editing an automation in the visual editor
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
@@ -17,7 +36,8 @@ If you're new to automations, start with the [Tutorial: Create your first automa
     - Result: The visual editor opens and you can edit the automation.
 3. Optional: To add a YAML example, such as one from the documentation, copy the YAML, and in the editor, press <kbd>Ctrl</kbd>+<kbd>V</kbd> (or <kbd>Cmd</kbd>+<kbd>V</kbd> on Mac).
     - The example can be a full automation, a single trigger, a condition, or an action. For an example to try, refer to [Automation: Send a notification when Home Assistant starts](/integrations/homeassistant/#automation-send-a-notification-when-home-assistant-starts).
-    - If you paste a full automation into an automation that already has content, the **Pasted automation** dialog asks whether to **Append** it or **Replace** the existing content.
+    - If you selected a trigger, condition, or action first, a pasted trigger, condition, or action is added after it.
+    - Otherwise, if the automation already has content or unsaved changes, the **Pasted automation** dialog asks whether to **Append** the pasted YAML or **Replace** the existing content.
 4. Select **Save**.
 
 ## Editing an automation in YAML
@@ -33,7 +53,7 @@ If you're new to automations, start with the [Tutorial: Create your first automa
 
 ## Undoing and redoing changes
 
-In the visual editor, you can undo and redo your changes before you save them.
+In the visual editor, you can undo and redo your changes, also after you save them.
 
 - To undo a change, in the top bar, select **Undo** {% icon "mdi:undo" %}.
 - To redo a change, in the top bar, select **Redo** {% icon "mdi:redo" %}.
@@ -46,9 +66,14 @@ When you save a new automation, you give it a name. You can change the name late
 
 1. Open the automation.
 2. In the top bar, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Rename**.
-3. Change the name. To add more details, select **Add description**, **Add icon**, **Add category**, **Add labels**, or **Add area**.
-4. Select **Rename**.
-5. Renaming an automation doesn't change its entity ID. To change the entity ID, select **Menu** {% icon "mdi:dots-vertical" %} > **Settings**, and then change the **Entity ID**.
+3. Change the name.
+4. Optional: To add more details, select one of the following:
+   - **Add description**: Enter a description.
+   - **Add category**: Select a category from the list, or select **Add new category** to create one.
+   - **Add labels**: Select **Add label**, and then select a label.
+   - **Add area**: Select an area.
+5. Select **Rename**.
+6. Renaming an automation doesn't change its entity ID. To change the entity ID, select **Menu** {% icon "mdi:dots-vertical" %} > **Settings**, and then change the **Entity ID**.
 
 ## Changing the mode of an automation
 
@@ -86,11 +111,36 @@ A name makes it easier to find a trigger, condition, or action in a long automat
 1. On the right side of the row, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Rename**.
 2. Enter a name, and select **Submit**.
 
+In YAML, the name is stored in `alias`.
+
 ### Copying, moving, and duplicating triggers, conditions, and actions
 
 - To add a copy in the same automation, in the **Menu** {% icon "mdi:dots-vertical" %} of the row, select **Duplicate**.
-- To copy or move it, in the **Menu** {% icon "mdi:dots-vertical" %} of the row, select **Copy** or **Cut**. Then, in the **Menu** {% icon "mdi:dots-vertical" %} of another row, select **Paste**. The copy is inserted after that row. You can also paste it in another automation.
+- To copy or move it, in the **Menu** {% icon "mdi:dots-vertical" %} of the row, select **Copy** or **Cut**. Then, in the **Menu** {% icon "mdi:dots-vertical" %} of another row of the same kind, select **Paste**. The copy is inserted after that row. You can also paste it in another automation that you open in the same browser tab.
 - To change the order, drag the row by its handle {% icon "mdi:drag-horizontal-variant" %}.
+
+### Replacing a trigger, condition, or action
+
+To swap a trigger, condition, or action for a different one, replace it. The new one takes the same place in the automation and keeps the settings it can use. For example, if an action turns on a light and you want it to turn the light off instead, replace it with the turn-off action. The light stays selected.
+
+1. On the right side of the row, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Replace**.
+   - Result: The **Replace trigger**, **Replace condition**, or **Replace action** dialog opens on the same category as the one you're replacing.
+2. Select the new trigger, condition, or action.
+   - Result: It takes the place of the old one.
+3. Check the new one, and fill in any settings that are missing.
+
+The following settings are kept:
+
+- The target. However, entities, devices, areas, floors, and labels that do not work with the new trigger, condition, or action are removed from it.
+- Each option with the same name and the same kind of input.
+- The trigger ID, the trigger variables, the note, **Continue on error**, and whether it's turned off.
+- The response variable, if the new action returns a response.
+
+The name isn't kept, because it describes the old one. Options that the new one doesn't have, or has in a different form, are also left out, even if the value might still work.
+
+To go back to the old one, select **Undo** in the message that appears, or [undo the change](#undoing-and-redoing-changes).
+
+You can't replace building blocks that contain other triggers, conditions, or actions, such as **Choose**, **If-then**, **Repeat**, **Run in parallel**, **Run in sequence**, **Wait for a trigger**, **And**, **Or**, and **Not**. Replacing them would remove everything inside them.
 
 ### Turning off a trigger, condition, or action
 
@@ -102,7 +152,9 @@ To try an automation without one of its triggers, conditions, or actions, turn i
 
 ### Continuing after an action fails
 
-By default, an automation stops when an action fails. To continue with the next action after an error, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, select **Continue on error**. The action then shows {% icon "mdi:alert-circle-check" %}. This option does not ignore errors in the automation's configuration, such as a broken template. Only use it for actions whose failure does not matter for the rest of the automation.
+By default, an automation stops when an action fails. To continue with the next action after an error, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, select **Continue on error**. The action then shows {% icon "mdi:alert-circle-check" %}. This option does not ignore errors in the automation's configuration, such as a broken template. Only use it for actions whose failure does not matter for the rest of the automation. This option isn't available for conditions under **Then do**.
+
+An action whose target is unavailable or doesn't exist doesn't fail. Home Assistant skips that target and logs a warning, so the next action runs even without **Continue on error**. The action does fail if an entity that you selected directly doesn't support it, or if the action should return response data and none of its targets match.
 
 ### Deleting a trigger, condition, or action
 

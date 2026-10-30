@@ -1,20 +1,7 @@
 ---
-title: CentriConnect/MyPropane
 description: Instructions on how to integrate CentriConnect/MyPropane monitors into Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2026.6
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@gresrun'
 ha_domain: centriconnect
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 **CentriConnect/MyPropane** {% term integration %} allows you to monitor the level and status of propane tanks equipped with [centriconnect.com](https://www.centriconnect.com/) monitoring devices from within Home Assistant. You can then set up automations based on that information.
@@ -72,7 +59,7 @@ The **CentriConnect/MyPropane** integration provides the following entities:
 
 - **Device Temperature**
   - **Description**: Current temperature measured by the device in °F
-  - **Remarks**: Disabled by default. Not particularly useful as a thermometer since the value updates 2-3 times per day.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Not particularly useful as a thermometer since the value updates 2-3 times per day.
 
 - **LTE Signal Level**
   - **Description**: Current cellular signal level as a percentage

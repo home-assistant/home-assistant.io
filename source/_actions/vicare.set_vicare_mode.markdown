@@ -5,7 +5,7 @@ domain: vicare
 description: "Sets the mode of the climate device as defined by Viessmann."
 ---
 
-The **Set ViCare mode** action sets the mode of the climate device as defined by Viessmann.
+The **Viessmann ViCare: Set ViCare mode** action sets the mode of the climate device as defined by Viessmann.
 
 This gives you more fine-grained control of the heating modes than the standard [`climate.set_hvac_mode`](/integrations/climate/) action, because it exposes the Viessmann operation modes directly.
 

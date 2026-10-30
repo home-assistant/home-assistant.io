@@ -1,25 +1,7 @@
 ---
-title: Flow-it
 description: Instructions on how to integrate Flow-it ventilation systems into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Fan
-  - Sensor
-  - Switch
 ha_release: 2026.9
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@albertogeniola'
 ha_domain: flow_it
-ha_platforms:
-  - binary_sensor
-  - fan
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: bronze
-ha_zeroconf: true
 related:
   - url: https://www.flow-it.it/en
     title: Flow-it

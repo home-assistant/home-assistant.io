@@ -1,29 +1,7 @@
 ---
-title: Portainer
 description: Instructions on how to integrate Portainer with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Event
-  - Sensor
-  - Switch
-  - Update
 ha_release: '2025.10'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@erwindouna'
 ha_domain: portainer
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - sensor
-  - switch
-  - update
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **Portainer** {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
@@ -62,6 +40,9 @@ There is currently support for the following device types within Home Assistant:
 - **Resume container**: Resumes the container.
 - **Recreate container**: Recreates the container by pulling the latest tagged image.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
+- **Prune unused volumes**: Removes unused Docker volumes from the endpoint.
+- **Prune build cache**: Removes the unused Docker build cache from the endpoint.
+- **Prune unused networks**: Removes Docker networks from the endpoint that aren't used by any container. The default Docker networks are kept.
 - **Update stack**: Pulls the latest images and redeploys the stack. Stacks deployed from a Git repository are redeployed from that repository. The stack keeps its environment variables and settings. Not available for Kubernetes stacks.
 
 ### Events

@@ -1,11 +1,11 @@
 ---
-title: "Update PIN Code"
+title: "Update PIN code"
 action: nintendo_parental_controls.update_pin_code
 domain: nintendo_parental_controls
 description: "Updates the PIN code for a Nintendo Switch."
 ---
 
-The **Update PIN Code** action changes the parental controls override PIN for a Nintendo Switch.
+The **Nintendo Switch parental controls: Update PIN code** action changes the parental controls override PIN for a Nintendo Switch.
 
 This is useful when you want an automation or script to change the PIN at a specific time or after something else happens in Home Assistant.
 

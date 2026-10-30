@@ -1,40 +1,7 @@
 ---
-title: Midea
 description: Instructions on how to integrate devices with Midea protocol into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Humidifier
-  - Light
-  - Number
-  - Select
-  - Switch
 ha_release: 2026.8
 ha_domain: midea
-ha_config_flow: true
-ha_codeowners:
-  - '@chemelli74'
-  - '@rokam'
-ha_iot_class: Local Polling
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - humidifier
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-  - water_heater
-ha_integration_type: device
-ha_quality_scale: gold
-ha_dhcp: true
 ---
 
 The **Midea** {% term integration %} lets you monitor and control home appliances that use the Midea protocol, communicating with them directly over your local network. Because Midea also manufactures appliances for many other brands, this integration works with rebranded devices that speak the same protocol, not only those sold as "Midea".

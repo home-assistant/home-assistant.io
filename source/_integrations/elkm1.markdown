@@ -1,36 +1,7 @@
 ---
-title: Elk-M1 Control
 description: Instructions to set up the Elk-M1 controller for home security and automation.
 ha_release: 0.81
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Climate
-  - Hub
-  - Light
-  - Number
-  - Scene
-  - Sensor
-  - Switch
-  - Time
-ha_iot_class: Local Push
 ha_domain: elkm1
-ha_dhcp: true
-ha_config_flow: true
-ha_codeowners:
-  - '@gwww'
-  - '@bdraco'
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - climate
-  - light
-  - number
-  - scene
-  - sensor
-  - switch
-  - time
-ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file

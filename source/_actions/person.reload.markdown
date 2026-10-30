@@ -5,7 +5,7 @@ domain: person
 description: "Reloads persons from the YAML configuration."
 ---
 
-The **Reload persons** action reloads person definitions from YAML. Use it after you change YAML-defined persons and want Home Assistant to apply those changes without a restart.
+The **Person: Reload persons** action reloads person definitions from YAML. Use it after you change YAML-defined persons and want Home Assistant to apply those changes without a restart.
 
 This action only reloads persons that are defined in YAML. It does not change people you manage from the UI.
 
@@ -17,7 +17,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Reload persons**.
+5. From the search box, search for and select **Person: Reload persons**.
 6. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -55,8 +55,10 @@ This action has no additional options in YAML.
 
 If you want a simple way to apply person changes from a dashboard, you can create a {% term helper %} separately and let it trigger this action.
 
-- **Trigger**: A user-created helper turns on
-- **Action**: Reload persons
+- **Trigger**: State changed
+  - **Entity**: Reload persons helper
+  - **To**: On
+- **Action**: Person: Reload persons
 
 {% details "YAML example for reloading persons from a helper" %}
 
@@ -80,8 +82,9 @@ automation: |
 
 If another process updates your person YAML before a set time, you can schedule this action so Home Assistant picks up those changes automatically.
 
-- **Trigger**: A scheduled time
-- **Action**: Reload persons
+- **Trigger**: Time
+  - **At time**: `03:05`
+- **Action**: Person: Reload persons
 
 {% details "YAML example for reloading persons after a scheduled sync" %}
 

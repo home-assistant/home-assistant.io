@@ -1,0 +1,28 @@
+{
+  "domain": "elgato",
+  "name": "Elgato Light",
+  "integration_type": "device",
+  "codeowners": [
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "lighting.bulbs_lamps"
+  ],
+  "platforms": [
+    "button",
+    "diagnostics",
+    "light",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

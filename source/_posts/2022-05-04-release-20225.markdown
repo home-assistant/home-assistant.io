@@ -200,7 +200,7 @@ The new calendar trigger is available in the automation editor.
 
 This brand new trigger is slightly more flexible than the (previously only
 other option) state trigger. It is available for automations in YAML as well,
-and the trigger provides [lots of trigger variables](/docs/automation/templating/#calendar)
+and the trigger provides [lots of trigger variables](/docs/automation/trigger-data/#calendar-triggers)
 you can use in your templates.
 
 {% details "Calendar trigger example in YAML" %}

@@ -1,5 +1,5 @@
 ---
-title: "Update a Sonos alarm"
+title: "Update alarm"
 action: sonos.update_alarm
 domain: sonos
 description: "Updates the time, volume, and other settings of an existing Sonos alarm."
@@ -16,7 +16,7 @@ To update a Sonos alarm from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sonos speaker with the alarm you want to update. You can also select an area, a device, or a label.
-6. From the actions shown for that target, select **Update alarm**.
+6. From the actions shown for that target, under **Sonos**, select **Update alarm**.
 7. Set the **Alarm ID** and the settings you want to change.
 8. Select **Save**.
 

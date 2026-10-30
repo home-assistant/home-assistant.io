@@ -1,16 +1,7 @@
 ---
-title: Cloudflare R2
 description: Instructions on how to set up Cloudflare R2 bucket to be used as a backup location.
 ha_release: 2026.2
-ha_category:
-  - Backup
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_domain: cloudflare_r2
-ha_codeowners:
-  - '@corrreia'
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Cloudflare R2** {% term integration %} allows you to use [Cloudflare R2](https://www.cloudflare.com/developer-platform/products/r2/) buckets with Home Assistant Backups.

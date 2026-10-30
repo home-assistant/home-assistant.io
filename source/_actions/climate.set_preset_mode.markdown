@@ -69,7 +69,9 @@ preset_mode:
 
 Set a climate device to an energy-saving preset when nobody is home.
 
-- **Trigger**: Person leaves home
+- **Trigger**: State changed
+  - **Entity**: Home owner person
+  - **To**: Away
 - **Action**: Set thermostat preset mode
   - **Target**: Living room thermostat
   - **Preset mode**: away

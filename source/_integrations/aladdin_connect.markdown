@@ -1,20 +1,7 @@
 ---
-title: Aladdin Connect
 description: Instructions on how to integrate Genie Aladdin Connect garage door openers with Home Assistant for monitoring and control.
-ha_category:
-  - Cover
 ha_release: 0.75
-ha_iot_class: Cloud Polling
 ha_domain: aladdin_connect
-ha_platforms:
-  - cover
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_codeowners:
-  - '@swcloudgenie'
-ha_config_flow: true
-ha_dhcp: true
 ---
 
 The **Aladdin Connect** {% term integration %} lets you open, close, and check the status of Genie Aladdin Connect garage doors through Home Assistant. It also reports the battery level of your opener's backup battery.
@@ -54,7 +41,7 @@ The **Aladdin Connect** integration provides the following entities.
 - **Battery level**
   - **Description**: The battery level of your opener's backup battery, as a percentage. Useful for knowing when the battery needs replacing.
   - **Entity category**: Diagnostic
-  - **Remarks**: Disabled by default. To use this sensor, enable it manually from the entity's settings.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). To use this sensor, enable it manually from the entity's settings.
 
 
 ## Examples

@@ -5,6 +5,9 @@ domain: homeassistant
 description: "Stops the Home Assistant instance."
 related_actions:
   - homeassistant.restart
+related:
+  - docs: /common-tasks/general/restarting/#shutting-down-the-system
+    title: Shutting down the system
 ---
 
 Use this action to stop Home Assistant. Once stopped, Home Assistant must be started again from the host device. A common use is to shut Home Assistant down cleanly as part of powering off the host.
@@ -23,7 +26,7 @@ To stop Home Assistant from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Stop Home Assistant**.
+5. Search for and select **Home Assistant Core Integration: Stop Home Assistant**.
 6. Select **Save**.
 
 ### Options in the UI

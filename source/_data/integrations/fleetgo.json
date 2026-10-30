@@ -1,0 +1,13 @@
+{
+  "domain": "fleetgo",
+  "name": "FleetGO",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "vehicles_transport.cars_evs",
+    "presence_location.trackers"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

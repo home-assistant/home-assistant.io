@@ -1,20 +1,10 @@
 ---
-title: Linux Battery
 description: Instructions on how to integrate Linux Battery information into Home Assistant.
-ha_category:
-  - System monitor
 ha_release: 0.28
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@fabaff'
 ha_domain: linux_battery
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Linux Battery** {% term integration %} is using the information stored in `/sys/class/power_supply/` on your local Linux system to display details about the current state of your battery.

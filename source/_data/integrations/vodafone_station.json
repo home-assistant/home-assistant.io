@@ -1,0 +1,23 @@
+{
+  "domain": "vodafone_station",
+  "name": "Vodafone Station",
+  "integration_type": "hub",
+  "codeowners": [
+    "@paoloantinori",
+    "@chemelli74"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "button",
+    "device_tracker",
+    "diagnostics",
+    "image",
+    "sensor",
+    "switch"
+  ]
+}

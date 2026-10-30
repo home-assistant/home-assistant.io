@@ -9,7 +9,7 @@ related_actions:
   - yeelight.set_auto_delay_off_scene
 ---
 
-The **Set color temperature scene** action sets a Yeelight light to a specific color temperature and brightness. If the light is off, it turns on.
+The **Yeelight: Set color temperature scene** action sets a Yeelight light to a specific color temperature and brightness. If the light is off, it turns on.
 
 This is useful for recalling a favorite white tone, such as a warm light in the evening or a cool light for focused work.
 
@@ -22,7 +22,7 @@ To set a color temperature scene from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Yeelight light you want to control.
-6. From the actions shown for that target, select **Set color temperature scene**.
+6. From the actions shown for that target, under **Yeelight**, select **Set color temperature scene**.
 7. Enter the **Kelvin** value and the **Brightness**.
 8. Select **Save**.
 

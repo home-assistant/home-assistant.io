@@ -1,31 +1,7 @@
 ---
-title: Viessmann ViCare
 description: Instructions how to integrate Viessmann heating devices with Home Assistant
-ha_category:
-  - Climate
-  - Fan
-  - Select
-  - Water heater
 ha_release: 0.99
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: vicare
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - number
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_dhcp: true
-ha_integration_type: hub
-ha_codeowners:
-  - '@CFenner'
-  - '@lackas'
 ---
 
 The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann-climatesolutions.com) devices via the Viessmann ViCare (REST) API.

@@ -1,0 +1,22 @@
+{
+  "domain": "rehlko",
+  "name": "Rehlko",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bdraco",
+    "@peterager"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "energy.backup_power"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

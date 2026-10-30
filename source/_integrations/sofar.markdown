@@ -1,24 +1,7 @@
 ---
-title: Sofar
 description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP or a serial RS485 connection.
-ha_category:
-  - Energy
-  - Modbus-controlled
 ha_release: 2026.9
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@darkrain-nl'
 ha_domain: sofar
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - select
-  - sensor
-  - switch
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus. You can reach the inverter over the network (Modbus TCP), either directly or through a Modbus TCP bridge, or over a serial port wired to its RS485 terminals (Modbus RTU).
@@ -30,7 +13,7 @@ The **Sofar** integration brings your inverter's own measurements into Home Assi
 - Putting your solar production on the [Energy dashboard](/docs/energy/). Feed the inverter's own production, import, export, and battery energy totals into Home Assistant's Energy dashboard, measured at the inverter rather than estimated.
 - Running appliances on surplus solar. Start the dishwasher or washing machine once the inverter reports more production than the house is using, and raise or lower a car charger's rate as production rises and falls.
 - Automating around the battery. Use the battery's state of charge to decide when to run heavy loads, when to hold charge back for the evening, and when to warn that the reserve is nearly gone.
-- Noticing problems the same day they happen. The fault binary sensors and the system state sensor turn a silent underperforming string or a tripped inverter into a notification, instead of something you find weeks later in the monthly yield.
+- Noticing problems the same day they happen. The fault binary sensors, the fault event, and the system state sensor turn a silent underperforming string or a tripped inverter into a notification, instead of something you find weeks later in the monthly yield.
 - Keeping an eye on the hardware. Inverter, heatsink, and module temperatures, plus battery state of health and charge cycles, show how the installation is aging.
 - Stopping and resuming the inverter remotely. Put the inverter into its waiting state for grid work or an export ban, then bring it back, without going to the unit.
 
@@ -38,7 +21,7 @@ The **Sofar** integration brings your inverter's own measurements into Home Assi
 
 The integration supports Sofar inverters that use the current-generation Modbus register map, including HYD hybrid inverters and KTL-X and KTLM PV inverters. During setup, the integration reads the inverter's serial number to detect its type and the registers that apply to it.
 
-The current-generation detection recognizes these serial-number prefixes:
+The integration recognizes these serial-number prefixes directly:
 
 - `SP1`, `SP2`, `ZP1`, and `ZP2` for three-phase HYD hybrid models.
 - `SM2E` and `ZM2E` for single-phase HYD hybrid models.
@@ -46,7 +29,9 @@ The current-generation detection recognizes these serial-number prefixes:
 - `SH3E`, `SS2E`, `ZS2E`, `SQ1ES1`, and `SS1` for KTL-X, KTLM, and related PV models.
 - `SA1`, `SB1`, `SC1`, `SD1`, `SF4`, `SL1`, and `SJ2` for additional current-generation PV models.
 
-Some serial-number prefixes are also used by older Sofar models, so the marketed model name or serial prefix alone does not always identify the register generation. If the inverter answers but does not use the supported register map, setup fails.
+If the serial number starts with another prefix, the integration asks the inverter which registers it serves instead. From that answer, it works out whether the inverter is single-phase or three-phase, whether it's a hybrid or PV-only model, and how many PV strings it has. This means you can usually set up current-generation models that aren't on the list above, too.
+
+Some serial-number prefixes are also used by older Sofar models, so the marketed model name or serial prefix alone does not always identify the register generation. If the inverter answers but neither its serial number nor the registers it serves identify a supported model, setup fails.
 
 ## Unsupported devices
 
@@ -86,16 +71,24 @@ During setup, the integration also detects whether the inverter has EPS (Emergen
 
 ## Reconfiguration
 
-If the inverter becomes reachable somewhere else, for example after a DHCP lease change, when you replace the Modbus TCP bridge it's connected through, or when you rewire it to another serial port, you can update the connection settings without removing and re-adding the integration:
+You can update the connection settings without removing and adding the integration again. For example, in the following situations:
+
+- The inverter gets a new IP address after a DHCP lease change.
+- You replace the Modbus TCP bridge it's connected through.
+- You rewire it to another serial port.
+- You move it between a network and a serial connection.
+
+To update the connection settings:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration.
 2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
-3. Update the connection settings as needed. For a network connection, these are the **Host**, **Port**, and **Modbus unit ID**. For a serial connection, these are the **Serial port**, **Baud rate**, and **Modbus unit ID**.
-4. Select **Submit** to save the new settings.
+3. Choose how the inverter is reached from now on: **Network (Modbus TCP)** or **Serial port (Modbus RTU)**.
+4. Enter the connection settings. For a network connection, these are the **Host**, **Port**, and **Modbus unit ID**. For a serial connection, these are the **Serial port**, **Baud rate**, and **Modbus unit ID**. 
+   - If you keep the same connection type, the current settings are filled in for you. 
+   - If you switch, only the **Modbus unit ID** carries over.
+5. Select **Submit** to save the new settings.
 
 The integration reads the serial number again and only accepts the new settings if they lead to the same inverter, so reconfiguring can't accidentally point an entry at a different device and take its history with it.
-
-Reconfiguring keeps the connection type you chose during setup. To switch between a network and a serial connection, remove the integration and add it again with the other connection type.
 
 ## Supported functionality
 
@@ -106,12 +99,19 @@ The inverter's power limits and its passive-mode setpoints each span several reg
 ### Binary sensors
 
 - **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which still writes the limit while this is off, but the inverter ignores it until it's enabled again. Disabled by default.
-- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are disabled by default, since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
+- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
 
 ### Buttons
 
 - **RTC sync**: Writes the current date and time to the inverter's clock.
 - **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
+
+### Events
+
+- **Fault**: Reports each fault the inverter records in its own fault log, by name, such as **Grid overvoltage** or **AC output hardware overcurrent**. You can use it to start an automation. Each fault shows its **Category**, its **Fault ID**, which is the fault code listed in your inverter's manual, and **Occurred at**, the time the inverter recorded it. It doesn't report when a fault clears. Only shown for inverters that keep a fault log.
+  - The fault log is more detailed than the alarm history in the Sofar app. It also records brief faults that the inverter clears by itself, so you may see faults here that the app doesn't show.
+  - Recent faults the inverter recorded while Home Assistant couldn't reach it are reported once the connection is back. Faults that were already in the log when you added the integration aren't reported.
+  - **Occurred at** uses the inverter's own clock. If the time looks wrong, select the **RTC sync** button to correct the clock.
 
 ### Selects
 
@@ -129,7 +129,7 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **Off-grid (EPS/backup) measurements**: The same kind of readings for the EPS/backup output. Only shown for inverters wired for EPS/backup power.
 - **PV strings**: Power for each solar panel string, plus voltage and current if you need more detail. Each string the inverter supports gets its own device, connected via the inverter. Only shown for PV-capable inverters.
 - **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery pack, plus combined power, state of charge, and state of health totals. Each pack gets its own device, connected via the inverter, and only packs that respond are added. A pack added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
-- **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. Only shown for inverters with battery storage.
+- **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. This includes the state of charge at which the battery stops charging, the levels at which it stops discharging on-grid and off-grid, and the level at which off-grid discharging resumes. Only shown for inverters with battery storage.
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 - **Current settings**: The feed-in limit, the active power limit, and the passive-mode setpoints as they're currently stored on the inverter, so you can read back what the actions below have set.
 
@@ -153,8 +153,13 @@ The entity IDs below are named after the inverter, so replace `sofar` with your 
 
 An installation on the roof is easy to forget about, and an inverter that has stopped producing costs you money every sunny hour. This automation sends a notification as soon as the inverter raises a fault or drops out of normal grid-connected operation, so you find out the same day instead of weeks later in the monthly yield.
 
-- **Trigger**: **Grid fault**, **PV fault**, **Battery fault**, or **Thermal fault** turned on
-- **Trigger**: **System state** changed to **Recoverable fault** or **Permanent fault**
+- **Trigger**: State changed
+  - **Entity**: Sofar grid fault sensor, Sofar pv fault sensor, Sofar battery fault sensor, Sofar thermal fault sensor
+  - **From**: Off
+  - **To**: On
+- **Trigger**: State changed
+  - **Entity**: Sofar system state sensor
+  - **To**: Recoverable fault, Permanent fault
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -184,8 +189,9 @@ automation: |
       data:
         title: "Sofar inverter fault"
         message: >
-          The inverter reported a fault. Download the integration's
-          diagnostics for the decoded list of everything active.
+          The inverter reported a fault. Check the Fault entity's
+          history, or download the integration's diagnostics, to see
+          which fault it was.
 {% endexample %}
 
 {% enddetails %}
@@ -223,7 +229,9 @@ automation: |
 
 The battery is worth the most in the evening, when the panels have stopped and the grid is expensive. This automation notifies you when the battery drops below a fifth of its capacity, so you can decide whether to hold the rest back or let heavy loads keep running.
 
-- **Trigger**: **Battery state of charge total** below 20
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Sofar battery state of charge total
+  - **Below**: `20`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -253,9 +261,10 @@ automation: |
 
 The **Sofar** {% term integration %} {% term polling polls %} the inverter's live readings every 5 seconds. Values that rarely change, such as the device information and the battery configuration, are polled every 60 seconds instead, so each poll stays short.
 
+A PV inverter switches off when there's no sunlight, so its entities are unavailable at night. If Home Assistant starts while the inverter is off, the integration still loads as long as the Modbus TCP bridge or serial port is reachable. Its entities stay unavailable until the inverter answers again.
+
 ## Known limitations
 
-- Switching an existing entry between a network and a serial connection isn't possible through reconfiguration. Remove the integration and add it again instead.
 - Serial connections use 8 data bits, no parity, and 1 stop bit (8N1), which is what Sofar inverters use on their RS485 port. Only the baud rate can be changed.
 
 ## Troubleshooting
@@ -266,15 +275,29 @@ If these steps don't help, [open an issue on GitHub](https://github.com/home-ass
 
 1. Make sure the inverter is powered on. If it's connected through a Modbus TCP bridge or an ESPHome serial proxy, make sure that device is also powered on and reachable on your network.
 2. For a network connection, confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
-3. For a serial connection, confirm the serial port is correct and the baud rate matches the one set on the inverter. Check the RS485 wiring: if A and B are swapped, the inverter doesn't answer.
+3. For a serial connection, confirm the serial port is correct.
 4. Check that Modbus is enabled on the inverter, if it has a setting for this.
 5. If it still fails, include the connection type, the connection settings, and the Modbus unit ID in the issue report. If the integration is already added, also enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log.
+
+### Inverter isn't answering
+
+#### Description
+
+If setup reports that the adapter is reachable but the inverter behind it didn't answer, Home Assistant reached the Modbus TCP bridge or serial port, but the inverter didn't reply.
+
+#### Resolution
+
+1. A PV inverter switches off when there's no sunlight. If you're setting it up after dark, try again in daylight.
+2. Confirm the **Modbus unit ID** matches the one set on the inverter. The default is `1`.
+3. For a serial connection, or a Modbus TCP bridge wired to the inverter's RS485 port, confirm the baud rate matches the one set on the inverter. Check the RS485 wiring: if A and B are swapped, the inverter doesn't answer.
+4. Check that Modbus is enabled on the inverter, if it has a setting for this.
+5. If it still doesn't answer, include the connection type, the connection settings, and the Modbus unit ID in the issue report.
 
 ### Inverter isn't recognized
 
 #### Description
 
-The integration only recognizes inverter models it knows the register map for. If setup fails with an unrecognized inverter error, your model isn't supported yet.
+The integration identifies the inverter by its serial number or by the registers it reports it serves. If setup fails with an unrecognized inverter error, neither matches a supported model. The inverter might use the older register map, or your model may not be supported yet.
 
 #### Resolution
 

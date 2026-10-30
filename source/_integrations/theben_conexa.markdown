@@ -1,22 +1,10 @@
 ---
-title: Theben Conexa Smart Meter Gateway
 description: Instructions on how to integrate a Conexa SMGW with Home Assistant.
 ha_release: '2026.10'
-ha_category:
-  - Energy
-  - Sensor
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_quality_scale: bronze
-ha_codeowners:
-  - '@mdluhosch'
 ha_domain: theben_conexa
-ha_integration_type: device
 related:
   - url: https://www.theben-se.de/conexa/
     title: Theben Smart Energy website
-ha_platforms:
-  - sensor
 ---
 
 The **Theben Conexa** {% term integration %} allows you to connect Home Assistant to the Conexa 3.0 device by [Theben Smart Energy](https://www.theben-se.de/conexa/). A Smart Meter Gateway (SMGW) acts as the secure communication hub for the modern electrical grid. With the Conexa, you get a built-in Home Area Network (HAN) interface. This integration can use that local connection to read your meter data directly, without needing the cloud.

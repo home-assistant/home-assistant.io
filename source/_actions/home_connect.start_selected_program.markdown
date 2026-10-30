@@ -20,7 +20,7 @@ To start the selected program from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Start selected program**.
+5. From the list of actions, search for and select **Home Connect: Start selected program**.
 6. Select the appliance you want to start.
 7. Optionally, set when the program should start or finish.
 8. Select **Save**.
@@ -79,9 +79,12 @@ b_s_h_common_option_finish_in_relative:
 
 Start whatever program is selected on your washer, set to finish in two hours so the laundry is ready when you get home.
 
-- **Trigger**: You leave home
-- **Action**: Start selected program
-  - **Finish in relative**: 7200 seconds
+- **Trigger**: State changed
+  - **Entity**: You person
+  - **To**: Away
+- **Action**: Home Connect: Start selected program
+  - **Finish in relative**: `7200` s
+  - **Device ID**: `a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6`
 
 {% details "Show example YAML" %}
 

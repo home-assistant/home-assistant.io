@@ -1,23 +1,7 @@
 ---
-title: iRobot Roomba and Braava
 description: Instructions on how to integrate your Wi-Fi enabled Roomba and Braava within Home Assistant.
-ha_category:
-  - Vacuum
-ha_iot_class: Local Push
 ha_release: 0.51
-ha_codeowners:
-  - '@pschmitt'
-  - '@cyr-ius'
-  - '@shenxn'
 ha_domain: roomba
-ha_config_flow: true
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - vacuum
-ha_integration_type: device
-ha_zeroconf: true
 ---
 
 The **Roomba** {% term integrations %} allows you to control your [iRobot Roomba](https://www.irobot.com/roomba) vacuum or [iRobot Braava](https://www.irobot.com/braava) m-series mop.
@@ -33,7 +17,7 @@ This {% term integrations %}  has been tested and confirmed to be working with t
 {% include integrations/config_flow.md %}
 
 {% warning %}
-The Roomba's MQTT server only allows a single connection. Continuous mode is enabled by default, which will force the App to connect via the cloud to your Roomba. Continuous mode can be disabled in the configuration options for the integration after it is added. For more information, refer to the [Roomba 980 repository](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes).
+The Roomba's MQTT server only allows a single connection. Home Assistant keeps that connection open, so the iRobot app connects to your Roomba through the cloud instead. For more information, refer to the [Roomba 980 repository](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes).
 {% endwarning %}
 
 ## Integration entities
@@ -53,7 +37,7 @@ Sensors:
 - **Scrubs**: Total number of times the robot has executed a "scrub"
 - **Total cleaning time**: How many hours the robot has spent cleaning in total
 - **Total cleaned area**: The total area in m² the robot has cleaned
-- **Signal strength**: The Wi-Fi signal strength the robot reports, in dBm. Disabled by default.
+- **Signal strength**: The Wi-Fi signal strength the robot reports, in dBm. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Retrieving your credentials
 

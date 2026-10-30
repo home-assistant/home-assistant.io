@@ -33,7 +33,7 @@ trigger: |
 
 This fires every time the selected option of the washing machine program dropdown changes.
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="dropdown entity or dropdown helper" example="select.washing_machine_program" %}
 
 ## Good to know
 
@@ -51,7 +51,7 @@ Some media players expose their sound mode as a select entity, for example `sele
 
 - **Trigger**: Dropdown selection changed
   - **Target**: Living room soundbar sound mode
-- **Action**: Send TTS message
+- **Action**: Speak
   - **Target**: Living room speaker
 
 {% details "YAML example for announcing the sound mode" %}

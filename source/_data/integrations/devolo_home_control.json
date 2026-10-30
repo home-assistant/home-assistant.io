@@ -1,0 +1,28 @@
+{
+  "domain": "devolo_home_control",
+  "name": "devolo Home Control",
+  "integration_type": "hub",
+  "codeowners": [
+    "@2Fake",
+    "@Shutgun"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "silver",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "cover",
+    "diagnostics",
+    "light",
+    "sensor",
+    "siren",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

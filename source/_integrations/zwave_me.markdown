@@ -1,41 +1,7 @@
 ---
-title: Z-Wave.Me
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave.Me Z-Way.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Sensor
-  - Siren
-  - Switch
 ha_release: 2022.3
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@lawfulchaos'
-  - '@Z-Wave-Me'
-  - '@PoltoS'
 ha_domain: zwave_me
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - fan
-  - light
-  - lock
-  - number
-  - sensor
-  - siren
-  - switch
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **Z-Wave.Me** {% term integration %} allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). It combines the performance and power of the diagnostics tools built into Z-Way with the flexibility of Home Assistant. The integration brings all Z-Way devices into Home Assistant, including Z-Wave, Zigbee, EnOcean, HTTP-based, and others.

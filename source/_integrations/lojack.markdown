@@ -1,19 +1,7 @@
 ---
-title: LoJack
 description: Instructions on how to integrate your LoJack by Spireon vehicle tracking account with Home Assistant.
-ha_category:
-  - Car
-  - Presence detection
 ha_release: 2026.4
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_quality_scale: silver
-ha_codeowners:
-  - '@devinslick'
 ha_domain: lojack
-ha_platforms:
-  - device_tracker
-ha_integration_type: hub
 ---
 
 The **LoJack** {% term integration %} connects Home Assistant to vehicles equipped with [LoJack by Spireon](https://www.spireon.com/lojack/) GPS tracking hardware. After you authenticate with your Spireon/LoJack account credentials, the integration automatically discovers every vehicle registered to your account and creates a device for each one, with a device tracker entity that shows the vehicle's current or last known GPS location on the map.
@@ -83,11 +71,26 @@ The **LoJack** integration provides the following entities for each vehicle.
 
 Each vehicle gets a device tracker entity named after the vehicle. It uses GPS as its source type and reports `home`, `not_home`, or a zone name based on the vehicle's GPS coordinates.
 
+#### Sensors
+
+Each vehicle also gets the following sensors. For example, `sensor.2021_toyota_camry_odometer`.
+
+- **Odometer**
+  - **Description**: The vehicle's odometer reading, as reported by the tracker. The sensor is in miles and shown in your unit system.
+- **Speed**
+  - **Description**: The vehicle's current speed. The sensor is in miles per hour and shown in your unit system.
+- **Battery voltage**
+  - **Description**: The vehicle's battery voltage. LoJack devices report battery voltage, not a charge percentage. This sensor is shown under **Diagnostic** on the device page.
+- **Location last reported**
+  - **Description**: When the vehicle last reported its location. This sensor is shown under **Diagnostic** on the device page.
+
+All sensors update together with the device tracker on each poll and become unavailable while the Spireon API cannot be reached.
+
 ## Data updates
 
-The **LoJack** integration {% term polling polls %} data from the Spireon cloud API every 5 minutes by default. Each poll retrieves the last known location cached on the Spireon server. It does _not_ command the vehicle's hardware to obtain a new GPS fix. The server-side cache is updated whenever the vehicle's LoJack hardware periodically reports in (the reporting interval is determined by the LoJack hardware and firmware and is not configurable).
+The **LoJack** integration {% term polling polls %} data from the Spireon cloud API every 5 minutes by default. Each poll retrieves the latest vehicle data (location and telemetry) cached on the Spireon server. It does _not_ command the vehicle's hardware to obtain a new GPS fix. The server-side cache is updated whenever the vehicle's LoJack hardware periodically reports in (the reporting interval is determined by the LoJack hardware and firmware and is not configurable).
 
-Calling the `homeassistant.update_entity` action re-fetches the last known location already stored on the Spireon server. This is fast and lightweight but only returns whatever location the server already has. If the vehicle has not reported in recently, you will get stale data. Use this approach when you want to check the location more frequently than every 5 minutes, or when you need a quick, low-overhead update.
+Calling the `homeassistant.update_entity` action re-fetches the latest vehicle data already stored on the Spireon server, refreshing the device tracker and sensors together. This is fast and lightweight but only returns whatever data the server already has. If the vehicle has not reported in recently, you will get stale data. Use this approach when you want to check the vehicle more frequently than every 5 minutes, or when you need a quick, low-overhead update.
 
 ## Examples
 

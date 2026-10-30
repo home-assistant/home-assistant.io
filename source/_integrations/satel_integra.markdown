@@ -1,33 +1,14 @@
 ---
-title: Satel Integra
 description: Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Hub
-  - Sensor
-  - Switch
 ha_release: 0.54
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Tommatheussen'
 ha_domain: satel_integra
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Satel Integra** {% term integration %} allows you to connect your [Satel Integra alarm system](https://www.satel.pl/en/product-category/intruder-alarms/integra/) to Home Assistant to control and monitor your alarm system.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary sensor: Reports on zone or output statuses
+- Binary sensor: Reports on zone or output statuses, and on the alarm panel's service mode and system troubles
 - Switch: allows for setting states of selected outputs
 - Alarm control panel: represents the zones (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the partition
 - Sensor: Reports zone temperatures for zones that have temperature support 
@@ -56,6 +37,8 @@ If you do not have access to the DLOADX program or your project file, ask your i
 
 {% include integrations/config_flow.md %}
 
+### Configuration parameters
+
 {% configuration_basic %}
 Host:
   description: The IP address of the Satel Integra ETHM module.
@@ -64,8 +47,13 @@ Port:
 Integration encryption key:
   description: Encryption key to use if an encrypted connection is used, as configured in DLOADX
     for the ETHM-1 Plus module. Leave empty if not using an encrypted connection.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
 Code:
-  description: Optional code that will be used to toggle switchable outputs.
+  description: The 4- to 16-digit user code configured on the alarm panel. The integration uses this code to toggle switchable outputs. Leave the field empty if you do not need to control switchable outputs.
 {% endconfiguration_basic %}
 
 ## Configuring partitions, zones, and outputs
@@ -90,6 +78,40 @@ For example:
       target:
         entity_id: input_boolean.movement_detected
 ```
+
+## Supported functionality
+
+### Binary sensors
+
+- **Service mode**: Whether the panel is in service mode, activated during maintenance. Use it to pause automations while the panel is under maintenance.
+- **System trouble**: Whether any system trouble is active on the alarm panel.
+
+#### Individual trouble sensors
+
+{% tip %}
+The individual trouble sensors are disabled by default. See [Enabling and disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to enable them.
+{% endtip %}
+
+- **Panel AC trouble**: Whether the panel has lost its AC power supply.
+- **Panel battery trouble**: Whether there is a fault with the panel backup battery.
+- **Panel battery missing**: Whether no backup battery is connected to the panel.
+- **Output {number} trouble**: Whether there is a trouble condition on the specified output (outputs 1–4).
+- **Keypad power supply trouble**: Whether there is a fault with the keypad power supply.
+- **Expander power supply trouble**: Whether there is a fault with an expander module power supply.
+- **DT1 trouble**: Whether there is a trouble on the first expander bus data line.
+- **DT2 trouble**: Whether there is a trouble on the second expander bus data line.
+- **DTM trouble**: Whether there is a trouble on the keypad bus data line.
+- **RTC trouble**: Whether there is a real-time clock fault on the panel.
+- **EEPROM or RTC access trouble**: Whether there is a fault accessing the panel's EEPROM or RTC memory.
+- **RAM trouble**: Whether there is a RAM memory fault on the panel.
+- **Panel restart memory trouble**: Whether there is a fault with the panel's restart memory.
+- **External device DTR trouble**: Whether the panel detects no DTR (Data Terminal Ready) signal from an external device.
+- **External modem initialization trouble**: Whether there is a failure during external modem initialization.
+- **External modem command trouble**: Whether there is a command failure to the external modem.
+- **Telephone line bad signal trouble**: Whether there is a poor signal quality on the telephone line.
+- **Telephone line no signal trouble**: Whether there is no signal detected on the telephone line.
+- **Telephone line voltage or auxiliary processor trouble**: Whether there is a telephone line voltage fault or an auxiliary processor fault, depending on the panel model.
+- **Monitoring station {number} trouble**: Whether there is a trouble communicating with the specified monitoring station (stations 1–2).
 
 ## Removing the integration
 

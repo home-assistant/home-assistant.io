@@ -19,7 +19,7 @@ To reload the dashboard resources from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Reload dashboard resources**.
+5. From the search box, search for and select **Dashboards: Reload dashboard resources**.
 6. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -52,7 +52,7 @@ This action has no additional options in YAML.
 
 ## Try it yourself
 
-To test this action, open {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}, search for **Reload dashboard resources**, and select **Perform action**. Refresh your browser to load the reloaded resources.
+To test this action, open {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}, search for **Dashboards: Reload dashboard resources**, and select **Perform action**. Refresh your browser to load the reloaded resources.
 
 {% include actions/stuck.md %}
 

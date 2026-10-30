@@ -1,20 +1,10 @@
 ---
-title: Swiss Hydrological Data
 description: Instructions on how to integrate hydrological data of Swiss waters within Home Assistant.
-ha_category:
-  - Environment
-ha_iot_class: Cloud Polling
 ha_release: 0.22
-ha_codeowners:
-  - '@fabaff'
 ha_domain: swiss_hydrological_data
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Swiss Hydrological Data** {% term integration %} will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.

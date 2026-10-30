@@ -1,21 +1,7 @@
 ---
-title: Rehlko
 description: Support for Rehlko devices (formerly Oncue and Kohler Energy)
-ha_category:
-  - Sensor
-ha_iot_class: Cloud Polling
 ha_release: 2025.5
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-  - '@peterager'
-ha_dhcp: true
 ha_domain: rehlko
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Rehlko** (formerly Kohler Energy Management) {% term integration %} allows you to monitor the status of your [enabled Kohler generator](https://www.kohlerhomeenergy.rehlko.com/kohler-energy-management-app) through Home Assistant. This integration replaces the legacy Oncue integration.
@@ -51,7 +37,7 @@ This integration provides the following binary sensors to help you keep track of
   Monitors the oil pressure sensor. If this sensor is *on*, it means there is a problem with the oil pressure.
 
 - **Load shed**  
-  Monitors load shedding status for managed loads. If this sensor is *on*, it means the load is being shed. Generators can manage up to 6 loads. Disabled by default.
+  Monitors load shedding status for managed loads. If this sensor is *on*, it means the load is being shed. Generators can manage up to 6 loads. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Sensors
 

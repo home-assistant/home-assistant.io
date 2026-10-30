@@ -1,28 +1,8 @@
 ---
-title: Philips Hue
 description: Instructions on setting up Philips Hue within Home Assistant.
-ha_category:
-  - Hub
-  - Light
-ha_iot_class: Local Push
 featured: true
 ha_release: '0.60'
-ha_config_flow: true
-ha_codeowners:
-  - '@marcelveldt'
 ha_domain: hue
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - event
-  - light
-  - scene
-  - select
-  - sensor
-  - switch
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **Philips Hue** {% term integration %} allows you to control and monitor the lights and sensors connected to your Hue bridge. The integration supports:

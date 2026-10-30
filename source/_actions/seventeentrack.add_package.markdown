@@ -8,7 +8,7 @@ related_actions:
   - seventeentrack.archive_package
 ---
 
-The **Add a package** action adds a package to your 17Track account by its tracking number, so 17Track starts following it for you.
+The **17TRACK: Add a package** action adds a package to your 17Track account by its tracking number, so 17Track starts following it for you.
 
 This is handy when you want to start tracking a shipment straight from Home Assistant, for example from an automation that reads tracking numbers out of your order confirmation emails.
 

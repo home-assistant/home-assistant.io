@@ -1,21 +1,7 @@
 ---
-title: Voice over IP
 description: Voice over IP
-ha_category:
-  - Voice
-ha_iot_class: Local Push
 ha_release: '2023.5'
-ha_codeowners:
-  - '@synesthesiam'
-  - '@jaminh'
 ha_domain: voip
-ha_integration_type: hub
-ha_quality_scale: internal
-ha_platforms:
-  - assist_satellite
-  - select
-  - switch
-ha_config_flow: true
 ---
 
 The **VoIP** {% term integration %} enables users to talk to [Assist](/voice_control/) using an analog phone and a VoIP adapter. Currently, the system works with the [Grandstream HT801](https://www.amazon.com/dp/B06XW1BQHC). See [the tutorial](/voice_control/worlds-most-private-voice-assistant) for detailed instructions.

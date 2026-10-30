@@ -139,7 +139,7 @@ metadata:
 This automation checks the short-interval series every 10 minutes and, if any of the next hour's rates are above zero, notifies you with the upcoming rates so you know rain is about to start without checking the app.
 
 - **Trigger**: Time pattern (every 10 minutes)
-- **Action**: Get precipitation forecast
+- **Action**: Environment Canada: Get precipitation forecast
   - **Precipitation type**: Rain
   - **Past minutes**: 0
   - **Future minutes**: 60
@@ -183,7 +183,8 @@ automation: |
 This automation runs every evening, retrieves the hourly series, and notifies you with the total expected amount, so you can plan for the next day.
 
 - **Trigger**: Time (21:00)
-- **Action**: Get precipitation forecast
+- **Action**: Environment Canada: Get precipitation forecast
+  - **Environment Canada service**: `YOUR_CONFIG_ENTRY_ID`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

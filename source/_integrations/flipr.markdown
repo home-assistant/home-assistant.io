@@ -1,20 +1,7 @@
 ---
-title: Flipr
 description: Instructions on how to integrate your Flipr device within Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 2021.8
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@cnico'
 ha_domain: flipr
-ha_platforms:
-  - binary_sensor
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 Go flipr company sells smart pool monitor and management devices. The Flipr and Flipr Hub devices publish data to the cloud via Wi-Fi and SigFox.

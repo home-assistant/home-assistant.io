@@ -1,36 +1,7 @@
 ---
-title: LaMetric
 description: Instructions on how to integrate LaMetric TIME and SKY with Home Assistant.
-ha_category:
-  - Button
-  - Notifications
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Update
-ha_iot_class: Local Polling
 ha_release: 0.49
-ha_codeowners:
-  - '@robbiet480'
-  - '@frenck'
-  - '@bachya'
 ha_domain: lametric
-ha_platforms:
-  - button
-  - diagnostics
-  - notify
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-  - update
-ha_integration_type: device
-ha_config_flow: true
-ha_ssdp: true
-ha_dhcp: true
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
@@ -62,15 +33,18 @@ Your LaMetric device must be powered on and connected to the same local network 
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your LaMetric device. Only required when adding the device manually."
+  description: "The hostname or IP address of your LaMetric device. Only required when adding the device manually, or with a press on its button."
 API key:
   description: "The device API key, which you can find in the LaMetric developer portal. Only required when adding the device manually."
 {% endconfiguration_basic %}
 
-During setup, you can choose between two methods:
+During setup, you can choose between three methods:
 
+- **Press the button**: Enter the device's hostname or IP address, then press the button on top of the device within a minute when it asks for it. The device hands out its API key itself. This method does not require a LaMetric account, and works on devices from 2022 onward.
 - **Automatic**: Sign in with your LaMetric account to let Home Assistant fetch your devices and their credentials for you.
 - **Manual**: Enter the device's hostname or IP address and API key. This method does not require a LaMetric account.
+
+When Home Assistant discovers your device, or asks you to re-authenticate it, it first checks whether the device supports the button press. If it does, setup goes straight to pressing the button. If it does not, like an older LaMetric TIME, only the other two methods are offered.
 
 ## Supported functionality
 
@@ -103,6 +77,9 @@ During setup, you can choose between two methods:
 - **Brightness mode**
   - **Description**: Choose whether the brightness is set manually or automatically based on ambient light.
   - **Entity category**: Configuration
+- **Screensaver mode**
+  - **Description**: Choose when the screensaver turns on: when it gets dark, or on a schedule set with the screensaver time entities. Only the modes the device supports are offered. To switch to the schedule, set its start and end time first. Not available on the LaMetric SKY.
+  - **Entity category**: Configuration
 
 ### Sensors
 
@@ -114,6 +91,9 @@ During setup, you can choose between two methods:
 
 - **Bluetooth**
   - **Description**: Toggle the device's Bluetooth radio on or off.
+  - **Entity category**: Configuration
+- **Screensaver**
+  - **Description**: Turn the screensaver on or off. This leaves the screensaver mode and schedule as they are. Not available on the LaMetric SKY.
   - **Entity category**: Configuration
 
 ### Times
@@ -196,6 +176,11 @@ sound_url:
   description: "An MP3 file to play with the notification, instead of a built-in sound: a media source ID of a file in Home Assistant, or the URL of the file. When `sound` is given as well, that sound plays when the file cannot be fetched."
   required: false
   type: string
+repeat:
+  description: "How many times the sound is played with the notification. Set to `0` to keep playing it until the notification is dismissed. Does not apply to sounds fetched from a URL."
+  required: false
+  type: integer
+  default: 1
 {% endconfiguration %}
 
 ## Data updates

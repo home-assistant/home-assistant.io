@@ -1,0 +1,17 @@
+{
+  "domain": "ness_alarm",
+  "name": "Ness Alarm",
+  "codeowners": [
+    "@nickw444",
+    "@poshy163"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "security_safety.alarm_systems"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "domain": "mealie",
+  "name": "Mealie",
+  "integration_type": "service",
+  "codeowners": [
+    "@joostlek",
+    "@andrew-codechimp"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "productivity_information"
+  ],
+  "platforms": [
+    "calendar",
+    "diagnostics",
+    "sensor",
+    "todo"
+  ]
+}

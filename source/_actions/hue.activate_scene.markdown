@@ -20,7 +20,7 @@ To activate a Hue scene from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Hue scene you want to activate.
-6. From the actions shown for that target, select **Activate Hue scene**.
+6. From the actions shown for that target, under **Philips Hue**, select **Activate Hue scene**.
 7. Optionally, set the transition, dynamic mode, speed, and brightness.
 8. Select **Save**.
 

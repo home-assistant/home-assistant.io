@@ -3,8 +3,8 @@ title: Level
 description: Connect and control your Level Matter devices using the Matter integration
 ha_release: '2025.10'
 ha_iot_class: Local Push
-ha_category:
-  - Lock
+ha_categories:
+  - security_safety.locks_access
 ha_domain: level
 ha_integration_type: brand
 ha_platforms:

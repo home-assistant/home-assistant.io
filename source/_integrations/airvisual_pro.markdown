@@ -1,18 +1,7 @@
 ---
-title: AirVisual Pro
 description: Instructions on how to use AirVisual Pro devices within Home Assistant
-ha_category:
-  - Health
 ha_release: 2023.1
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@bachya'
 ha_domain: airvisual_pro
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: device
 ---
 
 The **AirVisual Pro** {% term integration %} allows users to retrieve data from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro). Communication with the device occurs over the local network.

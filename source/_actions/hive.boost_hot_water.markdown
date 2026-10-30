@@ -8,7 +8,7 @@ related_actions:
   - hive.boost_heating_off
 ---
 
-The **Boost hotwater** action turns the boost on or off for a Hive hot water tank. When you turn the boost on, the hot water runs for the time you choose and then returns to its schedule.
+The **Hive: Boost hotwater** action turns the boost on or off for a Hive hot water tank. When you turn the boost on, the hot water runs for the time you choose and then returns to its schedule.
 
 {% include actions/ui_header.md %}
 

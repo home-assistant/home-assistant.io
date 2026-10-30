@@ -1,19 +1,7 @@
 ---
-title: Canary
 description: Instructions on how to integrate your Canary devices into Home Assistant.
-ha_category:
-  - Alarm
-  - Camera
-  - Sensor
 ha_release: '0.60'
-ha_config_flow: true
-ha_iot_class: Cloud Polling
 ha_domain: canary
-ha_platforms:
-  - alarm_control_panel
-  - camera
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Canary** {% term integration %} allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.

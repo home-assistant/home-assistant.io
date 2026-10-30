@@ -8,7 +8,7 @@ related_actions:
   - insteon.print_im_all_link_database
 ---
 
-The **Print All-Link database** action prints the All-Link database (ALDB) for a device to the Home Assistant log. This requires that the database is loaded into memory first.
+The **Insteon: Print All-Link database** action prints the All-Link database (ALDB) for a device to the Home Assistant log. This requires that the database is loaded into memory first.
 
 This is useful when you want to review which links a device has stored, for example to troubleshoot how your Insteon devices are linked together.
 

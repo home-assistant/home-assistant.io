@@ -1,17 +1,7 @@
 ---
-title: GeoNet NZ Volcano
 description: Instructions on how to integrate the GeoNet New Zealand Volcanic Alert Level feed into Home Assistant.
-ha_category:
-  - Sensor
-ha_iot_class: Cloud Polling
 ha_release: 0.103
-ha_config_flow: true
-ha_codeowners:
-  - '@exxamalte'
 ha_domain: geonetnz_volcano
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 The **GeoNet NZ Volcano** {% term integration %} lets you use a GeoJSON feed provided by 
@@ -60,13 +50,3 @@ the standard ones:
 | distance               | The distance in km or mi to Home Assistant's location. |
 | last update            | Timestamp of the last update from the feed.  |
 | last update successful | Timestamp of the last successful update from the feed.  |
-
-## Full configuration
-
-```yaml
-# Example configuration.yaml entry
-geonetnz_volcano:
-  radius: 100
-  latitude: -41.2
-  longitude: 174.7
-```

@@ -16,7 +16,7 @@ To set the pause time from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the WiLight pause switch.
-6. From the actions shown for that target, select **Set pause time**.
+6. From the actions shown for that target, under **WiLight**, select **Set pause time**.
 7. Enter the pause duration.
 8. Select **Save**.
 

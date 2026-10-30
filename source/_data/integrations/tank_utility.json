@@ -1,0 +1,15 @@
+{
+  "domain": "tank_utility",
+  "name": "Tank Utility",
+  "codeowners": [
+    "@krismolendyke"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "energy"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

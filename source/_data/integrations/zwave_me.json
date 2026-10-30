@@ -1,0 +1,31 @@
+{
+  "domain": "zwave_me",
+  "name": "Z-Wave.Me",
+  "integration_type": "hub",
+  "codeowners": [
+    "@lawfulchaos",
+    "@Z-Wave-Me",
+    "@PoltoS"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "fan",
+    "light",
+    "lock",
+    "number",
+    "sensor",
+    "siren",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

@@ -1,5 +1,5 @@
 ---
-title: "Acknowledge alert"
+title: "Turn off"
 action: alert.turn_off
 domain: alert
 description: "Acknowledges an alert, so it stops sending notifications."
@@ -20,7 +20,7 @@ To acknowledge an alert from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Turn off**.
+5. From the search box, search for and select **Alert: Turn off**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), select the alert. You can also select an area, a device, or a label.
 7. Select **Save**.
 
@@ -52,7 +52,7 @@ This action has no additional options in YAML.
 - An acknowledgement only lasts while the alert is active. The next time the alert starts, it sends notifications again.
 - When the problem is resolved, you still get the done message, if the alert has one.
 - If the alert is set up with `can_acknowledge: false`, it can't be acknowledged, and this action fails with an error.
-- To start the notifications again, use [Turn on alert](/actions/alert.turn_on/).
+- To start the notifications again, use [Turn on](/actions/alert.turn_on/).
 
 {% include actions/try_it.md %}
 
@@ -65,7 +65,7 @@ Your alert sends a notification with an **Acknowledge** button to your phone. Wh
 - **Trigger**: Manual event received
   - **Event type**: `mobile_app_notification_action`
   - **Event data**: `action: ACKNOWLEDGE_GARAGE`
-- **Action**: Turn off
+- **Action**: Alert: Turn off
   - **Target**: Garage door alert
 
 {% details "YAML example for acknowledging an alert from a phone notification" %}
@@ -90,11 +90,10 @@ automation: |
 
 When you get home, you can see whether the garage door is open yourself, so you don't need more reminders. This automation acknowledges the garage door alert when you arrive.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone entered
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Enter
-- **Action**: Turn off
+- **Action**: Alert: Turn off
   - **Target**: Garage door alert
 
 {% details "YAML example for silencing an alert when you get home" %}
@@ -103,10 +102,11 @@ When you get home, you can see whether the garage door is open yourself, so you 
 automation: |
   alias: "Silence the garage door alert when I get home"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: alert.turn_off
       target:

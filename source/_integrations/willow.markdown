@@ -1,18 +1,7 @@
 ---
-title: Willow
 description: Integrate Willow plant monitoring sensors into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: '2026.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: willow
-ha_codeowners:
-  - '@paxprz'
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Willow** {% term integration %} allows you to monitor the health of your indoor plants in Home Assistant using Willow sensors.

@@ -1,0 +1,30 @@
+{
+  "domain": "velux",
+  "name": "Velux",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Julius2342",
+    "@pawlizio",
+    "@wollew"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "cover",
+    "diagnostics",
+    "light",
+    "number",
+    "scene",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

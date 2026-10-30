@@ -1,0 +1,27 @@
+{
+  "domain": "gardena_bluetooth",
+  "name": "Gardena Bluetooth",
+  "integration_type": "device",
+  "codeowners": [
+    "@elupus"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "garden_plants"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "image",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "text",
+    "valve"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

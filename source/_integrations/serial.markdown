@@ -1,16 +1,7 @@
 ---
-title: Serial
 description: Instructions on how to integrate data from serial connected sensors into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 0.56
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@fabaff'
 ha_domain: serial
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /integrations/esphome/#about-esphome-remote-adapters-proxies
     title: ESPHome remote adapters (proxies)
@@ -22,7 +13,11 @@ related:
     title: ESPHome device database
 ---
 
-The **Serial** {% term integration %} uses the data provided by a device connected to a serial port that Home Assistant can reach. The port can be on the system where Home Assistant runs, or shared over your network. To connect a device that is not next to your system, the recommended way is a [serial proxy](#serial-proxy), which shares a serial port from an [ESPHome](/integrations/esphome/) device over your network. You can also use [`ser2net`](https://ser2net.sourceforge.net/) or [`socat`](http://www.dest-unreach.org/socat/) to reach a device on a remote system.
+{% warning %}
+The **Raw Serial** {% term integration %} reads raw text from a serial port. To get useful values, you usually need to process that text with templates. Most devices with a serial port already have an integration that handles the connection for you. Before you use this integration, search the [integrations](/integrations/) for your device or its brand.
+{% endwarning %}
+
+The **Raw Serial** {% term integration %} uses the data provided by a device connected to a serial port that Home Assistant can reach. The port can be on the system where Home Assistant runs, or shared over your network. To connect a device that is not next to your system, the recommended way is a [serial proxy](#serial-proxy), which shares a serial port from an [ESPHome](/integrations/esphome/) device over your network. You can also use [`ser2net`](https://ser2net.sourceforge.net/) or [`socat`](http://www.dest-unreach.org/socat/) to reach a device on a remote system.
 
 To check what kind of data is arriving at your serial port, use a serial terminal program. On Linux, use `minicom` or `picocom`. On macOS, use `screen`. On Windows, use `PuTTY`.
 
@@ -36,10 +31,9 @@ You can connect a [device connected via serial](#device-connected-via-serial) to
 
 ### Prerequisites
 
-- Administrator rights in Home Assistant.
 - A serial-connected device, such as an AV receiver, a projector, or a smart meter with a P1 port.
 - An {% term integration %} for that device. In the documentation, search the [integrations](/integrations/) for your device or its brand.
-  - If no integration is available for your device, you can read the raw data from the port with the [Serial sensor](#serial-sensor) instead.
+  - If no integration is available for your device, you can read the raw data from the port with the [Raw Serial sensor](#raw-serial-sensor) instead.
 - A way for Home Assistant to reach the serial port of that device:
   - A [USB-to-serial adapter](#usb-to-serial-adapter), if the device is close enough to cable it to the system that runs Home Assistant.
   - A [serial proxy](#serial-proxy), if it is not. Because the proxy connects over your network, you can place it next to the device. To choose one and prepare it, refer to [Setting up an ESPHome serial proxy](#setting-up-an-esphome-serial-proxy).
@@ -80,11 +74,11 @@ A [serial proxy](#serial-proxy) shares one of its serial ports with Home Assista
    - The {% term integration %} that uses a port sets the [baud rate](#baud-rate) and the other connection settings when it connects. This means you do not need to change the ESPHome configuration when a device needs a different baud rate.
 3. Continue with [Setting up a serial connection in Home Assistant](#setting-up-a-serial-connection-in-home-assistant). There, you connect your device to the proxy, add the [ESPHome](/integrations/esphome/) {% term integration %}, and select the shared port.
 
-## Serial sensor
+## Raw Serial sensor
 
-The **Serial** sensor reads the raw data from a serial port and makes it available as a sensor {% term entity %}. Use it when no integration is available for your device.
+The **Raw Serial** sensor reads the raw data from a serial port and makes it available as a sensor {% term entity %}. Use it when no integration is available for your device.
 
-To add a serial sensor, add the following to your {% term "`configuration.yaml`" %} file.
+To add a Raw Serial sensor, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -179,7 +173,7 @@ Another way to put a serial port on your network, without using a serial proxy. 
 
 Home Assistant uses such a port differently from a serial proxy:
 
-- Home Assistant does not find the port by itself. The port is listed in the **Serial** panel only after an integration that you added in the UI uses it. It is then listed under **Connected**, even while the device server is offline, because Home Assistant cannot check it. A port that is only used by a [Serial sensor](#serial-sensor) in your {% term "`configuration.yaml`" %}, or only by Modbus, is not listed.
+- Home Assistant does not find the port by itself. The port is listed in the **Serial** panel only after an integration that you added in the UI uses it. It is then listed under **Connected**, even while the device server is offline, because Home Assistant cannot check it. A port that is only used by a [Raw Serial sensor](#raw-serial-sensor) in your {% term "`configuration.yaml`" %}, or only by Modbus, is not listed.
 - With a `socket://` URL, Home Assistant sends and receives only data. The [baud rate](#baud-rate) and the other connection settings of the integration are not passed on, so set them on the device server itself. If your device server supports <abbr title="Request for Comments">RFC</abbr> 2217, you can use an `rfc2217://` URL instead. Home Assistant then passes these settings on to the device server.
 
 To use the port with an integration, select **Enter manually** during integration setup and enter its URL, such as `socket://192.168.1.10:4001`. For more details, refer to [Device path](#device-path).
@@ -285,7 +279,7 @@ Home Assistant lists a port only while it can find it. A port that no {% term in
 
 - A port on a [USB-to-serial adapter](#usb-to-serial-adapter) is found when the adapter is plugged in.
 - A port that a [serial proxy](#serial-proxy) shares is found only while the ESPHome device is online.
-- A port on a [serial device server](#serial-device-server) is never found automatically. When you set up an integration, it is never in the list of ports. In the **Serial** panel, it is listed only after an integration that you added in the UI uses it. If such a port is only used by a [Serial sensor](#serial-sensor) in your {% term "`configuration.yaml`" %}, or only by Modbus, it is not listed at all. This is different from a local port, which is listed under **Available** in that case.
+- A port on a [serial device server](#serial-device-server) is never found automatically. When you set up an integration, it is never in the list of ports. In the **Serial** panel, it is listed only after an integration that you added in the UI uses it. If such a port is only used by a [Raw Serial sensor](#raw-serial-sensor) in your {% term "`configuration.yaml`" %}, or only by Modbus, it is not listed at all. This is different from a local port, which is listed under **Available** in that case.
 
 #### Resolution
 
@@ -326,7 +320,7 @@ Home Assistant cannot check whether a serial device server is reachable. As long
 The serial device server is reachable, but your device does not seem to respond. What you see depends on the integration. For example:
 
 - Setting up the integration fails with an error, such as **Failed to connect**, or a message that your device did not respond.
-- The state of a [Serial sensor](#serial-sensor) stays empty, or shows unreadable characters.
+- The state of a [Raw Serial sensor](#raw-serial-sensor) stays empty, or shows unreadable characters.
 
 #### Description
 

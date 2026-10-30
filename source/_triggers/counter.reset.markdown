@@ -51,8 +51,6 @@ This fires when `counter.guest_visits` returns to its initial value.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple counters are targeted, controls whether the trigger fires for `each`, `first`, or `all`.
@@ -60,9 +58,9 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the counter must stay at its reset value before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the counter must stay at its reset value before the trigger fires. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

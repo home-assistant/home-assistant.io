@@ -1,32 +1,7 @@
 ---
-title: Fully Kiosk Browser
 description: Instructions on how to integrate Fully Kiosk Browser with Home Assistant
-ha_category:
-  - Binary sensor
-  - Camera
-  - Notifications
-  - Sensor
-  - Switch
 ha_release: 2022.9
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@cgarwood'
 ha_domain: fully_kiosk
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - image
-  - media_player
-  - notify
-  - number
-  - sensor
-  - switch
-ha_integration_type: device
-ha_dhcp: true
-ha_quality_scale: bronze
 ---
 
 [Fully Kiosk Browser](https://www.fully-kiosk.com) is a powerful kiosk browser for Android devices. It provides several features for monitoring and controlling your Android device. This integration gives you access to control your device and view the status in Home Assistant.
