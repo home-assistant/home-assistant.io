@@ -11,6 +11,7 @@ since: "0.7"
 related_functions:
   - string
   - typeof
+  - string_like
   - integer_test
   - float_test
 ---
