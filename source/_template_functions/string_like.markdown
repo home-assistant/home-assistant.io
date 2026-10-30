@@ -17,7 +17,7 @@ related_functions:
 
 The `string_like` test checks whether a value is a string or a string-like object. It returns `true` for strings, bytes, and bytearrays, and `false` for everything else, including lists, numbers, and dictionaries.
 
-The built-in [`string`](https://www.home-assistant.io/template-functions/string_test/) test only matches text strings. Strings, bytes, and bytearrays are all iterable, so the [`iterable`](https://www.home-assistant.io/template-functions/iterable/) test returns `true` for them as well. Use `string_like` when you want to tell these text-like values apart from collections, such as lists and tuples.
+The built-in [`string`](/template-functions/string_test/) test only matches text strings. Strings, bytes, and bytearrays are all iterable, so the [`iterable`](/template-functions/iterable/) test returns `true` for them as well. Use `string_like` when you want to tell these text-like values apart from collections, such as lists and tuples.
 
 {% include template_functions/usage.md %}
 
