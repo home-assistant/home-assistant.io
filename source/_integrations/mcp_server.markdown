@@ -151,6 +151,20 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
 
 4. In your web browser, log in to your Home Assistant instance.
 
+### Example: Mistral Vibe
+
+1. Install [Mistral Vibe](https://mistral.ai/products/vibe/).
+
+2. In your terminal, run the following command. Replace `<your_mcp_server_url>` with your MCP server URL. Replace `<your_api_key_env_var>` with an environment variable name, such as `HOME_ASSISTANT_TOKEN`, not the access token itself. Use the same variable name in step 4.
+
+   ```bash
+   vibe mcp add home-assistant --url <your_mcp_server_url> --transport http --api-key-env <your_api_key_env_var>
+   ```
+
+3. Create a [long-lived access token](https://www.home-assistant.io/docs/authentication/#managing-account-access) in Home Assistant
+
+4. Add the token to the Mistral Vibe .env-file with the variable name from step 2
+
 ## Supported functionality
 
 ### Tools
