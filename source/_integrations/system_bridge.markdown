@@ -10,7 +10,7 @@ ha_domain: system_bridge
 
 ### Version
 
-This integration requires System Bridge 4.0.2 and above. Any older version will not work.
+This integration requires System Bridge 5.0.0 and above. Any older version will not work.
 
 ### Token
 
