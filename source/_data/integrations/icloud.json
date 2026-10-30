@@ -15,6 +15,7 @@
     "productivity_information.documents_photos"
   ],
   "platforms": [
+    "binary_sensor",
     "button",
     "calendar",
     "device_tracker",

@@ -12,6 +12,7 @@
     "computers_network.monitoring"
   ],
   "platforms": [
+    "diagnostics",
     "sensor"
   ]
 }

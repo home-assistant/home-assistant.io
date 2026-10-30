@@ -12,6 +12,7 @@
     "water.meters_leak_detection"
   ],
   "platforms": [
+    "binary_sensor",
     "diagnostics",
     "event",
     "number",

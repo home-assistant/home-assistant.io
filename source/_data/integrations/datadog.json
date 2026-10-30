@@ -2,6 +2,9 @@
   "domain": "datadog",
   "name": "Datadog",
   "integration_type": "service",
+  "codeowners": [
+    "@bm1549"
+  ],
   "config_flow": true,
   "iot_class": "local_push",
   "categories": [

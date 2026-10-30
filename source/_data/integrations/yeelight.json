@@ -15,6 +15,7 @@
   ],
   "platforms": [
     "binary_sensor",
+    "diagnostics",
     "light"
   ],
   "discovery": [

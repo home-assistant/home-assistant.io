@@ -14,7 +14,9 @@
     "binary_sensor",
     "media_player",
     "notify",
+    "number",
     "sensor",
+    "switch",
     "update"
   ],
   "discovery": [

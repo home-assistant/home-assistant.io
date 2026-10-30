@@ -12,6 +12,7 @@
   ],
   "platforms": [
     "ai_task",
-    "conversation"
+    "conversation",
+    "diagnostics"
   ]
 }

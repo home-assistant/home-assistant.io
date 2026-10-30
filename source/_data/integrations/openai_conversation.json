@@ -15,6 +15,7 @@
   "platforms": [
     "ai_task",
     "conversation",
+    "diagnostics",
     "stt",
     "tts"
   ]

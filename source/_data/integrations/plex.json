@@ -12,6 +12,7 @@
   ],
   "platforms": [
     "button",
+    "diagnostics",
     "media_player",
     "sensor",
     "update"

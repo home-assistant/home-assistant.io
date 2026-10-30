@@ -11,6 +11,7 @@
     "media_entertainment"
   ],
   "platforms": [
+    "diagnostics",
     "media_player"
   ],
   "discovery": [

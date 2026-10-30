@@ -12,6 +12,7 @@
   ],
   "platforms": [
     "binary_sensor",
+    "diagnostics",
     "fan",
     "light",
     "sensor",

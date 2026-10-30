@@ -18,6 +18,7 @@
     "button",
     "diagnostics",
     "event",
+    "light",
     "media_player",
     "notify",
     "select",
