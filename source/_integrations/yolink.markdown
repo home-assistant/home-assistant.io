@@ -103,6 +103,6 @@ The integration is tested and verified for the following devices from YoLink:
 
 ## Community notes
 
-1. This integration requires an MQTT connection to be established via port 8003. If you are using a firewall, please allow communication via port 8003 in the firewall settings.
+1. The integration connects to the YoLink cloud MQTT server on port 8003 to receive device updates. This is an outbound connection, so you don’t need to open or forward any ports. If your firewall blocks outbound traffic from Home Assistant, allow outbound connections on port 8003.
 2. If you use a network proxy, such as a VPN, the integration may not be able to update the device status. Turn off the VPN.
 3. Please do not use UAC as credentials for the Home Assistant YoLink integration.
