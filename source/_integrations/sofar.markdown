@@ -41,14 +41,14 @@ Older Sofar inverters that use the legacy Modbus register map aren't supported. 
 
 Depending on how you connect the inverter, you need one of the following:
 
-- **Network (Modbus TCP)**: The inverter has its own Modbus TCP port, or its RS485 port is wired to a Modbus TCP bridge or a data logger stick that speaks Modbus TCP.
+- **Modbus TCP**: The inverter has its own Modbus TCP port, or its RS485 port is wired to a Modbus TCP bridge or a data logger stick that speaks Modbus TCP.
 - **Serial port (Modbus RTU)**: The inverter's RS485 terminals are wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS485 interface can share the port with Home Assistant over the network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy).
 
 Modbus also needs to be enabled on the inverter, if it has a setting for this.
 
 {% include integrations/config_flow.md %}
 
-When you add the integration, choose how the inverter is reached: **Network (Modbus TCP)** or **Serial port (Modbus RTU)**. The settings that follow depend on your choice.
+When you add the integration, choose how the inverter is reached: **Modbus TCP** or **Serial port (Modbus RTU)**. The settings that follow depend on your choice.
 
 {% configuration_basic %}
 Host:
@@ -82,7 +82,7 @@ To update the connection settings:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration.
 2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
-3. Choose how the inverter is reached from now on: **Network (Modbus TCP)** or **Serial port (Modbus RTU)**.
+3. Choose how the inverter is reached from now on: **Modbus TCP** or **Serial port (Modbus RTU)**.
 4. Enter the connection settings. For a network connection, these are the **Host**, **Port**, and **Modbus unit ID**. For a serial connection, these are the **Serial port**, **Baud rate**, and **Modbus unit ID**. 
    - If you keep the same connection type, the current settings are filled in for you. 
    - If you switch, only the **Modbus unit ID** carries over.
