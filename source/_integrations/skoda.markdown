@@ -73,7 +73,7 @@ API key:
 
 ## Supported functionality
 
-The **Škoda** integration provides the following sensors. The available sensors depend on the vehicle's equipment and powertrain.
+The **Škoda** integration provides the following entities. The available entities depend on the vehicle's equipment and powertrain.
 
 ### Binary sensors
 
@@ -87,7 +87,7 @@ The **Škoda** integration provides the following sensors. The available sensors
 
 ### Device tracker
 
-- **Parking position**: Where the vehicle is parked. While the vehicle is driving, the location is unknown.
+- **Parking position**: Where the vehicle is parked. The device tracker is named after the vehicle. While the vehicle is driving, the location is unknown.
 
 ### Sensors
 
