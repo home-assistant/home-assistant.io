@@ -20,10 +20,13 @@ To get the circulation schedule from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the water heater entity of your Viessmann device.
-6. From the actions shown for that target, select **Viessmann ViCare: Get circulation schedule**.
-7. Select **Save**.
+6. From the actions shown for that target, select **Get circulation schedule**.
+7. In the **Response variable** field, enter a name to store the schedule in, such as `circulation`. You'll use this name to read the schedule in later steps.
+8. Select **Save**.
 
-This action has no options besides the target.
+### Options in the UI
+
+This action has no additional options beyond the target.
 
 {% include actions/yaml_header.md %}
 
@@ -38,6 +41,10 @@ action: |
 {% endexample %}
 
 This reads the circulation schedule of the water heater and stores it in `circulation`.
+
+### Options in YAML
+
+This action has no additional YAML options beyond the target.
 
 {% include actions/targets.md domain="water_heater" %}
 
@@ -150,7 +157,12 @@ automation: |
         message: >
           {% set day = now().strftime('%A') | lower %}
           {% set slots = circulation['water_heater.main_water_heater'][day] %}
-          {% for slot in slots %}{{ slot.from[:5] }}-{{ slot.to[:5] }} ({{ slot.mode }}){% if not loop.last %}, {% endif %}{% else %}No circulation today{% endfor %}
+          {% set ns = namespace(parts=[]) %}
+          {% for slot in slots %}
+          {% set ns.parts = ns.parts
+            + [slot.from[:5] ~ '-' ~ slot.to[:5] ~ ' (' ~ slot.mode ~ ')'] %}
+          {% endfor %}
+          {{ ns.parts | join(', ') if ns.parts else 'No circulation today' }}
 {% endexample %}
 
 {% enddetails %}

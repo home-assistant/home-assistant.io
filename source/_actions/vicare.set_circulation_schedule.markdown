@@ -18,7 +18,7 @@ To set the circulation schedule from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the water heater entity of your Viessmann device.
-6. From the actions shown for that target, select **Viessmann ViCare: Set circulation schedule**.
+6. From the actions shown for that target, select **Set circulation schedule**.
 7. For each day you want to change, add the time slots for that day. Days you leave out keep their current schedule.
 8. Select **Save**.
 
@@ -129,7 +129,7 @@ To turn off circulation for a day, pass an empty list for that day, for example 
 
 The maximum number of slots per day depends on your device. If you exceed it, the action fails and the error message comes from your device.
 
-To see the current schedule, use the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action. Its response uses the same format as this action, so you can save a schedule and restore it later.
+To see the current schedule, use the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action. Its response is keyed by entity ID, and the value for each water heater uses the same format as this action. To restore a saved schedule, pass only that value as `data`, for example {% raw %}`data: "{{ saved['water_heater.main_water_heater'] }}"`{% endraw %}, not the whole response.
 
 Not all devices have a circulation pump. If yours doesn't, the action fails with an error saying the device does not support a domestic hot water circulation schedule.
 
