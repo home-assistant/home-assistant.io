@@ -80,7 +80,7 @@ Sensors are limited in the same way: the smart sensor battery, signal strength, 
 
 With an API key only, binary sensors are limited to the states the public API reports: camera motion, sound detections, and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; smart sensor contact, motion, leak, tamper, and low battery; key fob low battery; Alarm Hub tamper, backup battery, and zone inputs; and the relay inputs. The read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
 
-Events are limited in the same way: the camera motion, smart detection, sound detection and package events, and the key fob buttons. The doorbell ring, NFC, fingerprint and vehicle events need a local user.
+Events are limited in the same way: the camera motion, smart detection, sound detection and package events, the smoke detector alarm and maintenance events, and the key fob buttons. The doorbell ring, NFC, fingerprint and vehicle events need a local user.
 
 {% note %}
 The public Integration API is actively growing, so more features become available with an API key only over time.
@@ -167,7 +167,7 @@ The table below shows what each device type provides in each connection mode. Se
 | ------------ | :---------------------------------------------------------------------------------------: | :---------------: |
 | Camera       | ✅ (streams, snapshots, switches, numbers, selects, binary sensors, events, media player) |        ✅         |
 | Floodlight   |              ✅ (light, switches, numbers, selects, sensors, binary sensors)              |        ✅         |
-| Smart sensor |                      ✅ (switches, numbers, sensors, binary sensors)                      |        ✅         |
+| Smart sensor |                  ✅ (switches, numbers, sensors, binary sensors, events)                  |        ✅         |
 | Viewer       |                                             —                                             |        ✅         |
 | Smart chime  |                                ✅ (ring volume per camera)                                |        ✅         |
 | Relay        |                                            ✅                                             |        ✅         |
@@ -234,6 +234,7 @@ The USL GlassBreak detects motion as well as glass break acoustically, but only 
   - **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
   - **Leak** - A moisture sensor will be available if the mount type is set to "Leak", or if the sensor supports water leak detection and leak detection is enabled.
   - **Tamper** - A binary sensor to detect tampering.
+- **Events** - Smoke detectors, such as the USL Smoke, get an **Alarm** and a **Maintenance** event {% term entity %}. See [Smoke Detector Alarm Event](#smoke-detector-alarm-event) and [Smoke Detector Maintenance Event](#smoke-detector-maintenance-event).
 - **Device Configuration** - Smart sensors will get configuration controls for the Status Light and for enabling/disabling all of the main sensors.
 - **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
 
@@ -766,6 +767,50 @@ mode: single
 ```
 
 The `not_from` option keeps the automation from running during startup or power-cycle state restoration, when the entity temporarily transitions out of the `unavailable` state.
+
+### Smoke Detector Alarm Event
+
+- **Event Name**: Alarm
+- **Event Attributes**:
+  - **event_type**: `smoke` or `co` (carbon monoxide).
+  - **event_id**: A unique ID that identifies the alarm.
+- **Description**: This event is triggered when a UniFi Protect smoke detector reports a smoke or carbon monoxide alarm. It fires when the alarm starts. There is no separate event when the alarm stops.
+
+The UP Sense also gets these entities, because UniFi Protect reports smoke support for it.
+
+{% important %}
+The detector sounds its own alarm, whether or not Home Assistant is running. Use this event for additional actions, such as turning on lights or sending notifications. Home Assistant only receives alarms while it is connected to UniFi Protect. An alarm that starts during an outage can be reported late, when the alarm ends, or not at all. If Home Assistant restarts while an alarm is sounding, the event can fire again when the alarm ends.
+{% endimportant %}
+
+#### Example Smoke Alarm Automation
+
+```yaml
+alias: Smoke Alarm Lights
+description: Turn on all lights when a smoke detector reports an alarm
+triggers:
+  - trigger: state
+    entity_id:
+      - event.kitchen_smoke_detector_alarm # Replace with your smoke detector entity
+    not_from:
+      - unavailable
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: all
+    data:
+      brightness_pct: 100
+mode: single
+```
+
+### Smoke Detector Maintenance Event
+
+- **Event Name**: Maintenance
+- **Event Attributes**:
+  - **event_type**: One of `self_test` (a self-test ran), `battery_low`, `needs_cleaning`, `smoke_fault`, `co_fault`, or `end_of_life`.
+  - **event_id**: A unique ID that identifies the event.
+- **Description**: This event is triggered when a UniFi Protect smoke detector reports a self-test, a low battery, that it needs cleaning, a smoke or carbon monoxide sensor fault, or that it has reached the end of its service life.
+
+Each is a one-time notification, not a state. Check the UniFi Protect app for the current state of a detector.
 
 ## Troubleshooting
 
