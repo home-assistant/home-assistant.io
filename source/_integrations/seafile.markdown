@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: seafile
 ha_platforms:
   - backup
+  - button
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -80,6 +81,11 @@ Each library is added as a separate device in Home Assistant, with the following
   - **Description**: Number of files in the library.
 - **Last modified**
   - **Description**: Time the library was last changed.
+
+### Buttons
+
+- **Empty trash**
+  - **Description**: Permanently deletes the files and folders in the trash of the library. This can't be undone. Only the owner or an admin of the library can empty its trash.
 
 ### Backups
 
