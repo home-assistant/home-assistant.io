@@ -1,9 +1,9 @@
 ---
 title: Rotarex DIMES SRG
 description: Instructions on how to integrate your Rotarex DIMES SRG gas tank monitors into Home Assistant.
-ha_category:
-  - Sensor
-ha_release: 2026.11
+ha_categories:
+  - energy
+ha_release: 2026.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
