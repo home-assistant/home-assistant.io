@@ -46,7 +46,7 @@ action: |
     threshold: 250
 {% endexample %}
 
-This starts timing the event loop and lists every callback that takes 250 milliseconds or longer.
+This starts timing the event loop. Every callback that takes 250 milliseconds or longer is kept in the list of slow callbacks, which holds the last 100. You see the results when you dump or stop the timing.
 
 ### Options in YAML
 

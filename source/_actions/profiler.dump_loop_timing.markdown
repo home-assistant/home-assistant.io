@@ -58,7 +58,7 @@ The response data is a mapping with the following fields:
   - `total_ms`: The total time it held the event loop, in milliseconds.
   - `max_ms`: The longest single run, in milliseconds.
   - `max_at`: When the longest run ended, as a UTC timestamp.
-- `slow`: The last 100 callbacks that took at least as long as the threshold, oldest first. Each item has `at` (when it ended), `ms` (how long it took), `callback`, `config_entry`, and `entry`.
+- `slow`: The last 100 callbacks that took at least as long as the threshold, oldest first. Each item has `seq` (a running number since timing started, so you can tell new entries from ones you have seen), `at` (when it ended), `ms` (how long it took), `callback`, `config_entry`, and `entry` (only present when the config entry exists).
 
 ## Good to know
 
