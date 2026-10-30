@@ -159,6 +159,7 @@ In addition to the certified devices, the following devices are also supported:
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Lite (WoLockLite)](https://www.switchbot.jp/products/switchbot-lock-lite)
+- Lock Ultra Max
 - Lock Vision
 - Lock Vision Pro
 - Lock Pro Wifi
@@ -723,6 +724,22 @@ Features:
 Options:
 
 1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
+
+#### Lock Ultra Max
+
+This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+Features:
+
+- Lock or unlock
+- View the door open or closed state
+- View the battery level
+
+Options:
+
+1. To configure nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Under **Integration entries**, find the lock and select **Configure**.
 3. In the **Options** dialog, configure the nightlatch operation mode.
 
