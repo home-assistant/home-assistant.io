@@ -63,9 +63,11 @@ Password:
     description: "The password you use to log in to the PiKVM web interface."
 Two-factor authentication secret:
     description: "Only needed if two-factor authentication is enabled on your PiKVM. Enter the base32 secret key that was used to set up your authenticator app. A one-time code from your authenticator app is not accepted, because it expires after a few seconds."
+Verify SSL certificate:
+    description: "Whether to verify the certificate of your PiKVM. Off by default. Only turn this on if you replaced the self-signed certificate that ships with PiKVM with a trusted certificate that matches the host you entered, for example a Let's Encrypt certificate."
 {% endconfiguration_basic %}
 
-Each PiKVM is identified by its hardware serial number, so you can add the same PiKVM only once. The entry is named after the name your PiKVM reports, which is usually its hostname.
+Each PiKVM is identified by its hardware serial number, so you can add the same PiKVM only once. If your PiKVM gets a new address, add it again at the new address. Home Assistant shows that the device is already configured and updates the stored host. The entry is named after the name your PiKVM reports, which is usually its hostname.
 
 ## Supported functionality
 
@@ -167,10 +169,10 @@ The **PiKVM** integration {% term polling polls %} your PiKVM every 30 seconds. 
 ## Known limitations
 
 - The integration is read-only. It cannot control the power of the connected computer, press the ATX buttons, or manage virtual media.
-- PiKVM uses a self-signed certificate that is issued for `localhost` and does not include the IP address of the device. The integration connects over HTTPS so the connection is encrypted, but it does not verify the certificate.
+- PiKVM ships with a self-signed certificate that is issued for `localhost` and does not include the IP address of the device. By default, the integration connects over HTTPS so the connection is encrypted, but it does not verify the certificate. If you installed a trusted certificate on your PiKVM, you can turn on **Verify SSL certificate** during setup.
 - Home Assistant stores the password and, if you entered it, the two-factor authentication secret in its configuration, like it does for other integrations.
 - IPv6 addresses are not supported. Use a hostname or an IPv4 address.
-- You cannot update the credentials of an existing entry. If you change the password or the two-factor authentication secret on your PiKVM, delete the entry and add your PiKVM again.
+- You cannot update the credentials of an existing entry. If you change the password or the two-factor authentication secret on your PiKVM, delete the entry and add your PiKVM again. To update only the address, add your PiKVM again at its new address.
 
 ## Troubleshooting
 
@@ -182,6 +184,10 @@ If you get a **Failed to connect** error during setup, Home Assistant cannot rea
 2. Check the hostname or IP address, and the port if you entered one.
 3. Make sure you can open the PiKVM web interface over HTTPS from a device on the same network as Home Assistant.
 
+### Invalid hostname or IP address
+
+If you get an **Invalid hostname or IP address** error during setup, the value in the **Host** field is not valid. Enter only the hostname or IPv4 address, optionally followed by a port between 1 and 65535. For example, `pikvm.local` or `192.168.1.50:8443`.
+
 ### Invalid authentication
 
 If you get an **Invalid authentication** error during setup, the PiKVM did not accept your login.
@@ -192,7 +198,7 @@ If you get an **Invalid authentication** error during setup, the PiKVM did not a
 
 ### The two-factor authentication secret is not accepted
 
-If you get the message **Enter the base32 two-factor authentication secret, not a one-time code**, you entered a 6-digit code from your authenticator app, or a value that is not a valid secret. Enter the secret key instead. To display it, run `kvmd-totp show` in the PiKVM terminal.
+If setup shows the message **The two-factor authentication secret is invalid. Enter the base32 secret key, not a one-time code.** This means you entered a one-time code from your authenticator app, or a value that is not a valid secret. Enter the secret key instead. To display it, run `kvmd-totp show` in the PiKVM terminal.
 
 ### The PiKVM cannot be identified
 
@@ -212,14 +218,9 @@ If your PiKVM is turned off or cannot be reached, its entities show as unavailab
 
 If the PiKVM password or two-factor authentication secret has changed, the integration can no longer log in. Delete the entry and add your PiKVM again with the new credentials.
 
-## Move from the HACS integration
+## Moving from a custom integration
 
-A community PiKVM custom integration is available through HACS. It uses the same `pikvm` domain, so while it is installed, it replaces the built-in integration. To use the built-in integration instead:
-
-1. Remove the PiKVM custom integration from HACS.
-2. Restart Home Assistant.
-3. If your PiKVM entry does not load after the restart, delete the entry and add your PiKVM again.
-4. The built-in integration does not provide all entities of the custom integration. Delete any PiKVM entities that remain unavailable after the move.
+A community custom integration that uses the same `pikvm` domain replaces this integration while it is installed. To use this integration, remove the custom integration and restart Home Assistant. If your PiKVM entry does not load afterwards, delete it and add your PiKVM again.
 
 ## Removing the integration
 
