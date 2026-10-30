@@ -104,9 +104,9 @@ Brightness is set through the backlight on built-in screens and over Display Dat
 
 ## Power controls
 
-On Linux with power-profiles-daemon, the `Power profile` select entity shows the active power profile, such as `Balanced`, `Performance` or `Power saver`, and switches to another. Only the profiles the device supports are listed.
+On Linux with power-profiles-daemon, the **Power profile** select entity shows the active power profile, such as **Balanced**, **Performance**, or **Power saver**, and switches to another. Only the profiles the device supports are listed.
 
-On Linux, the `Keep awake` switch entity keeps the device from idling, so it doesn't lock, blank the screen or sleep for being idle. Turn it off to let the device idle again. On Omarchy, this is the same as the bar's stay awake switch.
+On Linux, the **Keep awake** switch entity keeps the device from idling, so it doesn't lock, blank the screen, or sleep for being idle. Turn it off to let the device idle again. On Omarchy, this is the same as the bar's stay awake switch.
 
 Each entity is added once the device first reports it, so devices without power profiles or keep awake support don't get them. These need System Bridge 5.20.0 or later.
 
