@@ -129,7 +129,6 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 ### Binary sensors
 
 - Access point cloud connection and arming blocked (`HmIP-HAP`, `HmIP-HAP-B1`)
-- Arming blocked, set when the alarm system refuses to arm (`HmIP-HAP`, `HmIP-HAP-B1`)
 - Window and door contacts, including the rotary handle sensor (`HmIP-SWDO`, `HmIP-SWDO-PL`, `HmIP-SWDO-I`, `HmIP-SWDM`, `HmIP-SWDM-B2`, `HmIP-SRH`)
 - Contact interfaces (`HmIP-FCI1`, `HmIP-FCI6`, `HmIP-SCI`)
 - Smoke detectors (`HmIP-SWSD`, `HmIP-SWSD-2`)
