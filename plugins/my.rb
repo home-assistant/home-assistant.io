@@ -120,7 +120,7 @@ module Jekyll
         return options if input.empty?
         # Split along 3 possible forms: key="value", key=value, or just key
         input.scan(OPTIONS_REGEX) do |opt|
-          key, value = opt.split("=")
+          key, value = opt.split("=", 2)
           if !value.nil?
             if value&.include?('"')
               value.delete!('"')
