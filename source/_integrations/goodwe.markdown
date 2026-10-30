@@ -26,6 +26,45 @@ The best supported are the inverters of ET/EH families, where the sensors `Meter
 
 For the other inverter families, if such sensors are not directly available by the inverter, they can be calculated from existing sensors. [Template Sensor](/integrations/template/) can be used to separate buy and sell power values and [Riemann Sum](/integrations/integration/) can be used to convert these instant power (W) values into cumulative energy values (Wh), which then can be used within the energy dashboard.
 
+## Fast charging
+
+Fast charging (called *Immediate charge to battery* in the SolarGo app) charges the battery right away, also from the grid, until a target state of charge is reached. This is useful, for example, to charge the battery when grid energy is cheap.
+
+The integration provides these entities for fast charging:
+
+- **Fast charging**: A switch that starts (on) and stops (off) fast charging.
+- **Fast charging target SoC**: The battery state of charge (in %) at which fast charging stops.
+- **Fast charging power**: The power used for fast charging (in %).
+
+These entities are only available on inverters that support fast charging, such as the ET family with ARM firmware version 19 or newer.
+
+{% note %}
+Fast charging can draw a lot of power from the grid. Start with a lower fast charging power to check how your installation behaves.
+{% endnote %}
+
+The following example charges the battery to 90% at half power every night at 02:00:
+
+```yaml
+- alias: "Goodwe night battery charging"
+  triggers:
+    - trigger: time
+      at: "02:00:00"
+  actions:
+    - action: number.set_value
+      target:
+        entity_id: number.goodwe_fast_charging_target_soc
+      data:
+        value: 90
+    - action: number.set_value
+      target:
+        entity_id: number.goodwe_fast_charging_power
+      data:
+        value: 50
+    - action: switch.turn_on
+      target:
+        entity_id: switch.goodwe_fast_charging
+```
+
 ## Inverter polling interval
 
 The integration will poll the inverter for new values every 10 seconds. If you wish to receive fresh inverter data less (or more) frequently, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired polling frequency.
