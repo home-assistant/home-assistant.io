@@ -56,6 +56,8 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2026.10.1 - October 10](#2026101---october-10)
   - [2026.10.2 - October 16](#2026102---october-16)
+  - [2026.10.3 - October 23](#2026103---october-23)
+  - [2026.10.4 - October 24](#2026104---october-24)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -927,6 +929,98 @@ release once a week, aiming for Friday.
 [@sebr]: https://github.com/sebr
 [@tronikos]: https://github.com/tronikos
 [@zweckj]: https://github.com/zweckj
+
+### 2026.10.3 - October 23
+
+- Fix Proxmox VE update version detection ([@ezaekiel] - [#184823])
+- Fix duplicate access events in UniFi Access integration ([@imhotep] - [#185160])
+- Handle missing Omada controller update fields ([@rubempoli] - [#185164])
+- Bump wheels and base image to 2026.10.0 ([@agners] - [#185227])
+- Upgrade runner to Ubuntu 26.04 ([@edenhaus] - [#186424])
+- Bump Python to 3.14.8 ([@edenhaus] - [#186429])
+- Create new SSL context instead of sharing context in SMTP integration ([@tr4nt0r] - [#186812])
+- Update uv to 0.12.24 ([#186899])
+- Fix missing EnergyZero gas prices before 06:00 ([@klaasnicolaas] - [#186917])
+- Bump opower to 0.22.3 ([@tronikos] - [#186928])
+- Update uv to 0.13.0 ([#186930])
+- Handle errors in Synology DSM button press actions ([@mib1185] - [#186931])
+- Hold off the bootstrap timeout while the KNX telegram store initializes ([@farmio] - [#186980])
+- Constrain bitstring<5 to fix edl21 (pysml incompatibility) ([@SchmidSP] - [#186985])
+- Fix Sensibo full_state action modifying the coordinator data ([@DeviousCardi] - [#187014])
+- Correct the mix-ed up lock and device lock FRITZ!SmartHome sensors ([@mib1185] - [#187119])
+- Fix Home Connect event listener stopping on token refresh errors ([@nikslim] - [#187207])
+- Bump blebox-uniapi to v2.5.8 ([@bkobus-bbx] - [#183968])
+- Bump blebox-uniapi to v2.5.9 ([@bkobus-bbx] - [#187300])
+- Bump aioamazondevices to 16.8.1 ([@jamesonuk] - [#187332])
+- Fix holiday category selector translations ([@gjohansson-ST] - [#187606])
+- Bump pyhive-integration to 1.0.10 ([@KJonline] - [#187610])
+- Update uv to 0.13.4 ([@edenhaus] - [#187742])
+- Bump pynina to 1.0.4 ([@DeerMaximum] - [#187868])
+- bump aioamazondevices to 16.9.1 ([@jamesonuk] - [#187985])
+- Bump victron-vrm to 0.1.14 ([@AndyTempel] - [#188016])
+- Bump base image to 2026.10.1 ([@edenhaus] - [#188204])
+- Update frontend to 20260930.5 ([@bramkragten] - [#188206])
+- Update uv to 0.13.5 ([#188208])
+
+[#183968]: https://github.com/home-assistant/core/pull/183968
+[#184823]: https://github.com/home-assistant/core/pull/184823
+[#185160]: https://github.com/home-assistant/core/pull/185160
+[#185164]: https://github.com/home-assistant/core/pull/185164
+[#185227]: https://github.com/home-assistant/core/pull/185227
+[#186424]: https://github.com/home-assistant/core/pull/186424
+[#186429]: https://github.com/home-assistant/core/pull/186429
+[#186812]: https://github.com/home-assistant/core/pull/186812
+[#186899]: https://github.com/home-assistant/core/pull/186899
+[#186917]: https://github.com/home-assistant/core/pull/186917
+[#186928]: https://github.com/home-assistant/core/pull/186928
+[#186930]: https://github.com/home-assistant/core/pull/186930
+[#186931]: https://github.com/home-assistant/core/pull/186931
+[#186980]: https://github.com/home-assistant/core/pull/186980
+[#186985]: https://github.com/home-assistant/core/pull/186985
+[#187014]: https://github.com/home-assistant/core/pull/187014
+[#187119]: https://github.com/home-assistant/core/pull/187119
+[#187207]: https://github.com/home-assistant/core/pull/187207
+[#187300]: https://github.com/home-assistant/core/pull/187300
+[#187332]: https://github.com/home-assistant/core/pull/187332
+[#187606]: https://github.com/home-assistant/core/pull/187606
+[#187610]: https://github.com/home-assistant/core/pull/187610
+[#187742]: https://github.com/home-assistant/core/pull/187742
+[#187868]: https://github.com/home-assistant/core/pull/187868
+[#187985]: https://github.com/home-assistant/core/pull/187985
+[#188016]: https://github.com/home-assistant/core/pull/188016
+[#188204]: https://github.com/home-assistant/core/pull/188204
+[#188206]: https://github.com/home-assistant/core/pull/188206
+[#188208]: https://github.com/home-assistant/core/pull/188208
+[@AndyTempel]: https://github.com/AndyTempel
+[@DeerMaximum]: https://github.com/DeerMaximum
+[@DeviousCardi]: https://github.com/DeviousCardi
+[@KJonline]: https://github.com/KJonline
+[@SchmidSP]: https://github.com/SchmidSP
+[@agners]: https://github.com/agners
+[@bkobus-bbx]: https://github.com/bkobus-bbx
+[@bramkragten]: https://github.com/bramkragten
+[@edenhaus]: https://github.com/edenhaus
+[@ezaekiel]: https://github.com/ezaekiel
+[@farmio]: https://github.com/farmio
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@imhotep]: https://github.com/imhotep
+[@jamesonuk]: https://github.com/jamesonuk
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@mib1185]: https://github.com/mib1185
+[@nikslim]: https://github.com/nikslim
+[@rubempoli]: https://github.com/rubempoli
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tronikos]: https://github.com/tronikos
+
+### 2026.10.4 - October 24
+
+- Raise aiohttp client header limits to 64 KiB ([@MichaelMKKelly] - [#188329])
+- Bump pylutron-caseta to 0.30.0 ([@TheJulianJES] - [#188388])
+
+[#188329]: https://github.com/home-assistant/core/pull/188329
+[#188388]: https://github.com/home-assistant/core/pull/188388
+[@MichaelMKKelly]: https://github.com/MichaelMKKelly
+[@TheJulianJES]: https://github.com/TheJulianJES
 
 ## Need help? Join the community
 

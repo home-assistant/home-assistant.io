@@ -59,9 +59,10 @@ attribute:
 
 ## Good to know
 
-- Returns `None` when the entity or attribute does not exist.
-- Only attributes that integrations provide translations for are localized. Unsupported attributes fall back to the raw value.
-- The output depends on the Home Assistant user language, not a fixed locale.
+- Returns `None` when the entity or attribute does not exist. A badly formed entity ID causes an error.
+- Only attributes that integrations provide translations for are localized. If your language has no translation, the English text is used. If no translation exists at all, you get the raw value.
+- Only text values are translated. Numbers, lists, and other values are returned unchanged.
+- The output uses the language configured in Home Assistant under **Settings** > **System** > **General**. The language in your user profile has no effect.
 
 {% include template_functions/try_it.md %}
 
@@ -86,7 +87,7 @@ Show a media player's or climate device's mode in a friendly, localized way.
 {% example %}
 template: 'Fan mode: {{ state_attr_translated("climate.bedroom", "fan_mode") }}'
 type: string
-output: "Fan mode: Automatic"
+output: "Fan mode: Auto"
 {% endexample %}
 
 ### Build a localized status message

@@ -58,7 +58,7 @@ This passes when the outdoor NO sensor reads above 100 μg/m³.
    unit_example_value="150"
    threshold_required="true" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="nitrogen monoxide sensor" example="sensor.living_room_nitrogen_monoxide" %}
 
 {% include conditions/behavior.md %}
 

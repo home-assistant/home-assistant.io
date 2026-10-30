@@ -1,19 +1,10 @@
 ---
-title: Meraki
 description: Instructions on how to integrate Meraki-based presence detection into Home Assistant.
-ha_categories:
-  - presence_location.network_presence
-  - computers_network.routers_network
-ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: meraki
-ha_platforms:
-  - device_tracker
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network.

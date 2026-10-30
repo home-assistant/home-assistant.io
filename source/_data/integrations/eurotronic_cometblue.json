@@ -1,0 +1,24 @@
+{
+  "domain": "eurotronic_cometblue",
+  "name": "Eurotronic Comet Blue",
+  "integration_type": "device",
+  "codeowners": [
+    "@rikroe"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "button",
+    "climate",
+    "diagnostics",
+    "number",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

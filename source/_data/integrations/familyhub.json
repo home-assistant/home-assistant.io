@@ -1,0 +1,12 @@
+{
+  "domain": "familyhub",
+  "name": "Samsung Family Hub",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "camera"
+  ]
+}

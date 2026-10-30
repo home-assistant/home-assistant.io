@@ -12,11 +12,11 @@ This section will provide guides to some common tasks and information which you 
 
 ## Backup
 
-To learn how to back up the system or how to restore a system from a backup, refer to the backup documentation under [common tasks](/common-tasks/general/#backups).
+To learn how to back up the system or how to restore a system from a backup, refer to the backup documentation under [common tasks](/common-tasks/general/backups/).
 
 ### Alternative: Creating a backup using the Home Assistant Command Line Interface
 
-In general, to create or restore from a backup, follow the steps described under [common tasks](/common-tasks/general/#backups). However, If you have the {% term "Home Assistant Operating System" %} installed, you can also create a backup from the command line. Follow these steps:
+In general, to create or restore from a backup, follow the steps described under [common tasks](/common-tasks/general/backups/). However, if you have the {% term "Home Assistant Operating System" %} installed, you can also create a backup from the command line. Follow these steps:
 
 1. `ha backups list` - lists backups and their slugnames
 2. `ha backups restore slugname` - restores a specific backup
@@ -35,16 +35,18 @@ If you have the {% term "Home Assistant Operating System" %} installed, you rece
 
 Each of these components needs to be updated separately.
 
+To update apps, integrations, and devices, to install several updates at once, or to skip an update, refer to [Updating Home Assistant, apps, and devices](/common-tasks/general/updating/).
+
 ### Updating the Home Assistant Operating System
 
 Updates of the {% term "Home Assistant Operating System" %} are independent of other updates. They do not trigger repair issues and are usually backward-compatible.
 
 #### Prerequisites
 
-- [Backup your installation](/common-tasks/general/#backups).
-  - Make sure the backup is stored on a [backup location](/common-tasks/general/#defining-backup-locations) outside of the device where Home Assistant is installed.
-    - For example, if Home Assistant is installed on [Home Assistant Green](/green), make sure it is stored on [Home Assistant Cloud](/common-tasks/general/#about-the-backup-storage-on-home-assistant-cloud) or another location.
-  - So that you can [restore from that backup](/common-tasks/general/#restoring-a-backup) in case there is an issue with the system.
+- [Back up your installation](/common-tasks/general/backups/).
+  - Make sure the backup is stored on a [backup location](/common-tasks/general/backups/#defining-backup-locations) outside of the device where Home Assistant is installed.
+    - For example, if Home Assistant is installed on [Home Assistant Green](/green), make sure it is stored on [Home Assistant Cloud](/common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-cloud) or another location.
+  - So that you can [restore from that backup](/common-tasks/general/backups/#restoring-a-backup) in case there is an issue with the system.
 
 #### To update the Home Assistant Operating System
 
@@ -53,17 +55,14 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 - title: Using the UI
   content: |
 
-    1. Open the **Settings** panel.
-    2. On the top you will be presented with an update notification.
-       - Troubleshooting: If you do not see that notification:
-         - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
-         - Go to {% my updates title="**System** > **Updates**" %}.
-           - Select the update notification.
-           - Select the cogwheel {% icon "mdi:cog-outline" %}, then set **Visible** to active.
-    3. Open the notification for the component you want to update.
-    4. If you want to update the system first (recommended), enable the backup toggle.
-    5. Select **Update**.
-    6. Check if there are any repair issues and check the logs to see if there are any issues with your configuration that need to be addressed.
+    1. Go to {% my config title="**Settings**" %}.
+    2. At the top, select the **Home Assistant Operating System** update.
+       - Troubleshooting: If you don't see the update:
+         - In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
+         - Go to {% my updates title="**Settings** > **System** > **Updates**" %}, and select the update there.
+    3. To create a backup before the update, turn on the backup option. Depending on your backup settings, it's called **Automatic backup before update** or **Create manual backup before update**.
+    4. Select **Update**.
+    5. Check {% my repairs title="**Settings** > **System** > **Repairs**" %} and {% my logs title="**Settings** > **System** > **Logs**" %} for issues with your configuration that you need to address.
    
 - title: Using the CLI
   content: |
@@ -72,7 +71,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
     ha os update
     ```
 
-    _This updates to the latest version. If you want to update to a specific version instead, use  `ha os update --version 15.2`._
+    _This updates to the latest version. If you want to update to a specific version instead, use `ha os update --version 18.3`._
 
 {% endtabbed_block %}
 
@@ -132,21 +131,3 @@ For more information, refer to the [Labs documentation](/integrations/labs).
 
 <!-- Accessing Home Assistant from the commandline-->
 {% include common-tasks/commandline.md %}
-
-## Enable duplicate log file
-
-By default, Home Assistant Core logs are sent to the Systemd Journal, which can be read using the [`ha core logs` command](/common-tasks/os/#home-assistant-via-the-command-line). If you need logs to also be written to a file (`/config/home-assistant.log`), you can enable the duplicated log file option using the [command line](/common-tasks/os/#home-assistant-via-the-command-line):
-
-```bash
-ha core options --duplicate-log-file=true
-ha core rebuild
-ha core restart
-```
-
-To disable it:
-
-```bash
-ha core options --duplicate-log-file=false
-ha core rebuild
-ha core restart
-```

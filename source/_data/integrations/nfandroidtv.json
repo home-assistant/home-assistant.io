@@ -1,0 +1,16 @@
+{
+  "domain": "nfandroidtv",
+  "name": "Notifications for Android TV / Fire TV",
+  "integration_type": "service",
+  "codeowners": [
+    "@tkdrob"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "messaging_notifications.push_notifications"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

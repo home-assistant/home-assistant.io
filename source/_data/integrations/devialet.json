@@ -1,0 +1,20 @@
+{
+  "domain": "devialet",
+  "name": "Devialet",
+  "integration_type": "device",
+  "codeowners": [
+    "@fwestenberg"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "diagnostics",
+    "media_player"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

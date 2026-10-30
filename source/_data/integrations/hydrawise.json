@@ -1,0 +1,23 @@
+{
+  "domain": "hydrawise",
+  "name": "Hunter Hydrawise",
+  "integration_type": "hub",
+  "codeowners": [
+    "@dknowles2",
+    "@thomaskistler",
+    "@ptcryan",
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "garden_plants"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor",
+    "switch",
+    "valve"
+  ]
+}
