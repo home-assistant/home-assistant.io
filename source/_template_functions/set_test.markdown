@@ -50,7 +50,7 @@ value:
 
 ## Good to know
 
-- Only real sets pass. Lists, tuples, dictionaries, and strings do not. To test for those, use the [`list`](https://www.home-assistant.io/template-functions/list_test/) and [`tuple`](https://www.home-assistant.io/template-functions/tuple_test/) tests.
+- Only real sets pass. Lists, tuples, dictionaries, and strings do not. To check the type of those values, use [`typeof`](/template-functions/typeof/).
 - A set has no fixed order, and it holds each value only once.
 - To convert a value to a set, use the [`set`](https://www.home-assistant.io/template-functions/set/) function.
 
