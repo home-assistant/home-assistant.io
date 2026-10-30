@@ -10,8 +10,6 @@ limited: true
 since: "2023.11"
 related_functions:
   - list
-  - tuple_test
-  - set_test
   - typeof
 ---
 
