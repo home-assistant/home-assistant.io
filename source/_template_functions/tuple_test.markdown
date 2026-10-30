@@ -50,7 +50,7 @@ value:
 
 ## Good to know
 
-- Only real tuples pass. Lists, sets, dictionaries, and strings do not. To test for those, use the [`list`](https://www.home-assistant.io/template-functions/list_test/) and [`set`](https://www.home-assistant.io/template-functions/set_test/) tests.
+- Only real tuples pass. Lists, sets, dictionaries, and strings do not. To inspect the type of another value, use [`typeof`](/template-functions/typeof/).
 - To convert a value to a tuple, use the [`tuple`](https://www.home-assistant.io/template-functions/tuple/) function.
 
 {% include template_functions/try_it.md %}
