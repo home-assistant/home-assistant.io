@@ -67,6 +67,24 @@ target:
   entity_id: media_player.living_room_apple_tv
 ```
 
+### Grouping speakers
+
+An Apple TV can play its audio on HomePods at the same time, as an AirPlay group. Use the `media_player.join` action on the Apple TV and list the HomePods in `group_members`. The HomePods must also be set up with the Apple TV integration.
+
+`media_player.unjoin` on a HomePod removes it from the group. On the Apple TV, it ends the group.
+
+```yaml
+# Also play the living room Apple TV's audio in the bedroom
+action: media_player.join
+target:
+  entity_id: media_player.living_room_apple_tv
+data:
+  group_members:
+    - media_player.bedroom_homepod
+```
+
+The `group_members` attribute lists the Apple TV first, then the other devices in its group.
+
 ## Remote
 
 The Apple TV remote platform will automatically create a Remote entity for each Apple TV
