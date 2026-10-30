@@ -10,16 +10,16 @@ The **Flexit** {% term integration %} connects [Flexit](https://www.flexit.no/en
 
 Your Flexit unit needs a [CI66 Modbus adapter](https://www.flexit.com/en/products/111647/modbus-adapter-ci66-k2-c2-uni/). Depending on how the adapter is connected, you need one of the following:
 
-- **Serial (Modbus RTU)**: The CI66 adapter is connected through an RS-485 interface. You can use a USB-to-RS485 converter connected to your Home Assistant host. Alternatively, as an experimental option, an [ESPHome Serial Proxy](https://esphome.io/components/serial_proxy/) with an RS-485 interface can expose the connection to Home Assistant as a network-attached serial port.
-- **Network (Modbus TCP) via bridge**: The CI66 adapter is wired to a Modbus TCP bridge or gateway on your network.
+- **Serial port (Modbus RTU)**: The CI66 adapter is connected through an RS-485 interface. You can use a USB-to-RS485 converter connected to your Home Assistant host. Alternatively, as an experimental option, an [ESPHome Serial Proxy](https://esphome.io/components/serial_proxy/) with an RS-485 interface can expose the connection to Home Assistant as a network-attached serial port.
+- **Modbus TCP**: The CI66 adapter is wired to a Modbus TCP bridge or gateway on your network.
 
 {% include integrations/config_flow.md %}
 
 When you set up the integration, you're asked to choose between a serial or a network connection.
 
 {% configuration_basic %}
-Serial device:
-  description: "The serial device your Flexit CI66 Modbus adapter is connected to. Only shown for a serial connection."
+Serial port:
+  description: "The serial port your Flexit CI66 Modbus adapter is connected to. Only shown for a serial connection."
 Baud rate:
   description: "The baud rate of the serial connection. Defaults to `9600`. Only shown for a serial connection."
 Host:
@@ -75,7 +75,7 @@ The **Flexit** integration {% term polling polls %} the unit every 30 seconds.
 
 If setup fails with a connection error:
 
-- Make sure the serial device or host and port are correct and reachable from Home Assistant.
+- Make sure the serial port or host and port are correct and reachable from Home Assistant.
 - Make sure no other integration is already using the same connection with different settings.
 - Make sure the unit ID matches the Modbus address configured on your CI66 adapter.
 
