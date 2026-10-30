@@ -1,30 +1,7 @@
 ---
-title: Bosch SHC
 description: Integrate Bosch SHC.
-ha_categories:
-  - hubs_protocols.smart_home_hubs
 ha_release: 2021.6
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@tschamm'
-  - '@mosandlt'
 ha_domain: bosch_shc
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - event
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - valve
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **Bosch SHC** {% term integration %} allows you to connect your [Bosch Smart Home Controller](https://www.bosch-smarthome.com) to Home Assistant to control and monitor your Bosch Smart Home devices.
@@ -74,6 +51,8 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact II
 - Battery powered devices
 
+A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguard is the source of an active smoke alarm and turns off when the alarm ends.
+
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
@@ -115,6 +94,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Smart Plug or Smart Plug Compact that supports energy-saving mode gets an **Energy-saving power threshold** value (0 to 3680 W), controlling the power draw below which the plug switches off automatically.
 - A Smart Plug or Smart Plug Compact gets an **Energy-saving enter duration** value (1 to 3600 seconds), controlling how long the plug stays below the power threshold before energy-saving mode is entered.
 - A Thermostat, Wall Thermostat, or Room Thermostat II that supports it gets a **Temperature offset** value, letting you correct the measured temperature within the range and step the device allows.
+- A Smart Plug or Smart Plug Compact that supports it gets an **LED brightness** value (0 to 100 %), controlling the brightness of the plug's status LED.
 
 ### Select
 
@@ -128,6 +108,10 @@ The select platform lets you choose between a set of predefined options. Select 
 - Smart Plug and Smart Plug Compact that support it: a **State after power outage** select, letting you choose between **Off**, **On**, or **Last state**. In YAML, the options are `off`, `on`, and `last_state`.
 - Micromodule Relay that supports it: a **Switch type** select, letting you choose between **None**, **Push button**, **Rocker switch**, or **No switch**. In YAML, the options are `none`, `pushbutton`, `switch`, and `no_switch`.
 - Thermostat II that supports it: a **Valve type** select (**normally closed** or **normally open**) and a **Heater type** select (**underfloor heating**, **underfloor heating low energy**, **radiator**, **passive convector**, **active convector**, or **central heating**).
+- Room Thermostat II that supports it: a **Sensor connection** select, letting you choose how an external sensor on the terminal is used: **Not used**, **Floor sensor connected**, **Floor sensor used for regulation**, **Cable temperature sensor (without regulation)**, **Cable temperature sensor (with regulation)**, **Volt-free sensor connected**, **Potential-free contact**, or **Outdoor temperature sensor**. In YAML, the options are `not_connected`, `floor_sensor_connected`, `floor_sensor_used_for_regulation`, `floor_sensor_displayed`, `floor_sensor_displayed_and_used_for_regulation`, `volt_free_sensor_connected`, `volt_free_sensor_connected_and_used_for_operation`, and `outdoor_sensor_connected`.
+- Micromodule Relay that supports it: an **Actuator type** select, letting you choose between **Normally closed**, **Normally open**, or **Unsupported**. In YAML, the options are `normally_closed`, `normally_open`, and `unsupported`.
+- Micromodule Relay that supports it: an **Output mode** select, letting you choose between **Coupled**, **Disconnected on any key press**, **Disconnected on short press**, **Disconnected on long press**, or **Unsupported**. In YAML, the options are `attached`, `detached`, `detached_short_press`, `detached_long_press`, and `unsupported`.
+- Motion Detector II that supports it: a **Sensitivity for alarm system** select and a **Sensitivity for other cases** select, each letting you choose between **High**, **Medium**, or **Low**. In YAML, the medium option is `middle`.
 
 ### Sensors
 
@@ -135,6 +119,7 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 
 - Thermostat
 - Wall Thermostat
+- Room Thermostat II
 - Twinguard
 - Smart Plug
 - Smart Plug Compact
@@ -142,7 +127,9 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Micromodule Shutter Control
 - Micromodule Blinds
 
-Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) because the valve entity provides the position directly.
+Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because the valve entity provides the position directly.
+
+Room Thermostat II devices provide a humidity sensor if the device supports it and a **Floor temperature** sensor if a floor sensor is connected.
 
 In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
 
@@ -229,8 +216,7 @@ Combine the cover platform with a sun trigger to close your shutters as it gets 
 automation: |
   alias: "Close shutters at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: cover.close_cover
       target:

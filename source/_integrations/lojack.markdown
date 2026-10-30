@@ -1,20 +1,7 @@
 ---
-title: LoJack
 description: Instructions on how to integrate your LoJack by Spireon vehicle tracking account with Home Assistant.
-ha_categories:
-  - vehicles_transport.cars_evs
-  - presence_location.trackers
 ha_release: 2026.4
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_quality_scale: silver
-ha_codeowners:
-  - '@devinslick'
 ha_domain: lojack
-ha_platforms:
-  - device_tracker
-  - sensor
-ha_integration_type: hub
 ---
 
 The **LoJack** {% term integration %} connects Home Assistant to vehicles equipped with [LoJack by Spireon](https://www.spireon.com/lojack/) GPS tracking hardware. After you authenticate with your Spireon/LoJack account credentials, the integration automatically discovers every vehicle registered to your account and creates a device for each one, with a device tracker entity that shows the vehicle's current or last known GPS location on the map.

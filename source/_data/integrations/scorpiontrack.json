@@ -7,7 +7,7 @@
   ],
   "config_flow": true,
   "iot_class": "cloud_polling",
-  "quality_scale": "silver",
+  "quality_scale": "platinum",
   "categories": [
     "vehicles_transport.cars_evs",
     "presence_location.trackers"

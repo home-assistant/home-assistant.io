@@ -1,21 +1,7 @@
 ---
-title: Zonneplan
 description: Get electricity and gas prices from Zonneplan in Home Assistant.
-ha_categories:
-  - energy.energy_prices
-  - energy.solar_batteries
 ha_release: '2026.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@erwindouna'
 ha_domain: zonneplan
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Zonneplan** {% term integration %} lets you retrieve electricity and gas price information from [Zonneplan](https://www.zonneplan.nl/), a Dutch provider of dynamic energy contracts and energy services, including home batteries and EV charge points.

@@ -118,7 +118,7 @@ end:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Google Mail entity" example="sensor.example_gmail_com_vacation_end_date" %}
 
 ## Good to know
 
