@@ -151,6 +151,8 @@ In addition to the certified devices, the following devices are also supported:
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- RGBIC Neon Rope Light
+- RGBIC Neon Wire Rope Light
 - RGBICWW Light Bars
 - [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
 - [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
@@ -631,6 +633,17 @@ Features:
 - change color temperature
 - change color
 - set effect
+
+#### RGBIC Neon Rope Light and RGBIC Neon Wire Rope Light
+
+These are encrypted devices. To set them up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+Features:
+
+- Turn on or off
+- Change brightness
+- Change color
+- Set effect
 
 #### RGBICWW Light Bars
 
