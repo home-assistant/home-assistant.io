@@ -49,7 +49,7 @@ Trigger when:
     - **First**: fire only for the first node to match.
     - **All**: fire only once every selected node matches.
 
-    **First** and **All** need **From** or **To** to be set.
+    **First** and **All** need **To** to be set.
 For at least:
   description: How long the new status must hold before the trigger fires. The default is `0`, which fires immediately.
 {% endoptions_ui %}
@@ -109,7 +109,7 @@ behavior:
     - `first` (**First** in the UI): fire only for the first node to match.
     - `all` (**All** in the UI): fire only once every node matches.
 
-    `first` and `all` need `from` or `to` to be set.
+    `first` and `all` need `to` to be set.
   required: false
   type: string
   default: each
@@ -124,7 +124,7 @@ for:
 
 A Z-Wave node is represented in Home Assistant as a device, so this trigger picks nodes with a device picker rather than a target. Behind the scenes it watches the node status sensor of each selected device, so a device's other entities never fire it.
 
-The Z-Wave controller has no node status sensor, so it can't be selected. Hidden node status sensors are still watched, but a disabled one isn't, because it has no state.
+The Z-Wave controller has no node status sensor. It still shows up in the device picker, but an automation that includes it is rejected when you save it. Hidden node status sensors are still watched, but a disabled one isn't, because it has no state.
 
 ## Behavior with multiple nodes
 
@@ -134,13 +134,13 @@ When you select more than one device, the **Trigger when** option controls when 
 - **First**: the automation runs only for the first node to match, and not again until no node matches. Use this to avoid a burst of notifications.
 - **All**: the automation runs only once every selected node matches. Use this for "the whole group is offline" checks.
 
-**First** and **All** count nodes whose status matches **From** and **To**, not nodes that changed, so they need at least one of the two to be set. A node that moves from one **To** status to another already matched, so it doesn't count again. **Each** fires on every such change.
+**First** and **All** count nodes whose status is in **To**, not nodes that changed, so they need **To** to be set. Battery-powered nodes are never `alive` or `dead`, so counting on **From** alone would miscount a network that mixes them with mains-powered nodes. A node that moves from one **To** status to another already matched, so it doesn't count again. **Each** fires on every such change.
 
 ## Good to know
 
 - Every Z-Wave node has a node status sensor, and it is a diagnostic entity that is enabled by default. This trigger watches those sensors for you, so you do not need to find their entity IDs.
 - Leaving both **From** and **To** empty fires on any status change, including `asleep` to `awake`, which is noisy for battery-powered nodes. Set **To** when you only care about a node going offline.
-- Setting **From** on its own fires when the node leaves that status for any other one.
+- Setting **From** on its own fires when the node leaves those statuses for one outside them. With **From** set to `asleep` and `awake`, a node going from `asleep` to `awake` doesn't fire.
 - Momentary `unknown` or `unavailable` states (for example, while Z-Wave JS restarts) don't count as status changes, so they never cause the trigger to fire, even with no **From**/**To** filters set.
 - **For at least** is useful for flaky nodes. A node that drops out and recovers within the duration does not fire the trigger.
 - If you would rather work with the sensor directly, the same changes are visible through the standard [state trigger](/docs/automation/trigger/#state-trigger) on each node status sensor.
