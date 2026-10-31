@@ -720,8 +720,6 @@ Components omitted from a device discovery payload are removed by comparing the 
 
 A child device is removed when it is omitted from `child_devices`, or listed without components. When a payload has no components left, the device is removed as well.
 
-Removing a component by publishing it with only its `platform` (`p`) option is deprecated. Such a component is ignored, so it is handled as omitted. Omit the component from the payload instead.
-
 To remove a single component that was discovered through device discovery, use its device discovery topic. An empty payload published to its old single component discovery topic, for example after a [migration to device discovery](#migration-from-single-component-to-device-discovery), does not remove it.
 
 When an entity that was discovered through device discovery is removed from Home Assistant, the device discovery payload is not cleared, as that would remove all components of the device. The entity will be added again when a device discovery payload is received that still contains the component. To prevent this, disable the entity instead, or remove the component from the device discovery payload as described above.
