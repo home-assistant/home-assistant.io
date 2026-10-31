@@ -427,7 +427,7 @@ In the example below, each switch is linked to a child device of the power strip
 }
 ```
 
-A component can be moved between the device and its child devices, or between child devices, by moving it to another `components` mapping with the same component ID. To remove a component of a child device, send the component with only its `platform` option, as for the other components.
+A component can be moved between the device and its child devices, or between child devices, by moving it to another `components` mapping with the same component ID. To remove a component of a child device, omit it from the device discovery payload, as for the other components. To remove a child device, omit it from `child_devices`. Its components are removed with it, unless they were moved to another device in the same payload. See [removing components with device discovery](#removing-components-with-device-discovery).
 
 ### Device configuration with single component discovery
 
@@ -672,88 +672,59 @@ To see what each abbreviation stands for, refer to the [list of supported abbrev
 
 The component IDs under the `components` (`cmps`) key, including those of the child devices, are used as part of the discovery identification and must be unique within the payload. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
-To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove all components of the device, including disabled entities, and clear the published discovery payload. It will also remove the device entry if there are no further references to it. Removing the device in Home Assistant also clears the published device discovery payload.
-
-Removing a child device in Home Assistant only removes the child device and its entities, and the parent device when it has no other components or child devices left. The published device discovery payload is not cleared, so the child device and its components are added again when a new device discovery payload is received. To prevent this, remove the child device from the device discovery payload.
-
-An empty config can be published as an update to remove a single component from the device discovery. Note that adding the `platform` (`p`) option is still required.
-
-```json
-{
-  "dev": {
-    "ids": "ea334450945afc",
-    "name": "Kitchen",
-    "mf": "Bla electronics",
-    "mdl": "xya",
-    "sw": "1.0",
-    "sn": "ea334450945afc",
-    "hw": "1.0rev2"
-  },
-  "o": {
-    "name":"bla2mqtt",
-    "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support"
-  },
-  "cmps": {
-    "some_unique_component_id1": {
-      "p": "sensor",
-      "device_class":"temperature",
-      "unit_of_measurement":"°C",
-      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t"
-    },
-    "some_unique_id2": {
-      "p": "sensor"
-    }
-  },
-  "state_topic":"sensorBedroom/state",
-  "qos": 2
-}
-```
-
-This will explicitly remove the humidity sensor and its entry.
-
-After removing a component, you should send another update with the removed component omitted from the configuration. This ensures that Home Assistant has the most up-to-date device configuration. For example:
-
-```json
-{
-  "dev": {
-    "ids": "ea334450945afc",
-    "name": "Kitchen",
-    "mf": "Bla electronics",
-    "mdl": "xya",
-    "sw": "1.0",
-    "sn": "ea334450945afc",
-    "hw": "1.0rev2"
-  },
-  "o": {
-    "name":"bla2mqtt",
-    "sw": "2.1",
-    "url": "https://bla2mqtt.example.com/support"
-  },
-  "cmps": {
-    "some_unique_component_id1": {
-      "p": "sensor",
-      "device_class":"temperature",
-      "unit_of_measurement":"°C",
-      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
-      "unique_id":"temp01ae_t"
-    }
-  },
-  "state_topic":"sensorBedroom/state",
-  "qos": 2
-}
-```
-
-To remove a single component that was discovered through device discovery, use its device discovery topic. An empty payload published to its old single component discovery topic, for example after a [migration to device discovery](#migration-from-single-component-to-device-discovery), does not remove it.
-
-When an entity that was discovered through device discovery is removed from Home Assistant, the device discovery payload is not cleared, as that would remove all components of the device. The entity will be added again when a device discovery payload is received that still contains the component. To prevent this, disable the entity instead, or remove the component from the device discovery payload as described above.
-
 <div class='note warning'>
 
 A component config part in a device discovery payload must have the `platform` (`p`) option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context. The component IDs must be unique across the device and its child devices.
 
 </div>
+
+##### Removing components with device discovery
+
+To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove all components of the device, including disabled entities, and clear the published discovery payload. It will also remove the device entry if there are no further references to it. Removing the device in Home Assistant also clears the published device discovery payload.
+
+A device discovery payload describes the desired state of the device. When an update omits a component or a child device that was discovered before, Home Assistant removes it, including disabled entities. The device, and the child devices that are still in the payload, keep their device ID. To remove the humidity sensor from the example above, publish the payload without it:
+
+```json
+{
+  "dev": {
+    "ids": "ea334450945afc",
+    "name": "Kitchen",
+    "mf": "Bla electronics",
+    "mdl": "xya",
+    "sw": "1.0",
+    "sn": "ea334450945afc",
+    "hw": "1.0rev2"
+  },
+  "o": {
+    "name":"bla2mqtt",
+    "sw": "2.1",
+    "url": "https://bla2mqtt.example.com/support"
+  },
+  "cmps": {
+    "some_unique_component_id1": {
+      "p": "sensor",
+      "device_class":"temperature",
+      "unit_of_measurement":"°C",
+      "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
+      "unique_id":"temp01ae_t"
+    }
+  },
+  "state_topic":"sensorBedroom/state",
+  "qos": 2
+}
+```
+
+{% warning %}
+Components omitted from a device discovery payload are removed by comparing the payload with the configuration Home Assistant already knows. If a payload with omitted components is published while Home Assistant is stopped or restarting, the removed components are not cleaned up and their entities remain in the entity registry. Remove them manually.
+{% endwarning %}
+
+A child device is removed when it is omitted from `child_devices`, or listed without components. When a payload has no components left, the device is removed as well, if there are no further references to it.
+
+To remove a single component that was discovered through device discovery, use its device discovery topic. An empty payload published to its old single component discovery topic, for example after a [migration to device discovery](#migration-from-single-component-to-device-discovery), does not remove it.
+
+When an entity that was discovered through device discovery is removed from Home Assistant, the device discovery payload is not cleared, as that would remove all components of the device. The entity will be added again when a device discovery payload is received that still contains the component. To prevent this, disable the entity instead, or remove the component from the device discovery payload as described above.
+
+Removing a child device in Home Assistant only removes the child device and its entities, and the parent device when it has no other components or child devices left. The published device discovery payload is not cleared, so the child device and its components are added again when a new device discovery payload is received. To prevent this, remove the child device from the device discovery payload.
 
 ##### Migration from single component to device discovery
 
