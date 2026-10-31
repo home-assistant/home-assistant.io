@@ -89,6 +89,17 @@ features:
   - type: "bar-gauge"
     min: 0
     max: 100
+    segments:
+      - from: 0
+        color: '#db4437'
+      - from: 35.5
+        color: '#ffa600'
+      - from: 40
+        color: '#43a047'
+      - from: 60
+        color: '#ffa600'
+      - from: 65
+        color: '#db4437'
 ```
 
 {% configuration features %}
@@ -106,6 +117,36 @@ max:
   description: Maximum value for the gauge range.
   type: integer
   default: 100
+severity:
+  required: false
+  description: Allows setting of colors for different numbers.
+  type: map
+  keys:
+    green:
+      required: false
+      description: Value from which to start green color.
+      type: float
+    yellow:
+      required: false
+      description: Value from which to start yellow color.
+      type: float
+    red:
+      required: false
+      description: Value from which to start red color.
+      type: float
+segments:
+  required: false
+  description: List of colors and their corresponding start values. Segments will override the severity settings.
+  type: list
+  keys:
+    from:
+      required: true
+      description: Value from which to start the color.
+      type: float
+    color:
+      required: true
+      description: Color of the segment, may be any CSS color declaration like "red", "#0000FF" or "rgb(255, 120, 0)".
+      type: string
 {% endconfiguration %}
 
 ## Button
