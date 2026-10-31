@@ -55,8 +55,9 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery) or [added manually](#manual-configured-mqtt-items) via YAML or subentries.
 
-<a name="configuration-via-mqtt-discovery"></a>
-{% details "Configuration of MQTT components via MQTT discovery" %}
+## MQTT entities
+
+The following pages describe the MQTT entity platforms and their configuration.
 
 - [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
@@ -91,7 +92,6 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
-{% enddetails %}
 
 <a name="configuration-via-yaml"></a>
 {% details "Configuration of MQTT components via YAML" %}
