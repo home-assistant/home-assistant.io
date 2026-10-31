@@ -25,30 +25,46 @@ The Kaleidescape media player platform will create a [media player](/integration
 
 ## Remote
 
-The Kaleidescape remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) action.
+The Kaleidescape remote platform creates a [remote](/integrations/remote/) entity for the device. Use it with the [**Send remote command**](/actions/remote.send_command/) action to send the following commands.
 
-- `select`
-- `up`
-- `down`
-- `left`
-- `right`
-- `cancel`
-- `replay`
-- `scan_forward`
-- `scan_reverse`
-- `go_movie_covers`
-- `menu_toggle`
+Navigation:
 
-A typical action might look like the example below, which sends a command to the device to _select_ the currently highlighted item.
+- `up`, `down`, `left`, `right`: Move the highlight on the onscreen display.
+- `select`: Select the highlighted item.
+- `cancel`: Go back by closing the current page, dialog, or text entry. During movie playback, this stops the movie.
+- `menu_toggle`: Show or hide the Kaleidescape menu. A playing movie keeps playing behind the menu.
 
-```yaml
-action: remote.send_command
-target:
-  entity_id: remote.kaleidescape_theater
-data:
-  command:
-    - select
-```
+Playback:
+
+- `play`: Start playback. After scanning, this returns to normal speed.
+- `pause`: Pause playback, or resume it if it is already paused.
+- `stop`: Stop the movie. The player remembers your place so you can resume it later.
+- `next`: Skip to the next chapter.
+- `previous`: Go back to the start of the current chapter. Send it twice to go to the previous chapter.
+- `replay`: Skip back 10 seconds.
+- `scan_forward`, `scan_reverse`: Fast-forward or rewind. Each repeat cycles through 2×, 4×, and 8× speed. Send `play` to return to normal speed.
+- `intermission_toggle`: Show or hide the intermission screen. Showing it pauses the movie, and the **Media location** sensor changes to `intermission`.
+- `status_and_settings`: Show or hide the movie overlay during playback. Use `left` and `right` to move between its pages, such as audio and subtitles. When no movie is playing, this opens the System Status view.
+
+Movie views:
+
+- `go_movies`: Show a movie view. If a movie view is already showing, switch to the next one.
+- `go_movie_list`: Show the Movie List view.
+- `go_movie_covers`: Show the Movie Covers view.
+- `go_movie_collections`: Show the Movie Collections view.
+
+Sending a movie view command during movie playback stops the movie. The player remembers your place so you can resume it later.
+
+A typical action might look like the example below, which sends the `select` command to the device to select the currently highlighted item.
+
+{% example %}
+action: |
+  action: remote.send_command
+  target:
+    entity_id: remote.kaleidescape_theater
+  data:
+    command: select
+{% endexample %}
 
 ## Sensor
 
