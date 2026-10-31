@@ -49,7 +49,8 @@ The response data is a mapping with the following fields:
 
 - `since`: When timing started, as a UTC timestamp.
 - `threshold_ms`: The threshold in milliseconds.
-- `errors`: The number of callbacks that could not be identified. They are not timed and are not in the lists below.
+- `errors`: The number of callbacks that could not be identified. Their time is counted under `other callbacks`.
+- `overflowed`: The number of callbacks counted under `other callbacks` because 10,000 different callbacks were already listed.
 - `callbacks`: What ran on the event loop, sorted by `total_ms`, highest first. Each item has:
   - `callback`: The function, with its module and class. Beyond 10,000 different callbacks, the rest are combined as `other callbacks`.
   - `config_entry`: The ID of the config entry the callback ran for, or `null`.
@@ -63,7 +64,7 @@ The response data is a mapping with the following fields:
 ## Good to know
 
 - Timing must be running. Start it with [Start event loop timing](/actions/profiler.start_loop_timing/).
-- The log lists the 50 busiest callbacks. The response data contains all of them.
+- The log lists the 50 busiest callbacks and says how many it left out. The response data contains all of them.
 - Callbacks that don't run for a config entry, for example work scheduled by Home Assistant itself, have no entry.
 - When Home Assistant starts a task eagerly, the task begins to run inside the callback that created it. That time is counted for the creating callback, not for the task.
 

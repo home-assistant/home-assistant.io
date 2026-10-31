@@ -51,7 +51,7 @@ The response data has the same fields as [Dump event loop timing](/actions/profi
 
 - Stopping discards the recorded data. Read the log or store the results in a response variable.
 - If timing is not running, the action fails with an error.
-- The log lists the 50 busiest callbacks. The response data contains all of them.
+- The log lists the 50 busiest callbacks and says how many it left out. The response data contains all of them.
 
 {% include actions/try_it.md %}
 
