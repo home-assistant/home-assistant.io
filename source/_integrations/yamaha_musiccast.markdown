@@ -10,6 +10,10 @@ Supported devices are listed on their [site](https://usa.yamaha.com/products/con
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
+By default, every source the receiver reports is shown in the source list of its media players. Unselect a source to hide it from the source list. A hidden source is still reported correctly if it's the currently active one; it's only removed from the list of selectable sources. After you change the options, the integration reloads.
+
 ## Grouping functionality
 
 The Yamaha MusicCast {% term integration %} implements the grouping actions. There are some limitations in the MusicCast system for grouping:
