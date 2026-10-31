@@ -125,6 +125,8 @@ Whenever a trigger reacts, all related entities re-render and have access to [th
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [State changed trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
+A State changed trigger without `from` or `to` also fires when only an attribute of the entity changes. Add `to: null` to fire only when the state itself changes. Don't add a trigger for an entity whose state or attributes are calculated from this template entity: every update fires the trigger again, and the loop can make Home Assistant unresponsive.
+
 The state, including attributes, of trigger-based template entities is restored when Home Assistant is restarted. This doesn't apply to buttons, images, and update entities.
 
 {% note %}
