@@ -20,8 +20,8 @@ Currency:
 
 To change the currency later, you can reconfigure the integration without removing and adding it again:
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. On the **Bitcoin** integration, select the three-dot menu and choose **Reconfigure**.
+1. Go to {% my integration domain="bitcoin" title="**Settings** > **Devices & services** > **Bitcoin**" %}.
+2. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
 3. Select the new currency.
 4. Select **Submit**.
 
