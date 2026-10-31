@@ -5,7 +5,7 @@ ha_domain: zonneplan
 ---
 
 The **Zonneplan** {% term integration %} lets you retrieve electricity and gas price information from [Zonneplan](https://www.zonneplan.nl/), a Dutch provider of dynamic energy contracts and energy services, including home batteries and EV charge points.
-This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, and the status of your Zonneplan home battery and EV charge point.
+This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, the status, control mode and settings of your Zonneplan home battery, and the status of your EV charge point.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ During setup, you are asked for the email address linked to your Zonneplan accou
 
 ## Data updates
 
-The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status of each home battery every 5 minutes, and the status of each EV charge point every minute.
+The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status and control mode of each home battery every 5 minutes (the battery settings refresh along with the control mode), and the status of each EV charge point every minute.
 
 ## Supported functionality
 
@@ -79,11 +79,37 @@ If your account has a Zonneplan EV charge point, the integration adds a device f
 - **Overload protection**: On while the charge point limits charging to prevent overloading your grid connection.
 - **Automatic charging paused**: On after you stop a charging session by hand, while automatic charging stays paused.
 
+### Selects
+
+#### Home battery
+
+Each home battery device has a **Control mode** select that sets how Zonneplan steers the battery:
+
+- **Self-consumption**: The battery stores your own solar power and uses it in your home.
+- **Home optimization**: Zonneplan charges and discharges the battery based on your usage and energy prices.
+- **Dynamic charging**: Zonneplan trades with the battery on the energy market.
+- **Day-ahead arbitrage**: The battery charges and discharges based on the day-ahead prices.
+
+The select offers the modes available for your battery and always includes the current mode, even if it is marked as unavailable. Day-ahead arbitrage has to be set up once in the Zonneplan app; until then, selecting it shows an error.
+
+### Numbers
+
+#### Home battery
+
+Each home battery device has these numbers, depending on what your battery supports:
+
+- **Maximum charge power**: The most power home optimization charges the battery with, in W.
+- **Maximum discharge power**: The most power home optimization discharges the battery with, in W.
+- **Minimum price spread**: The minimum difference between day-ahead prices before day-ahead arbitrage charges or discharges the battery, from 0.04 to 0.20 EUR/kWh.
+- **Backup power reserve** (disabled by default): The energy the battery keeps for backup power, in Wh, up to the **Backup power capacity**. Only available for batteries that support backup power.
+
+Changing a setting in Zonneplan also turns on its control mode. To prevent the battery from switching modes unexpectedly, the power limits can only be changed while the control mode is **Home optimization**, and the price spread only while it is **Day-ahead arbitrage**. In any other mode, changing them shows an error.
+
 ## Known limitations
 
 ### Unsupported devices and functionality
 
-The integration does not yet expose entities for Zonneplan solar panels. EV charge points can't be controlled yet. Only the charge point entities listed above are available.
+The integration does not yet expose entities for Zonneplan solar panels. EV charge points can't be controlled yet.
 
 ### Delayed usage data
 
