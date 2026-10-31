@@ -4,6 +4,7 @@ action: profiler.set_asyncio_debug
 domain: profiler
 description: "Enables or disables asyncio debug mode."
 related_actions:
+  - profiler.start_loop_timing
   - profiler.log_current_tasks
   - profiler.log_event_loop_scheduled
   - profiler.log_thread_frames
