@@ -37,11 +37,13 @@ Name:
 Icon:
   description: The icon that is displayed on the card. If this field is left blank and the card interacts with an entity, the icon defaults to the entity domain icon. Otherwise, no icon is displayed.
 Icon Height:
-  description: The height of the icon, in pixels.
+  description: The height of the icon or image, in pixels.
 Color:
   description: The color of the icon when the entity is active. When the entity is inactive, the icon uses the inactive state color instead.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
+Image:
+  description: Path to a local image (for example, `/local/my_image.png`), a media-source ID, or a URL to display instead of an icon.
 Show Name:
   description: A toggle to show or hide the button name.
 Show State:
@@ -77,6 +79,10 @@ icon:
   description: The icon that is displayed on the card. It defaults to the entity domain icon only if the card interacts with an entity. Otherwise, if not configured, no icon is displayed.
   type: string
   default: Entity domain icon
+image:
+  description: Path to a local image (for example, `/local/my_image.png`), a media-source ID, or a URL to display instead of an icon.
+  required: false
+  type: string
 show_name:
   required: false
   description: If false, the button name is not shown on the card.
