@@ -106,7 +106,7 @@ Here are a few ideas to get you started.
 
 ### Automation: Stop the music when everyone leaves home
 
-When the last person leaves home, this automation stops the music on your players. Select all your players as the target. Players in a group stop together with their group leader.
+When the last person leaves home, this automation stops the music on your players. Select all your players as the target.
 
 - **Trigger**: Zone occupancy cleared
   - **Zone**: Home (`zone.home`)
