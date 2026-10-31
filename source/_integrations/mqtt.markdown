@@ -720,7 +720,7 @@ Components omitted from a device discovery payload are removed by comparing the 
 
 A child device is removed when it is omitted from `child_devices`, or listed without components. When a payload has no components left, the device is removed as well.
 
-Removing a component by publishing it with only its `platform` (`p`) option is deprecated. Such a component is ignored. Omit the component from the payload instead.
+Removing a component by publishing it with only its `platform` (`p`) option is deprecated. Such a component is ignored, so it is handled as omitted. Omit the component from the payload instead.
 
 To remove a single component that was discovered through device discovery, use its device discovery topic. An empty payload published to its old single component discovery topic, for example after a [migration to device discovery](#migration-from-single-component-to-device-discovery), does not remove it.
 
