@@ -31,7 +31,7 @@ To start event loop timing from an automation or a script:
 
 {% options_ui %}
 Threshold:
-  description: Callbacks that take at least this long, in milliseconds, are listed individually. Defaults to 100.
+  description: Callbacks that take at least this long, in milliseconds, are listed individually. From 0 to 60,000. Defaults to 100.
   required: false
 {% endoptions_ui %}
 
@@ -52,7 +52,7 @@ This starts timing the event loop. Every callback that takes 250 milliseconds or
 
 {% options_yaml %}
 threshold:
-  description: Callbacks that take at least this long, in milliseconds, are listed individually.
+  description: Callbacks that take at least this long, in milliseconds, are listed individually. From 0 to 60,000.
   required: false
   type: float
   default: 100
