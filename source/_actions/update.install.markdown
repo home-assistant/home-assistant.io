@@ -78,7 +78,9 @@ backup:
 Install an update at a quieter time, after checking that one is still available.
 
 - **Trigger**: Time: 21:00
-- **Condition**: Update is available
+- **Condition**: State
+  - **Entity**: Office router firmware update
+  - **State**: Update available
 - **Action**: Install update
   - **Target**: Office router update
 

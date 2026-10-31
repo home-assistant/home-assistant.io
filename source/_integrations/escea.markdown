@@ -1,18 +1,7 @@
 ---
-title: Escea
 description: Instructions on how to integrate Escea fireplaces with Home Assistant.
-ha_category:
-  - Climate
 ha_release: 2022.9
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@lazdavila'
 ha_domain: escea
-ha_homekit: true
-ha_platforms:
-  - climate
-ha_integration_type: device
 ---
 
 The **Escea** {% term integration %} allows monitoring and control of local [Escea](https://escea.com/) fireplaces. These fireplaces are manufactured in New Zealand and sold throughout Australia and New Zealand.

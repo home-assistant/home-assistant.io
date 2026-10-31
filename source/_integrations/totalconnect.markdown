@@ -1,22 +1,7 @@
 ---
-title: Total Connect
 description: Integrate Resideo Total Connect 2.0-enabled alarm systems into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
 ha_release: 0.42
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@austinmroczek'
 ha_domain: totalconnect
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - diagnostics
-ha_integration_type: hub
 ---
 
 The **Total Connect** {% term integration %} provides connectivity with Resideo Total Connect 2.0-enabled alarm systems.
@@ -93,8 +78,7 @@ automation:
         entity_id: alarm_control_panel.home
         to: "disarmed"
     conditions:
-      - condition: sun
-        before: sunset
+      - condition: sun.is_up
     actions:
       - action: scene.turn_on
         target:
@@ -112,9 +96,7 @@ automation:
 
   - alias: "Alarm: Arm Home Instant at Sunset"
     triggers:
-      - trigger: sun
-        event: sunset
-        offset: 0
+      - trigger: sun.sunset
     actions:
       - action: totalconnect.arm_home_instant
         target:

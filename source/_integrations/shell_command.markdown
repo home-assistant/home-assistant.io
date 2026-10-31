@@ -1,15 +1,7 @@
 ---
-title: Shell Command
 description: Instructions on how to integrate Shell commands into Home Assistant.
-ha_category:
-  - Automation
-ha_iot_class: Local Push
 ha_release: 0.7.6
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: shell_command
-ha_integration_type: integration
 ---
 
 The **Shell Command** {% term integration %} can expose regular shell commands as actions. Actions can be called from a [script] or in [automation].
@@ -65,7 +57,7 @@ Testing commands in a separate [Home Assistant Container](/installation/linux#in
 
 ## Response
 
-Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. You can use these in automations to act on the command results using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. You can use these in automations to act on the command results using [`response_variable`](/docs/automation/action/#action-response-data).
 
 {% include integrations/actions.md %}
 

@@ -1,15 +1,7 @@
 ---
-title: Zone
 description: Instructions on how to set up zones within Home Assistant.
-ha_category:
-  - Organization
-  - Presence detection
 ha_release: 0.69
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: zone
-ha_integration_type: system
 related:
   - docs: /integrations/device_tracker/
     title: Device tracker

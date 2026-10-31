@@ -1,14 +1,7 @@
 ---
-title: Search
 description: Internal search module for Home Assistant.
-ha_category:
-  - Other
 ha_release: 0.105
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: search
-ha_quality_scale: internal
-ha_integration_type: system
 ---
 
 The **Search** {% term integration %} is an internally used integration by the

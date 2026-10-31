@@ -1,44 +1,7 @@
 ---
-title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Cover
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Plug
-  - Remote
-  - Sensor
-  - Switch
-  - Vacuum
 ha_release: '2023.10'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@SeraphicRav'
-  - '@laurence-presland'
-  - '@Gigatrappeur'
-  - '@XiaoLing-git'
 ha_domain: switchbot_cloud
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - fan
-  - humidifier
-  - image
-  - light
-  - lock
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_config_flow: true
-ha_integration_type: hub
 ---
 
 The **SwitchBot Cloud** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.

@@ -1,20 +1,10 @@
 ---
-title: IRM KMI Weather Belgium
 description: Instructions on how to integrate IRM KMI weather within Home Assistant.
 ha_release: '2025.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@jdejaegh'
 ha_domain: irm_kmi
-ha_integration_type: service
 related:
   - url: https://community.home-assistant.io/t/660421
     title: Community forum thread
-ha_category: []
-ha_quality_scale: bronze
-ha_platforms:
-  - weather
 ---
 
 The **Royal Meteorological Institute of Belgium** {% term integration %} integrates the weather data from [IRM KMI (meteo.be)](https://www.meteo.be) with Home Assistant.

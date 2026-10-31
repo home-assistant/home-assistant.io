@@ -8,7 +8,7 @@ related_actions:
   - ecobee.resume_program
 ---
 
-The **Create vacation** action creates a vacation on the selected ecobee thermostat.
+The **ecobee: Create vacation** action creates a vacation on the selected ecobee thermostat.
 
 A vacation holds the thermostat at the cooling and heating temperatures you choose for a set period, which is handy when you are away from home for a while.
 

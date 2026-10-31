@@ -1,35 +1,12 @@
 ---
-title: WMS WebControl pro
 description: Instructions on how to integrate WAREMA devices via WMS WebControl pro within Home Assistant.
-ha_category:
-  - Button
-  - Cover
-  - Hub
-  - Light
-  - Number
-  - Scene
-  - Switch
 ha_release: '2024.10'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@mback2k'
 ha_domain: wmspro
-ha_config_flow: true
-ha_platforms:
-  - button
-  - cover
-  - diagnostics
-  - light
-  - number
-  - scene
-  - switch
-ha_integration_type: hub
 related:
   - url: https://www.warema.com/en/smart-home/wms-webcontrol-pro/
     title: Consumer information about WMS WebControl pro
   - url: https://smartbuildings.warema.com/en/control-systems/radio-systems/wms/wms-webcontrolpro/
     title: Technical documentation for WMS WebControl pro
-ha_dhcp: true
 ---
 
 The **WMS WebControl pro** {% term integration %} allows you to integrate WAREMA devices into Home Assistant.

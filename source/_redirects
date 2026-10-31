@@ -7,6 +7,7 @@ layout: null
 {% assign release_notes = site.categories['Release-Notes'] %}
 
 # General use redirects
+/livestream-api/* https://web-api.openhomefoundation.org/livestream/:splat 200
 /join-chat https://discord.gg/home-assistant
 /twitter https://twitter.com/home_assistant/
 /mastodon https://fosstodon.org/@homeassistant
@@ -31,6 +32,7 @@ layout: null
 # Redirect for Energy
 /energy /home-energy-management
 /integrations/energy /docs/energy 301!
+/integrations/category /integrations/ 301
 
 /amber https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow 301!
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
@@ -39,75 +41,76 @@ layout: null
 /join-chat-design https://discord.com/channels/330944238910963714/1475553148847526123
 
 # Older development pages
-/developers https://developers.home-assistant.io
-/developers/add_new_platform https://developers.home-assistant.io/docs/creating_platform_index/
-/developers/api https://developers.home-assistant.io/docs/api/rest
-/developers/architecture_components https://developers.home-assistant.io/docs/architecture_components/
-/developers/architecture https://developers.home-assistant.io/docs/architecture_index/
-/developers/asyncio_101 https://developers.home-assistant.io/docs/asyncio_101/
-/developers/asyncio_categorizing_functions https://developers.home-assistant.io/docs/asyncio_categorizing_functions/
-/developers/asyncio_misc https://developers.home-assistant.io/docs/asyncio_index/
-/developers/asyncio_working_with_async https://developers.home-assistant.io/docs/asyncio_working_with_async/
-/developers/asyncio https://developers.home-assistant.io/docs/asyncio_index/
-/developers/code_review_component https://developers.home-assistant.io/docs/creating_component_code_review/
-/developers/code_review_platform https://developers.home-assistant.io/docs/creating_platform_code_review/
-/developers/component_deps_and_reqs https://developers.home-assistant.io/docs/creating_component_deps_and_reqs/
-/developers/component_discovery https://developers.home-assistant.io/docs/creating_component_discovery/
-/developers/component_events https://developers.home-assistant.io/docs/creating_component_events/
-/developers/component_generic_discovery https://developers.home-assistant.io/docs/creating_component_generic_discovery/
-/developers/component_loading https://developers.home-assistant.io/docs/creating_component_loading/
-/developers/component_states https://developers.home-assistant.io/docs/creating_component_states/
-/developers/component_visibility https://developers.home-assistant.io/docs/creating_component_index/
-/developers/creating_components https://developers.home-assistant.io/docs/creating_component_index/
-/developers/development_101 https://developers.home-assistant.io/docs/dev_101_index/
-/developers/development_catching_up https://developers.home-assistant.io/docs/development_catching_up/
-/developers/development_checklist https://developers.home-assistant.io/docs/development_checklist/
-/developers/development_config https://developers.home-assistant.io/docs/dev_101_config/
-/developers/development_environment https://developers.home-assistant.io/docs/development_environment/
-/developers/development_events https://developers.home-assistant.io/docs/dev_101_events/
-/developers/development_guidelines https://developers.home-assistant.io/docs/development_guidelines/
-/developers/development_hass_object https://developers.home-assistant.io/docs/dev_101_hass/
-/developers/development_services https://developers.home-assistant.io/docs/dev_101_services/
-/developers/development_states https://developers.home-assistant.io/docs/dev_101_states/
-/developers/development_submitting https://developers.home-assistant.io/docs/development_submitting/
-/developers/development_testing https://developers.home-assistant.io/docs/development_testing/
-/developers/development_validation https://developers.home-assistant.io/docs/development_validation/
-/developers/development https://developers.home-assistant.io/docs/development_index/
-/developers/documentation/create_page https://developers.home-assistant.io/docs/documenting/create-page
-/developers/documentation https://developers.home-assistant.io/docs/documenting
-/developers/documentation/standards https://developers.home-assistant.io/docs/documenting/standards
-/developers/frontend_add_card https://developers.home-assistant.io/docs/frontend/extending/adding-state-card
-/developers/frontend_add_more_info https://developers.home-assistant.io/docs/frontend/extending/adding-more-info-dialogs
-/developers/frontend_creating_custom_panels https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels
-/developers/frontend_creating_custom_ui https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card
-/developers/frontend https://developers.home-assistant.io/docs/frontend
-/developers/hassio/addon_communication https://developers.home-assistant.io/docs/hassio_addon_communication/
-/developers/hassio/addon_config https://developers.home-assistant.io/docs/hassio_addon_config/
-/developers/hassio/addon_development https://developers.home-assistant.io/docs/hassio_addon_index/
-/developers/hassio/addon_presentation https://developers.home-assistant.io/docs/apps/presentation/
-/developers/hassio/addon_publishing https://developers.home-assistant.io/docs/hassio_addon_publishing/
-/developers/hassio/addon_repository https://developers.home-assistant.io/docs/hassio_addon_repository/
-/developers/hassio/addon_testing https://developers.home-assistant.io/docs/hassio_addon_testing/
-/developers/hassio/addon_tutorial https://developers.home-assistant.io/docs/hassio_addon_tutorial/
-/developers/hassio/architecture https://developers.home-assistant.io/docs/architecture_hassio/
-/developers/hassio/debugging https://developers.home-assistant.io/docs/hassio_debugging/
-/developers/helpers https://developers.home-assistant.io
-/developers/intent/conversation https://developers.home-assistant.io/docs/intent_conversation/
-/developers/intent/firing https://developers.home-assistant.io/docs/intent_firing/
-/developers/intent/handling https://developers.home-assistant.io/docs/intent_handling/
-/developers/intent https://developers.home-assistant.io/docs/intent_index/
-/developers/internationalization/backend_localization https://developers.home-assistant.io/docs/internationalization_backend_localization/
-/developers/internationalization/custom_component_localization https://developers.home-assistant.io/docs/internationalization_custom_component_localization/
-/developers/internationalization https://developers.home-assistant.io/docs/internationalization_index/
-/developers/internationalization/translation https://developers.home-assistant.io/docs/internationalization_translation/
-/developers/maintenance https://developers.home-assistant.io/docs/maintenance/
-/developers/multiple_instances https://developers.home-assistant.io
+/developers https://contributors.home-assistant.io
+/developers/credits https://github.com/home-assistant/core/graphs/contributors
+/developers/add_new_platform https://contributors.home-assistant.io/core/integrations/create/
+/developers/api https://contributors.home-assistant.io/core/internals/rest-api/
+/developers/architecture_components https://contributors.home-assistant.io/architecture/core/
+/developers/architecture https://contributors.home-assistant.io/architecture/big-picture/
+/developers/asyncio_101 https://contributors.home-assistant.io/core/internals/asyncio/
+/developers/asyncio_categorizing_functions https://contributors.home-assistant.io/core/internals/asyncio/
+/developers/asyncio_misc https://contributors.home-assistant.io/core/internals/asyncio/
+/developers/asyncio_working_with_async https://contributors.home-assistant.io/core/internals/asyncio/
+/developers/asyncio https://contributors.home-assistant.io/core/internals/asyncio/
+/developers/code_review_component https://contributors.home-assistant.io/core/development/checklist/
+/developers/code_review_platform https://contributors.home-assistant.io/core/development/checklist/
+/developers/component_deps_and_reqs https://contributors.home-assistant.io/core/integrations/manifest/
+/developers/component_discovery https://contributors.home-assistant.io/core/integrations/discovery/
+/developers/component_events https://contributors.home-assistant.io/core/integrations/events/
+/developers/component_generic_discovery https://contributors.home-assistant.io/core/integrations/config-entries/
+/developers/component_loading https://contributors.home-assistant.io/core/integrations/file-structure/
+/developers/component_states https://contributors.home-assistant.io/core/entities/state-attributes/
+/developers/component_visibility https://contributors.home-assistant.io/core/integrations/create/
+/developers/creating_components https://contributors.home-assistant.io/core/integrations/create/
+/developers/development_101 https://contributors.home-assistant.io/core/internals/hass/
+/developers/development_catching_up https://contributors.home-assistant.io/core/development/catching-up/
+/developers/development_checklist https://contributors.home-assistant.io/core/development/checklist/
+/developers/development_config https://contributors.home-assistant.io/core/internals/hass/
+/developers/development_environment https://contributors.home-assistant.io/core/development/environment/
+/developers/development_events https://contributors.home-assistant.io/core/internals/events/
+/developers/development_guidelines https://contributors.home-assistant.io/core/development/style/
+/developers/development_hass_object https://contributors.home-assistant.io/core/internals/hass/
+/developers/development_services https://contributors.home-assistant.io/core/integrations/actions/
+/developers/development_states https://contributors.home-assistant.io/core/internals/states/
+/developers/development_submitting https://contributors.home-assistant.io/core/development/submitting/
+/developers/development_testing https://contributors.home-assistant.io/core/development/testing/
+/developers/development_validation https://contributors.home-assistant.io/core/development/input-validation/
+/developers/development https://contributors.home-assistant.io/core/
+/developers/documentation/create_page https://contributors.home-assistant.io/writing/guides/integration/
+/developers/documentation https://contributors.home-assistant.io/writing/
+/developers/documentation/standards https://contributors.home-assistant.io/writing/reference/style/
+/developers/frontend_add_card https://contributors.home-assistant.io/frontend/extending/state-card/
+/developers/frontend_add_more_info https://contributors.home-assistant.io/frontend/extending/more-info/
+/developers/frontend_creating_custom_panels https://contributors.home-assistant.io/frontend/custom-ui/panel/
+/developers/frontend_creating_custom_ui https://contributors.home-assistant.io/frontend/custom-ui/card/
+/developers/frontend https://contributors.home-assistant.io/frontend/
+/developers/hassio/addon_communication https://contributors.home-assistant.io/apps/guides/communication/
+/developers/hassio/addon_config https://contributors.home-assistant.io/apps/reference/configuration/
+/developers/hassio/addon_development https://contributors.home-assistant.io/apps/
+/developers/hassio/addon_presentation https://contributors.home-assistant.io/apps/guides/presentation/
+/developers/hassio/addon_publishing https://contributors.home-assistant.io/apps/guides/publishing/
+/developers/hassio/addon_repository https://contributors.home-assistant.io/apps/guides/repository/
+/developers/hassio/addon_testing https://contributors.home-assistant.io/apps/guides/testing/
+/developers/hassio/addon_tutorial https://contributors.home-assistant.io/apps/first-app/
+/developers/hassio/architecture https://contributors.home-assistant.io/os/supervisor/
+/developers/hassio/debugging https://contributors.home-assistant.io/os/supervisor/debugging/
+/developers/helpers https://contributors.home-assistant.io
+/developers/intent/conversation https://contributors.home-assistant.io/translate/voice/contributing/
+/developers/intent/firing https://contributors.home-assistant.io/core/internals/intents/
+/developers/intent/handling https://contributors.home-assistant.io/core/internals/intents/
+/developers/intent https://contributors.home-assistant.io/core/internals/intents/
+/developers/internationalization/backend_localization https://contributors.home-assistant.io/core/integrations/translations/
+/developers/internationalization/custom_component_localization https://contributors.home-assistant.io/core/integrations/translations/
+/developers/internationalization https://contributors.home-assistant.io/translate/guides/developers/
+/developers/internationalization/translation https://contributors.home-assistant.io/translate/
+/developers/maintenance https://contributors.home-assistant.io/core/development/
+/developers/multiple_instances https://contributors.home-assistant.io
 /developers/platform_example_light https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_light
 /developers/platform_example_sensor https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_sensor
-/developers/releasing https://developers.home-assistant.io/docs/releasing/
-/developers/rest_api https://developers.home-assistant.io/docs/api/rest/
-/developers/server_sent_events https://developers.home-assistant.io/docs/external_api_server_sent_events/
-/developers/websocket_api https://developers.home-assistant.io/docs/api/websocket/
+/developers/releasing https://contributors.home-assistant.io/releases/how-it-works/
+/developers/rest_api https://contributors.home-assistant.io/core/internals/rest-api/
+/developers/server_sent_events https://contributors.home-assistant.io/core/internals/rest-api/
+/developers/websocket_api https://contributors.home-assistant.io/core/internals/websocket-api/
 /developers/code_of_conduct /code_of_conduct
 
 # Platform pages to integration pages migration
@@ -210,7 +213,7 @@ layout: null
 /integrations/switch.rflink /integrations/rflink/#switch
 /integrations/switch.xiaomi_aqara/ /integrations/xiaomi_aqara/#switches
 /integrations/switch.pca /integrations/elv/
-/integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
+/integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wi-fi-socket-and-smart-power-strip
 /integrations/telegram_broadcast /integrations/telegram_bot
 /integrations/telegram_polling /integrations/telegram_bot
 /integrations/telegram_webhooks /integrations/telegram_bot
@@ -281,8 +284,10 @@ layout: null
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
 /skyconnect /connectzbt1#from-skyconnect
 /glossary/ /docs/glossary/
-/docs/automation/services /docs/automation/automation_integration_actions/
-/docs/automation/services/ /docs/automation/automation_integration_actions/
+/docs/automation/services /docs/automation/basics/#actions-for-automations
+/docs/automation/services/ /docs/automation/basics/#actions-for-automations
+/docs/automation/automation_integration_actions /docs/automation/basics/#actions-for-automations
+/docs/automation/automation_integration_actions/ /docs/automation/basics/#actions-for-automations
 
 # LIFX blueprints moved into a subfolder
 /blueprints/integrations/lifx_pulse_on_state_change.yaml /blueprints/integrations/lifx/pulse_on_state_change.yaml 301
@@ -302,8 +307,6 @@ layout: null
 /docs/configuration/basic/#allowlist_external_urls /integrations/homeassistant/#allowlist_external_urls
 /docs/configuration/basic/#allowlist_external_dirs /integrations/homeassistant/#allowlist_external_dirs
 /docs/configuration/basic/#external_urls /integrations/homeassistant/#external_urls
-/docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
-/docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
 /android https://companion.home-assistant.io/
 /ios https://companion.home-assistant.io/
 /ios/nfc https://companion.home-assistant.io/
@@ -323,12 +326,12 @@ layout: null
 /docs/ecosystem/ios/notifications/privacy_security_rate_limits https://companion.home-assistant.io/docs/notifications/notifications-basic
 /docs/ecosystem/ios/notifications/requesting_location_updates https://companion.home-assistant.io/docs/notifications/notifications-basic
 /docs/ecosystem/ios/notifications/sounds https://companion.home-assistant.io/docs/notifications/notification-sounds
-/docs/ecosystem/notebooks https://data.home-assistant.io
-/docs/ecosystem/notebooks/api https://data.home-assistant.io
-/docs/ecosystem/notebooks/database https://data.home-assistant.io
-/docs/ecosystem/notebooks/graph https://data.home-assistant.io
-/docs/ecosystem/notebooks/installation https://data.home-assistant.io
-/docs/ecosystem/notebooks/stats https://data.home-assistant.io
+/docs/ecosystem/notebooks https://contributors.home-assistant.io/data/
+/docs/ecosystem/notebooks/api https://contributors.home-assistant.io/data/
+/docs/ecosystem/notebooks/database https://contributors.home-assistant.io/data/
+/docs/ecosystem/notebooks/graph https://contributors.home-assistant.io/data/
+/docs/ecosystem/notebooks/installation https://contributors.home-assistant.io/data/
+/docs/ecosystem/notebooks/stats https://contributors.home-assistant.io/data/
 /docs/frontend/mobile https://companion.home-assistant.io
 /docs/mqtt /integrations/mqtt
 /docs/mqtt/birth_will /integrations/mqtt/#birth-and-last-will-messages
@@ -351,12 +354,12 @@ layout: null
 /docs/z-wave/query-stage /integrations/zwave_js
 /docs/z-wave/services /integrations/zwave_js#actions
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
-/ecosystem/notebooks https://data.home-assistant.io
-/ecosystem/notebooks/api https://data.home-assistant.io
-/ecosystem/notebooks/database https://data.home-assistant.io
-/ecosystem/notebooks/graph https://data.home-assistant.io
-/ecosystem/notebooks/installation https://data.home-assistant.io
-/ecosystem/notebooks/stats https://data.home-assistant.io
+/ecosystem/notebooks https://contributors.home-assistant.io/data/
+/ecosystem/notebooks/api https://contributors.home-assistant.io/data/
+/ecosystem/notebooks/database https://contributors.home-assistant.io/data/
+/ecosystem/notebooks/graph https://contributors.home-assistant.io/data/
+/ecosystem/notebooks/installation https://contributors.home-assistant.io/data/
+/ecosystem/notebooks/stats https://contributors.home-assistant.io/data/
 /examples/notify.mqtt /integrations/mqtt/#mqtt-notifications
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /installation/#about-installation-methods /installation/#about-installation-types
@@ -368,7 +371,7 @@ layout: null
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /integrations/imap_email_content /integrations/imap/#using-events
-/integrations/webhook /docs/automation/trigger/#webhook-trigger
+/integrations/webhook /triggers/webhook/
 /getting-started/automation-create-first /getting-started/automation
 /getting-started/automation-2 /getting-started/automation
 /getting-started/automation-action /docs/automation/action
@@ -376,17 +379,22 @@ layout: null
 /getting-started/automation-examples /docs/automation/examples
 /getting-started/automation-troubleshooting /docs/automation/troubleshooting
 /getting-started/automation-trigger /docs/automation/trigger
-/getting-started/automation-templating /docs/automation/templating
+/getting-started/automation-templating /docs/automation/trigger-data/
+/docs/automation/templating /docs/automation/trigger-data/
 /getting-started/basic /docs/configuration/basic
-/getting-started/customizing-devices /docs/configuration/customizing-devices
+/getting-started/customizing-devices /docs/configuration/customizing-entities
+/docs/configuration/customizing-devices /docs/configuration/customizing-entities
 /getting-started/installation /docs/installation
 /getting-started/installation-docker /docs/installation/docker
 /getting-started/installation-virtualenv /docs/installation/virtualenv
 /getting-started/installation-raspberry-pi /docs/installation/raspberry-pi
-/getting-started/scripts /docs/scripts
-/getting-started/scripts-service-calls /docs/scripts/perform-actions/
-/docs/scripts/service-calls /docs/scripts/perform-actions/
-/getting-started/scripts-conditions /docs/scripts/conditions
+/getting-started/scripts /docs/automation/building-blocks/
+/docs/scripts /docs/automation/building-blocks/
+/getting-started/scripts-service-calls /docs/automation/action/
+/docs/scripts/service-calls /docs/automation/action/
+/docs/scripts/perform-actions /docs/automation/action/
+/getting-started/scripts-conditions /conditions/
+/docs/scripts/conditions /conditions/
 /getting-started/securing /docs/configuration/securing
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
@@ -404,8 +412,6 @@ layout: null
 /topics/state_object /docs/configuration/state_object
 /topics/templating /docs/configuration/templating
 /common-tasks /common-tasks/os
-/common-tasks/os/#flashing-an-odroid-m1s /installation/odroid#flashing-an-odroid-m1s
-/common-tasks/os/#flashing-an-odroid-n2 /installation/odroid#flashing-an-odroid-n2
 /docs/installation /installation
 /docs/installation/docker /installation
 /docs/installation/raspberry-pi /installation
@@ -413,7 +419,7 @@ layout: null
 /docs/installation/virtualenv /installation
 /hassio /getting-started
 /hassio/commandline /common-tasks/os#home-assistant-via-the-command-line
-/hassio/flashing_n2_otg /common-tasks/os#flashing-an-odroid-n2
+/hassio/flashing_n2_otg /installation/odroid/#flashing-an-odroid-n2
 /hassio/haos_common_tasks /common-tasks/os
 /hassio/hassos_faq /faq
 /hassio/index /installation
@@ -426,9 +432,6 @@ layout: null
 /cookbook/#infrastructure /examples/#infrastructure
 /cookbook/#automation-examples /examples
 /cookbook /examples
-/common-tasks/os/#snapshots /common-tasks/general/#backups
-/common-tasks/os/#backups /common-tasks/general/#backups
-/common-tasks/supervised/#snapshots /common-tasks/general/#backups
 /more-info/unsupported/container /more-info/unsupported/software
 /more-info/system-health/   /more-info/system-information/
 /integrations/zigbee /integrations/zha
@@ -524,6 +527,7 @@ layout: null
 /docs/tools/credstash/ /docs/configuration/secrets
 /docs/tools/quick-bar/ /docs/tools/quick-search
 /docs/scripts/editor/ /docs/script/
+/docs/scene/editor/ /docs/scene/#live-edit-and-review-mode-in-the-scene-editor
 /getting-started/devices /integrations
 /integrations/map /dashboards/map/
 
@@ -710,6 +714,7 @@ layout: null
 /integrations/tahoma /more-info/removed-integration 301
 /integrations/tensorflow /more-info/removed-integration 301
 /integrations/teksavvy /more-info/removed-integration 301
+/integrations/telegram /integrations/telegram_bot#notifiers 301
 /integrations/tesla /more-info/removed-integration 301
 /integrations/tfiac /more-info/removed-integration 301
 /integrations/thermoworks_smoke /more-info/removed-integration 301
@@ -753,7 +758,8 @@ layout: null
 /images/dashboards/lovelace_* /images/dashboards/:splat
 
 # Old URLs that still get visitors
-/addons /apps/ 301
+/addons /docs/apps-and-integrations/#apps 301
+/apps /docs/apps-and-integrations/#apps 301
 /hassio/getting-started/* /getting-started/:splat 301
 /common-tasks/core /installation/ 301
 /common-tasks/supervised /installation/ 301
@@ -905,6 +911,7 @@ layout: null
 /conditions/climate.target_humidity /conditions/climate.is_target_humidity/ 301
 /conditions/climate.target_temperature /conditions/climate.is_target_temperature/ 301
 /integrations/axle /integrations/axle_energy 301
+/integrations/bosch_shc_camera /integrations/bosch_smart_camera 301
 
 # Any trigger or condition without its own page shows an explanation instead of a plain 404.
 # Keep these rules below all other /triggers/ and /conditions/ redirects.

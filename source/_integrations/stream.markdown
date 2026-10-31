@@ -1,19 +1,7 @@
 ---
-title: Stream
 description: Instructions on how to integrate live streams within Home Assistant.
-ha_category:
-  - Other
 ha_release: '0.90'
-ha_iot_class: Local Push
-ha_quality_scale: internal
-ha_codeowners:
-  - '@hunterjm'
-  - '@uvjustin'
-  - '@allenporter'
 ha_domain: stream
-ha_platforms:
-  - diagnostics
-ha_integration_type: system
 ---
 
 The **Stream** {% term integration %} provides a way to proxy live streams through Home Assistant. Most users should not need to configure anything or interface with the integration directly since it is an internal integration used by the [camera integration](/integrations/camera).

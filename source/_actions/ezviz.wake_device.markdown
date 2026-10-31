@@ -16,7 +16,7 @@ To wake a camera from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to control.
-6. From the actions shown for that target, select **Wake camera**.
+6. From the actions shown for that target, under **EZVIZ**, select **Wake camera**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -55,8 +55,10 @@ This action has no additional YAML options beyond the target.
 
 Use this automation to wake a battery camera right before taking a snapshot, so the image is current.
 
-- **Trigger**: Doorbell button pressed
-- **Action**: Wake camera
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
+- **Action**: EZVIZ: Wake camera
   - **Target**: Front door camera
 
 {% details "Show example YAML" %}

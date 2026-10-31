@@ -1,19 +1,7 @@
 ---
-title: SUPLA
 description: Instructions for integration with SUPLA-CLOUD's Web API
 ha_release: 0.92
-ha_category:
-  - Cover
-  - Hub
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@mwegrzynek'
 ha_domain: supla
-ha_platforms:
-  - cover
-  - switch
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **SUPLA** {% term integration %} allows you to use [SUPLA](https://supla.org/) devices in Home Assistant.

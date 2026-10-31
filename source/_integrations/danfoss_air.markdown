@@ -1,20 +1,7 @@
 ---
-title: Danfoss Air
 description: How to integrate Danfoss Air HRV in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Sensor
-  - Switch
 ha_release: 0.87
-ha_iot_class: Local Polling
 ha_domain: danfoss_air
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - switch
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **Danfoss Air** {% term integration %} allows you to access information from your Danfoss Air HRV unit.

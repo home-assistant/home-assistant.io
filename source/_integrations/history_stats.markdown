@@ -1,19 +1,7 @@
 ---
-title: History Stats
 description: Instructions about how to integrate historical statistics into Home Assistant.
-ha_category:
-  - Helper
-  - Sensor
-  - Utility
-ha_iot_class: Local Polling
 ha_release: 0.39
-ha_quality_scale: internal
 ha_domain: history_stats
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -49,7 +37,7 @@ End:
 Duration:
   description: Duration of the measure.
 State class:
-  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  description: The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor.
 Minimum duration of measurement:
   description: Minimum duration of the measurement to be considered for calculations (defaults to 0, all measurements will be included). Useful to exclude short state changes from the statistics.
 {% endconfiguration_basic %}
@@ -85,7 +73,7 @@ state:
   required: true
   type: [list, string]
 name:
-  description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](/docs/configuration/customizing-devices/#friendly_name) or via [Dashboards](/dashboards/entities/#name).
+  description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](/integrations/homeassistant/#friendly_name) or via [Dashboards](/dashboards/entities/#name).
   required: false
   default: unnamed statistics
   type: string
@@ -107,7 +95,7 @@ duration:
   required: false
   type: time
 state_class:
-  description: "[state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. May be `null`, `measurement`, or `total_increasing` (not allowed for `ratio` type)."
+  description: "[state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. May be `null`, `measurement`, or `total_increasing` (not allowed for `ratio` type)."
   required: false
   default: measurement
   type: string

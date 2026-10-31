@@ -58,7 +58,9 @@ This action has no additional YAML options beyond the target.
 
 Turn on a media player when you arrive home, for example to bring up your TV.
 
-- **Trigger**: Person arrives home
+- **Trigger**: State changed
+  - **Entity**: Home owner person
+  - **To**: Home
 - **Action**: Turn on media player
   - **Target**: Living room TV
 

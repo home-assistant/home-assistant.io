@@ -1,30 +1,7 @@
 ---
-title: Vera
 description: Instructions on how to set up Vera Z-Wave hubs and configure devices within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Hub
-  - Light
-  - Lock
-  - Scene
-  - Sensor
-  - Switch
 ha_release: pre 0.7
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: vera
-ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - light
-  - lock
-  - scene
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-Wave devices. 

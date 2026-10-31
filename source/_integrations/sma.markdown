@@ -1,21 +1,7 @@
 ---
-title: SMA Solar
 description: Instructions on how to connect your SMA Solar Inverter to Home Assistant.
-ha_category:
-  - Energy
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: 0.36
-ha_codeowners:
-  - '@kellerza'
-  - '@rklomp'
-  - '@erwindouna'
 ha_domain: sma
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: device
-ha_dhcp: true
 ---
 
 The **SMA Solar** {% term integration %} will poll a [SMA](http://www.sma-solar.com/) [(US)](https://www.sma-america.com/) solar inverter, energy meter or battery inverter and present the values as sensors in Home Assistant.

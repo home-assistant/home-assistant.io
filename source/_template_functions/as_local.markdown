@@ -66,7 +66,7 @@ output: "2024-03-15 14:30:00.123456+01:00"
 ## Good to know
 
 - The input must be a datetime object, not a string. Pipe through [`as_datetime`](/template-functions/as_datetime/) first if you have a string.
-- Naive datetimes (without time zone info) are treated as UTC before the conversion.
+- Naive datetimes (without time zone info) are treated as local time in your Home Assistant time zone. `as_local` adds that time zone without changing the time.
 - Daylight saving transitions are handled automatically based on the Home Assistant configured time zone.
 
 {% include template_functions/try_it.md %}

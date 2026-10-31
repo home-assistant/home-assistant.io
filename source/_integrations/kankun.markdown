@@ -1,18 +1,10 @@
 ---
-title: Kankun
 description: Instructions for the Kankun SP3 Wifi switch
-ha_category:
-  - Switch
 ha_release: 0.36
-ha_iot_class: Local Polling
 ha_domain: kankun
-ha_platforms:
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Kankun** {% term integration %} allows you to toggle customized Kankun SP3 Wi-Fi switches. Switches are

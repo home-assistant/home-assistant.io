@@ -1,21 +1,7 @@
 ---
-title: Edifier Infrared
 description: Integration to control Edifier speakers using an infrared transmitter.
-ha_category:
-  - Button
-  - Infrared-controlled
-  - Media player
 ha_release: 2026.7
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@abmantis'
 ha_domain: edifier_infrared
-ha_config_flow: true
-ha_platforms:
-  - button
-  - media_player
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Edifier Infrared** {% term integration %} lets you control an Edifier speaker using any infrared transmitter previously configured in Home Assistant.
@@ -43,12 +29,14 @@ The integration supports the following Edifier speaker models and remote profile
 
 - R1280DB
 - R1280T
+- R1380DB
 - R1700BT
 - R1700BTs
 - R1855DB
 - R2000DB
 - R2730DB
 - RC10D1
+- RC13D
 - RC17A
 - RC20G
 - RC31A

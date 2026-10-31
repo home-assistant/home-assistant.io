@@ -1,18 +1,7 @@
 ---
-title: SmartyPlants
 description: Instructions on how to integrate SmartyPlants plant sensors with Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 2026.11
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bigbimbs'
 ha_domain: smartyplants
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **SmartyPlants** {% term integration %} connects your SmartyPlants plant sensors to Home Assistant. Each sensor measures soil moisture, temperature, humidity, and light for the plant it is attached to. SmartyPlants combines those readings with the plant's species to produce a health score and a fertilizing countdown.

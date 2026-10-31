@@ -1,25 +1,11 @@
 ---
-title: Zonneplan
 description: Get electricity and gas prices from Zonneplan in Home Assistant.
-ha_category:
-  - Energy
 ha_release: '2026.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@erwindouna'
 ha_domain: zonneplan
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - select
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Zonneplan** {% term integration %} lets you retrieve electricity and gas price information from [Zonneplan](https://www.zonneplan.nl/), a Dutch provider of dynamic energy contracts and energy services, including home batteries and EV charge points.
-This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, and the status and control mode of your Zonneplan home battery.
+This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, the status and control mode of your Zonneplan home battery, and the status of your EV charge point.
 
 ## Prerequisites
 
@@ -31,7 +17,7 @@ During setup, you are asked for the email address linked to your Zonneplan accou
 
 ## Data updates
 
-The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status and control mode of each home battery every 5 minutes.
+The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status and control mode of each home battery every 5 minutes, and the status of each EV charge point every minute.
 
 ## Supported functionality
 
@@ -85,6 +71,14 @@ Each home battery device also has these binary sensors:
 - **Load balancing overload**: On while dynamic load balancing is limiting the battery to prevent overloading your grid connection.
 - **Backup power active**: On while the battery supplies backup power to your home.
 
+#### EV charge point
+
+If your account has a Zonneplan EV charge point, the integration adds a device for each charge point with these binary sensors:
+
+- **Connectivity**: On while the charge point is connected to Zonneplan.
+- **Overload protection**: On while the charge point limits charging to prevent overloading your grid connection.
+- **Automatic charging paused**: On after you stop a charging session by hand, while automatic charging stays paused.
+
 ### Selects
 
 #### Home battery
@@ -102,7 +96,7 @@ The select offers the modes available for your battery and always includes the c
 
 ### Unsupported devices and functionality
 
-The integration does not yet expose entities for Zonneplan EV charge points or solar panels. For home batteries, only the control mode can be changed; other battery settings are not available yet.
+The integration does not yet expose entities for Zonneplan solar panels. EV charge points can't be controlled yet. For home batteries, only the control mode can be changed; other battery settings are not available yet.
 
 ### Delayed usage data
 

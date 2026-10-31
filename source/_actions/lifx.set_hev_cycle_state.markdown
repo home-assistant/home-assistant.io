@@ -8,7 +8,7 @@ related_actions:
   - lifx.effect_pulse
 ---
 
-The **Set HEV cycle state** action controls the HEV (high-energy visible light) LEDs on a LIFX Clean bulb. Starting a cycle, also called a Clean cycle, switches the HEV LEDs on for a set time and then returns the bulb to its previous state. Stopping a cycle ends it early.
+The **LIFX: Set HEV cycle state** action controls the HEV (high-energy visible light) LEDs on a LIFX Clean bulb. Starting a cycle, also called a Clean cycle, switches the HEV LEDs on for a set time and then returns the bulb to its previous state. Stopping a cycle ends it early.
 
 Only LIFX Clean bulbs have HEV LEDs. If you target a bulb without them, Home Assistant returns an error and nothing changes on that bulb.
 
@@ -20,7 +20,7 @@ To start or stop a Clean cycle from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Set HEV cycle state**.
+5. From the search box, search for and select **LIFX: Set HEV cycle state**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX Clean bulbs are in (like your bathroom or kitchen). You can also select a floor, a device, a specific entity, or a label.
 7. Turn **Enable** on to start a Clean cycle, or off to stop one. _Optional_: set **Duration** to control how long the cycle runs.
 8. Select **Save**.
@@ -88,8 +88,10 @@ duration:
 Start a two-hour Clean cycle in the bathroom at 2:00 AM. It runs until 4:00 AM, when nobody is likely to be in the room.
 
 - **Trigger**: Time: 02:00
-- **Action**: Set HEV cycle state
+- **Action**: LIFX: Set HEV cycle state
   - **Target**: Bathroom light (`light.bathroom`)
+  - **Enable**: On
+  - **Duration**: `7200` seconds
 
 {% example %}
 automation: |
@@ -110,10 +112,15 @@ automation: |
 
 If a motion sensor detects someone in the bathroom while a Clean cycle is running, stop the cycle straight away. The **Clean cycle** entity is used as a condition so the automation only acts when a cycle is actually running.
 
-- **Trigger**: State: motion detected in the bathroom
-- **Condition**: The bathroom Clean cycle is running
-- **Action**: Set HEV cycle state
+- **Trigger**: State changed
+  - **Entity**: Bathroom motion sensor
+  - **To**: Detected
+- **Condition**: State
+  - **Entity**: Bathroom clean cycle sensor
+  - **State**: On
+- **Action**: LIFX: Set HEV cycle state
   - **Target**: Bathroom light (`light.bathroom`)
+  - **Enable**: Off
 
 {% example %}
 automation: |

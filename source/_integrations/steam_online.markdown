@@ -1,21 +1,7 @@
 ---
-title: Steam
 description: Instructions on how to set up Steam in Home Assistant.
-ha_category:
-  - Gaming
-  - Image
-  - Social
-ha_config_flow: true
-ha_iot_class: Cloud Polling
 ha_release: 0.14
 ha_domain: steam_online
-ha_platforms:
-  - image
-  - sensor
-ha_codeowners:
-  - '@tr4nt0r'
-  - '@tkdrob'
-ha_integration_type: service
 ---
 
 The **Steam** {% term integration %} will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
@@ -82,7 +68,7 @@ Image entities provide artwork for the Steam account or the game the account is 
 - **App icon**
   - **Description**: The game's application icon.
   - **Image size**: 32 × 32 px.
-  - **Remarks**: Entity disabled by default.
+  - **Remarks**: Entity [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **Avatar**
   - **Description**: The Steam user's profile avatar.

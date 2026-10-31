@@ -1,28 +1,7 @@
 ---
-title: TOLO Sauna
 description: Control your TOLO Sauna and Steam Bath with Home Assistant.
 ha_release: '2021.12'
-ha_category:
-  - Climate
-  - Health
-  - Light
 ha_domain: tolo
-ha_config_flow: true
-ha_codeowners:
-  - '@MatthiasLohr'
-ha_iot_class: Local Polling
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - fan
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-ha_dhcp: true
-ha_integration_type: device
 ---
 
 The **TOLO Sauna** {% term integration %} allows you to control [Steamtec TOLO](https://www.tolosauna.com/) devices with Home Assistant.

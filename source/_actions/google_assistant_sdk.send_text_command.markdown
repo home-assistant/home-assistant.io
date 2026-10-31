@@ -5,7 +5,7 @@ domain: google_assistant_sdk
 description: "Sends a command as a text query to Google Assistant."
 ---
 
-The **Send text command** action sends one or more commands as text queries to Google Assistant, just as if you had spoken them out loud. This lets you reach Google Assistant features that aren't otherwise available in Home Assistant, like controlling devices that are only linked to your Google account.
+The **Google Assistant SDK: Send text command** action sends one or more commands as text queries to Google Assistant, just as if you had spoken them out loud. This lets you reach Google Assistant features that aren't otherwise available in Home Assistant, like controlling devices that are only linked to your Google account.
 
 You can optionally have Google Assistant's spoken response played back on a media player, which is useful for commands that answer a question, such as asking for a joke or the weather.
 
@@ -65,7 +65,7 @@ media_player:
 
 - To control a specific device, like streaming a camera to a TV, include the device's name (as known by Google Assistant) in the text command itself. The **Media player entity** option only plays back the audio response and does not direct the command.
 - You can send multiple commands in the same conversation context, which is useful for commands that need a follow-up, such as unlocking a door or opening a cover that requires a PIN.
-- This action can optionally return Google Assistant's responses. Store them in a [response variable](/docs/scripts/perform-actions/#use-templates-to-handle-response-data) to use them later in your automation or script.
+- This action can optionally return Google Assistant's responses. Store them in a [response variable](/docs/automation/action/#action-response-data) to use them later in your automation or script.
 
 {% include actions/try_it.md %}
 

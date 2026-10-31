@@ -9,7 +9,7 @@ related_actions:
   - teslemetry.set_scheduled_charging
 ---
 
-The **Add charge schedule** action creates a location-based charging schedule for your Tesla vehicle, or modifies an existing one. A schedule tells the car which days and times to charge while it's parked at a particular place.
+The **Teslemetry: Add charge schedule** action creates a location-based charging schedule for your Tesla vehicle, or modifies an existing one. A schedule tells the car which days and times to charge while it's parked at a particular place.
 
 Use it to set up recurring charging at home or work, for example charging only on weekday nights when off-peak rates apply. To change an existing schedule, pass its schedule ID.
 

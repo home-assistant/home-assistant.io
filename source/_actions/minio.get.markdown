@@ -1,5 +1,5 @@
 ---
-title: "Get file"
+title: "Get"
 action: minio.get
 domain: minio
 description: "Downloads a file from a MinIO bucket to the local file system."
@@ -8,7 +8,7 @@ related_actions:
   - minio.remove
 ---
 
-The **Get** action downloads an object from a MinIO bucket and saves it to a file on the local file system.
+The **Minio: Get** action downloads an object from a MinIO bucket and saves it to a file on the local file system.
 
 This is useful when another part of your setup needs a file that is stored in MinIO, for example to retrieve a camera snapshot or a backup that was uploaded earlier.
 
@@ -87,7 +87,8 @@ file_path:
 
 When MinIO reports that an object was created, download it to the local file system.
 
-- **Trigger**: A MinIO bucket event for a created object
+- **Trigger**: Manual event received
+  - **Event type**: `minio`
 - **Action**: Minio: Get
 
 {% details "YAML example for downloading a newly added object" %}

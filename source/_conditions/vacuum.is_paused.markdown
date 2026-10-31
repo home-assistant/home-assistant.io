@@ -50,8 +50,6 @@ This passes when `vacuum.hallway` is paused.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -62,9 +60,9 @@ behavior:
 for:
   description: >
     The time the vacuum must stay paused before the condition passes.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}
@@ -73,10 +71,7 @@ for:
 
 ## Good to know
 
-- Entities with state `unavailable` or `unknown` are ignored when Home Assistant evaluates the condition.
-- With **Any** (default), the condition passes if at least one targeted vacuum is paused.
-- With **All**, the condition passes only if every targeted vacuum that Home Assistant can evaluate is paused.
-- If every targeted vacuum is `unavailable` or `unknown`, **Any** fails and **All** passes.
+{% include conditions/unavailable_targets.md entities="vacuums" %}
 
 {% include conditions/try_it.md %}
 
@@ -86,7 +81,8 @@ for:
 
 This automation checks every 15 minutes whether the hallway vacuum is paused. If it is, Home Assistant sends a reminder so you can decide whether to resume it or clear an obstacle.
 
-- **Trigger**: Every 15 minutes
+- **Trigger**: Time pattern
+  - **Minutes**: `/15`
 - **Condition**: Vacuum cleaner is paused
   - **Target**: Hallway vacuum
 - **Action**: Send a notification message

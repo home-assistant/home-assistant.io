@@ -674,8 +674,8 @@ type:
   description: "`lawn-mower-commands`"
   type: string
 commands:
-  required: true
-  description: List of commands to show on the card. The list can contain `start_pause` and `dock`.
+  required: false
+  description: List of commands to show on the card. The list can contain `start_pause`, `stop`, and `dock`. If not set, all commands supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -1071,16 +1071,17 @@ style:
 
 ## Target temperature
 
-Widget that displays buttons to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater).
+Widget that displays buttons or a slider to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater). For climate entities with a target temperature range, the feature shows separate controls for the low and high targets.
 
 <p class='img'>
-  <img src='/images/dashboards/features/target_temperature.png' alt='Screenshot of the tile card with the target temperature feature'>
-  Screenshot of the tile card with the target temperature feature
+  <img src='/images/dashboards/features/target_temperature.png' alt='Screenshot of tile cards with the target temperature feature, using the buttons style and the slider style'>
+  Screenshot of tile cards with the target temperature feature, using the buttons style (left) and the slider style (right)
 </p>
 
 ```yaml
 features:
   - type: "target-temperature"
+    style: "slider"
 ```
 
 {% configuration features %}
@@ -1088,6 +1089,11 @@ type:
   required: true
   description: "`target-temperature`"
   type: string
+style:
+  required: false
+  description: "How the target temperature should be displayed. It can be either `buttons` or `slider`."
+  type: string
+  default: buttons
 {% endconfiguration %}
 
 ## Timer actions

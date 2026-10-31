@@ -8,7 +8,7 @@ related_actions:
   - homekit.unpair
 ---
 
-The **Reset accessory** action resets one or more HomeKit accessories whose configuration may have changed. The accessory behaves as if it's being set up for the first time, so you need to restore its name, group, room, scene, and automation settings afterward.
+The **HomeKit Bridge: Reset accessory** action resets one or more HomeKit accessories whose configuration may have changed. The accessory behaves as if it's being set up for the first time, so you need to restore its name, group, room, scene, and automation settings afterward.
 
 This is useful after changing a media player's device class to `tv`, linking a battery sensor, or whenever Home Assistant adds support for new HomeKit features to existing entities.
 

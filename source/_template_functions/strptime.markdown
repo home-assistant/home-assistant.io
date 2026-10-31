@@ -32,8 +32,8 @@ output: "2024-03-15 14:30:00"
 ```signature
 strptime(
     string: str,
-    format: str,
-    default: Any = None,
+    fmt: str,
+    default: Any,
 ) -> datetime | Any
 ```
 
@@ -46,14 +46,14 @@ string:
   description: The date/time string to parse.
   required: true
   type: string
-format:
+fmt:
   description: >
     The format string describing the structure of the date/time string. Uses Python strftime format codes such as `%Y` (year), `%m` (month), `%d` (day), `%H` (hour), `%M` (minute), `%S` (second).
   required: true
   type: string
 default:
   description: >
-    Value to return if the string cannot be parsed with the given format. If not provided, an error is raised on invalid input.
+    The value to return if the text can't be parsed with the given format, such as `"unknown"`. If you leave out `default` and the text can't be parsed, `strptime` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}

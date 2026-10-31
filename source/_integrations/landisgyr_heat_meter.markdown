@@ -1,18 +1,7 @@
 ---
-title: Landis+Gyr Heat Meter
 description: Instructions on how to integrate your Landis+Gyr Heat Meter device into Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: 2022.9
 ha_domain: landisgyr_heat_meter
-ha_codeowners:
-  - '@vpathuis'
-ha_platforms:
-  - sensor
-ha_integration_type: device
 ---
 
 The **Landis+Gyr Heat Meter** {% term integration %} for Home Assistant allows you to read the meter values from Ultraheat devices by Landis & Gyr. These devices are commonly used for district heating. The integration has been tested with the Landis & Gyr Ultraheat 50, UH50 (type LUGCUH50) and T550 (type LGUHT550). Other models could work. The T330 is not yet supported.

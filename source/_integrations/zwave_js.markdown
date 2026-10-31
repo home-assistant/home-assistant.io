@@ -1,49 +1,8 @@
 ---
-title: Z-Wave
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
 ha_release: '2021.2'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/z-wave'
 ha_domain: zwave_js
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-ha_integration_type: hub
-ha_zeroconf: true
 related:
   - docs: /connect/zwa-2
     title: Home Assistant Connect ZWA-2 Z-Wave adapter
@@ -157,12 +116,74 @@ Do this when you have a device that is still paired with an adapter, but you don
 4. Put the device you want to remove in exclusion mode. Refer to its manual to learn how this is done.
 5. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
 
+## Using a Z-Wave adapter connected to an ESPHome device
+
+Your Z-Wave adapter doesn't have to be plugged into your Home Assistant server. It can also connect to an ESP32-based device running [ESPHome](/integrations/esphome/). The ESPHome device then passes the Z-Wave traffic to Home Assistant over your network. This lets you place the adapter anywhere you have a Wi-Fi or Ethernet connection.
+
+For example, you can use the experimental [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/) firmware with a [Home Assistant Connect ZWA-2](/connect/zwa-2). Portable Z-Wave is ESPHome firmware for connecting a Z-Wave adapter to Home Assistant over your network. You can use it in two ways:
+
+- Install it on the Home Assistant Connect ZWA-2 itself. The adapter then connects over its built-in Wi-Fi.
+- Install it on an ESP32 board with Power over Ethernet (PoE). Then plug the Home Assistant Connect ZWA-2 into that board by USB. The adapter keeps its standard firmware.
+
+To install the firmware, use the [Open Home Foundation toolbox](https://toolbox.openhomefoundation.org/home-assistant-connect-zwa-2/).
+
+Over the network, Z-Wave devices respond a little slower than over USB. On most home networks, you won't notice the difference. On a busy network or with a weak Wi-Fi signal, the delay can become noticeable.
+
+### How Home Assistant finds an adapter connected to an ESPHome device
+
+Two integrations work together to find the adapter:
+
+1. The [ESPHome integration](/integrations/esphome/) finds the ESPHome device on your network.
+2. After you add the ESPHome device, it tells Home Assistant that a Z-Wave adapter is connected to it.
+3. The Z-Wave integration then shows the adapter as a discovered device. Its name has the format **Network** _home ID_ **via** _ESPHome device name_ **(ESPHome)**.
+
+### Prerequisites
+
+- {% term "Home Assistant Operating System" %}. The Z-Wave integration can only set up the adapter if it can manage the Z-Wave JS app.
+  - On other installation types, connect your own [Z-Wave JS server](#setting-up-a-z-wave-server-without-using-the-z-wave-js-app) to `esphome://` followed by the IP address of the ESPHome device. For example: `esphome://192.168.1.50`.
+    - If the ESPHome device uses API encryption, add `?key=` followed by its URL-encoded encryption key. For example: `esphome://192.168.1.50?key=YOUR_ENCRYPTION_KEY`. For details, refer to the [Z-Wave JS documentation](https://zwave-js.github.io/zwave-js/#/usage/esphome-connection).
+- An ESP32-based device running ESPHome with the [Z-Wave proxy](https://esphome.io/components/zwave_proxy/) component. A Z-Wave adapter must be connected to it.
+  - For example, a Home Assistant Connect ZWA-2 running Portable Z-Wave, or plugged into an ESP32 board running it.
+- If you already use Z-Wave, your Z-Wave network must run on the Z-Wave JS app.
+  - If you use Z-Wave JS UI, first [migrate to the Z-Wave JS app](#migrating-from-z-wave-js-ui-to-the-z-wave-js-app).
+- If the adapter already holds a Z-Wave network, [back up your Z-Wave network](#backing-up-your-z-wave-network) before you change the adapter's connection.
+
+### To set up a Z-Wave adapter connected to an ESPHome device
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Discovered**, find the ESPHome device and select **Add**.
+   - For example: your Home Assistant Connect ZWA-2 running Portable Z-Wave, or the ESP32 board it's plugged into.
+   - Follow the steps on screen to add the device to the ESPHome integration.
+   - If you already added the ESPHome device, skip this step.
+3. Continue with the Z-Wave adapter:
+   - If the adapter is already part of a Z-Wave network, the Z-Wave setup opens right after you add the ESPHome device.
+   - Otherwise, or if you closed that dialog, wait for the Z-Wave adapter to show up under **Discovered**, then select **Add**. Its name ends with **(ESPHome)**.
+4. Follow the steps that match your situation:
+   - If you don't use Z-Wave yet, select **Recommended installation**.
+     - Then follow the steps to [set up a Z-Wave server](#to-set-up-a-z-wave-server), starting with step 3.
+   - If you already use Z-Wave with a different adapter, the **Migrate to a new adapter** dialog opens. Select **Submit**.
+     - Home Assistant backs up the network from the old adapter.
+     - When asked, unplug the old adapter and select **Submit**.
+     - Result: Home Assistant restores the network to the new adapter.
+   - If you moved your existing adapter to the ESPHome device, select **Recommended installation**.
+     - Result: Home Assistant confirms that the migration was successful. Your Z-Wave devices and entities stay as they are.
+
+### What changes in the Z-Wave JS app
+
+When the adapter is connected to an ESPHome device, the Z-Wave JS app connects to it over your network instead of through a USB port. Home Assistant sets this up for you. You don't need to change any settings in the app.
+
+- On the app's **Configuration** tab, the **Device** option is no longer set.
+- The **Socket** option holds the address of the ESPHome device, for example `esphome://192.168.1.50:6053`.
+  - If the ESPHome device uses API encryption, the address also includes the encryption key.
+- If the IP address of the ESPHome device changes, Home Assistant updates the **Socket** option automatically.
+- The app connects to one adapter at a time. To use a USB adapter and an adapter connected to an ESPHome device at the same time, you need a second Z-Wave JS server.
+
 ## Migrating a Z-Wave network to a new adapter
 
 Do this if you have an existing Z-Wave network and want to replace its adapter with a new adapter. The Z-Wave integration with all its entities will stay in Home Assistant. The new adapter is added to Home Assistant and paired with the existing network.
 
 {% tip %}
-You cannot run two Z-Wave adapters at the same time with the same Z-Wave app instance. If you only want to use a single app instance, you need to migrate the network to the new adapter. If you want to use two adapters at the same time, you need a second Z-Wave JS Server instance. You can run this additional Z-Wave JS Server instance in a separate container, or run Z-Wave JS Server or Z-Wave JS UI on another system outside of Home Assistant.
+You cannot run two Z-Wave adapters at the same time with the same Z-Wave JS app instance. If you only want to use a single app instance, you need to migrate the network to the new adapter. If you want to use two adapters at the same time, you need a second Z-Wave JS Server instance. You can run this additional Z-Wave JS Server instance in a separate container, or run Z-Wave JS Server or Z-Wave JS UI on another system outside of Home Assistant.
 {% endtip %}
 
 ### Prerequisites
@@ -177,6 +198,14 @@ Before starting migration, you need to update the adapter to SDK 6.61+
 
 - Check the documentation of your device to see if and how they can be updated.
 - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
+
+{% enddetails %}
+
+{% details "Migrating to an Aeotec Z-Stick 10 Pro" %}
+
+Before starting migration, update the Z-Wave firmware of the Z-Stick 10 Pro to version 7.23.2 or later. Older firmware can cause the migration to fail, especially from a 500 series adapter.
+
+- [Steps to update Aeotec Z-Stick 10 Pro](https://aeotec.freshdesk.com/support/solutions/articles/6000279576).
 
 {% enddetails %}
 
@@ -195,18 +224,19 @@ There is no easy way to update that device.
 
 1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Under **Migrate adapter**, select **Migrate**.
-3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
+3. When the **Unplug your old adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
 4. Connect the new adapter.
 5. Select **Submit**.
-6. In the **Select your device** dialog, select the Z-Wave adapter you just connected.
+6. In the **Select your Z-Wave device** dialog, select the Z-Wave adapter you just connected.
    - Typically, you can select the device you connected to a USB port.
-   - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
+   - If the new adapter is connected over your network, select **Use Socket**. Then, enter its address in **Socket device path**.
+     - For an adapter connected to an ESPHome device, enter `esphome://` followed by the IP address of the ESPHome device. Home Assistant usually finds these adapters on its own. For details, refer to [Using a Z-Wave adapter connected to an ESPHome device](#using-a-z-wave-adapter-connected-to-an-esphome-device).
 7. Select **Submit**.
    - The new adapter is now being paired with your existing Z-Wave network.
-   - Troubleshooting: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
+   - Troubleshooting: If the migration fails, it might be because you selected **Use Socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
      - Once your old adapter is connected and the network is operational, repeat the migration steps.
-     - Make sure to select the new controller this time (instead of **Use socket**).
+     - Make sure to select the new controller this time (instead of **Use Socket**).
 8. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
    - In the top-left corner, select the back button to go back to the integration page.
    - In the list of devices, check the device name.
@@ -228,7 +258,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
    - Do not start the app yet.
 3. Install necessary helper apps:
    - Install the [**Terminal & SSH** app](/common-tasks/os/#installing-and-using-the-ssh-app) so you can run commands on the Home Assistant host.
-   - Install an app that lets you upload and edit files on the Home Assistant host, like the [**File Editor** app](/common-tasks/os/#installing-and-using-the-file-editor-app) or the [**Studio Code Server** app](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app).
+   - Install an app that lets you upload and edit files on the Home Assistant host, like the [**File Editor** app](/common-tasks/os/#installing-and-using-the-file-editor-app) or the [**Studio Code Server** app](/common-tasks/os/#installing-and-using-the-studio-code-server-app).
 
 ### Downloading the backup from Z-Wave JS UI
 
@@ -273,28 +303,22 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-reconfigure-adapter.png)
 
-4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave Supervisor app** checkbox.
+4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave JS app** checkbox.
    - _Option 1:_ If you are using a USB-based or TCP-based controller:
-     - Select the **Use the Z-Wave Supervisor app** checkbox.
-
-       ![Selecting the Z-Wave Supervisor app checkbox](/images/integrations/z-wave/z-wave-js-ui-migration-select-option.png)
-
+     - Select the **Use the Z-Wave JS app** checkbox.
      - In the next step, select your controller and select **Submit**.
 
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-select-adapter-1.png)
 
    - _Option 2:_ If you are using a GPIO module or if your controller is not showing up in the list:
-     - Clear the **Use the Z-Wave Supervisor app** checkbox.
-
-       ![Deselecting the Z-Wave Supervisor app](/images/integrations/z-wave/z-wave-js-ui-migration-deselect-option.png)
-
+     - Clear the **Use the Z-Wave JS app** checkbox.
      - Enter the connection details for your Z-Wave JS app:
        - In the **URL** field, enter `ws://core-zwave-js:3000`.
 
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
 
 5. Remove the temporary files you uploaded to the `/tmp` folder for the migration.
-6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can start the Z-Wave JS app and stop and uninstall the Z-Wave JS UI app.
+6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app. For the steps, refer to [Uninstalling an app](/common-tasks/os/apps/#uninstalling-an-app).
 
 ## Overriding the radio frequency region of the adapter in the Z-Wave JS app
 
@@ -422,7 +446,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ### Entities available for every Z-Wave device
 
-1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is disabled by default. The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
+1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
 2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` action.
 3. **Adapter/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [adapter](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot). The statistics can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
 
@@ -617,7 +641,7 @@ Value Notification example:
 
 ### Value updated events
 
-Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to in order to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/docs/configuration/customizing-devices/#assumed_state).
+Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to in order to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/integrations/homeassistant/#assumed_state).
 
 The following devices currently support this event:
 
@@ -718,9 +742,9 @@ Make sure that you keep a backup of these keys in a safe place. You will need to
 
 Once you have the Z-Wave JS server up and running, you need to install and configure the integration in Home Assistant (as described above).
 
-If you're running full Home Assistant with supervisor, you will be presented with a dialog that asks if you want to use the Z-Wave JS Supervisor app. You **must** uncheck this box if you are running the Z-Wave JS server in any manner other than the official Z-Wave JS app, including using Z-Wave JS UI app.
+If you run {% term "Home Assistant Operating System" %}, a dialog asks if you want to use the Z-Wave JS app. If you run the Z-Wave JS server in any other way, including with the Z-Wave JS UI app, you must clear the **Use the Z-Wave JS app** checkbox.
 
-If you're not running the supervisor or you've unchecked the above-mentioned box, you will be asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI app this is `ws://a0d7b954-zwavejs2mqtt:3000`.
+If you don't run Home Assistant OS, or you cleared that checkbox, you're asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI app this is `ws://a0d7b954-zwavejs2mqtt:3000`.
 
 ## FAQ: Supported devices and Command Classes
 

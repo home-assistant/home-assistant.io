@@ -1,16 +1,7 @@
 ---
-title: Alert
 description: Instructions on how to set up automatic alerts within Home Assistant.
-ha_category:
-  - Automation
 ha_release: 0.38
-ha_iot_class: Local Push
-ha_quality_scale: internal
 ha_domain: alert
-ha_codeowners:
-  - '@home-assistant/core'
-  - '@frenck'
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -328,7 +319,7 @@ Your alert sends a notification with an **Acknowledge** button to your phone. Wh
 - **Trigger**: Manual event received
   - **Event type**: `mobile_app_notification_action`
   - **Event data**: `action: ACKNOWLEDGE_GARAGE`
-- **Action**: Turn off
+- **Action**: Alert: Turn off
   - **Target**: Garage door alert
 
 {% details "YAML example for acknowledging an alert from a phone notification" %}
@@ -353,11 +344,10 @@ automation: |
 
 You acknowledged the garage door alert while you were home. When you leave, you want reminders again if the door is still open.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone left
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Leave
-- **Action**: Turn on
+- **Action**: Alert: Turn on
   - **Target**: Garage door alert
 
 {% details "YAML example for turning an alert back on when you leave" %}
@@ -366,10 +356,11 @@ You acknowledged the garage door alert while you were home. When you leave, you 
 automation: |
   alias: "Turn the garage door alert back on when I leave"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: alert.turn_on
       target:

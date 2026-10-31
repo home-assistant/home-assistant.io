@@ -1,16 +1,9 @@
 ---
-title: Valve
 description: Instructions on how to integrate valves into Home Assistant.
-ha_category:
-  - Valve
 ha_release: 2024.1
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: valve
-ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard

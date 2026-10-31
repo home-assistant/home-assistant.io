@@ -1,8 +1,6 @@
 ---
 title: "IFTTT Alarm control panel"
 description: "Instructions on how to integrate IFTTT-controlled security systems into Home Assistant."
-ha_category:
-  - Alarm
 ha_release: 0.66
 ha_domain: ifttt
 related:

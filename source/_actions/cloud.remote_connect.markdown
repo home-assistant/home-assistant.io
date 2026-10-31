@@ -55,10 +55,9 @@ This action has no additional options in YAML.
 
 Only open up remote access when you actually need it. This automation turns it on when you leave home.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone left
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Leave
 - **Action**: Home Assistant Cloud: Enable Home Assistant Cloud remote access
 
 {% details "YAML example for turning on remote access when you leave" %}
@@ -67,10 +66,11 @@ Only open up remote access when you actually need it. This automation turns it o
 automation: |
   alias: "Turn on remote access when I leave"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: cloud.remote_connect
 {% endexample %}

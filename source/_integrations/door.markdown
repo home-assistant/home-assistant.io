@@ -1,14 +1,7 @@
 ---
-title: Door
 description: This integration provides door automation triggers and conditions.
-ha_category:
-  - Automation
 ha_release: 2026.4
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: door
-ha_integration_type: system
 ---
 
 The **Door** {% term integration %} provides automation triggers and conditions for entities that represent doors. Use it to react when a front door opens, check whether a patio door is still open, or build automations around a garage door.

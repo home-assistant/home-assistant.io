@@ -1,0 +1,33 @@
+{
+  "domain": "home_connect",
+  "name": "Home Connect",
+  "integration_type": "hub",
+  "codeowners": [
+    "@DavidMStraub",
+    "@Diegorro98",
+    "@MartinHjelmare"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "appliances_cleaning",
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "diagnostics",
+    "fan",
+    "light",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

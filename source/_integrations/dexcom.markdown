@@ -1,17 +1,7 @@
 ---
-title: Dexcom
 description: Instructions on how to integrate your Dexcom CGM data into Home Assistant.
-ha_category:
-  - Health
 ha_release: 0.113
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@gagebenne'
 ha_domain: dexcom
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 The **Dexcom** {% term integration %} allows you to view your CGM data from [Dexcom](https://www.dexcom.com/) in Home Assistant.
@@ -41,8 +31,13 @@ For users in Japan: [uam.dexcom.jp](uam.dexcom.jp).
 
 If you have a sensor session running, and once you have enabled the Dexcom integration, you should see the following sensors:
 
-- Blood glucose value sensor
-- Blood glucose trend sensor
+- **Glucose value**
+- **Glucose trend**
+- **Glucose reading time**: the time Dexcom recorded the latest reading.
+
+The **Glucose reading time** sensor shows when the latest reading was taken. For example, "3 minutes ago". Use it to check how recent the reading is. When your glucose level stays the same, the **Glucose value** sensor doesn't change, so its last-changed time doesn't tell you how old the reading is.
+
+If Dexcom has no reading from the last 10 minutes, for example when the transmitter is out of range, the sensors show as unknown.
 
 ## Example automation
 

@@ -96,7 +96,8 @@ data:
 Send a reminder through the generic notify action every weekday morning.
 
 - **Trigger**: Time: 08:00
-- **Condition**: Day of the week is Monday to Friday
+- **Condition**: Time
+  - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, Friday
 - **Action**: Send a notification
   - **Message**: Remember to check today's calendar.
 

@@ -1,31 +1,7 @@
 ---
-title: Duco
 description: Instructions on how to integrate Duco ventilation with Home Assistant.
 ha_release: 2026.5
-ha_category:
-  - Binary Sensor
-  - Fan
-  - Number
-  - Select
-  - Sensor
-  - Switch
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@ronaldvdmeer'
 ha_domain: duco
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - fan
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: platinum
-ha_dhcp: true
-ha_zeroconf: true
 ---
 
 The **Duco** {% term integration %} allows you to monitor and control [Duco](https://www.duco.eu/) demand-controlled ventilation (DCV) systems from Home Assistant. Duco produces ventilation boxes for residential buildings that regulate air quality based on CO₂ and humidity sensors. This integration communicates locally with the Duco box over your home network, requiring no cloud connection.
@@ -184,7 +160,7 @@ Available for the supported node types with a built-in humidity sensor listed in
 
 #### CO₂ air quality index
 
-Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sensor. Shows the CO₂ air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sensor. Shows the CO₂ air quality score as a percentage (0–100%). This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 Indoor air quality ranges for CO₂:
 

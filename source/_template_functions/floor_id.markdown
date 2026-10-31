@@ -17,7 +17,7 @@ related_functions:
   - area_id
 ---
 
-The `floor_id` template function returns the unique floor ID for a given floor name, {% term area %} name, {% term device %} ID, or {% term entity %} ID. Every {% term floor %} in Home Assistant has an internal ID that stays the same even if you rename the floor, and this function lets you look it up.
+The `floor_id` template function returns the unique floor ID for a given floor name or alias, {% term area %} name or alias, {% term device %} ID, or {% term entity %} ID. Every {% term floor %} in Home Assistant has an internal ID that stays the same even if you rename the floor, and this function lets you look it up.
 
 This is useful when you need the floor ID to pass to other floor functions like [`floor_areas`](/template-functions/floor_areas/) or [`floor_entities`](/template-functions/floor_entities/), or when you want to find out which floor a particular entity, device, or area belongs to. For example, you could use it in an {% term automation %} to determine which floor a motion {% term sensor %} is on and then act on all devices on that floor.
 
@@ -57,7 +57,10 @@ lookup_value:
 ## Good to know
 
 - Returns `None` when the lookup value does not match a floor, or when the area, entity, or device is not assigned to a floor.
-- An entity gets its floor through its area, so an entity with no area returns `None`.
+- It doesn't accept a floor ID or an area ID. For an area ID, pass the area name instead, for example, `floor_id(area_name(area_id))`.
+- Uppercase and lowercase letters and spaces in names and aliases don't matter. For example, `"ground floor"` matches the floor _Ground Floor_.
+- A floor name is checked before an area name. If a floor and an area have the same name, you get the ID of that floor.
+- An entity gets its floor through its area. If the entity has no area of its own, it uses the area of its device.
 
 {% include template_functions/try_it.md %}
 
@@ -90,7 +93,7 @@ Combine `floor_id` with [`areas`](/template-functions/areas/) to find out which 
 {% example %}
 template: |
   {% for area_id in areas() %}
-    {{ area_name(area_id) }} is on {{ floor_name(floor_id(area_id)) }}
+    {{ area_name(area_id) }} is on {{ floor_name(floor_id(area_name(area_id))) }}
   {% endfor %}
 type: string
 output: |

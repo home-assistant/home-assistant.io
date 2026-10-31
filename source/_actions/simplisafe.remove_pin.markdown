@@ -8,7 +8,7 @@ related_actions:
   - simplisafe.set_system_properties
 ---
 
-The **Remove PIN** action deletes a PIN from your SimpliSafe system. You can identify the PIN to remove either by the label it shows in the SimpliSafe app or by the PIN value itself.
+The **SimpliSafe: Remove PIN** action deletes a PIN from your SimpliSafe system. You can identify the PIN to remove either by the label it shows in the SimpliSafe app or by the PIN value itself.
 
 This is handy for cleaning up access automatically, for example removing a guest's temporary PIN once their stay ends.
 

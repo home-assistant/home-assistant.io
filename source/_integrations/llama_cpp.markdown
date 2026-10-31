@@ -1,24 +1,12 @@
 ---
-title: llama.cpp
 description: Instructions on how to integrate llama.cpp (and other OpenAI-compatible servers) as a conversation agent.
-ha_category:
-  - AI
-  - Voice
 ha_release: 2026.8
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: llama_cpp
-ha_integration_type: service
-ha_platforms:
-  - conversation
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Create an AI personality
-ha_quality_scale: bronze
-ha_codeowners:
-  - '@allenporter'
 ---
 
 The **llama.cpp** {% term integration %} allows you to use a local or remote server that implements the OpenAI-compatible chat completions API as a conversation agent in Home Assistant.
@@ -33,9 +21,9 @@ If you are using Ollama, you should prefer the official [Ollama](/integrations/o
 If you are using OpenRouter, you should prefer the official [OpenRouter](/integrations/open_router/) integration.
 {% endnote %}
 
-Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Prerequisites
 
@@ -44,6 +32,7 @@ This integration requires an external server running an OpenAI-compatible API. S
 - **llama.cpp**: Running on `http://localhost:8080/v1` or another port of your choosing. See the [llama.cpp quick start guide](https://github.com/ggml-org/llama.cpp/tree/master#quick-start) for more details.
 - **llama-cpp-python**: Running on `http://localhost:8000/v1` or another port of your choosing. See the [llama-cpp-python installation guide](https://llama-cpp-python.readthedocs.io/en/latest/#installation) for more details.
 - **vLLM**: Running on `http://localhost:8000/v1` or another port of your choosing. See the [vLLM installation guide](https://docs.vllm.ai/en/latest/getting_started/installation/) for more details.
+- **LM Studio**: Running on `http://localhost:1234/v1` after you start the server in LM Studio. If Home Assistant runs on another device, turn on **Serve on Local Network** in LM Studio and use the IP address of that computer instead of `localhost`. See the [LM Studio OpenAI compatibility guide](https://lmstudio.ai/docs/developer/openai-compat) for more details.
 - **DeepSeek**: Using the cloud API URL `https://api.deepseek.com`.
 
 {% include integrations/config_flow.md %}
@@ -64,8 +53,8 @@ The conversation agent has the following configuration options:
 {% configuration_basic %}
 Instructions:
   description: "Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/)."
-Control Home Assistant:
-  description: "Select the level of control over Home Assistant. The model can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it."
+AI tools:
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices."
 Recommended model settings:
   description: "Select whether to use recommended model settings. If enabled, default values are used for max tokens, temperature, and top P."
 {% endconfiguration_basic %}

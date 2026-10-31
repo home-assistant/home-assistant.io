@@ -1,17 +1,7 @@
 ---
-title: Efergy
 description: Instructions on how to integrate Efergy devices within Home Assistant.
-ha_category:
-  - Energy
 ha_release: pre 0.7
-ha_config_flow: true
-ha_iot_class: Cloud Polling
 ha_domain: efergy
-ha_platforms:
-  - sensor
-ha_codeowners:
-  - '@tkdrob'
-ha_integration_type: hub
 ---
 
 Integrate your [Efergy](https://efergy.com) meter information into Home Assistant.
@@ -31,7 +21,7 @@ To get an app token:
 
 The following sensors will be created:
 
-- **Power Usage**: Shows the aggregate instant value of power consumption. An entity will also be created for each sensor attached to the household. If only one sensor is detected, it will be disabled by default.
+- **Power Usage**: Shows the aggregate instant value of power consumption. An entity will also be created for each sensor attached to the household. If only one sensor is detected, it will be [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Daily Consumption**: Shows the current day's energy consumption. (disabled by default)
 - **Weekly Consumption**: Shows the current week's energy consumption. (disabled by default)
 - **Monthly Consumption**: Shows the current month's energy consumption.

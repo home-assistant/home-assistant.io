@@ -1,15 +1,7 @@
 ---
-title: USB Discovery
 description: Discover usb devices on the host.
-ha_category:
-  - Utility
-ha_iot_class: Local Push
 ha_release: 2021.9
 ha_domain: usb
-ha_quality_scale: internal
-ha_codeowners:
-  - '@bdraco'
-ha_integration_type: system
 ---
 
 The **USB Discovery** {% term integration %} detects supported USB devices that can be discovered by Home Assistant integrations. Devices that match a supported integration appear in the **Discovered** section on {% my integrations title="**Settings** > **Devices & services**" %}.

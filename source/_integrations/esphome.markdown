@@ -1,52 +1,8 @@
 ---
-title: ESPHome
 description: Support for ESPHome devices using the native ESPHome API.
 featured: true
-ha_category:
-  - Alarm
-  - DIY
-  - Infrared
-  - Radio frequency
-  - Serial
-  - Update
 ha_release: 0.85
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@jesserockz'
-  - '@kbx81'
-  - '@bdraco'
-  - '@arturpragacz'
 ha_domain: esphome
-ha_zeroconf: true
-ha_platforms:
-  - alarm_control_panel
-  - assist_satellite
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - date
-  - datetime
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-  - text
-  - time
-  - update
-  - valve
-  - water_heater
-ha_integration_type: device
-ha_dhcp: true
-ha_quality_scale: platinum
 ---
 
 ## Overview

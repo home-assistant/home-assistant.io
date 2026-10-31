@@ -1,0 +1,29 @@
+{
+  "domain": "lamarzocco",
+  "name": "La Marzocco",
+  "integration_type": "device",
+  "codeowners": [
+    "@zweckj"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "calendar",
+    "diagnostics",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "bluetooth",
+    "dhcp"
+  ]
+}

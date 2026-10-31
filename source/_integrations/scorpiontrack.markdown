@@ -1,28 +1,18 @@
 ---
-title: ScorpionTrack
 description: Instructions on how to integrate ScorpionTrack shared vehicle locations, speeds, and ignition states into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Device tracker
-  - Sensor
 ha_release: 2026.8
-ha_iot_class: Cloud Polling
 ha_domain: scorpiontrack
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - diagnostics
-  - sensor
-ha_config_flow: true
-ha_integration_type: hub
-ha_codeowners:
-  - '@Herbertmt978'
-ha_quality_scale: silver
 ---
 
 The **ScorpionTrack** {% term integration %} lets Home Assistant follow the location, speed, and ignition state of vehicles that have been shared through a public ScorpionTrack shared-location link.
 
 This integration is intentionally focused on the share-link workflow. It does not use your private ScorpionTrack account credentials. Instead, it reads the shared vehicle feed exposed by ScorpionTrack and creates entities for location, speed, and ignition state from that data. The vehicle location appears on the Home Assistant map.
+
+You can use the integration to:
+
+- Find your vehicle's last reported location on the map and check the **Last reported** sensor to see how recent that position is.
+- Use the vehicle tracker in a [zone automation](/docs/automation/trigger/#zone-trigger) to send a notification when the vehicle arrives at or leaves a location.
+- Receive a notification in Home Assistant when the vehicle's ignition turns on, using the example below.
 
 ## Prerequisites
 
@@ -70,11 +60,52 @@ The **ScorpionTrack** integration creates one device for each vehicle included i
 - A **Speed** sensor entity that shows the latest vehicle speed reported through the share.
 - A **Last reported** diagnostic sensor entity that shows when the vehicle last reported its position through the share.
 - An **Ignition** binary sensor entity that shows the latest ignition state reported through the share.
-- A **Heading** sensor entity that shows the bearing of the latest shared position in degrees. It is disabled by default.
+- A **Heading** sensor entity that shows the bearing of the latest shared position in degrees. It is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
 
 The **Speed** sensor initially uses the unit selected for the ScorpionTrack share. You can choose a different display unit in the entity settings.
+
+## ScorpionTrack automation examples
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Notify when the ignition turns on
+
+This automation creates a [persistent notification](/integrations/persistent_notification/) in Home Assistant when your vehicle's **Ignition** sensor changes from **Off** to **On**.
+
+In the [automation editor](/docs/automation/editor/), use these settings:
+
+- **Trigger**: State changed
+  - **Entity**: Your vehicle's **Ignition** sensor
+  - **From**: Off
+  - **To**: On
+- **Action**: Create persistent notification
+  - **Title**: `Vehicle ignition`
+  - **Message**: `Your vehicle's ignition is on.`
+
+Setting both **From** and **To** prevents a notification when the sensor changes from **Unknown** or **Unavailable** to **On**. Notifications depend on the [polling interval and updates to the shared feed](#data-updates), so they are not immediate. Changes that happen between updates can be missed.
+
+{% details "YAML example for an ignition notification" %}
+
+Replace `binary_sensor.vehicle_ignition` with your vehicle's **Ignition** entity ID.
+
+{% example %}
+automation: |
+  alias: "Notify when the vehicle ignition turns on"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.vehicle_ignition
+      from: "off"
+      to: "on"
+  actions:
+    - action: persistent_notification.create
+      data:
+        title: "Vehicle ignition"
+        message: "Your vehicle's ignition is on."
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 

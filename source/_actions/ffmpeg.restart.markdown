@@ -1,5 +1,5 @@
 ---
-title: "Restart FFmpeg sensor"
+title: "Restart"
 action: ffmpeg.restart
 domain: ffmpeg
 description: "Stops and starts an FFmpeg-based sensor again."
@@ -20,7 +20,7 @@ To restart an FFmpeg sensor from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Restart**.
+5. From the search box, search for and select **FFmpeg: Restart**.
 6. Optional: In **Entity**, select the FFmpeg sensor. Leave it empty to restart all FFmpeg sensors.
 7. Select **Save**.
 
@@ -72,7 +72,7 @@ If the camera stream drops, the FFmpeg sensor becomes unavailable. This automati
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
   - **To**: Unavailable
   - **For at least**: 5 minutes
-- **Action**: Restart
+- **Action**: FFmpeg: Restart
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
 
 {% details "YAML example for restarting a sensor that stopped working" %}
@@ -100,7 +100,7 @@ Some camera streams slowly get out of sync. Restarting the FFmpeg sensors every 
 
 - **Trigger**: Time
   - **At time**: 03:00
-- **Action**: Restart
+- **Action**: FFmpeg: Restart
   - **Entity**: Leave empty to restart all FFmpeg sensors
 
 {% details "YAML example for restarting the sensors every night" %}

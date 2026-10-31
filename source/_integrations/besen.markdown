@@ -1,24 +1,7 @@
 ---
-title: Besen
 description: Instructions on how to integrate Besen EV chargers over Bluetooth Low Energy with Home Assistant.
-ha_category:
-  - Car
-  - Energy
 ha_release: 2026.9
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@moryoav'
 ha_domain: besen
-ha_bluetooth: true
-ha_platforms:
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Besen** {% term integration %} connects Home Assistant to Besen EV chargers over Bluetooth Low Energy.
@@ -58,7 +41,7 @@ PIN:
 
 The {% term integration %} provides a **Charge** switch to start or stop charging.
 
-The switch state follows the charging state reported by the charger.
+The switch state follows the charging state reported by the charger. It stays off while a scheduled start is pending. To cancel a scheduled start, use the [**Turn off switch**](/actions/switch.turn_off/) action on the **Charge** switch. Because the switch is already off at that point, its toggle on a dashboard cannot send that command.
 
 ### Number
 
@@ -81,13 +64,17 @@ The following sensors are enabled by default:
 - **Charging status**: High-level charging state reported by the charger.
 - **Charging message**: Additional guidance reported for the current charging state.
 
+The **Charging status** sensor reports **Scheduled** (`scheduled`) while a scheduled start is pending. If your automations, scripts, or templates use `canceled` for this state, change it to `scheduled`.
+
 The following sensors are disabled by default:
 
 - **Session current limit**: Current limit recorded for the charging session in amperes (A). This usually matches the **Charging current** setting.
-- **Scheduled start**: Start time of a scheduled charging session. For a session that starts immediately, such as one started from Home Assistant, this is the time charging was requested.
-- **Charging time limit**: Time after which the charger ends the charging session in minutes (min). The value is unknown when no limit is set, which includes sessions started from Home Assistant.
+- **Scheduled start**: Start time of a scheduled charging session. For a session that starts immediately, such as one started with the **Charge** switch, this is the time charging was requested.
+- **Charging time limit**: Time after which the charger ends the charging session in minutes (min). The value is unknown when no limit is set, which includes sessions started with the **Charge** switch.
 
-Scheduled starts and charging time limits are set outside Home Assistant, for example in the charger's mobile app. The integration reports them but cannot change them.
+The **Scheduled start** and **Charging time limit** sensors report values only while a scheduled start is pending or a charging session is running. Otherwise, their state is unknown.
+
+To set a scheduled start or a charging time limit from Home Assistant, use the [**Start charging** action](/actions/besen.start_charging/). The sensors also report values set elsewhere, for example in the charger's mobile app.
 
 The following diagnostic sensors are disabled by default:
 
@@ -99,44 +86,72 @@ The following diagnostic sensors are disabled by default:
 - **L1 voltage** and **L1 current**: Voltage and current reported for phase L1.
 - **L2 voltage**, **L2 current**, **L3 voltage**, and **L3 current**: Voltage and current reported for phases L2 and L3. These sensors are created only for three-phase chargers.
 
-To use an entity that is disabled by default, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) from the charger device page.
+To use an entity that is disabled by default, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the charger device page.
 
 ## Actions
 
-The integration does not provide custom actions. Use the standard entity actions instead:
+Use the standard entity actions to control the charger:
 
 - `switch.turn_on` starts charging.
-- `switch.turn_off` stops charging.
+- `switch.turn_off` stops charging and cancels a scheduled start.
 - `number.set_value` sets the charging current.
 - `select.select_option` changes the temperature unit shown on the charger's screen.
 
-## Examples
+{% include integrations/actions.md %}
 
-Start charging when an off-peak tariff starts:
+## Besen automation examples
 
-```yaml
-alias: Start EV charging off peak
-triggers:
-  - trigger: time
-    at: "23:00:00"
-actions:
-  - action: switch.turn_on
-    target:
-      entity_id: switch.besen_charge
-```
+Charging when electricity is cheapest is a common use of this integration. Here are a few ideas to get you started. To let the charger start and stop by itself, see the examples for the [**Start charging**](/actions/besen.start_charging/) action.
 
-Stop charging before a peak tariff starts:
+{% include docs/paste_yaml_tip.md %}
 
-```yaml
-alias: Stop EV charging before peak tariff
-triggers:
-  - trigger: time
-    at: "17:00:00"
-actions:
-  - action: switch.turn_off
-    target:
-      entity_id: switch.besen_charge
-```
+### Automation: start charging when the off-peak tariff starts
+
+Start charging every evening when your off-peak tariff begins.
+
+- **Trigger**: Time: 23:00
+- **Action**: Turn on switch
+  - **Target**: Charge switch of the charger (`switch.besen_charge`)
+
+{% details "YAML example for starting charging when the off-peak tariff starts" %}
+
+{% example %}
+automation: |
+  alias: "Start EV charging off peak"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.besen_charge
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: stop charging before the peak tariff starts
+
+Stop charging every afternoon before your peak tariff begins.
+
+- **Trigger**: Time: 17:00
+- **Action**: Turn off switch
+  - **Target**: Charge switch of the charger (`switch.besen_charge`)
+
+{% details "YAML example for stopping charging before the peak tariff starts" %}
+
+{% example %}
+automation: |
+  alias: "Stop EV charging before peak tariff"
+  triggers:
+    - trigger: time
+      at: "17:00:00"
+  actions:
+    - action: switch.turn_off
+      target:
+        entity_id: switch.besen_charge
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 

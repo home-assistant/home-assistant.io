@@ -1,15 +1,7 @@
 ---
-title: Home Assistant Labs
 description: Try new preview features before they become standard in Home Assistant.
-ha_category:
-  - Other
 ha_release: 2025.12
-ha_iot_class: Calculated
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: labs
-ha_integration_type: system
 related:
   - docs: /docs/configuration/basic/
     title: Configuration basics

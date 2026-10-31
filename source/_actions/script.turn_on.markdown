@@ -22,7 +22,7 @@ To run a script from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the script you want to run.
-6. From the actions shown for that target, select **Turn on script**.
+6. From the actions shown for that target, under **Script**, select **Turn on script**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -82,8 +82,10 @@ Reuse a notification script and pass the message to it, without holding up the r
 
 - **Trigger**: Light turned on
   - **Target**: Bedroom light
-- **Action**: Turn on script
+- **Action**: Script: Turn on script
   - **Target**: Notify Pushover
+
+To pass the title and message with this action, edit the action in YAML as shown below.
 
 {% details "Show example YAML" %}
 

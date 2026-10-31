@@ -48,7 +48,7 @@ Areas can also be used for automatically generated cards, such as the [Area card
 
 ## Automations
 
-An automation runs a set of steps by itself when something changes in your home. For example, it turns on the lights in the living room when the sun sets. In the automation editor, an automation has three sections:
+An automation runs a set of steps by itself when something changes in your home. For example, it turns on the lights in the living room when the sun sets. In the visual automation editor, an automation has three sections:
 
 - **When**: the {% term triggers %}
   - A trigger reacts to a change and starts the automation, for example, when the sun sets or a motion sensor detects motion.
@@ -76,12 +76,8 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ## Apps
 
-Apps are third-party applications that extend Home Assistant with additional functionality. They run alongside Home Assistant on the same system and are installed and managed from Home Assistant. Apps are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
-
-Apps are installed from the app store under {% my supervisor title="**Settings** > **Apps**" %}. If you are curious now and feel like installing every app that looks interesting: beware that apps can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
+Apps are applications that run alongside Home Assistant on the same system, such as a file editor. Apps are only available on {% term "Home Assistant Operating System" %}. For details, refer to [Apps and integrations](/docs/apps-and-integrations/#apps).
 
 Among the most used apps are the ones that provide [file access and edit files](/docs/configuration/#to-set-up-access-to-the-files-and-prepare-an-editor) in Home Assistant.
-
-<p class='img'><img src='/images/getting-started/app-store.png' style='border: 0;box-shadow: none;' alt="Screenshot of the app store, showing all the installable apps">Screenshot of the app store, showing all the installable apps.</p>
 
 {% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}

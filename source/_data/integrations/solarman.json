@@ -1,0 +1,21 @@
+{
+  "domain": "solarman",
+  "name": "Solarman",
+  "integration_type": "device",
+  "codeowners": [
+    "@solarmanpv"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "energy.meters_monitoring",
+    "plugs_switches"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

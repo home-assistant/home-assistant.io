@@ -1,41 +1,13 @@
 ---
-title: Lutron Caséta
 description: Instructions on how to use Lutron Caseta devices with Home Assistant.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Scene
-  - Switch
 ha_release: 0.41
-ha_iot_class: Local Push
 ha_domain: lutron_caseta
-ha_config_flow: true
-ha_codeowners:
-  - '@swails'
-  - '@danaues'
-  - '@eclair4151'
-ha_zeroconf: true
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - cover
-  - diagnostics
-  - fan
-  - light
-  - scene
-  - switch
-ha_integration_type: hub
 ---
 
 [Lutron](https://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, and HVAC controls. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](https://www.lutron.com/controls/systems/ra2select) product line of dimmers, switches, shades, and sensors.
 
-This integration supports the [Caséta](https://www.casetawireless.com/), [RA2 Select](https://www.lutron.com/controls/systems/ra2select), [RadioRA 3](https://radiora3.lutron.com/), and [Homeworks QSX](https://residential.lutron.com/homeworks) **(not QS)** lines of products. 
+This integration supports the [Caséta](https://www.casetawireless.com/), [RA2 Select](https://www.lutron.com/controls/systems/ra2select), [RadioRA 3](https://radiora3.lutron.com/), [Homeworks QSX](https://residential.lutron.com/homeworks) **(not QS)**, and [Athena](https://www.lutron.com/athena) lines of products.
 
 Supports Bridges:
 
@@ -44,7 +16,8 @@ Supports Bridges:
 - RA2 Select Main Repeaters (RR-SEL-REP2-BL)
 - QSX Processor (HQP7)
 - RadioRA 3 All-in-One Processor (RR-PROC3)
- 
+- Athena Processor (REP-QP-2L)
+
 For the RadioRA 2 and HomeWorks QS product lines, see the [Lutron integration](/integrations/lutron/).
 
 The currently supported devices are:
@@ -55,6 +28,7 @@ The currently supported devices are:
 - Lutron shades as [covers](#cover)
 - Lutron smart [fan](#fan) speed control
 - Lutron Occupancy/Vacancy [sensors](#sensor)
+- Pico remote and keypad buttons as [events](#event)
 - Pico Remotes as [device triggers](/integrations/device_automation/)
 - Shade Remotes as [device triggers](/integrations/device_automation/)
 
@@ -136,7 +110,7 @@ After setup, scenes will appear in Home Assistant using an `entity_id` based on 
 
 For more information on working with scenes in Home Assistant, see the [Scenes integration](/integrations/scene/).
 
-Scenes are not directly supported on RA3 and QSX models, however the button platform (see below) can be used to activate scenes for these systems.
+Scenes are not directly supported on RA3, QSX, and Athena models, however the button platform (see below) can be used to activate scenes for these systems.
 
 ## Switch
 
@@ -171,9 +145,24 @@ For more information on working with binary sensors in Home Assistant, see the [
 ## Button
 
 Button Entities are created for each Keypad button and Pico Remote button present within the system.
-Radio RA3 and HomeWorks QSX systems can use these button entities to activate scenes that are defined within the Lutron system.
+Radio RA3, HomeWorks QSX, and Athena systems can use these button entities to activate scenes that are defined within the Lutron system.
+
+These button entities let Home Assistant press a Lutron button. They do not change when someone presses the physical button, so they can't be used to trigger an automation from a button press. Use the event entities below for that.
 
 For more information on working with buttons in Home Assistant, see the [Buttons integration](/integrations/button/).
+
+## Event
+
+An event entity is created for each keypad button and Pico remote button in the system. It fires when someone presses the physical button, so you can use it to trigger an automation, for example with the **Event received** trigger.
+
+The event types depend on the device:
+
+- **Pico remotes**: `press_start` when the button is pressed down and `press_end` when it is released.
+- **Keypads** (Palladiom, SeeTouch, Sunnata, and others): `press_start` when the button is pressed. Keypads do not reliably report when a button is released, so there is no `press_end` event.
+
+Multi-tap and long-press actions are not available as event types. Use the device triggers described in the next section for those.
+
+For more information on working with events in Home Assistant, see the [Event integration](/integrations/event/).
 
 ## Keypads and remotes
 
@@ -182,7 +171,7 @@ Device triggers are available for every button on Pico remotes, Shade remotes, a
 - `press`: Button pressed. Supported on all hardware.
 - `release`: Button released. Supported on all hardware.
 - `multi_tap`: Button tapped multiple times in quick succession. Supported on all hardware.
-- `long_press`: Button held for an extended duration. Supported on HomeWorks QSX processors only.
+- `long_press`: Button held for an extended duration. Supported on HomeWorks QSX and Athena processors only.
 
 These are exposed as device triggers in the automation editor, and also fire `lutron_caseta_button_event` events in the format:
 
@@ -202,5 +191,5 @@ These are exposed as device triggers in the automation editor, and also fire `lu
 {% endraw %}
 
 {% note %}
-The `long_press` action relies on a native `LongHold` event sent by the Lutron LEAP protocol. It is currently only confirmed to work on **HomeWorks QSX** processors (for example, HQP7). Caséta and RadioRA 3 bridges do not emit this event, so the `long_press` trigger will not appear in the automation editor for those systems.
+The `long_press` action relies on a native `LongHold` event sent by the Lutron LEAP protocol. It is currently only confirmed to work on _HomeWorks QSX_ processors (for example, HQP7) and _Athena_ processors (for example, REP-QP-2L). Caséta and RadioRA 3 bridges do not emit this event, so the `long_press` trigger will not appear in the automation editor for those systems.
 {% endnote %}
