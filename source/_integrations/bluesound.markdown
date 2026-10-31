@@ -221,7 +221,7 @@ Home Assistant finds players with mDNS. If mDNS does not reach Home Assistant, f
 
 #### Resolution
 
-1. Make sure mDNS traffic from the player reaches Home Assistant, for example by putting both on the same network.
+1. Make sure mDNS traffic from the player reaches Home Assistant. For example, put both on the same network, or turn on the mDNS proxy or reflector of your router to forward mDNS between your networks.
 2. If that is not possible, add the player manually with its IP address.
 
 ### Symptom: "Failed to connect" or the player is unavailable
