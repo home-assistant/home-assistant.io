@@ -44,6 +44,7 @@ There is currently support available for the following platforms within Home Ass
 - Select/Number - Set a foot warmer mode and timeout
 - Select/Number - Set core climate heat/cool modes and timeout
 - Sensor - View pressure of each side
+- Sensor - View last night's sleep score, sleep duration, average heart rate, average respiratory rate, and heart rate variability for each side
 - Switch - Toggle Privacy mode
 
 ## Notes
