@@ -9,7 +9,8 @@ The **Flo** {% term integration %} integrates
 
 There is currently support for the following device types within Home Assistant:
 
-- **Binary sensor**: reports whether there are any alerts.
+- **Binary sensor**: reports whether there are any pending alerts. It stays on while any alert remains pending, so it does not change when another alert is raised.
+- **Event**: fires each time the valve raises an alert, including while earlier alerts are still pending. The event type is the alert's severity (`info`, `warning`, or `critical`), and the event data includes the Flo alarm ID and its count. Use this entity to trigger automations on new alerts.
 - **Sensor**: reports on the device's system mode, water flow rate, temperature, water pressure, and daily water consumption.
 - **Switch**: allows you to open and close the valve on the water shutoff device.
 
