@@ -27,6 +27,7 @@ There is currently support available for the following platforms within Home Ass
 - Select/Number - Set core climate heat/cool modes and timeout
 - Sensor - View pressure of each side
 - Switch - Toggle Privacy mode
+- Switch - Toggle Responsive Air, which adjusts firmness automatically, for each side on supported beds
 
 ## Notes
 
