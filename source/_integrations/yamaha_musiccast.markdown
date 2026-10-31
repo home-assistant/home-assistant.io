@@ -12,7 +12,10 @@ Supported devices are listed on their [site](https://usa.yamaha.com/products/con
 
 {% include integrations/option_flow.md %}
 
-By default, every source the receiver reports is shown in the source list of its media players. Unselect a source to hide it from the source list. A hidden source is still reported correctly if it's the currently active one; it's only removed from the list of selectable sources. After you change the options, the integration reloads.
+{% configuration_basic %}
+Displayed sources:
+  description: The sources that appear in the source list of this receiver's media players. By default, every source the receiver reports is selected. Unselect a source to hide it from the source list. A hidden source is still reported correctly if it's the currently active one; it's only removed from the list of selectable sources.
+{% endconfiguration_basic %}
 
 ## Grouping functionality
 
