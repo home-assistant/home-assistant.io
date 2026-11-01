@@ -190,7 +190,7 @@ This is an object containing the `source` and `volume` (0-100). The source must 
 
 ## Data updates
 
-System Bridge sends data to Home Assistant as it changes, over a WebSocket connection. Every 30 seconds, Home Assistant checks the connection is still open and reconnects if it isn't.
+System Bridge sends data to Home Assistant as it changes, over a WebSocket connection. If no data arrives for 30 seconds, Home Assistant checks the connection is still open and reconnects if it isn't.
 
 With System Bridge 5.24.0 and later, the computer tells Home Assistant just before it goes to sleep or shuts down, so its entities become unavailable straight away. Home Assistant logs once that the computer is unavailable, and once when it's back.
 
