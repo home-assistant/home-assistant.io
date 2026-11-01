@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@jwillemsen'
 ha_domain: daikin_onecta
-ha_integration_type: device
+ha_integration_type: hub
 ha_platforms:
   - climate
 ---
@@ -69,7 +69,8 @@ You can use the climate entity in automations, for example, to set a comfortable
 1. Go to **Settings** > **Automations & scenes**, select **Create automation**, then select **Create new automation**.
 2. Add a **Time** trigger for the time you want the temperature to change.
 3. Add a **Set thermostat target temperature** action and select your Daikin Onecta climate entity.
-4. Select **Save**.
+4. Enter the target temperature.
+5. Select **Save**.
 
 {% include docs/paste_yaml_tip.md %}
 
