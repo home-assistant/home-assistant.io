@@ -134,7 +134,7 @@ The Škoda public API enforces a rate limit per Vehicle Identification Number (V
 If the API key expires or is revoked, the integration can no longer retrieve data from the vehicle, and Home Assistant asks you to reauthenticate:
 
 1. Generate a new API key in the MyŠkoda app under **Profile** > **Smart Home**, or through the [Škoda API key portal](https://go.skoda.eu/api-keys).
-2. Go to [**Settings** > **Devices & services**](https://my.home-assistant.io/redirect/integrations/) and open the Škoda entry that asks you to reauthenticate.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and open the Škoda entry that asks you to reauthenticate.
 3. Enter the new API key.
 
 Home Assistant checks the new key against the vehicle and reloads the integration. You do not need to remove and re-add the vehicle.
