@@ -55,6 +55,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery) or [added manually](#manual-configured-mqtt-items) via YAML or subentries.
 
+<a name="configuration-via-mqtt-discovery"></a>
 ## MQTT entities
 
 The following pages describe the MQTT entity platforms and their configuration.
