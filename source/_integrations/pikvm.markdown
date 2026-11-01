@@ -75,7 +75,7 @@ The **PiKVM** integration provides the following entities.
 
 ### Sensors
 
-All sensors are diagnostic entities, so you find them in the **Diagnostic** section of the device page. A sensor is only created if your PiKVM reports the matching value.
+All sensors are diagnostic entities, so you find them in the **Diagnostic** section of the device page. The **Fan speed** and **Mass storage usage** sensors are only created if your PiKVM reports the matching hardware.
 
 - **CPU temperature**
   - **Description**: The temperature of the PiKVM CPU, in °C.
