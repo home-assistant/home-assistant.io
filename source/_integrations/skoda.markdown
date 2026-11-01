@@ -14,6 +14,7 @@ ha_categories:
   - vehicles_transport.cars_evs
 ha_platforms:
   - sensor
+  - switch
 ha_quality_scale: bronze
 related:
   - url: https://public.api.connect.skoda-auto.cz/docs
@@ -71,7 +72,7 @@ API key:
 
 ## Supported functionality
 
-The **Škoda** integration provides the following sensors. The available sensors depend on the vehicle's equipment and powertrain.
+The **Škoda** integration provides the following entities. The available entities depend on the vehicle's equipment and powertrain.
 
 ### Sensors
 
@@ -88,6 +89,10 @@ The **Škoda** integration provides the following sensors. The available sensors
 - **Auxiliary heating mode**: Current mode (heating/ventilation) of the auxiliary heating, for equipped vehicles.
 - **Auxiliary heating remaining duration**: Estimated time when auxiliary heating will finish, while active.
 - **Target cabin temperature**: The cabin temperature configured on the vehicle/MyŠkoda app for Climate Control/Auxiliary Air Conditioning (where supported).
+
+### Switches
+
+- **Charging**: Starts or stops charging, for vehicles with a battery (BEV or PHEV). The vehicle needs to be plugged in. After you switch it, the switch shows the requested state until the next data update reports the vehicle's actual state.
 
 ### Diagnostic sensors
 
@@ -120,7 +125,8 @@ The Škoda public API enforces a rate limit per Vehicle Identification Number (V
 
 ## Known limitations
 
-- The integration is read-only. It reports vehicle status but cannot start or stop charging, control climate, or lock or unlock the vehicle.
+- Apart from starting and stopping charging, the integration is read-only. It cannot control climate, or lock or unlock the vehicle.
+- Every command counts towards the Škoda public API rate limit for the vehicle, just like a data update.
 - Available sensors depend on the vehicle's model, powertrain, equipment, and the validity of Škoda Connect licenses.
 
 ## Troubleshooting
