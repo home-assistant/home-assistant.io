@@ -364,7 +364,7 @@ Color and white share one output on the device:
 
 - Turning off the white light sets white to 0. The output turns off only if no color is lit.
 - Turning on the white light while the device is off also turns the last color back on.
-- Turning on the white light without a brightness restores the last white level. After a restart of Home Assistant, it turns on at full brightness.
+- Turning on the white light without a brightness uses the current white level of the device. If that level is 0, it restores the level from the last time you turned off the white light. If Home Assistant has restarted since then, it turns on at full brightness.
 
 ## Light transition
 
