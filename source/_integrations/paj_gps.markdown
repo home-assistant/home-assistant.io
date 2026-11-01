@@ -26,7 +26,7 @@ It provides entities for tracking the location of your PAJ GPS devices, monitori
 - Track the location of your PAJ GPS devices on a map in Home Assistant.
 - Create automations based on the location or status of your PAJ GPS devices (for example, open garage door when car is near).
 - Get notified when a device's battery is running low so you can recharge it before it goes offline.
-- Turn alerts on or off at set times, such as enabling the speed alert at night while your vehicle is parked to act as thief alarm.
+- Turn alerts on or off at set times, such as enabling the speed alert at night while your vehicle is parked to act as a theft alarm.
 
 ## Supported devices
 
