@@ -12,6 +12,7 @@ ha_categories:
 ha_config_flow: true
 ha_platforms:
   - button
+  - event
 ha_quality_scale: bronze
 ---
 
@@ -101,6 +102,20 @@ The **SilverCrest** integration provides the following entities.
 - **Mist**
   - **Description**: Toggles the misting function.
   - **Available for**: Misting pedestal fans.
+
+### Events
+
+An event entity is created when an infrared receiver is configured. It fires an event each time a remote command is received, so you can use the remote to trigger automations in Home Assistant.
+
+- **Received command**
+  - **Description**: Fires when a command from the remote is successfully decoded by the infrared receiver. The event type corresponds to the button pressed on the remote.
+  - **Event types**:
+    - Power
+    - Speed
+    - Timer
+    - Oscillation
+    - Mode
+  - **Remarks**: For misting pedestal fans, the **Mode** event corresponds to the **Mist** button on the remote.
 
 ## SilverCrest Infrared automation examples
 
