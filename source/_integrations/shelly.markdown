@@ -200,6 +200,7 @@ If the device has more than one relay, the integration creates a child device fo
 - If a `Device Name` is not set, the integration will use the `Device ID` to generate the parent device name and entity names assigned to the parent device.
 - If a `Channel Name` is set in the device, the integration will use it to generate the child device name and entity names assigned to this child device (channel/relay).
 - If a `Channel Name` is not set in the device, the integration will use the component type and channel number, for example `Output 0`, to generate the child device name and entity names assigned to this child device (channel/relay).
+- Energy meter phases are always named after the phase, for example `Phase A`, even if a name is set for the energy meter in the device.
 
 Examples:
 
