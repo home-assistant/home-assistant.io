@@ -67,7 +67,7 @@ Verify SSL certificate:
     description: "Whether to verify the certificate of your PiKVM. Off by default. Only turn this on if you replaced the self-signed certificate that ships with PiKVM with a trusted certificate that matches the host you entered, for example a Let's Encrypt certificate."
 {% endconfiguration_basic %}
 
-Each PiKVM is identified by its hardware serial number, so you can add the same PiKVM only once. If your PiKVM gets a new address, add it again at the new address. Home Assistant shows that the device is already configured and updates the stored host. The entry is named after the name your PiKVM reports, which is usually its hostname.
+Each PiKVM is identified by its hardware serial number, so you can add the same PiKVM only once. The entry is named after the name your PiKVM reports, which is usually its hostname.
 
 ## Supported functionality
 
@@ -172,7 +172,7 @@ The **PiKVM** integration {% term polling polls %} your PiKVM every 30 seconds. 
 - PiKVM ships with a self-signed certificate that is issued for `localhost` and does not include the IP address of the device. By default, the integration connects over HTTPS so the connection is encrypted, but it does not verify the certificate. If you installed a trusted certificate on your PiKVM, you can turn on **Verify SSL certificate** during setup.
 - Home Assistant stores the password and, if you entered it, the two-factor authentication secret in its configuration, like it does for other integrations.
 - IPv6 addresses are not supported. Use a hostname or an IPv4 address.
-- You cannot update the credentials of an existing entry. If you change the password or the two-factor authentication secret on your PiKVM, delete the entry and add your PiKVM again. To update only the address, add your PiKVM again at its new address.
+- You cannot update the address or credentials of an existing entry. If the address, password, or two-factor authentication secret of your PiKVM changes, delete the entry and add your PiKVM again.
 
 ## Troubleshooting
 
