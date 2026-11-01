@@ -7,7 +7,7 @@ related_actions:
   - nordpool.get_prices_for_date
 ---
 
-The **Get price indices for date** action retrieves pricing information for any date with published prices, using a resolution time you choose.
+The **Nord Pool: Get price indices for date** action retrieves pricing information for any date with published prices, using a resolution time you choose.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example in a trigger-based template sensor.
 

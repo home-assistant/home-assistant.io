@@ -1,19 +1,7 @@
 ---
-title: Teltonika
 description: Instructions on how to integrate Teltonika routers with Home Assistant.
 ha_release: 2026.3
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@karlbeecken'
 ha_domain: teltonika
-ha_integration_type: device
-ha_dhcp: true
-ha_config_flow: true
-ha_quality_scale: silver
-ha_category:
-  - Sensor
-ha_platforms:
-  - sensor
 related:
   - url: https://teltonika-networks.com/
     title: Teltonika Networks
@@ -34,9 +22,9 @@ Most Teltonika routers running RutOS are supported, including:
 ## Prerequisites
 
 - The IP address of your router.
-- Login credentials for your router's web interface with read permissions for device, system, and modem information.
+- Login credentials for your router's web interface.
 
-If data is missing, adjust the read permissions of the account's user group in RutOS.
+To improve security, create a dedicated user and user group in RutOS for Home Assistant instead of using an account with broad access. The group needs read permissions for device, system, and modem information. If some sensors are missing, check the group's read permissions in RutOS.
 
 {% include integrations/config_flow.md %}
 

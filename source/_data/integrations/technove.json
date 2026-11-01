@@ -1,0 +1,24 @@
+{
+  "domain": "technove",
+  "name": "TechnoVE",
+  "integration_type": "device",
+  "codeowners": [
+    "@Moustachauve"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.ev_charging"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "number",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

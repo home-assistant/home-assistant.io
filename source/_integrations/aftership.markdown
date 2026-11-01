@@ -1,15 +1,7 @@
 ---
-title: AfterShip
 description: Instructions on how to set up AfterShip sensors within Home Assistant.
-ha_category:
-  - Postal service
 ha_release: 0.85
-ha_iot_class: Cloud Polling
 ha_domain: aftership
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_config_flow: true
 ---
 
 The **AfterShip** {% term integration %} allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that supports 490+ couriers worldwide. To use the tracking API functionality, the Pro plan is required.

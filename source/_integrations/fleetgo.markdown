@@ -1,18 +1,10 @@
 ---
-title: FleetGO
 description: Instructions on how to use a FleetGO as a device tracker.
-ha_category:
-  - Car
-ha_iot_class: Cloud Polling
 ha_release: 0.76
 ha_domain: fleetgo
-ha_platforms:
-  - device_tracker
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **FleetGO** {% term integration %} allows you to integrate your vehicles equipped with [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.

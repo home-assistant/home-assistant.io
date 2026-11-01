@@ -5,7 +5,7 @@
 
 {%- assign integration_count = 0 -%}
 {%- for comp in site.integrations -%}
-  {%- if comp.ha_category and comp.title -%}
+  {%- if comp.title -%}
     {%- assign integration_count = integration_count | plus: 1 -%}
   {%- endif -%}
 {%- endfor -%}

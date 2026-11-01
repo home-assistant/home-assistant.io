@@ -35,10 +35,11 @@ Follow these steps to create a new category.
    - Select **Assign category** and select the category from the list.
    - If the category is not in the list, select **Add new category** and make a new one.
 3. To assign a category to multiple items:
-   - Select the multi-select {% icon "mdi:order-checkbox-ascending" %} button.
+   - Select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
+     - Result: A bar appears at the top of the list.
    - From the list, select all the items to which you want to apply a category.
-   - In the top right corner, select **Move to category**.
-   - Then, select the category from the list.
+   - In that bar, select **Move to category**. Then, select the category from the list.
+     - On a phone, select **Action** > **Move to category**.
 4. Once categories are applied, the table items are grouped by those categories.
    - The example shows 2 categories: Coffee and housekeeping.
 

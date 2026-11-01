@@ -7,7 +7,7 @@ related_actions:
   - system_bridge.send_keypress
 ---
 
-The **Send keyboard text** action sends text for a System Bridge server to type, as if it was typed on the server's keyboard.
+The **System Bridge: Send keyboard text** action sends text for a System Bridge server to type, as if it was typed on the server's keyboard.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 

@@ -1,0 +1,12 @@
+{
+  "domain": "comed_hourly_pricing",
+  "name": "ComEd Hourly Pricing",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "energy.energy_prices"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

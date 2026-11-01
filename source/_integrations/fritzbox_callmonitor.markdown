@@ -1,15 +1,7 @@
 ---
-title: FRITZ!Box Call Monitor
 description: Instructions on how to integrate a phone call monitor for FRITZ!Box routers into Home Assistant.
-ha_category:
-  - System monitor
 ha_release: 0.27
-ha_iot_class: Local Polling
 ha_domain: fritzbox_callmonitor
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: device
 ---
 
 The **FRITZ!Box Call Monitor** {% term integration %} monitors the call monitor exposed by [FRITZ!Box](https://en.fritz.com/products/fritzbox/) routers (by FRITZ!, formerly AVM) on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
@@ -28,7 +20,7 @@ To use the FRITZ!Box call monitor in your installation, a user with at least `Vo
 7.  Check the rights box next to `Voice messages, faxes, FRITZ!App Fon and call list`.
 8.  Click the `Apply` button.
 
-You also need network access from HA to your FRITZ!Box on port `tcp/1012` for the call monitoring, as well as *one time access* to port `tcp/80` for setting up the integration.
+You also need network access from Home Assistant to your FRITZ!Box on TCP port `1012` for call monitoring and TCP port `49000` for TR-064 communication. One-time access to TCP port `80` is required when setting up the integration.
 
 ## Setup
 

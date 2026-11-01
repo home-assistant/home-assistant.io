@@ -1,0 +1,18 @@
+{
+  "domain": "easyenergy",
+  "name": "easyEnergy",
+  "integration_type": "service",
+  "codeowners": [
+    "@klaasnicolaas"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.energy_prices"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

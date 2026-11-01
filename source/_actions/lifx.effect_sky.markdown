@@ -24,7 +24,7 @@ To run the Sky effect from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Sky effect**.
+5. From the search box, search for and select **LIFX: Sky effect**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your light is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 7. In **Sky type**, choose the sky you want to animate, then set **Speed** to control how long the animation takes.
 8. Select **Save**.
@@ -36,7 +36,10 @@ Power on:
   description: Turn the light on before the effect starts. This is on by default. Turn it off to leave a light that is already off untouched.
   required: false
 Speed:
-  description: For the **Sunrise** and **Sunset** sky types, how long the effect takes to complete, in seconds. For the **Clouds** sky type, how fast the clouds move across the light. Accepts 1 to 86400 seconds, and defaults to 50.
+  description: For the **Sunrise** and **Sunset** sky types, how long the effect takes to complete, in seconds. For the **Clouds** sky type, how fast the clouds move across the light. Accepts 0 to 86400 seconds, and defaults to 50. At 0, the effect plays once across the **Duration**, which you then have to set.
+  required: false
+Duration:
+  description: How long the effect runs, in seconds, from 0 to 86400. Defaults to 0, which runs the effect until you stop it.
   required: false
 Sky type:
   description: The style of sky to animate. Choose **Clouds**, **Sunrise**, or **Sunset**. Defaults to **Clouds**.
@@ -77,10 +80,15 @@ power_on:
   type: boolean
   default: true
 speed:
-  description: For the `Sunrise` and `Sunset` sky types, how long the effect takes to complete, in seconds. For the `Clouds` sky type, how fast the clouds move across the light. Accepts 1 to 86400 seconds.
+  description: For the `Sunrise` and `Sunset` sky types, how long the effect takes to complete, in seconds. For the `Clouds` sky type, how fast the clouds move across the light. Accepts 0 to 86400 seconds. At 0, the effect plays once across the `duration`, which you then have to set.
   required: false
   type: integer
   default: 50
+duration:
+  description: How long the effect runs, in seconds, from 0 to 86400. At 0, the effect runs until you stop it.
+  required: false
+  type: integer
+  default: 0
 sky_type:
   description: "The style of sky to animate. One of `Clouds`, `Sunrise`, or `Sunset`."
   required: false
@@ -108,7 +116,8 @@ palette:
 
 - The Sky effect needs a matrix light running firmware 4 or later. The LIFX Ceiling, Luna, Mirror, E26 Candle, and E26 Tube ship with it. Matrix lights still on firmware 3, such as the E12 Candle, do not support the effect. LIFX lights that are not matrix lights are skipped without an error, so you can point this action at an area that also holds other lights. A matrix light on firmware 3, however, makes the whole action fail, so leave those lights out of the target.
 - How much detail you see depends on the light. The **Clouds** sky type spreads a pattern across the pixels, so it looks most detailed on a light with many of them, like the Ceiling. On a light with only a handful of zones, such as the Path, you still get a blue sky with lighter shapes drifting past, just a coarser one. The **Sunrise** and **Sunset** sky types shift color over time instead, so they look much the same on any supported light.
-- In the **Effect** option of the [Turn on a light](/actions/light.turn_on/) action, Sky is currently offered on LIFX Ceiling lights only. On the other supported lights, use this action instead.
+- In the **Effect** option of the [Turn on light](/actions/light.turn_on/) action, Sky is offered on every matrix light running firmware 4 or later.
+- To play a sunrise or sunset once over a set time, set **Speed** to 0 and **Duration** to how long it should take, such as 1800 for 30 minutes. Speed 0 without a duration fails with an error, because the effect would otherwise run at a default speed instead.
 - When you target lights by entity and none of them is a LIFX light, the action fails with the message "The targets of action lifx.effect_sky include no LIFX light". If they include LIFX lights but no matrix light, it fails with "The targets of action lifx.effect_sky include no LIFX matrix light". When you target an area, floor, device, or label instead, lights the effect cannot run on are left alone and no error is returned.
 - The palette is shared between all three sky types. It takes 1 to 6 colors, which are used in this order:
   1. Sky: the background sky color for the **Clouds** sky type.
@@ -120,7 +129,7 @@ palette:
 - Each palette color is a list of four numbers in the order hue, saturation, brightness, Kelvin. A saturation or brightness of 1 or less is read as a fraction, so `0.5` and `50` both mean 50%, and `1` means 100%, not 1%.
 - To stop the animation, use the [Stop effect](/actions/lifx.effect_stop/) action. The light goes back to the color and power state it had before the effect started.
 - Because the effect runs in the light's firmware, it keeps running until you stop it, turn the light off, or start a different effect.
-- You can also start this effect with default options by calling [Turn on a light](/actions/light.turn_on/) with the effect set to `effect_sky`.
+- You can also start this effect with default options by calling [Turn on light](/actions/light.turn_on/) with the effect set to `effect_sky`.
 
 {% include actions/try_it.md %}
 
@@ -131,10 +140,10 @@ palette:
 Start a 15-minute sunrise on the bedroom ceiling light in the morning, so the room brightens gradually before your alarm goes off.
 
 - **Trigger**: Time: 06:15
-- **Action**: Sky effect
+- **Action**: LIFX: Sky effect
   - **Target**: Bedroom ceiling (`light.bedroom_ceiling`)
   - **Sky type**: Sunrise
-  - **Speed**: 900
+  - **Speed**: `900` seconds
 
 {% example %}
 automation: |
@@ -155,18 +164,17 @@ automation: |
 
 When the sun sets, animate a matching sunset across the living room ceiling light over half an hour.
 
-- **Trigger**: Sun: sunset
-- **Action**: Sky effect
+- **Trigger**: Sunset
+- **Action**: LIFX: Sky effect
   - **Target**: Living room ceiling (`light.living_room_ceiling`)
   - **Sky type**: Sunset
-  - **Speed**: 1800
+  - **Speed**: `1800` seconds
 
 {% example %}
 automation: |
   alias: "Run a sunset in the living room at sundown"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: lifx.effect_sky
       target:

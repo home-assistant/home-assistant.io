@@ -1,0 +1,17 @@
+{
+  "domain": "gpsd",
+  "name": "GPSD",
+  "codeowners": [
+    "@fabaff",
+    "@jrieger"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "presence_location.trackers",
+    "diy_makers.boards_hardware"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

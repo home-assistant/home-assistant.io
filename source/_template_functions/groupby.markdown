@@ -39,6 +39,7 @@ groupby(
     value: list,
     attribute: str,
     default: Any = None,
+    case_sensitive: bool = False,
 ) -> list[tuple]
 ```
 
@@ -59,9 +60,15 @@ attribute:
   type: string
 default:
   description: >
-    The default value to use for items that do not have the specified attribute. If not provided, items without the attribute are excluded.
+    The value to group by for items that don't have the attribute. If not provided, an item without the attribute causes an error.
   required: false
   type: any
+case_sensitive:
+  description: >
+    Whether values that only differ in uppercase and lowercase, such as `On` and `on`, go in separate groups. By default, they go in the same group.
+  required: false
+  default: "false"
+  type: boolean
 {% endfunction_parameters %}
 
 ## Grouping with dotted attributes
@@ -83,25 +90,26 @@ output: |
 
 ## Default value for missing attributes
 
-Use the `default` parameter to include items that lack the grouping attribute.
+Use the `default` parameter to include items that lack the grouping attribute. Sensors without a device class don't have the `device_class` attribute, so they go in the `none` group.
 
 {% example %}
 template: |
-  {% for area, entities in expand("light.home_lights")
-    | groupby("attributes.area", default="Unknown") %}
-    {{ area }}: {{ entities | map(attribute="entity_id") | join(", ") }}
+  {% for device_class, sensors in expand("sensor.home_sensors")
+    | groupby("attributes.device_class", default="none") %}
+    {{ device_class }}: {{ sensors | map(attribute="entity_id") | join(", ") }}
   {% endfor %}
 type: string
 output: |
-  Kitchen: light.kitchen_ceiling, light.kitchen_counter
-  Living room: light.living_room_main
-  Unknown: light.unnamed_bulb
+  humidity: sensor.bathroom_humidity
+  none: sensor.last_notification
+  temperature: sensor.kitchen_temperature, sensor.living_room_temperature
 {% endexample %}
 
 ## Good to know
 
-- The input must be sorted by the grouping attribute already. This filter only groups adjacent items with matching values.
-- Items without the attribute are dropped unless you supply a `default`.
+- You don't need to sort the items first. The filter sorts them by the grouping attribute, so the groups come out in that order.
+- If an item doesn't have the attribute and you don't set a `default`, the template fails with an error.
+- By default, grouping ignores uppercase and lowercase. `On` and `on` end up in the same group, and the group is named after the value of its first item. To keep them apart, set `case_sensitive=true`.
 - Returns a list of `(grouper, items)` tuples, which you unpack in a `for` loop.
 
 {% include template_functions/try_it.md %}
@@ -138,22 +146,21 @@ output: |
   2 light(s) are on
 {% endexample %}
 
-### Group sensors by area and find averages
+### Group sensors by unit and find averages
 
-Group temperature sensors by their area and calculate the average for each.
+Group temperature sensors by their unit of measurement and calculate the average for each unit. This is useful if some of your sensors report in °C and others in °F.
 
 {% example %}
 template: |
-  {% for area, sensors in expand("sensor.temperature_sensors")
-    | groupby("attributes.area") %}
-    {{ area }}: {{ sensors | map(attribute="state") | map("float")
-       | average | round(1) }}°C
+  {% for unit, sensors in expand("sensor.temperature_sensors")
+    | groupby("attributes.unit_of_measurement") %}
+    {{ unit }}: {{ sensors | map(attribute="state") | map("float")
+       | average | round(1) }}
   {% endfor %}
 type: string
 output: |
-  Bedroom: 19.8°C
-  Kitchen: 22.1°C
-  Living room: 21.3°C
+  °C: 21.1
+  °F: 70.3
 {% endexample %}
 
 {% include template_functions/stuck.md %}

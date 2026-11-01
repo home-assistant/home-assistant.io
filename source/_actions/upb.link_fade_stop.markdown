@@ -20,7 +20,7 @@ To stop a scene fade from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select your UPB scene.
-6. From the actions shown for that target, select **Stop link fade**.
+6. From the actions shown for that target, under **Universal Powerline Bus (UPB)**, select **Stop link fade**.
 7. Select **Save**.
 
 ### Options in the UI

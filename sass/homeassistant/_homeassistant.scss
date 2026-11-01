@@ -21,7 +21,6 @@
 @use 'base/global' as *;
 @use 'base/grid' as *;
 @use 'base/header' as *;
-@use 'base/navigation' as *;
 @use 'base/footer' as *;
 @use 'base/syntax' as *;
 @use 'base/post' as *;
@@ -52,6 +51,7 @@
 @use 'pages/landingpage' as *;
 @use 'pages/component_page' as *;
 @use 'pages/getting_started' as *;
+@use 'pages/hardware' as *;
 @use 'pages/social-media' as *;
 
 @use 'helpers/classes' as *;

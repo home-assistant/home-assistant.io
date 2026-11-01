@@ -1,0 +1,25 @@
+{
+  "domain": "nest",
+  "name": "Google Nest",
+  "integration_type": "hub",
+  "codeowners": [
+    "@allenporter"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "climate.thermostats_heating",
+    "security_safety.cameras",
+    "security_safety.doorbells_intercoms"
+  ],
+  "platforms": [
+    "camera",
+    "climate",
+    "diagnostics",
+    "event",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

@@ -1,35 +1,7 @@
 ---
-title: YoLink
 description: Instructions on how to integrate YoLink Devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Light
-  - Lock
-  - Number
-  - Sensor
-  - Siren
-  - Switch
 ha_release: 2022.6
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@matrixd2'
 ha_domain: yolink
-ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - valve
-ha_integration_type: hub
 ---
 
 Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.

@@ -1,19 +1,7 @@
 ---
-title: Suez Water
 description: Instructions on how to integrate Suez Water daily data within Home Assistant.
 ha_release: 0.97
-ha_category:
-  - Sensor
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@ooii'
-  - '@jb101010-2'
 ha_domain: suez_water
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Suez Water** {% term integration %} fetches your water consumption data from the French water provider [Tout Sur Mon Eau](https://www.toutsurmoneau.fr) website.
@@ -39,7 +27,7 @@ Extra attributes of `Water usage yesterday` sensor:
 The integration provides statistics containing all available data from Suez.
 The data is fetched every 12 hours and is updated once a day by Suez.
 
-You can find the statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} and search for "suez_water".
+You can find the statistics in {% my tools_statistics title="**Settings** > **Tools** > **Statistics**"%} and search for "suez_water".
 **Note: Due to Suez's daily update schedule, data for the current day will not be available, and yesterday's data may be delayed depending on when you check**
 
 At the initial setup, the integration pulls historical daily usage since the counter installation.

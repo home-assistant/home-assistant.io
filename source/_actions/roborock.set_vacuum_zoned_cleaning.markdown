@@ -22,7 +22,7 @@ To clean a zone from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Roborock vacuum you want to clean with.
-6. From the actions shown for that target, select **Clean zone**.
+6. From the actions shown for that target, under **Roborock**, select **Clean zone**.
 7. Enter the **X1-coordinate** and **Y1-coordinate** of one corner of the zone, and the **X2-coordinate** and **Y2-coordinate** of the opposite corner.
 8. Set **Repeats** to how many extra passes you want. `0` cleans the zone once.
 9. Select **Save**.

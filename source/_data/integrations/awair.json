@@ -1,0 +1,19 @@
+{
+  "domain": "awair",
+  "name": "Awair",
+  "codeowners": [
+    "@ahayworth",
+    "@ricohageman"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

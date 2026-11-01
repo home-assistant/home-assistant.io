@@ -8,7 +8,7 @@ related_actions:
   - opentherm_gw.set_max_modulation
 ---
 
-The **Set central heating override** action sets the central heating override option on your OpenTherm Gateway. When you override the control setpoint (using the **Set control setpoint** action with a value other than 0), the gateway automatically enables the central heating override to start heating. You can then use this action to control the central heating override status. To return control of the central heating to the thermostat, use the **Set control setpoint** action with a temperature value of 0.
+The **OpenTherm Gateway: Set central heating override** action sets the central heating override option on your OpenTherm Gateway. When you override the control setpoint (using the **Set control setpoint** action with a value other than 0), the gateway automatically enables the central heating override to start heating. You can then use this action to control the central heating override status. To return control of the central heating to the thermostat, use the **Set control setpoint** action with a temperature value of 0.
 
 You only need this if you are writing your own software thermostat.
 

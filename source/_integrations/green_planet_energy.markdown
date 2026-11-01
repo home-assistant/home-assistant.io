@@ -1,19 +1,7 @@
 ---
-title: Green Planet Energy
 description: Instructions on how to integrate Green Planet Energy dynamic electricity pricing into Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2026.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@petschni'
 ha_domain: green_planet_energy
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Green Planet Energy** {% term integration %} provides real-time electricity pricing data from [Green Planet Energy](https://green-planet-energy.de/), a German renewable energy provider. It fetches 15-minute electricity prices and exposes various sensors for energy monitoring and optimization. Use it to shift your power consumption to cheaper hours and make the most of a dynamic electricity tariff.

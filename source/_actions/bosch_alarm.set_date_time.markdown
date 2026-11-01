@@ -77,7 +77,8 @@ datetime:
 
 Bosch alarm panels can drift over time. This automation re-syncs the panel clock to your Home Assistant time every night, so the panel always shows the correct date and time. Because no date and time are provided, the current Home Assistant time is used.
 
-- **Trigger**: A scheduled time
+- **Trigger**: Time
+  - **At time**: `04:00`
 - **Action**: Bosch Alarm: Set date & time
 
 {% details "YAML example for syncing the panel clock every night" %}

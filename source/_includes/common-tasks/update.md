@@ -1,7 +1,7 @@
 #### Prerequisites
 
-1. [Back up your installation](/common-tasks/general/#backups) and store the backup and the [backup emergency kit](/more-info/backup-emergency-kit/) somewhere safe.
-   - This ensures that you can [restore your installation from backup](/common-tasks/general/#restoring-a-backup) if needed.
+1. [Back up your installation](/common-tasks/general/backups/) and store the backup and the [backup emergency kit](/more-info/backup-emergency-kit/) somewhere safe.
+   - This ensures that you can [restore your installation from backup](/common-tasks/general/backups/#restoring-a-backup) if needed.
 2. Check the release notes for backward-incompatible changes on [Home Assistant release notes](/blog/categories/core/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f` / `CMD + f`) and search for **Backward-incompatible changes**.
 
 #### To update Home Assistant Core
@@ -15,18 +15,14 @@ To update Home Assistant Core, choose one of the following options.
   - title: Using the UI
     content: |
 
-      1. Open your Home Assistant UI.
-      2. Go to the **Settings** panel.
-      3. On the top you will be presented with an update notification.
-        - Troubleshooting: If you do not see that notification:
-          - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
-          - Go to {% my updates title="**System** > **Updates**" %}.
-            - Select the update notification.
-            - Select the cogwheel {% icon "mdi:cog-outline" %}, then set **Visible** to active.
-      4. Open the notification for the component you want to update.
-      5. If you want to backup the system first (recommended), enable the backup toggle.
-      6. Select **Update**.
-      7. After the update completed, check if there are any repair issues and check the logs to see if there are any issues with your configuration that need to be addressed.
+      1. Go to {% my config title="**Settings**" %}.
+      2. At the top, select the **Home Assistant Core** update.
+         - Troubleshooting: If you don't see the update:
+           - In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
+           - Go to {% my updates title="**Settings** > **System** > **Updates**" %}, and select the update there.
+      3. To create a backup before the update, turn on the backup option. Depending on your backup settings, it's called **Automatic backup before update** or **Create manual backup before update**.
+      4. Select **Update**.
+      5. After the update, check {% my repairs title="**Settings** > **System** > **Repairs**" %} and {% my logs title="**Settings** > **System** > **Logs**" %} for issues with your configuration that you need to address.
 
   - title: Using the CLI
     content: |
@@ -64,7 +60,7 @@ To update Home Assistant Core, choose one of the following options.
 
   {% endtabbed_block %}
 
-After the update, check if there are any repair issues and check the logs to see if there are any issues with your configuration that need to be addressed.
+After the update, check {% my repairs title="**Settings** > **System** > **Repairs**" %} and {% my logs title="**Settings** > **System** > **Logs**" %} for issues with your configuration that you need to address.
 
 {% endif %}
 

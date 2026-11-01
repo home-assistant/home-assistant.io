@@ -9,7 +9,7 @@ related_actions:
   - xiaomi_miio.vacuum_remote_control_stop
 ---
 
-The **Vacuum remote control move** action steers a Xiaomi robot vacuum. First put the vacuum into remote control mode with the [Vacuum remote control start](/actions/xiaomi_miio.vacuum_remote_control_start/) action, then call this action to set the speed, rotation, and duration of the movement.
+The **Xiaomi Home: Vacuum remote control move** action steers a Xiaomi robot vacuum. First put the vacuum into remote control mode with the [Vacuum remote control start](/actions/xiaomi_miio.vacuum_remote_control_start/) action, then call this action to set the speed, rotation, and duration of the movement.
 
 {% include actions/ui_header.md %}
 
@@ -20,7 +20,7 @@ To move the vacuum from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Xiaomi robot vacuum you want to control.
-6. From the actions shown for that target, select **Vacuum remote control move**.
+6. From the actions shown for that target, under **Xiaomi Home**, select **Vacuum remote control move**.
 7. Set the **Velocity**, **Rotation**, and **Duration**.
 8. Select **Save**.
 

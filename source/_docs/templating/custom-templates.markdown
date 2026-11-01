@@ -6,8 +6,10 @@ related:
     title: "`as_function` filter"
   - docs: /docs/templating/loops-and-conditions/
     title: Loops and conditions
-  - url: https://jinja.palletsprojects.com/en/3.0.x/templates/#macros
+  - url: https://jinja.palletsprojects.com/en/stable/templates/#macros
     title: Jinja2 macros documentation
+  - url: https://jinja.palletsprojects.com/en/stable/templates/#import-context-behavior
+    title: Jinja2 import context behavior
 ---
 
 When you find yourself writing the same template in two or three places, it is time to save it once and reuse it. Home Assistant has a feature for that: the `custom_templates` folder. Drop a template file in there, and every automation, script, and template entity in your configuration can call it.
@@ -16,24 +18,28 @@ This page is optional. If you are starting out with templates, you can skip it. 
 
 ## Setting up the folder
 
-Create a folder called `custom_templates` inside your Home Assistant configuration directory (the one that holds `configuration.yaml`). Inside it, create files with the `.jinja` extension. The name before the extension is what you will import by.
+Create a folder called `custom_templates` inside your Home Assistant configuration directory (the one that holds `configuration.yaml`). Inside it, create files with the `.jinja` extension. To import a file, use its full file name, including `.jinja`, such as `formatter.jinja`.
 
 ```text
 config/
 ├── configuration.yaml
 ├── automations.yaml
 └── custom_templates/
-    └── formatter.jinja
+    ├── formatter.jinja
+    └── formatting/
+        └── entities.jinja
 ```
 
-Each file must be under 5 MiB. Home Assistant loads everything in this folder at startup.
+You can also organize your files in subfolders. To import a file from a subfolder, include the subfolder in the name, such as `formatting/entities.jinja`.
+
+Home Assistant loads all `.jinja` files in this folder and its subfolders when it starts, and when you [reload custom templates](#reloading-without-a-restart). A file can be up to 5 MiB. Home Assistant skips larger files, so importing them fails.
 
 ### Reloading without a restart
 
 When you edit a file in `custom_templates`, Home Assistant does not pick up the change automatically. You need to tell it to reload in one of two ways:
 
-- Call the {% my developer_call_service service="homeassistant.reload_custom_templates" %} action.
-- Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %} and run the `homeassistant.reload_custom_templates` action.
+- Call the {% my tools_perform_action service="homeassistant.reload_custom_templates" %} action.
+- Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %} and run the `homeassistant.reload_custom_templates` action.
 
 Home Assistant does not need a restart for custom template changes.
 
@@ -71,6 +77,8 @@ Home Assistant supports both of the usual ways to pull in a template file:
 - **`{% include 'file.jinja' %}`** runs the entire file as if its contents were at the current spot. Use this for drop-in content.
 
 For most reuse cases, `import` is cleaner because it keeps the macro names explicit.
+
+An imported macro doesn't see the variables of the template that imports it, such as `trigger`, `this`, or variables you set with `{% set %}`. Functions such as `states` still work. To use a variable in the macro, pass it as an argument, or add `with context` to the import, such as `{% from 'formatter.jinja' import format_entity with context %}`. An included file sees these variables without `with context`.
 
 ## Macros that return values
 

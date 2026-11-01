@@ -1,0 +1,12 @@
+{
+  "domain": "rtorrent",
+  "name": "rTorrent",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.nas_servers"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

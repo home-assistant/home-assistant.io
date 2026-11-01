@@ -1,0 +1,30 @@
+{
+  "domain": "whirlpool",
+  "name": "Whirlpool Appliances",
+  "integration_type": "hub",
+  "codeowners": [
+    "@abmantis",
+    "@mkmer"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "silver",
+  "categories": [
+    "appliances_cleaning.laundry",
+    "appliances_cleaning.cooking",
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "diagnostics",
+    "light",
+    "number",
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

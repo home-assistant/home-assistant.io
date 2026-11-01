@@ -1,0 +1,20 @@
+{
+  "domain": "opengarage",
+  "name": "OpenGarage",
+  "integration_type": "device",
+  "codeowners": [
+    "@danielhiversen"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "cover",
+    "light",
+    "sensor"
+  ]
+}

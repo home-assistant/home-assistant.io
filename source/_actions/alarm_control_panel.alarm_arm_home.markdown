@@ -84,9 +84,9 @@ code:
 
 Set up a quick action on your dashboard so you can arm the perimeter with a single tap while you're lounging on the couch.
 
-- **Action**: Alarm control panel: Arm alarm home
-- **Target**: Home alarm
-- **Code**: 1234
+- **Action**: Arm alarm home
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming home with a code" %}
 
@@ -105,10 +105,13 @@ action: |
 
 When you get home after dark, automatically arm the alarm in home mode. Your doors and windows stay protected while you settle in for the evening.
 
-- **Trigger**: Person: Paulus changes to home
-- **Condition**: Sun is below horizon
-- **Action**: Alarm control panel: Arm alarm home
-- **Target**: Home alarm
+- **Trigger**: State changed
+  - **Entity**: Paulus person
+  - **To**: Home
+- **Condition**: Sun is set
+- **Action**: Arm alarm home
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming home on nighttime arrival" %}
 
@@ -120,8 +123,7 @@ automation: |
       entity_id: person.paulus
       to: home
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: alarm_control_panel.alarm_arm_home
       target:
@@ -137,8 +139,9 @@ automation: |
 Each evening at 10 o'clock, arm the alarm in home mode so the perimeter is secured while you sleep. Pair this with a night mode automation for even tighter protection later on.
 
 - **Trigger**: Time: 22:00
-- **Action**: Alarm control panel: Arm alarm home
-- **Target**: Home alarm
+- **Action**: Arm alarm home
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for an evening perimeter arm" %}
 

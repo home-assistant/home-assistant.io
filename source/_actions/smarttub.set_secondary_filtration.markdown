@@ -1,5 +1,5 @@
 ---
-title: "Set secondary filtration"
+title: "Update secondary filtration settings"
 action: smarttub.set_secondary_filtration
 domain: smarttub
 description: "Updates the secondary filtration mode on a hot tub."
@@ -63,7 +63,9 @@ mode:
 
 Switch the secondary filtration to away mode when you leave home, so the hot tub filters less while no one is around to use it.
 
-- **Trigger**: You leave home
+- **Trigger**: State changed
+  - **Entity**: Sam person
+  - **To**: Away
 - **Action**: SmartTub: Update secondary filtration settings
 
 {% details "YAML example for switching to away mode when leaving home" %}

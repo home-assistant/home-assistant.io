@@ -1,0 +1,20 @@
+{
+  "domain": "vera",
+  "name": "Vera",
+  "integration_type": "hub",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "cover",
+    "light",
+    "lock",
+    "scene",
+    "sensor",
+    "switch"
+  ]
+}

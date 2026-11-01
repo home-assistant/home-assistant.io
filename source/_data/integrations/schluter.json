@@ -1,0 +1,15 @@
+{
+  "domain": "schluter",
+  "name": "Schluter",
+  "codeowners": [
+    "@prairieapps"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate"
+  ]
+}

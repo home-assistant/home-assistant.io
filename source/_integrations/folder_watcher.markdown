@@ -1,16 +1,7 @@
 ---
-title: Folder watcher
 description: Integration for monitoring changes within the filesystem.
-ha_category:
-  - System monitor
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: 0.67
-ha_quality_scale: internal
-ha_platforms:
-  - event
 ha_domain: folder_watcher
-ha_integration_type: integration
 ---
 
 The **Folder watcher** {% term integration %} adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring.

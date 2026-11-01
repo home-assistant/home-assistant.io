@@ -1,0 +1,9 @@
+{
+  "domain": "device_tracker",
+  "name": "Device tracker",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

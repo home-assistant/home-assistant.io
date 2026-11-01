@@ -1,0 +1,50 @@
+{
+  "domain": "demo",
+  "name": "Demo",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ],
+  "platforms": [
+    "air_quality",
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "calendar",
+    "camera",
+    "climate",
+    "cover",
+    "date",
+    "datetime",
+    "device_tracker",
+    "event",
+    "fan",
+    "geo_location",
+    "humidifier",
+    "image_processing",
+    "lawn_mower",
+    "light",
+    "lock",
+    "media_player",
+    "notify",
+    "number",
+    "remote",
+    "select",
+    "sensor",
+    "siren",
+    "stt",
+    "switch",
+    "text",
+    "time",
+    "tts",
+    "update",
+    "vacuum",
+    "valve",
+    "water_heater",
+    "weather"
+  ]
+}

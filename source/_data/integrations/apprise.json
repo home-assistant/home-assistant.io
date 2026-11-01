@@ -1,0 +1,15 @@
+{
+  "domain": "apprise",
+  "name": "Apprise",
+  "codeowners": [
+    "@caronc"
+  ],
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "messaging_notifications"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

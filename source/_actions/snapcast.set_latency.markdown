@@ -8,7 +8,7 @@ related_actions:
   - snapcast.restore
 ---
 
-The **Set latency** action adjusts the audio latency of a Snapcast speaker, in milliseconds. Use it to fine-tune the timing so a speaker stays in sync with the rest of your multi-room audio.
+The **Snapcast: Set latency** action adjusts the audio latency of a Snapcast speaker, in milliseconds. Use it to fine-tune the timing so a speaker stays in sync with the rest of your multi-room audio.
 
 This is handy when one speaker sounds slightly ahead of or behind the others, for example, a speaker connected over a slower link.
 
@@ -21,7 +21,7 @@ To set a speaker's latency from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Snapcast speaker you want to adjust.
-6. From the actions shown for that target, select **Set latency**.
+6. From the actions shown for that target, under **Snapcast**, select **Set latency**.
 7. Enter the **Latency** in milliseconds.
 8. Select **Save**.
 

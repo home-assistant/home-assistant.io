@@ -1,5 +1,5 @@
 ---
-title: "Delete an RFID token"
+title: "Delete RFID token"
 action: peblar.delete_rfid_token
 domain: peblar
 description: "Deletes an RFID token from the Peblar charger's standalone authorization list."
@@ -10,7 +10,7 @@ related:
   - action: peblar.add_rfid_token
 ---
 
-The **Delete RFID token** action deletes an RFID token from the Peblar charger's standalone authorization list. Once deleted, that token can no longer be used to authorize charging sessions on the charger.
+The **Peblar: Delete RFID token** action deletes an RFID token from the Peblar charger's standalone authorization list. Once deleted, that token can no longer be used to authorize charging sessions on the charger.
 
 {% note %}
 This action is only available on Peblar chargers that are equipped with an

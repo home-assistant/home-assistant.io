@@ -1,5 +1,5 @@
 ---
-title: "Browse URL"
+title: "Browse"
 action: browser.browse_url
 domain: browser
 description: "Opens a URL in the default browser on the machine running Home Assistant."
@@ -17,7 +17,7 @@ To open a URL from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Browser: Browse URL**.
+5. From the search box, search for and select **Browser: Browse**.
 6. In the **URL** field, enter the web address you want to open.
 7. Select **Save**.
 

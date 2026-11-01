@@ -1,18 +1,10 @@
 ---
-title: hddtemp
 description: Instructions on how to integrate hard drive temperature information into Home Assistant.
-ha_category:
-  - System monitor
 ha_release: 0.32
-ha_iot_class: Local Polling
 ha_domain: hddtemp
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **hddtemp** {% term integration %} is using the data provided by [HDDTemp](https://savannah.nongnu.org/projects/hddtemp).

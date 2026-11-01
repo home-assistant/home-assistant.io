@@ -1,0 +1,15 @@
+{
+  "domain": "rmvtransport",
+  "name": "RMV",
+  "codeowners": [
+    "@cgtobi"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "vehicles_transport.public_transport"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

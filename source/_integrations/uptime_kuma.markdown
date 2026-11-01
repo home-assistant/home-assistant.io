@@ -1,22 +1,7 @@
 ---
-title: Uptime Kuma
 description: Instructions on how to integrate Uptime Kuma with Home Assistant.
-ha_category:
-  - Sensor
-  - System monitor
-  - Update
-ha_iot_class: Cloud Polling
 ha_release: 2025.8
-ha_config_flow: true
-ha_codeowners:
-  - '@tr4nt0r'
 ha_domain: uptime_kuma
-ha_integration_type: service
-ha_platforms:
-  - diagnostics
-  - sensor
-  - update
-ha_quality_scale: platinum
 ---
 
 The **Uptime Kuma** {% term integration %} connects Home Assistant with your Uptime Kuma monitoring tool.
@@ -32,6 +17,8 @@ This integration allows you to track the status of your **Uptime Kuma** monitors
 ## Prerequisites
 
 To set up the **Uptime Kuma** integration, you need an **API key** and the **URL** of your Uptime Kuma instance (for example: `https://uptime.example.org`).
+
+Your Uptime Kuma instance must be running version 2.0.0 or later.
 
 You can create an API key by logging in to your Uptime Kuma instance, navigating to **Settings** > **API Keys**, and selecting **Add API Key**.
 
@@ -161,7 +148,6 @@ This integration retrieves data from your Uptime Kuma instance every 30 seconds.
 
 ## Known limitations
 
-- When using Uptime Kuma versions before v2.0.0, Uptime Kuma's API does not expose unique identifiers for monitors. Because of this, using the same name for multiple monitors will cause only one of them to appear in Home Assistant. Renaming a monitor will result in new entities being created, while the old (stale) entities will remain unless manually removed.
 - Paused monitors are not exposed by the API, so Home Assistant cannot distinguish between a deleted monitor and a paused one. As a result, if you delete an Uptime Kuma monitor, the corresponding device entry in Home Assistant must be removed manually.
 
 {% note %}

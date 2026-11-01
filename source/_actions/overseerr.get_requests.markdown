@@ -5,7 +5,7 @@ domain: overseerr
 description: "Retrieves a list of media requests from Seerr."
 ---
 
-The **Get requests** action retrieves a list of media requests from Seerr. You can filter the results by status and by the user who made the request, and choose the order in which they are returned.
+The **Seerr: Get requests** action retrieves a list of media requests from Seerr. You can filter the results by status and by the user who made the request, and choose the order in which they are returned.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to notify yourself about pending requests.
 

@@ -1,18 +1,7 @@
 ---
-title: KACO Modbus
 description: Instructions on how to integrate a KACO solar inverter with Home Assistant over Modbus TCP.
-ha_category:
-  - Energy
 ha_release: '2026.10'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@g4bri3lDev'
 ha_domain: kaco_modbus
-ha_platforms:
-  - sensor
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **KACO Modbus** {% term integration %} connects Home Assistant to a
@@ -45,16 +34,36 @@ Modbus unit ID:
   description: "The inverter's Modbus unit ID, also called its device address. Leave this at `1` unless the inverter is reached through an RS485-to-TCP gateway, which needs the address configured on that gateway."
 {% endconfiguration_basic %}
 
+If the inverter's Modbus unit ID changes, go to {% my integrations title="**Settings** > **Devices & services**" %}, open the three dots menu {% icon "mdi:dots-vertical" %} on the integration card, and select **Reconfigure**.
+
 ## Supported functionality
 
 ### Sensors
 
 - **AC power**: The power the inverter is currently feeding into the grid.
+- **AC current**: The current it is delivering, across all phases.
+- **DC power**: The power coming in from your solar panels, before conversion.
 - **Total energy produced**: The inverter's lifetime energy counter. Add this to
   the [Energy dashboard](/docs/energy/) as a solar production source, as
   described in [integrating your solar panels](/docs/energy/solar-panels/).
-- **Operating state**: What the inverter is currently doing, such as producing,
-  asleep, or in a fault condition.
+- **Temperature**: The temperature inside the inverter's cabinet.
+- **Operating state**: **Off**, **Asleep**, **Starting up**, **Producing**,
+  **Throttled**, **Shutting down**, **Fault**, or **Standby**. In automations,
+  use the underlying value, so **Shutting down** is `shutting_down`.
+
+These sensors are disabled by default:
+
+- **Apparent power**, **Reactive power**, and **Power factor**: How the
+  inverter's output relates to the grid.
+- **Grid frequency**: The frequency of the grid it is feeding.
+- **DC voltage** and **DC current**: What is coming in from the panels.
+- **Voltage L1**, **Voltage L2**, **Voltage L3**: The phase-to-neutral voltage
+  of each phase. The line-to-line voltages are not available.
+- **Current L1**, **Current L2**, **Current L3**: The current on each phase.
+
+While the inverter is asleep, it stops measuring, so **Temperature**, **Power
+factor**, **Grid frequency**, and the phase voltages read as unknown overnight.
+Readings that genuinely are zero, such as **AC power**, still report zero.
 
 ## Data updates
 
@@ -65,6 +74,11 @@ every 30 seconds.
 
 Only inverters that offer Modbus TCP are supported. KACO inverters that provide
 only the manufacturer's serial protocol can't be used with this integration.
+
+## Diagnostics
+
+The diagnostics download includes the inverter's raw register map, which can help developers reproduce issues without access to the hardware. The serial number is redacted.
+Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ## Removing the integration
 

@@ -1,39 +1,7 @@
 ---
-title: Midea
 description: Instructions on how to integrate devices with Midea protocol into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Humidifier
-  - Light
-  - Number
-  - Select
-  - Switch
 ha_release: 2026.8
 ha_domain: midea
-ha_config_flow: true
-ha_codeowners:
-  - '@chemelli74'
-  - '@rokam'
-  - '@caibinqing'
-ha_iot_class: Local Polling
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - humidifier
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Midea** {% term integration %} lets you monitor and control home appliances that use the Midea protocol, communicating with them directly over your local network. Because Midea also manufactures appliances for many other brands, this integration works with rebranded devices that speak the same protocol, not only those sold as "Midea".
@@ -149,13 +117,13 @@ The **Midea** {% term integration %} provides the following entities:
 
 Heating or cooling a room while a window is open wastes energy. Use this blueprint to turn off a Midea climate device when a window or door opens, and turn it back on once everything is closed again.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/midea/midea_turn_off_climate_on_window_open.yaml" %}
+{% blueprint_example blueprint="midea/midea_turn_off_climate_on_window_open.yaml" %}
 
 ### Cool a room when it gets too warm
 
 Use this blueprint to start cooling with a Midea air conditioner when a temperature sensor rises above a threshold, and stop again once the room has cooled down.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/midea/midea_cool_room_when_too_warm.yaml" %}
+{% blueprint_example blueprint="midea/midea_cool_room_when_too_warm.yaml" %}
 
 ## Known limitations
 

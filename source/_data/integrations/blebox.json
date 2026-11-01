@@ -1,0 +1,33 @@
+{
+  "domain": "blebox",
+  "name": "BleBox devices",
+  "integration_type": "device",
+  "codeowners": [
+    "@bbx-a",
+    "@swistakm",
+    "@bkobus-bbx"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "gold",
+  "categories": [
+    "plugs_switches",
+    "blinds_curtains",
+    "lighting.led_strips_controllers"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "diagnostics",
+    "light",
+    "sensor",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

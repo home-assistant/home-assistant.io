@@ -9,7 +9,7 @@ related_actions:
   - velbus.clear_cache
 ---
 
-Use this action to scan the Velbus modules on the bus. Run it when you see unknown module warnings in the logs or after you add new modules. This is the same as the **Scan** button in the VelbusLink software.
+Use the **Velbus: Scan** action to scan the Velbus modules on the bus. Run it when you see unknown module warnings in the logs or after you add new modules. This is the same as the **Scan** button in the VelbusLink software.
 
 {% include actions/ui_header.md %}
 

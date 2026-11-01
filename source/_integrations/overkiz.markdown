@@ -1,49 +1,7 @@
 ---
-title: Overkiz
 description: Instructions on how to integrate gateways that use the Overkiz IoT platform with Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Water heater
 ha_release: 2022.2
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@imicknl'
 ha_domain: overkiz
-ha_dhcp: true
-ha_zeroconf: true
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - fan
-  - light
-  - lock
-  - number
-  - scene
-  - select
-  - sensor
-  - siren
-  - switch
-  - water_heater
-ha_integration_type: hub
 ---
 
 The Overkiz (by Somfy) IoT platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
