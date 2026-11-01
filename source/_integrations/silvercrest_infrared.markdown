@@ -71,6 +71,8 @@ Device type:
   description: The type of SilverCrest device to control.
 Infrared emitter:
   description: The infrared emitter entity to use for sending commands to your device. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
+Infrared receiver:
+  description: The infrared receiver entity to use for receiving commands from your remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver.
 {% endconfiguration_basic %}
 
 ## Supported functionality
