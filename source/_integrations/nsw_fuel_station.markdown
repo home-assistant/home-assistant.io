@@ -41,7 +41,7 @@ sensor:
     station_id: 291
 ```
 
-To track more than one station, add a separate `nsw_fuel_station` entry for each station. You can also specify several fuel types for each station. The following example creates sensors for six fuel types at each of four stations.
+To track more than one station, add a separate `nsw_fuel_station` entry for each station. You can also specify several fuel types for each station. The following example requests six fuel types for each of four stations. A sensor is created only when price data is available for that station and fuel type.
 
 The station IDs in this example are illustrative. Replace them with the IDs of the stations you want to monitor, using the steps above.
 
