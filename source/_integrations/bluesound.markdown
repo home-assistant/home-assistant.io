@@ -68,7 +68,7 @@ The media player entity has the name of your player. With it, you can:
 - Change the volume and mute the player
 - Select a source: the presets and inputs of your player
 - Play media and browse the audio sources of Home Assistant, such as [Radio Browser](/integrations/radio_browser/) or your local media
-- Group players with the [**Join**](/integrations/media_player/#action-media_playerjoin) and [**Unjoin**](/integrations/media_player/#action-media_playerunjoin) actions
+- Group players with the [**Join media players**](/actions/media_player.join/) and [**Unjoin media player**](/actions/media_player.unjoin/) actions
 - Clear the play queue
 
 ### Buttons
