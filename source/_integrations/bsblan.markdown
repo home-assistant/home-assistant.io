@@ -14,7 +14,7 @@ It can interface with the heating system over Boiler-System-Bus, Local Process B
 
 For authentication, HTTP authentication using a username and password or using a passkey is supported. Use either one.
 
-If your heating system exposes more than one heating circuit, Home Assistant discovers the available circuits automatically during setup. The integration creates one main BSB-LAN device for shared entities, and adds each detected heating circuit as its own sub-device so you can control each zone independently.
+If your heating system exposes more than one heating circuit, Home Assistant discovers the available circuits automatically during setup. The integration creates one main BSB-LAN device for shared entities, and adds each detected heating circuit as its own device, connected through the main BSB-LAN device, so you can control each zone independently.
 
 If your heating system changes later, for example after you enable an extra circuit in the controller, run the integration's reconfigure flow to let Home Assistant discover the updated circuit list.
 
@@ -32,9 +32,9 @@ Depending on your system and the available heating circuits, the following entit
 
 The integration groups entities by device in Home Assistant:
 
-- The main BSB-LAN device contains shared entities, like the **Sync time** button and temperature sensors.
-- Each detected heating circuit appears as a sub-device under the main BSB-LAN device.
-- If your system supports domestic hot water, it can also appear as its own sub-device.
+- The main BSB-LAN device contains shared entities, like the **Sync time** button and the outside temperature sensor.
+- Each detected heating circuit appears as its own device, connected through the main BSB-LAN device, with its climate entity and temperature sensor.
+- If your system supports domestic hot water, it can also appear as its own device, connected through the main BSB-LAN device.
 
 ### Buttons
 
@@ -46,18 +46,18 @@ The **Sync time** button appears under the **Configuration** section of the devi
 
 - Home Assistant creates one climate entity for each detected heating circuit.
 - These appear in Home Assistant as **Heating circuit 1** and **Heating circuit 2**, depending on what your system exposes.
-- Each heating circuit is grouped under its own sub-device on the BSB-LAN device page.
+- Each heating circuit has its own device, connected through the main BSB-LAN device.
 
 ### Water heater
 
 - If your heating system exposes domestic hot water controls, Home Assistant creates a water heater entity for it.
-- The water heater entity is grouped under its own sub-device on the BSB-LAN device page.
+- The water heater entity has its own device, connected through the main BSB-LAN device.
 
 ### Sensors
 
 The following sensors are available, depending on your heating system:
 
-- Inside temperature
+- Temperature, one for each heating circuit
 - Outside temperature
 - Total Energy (disabled by default)
 
