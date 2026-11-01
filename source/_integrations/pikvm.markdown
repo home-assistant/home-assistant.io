@@ -118,13 +118,13 @@ automation: |
   triggers:
     - trigger: numeric_state
       entity_id: sensor.pikvm_cpu_temperature
-      above: 75
+      above: 75 # Use 167 for Fahrenheit
   actions:
     - action: notify.send_message
       target:
         entity_id: notify.my_device
       data:
-        message: "The PiKVM CPU temperature is above 75 °C."
+        message: "The PiKVM CPU temperature is above 75 °C." # Or "167 °F" for Fahrenheit
 {% endexample %}
 
 {% enddetails %}
