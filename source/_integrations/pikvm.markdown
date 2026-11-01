@@ -102,11 +102,11 @@ You can use the PiKVM sensors to get notified before a problem affects your remo
 
 ### Automation: Get notified when the PiKVM is running hot
 
-A PiKVM in a closed rack or cabinet can overheat. This automation sends a notification to your phone when the CPU temperature rises above 75 °C.
+A PiKVM in a closed rack or cabinet can overheat. This automation sends a notification to your phone when the CPU temperature rises above 75 °C (167 °F). This example assumes the temperature sensor uses Celsius; if your sensor uses Fahrenheit, use `167` in the trigger and `167 °F` in the notification message.
 
 - **Trigger**: Numeric state
   - **Entity**: CPU temperature (`sensor.pikvm_cpu_temperature`)
-  - **Above**: `75`
+  - **Above**: `75` (or `167` for Fahrenheit)
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -198,7 +198,7 @@ If you get an **Invalid authentication** error during setup, the PiKVM did not a
 
 ### The two-factor authentication secret is not accepted
 
-If setup shows the message **The two-factor authentication secret is invalid. Enter the base32 secret key, not a one-time code.** This means you entered a one-time code from your authenticator app, or a value that is not a valid secret. Enter the secret key instead. To display it, run `kvmd-totp show` in the PiKVM terminal.
+If setup shows the message **The two-factor authentication secret is invalid. Enter the base32 secret key, not a one-time code.**, you entered a one-time code from your authenticator app or a value that is not a valid secret. Enter the secret key instead. To display it, run `kvmd-totp show` in the PiKVM terminal.
 
 ### The PiKVM cannot be identified
 
