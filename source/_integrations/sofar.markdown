@@ -42,9 +42,11 @@ Older Sofar inverters that use the legacy Modbus register map aren't supported. 
 Depending on how you connect the inverter, you need one of the following:
 
 - **Modbus TCP**: The inverter has its own Modbus TCP port, or its RS485 port is wired to a Modbus TCP bridge or a data logger stick that speaks Modbus TCP.
-- **Serial port (Modbus RTU)**: The inverter's RS485 terminals are wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS485 interface can share the port with Home Assistant over the network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy).
+- **Serial port (Modbus RTU)**: The inverter's RS485 terminals are wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS485 interface can share the port with Home Assistant over the network.
 
 Modbus also needs to be enabled on the inverter, if it has a setting for this.
+
+For help with each way to connect, such as setting up an ESPHome serial proxy, a Modbus gateway, or a serial device server, refer to [Setting up a device integration that uses Modbus](/integrations/modbus/#setting-up-a-device-integration-that-uses-modbus).
 
 {% include integrations/config_flow.md %}
 
