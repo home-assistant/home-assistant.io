@@ -2,12 +2,12 @@
 title: "Get minute forecast"
 action: google_weather.get_minute_forecast
 domain: google_weather
-description: "Retrieves the precipitation forecast (nowcast) for the next 6 hours, in 2- or 15-minute segments depending on the location. Unlike the cached forecasts, every call makes a live request to the Google Weather API and counts toward your quota."
+description: "Retrieves the precipitation forecast (nowcast) for up to 6 hours. Amounts are returned in the weather entity's precipitation unit; the snowfall amount is the liquid-water equivalent, not the snow depth. Unlike the cached forecasts, every call makes a live request to the Google Weather API and counts toward your quota."
 related_actions:
   - weather.get_forecasts
 ---
 
-Use this action to get a short-term precipitation forecast, also called a nowcast, for one of your Google Weather entities. It covers the next 6 hours in short segments, so you can tell whether rain is about to start, how heavy it is likely to get, and when it is expected to stop.
+Use this action to get a short-term precipitation forecast, also called a nowcast, for one of your Google Weather entities. It covers up to the next 6 hours in short segments, so you can tell whether rain is about to start, how heavy it is likely to get, and when it is expected to stop.
 
 This is more detailed than the hourly forecast that the {% term entity %} itself provides. Use it when the timing matters, for example to send yourself a heads-up a few minutes before rain reaches your house, or to hold off the sprinklers when a shower is on the way. It returns the forecast as [response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data).
 
@@ -58,50 +58,45 @@ This action has no options beyond the target.
 
 ## Response data
 
-The response is keyed by the entity ID of each targeted weather entity. For every entity, the response contains the data exactly as Google returns it, which means the field names use camelCase instead of the snake_case used elsewhere in Home Assistant:
+The response is keyed by the entity ID of each targeted weather entity. For every entity, the response contains:
 
-- `overallPredictionTimeframe`: the `startTime` and `endTime` that the whole forecast covers.
-- `timeZone`: the time zone of the location, under `id`.
+- `start_time`: when the whole forecast starts.
+- `end_time`: when the whole forecast ends.
 - `segments`: the list of forecast segments, in chronological order.
 
 Each segment has these fields:
 
-- `timeFrame`: the `startTime` and `endTime` of the segment.
-- `type`: the kind of precipitation expected. One of `NONE`, `RAIN`, `SNOW`, or `HAIL`.
-- `probability`: how likely the precipitation is, from 0 to 100.
-- `intensity`: how heavy the precipitation is expected to be. One of `NO_INTENSITY`, `LIGHT`, `MID_LIGHT`, `MODERATE`, `MID_MODERATE`, `HEAVY`, or `MID_HEAVY`.
-- `qpf`: the expected amount of liquid precipitation, as a `quantity` and a `unit`.
-- `snowfallAmount`: the expected amount of snow, as a `quantity` and a `unit`.
+- `start_time`: when the segment starts.
+- `end_time`: when the segment ends.
+- `precipitation_type`: the kind of precipitation expected. One of `none`, `rain`, `snow`, or `hail`. It is empty if Google doesn't specify a type.
+- `precipitation_probability`: how likely the precipitation is, from 0 to 100.
+- `precipitation`: the expected amount of liquid precipitation.
+- `snowfall_amount`: the expected amount of snow, as its liquid-water equivalent, not the snow depth.
+- `intensity`: how heavy the precipitation is expected to be. One of `none`, `light`, `mid_light`, `moderate`, `mid_moderate`, `heavy`, or `mid_heavy`. It is empty if Google doesn't specify an intensity.
 
-The `qpf` and `snowfallAmount` fields are only present when precipitation is expected, so guard for them in templates. The amounts are always in millimeters, whatever unit system you have configured in Home Assistant.
+The `precipitation` and `snowfall_amount` values use the precipitation unit of the weather entity, the same as `weather.get_forecasts`. They are not rounded, because the amounts in short segments can be very small. Both are empty when Google doesn't provide an amount, which is common for dry segments, so guard for this in templates.
 
 A shortened example response looks like this:
 
 ```yaml
 weather.home:
-  overallPredictionTimeframe:
-    startTime: "2025-06-01T00:00:00Z"
-    endTime: "2025-06-01T06:00:00Z"
-  timeZone:
-    id: America/New_York
+  start_time: "2025-06-01T00:00:00Z"
+  end_time: "2025-06-01T06:00:00Z"
   segments:
-    - timeFrame:
-        startTime: "2025-06-01T00:00:00Z"
-        endTime: "2025-06-01T00:15:00Z"
-      type: RAIN
-      probability: 62
-      intensity: MODERATE
-      qpf:
-        quantity: 0.5
-        unit: MILLIMETERS
-      snowfallAmount:
-        quantity: 0
-        unit: MILLIMETERS
-    - timeFrame:
-        startTime: "2025-06-01T00:15:00Z"
-        endTime: "2025-06-01T00:30:00Z"
-      type: NONE
-      intensity: NO_INTENSITY
+    - start_time: "2025-06-01T00:00:00Z"
+      end_time: "2025-06-01T00:02:00Z"
+      precipitation_type: rain
+      precipitation_probability: 62
+      precipitation: 0.5
+      snowfall_amount: 0.0
+      intensity: moderate
+    - start_time: "2025-06-01T00:02:00Z"
+      end_time: "2025-06-01T00:04:00Z"
+      precipitation_type: none
+      precipitation_probability: 0
+      precipitation:
+      snowfall_amount:
+      intensity: none
 ```
 
 To keep the answer around as a {% term entity %}, store it in a trigger-based template sensor. This one counts down the minutes until precipitation is expected to start, and is `unknown` when nothing is expected in the next 6 hours:
@@ -125,10 +120,10 @@ template:
           {% set ns = namespace(starts_in=none) %}
           {% for segment in nowcast['weather.home']['segments']
              if ns.starts_in is none %}
-            {% if segment['type'] != 'NONE'
-                  and as_timestamp(segment['timeFrame']['endTime'])
+            {% if segment['precipitation_type'] not in ['none', none]
+                  and as_timestamp(segment['end_time'])
                       > now().timestamp() %}
-              {% set minutes = (as_timestamp(segment['timeFrame']['startTime'])
+              {% set minutes = (as_timestamp(segment['start_time'])
                                 - now().timestamp()) / 60 %}
               {% set ns.starts_in = [minutes, 0] | max %}
             {% endif %}
@@ -145,9 +140,9 @@ This example refreshes every 15 minutes, which adds about 2,900 calls per month.
 
 ## Good to know
 
-- The forecast covers the next 6 hours. Segments are 2 or 15 minutes long depending on the location, so do not assume a fixed segment length or a fixed number of segments.
+- The forecast covers up to the next 6 hours. Segments are 2 or 15 minutes long depending on the location, so do not assume a fixed segment length or a fixed number of segments.
 - Google offers this forecast as an experimental, pre-general-availability feature. The data it returns, and its availability in your area, can change.
-- A segment with a `type` of `NONE` means no precipitation is expected during that segment.
+- A segment with a `precipitation_type` of `none` means no precipitation is expected during that segment.
 - The Google Maps Platform terms require that these forecast values are not kept for longer than one hour, so do not archive them in long-term statistics.
 - The forecast is only as accurate as the data Google provides for your location.
 
@@ -187,8 +182,8 @@ automation: |
           {% set ns = namespace(segment=none) %}
           {% for segment in nowcast['weather.home']['segments']
              if ns.segment is none %}
-            {% if segment['type'] != 'NONE'
-                  and as_timestamp(segment['timeFrame']['startTime'])
+            {% if segment['precipitation_type'] not in ['none', none]
+                  and as_timestamp(segment['start_time'])
                       > now().timestamp() %}
               {% set ns.segment = segment %}
             {% endif %}
@@ -197,15 +192,15 @@ automation: |
     - condition: template
       value_template: >
         {{ upcoming is not none
-           and as_timestamp(upcoming['timeFrame']['startTime'])
+           and as_timestamp(upcoming['start_time'])
                - now().timestamp() < 1800 }}
     - action: notify.send_message
       target:
         entity_id: notify.my_device
       data:
         message: >
-          {{ upcoming['type'] | lower }} expected in about
-          {{ ((as_timestamp(upcoming['timeFrame']['startTime'])
+          {{ upcoming['precipitation_type'] }} expected in about
+          {{ ((as_timestamp(upcoming['start_time'])
                - now().timestamp()) / 60) | round | int }} minutes.
 {% endexample %}
 
@@ -213,7 +208,7 @@ automation: |
 
 ### Automation: skip the sprinklers when rain is on the way
 
-Before the evening watering run, check the nowcast and only turn the sprinklers on when no meaningful rain is expected in the next 6 hours. The example adds up the forecast amounts, skipping the segments that have no `qpf` field.
+Before the evening watering run, check the nowcast and only turn the sprinklers on when no meaningful rain is expected in the next 6 hours. The example adds up the forecast amounts, skipping the segments that have no amount. The threshold of `1` is in the precipitation unit of your weather entity, so this example assumes millimeters. If your entity uses inches, use a value such as `0.04` instead.
 
 - **Trigger**: Time, 19:00:00
 - **Action**: Google Weather: Get minute forecast
@@ -239,7 +234,8 @@ automation: |
     - condition: template
       value_template: >
         {{ nowcast['weather.home']['segments']
-           | map(attribute='qpf.quantity', default=0)
+           | map(attribute='precipitation')
+           | select
            | sum < 1 }}
     - action: switch.turn_on
       target:
