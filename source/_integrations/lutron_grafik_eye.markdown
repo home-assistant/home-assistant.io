@@ -18,10 +18,7 @@ The integration supports GRAFIK Eye 3000 and 4000 series control units. GRAFIK E
 
 ## Prerequisites
 
-Before configuring the integration:
-
-1. Connect the GRX-CI-NWK-E interface to your network and ensure it is accessible from Home Assistant (default Telnet port: `23`).
-2. Set **DIP switch 7 to ON** on the GRX-CI-NWK-E interface to enable automatic scene status notifications. Without this, Home Assistant will not receive scene changes initiated outside Home Assistant.
+Set **DIP switch 7** on the GRX-CI-NWK-E to the **ON** position to enable automatic scene status notifications. Without this, Home Assistant will not receive scene changes initiated outside Home Assistant.
 
 For more information, refer to the official Lutron documentation:
 
@@ -32,18 +29,14 @@ For more information, refer to the official Lutron documentation:
 
 During configuration, provide:
 
-- **Host:** The IP address of the Ethernet interface.
+- **Host:** The IP address of the GRX-CI-NWK-E.
 - **Port:** The Telnet port (default: `23`).
 - **Password:** The Telnet login string (defaults: `nwk` for connection 1 and `nwk2` for connection 2).
 
-{% tip %}
-Assign a static IP address or DHCP reservation to the GRX-CI-NWK-E interface to prevent its IP address from changing.
-{% endtip %}
-
 ## Lighting scenes
 
-Each connected GRAFIK Eye control unit is represented by a `select` {% term entity %}, allowing you to view and change its active scene.
-Scenes can also be activated through automations using the `select.select_option` action.
+Each connected GRAFIK Eye control unit is represented by a `select` {% term entity %}, allowing you to view and change its active scene. Scenes can also be activated through {% term automations %} using the `select.select_option` {% term action %}.
+
 The integration controls lighting scenes rather than individual lighting zones.
 
 ## Removing the integration
