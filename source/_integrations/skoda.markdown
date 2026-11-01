@@ -13,6 +13,8 @@ ha_config_flow: true
 ha_categories:
   - vehicles_transport.cars_evs
 ha_platforms:
+  - binary_sensor
+  - device_tracker
   - sensor
 ha_quality_scale: bronze
 related:
@@ -71,7 +73,21 @@ API key:
 
 ## Supported functionality
 
-The **Škoda** integration provides the following sensors. The available sensors depend on the vehicle's equipment and powertrain.
+The **Škoda** integration provides the following entities. The available entities depend on the vehicle's equipment and powertrain.
+
+### Binary sensors
+
+- **Lock**: Whether the vehicle is unlocked.
+- **Doors**: Whether any door is open.
+- **Windows**: Whether any window is open.
+- **Sunroof**: Whether the sunroof is open, for vehicles with a sunroof.
+- **Trunk**: Whether the trunk is open.
+- **Hood**: Whether the hood is open.
+- **Lights**: Whether the lights are on.
+
+### Device tracker
+
+- **Parking position**: Where the vehicle is parked. The device tracker is named after the vehicle. While the vehicle is driving, the location is unknown.
 
 ### Sensors
 
