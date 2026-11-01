@@ -21,7 +21,8 @@ To get the image URL from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Škoda: Get image URL**.
 6. Select the **Vehicle** you want the image for.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the result, for example, `vehicle_image`.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -39,11 +40,13 @@ In YAML, refer to this action as `skoda.get_image_url`:
 action: |
   action: skoda.get_image_url
   data:
-    config_entry_id: 01JVJ0RA387MWA938VE8HGXBMJ
+    config_entry_id: YOUR_CONFIG_ENTRY_ID
   response_variable: vehicle_image
 {% endexample %}
 
 This retrieves the render image URL of the vehicle and stores the response in the `vehicle_image` variable.
+
+Replace `YOUR_CONFIG_ENTRY_ID` with the config entry ID of your vehicle. To find it, select the vehicle in the action editor in the UI, then switch to YAML mode.
 
 ### Options in YAML
 
