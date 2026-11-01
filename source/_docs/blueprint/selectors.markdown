@@ -45,6 +45,7 @@ The following selectors are currently available:
 - [Object selector](#object-selector)
 - [QR code selector](#qr-code-selector)
 - [RGB color selector](#rgb-color-selector)
+- [RGBW color selector](#rgbw-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [State class selector](#state-class-selector)
@@ -1541,6 +1542,18 @@ color_rgb:
 This selector does not have any other options; therefore, it only has its key.
 
 The output of this selector is a list with the three (RGB) color value, for example: `[255, 0, 0]`.
+
+## RGBW color selector
+
+The RGBW color selector allows you to select a color from a color picker and a white level from a slider in the user interface, and returns the RGBW color value.
+
+```yaml
+color_rgbw:
+```
+
+This selector does not have any other options; therefore, it only has its key.
+
+The output of this selector is a list with the four (RGBW) values, for example: `[255, 0, 0, 128]`.
 
 ## Select selector
 
