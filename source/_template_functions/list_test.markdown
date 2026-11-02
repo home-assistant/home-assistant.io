@@ -52,7 +52,7 @@ value:
 
 - Only values of the list type pass. Tuples, sets, dictionaries, and strings do not. To test for those, use the [`tuple`](/template-functions/tuple_test/) and [`set`](/template-functions/set_test/) tests, or the [`mapping`](/template-functions/mapping/) test for dictionaries.
 - To accept any collection of values, use the [`iterable`](/template-functions/iterable/) test. Strings are iterable too, so combine it with `is not string` if you want to exclude them.
-- To convert a value to a list, use the [`list`](https://www.home-assistant.io/template-functions/list/) filter.
+- To convert a value to a list, use the [`list`](/template-functions/list/) filter.
 
 {% include template_functions/try_it.md %}
 
