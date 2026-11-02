@@ -156,13 +156,12 @@ $nav-wth-node-inset: 1.25rem;
   position: absolute;
 }
 
-// The light variant, for trying the two side by side: a white pill with a
-// mint rim, the routing drawn in mint with a brand-blue pulse. It needs no
-// scheme of its own over the homepage hero, where white reads on the cyan.
-// Its pulse runs half a lap behind the mint button's.
+// The light variant, for light headers: a white pill with a mint rim, the
+// routing drawn in mint with a brand-blue pulse. Its pulse runs half a lap
+// behind the mint button's.
 //
 // Doubled up so it outranks the header's on-dark button, which would
-// otherwise repaint it over the hero.
+// otherwise repaint it.
 .site-header .nav-wth__button.nav-wth__button--light {
   --rest-surface: linear-gradient(100deg, #fff 20%, #DDFBF3);
   --rest-text: #{$nav-wth-ink};
@@ -193,6 +192,26 @@ $nav-wth-node-inset: 1.25rem;
     --focus-ring: #{$nav-wth-mint};
     --wth-run: rgb(22 243 190 / 30%);
     --wth-pulse: #{$nav-wth-mint};
+  }
+}
+
+// Which of the two buttons shows follows the header's background. Over the
+// homepage hero's blue (the desktop bar while it is `.dark`) it is the mint
+// button, which turns to ink there; on every light header, which includes the
+// menu panel and every other page, it is the light button.
+.site-header:not(.dark) .menu > li.nav-wth:not(.nav-wth--light) {
+  display: none;
+}
+
+@media only screen and (max-width: (breakpoints.$desk - 0.0625rem)) {
+  .site-header .menu > li.nav-wth:not(.nav-wth--light) {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: breakpoints.$desk) {
+  .site-header.dark .menu > li.nav-wth--light {
+    display: none;
   }
 }
 
