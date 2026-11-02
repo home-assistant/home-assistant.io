@@ -344,7 +344,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
 
 5. Remove the temporary files you uploaded to the `/tmp` folder for the migration.
-6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app.
+6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app. For the steps, refer to [Uninstalling an app](/common-tasks/os/apps/#uninstalling-an-app).
 
 ## Overriding the radio frequency region of the adapter in the Z-Wave JS app
 

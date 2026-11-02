@@ -23,7 +23,7 @@ ha_quality_scale: legacy
 
 The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.
 
-This is a YAML-only integration, so you set it up in your {% term "`configuration.yaml`" %} file. After you add or change its configuration, restart Home Assistant to apply the changes. Once the integration is loaded, you can use the [`command_line.reload`](#action-reload) action to pick up later changes to your entities without restarting.
+This is a YAML-only integration, so you set it up in your {% term "`configuration.yaml`" %} file. After you add or change its configuration, restart Home Assistant to apply the changes. Once the integration is loaded, you can use the [`command_line.reload`](/actions/command_line.reload/) action to pick up later changes to your entities without restarting.
 
 {% tip %}
 It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
@@ -50,7 +50,7 @@ command_line:
           type: integer
           default: 15
         device_class:
-          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
           required: false
           type: string
         name:
@@ -120,7 +120,7 @@ command_line:
           type: integer
           default: 15
         device_class:
-          description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+          description: Sets the [class of the device](/integrations/cover/#device-class), changing the device state and icon that is displayed on the frontend.
           required: false
           type: string
         name:
@@ -217,7 +217,7 @@ command_line:
           type: template
           default: true
         device_class:
-          description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+          description: Sets the [class of the device](/integrations/sensor/#device-class), changing the device state and icon that is displayed on the UI. It does not set the `unit_of_measurement`.
           required: false
           type: device_class
           default: None
@@ -231,14 +231,6 @@ command_line:
           required: false
           type: integer
           default: 60
-        device_class:
-          description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
-          required: false
-          type: device_class
-        state_class:
-          description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This will display the value based on the **Number Format** defined in the user profile."
-          required: false
-          type: string
     switch:
       description: Switch platform.
       required: false
@@ -679,7 +671,7 @@ command_line:
 Given this example, in the UI one would see the `friendly_name` of
 "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the
 `entity_id` `switch.arest_pin_four`, which is what one would use in
-[`automation`](/integrations/automation/) or in [API calls](/developers/).
+[`automation`](/docs/automation/) or in [API calls](/developers/).
 
 ### Shutdown your local host
 

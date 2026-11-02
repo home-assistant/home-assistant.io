@@ -1,6 +1,8 @@
 ---
 title: Amazon Alexa
 description: Instructions on how to connect Alexa/Amazon Echo to Home Assistant.
+ha_categories:
+  - other_ecosystems
 ha_iot_class: Cloud Push
 featured: true
 ha_release: '0.10'

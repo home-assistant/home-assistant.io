@@ -46,6 +46,7 @@ You must have a developer account to distribute the data.
    - **Application name**: [any name]
    - **Application description**: [any description]
    - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
+     - Keep this URL when My Home Assistant is enabled, even if you access Home Assistant through a local IP address.
      - Do not test this URL. It won't work at this stage. It will be set up once you install the integration in Home Assistant.
    - **Change logo**: Optional
 6. **Save** your changes.
@@ -58,8 +59,11 @@ If you don't have [My Home Assistant](/integrations/my) on your installation,
 you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
 instead.
 
-The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
-authentication process.
+Before starting setup or reauthentication, open Home Assistant using `<HOME_ASSISTANT_URL>` in your browser. The address must match the one registered with Withings, including `https://`, the hostname, and any port number.
+
+For example, if you registered `https://home.example.com/auth/external/callback`, start setup from `https://home.example.com`.
+
+Home Assistant uses your browser address to generate this callback. Opening Home Assistant through a local IP address generates an IP-based callback instead. Changing the **Internet** or **Local network** URL under {% my network title="**Settings** > **System** > **Network**" %} does not change this sign-in callback. The [webhook URL](#how-the-webhook-url-is-determined) used for data updates is separate.
 
 Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
 
