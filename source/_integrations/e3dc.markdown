@@ -56,22 +56,6 @@ The power station device has these sensors:
 
 The integration polls the power flows every 5 seconds.
 
-## Known limitations
-
-The power station has no energy counters over Modbus. The Energy dashboard needs energy sensors, so you build them from the power sensors with helpers.
-
-**PV power** and **House power** are never negative. Create an [Integral](/integrations/integration/) helper from each of them. Set the metric prefix to **k** and the time unit to **Hours**, so the helper counts kWh.
-
-**Grid power** and **Battery power** change sign with the direction of the flow. The Energy dashboard needs a separate counter for each direction, so split each sensor in two first:
-
-1. Create a [Template](/integrations/template/) sensor helper for each direction. Set the unit to **W**, the device class to **Power** and the state class to **Measurement**. Replace the entity IDs with those of your power station.
-   - Grid import: {% raw %}`{{ max(states('sensor.e3dc_s10_x_grid_power') | float(0), 0) }}`{% endraw %}
-   - Grid export: {% raw %}`{{ max(-(states('sensor.e3dc_s10_x_grid_power') | float(0)), 0) }}`{% endraw %}
-   - Battery charging: {% raw %}`{{ max(states('sensor.e3dc_s10_x_battery_power') | float(0), 0) }}`{% endraw %}
-   - Battery discharging: {% raw %}`{{ max(-(states('sensor.e3dc_s10_x_battery_power') | float(0)), 0) }}`{% endraw %}
-2. Create an Integral helper from each template sensor, with the metric prefix **k** and the time unit **Hours**.
-3. In the Energy dashboard settings, add the grid import and export energy under **Electricity grid**, the PV energy under **Solar panels**, and the battery charging and discharging energy under **Home battery storage**.
-
 ## Troubleshooting
 
 ### The device is not an E3/DC power station
