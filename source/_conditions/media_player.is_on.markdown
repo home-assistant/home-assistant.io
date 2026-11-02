@@ -12,8 +12,6 @@ The **Media player is on** condition passes when the selected media player is tu
 
 Use **Media player is on** to send follow-up commands only to active devices, to decide whether a room is in use, or to guard actions that only make sense when a TV, speaker, or receiver is already on.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is on** in an automation:
@@ -78,9 +76,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the media player must stay on before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the media player must stay on before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -91,7 +89,7 @@ for:
 ## Good to know
 
 - This condition checks whether the device is on, even if nothing is playing yet.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you need to make sure playback has actually started, use [Media player is playing](/conditions/media_player.is_playing/) instead.
 
 {% include conditions/try_it.md %}
@@ -102,7 +100,8 @@ for:
 
 When you press a dashboard button, change the receiver source only if it is already on.
 
-- **Trigger**: Button pressed
+- **Trigger**: State changed
+  - **Entity**: Receiver source button helper
 - **Condition**: Media player is on
   - **Target**: Receiver
 - **Action**: Select media player source
@@ -134,7 +133,8 @@ automation: |
 
 When the movie scene button is pressed, close the blinds only if every targeted media player in the room is already on.
 
-- **Trigger**: Button pressed
+- **Trigger**: State changed
+  - **Entity**: Movie scene button helper
 - **Condition**: Media player is on
   - **Target**: Media room
   - **Condition passes if**: All

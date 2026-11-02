@@ -12,8 +12,6 @@ The **Media player is not muted** condition passes when the selected media playe
 
 Use **Media player is not muted** to send spoken announcements, start audio-related routines, or avoid relying on a speaker that is currently muted.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is not muted** in an automation:
@@ -78,9 +76,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the media player must stay unmuted before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the media player must stay unmuted before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -91,7 +89,7 @@ for:
 ## Good to know
 
 - This condition depends on the media player reporting that it is not muted.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you need the opposite test, use [Media player is muted](/conditions/media_player.is_muted/).
 
 {% include conditions/try_it.md %}
@@ -102,7 +100,9 @@ for:
 
 When the washer finishes, send a spoken message only if the kitchen speaker is not muted.
 
-- **Trigger**: Washer finished
+- **Trigger**: State changed
+  - **Entity**: Washer finished sensor
+  - **To**: On
 - **Condition**: Media player is not muted
   - **Target**: Kitchen speaker
 - **Action**: Play media
@@ -140,7 +140,7 @@ At 07:00, start a script only if every targeted speaker downstairs is not muted.
 - **Condition**: Media player is not muted
   - **Target**: Downstairs
   - **Condition passes if**: All
-- **Action**: Run script
+- **Action**: Turn on script
   - **Target**: Morning playlist
 
 {% details "YAML example for starting a playlist only when speakers are ready" %}

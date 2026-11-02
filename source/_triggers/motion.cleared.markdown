@@ -2,7 +2,7 @@
 title: "Motion cleared"
 trigger: motion.cleared
 domain: motion
-description: "Triggers after one or more motion sensors stop detecting motion."
+description: "Triggers when one or more motion sensors stop detecting motion."
 related_triggers:
   - motion.detected
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Motion cleared** trigger fires when one or more motion sensors stop detecting motion.
 
 Use it to automate actions, such as turning devices on or off, or sending notifications, based on inactivity in an area of the house. Use a single sensor to detect motion in specific spots and a group of sensors for larger areas.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -62,8 +60,6 @@ This fires 1 hour, 5 minutes and 2 seconds after the sensor entity `binary_senso
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -77,14 +73,14 @@ behavior:
   default: each
 for:
   description: |
-    How long the sensor or sensors must remain without detecting motion before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+    How long the sensor or sensors must remain without detecting motion before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
 <!-- Keep the "include" below if your integration supports targets -->
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="motion sensor" example="binary_sensor.hallway_motion" %}
 
 {% include triggers/behavior.md %}
 
@@ -104,7 +100,8 @@ When no movement is detected at the office for 15 minutes, this automation turns
 
 - **Trigger**: Motion cleared
   - **Target**: Office motion sensors (by label)
-- **Action**: Turn off HVAC (in the office)
+- **Action**: Set thermostat HVAC mode
+  - **HVAC mode**: Off
 
 {% details "YAML example for turning off office HVAC after inactivity" %}
 

@@ -1,18 +1,7 @@
 ---
-title: Anglian Water
 description: The Anglian Water integration allows you to access your smart meter data within Home Assistant.
 ha_release: 2025.12
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@pantherale0'
 ha_domain: anglian_water
-ha_integration_type: service
-ha_platforms:
-  - sensor
-ha_category:
-  - Sensor
-ha_quality_scale: bronze
-ha_config_flow: true
 ---
 
 The **Anglian Water** {% term integration %} is used to integrate with the smart meters of [Anglian Water](https://www.anglianwater.co.uk).
@@ -32,9 +21,9 @@ The following devices are not supported by the integration:
 
 {% configuration_basic %}
 Username:
-    description: "The username / email used to login to your Anglian Water account."
+    description: "The username / email used to log in to your Anglian Water account."
 Password:
-    description: "The password used to login to your Anglian Water account."
+    description: "The password used to log in to your Anglian Water account."
 Account number:
     description: "If a valid smart meter is not associated with the default billing account linked to your Anglian Water login, please have your latest bill handy. You will be asked to provide the account number found at the top."
 {% endconfiguration_basic %}

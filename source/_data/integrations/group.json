@@ -1,0 +1,29 @@
+{
+  "domain": "group",
+  "name": "Group",
+  "integration_type": "helper",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "calendar",
+    "cover",
+    "event",
+    "fan",
+    "light",
+    "lock",
+    "media_player",
+    "notify",
+    "sensor",
+    "switch",
+    "valve"
+  ]
+}

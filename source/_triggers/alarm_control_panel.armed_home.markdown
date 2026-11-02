@@ -2,15 +2,13 @@
 title: "Alarm armed home"
 trigger: alarm_control_panel.armed_home
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed in home mode."
+description: "Triggers when one or more alarms become armed in home mode."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.disarmed
 ---
 
 The **Alarm armed home** trigger fires after an alarm control panel {% term entity %} switches to the armed home state. Home mode typically activates perimeter sensors (doors and windows) while leaving interior motion sensors inactive, so you move around freely inside. Use this trigger to run automations that should start when you are home but want the exterior secured, like locking exterior doors, dimming the porch lights, or sending a confirmation that the perimeter is protected.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,6 +28,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms home, **First** to fire only when the first panel in a group arms home, or **All** to fire only after every targeted panel is armed home.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay armed home before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -49,8 +49,6 @@ This fires every time `alarm_control_panel.home_alarm` transitions to the armed 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +58,9 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -85,10 +83,11 @@ for:
 When you arm the alarm in home mode for the evening, make sure every exterior door locks automatically. You settle in for the night knowing the perimeter is secure.
 
 - **Trigger**: Alarm armed home
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Lock all exterior doors
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Lock lock
+  - **Target**: All exterior doors
 
 {% details "YAML example for locking doors on home arm" %}
 
@@ -115,10 +114,12 @@ automation: |
 When you arm the alarm in home mode, dim the porch light to a gentle glow. It stays on enough to light the walkway, but signals that the house is locked up for the evening.
 
 - **Trigger**: Alarm armed home
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Dim porch light to 20%
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn on light
+  - **Target**: Porch light
+  - **Brightness**: `20` %
 
 {% details "YAML example for dimming porch lights" %}
 

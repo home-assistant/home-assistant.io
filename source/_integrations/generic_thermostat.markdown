@@ -1,20 +1,10 @@
 ---
-title: Generic Thermostat
 description: Turn Home Assistant into a thermostat
-ha_category:
-  - Climate
-  - Helper
 ha_release: pre 0.7
-ha_iot_class: Local Polling
 ha_domain: generic_thermostat
-ha_platforms:
-  - climate
-ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_config_flow: true
-ha_quality_scale: internal
 ---
 
 The **Generic Thermostat** {% term integration %} is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
@@ -92,12 +82,12 @@ cycle_cooldown:
   required: false
   type: [time, integer]
 cold_tolerance:
-  description: Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched on. For example, if the target temperature is 25 and the tolerance is 0.5, the heater will start when the sensor goes below 24.5.
+  description: Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change before being switched on. For example, if the target temperature is 25 and the tolerance is 0.5, the heater will start when the sensor goes below 24.5.
   required: false
   default: 0.3
   type: float
 hot_tolerance:
-  description: Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched off. For example, if the target temperature is 25 and the tolerance is 0.5 the heater will stop when the sensor equals or goes above 25.5.
+  description: Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change before being switched off. For example, if the target temperature is 25 and the tolerance is 0.5 the heater will stop when the sensor equals or goes above 25.5.
   required: false
   default: 0.3
   type: float
@@ -149,7 +139,7 @@ Time for `min_cycle_duration`, `max_cycle_duration`, `cycle_cooldown` and `keep_
 
 Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' HVAC modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
-Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
+When changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 
 ## Full YAML configuration example
 
@@ -177,3 +167,5 @@ climate:
     away_temp: 16
     precision: 0.1
 ```
+
+{% include integrations/actions.md %}

@@ -9,8 +9,6 @@ related_conditions:
 
 The **Window is closed** condition passes when a targeted window is currently closed. Use it when you want to make sure the house is shut before you lock a door, arm an alarm, turn heating back on, or continue only if a window has stayed closed for a while.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -32,7 +30,7 @@ Condition passes if:
   required: true
 For at least:
   description: How long the window must have been closed before the condition passes. Set to zero to pass immediately.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -50,8 +48,6 @@ This passes when `binary_sensor.bedroom_window` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,20 +57,20 @@ behavior:
   default: any
 for:
   description: >
-    Duration the window must have been closed before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
-  type: string
+    Duration the window must have been closed before the condition passes. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="window sensor or motorized window" example="binary_sensor.living_room_window" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Windows that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as closed. Home Assistant skips them and evaluates the condition using the remaining targeted windows.
-- This condition works with binary sensors and covers that use the `window` device class.
+- The target must be a binary sensor or cover with the window device class.
+{% include conditions/unavailable_targets.md entities="windows" %}
 - To check the opposite state, use [Window is open](/conditions/window.is_open/).
 
 {% include conditions/try_it.md %}
@@ -89,7 +85,8 @@ Before locking up for the night, you can check that every downstairs window is a
 - **Condition**: Window is closed
 - **Target**: Downstairs windows label
 - **Condition passes if**: All
-- **Action**: Lock: Lock
+- **Action**: Lock lock
+  - **Target**: Front door lock
 
 {% details "YAML example for locking up after all windows are closed" %}
 
@@ -118,12 +115,13 @@ automation: |
 
 If you use a motorized bedroom window to cool the room naturally, you might only want to turn the bedroom air conditioner back on after the window has been closed for a while.
 
-- **Trigger**: Time pattern: Every 15 minutes
+- **Trigger**: Time pattern
+  - **Minutes**: `/15`
 - **Condition**: Window is closed
-- **Target**: Bedroom roof window cover
-- **Condition passes if**: Any
-- **For at least**: 00:15:00
-- **Action**: Climate: Turn on the bedroom air conditioner
+  - **Target**: Bedroom roof window cover
+  - **For at least**: 00:15:00
+- **Action**: Turn on thermostat
+  - **Target**: Bedroom air conditioner
 
 {% details "YAML example for restarting the bedroom air conditioner after the window stays closed" %}
 
@@ -138,7 +136,6 @@ automation: |
       target:
         entity_id: cover.bedroom_roof_window
       options:
-        behavior: any
         for: "00:15:00"
   actions:
     - action: climate.turn_on

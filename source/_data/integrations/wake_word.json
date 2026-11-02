@@ -1,0 +1,10 @@
+{
+  "domain": "wake_word",
+  "name": "Wake-word detection",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core",
+    "@synesthesiam"
+  ],
+  "quality_scale": "internal"
+}

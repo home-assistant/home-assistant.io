@@ -1,0 +1,17 @@
+{
+  "domain": "sia",
+  "name": "SIA Alarm Systems",
+  "integration_type": "hub",
+  "codeowners": [
+    "@eavanvalkenburg"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "security_safety.alarm_systems"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor"
+  ]
+}

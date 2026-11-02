@@ -1,24 +1,7 @@
 ---
-title: Samsung Smart TV
 description: Instructions on how to integrate a Samsung Smart TV into Home Assistant.
-ha_category:
-  - Media player
-  - Remote
 ha_release: 0.13
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@chemelli74'
 ha_domain: samsungtv
-ha_ssdp: true
-ha_platforms:
-  - diagnostics
-  - media_player
-  - remote
-ha_zeroconf: true
-ha_dhcp: true
-ha_integration_type: device
-ha_quality_scale: gold
 ---
 
 The **Samsung Smart TV** {% term integration %} allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
@@ -64,6 +47,8 @@ The Samsung Smart TV integration provides the following entities and functionali
 ### Diagnostics
 
 - **Device diagnostics**: Troubleshooting information for device connectivity and status
+
+{% include integrations/triggers.md %}
 
 ## Data updates
 
@@ -505,7 +490,7 @@ KEY_EXT39|
 KEY_EXT40|
 KEY_EXT41|
 
-Please note that some codes are different on the 2016+ TVs. For example, `KEY_POWEROFF` is `KEY_POWER` on the newer TVs.
+Some codes are different on the 2016+ TVs. For example, `KEY_POWEROFF` is `KEY_POWER` on the newer TVs.
 
 The code list has been extracted from: <https://github.com/kdschlosser/samsungctl> and <https://github.com/jaruba/ha-samsungtv-tizen/blob/master/Key_codes.md>
 {% enddetails %}

@@ -1,24 +1,7 @@
 ---
-title: Acaia
 description: Instructions on how to integrate your Acaia smart coffee scale with Home Assistant.
 ha_release: 2024.12
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: acaia
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - sensor
-ha_bluetooth: true
-ha_codeowners:
-  - '@zweckj'
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Acaia** {% term integration %} allows you to control [Acaia](https://acaia.co/) scales through Home Assistant.
@@ -65,7 +48,7 @@ If you have successfully tested this integration with another Acaia model, pleas
 
 ## Possible use-cases
 
-This integration can be used in combination with integrations for smart coffee machines, such as the [La Marzocco integration](https://www.home-assistant.io/integrations/lamarzocco/) integration.
+This integration can be used in combination with integrations for smart coffee machines, such as the [La Marzocco integration](/integrations/lamarzocco/) integration.
 It could also be used to display the weight on secondary displays when brewing on a Pyxis or Lunar where you cannot see the display.
 
 ## Automations

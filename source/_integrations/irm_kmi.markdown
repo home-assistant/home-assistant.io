@@ -1,20 +1,10 @@
 ---
-title: IRM KMI Weather Belgium
 description: Instructions on how to integrate IRM KMI weather within Home Assistant.
 ha_release: '2025.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@jdejaegh'
 ha_domain: irm_kmi
-ha_integration_type: service
 related:
   - url: https://community.home-assistant.io/t/660421
     title: Community forum thread
-ha_category: []
-ha_quality_scale: bronze
-ha_platforms:
-  - weather
 ---
 
 The **Royal Meteorological Institute of Belgium** {% term integration %} integrates the weather data from [IRM KMI (meteo.be)](https://www.meteo.be) with Home Assistant.
@@ -35,12 +25,12 @@ Location:
 
 {% configuration_basic %}
 Language:
-    description: "Override the Home Assistant language for the textual weather forecast. Useful if your Home Assistant language is not supported by the Royal Meteorological Institute of Belgium."
+    description: "Override the Home Assistant language for forecast texts. Defaults to **Follow Home Assistant server language**. If that language is not English, French, Dutch, or German, English is used."
 {% endconfiguration_basic %}
 
 ## Supported features
 
-The integration provides a weather entity along with [weather forecast services](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts).
+The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
 
 ## Limitations
 
@@ -53,6 +43,8 @@ The integration provides a weather entity along with [weather forecast services]
 ## Data updates
 
 The integration {% term polling polls %} weather data every 7 minutes by default.
+
+When a poll cannot reach the API, the weather entity keeps showing the data from the last poll that succeeded. Once that poll is more than 17.5 minutes old, the next failed poll makes the entity unavailable, until a poll succeeds again.
 
 ## Removing the integration
 

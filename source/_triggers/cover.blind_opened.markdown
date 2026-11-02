@@ -2,7 +2,7 @@
 title: "Blind opened"
 trigger: cover.blind_opened
 domain: cover
-description: "Triggers after one or more blinds open."
+description: "Triggers when one or more blinds open."
 related_triggers:
   - cover.blind_closed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Blind opened** trigger fires when a targeted blind changes to open. Use it when you want Home Assistant to react as soon as a blind opens.
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a blind opens.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -52,34 +50,32 @@ This fires when `cover.office_blind` changes to open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple blinds are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the blind must stay open before the trigger fires.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="motorized blind" example="cover.office_blind" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `blind` device class.
-- If a blind comes back from `unavailable` or `unknown`, that recovery does not count as the opening.
-- The `for` option fires the automation only if the blind stays open for the entire time you set.
+- Use a cover entity with the blind device class.
+- If a blind comes back from **Unavailable** or **Unknown**, that recovery does not count as the opening.
+- The **For at least** option fires the automation only if the blind stays open for the entire time you set.
 
 {% include triggers/try_it.md %}
 

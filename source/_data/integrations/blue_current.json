@@ -1,0 +1,19 @@
+{
+  "domain": "blue_current",
+  "name": "Blue Current",
+  "integration_type": "hub",
+  "codeowners": [
+    "@gleeuwen",
+    "@jtodorova23"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "energy.ev_charging"
+  ],
+  "platforms": [
+    "button",
+    "sensor",
+    "switch"
+  ]
+}

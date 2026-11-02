@@ -10,8 +10,6 @@ related_actions:
 
 The **Oscillate fan** action is useful when you want to spread airflow across a wider area. Use it to turn oscillation on when more people are in the room, or turn it off when you want air aimed in one direction.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:
@@ -75,8 +73,8 @@ If several people are in the dining room, wider airflow can make the room feel m
 
 - **Trigger**: Time: 18:30
 - **Action**: Oscillate fan
-- **Target**: Dining room fan
-- **Oscillating**: On
+  - **Target**: Dining room fan
+  - **Oscillating**: On
 
 {% details "YAML example for wider airflow at dinner time" %}
 
@@ -102,8 +100,8 @@ If the fan points papers around your desk, you can stop oscillation before a sch
 
 - **Trigger**: Time: 09:00
 - **Action**: Oscillate fan
-- **Target**: Office fan
-- **Oscillating**: Off
+  - **Target**: Office fan
+  - **Oscillating**: Off
 
 {% details "YAML example for steady airflow during a call" %}
 

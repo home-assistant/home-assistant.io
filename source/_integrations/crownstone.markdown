@@ -1,18 +1,7 @@
 ---
-title: Crownstone
-description: Instructions on how to setup the Crownstone integration within Home Assistant.
-ha_category:
-  - Light
-ha_iot_class: Cloud Push
+description: Instructions on how to set up the Crownstone integration within Home Assistant.
 ha_release: '2021.10'
-ha_config_flow: true
-ha_codeowners:
-  - '@Crownstone'
-  - '@RicArch97'
 ha_domain: crownstone
-ha_platforms:
-  - light
-ha_integration_type: integration
 ---
 
 The **Crownstone** {% term integration %} allows you to control your Crownstones either via the cloud or using a [Crownstone USB](#crownstone-usb) dongle.
@@ -35,7 +24,7 @@ Crownstone Sphere where the USB is located:
 
 ## Crownstones
 
-Crownstones have the ability to dim, however dimming is disabled by default. To enable dimming for a Crownstone:
+Crownstones can dim, however dimming is disabled by default. To enable dimming for a Crownstone:
 
 1. Go to your Crownstone app
 2. Tap on a Crownstone that you want to enable the dimming functionality

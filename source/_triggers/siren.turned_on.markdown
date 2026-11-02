@@ -2,14 +2,12 @@
 title: "Siren turned on"
 trigger: siren.turned_on
 domain: siren
-description: "Triggers after one or more sirens turn on."
+description: "Triggers when one or more sirens turn on."
 related_triggers:
   - siren.turned_off
 ---
 
 The **Siren turned on** trigger is useful when you want Home Assistant to react as soon as a siren starts sounding. You can use it to send an alert, turn on lights, or start another automation the moment a siren changes from off to on.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -29,6 +27,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sirens are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted siren turns on, **First** to fire only when the first targeted siren turns on, or **All** to fire only after every targeted siren has turned on.
+  required: false
 For at least:
   description: How long the siren must stay on before the trigger fires. Set to zero to fire right away.
 {% endoptions_ui %}
@@ -48,8 +47,6 @@ This fires every time `siren.entry` turns on.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,9 +58,9 @@ behavior:
 for:
   description: >
     How long the siren must stay on before the trigger fires.
-    Accepts a duration string like `00:05:00`.
+    Accepts a duration string like `00:05:00`. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

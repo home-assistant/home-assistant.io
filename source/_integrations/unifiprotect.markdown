@@ -1,47 +1,7 @@
 ---
-title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Hub
-  - Light
-  - Lock
-  - Media player
-  - Media source
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
 ha_release: 2022.2
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: unifiprotect
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - event
-  - light
-  - lock
-  - media_player
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - text
-ha_integration_type: hub
-ha_codeowners:
-  - '@RaHehl'
-ha_quality_scale: platinum
 ---
 
 The **UniFi Protect** {% term integration %} adds support for retrieving camera feeds and sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
@@ -52,11 +12,21 @@ The **UniFi Protect** {% term integration %} adds support for retrieving camera 
 
 This {% term integration %} supports all UniFi OS Consoles that can run UniFi Protect.
 
+{% important %}
+Only UniFi Protect running on a UniFi OS Console is supported.
+
+Ubiquiti does not offer UniFi Protect for self-hosting. Unofficial ports that run the UniFi Protect application in a container or on third-party hardware are outside the scope of this {% term integration %} and are not supported.
+
+These setups can report information that Home Assistant cannot use. For example, UniFi Protect reports the address it is bound to, so an instance running in a container hands out a container-internal address in its camera stream URLs, which Home Assistant cannot reach.
+
+We recommend against running UniFi Protect this way. Unless Ubiquiti starts offering UniFi Protect for self-hosting, do not open issues for these setups.
+{% endimportant %}
+
 ### Software support
 
-The minimum supported software version for UniFi Protect is `v6.0.0`. If you have an older version, you will get errors trying to set up the integration.
+Home Assistant requires UniFi Protect `7.2.105` or later. If you're running an earlier version, update UniFi Protect before you set up the integration.
 
-### Public API features {#public-api-features}
+### Public API features
 
 Some entities depend on features that were added to the UniFi Protect public API in a specific version. If your UniFi Protect version is older than the version that introduced a given feature, the corresponding entity will not be available. You can look up which features were introduced in which version on the [UniFi Protect developer portal](https://developer.ui.com/protect/).
 
@@ -71,16 +41,80 @@ This does not mean that everything reported from EA channels will be fixed immed
 Also, make sure your report is reproducible and provides all necessary context: always include the Protect version, and if your issue concerns specific cameras, please mention the model(s) as well. Whenever possible, also provide relevant excerpts from the error log.
 {% endimportant %}
 
-### Local user
+### Connection modes
 
-You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
+The {% term integration %} always uses an API key, which connects to the public UniFi Protect Integration API. You can add a local user, which adds the private API for the features the public API does not offer yet.
+
+When you set up the {% term integration %}, you choose one of two options:
+
+- **API key only**: uses only the public Integration API. The table below and the [device type table](#device-support) show what is available in this mode. Actions (except [trigger alarm webhook](/actions/unifiprotect.trigger_alarm_webhook/)), the media source, and the proxy views need a local user.
+- **API key and local user**: adds the private API and gives you access to all the entities described on this page. This is currently the recommended option for most people.
+
+You can switch between the two modes at any time. See [Reconfiguration](#reconfiguration).
+
+The table below shows which {% term entity %} domains are available in each mode:
+
+| Domain              |          API key only           | With a local user |
+| ------------------- | :-----------------------------: | :---------------: |
+| Alarm control panel |               ✅                |        ✅         |
+| Binary sensor       |   ✅ (public API values only)   |        ✅         |
+| Button              |                —                |        ✅         |
+| Camera              | ✅ (streams and snapshots only) |        ✅         |
+| Event               | ✅ (public API detections only) |        ✅         |
+| Light               |               ✅                |        ✅         |
+| Media player        |  ✅ (playback only, no volume)  |        ✅         |
+| Number              |  ✅ (public API settings only)  |        ✅         |
+| Select              |  ✅ (public API settings only)  |        ✅         |
+| Sensor              |   ✅ (public API values only)   |        ✅         |
+| Siren               |               ✅                |        ✅         |
+| Switch              |  ✅ (public API settings only)  |        ✅         |
+| Text                |                —                |        ✅         |
+
+With an API key only, switches are limited to the settings the public API can change: the camera status light, high FPS mode, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
+
+Numbers are limited in the same way: the camera microphone level, the floodlight motion sensitivity and auto-shutoff duration, the smart sensor motion sensitivity, and the smart chime ring volume per paired doorbell.
+
+Selects are limited in the same way: the camera HDR mode, the floodlight light mode, and the alarm profile.
+
+Sensors are limited in the same way: the smart sensor battery, signal strength, signal quality, light, humidity and temperature readings with their trip timestamps, the floodlight last motion, the key fob sensors, and the Alarm Hub battery voltage and last event.
+
+With an API key only, binary sensors are limited to the states the public API reports: camera motion, sound detections, and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; smart sensor contact, motion, leak, tamper, and low battery; key fob low battery; Alarm Hub tamper, backup battery, and zone inputs; and the relay inputs. The read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
+
+Events are limited in the same way: the camera motion, smart detection, sound detection and package events, and the key fob buttons. The doorbell ring, NFC, fingerprint and vehicle events need a local user.
+
+{% note %}
+The public Integration API is actively growing, so more features become available with an API key only over time.
+{% endnote %}
+
+<a id="api-key-only"></a>
+
+### Create an API key
+
+Every setup needs an API key.
+
+1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
+2. Open **UniFi Protect** and go to **Integrations**, or go directly to `https://[IP address]/protect/integrations/` (for example `https://192.168.1.1/protect/integrations/`).
+3. Enter a new name for the API key, like "Home Assistant".
+4. Select **Create API Key** and copy the generated key.
+5. When you add the {% term integration %}, select **API key only** and enter the key. To add the private API, also [create a local user](#add-a-local-user) and select **API key and local user** instead.
+
+{% tip %}
+Currently, creating an API key requires you to be logged in as an administrator.
+{% endtip %}
+
+<a id="full-access"></a>
+<a id="local-user"></a>
+
+### Add a local user
+
+A local user adds the private API. You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
 It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
 but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
 use has.
 
-1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_.  
-**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (for example _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
-2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (for example _192.168.1.1/admins/_).
+1. Log in to your _Local Portal_ on your UniFi OS device, and click on _Users_.  
+**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (for example `192.168.1.1`), not via `unifi.ui.com` or within the UniFi Protect app.
+2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to `https://[IP address]/admins/` (for example `https://192.168.1.1/admins/`).
 3. Click on **+** in the top right corner and select **Add Admin**.
 4. Select **Restrict to local access only** and enter a new _username_ and _password_.
 5. Select **Full Management** for the _Protect_ role.
@@ -88,67 +122,81 @@ use has.
 
 ![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
 
-In addition to the username and password, you now need to create an API key for Home Assistant.
-
-1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations** or go to [IP address]/network/default/integrations/ (for example _192.168.1.1/network/default/integrations/_).
-3. Enter a new name for the API key, like "Home Assistant".
-4. Select **Create API Key** and copy the generated key.
-5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
-
-{% tip %}
-Currently, creating an API key requires you to be logged in as an administrator.
-{% endtip %}
+When you add the {% term integration %}, select **API key and local user** and enter the username, password, and [API key](#create-an-api-key).
 
 ### Camera streams
 
-The integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure
-you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just
-check that this is done. To check and enable the feature:
+Live camera feeds use the <abbr title="real-time streaming protocol secure">RTSPS</abbr> streams provided by the UniFi Protect public API. Home Assistant reads the streams that are active on each camera and uses the highest-quality one as the default live feed.
 
-1. Open UniFi Protect and click on _Devices_.
-2. Select the camera you want to ensure can stream in UniFi Protect.
-3. Click the _Settings_ tab in the top right.
-4. Expand the _Share_ _Livestream_ section near the bottom.
-5. Enable a minimum of one stream out of those available. The Stream with the Highest resolution is the default enabled one.
+If a camera does not have a stream available yet, Home Assistant creates a repair that can enable one for you in a single step. Until a stream is available, the live feed falls back to repeatedly refreshing camera snapshots, which can put extra load on your UniFi Protect console.
 
 {% include integrations/config_flow.md %}
 
+## Reconfiguration
+
+You can switch between **API key only** and **API key and local user** at any time without removing and re-adding the {% term integration %}:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **UniFi Protect** {% term integration %}, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+3. Choose the connection mode you want to switch to and follow the steps on screen.
+
+{% note %}
+If you switch to **API key only**, the entities that need a local user become unavailable. The local user credentials are kept, and the entities become available again if you switch back to **API key and local user**. See [Connection modes](#connection-modes) to check which entity domains are supported in each mode.
+{% endnote %}
+
 ## Device support
 
-All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for
+This {% term integration %} supports the device types documented below. Other UniFi Protect devices, such as the AI Port and standalone speakers, are not supported. Each supported device gets a variety of entities added for
 each of the different {% term entity %} platforms.
 
 {% note %}
-**Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
-write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
+**Permissions**: The below sections on the features available to your Home Assistant instance assume your local user has full
+write access to each device. If the local user has limited access to some devices, you will get fewer entities
 and in many cases, get a read-only sensor instead of an editable switch/select/number {% term entity %}.
+Some controls are the exception: they use the API key, so they are available regardless of the local user's permissions.
+
+- Floodlights: the light, status light, motion sensitivity, auto-shutoff duration, and light mode
+- Cameras: the status light, high FPS, overlay, smart detection, HDR mode, and microphone level controls, and the doorbell text select and text entities
+- Smart sensors: the detection toggles and the motion sensitivity
+- Smart chimes: the ring volume for each paired doorbell
 {% endnote %}
+
+The table below shows what each device type provides in each connection mode. See [Connection modes](#connection-modes) for details.
+
+| Device type  |                                       API key only                                        | With a local user |
+| ------------ | :---------------------------------------------------------------------------------------: | :---------------: |
+| Camera       | ✅ (streams, snapshots, switches, numbers, selects, binary sensors, events, media player) |        ✅         |
+| Floodlight   |              ✅ (light, switches, numbers, selects, sensors, binary sensors)              |        ✅         |
+| Smart sensor |                      ✅ (switches, numbers, sensors, binary sensors)                      |        ✅         |
+| Viewer       |                                             —                                             |        ✅         |
+| Smart chime  |                                ✅ (ring volume per camera)                                |        ✅         |
+| Relay        |                                            ✅                                             |        ✅         |
+| Siren        |                                            ✅                                             |        ✅         |
+| Key fob      |                                            ✅                                             |        ✅         |
+| Alarm Hub    |                                            ✅                                             |        ✅         |
+| NVR          |                                  ✅ (Alarm Manager only)                                  |        ✅         |
 
 ### UniFi Protect cameras
 
 {% note %}
-**Smart Detections**: The following cameras have Smart Detections:
-
-- All "AI" series cameras. This includes the [AI 360](https://store.ui.com/collections/unifi-protect/products/unifi-protect-ai-360) and the [AI Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-ai-bullet).
-- All "G4" series cameras. This includes the [G4 Doorbell](https://store.ui.com/collections/unifi-protect/products/uvc-g4-doorbell), [G4 Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-g4-bullet), [G4 Pro](https://store.ui.com/collections/unifi-protect/products/uvc-g4-pro) and [G4 Instant](https://store.ui.com/collections/unifi-protect/products/camera-g4-instant).
-
-G3 Series cameras do _not_ have Smart detections.
+**Smart Detections**: Smart detections depend on the camera. Home Assistant creates the detection entities for the detection types your camera reports as supported in UniFi Protect.
 {% endnote %}
 
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
-- **Camera** - A camera for each camera channel and RTSP(S) combination found for each camera (up to 7). Only the highest resolution RTSPS camera {% term entity %} will be enabled by default.
-  - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} will be added for the Package Camera. The Package Camera {% term entity %} will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
-- **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say).
+- **Camera** - A camera {% term entity %} for each active RTSPS quality (up to four: high, medium, low, and package). Only the highest-quality stream is enabled by default.
+  - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} is added for the package camera. The package camera has a very low frame rate, so its live feed can be choppy, but it works the same way as the other streams.
+- **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say). With **API key only**, you can play audio, but you cannot change the speaker volume.
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
-- **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
-  - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected.
+- **Sensors** - Sensors include "Is Dark", "Motion Detected", and detected object sensors (if the camera supports smart detections). Wireless cameras also get a Wi-Fi signal strength sensor.
+  - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected. Package detection is the exception: it is exposed as an event {% term entity %} (see **Events**) rather than a binary sensor.
+- **Events** - Cameras expose event entities for momentary motion and supported smart detections. Smart detection event entities include the raw Protect `event_source`, which distinguishes zone, line-crossing, and loitering detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
-  - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
-  - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
+  - configuration numbers for wide dynamic range, microphone level, system sounds volume, doorbell ring volume, zoom level, chime duration, and infrared custom lux trigger
+  - configuration switches for overlay information, smart detection types, status light, high FPS mode, system sounds, color night vision, and motion detection
+  - configuration selects for recording mode, infrared mode, chime type, and HDR mode (Auto, Always on, Always off)
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
-- **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
+- **Button** - A [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
 
 #### PTZ cameras
 
@@ -156,6 +204,7 @@ If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, the follow
 
 - **PTZ patrol** - A select entity that lets you start or stop patrols that are configured in UniFi Protect. The state reflects the currently active patrol. Select **Stopped** to stop the current patrol.
 - **PTZ presets** - Use the [PTZ go to preset action](#action-ptz-go-to-preset) (`unifiprotect.ptz_goto_preset`) to move your PTZ camera to a saved preset position, including the home position. Presets must be configured in the UniFi Protect app first.
+- **Person tracking** - A switch that turns automatic person tracking on or off.
 
 ### UniFi Protect floodlights
 
@@ -163,22 +212,29 @@ Each UniFi Protect floodlight will get a device in Home Assistant with the follo
 
 - **Light** - A light {% term entity %} will be added for each floodlight device. The light {% term entity %} will let you control turning on or off your light as well as adjust the brightness of your floodlight.
 - **Sensors** - Sensors are provided for data provided from floodlight devices. Sensors include "Is Dark" and "Motion Detected".
-- **Device Configuration** - Floodlights will get configuration controls for the PIR Motion Sensitivity, the Auto-shutoff Duration after detected motion, and Status Light switch
+- **Device Configuration** - Floodlights will get configuration controls for the PIR Motion Sensitivity, the Auto-shutoff Duration after detected motion, the Status Light switch, and a light mode select that sets when the light turns on
 - **Button** - A disabled by default button is added for each floodlight device. The button will let you reboot your floodlight device.
 
 ### UniFi Protect smart sensors
 
 UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
-- **Sensors** - A sensor is provided for each major function of the smart sensor device:
+UniFi Protect reports each sensor's capabilities, and entities are only created for the functions the device actually supports. This enables proper support for newer sensor models: for example, an entry sensor (USL Entry) gets contact and tamper entities, an environmental sensor (USL Environmental) gets temperature, humidity, light level, and leak entities, and a glass break sensor (USL GlassBreak) gets motion and tamper entities.
+
+The UP Air Quality is listed as a device, but UniFi Protect does not report any sensor capabilities for it, so it only gets its battery and general device entities.
+
+The USL GlassBreak detects motion as well as glass break acoustically, but only its motion detection is supported. The public API carries a setting for glass break, without a capability or a state to read, so there is nothing to build an entity from. To act on glass break, configure it in the UniFi Protect Alarm Manager. Adopting a sensor switches the Alarm Manager to _Global_ mode; set it back to _Local_ for the alarm entities to appear. See [NVR](#nvr).
+
+- **Sensors** - A sensor is provided for each major function of the smart sensor device. Some depend on the mount type, which you set in the UniFi Protect app:
   - **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
   - **Motion Detection** - A motion detection sensor will be available if the mount type is not set to "Leak" and motion detection is enabled.
   - **Light Level** - A light level sensor will be available if the mount type is not set to "Leak" and the light sensor is enabled.
   - **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
   - **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
   - **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
+  - **Leak** - A moisture sensor will be available if the mount type is set to "Leak", or if the sensor supports water leak detection and leak detection is enabled.
   - **Tamper** - A binary sensor to detect tampering.
-- **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
+- **Device Configuration** - Smart sensors will get configuration controls for the Status Light and for enabling/disabling all of the main sensors.
 - **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
 
 #### Tamper sensor
@@ -192,49 +248,70 @@ Each UniFi Protect viewer will get a device in Home Assistant with the following
 - **Liveview Select** - A select control will be added for each viewer device that will allow you to select which liveview is being displayed on the viewer.
 - **Button** - A disabled by default button is added for each viewer device. The button will let you reboot your viewer device.
 
-### UniFi Protect DoorLock
-
-Each UniFi Protect door lock will get a device in Home Assistant with the following:
-
-- **Lock** - A lock control will be added to lock and unlock your door lock device.
-- **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
-- **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
-
 ### UniFi Protect Smart Chime
 
 Each UniFi Protect smart chime will get a device in Home Assistant with the following:
 
 - **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
 - **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
+- **Ring volume** - A ring volume slider for each doorbell paired with the chime. It also works in the **API key only** connection mode. The chime's own volume slider and the buttons need a local user.
 
 ### UniFi Protect relays
 
-Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>. This requires a UniFi Protect version that includes **Relay information & management** in the public API. See [Public API features](#public-api-features).
+Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>. See [Public API features](#public-api-features).
 
 - **Switch**: A switch entity is added for each relay output channel to turn the output on or off.
-
-{% note %}
-Relay input channels are not yet supported.
-{% endnote %}
+- **Binary sensor**: A generic binary sensor entity is added for every relay input channel. Its name uses the input name configured in UniFi Protect, and its state reflects the logical input state reported by UniFi Protect.
 
 ### UniFi Protect sirens
 
-Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the NVR. This requires a UniFi Protect version that includes **Siren information & management** in the public API. See [Public API features](#public-api-features).
+Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>.
 
 - **Siren**: A siren entity to trigger and stop the siren. You can also set the volume level and the duration before triggering. The default duration is 5 seconds. Running the siren indefinitely is not supported.
 
+### UniFi Protect key fobs
+
+Each UniFi Protect key fob (USL-FOB) is added as a separate device in Home Assistant, linked to the NVR. See [Public API features](#public-api-features).
+
+- **Button**: An event entity that fires when a button on the fob is pressed. The pressed button is reported as the event type. See [Key Fob Button Event](#key-fob-button-event).
+- **Battery**: A diagnostic sensor with the remaining battery percentage.
+- **Battery low**: A diagnostic binary sensor that turns on when the fob reports a low battery.
+- **Signal strength**: A diagnostic sensor with the fob's signal strength in dBm. Disabled by default.
+- **Signal quality**: A diagnostic sensor with the fob's signal quality in percent. Disabled by default.
+- **Status**: A diagnostic sensor reporting the fob's presence as _Online_, _Recently seen_, _No recent heartbeat_, or _Device lost_.
+
+### UniFi Protect Alarm Hub
+
+Each UniFi Protect Alarm Hub is added as a separate device in Home Assistant, linked to the NVR. See [Public API features](#public-api-features).
+
+- **Tamper**: A binary sensor that turns on when the Alarm Hub cover is open.
+- **Zones**: A binary sensor for each enabled zone input. Its name uses the zone name configured in UniFi Protect, and its type follows the input type, such as motion, entry, smoke, glass break, or emergency button. It turns on while the zone is in alarm.
+- **Battery**: A diagnostic binary sensor that turns on when the backup battery is low or critical.
+- **Battery voltage**: A diagnostic sensor with the backup battery voltage. It shows as unknown while no backup battery is connected.
+- **Last event**: A diagnostic sensor with the time of the last event reported by the Alarm Hub.
+
 ### NVR
 
-Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device also gets a number of entities that can be used for tracking and controlling your UniFi Protect system:
+Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device also gets several entities that can be used for tracking and controlling your UniFi Protect system:
 
-- **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. This requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
-- **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
+- **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. It arms using the currently selected alarm profile and always reports the generic _armed away_ state. The name of the active profile is shown by the **Alarm profile** entity instead.
+- **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. You can only change the profile while the alarm is disarmed. To switch profiles while armed, disarm first, select the new profile, and arm again.
 - **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
-- **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
+- **Storage Sensors**: Sensors for storage utilization, recording capacity, and the distribution of the video on disk.
+
+{% important %}
+The **Alarm Manager** and **Alarm profile** entities are only available when the UniFi Protect Alarm Manager is set to _Local_ mode. While it is in _Global_ mode, these entities do not appear, because arm profiles are currently not exposed by the public API in that mode.
+
+UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you adopt sensors, relays, fobs, or an Alarm Hub, so the alarm entities are currently unavailable if you use any of those devices.
+{% endimportant %}
 
 ## Media source
 
 A media source is provided for your UniFi Protect cameras so you can fetch video clips and event thumbnails.
+
+{% note %}
+The media source needs a local user. Entries set up with **API key only** do not provide a media source. See [Connection modes](#connection-modes).
+{% endnote %}
 
 ### Media browser
 
@@ -261,103 +338,17 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 | `{nvr_id}:event:{event_id}`      | MP4 video clip for specific event. |
 | `{nvr_id}:eventthumb:{event_id}` | JPEG thumbnail for specific event. |
 
-## Actions
-
-### Action: Add doorbell text
-
-The `unifiprotect.add_doorbell_text` action adds a new custom message for Doorbells.
-
-| Data attribute | Optional | Description                                                                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
-| `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                   |
-
-### Action: Remove doorbell text
-
-The `unifiprotect.remove_doorbell_text` action removes an existing message for Doorbells.
-
-| Data attribute | Optional | Description                                                                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
-| `message`              | No       | Existing custom message to remove for Doorbells.                                                            |
-
-### Action: Set chime paired doorbells
-
-The `unifiprotect.set_chime_paired_doorbells` action sets the paired doorbell(s) with a smart chime.
-
-| Data attribute | Optional | Description                                                                                             |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                     |
-| `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all. |
-
-### Action: Remove privacy zone
-
-The `unifiprotect.remove_privacy_zone` action removes a privacy zone from a camera.
-
-| Data attribute | Optional | Description                                                                                             |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
-| `name`                 | No       | The name of the zone to remove.                                                                         |
-
-### Action: PTZ go to preset
-
-The `unifiprotect.ptz_goto_preset` action moves a <abbr title="pan, tilt, and zoom">PTZ</abbr> camera to a saved preset position.
-
-| Data attribute | Optional | Description                                                                                    |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------- |
-| `device_id`    | No       | The device ID of the PTZ camera you want to move.                                              |
-| `preset`       | No       | The name of the preset position to move to. Use `Home` for the home position.                  |
-
-#### Example usage
-
-```yaml
-action: unifiprotect.ptz_goto_preset
-data:
-  device_id: your_device_id_here
-  preset: "Home"
-```
-
-### Action: Get user keyring info
-
-The `unifiprotect.get_user_keyring_info` action retrieves keyring information for a UniFi Protect instance.
-
-| Data attribute | Optional | Description                                                                                                 |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `device_id`    | No       | Any device from the UniFi Protect instance you want to retrieve keyring information for.                    |
-
-#### Example Usage
-
-```yaml
-action: unifiprotect.get_user_keyring_info
-data:
-  device_id: your_device_id_here
-```
-
-The response will include a list of users with their full names, statuses, and associated keys (fingerprint or NFC).
-
-#### Example Response
-
-```yaml
-users:
-  - full_name: User One
-    user_status: ACTIVE
-    ulp_id: d23e27e0-a32a-41e5-9424-be646330c2d5
-    keys: []
-  - full_name: User Two
-    user_status: ACTIVE
-    ulp_id: a243ffdb-3ab2-4186-b2fe-0b53ccb29f24
-    keys:
-      - key_type: nfc
-        nfc_id: ABCDEF12
-      - key_type: fingerprint
-        fingerprint_id: "1"
-```
+{% include integrations/actions.md %}
 
 ## Views
 
 The {% term integrations %} provides four proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your {% term integrations %}.
 
-These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an {% term automation %} or [notify action](/integrations/notify/).
+These URLs require authentication. They work in notifications to the [Home Assistant Companion app](https://companion.home-assistant.io/docs/notifications/notification-attachments), which loads them with its own login, and with integrations that sign Home Assistant URLs, like [media players](/integrations/media_player/) playing them with `media_player.play_media`. Services that download the file without authentication can't load them.
+
+{% note %}
+These proxy views need a local user. They are not available for entries set up with **API key only**. See [Connection modes](#connection-modes).
+{% endnote %}
 
 Four URLs for proxy API endpoints:
 
@@ -377,9 +368,9 @@ Four URLs for proxy API endpoints:
 
 - Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html).
 
-`nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
+`nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (for example, an entity ID of a detected object sensor).
 
-The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Settings** > **Developer tools** > **States**" %} and find the event when the sensor started detecting motion.
+The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my tools_states title="**Settings** > **Tools** > **States**" %} and find the event when the sensor started detecting motion.
 
 ### Example notification automation with thumbnail
 
@@ -514,7 +505,7 @@ actions:
     action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
-You can obtain the `nfc_id` using the [Action unifiprotect.get_user_keyring_info](#action-unifiprotectget_user_keyring_info).
+You can obtain the `nfc_id` using the [Action unifiprotect.get_user_keyring_info](#action-get-user-keyring-info).
 
 {% warning %}
 When processing NFC scans, always validate the scanned ID. Unknown NFC cards also trigger the scan event. Additionally, this event was developed using third-party cards, as the developer did not have access to official UniFi cards at the time. With third-party cards, the scan relies on the card's serial number. While this approach is not uncommon, it is essential to note that the card's serial number is generally not considered a secure identifier and can be duplicated relatively easily. When the device becomes unavailable and becomes available again in Home Assistant, repeated event processing can occur. The state change is not an issue with the integration but should be considered, mainly if the device is used for actions such as unlocking doors.
@@ -529,7 +520,7 @@ When processing NFC scans, always validate the scanned ID. Unknown NFC cards als
   - **ulp_id**: The ID used to identify the person. If no fingerprint match is found, the `ulp_id` will be empty and the `event_type` will be `not_identified`.
 - **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the internal user ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
 
-You can obtain the `ulp_id` using the [Action unifiprotect.get_user_keyring_info](#action-unifiprotectget_user_keyring_info).
+You can obtain the `ulp_id` using the [Action unifiprotect.get_user_keyring_info](#action-get-user-keyring-info).
 
 #### Example G4 Doorbell Fingerprint Identified Automation
 
@@ -537,7 +528,7 @@ You can obtain the `ulp_id` using the [Action unifiprotect.get_user_keyring_info
 alias: G4 Doorbell Fingerprint Identified Automation
 description: Automation that triggers when a fingerprint is successfully identified on the G4 Doorbell Pro
 trigger:
-  - platform: event
+  - trigger: event
     event_type: state_changed
     event_data:
       entity_id: event.g4_doorbell_pro_poe_fingerprint # Replace with your doorbell entity
@@ -655,7 +646,7 @@ conditions:
          trigger.event.data.new_state.attributes.license_plate in ['ABC123', 'XYZ789']
        }}{% endraw %}
 actions:
-  - action: cover.open
+  - action: cover.open_cover
     target:
       entity_id: cover.garage_door
   - data:
@@ -673,6 +664,109 @@ Vehicle detection events are fired even if no license plate is detected. The `li
 License Plate Recognition can be triggered by various sources, including images or printed materials showing license plates. Always use caution when creating automations based on license plate detection, especially for security-sensitive actions like opening garage doors or unlocking gates. Consider implementing additional verification methods or time-based restrictions to prevent unwanted triggering. Use at your own risk.
 {% endwarning %}
 
+### Motion Detection Event
+
+- **Event Name**: Motion detection
+- **Event Attributes**:
+  - **event_type**: `motion`
+  - **event_id**: A unique ID that identifies the motion event.
+- **Description**: This event fires each time a camera starts detecting motion. It complements the camera's **Motion** sensor by giving you a point-in-time event to trigger automations on, and provides an `event_id` you can use to fetch related media.
+
+### Smart Detection Event
+
+- **Event Name**: Smart detection
+- **Event Attributes**:
+  - **event_type**: The detected object type, such as `person`, `vehicle`, `animal`, `package`, `license_plate`, `face`, `car`, or `pet`. New types are surfaced automatically as UniFi Protect adds support for them.
+  - **event_source**: The raw Protect event type: `smartDetectZone`, `smartDetectLine`, or `smartDetectLoiterZone`.
+  - **event_id**: A unique ID that identifies the detection event.
+  - **smart_detect_types**: The full set of object types detected during the event.
+- **Description**: This event fires for each object type and event source a Smart Detection camera detects, including types that do not have their own sensor. Each object and source pair fires once across the lifecycle of an event (start, update, and end), so a type that UniFi Protect only reports partway through an event still surfaces reliably.
+
+{% note %}
+This is a behavior change. An existing automation that does not filter `event_source` can run multiple times for the same `event_id` and object type when Protect emits overlapping sources. Automations that should react only to line crossings must filter for `smartDetectLine`.
+
+The Package event entity exposes the same `event_source` attribute and can likewise fire once for each distinct source.
+
+Line-crossing event data does not identify which configured line was crossed or the crossing direction. Home Assistant can therefore distinguish a line crossing from zone and loitering detections, but it cannot provide a line name, line ID, or direction.
+
+The Smart detection event reports _which_ type was detected, not the richer recognized metadata behind it. The UniFi Protect public API does not currently expose details such as the recognized license plate text, vehicle color and type, or detection confidence on this event. For the recognized license plate and vehicle attributes, use the dedicated [Vehicle Detection Event](#vehicle-detection-event), which still sources that data from the private API.
+{% endnote %}
+
+#### Example Smart Detection Automation
+
+{% example %}
+automation: |
+  alias: "Person detected notification"
+  description: "Automation that triggers when a person is detected"
+  triggers:
+    - trigger: event
+      event_type: state_changed
+      event_data:
+        entity_id: event.driveway_camera_smart_detection # Replace with your camera entity
+  conditions:
+    - condition: template
+      value_template: >
+        {{
+          trigger.event.data.old_state is not none and
+          not trigger.event.data.old_state.attributes.get('restored', false) and
+          trigger.event.data.old_state.state != 'unavailable' and
+          trigger.event.data.new_state is not none and
+          trigger.event.data.new_state.attributes.event_type == 'person'
+        }}
+  actions:
+    - action: notify.mobile_app_your_device # Replace with your notification target
+      data:
+        message: "A person was detected."
+        title: "Smart detection"
+{% endexample %}
+
+### Sound Detection Event
+
+- **Event Name**: Sound detection
+- **Event Attributes**:
+  - **event_type**: The detected sound type, such as `smoke`, `co`, `siren`, `baby_cry`, `speaking`, `bark`, `car_alarm`, `car_horn`, or `glass_break`. New types are surfaced automatically as UniFi Protect adds support for them.
+  - **event_id**: A unique ID that identifies the detection event.
+  - **smart_detect_types**: The full set of sound types detected during the event.
+- **Description**: This event fires for each sound a camera with audio detection detects. As with smart detection, each type fires once across the lifecycle of an event, so an audio alarm that UniFi Protect reports partway through an event surfaces reliably.
+
+### Key Fob Button Event
+
+- **Event Name**: Button
+- **Event Attributes**:
+  - **event_type**: The pressed button, one of `arm`, `disarm`, `night`, `panic`, `function`, `left`, `right`, `input1`, `input2`, or `alarm_hub_button`.
+  - **event_id**: A unique ID that identifies the button press event.
+- **Description**: This event is triggered when a button on a UniFi Protect key fob (USL-FOB) is pressed. Each fob has a single **Button** entity, and the button that was pressed is reported as the event type.
+
+{% note %}
+A key fob does not report which buttons it physically has, so every fob exposes the full list of button types above. Only the buttons your fob actually has can fire.
+{% endnote %}
+
+#### Example Key Fob Panic Button Automation
+
+```yaml
+alias: Key Fob Panic Button Automation
+description: Automation that triggers when the panic button on a key fob is pressed
+triggers:
+  - trigger: state
+    entity_id:
+      - event.front_door_fob_button # Replace with your key fob entity
+    not_from:
+      - unavailable
+conditions:
+  - condition: state
+    entity_id: event.front_door_fob_button # Replace with your key fob entity
+    attribute: event_type
+    state: "panic"
+actions:
+  - action: notify.mobile_app_your_device # Replace with your notification target
+    data:
+      message: Panic button pressed on the key fob!
+      title: Key Fob Alert
+mode: single
+```
+
+The `not_from` option keeps the automation from running during startup or power-cycle state restoration, when the entity temporarily transitions out of the `unavailable` state.
+
 ## Troubleshooting
 
 ### Delay in video feed
@@ -683,7 +777,7 @@ The default settings on the stream integration will give you a 5-15+ second dela
 
 ### Cannot play audio to speakers
 
-Unlike with many other things, playing audio to your speakers requires your Home Assistant to be able to reach your camera directly. Specifically via port `tcp/7004`. You can [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
+Playing audio to your speakers requires Home Assistant to be able to reach your camera directly on `udp/7004`. You can [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
 
 ### Liveview options for viewer missing options or out of date
 

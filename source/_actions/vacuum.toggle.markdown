@@ -1,5 +1,5 @@
 ---
-title: Toggle vacuum power
+title: "Toggle vacuum cleaner"
 action: vacuum.toggle
 domain: vacuum
 description: "Toggles a vacuum cleaner on or off."
@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Toggle vacuum cleaner**.
+3. Add an action and search for **Toggle vacuum cleaner**.
 4. Choose the vacuum, area, or device to control.
 5. Select **Save**.
 
@@ -33,8 +33,6 @@ This toggles the power state of `vacuum.downstairs`.
 The `entity_id` target is optional. If omitted, all targeted supported vacuums toggle.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -57,9 +55,10 @@ target:
 
 If you want a quick manual control, this automation toggles the vacuum power whenever a helper button is pressed.
 
-- **Trigger**: Helper button pressed
-- **Action**: Toggle vacuum power
-- **Target**: Downstairs vacuum
+- **Trigger**: State changed
+  - **Entity**: Toggle vacuum power helper
+- **Action**: Toggle vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for toggling vacuum power" %}
 

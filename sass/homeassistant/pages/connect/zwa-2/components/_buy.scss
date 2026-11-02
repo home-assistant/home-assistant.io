@@ -50,6 +50,13 @@ section#buy {
         }
     }
 
+    .currency-symbol {
+        bottom: 0;
+        align-self: flex-end;
+        line-height: 1;
+        font-size: 70%;
+    }
+
     .section-inner {
         position: relative;
         z-index: 1;

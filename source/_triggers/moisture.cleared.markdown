@@ -2,7 +2,7 @@
 title: "Moisture cleared"
 trigger: moisture.cleared
 domain: moisture
-description: "Triggers after one or more moisture sensors stop detecting moisture."
+description: "Triggers when one or more moisture sensors stop detecting moisture."
 related_triggers:
   - moisture.detected
   - moisture.changed
@@ -10,8 +10,6 @@ related_triggers:
 ---
 
 The **Moisture cleared** trigger fires when one or more moisture binary sensors stop detecting water. Use it to know when a leak has dried up, when a freshly mopped floor is dry again, or to reset a warning after a wet area returns to normal.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -71,13 +69,13 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the sensor or sensors must stay dry before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+  description: How long the sensor or sensors must stay dry before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="moisture detector" example="binary_sensor.kitchen_leak" %}
 
 {% include triggers/behavior.md %}
 

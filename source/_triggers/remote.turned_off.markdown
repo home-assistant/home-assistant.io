@@ -9,8 +9,6 @@ related_triggers:
 
 The **Remote turned off** trigger fires after a remote {% term entity %} turns off. Use it to react when a media remote, IR blaster, or RF bridge stops being active, for example to clean up a related scene or shut down other devices.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -34,6 +32,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted remote turns off.
     - **First**: fires only when the first of a group turns off.
     - **All**: fires only after every targeted remote is off.
+  required: false
 For at least:
   description: How long the remote must stay off before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
@@ -53,8 +52,6 @@ This fires every time `remote.living_room` transitions to the off state.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -68,9 +65,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the remote must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the remote has stayed off for 10 seconds.
+    How long the remote must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the remote has stayed off for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

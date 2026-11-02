@@ -10,8 +10,6 @@ related_actions:
 
 The **Set fan speed** action is useful when you know the exact speed you want. Use it to move a fan to a specific level, like 25% for quiet airflow or 100% for fast cooling.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:
@@ -75,8 +73,8 @@ Start the day with a light airflow that is less distracting during calls.
 
 - **Trigger**: Time: 08:00
 - **Action**: Set fan speed
-- **Target**: Office fan
-- **Percentage**: 35
+  - **Target**: Office fan
+  - **Percentage**: `35`%
 
 {% details "YAML example for a quiet office fan" %}
 
@@ -102,8 +100,8 @@ When the afternoon sun starts heating the room, you can push the fan to full spe
 
 - **Trigger**: Time: 15:00
 - **Action**: Set fan speed
-- **Target**: Living room fan
-- **Percentage**: 100
+  - **Target**: Living room fan
+  - **Percentage**: `100`%
 
 {% details "YAML example for strong afternoon airflow" %}
 

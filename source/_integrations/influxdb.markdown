@@ -1,22 +1,10 @@
 ---
-title: InfluxDB
 description: Record events in InfluxDB.
-ha_category:
-  - History
-  - Sensor
 ha_release: 0.9
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@mdegat01'
-  - '@Robbie1221'
 ha_domain: influxdb
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_config_flow: true
 ---
 
 The **InfluxDB** {% term integration %} lets you transfer all state changes to an external [InfluxDB](https://influxdata.com/) database. This integration supports:
@@ -147,12 +135,12 @@ tags_attributes:
   default: 0
 ignore_attributes:
   type: [string, list]
-  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB. Please be aware of the underlying InfluxDB mechanism that converts non-string attributes to strings and adds a `_str` suffix to the attribute name in this case. It means that when you want to ignore, for example, the `icon_str` attribute that shows in your InfluxDB instance, you need to provide `icon` to `ignore_attributes`.
+  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you to reduce the amount of data stored in InfluxDB. Please be aware of the underlying InfluxDB mechanism that converts non-string attributes to strings and adds a `_str` suffix to the attribute name in this case. It means that when you want to ignore, for example, the `icon_str` attribute that shows in your InfluxDB instance, you need to provide `icon` to `ignore_attributes`.
   required: false
 component_config:
   type: string
   required: false
-  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Editing entity settings in YAML](/integrations/homeassistant/#editing-entity-settings-in-yaml) for format.
   keys:
     override_measurement:
       type: string
@@ -165,7 +153,7 @@ component_config:
 component_config_domain:
   type: string
   required: false
-  description: This attribute contains domain-specific integration override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains domain-specific integration override values. See [Editing entity settings in YAML](/integrations/homeassistant/#editing-entity-settings-in-yaml) for format.
   keys:
     override_measurement:
       type: string
@@ -178,7 +166,7 @@ component_config_domain:
 component_config_glob: 
   type: string
   required: false
-  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Editing entity settings in YAML](/integrations/homeassistant/#editing-entity-settings-in-yaml) for format.
   keys:
     override_measurement:
       type: string
@@ -492,7 +480,7 @@ queries_flux:
       default: Home Assistant
     imports:
       type: [string, list]
-      description: Libraries to import in order to execute your query. Ex. `strings`, `date`, `experimental/query`, etc.
+      description: Libraries to import to execute your query. For example, `strings`, `date`, or `experimental/query`.
       required: false
 {% endconfiguration %}
 

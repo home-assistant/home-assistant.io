@@ -9,8 +9,6 @@ related_conditions:
 
 The **All to-do items completed** condition helps you check whether a list is fully done before an automation continues. Use it when something should happen only after every item on a checklist is complete, like locking up for the night or sending a final reminder that the day is wrapped up.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -48,8 +46,6 @@ This passes when `todo.evening_checklist` has no incomplete items left.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,9 +57,9 @@ behavior:
 for:
   description: >
     How long the to-do list must stay complete before the condition passes.
-    Accepts a duration like `00:10:00` for 10 minutes.
+    Accepts a duration like `00:10:00` for 10 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -74,7 +70,7 @@ for:
 ## Good to know
 
 - A to-do list is considered complete when its state is `0`, which means there are no incomplete items left.
-- To-do lists in the `unavailable` or `unknown` state are skipped when Home Assistant evaluates this condition.
+{% include conditions/unavailable_targets.md entities="to-do lists" %}
 - If you want to check whether a list still has a certain number of open items, use [Incomplete to-do items](/conditions/todo.incomplete/) instead.
 
 {% include conditions/try_it.md %}

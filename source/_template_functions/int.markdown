@@ -16,7 +16,7 @@ related_functions:
   - bool
 ---
 
-The `int` template function converts a value to an integer (whole number). If the value cannot be converted, it returns the default you provide instead of raising an error. Like [`float`](/template-functions/float/), it is "forgiving" and safe to use with {% term sensor %} values that might sometimes be invalid.
+The `int` template function converts a value to an integer (whole number). If the value cannot be converted, `int` raises an error. If you provide a default, it returns the default instead. With a default, like [`float`](/template-functions/float/), it is safe to use with {% term sensor %} values that might sometimes be invalid.
 
 In Home Assistant, all {% term entity %} states are stored as strings. When you need a whole number for math, comparisons, or passing to an {% term action %}, you need to convert first. The `int` function also supports a `base` parameter for converting hexadecimal, octal, or binary strings. If you need decimal precision, use [`float`](/template-functions/float/) instead.
 
@@ -38,7 +38,7 @@ output: "87"
 ```signature
 int(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
     base: int = 10,
 ) -> int | Any
 ```
@@ -50,12 +50,12 @@ The following parameters can be provided to this function.
 {% function_parameters %}
 value:
   description: >
-    The value to convert to an integer. Strings representing whole numbers (like `42`) are converted. Non-numeric values raise an error unless a default is provided.
+    The value to convert to an integer. Strings representing numbers (like `42` or `21.5`) are converted. Non-numeric values, such as `none`, raise an error unless a default is provided.
   required: true
   type: any
 default:
   description: >
-    Value to return if the conversion fails. If not provided, an error is raised on invalid input. It is strongly recommended to always provide a default.
+    The value to return if the conversion fails, such as `0`. If you leave out `default` and the conversion fails, `int` raises an error and the template fails. It's best to always set `default`.
   required: false
   type: any
 base:
@@ -98,7 +98,9 @@ output: "10"
 ## Good to know
 
 - Floats are truncated toward zero, not rounded. `2.9 | int` is `2`, and `-2.9 | int` is `-2`. Use [`round`](/template-functions/round/) first if you want rounding.
-- A string with decimals like `"21.5"` fails without a default. Pipe through [`float`](/template-functions/float/) first or supply a default.
+- Strings with decimals are truncated too. `"21.5" | int` is `21`, and `"1e3" | int` is `1000`.
+- The boolean `true` converts to `1`, and `false` converts to `0`.
+- A string with a prefix, like `"0x1A"`, raises an error without `base`. Use `base=16`, or use `base=0` to detect the prefix automatically.
 - The `base` parameter only applies to string inputs. Passing a number with `base=16` does not convert it.
 
 {% include template_functions/try_it.md %}

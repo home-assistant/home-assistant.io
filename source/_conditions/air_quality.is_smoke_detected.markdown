@@ -9,8 +9,6 @@ related_conditions:
 
 The **Smoke detected** condition passes when one or more smoke sensors are actively detecting smoke. When seconds count, your automation needs to act on confirmed smoke, not on a brief sensor glitch. This condition makes sure that emergency lighting, alarm sirens, or urgent phone notifications only fire while smoke is truly present.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -45,8 +43,6 @@ This passes when the kitchen smoke sensor is currently detecting smoke.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -56,13 +52,13 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="smoke detector" example="binary_sensor.hallway_smoke" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as detecting. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check whether smoke is no longer detected, use [Smoke cleared](/conditions/air_quality.is_smoke_cleared/).
 
 {% include conditions/try_it.md %}
@@ -74,7 +70,7 @@ behavior:
 During a smoke event, a single notification is easy to miss. This automation fires every 5 minutes and checks whether the kitchen smoke sensor is still detecting smoke. As long as smoke is present, you keep getting reminders so you stay up to date.
 
 - **Trigger**: Time pattern: Every 5 minutes
-- **Condition**: Air Quality: Smoke detected
+- **Condition**: Smoke detected
   - **Target**: Kitchen smoke sensor
   - **Condition passes if**: Any
 - **Action**: Send a notification message

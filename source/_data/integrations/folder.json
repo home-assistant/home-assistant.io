@@ -1,0 +1,12 @@
+{
+  "domain": "folder",
+  "name": "Folder",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

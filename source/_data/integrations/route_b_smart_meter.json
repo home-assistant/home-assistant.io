@@ -1,0 +1,17 @@
+{
+  "domain": "route_b_smart_meter",
+  "name": "Smart Meter B Route",
+  "integration_type": "device",
+  "codeowners": [
+    "@SeraphicRav"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

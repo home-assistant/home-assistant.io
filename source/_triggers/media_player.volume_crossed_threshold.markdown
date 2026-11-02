@@ -2,7 +2,7 @@
 title: "Media player volume crossed threshold"
 trigger: media_player.volume_crossed_threshold
 domain: media_player
-description: "Triggers after the volume of one or more media players crosses a threshold."
+description: "Triggers when the volume of one or more media players crosses a threshold."
 related_triggers:
   - media_player.volume_changed
   - media_player.muted
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player volume crossed threshold** trigger fires when volume crosses a threshold you define. Use it when you care about the crossing itself, like moving above a limit or dropping below one, instead of every volume update.
 
 Use **Media player volume crossed threshold** to react when listening gets too loud, when background music becomes too quiet, or when volume moves into or out of a range.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -41,6 +39,7 @@ Trigger when:
     - **Each**: Fires every time any targeted media player crosses the threshold (default).
     - **First**: Fires when the first targeted media player crosses the threshold.
     - **All**: Fires when every targeted media player crosses the threshold.
+  required: false
 For at least:
   description: How long the crossed state must remain true before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -87,8 +86,8 @@ threshold:
 
     - `type: above`: fires when the volume crosses above `value`.
     - `type: below`: fires when the volume crosses below `value`.
-    - `type: between`: fires when the volume crosses into the range between `value_min` and `value_max`.
-    - `type: outside`: fires when the volume crosses out of the range and moves to or beyond `value_min` or `value_max`.
+    - `type: between` (inclusive): fires when the volume crosses into the range between `value_min` and `value_max`. A volume equal to either bound is inside the range.
+    - `type: outside` (exclusive): fires when the volume crosses out of the range, to below `value_min` or above `value_max`. A volume equal to either bound is still inside the range.
 
     For a fixed threshold, use `number` with a percentage from 0 to 100. For a dynamic threshold, use `entity` with an `input_number`, `number`, or `sensor` entity that uses `%` as the unit.
   required: true
@@ -97,16 +96,16 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted media player crosses the threshold.
-    - `first` (**First** in the UI): fires when the first targeted media player crosses the threshold.
-    - `last` (**All** in the UI): fires when every targeted media player crosses the threshold.
+    - `each` (default): fires every time any targeted media player crosses the threshold.
+    - `first`: fires when the first targeted media player crosses the threshold.
+    - `all`: fires when every targeted media player crosses the threshold.
   required: false
   type: string
-  default: any
+  default: each
 for:
-  description: How long the crossed state must remain true before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the crossed state must remain true before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

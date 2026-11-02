@@ -6,7 +6,6 @@ date: 2025-12-17 00:00:00
 date_formatted: "December 17, 2025"
 author: Marcel van der Veldt
 comments: true
-categories: Music-Assistant
 og_image: /images/blog/2025-12-music-assistant-2-7/art.webp
 ---
 

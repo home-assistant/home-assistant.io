@@ -2,7 +2,7 @@
 title: "Media player volume changed"
 trigger: media_player.volume_changed
 domain: media_player
-description: "Triggers after the volume of one or more media players changes."
+description: "Triggers when the volume of one or more media players changes."
 related_triggers:
   - media_player.volume_crossed_threshold
   - media_player.started_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player volume changed** trigger fires when a media player's volume changes and the new value matches the threshold rule you set. Use it when you want to react to a new volume level, not just to playback starting or stopping.
 
 Use **Media player volume changed** to adjust lights when volume gets high, send a notification when volume drops too low, or react to any change for logging and other routines.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -39,8 +37,8 @@ Threshold:
 
     - **Any change**: fires on any volume change.
     - **Above** or **Below** (exclusive): fires only when the new volume is strictly above or below the threshold.
-    - **In range** (exclusive): fires only when the new volume is strictly between the lower and upper bounds.
-    - **Outside range** (inclusive): fires when the new volume is at or beyond either bound.
+    - **In range** (inclusive): fires when the new volume is between the lower and upper bounds, or equal to one of them.
+    - **Outside range** (exclusive): fires when the new volume is beyond either bound.
 
     Use a fixed percentage from 0 to 100, or use an `input_number`, `number`, or `sensor` entity with `%` as the unit.
 {% endoptions_ui %}
@@ -87,8 +85,8 @@ threshold:
     - `type: any`: fires on any volume change.
     - `type: above` (exclusive): fires when the new volume is strictly above `value`.
     - `type: below` (exclusive): fires when the new volume is strictly below `value`.
-    - `type: between` (exclusive): fires when the new volume is strictly between `value_min` and `value_max`.
-    - `type: outside` (inclusive): fires when the new volume is at or beyond `value_min` or `value_max`.
+    - `type: between` (inclusive): fires when the new volume is between `value_min` and `value_max`, or equal to one of them.
+    - `type: outside` (exclusive): fires when the new volume is below `value_min` or above `value_max`.
 
     For a fixed threshold, use `number` with a percentage from 0 to 100. For a dynamic threshold, use `entity` with an `input_number`, `number`, or `sensor` entity that uses `%` as the unit.
   required: true

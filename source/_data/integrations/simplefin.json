@@ -1,0 +1,18 @@
+{
+  "domain": "simplefin",
+  "name": "SimpleFin",
+  "integration_type": "service",
+  "codeowners": [
+    "@scottg489",
+    "@jeeftor"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "finance"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

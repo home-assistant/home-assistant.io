@@ -1,0 +1,25 @@
+{
+  "domain": "netgear",
+  "name": "NETGEAR",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Quentame",
+    "@starkillerOG"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.routers_network",
+    "presence_location.network_presence"
+  ],
+  "platforms": [
+    "button",
+    "device_tracker",
+    "sensor",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

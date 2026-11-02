@@ -1,27 +1,10 @@
 ---
-title: myStrom
 description: Instructions on how to integrate myStrom WiFi Switches, Bulbs and Motion Sensors into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Light
-  - Sensor
-  - Switch
 ha_release: 0.43
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@fabaff'
 ha_domain: mystrom
-ha_platforms:
-  - binary_sensor
-  - light
-  - sensor
-  - switch
-ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_dhcp: true
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -55,7 +38,7 @@ Two HA sensors are available for motion sensors:
 
 {%include integrations/config_flow.md %}
 
-Check if you are able to access the light located at `IP_ADRRESS`. The details about your light is provided as a JSON response.
+Check if you can access the light located at `IP_ADRRESS`. The details about your light is provided as a JSON response.
 
 ```bash
 $ curl http://[IP_ADDRESS]/api/v1/device/[MAC_ADDRESS]

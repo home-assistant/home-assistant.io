@@ -1,21 +1,10 @@
 ---
-title: NZBGet
 description: Instructions on how to integrate NZBGet within Home Assistant.
-ha_category:
-  - Downloading
-ha_iot_class: Local Polling
 ha_release: 0.17
-ha_config_flow: true
-ha_codeowners:
-  - '@chriscla'
 ha_domain: nzbget
-ha_platforms:
-  - sensor
-  - switch
-ha_integration_type: service
 ---
 
-The **NZBGet** {% term integration %} allows you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant. It also allows you to setup automation based on the information.
+The **NZBGet** {% term integration %} allows you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant. It also allows you to set up automation based on the information.
 
 {% include integrations/config_flow.md %}
 
@@ -61,18 +50,4 @@ Example automation to send a Telegram message on a completed download:
         message: "{{trigger.event.data.name}}"
 ```
 
-## Actions
-
-Available actions:
-
-- `pause`: Pause the download queue.
-- `resume`: Resume the download queue.
-- `set_speed`: Set the download queue speed limit.
-
-### Action: Set speed
-
-The `nzbget.set_speed` action sets the download queue speed limit.
-
-| Data attribute | Optional | Description                                                                                     |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| `speed`                | yes      | Sets the download speed limit, specified in Kb/s. 0 disables the speed limit. Defaults to 1000. |
+{% include integrations/actions.md %}

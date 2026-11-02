@@ -2,14 +2,12 @@
 title: "Switch turned on"
 trigger: switch.turned_on
 domain: switch
-description: "Triggers after one or more switches turn on."
+description: "Triggers when one or more switches turn on."
 related_triggers:
   - switch.turned_off
 ---
 
 The **Switch turned on** trigger is useful when you want something else to happen as soon as a switch is activated. Use it to start a related device, send a reminder, or begin a timed routine after a switch has been on for a while.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -57,18 +55,19 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the switch must stay on before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the switch must stay on before the trigger fires. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="switch or toggle helper" example="switch.coffee_maker" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
+- You can use switch entities and [toggle helpers](/integrations/input_boolean/) (`input_boolean`) as [targets](/docs/automation/targets/).
 - A switch in the `unknown` or `unavailable` state does not count as turned on.
 - If the switch turns off before the **For at least** time finishes, the timer resets.
 - To react when a switch stops instead, use [Switch turned off](/triggers/switch.turned_off/).

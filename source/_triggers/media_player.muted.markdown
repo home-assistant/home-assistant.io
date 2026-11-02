@@ -2,7 +2,7 @@
 title: "Media player muted"
 trigger: media_player.muted
 domain: media_player
-description: "Triggers after one or more media players are muted."
+description: "Triggers when one or more media players are muted."
 related_triggers:
   - media_player.unmuted
   - media_player.volume_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player muted** trigger fires when a media player becomes muted. Use it when you want Home Assistant to react when someone silences a TV, speaker, or receiver.
 
 Use **Media player muted** to adjust nearby lighting for quiet listening, pause another routine that depends on audio, or send a notification when a shared media player is muted.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -37,6 +35,7 @@ Trigger when:
     - **Each**: Fires every time any targeted media player is muted (default).
     - **First**: Fires when the first targeted media player is muted.
     - **All**: Fires when every targeted media player is muted.
+  required: false
 For at least:
   description: How long the media player must stay muted before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -62,7 +61,7 @@ trigger: |
   target:
     area_id: living_room
   options:
-    behavior: last
+    behavior: all
     for: "00:02:00"
 {% endexample %}
 
@@ -73,16 +72,16 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted media player is muted.
-    - `first` (**First** in the UI): fires when the first targeted media player is muted.
-    - `last` (**All** in the UI): fires when every targeted media player is muted.
+    - `each` (default): fires every time any targeted media player is muted.
+    - `first`: fires when the first targeted media player is muted.
+    - `all`: fires when every targeted media player is muted.
   required: false
   type: string
-  default: any
+  default: each
 for:
-  description: How long the media player must stay muted before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the media player must stay muted before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

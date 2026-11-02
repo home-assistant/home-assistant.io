@@ -1,28 +1,24 @@
 ---
-title: Fan
-description: Instructions on how to setup Fan devices within Home Assistant.
-ha_category:
-  - Fan
+description: Instructions on how to set up Fan devices within Home Assistant.
 ha_release: 0.27
-ha_quality_scale: internal
 ha_domain: fan
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 The **Fan** {% term integration %} allows you to control and monitor fan devices.
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a fan entity
+## Fan states
 
-The state of a fan entity can be either **On** or **Off**.
+A fan entity can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- **On** (`on`): The fan is turned on.
+- **Off** (`off`): The fan is turned off.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Supported functionality
 
@@ -40,6 +36,8 @@ Not every fan supports every action. The actions available for a specific fan de
 {% include integrations/triggers_conditions_actions.md %}
 
 ## Fan automation examples
+
+{% include docs/paste_yaml_tip.md %}
 
 ### Automation: Turn on the bedroom fan at bedtime
 

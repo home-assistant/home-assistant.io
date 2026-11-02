@@ -1,18 +1,10 @@
 ---
-title: Garadget
 description: Instructions on how to integrate Garadget covers within Home Assistant.
-ha_category:
-  - Cover
 ha_release: 0.32
-ha_iot_class: Cloud Polling
 ha_domain: garadget
-ha_platforms:
-  - cover
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Garadget** {% term integration %} lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.
@@ -123,7 +115,7 @@ logbook:
 
 As of firmware release 1.17 the garadget device has native support for MQTT. The options allow the end-user to configure the device in the following ways 'cloud only', 'cloud and MQTT' or 'MQTT only'.
 
-For configuration of the garadget as a MQTT cover:
+For configuration of the garadget as an MQTT cover:
 
 ```yaml
 mqtt:

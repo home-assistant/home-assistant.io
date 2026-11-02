@@ -9,8 +9,6 @@ related_conditions:
 
 The **Occupancy is detected** condition passes when one or more occupancy sensors are reporting a space as occupied. Use it in an automation to only run actions when a room or area is currently in use, like adjusting the climate only while someone is there.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -50,8 +48,6 @@ This passes when the entity `binary_sensor.occupancy_living_room` has been conti
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,13 +57,13 @@ behavior:
   default: any
 for:
   description: >
-    How long one or more occupancy sensors must be continuously reporting the space as occupied before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long one or more occupancy sensors must be continuously reporting the space as occupied before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="occupancy sensor" example="binary_sensor.office_occupancy" %}
 
 {% include conditions/behavior.md %}
 
@@ -88,8 +84,9 @@ In the evening, if the living room is currently occupied, this automation sets t
 - **Trigger**: Time (at 19:00)
 - **Condition**: Occupancy is detected
   - **Target**: Living room occupancy sensor
-- **Action**: Set temperature (21 °C)
+- **Action**: Set thermostat target temperature
   - **Target**: Living room thermostat
+  - **Target temperature**: `21`°C
 
 {% details "YAML example for warming the living room in the evening if occupied" %}
 

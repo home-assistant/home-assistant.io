@@ -1,0 +1,28 @@
+{
+  "domain": "eheimdigital",
+  "name": "EHEIM Digital",
+  "integration_type": "hub",
+  "codeowners": [
+    "@autinerd"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "pets"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "diagnostics",
+    "light",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "time"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

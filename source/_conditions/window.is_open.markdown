@@ -9,8 +9,6 @@ related_conditions:
 
 The **Window is open** condition passes when a targeted window is currently open. Use it when you want an automation to continue only if fresh air is coming in, or when you want to warn someone before leaving the house with a window still open.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -32,7 +30,7 @@ Condition passes if:
   required: true
 For at least:
   description: How long the window must have been open before the condition passes. Set to zero to pass immediately.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -50,8 +48,6 @@ This passes when `binary_sensor.kitchen_window` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,20 +57,20 @@ behavior:
   default: any
 for:
   description: >
-    Duration the window must have been open before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
-  type: string
+    Duration the window must have been open before the condition passes. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="window sensor or motorized window" example="binary_sensor.living_room_window" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Windows that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as open. Home Assistant skips them and evaluates the condition using the remaining targeted windows.
-- This condition works with binary sensors and covers that use the `window` device class.
+- The target must be a binary sensor or cover with the window device class.
+{% include conditions/unavailable_targets.md entities="windows" %}
 - To check the opposite state, use [Window is closed](/conditions/window.is_closed/).
 
 {% include conditions/try_it.md %}
@@ -122,12 +118,13 @@ automation: |
 
 If a motorized roof window has been open for a while, turning off the heater can help avoid wasting energy.
 
-- **Trigger**: Time pattern: Every 10 minutes
+- **Trigger**: Time pattern
+  - **Minutes**: `/10`
 - **Condition**: Window is open
-- **Target**: Bedroom roof window cover
-- **Condition passes if**: Any
-- **For at least**: 00:10:00
-- **Action**: Climate: Turn off
+  - **Target**: Bedroom roof window cover
+  - **For at least**: 00:10:00
+- **Action**: Turn off thermostat
+  - **Target**: Bedroom thermostat
 
 {% details "YAML example for turning off heating when a roof window stays open" %}
 
@@ -142,7 +139,6 @@ automation: |
       target:
         entity_id: cover.bedroom_roof_window
       options:
-        behavior: any
         for: "00:10:00"
   actions:
     - action: climate.turn_off

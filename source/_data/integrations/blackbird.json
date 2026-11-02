@@ -1,0 +1,12 @@
+{
+  "domain": "blackbird",
+  "name": "Monoprice Blackbird Matrix Switch",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "media_entertainment"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

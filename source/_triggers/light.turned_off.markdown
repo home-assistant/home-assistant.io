@@ -2,7 +2,7 @@
 title: "Light turned off"
 trigger: light.turned_off
 domain: light
-description: "Triggers after one or more lights turn off."
+description: "Triggers when one or more lights turn off."
 related_triggers:
   - light.turned_on
   - light.brightness_changed
@@ -12,8 +12,6 @@ The **Light turned off** trigger fires after a light {% term entity %} turns off
 
 When you target more than one light, the trigger's **behavior** option controls when it fires. You can have it fire the first time any targeted light turns off, the last time the final targeted light turns off, or every single time any of them turn off.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -21,20 +19,25 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light turned off**.
+4. From the search box, search for and select **Light turned off**.
 5. Under **Targets**, choose what to watch:
     - To watch a specific light, select the entity.
     - To watch every light in a room, select an area.
     - To watch every light on a floor, select a floor.
     - To watch lights sharing a tag, select a label.
 6. Under **Trigger when**, pick **Each**, **First**, or **All**.
-7. Select **Save**.
+7. Under **For at least**, set how long the light must stay off before the trigger reacts. Leave it at zero to react right away.
+8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns off, **First** to fire only when the first of a group of on lights turns off, or **All** to fire only after every targeted light is off.
+  required: false
+For at least:
+  description: How long the light must stay off before the trigger reacts. The default is zero, which reacts right away.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -52,8 +55,6 @@ This fires every time `light.kitchen` transitions from on to off.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,6 +62,13 @@ behavior:
   required: false
   type: string
   default: each
+for:
+  description: >
+    How long the light must stay off before the trigger reacts.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -83,7 +91,7 @@ When the last light in the house turns off late at night, arm the alarm automati
 - **Target**: All lights (by label)
 - **Trigger when**: All
 - **Condition**: Time is after 22:30
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
 
 {% details "YAML example for an arm-on-last-light automation" %}
 
@@ -114,7 +122,8 @@ When every light in the living room is off, stop whatever is playing on the livi
 - **Trigger**: Light turned off
 - **Target**: Living room area
 - **Trigger when**: All
-- **Action**: Media player: Turn off
+- **Action**: Turn off media player
+  - **Target**: Living room speaker
 
 {% details "YAML example for auto-pausing media when the room goes dark" %}
 

@@ -2,7 +2,7 @@
 title: "Light turned on"
 trigger: light.turned_on
 domain: light
-description: "Triggers after one or more lights turn on."
+description: "Triggers when one or more lights turn on."
 related_triggers:
   - light.turned_off
   - light.brightness_changed
@@ -12,8 +12,6 @@ The **Light turned on** trigger fires after a light {% term entity %} turns on. 
 
 When you target more than one light, the trigger's **behavior** option controls when it fires. You can have it fire the first time any targeted light turns on, the last time the final targeted light turns on, or every single time any of them turn on.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -21,20 +19,25 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light turned on**.
+4. From the search box, search for and select **Light turned on**.
 5. Under **Targets**, choose what to watch:
     - To watch a specific light, select the entity.
     - To watch every light in a room, select an area.
     - To watch every light on a floor, select a floor.
     - To watch lights sharing a tag, select a label.
 6. Under **Trigger when**, pick **Each**, **First**, or **All** to control how the trigger behaves when multiple lights are targeted.
-7. Select **Save**.
+7. Under **For at least**, set how long the light must stay on before the trigger reacts. Leave it at zero to react right away.
+8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns on, **First** to fire only when the first of a group of off lights turns on, or **All** to fire only after every targeted light is on.
+  required: false
+For at least:
+  description: How long the light must stay on before the trigger reacts. The default is zero, which reacts right away.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -52,8 +55,6 @@ This fires every time `light.kitchen` transitions from off to on.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,6 +62,13 @@ behavior:
   required: false
   type: string
   default: each
+for:
+  description: >
+    How long the light must stay on before the trigger reacts.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -118,7 +126,10 @@ When the first downstairs light turns on in the morning, start a gentle playlist
 - **Target**: Downstairs area
 - **Trigger when**: First
 - **Condition**: Time is between 06:00 and 10:00
-- **Action**: Media player: Play media
+- **Action**: Play specified media
+  - **Target**: Kitchen media player
+  - **Media content ID**: `spotify:playlist:37i9dQZF1DXdwmD5Q7Gxah`
+  - **Media content type**: `music`
 
 {% details "YAML example for a morning welcome playlist" %}
 

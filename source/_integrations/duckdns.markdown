@@ -1,16 +1,7 @@
 ---
-title: Duck DNS
 description: Keep your public IP address in sync with your Duck DNS subdomain.
-ha_category:
-  - Network
-ha_iot_class: Cloud Polling
 ha_release: 0.55
 ha_domain: duckdns
-ha_integration_type: service
-ha_codeowners:
-  - '@tr4nt0r'
-ha_config_flow: true
-ha_quality_scale: platinum
 ---
 
 The **Duck DNS** {% term integration %} keeps your Duck DNS subdomain in sync with your current public IP address.
@@ -47,29 +38,9 @@ To set up the integration, you need your Duck DNS subdomain and token. You can f
     required: true
 {% endconfiguration_basic %}
 
-## Action `set_txt`
+{% include integrations/actions.md %}
 
-Set the TXT record of your Duck DNS subdomain.
-
-| Data attribute         | Optional | Description                 |
-| ---------------------- | -------- | --------------------------- |
-| `config_entry_id`      | no       | The Duck DNS integration ID.|
-| `txt`                  | yes      | Payload for the TXT record. |
-
-{% details "Example YAML configuration" %}
-
-
-```yaml
-action: duckdns.set_txt
-data:
-  config_entry_id: 01234567890ABCDEF # Replace with your actual config entry ID
-  txt: LoqXcYV8...jxAjEuX0.9jg46WB3...fm21mqTI # Replace with a valid ACME DNS-01 challenge
-```
-
-
-{% enddetails %}
-
-## Data updates  
+## Data updates
 
 This integration syncs your public IP with your Duck DNS subdomain every 5 minutes.
 

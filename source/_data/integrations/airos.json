@@ -1,0 +1,24 @@
+{
+  "domain": "airos",
+  "name": "Ubiquiti airOS",
+  "integration_type": "device",
+  "codeowners": [
+    "@CoMPaTech"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "sensor",
+    "update"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

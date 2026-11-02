@@ -1,0 +1,100 @@
+# The link-in-bio page at https://www.home-assistant.io/bio/
+#
+# The page is this list, top to bottom. Move a block to move it; delete a
+# block to remove it. A mistake here fails the build and names the line, so
+# nothing broken can reach the live page. The page itself is built by Astro:
+# astro/src/pages/bio/index.astro, with the rules in astro/src/lib/bio.mjs.
+
+avatar: /images/favicon-192x192-full.png
+tagline: Open source home automation that puts local control and privacy first.
+
+sections:
+  # Blog posts, newsletter issues and releases in one list, newest first. A pinned
+  # post always comes first. Add or remove feeds in `sources`.
+  # hero: true shows the first item as a large card with its image on top.
+  - type: feed
+    title: Latest
+    sources: [pinned, blog, newsletter, releases]
+    limit: 5
+    images: true
+    hero: true
+    # Add anything else to the list here. It sits in date order with the
+    # rest; delete it when it's no longer relevant.
+    insert:
+      - title: "The merch store is open!"
+        url: https://store.openhomefoundation.org
+        date: 2026-10-21
+        label: Announcement        # optional, shown before the date
+        image: "https://store.openhomefoundation.org/cdn/shop/files/store-hero-bg.webp"  # optional
+    # A YouTube video or livestream shows like a video player and opens
+    # YouTube. Before it starts it reads "Starts November 15 · 18:00 UTC".
+    #  - type: youtube
+    #    video: https://www.youtube.com/watch?v=XyAL1to3Lm4   # or just the ID
+    #    title: "State of the Open Home 2026"
+    #    start: 2026-11-15T18:00:00Z                          # or just a date
+    #    label: Livestream                                    # optional
+
+  # Links that always sit under the Latest list. Add a campaign here, or give
+  # a link starts and ends dates to show it only for a while.
+  - type: links
+    title: Featured
+    items:
+      - label: Merch store
+        url: https://store.openhomefoundation.org
+
+  - type: links
+    title: Get started
+    items:
+      - label: Install Home Assistant
+        url: /installation/
+        featured: true
+      - label: Documentation
+        url: /docs/
+      - label: Community forum
+        url: https://community.home-assistant.io/
+
+socials:
+  - { platform: mastodon, url: "https://fosstodon.org/@homeassistant" }
+  - { platform: youtube, url: "https://www.youtube.com/@home_assistant" }
+  - { platform: github, url: "https://github.com/home-assistant" }
+  - { platform: discord, url: "https://www.home-assistant.io/join-chat/" }
+
+sources:
+  # Every source can set:
+  #   label: shown on each item, e.g. "Blog · October 1, 2026"
+  #   limit: the most items it can add to any one list
+  # Blog sources can also set category or exclude_category to filter posts.
+
+  # Blog posts, including crossposts. Release notes come from `releases`
+  # below, so they are labeled "Release" rather than "Blog".
+  blog:
+    type: posts
+    label: Blog
+    exclude_category: Release-Notes
+
+  # Monthly release notes.
+  releases:
+    type: posts
+    category: Release-Notes
+    label: Release
+    limit: 1
+
+  # The Open Home Foundation newsletter, downloaded before each build by the
+  # newsletter_data task in the Rakefile. If the download fails, the newest
+  # editions already on file are used, or the section is left out.
+  newsletter:
+    type: data
+    file: newsletter_data
+    label: Newsletter
+    limit: 1
+
+  # Pin a post when the timing has to be exact, such as a launch. Pinned
+  # items go to the top of the list. Remove them, or let `expires` pass, and
+  # the list is back to newest first.
+  pinned:
+    type: pinned
+    items: []
+    #  - title: "2026.11: An example"
+    #    url: /blog/2026/11/05/release-202611/
+    #    image: auto
+    #    expires: 2026-11-12

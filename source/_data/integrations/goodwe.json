@@ -1,0 +1,21 @@
+{
+  "domain": "goodwe",
+  "name": "GoodWe Inverter",
+  "integration_type": "device",
+  "codeowners": [
+    "@mletenay",
+    "@starkillerOG"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "button",
+    "diagnostics",
+    "number",
+    "select",
+    "sensor"
+  ]
+}

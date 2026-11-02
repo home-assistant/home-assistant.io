@@ -1,0 +1,16 @@
+{
+  "domain": "iskra",
+  "name": "iskra",
+  "integration_type": "hub",
+  "codeowners": [
+    "@iskramis"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -1,42 +1,7 @@
 ---
-title: HomematicIP Cloud
 description: Instructions for integrating HomematicIP into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Hub
-  - Light
-  - Lock
-  - Sensor
-  - Switch
-  - Valve
-ha_iot_class: Cloud Push
 ha_release: 0.66
-ha_config_flow: true
 ha_domain: homematicip_cloud
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - light
-  - lock
-  - sensor
-  - siren
-  - switch
-  - valve
-  - weather
-ha_integration_type: hub
-ha_codeowners:
-  - '@hahn-th'
-  - '@lackas'
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
@@ -49,6 +14,7 @@ There is currently support for the following device types within Home Assistant:
 - Climate
 - Cover
 - Event
+- Fan
 - Light
 - Lock
 - Sensor
@@ -82,7 +48,7 @@ name:
   type: string
 accesspoint:
   required: true
-  description: This is the access point ID (SGTIN).
+  description: This is the access point ID (Serialized Global Trade Item Number, or SGTIN).
   type: string
 authtoken:
   required: true
@@ -105,6 +71,16 @@ To do this, navigate to **Access Control** in the Homematic IP app and enable th
 
 Currently, you can only use the HmIP-DLD in Home Assistant without a PIN. Make sure no PIN is set for the device in the Homematic IP app.
 
+## Use HmIP-FLC and HmIP-FDC door openers in Home Assistant
+
+The door opener of the HmIP-FLC and HmIP-FDC is a button entity. As with the HmIP-DLD, the Home Assistant access point must be allowed to control it under **Access Control** in the Homematic IP app.
+
+If the access authorization has a PIN, use the `homematicip_cloud.pull_latch` action with its `pin` field. The button itself cannot pass a PIN.
+
+## Arming refused by a sensor
+
+Newer Homematic IP alarm systems refuse to arm while a window is open or a device is unreachable. Home Assistant then reports an error naming those devices, and the **Arming blocked** binary sensor of the access point turns on. It only follows the commands sent from Home Assistant and stays on until the next one goes through.
+
 ## Supported devices
 
 The list below shows which Home Assistant entities each supported Homematic IP device contributes. Devices are grouped by Home Assistant entity platform; a single physical device often contributes entities on more than one platform (for example, a wall thermostat appears under *Climate*, *Sensors*, and *Binary sensors* for the battery state). If your device isn't listed, see [My device isn't recognized](#my-device-isnt-recognized).
@@ -115,7 +91,7 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 
 ### Binary sensors
 
-- Access point cloud connection (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Access point cloud connection and arming blocked (`HmIP-HAP`, `HmIP-HAP-B1`)
 - Window and door contacts, including the rotary handle sensor (`HmIP-SWDO`, `HmIP-SWDO-PL`, `HmIP-SWDO-I`, `HmIP-SWDM`, `HmIP-SWDM-B2`, `HmIP-SRH`)
 - Contact interfaces (`HmIP-FCI1`, `HmIP-FCI6`, `HmIP-SCI`)
 - Smoke detectors (`HmIP-SWSD`, `HmIP-SWSD-2`)
@@ -123,16 +99,20 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 - Acceleration and tilt sensors (`HmIP-SAM`, `HmIP-STV`)
 - Rain sensor (`HmIP-SRD`)
 - Water sensor (`HmIP-SWD`)
+- Water alarm of the water stop and supply unit (`HmIP-WSS`, `HmIP-WSS-GB`)
 - Alarm sirens (`HmIP-ASIR`, `HmIP-ASIR-O`, `HmIP-ASIR-B1`)
 - Pluggable power supply monitoring (`HmIP-PMFS`)
 - Wired input module – 32 channels (`HmIPW-DRI32`)
 - Battery sensors on remote controls (`HmIP-RC8`, `HmIP-WRC2`, `HmIP-WRCC2`, `HmIP-WRC6`, `HmIP-WRC6-230`, `HmIPW-WRC6`, `HmIP-KRC4`, `HmIP-KRCA`, `HmIP-BRC2`, `HmIP-MOD-RC8`)
 - Full Flush Lock Controller glass-break and lock state sensors (`HmIP-FLC`)
+- Heating output of wall thermostats, shown when the thermostat's switching output is enabled (`HmIP-BWTH`, `HmIP-WGT`, `HmIP-WGT-A`, `HmIP-WGTC`)
 
 ### Buttons
 
 - Wall-mounted garage door controller (`HmIP-WGC`)
 - Full Flush Lock Controller door opener (`HmIP-FLC`)
+- Full Flush Door Controller door opener (`HmIP-FDC`)
+- Identify, which makes the device signal its location, on devices that support it
 
 ### Climate
 
@@ -155,6 +135,10 @@ Floor heating actuators are operated through the climate group and don't need th
 
 - Doorbell events for devices that expose a `DOOR_BELL_INPUT` channel, like `HmIP-DSD-PCB`.
 
+### Fans
+
+- Wall-mounted universal actuator, as a ventilation actuator (`HmIP-WUA`)
+
 ### Lights
 
 - Dimming actuators (`HmIP-BDT`, `HmIP-FDT`, `HmIP-PDT`)
@@ -174,12 +158,15 @@ Floor heating actuators are operated through the climate group and don't need th
 - Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`, `HmIP-STHO`, `HmIP-STHO-A`)
 - External temperature sensors with two probes (`HmIP-STE2-PCB`, `ELV-SH-PTI2`)
 - Light sensor – outdoor (`HmIP-SLO`)
-- Motion and presence sensors (`HmIP-SMI`, `HmIP-SMO`, `HmIP-SPI`)
+- Motion and presence sensors (`HmIP-SMI`, `HmIP-SMO`, `HmIP-SMO230`, `HmIP-SPI`)
 - Passage sensor with direction recognition (`HmIP-SPDR`)
 - Floor heating actuator – 12 channels, valve positions (`HMIP-FALMOT-C12`)
 - Fine dust sensor (`HmIP-SFD`)
 - Soil moisture sensor (`ELV-SH-SMSI`)
+- Ultrasonic distance sensor interface, distance and height (`ELV-SH-DUSI`)
 - Door lock pad (`HmIP-DLP`)
+- Carbon dioxide sensors (`HmIP-SCTH230`, `HmIP-WGTC`, `HmIPW-SCTHD`)
+- Water flow of the water stop and supply unit (`HmIP-WSS`, `HmIP-WSS-GB`)
 
 ### Switches
 
@@ -198,6 +185,7 @@ Floor heating actuators are operated through the climate group and don't need th
 ### Valves
 
 - Smart watering actuator (`ELV-SH-WSM`)
+- Water stop and supply unit (`HmIP-WSS`, `HmIP-WSS-GB`)
 
 ### Weather
 
@@ -218,129 +206,11 @@ Here is how you can help getting it added:
 
 While you wait, you can often expose the device through the Homematic IP app's own automations. The effects on devices that Home Assistant already supports will then show up there.
 
+{% note %}
+All actions that operate on the access point accept an optional `accesspoint_id` parameter (Serialized Global Trade Item Number, or SGTIN). If your installation has only one access point, you can leave this out. With multiple access points, you can find the ID at the top of the integration page or printed on the back of the access point.
+{% endnote %}
 
-## Actions
-
-The integration registers the following service actions. You can call them from automations or from {% my developer_call_service title="**Developer tools** > **Actions**" %}, which also shows the parameters for each action.
-
-All actions that operate on the access point accept an optional `accesspoint_id` parameter (the SGTIN). If your installation has only one access point, you can leave this out. With multiple access points, you can find the ID at the top of the integration page or printed on the back of the access point.
-
-### Climate and home modes
-
-- `homematicip_cloud.activate_eco_mode_with_duration`: Activate eco mode for a given number of minutes.
-- `homematicip_cloud.activate_eco_mode_with_period`: Activate eco mode until a given date and time.
-- `homematicip_cloud.deactivate_eco_mode`: Deactivate eco mode immediately.
-- `homematicip_cloud.activate_vacation`: Activate vacation mode until a given date and time, holding a target temperature.
-- `homematicip_cloud.deactivate_vacation`: Deactivate vacation mode immediately.
-- `homematicip_cloud.set_active_climate_profile`: Switch the active climate profile of a climate entity. The index is 1-based and matches the order shown in the Homematic IP app.
-- `homematicip_cloud.set_home_cooling_mode`: Switch the entire home between heating and cooling. *Administrator only.*
-
-### Energy and diagnostics
-
-- `homematicip_cloud.reset_energy_counter`: Reset the energy counter of a measuring actuator. *Administrator only.*
-- `homematicip_cloud.dump_hap_config`: Write a configuration dump to a file on disk. *Administrator only.* For sharing the dump publicly, prefer **Download diagnostics** from the integration page; it produces the same dump with stricter redaction.
-
-### Action examples
-
-Activate eco mode with duration. 
-
-```yaml
-...
-actions:
-  - action: homematicip_cloud.activate_eco_mode_with_duration
-    data:
-      duration: 60
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
-
-Activate eco mode with period. 
-
-```yaml
-...
-actions:
-  - action: homematicip_cloud.activate_eco_mode_with_period
-    data:
-      endtime: 2019-09-17 18:00
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
-
-Activates the vacation mode until the given time.
-
-```yaml
-...
-actions:
-  - action: homematicip_cloud.activate_vacation
-    data:
-      endtime: 2019-09-17 18:00
-      temperature: 18.5
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
-
-Deactivates the eco mode immediately.
-
-```yaml
-...
-actions:
-  - action: homematicip_cloud.deactivate_eco_mode
-    data:
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
-
-Deactivates the vacation mode immediately.
-
-```yaml
-...
-actions:
-  - action: homematicip_cloud.deactivate_vacation
-    data:
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
-
-Set the active climate profile index.
-
-The index of the climate profile is 1-based. 
-You can get the required index from the native Homematic IP App.
-
-```yaml
-...
-actions:
-  - action: homematicip_cloud.set_active_climate_profile
-    target:
-      entity_id: climate.livingroom
-    data:
-      climate_profile_index: 1
-```
-
-Dump the configuration of the Homematic IP Access Point(s).
-
-```yaml
-...
-actions:
-  - action: homematicip_cloud.dump_hap_config
-    data:
-      anonymize: True
-```
-
-Reset energy counter of measuring actuators.
-
-```yaml
-...
-actions:
-  - action: homematicip_cloud.reset_energy_counter
-    target:
-      entity_id: switch.livingroom
-```
-
-Enable (or disable) Cooling mode for the entire home. Disabling Cooling mode will revert to Heating.
-
-```yaml
-...
-actions:
-  - action: homematicip_cloud.set_home_cooling_mode
-    data:
-      cooling: True
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
+{% include integrations/actions.md %}
 
 ## Button events
 
