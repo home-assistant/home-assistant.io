@@ -1,11 +1,11 @@
-// Fixtures for the "We want to hear from everyone" section, including the
-// wide card of questions to ask the rest of the household.
+// Fixtures for the "This year’s challenge" section: the wide card of
+// questions to ask the rest of the household.
 export default {
-  title: "WTH audiences",
+  title: "WTH challenge",
   wide: true,
   description:
-    "Who the month is for: three cards on the tinted band, then the " +
-    "household card, which splits into two columns from 1140px.",
+    "The household card of questions, which splits into two columns from " +
+    "1140px.",
   variants: [
     {
       name: "default",

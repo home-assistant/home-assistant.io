@@ -11,7 +11,7 @@ import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import Button from "../Button.astro";
 import WthCtaBackground from "./WthCtaBackground.astro";
-import { forumUrl } from "../../lib/wth.mjs";
+import { blogUrl, forumUrl } from "../../lib/wth.mjs";
 ---
 
 <section id="cta">
@@ -19,11 +19,11 @@ import { forumUrl } from "../../lib/wth.mjs";
     <div class="card">
       <WthCtaBackground />
 
-      <h2>So, what the heck?!</h2>
+      <h2>Over to you!</h2>
       <p>
-        Whether you’ve run Home Assistant since the early days, installed it
-        last week, or simply live with someone who won’t stop talking about it:
-        this is <em>your</em> month!
+        Still wondering what the heck it’s all about? Frenck tells the whole
+        story over on <a href={blogUrl}>our blog</a>. Or just dive right in. We
+        can’t wait to hear from you, and the people you live with!
       </p>
       <Button href={forumUrl} scheme="secondary" icon target="_blank" rel="noopener">
         Share your WTH
@@ -70,6 +70,11 @@ import { forumUrl } from "../../lib/wth.mjs";
     line-height: 1.55;
     margin: var(--space-large) auto 0;
     max-width: 54ch;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
   }
 
   .card :global(.button) {

@@ -2,7 +2,7 @@
   {% include_relative components/_hero-background.html %}
 
   <div class="container">
-    <p class="hero-date">November is month of</p>
+    <p class="hero-date">November is the month of</p>
 
     <div class="content">
       <h1 class="hero-heading">
@@ -14,15 +14,14 @@
         {% include_relative components/_wordmark.html %}
       </h1>
 
-      <p class="hero-tagline">One month, one question</p>
-      <p class="lead">What in Home Assistant makes you go &ldquo;what the heck?!&rdquo;</p>
+      <p class="lead">All month, we want your WTHs! Every one helps make Home Assistant better.</p>
 
       <div class="buttons-container">
         <a href="{{ page.forum_url }}" class="button primary" target="_blank" rel="noopener">
-          Share yours
+          Share your WTH
           <span class="icon-inline" aria-hidden="true">{% icon "mdi:arrow-right" %}</span>
         </a>
-        <a href="#what-is-a-wth" class="button hollow">Learn more</a>
+        <a href="{{ page.blog_url }}" class="button hollow">Learn more</a>
       </div>
     </div>
   </div>

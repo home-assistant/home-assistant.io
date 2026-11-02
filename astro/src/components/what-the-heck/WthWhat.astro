@@ -8,13 +8,40 @@ import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import WthSection from "./WthSection.astro";
 import WthChat from "./WthChat.astro";
+import { fixesUrl } from "../../lib/wth.mjs";
 ---
 
 <WthSection
   id="what-is-a-wth"
   tone="surface"
-  heading="Placeholder: what is a WTH"
-  lead="Placeholder: explain in a paragraph what a WTH is."
+  heading="What is a WTH?"
+  lead="Anything in Home Assistant that makes you go “What the heck?!” – whether you’ve used it for years or installed it last week."
 >
   <WthChat />
+
+  <p class="note">
+    All the fixes from past editions of What the Heck?! are <a
+      href={fixesUrl}
+      target="_blank"
+      rel="noopener">tagged on GitHub</a
+    >.
+  </p>
 </WthSection>
+
+<style lang="scss">
+  .note {
+    color: var(--wth-ink-soft);
+    font-size: var(--font-size-large);
+    line-height: 1.55;
+    margin: var(--space-xlarge) 0 0;
+
+    a {
+      color: var(--wth-link);
+      text-decoration: underline;
+
+      &:hover {
+        color: var(--wth-ink);
+      }
+    }
+  }
+</style>

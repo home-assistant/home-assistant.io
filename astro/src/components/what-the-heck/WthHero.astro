@@ -1,27 +1,26 @@
 ---
 // The hero of the Month of "What the Heck?!" page: a rounded full-bleed
-// card with the date floating at the top, and the wordmark, tagline and
+// card with the date floating at the top, and the wordmark, text and
 // calls to action pinned to the bottom left.
 //
 // Replaces source/what-the-heck/components/_hero.html and the `#hero` rules in
 // sass/homeassistant/pages/wth/_sections.scss.
 //
 // Fidelity: revamp. Same card, artwork and copy; spacing, radii and type
-// sizes come from the theme, and the tagline scales with the window
-// instead of switching size at a breakpoint.
+// sizes come from the theme.
 import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import WthHeroBackground from "./WthHeroBackground.astro";
 import WthWordmark from "./WthWordmark.astro";
 import Button from "../Button.astro";
-import { forumUrl } from "../../lib/wth.mjs";
+import { blogUrl, forumUrl } from "../../lib/wth.mjs";
 ---
 
 <section id="hero">
   <WthHeroBackground />
 
   <div class="inner">
-    <p class="date">November is month of</p>
+    <p class="date">November is the month of</p>
 
     <div class="content">
       <h1>
@@ -31,14 +30,13 @@ import { forumUrl } from "../../lib/wth.mjs";
         <WthWordmark />
       </h1>
 
-      <p class="tagline">One month, one question</p>
       <p class="lead">
-        What in Home Assistant makes you go “what the heck?!”
+        All month, we want your WTHs! Every one helps make Home Assistant better.
       </p>
 
       <div class="actions">
-        <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">Share yours</Button>
-        <Button href="#what-is-a-wth" scheme="secondary" outline>Learn more</Button>
+        <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">Share your WTH</Button>
+        <Button href={blogUrl} scheme="secondary" outline>Learn more</Button>
       </div>
     </div>
   </div>
@@ -113,21 +111,11 @@ import { forumUrl } from "../../lib/wth.mjs";
     margin: 0;
   }
 
-  .tagline {
-    color: var(--wth-ink);
-    font-size: var(--wth-font-size-heading);
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1.1;
-    margin: var(--space-xxlarge) 0 0;
-    text-wrap: balance;
-  }
-
   .lead {
     color: var(--wth-ink-soft);
     font-size: var(--wth-font-size-lead);
     line-height: 1.5;
-    margin: var(--space-large) 0 0;
+    margin: var(--space-xxlarge) 0 0;
     max-width: 46ch;
     text-wrap: balance;
   }

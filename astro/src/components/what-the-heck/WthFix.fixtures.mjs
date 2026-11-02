@@ -1,4 +1,4 @@
-// Fixtures for the "Happy with how things work?" section: the contributor
+// Fixtures for the "Comfortable with code? Fix someone else’s WTH!" section: the contributor
 // steps and the WTHs that shipped.
 export default {
   title: "WTH contributor path",

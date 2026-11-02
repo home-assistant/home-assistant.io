@@ -79,20 +79,10 @@ main#page-wth {
             margin: 0;
         }
 
-        .hero-tagline {
-            color: var(--wth-ink);
-            font-size: var(--typography-h2-font-size);
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-            margin-top: 28px;
-            text-wrap: balance;
-        }
-
         .lead {
             font-size: var(--typography-lead-font-size);
             line-height: var(--typography-lead-line-height);
-            margin-top: 14px;
+            margin-top: 28px;
             max-width: 46ch;
             text-wrap: balance;
         }
@@ -387,6 +377,11 @@ main#page-wth {
             p {
                 margin: 16px auto 0;
                 max-width: 54ch;
+
+                a {
+                    color: inherit;
+                    text-decoration: underline;
+                }
             }
 
             .button {

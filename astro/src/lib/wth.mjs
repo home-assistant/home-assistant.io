@@ -9,6 +9,14 @@
 export const forumUrl =
   "https://community.home-assistant.io/c/month-of-what-the-heck/61";
 
+/** The blog post that tells the whole story. */
+export const blogUrl =
+  "/blog/2026/10/29/what-the-heck-2026-everyone-at-home-gets-a-say/";
+
+/** The GitHub search for the fixes of past editions. */
+export const fixesUrl =
+  "https://github.com/search?o=desc&q=org%3Ahome-assistant+label%3AWTH+is%3Apr&s=created&type=Issues";
+
 /** Real WTHs from the forum, played one at a time in "What is a WTH".
  *  Keep in step with `wth_statements` in the Jekyll page's front matter. */
 export const statements = [
