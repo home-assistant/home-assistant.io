@@ -1,0 +1,96 @@
+{%- comment -%}
+  Emits JSON-LD structured data for SEO/LLMO.
+  - Template function reference pages → TechArticle + DefinedTerm
+  - Templating tutorial pages → HowTo
+  - Debugging/errors pages → FAQPage (content is visibly Q&A)
+  - Other templating learning docs → TechArticle
+{%- endcomment -%}
+
+{%- assign page_url = page.url -%}
+{%- assign page_type = "" -%}
+{%- if page.function_name -%}
+  {%- assign page_type = "template_function" -%}
+{%- elsif page_url contains "/docs/templating/tutorial-" -%}
+  {%- assign page_type = "tutorial" -%}
+{%- elsif page_url == "/docs/templating/debugging/" or page_url == "/docs/templating/errors/" -%}
+  {%- assign page_type = "faq" -%}
+{%- elsif page_url contains "/docs/templating/" -%}
+  {%- assign page_type = "templating_doc" -%}
+{%- endif -%}
+
+{%- if page_type != "" -%}
+{%- assign canonical = page.url | canonical_url -%}
+{%- capture about_home_assistant -%}{
+      "@type": "SoftwareApplication",
+      "name": "Home Assistant",
+      "applicationCategory": "HomeAutomationApplication"
+    }{%- endcapture -%}
+{%- capture home_assistant_publisher -%}{
+      "@type": "Organization",
+      "name": "Home Assistant",
+      "url": "https://www.home-assistant.io/"
+    }{%- endcapture -%}
+
+{%- if page_type == "template_function" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": {{ page.title | jsonify }},
+      "description": {{ page.description | jsonify }},
+      "url": "{{ canonical }}",
+      "inLanguage": "en",
+      "articleSection": {{ page.category | capitalize | jsonify }},
+      "keywords": {{ page.function_name | jsonify }},
+      "proficiencyLevel": "Expert",
+      "dependencies": "Home Assistant",
+      "about": {{ about_home_assistant }},
+      "publisher": {{ home_assistant_publisher }}
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "{{ canonical }}#term",
+      "name": {{ page.function_name | jsonify }},
+      "description": {{ page.description | jsonify }},
+      "url": "{{ canonical }}",
+      "termCode": {{ page.function_name | jsonify }},
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "Home Assistant template functions",
+        "url": "https://www.home-assistant.io/template-functions/"
+      }
+    }
+  ]
+}
+</script>
+{%- elsif page_type == "tutorial" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": {{ page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "url": "{{ canonical }}",
+  "inLanguage": "en",
+  "about": {{ about_home_assistant }},
+  "publisher": {{ home_assistant_publisher }}
+}
+</script>
+{%- elsif page_type == "templating_doc" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "url": "{{ canonical }}",
+  "inLanguage": "en",
+  "articleSection": "Templating",
+  "about": {{ about_home_assistant }},
+  "publisher": {{ home_assistant_publisher }}
+}
+</script>
+{%- endif -%}
+{%- endif -%}

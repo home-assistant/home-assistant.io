@@ -1,32 +1,10 @@
 ---
-title: LG ThinQ
 description: Setup for LG ThinQ Integration.
-ha_category:
-  - Hub
 ha_release: '2024.11'
-ha_iot_class: Cloud Push
-ha_code_owners:
-  - '@LG-ThinQ-Integration'
-ha_config_flow: true
 ha_domain: lg_thinq
-ha_platforms:
-  - binary_sensor
-  - climate
-  - event
-  - fan
-  - number
-  - select
-  - sensor
-  - switch
-  - vacuum
-  - water_heater
-ha_integration_type: integration
-ha_codeowners:
-  - '@LG-ThinQ-Integration'
-ha_dhcp: true
 ---
 
-The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
+The **LG ThinQ** {% term integration %} allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
 
 - Control LG appliances as Home Assistant entities through the LG ThinQ Connect API.
 
@@ -45,6 +23,7 @@ The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assi
     - **All device control rights**
     - **All device event subscription rights**
     - **All device push notification permissions**
+    - **Permission to inquiry device energy consumption**
 4. Select **CREATE TOKEN**.
 5. Once all the steps are completed, you will see that a **PAT** has been generated.
 
@@ -92,6 +71,19 @@ Support LG Appliances as follows:
 - Wine Cellar
 - Ventilator
 
+## Data updates
+
+- Status: Events are sent when the device's status is changed.
+- Status(legacy old model): Events are sent every 5 minutes because device status changes cannot be aggregated in real time.
+- Energy consumption: Aggregated usage data up to yesterday is updated every morning.
+
+## Energy consumption
+
+Support historical energy consumption sensors for individual devices
+- Energy last month (Wh): Energy usage last month.
+- Energy this month (Wh): Energy usage this month.
+- Energy yesterday (Wh): Energy usage yesterday.
+  
 ## Platforms
 
 LG ThinQ represents devices as a set of properties. And these are mapped to entities in Home Assistant.
@@ -103,11 +95,13 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 - [Climate](#climate)
 - [Event](#event)
 - [Fan](#fan)
+- [Humidifier](#humidifier)
 - [Number](#number)
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Vacuum](#vacuum)
+- [Water heater](#water-heater)
 
 ### Binary sensor
 
@@ -127,7 +121,7 @@ A read-only property which has only two states that can be toggled is represente
 
 ### Button
 
-A writable property which has only two states that can be toggled is represented as a binary sensor platform.
+A writable property that triggers an action, like starting or pausing a program, is represented as a button platform.
 
 | Device |Property |Action |
 | ------ |-------- | ------ |
@@ -145,7 +139,7 @@ The properties for controlling both the temperature and wind strength of the app
 
 ### Event
 
-A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device through the developer tools.
+A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device in **Settings** > **Tools**.
 
 | Device | Property | Notification codes |
 | ------ | -------- | ---------- |
@@ -172,6 +166,15 @@ The properties for controlling the wind strength of the appliance are represente
 | Device | Property |
 | ------ | -------- |
 | Ceiling Fan | Power<br>Speed |
+
+### Humidifier
+
+The properties for controlling the target humidity of the appliance are represented as a humidifier platform.
+
+| Device | Property |
+| ------ | -------- |
+| Dehumidifier | Power<br>Mode<br>Target humidity |
+| Humidifier | Power<br>Mode<br>Target humidity |
 
 ### Number
 
@@ -274,11 +277,9 @@ A read-only property which has states is represented as a sensor platform.
 
 ### Notification, error event
 
-> - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
+> - Guide: [Automating on event](/integrations/event/#automating-on-a-button-press)
 > - Important: guide's step 3, 4
 > - You can select the state change you want to act as trigger in step 4
-
-{% raw %}
 
 ```yaml
 alias: lack of water example
@@ -297,8 +298,6 @@ actions:
     entity_id: xxxxxxxx
     domain: switch
 ```
-
-{% endraw %}
 
 ## Troubleshooting
 

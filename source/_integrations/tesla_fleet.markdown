@@ -1,39 +1,7 @@
 ---
-title: Tesla Fleet
 description: Instructions on how to integrate the Tesla Fleet API within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Climate
-  - Cover
-  - Device tracker
-  - Lock
-  - Media player
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_release: 2024.8
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Bre77'
 ha_domain: tesla_fleet
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - device_tracker
-  - diagnostics
-  - lock
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: integration
 ---
 
 The **Tesla Fleet** {% term integration %} lets you control Tesla vehicles and energy sites using the [Tesla Fleet API](https://developer.tesla.com/).
@@ -44,8 +12,8 @@ You need to configure developer credentials and host a public key file to allow 
 
 - A [Tesla](https://tesla.com) account with verified email
 - A web domain to host your public key file:
-  - [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) (recommended)
-  - External hosting service ([FleetKey.cc](https://fleetkey.cc), [MyTeslamate.com](https://app.myteslamate.com/fleet), etc.)
+  - [NGINX Home Assistant SSL proxy app](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) (recommended)
+  - External hosting service, such as [FleetKey.net](https://fleetkey.net) or [MyTeslamate.com](https://app.myteslamate.com/fleet)
 
 {% warning %}
 The China region is currently not supported by this {% term integration %}.
@@ -67,7 +35,10 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 3. Configure client details:
    - OAuth Grant Type: Select **Authorization Code and Machine-to-Machine**
    - Allowed Origin URL(s): Enter your domain's URL, for example `https://yourdomain.com/`
-   - Allowed Redirect URI: Enter `https://my.home-assistant.io/redirect/oauth`
+   - Allowed Redirect URI: Enter one of the following:
+     - The literal string `https://my.home-assistant.io/redirect/oauth` if the [`My Home Assistant`](/integrations/my/) integration is enabled (it is by default).
+       - Home Assistant uses [this service](https://my.home-assistant.io/) by default to redirect requests towards your instance.
+     - `<HOME_ASSISTANT_URL>/auth/external/callback` if you do not have the [`My Home Assistant`](/integrations/my/) integration enabled.
    - Allowed Returned URL(s): Leave this field empty (not required)
 
 4. Select desired API scopes:
@@ -88,29 +59,30 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 {% include integrations/config_flow.md %}
 
 1. Add application credentials
-   - Enter your application Client ID and Client Secret from your Tesla Developer Application
-   - This step will be skipped if you already have exactly one Tesla Fleet [application credential](/integrations/application_credentials/) already configured
+   - Enter your application Client ID and Client Secret from your Tesla Developer Application.
+   - This step will be skipped if you already have exactly one Tesla Fleet [application credential](/integrations/application_credentials/) already configured.
 
 2. Authenticate with Tesla:
-   - You'll be redirected to Tesla's login page
-   - Enter your Tesla account credentials
-   - On the authorization page, select **Select All** and then **Allow** to allow all the scopes you previously selected
+   - You'll be redirected to Tesla's login page.
+   - Enter your Tesla account credentials.
+   - On the authorization page, select **Select All** and then **Allow** to allow all the scopes you previously selected.
 
 3. Redirect to Home Assistant:
-   - Confirm you want to **Link account to Home Assistant**
+   - Confirm you want to **Link account to Home Assistant**.
 
-4. Enter domain
-   - Enter the domain name you intend to host your public key on
+4. Select region:
+   - Home Assistant detects the region for your Tesla account and selects it for you, so most people can just select **Submit**.
+   - If your vehicles or energy sites are registered in a different region, select the correct region from the list before continuing.
+5. Enter domain:
+   - Enter the domain name you intend to host your public key on.
    - This domain should be the same or a subdomain of your origin domain, and must use a valid SSL certificate.
-
-5. Register public key
-   - Upload the public key shown to the domain you entered in step 4 at `.well-known/appspecific/com.tesla.3p.public-key.pem`
-
-6. Install Virtual Key
+6. Register public key:
+   - Upload the public key shown to the domain you entered in step 5 at `.well-known/appspecific/com.tesla.3p.public-key.pem`.
+7. Install virtual key:
    - Use your smartphone to scan the QR code or enter the address to install your public key on your vehicles with the Tesla app.
    - This process needs to be repeated for each vehicle, excluding Model S and Model X vehicles manufactured before 2021.
 
-## Hosting with NGINX Add-on (optional)
+## Hosting with NGINX app (optional)
 
 1. Create the NGINX configuration:
 
@@ -122,23 +94,23 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 
 2. Copy the public key shown during setup to `/share/tesla`
 
-3. Configure the NGINX Add-on:
-    - Go to **Settings** > **Add-ons** > **NGINX Home Assistant SSL proxy** > **Configuration**
+3. Configure the NGINX app:
+    - Go to **Settings** > **Apps** > **NGINX Home Assistant SSL proxy** > **Configuration**
     - Change `customize.active` from `false` to `true`
     - Leave `config.default` at its default value: `nginx_proxy_default*.conf`
 
-4. Restart the NGINX Add-on and verify your public key is accessible at:
+4. Restart the NGINX app and verify your public key is accessible at:
  `https://yourdomain.com/.well-known/appspecific/com.tesla.3p.public-key.pem`
 
 ## Data updates
 
 The {% term integration %} {% term polling polls %} each vehicle every 10 minutes while it's awake. This is designed to stay within Tesla's $10 monthly credit for most users, which you can monitor usage in the [Tesla Developer Dashboard](https://developer.tesla.com/en_US/dashboard). Energy product APIs are free to use.
 
-If you need different polling intervals, you can [define a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
+If you need different polling intervals, you can [define a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval).
 
 ## Command signing
 
-Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All {% term actions %} on vehicle {% term entities %} will fail with an error if this is required and the key has not been setup correctly.
+Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All {% term actions %} on vehicle {% term entities %} will fail with an error if this is required and the key has not been set up correctly.
 
 Your public key must be added to each of these vehicles by visiting `https://tesla.com/_ak/YOUR_DOMAIN` and following the instructions in the Tesla app.
 If you're using an iPhone, you may need to use Safari to open the webpage and finish the setup.
@@ -217,6 +189,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor         | Charger power                              | Yes     |
 | Sensor         | Charger voltage                            | Yes     |
 | Sensor         | Charging                                   | Yes     |
+| Sensor         | Destination                                | No      |
 | Sensor         | Distance to arrival                        | Yes     |
 | Sensor         | Driver temperature setting                 | No      |
 | Sensor         | Estimate battery range                     | No      |
@@ -244,6 +217,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Switch         | Charge                                     | Yes     |
 | Switch         | Defrost                                    | Yes     |
 | Switch         | Sentry mode                                | Yes     |
+| Update         | Update                                     | Yes     |
 
 ### Energy sites
 
@@ -296,21 +270,101 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor | State       | Yes     |
 | Sensor | Vehicle     | Yes     |
 
+{% include integrations/actions.md %}
+
+## Tesla Fleet automation examples
+
+You can use the navigation actions to get your car ready for the trip before you get in.
+
+For a trip with intermediate stops, use [Navigate to waypoints](/actions/tesla_fleet.navigate_to_waypoints/) and supply Google Place IDs in travel order, with the final destination last.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: navigate to your next appointment
+
+Half an hour before a calendar event starts, send the event's location to the car.
+
+- **Trigger**: Calendar: 30 minutes before an event starts
+- **Condition**: The event has a location
+- **Action**: Navigate to destination
+
+{% details "YAML example for navigating to your next appointment" %}
+
+{% example %}
+automation: |
+  alias: "Navigate to next appointment"
+  triggers:
+    - trigger: calendar
+      entity_id: calendar.personal
+      event: start
+      offset: "-0:30:0"
+  conditions:
+    - condition: template
+      value_template: "{{ trigger.calendar_event.location | default('', true) != '' }}"
+  actions:
+    - action: tesla_fleet.navigate_to_destination
+      data:
+        device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        destination: "{{ trigger.calendar_event.location }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: navigate home when leaving work
+
+When you leave the work zone, send your home location to the car.
+
+- **Trigger**: Zone: you leave the work zone
+- **Action**: Navigate to coordinates
+
+{% details "YAML example for navigating home when leaving work" %}
+
+{% example %}
+automation: |
+  alias: "Navigate home when leaving work"
+  triggers:
+    - trigger: zone
+      entity_id: person.alex
+      zone: zone.work
+      event: leave
+  actions:
+    - action: tesla_fleet.navigate_to_coordinates
+      data:
+        device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        gps:
+          latitude: "{{ state_attr('zone.home', 'latitude') }}"
+          longitude: "{{ state_attr('zone.home', 'longitude') }}"
+{% endexample %}
+
+{% enddetails %}
+
 ## Vehicle sleep
 
 Constant API {% term polling %} will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping. The {% term integration %} automatically stops {% term polling %} these vehicles for 15 minutes after inactivity. You can call the `homeassistant.update_entity` {% term action %} to force {% term polling %}, which will reset the timer.
+
+{% note %} Vehicles manufactured outside of those mentioned above have no issues with prevented sleep. {% endnote %}
+
+## Troubleshooting
+
+### Tesla Developer Dashboard does not continue after selecting **Next**
+
+#### Symptom
+
+When configuring **Client Details** in the Tesla Developer Dashboard, selecting **Next** does not continue to the next step and no validation error is shown.
+
+#### Resolution
+
+Tesla may reject some origin domains without displaying a validation error. `ddns.net` hostnames have been observed to be rejected. If your origin URL uses `ddns.net`, use a different hostname that does not end in `ddns.net`, or use an external hosting service such as [FleetKey](https://fleetkey.net).
+
+- **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
+- **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
+- **{% term Integration %} stopped working**: Use the reconfigure option in {% my integrations title="**Settings** > **Devices & services**" %} > **Tesla Fleet**
+- **Access to this resource is not authorized**: Check your [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) to ensure you haven't exceeded your usage limits and add billing information if required. In certain countries, the *Fart* (remote boombox) command will also throw this error where its usage is illegal.
+
+If you have an error with your credentials, you can delete them in the {% my application_credentials title="Application Credentials" %} user interface.
 
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 
-- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/en_US/dashboard) if no longer needed.
-
-## Troubleshooting
-
-- **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
-- **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
-- **{% term Integration %} stopped working**: Use the reconfigure option in {% my integrations title="**Settings** > **Devices & services**" %} > **Tesla Fleet**
-- **Billing errors**: Check your Tesla Developer Dashboard for usage limits and add billing information if needed
-
-If you have an error with your credentials, you can delete them in the {% my application_credentials title="Application Credentials" %} user interface.
+- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) if no longer needed.

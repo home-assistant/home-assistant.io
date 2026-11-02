@@ -1,18 +1,16 @@
 ---
 title: "MQTT water heater"
 description: "Instructions on how to integrate MQTT water heater into Home Assistant."
-ha_category:
-  - Water heater
 ha_release: 2023.7
 ha_iot_class: Local Polling
 ha_domain: mqtt
 ---
 
-The `mqtt` water heater platform lets you control your MQTT enabled water heater devices.
+The **MQTT water heater** {% term integration %} lets you control your MQTT enabled water heater devices.
 
 ## Configuration
 
-To enable this water heater platform in your installation, first add the following to your {% term "`configuration.yaml`" %} file:
+{% include integrations/mqtt_config_methods.md item="water heater" platform="water_heater" subentry=true %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,7 +41,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -52,7 +50,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -67,61 +65,13 @@ current_temperature_topic:
   description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current temperature. Empty values (`'''`) will be ignored.
   required: false
   type: string
-device:
-  description: 'Information about the device this water heater device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `water_heater.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
-  type: map
-  keys:
-    configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
-      required: false
-      type: string
-    connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
-      required: false
-      type: list
-    hw_version:
-      description: The hardware version of the device.
-      required: false
-      type: string
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
-      required: false
-      type: [list, string]
-    manufacturer:
-      description: 'The manufacturer of the device.'
-      required: false
-      type: string
-    model:
-      description: 'The model of the device.'
-      required: false
-      type: string
-    model_id:
-      description: The model identifier of the device.
-      required: false
-      type: string
-    name:
-      description: 'The name of the device.'
-      required: false
-      type: string
-    serial_number:
-      description: "The serial number of the device."
-      required: false
-      type: string
-    suggested_area:
-      description: 'Suggest an area if the device isn’t in one yet.'
-      required: false
-      type: string
-    sw_version:
-      description: 'The firmware version of the device.'
-      required: false
-      type: string
-    via_device:
-      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
-      required: false
-      type: string
+  type: string
+{% include integrations/mqtt_device.md %}
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -131,23 +81,27 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+group:
+  description: A list of unique IDs of the member water heater entities. Set this if the water heater entity represents a water heater group.
+  required: false
+  type: list
 initial:
   description: Set the initial target temperature. The default value depends on the temperature unit, and will be 43.3°C or 110°F.
   required: false
   type: integer
 icon:
-  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  description: "[Icon](/integrations/homeassistant/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -158,6 +112,27 @@ max_temp:
   description: Maximum set point available. The default value depends on the temperature unit, and will be 60°C or 140°F.
   type: float
   required: false
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 min_temp:
   description: Minimum set point available. The default value depends on the temperature unit, and will be 43.3°C or 110°F.
   type: float
@@ -188,10 +163,6 @@ name:
   required: false
   type: string
   default: MQTT water heater
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if the water heater works in optimistic mode
   required: false
@@ -272,6 +243,11 @@ value_template:
   description: Default template to render the payloads on *all* `*_state_topic`s with.
   type: template
   required: false
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Optimistic mode
@@ -283,8 +259,6 @@ If a property works in *optimistic mode* (when the corresponding state topic is 
 For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topics can be specified as `value_template`. This can be useful if you received payloads are e.g., in JSON format. Since in JSON, a quoted string (e.g., `"foo"`) is just a string, this can also be used for unquoting.
 
 Say you receive the operation mode `"off"` via your `mode_state_topic`, but the mode is actually called just `off`, here's what you could do:
-
-{% raw %}
 
 ```yaml
 mqtt:
@@ -299,8 +273,6 @@ mqtt:
       mode_state_template: "{{ value_json }}"
 ```
 
-{% endraw %}
-
 This will parse the incoming `"off"` as JSON, resulting in `off`. Obviously, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
 
 Similarly for `*_command_topic`s, a template can be specified to render the outgoing payloads on these topics.
@@ -308,8 +280,6 @@ Similarly for `*_command_topic`s, a template can be specified to render the outg
 ## Example
 
 A full configuration example looks like the one below.
-
-{% raw %}
 
 ```yaml
 # Full example configuration.yaml entry
@@ -328,5 +298,3 @@ mqtt:
       current_temperature_topic: "basement/boiler/current_temperature"
       precision: 1.0
 ```
-
-{% endraw %}

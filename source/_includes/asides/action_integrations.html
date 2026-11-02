@@ -1,0 +1,12 @@
+<section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h2 class="h1 title epsilon">{% icon "mdi:puzzle-outline" %} Integrations</h2>
+    <ul class='divided'>
+      {%- for entry in site.data.action_domain_index -%}
+        <li{% if entry.key == page.domain %} class="active"{% endif %}>
+          <a href='/actions/#{{ entry.key }}'><iconify-icon inline icon='{{ entry.icon }}'></iconify-icon> {{ entry.label }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>

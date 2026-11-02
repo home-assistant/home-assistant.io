@@ -1,26 +1,13 @@
 ---
-title: Filter
 description: Instructions on how to integrate Data Filter Sensors into Home Assistant.
-ha_category:
-  - Helper
-  - Sensor
-  - Utility
 ha_release: 0.65
-ha_iot_class: Local Push
-ha_quality_scale: internal
-ha_codeowners:
-  - '@dgomes'
 ha_domain: filter
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
-The `filter` {% term integration %} enables sensors that process the states of other entities.
+The **Filter** {% term integration %} enables sensors that process the states of other entities.
 
 `filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) integration.
 
@@ -224,3 +211,5 @@ if new_state < lower_bound:
     lower_bound
 new_state
 ```
+
+{% include integrations/actions.md %}

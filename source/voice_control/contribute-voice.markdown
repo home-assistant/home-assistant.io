@@ -19,7 +19,7 @@ Give us a minute of your time to improve the sample database [with your own samp
 
 ### Donate your voice to Piper
 
-To create a Piper voice, you don't need an army of volunteers. You need a native speaker of a language to create a dataset, which is then trained into a Piper model and verified again by the native speaker.[Check the Training guide](https://github.com/rhasspy/piper/blob/master/TRAINING.md).
+To create a Piper voice, you don't need an army of volunteers. You need a native speaker of a language to create a dataset, which is then trained into a Piper model and verified again by the native speaker. [Check the Training guide](https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/TRAINING.md).
 
 Are you missing a language? Email us if you want to help out! To help interested people contribute languages, we opened up the email address [voice@nabucasa.com](mailto:voice@nabucasa.com).
 
@@ -33,6 +33,6 @@ You can also participate in public datasets. Commonvoice and Librivox are used b
 ### Become an active contributor
 
 There are also a couple ways to actively contribute to the development of the voice initiative:
-- [Contribute sentence intents in your language](https://developers.home-assistant.io/docs/voice/intent-recognition/contributing/)
-- [Become a language leader](https://developers.home-assistant.io/docs/voice/language-leaders)
+- [Contribute sentence intents in your language](https://contributors.home-assistant.io/translate/voice/contributing/)
+- [Become a language leader](https://contributors.home-assistant.io/translate/voice/language-leaders/)
 - [Contribute code to Assist](https://github.com/home-assistant/core/tree/dev/homeassistant/components/assist_pipeline)

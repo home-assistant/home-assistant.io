@@ -1,0 +1,17 @@
+{
+  "domain": "xiaomi_weather",
+  "name": "Xiaomi Weather",
+  "integration_type": "service",
+  "codeowners": [
+    "@shirok1"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "platforms": [
+    "weather"
+  ]
+}

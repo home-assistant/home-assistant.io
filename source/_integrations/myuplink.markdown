@@ -1,33 +1,10 @@
 ---
-title: myUplink
 description: Instructions on how to set up the myUplink integration within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
-ha_iot_class: Cloud Polling
 ha_release: '2024.2'
 ha_domain: myuplink
-ha_codeowners:
-  - '@pajzo'
-  - '@astrandb'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: integration
 related:
   - url: https://myuplink.com/
     title: myUplink web portal
-ha_quality_scale: silver
 ---
 
 The **myUplink** {% term integration %} lets you get information about and control heat-pump devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
@@ -78,6 +55,8 @@ Common use cases include:
 - **Automation**: Adjust the temperature curve offset during holiday mode
 - **Analytics**: View long-term statistics and graphs for the relevant sensors
 
+{% include integrations/actions.md %}
+
 ## Example
 
 Automation that will send a notification to a smartphone when the hot water reserve is getting low. In this example a temperature below 42°C in the middle of the water tank will trigger the notification. Note that actual entity name varies between models of heat pumps. You will have to adapt the yaml code to your own installation.
@@ -91,7 +70,9 @@ automation:
           - sensor.your_pump_hot_water_charging_bt6
         below: 42
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "Hot water reserve is getting low."
           title: "Water heater"

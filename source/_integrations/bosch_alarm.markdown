@@ -1,27 +1,7 @@
 ---
-title: Bosch Alarm
 description: Integrate Bosch Alarms.
-ha_category:
-  - Alarm
-  - Binary Sensor
-  - Sensor
-  - Switch
 ha_release: 2025.4
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@mag1024'
-  - '@sanjay900'
 ha_domain: bosch_alarm
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: platinum
-ha_dhcp: true
 ---
 
 The **Bosch Alarm Panel** {% term integration %} allows you to connect your [Bosch Alarm Panel](https://www.boschsecurity.com) to Home Assistant to control and monitor your Bosch Alarm Panel.
@@ -68,7 +48,7 @@ The following {% term entities %} are provided:
 ### Alarm Control Panel
 
 This integration adds an Alarm Control Panel device for each configured area, with the ability to issue arm/disarm commands.
-This entity reports state (_disarmed_, _armed_away_, etc.).
+This entity reports state, such as _disarmed_ or _armed_away_.
  
 ### Binary Sensor
 
@@ -107,32 +87,7 @@ A switch is added for each output configured on the panel. Note that for some pa
 
 Three switches are added per door, which allow for locking, securing, or momentarily unlocking the door.
 
-## Actions
-
-The integration provides the following actions.
-
-### Action: Set panel date and time
-
-The `bosch_alarm.set_date_time` action is used to update the date and time on the panel.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The ID of the config entry of the panel being updated.
-  - **Optional**: No
-
-- **Data attribute**: `datetime`
-  - **Description**: The date and time to set. Defaults to the current date and time if it is not set.
-  - **Optional**: Yes
-
-{% raw %}
-
-```yaml
-# Example: Update the panel’s date and time
-service: bosch_alarm.set_date_time
-data:
-  config_entry_id: "YOUR_CONFIG_ENTRY_ID"
-  datetime: "2025-05-01T12:00:00"
-```
-{% endraw %}
+{% include integrations/actions.md %}
 
 ## Authentication
 
@@ -162,13 +117,12 @@ At startup, the integration checks whether your panel supports push data updates
 
 ### Turning on lights when walking into a room
 
-{% raw %}
 
 ```yaml
 automation:
   - alias: "Turn on light when walking into room"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id:
           - binary_sensor.bosch_solution_3000_bedroom
         to: "on"
@@ -180,7 +134,6 @@ automation:
 
 ```
 
-{% endraw %}
 
 ## Reconfiguration
 

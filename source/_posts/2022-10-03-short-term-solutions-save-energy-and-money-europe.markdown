@@ -78,7 +78,7 @@ There are two devices that we recommend. Both work independently but also have a
 
 This device works standalone and does not require a hub. Battery life is claimed to be 2 years. It offers a local API and integrates perfectly with Home Assistant.
 
-[Buy Shelly TRV](https://shop.shelly.cloud/shelly-trv-wifi-smart-home-automation?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq) _(affiliate link)_
+[Buy Shelly TRV](https://shop.shelly.cloud/shelly-trv-wifi-smart-home-automation)
 
 <lite-youtube videoid="9M1EVjEaHfI" videotitle="Home Assistant Shelly TRV integration"></lite-youtube>
 

@@ -1,0 +1,12 @@
+{
+  "domain": "gitlab_ci",
+  "name": "GitLab-CI",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

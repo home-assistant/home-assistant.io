@@ -1,0 +1,54 @@
+<section id="hero">
+    <div class="section-inner">
+        <div class="video-background">
+            <video src="/connect/zbt-2/video/hero-reveal.mp4" autoplay muted playsinline></video>
+        </div>
+        <div class="background">
+            <img src="/images/connect/zwa-2/waves.svg">
+        </div>
+        <div class="section-inner-content">
+            <div class="container">
+                <div class="cols">
+                    <div class="col">
+                        <h1>
+                            <span><span>Home</span> <span>Assistant</span> <span>Connect</span></span>
+                            <span>
+                                <span>Z</span>
+                                <span>B</span>
+                                <span>T</span>
+                                <span>-2</span>
+                            </span>
+                        </h1>
+                    </div>
+                    <div class="col">
+                        <p class="body-large">
+                            The easiest way to start with <br /><strong>Zigbee</strong> or <strong>Thread</strong> is
+                            now even <br />better.
+                        </p>
+                        {% include collaboration/ohf-x-nabu-casa.html %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    (function () {
+        const videoWrapper = document.querySelector('#hero .video-background');
+        const video = videoWrapper.querySelector('video');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.currentTime = 0;
+                    video.play();
+                    videoWrapper.classList.add('visible');
+
+                } else {
+                    video.pause();
+                    videoWrapper.classList.remove('visible');
+                }
+            });
+        });
+        observer.observe(videoWrapper);
+    })();
+</script>

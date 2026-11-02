@@ -1,14 +1,12 @@
 ---
 title: "MQTT Lock"
 description: "Instructions on how to integrate MQTT locks into Home Assistant."
-ha_category:
-  - Lock
 ha_release: 0.15
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` lock platform lets you control your MQTT enabled locks.
+The **MQTT Lock** {% term integration %} lets you control your MQTT enabled locks.
 
 ## Configuration
 
@@ -21,7 +19,8 @@ Optimistic mode can be forced, even if state topic is available. Try to enable i
 It's mandatory for locks to support `lock` and `unlock`. A lock may optionally support `open`, (e.g. to open the bolt in addition to the latch), in this case, `payload_open` is required in the configuration. If the lock is in optimistic mode, it will change states to `unlocked` when handling the `open` command.
 
 An MQTT lock can also report the intermediate states `unlocking`, `locking` or `jammed` if the motor reports a jammed state.
-To enable MQTT locks in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+
+{% include integrations/mqtt_config_methods.md item="lock" platform="lock" subentry=true %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -51,7 +50,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -60,7 +59,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -72,68 +71,20 @@ code_format:
   required: false
   type: string
 command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `command_topic`. The lock command template accepts the parameters `value` and `code`. The `value` parameter will contain the configured value for either `payload_open`, `payload_lock` or `payload_unlock`. The `code` parameter is set during the action to `open`, `lock` or `unlock` the MQTT lock and will be set `None` if no code was passed.
+  description: Defines a [template](/docs/templating/where-to-use/#mqtt) to generate the payload to send to `command_topic`. The lock command template accepts the parameters `value` and `code`. The `value` parameter will contain the configured value for either `payload_open`, `payload_lock` or `payload_unlock`. The `code` parameter is set during the action to `open`, `lock` or `unlock` the MQTT lock and will be set `None` if no code was passed.
   required: false
   type: template
 command_topic:
   description: The MQTT topic to publish commands to change the lock state.
   required: true
   type: string
-device:
-  description: 'Information about the device this lock is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `lock.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
-  type: map
-  keys:
-    configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
-      required: false
-      type: string
-    connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
-      required: false
-      type: list
-    hw_version:
-      description: The hardware version of the device.
-      required: false
-      type: string
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
-      required: false
-      type: [string, list]
-    manufacturer:
-      description: 'The manufacturer of the device.'
-      required: false
-      type: string
-    model:
-      description: 'The model of the device.'
-      required: false
-      type: string
-    model_id:
-      description: The model identifier of the device.
-      required: false
-      type: string
-    name:
-      description: 'The name of the device.'
-      required: false
-      type: string
-    serial_number:
-      description: "The serial number of the device."
-      required: false
-      type: string
-    suggested_area:
-      description: 'Suggest an area if the device isn’t in one yet.'
-      required: false
-      type: string
-    sw_version:
-      description: 'The firmware version of the device.'
-      required: false
-      type: string
-    via_device:
-      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
-      required: false
-      type: string
+  type: string
+{% include integrations/mqtt_device.md %}
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -143,34 +94,55 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+group:
+  description: A list of unique IDs of the member lock entities. Set this if the lock entity represents a lock group.
+  required: false
+  type: list 
 icon:
-  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  description: "[Icon](/integrations/homeassistant/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 name:
   description: The name of the lock. Can be set to `null` if only the device name is relevant.
   required: false
   type: string
   default: MQTT Lock
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if lock works in optimistic mode.
   required: false
@@ -253,9 +225,14 @@ unique_id:
    required: false
    type: string
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract a state value from the payload.
+  description: Defines a [template](/docs/templating/where-to-use/#mqtt) to extract a state value from the payload.
   required: false
   type: template
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}
@@ -268,9 +245,7 @@ In this section you will find some real-life examples of how to use this lock.
 
 ### Full configuration
 
-The example below shows a full configuration for a MQTT lock.
-
-{% raw %}
+The example below shows a full configuration for an MQTT lock.
 
 ```yaml
 # Example configuration.yaml entry
@@ -288,14 +263,11 @@ mqtt:
       state_locking: "LOCKING"
       state_unlocking: "UNLOCKING"
       state_jammed: "MOTOR_JAMMED"
-      state_ok: "MOTOR_OK"
       optimistic: false
       qos: 1
       retain: true
       value_template: "{{ value.x }}"
 ```
-
-{% endraw %}
 
 Keep an eye on retaining messages to keep the state as you don't want to unlock your door by accident when you restart something.
 

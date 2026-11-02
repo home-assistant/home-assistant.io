@@ -1,0 +1,23 @@
+{
+  "domain": "lookin",
+  "name": "LOOKin",
+  "integration_type": "hub",
+  "codeowners": [
+    "@ANMalko",
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "buttons_remotes"
+  ],
+  "platforms": [
+    "climate",
+    "light",
+    "media_player",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

@@ -1,18 +1,7 @@
 ---
-title: Webmin
 description: Instructions on how to set up Webmin with Home Assistant.
-ha_category:
-  - System monitor
 ha_release: 2024.3
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@autinerd'
 ha_domain: webmin
-ha_integration_type: device
-ha_platforms:
-  - diagnostics
-  - sensor
 ---
 
 [Webmin](https://webmin.com) is a web-based interface for the system administration of Unix-like servers.

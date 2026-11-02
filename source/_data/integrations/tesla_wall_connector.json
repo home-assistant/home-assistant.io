@@ -1,0 +1,21 @@
+{
+  "domain": "tesla_wall_connector",
+  "name": "Tesla Wall Connector",
+  "integration_type": "device",
+  "codeowners": [
+    "@einarhauks",
+    "@sarabveer"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.ev_charging"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

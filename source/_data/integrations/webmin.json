@@ -1,0 +1,17 @@
+{
+  "domain": "webmin",
+  "name": "Webmin",
+  "integration_type": "device",
+  "codeowners": [
+    "@autinerd"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.nas_servers"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

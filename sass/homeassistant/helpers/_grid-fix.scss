@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 /*
  * A modified version of @kevva solution https://github.com/csswizardry/inuit.css/issues/170#issuecomment-14859371
  * Letter spacing hack to remove the necessity of using empty HTML comments between columns.

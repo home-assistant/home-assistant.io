@@ -1,9 +1,9 @@
 ---
 title: "Glossary"
-description: "Home Assistant's Glossary."
+description: "Definitions of the most common terms used in Home Assistant: integrations, entities, devices, automations, and more."
 ---
 
-The glossary covers terms which are used around Home Assistant.
+Home Assistant has a vocabulary of its own. Most of it comes up in everyday use: integrations, entities, devices, automations, dashboards. This page is a quick reference for what every term means and how the pieces fit together. Whenever you see a term you do not recognize in the documentation or in the user interface, you can come back here.
 
 {% assign entries = site.data.glossary | sort: 'term' %}
 {% assign current_letter = '' %}

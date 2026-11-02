@@ -1,0 +1,29 @@
+{% include asides/condition_meta.html %}
+
+{%- if page.related_conditions -%}
+  {%- assign all_conditions = site.conditions -%}
+  {%- assign has_related = false -%}
+  {%- for condition_name in page.related_conditions -%}
+    {%- assign cnd = all_conditions | where: "condition", condition_name | first -%}
+    {%- if cnd -%}{%- assign has_related = true -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if has_related -%}
+  <section class="aside-module grid__item one-whole lap-one-half">
+    <div class='section'>
+      <h2 class="h1 title epsilon">{% icon "mdi:link-variant" %} Related conditions</h2>
+      <ul class='divided'>
+        {%- for condition_name in page.related_conditions -%}
+          {%- assign cnd = all_conditions | where: "condition", condition_name | first -%}
+          {%- if cnd -%}
+          <li>
+            <a href="{{ cnd.url }}">{{ cnd.title }}</a>
+          </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+  {%- endif -%}
+{%- endif -%}
+
+{% include asides/condition_integrations.html %}

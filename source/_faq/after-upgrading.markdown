@@ -1,11 +1,9 @@
 ---
-title: "After upgrading, your browser login gets stuck"
-description: "After upgrading, your browser login gets stuck"
+title: "After updating, my browser login gets stuck"
+description: "In rare cases, an old browser cache can prevent the login page from loading after a Home Assistant update. Refreshing or clearing the cache fixes it."
 ha_category: Usage
 ---
 
-After upgrading to a new version, you may notice your browser gets stuck at the "loading data" login screen. Close the window/tab and go into your browser settings and delete all the cookies for your URL. You can then log back in and it should work.
+In rare cases, an old browser cache can prevent the login page from loading after a Home Assistant update. The fix is the same as for any other caching issue: refresh the page or clear the cache for Home Assistant.
 
-Android Chrome:
-
-chrome -> settings -> site settings -> storage -> search for your URL for Home Assistant-> "clear & reset"
+For step-by-step instructions, see [The Home Assistant user interface is acting weird](/faq/#the-home-assistant-user-interface-is-acting-weird).

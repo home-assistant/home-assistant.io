@@ -1,21 +1,13 @@
 ---
-title: Flock
 description: Instructions on how to add Flock notifications to Home Assistant.
-ha_category:
-  - Notifications
-ha_iot_class: Cloud Push
 ha_release: 0.71
 ha_domain: flock
-ha_platforms:
-  - notify
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
-The `flock` integration uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.
+The **Flock** {% term integration %} uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.
 
 ## Setup
 

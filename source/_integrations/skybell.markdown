@@ -1,29 +1,10 @@
 ---
-title: SkyBell
 description: Instructions on how to integrate your Skybell HD devices within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Doorbell
-  - Light
-  - Sensor
-  - Switch
 ha_release: 0.56
-ha_config_flow: true
-ha_iot_class: Cloud Polling
 ha_domain: skybell
-ha_platforms:
-  - binary_sensor
-  - camera
-  - light
-  - sensor
-  - switch
-ha_codeowners:
-  - '@tkdrob'
-ha_integration_type: hub
 ---
 
-The `skybell` implementation allows you to integrate your [Skybell.com](http://www.skybell.com/) doorbells in Home Assistant.
+The **SkyBell** {% term integration %} allows you to integrate your [Skybell.com](http://www.skybell.com/) doorbells in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

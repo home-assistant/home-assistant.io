@@ -1,0 +1,29 @@
+{
+  "domain": "hunterdouglas_powerview",
+  "name": "Hunter Douglas PowerView",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bdraco",
+    "@kingy444",
+    "@trullock"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "button",
+    "cover",
+    "diagnostics",
+    "number",
+    "scene",
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp",
+    "homekit",
+    "zeroconf"
+  ]
+}

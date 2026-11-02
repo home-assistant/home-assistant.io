@@ -1,0 +1,19 @@
+{
+  "domain": "volumio",
+  "name": "Volumio",
+  "integration_type": "device",
+  "codeowners": [
+    "@OnFreund"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "media_player"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

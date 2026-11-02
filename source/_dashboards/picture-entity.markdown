@@ -10,6 +10,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
@@ -32,8 +34,13 @@ type:
   type: string
 entity:
   required: true
-  description: "A camera, image, or person `entity_id` used for the picture."
+  description: "Entity to display. Camera, image, and person entities are shown as pictures by default."
   type: string
+show_entity_picture:
+  required: false
+  description: "Use the entity's `entity_picture` attribute as the image."
+  type: boolean
+  default: false
 camera_image:
   required: false
   description: "Camera `entity_id` to use. (not required if `entity` is already a camera-entity)."
@@ -45,7 +52,7 @@ camera_view:
   type: string
 image:
   required: false
-  description: URL of an image. To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
+  description: URL of an image. To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 state_image:
   required: false
@@ -66,8 +73,8 @@ fit_mode:
   default: cover
 name:
   required: false
-  description: Overwrite entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 show_name:
   required: false
   description: Shows name in footer.
@@ -116,19 +123,29 @@ entity: light.bed_light
 image: /local/bed_light.png
 ```
 
-Different images for each state:
+Use an entity's `entity_picture` attribute to show an entity-provided image, like an update entity that shows a component logo:
+
+```yaml
+type: picture-entity
+entity: update.home_assistant_core_update
+show_entity_picture: true
+show_state: true
+show_name: true
+```
+
+Different images for each state (supports local, web, or `media-source://` URLs):
 
 ```yaml
 type: picture-entity
 entity: light.bed_light
 state_image:
   "on": /local/bed_light_on.png
-  "off": /local/bed_light_off.png
+  "off": https://demo.home-assistant.io/stub_config/bedroom.png
+  "unavailable": media-source://image_upload/123456789
 ```
 
 Displaying a live feed from an FFmpeg camera:
 
-{% raw %}
 
 ```yaml
 type: picture-entity
@@ -142,7 +159,6 @@ tap_action:
     filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'
 ```
 
-{% endraw %}
 
 The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `allowlist_external_dirs` ([documentation](/integrations/homeassistant/#allowlist_external_dirs)).
 

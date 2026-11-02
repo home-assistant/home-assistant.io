@@ -43,7 +43,7 @@ There are cloud agents provided by [Open AI](/integrations/openai_conversation/)
 
 ### Creating a voice assistant personality with an LLM-based conversation agent
 
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} **Add Integration**, find your LLM provider and set it up with your API key. 
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} **Add Integration**, find your LLM provider and set it up with your API key. 
    - In case of a provider of local agents like Ollama, you need to configure the local URL where the agent is installed. Follow the specific [integration recommendations](/integrations/ollama) in this case. 
 2. Go to **Settings > Voice Assistants > Add Assistant**. Give it a name and pick a conversation agent from your AI's option. In this example we are using Antropic and the agent picked is Claude.
 
@@ -54,10 +54,8 @@ There are cloud agents provided by [Open AI](/integrations/openai_conversation/)
   
    - In the **Prompt template** field, enter a text that will prompt the AI to become the character. For example::
        `You are Super Mario from Mario Bros. Be funny.`
-   - Define if the voice assistant is allowed to control the devices in your home.
-     - **No control**: you can talk to the agent, but it cannot control devices.
-     - **Assist**: you can talk to the agent and it can control devices. For example, it could turn on the lights.
-       - Assist can only control {% term entities %} that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+   - Under **AI tools**, select **Device control** to let the agent control your devices. For example, it could turn on the lights. Leave it empty if you only want to talk to the agent.
+     - **Device control** can only control {% term entities %} that are [exposed](/voice_control/voice_remote_expose_devices/) to Assist.
              ![Agent with recommended model settings](/images/assist/agent-recommended-model-settings.png)
 
    - Once your Assist agent has been created, you can go to **Voice assistants** and the three dots menu of your personality, and define if you want Home Assistant's model to be the priority response, and therefore Assist would prefer to handling commands locally .

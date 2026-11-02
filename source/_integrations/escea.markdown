@@ -1,26 +1,15 @@
 ---
-title: Escea
 description: Instructions on how to integrate Escea fireplaces with Home Assistant.
-ha_category:
-  - Climate
 ha_release: 2022.9
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@lazdavila'
 ha_domain: escea
-ha_homekit: true
-ha_platforms:
-  - climate
-ha_integration_type: integration
 ---
 
-The Escea integration allows monitoring and control of local [Escea](https://escea.com/) fireplaces. These fireplaces are manufactured in New Zealand and sold throughout Australia and New Zealand.
+The **Escea** {% term integration %} allows monitoring and control of local [Escea](https://escea.com/) fireplaces. These fireplaces are manufactured in New Zealand and sold throughout Australia and New Zealand.
 
 ## Supported hardware
 
 Support all current Escea fireplaces with the Smart Heat feature, including the DF, DL, DS, and DX series.
-Though these fireplaces are supported, they can only be integrated if they were connected via Ethernet when installed (i.e., these fireplaces do not support Wi-Fi).
+Though these fireplaces are supported, they can only be integrated if they were connected via Ethernet when installed (that is, these fireplaces do not support Wi-Fi).
 
 {% include integrations/config_flow.md %}
 
@@ -45,4 +34,4 @@ logger:
     pescea: debug
 ```
 
-This will help you to find network connection issues etc.
+This will help you to find network connection issues.

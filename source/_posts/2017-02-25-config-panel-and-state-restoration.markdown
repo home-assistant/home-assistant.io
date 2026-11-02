@@ -313,4 +313,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [t-shirt]: /blog/2017/02/22/home-assistant-tshirts-have-arrived/
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

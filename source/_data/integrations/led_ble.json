@@ -1,0 +1,19 @@
+{
+  "domain": "led_ble",
+  "name": "LED BLE",
+  "integration_type": "device",
+  "codeowners": [
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "lighting.led_strips_controllers"
+  ],
+  "platforms": [
+    "light"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

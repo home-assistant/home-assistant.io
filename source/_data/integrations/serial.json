@@ -1,0 +1,14 @@
+{
+  "domain": "serial",
+  "name": "Raw Serial",
+  "codeowners": [
+    "@fabaff"
+  ],
+  "iot_class": "local_polling",
+  "categories": [
+    "diy_makers.boards_hardware"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -1,21 +1,12 @@
 ---
-title: Home Assistant Core Integration
-description: Description of the homeassistant integration.
+description: Set up core Home Assistant settings, automation triggers, and generic actions.
 ha_release: 0.0
-ha_category:
-  - Other
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: homeassistant
-ha_platforms:
-  - scene
-ha_integration_type: system
 related:
   - docs: /docs/configuration/basic/
     title: Basic information
   - docs: /docs/configuration/
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
 ---
 
 The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on` action.
@@ -119,7 +110,7 @@ customize_glob:
   required: false
   type: string
 allowlist_external_dirs:
-  description: List of folders that can be used as sources for sending files.
+  description: "Extra folders that integrations are allowed to read from or write to, on top of the defaults. By default, the `www` folder inside your configuration directory and every folder listed under `media_dirs` are already allowed, and you do not need to repeat them here. Only add directories outside of those defaults."
   required: false
   type: list
 allowlist_external_urls:
@@ -140,7 +131,7 @@ country:
   required: false
   type: string
 debug:
-  description: Enable Home Assistant's built-in debug, which can help locate misbehaving integrations by enabling run-time checks for implementation errors. It can block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use.
+  description: Turns on extra checks that report programming errors in integrations to the log. Meant for developers. To get more detailed log messages from an integration, use [debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) instead.
   required: false
   type: boolean
   default: false
@@ -155,7 +146,7 @@ webrtc:
 The Home Assistant Core integration is also responsible for entity settings.
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
-Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entities](/docs/configuration/customizing-devices/).
+Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entities](/docs/configuration/customizing-entities/).
 
 If you prefer editing in YAML, you can define your general settings in the {% term "`configuration.yaml`" %} file.
 
@@ -306,164 +297,102 @@ homeassistant:
       credential: "abc123"
 ```
 
-## Actions
+{% include integrations/triggers_conditions_actions.md %}
 
-The `homeassistant` integration provides actions for controlling Home Assistant itself, as well as generic controls for any entity.
+## Restart and reboot required
 
-### Action `homeassistant.check_config`
+Some changes only take effect after Home Assistant restarts, like an update of a custom integration, or a setting that is only read at startup. On Home Assistant OS, some updates also need the system to reboot, like an update of Home Assistant OS itself.
 
-Reads the configuration files and checks them for correctness, but **does not** load them into Home Assistant. Creates a persistent notification and log entry if errors are found.
+When that is the case, administrators see a bar at the top of the screen, saying Home Assistant needs to be restarted, or the system needs to be rebooted. A reboot restarts Home Assistant as well, so when both are pending, the bar only shows the reboot.
 
-### Action `homeassistant.reload_all`
+- Select **Restart** or **Reboot** to open the restart dialog, where you confirm the restart or reboot.
+- Select **Later** to hide the bar for now. This hides it for every administrator, on every device. A hidden restart bar comes back once another integration asks for a restart. A hidden reboot bar only comes back once a new reboot is needed.
+- Under {% my config title="**Settings**" %}, the bar always shows. When it shows a restart, it also lists the integrations that requested it. The **Settings** item in the sidebar also counts it.
 
-Reload all YAML configuration that can be reloaded without restarting Home Assistant.
+The restart or reboot stays pending until it is done, also when you select **Later**. To act on it in your automations, use the [Restart required](/triggers/homeassistant.restart_required/) and [Host reboot required](/triggers/homeassistant.host_reboot_required/) triggers, and the [Restart required](/conditions/homeassistant.restart_required/) and [Host reboot required](/conditions/homeassistant.host_reboot_required/) conditions.
 
-It calls the `reload` action on all domains that have it available. Additionally,
-it reloads the core configuration (equivalent to calling
-`homeassistant.reload_core_config`), themes (`frontend.reload_themes`), and custom Jinja (`homeassistant.reload_custom_templates`).
+## Home Assistant Core automation examples
 
-Prior to reloading, a basic configuration check is performed. If that fails, the reload
-will not be performed and will raise an error.
+You can use these core triggers to react to events, state changes, schedules, and Home Assistant lifecycle events.
 
-### Action `homeassistant.reload_custom_templates`
+{% include docs/paste_yaml_tip.md %}
 
-Reload all Jinja templates in the `config/custom_templates` directory. Changes to these templates
-will take effect the next time an importing template is rendered.
+### Automation: send a notification when Home Assistant starts
 
-### Action `homeassistant.reload_config_entry`
+If you restart Home Assistant for an update or maintenance, this automation lets you know when it is ready again. It sends a message to your phone as soon as startup finishes.
 
-Reloads an integration config entry.
+- **Trigger**: Home Assistant
+  - **Event**: Start
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
-| Data attribute | Description                                                |
-| -------------- | ---------------------------------------------------------- |
-| `entity_id`    | List of entity ids used to reference a config entry.       |
-| `area_id`      | List of area ids used to reference a config entry.         |
-| `device_id`    | List of device ids used to reference a config entry.       |
-| `entry_id`     | A single config entry id used to reference a config entry. |
+{% details "YAML example for notifying when Home Assistant starts" %}
 
-### Action `homeassistant.reload_core_config`
+{% example %}
+automation: |
+  alias: "Notify when Home Assistant starts"
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Home Assistant has started."
+{% endexample %}
 
-Reloads the core configuration under `homeassistant:` and all linked files. Once loaded the new configuration is applied. New `customize:` information will be applied the next time the state of the entity gets updated.
+{% enddetails %}
 
-### Action `homeassistant.restart`
+### Automation: save persistent states before Home Assistant shuts down
 
-Restarts the Home Assistant instance (also reloading the configuration on start).
+If you are about to restart or stop Home Assistant, this automation tells Home Assistant to save persistent states right away. This can be useful before planned maintenance.
 
-This will also do a configuration check before doing a restart. If the configuration check fails then Home Assistant will not be restarted, instead a persistent notification with the ID `persistent_notification.homeassistant_check_config` will be created. The logs will show details on what failed the configuration check.
+- **Trigger**: Home Assistant
+  - **Event**: Shutdown
+- **Action**: Home Assistant Core Integration: Save persistent states
 
-### Action `homeassistant.stop`
+{% details "YAML example for saving persistent states before shutdown" %}
 
-Stops the Home Assistant instance. Home Assistant must be restarted from the Host device to run again.
+{% example %}
+automation: |
+  alias: "Save persistent states before shutdown"
+  triggers:
+    - trigger: homeassistant
+      event: shutdown
+  actions:
+    - action: homeassistant.save_persistent_states
+{% endexample %}
 
-### Action `homeassistant.set_location`
+{% enddetails %}
 
-Update the location of the Home Assistant default zone (usually "Home").
+### Automation: send a reminder when a door stays open for 5 minutes
 
-| Data attribute | Optional | Description                 |
-| -------------- | -------- | --------------------------- |
-| `latitude`     | no       | Latitude of your location.  |
-| `longitude`    | no       | Longitude of your location. |
-| `elevation`    | yes      | Elevation of your location. |
+If a door stays open longer than expected, this automation sends a message to your phone. It uses the **State changed** trigger to wait until the entity stays in the `on` state for 5 minutes.
 
-#### Example
+- **Trigger**: State changed
+  - **Entity**: Back door sensor (`binary_sensor.back_door`)
+  - **To**: `on`
+  - **For at least**: 5 minutes
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
-```yaml
-actions:
-  - action: homeassistant.set_location
-    data:
-      latitude: 32.87336
-      longitude: 117.22743
-      elevation: 120
-```
+{% details "YAML example for a door-left-open reminder" %}
 
-### Action `homeassistant.toggle`
+{% example %}
+automation: |
+  alias: "Remind me when the back door stays open"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.back_door
+      to: "on"
+      for: "00:05:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The back door has been open for 5 minutes."
+{% endexample %}
 
-Generic action to toggle devices on/off. Same usage as the
-`light.toggle`, `switch.toggle`, etc. actions. The difference with this
-action compared the others, is that is can be used to mix different domains,
-for example, a light and a switch can be toggled in a single action.
-
-| Data attribute | Optional | Description                                   |
-| -------------- | -------- | --------------------------------------------- |
-| `entity_id`    | yes      | The entity_id of the device to toggle on/off. |
-
-#### Example
-
-```yaml
-actions:
-  - action: homeassistant.toggle
-    target:
-      entity_id: 
-        - light.living_room
-        - switch.tv
-```
-
-### Action `homeassistant.turn_on`
-
-Generic action to toggle devices on. Same usage as the
-`light.turn_on`, `switch.turn_on`, etc. actions. The difference with this
-action compared the others, is that is can be used to mix different domains,
-for example, a light and a switch can be turned on in a single action.
-
-| Data attribute | Optional | Description                             |
-| -------------- | -------- | --------------------------------------- |
-| `entity_id`    | yes      | The entity_id of the device to turn on. |
-
-#### Example
-
-```yaml
-actions:
-  - action: homeassistant.turn_on
-    target:
-      entity_id:
-        - light.living_room
-        - switch.tv
-```
-
-### Action `homeassistant.turn_off` 
-
-Generic action to toggle devices off. Same usage as the
-`light.turn_off`, `switch.turn_off`, etc. actions. The difference with this
-action compared the others, is that is can be used to mix different domains,
-for example, a light and a switch can be turned off in a single action.
-
-| Data attribute | Optional | Description                              |
-| -------------- | -------- | ---------------------------------------- |
-| `entity_id`    | yes      | The entity_id of the device to turn off. |
-
-#### Example
-
-```yaml
-actions:
-  - action: homeassistant.turn_off
-    target:
-      entity_id:
-        - light.living_room
-        - switch.tv
-```
-
-### Action `homeassistant.update_entity`
-
-Force one or more entities to update its data rather than wait for the next scheduled update.
-
-| Data attribute | Optional | Description                                             |
-| -------------- | -------- | ------------------------------------------------------- |
-| `entity_id`    | no       | One or multiple entity_ids to update. It can be a list. |
-
-#### Example
-
-```yaml
-actions:
-  - action: homeassistant.update_entity
-    target:
-      entity_id:
-      - light.living_room
-      - switch.coffe_pot
-```
-
-### Action `homeassistant.save_persistent_states`
-
-Save the persistent states (for entities derived from RestoreEntity) immediately.
-Maintain the normal periodic saving interval.
-
-Normally these states are saved at startup, every 15 minutes and at shutdown.
+{% enddetails %}

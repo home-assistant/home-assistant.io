@@ -1,21 +1,7 @@
 ---
-title: IOmeter
 description: Instructions on how to integrate IOmeter within Home Assistant.
 ha_release: 2025.3
-ha_category:
-  - Energy
-  - Sensor
-ha_codeowners:
-  - '@MaestroOnICe'
-ha_quality_scale: bronze
 ha_domain: iometer
-ha_integration_type: device
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - sensor
 ---
 
 The **IOmeter** {% term integration %} fetches data from your [IOmeter](https://iometer.de/produkt/) device, by using the local HTTP API.
@@ -45,6 +31,8 @@ The following sensors are supported:
 
 - Power (W): Active power
 - Total energy usage (kWh): How much energy the meter used
+- Total energy usage T1 (kWh): How much energy the meter used on tariff T1
+- Total energy usage T2 (kWh): How much energy the meter used on tariff T2
 - Total energy returned (kWh): How much energy the meter returned to the grid
 - Meter number: Electricity meter number
 - Pin status: Electricity meter pin status

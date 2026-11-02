@@ -1,22 +1,10 @@
 ---
-title: Devialet
 description: Instructions on how to integrate Devialet devices into Home Assistant.
-ha_category:
-  - Media Player
 ha_release: 2023.11
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: devialet
-ha_codeowners:
-  - '@fwestenberg'
-ha_zeroconf: true
-ha_integration_type: device
-ha_platforms:
-  - diagnostics
-  - media_player
 ---
 
-The **Devialet** integration lets you control your [Devialet](https://www.devialet.com) wireless speakers from Home Assistant.
+The **Devialet** {% term integration %} lets you control your [Devialet](https://www.devialet.com) wireless speakers from Home Assistant.
 
 {% important %}
 

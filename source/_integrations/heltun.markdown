@@ -3,15 +3,11 @@ title: HELTUN
 description: Connect and control your HELTUN Z-Wave devices using the Z-Wave integration
 ha_release: '2023.3'
 ha_iot_class: Local Push
-ha_category:
-  - Button
-  - Climate
-  - Switch
-  - Update
+ha_categories:
+  - climate.thermostats_heating
+  - plugs_switches
 ha_domain: heltun
 ha_integration_type: brand
-works_with:
-  - zwave
 ha_platforms:
   - Button
   - Climate
@@ -22,8 +18,6 @@ ha_brand: true
 ---
 
 [HELTUN](https://www.heltun.com/) thermostats make it easy to automate your heating system, their touch panel switches control your lighting and motorized appliances and their high load switches control any high load appliances like groups of lights, heaters, or individual sockets.
-
-{% include integrations/wwha.md %}
 
 ### Firmware updates
 

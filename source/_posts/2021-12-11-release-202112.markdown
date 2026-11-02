@@ -134,11 +134,6 @@ This card will use the picture you've uploaded for your area, and it
 automatically populates with entities of devices you have assigned
 to that specific area.
 
-<p class='img'>
-<img src='/images/dashboards/area-card.png' alt='Screenshot of a new area Lovelace card'>
-Screenshot of a new area Lovelace card.
-</p>
-
 [@zsarnett]: https://github.com/zsarnett
 
 ## Users that can only log in from the local network
@@ -1053,7 +1048,7 @@ like before. Done by [@marvin-w].
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant).
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/core/issues). Make sure to fill in all fields of the issue template.
 

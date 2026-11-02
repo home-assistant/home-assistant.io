@@ -1,22 +1,10 @@
 ---
-title: SUPLA
 description: Instructions for integration with SUPLA-CLOUD's Web API
 ha_release: 0.92
-ha_category:
-  - Cover
-  - Hub
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@mwegrzynek'
 ha_domain: supla
-ha_platforms:
-  - cover
-  - switch
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
-The SUPLA integration allows you to use [SUPLA](https://supla.org/) devices in Home Assistant.
+The **SUPLA** {% term integration %} allows you to use [SUPLA](https://supla.org/) devices in Home Assistant.
 
 SUPLA-DEV is an open source home automation system for Raspberry Pi, Arduino or ESP8266-based devices. It has its own protocols, firmware and commercially available devices, such as those produced by [Zamel](https://supla.zamel.com/en/).
 
@@ -28,7 +16,7 @@ For more complete Home Assistant support based on MQTT autodiscovery, consider s
 
 {% important %}
 
-The Supla Cloud MQTT broker requires [changing the default MQTT protocol setting](https://www.home-assistant.io/integrations/mqtt/#broker-configuration) at version 3.1.
+The Supla Cloud MQTT broker requires [changing the default MQTT protocol setting](/integrations/mqtt/#broker-configuration) at version 3.1.
 
 {% endimportant %}
 

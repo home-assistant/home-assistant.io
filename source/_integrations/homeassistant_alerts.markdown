@@ -1,17 +1,10 @@
 ---
-title: Home Assistant Alerts
 description: Home Assistant Alerts notifies you about alerts put out by the Home Assistant team affecting your system.
 ha_release: 2022.8
-ha_category:
-  - Other
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: homeassistant_alerts
-ha_integration_type: system
-ha_quality_scale: internal
 ---
 
-The Home Assistant Alerts integration integrates the 
+The **Home Assistant Alerts** {% term integration %} integrates the 
 [Home Assistant Alerts](https://alerts.home-assistant.io) website into
 your Home Assistant instance.
 

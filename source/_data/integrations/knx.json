@@ -1,0 +1,36 @@
+{
+  "domain": "knx",
+  "name": "KNX",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Julius2342",
+    "@farmio",
+    "@marvin-w"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "hubs_protocols.building_automation"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "date",
+    "datetime",
+    "diagnostics",
+    "fan",
+    "light",
+    "notify",
+    "number",
+    "scene",
+    "select",
+    "sensor",
+    "switch",
+    "text",
+    "time",
+    "weather"
+  ]
+}

@@ -1,24 +1,7 @@
 ---
-title: EnOcean
 description: Connect EnOcean devices to Home Assistant
-ha_category:
-  - Binary sensor
-  - Hub
-  - Light
-  - Sensor
-  - Switch
 ha_release: 0.21
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@bdurrer'
 ha_domain: enocean
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - light
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -105,8 +88,6 @@ EnOcean binary sensors have no state, they only generate 'button_pressed' events
 
 Sample automation to switch lights on and off:
 
-{% raw %}
-
 ```yaml
 # Example automation to turn lights on/off on button release
 automation:
@@ -123,9 +104,7 @@ automation:
           entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
 
-{% endraw %}
-
-You can find the `event_data` `id` by going to {% my developer_events title="Developer Tools -> Events" %} and listening to “button_pressed” events. Then hit a button on the device and you should see an event.
+You can find the `event_data` `id` by going to {% my tools_events title="**Settings** > **Tools** > **Events**" %} and listening to "button_pressed" events. Then hit a button on the device and you should see an event.
 
 ## Light
 

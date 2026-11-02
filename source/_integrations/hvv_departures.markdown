@@ -1,21 +1,10 @@
 ---
-title: HVV Departures
 description: Display the departures of buses, trains and ferries in Hamburg within Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: 0.112
-ha_config_flow: true
-ha_codeowners:
-  - '@vigonotion'
 ha_domain: hvv_departures
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: integration
 ---
 
-The `hvv_departures` sensor will display the departures of buses, trains and ferries in Hamburg.
+The **HVV Departures** {% term integration %} will display the departures of buses, trains and ferries in Hamburg.
 
 {% include integrations/config_flow.md %}
 
@@ -75,7 +64,7 @@ If the selected station has elevators, binary sensors will be available.
 
 You have to apply for credentials via the HVV website. You can see their official guide [here](https://www.hvv.de/de/fahrplaene/abruf-fahrplaninfos/datenabruf) (the page is only available in German).
 
-In your mail, tell them you are using your API credentials for use within Home Assistant.  They will subsequently send your API credentials in a follow-up response.
+In your mail, tell them you are using your API credentials for use within Home Assistant. They will subsequently send your API credentials in a follow-up response.
 ## Data
 
 Data is provided by [HVV](https://www.hvv.de/).

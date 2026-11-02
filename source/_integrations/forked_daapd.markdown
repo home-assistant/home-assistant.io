@@ -1,21 +1,10 @@
 ---
-title: OwnTone
 description: Instructions on how to integrate an OwnTone server into Home Assistant.
-ha_category:
-  - Media player
 ha_release: '0.110'
-ha_iot_class: Local Push
 ha_domain: forked_daapd
-ha_codeowners:
-  - '@uvjustin'
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - media_player
-ha_integration_type: integration
 ---
 
-The OwnTone integration allows you to control your [OwnTone (previously forked-daapd)](https://github.com/owntone/owntone-server) server from Home Assistant. This integration can control the OwnTone outputs (zones) with limited playback control (play/pause, previous/next track) and media info support. Playlist manipulation is not supported.
+The **OwnTone** {% term integration %} allows you to control your [OwnTone (previously forked-daapd)](https://github.com/owntone/owntone-server) server from Home Assistant. This integration can control the OwnTone outputs (zones) with limited playback control (play/pause, previous/next track) and media info support. Playlist manipulation is not supported.
 
 ## Requirements
 
@@ -25,7 +14,7 @@ The OwnTone integration requires an OwnTone server built with libwebsockets enab
 
 ## Outputs
 
-Once the OwnTone integration is set up, outputs will automatically be loaded from the server and added to HA in real-time.
+Once the OwnTone integration is set up, outputs will automatically be loaded from the server and added to Home Assistant in real-time.
 
 ## Pipes
 

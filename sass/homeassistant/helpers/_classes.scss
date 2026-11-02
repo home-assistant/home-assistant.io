@@ -1,3 +1,7 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use "sass:color";
+
 .pull-left {
   float: left;
 }
@@ -6,16 +10,7 @@
 }
 
 .clearfix {
-  *zoom: 1;
-  &::before,
-  &::after {
-    display: table;
-    content: "";
-    line-height: 0;
-  }
-  &::after {
-    clear: both;
-  }
+  @include clearfix;
 }
 
 ul,
@@ -36,8 +31,8 @@ ol {
   &.divided {
     @extend .unstyled;
     > li {
-      border-top: 1px solid lighten($site-background, 5%);
-      border-bottom: 1px solid darken($site-background, 5%);
+      border-top: 1px solid color.adjust($site-background, $lightness: 5%);
+      border-bottom: 1px solid color.adjust($site-background, $lightness: -5%);
       padding: 0.5em 0;
 
       &:first-child {

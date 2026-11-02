@@ -1,0 +1,168 @@
+<section id="zigbee-thread">
+    <div class="section-inner">
+        <div class="section-inner-content">
+            <div class="container">
+                <h2>Choose what’s best for your home</h2>
+                <p class="body-large">Connect ZBT-2 gives you the flexibility to run either a Zigbee or Thread network.
+                    Even though you need to select one, both technologies give devices a local connection, longer
+                    battery life, and reduces the strain on your home Wi-Fi.</p>
+                <div class="protocol-toggles">
+                    <div class="protocol-toggle active" data-protocol-toggle="thread">Thread</div>
+                    <div class="protocol-toggle" data-protocol-toggle="zigbee">Zigbee</div>
+                </div>
+                <div class="cards">
+                    <div class="card active" id="thread">
+                        <div class="card-inner">
+                            <div class="content">
+
+                                <h3>Thread has a big future</h3>
+                                <p class="body-medium">Thread is the latest smart home communication technology,
+                                    allowing
+                                    you to
+                                    directly connect a wide range of Matter devices.</p>
+                            </div>
+                            <div class="matter">
+                                <img src="/images/connect/zbt-2/matter.svg" alt="Matter logo">
+                                Home Assistant is Matter certified.
+                            </div>
+                        </div>
+                        <img src="/images/connect/zbt-2/zbt-2-thread.webp">
+                    </div>
+                    <div class="card" id="zigbee">
+                        <div class="card-inner">
+                            <div class="content">
+
+                                <h3>Zigbee has the devices</h3>
+                                <p class="body-medium">Tried and tested, with the biggest selection of devices of any
+                                    standard,
+                                    many from established brands.</p>
+                            </div>
+                        </div>
+                        <img src="/images/connect/zbt-2/zbt-2-zigbee.webp">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    (function () {
+        const protocolToggles = document.querySelectorAll('#zigbee-thread .protocol-toggle');
+        const cards = document.querySelectorAll('#zigbee-thread .card');
+        const cardsContainer = document.querySelector('#zigbee-thread .cards');
+
+        function adjustCardPosition() {
+            if (window.innerWidth <= 632) {
+                const activeCard = document.querySelector('#zigbee-thread .card.active');
+                if (!activeCard) return;
+
+                const containerWidth = cardsContainer.offsetWidth;
+                const cardWidth = activeCard.offsetWidth;
+                const gap = 20;
+
+                if (activeCard.id === 'zigbee') {
+                    const firstCardWidth = cards[0].offsetWidth;
+                    const totalWidth = firstCardWidth + gap + cardWidth;
+                    const overflow = totalWidth - containerWidth;
+
+                    if (overflow > 0) {
+                        cardsContainer.style.transform = `translateX(-${overflow}px)`;
+                    } else {
+                        cardsContainer.style.transform = 'translateX(0)';
+                    }
+                } else {
+                    cardsContainer.style.transform = 'translateX(0)';
+                }
+            } else {
+                cardsContainer.style.transform = '';
+            }
+        }
+
+        cardsContainer.style.transition = 'transform 0.3s ease-out';
+
+        function switchToCard(targetId) {
+
+            protocolToggles.forEach(t => {
+                if (t.getAttribute('data-protocol-toggle') === targetId) {
+                    t.classList.add('active');
+                } else {
+                    t.classList.remove('active');
+                }
+            });
+
+
+            cards.forEach(card => {
+                if (card.id === targetId) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+
+
+            adjustCardPosition();
+        }
+
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50;
+
+        cardsContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        cardsContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+
+            if (Math.abs(swipeDistance) < swipeThreshold) {
+                return;
+            }
+
+            const activeCard = document.querySelector('#zigbee-thread .card.active');
+            if (!activeCard) return;
+
+            if (swipeDistance > 0) {
+
+                if (activeCard.id === 'zigbee') {
+                    switchToCard('thread');
+                }
+            } else {
+
+                if (activeCard.id === 'thread') {
+                    switchToCard('zigbee');
+                }
+            }
+        }
+
+        protocolToggles.forEach(protocolToggle => {
+            protocolToggle.addEventListener('click', () => {
+                const target = protocolToggle.getAttribute('data-protocol-toggle');
+                switchToCard(target);
+            });
+        });
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                switchToCard(card.id);
+            });
+        });
+
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                adjustCardPosition();
+            }, 50);
+        });
+
+
+        adjustCardPosition();
+    })();
+</script>

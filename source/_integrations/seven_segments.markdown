@@ -1,22 +1,14 @@
 ---
-title: Seven Segments OCR
 description: Instructions on how to use OCR for seven segments displays into Home Assistant.
-ha_category:
-  - Image processing
 ha_release: 0.45
 og_image: /images/screenshots/ssocr.png
-ha_iot_class: Local Polling
 ha_domain: seven_segments
-ha_codeowners:
-  - '@fabaff'
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
-The `seven_segments` image processing {% term integration %} allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
+The **Seven Segments OCR** {% term integration %} allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
 
 ## Configuration
 
@@ -73,7 +65,7 @@ digits:
   default: -1
   type: integer
 extra_arguments:
-  description: Other arguments to use. Like `-D`, `dilation`, `erosion`, `greyscale`, `make_mono`, etc.
+  description: Other arguments to use. Like `-D`, `dilation`, `erosion`, `greyscale`, or `make_mono`.
   required: false
   type: string
 source:
@@ -124,8 +116,6 @@ image_processing:
 
 With the help of a [template sensor](/integrations/template), the value can be shown as badge.
 
-{% raw %}
-
 ```yaml
 sensor:
   - platform: template
@@ -135,5 +125,3 @@ sensor:
         friendly_name: "Ampere"
         unit_of_measurement: "A"
 ```
-
-{% endraw %}

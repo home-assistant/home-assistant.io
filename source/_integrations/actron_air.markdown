@@ -1,0 +1,67 @@
+---
+description: Instructions on how to integrate the Actron Air A/C controller into Home Assistant.
+ha_release: 2025.11
+ha_domain: actron_air
+---
+
+The **Actron Air** {% term integration %} allows you to control [Actron Air](https://www.actronair.com.au/) Air Conditioning controllers into Home Assistant.
+
+## Prerequisites
+
+You must have an **Actron Air** air conditioner with the Neo or Que controller, an active internet connection, and be registered to an email address.
+
+## Supported devices
+
+This integration supports the Actron Air Neo and Que controllers.
+
+{% include integrations/config_flow.md %}
+
+## Supported functionality
+
+### Binary sensor
+
+The integration adds the **Clean Filter** and **Defrost Mode** binary sensors to your Actron Air air conditioner.
+
+### Climate
+
+The integration will create a climate entity for the main air conditioning system found and for each zone. The main air conditioner unit will be reflected based on the name in the Actron Air app. You can set the temperature, operation mode, and fan speed through this entity.
+
+Each zone will be reflected as a separate climate entity. You can set the temperature and operation mode per zone (if supported by your air conditioner).
+
+### Cover
+
+The integration creates a cover entity for each zone to report the damper position (open percentage).
+
+{% note %}
+
+These entities are read-only. The Actron Air API does not support manually controlling the damper opening.
+
+{% endnote %}
+### Sensor
+
+The integration will add the following sensors to Home Assistant for your air conditioner:
+
+- Compressor capacity
+- Compressor chasing temperature
+- Compressor live temperature
+- Compressor mode
+- Compressor power
+- Compressor speed
+- Fan speed
+- Outdoor temperature
+
+The integration will add the following sensors for each peripheral connected to your air conditioner:
+
+- Battery level
+- Humidity
+- Temperature
+
+### Switch
+
+The integration will add the **Away mode**, **Continuous fan**, **Quiet mode**, and **Turbo mode** (if supported) switches to your Actron Air air conditioner.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}

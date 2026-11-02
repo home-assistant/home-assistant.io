@@ -1,0 +1,47 @@
+<section id="plug-and-play">
+    <div class="section-inner">
+        <div class="section-inner-content">
+            <div class="container">
+                <div class="cols">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-inner">
+                                <h2>Plug and play</h2>
+                                <ul>
+                                    <li>The easiest way to get started with Zigbee or Thread, thanks to our intuitive
+                                        start-up wizard and one-click updates.</li>
+                                    <li>Seamlessly migrate your Zigbee or Thread network.</li>
+                                    <li>Start up a new network in mere minutes by dedicating your Connect ZBT-2 to
+                                        either Zigbee or Thread.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="video">
+                            <video src="/connect/zbt-2/video/usb-c.mp4" autoplay muted playsinline></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    (function () {
+        const videoWrapper = document.querySelector('#plug-and-play .video');
+        const video = videoWrapper.querySelector('video');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.currentTime = 0;
+                    video.play();
+
+                } else {
+                    video.pause();
+                }
+            });
+        });
+        observer.observe(videoWrapper);
+    })();
+</script>

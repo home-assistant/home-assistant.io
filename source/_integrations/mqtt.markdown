@@ -1,57 +1,15 @@
 ---
-title: MQTT
-description: Instructions on how to setup MQTT within Home Assistant.
-ha_category:
-  - Hub
-  - Update
+description: Instructions on how to set up MQTT within Home Assistant.
 featured: true
 ha_release: pre 0.7
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@emontnemery'
-  - '@jbouwh'
-  - '@bdraco'
 ha_domain: mqtt
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - device_tracker
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - image
-  - lawn_mower
-  - light
-  - lock
-  - notify
-  - number
-  - scene
-  - select
-  - sensor
-  - siren
-  - switch
-  - tag
-  - tag
-  - text
-  - update
-  - vacuum
-  - valve
-  - water_heater
-ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
 
 {% include integrations/config_flow.md %}
 
-MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discovery) or [added manually](#manual-configured-mqtt-items) via YAML or subentries.
+MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery) or [added manually](#manual-configured-mqtt-items) via YAML or subentries.
 
 <a name="configuration-via-mqtt-discovery"></a>
 {% details "Configuration of MQTT components via MQTT discovery" %}
@@ -61,13 +19,16 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
+- [Date](/integrations/date.mqtt/)
+- [Date Time](/integrations/datetime.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Device trigger](/integrations/device_trigger.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
-- [Climate/HVAC](/integrations/climate.mqtt/)
+- [Infrared](/integrations/infrared.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -81,6 +42,7 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Update](/integrations/update.mqtt/)
 - [Tag scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
@@ -94,13 +56,16 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Date](/integrations/date.mqtt/)
+- [Date Time](/integrations/datetime.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
-- [Climate/HVACs](/integrations/climate.mqtt/)
+- [Infrared](/integrations/infrared.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -112,6 +77,7 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
@@ -122,20 +88,33 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 <a name="configuration-via-subentries"></a>
 {% details "Configuration of MQTT components via Subentries" %}
 
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
 - [Button](/integrations/button.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Date](/integrations/date.mqtt/)
+- [Date/Time](/integrations/datetime.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Select](/integrations/select.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
 
 To add an MQTT device via a Subentry, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
-3. Add a subentry via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Add MQTT device**.
+3. Add a subentry via {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %}, and select **Add MQTT device**.
 
 A device context and one or more entities can be added to the subentry.
 
@@ -143,11 +122,11 @@ A device context and one or more entities can be added to the subentry.
 
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
-The easiest option is to install the official Mosquitto Broker add-on. You can choose to set up and configure this add-on automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this add-on yourself in advance.
-You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto).
+The easiest option is to install the official Mosquitto Broker app for Home Assistant (formerly known as Mosquitto Broker add-on). You can choose to set up and configure this app automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this app yourself in advance.
+You can set up additional logins for your MQTT devices and services using the [Mosquitto app configuration](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto).
 
 {% important %}
-When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
+When MQTT is set up with the official Mosquitto MQTT broker app, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the app user options, like the additional logins. After re-installing the app, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
 {% endimportant %}
 
  Alternatively, you can use a different MQTT broker that you configure yourself, ensuring it is compatible with Home Assistant.
@@ -156,7 +135,7 @@ When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's
 
 While public MQTT brokers are available, the easiest and most private option is running your own.
 
-The recommended setup method is to use the [Mosquitto MQTT broker add-on](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/DOCS.md).
+The recommended setup method is to use the [Mosquitto MQTT broker app](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/DOCS.md).
 
 {% warning %}
 Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a known working broker like Mosquitto instead.
@@ -171,21 +150,17 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
-3. Reconfigure the MQTT broker settings via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+3. Reconfigure the MQTT broker settings via {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %}, and select **Reconfigure**.
 
-MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can bve removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
+MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can be removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
 
 {% important %}
-If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
+If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then check the collapse section `Other settings` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
 {% endimportant %}
 
-### Advanced broker configuration
+### Other broker configuration settings
 
-Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication, and enabling TLS validation of the broker's certificate for secure connection. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
-
-{% tip %}
-Advanced broker options are accessible only when advanced mode is enabled (see user settings), or when advanced broker settings are configured already.
-{% endtip %}
+Additional broker configuration options include setting a custom client ID, configuring a client certificate and key for authentication, and enabling TLS validation of the broker's certificate to ensure a secure connection. To access these settings, open the MQTT broker settings, and expand **Other settings**.
 
 #### Alternative client ID
 
@@ -193,25 +168,25 @@ You can set a custom MQTT client ID, this can help when debugging. Mind that the
 
 #### Keep alive
 
-The time in seconds between sending keep alive messages for this client. The default is 60 seconds. The keep alive setting should be minimal 15 seconds.
+The time in seconds between sending keep alive messages for this client. The default is 60 seconds. The keep alive setting should be at least 15 seconds.
 
 #### Broker certificate validation
 
-To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM- or DER-encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
-If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the `Ignore broker certificate validation` switch on.
+To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose **Auto**. This validates the broker certificate against the bundled certificate authority (CA) certificates. If a self-signed certificate is used, select **Custom**. A custom PEM- or DER-encoded CA certificate can be uploaded. Select **Next** to show the control to upload the CA certificate.
+If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the **Ignore broker certificate validation** switch on.
 
 #### MQTT Protocol
 
-The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker supports MQTT version 5 you can set the protocol setting to `5`.
+Home Assistant requires that your broker supports MQTT protocol version `5`. Most MQTT brokers, like the official "Mosquitto broker" App will support MQTT protocol version `5`.
 
 #### Securing the connection
 
-With a secure broker connection, it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to reveal file upload controls. A client certificate and the corresponding private key must be uploaded together. Both client certificate and private key must be either PEM- or DER-encoded. If the private key is encrypted with a password, ensure you supply the correct password when uploading the client certificate and key files.
+With a secure broker connection, it is possible to use a client certificate for authentication. To set the client certificate and private key, turn on the option **Use a client certificate** and select **Next** to reveal file upload controls. A client certificate and the corresponding private key must be uploaded together. Both client certificate and private key must be either PEM- or DER-encoded. If the private key is encrypted with a password, ensure you supply the correct password when uploading the client certificate and key files.
 
 #### Using WebSockets as transport
 
-You can select `websockets` as transport method if your MQTT broker supports it. When you select `websockets` and click `NEXT`, you will be able to add a WebSockets path (default = `/`) and WebSockets headers (optional). The target WebSockets URI: `ws://{broker}:{port}{WebSockets path}` is built with `broker`, `port` and `ws_path` (WebSocket path) settings.
-To configure the WebSocket's headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
+You can select `websockets` as the transport method if your MQTT broker supports it. When you select `websockets` and select **Next**, you will be able to add a WebSockets path (default is `/`) and WebSockets headers (optional). The target WebSockets URI `ws://{broker}:{port}{ws_path}` is built with the `broker`, `port`, and `ws_path` (WebSocket path) settings.
+To configure the WebSocket's headers, supply a valid JSON dictionary string. For example, `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
 
 {% note %}
 A configured client certificate will only be active if broker certificate validation is enabled.
@@ -241,7 +216,7 @@ See also [MQTT Discovery section](#mqtt-discovery)
 
 ### Birth and last will messages
 
-Home Assistant's MQTT integration supports so-called Birth and Last Will and Testament (LWT) messages. The former is used to send a message after the service has started, and the latter is used to notify other clients about a disconnected client. Please note that the LWT message will be sent both in case of a clean (e.g. Home Assistant shutting down) and in case of an unclean (e.g. Home Assistant crashing or losing its network connection) disconnect.
+Home Assistant's MQTT integration supports so-called Birth and Last Will and Testament (LWT) messages. The former is used to send a message after the service has started, and the latter is used to notify other clients about a disconnected client. Note that the LWT message will be sent both in case of a clean disconnect (for example, Home Assistant shutting down) and in case of an unclean disconnect (for example, Home Assistant crashing or losing its network connection).
 
 If a disabled entity is enabled and added after 30 seconds, the MQTT integration will be reloaded and will cause all discovered MQTT entities to be unloaded.
 When MQTT starts up, all existing MQTT devices, entities, tags, and device triggers, will be unavailable until a discovery message is received and processed. A device or service that exposes the MQTT discovery should subscribe to the Birth message and use this as a trigger to send the [discovery payload](#discovery-payload). To avoid high IO loads on the MQTT broker, adding some random delay in sending the discovery payload is recommended.
@@ -253,7 +228,7 @@ Alternative approaches:
 
 By default, Home Assistant sends `online` and `offline` to `homeassistant/status`.
 
-MQTT Birth and Last Will messages can be customized or disabled from the UI. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
+MQTT Birth and Last Will messages can be customized or disabled from the UI. To do this, select **Configure** on the integration page in the UI, then **Re-configure MQTT**, and then **Next**.
 
 ## Testing your setup
 
@@ -263,7 +238,7 @@ The `mosquitto` broker package ships command line tools (often as `*-clients` pa
 mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
 ```
 
-Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
+Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Select **Settings** on the left menu, select **Devices & services**, and select **Configure** in the **Mosquitto broker** tile. Enter something similar to the example below into the **topic** field under **Publish a packet** and select **Publish**.
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the Mosquitto broker integration, then select **Configure**.
@@ -279,7 +254,7 @@ and in the Payload field
    ON
 ```
 
-In the "Listen to a topic" field, type `#` to see everything, or "homeassistant/switch/#" to just follow a published topic, then press "START LISTENING". The messages should appear similar to the text below:
+In the **Listen to a topic** field, type `#` to see everything, or `homeassistant/switch/#` to just follow a published topic, then select **Start listening**. The messages should appear similar to the text below:
 
 ```bash
 Message 23 received on homeassistant/switch/1/power/stat/POWER at 12:16 PM:
@@ -298,37 +273,316 @@ For reading all messages sent on the topic `homeassistant` to a broker running o
 mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 ```
 
-## Sharing of device configuration
-
-MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting mandatory fields.
-The mandatory fields were previously limited to at least one of `connection` and `identifiers`, but have now been extended to at least one of `connection` and `identifiers` as well as the `name`.
-
 ## Naming of MQTT Entities
 
 For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
 
-If the `object_id` option is set, then this will be used to generate the `entity_id`.
-If, for example, we have configured a `sensor`, and we have set `object_id` to `test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
+If the `default_entity_id` option is set, then this will be used to generate the `entity_id`.
+If, for example, we have configured a `sensor`, and we have set `default_entity_id` to `sensor.test`, then Home Assistant will try to assign `sensor.test` as `entity_id`. If `sensor.test` already exists, Home Assistant will append a suffix to make it unique, for example, `sensor.test_2`.
 
-This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
+This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://contributors.home-assistant.io/core/entities/naming/#use-has_entity_name)
 
-Unnamed `binary_sensor`, `button`, `number` and `sensor` entities will now be named by their device class instead of being named "MQTT binary sensor" etc.
+Unnamed `binary_sensor`, `button`, `number`, and `sensor` entities will now be named by their device class instead of being named "MQTT binary sensor" and similar.
 It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark it as the main feature of a device.
 
-Note that on each MQTT entity, the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations).
+Note that on each MQTT entity, the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://contributors.home-assistant.io/core/entities/naming/#use-has_entity_name).
+
+## MQTT device configuration
+
+MQTT entities, device triggers, and tags can be linked to a device in the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). With YAML and MQTT discovery, the device information is set with the `device` mapping, which can be abbreviated as `dev` in discovery messages. With subentries, the device information is set in the UI.
+
+- At least one of `identifiers` or `connections` must be set to identify the device.
+- For entities, the device information is only used when the entity has a `unique_id`.
+- Entities, device triggers, and tags that use the same `identifiers` or `connections` are linked to the same device. When a device is shared, it is enough to set the shared `identifiers` or `connections` for the other items. It is recommended to always include the device `name`.
+- When the device information of an entity changes to another device, for example with a discovery update or a changed YAML configuration, the entity is moved to the new device. The previous device is removed when no other entities, device triggers, or tags use it. A child device can't be moved to another parent device, see [child devices](#child-devices).
+
+How the device information is set depends on the configuration method.
+
+### Child devices
+
+A physical device can be split into child devices, for example, the outlets of a power strip, or the channels of a multi-channel switch. A child device is a part of its parent device, and has its own name and entities. A child device uses the area of its parent device, unless another area is assigned to it, and is removed together with its parent device.
+
+With YAML and single component discovery, a child device is set with the `child_device` mapping, which can be abbreviated as `cdev` in discovery messages. The `device` mapping then describes the parent device. With device discovery, child devices are listed in `child_devices` (`cdevs`), together with their components, see [device configuration with device discovery](#device-configuration-with-device-discovery).
+
+- Only `identifiers` and `name` can be set for a child device. The `identifiers` are required. Other device information, like the `manufacturer`, belongs to the parent device.
+- A child device requires the entity to have a `unique_id`.
+- Child devices are not supported for device triggers, tags, and subentries.
+- A child device can't be used as the `via_device` of another device.
+
+When the `child_device` of an entity is added, changed, or removed, the entity is moved to the new device in the same way, and a child device that is no longer used is removed. When discovered items are removed, a parent device is kept as long as it has child devices, and is removed after its last child device when no other items use it.
+
+When the `identifiers` of an existing MQTT device are used for a child device, the existing device is converted into a child device. It keeps its device ID, so automations that use the device keep working. If the existing device is still in use as a regular device, the conversion fails. An entity with that child device is then not added, and an error is logged. With a discovery update, the update is canceled, the entity keeps its current configuration and device, and a warning is logged. In that case, update the configuration of all items that use the device, and reload the MQTT integration.
+
+A child device can't be moved to another parent device. When the parent device of a child device changes, the same happens as when a conversion fails. To move a child device to another parent device, remove the child device in Home Assistant, and reload the MQTT integration. The child device is then added again with its new parent device, and keeps its device ID. With single component discovery, removing the child device can also clear the discovery payloads of its entities. The publisher then has to send them again.
+
+### Device configuration in YAML
+
+Add a `device` mapping to the configuration of each entity that is part of the device. In the example below, both sensors are linked to the same device:
+
+```yaml
+mqtt:
+  - sensor:
+      name: "Temperature"
+      unique_id: "bedroom_temperature"
+      state_topic: "home/bedroom/temperature"
+      device:
+        identifiers: "bedroom01"
+        name: "Bedroom"
+        manufacturer: "Bla electronics"
+        model: "xya"
+  - sensor:
+      name: "Humidity"
+      unique_id: "bedroom_humidity"
+      state_topic: "home/bedroom/humidity"
+      device:
+        identifiers: "bedroom01"
+        name: "Bedroom"
+```
+
+To link an entity to a [child device](#child-devices), add a `child_device` mapping to the `device` mapping. In the example below, the switch is linked to the child device `Outlet 1`, which is a part of the power strip. The power sensor is linked to the power strip itself:
+
+```yaml
+mqtt:
+  - switch:
+      name: "Switch"
+      unique_id: "power_strip_outlet_1_switch"
+      command_topic: "power_strip/outlet_1/set"
+      device:
+        identifiers: "power_strip"
+        name: "Power strip"
+        manufacturer: "Bla electronics"
+        child_device:
+          identifiers: "power_strip_outlet_1"
+          name: "Outlet 1"
+  - sensor:
+      name: "Power"
+      unique_id: "power_strip_power"
+      state_topic: "power_strip/power"
+      device_class: power
+      unit_of_measurement: "W"
+      device:
+        identifiers: "power_strip"
+        name: "Power strip"
+```
+
+### Device configuration with device discovery
+
+With [device discovery](#device-discovery-payload), the `device` (`dev`) mapping is required and is set once, at the root of the discovery payload. It applies to all components in the payload and can't be overridden per component. Entity components must have a `unique_id`.
+
+[Child devices](#child-devices) are listed in `child_devices`, which can be abbreviated as `cdevs`. Each child device has `identifiers`, an optional `name`, and its own `components` (`cmps`), which link to the child device. The device's components are listed in `components` at the root of the discovery payload, which is optional when child devices are listed. A `child_device` mapping is not allowed in the `device` mapping at the root of the discovery payload.
+
+- Only entity components can be part of a child device, device triggers and tags can't.
+- The component IDs must be unique across the device and its child devices, as they identify each component.
+- The `identifiers` of a child device must be unique, and must differ from the `identifiers` of the device.
+- The shared options at the root of the discovery payload, like `origin` and the `availability` options, also apply to the components of the child devices.
+
+In the example below, each switch is linked to a child device of the power strip, and the power sensor is linked to the power strip itself:
+
+```json
+{
+  "dev": {
+    "ids": "power_strip",
+    "name": "Power strip",
+    "mf": "Bla electronics"
+  },
+  "o": {
+    "name": "bla2mqtt"
+  },
+  "cdevs": [
+    {
+      "ids": "power_strip_outlet_1",
+      "name": "Outlet 1",
+      "cmps": {
+        "outlet_1": {
+          "p": "switch",
+          "name": "Switch",
+          "uniq_id": "power_strip_outlet_1_switch",
+          "cmd_t": "power_strip/outlet_1/set"
+        }
+      }
+    },
+    {
+      "ids": "power_strip_outlet_2",
+      "name": "Outlet 2",
+      "cmps": {
+        "outlet_2": {
+          "p": "switch",
+          "name": "Switch",
+          "uniq_id": "power_strip_outlet_2_switch",
+          "cmd_t": "power_strip/outlet_2/set"
+        }
+      }
+    }
+  ],
+  "cmps": {
+    "power": {
+      "p": "sensor",
+      "name": "Power",
+      "uniq_id": "power_strip_power",
+      "stat_t": "power_strip/power",
+      "dev_cla": "power",
+      "unit_of_meas": "W"
+    }
+  }
+}
+```
+
+A component can be moved between the device and its child devices, or between child devices, by moving it to another `components` mapping with the same component ID. To remove a component of a child device, send the component with only its `platform` option, as for the other components.
+
+### Device configuration with single component discovery
+
+With [single component discovery](#single-component-discovery-payload), the `device` (`dev`) mapping is added to the discovery payload of each component that is part of the device. For device triggers, the `device` mapping is required. Device triggers and tags don't need a `unique_id`.
+
+To link an entity to a [child device](#child-devices), add a `child_device` (`cdev`) mapping to the `device` mapping, the same way as in YAML. In the example below, the switch is linked to the child device `Outlet 1`, which is a part of the power strip.
+
+Discovery topic: `homeassistant/switch/power_strip_outlet_1/config`
+
+```json
+{
+  "name": "Switch",
+  "uniq_id": "power_strip_outlet_1_switch",
+  "cmd_t": "power_strip/outlet_1/set",
+  "dev": {
+    "ids": "power_strip",
+    "name": "Power strip",
+    "mf": "Bla electronics",
+    "cdev": {
+      "ids": "power_strip_outlet_1",
+      "name": "Outlet 1"
+    }
+  },
+  "o": {
+    "name": "bla2mqtt"
+  }
+}
+```
+
+The power sensor is linked to the power strip itself, as its `device` mapping has no `child_device` mapping.
+
+Discovery topic: `homeassistant/sensor/power_strip_power/config`
+
+```json
+{
+  "name": "Power",
+  "uniq_id": "power_strip_power",
+  "stat_t": "power_strip/power",
+  "dev_cla": "power",
+  "unit_of_meas": "W",
+  "dev": {
+    "ids": "power_strip",
+    "name": "Power strip"
+  },
+  "o": {
+    "name": "bla2mqtt"
+  }
+}
+```
+
+The options in the `device` mapping can be abbreviated, see [supported abbreviations for device registry configuration](#supported-abbreviations-in-mqtt-discovery-messages).
+
+### Device configuration with subentries
+
+Each [subentry](#configuration-via-subentries) holds one MQTT device. The device details are set in the UI when the subentry is added or reconfigured. Child devices are not supported for subentries.
+
+### Device configuration options
+
+{% configuration mqtt.device %}
+device:
+  description: Information about the device to tie an MQTT entity, device trigger, or tag into the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). At least one of `identifiers` or `connections` must be set to identify the device.
+  required: false
+  type: map
+  keys:
+    configuration_url:
+      description: A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://`, or an internal `homeassistant://` URL.
+      required: false
+      type: string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example, the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    hw_version:
+      description: The hardware version of the device.
+      required: false
+      type: string
+    identifiers:
+      description: A list of IDs that uniquely identify the device. For example, a serial number.
+      required: false
+      type: [string, list]
+    manufacturer:
+      description: The manufacturer of the device.
+      required: false
+      type: string
+    model:
+      description: The model of the device.
+      required: false
+      type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
+    name:
+      description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: The serial number of the device.
+      required: false
+      type: string
+    child_device:
+      description: The [child device](#child-devices) of the device the entity is linked to. Requires a `unique_id`. Not supported for device triggers and tags. With device discovery, child devices are listed in `child_devices` instead, see [device configuration with device discovery](#device-configuration-with-device-discovery).
+      required: false
+      type: map
+      keys:
+        identifiers:
+          description: A list of IDs that uniquely identify the child device.
+          required: true
+          type: [string, list]
+        name:
+          description: The name of the child device.
+          required: false
+          type: string
+    suggested_area:
+      description: Suggest an area if the device isn't in one yet.
+      required: false
+      type: string
+    sw_version:
+      description: The firmware version of the device.
+      required: false
+      type: string
+    via_device:
+      description: Identifier of a device that routes messages between this device and Home Assistant, like a hub or a bridge. This is used to show the device topology in Home Assistant. Use a [child device](#child-devices) for a part of a physical device instead. A child device can't be used as `via_device`.
+      required: false
+      type: string
+{% endconfiguration %}
+
+## Grouping entities
+
+If the MQTT entity represents a group of other entities, the member entities can be made visible in the UI by setting the list of unique IDs of the member entities in the `group` configuration option of the entity group:
+
+{% configuration_basic %}
+group:
+  description: A list of unique IDs of the member entities. Set this if the entity represents a group entity. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+{% endconfiguration_basic %}
 
 ## MQTT Discovery
 
-The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
+The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic, and the device configuration as payload.
 
-MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
-See the [MQTT Options sections](#configure-mqtt-options)
+MQTT discovery is enabled by default and the subscriptions to perform the discovery are done at Quality of Service level 0 by default. The default prefix for the discovery topic is `homeassistant`.
+To disable discovery, or change the discovery QoS or prefix, see the [MQTT Options sections](#configure-mqtt-options).
 
 {% note %}
 Documentation on the MQTT components that support MQTT discovery [can be found here](/integrations/mqtt/#configuration-via-mqtt-discovery).
 {% endnote %}
 
 ### Discovery messages
+
+MQTT discovery supports two types of discovery messages:
+
+- [Device discovery](/integrations/mqtt/#device-discovery-payload), which allows you to include several components in a single discovery message
+- [Single component discovery](/integrations/mqtt/#single-component-discovery-payload), where you publish a separate discovery message for each component
+
+If you use a device with multiple components, it is recommended to use MQTT device discovery. It reduces the number of messages sent, and allows you to send the device information only once.
 
 #### Discovery topic
 
@@ -339,27 +593,30 @@ The discovery topic needs to follow a specific format:
 ```
 
 - `<discovery_prefix>`: The Discovery Prefix defaults to `homeassistant` and this prefix can be [changed](#discovery-options).
-- `<component>`: One of the supported MQTT integrations, e.g., `binary_sensor`, or `device` in case of a device discovery.
+- `<component>`: One of the supported MQTT integrations, for example, `binary_sensor`, or `device` in case of device discovery.
 - `<node_id>`: (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
-- `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
+- `<object_id>`: The ID of the device. This allows for separate topics for each device. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
-The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
+> **Note:** The `<object_id>` in the topic does not influence the resulting `entity_id`; use `default_entity_id` if you need to control the `entity_id`.
+The `<node_id>` is optional, and can be used by clients to subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
-Best practice for entities with a `unique_id` is to set `<object_id>` to `unique_id` and omit the `<node_id>`.
+Best practice for entities with a `unique_id` is to set `<object_id>` to the `unique_id` and omit the `<node_id>`.
 
 #### Device discovery payload
 
 A device can send a discovery payload to expose all components for a device.
 The `<component>` part in the discovery topic must be set to `device`.
 
-As an alternative, it is also possible a device [can send a discovery payload for each component](/integrations/mqtt/#single-component-discovery-payload) it wants to set up.
+As an alternative, it is also possible for a device [to send a discovery payload for each component](/integrations/mqtt/#single-component-discovery-payload) it wants to set up.
 
 The shared options at the root level of the JSON message must include:
 
-- `device` mapping (abbreviated as `dev`)
+- `device` mapping (abbreviated as `dev`), see [MQTT device configuration](#device-configuration-with-device-discovery)
 - `origin` mapping (abbreviated as `o`)
 
 These mappings are mandatory and cannot be overridden at the entity/component level.
+
+The components are listed in the `components` mapping (abbreviated as `cmps`). Components of [child devices](#child-devices) are listed in the `child_devices` list (abbreviated as `cdevs`), see [device configuration with device discovery](#device-configuration-with-device-discovery). At least one of them must be set.
 
 Supported shared options are:
 
@@ -409,9 +666,15 @@ The component specific options are placed as mappings under the `components` key
 }
 ```
 
-The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
+{% note %}
+To see what each abbreviation stands for, refer to the [list of supported abbreviations in MQTT discovery messages](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
+{% endnote %}
 
-To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
+The component IDs under the `components` (`cmps`) key, including those of the child devices, are used as part of the discovery identification and must be unique within the payload. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
+
+To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove all components of the device, including disabled entities, and clear the published discovery payload. It will also remove the device entry if there are no further references to it. Removing the device in Home Assistant also clears the published device discovery payload.
+
+Removing a child device in Home Assistant only removes the child device and its entities, and the parent device when it has no other components or child devices left. The published device discovery payload is not cleared, so the child device and its components are added again when a new device discovery payload is received. To prevent this, remove the child device from the device discovery payload.
 
 An empty config can be published as an update to remove a single component from the device discovery. Note that adding the `platform` (`p`) option is still required.
 
@@ -482,23 +745,27 @@ After removing a component, you should send another update with the removed comp
 }
 ```
 
+To remove a single component that was discovered through device discovery, use its device discovery topic. An empty payload published to its old single component discovery topic, for example after a [migration to device discovery](#migration-from-single-component-to-device-discovery), does not remove it.
+
+When an entity that was discovered through device discovery is removed from Home Assistant, the device discovery payload is not cleared, as that would remove all components of the device. The entity will be added again when a device discovery payload is received that still contains the component. To prevent this, disable the entity instead, or remove the component from the device discovery payload as described above.
+
 <div class='note warning'>
 
-A component config part in a device discovery payload must have the `platform` (`p`) option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context.
+A component config part in a device discovery payload must have the `platform` (`p`) option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context. The component IDs must be unique across the device and its child devices.
 
 </div>
 
-##### Migration from single component to device-based discovery
+##### Migration from single component to device discovery
 
-To allow a smooth migration from single component discovery to device-based discovery:
+To allow a smooth migration from single component discovery to device discovery:
 
 1. Ensure all entities have a `unique_id` and a `device` context.
 2. Move the `object_id` inside the discovery payload, if that is available, or use a unique ID or the component.
 3. Consider using the previous `node_id` as the new `object_id` of the device discovery topic.
 4. Ensure the `unique_id` matches and the `device` context has the correct identifiers.
 5. Send the following payload to all existing single component discovery topics: `{"migrate_discovery": true }`. This will unload the discovered item, but its settings will be retained.
-6. Switch the discovery topic to the device-based discovery topic and include all the component configurations.
-7. Clean up the single component discovery messages with an empty payload.
+6. Switch the discovery topic to the device discovery topic and include all the component configurations.
+7. Clean up the single component discovery messages with an empty payload. This clears the retained messages at the broker, but does not remove the migrated components.
 
 During the migration steps, INFO messages will be logged to inform you about the progress of the migration.
 
@@ -551,7 +818,7 @@ Discovery payload single:
 
 **Step 2: Initiate migration by publishing to both discovery topics:**
 
-When these single component discovery payloads are processed, and we want to initiate migration to a device-based discovery, we need to publish ...
+When these single component discovery payloads are processed, and we want to initiate migration to device discovery, we need to publish ...
 
 ```json
 {"migrate_discovery": true }
@@ -566,7 +833,7 @@ When these single component discovery payloads are processed, and we want to ini
 Check the logs to ensure this step is executed correctly.
 {% endimportant %}
 
-**Step 3: Publish the new device-based discovery configuration:**
+**Step 3: Publish the new device discovery configuration:**
 
 Discovery topic device: `homeassistant/device/0AFFD2/config`
 Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmps` in the discovery payload)*
@@ -606,7 +873,7 @@ Check the logs to ensure the migration was successful.
 
 **Step 4: Clean up after successful migration:**
 
-After the logs show a successful migration, the single component discovery topics can be cleaned up safely by publishing an empty payload to them.
+After the logs show a successful migration, the single component discovery topics can be cleaned up safely by publishing an empty payload to them. This does not remove the migrated components.
 The logs should indicate if the discovery migration was successful.
 
 **Optional: Rolling back the migration:**
@@ -617,16 +884,19 @@ To rollback publish ...
 {"migrate_discovery": true }
 ```
 
-To the device-based discovery topic(s).
+To the device discovery topic(s).
 After that, re-publish the single component discovery payloads.
-At last, clean up the device-based discovery payloads by publishing an empty payload.
+At last, clean up the device discovery payloads by publishing an empty payload.
 
 Check the logs for every step.
 
 #### Single component discovery payload
 
-The `<component>` part in the discovery topic must be one of the supported MQTT-platforms.
-The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be sent for the other components, and it is then recommended to use [device-based discovery](/integrations/mqtt/#device-discovery-payload) instead.
+When using single component discovery messages, the `<component>` part in the discovery topic must be one of the supported MQTT platforms.
+
+The options in the payload are only used to set up one specific component. If a device contains multiple components, it is recommended to use [device discovery](/integrations/mqtt/#device-discovery-payload) instead.
+
+MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting the shared `identifiers` or `connections`. It is recommended to also include the device `name`. See [MQTT device configuration](#device-configuration-with-single-component-discovery).
 
 Example discovery payload:
 
@@ -672,7 +942,7 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
-It is recommended to add information about the origin of MQTT entities by including the `origin` option (abbreviated as `o`) in the discovery payload. For device-based discovery, this information is required. The origin details will be logged in the core event log when an item is discovered or updated. Adding origin information helps with troubleshooting and provides valuable context about the source of MQTT messages in your Home Assistant setup.
+It is recommended to add information about the origin of MQTT entities by including the `origin` option (abbreviated as `o`) in the discovery payload. For device discovery, this information is required. The origin details will be logged in the core event log when an item is discovered or updated. Adding origin information helps with troubleshooting and provides valuable context about the source of MQTT messages in your Home Assistant setup.
 
 Note: These options also support abbreviations, as shown in the table below.
 
@@ -711,13 +981,13 @@ support_url:
     'bri_stat_t':          'brightness_state_topic',
     'bri_tpl':             'brightness_template',
     'bri_val_tpl':         'brightness_value_template',
+    'cdevs':               'child_devices',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
     'clr_temp_k':           'color_temp_kelvin',
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_tpl':        'color_temp_template',
     'clr_temp_val_tpl':    'color_temp_value_template',
-    'clrm':                'color_mode',
     'clrm_stat_t':         'color_mode_state_topic',
     'clrm_val_tpl':        'color_mode_value_template',
     'cmd_off_tpl':         'command_off_template',
@@ -731,6 +1001,7 @@ support_url:
     'cont_type':           'content_type',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
+    'def_ent_id':          'default_entity_id',
     'dev':                 'device',
     'dev_cla':             'device_class',
     'dir_cmd_t':           'direction_command_topic',
@@ -760,6 +1031,7 @@ support_url:
     'fan_mode_stat_tpl':   'fan_mode_state_template',
     'frc_upd':             'force_update',
     'g_tpl':               'green_template',
+    'grp':                 'group',
     'hs_cmd_t':            'hs_command_topic',
     'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
@@ -796,9 +1068,9 @@ support_url:
     'mode_stat_t':         'mode_state_topic',
     'mode_stat_tpl':       'mode_state_template',
     'modes':               'modes',
+    'msg_exp_int':         'message_expiry_interval',
     'name':                'name',
     'o':                   'origin',
-    'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
     'ops':                 'options',
@@ -836,8 +1108,6 @@ support_url:
     'pl_osc_off':          'payload_oscillation_off',
     'pl_osc_on':           'payload_oscillation_on',
     'pl_paus':             'payload_pause',
-    'pl_stop':             'payload_stop',
-    'pl_strt':             'payload_start',
     'pl_prs':              'payload_press',
     'pl_ret':              'payload_return_to_base',
     'pl_rst':              'payload_reset',
@@ -905,6 +1175,8 @@ support_url:
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
     'step':                'step',
+    'stop_cmd_t':          'stop_command_topic',
+    'stop_cmd_tpl':        'stop_command_template',
     'stype':               'subtype',
     'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
@@ -940,11 +1212,13 @@ support_url:
     'tilt_status_tpl':     'tilt_status_template',
     'tit':                 'title',
     'trns':                'transition',
+    'tz':                  'timezone',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
     'url_t':               'url_topic',
     'url_tpl':             'url_template',
     'val_tpl':             'value_template',
+    'vis':                 'visible_by_default',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
     'xy_cmd_t':            'xy_command_topic',
@@ -968,6 +1242,7 @@ support_url:
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
     'sn':                  'serial_number',
+    'cdev':                'child_device',
 ```
 
 {% enddetails %}
@@ -989,7 +1264,7 @@ an MQTT entity, tag, or device automation will be set up directly after receivin
 When Home Assistant is restarting, discovered MQTT items with a unique ID will be unavailable until a new
 discovery message is received. MQTT items without a unique ID will not be added at startup.
 So a device or service using MQTT discovery must make sure a configuration message is offered
-after the **MQTT** integration has been (re)started. There are 2 common approaches to make sure the
+after the **MQTT** integration has been (re)started. There are two common approaches to make sure the
 discovered items are set up at startup:
 
 1. Using Birth and Will messages to trigger setup
@@ -1013,7 +1288,7 @@ After the configs have been published, the state topics will need an update.
 #### Using retained state messages
 
 State updates also need to be re-published after a config as been processed.
-This can also be done by publishing `retained` messages. As soon as a config is received (or replayed from a retained message),
+This can also be done by publishing "retained" messages. As soon as a config is received (or replayed from a retained message),
 the setup will subscribe any state topics. If a retained message is available at a state topic,
  this message will be replayed so that the state can be restored for this topic.
 
@@ -1024,6 +1299,10 @@ Retained messages can create ghost entities that keep coming back.
 <br><br>
 Especially when you have many entities, (unneeded) discovery messages can cause excessive system load. For this reason, use discovery messages with caution.
 {% endwarning %}
+
+#### Using the Message Expiry Interval option
+
+To prevent "retained" messages being kept forever, the publisher can set the Message Expiry Interval option. This will tell the broker to keep messages for a limited time. Home Assistant can set the Message Expiry Interval for an MQTT device via the `message_expiry_interval` configuration option. This will set the Message Expiry Interval for command payloads published to control the device.
 
 ### Using Availability topics
 
@@ -1056,7 +1335,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract a device's availability from the `topic`. To determine the device's availability, the result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_topic:
@@ -1069,7 +1348,7 @@ availability_mode:
    type: string
    default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 payload_available:
@@ -1152,7 +1431,7 @@ Delete the sensor by sending an empty message.
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
-For more details please refer to the [MQTT testing section](/integrations/mqtt/#testing-your-setup).
+For more details, refer to the [MQTT testing section](/integrations/mqtt/#testing-your-setup).
 
 #### Sensors
 
@@ -1203,7 +1482,7 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 }
 ```
 
-The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
+The [`identifiers` or `connections`](#mqtt-device-configuration) device option allows you to set up multiple entities that share the same device.
 
 {% note %}
 If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
@@ -1220,7 +1499,7 @@ A common state payload that can be parsed with the `value_template` in the senso
 
 #### Entities with command topics
 
-Setting up a light, switch etc. is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/integrations/switch.mqtt/).
+Setting up a light or switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/integrations/switch.mqtt/).
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
@@ -1273,6 +1552,10 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 }
 ```
 
+{% note %}
+To see what each abbreviation stands for, refer to the [list of supported abbreviations in MQTT discovery messages](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
+{% endnote %}
+
 #### Another example using abbreviations topic name and base topic
 
 Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-schema), with abbreviated configuration variable names:
@@ -1323,27 +1606,11 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   }
   ```
 
-#### Use object_id to influence the entity id
-
-The entity id is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
-
-- Configuration topic: `homeassistant/sensor/device1/config`
-- Example configuration payload:
-
-```json
-{
-  "name":"My Super Device",
-  "object_id":"my_super_device",
-  "state_topic": "homeassistant/sensor/device1/state"
- }
-```
-
-In the example above, the entity_id will be `sensor.my_super_device` instead of `sensor.device1`.
-
 ### Support by third-party tools
 
 The following software has built-in support for MQTT discovery:
 
+- [anpr2mqtt](https://anpr2mqtt.rhizomatics.org.uk)
 - [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
 - [ble2mqtt](https://github.com/devbis/ble2mqtt)
@@ -1364,6 +1631,7 @@ The following software has built-in support for MQTT discovery:
 - [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 - [OTGateway](https://github.com/Laxilef/OTGateway)
+- [rethink](https://github.com/anszom/rethink)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
@@ -1372,7 +1640,8 @@ The following software has built-in support for MQTT discovery:
 - [TeddyCloud](https://github.com/toniebox-reverse-engineering/teddycloud)
 - [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
 - [Tydom2MQTT](https://tydom2mqtt.github.io/tydom2mqtt/)
-- [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
+- [Updates2MQTT](https://updates2mqtt.rhizomatics.org.uk)
+- [What's up Docker?](https://getwud.app/) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
@@ -1419,7 +1688,7 @@ mqtt:
       ...
 ```
 
-If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+If you have many manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 {% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
@@ -1437,15 +1706,17 @@ Because MQTT state updates are often repeated frequently, even when no actual ch
 
 MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 
+{% include integrations/triggers.md %}
+
 ## Using Templates
 
-The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
+The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/templating/where-to-use/#mqtt).
 
 ### Examples
 
 #### REST API
 
-Using the [REST API](https://developers.home-assistant.io/docs/api/rest/) to send a message to a given topic.
+Using the [REST API](https://contributors.home-assistant.io/core/internals/rest-api/) to send a message to a given topic.
 
 ```bash
 $ curl -X POST \
@@ -1458,8 +1729,6 @@ $ curl -X POST \
 #### Automations
 
 Use as [`script`](/integrations/script/) in automations.
-
-{% raw %}
 
 ```yaml
 automation:
@@ -1480,115 +1749,11 @@ script:
       - action: mqtt.publish
         data:
           payload: "{{ message }}"
-          topic: home/"{{ target }}"
+          topic: "home/{{ target }}"
           retain: true
 ```
 
-{% endraw %}
-
-## Publish & Dump actions
-
-The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
-
-### Action `mqtt.publish`
-
-| Data attribute | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `topic`                | no       | Topic to publish payload to.                                 |
-| `payload`              | yes      | Payload to publish. Will publish an empty payload when `payload` is omitted.               |
-| `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
-| `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
-| `retain`               | yes      | If message should have the retain flag set. (default: false) |
-
-{% note %}
-When `payload` is rendered from [template](/docs/configuration/templating/#using-value-templates-with-mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
-{% endnote %}
-
-```yaml
-topic: homeassistant/light/1/command
-payload: on
-```
-
-{% raw %}
-
-```yaml
-topic: homeassistant/light/1/state
-payload: "{{ states('device_tracker.paulus') }}"
-```
-
-{% endraw %}
-
-{% raw %}
-
-```yaml
-topic: "homeassistant/light/{{ states('sensor.light_active') }}/state"
-payload: "{{ states('device_tracker.paulus') }}"
-```
-
-{% endraw %}
-
-Be aware that `payload` must be a string.
-If you want to send JSON using the YAML editor then you need to format/escape
-it properly. Like:
-
-{% raw %}
-
-```yaml
-topic: homeassistant/light/1/state
-payload: "{\"Status\":\"off\", \"Data\":\"something\"}"`
-```
-
-{% endraw %}
-
-The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
-The `device_class` is set, so it is not needed to set the "name" option. The entity
-will inherit the name from the `device_class` set and also support translations.
-If you set "name" in the payload the entity name will start with the device name.
-
-{% raw %}
-
-```yaml
-action: mqtt.publish
-data:
-  topic: homeassistant/sensor/Acurite-986-1R-51778/config
-  payload: >-
-    {"device_class": "temperature",
-    "unit_of_measurement": "\u00b0C",
-    "value_template": "{{ value|float }}",
-    "state_topic": "rtl_433/rtl433/devices/Acurite-986/1R/51778/temperature_C",
-    "unique_id": "Acurite-986-1R-51778-T",
-    "device": {
-    "identifiers": "Acurite-986-1R-51778",
-    "name": "Bathroom",
-    "model": "Acurite",
-    "model_id": "986",
-    "manufacturer": "rtl_433" }
-    }
-```
-
-{% endraw %}
-
-Example of how to use `qos` and `retain`:
-
-```yaml
-topic: homeassistant/light/1/command
-payload: on
-qos: 2
-retain: true
-```
-
-### Action `mqtt.dump`
-
-Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
-
-| Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
-| `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
-
-```yaml
-topic: zigbee2mqtt/#
-```
+{% include integrations/actions.md %}
 
 ## Logging
 

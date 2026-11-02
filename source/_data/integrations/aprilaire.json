@@ -1,0 +1,20 @@
+{
+  "domain": "aprilaire",
+  "name": "AprilAire",
+  "integration_type": "device",
+  "codeowners": [
+    "@chamberlain2007"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "climate.thermostats_heating",
+    "climate.air_purifiers_humidifiers"
+  ],
+  "platforms": [
+    "climate",
+    "humidifier",
+    "select",
+    "sensor"
+  ]
+}

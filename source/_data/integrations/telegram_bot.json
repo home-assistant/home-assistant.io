@@ -1,0 +1,19 @@
+{
+  "domain": "telegram_bot",
+  "name": "Telegram bot",
+  "integration_type": "service",
+  "codeowners": [
+    "@hanwg"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "gold",
+  "categories": [
+    "messaging_notifications.chat_apps"
+  ],
+  "platforms": [
+    "diagnostics",
+    "event",
+    "notify"
+  ]
+}

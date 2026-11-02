@@ -1,0 +1,203 @@
+@use '../variables' as *;
+
+// Template example block colors
+$tf-input-label-bg:  #358ccb; // Blue accent for template input block
+$tf-output-tint:     #f8fdf9; // Light green tint behind output
+$tf-output-stripe:   rgba(39, 174, 96, 0.04);
+$tf-arrow-color:     #b0b8c1; // Subtle arrow between input and output
+$tf-border-light:    $grayLighter;
+$tf-tooltip-bg:      $grayDark;
+$tf-param-border:    $grayLight;
+
+$tf-code-font: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+/* Fix list indentation in function meta sidebar */
+#integration-sidebar .aside-module ul:not(.divided):not(.sidebar-menu) {
+  margin-left: 2em;
+  margin-bottom: 0;
+}
+
+/* Preserve case for code elements inside uppercase headings */
+.title code {
+  text-transform: none;
+}
+
+/* Template functions search box */
+.component-search {
+  margin-bottom: 24px;
+  min-height: 80px;
+
+  input {
+    width: 100%;
+    padding: 10px;
+    background-color: #fefefe;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: #7c7c7c #c3c3c3 #ddd;
+  }
+}
+
+/* Template functions index page */
+#tf-container h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.4em;
+  border-bottom: 2px solid $primary-color;
+  font-size: 1.1em;
+  scroll-margin-top: 100px;
+}
+
+.tf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tf-item {
+  padding: 0.6em 0;
+  border-bottom: 1px solid $tf-border-light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  a {
+    text-decoration: none;
+    display: block;
+
+    &:hover .tf-fn {
+      text-decoration: underline;
+    }
+  }
+}
+
+.tf-title {
+  font-weight: 600;
+  color: $grayDark;
+}
+
+.tf-fn {
+  font-size: 0.8em;
+  color: $grayLight;
+  margin-left: 0.3em;
+}
+
+.tf-desc {
+  display: block;
+  color: $grayLight;
+  font-size: 0.85em;
+  margin-top: 0.15em;
+}
+
+.tf-item.hidden { display: none; }
+.tf-category.hidden { display: none; }
+
+/* Template example: connected input/output pair */
+.template-example {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0.5em 2em;
+}
+
+.template-example .tabbed-content-block {
+  padding-bottom: 1em;
+  margin-bottom: -1em;
+}
+
+/* Fields block: tabbed UI and YAML views on action, trigger, and
+   condition pages. Adds bottom breathing room so the last field does not
+   sit flush against the wrapping tab container. */
+.fields-block {
+  margin-bottom: 1.5em;
+}
+
+.fields-block .tabbed-content-block-content {
+  padding-bottom: 0.75em;
+}
+
+.fields-block .config-vars .config-vars-item:last-child {
+  margin-bottom: 0;
+}
+
+.template-example-input,
+.template-example-output {
+  position: relative;
+}
+
+.template-example-label {
+  display: inline-block;
+  font-family: $heading-font;
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15em 0.6em;
+  border-radius: 3px;
+  margin-bottom: 0.2em;
+}
+
+.template-example-input .template-example-label {
+  color: $white;
+  background: $tf-input-label-bg;
+}
+
+.template-example-input pre,
+.template-example-input pre[class*="language-"] {
+  margin: 0.2em 0 0 0 !important;
+}
+
+.template-example-input pre[class*="language-"]:before,
+.template-example-input pre[class*="language-"]:after {
+  display: none;
+}
+
+.template-example-arrow {
+  text-align: center;
+  color: $tf-arrow-color;
+  line-height: 1;
+  margin-top: 0.5em;
+  padding: 0.15em 0;
+}
+
+.template-example-arrow svg {
+  width: 32px;
+  height: 32px;
+}
+
+// The negative top margin pulls the output block up against the arrow,
+// keeping the input/arrow/output trio visually connected.
+.template-example-output {
+  margin-top: -1.5em;
+}
+
+.template-example-output .template-example-label {
+  color: $white;
+  background: $green;
+}
+
+.template-example-output pre {
+  margin: 0 !important;
+  position: relative;
+}
+
+.template-example-output pre:before,
+.template-example-output pre:after {
+  display: none;
+}
+
+.template-example-output pre > code {
+  border-left: 10px solid $green;
+  box-shadow: -1px 0px 0px 0px $green, 0px 0px 0px 1px $tf-border-light;
+  background-color: $tf-output-tint;
+  background-image: linear-gradient(transparent 50%, $tf-output-stripe 50%);
+  background-size: 3em 3em;
+  background-origin: content-box;
+  background-attachment: local;
+  padding: 0.5em 1em;
+  display: block;
+  font-family: $tf-code-font;
+  font-size: 0.85em;
+  white-space: pre-wrap;
+  word-wrap: normal;
+  line-height: 1.5;
+}

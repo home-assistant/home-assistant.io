@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 $landingpage__deep_color: #161d61;
 $landingpage__light_color: #18abfd;
 $ha__primary_color: #03a9f4;

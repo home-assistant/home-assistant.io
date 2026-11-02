@@ -1,0 +1,28 @@
+{
+  "domain": "alexa_devices",
+  "name": "Alexa Devices",
+  "integration_type": "hub",
+  "codeowners": [
+    "@chemelli74",
+    "@jamesonuk"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "ai_voice.voice_assistants",
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "event",
+    "media_player",
+    "notify",
+    "select",
+    "sensor",
+    "switch",
+    "todo"
+  ]
+}

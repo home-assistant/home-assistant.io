@@ -1,0 +1,29 @@
+{
+  "domain": "tesla_fleet",
+  "name": "Tesla Fleet",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Bre77"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "vehicles_transport.cars_evs",
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "device_tracker",
+    "diagnostics",
+    "lock",
+    "media_player",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "update"
+  ]
+}

@@ -1,0 +1,76 @@
+---
+title: "SHA512 hash: sha512"
+function_name: "sha512"
+description: "Calculates the SHA512 hash of a string."
+available_as:
+  - function
+  - filter
+category: encoding
+return_type: string
+limited: false
+since: "0.117"
+related_functions:
+  - md5
+  - sha1
+  - sha256
+---
+
+The `sha512` template function calculates the SHA512 hash of a string and returns the result as a hexadecimal string. SHA512 produces a 512-bit (128-character hex) hash value and is part of the SHA-2 family of cryptographic hash functions.
+
+This is the strongest hash function available in Home Assistant {% term templates %}. It produces the longest hash output, which minimizes the chance of collisions. Use it when you need maximum hash strength, or when an external service specifically requires SHA512. For most purposes, [`sha256`](/template-functions/sha256/) is sufficient. For shorter hashes where security is not critical, see [`md5`](/template-functions/md5/) or [`sha1`](/template-functions/sha1/).
+
+{% include template_functions/usage.md %}
+
+{% template_function_usage %}
+function: '{{ sha512("Hello, World!") }}'
+type: string
+output: "374d794a95cdcfd8b35993185fef9ba368f160d8daf432d08ba9f1ed1e5abe6cc69291e0fa2fe0006a52570ef18c19def4e617c33ce52ef0a6e5fbe318cb0387"
+
+---
+filter: '{{ "Hello, World!" | sha512 }}'
+type: string
+output: "374d794a95cdcfd8b35993185fef9ba368f160d8daf432d08ba9f1ed1e5abe6cc69291e0fa2fe0006a52570ef18c19def4e617c33ce52ef0a6e5fbe318cb0387"
+{% endtemplate_function_usage %}
+
+{% include template_functions/signatures.md %}
+
+```signature
+sha512(
+    value: str,
+) -> str
+```
+
+### Function parameters
+
+The following parameters can be provided to this function.
+
+{% function_parameters %}
+value:
+  description: >
+    The string to hash. The string is encoded to UTF-8 before hashing.
+  required: true
+  type: string
+{% endfunction_parameters %}
+
+## Good to know
+
+- The result is always a 128-character lowercase hexadecimal string.
+- SHA512 is cryptographically strong but produces the longest output. Use [`sha256`](/template-functions/sha256/) when you need a shorter but still secure hash.
+
+{% include template_functions/try_it.md %}
+
+{% include template_functions/more_examples.md %}
+
+### Generate a long unique identifier
+
+Create a strong hash from an entity ID for use as a unique key.
+
+{% example %}
+template: '{{ sha512("binary_sensor.front_door") }}'
+type: string
+output: "a1b2c3d4e5f6..."
+{% endexample %}
+
+{% include template_functions/stuck.md %}
+
+{% include template_functions/related.md %}

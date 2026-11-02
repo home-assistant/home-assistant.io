@@ -505,4 +505,4 @@ influxdb:
 [@pezinek]: https://github.com/pezinek
 [device_tracker.unifi docs]: /integrations/unifi
 [sensor.wunderground docs]: /integrations/wunderground
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
