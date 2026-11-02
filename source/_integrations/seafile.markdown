@@ -69,6 +69,16 @@ Backup folder:
   description: "The folder in the library to store backups in. Defaults to `/Home Assistant backups`. It is created when the first backup is uploaded."
 {% endconfiguration_basic %}
 
+## Reconfiguration
+
+If your Seafile server moves to a new address, or its certificate changes, you can update the integration without removing and adding it again.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Seafile** integration.
+2. Next to the account, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Enter the new **URL** or change **Verify SSL certificate**, then select **Submit**.
+
+Home Assistant keeps using the existing access token, so you don't need to log in again. The address must be of the same Seafile server and account.
+
 ## Supported functionality
 
 Each library is added as a separate device in Home Assistant, with the following entities.
