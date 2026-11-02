@@ -95,7 +95,7 @@ export const specs = [
             value: [
               "3.5mm connector for RS-232",
               "Example connectivity: consumer AV equipment, TVs, Pro AV equipment, UPS, climate controllers*",
-              "*Some devices may require converter cables (ex. DB9/RJ9/RJ44/MiniDIN)",
+              "*Some devices may require converter cables (ex. DB9/RJ9/RJ11/MiniDIN)",
             ],
           },
           {
