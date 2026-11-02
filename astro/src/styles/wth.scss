@@ -16,22 +16,18 @@
 	--wth-mint-ink: #056b51;
 	--wth-sky: #5ab9ee;
 
-	/* Ink is both the body text color and the dark band's surface. A
-	   section that inverts redefines --wth-ink; --wth-ink-base stays the
-	   color itself. */
+	/* Ink is the body text color; --wth-ink-base is the color itself, for
+	   the surfaces that use it. */
 	--wth-ink: #1e2126;
 	--wth-ink-base: #1e2126;
 	--wth-ink-soft: #4f606e;
-	--wth-on-ink: #fff;
-	--wth-on-ink-soft: #aebac4;
 	--wth-on-mint-soft: #0a4c3c;
 
 	--wth-page: #f2f4f9;
 	--wth-surface: #fff;
 	--wth-border: #e2e7f0;
-	/* The tinted blue band, and the edge that goes with it. */
+	/* The tinted blue band. */
 	--wth-wash: #eaf6fd;
-	--wth-wash-edge: #cde8f8;
 	--wth-link: #0077a8;
 	/* GitHub's merged purple, for the WTHs that shipped. */
 	--wth-merged: #8250df;
@@ -41,7 +37,7 @@
 	--wth-number-rule: var(--wth-mint);
 
 	/* Keyboard focus. Ink clears 3:1 against every surface the page
-	   uses; the inverted band swaps it for white. */
+	   uses. */
 	--wth-focus: #1e2126;
 
 	/* The page's own measure and rhythm. Wider than the site's reading

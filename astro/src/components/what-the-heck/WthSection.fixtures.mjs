@@ -8,7 +8,7 @@ export default {
   wide: true,
   description:
     "Section shell for the Month of \u201cWhat the Heck?!\u201d page, on " +
-    "each of its four surfaces: the page, white, the tinted band and ink.",
+    "each of its three surfaces: the page, white and the tinted band.",
   variants: [
     {
       name: "page",
@@ -31,16 +31,6 @@ export default {
         id: "preview-band",
         tone: "band",
         heading: "We want to hear from everyone",
-      },
-      slot: "<p>The section's content goes here.</p>",
-    },
-    {
-      name: "ink",
-      props: {
-        id: "preview-ink",
-        tone: "ink",
-        heading: "Four tips for a great WTH",
-        lead,
       },
       slot: "<p>The section's content goes here.</p>",
     },

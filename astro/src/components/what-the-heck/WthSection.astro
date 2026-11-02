@@ -7,7 +7,7 @@
 // sass/homeassistant/pages/wth/_sections.scss, where the band color, the
 // heading rule and the container were repeated for each section in turn.
 //
-// Fidelity: revamp. The three surfaces (page, white, ink) are the Jekyll
+// Fidelity: revamp. The surfaces (page, white, tinted band) are the Jekyll
 // page's; each is a `tone` here rather than a block of overrides.
 
 import "../../styles/tokens.scss";
@@ -20,7 +20,7 @@ interface Props {
   lead?: string;
   /** The surface the section sits on. "band" is the tinted blue band, and
    *  "inherit" paints nothing so the page shows through. */
-  tone?: "page" | "surface" | "band" | "ink" | "inherit";
+  tone?: "page" | "surface" | "band" | "inherit";
 }
 
 const { id, heading, lead, tone = "page" } = Astro.props;
@@ -55,17 +55,6 @@ const { id, heading, lead, tone = "page" } = Astro.props;
 
   .band {
     --wth-section-surface: var(--wth-wash);
-  }
-
-  /* An inverted band: the campaign colors at full strength, and one set of
-     local properties instead of a per-element override block. */
-  .ink {
-    --wth-section-surface: var(--wth-ink-base);
-    --wth-ink: var(--wth-on-ink);
-    --wth-ink-soft: var(--wth-on-ink-soft);
-    --wth-focus: var(--wth-on-ink);
-    --wth-number: var(--wth-mint);
-    --wth-number-rule: rgb(22 243 190 / 50%);
   }
 
   .content {
