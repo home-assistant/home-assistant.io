@@ -6,7 +6,7 @@ ha_domain: imou
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
 
-Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates alarm control panel, button, switch, siren, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
+Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates alarm control panel, button, switch, siren, select, binary sensor, sensor, and number entities. See [Supported functionality](#supported-functionality) for the full list.
 
 ## Use cases
 
@@ -155,6 +155,13 @@ On supported PTZ cameras with saved presets:
 When the cloud API reports that a contact state is supported for a device, the integration exposes the following binary sensor entity:
 
 - **Door**: Open or closed state of a door or window contact on supported devices.
+
+### Numbers
+
+When the cloud API reports that the setting is supported for a device, the integration exposes the following number entities under **Configuration**:
+
+- **Countdown timer**: Minutes until a supported smart plug turns off automatically.
+- **Max power**: Maximum power in watts for a supported smart plug.
 
 ### Sensors
 
