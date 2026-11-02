@@ -41,7 +41,7 @@ Some smart devices, such as air conditioning, boilers, and others, may provide a
 
 ## Upstream devices and hierarchies
 
-You can create a hierarchy of devices by setting one device as an "upstream device" of another. This means you can now establish parent-child relationships between devices within your energy configuration. This works for both energy and water devices.
+You can create a hierarchy of devices by setting one device as an "upstream device" of another. This means you can now establish parent-child relationships between devices within your energy configuration. This works for energy, water and gas devices.
 
 For example, imagine having a breaker monitoring the total energy consumption of a circuit, but also separately tracking individual devices connected to that circuit.
 
@@ -51,7 +51,7 @@ To set up an upstream device relationship:
 1. Add an energy or water consumption entity as an individual device.
 2. Then, when configuring other individual devices, you can select the previously added individual entity as their upstream device.
 
-This hierarchical view helps you understand which devices are consuming energy or water from which sources and prevents usage from being counted multiple times.
+This hierarchical view helps you understand which devices are consuming energy, water or gas from which sources and prevents usage from being counted multiple times.
 
 {% important %}
 To set up a hierarchy, you must first add all related entities as individual devices in the energy dashboard. Only devices that are already listed under individual devices can be selected as "upstream device" for other devices.
