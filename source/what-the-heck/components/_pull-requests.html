@@ -60,7 +60,9 @@
             <ul class="wth-prs-cards"{% unless decoy %} aria-hidden="true"{% endunless %}>
               {%- for j in (1..filler) -%}
               {%- assign position = lane_size | plus: j | minus: 1 | times: 4 | plus: lane | modulo: total -%}
-              {% include_relative components/_pr-card.html pr=prs[position] order=position decoy=true %}
+              {%- comment -%} An include parameter cannot be an expression like prs[position], so the pull request is picked first. {%- endcomment -%}
+              {%- assign filler_pr = prs[position] -%}
+              {% include_relative components/_pr-card.html pr=filler_pr order=position decoy=true %}
               {%- endfor -%}
             </ul>
             {%- endif -%}
