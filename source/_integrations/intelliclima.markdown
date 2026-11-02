@@ -14,7 +14,7 @@ The **IntelliClima** {% term integration %} connects your [Fantini Cosmi](https:
 The following devices are known to be supported by the integration:
 
 - Ecocomfort 2.0 with firmware 0.6.8
-- Ecocomfort 3 with firmware 0.9.6
+- Ecocomfort 3 with firmware 0.8.5 and 0.9.6
 
 These are the firmware versions that have been tested, not minimum firmware requirements.
 
