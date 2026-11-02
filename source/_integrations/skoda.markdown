@@ -16,13 +16,14 @@ ha_platforms:
   - binary_sensor
   - device_tracker
   - sensor
+  - switch
 ha_quality_scale: bronze
 related:
   - url: https://public.api.connect.skoda-auto.cz/docs
     title: Škoda public API documentation
 ---
 
-The **Škoda** {% term integration %} lets you monitor your [Škoda](https://www.skoda-auto.com) vehicle in Home Assistant. It retrieves vehicle information from Škoda Connect through the official Škoda B2C public API.
+The **Škoda** {% term integration %} lets you monitor your [Škoda](https://www.skoda-auto.com) vehicle and control some of its functions in Home Assistant. It retrieves vehicle information from Škoda Connect through the official Škoda B2C public API.
 
 ## Use cases
 
@@ -30,17 +31,17 @@ The **Škoda** {% term integration %} lets you monitor your [Škoda](https://www
 
 Keep an eye on the mileage, fuel or battery level, and estimated driving range. Use this information in dashboards and automations, or track how the car is used over time.
 
-### Monitor charging
+### Monitor and control charging
 
 Track the battery's state of charge, electric range, charging power, charging state, and estimated time until fully charged. Get notified when charging starts, finishes, or is unexpectedly interrupted.
 
-The integration is read-only. It reports the charging state provided by Škoda Connect but cannot start, stop, or schedule charging.
+Start or stop charging from Home Assistant, for example to charge only when electricity is cheap. The integration cannot schedule charging or change the charging limit.
 
 ### Monitor climate control and auxiliary heating
 
 See the target cabin temperature and, while climate control is active, the estimated time when the target temperature will be reached. For supported vehicles, you can also monitor the auxiliary heating mode and its estimated completion time.
 
-The integration cannot start or stop climate control or auxiliary heating. The target temperature is not available for some combustion vehicles.
+The integration cannot start or stop climate control or auxiliary heating. For supported vehicles, you can start or stop active ventilation. The target temperature is not available for some combustion vehicles.
 
 ## Supported vehicles
 
@@ -109,6 +110,15 @@ The **Škoda** integration provides the following entities. The available entiti
 
 - **Registration plate**: The vehicle's registration plate, if set in MyŠkoda.
 
+### Switches
+
+Switches are only created for commands the vehicle supports remotely.
+
+- **Charging**: Starts or stops charging. On while the vehicle is charging. Charging can only start while the charging cable is connected.
+- **Active ventilation**: Starts or stops active ventilation, for supported vehicles. On while the vehicle is ventilating.
+
+The vehicle applies a command with a short delay. After you switch it, the switch shows the requested state until the next data update reports the actual state.
+
 ## Examples
 
 ### Notify when charging is interrupted
@@ -136,7 +146,7 @@ The Škoda public API enforces a rate limit per Vehicle Identification Number (V
 
 ## Known limitations
 
-- The integration is read-only. It reports vehicle status but cannot start or stop charging, control climate, or lock or unlock the vehicle.
+- The integration can start and stop charging and active ventilation. It cannot control climate or auxiliary heating, change the charging limit, or lock or unlock the vehicle.
 - Available sensors depend on the vehicle's model, powertrain, equipment, and the validity of Škoda Connect licenses.
 
 ## Troubleshooting
