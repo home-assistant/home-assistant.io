@@ -12,13 +12,13 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **Lutron GRAFIK Eye** {% term integration %} allows Home Assistant to monitor and control lighting scenes on GRAFIK Eye control units through a GRX-CI-NWK-E Ethernet interface.
+The **Lutron GRAFIK Eye** {% term integration %} allows Home Assistant to monitor and control lighting scenes on GRAFIK Eye control units through a GRX-CI-NWK-E or GRX-IA-CI-NWK-E Ethernet interface.
 
 The integration supports GRAFIK Eye 3000 and 4000 series control units. GRAFIK Eye QS systems are not supported.
 
 ## Prerequisites
 
-Set **DIP switch 7** on the GRX-CI-NWK-E to the **ON** position to enable automatic scene status notifications. Without this, Home Assistant will not receive scene changes initiated outside Home Assistant.
+Set DIP switch 7 on the Ethernet interface to the ON position to enable automatic scene status notifications. Without this, Home Assistant will not receive scene changes initiated outside Home Assistant.
 
 For more information, refer to the official Lutron documentation:
 
@@ -29,9 +29,9 @@ For more information, refer to the official Lutron documentation:
 
 During configuration, provide:
 
-- **Host:** The IP address of the GRX-CI-NWK-E.
-- **Port:** The Telnet port (default: `23`).
-- **Password:** The Telnet login string (defaults: `nwk` for connection 1 and `nwk2` for connection 2).
+- **Host**: The IP address or hostname of the Ethernet interface.
+- **Port**: The Telnet port of the Ethernet interface (default: `23`).
+- **Password**: The password for the Ethernet interface (defaults: `nwk` for connection 1 and `nwk2` for connection 2).
 
 ## Lighting scenes
 
