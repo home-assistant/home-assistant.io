@@ -2,15 +2,15 @@
 layout: post
 title: "Companion app: Ending support for Android 6.0"
 description: "To keep building a stronger Companion app for Android, we’re ending support for Android 6.0. Read on for all the details."
-date: 2026-09-02 00:00:00
-date_formatted: "September 2, 2026"
+date: 2026-11-09 00:00:00
+date_formatted: "November 9, 2026"
 author: Timothy Nibeaudeau
 categories: Announcements
 ---
 
 To build a better [Home Assistant Companion app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) for everyone, we’re updating which Android versions the app supports. Openness is core to how we operate, so we want to be clear about what’s changing and what it means for users.
 
-Starting with version 2026.9.0 of the Companion app, we will no longer support Android 6.0. The last supported version for Android 6.0 will be 2026.8.4.
+Starting with version 2026.9.0 of the Companion app, we will no longer support Android 6.0. The last supported version for Android 6.0 will be 2026.11.1.
 Here’s everything you need to know:
 
 ## Why we’re making the change
@@ -25,12 +25,12 @@ Using Android 7.0 as our minimum requirement still reaches 99.2% of active Andro
 
 Here's an overview of what’s changing:
 
-- The last Companion app update for Android 6.0 will be version 2026.8.4.
-- From version 2026.9.0 onward, the minimum supported version will be Android 7.0.
+- The last Companion app update for Android 6.0 will be version 2026.11.1.
+- From version 2026.11.2 onward, the minimum supported version will be Android 7.0.
 
 This _doesn’t mean_ your Android 6.0 device will stop working. The Companion app will stay installed and continue functioning as usual – it simply won’t receive new updates.
 
-The last compatible version (2026.8.4) will remain available on the Play Store, and the [source code](https://github.com/home-assistant/android) will stay accessible on GitHub for anyone who wants to build the app themselves.
+The last compatible version (2026.11.1) will remain available on the Play Store, and the [source code](https://github.com/home-assistant/android) will stay accessible on GitHub for anyone who wants to build the app themselves or the pre-build APKs under the [release](https://github.com/home-assistant/android/releases/tag/2026.11.1).
 
 ## Looking ahead
 
