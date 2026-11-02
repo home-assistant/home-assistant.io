@@ -163,6 +163,7 @@ PLATFORMS
   aarch64-linux
   arm64-darwin-23
   arm64-darwin-25
+  arm64-darwin-27
   x86_64-linux
 
 DEPENDENCIES

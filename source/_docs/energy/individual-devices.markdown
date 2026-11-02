@@ -27,6 +27,12 @@ For tracking individual water devices, you can use:
 
 For more information on water metering hardware and integrations, see the [water usage documentation](/docs/energy/water/).
 
+## Hardware for gas monitoring
+
+Many smart appliances (such as heat pumps) that use gas, report their consumption to Home Assistant
+
+For more information on gas metering hardware and integrations, see the [gas usage documentation](/docs/energy/gas/).
+
 ## Devices with power (W) sensors
 
 Some smart devices, such as air conditioning, boilers, and others, may provide a power sensor, measured in Watts. You can use the [Integration (Riemann sum integral) integration](/integrations/integration/#energy) to calculate the energy your device is using. You can then use the energy sensor in the Energy Dashboard, as individual devices. You can add the power sensor directly if it has the appropriate attributes. For information on setting up an entity for use in the **Energy** dashboard, refer to the [energy FAQ](/docs/energy/faq/#troubleshooting-missing-entities).
