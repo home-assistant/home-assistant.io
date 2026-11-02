@@ -1,0 +1,262 @@
+---
+// The "WTH" item in the main menu, promoting the Month of "What the
+// Heck?!". Temporary: remove this component, its use in SiteHeader.astro,
+// the `nav-wth` rules there and the `nav_wth` partial of the Jekyll header
+// (sass/homeassistant/base/_nav_wth.scss, source/_includes/site/header.html,
+// source/javascripts/wth/nav-button.js) once the month is over.
+//
+// Ports the Jekyll button, whose markup and class names it keeps, so the
+// script both stacks share (/javascripts/wth/nav-button.js) finds it. It is
+// a second call to action: the "Get started" pill with the campaign's
+// palette and a doodle drawn into it, the hero's routing with a pulse
+// running along it and a node where a run ends. The label's width never
+// moves the routing, which is anchored to the node.
+//
+// Fidelity: copy. Same pill, doodle, states and motion as the Jekyll
+// button. Two things from the Jekyll stylesheet are left out because they
+// never showed: the mint palette (the Jekyll button only appears in it
+// over the homepage hero, where it is always turned to ink) and the
+// `.active` state (which the rules for the two variants repaint).
+//
+// Two variants, one shown at a time. The light one, a white pill with a mint
+// rim, is for light headers, which includes the menu panel on every page.
+// `onDark` is for the header over the homepage hero's blue, where the light
+// pill would disappear: ink with a mint label.
+//
+// The item is the `<li>` of the menu; SiteHeader.astro places it.
+import "../../styles/tokens.scss";
+
+interface Props {
+  /** Where it leads: the page the month is about. */
+  href?: string;
+  /** The ink variant, for the dark header over the homepage hero. */
+  onDark?: boolean;
+}
+
+// The rest is for the header, which styles this item through the scope
+// attribute Astro hands down (see SiteHeader.astro).
+const { href = "/what-the-heck/", onDark = false, ...attributes } = Astro.props;
+---
+
+<li class:list={["nav-wth", { "on-dark": onDark }]} {...attributes}>
+  <a
+    class:list={["nav-wth__button", { "nav-wth__button--dark": onDark }]}
+    href={href}
+    title='Month of "What the Heck?!"'
+  >
+    <span class="nav-wth__flow" aria-hidden="true">
+      <svg viewBox="0 0 120 38" fill="none" focusable="false">
+        <g stroke-linecap="round" fill="none">
+          <path class="nav-wth__run" d="M0 10h52a8 8 0 0 1 8 8v4a8 8 0 0 0 8 8h52"></path>
+          <path class="nav-wth__run nav-wth__run--dashed" d="M30 38v-6a8 8 0 0 1 8-8h14"></path>
+          <path class="nav-wth__pulse" pathLength="1" d="M0 10h52a8 8 0 0 1 8 8v4a8 8 0 0 0 8 8h52"></path>
+        </g>
+      </svg>
+    </span>
+    <span class="label">WTH</span>
+    <span class="icon" aria-hidden="true"><span class="nav-wth__mark">?!</span></span>
+  </a>
+  {/* Eases the doodle's speed on hover; shared with the Jekyll header. */}
+  <script is:inline type="module" src="/javascripts/wth/nav-button.js"></script>
+</li>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  /* The campaign's mint and teal, inked with the "Get started" button's own
+     navy so the two calls to action read as a pair. The navy clears 9.9:1
+     on the mint and 6.5:1 on the teal, so the label reads anywhere along
+     the gradient. */
+  .nav-wth__button {
+    --pill-ink: #002e3e;
+    --pill-blue: #18bcf2;
+    --pill-mint: #16f3be;
+    --pill-node: #f2f4f9;
+
+    /* Where the node sits, measured from the pill's right edge to its
+       centre: the right padding plus half the 1.5rem icon. */
+    --pill-node-inset: 1.25rem;
+
+    /* What the current state shows. The states below change the first
+       two; the variants change the rest. */
+    --surface: linear-gradient(100deg, #fff 20%, #ddfbf3);
+    --text: var(--pill-ink);
+    --active-surface: var(--pill-ink);
+    --active-text: var(--pill-mint);
+    --ring: var(--pill-mint);
+    --ring-width: 0.09375rem;
+    /* The doodle's colours. */
+    --wth-run: rgb(22 243 190 / 55%);
+    --wth-pulse: var(--pill-blue);
+    --wth-pulse-delay: -1.5s;
+    /* The flow's speed, as a multiple of its resting pace; see below. */
+    --wth-speed: 1;
+
+    align-items: center;
+    background: var(--surface);
+    border-radius: var(--radius-pill);
+    box-shadow: inset 0 0 0 var(--ring-width) var(--ring);
+    box-sizing: border-box;
+    color: var(--text);
+    display: inline-flex;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    gap: var(--space-small);
+    isolation: isolate;
+    justify-content: center;
+    line-height: 1;
+    min-height: 2rem;
+    padding: 0 var(--space-xsmall) 0 var(--space-medium);
+    position: relative;
+    text-decoration: none;
+    /* Hovering speeds the doodle up rather than changing the fill. */
+    transition: --wth-speed 0.6s ease;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+      --wth-speed: 2.5;
+    }
+
+    &:active,
+    &:focus-visible {
+      --surface: var(--active-surface);
+      --text: var(--active-text);
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    @media only screen and (min-width: breakpoints.$lap) {
+      font-size: var(--font-size-medium);
+      gap: var(--space-medium);
+      min-height: 2.375rem;
+      padding: 0 var(--space-small) 0 var(--space-xlarge);
+    }
+  }
+
+  /* Over the homepage hero, whose cyan swallows the mint, the pill turns
+     to ink, the way "Get started" turns to its on-dark scheme there. */
+  .nav-wth__button--dark {
+    --surface: linear-gradient(100deg, var(--pill-ink) 20%, #004e66);
+    --text: var(--pill-mint);
+    --active-surface: var(--pill-mint);
+    --active-text: var(--pill-ink);
+    --ring-width: 0;
+    --wth-run: rgb(22 243 190 / 30%);
+    --wth-pulse: var(--pill-mint);
+    --wth-pulse-delay: 0s;
+  }
+
+  /* Centered on its capitals; without trimming, Figtree's deeper descent
+     space lifts the label 1px. */
+  .label {
+    position: relative;
+    text-box: trim-both cap alphabetic;
+  }
+
+  /* The icon's place holds the node instead of the button's arrow. */
+  .icon {
+    flex: none;
+    height: 1.5rem;
+    position: relative;
+    width: 1.5rem;
+  }
+
+  /* The hero's routing, clipped to the pill, with a pulse running along it
+     and the dashed run marching. It sits under the label and never stops
+     (unless motion is reduced). */
+  .nav-wth__flow {
+    border-radius: inherit;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+
+    svg {
+      height: 100%;
+      position: absolute;
+      right: calc(var(--pill-node-inset) - 2.5rem);
+      top: 0;
+    }
+  }
+
+  .nav-wth__run {
+    stroke: var(--wth-run);
+    stroke-width: 3;
+  }
+
+  .nav-wth__run--dashed {
+    animation: wth-nav-march 0.9s linear infinite;
+    stroke-dasharray: 3 3;
+  }
+
+  /* One short dash on a path normalised to a length of 1, so it can run
+     the whole way along and off the end before it starts again. */
+  .nav-wth__pulse {
+    animation: wth-nav-pulse 3s linear infinite;
+    animation-delay: var(--wth-pulse-delay);
+    stroke: var(--wth-pulse);
+    stroke-dasharray: 0.18 1.18;
+    stroke-width: 3;
+  }
+
+  /* The node: the hero's, a pale disc with a mint ring, carrying "?!" for
+     the question the month asks. It never moves. */
+  .nav-wth__mark {
+    align-items: center;
+    background: var(--pill-node);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px var(--pill-mint);
+    color: var(--pill-ink);
+    display: flex;
+    font-size: 0.6875rem;
+    font-weight: 800;
+    inset: 0;
+    justify-content: center;
+    letter-spacing: -0.03em;
+    position: absolute;
+  }
+
+  /* CSS cannot apply a changing speed to a running animation without
+     making it jump, so /javascripts/wth/nav-button.js reads this value as
+     it eases and hands it to the animations as their playback rate.
+     Without the script, the flow simply keeps its resting pace. */
+  @property --wth-speed {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 1;
+  }
+
+  @keyframes wth-nav-pulse {
+    from {
+      stroke-dashoffset: 0.18;
+    }
+
+    to {
+      stroke-dashoffset: -1.18;
+    }
+  }
+
+  @keyframes wth-nav-march {
+    to {
+      stroke-dashoffset: -6;
+    }
+  }
+
+  /* The doodle runs for as long as the page is open, so opting out of
+     motion stops it and leaves the routing drawn. */
+  @media (prefers-reduced-motion: reduce) {
+    .nav-wth__run--dashed,
+    .nav-wth__pulse {
+      animation: none;
+    }
+
+    .nav-wth__pulse {
+      display: none;
+    }
+  }
+</style>
