@@ -50,8 +50,8 @@ Device names follow the format: `{device_type}_{mac_address}`.
 - Home Assistant control must be enabled on the device (for GDS/GSC devices):
 
   1. Log in to the device web interface.
-  2. Go to **Basic Settings** > **Access Control** > **Home Assistant**.
-  3. Enable the **Home Assistant control** option and save.
+  2. Go to **Access Control Settings** > **Basic Settings**.
+  3. Enable the **Home Assistant** option and save.
 
 {% include integrations/config_flow.md %}
 
@@ -147,7 +147,7 @@ To resolve this issue, try the following steps:
 1. Verify the password is correct (default username: `gdsha`).
 2. Confirm that the account is not locked due to excessive failed login attempts.
 3. Reset the device password if necessary.
-4. Verify Home Assistant control is enabled in the device web interface under **Basic Settings** > **Access Control** > **Home Assistant**.
+4. Verify the **Home Assistant** option is enabled in the device web interface under **Access Control Settings** > **Basic Settings**.
 {% enddetails %}
 
 ### Home Assistant control disabled
@@ -157,8 +157,8 @@ To resolve this issue, try the following steps:
 To resolve this issue, try the following steps:
 
 1. Log in to the device web interface.
-2. Go to **Basic Settings** > **Access Control** > **Home Assistant**.
-3. Enable the **Home Assistant control** option.
+2. Go to **Access Control Settings** > **Basic Settings**.
+3. Enable the **Home Assistant** option.
 4. Save settings and retry the integration setup.
 {% enddetails %}
 
