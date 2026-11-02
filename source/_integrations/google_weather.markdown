@@ -41,13 +41,13 @@ The forecast data becomes most useful when something acts on it. Here are a coup
 
 ### Automation: get a heads-up before rain starts
 
-Check the precipitation nowcast every 15 minutes, and send a notification when precipitation is expected to begin within the next half hour. It only looks at segments that haven't started yet, so it stays quiet once the rain has arrived. At this cadence the automation adds about 2,900 calls per month, which fits alongside one configured location but not two.
+Check the precipitation nowcast every 15 minutes, and send a notification when precipitation is expected to begin within the next half hour. It stays quiet while precipitation is already falling, so you only hear about it before it starts. Because it checks every 15 minutes and looks 30 minutes ahead, it usually notifies you twice about the same rain: a first heads-up, then a second one closer to the start. At this cadence the automation adds about 2,900 calls per month, which fits alongside one configured location but not two.
 
 - **Trigger**: Time pattern, every 15 minutes
 - **Action**: Google Weather: Get minute forecast
   - **Target**: Home (`weather.home`)
   - **Response variable**: `nowcast`
-- **Condition**: Template, the next precipitation starts within 30 minutes
+- **Condition**: Template, no precipitation is falling now and the next precipitation starts within 30 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

@@ -152,7 +152,7 @@ This example refreshes every 15 minutes, which adds about 2,900 calls per month.
 
 ### Automation: get a heads-up before rain starts
 
-Check the nowcast every 15 minutes, and send a notification when precipitation is expected to begin within the next half hour. It only looks at segments that haven't started yet, so it stays quiet once the rain has arrived.
+Check the nowcast every 15 minutes, and send a notification when precipitation is expected to begin within the next half hour. It stays quiet while precipitation is already falling, so you only hear about it before it starts. Because it checks every 15 minutes and looks 30 minutes ahead, it usually notifies you twice about the same rain: a first heads-up, then a second one closer to the start.
 
 At this cadence the automation adds about 2,900 calls per month, which fits alongside one configured location but not two.
 
@@ -160,7 +160,7 @@ At this cadence the automation adds about 2,900 calls per month, which fits alon
 - **Action**: Google Weather: Get minute forecast
   - **Target**: Home (`weather.home`)
   - **Response variable**: `nowcast`
-- **Condition**: Template, the next precipitation starts within 30 minutes
+- **Condition**: Template, no precipitation is falling now and the next precipitation starts within 30 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -178,12 +178,12 @@ automation: |
         entity_id: weather.home
       response_variable: nowcast
     - variables:
-        upcoming: >
+        next_segment: >
           {% set ns = namespace(segment=none) %}
           {% for segment in nowcast['weather.home']['segments']
              if ns.segment is none %}
             {% if segment['precipitation_type'] not in ['none', none]
-                  and as_timestamp(segment['start_time'])
+                  and as_timestamp(segment['end_time'])
                       > now().timestamp() %}
               {% set ns.segment = segment %}
             {% endif %}
@@ -191,16 +191,16 @@ automation: |
           {{ ns.segment }}
     - condition: template
       value_template: >
-        {{ upcoming is not none
-           and as_timestamp(upcoming['start_time'])
-               - now().timestamp() < 1800 }}
+        {{ next_segment is not none
+           and 0 < as_timestamp(next_segment['start_time'])
+                   - now().timestamp() < 1800 }}
     - action: notify.send_message
       target:
         entity_id: notify.my_device
       data:
         message: >
-          {{ upcoming['precipitation_type'] }} expected in about
-          {{ ((as_timestamp(upcoming['start_time'])
+          {{ next_segment['precipitation_type'] }} expected in about
+          {{ ((as_timestamp(next_segment['start_time'])
                - now().timestamp()) / 60) | round | int }} minutes.
 {% endexample %}
 
