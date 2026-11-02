@@ -3,8 +3,7 @@
 main#page-wth {
 
     // Hero. Follows the card pattern the community page uses: a rounded
-    // full-bleed card with the content pinned bottom left, and a pill
-    // floating at the top via `margin-bottom: auto`.
+    // full-bleed card with the content pinned bottom left.
     #hero {
         --section-spacing-y: 0;
 
@@ -32,8 +31,7 @@ main#page-wth {
 
         .container {
             display: flex;
-            // Fill the card so the date can sit at the very top while the
-            // rest of the content stays at the bottom.
+            // Fill the card so the content stays at the bottom.
             flex: 1 0 auto;
             flex-direction: column;
             justify-content: flex-end;
@@ -50,25 +48,6 @@ main#page-wth {
             flex-direction: column;
             max-width: 670px;
             text-align: left;
-        }
-
-        // A tag with the wordmark's mint outline, squarer than the buttons
-        // so it does not read as one.
-        .hero-date {
-            align-self: flex-start;
-            background-color: #ffffff;
-            border: 4px solid var(--wth-mint);
-            border-radius: 14px;
-            color: var(--wth-ink);
-            font-size: 15px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: auto;
-            padding: 10px 14px;
-
-            @include bp(tablet) {
-                font-size: 17px;
-            }
         }
 
         .hero-heading {

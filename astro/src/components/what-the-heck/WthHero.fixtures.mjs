@@ -7,9 +7,8 @@ export default {
   title: "WTH hero",
   wide: true,
   description:
-    "The hero card: the date floating at the top, the wordmark, the " +
-    "text and the two calls to action. The key visual's lines show " +
-    "from 768px up.",
+    "The hero card: the wordmark with its date, the text and the two " +
+    "calls to action. The key visual's lines show from 768px up.",
   variants: [
     {
       name: "default",
