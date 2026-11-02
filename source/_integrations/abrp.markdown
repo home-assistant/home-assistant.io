@@ -123,27 +123,22 @@ automation: |
 
 {% enddetails %}
 
-### Automation: Turn off a charging outlet at 80%
+### Automation: Turn off a charging outlet above 80%
 
-Stop charging when your vehicle reaches 80% by turning off the smart outlet or switch that powers your charger.
+Stop charging once your vehicle's battery level goes above 80% by turning off the smart outlet or switch that powers your charger. The automation runs when the **SoC** value rises past 80, so a reading of exactly 80% does not turn off the outlet.
 
 - **Trigger**: Numeric state: **SoC** sensor of your vehicle above `80`
-- **Condition**: Numeric state: **Power** sensor of your vehicle above `1000`
 - **Action**: Turn off the switch for your charging outlet
 
-{% details "YAML example for turning off a charging outlet at 80%" %}
+{% details "YAML example for turning off a charging outlet above 80%" %}
 
 {% example %}
 automation: |
-  alias: "Stop charging at 80%"
+  alias: "Stop charging above 80%"
   triggers:
     - trigger: numeric_state
       entity_id: sensor.my_ev_soc
       above: 80
-  conditions:
-    - condition: numeric_state
-      entity_id: sensor.my_ev_power
-      above: 1000
   actions:
     - action: switch.turn_off
       target:
