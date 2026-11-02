@@ -94,9 +94,6 @@ A standard Linux application for running the Nibe Gateway software is also avail
 
 Home Assistant support connecting to Nibe heat pumps over Modbus over either TCP or RCU like connections. When connecting to the pump inside a Home Assistant, the Modbus connection string must be specified.
 
- {% note %}
- As of now, Modbus has to be configured to allow writes for this integration to work.
- {% endnote %}
 {% note %}
 This integration requires write access over Modbus. Make sure Modbus is configured to allow writes on the heat pump.
 {% endnote %}
