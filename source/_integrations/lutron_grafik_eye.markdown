@@ -41,7 +41,7 @@ Port:
   default: 23
   type: integer
 Password:
-  description: The password for the Ethernet interface (defaults: `nwk` for connection 1 and `nwk2` for connection 2).
+  description: "The password for the Ethernet interface (defaults: `nwk` for connection 1 and `nwk2` for connection 2)."
   required: true
   type: string
 {% endconfiguration_basic %}
