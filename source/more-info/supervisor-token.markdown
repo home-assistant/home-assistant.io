@@ -18,9 +18,8 @@ If you see the **Deprecated use of the Supervisor API token** repair, something 
 
 The repair shows one example of a path that was called. To see every path, check the Supervisor logs:
 
-1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
-2. In the top right, select **Supervisor**.
-3. Look for warnings like this one. One is logged for each distinct path:
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" provider="supervisor" search="Supervisor token over TCP" %}. The link opens the Supervisor logs, filtered to these warnings.
+2. Look for warnings like this one. One is logged for each distinct path:
 
    ```text
    Request to /supervisor/info used Home Assistant's Supervisor token over TCP.
