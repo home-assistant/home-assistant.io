@@ -26,6 +26,8 @@ The **SpaceXSI** {% term integration %} adds a Grok-powered conversation agent f
 
 This is a community-maintained integration, not an official SpaceXSI product.
 
+Sign-in uses the existing Grok Build public client. The authorization includes access to your profile and email, continued access through token refresh, Grok CLI and API access, and permission to read and write conversations and workspaces.
+
 The **Device control** set of AI tools is selected by default during setup. It lets Grok provide information about or control only the entities that you [expose to Assist](/voice_control/voice_remote_expose_devices/).
 
 This integration does not integrate with [sentence triggers](/triggers/conversation/).
@@ -45,7 +47,7 @@ Model:
 Instructions:
   description: "Instructions for how Grok should respond. You can use a [Home Assistant template](/docs/templating/)."
 AI tools:
-  description: "The Home Assistant AI tools that Grok can use. Device control is selected by default. Clear this selection to disable Home Assistant tools."
+  description: "**Device control** is selected by default and only accesses entities you expose to Assist. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices. Clear all selections to disable Home Assistant tools."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -56,11 +58,13 @@ Grok can answer in any language supported by the selected model. If you select *
 
 ## Data updates
 
-The integration sends requests to SpaceXSI when you send a conversation request. The integration does not poll in the background.
+The integration retrieves your account identity during sign-in and stores your name, or your email if no name is available, as the integration entry title. It requests the available model catalog during setup and whenever the integration loads, including at Home Assistant startup.
+
+The integration also sends requests to SpaceXSI when you send a conversation request. The integration does not poll in the background.
 
 ### Data sent to the provider
 
-Each conversation request sends your message, conversation history, and configured instructions to SpaceXSI. If you enable Assist access, requests can also include the names and states of exposed entities and the results of Home Assistant actions. Template instructions can include other information you choose to put in the template.
+Each conversation request sends your message, conversation history, and configured instructions to SpaceXSI. If you select **Device control**, requests can also include the names and states of exposed entities and the results of Home Assistant actions. If you select **Home Assistant**, tool results can include information beyond exposed entities, including template results and action responses. Template instructions can include other information you choose to put in the template.
 
 Review your account's privacy controls, [SpaceXSI privacy information](https://x.ai/legal/privacy-policy), and [service terms](https://x.ai/legal/terms-of-service) before sending personal information. Data handling, retention, usage limits, and any charges depend on the provider's terms for your account. Removing the integration does not delete data already sent to SpaceXSI.
 
