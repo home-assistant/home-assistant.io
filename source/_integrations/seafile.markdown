@@ -71,13 +71,13 @@ Backup folder:
 
 ## Reconfiguration
 
-If your Seafile server moves to a new address, or its certificate changes, you can update the integration without removing and adding it again.
+If your Seafile server moves to a new address, its certificate changes, or you want to log in with a different username or password, you can update the integration without removing and adding it again.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Seafile** integration.
 2. Next to the account, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
-3. Enter the new **URL** or change **Verify SSL certificate**, then select **Submit**.
+3. Enter the **URL**, **Username** and **Password**, and change **Verify SSL certificate** if needed, then select **Submit**.
 
-Home Assistant keeps using the existing access token, so you don't need to log in again. The address must be of the same Seafile server and account.
+Home Assistant logs in again and creates a new access token, and revokes the old one. You must log in to the same Seafile account that was set up before.
 
 ## Supported functionality
 
