@@ -10,7 +10,6 @@ import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import WthSection from "./WthSection.astro";
 import Button from "../Button.astro";
-import WthIcon from "./WthIcon.astro";
 import { forumUrl } from "../../lib/wth.mjs";
 
 const questions = [
@@ -23,12 +22,7 @@ const questions = [
 
 <WthSection id="everyone" tone="surface" heading="This year’s challenge">
   <article id="homework" class="card household">
-    <div>
-      <span class="icon" aria-hidden="true">
-        <WthIcon name="mdi:account-group-outline" />
-      </span>
-      <p>Gather WTHs from the people you live with too. Ask them:</p>
-    </div>
+    <h3>Gather WTHs from the people you live with too. Ask them:</h3>
 
     <div class="answers">
       <ul class="questions">
@@ -46,33 +40,19 @@ const questions = [
 </WthSection>
 
 <style lang="scss">
-  @use "../../styles/breakpoints";
-
   .card {
     background-color: var(--color-footer-surface);
     border: 1px solid var(--wth-border);
     border-radius: var(--radius-large);
     padding: var(--space-xlarge);
-
-    p {
-      color: var(--wth-ink-soft);
-      font-size: var(--font-size-large);
-      line-height: 1.55;
-      margin: var(--space-small) 0 0;
-    }
   }
 
-  /* The icons are <iconify-icon> elements, which size from font-size. */
-  .icon {
-    align-items: center;
-    background-color: var(--wth-mint);
-    border-radius: 50%;
+  h3 {
     color: var(--wth-ink);
-    display: inline-flex;
-    font-size: var(--font-size-xxlarge);
-    height: 3rem;
-    justify-content: center;
-    width: 3rem;
+    font-size: var(--font-size-xlarge);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
   }
 
   .household {
@@ -125,12 +105,5 @@ const questions = [
 
   .household :global(.button) {
     margin-top: var(--space-xlarge);
-  }
-
-  @media only screen and (min-width: breakpoints.$desk) {
-    .household {
-      gap: var(--space-xxlarge);
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
   }
 </style>

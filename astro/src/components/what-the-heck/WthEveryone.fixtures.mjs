@@ -4,8 +4,7 @@ export default {
   title: "WTH challenge",
   wide: true,
   description:
-    "The household card of questions, which splits into two columns from " +
-    "1140px.",
+    "The household card of questions, in a single column.",
   variants: [
     {
       name: "default",
