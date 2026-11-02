@@ -109,7 +109,37 @@ The **Škoda** integration provides the following entities. The available entiti
 
 - **Registration plate**: The vehicle's registration plate, if set in MyŠkoda.
 
+{% include integrations/actions.md %}
+
 ## Examples
+
+### Show the vehicle render on a dashboard
+
+The device tracker uses the render image of the vehicle as its picture, for example on the map. To show the full render image in a picture card, create a trigger-based template image that retrieves the image URL with the [Get image URL](/actions/skoda.get_image_url/) action. Replace `YOUR_CONFIG_ENTRY_ID` with the config entry ID of your vehicle.
+
+{% raw %}
+
+```yaml
+template:
+  - triggers:
+      - trigger: homeassistant
+        event: start
+      - trigger: time
+        at: "03:00:00"
+    actions:
+      - action: skoda.get_image_url
+        data:
+          config_entry_id: YOUR_CONFIG_ENTRY_ID
+        response_variable: vehicle_image
+    image:
+      - name: Škoda render
+        unique_id: skoda_render
+        url: "{{ vehicle_image.url }}"
+```
+
+{% endraw %}
+
+Then add a [picture entity card](/dashboards/picture-entity/) that uses the `image.skoda_render` entity.
 
 ### Notify when charging is interrupted
 
