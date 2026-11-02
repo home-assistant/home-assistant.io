@@ -722,9 +722,9 @@ A child device is removed when it is omitted from `child_devices`, or listed wit
 
 To remove a single component that was discovered through device discovery, use its device discovery topic. An empty payload published to its old single component discovery topic, for example after a [migration to device discovery](#migration-from-single-component-to-device-discovery), does not remove it.
 
-When an entity that was discovered through device discovery is removed from Home Assistant, the device discovery payload is not cleared, as that would remove all components of the device. The entity will be added again when a device discovery payload is received that still contains the component. To prevent this, disable the entity instead, or remove the component from the device discovery payload as described above.
+When an entity that was discovered through device discovery is removed from Home Assistant, the device discovery payload is not cleared, as that would remove all components of the device. The entity will be added again when a device discovery payload is received that still contains the component. To prevent this, disable the entity instead, or remove the component from the device discovery payload as described above. When the entity was the last component of the device, the device is removed, and the device discovery payload is cleared.
 
-Removing a child device in Home Assistant only removes the child device and its entities, and the parent device when it has no other components or child devices left. The published device discovery payload is not cleared, so the child device and its components are added again when a new device discovery payload is received. To prevent this, remove the child device from the device discovery payload.
+Removing a child device in Home Assistant only removes the child device and its entities. The published device discovery payload is not cleared, so the child device and its components are added again when a new device discovery payload is received. To prevent this, remove the child device from the device discovery payload. When the parent device has no other components or child devices left, it is removed as well, and the device discovery payload is cleared.
 
 ##### Migration from single component to device discovery
 
