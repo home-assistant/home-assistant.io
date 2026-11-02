@@ -10,8 +10,10 @@ import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import WthSection from "./WthSection.astro";
 import WthSteps from "./WthSteps.astro";
+import WthStats from "./WthStats.astro";
 import Button from "../Button.astro";
 import { forumUrl } from "../../lib/wth.mjs";
+import { loadWthStats } from "../../lib/wth-stats.mjs";
 
 const steps = [
   { title: "Pick it", text: "Browse the WTHs and find one you can take on." },
@@ -21,6 +23,9 @@ const steps = [
     text: "Open a pull request and link it back to the WTH.",
   },
 ];
+
+// Counted before the build; nothing is shown when the count is missing.
+const stats = loadWthStats();
 ---
 
 <WthSection
@@ -29,6 +34,8 @@ const steps = [
   heading="Comfortable with code? Fix someone else’s WTH!"
 >
   <WthSteps steps={steps} columnWidth="13rem" />
+
+  <WthStats stats={stats} />
 
   <p class="note">
     New to contributing? Our <a

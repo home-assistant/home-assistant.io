@@ -869,6 +869,71 @@ main#page-wth {
             }
         }
 
+        // How many pull requests fix a WTH: a card with two big numbers.
+        .wth-stats {
+            background-color: var(--wth-surface);
+            border: 1px solid var(--wth-border);
+            border-radius: var(--card-radius);
+            margin-top: 40px;
+            padding: 24px;
+
+            @include bp(tablet) {
+                padding: 28px 32px;
+            }
+        }
+
+        .stats-intro {
+            color: var(--wth-ink-soft);
+            font-size: var(--typography-paragraph-font-size);
+            line-height: var(--typography-paragraph-line-height);
+            margin: 0;
+        }
+
+        .stats-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 48px;
+            margin: 16px 0 0;
+        }
+
+        // The number reads first, the label under it.
+        .stat {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 4px;
+
+            dt {
+                color: var(--wth-ink);
+                font-size: var(--typography-paragraph-font-size);
+                font-weight: 600;
+                line-height: 1.3;
+            }
+
+            dd {
+                color: var(--wth-mint-ink);
+                font-size: 44px;
+                font-weight: 700;
+                line-height: 1;
+                margin: 0;
+
+                @include bp(desktop) {
+                    font-size: 56px;
+                }
+            }
+        }
+
+        .stats-link {
+            color: #0077A3;
+            display: inline-block;
+            font-size: var(--typography-paragraph-font-size);
+            margin-top: 20px;
+            text-decoration: underline;
+
+            &:hover {
+                color: var(--wth-ink);
+            }
+        }
+
         // The heading over the quote wall starts a new block after the buttons.
         .content > h2.quote-heading {
             margin-top: 56px;

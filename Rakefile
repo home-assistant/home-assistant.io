@@ -50,6 +50,8 @@ task :generate do
   abort("Generating community meetups data failed") unless success
   success = system "rake newsletter_data"
   abort("Generating newsletter data failed") unless success
+  success = system "rake wth_stats_data"
+  abort("Generating WTH stats failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   # The Astro build runs on every deploy (see astro/README.md). Jekyll
@@ -132,6 +134,7 @@ task :preview, :listen do |t, args|
   system "rake wwha_data"
   system "rake meetups_data"
   system "rake newsletter_data"
+  system "rake wth_stats_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -340,6 +343,55 @@ task :newsletter_data do
       ]
       File.write(output_file, JSON.generate(fallback))
     end
+  end
+end
+
+# The first day that counts for the Month of "What the Heck?!" counters on
+# /what-the-heck/. The Jekyll and the Astro page both read the file this
+# writes, so this is the only place to change it (for example to 2026-11-01).
+WTH_STATS_SINCE = "2026-01-01"
+
+desc "Count the pull requests that fix a WTH, for the What the Heck?! page"
+task :wth_stats_data do
+  output_file = "#{source_dir}/_data/wth_stats.json"
+  begin
+    query = "org:home-assistant label:WTH is:pr created:>=#{WTH_STATS_SINCE}"
+    count = lambda do |state|
+      uri = URI('https://api.github.com/search/issues')
+      uri.query = URI.encode_www_form(q: "#{query} #{state}", per_page: 1)
+      token = ENV['GITHUB_TOKEN'].to_s
+      response = nil
+      # Use the token when there is one. A token GitHub does not accept is
+      # not worth failing over, because the search also works without it.
+      [token, ''].uniq.each do |bearer|
+        request = Net::HTTP::Get.new(uri)
+        request['Accept'] = 'application/vnd.github+json'
+        request['Authorization'] = "Bearer #{bearer}" unless bearer.empty?
+        response = Net::HTTP.start(uri.host, uri.port, use_ssl: true, open_timeout: 10, read_timeout: 20) do |http|
+          http.request(request)
+        end
+        break unless %w[401 403].include?(response.code)
+      end
+      raise "GitHub answered #{response.code}" unless response.is_a?(Net::HTTPSuccess)
+      total = JSON.parse(response.body)['total_count']
+      raise "no usable count for #{state}" unless total.is_a?(Integer) && total >= 0
+      total
+    end
+
+    stats = {
+      'since' => WTH_STATS_SINCE,
+      'open' => count.call('is:open'),
+      'merged' => count.call('is:merged'),
+      # The same search on github.com, for the "See them all" link.
+      'url' => "https://github.com/search?" + URI.encode_www_form(o: 'desc', q: query, s: 'created', type: 'Issues'),
+    }
+    File.write(output_file, JSON.generate(stats))
+    puts "## Wrote WTH stats: #{stats['open']} open, #{stats['merged']} merged"
+  rescue StandardError => e
+    # Never fail the build over the counters. Without the file the page
+    # leaves the counters out, and an old file would show stale numbers.
+    warn "## Counting WTH pull requests failed, leaving the counters out. #{e}"
+    FileUtils.rm_f(output_file)
   end
 end
 
