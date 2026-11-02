@@ -71,6 +71,10 @@ Represents the domestic hot water controls of your device.
 It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore, the operation mode of that integration is just available as an attribute and cannot be modified.
 {% endnote %}
 
+### Binary sensor
+
+Binary sensors show on and off states of the device, such as a running burner or compressor. Each room of a ViCare room control also has a **Window** and a **Condensation risk** binary sensor.
+
 ### Sensor
 
 Additional data for a device is available as separate sensors. The sensors are automatically discovered based on the available API data points.
