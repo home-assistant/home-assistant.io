@@ -34,7 +34,7 @@ For more information, refer to the official Lutron documentation:
 Host:
   description: The IP address or hostname of the Ethernet interface.
 Port:
-  description: The Telnet port of the Ethernet interface (default: `23`).
+  description: "The Telnet port of the Ethernet interface (default: `23`)."
 Password:
   description: "The password for the Ethernet interface (defaults: `nwk` for connection 1 and `nwk2` for connection 2)."
 {% endconfiguration_basic %}
