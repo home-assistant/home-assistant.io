@@ -1,28 +1,18 @@
 ---
-title: Model Context Protocol
 description: Instructions on how to add a Model Context Protocol server to Home Assistant.
 featured: true
-ha_categories:
-  - ai_voice.ai_models
-  - other_ecosystems
 ha_release: 2025.2
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@allenporter'
 ha_domain: mcp_server
-ha_integration_type: service
 related:
   - docs: /integrations/conversation/
     title: Conversation
   - docs: /integrations/mcp/
     title: Model Context Protocol Client
-ha_quality_scale: silver
 ---
 
 The **Model Context Protocol** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home.
 
-With this integration, Home Assistant is the MCP *server*. The AI agent gets its tools from the LLM APIs in Home Assistant that you allow it to use, which by default is all of them. One of these is the **Device control** API, which gives the AI agent the same tools as your voice assistant ([Assist](/voice_control/)). Through the **Device control** API, it can only control or see the entities that you have exposed on the {% my voice_assistants title="exposed entities page" %}. To choose which LLM APIs the AI agent can use, refer to [Configuration options](#configuration-options).
+With this integration, Home Assistant is the MCP *server*. Home Assistant groups the tools it offers to AI agents into sets of tools. The AI agent can use the sets of tools that you allow, which by default is all of them. One of these is **Device control**, which gives the AI agent the same tools as your voice assistant ([Assist](/voice_control/)). With **Device control**, it can only control or see the entities that you have exposed on the {% my voice_assistants title="exposed entities page" %}. Another one is **Home Assistant**, which can read all entities, logs, and history, and perform any action. To choose which tools the AI agent can use, refer to [Configuration options](#configuration-options).
 
 {% tip %}
 Home Assistant has two MCP integrations, and they work in opposite directions:
@@ -37,8 +27,8 @@ If you want your Home Assistant conversation agent to use tools from another ser
 
 - Your MCP server URL. To get it:
   1. Go to {% my config_ai title="**Settings** > **System** > **AI**" %}.
-  2. If MCP is not enabled, enable it.
-  3. Next to the MCP server you want to use, select the copy icon {% icon "mdi:content-copy" %}. We recommend **My MCP** because it lets the AI agent control everything Home Assistant has access to.
+  2. If the **Model Context Protocol** card shows an **Enable** button, select it.
+  3. Next to the URL you want to use, select the copy icon {% icon "mdi:content-copy" %}. We recommend **Main URL**. By default, it exposes all tools, and you can change this in the [configuration options](#configuration-options). Under **Individual URLs**, each set of tools also has its own URL.
 - An AI agent that supports MCP servers.
 - If the AI agent runs in the cloud, for example when you use it through a website, your Home Assistant instance must be accessible from the internet. Use [Home Assistant Cloud](/integrations/cloud/) or another method of [remote access](/docs/configuration/remote/).
 
@@ -46,31 +36,33 @@ For detailed configuration instructions, refer to the [Client configuration](#cl
 
 {% include integrations/config_flow.md %}
 
-When you set up the integration, it exposes all LLM APIs and requires an administrator account. To change this, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Model Context Protocol**, and then select **Configure**.
+When you set up the integration, the main URL exposes all tools and requires an administrator account. To change this, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Model Context Protocol**, and then select **Configure**.
 
 ## Configuration options
 
-The integration provides the following configuration options:
+The integration provides the following configuration options. They only apply to the main URL (`/api/mcp`), shown as **Main URL** in {% my config_ai title="**Settings** > **System** > **AI**" %}.
+
+Each set of tools also has its own URL, listed under **Individual URLs**. For example, `/api/mcp/assist` only exposes **Device control**. These URLs ignore the options below. They are never read-only, and all of them except the **Device control** URL require an administrator account.
 
 {% configuration_basic %}
-Expose all LLM APIs:
-  description: If MCP clients can use every LLM API, including LLM APIs that are added
-    later. This option is turned on by default. If you set up the integration before this option
-    existed, it stays turned off so that your clients keep the LLM APIs you selected. Turn it off
-    to select individual LLM APIs.
-Control Home Assistant:
-  description: The LLM APIs that MCP clients can use when **Expose all LLM APIs** is turned off.
-    Clients can only control or provide information about entities that are
-    [exposed](/voice_control/voice_remote_expose_devices/) to them.
+Expose all AI tools:
+  description: If the main URL exposes every set of tools, including sets of tools that
+    integrations add later. This option is turned on by default. If you set up the integration
+    before this option existed, it stays turned off so that your clients keep the tools you
+    selected. Turn it off to select individual sets of tools.
+AI tools:
+  description: The sets of tools that the main URL exposes when **Expose all AI tools** is turned
+    off. **Device control** only accesses the entities you
+    [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses
+    everything and requires an administrator account.
 Require an administrator account:
-  description: If only administrator accounts are allowed to use the `/api/mcp` endpoint. This
-    option is turned on by default. If you set up the integration before this option existed,
-    it stays turned off so that your clients keep working.
+  description: If only administrator accounts can use the main URL. This option is turned on by
+    default. If you set up the integration before this option existed, it stays turned off so
+    that your clients keep working. When the main URL exposes **Home Assistant**, for example
+    with **Expose all AI tools**, an administrator account is always required.
 Read-only:
-  description: If MCP clients can only use controls that do not change anything, such as getting
-    the current state of your home. This applies only to the `/api/mcp` endpoint. Endpoints for
-    a specific LLM API, such as `/api/mcp/assist`, are not affected. This option is turned off
-    by default.
+  description: If the main URL only exposes tools that are marked as not changing anything, such
+    as getting the current state of your home. This option is turned off by default.
 {% endconfiguration_basic %}
 
 ## Client configuration
@@ -175,8 +167,8 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
 ### Tools
 
 [MCP Tools](https://modelcontextprotocol.io/docs/concepts/tools) enable LLMs to
-perform actions through Home Assistant. The tools used by the configured LLM API
-are exposed.
+perform actions through Home Assistant. In Home Assistant, a set of tools is
+called an LLM API. The tools used by the configured LLM API are exposed.
 
 ### Prompts
 

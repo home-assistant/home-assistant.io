@@ -1,18 +1,7 @@
 ---
-title: Threema
 description: Instructions on how to send Threema messages from Home Assistant.
-ha_categories:
-  - messaging_notifications.chat_apps
 ha_release: '2026.10'
-ha_config_flow: true
-ha_iot_class: Cloud Push
 ha_domain: threema
-ha_platforms:
-  - notify
-ha_integration_type: service
-ha_quality_scale: bronze
-ha_codeowners:
-  - '@LukasQ'
 ---
 
 The **Threema** {% term integration %} allows you to send end-to-end encrypted text messages from Home Assistant to [Threema](https://threema.ch) users via the [Threema Gateway](https://gateway.threema.ch) service. This integration is designed for the **E2E (end-to-end) encryption mode** of Threema Gateway, where messages are encrypted locally before being sent. If no private key is configured, the integration falls back to **basic mode** (server-side encryption).

@@ -1,6 +1,6 @@
 {
   "domain": "serial",
-  "name": "Serial",
+  "name": "Raw Serial",
   "codeowners": [
     "@fabaff"
   ],

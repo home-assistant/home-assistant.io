@@ -56,7 +56,7 @@ persons:
   type: list
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Netatmo camera" example="camera.living_room" %}
 
 ## Good to know
 

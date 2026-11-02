@@ -27,6 +27,6 @@ If the data partition is on a failing physical device, move it to a new one befo
 
 Once the data partition is ready, restore from your backup.
 
-[backups]: /common-tasks/general/#backups
+[backups]: /common-tasks/general/backups/
 
 To reduce the risk of this happening in the future, always shut down Home Assistant cleanly rather than cutting power, and keep regular backups stored on a separate device.

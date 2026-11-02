@@ -1,16 +1,7 @@
 ---
-title: Folder
 description: Instructions on how to monitor the size and contents of a folder in Home Assistant.
-ha_categories:
-  - computers_network.monitoring
-ha_iot_class: Local Polling
 ha_release: 0.64
-ha_config_flow: true
 ha_domain: folder
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_quality_scale: legacy
 ---
 
 The **Folder** {% term integration %} monitors a folder on the system running Home Assistant. It creates a sensor that shows the total size of the files in that folder, so you can, for example, get notified when a backup or recordings folder grows too large.
@@ -19,7 +10,7 @@ You can add the same folder more than once, each time with a different filter. F
 
 ## Prerequisites
 
-The folder you want to monitor must be in the list of folders Home Assistant is allowed to access. Add the folder to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) and restart Home Assistant before you add the integration.
+The folder you want to monitor must be in the list of folders Home Assistant is allowed to access. The `www` folder inside your configuration folder and your media folders are allowed by default. For any other folder, add it to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) and restart Home Assistant before you add the integration.
 
 {% include integrations/config_flow.md %}
 
@@ -27,7 +18,7 @@ The folder you want to monitor must be in the list of folders Home Assistant is 
 Path to the folder:
   description: "The full path to the folder you want to monitor, starting from the root. For example, `/config` or `/media/recordings`."
 Filter:
-  description: "Only count files that match this pattern. For example, `*.txt` counts only text files. The filter uses [Unix shell-style wildcards](https://docs.python.org/3/library/fnmatch.html). The default is `*`, which counts all files."
+  description: "Only count files that match this pattern. For example, `*.txt` counts only text files. The filter uses [Unix shell-style wildcards](https://docs.python.org/3/library/glob.html). The default is `*`, which counts all files except hidden files, whose names start with a dot (`.`)."
 {% endconfiguration_basic %}
 
 ## Configuration options
@@ -36,7 +27,7 @@ You can change the filter after you add the integration. To change it, go to {% 
 
 {% configuration_basic %}
 Filter:
-  description: "Only count files that match this pattern. For example, `*.txt` counts only text files. The default is `*`, which counts all files."
+  description: "Only count files that match this pattern. For example, `*.txt` counts only text files. The default is `*`, which counts all files except hidden files, whose names start with a dot (`.`)."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -61,7 +52,7 @@ The integration checks the folder every minute.
 
 ## Known limitations
 
-- The integration does not look inside subfolders. Files in subfolders are not included in the size. A subfolder that matches the filter is included in **Number of files** and **File list**, but not in the size.
+- The integration does not look inside subfolders automatically. Files in subfolders are only included when the filter points to them, for example `recordings/*.mp4`. A subfolder that matches the filter is included in **Number of files** and **File list**, but not in the size.
 - Folders with a very large number of files make the **File list** attribute large, which can increase the size of your database.
 
 ## Troubleshooting

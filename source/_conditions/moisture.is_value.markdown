@@ -129,7 +129,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="moisture sensor" example="sensor.plant_moisture" %}
 
 {% include conditions/behavior.md %}
 

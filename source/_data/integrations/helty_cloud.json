@@ -12,7 +12,9 @@
     "climate.fans_ventilation"
   ],
   "platforms": [
+    "binary_sensor",
     "diagnostics",
-    "fan"
+    "fan",
+    "sensor"
   ]
 }

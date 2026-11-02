@@ -51,7 +51,7 @@ This passes when the outdoor PM10 sensor reads above 50 μg/m³.
    threshold_required="true"
    entity_unit="`μg/m³`" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="PM10 sensor" example="sensor.living_room_pm10" %}
 
 {% include conditions/behavior.md %}
 

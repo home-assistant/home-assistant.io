@@ -38,7 +38,7 @@ You will typically see this on entities you created manually in YAML, or on enti
 - Entity with a unique ID: the entity ID can be changed freely, as long as it follows the format `<domain>.<id>` and does not collide with another entity. If you change the entity ID, remember to update the references in automations and dashboards.
 - Entity without a unique ID: the entity ID is treated as a fixed identifier and cannot be changed.
 
-If your entity has no unique ID, you can still adjust some properties through the [manual customization options](/docs/configuration/customizing-devices) in YAML.
+If your entity has no unique ID, you can still adjust some properties through the [manual customization options](/docs/configuration/customizing-entities/) in YAML.
 
 ### How do I remove an entity without a unique ID?
 

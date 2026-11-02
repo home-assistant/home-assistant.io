@@ -1,19 +1,7 @@
 ---
-title: ENGIE Belgium
 description: Instructions on how to integrate ENGIE Belgium energy prices into Home Assistant.
-ha_categories:
-  - energy.energy_prices
 ha_release: 2026.11
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@DaanVervacke'
 ha_domain: engie_be
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **ENGIE Belgium** {% term integration %} integrates the [ENGIE Belgium](https://www.engie.be) API with Home Assistant.
