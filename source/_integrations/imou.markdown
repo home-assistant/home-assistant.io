@@ -2,6 +2,7 @@
 description: Integrate Imou smart devices into Home Assistant.
 ha_release: 2026.7
 ha_domain: imou
+ha_quality_scale: platinum
 ---
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
