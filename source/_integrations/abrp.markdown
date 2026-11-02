@@ -200,9 +200,9 @@ This is expected when a vehicle is parked and not reporting data. Each sensor ke
 
 Home Assistant shows the same data as the A Better Routeplanner app and website, so you can compare them. If the value looks just as old in ABRP, your vehicle has not sent fresh telemetry yet and there is nothing to fix in Home Assistant.
 
-### The integration shows as unavailable
+### Sensors show as unavailable
 
-This can happen if internet connectivity is interrupted, ABRP is temporarily unavailable, or authentication failed.
+Sensors become unavailable when the integration can no longer authenticate with ABRP. To fix this, follow the steps in [Authentication errors](#authentication-errors). If ABRP cannot be reached when Home Assistant starts, sensors stay unavailable until the integration connects. It retries automatically. During an ordinary connection interruption, sensors keep their latest values while the integration reconnects.
 
 If the issue continues, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the issue, and include the logs in your issue report.
 
