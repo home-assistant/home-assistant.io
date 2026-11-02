@@ -58,19 +58,63 @@ The integration polls the power flows every 5 seconds.
 
 ## Troubleshooting
 
-### The device is not an E3/DC power station
+{% details "Setup reports that the device is not an E3/DC power station" %}
 
-Setup reports this when register 40001 does not hold the E3/DC identifier. Check that **Protocol** is set to **E3DC** in the power station's **Smart Home** > **Modbus** menu, not **SUN_SPEC**.
+### Symptom: "The device answered, but it is not an E3/DC power station in E3/DC protocol mode"
 
-### Failed to connect
+When you add the integration, the form shows this error. An integration that was already set up stops with "The device is not an E3/DC power station in E3/DC protocol mode."
 
-- Check that Modbus is turned on and the port matches.
-- Check that Home Assistant is in the same subnet as the power station.
+#### Description
+
+The integration checks register 40001 for the E3/DC identifier. The power station reports it only while its Modbus interface uses the E3/DC protocol.
+
+#### Resolution
+
+1. On the power station, go to **Main menu** > **Smart Functions** > **Smart Home** > **Modbus**.
+2. Set **Protocol** to **E3DC**, not **SUN_SPEC**.
+3. Add the integration again, or reload it.
+
+{% enddetails %}
+
+{% details "Setup fails to connect" %}
+
+### Symptom: "Failed to connect"
+
+When you add the integration, the form shows this error. An integration that was already set up keeps retrying, and its sensors are unavailable.
+
+#### Description
+
+Home Assistant got no answer from the power station at the host and port you entered.
+
+#### Resolution
+
+1. Check that Modbus is turned on in the power station's **Smart Home** menu, and that the port matches.
+2. Check that Home Assistant is in the same subnet as the power station. The power station answers Modbus requests only from devices in its own subnet.
+3. Check that the host is the power station's current IP address. To keep it from changing, give the power station a fixed IP address in your router.
+
+{% enddetails %}
+
+{% details "Setup reports a different serial number" %}
+
+### Symptom: "The device at this address has serial number …, not …"
+
+An integration that worked before stops with this error.
+
+#### Description
+
+Home Assistant recognizes your power station by the serial number it read when you added the integration. A different power station now answers at the host and port of this entry. For example, your router gave the IP address to another E3/DC power station.
+
+#### Resolution
+
+1. Give the power station of this entry its old IP address back, for example with a fixed IP address in your router.
+2. To use the power station that answers now, delete this entry and add the integration again.
+
+{% enddetails %}
 
 ## Removing the integration
 
 This integration follows standard integration removal.
 
-{% include integrations/remove_device_service_steps.md %}
+{% include integrations/remove_device_service.md %}
 
 After removing the integration, turn Modbus off in the power station's **Smart Home** menu if nothing else uses it.
