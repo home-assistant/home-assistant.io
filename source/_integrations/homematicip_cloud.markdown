@@ -122,7 +122,7 @@ The integration creates one climate entity per room as a Homematic IP heating gr
 - Radiator thermostats (`HmIP-eTRV`, `HmIP-eTRV-2`, `HmIP-eTRV-2-UK`, `HmIP-eTRV-2-B`, `HmIP-eTRV-2-B1`, `HmIP-eTRV-C`, `HmIP-eTRV-E`)
 - Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`)
 
-Floor heating actuators are operated through the climate group and don't need their own entity (`HMIP-FAL230-C6`, `HMIP-FAL230-C10`, `HMIP-FAL24-C6`, `HMIP-FAL24-C10`, `HMIP-FALMOT-C12`).
+Floor heating actuators are operated through the climate group (`HMIP-FAL230-C6`, `HMIP-FAL230-C10`, `HMIP-FAL24-C6`, `HMIP-FAL24-C10`, `HMIP-FALMOT-C12`).
 
 ### Covers
 
@@ -160,7 +160,7 @@ Floor heating actuators are operated through the climate group and don't need th
 - Light sensor – outdoor (`HmIP-SLO`)
 - Motion and presence sensors (`HmIP-SMI`, `HmIP-SMO`, `HmIP-SMO230`, `HmIP-SPI`)
 - Passage sensor with direction recognition (`HmIP-SPDR`)
-- Floor heating actuator – 12 channels, valve positions (`HMIP-FALMOT-C12`)
+- Floor heating actuators – valve positions (`HMIP-FAL230-C6`, `HMIP-FAL230-C10`, `HMIP-FAL24-C6`, `HMIP-FAL24-C10`, `HMIP-FALMOT-C12`)
 - Fine dust sensor (`HmIP-SFD`)
 - Soil moisture sensor (`ELV-SH-SMSI`)
 - Ultrasonic distance sensor interface, distance and height (`ELV-SH-DUSI`)
