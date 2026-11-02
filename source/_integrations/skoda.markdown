@@ -115,7 +115,7 @@ The **Škoda** integration provides the following entities. The available entiti
 Switches are only created for commands the vehicle supports remotely.
 
 - **Charging**: Starts or stops charging. On while the vehicle is charging. Charging can only start while the charging cable is connected.
-- **Active ventilation**: Starts or stops active ventilation, for supported vehicles. On while the vehicle is ventilating.
+- **Active ventilation**: Starts or stops active ventilation, for supported vehicles. On while the vehicle reports ventilation or preheating.
 
 The vehicle applies a command with a short delay. After you switch it, the switch shows the requested state until the next data update reports the actual state.
 
