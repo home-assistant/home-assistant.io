@@ -11,7 +11,8 @@
 // Each group is a heading with items. An item has a heading and either
 // `value` lines or `details`, labelled values set in two columns (the
 // Audio, Serial, Connectivity and Software items); `wide` items take
-// the group's full width.
+// the group's full width. Lines are HTML, so they can hold links; an
+// empty line in `value` starts a new paragraph after a gap.
 //
 // The drawing is three layers in a box of the drawing's proportions:
 // the base, the circuit board inside it and the lid above, each placed
@@ -90,6 +91,12 @@ const {
   title = "Specifications",
   mode = "view",
 } = Astro.props;
+// Splits value lines into paragraphs at each empty line.
+const paragraphs = (lines: string[]) =>
+  lines.reduce<string[][]>(
+    (all, line) => (line ? (all.at(-1)!.push(line), all) : [...all, []]),
+    [[]],
+  );
 const place = ({ x, y, w }: Layer) => `--x: ${x}%; --y: ${y}%; --w: ${w}%`;
 // The lid and base are SVGs, served as they are.
 const svgLayer = (layer: Layer) => ({
@@ -114,23 +121,24 @@ const svgLayer = (layer: Layer) => ({
             {items.map(({ label, value, details, wide }: Item) => (
               <div class:list={["item", { wide: wide || details }]}>
                 <h4>{label}</h4>
-                {value && (
-                  <p>
-                    {value.map((line, i) => (
-                      <Fragment>
-                        {i > 0 && <br />}
-                        {line}
-                      </Fragment>
-                    ))}
-                  </p>
-                )}
+                {value &&
+                  paragraphs(value).map((lines) => (
+                    <p>
+                      {lines.map((line, i) => (
+                        <Fragment>
+                          {i > 0 && <br />}
+                          <Fragment set:html={line} />
+                        </Fragment>
+                      ))}
+                    </p>
+                  ))}
                 {details && (
                   <dl>
                     {details.map(({ term, value }: Detail) => (
                       <div>
                         <dt>{term}</dt>
                         {value.map((line) => (
-                          <dd>{line}</dd>
+                          <dd set:html={line} />
                         ))}
                       </div>
                     ))}
@@ -324,6 +332,17 @@ const svgLayer = (layer: Layer) => ({
     color: var(--color-text-inverse-muted);
     font-size: var(--font-size-small);
     line-height: 1.5;
+  }
+
+  p + p {
+    margin-top: var(--space-medium);
+  }
+
+  p,
+  dd {
+    :global(a) {
+      color: inherit;
+    }
   }
 
   dl {

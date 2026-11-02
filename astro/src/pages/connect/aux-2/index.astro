@@ -217,8 +217,8 @@ const diagram = [
               speakers.
             </ConnectFeatureCard>
             <ConnectFeatureCard icon={advancedControl} title="Advanced control" href="#serial" animated>
-              Gain deep control of your gear through its serial (RS-232)
-              connection.
+              Gain deep control of your gear through serial or Modbus
+              connectivity.
             </ConnectFeatureCard>
             <ConnectFeatureCard icon={connectAnywhere} title="Flexible connection" href="#coverage" animated>
               Easily add Power over Ethernet or Wi-Fi to your ZWA-2.
@@ -254,12 +254,9 @@ const diagram = [
         >
           <ConnectLabel>The smart home multi-tool</ConnectLabel>
           <h2 class="heading">Connect everything</h2>
-          <!-- TODO [copy]: Zigbee won't work at launch; this lead mentions
-               it. -->
           <p class="lead multi-tool-lead">
             Stream audio, control legacy devices over serial (RS-232), add
-            sensors, and extend your Zigbee or Z-Wave network, all from one
-            small box.
+            sensors, and extend your Z-Wave network, all from one small box.
           </p>
         </ConnectHotspots>
       </div>
@@ -273,7 +270,7 @@ const diagram = [
           Classic gear and modern smart speakers play in harmony.
         </ConnectFeatureCard>
         <ConnectFeatureCard icon={losslessIcon} title="Lossless sound" large beside>
-          Choose a clean analogue output, or bit-perfect digital output.
+          Choose a clean analog output, or CD-quality digital output.
         </ConnectFeatureCard>
         <ConnectFeatureCard icon={seamlessControlIcon} title="Increased control" large beside>
           Get power and volume control by connecting a serial (RS-232) cable.
@@ -310,8 +307,8 @@ const diagram = [
          2022:8778). -->
     <section class="serial content" id="serial">
       <ConnectSectionHeader title="Deep control with serial">
-        If your device has a serial (RS-232) port, plug in AUX-2 for more
-        powerful control.
+        If your device has serial or Modbus, plug in AUX-2 for more powerful
+        control.
       </ConnectSectionHeader>
       <div class="serial-grid">
         <div
@@ -356,8 +353,9 @@ const diagram = [
             Block your TV from the internet, and control it with AUX-2.
           </ConnectFeatureCard>
           <ConnectFeatureCard icon={beyondAvIcon} title="Beyond AV" animated>
-            Speaks to other serial (RS-232) gear too, from pool heaters to
-            uninterruptible power supplies.
+            Speaks to other serial (RS-232) and Modbus (RS-485*) gear too,
+            from HVACs, UPSs, to solar inverters.
+            <small class="footnote">*RS-485 requires an additional USB adapter</small>
           </ConnectFeatureCard>
         </div>
       </div>
@@ -369,10 +367,8 @@ const diagram = [
       <div class="coverage-text">
         <ConnectLabel>Connect anywhere</ConnectLabel>
         <h2 class="heading">Best spot in the house</h2>
-        <!-- TODO [copy]: Zigbee won't work at launch; this lead, and the
-             footnote below (ZBT-1, ZBT-2), mention it. -->
         <p class="lead">
-          Move your Zigbee or Z-Wave network wherever the signal is strongest.*
+          Move your Z-Wave network wherever the signal is strongest.*
         </p>
         <!-- TODO: the Figma note asks for a link to an FAQ entry saying
              which adapters this applies to (ZBT-1, ZBT-2, ZWA-2); it
@@ -626,6 +622,12 @@ const diagram = [
     :global(.connect-label) + & {
       margin-top: var(--space-large);
     }
+  }
+
+  /* The RS-485 footnote in the Beyond AV card. */
+  .footnote {
+    display: block;
+    margin-top: var(--space-medium);
   }
 
   .lead,

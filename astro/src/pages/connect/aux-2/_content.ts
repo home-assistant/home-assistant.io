@@ -54,7 +54,7 @@ export const specs = [
       { label: "SoCs", value: ["ESP32-S3"] },
       // TODO: Figma says "Digital-to-Audio"; a DAC is a digital-to-analog
       // converter. Confirm with the product team.
-      { label: "Digital-to-Audio (DAC) chip", value: ["TI PCM5122"] },
+      { label: "Digital-to-Audio (DAC) chip", value: ["TI PCM5122", "112 dB SNR"] },
       {
         label: "Power",
         value: ["USB-C", "2A (or higher) / 5 V DC", "Power-over-Ethernet (802.3af)"],
@@ -64,26 +64,22 @@ export const specs = [
         details: [
           {
             term: "Connectivity",
-            value: ["Combined optical (S/PDIF) and analog audio 3.5mm port"],
-          },
-          {
-            term: "Analogue audio capabilities",
-            value: ["24-bit/48kHz", "Stereo Audio DAC with 100dB SNR"],
-          },
-          {
-            term: "Digital audio capabilities",
-            value: ["24-bit/48kHz", "Stereo PCM lossless audio"],
-          },
-          {
-            term: "Home Assistant support",
             value: [
-              "Supported (unsynchronized)",
-              "Stream announcements, radio, URL streams, and files in your media library",
+              "Combined optical (S/PDIF) and analog audio 3.5mm port*",
+              "(*only one at a time)",
             ],
           },
           {
+            term: "Analogue audio capabilities",
+            value: ["16-bit/48kHz stereo"],
+          },
+          {
+            term: "Digital audio capabilities",
+            value: ["16-bit/48kHz stereo", "Stereo PCM lossless audio"],
+          },
+          {
             term: "Synchronized whole home audio",
-            value: ["Supported (Music Assistant via Sendspin)"],
+            value: ['Supported via <a href="https://www.sendspin-audio.com/">Sendspin</a>'],
           },
           {
             term: "Internal audio codec support",
@@ -110,14 +106,17 @@ export const specs = [
           },
           {
             term: "USB input",
-            value: ["USB-A data for Connect ZWA-2"],
+            value: ["USB-A data for Connect ZWA-2 and RS-485 adapter"],
           },
         ],
       },
       {
         label: "Connectivity",
         details: [
-          { term: "Wireless", value: ["Wi-Fi, Bluetooth"] },
+          {
+            term: "Wireless",
+            value: ["Wi-Fi (2.4 GHz, 802.11b/g/n),", "Bluetooth 5 (LE)"],
+          },
           {
             term: "Wired",
             value: [
@@ -144,10 +143,11 @@ export const specs = [
         label: "Environmental conditions for operation",
         value: [
           "Indoor use only",
-          "0 °C to 50 °C",
-          "32 °F to 104 °F",
+          "0–65 °C (32–149 °F)",
+          "",
           "Humidity: non-condensing",
           "Keep in a dry, not excessively dusty, environment to avoid damage to the unit.",
+          "",
           "Do not leave the unit in direct sunlight or near any heat source, as this can cause overheating.",
         ],
       },
