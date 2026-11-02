@@ -10,7 +10,7 @@ ha_domain: system_bridge
 
 ### Version
 
-This integration requires System Bridge 4.0.2 and above. Any older version will not work.
+This integration requires System Bridge 5.0.0 and above. Any older version will not work.
 
 ### Token
 
@@ -22,13 +22,14 @@ You will need your token. For instructions on finding your token, follow the ste
 
 This integration provides the following binary sensors:
 
-| Name                  | Description                         |
-| --------------------- | ----------------------------------- |
-| AC Power              | Whether the device is on AC power   |
-| Battery Is Charging   | Whether the battery is charging     |
-| Camera In Use         | Whether the camera/webcam is in use |
-| Pending Reboot        | Whether a reboot is pending         |
-| New Version Available | Whether a new version is available  |
+| Name                  | Description                          |
+| --------------------- | ------------------------------------ |
+| AC Power              | Whether the device is on AC power    |
+| Battery Is Charging   | Whether the battery is charging      |
+| Camera In Use         | Whether the camera/webcam is in use  |
+| Locked                | Whether the user's session is locked |
+| Pending Reboot        | Whether a reboot is pending          |
+| New Version Available | Whether a new version is available   |
 
 ## Sensors
 
@@ -49,6 +50,7 @@ This integration provides the following sensors:
 | Filesystem(s)             | Space used for each drive letter / filesystem mount               |
 | GPU Memory Free           | GPU memory free in GB                                             |
 | GPU Usage %               | GPU usage percentage                                              |
+| Idle Time                 | Time since the user's last keyboard or mouse input                |
 | Kernel                    | Version information of the Kernel                                 |
 | Latest Version            | System Bridge Latest Version                                      |
 | Load                      | System load percentage                                            |
@@ -56,39 +58,49 @@ This integration provides the following sensors:
 | Power Usage               | Power usage in watts (if available)                               |
 | Memory Free               | Memory (RAM) free in GB                                           |
 | Memory Used               | Memory (RAM) used in GB                                           |
-| Memory Used %             | Memory (RAM) % used                                               |
+| Memory Usage              | Memory (RAM) % used                                               |
 | Network Download Rate     | Total download rate System Bridge reports for the device          |
 | Network Upload Rate       | Total upload rate System Bridge reports for the device            |
 | Interface SSID            | The Wi-Fi network a wireless interface is connected to            |
 | Interface Signal Strength | Wi-Fi signal strength of a wireless interface in dBm              |
 | Operating System          | Version information of the Operating System                       |
 | Processes                 | Shows count of processes on the system                            |
+| Swap Usage                | Swap % used                                                       |
 | Version                   | System Bridge Version                                             |
 
 These sensors are also available, but are not enabled by default:
 
-| Name                    | Description                                      |
-| ----------------------- | ------------------------------------------------ |
-| Battery Power           | Battery power draw in watts                      |
-| Battery Voltage         | Battery voltage in volts                         |
-| CPU Temperature         | The current temperature of the CPU               |
-| CPU Voltage             | The current voltage of the CPU                   |
-| Per-disk Read Rate      | Read rate of each disk                           |
-| Per-disk Write Rate     | Write rate of each disk                          |
-| GPU Core Clock Speed    | GPU core clock speed in MHz                      |
-| GPU Memory Clock Speed  | GPU memory clock speed in MHz                    |
-| GPU Fan Speed           | GPU fan speed percentage                         |
-| GPU Memory Used         | GPU memory used in GB                            |
-| GPU Memory Used %       | GPU memory used percentage                       |
-| GPU Power Usage         | GPU power usage                                  |
-| GPU Temperature         | The current temperature of the GPU               |
-| Interface Download Rate | Download rate of each network interface          |
-| Interface Upload Rate   | Upload rate of each network interface            |
-| Interface Link Rate     | Wi-Fi link rate of a wireless interface in Mbps  |
-| Load Average (5 min)    | Load average over 5 minutes                      |
-| Load Average (15 min)   | Load average over 15 minutes                     |
+| Name                     | Description                                     |
+| ------------------------ | ----------------------------------------------- |
+| Battery Power            | Battery power draw in watts                     |
+| Battery Voltage          | Battery voltage in volts                        |
+| CPU Temperature          | The current temperature of the CPU              |
+| CPU Voltage              | The current voltage of the CPU                  |
+| Per-disk Read Rate       | Read rate of each disk                          |
+| Per-disk Write Rate      | Write rate of each disk                         |
+| GPU Core Clock Speed     | GPU core clock speed in MHz                     |
+| GPU Decoder Usage        | GPU video decoder usage percentage              |
+| GPU Encoder Usage        | GPU video encoder usage percentage              |
+| GPU Memory Clock Speed   | GPU memory clock speed in MHz                   |
+| GPU Fan Speed            | GPU fan speed in RPM                            |
+| GPU Fan Speed Percentage | GPU fan speed percentage                        |
+| GPU Memory Total         | Total GPU memory                                |
+| GPU Memory Used          | GPU memory used in GB                           |
+| GPU Memory Usage         | GPU memory used percentage                      |
+| GPU Performance State    | GPU performance state, such as `P0`             |
+| GPU Power Limit          | GPU power limit in watts                        |
+| GPU Power Usage          | GPU power usage                                 |
+| GPU Temperature          | The current temperature of the GPU              |
+| Interface Download Rate  | Download rate of each network interface         |
+| Interface Upload Rate    | Upload rate of each network interface           |
+| Interface Link Rate      | Wi-Fi link rate of a wireless interface in Mbps |
+| Load Average (5 min)     | Load average over 5 minutes                     |
+| Load Average (15 min)    | Load average over 15 minutes                    |
+| Swap Used                | Swap used in GB                                 |
 
 Load average sensors are only added on devices that report a load average.
+
+Not every GPU reports every value. GPU sensors System Bridge can't read for a GPU, such as encoder and decoder usage on some integrated GPUs, show as unknown.
 
 Network interface sensors are named after the interface, such as `eth0 download rate`. The download and upload rate sensors show Mbit/s by default, and you can change the unit in the entity settings. Loopback interfaces are left out, and sensors for an interface that appears later, such as a USB network adapter, are added when it first shows up. The Wi-Fi sensors are unknown while the interface isn't connected, and aren't available on macOS.
 
@@ -101,6 +113,12 @@ Each battery System Bridge finds, including ones in connected devices such as a 
 Each display that reports its brightness gets a `Display YOUR_DISPLAY_ID brightness` number entity to set its brightness from 0 to 100%. Each display that reports its power state gets a `Display YOUR_DISPLAY_ID power` switch entity to turn it on or off. The switch shows off when the display is in standby, suspended, or off. A display connected later gets its entities when it first reports these values. A display that reports neither value doesn't get these entities.
 
 Brightness is set through the backlight on built-in screens and over Display Data Channel Command Interface (DDC/CI) on external monitors. Power is set over DDC/CI. On Linux with Hyprland, screens that don't support DDC/CI are turned on and off through Hyprland.
+
+## Power buttons
+
+The integration provides a button for each power command: **Sleep**, **Hibernate**, **Restart**, **Shut down**, **Lock**, and **Log out**. Pressing one sends the command to the device straight away, with no confirmation, so add a confirmation to any dashboard button that uses them. If System Bridge reports an error for a command, pressing the button shows it.
+
+The buttons do the same as the [`system_bridge.power_command`](/actions/system_bridge.power_command/) action, and are easier to add to a dashboard or an automation.
 
 ## Media player
 
@@ -193,3 +211,9 @@ This is an object containing the `source` and `volume` (0-100). The source must 
 - Display brightness and power controls aren't available on macOS.
 - A display can report its brightness or power state without supporting changes to it. In that case, the action fails and shows the error message from System Bridge.
 - Some monitors stop responding to DDC/CI when they're off, so they can't be turned back on from Home Assistant.
+
+## Removing the integration
+
+This integration follows standard integration removal. Removing it doesn't change System Bridge on your computer. To stop System Bridge as well, uninstall it there.
+
+{% include integrations/remove_device_service.md %}
