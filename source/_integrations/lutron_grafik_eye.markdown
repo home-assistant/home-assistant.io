@@ -10,9 +10,12 @@ ha_config_flow: true
 ha_platforms:
   - select
 ha_integration_type: hub
+ha_codeowners:
+  - "@LennP"
+ha_quality_scale: bronze
 ---
 
-The **Lutron GRAFIK Eye** {% term integration %} allows Home Assistant to monitor and control lighting scenes on GRAFIK Eye control units through a GRX-CI-NWK-E or GRX-IA-CI-NWK-E Ethernet interface.
+The **[Lutron](https://www.lutron.com/) GRAFIK Eye** {% term integration %} allows Home Assistant to monitor and control lighting scenes on GRAFIK Eye control units through a GRX-CI-NWK-E or GRX-IA-CI-NWK-E Ethernet interface.
 
 The integration supports GRAFIK Eye 3000 and 4000 series control units. GRAFIK Eye QS systems are not supported.
 
@@ -27,17 +30,29 @@ For more information, refer to the official Lutron documentation:
 
 {% include integrations/config_flow.md %}
 
-During configuration, provide:
+{% configuration_basic %}
+Host:
+  description: The IP address or hostname of the Ethernet interface.
+  required: true
+  type: string
+Port:
+  description: The Telnet port of the Ethernet interface.
+  required: true
+  default: 23
+  type: integer
+Password:
+  description: The password for the Ethernet interface (defaults: `nwk` for connection 1 and `nwk2` for connection 2).
+  required: true
+  type: string
+{% endconfiguration_basic %}
 
-- **Host**: The IP address or hostname of the Ethernet interface.
-- **Port**: The Telnet port of the Ethernet interface (default: `23`).
-- **Password**: The password for the Ethernet interface (defaults: `nwk` for connection 1 and `nwk2` for connection 2).
+## Supported functionality
 
-## Lighting scenes
+### Selects
 
-Each connected GRAFIK Eye control unit is represented by a `select` {% term entity %}, allowing you to view and change its active scene. Scenes can also be activated through {% term automations %} using the `select.select_option` {% term action %}.
-
-The integration controls lighting scenes rather than individual lighting zones.
+- **Scene**
+  - **Description**: Displays and controls the active scene of a GRAFIK Eye control unit.
+  - **Options**: Off and scenes 1–16.
 
 ## Removing the integration
 
