@@ -157,10 +157,17 @@ Your ABRP garage list is read when the integration loads. Reload the integration
 
 ## Known limitations
 
-- The integration is read-only and does not control your vehicle. To send commands to your vehicle, use the manufacturer integration for your vehicle, such as [Tesla Fleet](/integrations/tesla_fleet/), [Volvo](/integrations/volvo/), [Renault](/integrations/renault/), [Nissan Leaf](/integrations/nissan_leaf/), or [Subaru](/integrations/subaru/). The available commands, like charging, climate control, or locking, depend on the manufacturer integration and your vehicle.
-- Data freshness depends on ABRP and your vehicle manufacturer data source.
-- Some entities appear only after the first value is received.
-- Route planning details, like destinations and charging stops, are not exposed.
+### Vehicle controls
+
+The integration is read-only and does not control your vehicle. To send commands to your vehicle, use the manufacturer integration for your vehicle, such as [Tesla Fleet](/integrations/tesla_fleet/), [Volvo](/integrations/volvo/), [Renault](/integrations/renault/), [Nissan Leaf](/integrations/nissan_leaf/), or [Subaru](/integrations/subaru/). The available commands, like charging, climate control, or locking, depend on the manufacturer integration and your vehicle.
+
+### Telemetry availability
+
+Data freshness depends on ABRP and your vehicle manufacturer data source. Some entities appear only after the first value is received.
+
+### Route planning
+
+Route planning details, like destinations and charging stops, are not exposed.
 
 ## Troubleshooting
 
