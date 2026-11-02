@@ -12,6 +12,8 @@ Supported devices:
 
 {% include integrations/config_flow.md %}
 
+Soundbars that are on and connected to the same network as Home Assistant are discovered automatically. Soundbars that do not report a unique identifier are not discovered: add them by entering their IP address instead.
+
 ## Supported operations
 
 - These devices support mute, volume control, source selection and mode selection.
@@ -21,3 +23,5 @@ Supported devices:
 The soundbar pushes its state to Home Assistant as soon as it changes.
 
 When the soundbar is unplugged or loses power, for example when it is powered through a smart plug, its entity becomes unavailable within a few seconds. Home Assistant keeps trying to reconnect in the background and reconnects within a few seconds once the soundbar is back on the network. You do not need to reload the integration.
+
+If a soundbar that reports a unique identifier gets a new IP address, Home Assistant updates its address automatically when the soundbar announces itself on the network.
