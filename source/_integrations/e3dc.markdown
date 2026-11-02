@@ -1,7 +1,18 @@
 ---
+title: E3/DC
 description: Instructions on how to integrate an E3/DC home power station with Home Assistant over Modbus TCP.
+ha_categories:
+  - energy.solar_batteries
 ha_release: "2026.12"
+ha_iot_class: Local Polling
+ha_codeowners:
+  - '@AlCalzone'
 ha_domain: e3dc
+ha_config_flow: true
+ha_integration_type: device
+ha_platforms:
+  - sensor
+ha_quality_scale: bronze
 ---
 
 The **E3/DC** {% term integration %} connects Home Assistant to an E3/DC home power station from HagerEnergy over Modbus TCP. It reads the power flows between solar, battery, house, grid and wallboxes.
@@ -10,7 +21,7 @@ The **E3/DC** {% term integration %} connects Home Assistant to an E3/DC home po
 
 - Seeing where your power goes. Solar production, battery charging and discharging, house consumption and grid import and export are all live sensors.
 - Running appliances on surplus solar. Start a heavy load once the solar power exceeds what the house uses.
-- Noticing when backup power is not ready. The emergency power sensor shows whether the house would stay powered in a grid failure.
+- Knowing when the house runs on backup power. The emergency power sensor shows when the power station supplies the house during a grid failure.
 
 ## Supported devices
 
