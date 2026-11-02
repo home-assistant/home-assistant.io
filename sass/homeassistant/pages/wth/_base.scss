@@ -429,6 +429,30 @@ main#page-wth {
     --wth-rz: 3.5deg;
 }
 
+// The date, in small type under the words. Its strokes are thicker in `em`
+// again, so they keep the large line's absolute weight at this size.
+.wth-mark__line.wth-mark__line--date {
+    // Centred under the words above.
+    align-self: center;
+    font-size: 0.28em;
+    margin-top: 0.12em;
+
+    .wth-mark__word {
+        text-shadow: wth-extrude(#1E2126, 18, 0.0186em, 0.0132em);
+        -webkit-text-stroke-width: 0.79em;
+
+        &::before {
+            -webkit-text-stroke-width: 1.57em;
+        }
+    }
+}
+
+.wth-mark__word--date {
+    --wth-persp: 9em;
+    --wth-ry: -8deg;
+    --wth-rz: -2deg;
+}
+
 // Without `paint-order`, the stroke paints centred on the glyph edge and eats
 // into the fill. Thin every layer so the wordmark stays legible.
 @supports not (paint-order: stroke) {
@@ -444,6 +468,14 @@ main#page-wth {
 
             &::before {
                 -webkit-text-stroke-width: 0.32em;
+            }
+        }
+
+        .wth-mark__line.wth-mark__line--date & {
+            -webkit-text-stroke-width: 0.11em;
+
+            &::before {
+                -webkit-text-stroke-width: 0.57em;
             }
         }
     }

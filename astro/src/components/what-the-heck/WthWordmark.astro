@@ -5,7 +5,9 @@
 // and stays when WebGL is not available.
 //
 // It is three units -- WHAT, THE and HECK?! -- each rotated in 3D on its
-// own. Layers per unit, inside out: white core, blue stroke, black 3D
+// own, with the date in small type underneath. The 3D version moves the
+// date on its own. logo-font.json only has capitals, digits and a little
+// punctuation, so keep the words in capitals. Layers per unit, inside out: white core, blue stroke, black 3D
 // extrude, mint sticker outline.
 //
 // Fidelity: copy. This is the campaign's artwork, not page furniture: the
@@ -30,6 +32,9 @@ import "../../styles/wth.scss";
   </span>
   <span class="wth-mark__line wth-mark__line--lg">
     <span class="wth-mark__word wth-mark__word--heck" data-text="HECK?!">HECK?!</span>
+  </span>
+  <span class="wth-mark__line wth-mark__line--date">
+    <span class="wth-mark__word wth-mark__word--date" data-text="NOVEMBER 2026">NOVEMBER 2026</span>
   </span>
 </span>
 
@@ -159,6 +164,31 @@ import "../../styles/wth.scss";
     --rz: 3.5deg;
   }
 
+  // The date, in small type under the words. Its strokes are thicker in
+  // `em` again, so they keep the large line's absolute weight at this
+  // size.
+  .wth-mark__line.wth-mark__line--date {
+    // Centred under the words above.
+    align-self: center;
+    font-size: 0.28em;
+    margin-top: 0.12em;
+
+    .wth-mark__word {
+      text-shadow: extrude(#1e2126, 18, 0.0186em, 0.0132em);
+      -webkit-text-stroke-width: 0.79em;
+
+      &::before {
+        -webkit-text-stroke-width: 1.57em;
+      }
+    }
+  }
+
+  .wth-mark__word--date {
+    --persp: 9em;
+    --ry: -8deg;
+    --rz: -2deg;
+  }
+
   // The 3D wordmark from logo.js, injected once it has drawn. The script
   // sets the box's aspect ratio and sizes the canvas to reach past the box
   // on every side, so the intro and the tilt have room. The negative
@@ -193,6 +223,14 @@ import "../../styles/wth.scss";
 
         &::before {
           -webkit-text-stroke-width: 0.32em;
+        }
+      }
+
+      .wth-mark__line.wth-mark__line--date & {
+        -webkit-text-stroke-width: 0.11em;
+
+        &::before {
+          -webkit-text-stroke-width: 0.57em;
         }
       }
     }
