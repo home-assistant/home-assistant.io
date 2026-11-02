@@ -33,17 +33,10 @@ For more information, refer to the official Lutron documentation:
 {% configuration_basic %}
 Host:
   description: The IP address or hostname of the Ethernet interface.
-  required: true
-  type: string
 Port:
-  description: The Telnet port of the Ethernet interface.
-  required: true
-  default: 23
-  type: integer
+  description: The Telnet port of the Ethernet interface (default: `23`).
 Password:
   description: "The password for the Ethernet interface (defaults: `nwk` for connection 1 and `nwk2` for connection 2)."
-  required: true
-  type: string
 {% endconfiguration_basic %}
 
 ## Supported functionality
