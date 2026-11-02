@@ -53,6 +53,8 @@ Movie views:
 - `go_movie_covers`: Show the Movie Covers view.
 - `go_movie_collections`: Show the Movie Collections view.
 
+On players with a simplified onscreen display, such as a Strato V in standalone mode, `go_movies`, `go_movie_list`, and `go_movie_covers` show the Ready to Play or horizontal collections view instead. Sending `go_movies` again has no effect when that view is already active.
+
 Sending a movie view command during movie playback stops the movie. The player remembers your place so you can resume it later.
 
 A typical action might look like the example below, which sends the `select` command to the device to select the currently highlighted item.
