@@ -64,7 +64,7 @@ If you have more than one source of the same type, like two grid tariffs, severa
 
 To combine sources of the same type:
 
-1. Open the {% my energy title="Energy dashboard" %}.
+1. Open the {% my energy title="Energy dashboard" %} and go to the **Electricity**, **Gas**, or **Water** tab.
 2. In the date picker at the bottom of the page, select **Menu** {% icon "mdi:dots-vertical" %} > **Combine sources**.
 
 To show each source on its own again, select **Combine sources** again.

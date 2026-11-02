@@ -29,7 +29,7 @@ To show or hide cards on the built-in Energy dashboard, see [customizing the Ene
 
 This card allows you to pick what data to show. Changing it in this card will influence the data in all other cards.
 Specific dates and ranges can be selected by opening the date range picker. The current period can be compared to the previous one using the compare data option within the menu.
-If you have more than one source of the same type, the **Combine sources** option within the menu shows them as one entry per type in the other energy cards. For more information, see [combining sources of the same type](/docs/energy/#combining-sources-of-the-same-type).
+On the Energy dashboard, the menu also has a **Combine sources** option. For more information, see [combining sources of the same type](/docs/energy/#combining-sources-of-the-same-type).
 
 ### YAML configuration
 
@@ -57,11 +57,6 @@ opening_direction:
 disable_compare:
   required: false
   description: When true, will disable the option to compare data periods.
-  type: boolean
-  default: false
-hide_combine_sources:
-  required: false
-  description: When true, hides the **Combine sources** option from the menu.
   type: boolean
   default: false
 {% endconfiguration %}
@@ -144,8 +139,9 @@ expand_legend:
   default: false
 combine_sources:
   required: false
-  description: "When true, shows all grid sources and all batteries as one entry per direction, for example one **Grid consumed** series instead of one per grid tariff. When false, always shows each source on its own. If not set, the card follows the **Combine sources** option of the [energy date picker](#energy-date-picker)."
+  description: "When true, shows all grid sources and all batteries as one entry per direction, for example one **Grid consumed** series instead of one per grid tariff."
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
@@ -182,8 +178,9 @@ title:
   type: string
 combine_sources:
   required: false
-  description: "When true, shows all solar panels as one production series and one forecast line. When false, always shows each source on its own. If not set, the card follows the **Combine sources** option of the [energy date picker](#energy-date-picker)."
+  description: "When true, shows all solar panels as one production series and one forecast line."
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
@@ -220,8 +217,9 @@ title:
   type: string
 combine_sources:
   required: false
-  description: "When true, shows all gas sources as one series. When false, always shows each source on its own. If not set, the card follows the **Combine sources** option of the [energy date picker](#energy-date-picker)."
+  description: "When true, shows all gas sources as one series."
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
@@ -258,8 +256,9 @@ title:
   type: string
 combine_sources:
   required: false
-  description: "When true, shows all water sources as one series. When false, always shows each source on its own. If not set, the card follows the **Combine sources** option of the [energy date picker](#energy-date-picker)."
+  description: "When true, shows all water sources as one series."
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
@@ -323,8 +322,9 @@ show_values:
   default: false
 combine_sources:
   required: false
-  description: "When true, shows all water sources as one **Water** node. When false, always shows each source on its own. If not set, the card follows the **Combine sources** option of the [energy date picker](#energy-date-picker)."
+  description: "When true, shows all water sources as one **Water** node."
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
@@ -395,8 +395,9 @@ show_values:
   default: false
 combine_sources:
   required: false
-  description: "When true, shows all water sources as one **Water** node. When false, always shows each source on its own. If not set, the card follows the **Combine sources** option of the [energy date picker](#energy-date-picker)."
+  description: "When true, shows all water sources as one **Water** node."
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
@@ -484,8 +485,9 @@ show_only_totals:
   default: false
 combine_sources:
   required: false
-  description: "When true, shows one row per type and direction instead of one row per source. When false, always shows each source on its own. If not set, the card follows the **Combine sources** option of the [energy date picker](#energy-date-picker)."
+  description: "When true, shows one row per type and direction instead of one row per source."
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
@@ -720,6 +722,11 @@ show_values:
   description: Whether to show the numeric values on each node.
   type: boolean
   default: false
+combine_sources:
+  required: false
+  description: "When true, shows one node per source type, like one **Solar** node for all your solar panels. When false, each source gets its own node."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ### Examples
@@ -788,6 +795,11 @@ show_values:
   description: Whether to show the numeric values on each node.
   type: boolean
   default: false
+combine_sources:
+  required: false
+  description: "When true, shows one node per source type, like one **Solar** node for all your solar panels. When false, each source gets its own node."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ### Examples
@@ -839,6 +851,11 @@ expand_legend:
   description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items.
   type: boolean
   default: false
+combine_sources:
+  required: false
+  description: "When true, shows one area per source type, like one **Solar** area for all your solar panels. When false, each source gets its own area."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ### Examples
