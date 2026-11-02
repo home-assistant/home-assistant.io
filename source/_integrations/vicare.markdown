@@ -73,6 +73,8 @@ It is not possible to turn on/off water heating via the water heater {% term int
 
 Additional data for a device is available as separate sensors. The sensors are automatically discovered based on the available API data points.
 
+The rooms of a ViCare room control appear as separate devices named **Room 0**, **Room 1**, and so on, each with a temperature and a humidity sensor. The Viessmann API does not provide the room names, so rename the devices and assign them to areas as needed.
+
 ### Button
 
 Button entities are available to trigger actions like a one-time charge of the water heater.
