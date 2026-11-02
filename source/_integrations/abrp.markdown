@@ -1,9 +1,8 @@
 ---
 title: A Better Routeplanner (ABRP)
 description: Instructions on how to integrate A Better Routeplanner with Home Assistant.
-ha_category:
-  - Car
-  - Sensor
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_release: 2026.11
 ha_iot_class: Cloud Push
 ha_config_flow: true
