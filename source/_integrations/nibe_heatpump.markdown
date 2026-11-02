@@ -97,6 +97,9 @@ Home Assistant support connecting to Nibe heat pumps over Modbus over either TCP
  {% note %}
  As of now, Modbus has to be configured to allow writes for this integration to work.
  {% endnote %}
+{% note %}
+This integration requires write access over Modbus. Make sure Modbus is configured to allow writes on the heat pump.
+{% endnote %}
 
 #### TCP/IP
 
