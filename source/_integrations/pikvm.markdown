@@ -171,7 +171,6 @@ The **PiKVM** integration {% term polling polls %} your PiKVM every 30 seconds. 
 - The integration is read-only. It cannot control the power of the connected computer, press the ATX buttons, or manage virtual media.
 - PiKVM ships with a self-signed certificate that is issued for `localhost` and does not include the IP address of the device. By default, the integration connects over HTTPS so the connection is encrypted, but it does not verify the certificate. If you installed a trusted certificate on your PiKVM, you can turn on **Verify SSL certificate** during setup.
 - Home Assistant stores the password and, if you entered it, the two-factor authentication secret in its configuration, like it does for other integrations.
-- IPv6 addresses are not supported. Use a hostname or an IPv4 address.
 - You cannot update the address or credentials of an existing entry. If the address, password, or two-factor authentication secret of your PiKVM changes, delete the entry and add your PiKVM again.
 
 ## Troubleshooting
@@ -186,7 +185,7 @@ If you get a **Failed to connect** error during setup, Home Assistant cannot rea
 
 ### Invalid hostname or IP address
 
-If you get an **Invalid hostname or IP address** error during setup, the value in the **Host** field is not valid. Enter only the hostname or IPv4 address, optionally followed by a port between 1 and 65535. For example, `pikvm.local` or `192.168.1.50:8443`.
+If you get an **Invalid hostname or IP address** error during setup, the value in the **Host** field is not valid. Enter only the hostname or IP address (enclose IPv6 addresses in brackets, such as `[2001:db8::1]`), optionally followed by a port between 1 and 65535. For example, `pikvm.local` or `192.168.1.50:8443`.
 
 ### Invalid authentication
 
