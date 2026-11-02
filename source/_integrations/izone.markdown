@@ -2,13 +2,6 @@
 description: Instructions on how to integrate iZone climate control devices with Home Assistant.
 ha_release: '0.100'
 ha_domain: izone
-ha_homekit: true
-ha_platforms:
-  - climate
-  - diagnostics
-  - number
-  - sensor
-ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
