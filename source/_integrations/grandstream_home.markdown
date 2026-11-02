@@ -1,8 +1,8 @@
 ---
 title: Grandstream Home
 description: Instructions on how to integrate Grandstream devices with Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - security_safety.doorbells_intercoms
 ha_release: 2026.11
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,6 +12,7 @@ ha_domain: grandstream_home
 ha_platforms:
   - sensor
 ha_integration_type: device
+ha_quality_scale: bronze
 ha_zeroconf: true
 ---
 
@@ -46,23 +47,32 @@ Device names follow the format: `{device_type}_{mac_address}`.
 - Grandstream device connected to your local network
 - Device administrator credentials for the `gdsha` account
 - Device must be accessible from your Home Assistant instance
-- Home Assistant control must be enabled on the device (for GDS/GSC devices)
+- Home Assistant control must be enabled on the device (for GDS/GSC devices):
+
+  1. Log in to the device web interface.
+  2. Go to **Basic Settings** > **Access Control** > **Home Assistant**.
+  3. Enable the **Home Assistant control** option and save.
+
 {% include integrations/config_flow.md %}
 
-## Configuration
-
-The integration can be configured through the UI:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select **Add integration**.
-3. Search for **Grandstream Home**.
-4. Follow the configuration steps:
-   - Enter the device IP address or hostname.
-   - Enter the device name.
-5. On the authentication screen:
-   - Enter administrator password (username is fixed to `gdsha`).
-   - (Optional) Configure custom port (default: 443 for HTTPS).
-   - (Optional) Disable SSL certificate verification (for self-signed certificates).
+{% configuration_basic %}
+Host:
+    description: "The IP address or hostname of your Grandstream device."
+    required: true
+    type: string
+Password:
+    description: "The administrator password of your device. The username is fixed to `gdsha`."
+    required: true
+    type: string
+Port:
+    description: "The HTTPS port of your device. This is pre-filled with the port from device discovery, or 443 by default."
+    required: false
+    type: integer
+Verify SSL certificate:
+    description: "Verify the SSL certificate of your device. This is disabled by default because Grandstream devices use self-signed certificates. Enable it if your device has a valid certificate."
+    required: false
+    type: boolean
+{% endconfiguration_basic %}
 
 ### Automatic discovery
 
@@ -84,15 +94,21 @@ The integration provides the following sensor entity:
   - `no_available_account` - No account is available on the device
   - `offline` - Device is not reachable
 
+## Known limitations
+
+- Only sensors are supported in the initial release.
+- Device discovery requires mDNS/Zeroconf to be enabled on your network.
+- Some older device firmware versions may have limited functionality.
+
 ## Troubleshooting
 
 ### Cannot connect to device
 
-#### Symptom: "Cannot connect" error during setup
+{% details "Connection error during setup" %}
 
 When you set up the integration, configuration fails with a "Cannot connect" error, or the device shows as unavailable.
 
-##### Resolution
+To resolve this issue, try the following steps:
 
 1. Verify that the device is powered on and connected to the network.
 2. Check that the IP address is correct.
@@ -100,12 +116,14 @@ When you set up the integration, configuration fails with a "Cannot connect" err
 
    ```bash
    ping <device-ip>
+   ```
+{% enddetails %}
 
 ### Sensors not updating
 
-#### Symptom: Sensor values are stale or not updating
+{% details "Sensor values are stale or not updating" %}
 
-##### Resolution
+To resolve this issue, try the following steps:
 
 1. Check device is online and accessible.
 2. Verify device firmware is up to date.
@@ -116,36 +134,33 @@ When you set up the integration, configuration fails with a "Cannot connect" err
    - Find **Grandstream Home**.
    - Select the three dots {% icon "mdi:dots-vertical" %} menu.
    - Select **Reload**.
+{% enddetails %}
 
 ### Authentication errors
 
-#### Symptom: "Invalid authentication" error during setup
+{% details "Invalid authentication error" %}
 
 When you set up the integration or during normal operation, the device becomes unavailable with authentication errors.
 
-##### Resolution
+To resolve this issue, try the following steps:
 
 1. Verify the password is correct (default username: `gdsha`).
 2. Confirm that the account is not locked due to excessive failed login attempts.
 3. Reset the device password if necessary.
-4. Verify Home Assistant control is enabled in device web interface settings.
+4. Verify Home Assistant control is enabled in the device web interface under **Basic Settings** > **Access Control** > **Home Assistant**.
+{% enddetails %}
 
 ### Home Assistant control disabled
 
-#### Symptom: "Home Assistant control is disabled" error
+{% details "Home Assistant control is disabled error" %}
 
-##### Resolution
+To resolve this issue, try the following steps:
 
 1. Log in to the device web interface.
-2. Navigate to the settings page.
-3. Enable the **Home Assistant control** or **Third-party integration** option.
+2. Go to **Basic Settings** > **Access Control** > **Home Assistant**.
+3. Enable the **Home Assistant control** option.
 4. Save settings and retry the integration setup.
-
-## Known limitations
-
-- Only sensors are supported in the initial release.
-- Device discovery requires mDNS/Zeroconf to be enabled on your network.
-- Some older device firmware versions may have limited functionality.
+{% enddetails %}
 
 ## Security considerations
 
