@@ -789,17 +789,19 @@ alias: Smoke Alarm Lights
 description: Turn on all lights when a smoke detector reports an alarm
 triggers:
   - trigger: state
-    entity_id:
-      - event.kitchen_smoke_detector_alarm # Replace with your smoke detector entity
+    # Replace with your smoke detector entity
+    entity_id: event.kitchen_smoke_detector_alarm
     not_from:
       - unavailable
+    not_to:
+      - unavailable
+      - unknown
 actions:
   - action: light.turn_on
     target:
       entity_id: all
     data:
       brightness_pct: 100
-mode: single
 ```
 
 ### Smoke Detector Maintenance Event
