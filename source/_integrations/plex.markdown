@@ -1,22 +1,8 @@
 ---
-title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
-ha_categories:
-  - media_entertainment.tv_streaming
 featured: true
 ha_release: 0.7.4
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@jjlawren'
 ha_domain: plex
-ha_platforms:
-  - button
-  - media_player
-  - sensor
-  - update
-ha_zeroconf: true
-ha_integration_type: service
 ---
 
 The **Plex Media Server** {% term integration %} allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [media players](/integrations/media_player/) and report playback status and library sizes via [sensors](/integrations/sensor/) in Home Assistant. Media players will allow you to control media playback and see the current playing item.
@@ -117,7 +103,7 @@ automation: |
 {% enddetails %}
 
 {% important %}
-The library sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
+The library sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
 {% endimportant %}
 
 ## Button
@@ -132,9 +118,9 @@ To create this script from the UI:
 
 1. Go to {% my scripts title="**Settings** > **Automations & scenes**" %}.
 2. Select **Create script**.
-3. Add a **Select source** action for your TV media player and select **Plex** as the source.
+3. Add a **Select media player source** action for your TV media player and select **Plex** as the source.
 4. Add a wait until the TV media player turns on.
-5. Add a **Press** action for the Plex scan clients button.
+5. Add a **Press button** action for the Plex scan clients button.
    - **Target**: Scan clients Plex (`button.scan_clients_plex`)
 6. Add a wait template that checks whether the Plex media player is available.
 7. Add a **Play specified media** action for the Plex media player.

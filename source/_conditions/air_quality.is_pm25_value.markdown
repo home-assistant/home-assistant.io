@@ -51,7 +51,7 @@ This passes when the living room PM2.5 sensor reads above 35 μg/m³.
    threshold_required="true"
    entity_unit="`μg/m³`" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="PM2.5 sensor" example="sensor.living_room_pm25" %}
 
 {% include conditions/behavior.md %}
 

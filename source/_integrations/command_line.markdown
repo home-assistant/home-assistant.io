@@ -1,24 +1,10 @@
 ---
-title: Command line
 description: Instructions on how to integrate the command line utility within Home Assistant.
-ha_categories:
-  - diy_makers
 ha_release: 0.12
-ha_iot_class: Local Polling
 ha_domain: command_line
-ha_platforms:
-  - binary_sensor
-  - cover
-  - notify
-  - sensor
-  - switch
-ha_integration_type: integration
-ha_codeowners:
-  - '@gjohansson-ST'
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.

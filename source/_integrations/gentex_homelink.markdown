@@ -1,20 +1,7 @@
 ---
-title: HomeLink
 description: Instructions on how to set up your HomeLink devices with Home Assistant.
-ha_categories:
-  - buttons_remotes
-  - vehicles_transport.cars_evs
 ha_release: 2026.1
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Gentex-Corporation/Homelink'
-  - '@rjones-gentex'
 ha_domain: gentex_homelink
-ha_platforms:
-  - event
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **HomeLink** {% term integration %} allows you to integrate your [HomeLink](https://homelink.com) devices in Home Assistant. The HomeLink app allows [HomeLink](https://homelink.com) owners to trigger smart home routines in a variety of cloud-based home automation platforms from the comfort of their vehicle. When you arrive home, one HomeLink button press can adjust the thermostat, turn on lights, disarm the security system, unlock the door, and begin playing your favorite music.

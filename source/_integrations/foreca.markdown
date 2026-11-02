@@ -1,19 +1,7 @@
 ---
-title: Foreca
 description: Instructions on how to integrate Foreca weather forecasts within Home Assistant.
-ha_categories:
-  - weather_alerts.forecasts
 ha_release: '2026.11'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@EetuPelkonen'
-  - '@hyvatti-foreca'
 ha_domain: foreca
-ha_platforms:
-  - weather
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Foreca** {% term integration %} uses the [Foreca Weather API](https://developer.foreca.com) to provide weather forecasts for any location worldwide. [Foreca](https://business.foreca.com) is an independent weather company that has produced forecasts for consumer and business services since 1996.

@@ -1,6 +1,9 @@
 ---
 title: My integration
 description: Example document structure and text blocks for integration documentation.
+# The title and the ha_ keys, except ha_domain and ha_release, come from the
+# integration manifest in core. A new page needs them until its integration
+# is synced from core, the sync then removes them.
 ha_release: 2025.3
 ha_iot_class: Local Push
 ha_codeowners:

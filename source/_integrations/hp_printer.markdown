@@ -1,18 +1,7 @@
 ---
-title: HP Printer
 description: Instructions on how to integrate HP printers into Home Assistant.
-ha_categories:
-  - computers_network.printers
 ha_release: 2026.11
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@chemelli74'
 ha_domain: hp_printer
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **HP Printer** {% term integration %} connects Home Assistant to [HP](https://www.hp.com/) printers on your local network.

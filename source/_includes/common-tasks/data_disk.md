@@ -4,7 +4,7 @@
 
 ![Graphics showing the architecture of the data disk feature](/images/haos/usb-data-disk.png)
 
-The data disk feature can be used on an existing installation without losing data: The system will move existing data to the external data disk automatically. However, it is recommended to create and download a full <a href="#backups">Backup</a> before proceeding!
+You can use the data disk feature on an existing installation without losing data. The system moves your existing data to the external data disk automatically. Before you start, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup) that includes everything, and [download it](/common-tasks/general/backups/#downloading-your-local-backups).
 
 {% caution %}
 All data on the target disk will be overwritten!
@@ -65,7 +65,7 @@ This can be an option if the following elements apply to your use case:
 - You have another, new, Home Assistant instance (system 2).
 - You now want to use the data disk of system 1 on system 2 instead.
 
-The aim is to migrate the data from system 1 to system 2. One way to do this is by [restoring a backup](/common-tasks/general/#restoring-a-backup). The other way is to move the data disk. This can be an interesting option if you have a large amount of data on your external disk or if your external disk has more storage capacity than your new system.
+The aim is to migrate the data from system 1 to system 2. One way to do this is by [restoring a backup](/common-tasks/general/backups/#restoring-a-backup). The other way is to move the data disk. This can be an interesting option if you have a large amount of data on your external disk or if your external disk has more storage capacity than your new system.
 
 #### Prerequisites
 
@@ -76,11 +76,11 @@ The aim is to migrate the data from system 1 to system 2. One way to do this is 
 
 To migrate an external data disk from one system to another, follow these steps:
 
-1. [Create a backup](/common-tasks/general/#backups) of both systems and store these backups on another system (not strictly necessary, but recommended just in case, at least for the important data).
+1. [Create a backup](/common-tasks/general/backups/) of both systems and store these backups on another system (not strictly necessary, but recommended just in case, at least for the important data).
 2. Shut down system 1 and remove the data disk.
 3. Make sure system 2 has Home Assistant OS installed, and Home Assistant is up and running. Home Assistant is using the data disk (partition) on the boot drive, such as the SD card, at this point.
 4. Make sure system 2 has completed the basic [onboarding](/getting-started/onboarding/) steps, including the last steps where devices are discovered automatically.
-5. Plug the external disk into system 2 and go to the **Settings** > **System**. Select the three dots {% icon "mdi:dots-vertical" %} menu, and **Restart Home Assistant** > **Reboot system**.
+5. Plug the external disk into system 2, and go to {% my system_dashboard title="**Settings** > **System**" %}. Then, select the power {% icon "mdi:power" %} icon in the top-right corner, select **More options**, and then select **Reboot system**.
    Result: A repair issue is displayed **Multiple data disks detected**.
    - The repair issue comes up because system 2 now sees two file systems with an identical name. During a reboot, there is a name conflict with the existing data disk as it is undefined which file system should be used. This can lead to a random selection of the system you end up with. Hence you must make a decision.
 6. Open the repair issue and choose one of the options:
@@ -92,4 +92,4 @@ To migrate an external data disk from one system to another, follow these steps:
      - If you cannot unplug the external data disk for some reason, select **Mark as inactive data disk (rename file system)**.
        - This makes sure that there is no name conflict after rebooting.
        - It also means you cannot use the file system that is stored on your external disk.
-       - You keep using the current file system of system 1.
+       - You keep using the current file system of system 2.

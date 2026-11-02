@@ -47,7 +47,7 @@ This fires whenever the greenhouse N2O sensor reading changes to a value above 9
 {% include triggers/threshold_changed_options_yaml.md
    unit_phrase_yaml="literal value in μg/m³" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="nitrous oxide sensor" example="sensor.living_room_nitrous_oxide" %}
 
 ## Good to know
 

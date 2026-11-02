@@ -80,7 +80,7 @@ for:
 {% endoptions_yaml %}
 
 <!-- Keep the "include" below if your integration supports targets -->
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="motion sensor" example="binary_sensor.hallway_motion" %}
 
 {% include triggers/behavior.md %}
 
