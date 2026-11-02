@@ -124,7 +124,7 @@ Each audio input, such as a microphone, gets a `Microphone input volume` number 
 
 An audio device connected later, such as a USB headset, gets its entities when it first shows up, and they become unavailable while it's disconnected.
 
-Audio devices need System Bridge 5.16.0 or later, on Linux or Windows.
+Audio devices need System Bridge 5.16.0 or later, on Linux or Windows. On Linux, they also require `pactl` with JSON support (PulseAudio 16 or later), using PulseAudio or PipeWire with `pipewire-pulse`.
 
 ## Media source
 
