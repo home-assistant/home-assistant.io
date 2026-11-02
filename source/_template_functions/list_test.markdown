@@ -50,7 +50,7 @@ value:
 
 ## Good to know
 
-- Only real lists pass. Tuples, sets, dictionaries, and strings do not. To test for those, use the [`tuple`](https://www.home-assistant.io/template-functions/tuple_test/) and [`set`](https://www.home-assistant.io/template-functions/set_test/) tests, or the [`mapping`](https://www.home-assistant.io/template-functions/mapping/) test for dictionaries.
+- Only values of the list type pass. Tuples, sets, dictionaries, and strings do not. To test for those, use the [`tuple`](/template-functions/tuple_test/) and [`set`](/template-functions/set_test/) tests, or the [`mapping`](/template-functions/mapping/) test for dictionaries.
 - To accept any collection of values, use the [`iterable`](https://www.home-assistant.io/template-functions/iterable/) test. Strings are iterable too, so combine it with `is not string` if you want to exclude them.
 - To convert a value to a list, use the [`list`](https://www.home-assistant.io/template-functions/list/) filter.
 
