@@ -1,0 +1,29 @@
+{%- comment -%}
+  One pull request as a card in the sea of pull requests. It is a link to the
+  pull request on GitHub. Pass `pr` (one of the pull requests in
+  site.data.wth_stats.prs), `order` (its place in the list, newest first) and
+  `decoy` (true for the copies that only fill the lane and loop it). A decoy is
+  not a second link for keyboards or screen readers: it is taken out of the tab
+  order here, and its list is hidden from screen readers in _pull-requests.html.
+
+  The title is escaped, and the link and the picture are only used when they
+  point at github.com and its avatar host, as `rake wth_stats_data` already
+  checked.
+{%- endcomment -%}
+{%- assign pr = include.pr -%}
+{%- assign link_start = pr.url | slice: 0, 19 -%}
+{%- assign avatar_start = pr.avatar | slice: 0, 38 -%}
+{%- if link_start == "https://github.com/" and avatar_start == "https://avatars.githubusercontent.com/" -%}
+{%- if pr.status == "merged" -%}{%- assign status_label = "Merged" -%}{%- else -%}{%- assign status_label = "Open" -%}{%- endif -%}
+<li class="wth-prs-item{% if include.order >= 12 %} is-extra{% endif %}" style="--n: {{ include.order }}">
+  <a class="wth-prs-card" href="{{ pr.url | escape }}" target="_blank" rel="noopener"{% if include.decoy %} tabindex="-1"{% endif %} aria-label="{{ pr.title | escape }}, {{ pr.repo | escape }}, {{ status_label }}">
+    <span class="wth-prs-card-title">{{ pr.title | escape }}</span>
+    <span class="wth-prs-card-meta">
+      <img class="wth-prs-avatar" src="{{ pr.avatar | escape }}" alt="" width="20" height="20" loading="lazy" decoding="async">
+      <span class="wth-prs-author">{{ pr.author | escape }}</span>
+      <span class="wth-prs-repo">{{ pr.repo | escape }}</span>
+      <span class="wth-prs-status wth-prs-status--{{ pr.status | escape }}">{{ status_label }}</span>
+    </span>
+  </a>
+</li>
+{%- endif -%}

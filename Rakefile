@@ -346,19 +346,22 @@ task :newsletter_data do
   end
 end
 
-# The first day that counts for the Month of "What the Heck?!" counters on
+# The first day that counts for the pull requests that fix a WTH on
 # /what-the-heck/. The Jekyll and the Astro page both read the file this
 # writes, so this is the only place to change it (for example to 2026-11-01).
 WTH_STATS_SINCE = "2026-01-01"
 
-desc "Count the pull requests that fix a WTH, for the What the Heck?! page"
+# How many pull requests the page shows as cards.
+WTH_PULL_REQUESTS_SHOWN = 40
+
+desc "Fetch the pull requests that fix a WTH, for the What the Heck?! page"
 task :wth_stats_data do
   output_file = "#{source_dir}/_data/wth_stats.json"
   begin
     query = "org:home-assistant label:WTH is:pr created:>=#{WTH_STATS_SINCE}"
-    count = lambda do |state|
+    search = lambda do |q, per_page, extra = {}|
       uri = URI('https://api.github.com/search/issues')
-      uri.query = URI.encode_www_form(q: "#{query} #{state}", per_page: 1)
+      uri.query = URI.encode_www_form({q: q, per_page: per_page}.merge(extra))
       token = ENV['GITHUB_TOKEN'].to_s
       response = nil
       # Use the token when there is one. A token GitHub does not accept is
@@ -373,10 +376,56 @@ task :wth_stats_data do
         break unless %w[401 403].include?(response.code)
       end
       raise "GitHub answered #{response.code}" unless response.is_a?(Net::HTTPSuccess)
-      total = JSON.parse(response.body)['total_count']
+      JSON.parse(response.body)
+    end
+    count = lambda do |state|
+      total = search.call("#{query} #{state}", 1)['total_count']
       raise "no usable count for #{state}" unless total.is_a?(Integer) && total >= 0
       total
     end
+
+    # Everything that goes into the page is checked here: a link has to be
+    # a pull request on github.com and a picture has to come from GitHub's
+    # avatar host. Titles are kept as plain text, one line, and escaped
+    # where they are shown.
+    https_url = lambda do |value, host|
+      uri = URI.parse(value.to_s)
+      uri if uri.is_a?(URI::HTTPS) && uri.host == host && uri.userinfo.nil? && uri.port == 443
+    rescue URI::InvalidURIError
+      nil
+    end
+    pull_request = lambda do |item|
+      return nil unless item.is_a?(Hash) && item['pull_request'].is_a?(Hash)
+      merged_at = item['pull_request']['merged_at']
+      # Pull requests that were closed without being merged did not ship.
+      status = if merged_at then 'merged' elsif item['state'] == 'open' then 'open' end
+      return nil unless status
+      link = https_url.call(item['html_url'], 'github.com')
+      return nil unless link && link.path.match?(%r{\A/[\w.-]+/[\w.-]+/pull/\d+\z}) && link.query.nil?
+      avatar = https_url.call(item.dig('user', 'avatar_url'), 'avatars.githubusercontent.com')
+      login = item.dig('user', 'login').to_s
+      repo = item['repository_url'].to_s[%r{/repos/home-assistant/([\w.-]+)\z}, 1]
+      title = item['title'].to_s.gsub(/[[:cntrl:]\s]+/, ' ').strip[0, 200].to_s
+      return nil unless avatar && repo && !title.empty? && login.match?(/\A[\w-]+\z/) && item['number'].is_a?(Integer)
+      # A small picture is enough for the card.
+      avatar.query = URI.encode_www_form(s: 48)
+      {
+        'number' => item['number'],
+        'title' => title,
+        'repo' => repo,
+        'url' => link.to_s,
+        'author' => login,
+        'avatar' => avatar.to_s,
+        'status' => status,
+        'created_at' => item['created_at'],
+        'merged_at' => merged_at,
+      }
+    end
+
+    items = search.call(query, 100, sort: 'created', order: 'desc')['items']
+    raise "no results" unless items.is_a?(Array)
+    pull_requests = items.filter_map { |item| pull_request.call(item) }.first(WTH_PULL_REQUESTS_SHOWN)
+    raise "no pull requests to show" if pull_requests.empty?
 
     stats = {
       'since' => WTH_STATS_SINCE,
@@ -384,13 +433,14 @@ task :wth_stats_data do
       'merged' => count.call('is:merged'),
       # The same search on github.com, for the "See them all" link.
       'url' => "https://github.com/search?" + URI.encode_www_form(o: 'desc', q: query, s: 'created', type: 'Issues'),
+      'prs' => pull_requests,
     }
     File.write(output_file, JSON.generate(stats))
-    puts "## Wrote WTH stats: #{stats['open']} open, #{stats['merged']} merged"
+    puts "## Wrote WTH pull requests: #{pull_requests.size} shown, #{stats['open']} open, #{stats['merged']} merged"
   rescue StandardError => e
-    # Never fail the build over the counters. Without the file the page
-    # leaves the counters out, and an old file would show stale numbers.
-    warn "## Counting WTH pull requests failed, leaving the counters out. #{e}"
+    # Never fail the build over the pull requests. Without the file the page
+    # leaves them out, and an old file would show stale ones.
+    warn "## Fetching WTH pull requests failed, leaving them out. #{e}"
     FileUtils.rm_f(output_file)
   end
 end

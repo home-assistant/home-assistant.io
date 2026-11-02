@@ -10,7 +10,7 @@ import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import WthSection from "./WthSection.astro";
 import WthSteps from "./WthSteps.astro";
-import WthStats from "./WthStats.astro";
+import WthPullRequests from "./WthPullRequests.astro";
 import Button from "../Button.astro";
 import { forumUrl } from "../../lib/wth.mjs";
 import { loadWthStats } from "../../lib/wth-stats.mjs";
@@ -24,7 +24,7 @@ const steps = [
   },
 ];
 
-// Counted before the build; nothing is shown when the count is missing.
+// Fetched before the build; nothing is shown when there are none.
 const stats = loadWthStats();
 ---
 
@@ -35,7 +35,7 @@ const stats = loadWthStats();
 >
   <WthSteps steps={steps} columnWidth="13rem" />
 
-  <WthStats stats={stats} />
+  <WthPullRequests stats={stats} />
 
   <p class="note">
     New to contributing? Our <a
