@@ -153,7 +153,7 @@ Telemetry is pushed from ABRP in near real time when ABRP receives vehicle updat
 
 Each sensor shows the newest value ABRP has for your vehicle. Some telemetry, like power and voltage, only changes while your vehicle is actively reporting, usually while driving or charging.
 
-Your ABRP garage list is read when you set up the integration. To pick up vehicles you add, remove, or rename in ABRP, reload the integration.
+Your ABRP garage list is read when the integration loads. Reload the integration after adding or renaming vehicles in ABRP. Removing a vehicle from ABRP does not automatically remove its device from Home Assistant.
 
 ## Known limitations
 
