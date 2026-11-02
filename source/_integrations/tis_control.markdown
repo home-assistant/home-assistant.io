@@ -3,7 +3,7 @@ title: TIS Control
 description: Instructions on how to integrate a TIS Control smart-building system with Home Assistant.
 ha_category:
   - Light
-ha_release: 2026.11
+ha_release: 2026.12
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -15,16 +15,16 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **TIS Control** {% term integration %} lets you control a [TIS Control](https://www.tiscontrol.com) smart-building system from Home Assistant. TIS modules (dimmers, relay controllers, curtain and HVAC controllers, sensors and wall panels) share a wired bus that is connected to your network through one or more TIS IP gateways. Home Assistant talks to the bus directly on your local network; no cloud account is used.
+The **TIS Control** {% term integration %} lets you control a [TIS Control](https://www.tiscontrol.com) smart-building system from Home Assistant. TIS modules (dimmers, relay controllers, curtain and HVAC controllers, sensors, and wall panels) share a wired bus that is connected to your network through one or more TIS IP gateways. Home Assistant talks to the bus directly on your local network; no cloud account is used.
 
 ## Supported devices
 
 This integration supports TIS dimmer modules, for example:
 
-- DIM-6CH-2A, DIM-4CH-3A, DIM-2CH-6A and other DIM dimmers
+- DIM-6CH-2A, DIM-4CH-3A, DIM-2CH-6A, and other DIM dimmers
 - TIS-DMX-48
 
-Each dimmer channel becomes a light in Home Assistant. Relay, curtain and HVAC modules are not supported yet.
+Each dimmer channel becomes a light in Home Assistant. Relay, curtain, and HVAC modules are not supported yet.
 
 ## Prerequisites
 
@@ -56,26 +56,43 @@ When you turn a light on without choosing a brightness, it returns to the level 
 
 ## Data updates
 
-TIS modules announce every change on the bus, whether it comes from Home Assistant, a wall switch, a touch panel or the TIS app, and the integration updates within a fraction of a second. As a safety net, the integration also reads every module every 30 seconds. A module that does not answer is shown as unavailable until it answers again.
+TIS modules announce every change on the bus, whether it comes from Home Assistant, a wall switch, a touch panel, or the TIS app, and the integration updates within a fraction of a second. As a safety net, the integration also reads every module every 30 seconds. A module that does not answer is shown as unavailable until it answers again.
 
-## Examples
+## TIS Control automation examples
 
-### Turn the hallway lights on at sunset
+Because every TIS dimmer channel is a regular light, you can use it in any automation, scene, or script.
+Here is an idea to get you started.
 
-```yaml
-automation:
-  - alias: "Hallway lights at sunset"
-    triggers:
-      - trigger: sun
-        event: sunset
-    actions:
-      - action: light.turn_on
-        target:
-          entity_id: light.hallway_dimmer_channel_1
-        data:
-          brightness_pct: 60
-          transition: 5
-```
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Turning the hallway lights on at sunset
+
+Fade the hallway lights up to a comfortable level when the sun goes down.
+
+- **Trigger**: Sun: sunset
+- **Action**: Light: Turn on
+  - **Target**: the hallway dimmer channel
+  - **Brightness**: 60%
+  - **Transition**: 5 seconds
+
+{% details "YAML example for turning the hallway lights on at sunset" %}
+
+{% example %}
+automation: |
+  alias: "Hallway lights at sunset"
+  triggers:
+    - trigger: sun
+      event: sunset
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.hallway_dimmer_channel_1
+      data:
+        brightness_pct: 60
+        transition: 5
+{% endexample %}
+
+{% enddetails %}
 
 ## Known limitations
 
@@ -100,4 +117,4 @@ The module stopped answering status reads. Check its power and bus connection; t
 
 This integration follows standard integration removal. No extra steps are required.
 
-{% include integrations/remove_device_service_steps.md %}
+{% include integrations/remove_device_service.md %}
