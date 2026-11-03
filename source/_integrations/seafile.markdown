@@ -121,7 +121,7 @@ The integration has been tested with Seafile 13 and 14 (Community Edition).
 
 - Encrypted libraries are not supported and are not shown in the list of libraries.
 - An account on a server can only be added once.
-- Changing **History** fails with a permission error when the Seafile administrator turned off the history setting for libraries.
+- Changing **History** fails with a permission error if the Seafile server administrator has turned off the library history setting.
 
 ## Troubleshooting
 
