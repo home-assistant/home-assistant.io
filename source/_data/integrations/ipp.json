@@ -1,0 +1,21 @@
+{
+  "domain": "ipp",
+  "name": "Internet Printing Protocol (IPP)",
+  "integration_type": "device",
+  "codeowners": [
+    "@ctalkington",
+    "@brianegge"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.printers"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

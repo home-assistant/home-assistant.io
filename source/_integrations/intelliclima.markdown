@@ -1,24 +1,10 @@
 ---
-title: IntelliClima
 description: Integration for Fantini Cosmi IntelliClima Ecocomfort 2.0 VMC devices.
 ha_release: 2026.3
-ha_categories:
-  - climate.fans_ventilation
-ha_iot_class: Cloud Polling
-ha_quality_scale: bronze
-ha_config_flow: true
-ha_codeowners:
-  - '@dvdinth'
 ha_domain: intelliclima
-ha_integration_type: device
 related:
   - url: https://www.fantinicosmi.it/en/
     title: Fantini Cosmi
-ha_platforms:
-  - binary_sensor
-  - fan
-  - select
-  - sensor
 ---
 
 The **IntelliClima** {% term integration %} is used to integrate with [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. The Ecocomfort 2.0 is a mechanical ventilation with heat recovery (MVHR) system that monitors indoor air quality and automates ventilation to maintain healthy indoor environments. With this integration, you can control fan modes and speeds, and automate ventilation based on air quality and schedules.

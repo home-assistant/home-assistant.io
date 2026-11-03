@@ -1,0 +1,17 @@
+{
+  "domain": "cync",
+  "name": "Cync",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Kinachi249"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "lighting.bulbs_lamps"
+  ],
+  "platforms": [
+    "light"
+  ]
+}

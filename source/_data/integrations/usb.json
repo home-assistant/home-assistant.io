@@ -1,0 +1,10 @@
+{
+  "domain": "usb",
+  "name": "USB Discovery",
+  "integration_type": "system",
+  "codeowners": [
+    "@bdraco"
+  ],
+  "iot_class": "local_push",
+  "quality_scale": "internal"
+}

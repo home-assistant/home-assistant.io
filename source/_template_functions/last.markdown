@@ -49,7 +49,8 @@ value:
 ## Good to know
 
 - If the sequence is empty, the result is undefined. It shows as empty, and the template editor shows a warning. If the template uses that result further, for example, in `(items | last).name`, you get an error. Chain with [`| default(value)`](/template-functions/default/) for a fallback.
-- After a generator-producing filter like [`select`](/template-functions/select/) or [`map`](/template-functions/map/), add [`| list`](/template-functions/list/) first. Otherwise the entire sequence is consumed just to find the end.
+- Filters like [`select`](/template-functions/select/) and [`map`](/template-functions/map/) return a generator. `last` can't read a generator from the end, so it causes an error. Add [`| list`](/template-functions/list/) before `last`.
+- A number causes an error. A string returns its last character.
 
 {% include template_functions/try_it.md %}
 

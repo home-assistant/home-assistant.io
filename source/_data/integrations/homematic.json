@@ -1,0 +1,22 @@
+{
+  "domain": "homematic",
+  "name": "Homematic",
+  "codeowners": [
+    "@pvizeli"
+  ],
+  "iot_class": "local_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "cover",
+    "light",
+    "lock",
+    "notify",
+    "sensor",
+    "switch"
+  ]
+}

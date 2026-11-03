@@ -1,0 +1,21 @@
+{
+  "domain": "aranet",
+  "name": "Aranet",
+  "integration_type": "device",
+  "codeowners": [
+    "@aschmitz",
+    "@thecode",
+    "@anrijs"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

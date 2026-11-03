@@ -1,0 +1,27 @@
+{
+  "domain": "hive",
+  "name": "Hive",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Rendili",
+    "@KJonline"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "climate.thermostats_heating",
+    "lighting.bulbs_lamps",
+    "plugs_switches"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "light",
+    "sensor",
+    "switch",
+    "water_heater"
+  ],
+  "discovery": [
+    "homekit"
+  ]
+}

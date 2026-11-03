@@ -1,0 +1,17 @@
+{
+  "domain": "deluge",
+  "name": "Deluge",
+  "integration_type": "service",
+  "codeowners": [
+    "@tkdrob"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.nas_servers"
+  ],
+  "platforms": [
+    "sensor",
+    "switch"
+  ]
+}

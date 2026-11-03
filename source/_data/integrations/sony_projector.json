@@ -1,0 +1,12 @@
+{
+  "domain": "sony_projector",
+  "name": "Sony Projector",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

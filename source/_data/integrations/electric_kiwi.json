@@ -1,0 +1,18 @@
+{
+  "domain": "electric_kiwi",
+  "name": "Electric Kiwi",
+  "integration_type": "hub",
+  "codeowners": [
+    "@mikey0000"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.energy_prices"
+  ],
+  "platforms": [
+    "select",
+    "sensor"
+  ]
+}

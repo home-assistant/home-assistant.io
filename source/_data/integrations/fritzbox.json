@@ -1,0 +1,27 @@
+{
+  "domain": "fritzbox",
+  "name": "FRITZ!SmartHome",
+  "integration_type": "hub",
+  "codeowners": [
+    "@mib1185",
+    "@flabbamann"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "diagnostics",
+    "light",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

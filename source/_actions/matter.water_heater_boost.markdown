@@ -65,7 +65,7 @@ temporary_setpoint:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter water heater" example="water_heater.hot_water" %}
 
 {% include actions/more_examples.md %}
 

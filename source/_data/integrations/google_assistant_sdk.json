@@ -1,0 +1,18 @@
+{
+  "domain": "google_assistant_sdk",
+  "name": "Google Assistant SDK",
+  "integration_type": "service",
+  "codeowners": [
+    "@tronikos"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "ai_voice.voice_assistants"
+  ],
+  "platforms": [
+    "diagnostics",
+    "notify"
+  ]
+}

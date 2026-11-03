@@ -1,0 +1,27 @@
+{
+  "domain": "duco",
+  "name": "Duco",
+  "integration_type": "hub",
+  "codeowners": [
+    "@ronaldvdmeer"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "fan",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

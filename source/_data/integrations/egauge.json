@@ -1,0 +1,17 @@
+{
+  "domain": "egauge",
+  "name": "eGauge",
+  "integration_type": "device",
+  "codeowners": [
+    "@neggert"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

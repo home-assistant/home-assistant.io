@@ -1,0 +1,17 @@
+{
+  "domain": "emoncms",
+  "name": "Emoncms",
+  "integration_type": "service",
+  "codeowners": [
+    "@borpin",
+    "@alexandrecuer"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

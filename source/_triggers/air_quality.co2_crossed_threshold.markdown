@@ -48,7 +48,7 @@ This fires when the bedroom CO2 sensor reading rises above 1,000 ppm.
    unit_phrase_yaml="literal value in ppm"
    example_value="1000" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="carbon dioxide sensor" example="sensor.living_room_co2" %}
 
 {% include triggers/behavior.md %}
 

@@ -51,7 +51,7 @@ This passes when the living room PM4 sensor reads above 50 μg/m³.
    threshold_required="true"
    entity_unit="`μg/m³`" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="PM4 sensor" example="sensor.living_room_pm4" %}
 
 {% include conditions/behavior.md %}
 

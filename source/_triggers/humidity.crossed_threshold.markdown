@@ -90,7 +90,7 @@ This fires when the first humidity sensor with the `humidity_sensors` label cros
    unit_phrase_yaml="literal percentage 0–100"
    example_value="70" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="humidity sensor, thermostat, humidifier, or weather entity" example="sensor.bathroom_humidity" %}
 
 {% include triggers/behavior.md %}
 

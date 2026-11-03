@@ -1,0 +1,20 @@
+{
+  "domain": "frontier_silicon",
+  "name": "Frontier Silicon",
+  "integration_type": "device",
+  "codeowners": [
+    "@wlcrs"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "media_player",
+    "switch"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

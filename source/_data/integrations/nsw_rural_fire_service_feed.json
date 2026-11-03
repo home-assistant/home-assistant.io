@@ -1,0 +1,16 @@
+{
+  "domain": "nsw_rural_fire_service_feed",
+  "name": "NSW Rural Fire Service Incidents",
+  "integration_type": "service",
+  "codeowners": [
+    "@exxamalte"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "weather_alerts.public_warnings"
+  ],
+  "platforms": [
+    "geo_location"
+  ]
+}
