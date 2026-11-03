@@ -240,6 +240,11 @@ This is an object containing the `source` and `volume` (0-100). The source must 
 
 This automation locks the computer when everyone has left home. Replace `button.my_computer_lock` with your computer's **Lock** button.
 
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
+- **Action**: Press button
+  - **Target**: Computer lock (`button.my_computer_lock`)
+
 {% example %}
 automation: |
   alias: "Lock the computer when leaving home"
@@ -256,6 +261,14 @@ automation: |
 ### Notify when a disk is nearly full
 
 This automation sends a notification to your phone when a disk on the computer is more than 90% full. Replace `sensor.my_computer_c_space_used` with the space used sensor of the disk.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: C: drive space used (`sensor.my_computer_c_space_used`)
+  - **Above**: `90`
+- **Action**: Send a notification message
+  - **Target**: My phone (`notify.my_phone`)
+  - **Title**: `Disk nearly full`
+  - **Message**: The C: drive on your computer is more than 90% full.
 
 {% example %}
 automation: |
@@ -276,6 +289,13 @@ automation: |
 ### Show a notification on the computer when the doorbell rings
 
 This automation shows a notification on the computer when someone rings the doorbell. Replace `event.front_door_doorbell` with your doorbell's event entity, and `notify.my_computer` with your computer's notify entity.
+
+- **Trigger**: Doorbell rang
+  - **Target**: Front door doorbell (`event.front_door_doorbell`)
+- **Action**: Send a notification message
+  - **Target**: My computer (`notify.my_computer`)
+  - **Title**: `Doorbell`
+  - **Message**: Someone is at the door.
 
 {% example %}
 automation: |
