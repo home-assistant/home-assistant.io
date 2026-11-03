@@ -1,19 +1,20 @@
 ---
-description: Integration to control LG TVs and LG split air conditioners using an infrared emitter and to receive commands from an LG remote using an infrared receiver.
+description: Integration to control LG TVs, LG Home Theaters, and LG split air conditioners using an infrared emitter and to receive commands from an LG remote using an infrared receiver.
 ha_release: 2026.4
 ha_domain: lg_infrared
 ---
 
-The **LG Infrared** {% term integration %} lets you control an LG TV or a compatible LG split air conditioner using any infrared emitter previously configured in Home Assistant. It can also receive commands from an LG remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
+The **LG Infrared** {% term integration %} lets you control an LG TV, an LG Home Theater (such as a Blu-ray or DVD receiver), or a compatible LG split air conditioner using any infrared emitter previously configured in Home Assistant. It can also receive commands from an LG remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device but there is no feedback channel to confirm the current state. The integration therefore uses assumed states.
 
 ## How you can use the integration
 
-After setup, you can control your LG TV or air conditioner from Home Assistant the same way you would with its remote, and make it part of your automations. For example, you can:
+After setup, you can control your LG TV, Home Theater, or air conditioner from Home Assistant the same way you would with its remote, and make it part of your automations. For example, you can:
 
 - Turn the air conditioner off when a window opens.
 - Cool a room before you get home.
+- Control volume, power, or playback on your Home Theater system.
 - Use spare buttons on your LG TV remote, like the color buttons, to control lights or run scenes.
 - Keep using the physical air conditioner remote. With an infrared receiver, the climate entity follows the changes you make with it.
 
@@ -22,6 +23,7 @@ After setup, you can control your LG TV or air conditioner from Home Assistant t
 The integration supports:
 
 - LG TVs that can be controlled via the standard LG infrared protocol.
+- LG Home Theaters (such as Blu-ray or DVD home cinema systems, like the BH4030S) controlled via the Samsung32 infrared protocol.
 - Compatible LG split air conditioners that can be controlled via the standard LG air conditioner infrared protocol.
 
 ## Prerequisites
@@ -30,22 +32,22 @@ The integration supports:
 
 To send commands, you need an infrared emitter. To capture commands from your LG remote, you also need an infrared receiver. For example, you can use an ESPHome device with an IR LED pointed at your LG device to send commands, and an IR receiver module to capture commands from your remote.
 
-For an air conditioner, an infrared emitter is required. The **Air conditioner** option only appears once you have at least one infrared emitter available.
+For a Home Theater or an air conditioner, an infrared emitter is required. The **Home theater** and **Air conditioner** options only appear once you have at least one infrared emitter available.
 
 {% include integrations/config_flow.md %}
 
-The first step asks which type of LG device you want to set up: **TV** or **Air conditioner**. The remaining options depend on that choice. To set up both, add the integration twice.
+The first step asks which type of LG device you want to set up: **TV**, **Home theater**, or **Air conditioner**. The remaining options depend on that choice. To set up multiple devices, add the integration for each.
 
 {% configuration_basic %}
 Infrared emitter:
-  description: "The infrared emitter entity to use for sending commands to your LG device. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter. It is required for an air conditioner."
+  description: "The infrared emitter entity to use for sending commands to your LG device. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter. It is required for a Home Theater or an air conditioner."
 Infrared receiver:
   description: "The infrared receiver entity to use for receiving commands from your LG remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver. For a TV, received commands are available as events you can use in automations. For an air conditioner, they keep the climate entity in sync with the physical remote."
 Supported modes:
   description: "The operating modes your air conditioner supports. Select at least one of **Cool**, **Heat**, **Dry**, and **Fan only**. Check your remote or the manual of your unit to see which modes it has. Selecting a mode your unit does not have breaks nothing. Your air conditioner simply does not respond to it. This option is shown for an air conditioner only."
 {% endconfiguration_basic %}
 
-For a TV, select at least one of **Infrared emitter** or **Infrared receiver**. Select both if you want to be able to send commands to your TV and react to commands from the remote.
+For a TV, select at least one of **Infrared emitter** or **Infrared receiver**. Select both if you want to be able to send commands to your TV and react to commands from the remote. For a Home Theater, select an **Infrared emitter**.
 
 ## Reconfiguring the integration
 
@@ -56,7 +58,7 @@ If you replace your infrared emitter, add a receiver later, or want to change th
 3. Next to the device you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
 4. Change the options and select **Submit**.
 
-The same rules as during setup apply: an air conditioner needs an infrared emitter, and a TV needs at least one infrared emitter or receiver. The device type cannot be changed. To switch between a TV and an air conditioner, add the integration again.
+The same rules as during setup apply: a Home Theater or an air conditioner needs an infrared emitter, and a TV needs at least one infrared emitter or receiver. The device type cannot be changed. To switch between device types, add the integration again.
 
 If you remove the infrared emitter or receiver from a TV, the entities that depend on it are no longer provided. For example, the media player and buttons need an emitter, and the events need a receiver. You can delete those entities from the entity settings. If you remove the mode your air conditioner is currently in, its climate entity shows **Off** until you select another mode.
 
@@ -101,6 +103,25 @@ A media player entity is created when an infrared emitter is configured.
 - **LG TV**
   - **Description**: Represents the LG TV and allows you to control it via IR commands.
   - **Supported features**: Turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, and stop.
+
+### Home theater
+
+#### Media player
+
+A media player entity with the `receiver` device class is created when an infrared emitter is configured.
+
+- **LG Home Theater**
+  - **Description**: Represents the LG Home Theater receiver and allows you to control power, volume, and playback via IR commands.
+  - **Supported features**: Turn on, turn off, volume up, volume down, mute, next track, previous track, play, pause, and stop.
+
+#### Buttons
+
+Button entities are created when an infrared emitter is configured. Each button sends the corresponding infrared command to the Home Theater when pressed.
+
+- **Menu & navigation**: **Home**, **Input**, **Info**, **Disc menu**, **Title/Popup**, **Up**, **Down**, **Left**, **Right**, **OK**, **Back**, **Clear**
+- **Numeric keypad & Asterisk**: **0** through **9**, **Asterisk**
+- **Playback, sound & settings**: **Open/Close**, **Optical/TV sound**, **Sound effect**, **Speaker level**, **Audio track**, **Subtitle**, **Sleep**, **Record**, **Repeat**, **Rewind**, **Fast forward**
+- **Color buttons**: **Red**, **Green**, **Yellow**, **Blue**
 
 ### Air conditioner
 
@@ -248,10 +269,10 @@ automation: |
 
 ## Known limitations
 
-- The TV media player and button entities use assumed state, meaning Home Assistant cannot verify the actual state of the TV. Commands received from the physical remote are exposed as events only and do not update the TV entity state.
+- The TV and Home Theater media player and button entities use assumed state, meaning Home Assistant cannot verify the actual state of the device. Commands received from the physical remote are exposed as events only for TVs and do not update entity state.
 - The climate entity for the air conditioner also uses assumed state, even with physical remote state tracking enabled. The receiver reports what the remote sent, not what the unit is actually doing, so the two can still drift apart, for example if something blocks the line of sight.
-- Turning on and turning off the TV both send the same IR power toggle command, as is standard with infrared remotes.
-- Volume control for the TV is step-based only; there is no way to set an absolute volume level.
+- Turning on and turning off the TV or Home Theater both send the same IR power toggle command, as is standard with infrared remotes.
+- Volume control for the TV and Home Theater is step-based only; there is no way to set an absolute volume level.
 - For the air conditioner, the dry mode temperature is fixed at 24 °C by the LG air conditioner infrared protocol and cannot be changed. Fan only mode has no target temperature at all. Changing the target temperature in either mode is remembered for the next time you switch to cool or heat, but nothing is sent to the unit.
 - Changing the fan speed while the air conditioner is off is also remembered rather than sent. It is applied with the next command that turns the unit on.
 - The air conditioner button entities each send a single command and have no state. The unit does not report whether a feature is currently on or off, so features like **Jet mode** or **Eco mode** cannot be shown as active.
@@ -260,9 +281,9 @@ automation: |
 
 ## Troubleshooting
 
-### The TV or air conditioner does not respond to commands
+### The TV, Home Theater, or air conditioner does not respond to commands
 
-If the entity changes in Home Assistant but your TV or air conditioner does not react, the infrared signal is probably not reaching the device. Make sure the infrared emitter points at the receiver window of the device and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/integrations/infrared/#the-device-does-not-respond-to-commands).
+If the entity changes in Home Assistant but your device does not react, the infrared signal is probably not reaching the device. Make sure the infrared emitter points at the receiver window of the device and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/integrations/infrared/#the-device-does-not-respond-to-commands).
 
 If your air conditioner reacts to most commands but not to one mode or button, your model probably does not have that feature. Check your remote or the manual of your unit.
 
