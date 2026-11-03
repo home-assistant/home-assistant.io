@@ -89,6 +89,10 @@ The `tankerkoenig.get_opening_times` action returns the opening times of one or 
 
 Each opening time has `days`, `start_time`, and `end_time`. A gas station that is open 24 hours a day returns a single opening time with `days` `Mo-So`, `start_time` `00:00:00`, and `end_time` `23:59:59`. A gas station without any known opening times returns an empty list.
 
+`overrides` lists temporary changes to the regular opening times, such as a closure over the holidays or different hours on a single day, as the text Tankerkönig provides. It is empty when there are none.
+
+The opening times are read from Tankerkönig when the action is called. To stay within the API limits, they are reused for up to an hour.
+
 ```yaml
 action: tankerkoenig.get_opening_times
 target:
@@ -107,6 +111,8 @@ binary_sensor.my_favorite_gas_station_status:
     - days: Sa-So
       start_time: "08:00:00"
       end_time: "20:00:00"
+  overrides:
+    - "24.12.2026, 14:00:00 - 26.12.2026, 23:59:00: geschlossen"
 ```
 
 ## Usage examples
