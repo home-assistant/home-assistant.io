@@ -13,6 +13,7 @@ ha_integration_type: device
 ha_platforms:
   - sensor
 ha_quality_scale: bronze
+ha_zeroconf: true
 ---
 
 The **E3/DC** {% term integration %} connects Home Assistant to an E3/DC home power station from HagerEnergy over Modbus TCP. It reads the power flows between solar, battery, house, grid and wallboxes.
@@ -48,6 +49,8 @@ Port:
   description: "The Modbus TCP port set in the power station's Smart Home menu. The default is `502`."
 {% endconfiguration_basic %}
 
+A discovered power station is set up on the default port `502`. If you set a different port, add the integration manually.
+
 {% note %}
 Home Assistant can share a Modbus connection between integrations. Another integration that already talks to the same power station shares the connection instead of opening a second one.
 {% endnote %}
@@ -58,10 +61,17 @@ Home Assistant can share a Modbus connection between integrations. Another integ
 
 The power station device has these sensors:
 
-- **PV power**, **Battery power**, **House power**, **Grid power**, **Additional feeder power**, **Wallbox power** and **Wallbox solar power**, in watts. Battery power is positive while discharging and negative while charging. Grid power is positive while importing and negative while feeding in.
+- **PV power**, **Battery power**, **House power** and **Grid power**, in watts. Battery power is positive while discharging and negative while charging. Grid power is positive while importing and negative while feeding in.
 - **Battery**: the battery's state of charge.
 - **Self-sufficiency** and **Self-consumption**, in percent.
-- **Emergency power**: whether emergency power is active, inactive, not available or not supported. On the S10 E and S10 E PRO, **Motor switch off** means the emergency power motor switch is not in its on position.
+
+These sensors depend on the installed hardware:
+
+- **Wallbox power** and **Wallbox solar power**, in watts, if a wallbox is configured.
+- **Additional feeder power**, in watts, if a power meter measures an additional feeder, such as a second PV inverter.
+- **Emergency power**, if the power station supports emergency power. It shows whether emergency power is active, inactive or not available. On the S10 E and S10 E PRO, **Motor switch off** means the emergency power motor switch is not in its on position.
+
+The integration checks the wallboxes and power meters when it starts. After you add a wallbox or a power meter, reload the integration.
 
 ## Data updates
 
