@@ -84,6 +84,9 @@ The **Škoda** integration provides the following entities. The available entiti
 - **Trunk**: Whether the trunk is open.
 - **Hood**: Whether the hood is open.
 - **Lights**: Whether the lights are on.
+- **Charging cable**: Whether the charging cable is plugged in, for vehicles that support charging.
+- **Air conditioning**: Whether the air conditioning is running.
+- **Auxiliary heating**: Whether the auxiliary heating is running, for equipped vehicles.
 
 ### Device tracker
 
