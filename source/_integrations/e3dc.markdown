@@ -58,7 +58,7 @@ Home Assistant can share a Modbus connection between integrations. Another integ
 
 The power station device has these sensors:
 
-- **PV power**, **Battery power**, **House power**, **Grid power**, **Additional feeder power**, **Wallbox power** and **Wallbox solar power**, in watts. Battery power is positive while charging. Grid power is positive while importing and negative while feeding in.
+- **PV power**, **Battery power**, **House power**, **Grid power**, **Additional feeder power**, **Wallbox power** and **Wallbox solar power**, in watts. Battery power is positive while discharging and negative while charging. Grid power is positive while importing and negative while feeding in.
 - **Battery**: the battery's state of charge.
 - **Self-sufficiency** and **Self-consumption**, in percent.
 - **Emergency power**: whether emergency power is active, inactive, not available or not supported. On the S10 E and S10 E PRO, **Motor switch off** means the emergency power motor switch is not in its on position.
