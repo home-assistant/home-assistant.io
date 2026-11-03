@@ -235,10 +235,10 @@ By default, the Marketplace gets the catalog and everything you install from Git
 The following download sources are available:
 
 - **GitHub**: run by GitHub and the Open Home Foundation. This is the default.
-- **China mirrors**: run by the Home Assistant China community ([hasscn.top](https://hasscn.top)).
+- **Unofficial China mirrors**: run by the Home Assistant China community ([hasscn.top](https://hasscn.top)). When these mirrors cannot be reached, downloads fall back to third-party proxies.
 
 {% important %}
-With a mirror as the download source, everything the Marketplace downloads goes through whoever runs that mirror: the catalog, and the content you install. Only choose a mirror you trust.
+With a mirror as the download source, everything the Marketplace downloads goes through whoever runs that mirror, or a third-party proxy: the catalog, and the content you install. Only choose a download source you trust.
 {% endimportant %}
 
 To change the download source:
