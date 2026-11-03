@@ -47,6 +47,16 @@ To avoid this, add each cumulative sensor to the Energy dashboard as its own sep
 
 If inflated data has already been recorded, you can review and adjust it from {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
 
+## Why does grid charging of my battery look like solar charging?
+
+If your battery only measures the total energy going in and out, the Energy dashboard doesn't know where that energy came from. It estimates the battery flows from the totals of your grid, solar panels, and battery.
+
+The dashboard makes this estimate for each period of time. When you view a day, each period is an hour. When you view a week or a month, each period is a day. When you view a year, each period is a month. When your solar panels produce energy in the same period that your battery charges, the dashboard counts as much of the charging as it can as solar charging.
+
+For example, your battery charges from the grid at night, when electricity is cheap. During the day, your solar panels power your home. In a week view, each period is a whole day, so the night and the day fall into the same period. The dashboard can then show some or all of the grid charging as solar charging.
+
+To see the real flows, use sensors that measure each direction separately, if your battery provides them. The dashboard then shows the measured flows instead of estimates. To set this up, see [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction).
+
 ## The Energy dashboard is not visible
 
 If you do not see the Energy dashboard in the sidebar, make sure you have not removed [`default_config:`](/integrations/default_config/) from your {% term "`configuration.yaml`" %}. If you have, you will need to enable the integrations and UI elements required for the dashboard to appear.
