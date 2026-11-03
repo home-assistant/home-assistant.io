@@ -6,7 +6,9 @@ ha_categories:
   - diy_makers.web_data_connectors
 ha_platforms:
   - binary_sensor
+  - notify
   - sensor
+  - switch
 ha_integration_type: service
 ha_config_flow: true
 ---
@@ -28,15 +30,15 @@ RESTful uses configuration subentries for configuring the sensors.
 
 {% endnote %}
 
-### RESTful Resource Configuration
+### RESTful resource configuration
 
 {% configuration_basic %}
 Resource:
-  description: "The resource or endpoint URL, supports templates. Example: `https://{{ \"example.com\" }}/resource`."
+  description: "The resource or endpoint URL, supports templates. Example: {% raw %}`https://{{ 'example.com' }}/resource`.{% endraw %}"
 Method:
   description: "The HTTP method of the request. Only `GET` or `POST` supported."
-HTTP authentication:
-  description: "Type of the HTTP authentication."
+Authentication:
+  description: "Type of the HTTP authentication: `Basic` or `Digest`"
 Username:
   description: "Endpoint username."
 Password:
@@ -45,19 +47,19 @@ HTTP Headers:
   description: "HTTP headers as key/value pairs, values support templates. Can support header authorization `Authorization: Bearer **auth_code**`."
 Query Parameters:
   description: "Key/value pairs, values support templates."
-JSON payload:
-  description: "Body of `POST` requests, supports templates."
+Request payload:
+   description: "The request body payload to send with the request, typically JSON, supports templates."
 SSL cipher list:
   description: "The list of SSL ciphers to be accepted from this endpoint. `Python Default` (default), `Modern` or `Intermediate` (_see [Mozilla Security/Server Side TLS](https://docs.tlsref.org/server-side-tls.html)_)."
 Verify SSL:
-  description: "Verify the SSL certificates of the connection."
+  description: "Verify the SSL certificates of the connection, default: enabled."
 Timeout:
-  description: "Timeout in seconds for endpoint response."
+  description: "Timeout in seconds for endpoint response, default: `10` seconds."
 Encoding:
-  description: "Encoding of the endpoint response, defaults to `UTF-8`."
+  description: "Encoding of the endpoint response, default: `UTF-8`."
 {% endconfiguration_basic %}
 
-### RESTful Subentry Configuration
+### RESTful subentry configuration
 
 [RESTful Binary Sensors](#restful-binary-sensor-configuration) and [RESTful Sensors](#restful-sensor-configuration) share these common attributes:
 
@@ -71,12 +73,12 @@ Picture:
 Value template:
   description: "Defines a [template](#templates) to extract the value."
 Force update:
-  description: "Sends update events even if the value hasn’t changed. Useful if you want to have meaningful value graphs in history. _See [Data Updates](../sensor.rest#force-update) for more information_."
+  description: "Sends update events even if the value hasn’t changed. Useful if you want to have meaningful value graphs in history. _See [Force update](/integrations/sensor.rest/#force-update) for more information_."
 Availability:
-  description: "Defines a template to get the available state of the entity. If the template either fails to render or returns `True`, `1`, `true`, `yes`, `on`, `enable`, or a non-zero number, the entity is available. If the template returns any other value, the entity is unavailable. If not configured, the entity is always available. Note that the string comparison is not case sensitive; `TrUe` and `yEs` are allowed."
+  description: "Defines a template to get the available state of the entity. If omitted, the entity is available if the last resource update was successful. See [Template integration documentation](../template/#availability)."
 {% endconfiguration_basic %}
 
-#### RESTful Binary Sensor Configuration
+#### RESTful binary sensor configuration
 
 Attributes specific to binary sensor:
 
@@ -85,13 +87,13 @@ Device class:
   description: "The [device class](../binary_sensor/#device-class) used to pick the sensor’s on/off wording and icon."
 {% endconfiguration_basic %}
 
-#### RESTful Sensor Configuration
+#### RESTful sensor configuration
 
 Attributes specific to sensor:
 
 {% configuration_basic %}
 Device class:
-  description: "The [device class](../sensor/#device-class) used to pick the sensor’s on/off wording and icon."
+  description: "The [device class](../sensor/#device-class) for the sensor."
 State class:
   description: "The [state class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor."
 Unit of measurement:
