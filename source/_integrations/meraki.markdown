@@ -49,7 +49,7 @@ Organization:
 
 - **Clients**: A tracker for each Wi-Fi or wired client seen in the organization's networks in the last hour. It is home while Meraki reports the client online, and shows the client's IP address, MAC address and hostname.
 
-Like other network-based trackers, new trackers are disabled until you enable them, unless another integration already knows the device by its MAC address. The tracker is then added to that device.
+Each client gets its own device, named after the client and identified by its MAC address. Like other network-based trackers, new trackers are disabled until you enable them for the clients you want to follow.
 
 ## Automation example
 
