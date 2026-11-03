@@ -10,7 +10,6 @@ limited: true
 since: "2023.1"
 related_functions:
   - set
-  - tuple_test
   - flatten
 ---
 
