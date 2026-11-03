@@ -9,7 +9,7 @@ related_actions:
   - imap.fetch
 ---
 
-The **Move message** action moves an email message on your IMAP server to another folder, and can optionally mark it as seen at the same time. It is meant to run in an automation after an `imap_content` event, using the entry and the message `uid` from the event data.
+The **IMAP: Move message** action moves an email message on your IMAP server to another folder, and can optionally mark it as seen at the same time. It is meant to run in an automation after an `imap_content` event, using the entry and the message `uid` from the event data.
 
 {% include actions/ui_header.md %}
 

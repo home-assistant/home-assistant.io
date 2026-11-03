@@ -75,7 +75,8 @@ info_skill:
 
 Have an Alexa device read out the weather forecast when your morning routine starts.
 
-- **Trigger**: A scheduled time
+- **Trigger**: Time
+  - **At time**: `07:00`
 - **Action**: Alexa Devices: Send info skill command
 
 {% details "YAML example for a morning weather summary" %}

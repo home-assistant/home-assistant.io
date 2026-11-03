@@ -1,5 +1,5 @@
 ---
-title: "Snapshot the current state of a Monoprice zone"
+title: "Snapshot"
 action: monoprice.snapshot
 domain: monoprice
 description: "Saves the current state of one or more Monoprice amplifier zones so you can restore it later."
@@ -18,7 +18,7 @@ To take a snapshot from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the zones you want to snapshot.
-6. From the actions shown for that target, select **Monoprice 6-Zone Amplifier: Snapshot**.
+6. From the actions shown for that target, under **Monoprice 6-Zone Amplifier**, select **Snapshot**.
 7. Select **Save**.
 
 ### Options in the UI

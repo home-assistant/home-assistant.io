@@ -19,8 +19,8 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the camera you want to control. You can also select an area, a device, or a label.
-6. From the actions shown for that target, select **Amcrest: Disable motion recording**.
+5. From the search box, search for and select **Amcrest: Disable motion recording**.
+6. In **Entity**, select the camera you want to control.
 7. Select **Save**.
 
 This action has no additional options in the UI.
@@ -40,7 +40,9 @@ This stops the `camera.driveway` camera from recording a clip when motion is det
 
 This action has no additional options.
 
-{% include actions/targets.md domain="camera" %}
+{% include actions/targets.md domain="camera" entity_type="Amcrest camera" %}
+
+In the UI, this action has an **Entity** field instead of targets. There, you can select one camera. To use a device, an area, a floor, or a label as the target, select the three dots menu {% icon "mdi:dots-vertical" %} on the action, and then select **Edit in YAML**.
 
 {% include actions/try_it.md %}
 

@@ -1,5 +1,5 @@
 ---
-title: "Reset reminder"
+title: "Reset a reminder"
 action: smarttub.reset_reminder
 domain: smarttub
 description: "Resets a maintenance reminder on a hot tub."
@@ -64,7 +64,8 @@ days:
 
 When you mark the water as refreshed, here by pressing a button helper, reset the reminder so it triggers again in 180 days.
 
-- **Trigger**: The water refreshed button is pressed
+- **Trigger**: State changed
+  - **Entity**: Hot tub water refreshed helper
 - **Action**: SmartTub: Reset a reminder
 
 {% details "YAML example for resetting the reminder after refreshing the water" %}

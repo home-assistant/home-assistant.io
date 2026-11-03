@@ -37,7 +37,7 @@ output: "2.0"
 log(
     value: Any,
     base: Any = e,
-    default: Any = None,
+    default: Any,
 ) -> float
 ```
 
@@ -58,7 +58,7 @@ base:
   type: float
 default:
   description: >
-    Value to return if the calculation fails (for example, if the input is not a positive number). If not provided, an error is raised instead.
+    The value to return if the calculation fails, such as `0`. For example, the calculation fails if the input is not a positive number. If you leave out `default` and the calculation fails, `log` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}

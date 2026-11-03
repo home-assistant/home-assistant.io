@@ -1,5 +1,5 @@
 ---
-title: "Set date value"
+title: "Set date"
 action: date.set_value
 domain: date
 description: "Sets the value of a date entity."

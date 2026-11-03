@@ -1,0 +1,12 @@
+{
+  "domain": "clicksend",
+  "name": "ClickSend SMS",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "messaging_notifications.email_sms_calls"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

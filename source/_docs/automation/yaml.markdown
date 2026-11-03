@@ -21,25 +21,27 @@ automation kitchen:
 
 You can add as many labeled `automation` blocks as you want.
 
+After you change automations in a YAML file, reload them. For the steps, refer to [Reloading automations](#reloading-automations).
+
 {% configuration %}
 alias:
   description: Name of the automation.
   required: false
   type: string
 id:
-  description: A unique id for your automation, will allow you to make changes to the name and entity_id in the UI, and will enable debug traces.
+  description: >
+    A unique ID for your automation. With an ID, you can change the name and entity ID in the UI, and the automation stores debug traces. The ID must be text. To use a number, put it in quotes, for example `id: "1700000000000"`.
   required: false
   type: string
 description:
   description: A description of the automation.
   required: false
-  default: ''
   type: string
 initial_state:
-  description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run. See [Automation initial state](#automation-initial-state).
+  description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run. If there is no state to restore, the automation is turned on. See [Automation initial state](#automation-initial-state).
   required: false
   type: boolean
-  default: Restored from last run
+  default: Restored from last run, otherwise `true`
 trace:
   description: "Configuration values for the traces stored, currently only `stored_traces` can be configured."
   required: false
@@ -61,21 +63,21 @@ variables:
       description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
       type: any
 trigger_variables:
-  description: "Variables that will be available inside your [templates triggers](/docs/automation/trigger/#template-trigger)."
+  description: "Variables that you can use in the templates of all triggers, for example, in a [template trigger](/triggers/template/), in the `enabled` option of a trigger, in the `event_type` of an event trigger, in the `webhook_id` of a webhook trigger, or in the `topic` of an MQTT trigger. Home Assistant sets them when it sets up the triggers, for example, when it loads the automation or when you turn the automation on."
   required: false
   default: {}
   type: map
   keys:
     PARAMETER_NAME:
-      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/templating/where-to-use/#limited-templates) can be used."
+      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/templating/limited-templates/) can be used."
       type: any
 mode:
-  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](#automation-modes)."
+  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](/docs/automation/modes/)."
   required: false
   type: string
   default: single
 max:
-  description: "Controls maximum number of runs executing and/or queued up to run at a time. Only valid with modes `queued` and `parallel`."
+  description: "Controls maximum number of runs executing and/or queued up to run at a time. Only valid with modes `queued` and `parallel`. The minimum is 2."
   required: false
   type: integer
   default: 10
@@ -89,10 +91,19 @@ triggers:
   required: true
   type: list
   keys:
-    id:
-      description: "An ID that can be used in the automation to determine which trigger caused the automation to start."
+    alias:
+      description: "A name for the trigger. It's shown in the automation editor and in the trace."
       type: string
       required: false
+    id:
+      description: "An ID that can be used in the automation to determine which trigger caused the automation to start. The ID must be text. To use a number, put it in quotes."
+      type: string
+      required: false
+    enabled:
+      description: "Set to `false` to disable the trigger. You can also use a [limited template](/docs/templating/limited-templates/). For details, refer to [Disabling a trigger](/docs/automation/trigger/#disabling-a-trigger)."
+      type: [boolean, template]
+      required: false
+      default: true
     variables:
       description: "Variables that will be available in the conditions and action sequence."
       required: false
@@ -103,27 +114,15 @@ triggers:
           description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
           type: any
 conditions:
-  description: Conditions that have to be `true` to start the automation. By default all conditions listed have to be `true`, you can use [logical conditions](/docs/scripts/conditions/#logical-conditions) to change this default behavior.
+  description: Conditions that have to be `true` for the automation to run its actions. When a trigger starts the automation, Home Assistant checks the conditions. If they are not met, the automation stops. By default, all conditions listed have to be `true`. To change this, use the [And](/conditions/and/), [Or](/conditions/or/), and [Not](/conditions/not/) conditions.
   required: false
   type: list
 actions:
-  description: "The sequence of actions to be performed in the script."
+  description: "The sequence of actions to be performed in the automation."
   required: true
   type: list
 {% endconfiguration %}
 
-### Automation modes
-
-| Mode       | Description                                                                                                     |
-| ---------- | --------------------------------------------------------------------------------------------------------------- |
-| `single`   | Do not start a new run. Issue a warning.                                                                        |
-| `restart`  | Start a new run after first stopping previous run.                                                              |
-| `queued`   | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued. |
-| `parallel` | Start a new, independent run in parallel with previous runs.                                                    |
-
-<p class='img'>
-  <img src='/images/integrations/script/script_modes.jpg'>
-</p>
 
 ## YAML example
 
@@ -143,13 +142,18 @@ automation my_lights:
         event: sunset
         offset: "-01:00:00"
       - trigger: state
-        entity_id: all
+        entity_id:
+          - person.paulus
+          - person.anne_therese
         to: "home"
     conditions:
       # Prefix the first line of each condition configuration
-      # with a '-'' to enter multiple
+      # with a '-' to enter multiple
       - condition: state
-        entity_id: all
+        entity_id:
+          - person.paulus
+          - person.anne_therese
+        match: any
         state: "home"
       - condition: time
         after: "16:00:00"
@@ -164,8 +168,8 @@ automation my_lights:
   - alias: "Rule 2 - Away Mode"
     triggers:
       - trigger: state
-        entity_id: all
-        to: "not_home"
+        entity_id: zone.home
+        to: "0"
     actions:
       - action: light.turn_off
         target:
@@ -200,6 +204,23 @@ automation my_lights:
           title: "Cube event detected"
           message: "Cube has triggered this event: {{ trigger.event }}"
 ```
+
+## Older YAML syntax
+
+Older examples, such as in forum posts, guides, or blueprints, can use keys that have been renamed since. Home Assistant still accepts the old keys, so these examples keep working. When you save an automation in the editor, Home Assistant changes the keys to the current names.
+
+The renamed keys are:
+
+- `service:` in an action is now `action:`.
+  - Renamed in Home Assistant 2024.8.
+- `platform:` in a trigger is now `trigger:`.
+  - Renamed in Home Assistant 2024.10.
+- The top-level `trigger:`, `condition:`, and `action:` keys of an automation are now `triggers:`, `conditions:`, and `actions:`.
+  - Renamed in Home Assistant 2024.10.
+
+At the automation level, `triggers:`, `conditions:`, and `actions:` are plural. The key that identifies a trigger or condition within those lists stays singular (`trigger:` or `condition:`), and an action call uses singular `action:`.
+
+Use either the old key or the new key, not both in the same place. For example, an automation can't have both `trigger:` and `triggers:`. Before you copy part of an older example into your automation, change its keys to the current names.
 
 ## Additional options
 
@@ -255,10 +276,37 @@ If you want to migrate your manual automations to use the editor, you'll have to
 ```
 
 
-### Deleting automations
+<a id="deleting-automations"></a>
 
-When automations remain visible in the Home Assistant dashboard, even after having deleted in the {% term YAML %} file, you have to delete them in the UI.
+## Removing an automation from a YAML file
 
-To delete them completely, go to UI {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and find the automation in the search field or by scrolling down.
+To delete an automation that you manage in the UI, use the automation editor. For the steps, refer to [Duplicating, turning off, or deleting an automation](/docs/automation/editor/#duplicating-turning-off-or-deleting-an-automation).
 
-Check the square box aside of the automation you wish to delete and from the top-right of your screen, select 'REMOVE SELECTED'.
+Before you remove an automation, check whether another automation, a script, or a dashboard uses it.
+
+To remove an automation that you wrote in {% term YAML %}:
+
+1. Open the YAML file that contains the automation, such as `configuration.yaml`. For how to set up file access and an editor, refer to [Editing `configuration.yaml`](/docs/configuration/#editing-configurationyaml).
+   - If the automation is in `automations.yaml` and has an `id`, delete it in the automation editor instead.
+2. Delete the entire automation. It starts with a line that begins with `-`, such as `- id:`, `- alias:`, or `- triggers:`. It ends before the next line that begins with `-` at the same indentation.
+   - If you split your automations into one file per automation with [`!include_dir_list`](/docs/configuration/splitting_configuration/#example-include_dir_list), the file contains only this automation, without a `-` at the start. Delete the entire file instead.
+3. [Check the configuration](/docs/configuration/#validating-the-configuration), and then [reload your automations](#reloading-automations).
+   - Result: The automation is removed. If it had an `id`, its entity stays until you delete it.
+4. If the automation had an `id`, delete its entity:
+   1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+   2. Select **Enter selection mode**, and then select the automation.
+   3. Select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Delete selected**. Confirm the deletion.
+
+## Reloading automations
+
+After you change automations in a YAML file, reload them to apply the changes. Reloading only affects the automations that you changed:
+
+- If one of them is running, the run stops.
+- If one of them has a **For at least** duration in progress, the duration is lost.
+
+For details, refer to [When a run stops before it finishes](/docs/automation/modes/#when-a-run-stops-before-it-finishes).
+
+1. Go to {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %}.
+2. Under **YAML configuration reloading**, select **Automations**.
+
+To reload automations from an automation or a script, use the [Reload automations](/actions/automation.reload/) action.

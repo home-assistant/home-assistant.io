@@ -7,7 +7,7 @@
 // layout makes it `position: fixed` so content scrolls underneath.
 export default {
   title: "Site header",
-  // Full-width component: give it a whole row in the component browser.
+  // Full-width component: render it edge to edge in the component browser.
   wide: true,
   description:
     "Logo, version badge, main navigation, search mount point and the " +
@@ -43,6 +43,7 @@ export default {
     },
     {
       name: "dark, over a hero image",
+      dark: true,
       props: {
         pathname: "/",
         dark: true,

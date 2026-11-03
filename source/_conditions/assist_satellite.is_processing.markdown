@@ -52,8 +52,6 @@ This passes when `assist_satellite.living_room` is currently processing a voice 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -65,9 +63,9 @@ behavior:
 for:
   description: >
     Duration the satellite must have been in the processing state before the condition passes.
-    Accepts a duration string like `00:00:05` for 5 seconds. Useful to detect a stuck or slow pipeline.
+    Accepts a duration string like `00:00:05` for 5 seconds. Useful to detect a stuck or slow pipeline. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -80,7 +78,7 @@ for:
 - The **Processing** state spans both speech-to-text transcription and intent recognition. For cloud-based pipelines, processing time is dominated by network round-trip latency, which is typically 100 ms to 500 ms on a fast connection, but can be several seconds under congestion. For local pipelines, total processing time depends on the speech recognition model and hardware, so it can range from one to several seconds.
 - Use the **For at least** option with a value longer than your pipeline's typical processing time to detect satellites that are stuck. For example, `00:00:10` passes only if the satellite has been processing for more than 10 seconds, which is a reliable signal that something is wrong.
 - Prefer local pipelines to reduce network dependency and processing latency. This condition can help surface satellites that consistently process slowly, pointing to an undersized pipeline or a congested connection.
-- Satellites that have the **Unavailable** or **Unknown** state do not count as processing. Home Assistant skips them and evaluates the condition using the remaining targeted satellites.
+{% include conditions/unavailable_targets.md entities="satellites" %}
 - To check another pipeline state, use [Satellite is idle](/conditions/assist_satellite.is_idle/), [Satellite is listening](/conditions/assist_satellite.is_listening/), or [Satellite is responding](/conditions/assist_satellite.is_responding/).
 
 {% include conditions/try_it.md %}

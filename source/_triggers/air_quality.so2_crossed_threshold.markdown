@@ -13,30 +13,22 @@ If you live near industrial areas or in a region with volcanic activity, this tr
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-5. From the triggers shown for that target, select **Sulphur dioxide level crossed threshold**.
-6. Under **Threshold type**, set the sulphur dioxide level the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how multiple targets interact.
-8. Under **For at least**, set how long the level must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
-9. Select **Save**.
+{% include triggers/threshold_crossed_steps.md
+   title="Sulphur dioxide level crossed threshold"
+   sensor="sulphur dioxide sensor"
+   areas="garden or balcony"
+   unit_phrase_ui="a fixed level"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options="ppb or μg/m³" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: The sulphur dioxide concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
-Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
-  required: false
-  default: Each
-For at least:
-  description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
-{% endoptions_ui %}
+{% include triggers/threshold_crossed_options_ui.md
+   unit_phrase_ui="a fixed level"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options_code="`ppb` or `μg/m³`" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -48,45 +40,35 @@ trigger: |
   target:
     entity_id: sensor.outdoor_so2
   options:
-    threshold: 40
-    behavior: each
+    threshold:
+      type: above
+      value:
+        number: 40
+        unit_of_measurement: "μg/m³"
 {% endexample %}
 
-This fires whenever the outdoor SO2 sensor crosses 40 in either direction.
+This fires when the outdoor SO2 sensor reading rises above 40 μg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+{% include triggers/threshold_crossed_options_yaml.md
+   unit_phrase_yaml="literal number"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options_code="`ppb` or `μg/m³`"
+   unit_default="μg/m³"
+   unit_example_entity="input_number.so2_alert_level"
+   unit_example_value="20" %}
 
-{% options_yaml %}
-threshold:
-  description: >
-    The sulphur dioxide concentration the reading has to cross for the trigger to fire. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
-  type: any
-behavior:
-  description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: false
-  type: string
-  default: each
-for:
-  description: >
-    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
-  required: true
-  type: string
-  default: "00:00:00"
-{% endoptions_yaml %}
-
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="sulphur dioxide sensor" example="sensor.living_room_sulphur_dioxide" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
-- The trigger fires on any crossing, up or down. If you only want one direction, add a condition that checks whether the current SO2 level is above or below your threshold.
-- The WHO guideline for 24-hour SO2 exposure is 40. If you live near industrial areas or in regions with volcanic activity, a threshold around that value is a good starting point.
-- Pair this trigger with [Sulphur dioxide level changed](/triggers/air_quality.so2_changed/) if you also want to track smaller fluctuations between crossings.
+- The threshold type sets the direction. With **Above**, the trigger fires when the level rises above the threshold. With **Below**, it fires when the level drops below it.
+- The WHO guideline for 24-hour SO2 exposure is 40 μg/m³. If you live near industrial areas or in regions with volcanic activity, a threshold around that value is a good starting point.
+- Pair this trigger with [Sulphur dioxide level changed](/triggers/air_quality.so2_changed/) if you want to react to every change of the level instead.
 
 {% include triggers/try_it.md %}
 
@@ -94,13 +76,12 @@ for:
 
 ### Automation: seal the house when industrial or volcanic SO2 spikes
 
-If you live downwind of a factory or in a volcanic region, SO2 levels change fast. This automation closes your smart windows the moment outdoor SO2 crosses 40, keeping that sharp, irritating gas out of the house so your family breathes easy.
+If you live downwind of a factory or in a volcanic region, SO2 levels change fast. This automation closes your smart windows the moment outdoor SO2 rises above 40 μg/m³, keeping that sharp, irritating gas out of the house so your family breathes easy.
 
 - **Trigger**: Sulphur dioxide level crossed threshold
-- **Target**: Outdoor SO2 sensor
-- **Threshold type**: 40
-- **Trigger when**: Each
-- **Condition**: SO2 is above 40
+  - **Target**: Outdoor SO2 sensor
+  - **Threshold type**: Above 40 μg/m³
+  - **Trigger when**: Each
 - **Action**: Close cover (windows)
 
 {% details "YAML example for closing windows on high SO2" %}
@@ -113,12 +94,11 @@ automation: |
       target:
         entity_id: sensor.outdoor_so2
       options:
-        threshold: 40
-        behavior: each
-  conditions:
-    - condition: numeric_state
-      entity_id: sensor.outdoor_so2
-      above: 40
+        threshold:
+          type: above
+          value:
+            number: 40
+            unit_of_measurement: "μg/m³"
   actions:
     - action: cover.close_cover
       target:

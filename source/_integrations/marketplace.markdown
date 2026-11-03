@@ -1,20 +1,7 @@
 ---
-title: Marketplace
 description: Find and install community-created integrations, dashboard cards, themes, and templates.
-ha_category:
-  - Other
 ha_release: 2026.11
-ha_iot_class: Cloud Polling
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: marketplace
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - switch
-  - update
-ha_integration_type: system
 related:
   - docs: /integrations/update/
     title: Update entities

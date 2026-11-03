@@ -1,40 +1,22 @@
 ---
-title: HomeWizard
 description: Instructions on how to integrate HomeWizard into Home Assistant.
 ha_release: 2022.2
-ha_category:
-  - Energy
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: homewizard
-ha_codeowners:
-  - '@DCSBL'
-  - '@lexpostma'
-ha_platforms:
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_zeroconf: true
-ha_integration_type: device
-ha_quality_scale: platinum
 works_with:
   - local
-ha_dhcp: true
 ---
 
 Integration for the [HomeWizard](https://www.homewizard.com/) platform. It can collect data locally from HomeWizard products and create them as sensors in Home Assistant. Use this integration to monitor your energy, gas, and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).
 
-## Supported devices
+## Works with Home Assistant certified devices
 
-- [P1 Meter](https://www.homewizard.com/p1-meter/): Sensors for power import/export, energy consumption (single or three phases), and information about your smart meter and gas (model: `HWE-P1`).
-- [Energy Socket](https://www.homewizard.com/energy-socket/): Sensors for power import/export and energy consumption, and switches for controlling the outlet (model: `HWE-SKT`).
-- [Watermeter](https://www.homewizard.com/watermeter/): Sensors for active and total water usage (model: `HWE-WTR`).
-- [kWh Meter 1-Phase](https://www.homewizard.com/kwh-meter/): Sensors for power import/export and energy consumption (model: `HWE-KWH1`, `SDM230-wifi`)..
+{% include integrations/device_list.html brand="homewizard" %}
+
+## Other supported devices
+
+In addition to the certified devices, the following device is also supported:
+
 - [kWh Meter 3-Phase](https://www.homewizard.com/kwh-meter/): Sensors for power import/export and energy consumption (models: `HWE-KWH3`, `SDM630-wifi`).
-- [Plug-In Battery](https://www.homewizard.com/plug-in-battery/): Sensors for power import/export, energy consumption, production, and state of charge (model: `HWE-BAT`).
 
 ## Enable the API
 
@@ -228,7 +210,7 @@ It may happen that you can't find your devices or they won't show up in the inte
     
 ## I can't find entities like voltage, current, or battery group charging strategy
 
-Some entities are disabled by default. You can enable them in the integration setup. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for more information.
+Some entities are disabled by default. You can enable them in the integration setup. See the [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) documentation for more information.
 
 ## Removing the integration
 

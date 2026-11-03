@@ -1,21 +1,7 @@
 ---
-title: Hyperion
 description: Instructions on how to integrate Hyperion into Home Assistant.
-ha_category:
-  - Light
 ha_release: 0.7.6
-ha_iot_class: Local Push
 ha_domain: hyperion
-ha_codeowners:
-  - '@dermotduffy'
-ha_config_flow: true
-ha_ssdp: true
-ha_platforms:
-  - camera
-  - light
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **Hyperion** {% term integration %} allows you to integrate your

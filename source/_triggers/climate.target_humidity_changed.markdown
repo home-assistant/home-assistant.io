@@ -39,8 +39,8 @@ Threshold type:
 
     - **Any change**: fires on any change, regardless of direction or new value.
     - **Above** or **Below** (exclusive): fires only when the new setpoint is strictly above or below the threshold (in %). A setpoint equal to the threshold does not fire the trigger.
-    - **In range** (exclusive): fires only when the new setpoint is strictly between the two bounds. A setpoint equal to either bound does not fire the trigger.
-    - **Outside range** (inclusive): fires when the new setpoint is at or below the lower bound, or at or above the upper bound. A setpoint equal to either bound fires the trigger.
+    - **In range** (inclusive): fires when the new setpoint is between the two bounds. A setpoint equal to either bound fires the trigger.
+    - **Outside range** (exclusive): fires when the new setpoint is below the lower bound or above the upper bound. A setpoint equal to either bound does not fire the trigger.
 
     For each mode you can enter a fixed percentage or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 {% endoptions_ui %}
@@ -81,8 +81,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |
@@ -91,8 +89,8 @@ threshold:
     - `type: any`: Fires on any target humidity change (no additional keys needed).
     - `type: above` (exclusive): Sets a minimum. Fires when the setpoint is strictly above `value`. A setpoint equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Sets a maximum. Fires when the setpoint is strictly below `value`. A setpoint equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Defines a range. Fires when the setpoint is strictly between `value_min` and `value_max`. Setpoints equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: outside` (inclusive): Defines an outside-range. Fires when the setpoint is at or below `value_min`, or at or above `value_max`. Setpoints equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (inclusive): Defines a range. Fires when the setpoint is between `value_min` and `value_max`. Setpoints equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (exclusive): Defines an outside-range. Fires when the setpoint is below `value_min` or above `value_max`. Setpoints equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
     For example:
 
@@ -125,14 +123,13 @@ threshold:
 
 {% include triggers/more_examples.md %}
 
-### Automation: adjust humidifiers when first thermostat humidity setpoint changes
+### Automation: adjust humidifiers when a thermostat humidity setpoint changes
 
-When the first thermostat in the bedroom area changes its target humidity to a value above 50%, turn on all standalone humidifiers to supplement the climate systems. Firing on the first change prevents multiple humidifier activations.
+When a thermostat in the bedroom area changes its target humidity to a value above 50%, turn on all standalone humidifiers to supplement the climate systems.
 
 - **Trigger**: Thermostat target humidity changed
   - **Target**: Bedroom area
   - **Threshold type**: Above (50%)
-  - **Trigger when**: First
 - **Action**: Turn on humidifier
 
 {% details "YAML example for supplemental humidifier control" %}
@@ -149,7 +146,6 @@ automation: |
           type: above
           value:
             number: 50
-        behavior: first
   actions:
     - action: humidifier.turn_on
       target:

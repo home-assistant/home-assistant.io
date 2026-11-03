@@ -1,22 +1,7 @@
 ---
-title: OpenWeatherMap
 description: Instructions on how to integrate OpenWeatherMap within Home Assistant.
 ha_release: 0.32
-ha_category:
-  - Sensor
-  - Weather
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@fabaff'
-  - '@freekode'
-  - '@nzapponi'
-  - '@wittypluck'
 ha_domain: openweathermap
-ha_platforms:
-  - sensor
-  - weather
-ha_integration_type: service
 related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
@@ -100,7 +85,7 @@ If you want to change the weather location, you will need to delete and re-add t
 | Condition                | Description                                                                                                                       |
 | :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
 | `cloud_coverage`         | Cloudiness, %.                                                                                                                    |
-| `condition`              | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition).   |
+| `condition`              | [Weather condition](https://contributors.home-assistant.io/core/entities/weather/#conditions).   |
 | `dew_point`              | Atmospheric temperature below which water droplets begin to condense and dew can form, ºC.                                        |
 | `feels_like_temperature` | Temperature accounting for the human perception of weather, ºC.                                                                   |
 | `humidity`               | Humidity, %.                                                                                                                      |

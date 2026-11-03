@@ -1,23 +1,10 @@
 ---
-title: Egardia
 description: Instructions on how to set up Egardia / Woonveilig within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Hub
 ha_release: 0.65
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@jeroenterheerdt'
 ha_domain: egardia
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Egardia** {% term integration %} enables the ability to control an [Egardia](https://egardia.com/)/[Woonveilig](https://woonveilig.nl) control panel. These alarm panels are known under different brand names across the world, including Woonveilig in the Netherlands. This was tested on the WL-1716, GATE-01, GATE-02 and GATE-03 versions of the Egardia/Woonveilig platform. Not only will you integrate your alarm control panel, supported sensors (door contacts at this moment) will be added automatically.

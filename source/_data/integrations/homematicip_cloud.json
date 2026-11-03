@@ -1,0 +1,31 @@
+{
+  "domain": "homematicip_cloud",
+  "name": "HomematicIP Cloud",
+  "integration_type": "hub",
+  "codeowners": [
+    "@hahn-th",
+    "@lackas"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "diagnostics",
+    "event",
+    "fan",
+    "light",
+    "lock",
+    "sensor",
+    "siren",
+    "switch",
+    "valve",
+    "weather"
+  ]
+}

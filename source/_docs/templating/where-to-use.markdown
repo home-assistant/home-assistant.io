@@ -43,7 +43,7 @@ output: "Goodnight. Closed front door, and 3 lights still on."
 
 ## Automation conditions
 
-A [template condition](/docs/scripts/conditions/#template-condition) lets an automation decide whether to continue based on any test you can write. The template needs to end up either `True` or `False`, and the automation only continues when the answer is `True`.
+A [Template condition](/conditions/template/) lets an automation decide whether to continue based on any test you can write. The template needs to end up either `True` or `False`, and the automation only continues when the answer is `True`.
 
 {% example %}
 condition: |
@@ -56,7 +56,7 @@ output: "True (when the outdoor temperature is below 5°C)"
 
 ## Automation triggers
 
-A [template trigger](/docs/automation/trigger/#template-trigger) fires when the template changes from false to true. This lets you react to conditions that no single entity represents.
+A [template trigger](/triggers/template/) reacts when the template changes from false to true. This lets you react to conditions that no single entity represents.
 
 {% example %}
 trigger: |
@@ -70,10 +70,9 @@ trigger: |
 output: "True (fires when the washing machine power drops between 0 and 5 W)"
 {% endexample %}
 
-{% note %}
-<a id="limited-templates"></a>
-**Limited templates.** Some trigger types, and the `trigger_variables` section of an automation, only support a reduced set of template features. This is called a "limited template". Most of Home Assistant's state-reading functions (like `states()`, `state_attr()`, and the area/device/label helpers) are not available there. If a template works in the editor but fails in a trigger configuration, the limited-template scope is a likely cause. Check the specific trigger's documentation for the details.
-{% endnote %}
+## Limited templates
+
+A few fields only accept limited templates, such as `trigger_variables` and the `enabled` option of triggers, conditions, and other steps. A limited template can't read the state of your home or the current time. For what limited templates can use, and which fields use limited templates, refer to [Limited templates](/docs/templating/limited-templates/).
 
 ## Template entities
 
@@ -174,7 +173,7 @@ output: |
 
 ### Nested JSON
 
-Real-world payloads often have nested structures. Use square brackets or more dots to reach deeper:
+Real-world payloads often have nested structures. Use square brackets to reach deeper:
 
 {% example %}
 template: |
@@ -183,13 +182,13 @@ template: |
     "values": {"temp": 26.09, "hum": 56.73}
   } %}
   Sensor ID: {{ value_json['sensor']['id'] }}
-  Temperature: {{ value_json.values.temp }}
+  Temperature: {{ value_json['values']['temp'] }}
 output: |
   Sensor ID: 12345
   Temperature: 26.09
 {% endexample %}
 
-Square brackets become necessary when a field name contains characters that dots don't handle, like a dash or a space.
+For simple field names, you can also use dots, such as `value_json.sensor.id`. Use square brackets when a field name contains characters that dots don't handle, like a dash or a space, or when it has the same name as a built-in function of a dictionary, such as `values`, `items`, `keys`, or `get`. For example, `value_json.values` returns the function instead of the field, so the template output is empty.
 
 ### JSON arrays
 
@@ -234,7 +233,12 @@ This lets you work out the right template in the editor, then paste the finished
 
 ## Dashboards
 
-Most dashboard cards accept templates for titles, names, and other text fields. Support varies by card, and some cards need [`state_template`](/dashboards/markdown/) or similar fields to make templates work. The [Markdown card](/dashboards/markdown/) is the most flexible, as its entire content is a template.
+Most dashboard cards don't render templates. Two places do:
+
+- The [Markdown card](/dashboards/markdown/). Its entire content is a template.
+- The [**Template** visibility condition](/dashboards/conditional/#template). It shows or hides a card or badge based on a template.
+
+To show a calculated value on any other card, create a [template sensor](/integrations/template/), and add that sensor to the card.
 
 ## Not everywhere
 
@@ -242,7 +246,7 @@ Not every field accepts templates. As a rule:
 
 - Text, numbers, and lists in automation actions, conditions, triggers, and scripts can usually be templated.
 - Entity IDs and structural {% term YAML %} keys usually cannot.
-- Dashboards support templates in specific fields only. Check the card's documentation.
+- On dashboards, only the Markdown card and the **Template** visibility condition render templates.
 
 If a template is not being evaluated, it is most likely in a field that does not support templating. The [Debugging templates](/docs/templating/debugging/) page has more tips.
 

@@ -90,11 +90,12 @@ Use the target-balance blueprint to deposit excess money into a pot and withdraw
 This automation deposits 25 into a savings pot every Friday. The amount uses the selected account's currency.
 
 - **Trigger**: Time: 18:00
-- **Condition**: Day of the week is Friday
-- **Action**: Deposit into pot
-  - **From account**: Current account
-  - **To pot**: Savings
-  - **Amount**: 25
+- **Condition**: Time
+  - **Days of the week**: Friday
+- **Action**: Monzo: Deposit into pot
+  - **From account**: `0123456789abcdef0123456789abcdef`
+  - **To pot**: `fedcba9876543210fedcba9876543210`
+  - **Amount**: `25`
 
 {% details "YAML example for a weekly pot deposit" %}
 

@@ -10,7 +10,7 @@ related:
   - action: peblar.delete_vehicle_token
 ---
 
-The **List autocharge vehicles** action retrieves the vehicles stored in the Peblar charger's autocharge list. The action returns the list as response data, which you can use in an automation or script to inspect which cars are allowed to charge.
+The **Peblar: List autocharge vehicles** action retrieves the vehicles stored in the Peblar charger's autocharge list. The action returns the list as response data, which you can use in an automation or script to inspect which cars are allowed to charge.
 
 Autocharge lets a car authorize itself. The charger recognizes the identifier the car's own controller presents when it is plugged in, so no card or app is needed.
 

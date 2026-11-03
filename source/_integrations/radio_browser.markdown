@@ -1,16 +1,7 @@
 ---
-title: Radio Browser
 description: Instructions on how to integrate Radio Browser into Home Assistant.
-ha_category:
-  - Media source
-  - Multimedia
 ha_release: 2022.3
-ha_iot_class: Cloud Polling
 ha_domain: radio_browser
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
-ha_integration_type: service
 ---
 
 The **Radio Browser** {% term integration %} brings the worldwide directory of internet radio stations from [Radio Browser](https://www.radio-browser.info) into Home Assistant. It adds Radio Browser as a media source, so you can browse thousands of stations and play them on your media players, like a speaker in the kitchen or a Cast device in the living room.
@@ -27,7 +18,7 @@ There is nothing to configure. The Radio Browser integration has no options, and
 
 ## Supported functionality
 
-Radio Browser does not add any {% term entities %}. Instead, it adds a media source you can browse from the media browser and from the **Play Media** action.
+Radio Browser does not add any {% term entities %}. Instead, it adds a media source you can browse from the media browser and from the **Play media** action.
 
 To listen to a station, go to **Media** > **Radio Browser**, then pick a station and choose the player to send it to:
 
@@ -43,7 +34,7 @@ When you open Radio Browser, you can find stations in several ways:
 
 ## Examples
 
-You can also start a station from an automation or script. The easiest way is to create the automation in the UI: add the **Play Media** action, browse the Radio Browser directory, and select a station. The station identifier is filled in for you. This lets you, for example, start your favorite station on the kitchen speaker every morning.
+You can also start a station from an automation or script. The easiest way is to create the automation in the UI: add the **Play media** action, browse the Radio Browser directory, and select a station. The station identifier is filled in for you. This lets you, for example, start your favorite station on the kitchen speaker every morning.
 
 If you prefer to write the automation in YAML, you need the station's UUID. To find it:
 

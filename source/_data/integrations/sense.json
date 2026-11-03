@@ -1,0 +1,20 @@
+{
+  "domain": "sense",
+  "name": "Sense",
+  "integration_type": "hub",
+  "codeowners": [
+    "@kbickar"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

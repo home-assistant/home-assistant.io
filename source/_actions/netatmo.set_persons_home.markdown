@@ -19,7 +19,7 @@ To mark people as at home from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Netatmo Indoor camera you want to control.
-6. From the actions shown for that target, select **Set persons at home**.
+6. From the actions shown for that target, under **Netatmo**, select **Set persons at home**.
 7. Enter the **Persons** you want to mark as at home.
 8. Select **Save**.
 
@@ -56,7 +56,7 @@ persons:
   type: list
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Netatmo camera" example="camera.living_room" %}
 
 ## Good to know
 

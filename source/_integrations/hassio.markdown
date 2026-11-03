@@ -1,26 +1,7 @@
 ---
-title: Home Assistant Supervisor
 description: Control Supervisor Apps and OS from Home Assistant
-ha_category:
-  - Backup
-  - Binary sensor
-  - Sensor
-  - Switch
-  - Update
-ha_iot_class: Local Polling
 ha_release: 0.42
 ha_domain: hassio
-ha_quality_scale: internal
-ha_platforms:
-  - backup
-  - binary_sensor
-  - diagnostics
-  - sensor
-  - switch
-  - update
-ha_codeowners:
-  - '@home-assistant/supervisor'
-ha_integration_type: integration
 ---
 
 The **Home Assistant Supervisor** {% term integration %} allows you to monitor and control Supervisor apps and operating system from Home Assistant.
@@ -73,7 +54,7 @@ For Home Assistant Host, the following sensors are available:
 
 For each installed app Supervisor provides following binary sensors:
 
-(These entities are disabled by default and must be re-enabled to appear)
+(These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and must be re-enabled to appear)
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |

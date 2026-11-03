@@ -1,18 +1,7 @@
 ---
-title: Crownstone
 description: Instructions on how to set up the Crownstone integration within Home Assistant.
-ha_category:
-  - Light
-ha_iot_class: Cloud Push
 ha_release: '2021.10'
-ha_config_flow: true
-ha_codeowners:
-  - '@Crownstone'
-  - '@RicArch97'
 ha_domain: crownstone
-ha_platforms:
-  - light
-ha_integration_type: integration
 ---
 
 The **Crownstone** {% term integration %} allows you to control your Crownstones either via the cloud or using a [Crownstone USB](#crownstone-usb) dongle.

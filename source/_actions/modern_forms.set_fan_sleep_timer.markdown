@@ -21,7 +21,7 @@ To set a fan sleep timer from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select your Modern Forms fan.
-6. From the actions shown for that target, select **Modern Forms: Set fan sleep timer**.
+6. From the actions shown for that target, under **Modern Forms**, select **Set fan sleep timer**.
 7. Enter the **Sleep time** in minutes.
 8. Select **Save**.
 
@@ -68,7 +68,8 @@ sleep_time:
 
 This automation sets a one-hour sleep timer on the bedroom fan every night, so it runs while you fall asleep and then turns itself off.
 
-- **Trigger**: A scheduled time
+- **Trigger**: Time
+  - **At time**: `22:30`
 - **Action**: Modern Forms: Set fan sleep timer
 
 {% details "YAML example for a nightly fan sleep timer" %}

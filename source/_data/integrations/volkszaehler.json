@@ -1,0 +1,16 @@
+{
+  "domain": "volkszaehler",
+  "name": "Volkszaehler",
+  "integration_type": "device",
+  "codeowners": [
+    "@StefanSchoof"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

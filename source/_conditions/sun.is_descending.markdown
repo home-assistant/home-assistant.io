@@ -48,7 +48,9 @@ This passes while the sun is sinking toward solar midnight.
 
 When the patio gets hot, lower the awning, but only while the sun is descending, so it reacts to the afternoon sun rather than a warm morning.
 
-- **Trigger**: Patio temperature rises above a threshold
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Patio temperature
+  - **Above**: `28`
 - **Condition**: Sun is descending
 - **Action**: Close cover
   - **Target**: Patio awning

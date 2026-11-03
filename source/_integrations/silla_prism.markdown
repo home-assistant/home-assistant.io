@@ -1,23 +1,7 @@
 ---
-title: Silla Prism
 description: Instructions on how to integrate your Silla Prism EV wallbox with Home Assistant.
-ha_category:
-  - Car
-  - Number
-  - Select
-  - Sensor
-ha_platforms:
-  - number
-  - select
-  - sensor
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@ebaschiera'
 ha_release: 2026.9
 ha_domain: silla_prism
-ha_integration_type: device
-ha_config_flow: true
-ha_quality_scale: bronze
 ---
 
 The **Silla Prism** {% term integration %} lets you monitor and control a [Silla Prism](https://silla.industries) electric vehicle wallbox from Home Assistant over its native MQTT protocol. [Silla](https://silla.industries) is an Italian manufacturer of EV charging equipment.

@@ -1,0 +1,23 @@
+@use "breakpoints";
+
+// The site's content container: content up to --layout-max-width,
+// centered, with at least the gutter on either side (the wide gutter
+// from the desk width). Every full-width component (header, hero,
+// footer) lines up on it.
+//
+// It is written as side padding rather than max-width plus auto
+// margins, so it works the same on a block, a flex item or a grid item;
+// auto margins make the latter two shrink to fit their content.
+@mixin container {
+	padding-inline: max(
+		var(--layout-gutter),
+		(100% - var(--layout-max-width)) / 2
+	);
+
+	@media only screen and (min-width: breakpoints.$desk) {
+		padding-inline: max(
+			var(--layout-gutter-wide),
+			(100% - var(--layout-max-width)) / 2
+		);
+	}
+}

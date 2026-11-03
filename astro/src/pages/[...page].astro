@@ -1,0 +1,46 @@
+---
+// Pages served by Astro on the website: every entry of the `pages`
+// collection (the routes in served-routes.json) at the same URL Jekyll
+// gives it. source/tos/index.markdown becomes /tos/.
+import { getCollection, render } from "astro:content";
+import Page from "../layouts/Page.astro";
+import Prose from "../components/Prose.astro";
+import servedRoutes from "../../served-routes.json" with { type: "json" };
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  // A served route can also have a page of its own in src/pages (such as
+  // bio/index.astro for /bio/), which builds it instead of this one.
+  const ownPages = Object.keys(import.meta.glob("./**/index.astro")).map(
+    (file) => file.slice("./".length, -"index.astro".length),
+  );
+  // A route without its Markdown file would otherwise just be missing
+  // from the build, and the deploy would fail copying it; failing here
+  // keeps Jekyll's page published on production instead.
+  const missing = servedRoutes.filter(
+    (route) =>
+      !ownPages.includes(route) &&
+      !pages.some((page) => `${page.id}/` === route),
+  );
+  if (missing.length) {
+    throw new Error(`No page for served route(s): ${missing.join(", ")}`);
+  }
+  return pages.map((page) => ({
+    params: { page: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<Page
+  title={page.data.title}
+  description={page.data.description}
+  source={`source/${page.id}/index.markdown`}
+>
+  <Prose title={page.data.title}>
+    <Content />
+  </Prose>
+</Page>

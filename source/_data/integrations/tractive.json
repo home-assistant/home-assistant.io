@@ -1,0 +1,23 @@
+{
+  "domain": "tractive",
+  "name": "Tractive",
+  "integration_type": "device",
+  "codeowners": [
+    "@Danielhiversen",
+    "@zhulik",
+    "@bieniu"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "silver",
+  "categories": [
+    "pets"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "device_tracker",
+    "diagnostics",
+    "sensor",
+    "switch"
+  ]
+}

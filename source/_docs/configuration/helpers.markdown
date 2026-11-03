@@ -96,7 +96,49 @@ If none of these sounds like your situation, you probably don't need a helper ye
 
 Some places let you create a helper right where you need it. For example, if a field asks for a toggle, a number, or a dropdown, the list of entities offers to create a new helper of that type.
 
-To change a helper later, select it in the list of helpers, and change its settings. Helpers that you set up in YAML can't be changed in the UI. Their settings show **The settings of this entity cannot be edited from the UI. Only entities set up from the UI are configurable from the UI.**
+## Changing a helper in the UI
+
+You can change any helper that you created in the UI. For example, you can add an option to a **Dropdown**, or add a sensor to a **Combine the state of several sensors** helper.
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select the helper.
+2. Select the cog {% icon "mdi:cog-outline" %} to open the settings.
+3. Change the settings that you need. Which settings you see depends on the type of helper:
+   - Every helper has the settings that all entities have, such as the name, the icon, the area, and **Voice assistants**. Some helpers, such as a **Button**, only have these settings.
+   - Some helpers also show their own settings, as in the following examples:
+     - A **Number** shows its **Minimum value** and **Maximum value**.
+     - A **Change device type of a switch** helper shows **Show switch as**.
+     - A **Toggle**, a **Counter**, or a **Text** helper shows its settings when you select **More options**.
+   - Helpers that calculate a value, and other helpers such as a **Group**, have their own settings in a separate entry, named after the helper type, such as **Template options** or **Derivative sensor options**. You find it above **Voice assistants**. Select it, change the settings, and then select **Submit**.
+4. If you changed settings in the settings dialog itself, select **Update**.
+
+## Changing a helper in YAML
+
+You can only change a helper in YAML if you set it up in YAML. Helpers that you created in the UI aren't stored in your YAML configuration.
+
+For a helper that you set up in YAML, you can't change its own settings in the UI, such as the range of a **Number**. If the helper has a unique ID, you can still change the settings that all entities have, such as the area, in the UI. Helpers that store a value, such as a **Toggle** or a **Number**, always have one. For other helpers, refer to [Why does this entity not have a unique ID?](/faq/unique_id/).
+
+### Prerequisites
+
+- The helper is set up in YAML.
+  - To check, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}. A helper that you set up in YAML shows {% icon "mdi:pencil-off" %} in the **Editable** column. Its settings show one of the following messages:
+    - **The settings of this entity cannot be edited from the UI. Only entities set up from the UI are configurable from the UI.**
+    - A message that the entity doesn't have a unique ID, and that its settings can't be managed from the UI.
+  - You can also look for the helper in your YAML configuration, such as {% term "configuration.yaml" %}.
+
+### To change a helper in YAML
+
+1. Open the YAML file where you set up the helper, such as {% term "configuration.yaml" %}.
+   - For ways to open and edit the file, refer to [Editing `configuration.yaml`](/docs/configuration/#editing-configurationyaml).
+2. Find the entry of the helper, and change its settings.
+   - For the settings of each type of helper, refer to its page, such as [Toggle](/integrations/input_boolean/).
+3. Save the file.
+4. [Reload the YAML configuration](/common-tasks/general/restarting/#reloading-the-yaml-configuration).
+   - Result: The helper uses its new settings.
+   - Some types of helpers, such as a **Counter**, don't support reloading. If the helper still uses its old settings, [restart Home Assistant](/common-tasks/general/restarting/#restarting-home-assistant).
+
+## Creating a similar helper
+
+You can't copy a helper. To use the same settings for several things, [create a new helper](#creating-a-helper) for each one. For example, to show the average temperature of each floor, create one **Combine the state of several sensors** helper per floor. In each one, select the temperature sensors of that floor.
 
 ## What happens to a helper value after a restart?
 
@@ -107,9 +149,12 @@ Most helpers keep their value after a restart, so usually you don't need to do a
 - A timer that should keep running
   - By default, a timer stops when Home Assistant restarts, and is idle afterwards. If an automation depends on the timer, turn on **Restore state and time when Home Assistant starts** in the settings of the timer. If the timer finishes while Home Assistant isn't running, automations that react to it don't run after the restart.
 - A toggle that should always start on or off
-  - By default, a toggle keeps its state. If it should always be **On**, or always **Off**, after a restart, change **Each time Home Assistant starts** in the settings of the toggle.
+  - By default, a toggle keeps its state. To change that, open the [settings](#changing-a-helper-in-the-ui) of the toggle, and select **More options**. Under **Each time Home Assistant starts**, select one of the following options:
+    - To always start on, select **Turn on**.
+    - To always start off, select **Turn off**.
+    - To keep the state from before the restart, select **Restore previous state**. This is the default.
 - A counter that should start again from its initial value
-  - By default, a counter keeps its value. To start at its initial value after every restart, turn off **Restore the last known value when Home Assistant starts** in the settings of the counter.
+  - By default, a counter keeps its value. To start at its initial value after every restart, turn off **Restore the last known value when Home Assistant starts** in the [settings](#changing-a-helper-in-the-ui) of the counter, under **More options**.
 - A number or a dropdown whose settings you changed
   - If you change the range of a number, its value moves to the nearest new limit. For example, if the value is `30` and you change the maximum to `25`, the value becomes `25`. If you change the range in YAML instead, and the last value is outside the new range, the number starts at its minimum after the restart.
   - If you remove the option that a dropdown is set to, the dropdown shows as **Unknown** until you select another option. After a restart, it starts at its first option.

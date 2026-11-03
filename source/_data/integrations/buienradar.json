@@ -1,0 +1,20 @@
+{
+  "domain": "buienradar",
+  "name": "Buienradar",
+  "integration_type": "service",
+  "codeowners": [
+    "@mjj4791",
+    "@ties",
+    "@Robbie1221"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "platforms": [
+    "camera",
+    "sensor",
+    "weather"
+  ]
+}

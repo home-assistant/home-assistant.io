@@ -1,0 +1,9 @@
+{
+  "domain": "google_pubsub",
+  "name": "Google Pub/Sub",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ]
+}

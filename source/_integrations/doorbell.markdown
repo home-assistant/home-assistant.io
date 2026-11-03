@@ -1,14 +1,7 @@
 ---
-title: Doorbell
 description: This integration provides a doorbell automation trigger.
-ha_category:
-  - Automation
 ha_release: 2026.5
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: doorbell
-ha_integration_type: system
 ---
 
 The **Doorbell** {% term integration %} provides an automation trigger for [event entities](/integrations/event/) with the [doorbell device class](/integrations/event/#device-class).

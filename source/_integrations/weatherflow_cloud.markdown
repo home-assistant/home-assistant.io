@@ -1,20 +1,7 @@
 ---
-title: WeatherflowCloud
 description: Instructions on how to integrate your WeatherFlow Tempest into Home Assistant through the WeatherFlow cloud.
 ha_release: 2024.3
-ha_category:
-  - Environment
-  - Sensor
-  - Weather
-ha_platforms:
-  - sensor
-  - weather
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@jeeftor'
 ha_domain: weatherflow_cloud
-ha_integration_type: hub
 ---
 
 The **WeatherFlow Cloud** {% term integration %} provides the cloud-based forecast and observations of your Tempest weather stations. To set it up, you need a [personal access token](https://apidocs.tempestwx.com/reference/quick-start) from your Tempest account.

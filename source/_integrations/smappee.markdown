@@ -1,24 +1,7 @@
 ---
-title: Smappee
 description: Instructions on how to set up Smappee within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Hub
-  - Sensor
-  - Switch
-ha_iot_class: Cloud Polling
 ha_release: 0.64
-ha_config_flow: true
-ha_codeowners:
-  - '@bsmappee'
 ha_domain: smappee
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - switch
-ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file

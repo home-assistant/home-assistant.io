@@ -1,0 +1,30 @@
+{
+  "domain": "plugwise",
+  "name": "Plugwise",
+  "integration_type": "hub",
+  "codeowners": [
+    "@CoMPaTech",
+    "@bouwew"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "climate.thermostats_heating",
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "diagnostics",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "water_heater"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

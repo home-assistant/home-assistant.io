@@ -85,10 +85,9 @@ automation: |
 
 When a person enters the cinema zone, toggle the projector remote.
 
-- **Trigger**: Zone
-  - **Entity**: Paulus (`person.paulus`)
-  - **Zone**: Cinema (`zone.cinema`)
-  - **Event**: Enter
+- **Trigger**: Zone entered
+  - **Target**: Paulus
+  - **Zone**: Cinema
 - **Action**: Toggle via remote
   - **Target**: Projector remote
 
@@ -98,10 +97,11 @@ When a person enters the cinema zone, toggle the projector remote.
 automation: |
   alias: "Toggle projector remote when Paulus enters cinema zone"
   triggers:
-    - trigger: zone
-      entity_id: person.paulus
-      zone: zone.cinema
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.paulus
+      options:
+        zone: zone.cinema
   actions:
     - action: remote.toggle
       target:

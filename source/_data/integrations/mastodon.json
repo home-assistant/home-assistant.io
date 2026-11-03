@@ -1,0 +1,20 @@
+{
+  "domain": "mastodon",
+  "name": "Mastodon",
+  "integration_type": "service",
+  "codeowners": [
+    "@fabaff",
+    "@andrew-codechimp"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "gold",
+  "categories": [
+    "news_social_media"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ]
+}

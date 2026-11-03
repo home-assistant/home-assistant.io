@@ -70,7 +70,9 @@ shuffle:
 
 Turn on shuffle mode when a trigger fires, for example when you start a party scene.
 
-- **Trigger**: Party scene activated
+- **Trigger**: State changed
+  - **Entity**: Party mode helper
+  - **To**: On
 - **Action**: Set media player shuffle
   - **Target**: Living room speaker
   - **Shuffle mode**: on

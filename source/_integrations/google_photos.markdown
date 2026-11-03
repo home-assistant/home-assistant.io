@@ -1,15 +1,7 @@
 ---
-title: Google Photos
 description: Instructions on how to use Google Photos in Home Assistant.
-ha_category:
-  - Media source
-ha_iot_class: Cloud Polling
 ha_release: '2024.10'
-ha_config_flow: true
 ha_domain: google_photos
-ha_codeowners:
-  - '@allenporter'
-ha_integration_type: service
 api: Google Photos Library API
 api_link: https://console.cloud.google.com/apis/library/photoslibrary.googleapis.com
 related:

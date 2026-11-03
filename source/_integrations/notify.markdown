@@ -1,14 +1,7 @@
 ---
-title: Notifications
 description: Instructions on how to add user notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_release: 0.7
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: notify
-ha_integration_type: entity
 ---
 
 The **Notify** {% term integration %} makes it possible to send notifications to a wide variety of platforms. To use it, you have to set up at least one notification target (notifier). Check the [integrations list](/integrations/#notifications) for one that fits your use case.
@@ -38,7 +31,7 @@ The notification actions serve different purposes:
 
 A common notification integration is via the Home Assistant Companion app for Android or iOS. If your phone is available as a notify entity, use the **Send a notification message** action and select that phone as the target. Some older setups may still provide a phone-specific action such as `notify.mobile_app_your_phone_name`. Refer to the [Companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for many customization options.
 
-With any of these integrations, the **Message** field in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional **Data** or **Target** information to customize the action. For more details, refer to their integration documentation.
+With any of these integrations, the **Message** field in the visual automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional **Data** or **Target** information to customize the action. For more details, refer to their integration documentation.
 
 Notifications can also be sent using [notify action groups](/integrations/group/#notify-action-groups). These allow you to send notifications to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
 
@@ -55,7 +48,7 @@ This automation sends a message to your phone when the garage door has been open
 - **Trigger**: State changed
   - **Entity**: Garage door (`binary_sensor.garage_door`)
   - **To**: On
-  - **For**: 00:10:00
+  - **For at least**: 00:10:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: The garage door has been open for 10 minutes.

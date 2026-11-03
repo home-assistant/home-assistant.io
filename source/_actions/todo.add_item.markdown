@@ -92,7 +92,9 @@ description:
 
 When you leave work, add a reminder to pick up groceries to your shopping list.
 
-- **Trigger**: You leave the work zone
+- **Trigger**: Zone left
+  - **Target**: Me
+  - **Zone**: Work
 - **Action**: Add to-do list item
   - **Target**: Shopping list
   - **Item name**: Pick up groceries
@@ -103,10 +105,11 @@ When you leave work, add a reminder to pick up groceries to your shopping list.
 automation: |
   alias: "Add a groceries reminder when leaving work"
   triggers:
-    - trigger: zone
-      entity_id: person.me
-      zone: zone.work
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.me
+      options:
+        zone: zone.work
   actions:
     - action: todo.add_item
       target:

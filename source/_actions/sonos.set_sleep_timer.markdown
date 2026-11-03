@@ -1,5 +1,5 @@
 ---
-title: "Set a Sonos sleep timer"
+title: "Set timer"
 action: sonos.set_sleep_timer
 domain: sonos
 description: "Sets a sleep timer that gradually fades out a Sonos speaker."
@@ -18,7 +18,7 @@ To set a Sonos sleep timer from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sonos speaker you want to set a timer for. You can also select an area, a device, or a label.
-6. From the actions shown for that target, select **Set timer**.
+6. From the actions shown for that target, under **Sonos**, select **Set timer**.
 7. Set the **Sleep time** in seconds.
 8. Select **Save**.
 
