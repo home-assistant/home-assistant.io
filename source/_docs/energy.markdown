@@ -69,4 +69,4 @@ To combine sources of the same type:
 
 To show each source on its own again, select **Combine sources** again.
 
-The **Combine sources** option is shown when at least one type has two or more sources. While the option is on, it stays visible, so you can always turn it off. Home Assistant remembers your choice in your browser and applies it to every tab of the Energy dashboard. The **Summary** tab always combines sources, so the option is not shown there.
+The **Combine sources** option is shown when at least one type has two or more sources. While the option is on, it stays visible, so you can always turn it off. Home Assistant remembers your choice in your browser and applies it to the **Electricity**, **Gas**, and **Water** tabs. The **Summary** tab always combines sources, so the option is not shown there.
