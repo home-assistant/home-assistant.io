@@ -11,7 +11,6 @@ since: "0.7"
 related_functions:
   - as_timedelta
   - timedelta_string
-  - timedelta_test
   - now
   - utcnow
   - today_at
