@@ -50,7 +50,7 @@ value:
 
 ## Good to know
 
-- Only real tuples pass. Lists, sets, dictionaries, and strings do not. To inspect the type of another value, use [`typeof`](/template-functions/typeof/).
+- Only values of the tuple type pass. Lists, sets, dictionaries, and strings do not. To inspect the type of another value, use [`typeof`](/template-functions/typeof/).
 - To convert a value to a tuple, use the [`tuple`](/template-functions/tuple/) function.
 
 {% include template_functions/try_it.md %}
