@@ -50,7 +50,7 @@ The prices for the following day are published every day around **14:00 UTC**. T
 
 - The integration only provides sensors. It doesn't provide actions or controls.
 - Home Assistant only has the values from the day you set up the integration. Earlier prices and consumption are not imported into the history or the statistics.
-- Every 15 minutes, the integration retrieves the 100 most recent quarter-hour price periods (25 hours) from the service and replaces the previous data in the price sensor’s attributes. Until the prices for the following day are published, they refer to yesterday and today. After the next update following the publication (around 14:00 UTC), they refer to today and tomorrow.
+- Every 15 minutes, the integration retrieves the 192 most recent quarter-hour price periods (48 hours) from the service and replaces the previous data in the price sensor’s attributes. Until the prices for the following day are published, they refer to yesterday and today. After the next update following the publication (around 14:00 UTC), they refer to today and tomorrow.
 - If no measurements are available for your account, the consumption sensor has no value.
 
 ## Sensors
