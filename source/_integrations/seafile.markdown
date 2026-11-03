@@ -111,22 +111,23 @@ The integration has been tested with Seafile 13 and 14 (Community Edition).
 
 - Encrypted libraries are not supported and are not shown in the list of libraries.
 - An account on a server can only be added once.
+- When a library is deleted on the Seafile server, or your account loses access to it, Home Assistant does not remove it automatically. A repair issue asks you to remove it, because a library that is only temporarily unavailable comes back by itself.
 
 ## Troubleshooting
 
 ### Symptom: The sensors of a library are unavailable
 
-The sensors of one or more libraries show as unavailable.
+The sensors of one or more libraries show as unavailable, and there may be a **Seafile library "…" not found** repair.
 
 #### Description
 
-Home Assistant can't reach the Seafile server, or the library is no longer available to your account: it was deleted on the server, or your account lost access to it. When the server can't be reached, the sensors of the account are unavailable as well.
+Home Assistant can't reach the Seafile server, or the library is no longer available to your account: it was deleted on the server, or your account lost access to it. When the server can't be reached, the sensors of the account are unavailable as well. When the server is reachable but the library is gone, Home Assistant creates a repair issue, and the library can no longer be used as a backup location.
 
 #### Resolution
 
 1. Check that Home Assistant can reach the Seafile server, and look for connection errors in {% my logs title="**Settings** > **System** > **Logs**" %}.
-2. Sign in to the Seafile web interface with the same account and check that the library is still listed.
-3. Only if the library is gone from your account, delete its library entry from the **Seafile** integration page.
+2. Sign in to the Seafile web interface with the same account and check that the library is still listed. If the library comes back, for example because it was shared with you again, the repair issue disappears by itself within a few minutes.
+3. If the library is gone for good, open the repair in {% my repairs title="**Settings** > **System** > **Repairs**" %} and select **Submit**. This removes the library, its device and its backup location from Home Assistant.
 
 ### Symptom: A library is not listed as a backup location
 
