@@ -58,9 +58,9 @@ Giving both is the most direct option, because Home Assistant talks straight to 
 
 When a LIFX device is added, it is named after its label in the LIFX app and placed in an area named after its group. If no area of that name exists yet, Home Assistant creates it.
 
-Home Assistant shows the area in front of the device name, so if a light's label starts with the name of its area, the device is named without it. For example, a light labeled **Kitchen Pendant** in the **Kitchen** group is named **Pendant**, so it shows as **Kitchen Pendant** instead of **Kitchen Kitchen Pendant**, and its light entity is `light.kitchen_pendant`. A label that is only the area name is kept as it is.
+By default, new entity IDs start with the area, so if a light's label starts with the name of its area, the device is named without it. For example, a light labeled **Kitchen Pendant** in the **Kitchen** group is named **Pendant**, and its light entity is `light.kitchen_pendant` instead of `light.kitchen_kitchen_pendant`. A label that is only the area name is kept as it is. If you have removed **Area** from the [entity ID format](/docs/configuration/customizing-entities/#changing-the-entity-id-format-for-new-entities), the device keeps its full label.
 
-If you rename a light in the LIFX app, or move its device to another area in Home Assistant, Home Assistant renames the device on its next poll, unless you have given the device a name in Home Assistant. Moving a light to another group in the LIFX app does not move it to another area.
+If you rename a light in the LIFX app, move its device to another area in Home Assistant, or change the entity ID format, Home Assistant renames the device on its next poll, unless you have given the device a name in Home Assistant. Entity IDs that already exist do not change. Moving a light to another group in the LIFX app does not move it to another area.
 
 ## Changing the address of a light
 
