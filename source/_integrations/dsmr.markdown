@@ -24,7 +24,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 - For official information about the Swedish variant refer to: [Swedish specification](https://www.energiforetagen.se/globalassets/energiforetagen/det-erbjuder-vi/kurser-och-konferenser/elnat/branschrekommendation-lokalt-granssnitt-v2_0-201912.pdf).
 - For official information about the E.ON Hungary variant refer to: [E.ON Hungary P1 port specification](https://www.eon.hu/content/dam/eon/eon-hungary/documents/Lakossagi/aram/muszaki-ugyek/P1_port_felhasznaloi_interfesz_felhasznaloi_tajekoztato_%2020240702.pdf)
-- Supports [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602) integrated in a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103).
+- For RFXCOM hardware, see [chapter 19 of the RFXtrx User Guide](https://rfxcom.com/download/RFXtrx_User_Guide.pdf) for supported P1 smart meter connection options.
 
 <p class='img'>
 <img src='/images/screenshots/dsmr.png' />
@@ -80,7 +80,7 @@ While previously only 1 gas meter was supported, there is now support for multip
 ### Connecting to the meter
 
 Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy.
-It is also possible to connect to a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103) with an integrated [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602).
+For details about connecting an RFXtrx433XL or RFX433 to a P1 smart meter, see [chapter 19 of the RFXtrx User Guide](https://rfxcom.com/download/RFXtrx_User_Guide.pdf).
 
 #### USB serial converters:
 
