@@ -113,6 +113,8 @@ Additional diagnostic sensors are exposed but disabled by default. See [enabling
 ### Binary sensor entities
 
 - **H1 Summer function**: **On** while the controller's summer function is holding the H1 mixing valve closed. The controller enables and disables the summer function automatically based on the outside temperature.
+- **Circulation pump** (on the main device, when the relay is configured for pump summer stop mode): **Running** while the relay is driving the circulation pump.
+- **Relay** (on the main device, when the relay is configured for temperature, temperature-difference, H1 valve position, or time-program modes): **On** while the relay is switched on.
 
 ### Valve entities
 
