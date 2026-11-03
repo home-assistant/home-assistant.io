@@ -31,6 +31,13 @@ You can test your newly created API key on the [AccuWeather location search](htt
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+API key:
+  description: "The API key generated in the AccuWeather APIs portal. You can find it in the **Subscriptions & Keys** section after you create an application."
+Location:
+  description: "The location you want weather data for. Select it on the map. By default, the map shows your Home Assistant home location."
+{% endconfiguration_basic %}
+
 ## Data updates
 
 By default, the integration {% term polling polls %} the current weather condition data from the AccuWeather API every 10 minutes, daily forecast data every 6 hours, and hourly forecast data every 30 minutes.
