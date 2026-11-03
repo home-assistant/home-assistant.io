@@ -146,6 +146,7 @@ due_date_period:
   calendar:
     period: day
     offset: 6
+```
 
 ## Searching items
 
