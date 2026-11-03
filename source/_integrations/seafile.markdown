@@ -94,7 +94,7 @@ Each library is added as a separate device in Home Assistant, with the following
   - **Options**:
     - **Keep full history**: Keep all older versions. This is the default in Seafile.
     - **Don't keep history**: Keep no older versions. Seafile removes the existing history.
-    - **Keep a period of history**: Keep the older versions of a number of days. Switching to it from another option keeps 30 days; a period that is already set stays as it is. You can change the number of days in Seafile.
+    - **Keep a period of history**: Keep the older versions for a set number of days. Switching to it from another option sets a period of 30 days. A period that is already set stays as it is. You can change the number of days in Seafile.
   - **Remarks**: Only available for libraries you own or administer.
 
 ### Backups
