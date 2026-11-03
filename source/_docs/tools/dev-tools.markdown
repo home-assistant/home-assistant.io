@@ -19,6 +19,7 @@ The Tools page has the following tabs:
 - [**YAML** tab](#yaml-tab): Check your configuration, reload YAML configuration, and restart Home Assistant.
 - [**States** tab](#states-tab): See the current state and attributes of your entities, and set a state to test automations.
 - [**Actions** tab](#actions-tab): Perform any {% term action %}, for example, to control a device.
+- [**Action history** tab](#action-history-tab): See the actions that were performed during a time range you choose.
 - [**Template** tab](#template-editor-tab): Write a template and see its result right away.
 - [**Events** tab](#events-tab): Fire an event, or listen to events to see what happens.
 - [**Statistics** tab](#statistics-tab): Find, fix, and adjust {% term "long-term statistics" %}.
@@ -28,7 +29,7 @@ The Tools page has the following tabs:
 
 The YAML tab provides buttons to trigger a check of configuration files and to reload the configuration. Reloading is needed to apply changes that you've made to the configuration.
 
-It is almost the same as the option under **Settings** > three dots {% icon "mdi:dots-vertical" %} menu (top right) > **Restart Home Assistant** > **Quick reload**. The only difference is that **Quick reload** reloads all the configuration, whereas this YAML tab allows you to only reload one specific configuration at a time.
+It is almost the same as **Quick reload**, which you open from the power {% icon "mdi:power" %} icon under {% my system_dashboard title="**Settings** > **System**" %}. The only difference is that **Quick reload** reloads all the configuration, whereas this YAML tab allows you to only reload one specific configuration at a time. For the steps of a quick reload, refer to [Reloading the YAML configuration](/common-tasks/general/restarting/#reloading-the-yaml-configuration).
 
 ### Reloading the YAML configuration
 
@@ -100,8 +101,10 @@ Most actions work on a target, such as an {% term entity %}, a device, or an {% 
 2. In the **Action** dropdown list, select the action. The list shows the name of each action, with its integration on the right. For example, to turn on a light, select **Turn on light**, with **Light** next to it. You can also search by name, integration, or action ID, such as `light.turn_on`.
    - Result: The options of the action are shown.
 3. If the action accepts a target, select **Add target**, and then select what you want to control, for example, an entity or an area.
-4. Fill in the options that you need.
-5. Select **Perform action**.
+4. Optional: To leave out some entities, select **Exclude target**, and then select what to leave out.
+   - For example, leave out one light in an area. For details, refer to [Excluding targets](/docs/automation/targets/#excluding-targets).
+5. Fill in the options that you need.
+6. Select **Perform action**.
    - Result: The action runs. If the action returns data, the data is shown under **Response**. To use the data in a template, select **Copy to clipboard as template**.
 
 ### Performing an action in YAML mode
@@ -125,6 +128,54 @@ Some options, and {% term templates %}, are only available in **YAML mode**. In 
 
 4. Select **Perform action**.
    - Result: The action runs. If the action returns data, the data is shown under **Response**.
+
+## Action history tab
+
+The **Action history** tab lists the {% term actions %} that were performed in Home Assistant during a time range you choose. For each action, it shows what the action targeted, what performed it, and when. Use it to find out why a {% term device %} turned on or off, which {% term automation %} or {% term script %} performed an action, or which data an action was performed with.
+
+The tab is only shown if the [Activity](/integrations/logbook/) integration is loaded. **Activity** is part of the [default configuration](/integrations/default_config/). The action history comes from the database that the [Recorder](/integrations/recorder/) maintains, so it only covers the period that the Recorder keeps.
+
+The list shows the following columns:
+
+- **Action**: The name of the action. Under the name, the action ID is shown, for example, **Turn on light** with `light.turn_on`.
+- **Targets**: The {% term entities %}, devices, {% term areas %}, floors, and labels that the action targeted.
+- **Cause**: What performed the action, for example, a user, an automation, a script, a state change, or an {% term integration %}.
+- **Time**: The date and time the action was performed, to the second. The newest actions are shown first.
+
+### Viewing the action history
+
+1. Go to **Settings** > **Tools** > **Action history**.
+   - Result: The list shows the actions performed from the start of the previous hour until now.
+2. Optional: To show a different period, at the top of the list, select the date range. Select a preset, or select a start and end date and time.
+3. Optional: To find an action, enter text in the search box. The search matches the action name, the action ID, the targets, and the cause.
+4. Optional: To show actions performed since you opened the tab, select **Refresh** {% icon "mdi:refresh" %}. The list doesn't update on its own.
+
+### Viewing the details of an action
+
+1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+   - Result: A dialog shows the details of the action:
+     - **Time**: The date and time the action was performed, to the second.
+     - **Cause**: What or who performed the action and, if available, what triggered it.
+     - **User**: The user the action was performed for, if this user isn't already shown as the cause.
+     - **Context ID**: The ID of the context that the action was performed in. You can use it to find related events.
+     - **Data**: The data the action was performed with, in YAML, such as the targets and options.
+2. Optional: If **View trace** is shown, select it to open the automation or script's [trace](/docs/automation/troubleshooting/#traces) and see why it ran. This option is only shown while Home Assistant still keeps the trace of that run.
+
+### Copying the YAML of an action
+
+You can copy the YAML of an action and use it in an automation or a script.
+
+1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+2. In the action dialog, select **Copy as YAML** {% icon "mdi:content-copy" %} button to copy the YAML.
+   - Result: The action is copied with its targets and data, in the same format as an action in an automation.
+
+### Performing an action again
+
+To perform an action again with the same data:
+
+1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+2. In the action dialog, select **Perform again**. This button is only shown if the action is still available.
+   - Result: The action runs again, and controls the same devices as the first time.
 
 ## Template editor tab
 
@@ -256,7 +307,7 @@ Some fixes delete the statistics of the entity. Deleted statistics can't be rest
 To avoid this:
 
 - Read the dialog carefully before you select **Delete**.
-- Before you delete statistics, [create a backup](/common-tasks/general/#creating-a-manual-backup).
+- Before you delete statistics, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup).
 {% endimportant %}
 
 #### To fix a statistics issue
@@ -304,7 +355,7 @@ Deleted statistics can't be restored, except from a backup.
 To avoid this:
 
 - Check that you selected the right statistics.
-- Before you delete statistics, [create a backup](/common-tasks/general/#creating-a-manual-backup).
+- Before you delete statistics, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup).
 {% endimportant %}
 
 #### To delete statistics
@@ -317,7 +368,7 @@ To avoid this:
 
 ## Assist tab
 
-The **Assist** tab lets you test how Assist understands a sentence, without running anything. Home Assistant checks the sentence against the [built-in sentences](/voice_control/builtin_sentences/), your [custom sentences](/integrations/conversation/#adding-custom-sentences), and the [sentence triggers](/docs/automation/trigger/#sentence-trigger) of your {% term automations %}, and shows what matches. No {% term action %} runs, and no automation starts. Use it to find out why Assist doesn't understand a sentence, or to check a new sentence before you use it.
+The **Assist** tab lets you test how Assist understands a sentence, without running anything. Home Assistant checks the sentence against the [built-in sentences](/voice_control/builtin_sentences/), your [custom sentences](/integrations/conversation/#adding-custom-sentences), and the [sentence triggers](/triggers/conversation/) of your {% term automations %}, and shows what matches. No {% term action %} runs, and no automation starts. Use it to find out why Assist doesn't understand a sentence, or to check a new sentence before you use it.
 
 The **Assist** tab only tests the built-in Home Assistant conversation agent. If your assistant uses another conversation agent, such as an AI agent, [test the sentence in the debug view](/voice_control/troubleshooting/#test-a-sentence-per-assistant-without-voice-while-executing-the-commands) instead.
 

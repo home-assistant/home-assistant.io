@@ -1,0 +1,12 @@
+{
+  "domain": "cmus",
+  "name": "cmus",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "media_entertainment.music_radio_services"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

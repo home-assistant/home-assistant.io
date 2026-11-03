@@ -1,0 +1,12 @@
+{
+  "domain": "limitlessled",
+  "name": "LimitlessLED",
+  "iot_class": "assumed_state",
+  "quality_scale": "legacy",
+  "categories": [
+    "lighting.bulbs_lamps"
+  ],
+  "platforms": [
+    "light"
+  ]
+}

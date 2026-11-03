@@ -1,0 +1,17 @@
+{
+  "domain": "ollama",
+  "name": "Ollama",
+  "integration_type": "service",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "ai_voice.ai_models"
+  ],
+  "platforms": [
+    "ai_task",
+    "conversation"
+  ]
+}

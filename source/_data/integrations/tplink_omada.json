@@ -1,0 +1,22 @@
+{
+  "domain": "tplink_omada",
+  "name": "TP-Link Omada",
+  "integration_type": "hub",
+  "codeowners": [
+    "@MarkGodwin"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "device_tracker",
+    "diagnostics",
+    "sensor",
+    "switch",
+    "update"
+  ]
+}

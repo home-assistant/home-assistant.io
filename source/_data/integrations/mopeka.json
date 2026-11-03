@@ -1,0 +1,19 @@
+{
+  "domain": "mopeka",
+  "name": "Mopeka",
+  "integration_type": "device",
+  "codeowners": [
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "energy"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

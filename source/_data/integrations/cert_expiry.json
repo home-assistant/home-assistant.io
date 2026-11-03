@@ -1,0 +1,17 @@
+{
+  "domain": "cert_expiry",
+  "name": "Certificate Expiry",
+  "integration_type": "service",
+  "codeowners": [
+    "@jjlawren"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "computers_network.monitoring"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

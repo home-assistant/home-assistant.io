@@ -1,0 +1,18 @@
+{
+  "domain": "iotty",
+  "name": "iotty",
+  "integration_type": "device",
+  "codeowners": [
+    "@shapournemati-iotty"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "plugs_switches",
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "cover",
+    "switch"
+  ]
+}

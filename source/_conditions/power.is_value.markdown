@@ -120,6 +120,8 @@ threshold:
     When you use a literal number, add `unit_of_measurement` with one of the supported power units.
 
     Supported units are `mW`, `W`, `kW`, `MW`, `GW`, `TW`, and `BTU/h`.
+
+    When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the condition doesn't pass.
   required: true
   type: map
 behavior:
@@ -132,13 +134,13 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` requires the reading to stay in range for 5 minutes.
+  description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` requires the reading to stay in range for 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="power sensor" example="sensor.washing_machine_power" %}
 
 {% include conditions/behavior.md %}
 

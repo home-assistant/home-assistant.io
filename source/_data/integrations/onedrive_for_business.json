@@ -1,0 +1,18 @@
+{
+  "domain": "onedrive_for_business",
+  "name": "OneDrive for Business",
+  "integration_type": "service",
+  "codeowners": [
+    "@zweckj"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

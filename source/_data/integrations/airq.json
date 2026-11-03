@@ -1,0 +1,22 @@
+{
+  "domain": "airq",
+  "name": "air-Q",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Sibgatulin",
+    "@dl2080"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "platforms": [
+    "diagnostics",
+    "number",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "domain": "withings",
+  "name": "Withings",
+  "integration_type": "hub",
+  "codeowners": [
+    "@joostlek"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "health_wellbeing"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "calendar",
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

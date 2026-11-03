@@ -1,0 +1,24 @@
+{
+  "domain": "rachio",
+  "name": "Rachio",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bdraco",
+    "@rfverbruggen"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "garden_plants"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "calendar",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp",
+    "homekit",
+    "zeroconf"
+  ]
+}

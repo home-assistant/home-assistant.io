@@ -23,7 +23,7 @@ You add conditions in the **And if** section of the automation editor, with **Ad
 
 For all conditions, refer to the [list of available conditions](/conditions/). The built-in conditions are in the [General](/conditions/#homeassistant) group. The **Device** condition is in the [Device automation](/conditions/#device_automation) group.
 
-Many conditions check a target, such as a light or all windows in an area. If the target covers several entities, the **Condition passes if** option decides whether one or all of them must match. For details, refer to [Automation targets](/docs/automation/targets/#conditions-any-and-all).
+Many conditions check a target, such as a light or all windows in an area. If the target covers several entities, the **Condition passes if** option decides whether one or all of them must match. For details, refer to [Automation targets](/docs/automation/targets/#conditions-any-and-all). To leave out some of the targets, refer to [Excluding targets](/docs/automation/targets/#excluding-targets).
 
 ## Conditions check the current state
 

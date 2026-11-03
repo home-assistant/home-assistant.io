@@ -1,0 +1,26 @@
+{
+  "domain": "yale",
+  "name": "Yale Home",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "security_safety.locks_access",
+    "security_safety.doorbells_intercoms"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "camera",
+    "diagnostics",
+    "event",
+    "lock",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

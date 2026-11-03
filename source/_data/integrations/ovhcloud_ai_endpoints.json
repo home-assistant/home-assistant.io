@@ -1,0 +1,18 @@
+{
+  "domain": "ovhcloud_ai_endpoints",
+  "name": "OVHcloud AI Endpoints",
+  "integration_type": "service",
+  "codeowners": [
+    "@Crocmagnon"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "ai_voice.ai_models"
+  ],
+  "platforms": [
+    "conversation",
+    "diagnostics"
+  ]
+}

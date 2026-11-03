@@ -1,0 +1,17 @@
+{
+  "domain": "agent_dvr",
+  "name": "Agent DVR",
+  "integration_type": "hub",
+  "codeowners": [
+    "@ispysoftware"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "security_safety.cameras"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "camera"
+  ]
+}

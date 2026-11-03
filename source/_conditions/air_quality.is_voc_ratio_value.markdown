@@ -56,9 +56,10 @@ This passes when the bedroom VOC ratio sensor reads above 150 ppb.
    unit_default="ppb"
    unit_example_entity="input_number.voc_ratio_alert_level"
    unit_example_value="200"
-   threshold_required="true" %}
+   threshold_required="true"
+   entity_unit_note="Home Assistant converts the value from the entity's unit: `ppb`, `ppm`, or `%`. An entity without a unit is read as a plain ratio, so 150 ppb is `0.00000015`." %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="volatile organic compounds ratio sensor" example="sensor.living_room_voc_ratio" %}
 
 {% include conditions/behavior.md %}
 

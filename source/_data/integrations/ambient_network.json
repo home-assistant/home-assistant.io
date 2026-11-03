@@ -1,0 +1,16 @@
+{
+  "domain": "ambient_network",
+  "name": "Ambient Weather Network",
+  "integration_type": "service",
+  "codeowners": [
+    "@thomaskistler"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

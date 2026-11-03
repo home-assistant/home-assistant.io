@@ -58,7 +58,7 @@ lookup_value:
 ## Good to know
 
 - Returns `None` when no label matches the name.
-- The match is case-sensitive. `"critical"` does not match a label named `"Critical"`.
+- Uppercase and lowercase letters and spaces in the name don't matter. `"critical"` matches a label named `"Critical"`.
 
 {% include template_functions/try_it.md %}
 

@@ -1,0 +1,25 @@
+{
+  "domain": "wmspro",
+  "name": "WMS WebControl pro",
+  "integration_type": "hub",
+  "codeowners": [
+    "@mback2k"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "button",
+    "cover",
+    "diagnostics",
+    "light",
+    "number",
+    "scene",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "domain": "emby",
+  "name": "Emby",
+  "codeowners": [
+    "@mezz64"
+  ],
+  "iot_class": "local_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

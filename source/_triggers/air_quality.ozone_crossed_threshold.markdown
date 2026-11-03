@@ -60,7 +60,7 @@ This fires when the backyard ozone sensor reading rises above 100 μg/m³.
    unit_example_entity="input_number.ozone_alert_level"
    unit_example_value="120" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="ozone sensor" example="sensor.living_room_ozone" %}
 
 {% include triggers/behavior.md %}
 

@@ -1,18 +1,7 @@
 ---
-title: SQL
 description: Instructions how to integrate SQL sensors into Home Assistant.
-ha_categories:
-  - diy_makers.web_data_connectors
 ha_release: 0.63
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@gjohansson-ST'
-  - '@dougiteixeira'
 ha_domain: sql
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file

@@ -1,0 +1,26 @@
+{
+  "domain": "comelit",
+  "name": "Comelit SimpleHome",
+  "integration_type": "hub",
+  "codeowners": [
+    "@chemelli74"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "hubs_protocols.smart_home_hubs",
+    "security_safety.alarm_systems"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "climate",
+    "cover",
+    "diagnostics",
+    "humidifier",
+    "light",
+    "sensor",
+    "switch"
+  ]
+}

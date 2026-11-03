@@ -1,0 +1,11 @@
+{
+  "domain": "hardkernel",
+  "name": "Hardkernel",
+  "integration_type": "hardware",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "categories": [
+    "diy_makers.boards_hardware"
+  ]
+}

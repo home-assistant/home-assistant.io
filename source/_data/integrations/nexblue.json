@@ -1,0 +1,19 @@
+{
+  "domain": "nexblue",
+  "name": "NexBlue",
+  "integration_type": "hub",
+  "codeowners": [
+    "@nexblue-maintainer"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.ev_charging"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor",
+    "switch"
+  ]
+}

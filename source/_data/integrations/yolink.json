@@ -1,0 +1,26 @@
+{
+  "domain": "yolink",
+  "name": "YoLink",
+  "integration_type": "hub",
+  "codeowners": [
+    "@matrixd2"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "cover",
+    "light",
+    "lock",
+    "number",
+    "select",
+    "sensor",
+    "siren",
+    "switch",
+    "valve"
+  ]
+}
