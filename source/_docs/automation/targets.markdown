@@ -23,7 +23,7 @@ A target can be a single {% term entity %}, or a group of entities, such as all 
 You can use one or more targets in a trigger, condition, or action. You can also combine different target types, for example, one entity and an entire area.
 
 - **Entity**: That one entity, for example, the hallway light.
-- **Device**: The matching entities of that {% term device %}. If the device has [sub-devices](/docs/configuration/customizing-entities/#about-parent-devices-and-sub-devices), such as the outlets of a power strip, their matching entities are part of the target as well.
+- **Device**: The matching entities of that {% term device %}. If the device has [child devices](/docs/configuration/customizing-entities/#parent-and-child-devices), such as the outlets of a power strip, their matching entities are part of the target as well.
 - **Area**: The matching entities in that area.
 - **Floor**: The matching entities in all areas on that {% term floor %}.
 - **Label**: The matching entities that have that {% term label %}. If the label is on a device or an area, the matching entities of that device or area are part of the target as well.
