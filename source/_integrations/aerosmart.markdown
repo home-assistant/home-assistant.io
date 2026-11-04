@@ -38,7 +38,7 @@ The register map was derived from one physical installation because no official 
 
 {% configuration_basic %}
 Connection type:
-  description: "Choose Network for a Modbus TCP gateway or Serial port for Modbus RTU."
+  description: "Choose **Network** for a Modbus TCP gateway or **Serial port** for Modbus RTU."
 Host:
   description: "The hostname or IP address of your Modbus TCP gateway. For example, `192.168.1.100`."
 Port:
@@ -82,7 +82,7 @@ This automation sends a notification when the measured carbon dioxide level rise
   - **Above**: `1000`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-  - **Message**: The aerosmart CO2 level is above 1000 ppm.
+  - **Message**: `The aerosmart CO2 level is above 1000 ppm`.
 
 {% details "YAML example for a high CO2 notification" %}
 
@@ -111,7 +111,7 @@ The integration {% term polling polls %} operating values and the controller clo
 
 Requests to both units are serialized because some serial-to-Modbus-TCP gateways need quiet time between requests. If one subsystem does not answer, only its entities become unavailable. Values from subsystems that answered remain available.
 
-During setup, the integration waits for the first update from both controller units. A slow gateway can therefore delay setup for more than 30 seconds; if the initial update fails, Home Assistant retries setup. After setup, the integration polls values on its regular intervals.
+During setup, the integration waits for the first update from both controller units. A slow gateway can therefore delay setup for more than 30 seconds. If the initial update fails, Home Assistant retries setup. After setup, the integration polls values on its regular intervals.
 
 ## Known limitations
 
