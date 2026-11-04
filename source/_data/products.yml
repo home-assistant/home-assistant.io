@@ -190,6 +190,10 @@ green:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/nabu-casa-home-assistant-green/
       logo: /images/distributors/nurkantakaa.webp
+    - name: Reichelt
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.reichelt.com/de/en/shop/product/home_assistant_green-441682
 yellow:
   name: "<strong>Home Assistant Yellow</strong>"
   distributors:
@@ -520,6 +524,10 @@ voice-pe:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/nabu-casa-home-assistant-voice-preview-edition/
       logo: /images/distributors/nurkantakaa.webp
+    - name: Reichelt
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.reichelt.com/de/en/shop/product/home_assistant_voice_pe-441683
 zwa-2:
   name: "<strong>Home Assistant</strong> Connect ZWA-2"
   distributors:
@@ -692,6 +700,10 @@ zwa-2:
       ship_to: Europe
       url: https://smartdomo.de/products/z-wave-adapter-home-assistant-connect-zwa-2
       logo: /images/distributors/smartdomo.webp
+    - name: Reichelt
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.reichelt.com/de/en/shop/product/home_assistant_connect_zwa-2-441684
 zbt-2:
   name: "<strong>Home Assistant</strong> Connect ZBT-2"
   distributors:
@@ -879,6 +891,10 @@ zbt-2:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/nc-zbt-9741/
       logo: /images/distributors/nurkan-takaa.webp
+    - name: Reichelt
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.reichelt.com/de/en/shop/product/home_assistant_connect_zbt-2-441685
     - name: Smart Guys
       ship_from: Australia
       ship_to: Australia

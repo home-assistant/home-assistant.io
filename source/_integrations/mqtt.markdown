@@ -9,116 +9,52 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 {% include integrations/config_flow.md %}
 
-MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery) or [added manually](#manual-configured-mqtt-items) via YAML or subentries.
+MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery) or [added manually](#manual-configured-mqtt-items) via YAML or [subentries](#adding-an-mqtt-device-via-a-subentry).
 
-<a name="configuration-via-mqtt-discovery"></a>
-{% details "Configuration of MQTT components via MQTT discovery" %}
+<a name="configuration-via-mqtt-discovery"></a><a name="configuration-via-yaml"></a><a name="configuration-via-subentries"></a>The table below shows which configuration methods each MQTT platform supports. Select a platform to see its configuration options.
 
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Camera](/integrations/camera.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Climate (HVAC)](/integrations/climate.mqtt/)
-- [Date](/integrations/date.mqtt/)
-- [Date Time](/integrations/datetime.mqtt/)
-- [Device tracker](/integrations/device_tracker.mqtt/)
-- [Device trigger](/integrations/device_trigger.mqtt/)
-- [Event](/integrations/event.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Infrared](/integrations/infrared.mqtt/)
-- [Lawn mower](/integrations/lawn_mower.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Notify](/integrations/notify.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Scene](/integrations/scene.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Update](/integrations/update.mqtt/)
-- [Tag scanner](/integrations/tag.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Time](/integrations/time.mqtt/)
-- [Vacuum](/integrations/vacuum.mqtt/)
-- [Valve](/integrations/valve.mqtt/)
-- [Water heater](/integrations/water_heater.mqtt/)
+| Platform | [YAML](#manual-configured-mqtt-items) | [Discovery](#mqtt-discovery) | [Subentry](#adding-an-mqtt-device-via-a-subentry) |
+| :--- | :---: | :---: | :---: |
+| [Alarm control panel](/integrations/alarm_control_panel.mqtt/) | ✅ | ✅ | ✅ |
+| [Binary sensor](/integrations/binary_sensor.mqtt/) | ✅ | ✅ | ✅ |
+| [Button](/integrations/button.mqtt/) | ✅ | ✅ | ✅ |
+| [Camera](/integrations/camera.mqtt/) | ✅ | ✅ | ❌ |
+| [Climate (HVAC)](/integrations/climate.mqtt/) | ✅ | ✅ | ✅ |
+| [Cover](/integrations/cover.mqtt/) | ✅ | ✅ | ✅ |
+| [Date](/integrations/date.mqtt/) | ✅ | ✅ | ✅ |
+| [Date/Time](/integrations/datetime.mqtt/) | ✅ | ✅ | ✅ |
+| [Device tracker](/integrations/device_tracker.mqtt/) | ✅ | ✅ | ❌ |
+| [Device trigger](/integrations/device_trigger.mqtt/) | ❌ | ✅ | ❌ |
+| [Event](/integrations/event.mqtt/) | ✅ | ✅ | ❌ |
+| [Fan](/integrations/fan.mqtt/) | ✅ | ✅ | ✅ |
+| [Humidifier](/integrations/humidifier.mqtt/) | ✅ | ✅ | ❌ |
+| [Image](/integrations/image.mqtt/) | ✅ | ✅ | ✅ |
+| [Infrared](/integrations/infrared.mqtt/) | ✅ | ✅ | ❌ |
+| [Lawn mower](/integrations/lawn_mower.mqtt/) | ✅ | ✅ | ❌ |
+| [Light](/integrations/light.mqtt/) | ✅ | ✅ | ✅ |
+| [Lock](/integrations/lock.mqtt/) | ✅ | ✅ | ✅ |
+| [Notify](/integrations/notify.mqtt/) | ✅ | ✅ | ✅ |
+| [Number](/integrations/number.mqtt/) | ✅ | ✅ | ✅ |
+| [Scene](/integrations/scene.mqtt/) | ✅ | ✅ | ❌ |
+| [Select](/integrations/select.mqtt/) | ✅ | ✅ | ✅ |
+| [Sensor](/integrations/sensor.mqtt/) | ✅ | ✅ | ✅ |
+| [Siren](/integrations/siren.mqtt/) | ✅ | ✅ | ✅ |
+| [Switch](/integrations/switch.mqtt/) | ✅ | ✅ | ✅ |
+| [Tag scanner](/integrations/tag.mqtt/) | ❌ | ✅ | ❌ |
+| [Text](/integrations/text.mqtt/) | ✅ | ✅ | ✅ |
+| [Time](/integrations/time.mqtt/) | ✅ | ✅ | ✅ |
+| [Update](/integrations/update.mqtt/) | ✅ | ✅ | ❌ |
+| [Vacuum](/integrations/vacuum.mqtt/) | ✅ | ✅ | ❌ |
+| [Valve](/integrations/valve.mqtt/) | ✅ | ✅ | ✅ |
+| [Water heater](/integrations/water_heater.mqtt/) | ✅ | ✅ | ✅ |
 
-{% enddetails %}
-
-<a name="configuration-via-yaml"></a>
-{% details "Configuration of MQTT components via YAML" %}
-
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Camera](/integrations/camera.mqtt/)
-- [Climate (HVAC)](/integrations/climate.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Date](/integrations/date.mqtt/)
-- [Date Time](/integrations/datetime.mqtt/)
-- [Device tracker](/integrations/device_tracker.mqtt/)
-- [Event](/integrations/event.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Infrared](/integrations/infrared.mqtt/)
-- [Lawn mower](/integrations/lawn_mower.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Notify](/integrations/notify.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Scene](/integrations/scene.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Time](/integrations/time.mqtt/)
-- [Update](/integrations/update.mqtt/)
-- [Vacuum](/integrations/vacuum.mqtt/)
-- [Valve](/integrations/valve.mqtt/)
-- [Water heater](/integrations/water_heater.mqtt/)
-
-{% enddetails %}
-
-<a name="configuration-via-subentries"></a>
-{% details "Configuration of MQTT components via Subentries" %}
-
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Climate (HVAC)](/integrations/climate.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Date](/integrations/date.mqtt/)
-- [Date/Time](/integrations/datetime.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Notify](/integrations/notify.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Time](/integrations/time.mqtt/)
-- [Valve](/integrations/valve.mqtt/)
-- [Water heater](/integrations/water_heater.mqtt/)
-
-To add an MQTT device via a Subentry, follow these steps:
+<a name="adding-an-mqtt-device-via-a-subentry"></a>To add an MQTT device via a subentry, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
 3. Add a subentry via {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %}, and select **Add MQTT device**.
 
 A device context and one or more entities can be added to the subentry.
-
-{% enddetails %}
 
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 

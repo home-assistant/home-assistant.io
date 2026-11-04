@@ -1,0 +1,265 @@
+// The animated "What the Heck?!" 2026 header for blog posts, from
+// source/_includes/blog/wth-2026-header.html. It borrows the hero of the WTH
+// landing page: the 3D wordmark and the moving routing lines, with the date
+// set as on the OpenGraph image.
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+// Read by source/javascripts/wth/logo.js for the wordmark's colours.
+:root {
+    --wth-mint: #16F3BE;
+    --wth-sky: #5AB9EE;
+    // The brand blue, darkened so the date clears 4.5:1 on the header
+    // background at every size.
+    --wth-brand-ink: #03729E;
+    --wth-ink: #1E2126;
+    --wth-bg: #F2F4F9;
+}
+
+.wth-blog-hero-wrap {
+    margin-bottom: 24px;
+}
+
+.wth-blog-hero {
+    // The key visual's background: a faint mint-to-blue wash over the page
+    // grey.
+    background:
+        linear-gradient(110deg, rgba(242, 244, 249, 0.1) 10%, rgba(24, 188, 242, 0.1) 55%, rgba(22, 243, 190, 0.1) 97%),
+        var(--wth-bg);
+    border-radius: 16px;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    justify-content: center;
+    overflow: hidden;
+    padding: 32px 24px;
+    position: relative;
+
+    // From tablets up, the header keeps the shape of the OpenGraph image.
+    @include tablet {
+        aspect-ratio: 1200 / 630;
+        padding: 0 6%;
+    }
+}
+
+.wth-blog-hero__content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include tablet {
+        width: 60%;
+    }
+}
+
+.wth-blog-hero__date {
+    color: var(--wth-brand-ink);
+    font-family: "Figtree", sans-serif;
+    font-size: clamp(18px, 4.5cqi, 34px);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 0.5em;
+}
+
+// The routing lines from the key visual. They show from tablets up, matching
+// `SHOWN` in source/javascripts/wth/hero-background.js, which adds the pulses
+// that travel along them on scroll.
+.wth-blog-hero .wth-hero-bg {
+    display: none;
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+
+    svg {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .wth-hero-bg__art {
+        opacity: 0.4;
+    }
+
+    @include tablet {
+        display: block;
+    }
+}
+
+// The wordmark, as on the WTH landing page. The CSS version shows until
+// source/javascripts/wth/logo.js has drawn the 3D one, and stays when WebGL is
+// not available.
+//
+// Layers, back to front: a mint sticker outline on a pseudo-element, a stepped
+// ink extrude built from stacked text shadows, then the sky-blue letter
+// outline and white fill on the word itself.
+
+// Builds a solid extrude by stacking one hard shadow per step.
+@function wth-extrude($color, $steps, $dx, $dy) {
+    $shadows: ();
+
+    @for $i from 1 through $steps {
+        $shadows: append($shadows, ($dx * $i) ($dy * $i) 0 $color, comma);
+    }
+
+    @return $shadows;
+}
+
+// Reveals the CSS wordmark when the 3D one has not replaced it in time.
+@keyframes wth-mark-reveal {
+    to {
+        visibility: visible;
+    }
+}
+
+.wth-blog-hero {
+    // The CSS wordmark holds exactly the box the 3D one draws in, so nothing
+    // moves when it is swapped in. The ratio is the one logo.js sets on that
+    // box, and the margins match `.wth-logo-3d` below.
+    //
+    // It stays hidden while the 3D wordmark loads, so the text does not flash
+    // up before the intro. It shows straight away without WebGL (the script
+    // in the include adds `--no-webgl`), and after a few seconds if the 3D
+    // wordmark has not drawn by then.
+    .wth-mark {
+        align-items: flex-start;
+        animation: wth-mark-reveal 0s 3s forwards;
+        aspect-ratio: 2.187;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 0 -3% -4%;
+        padding-left: 4%;
+        visibility: hidden;
+        width: 104%;
+        font-family: "Archivo Black", "Figtree", "Helvetica Neue", Arial, sans-serif;
+        // Drives the large line; the small line is sized relative to it.
+        font-size: 15cqi;
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 0.86;
+        text-transform: uppercase;
+
+        @include tablet {
+            font-size: 9.5cqi;
+        }
+    }
+
+    &.wth-blog-hero--no-webgl .wth-mark {
+        animation: none;
+        visibility: visible;
+    }
+
+    // The 3D wordmark replaces the CSS one once it has drawn. The script sets
+    // the box's aspect ratio and sizes the canvas to reach past the box on
+    // every side, so the intro and the tilt have room.
+    .wth-mark--replaced {
+        display: none;
+    }
+
+    .wth-logo-3d {
+        display: block;
+        margin: 0 0 -3% -4%;
+        pointer-events: none;
+        position: relative;
+        width: 104%;
+    }
+
+    .wth-logo-3d__canvas {
+        display: block;
+        position: absolute;
+    }
+
+    .wth-mark__line {
+        align-items: flex-end;
+        display: flex;
+        gap: 0.16em;
+
+        // The top line is roughly half the size of the bottom one.
+        &:not(.wth-mark__line--lg) {
+            font-size: 0.49em;
+        }
+
+        &--lg {
+            margin-top: 0.06em;
+        }
+    }
+
+    .wth-mark__word {
+        // Per-word orientation. Overridden by the modifiers below.
+        --wth-persp: 1200px;
+        --wth-rx: 0deg;
+        --wth-ry: 0deg;
+        --wth-rz: 0deg;
+        --wth-tx: 0em;
+        --wth-ty: 0em;
+
+        color: #ffffff;
+        display: inline-block;
+        isolation: isolate;
+        paint-order: stroke fill;
+        position: relative;
+        text-shadow: wth-extrude(#1E2126, 18, 0.0052em, 0.0037em);
+        transform:
+            translate(var(--wth-tx), var(--wth-ty))
+            perspective(var(--wth-persp))
+            rotateX(var(--wth-rx))
+            rotateY(var(--wth-ry))
+            rotate(var(--wth-rz));
+        white-space: pre;
+        // `paint-order: stroke` puts the stroke behind the fill, so only half
+        // the declared width shows outside the glyph.
+        -webkit-text-stroke: 0.22em var(--wth-sky);
+
+        // Mint sticker outline.
+        &::before {
+            color: var(--wth-mint);
+            content: attr(data-text);
+            left: 0;
+            paint-order: stroke fill;
+            position: absolute;
+            text-shadow: none;
+            top: 0;
+            white-space: pre;
+            z-index: -1;
+            -webkit-text-stroke: 0.44em var(--wth-mint);
+        }
+    }
+
+    // The small line needs thicker em-based strokes to match the absolute
+    // weight of the outlines on the large line.
+    .wth-mark__line:not(.wth-mark__line--lg) .wth-mark__word {
+        text-shadow: wth-extrude(#1E2126, 18, 0.0106em, 0.0076em);
+        -webkit-text-stroke-width: 0.45em;
+
+        &::before {
+            -webkit-text-stroke-width: 0.9em;
+        }
+    }
+
+    .wth-mark__word--what {
+        --wth-persp: 7em;
+        --wth-ry: -14deg;
+        --wth-rz: -1.5deg;
+    }
+
+    .wth-mark__word--the {
+        --wth-persp: 5.5em;
+        --wth-ry: -24deg;
+        --wth-rz: -3deg;
+        --wth-tx: 0.08em;
+        --wth-ty: -0.05em;
+    }
+
+    .wth-mark__word--heck {
+        --wth-persp: 7em;
+        --wth-ry: -18deg;
+        --wth-rz: 3.5deg;
+    }
+}

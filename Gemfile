@@ -6,8 +6,8 @@ group :development do
   gem 'rake', '13.4.2'
   gem 'jekyll', '4.4.1'
   gem 'stringex', '2.8.6'
-  gem 'sass-embedded', '1.106.1'
-  gem 'rubocop', '1.92.1'
+  gem 'sass-embedded', '1.107.1'
+  gem 'rubocop', '1.92.2'
   gem 'ruby-lsp', '0.26.11'
   gem 'rackup', '2.3.1'
 end
@@ -31,4 +31,4 @@ install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
 end
 
 # Performance-booster for watching directories on Windows
-gem "wdm", "~> 0.1.0" if Gem.win_platform?
+gem "wdm", "~> 0.2.0" if Gem.win_platform?

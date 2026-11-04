@@ -77,6 +77,8 @@ const name = setting("title");
                         meta={tile.note}
                         image={tile.image}
                         layout={video || tile.kind === "hero" ? "stacked" : "row"}
+                        imageWidth={video ? undefined : 1200}
+                        imageHeight={video ? undefined : 630}
                         tone={video ? "dark" : tile.featured ? "accent" : "default"}
                         eager={sectionIndex === 0 && tileIndex < 2}
                         rel="noopener"

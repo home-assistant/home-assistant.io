@@ -1,5 +1,8 @@
 ---
 description: Enable the Home Assistant Cloud integration.
+ha_categories:
+  - ai_voice.speech
+  - other_ecosystems
 ha_release: '0.60'
 ha_domain: cloud
 related:

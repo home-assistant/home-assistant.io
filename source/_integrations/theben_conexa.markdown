@@ -45,7 +45,7 @@ The **Theben Conexa** integration provides the following entities.
 
 - **Energy supplied**
   - **Description**: The total amount of electrical energy you supplied to the electricity grid.
-  - **Remarks**: Only shown if you actually supply power back to the grid. The Conexa SMGW provides a new measurement every 15 minutes.
+  - **Remarks**: The gateway provides this measurement only if your grid operator configures it to do so. For instructions on analyzing raw data from the SMGW over the HAN interface, see the [Theben Conexa SMGW wiki](https://gitlab.com/michael.dluhosch/theben-conexa-smgw/-/wikis/home). The Conexa SMGW provides a new measurement every 15 minutes.
 
 ## Data updates
 
