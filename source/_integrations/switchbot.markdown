@@ -118,6 +118,8 @@ In addition to the certified devices, the following devices are also supported:
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- RGBIC Neon Rope Light
+- RGBIC Neon Wire Rope Light
 - RGBICWW Light Bars
 - [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
 - [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
@@ -154,6 +156,7 @@ In addition to the certified devices, the following devices are also supported:
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
 - [Circulator Fan Pro](https://www.switch-bot.com/products/switchbot-battery-circulator-fan-2-pro)
+- Standing Fan (FAN2)
 
 ### Vacuums
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
@@ -602,6 +605,17 @@ Features:
 - change color
 - set effect
 
+#### RGBIC Neon Rope Light and RGBIC Neon Wire Rope Light
+
+These are encrypted devices. To set them up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+Features:
+
+- Turn on or off
+- Change brightness
+- Change color
+- Set effect
+
 #### RGBICWW Light Bars
 
 This is an encrypted device.
@@ -770,7 +784,7 @@ Features:
 
 ### Fans
 
-Fan entities are added for Battery Circulator Fan/Circulator Fan
+Fan entities are added for Battery Circulator Fan/Circulator Fan, Circulator Fan Pro, and Standing Fan.
 
 #### Battery Circulator Fan/Circulator Fan
 
@@ -792,6 +806,18 @@ The Circulator Fan Pro combines a fan with a built-in night light. It adds the f
 - A light for the two-level (high and low) night light.
 - A switch for vertical oscillation.
 - A sensor for the battery level.
+
+#### Standing Fan
+
+Features:
+
+- Turn on or off
+- Set speed
+- Set mode (Normal, Natural, Sleep, Baby, or Custom Natural)
+- Control horizontal and vertical oscillation
+- Set horizontal and vertical oscillation angles (30°, 60°, or 90°)
+- Set the night light level (Off, Level 1, or Level 2)
+- View the battery level
 
 ### Air Purifiers
 
