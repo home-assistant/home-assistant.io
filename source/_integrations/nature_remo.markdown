@@ -118,7 +118,7 @@ Hubs running older firmware do not report an online/offline flag; an unplugged h
 
 ## Troubleshooting
 
-{% details 'The entry fails with "Access token is invalid or was revoked"' %}
+{% details "The entry fails with an invalid or revoked access token" %}
 
 Home Assistant could not authenticate against the Nature cloud, because the access token was revoked or belongs to an account that no longer exists. Generate a new token at [home.nature.global](https://home.nature.global/), delete the Nature Remo entry, and set the integration up again with the new token.
 
