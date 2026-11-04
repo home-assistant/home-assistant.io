@@ -2632,7 +2632,7 @@ sensor:
       required: true
       type: template
     state_class:
-      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
+      description: "The [state_class](/integrations/sensor/#state-class) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
       required: false
       type: string
       default: None
