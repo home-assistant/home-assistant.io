@@ -13,30 +13,16 @@ Think of a nursery where clean air really matters. This trigger lets you boost t
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-5. From the triggers shown for that target, select **PM4 level crossed threshold**.
-6. Under **Threshold type**, set the PM4 level the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how multiple targets interact.
-8. Under **For at least**, set how long the level must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
-9. Select **Save**.
+{% include triggers/threshold_crossed_steps.md
+   title="PM4 level crossed threshold"
+   sensor="PM4 sensor"
+   areas="living room or bedroom"
+   unit_phrase_ui="a fixed level in μg/m³" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: The PM4 concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
-Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
-  required: false
-  default: Each
-For at least:
-  description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
-{% endoptions_ui %}
+{% include triggers/threshold_crossed_options_ui.md
+   unit_phrase_ui="a fixed level in μg/m³" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -48,45 +34,30 @@ trigger: |
   target:
     entity_id: sensor.nursery_pm4
   options:
-    threshold: 30
-    behavior: each
+    threshold:
+      type: above
+      value:
+        number: 30
 {% endexample %}
 
-This fires whenever the nursery PM4 sensor crosses 30 in either direction.
+This fires when the nursery PM4 sensor reading rises above 30 μg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+{% include triggers/threshold_crossed_options_yaml.md
+   unit_phrase_yaml="literal value in μg/m³"
+   example_value="30" %}
 
-{% options_yaml %}
-threshold:
-  description: >
-    The PM4 concentration the reading has to cross for the trigger to fire. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
-  type: any
-behavior:
-  description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: false
-  type: string
-  default: each
-for:
-  description: >
-    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
-  required: true
-  type: string
-  default: "00:00:00"
-{% endoptions_yaml %}
-
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="PM4 sensor" example="sensor.living_room_pm4" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
-- The trigger fires on any crossing, up or down. If you only want one direction, add a condition that checks whether the current PM4 level is above or below your threshold.
+- The threshold type sets the direction. With **Above**, the trigger fires when the level rises above the threshold. With **Below**, it fires when the level drops below it.
 - PM4 sits between PM2.5 and PM10 in particle size. If your sensor reports multiple particulate sizes, combining thresholds for each gives you a more complete picture of air quality.
-- Pair this trigger with [PM4 level changed](/triggers/air_quality.pm4_changed/) if you also want to track smaller fluctuations between crossings.
+- Pair this trigger with [PM4 level changed](/triggers/air_quality.pm4_changed/) if you want to react to every change of the level instead.
+- The threshold is in μg/m³. A sensor that reports PM4 in another unit never matches. If you use an entity as the threshold, it must also report μg/m³.
 
 {% include triggers/try_it.md %}
 
@@ -94,11 +65,11 @@ for:
 
 ### Automation: protect the nursery by boosting the air filter
 
-Young children are more sensitive to airborne particles. This automation switches the nursery air filter to high speed the moment PM4 crosses 30, keeping the room cleaner so your children breathe easier.
+Young children are more sensitive to airborne particles. This automation switches the nursery air filter to high speed the moment PM4 rises above 30 μg/m³, keeping the room cleaner so your children breathe easier.
 
 - **Trigger**: PM4 level crossed threshold
 - **Target**: Nursery PM4 sensor
-- **Threshold type**: 30
+- **Threshold type**: Above 30 μg/m³
 - **Trigger when**: Each
 - **Action**: Turn on fan (air filter)
 
@@ -112,8 +83,10 @@ automation: |
       target:
         entity_id: sensor.nursery_pm4
       options:
-        threshold: 30
-        behavior: each
+        threshold:
+          type: above
+          value:
+            number: 30
   actions:
     - action: fan.turn_on
       target:

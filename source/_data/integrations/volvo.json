@@ -1,0 +1,22 @@
+{
+  "domain": "volvo",
+  "name": "Volvo",
+  "integration_type": "device",
+  "codeowners": [
+    "@thomasddn"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "vehicles_transport.cars_evs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "device_tracker",
+    "diagnostics",
+    "lock",
+    "sensor"
+  ]
+}

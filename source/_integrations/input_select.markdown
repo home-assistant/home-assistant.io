@@ -1,15 +1,7 @@
 ---
-title: Input select
 description: Instructions on how to integrate the input select integration into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_release: 0.13
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: input_select
-ha_integration_type: helper
 ---
 
 The **Input select** {% term integration %} lets you create a dropdown {% term helper %}: an entity that stores one value chosen from a list of options you define. Because the value is not tied to a physical device, you can use it as a selectable setting for your automations, scripts, and dashboards. For example, you can create a dropdown helper to pick who cooks today, choose a thermostat mode, or select a house scene.

@@ -1,0 +1,19 @@
+{
+  "domain": "snooz",
+  "name": "Snooz",
+  "integration_type": "device",
+  "codeowners": [
+    "@AustinBrunkhorst"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "health_wellbeing"
+  ],
+  "platforms": [
+    "fan"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

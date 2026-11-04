@@ -335,8 +335,9 @@ Not every {% term integration %} provides device triggers. Without them, the **D
 Use a trigger on an {% term entity %} of the device instead:
 
 1. In the automation editor, select **Add trigger**.
-2. On the **By target** tab, select the device or one of its entities.
-   - Result: The triggers for this target are shown, for example, **State changed**.
+2. On the **By target** tab, select one of the device's entities.
+   - Result: The triggers for this entity are shown, for example, **State changed**.
+   - If you select the device itself, only triggers that fit its entities are shown, such as **Light turned on**. **State changed** isn't one of them.
 3. Select the trigger that fits.
 
 {% enddetails %}
@@ -374,14 +375,14 @@ When you add a trigger, the device or entity is not in the list.
 
 #### Description
 
-The device or entity is disabled. Disabled devices and entities are not shown when you add a trigger.
+The device or entity is disabled. Disabled devices and entities are not shown when you add a trigger. For what disabling does, refer to [Hidden versus disabled entities](/docs/configuration/customizing-entities/#hidden-versus-disabled-entities).
 
 #### Resolution
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Do one of the following:
    - For a device, open the **Devices** tab, and select the device. Select **Edit settings** {% icon "mdi:pencil" %}, turn on **Enable device**, and select **Update**.
-   - For an entity, open the **Entities** tab, and select the entity. You might need to change the filters of the list to show disabled entities. Select **Settings** {% icon "mdi:cog-outline" %}, turn on **Enabled**, and select **Update**.
+   - For an entity, open the **Entities** tab. To show disabled entities, in **Filters**, under **Status**, select **Disabled**. Select the entity, then select **Settings** {% icon "mdi:cog-outline" %}, turn on **Enabled**, and select **Update**.
 
 {% enddetails %}
 
@@ -678,14 +679,12 @@ The automation has a sun trigger with an offset, and it runs before the sunrise 
 
 #### Description
 
-The offset is set to before the event. In the **Sunrise** and **Sunset** triggers, **Offset type** decides this, and **Before** is the default. In the **Sun** trigger, a negative offset means before the event, and a positive offset means after it.
+The offset is set to before the event. In the **Sunrise**, **Sunset**, and **Sun** triggers, a negative offset means before the event, and a positive offset means after it. In the editor, **Offset** shows this as **Before** or **After**.
 
 #### Resolution
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. In the trigger, set the offset to after the event:
-   - In the **Sunrise** or **Sunset** trigger, set **Offset type** to **After**.
-   - In the **Sun** trigger, remove the `-` from the offset.
+2. In the trigger, under **Offset**, select **After**. In YAML, remove the `-` from the offset.
 3. Select **Save**.
 
 {% enddetails %}
@@ -853,6 +852,81 @@ In the save dialog, enter a name, and then save again.
 
 {% enddetails %}
 
+## An example from the forum doesn't work
+
+Use this section if you copied an example from the forum or a guide, and it doesn't work in your automation. Older examples often use keys that have been renamed since. The old keys still work, but they cause problems when you mix them with the new ones. For the renamed keys, refer to [Older YAML syntax](/docs/automation/yaml/#older-yaml-syntax).
+
+<a id="part-of-a-pasted-example-disappears-in-the-yaml-editor"></a>
+
+{% details "Part of a pasted example disappears in the YAML editor, because old and new keys are mixed" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+You pasted part of an older example into your automation in YAML mode. After you save, or switch back to the visual editor, the triggers, conditions, or actions from the example are gone.
+
+#### Description
+
+The example uses an old key, such as `trigger:`, and your automation already has the new key, such as `triggers:`. When both keys are there, the editor keeps the new key and drops everything under the old key. No error is shown.
+
+#### Resolution
+
+1. In the example, change the keys to the current names.
+   - For example, change `trigger:` to `triggers:`, and `platform:` to `trigger:`.
+2. Paste the items of the example under the keys that your automation already has.
+   - For example, paste the triggers under `triggers:`, not as a second `triggers:` list.
+3. Save the automation.
+
+{% enddetails %}
+
+<a id="automation-in-a-yaml-file-isnt-set-up-cannot-specify-both"></a>
+
+{% details "Automation in a YAML file isn't set up: “Cannot specify both 'trigger' and 'triggers'”" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+An automation that you wrote in {% term "`configuration.yaml`" %} or another YAML file isn't active. {% my repairs title="**Settings** > **System** > **Repairs**" %} shows **Automation … failed to set up**, with an error such as `Cannot specify both 'trigger' and 'triggers'. Please use 'triggers' only.`
+
+#### Description
+
+The automation has an old key and the new key in the same place. Home Assistant doesn't know which one to use, so it doesn't set up the automation. The error names the keys, for example:
+
+- `Cannot specify both 'trigger' and 'triggers'. Please use 'triggers' only.`
+- `Cannot specify both 'platform' and 'trigger'. Please use 'trigger' only.`
+- `Cannot specify both 'service' and 'action'. Please use 'action' only.`
+
+#### Resolution
+
+1. In the YAML file, find the automation and the keys that the error names.
+2. Remove the old key:
+   - For `trigger:` and `triggers:`, `condition:` and `conditions:`, or `action:` and `actions:`, move the items from the old list into the new list. Then remove the old key.
+   - For `platform:` and `trigger:` in one trigger, or `service:` and `action:` in one action, keep the key with the value you want. Remove the other one.
+     - If you need both values, add a separate trigger or action for each.
+3. Reload your automations. For the steps, refer to [Reloading automations](/docs/automation/yaml/#reloading-automations).
+
+{% enddetails %}
+
+<a id="saving-shows-unable-to-determine-action-or-unexpected-value-for-condition"></a>
+
+{% details "Saving shows “Unable to determine action” or “Unexpected value for condition”" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+When you save the automation, Home Assistant shows `Message malformed:` with `Unable to determine action`, or with `Unexpected value for condition: 'None'`.
+
+#### Description
+
+At the automation level, `triggers:`, `conditions:`, and `actions:` are plural. The key that identifies an item stays singular: a condition starts with `- condition:`, and an action call starts with `- action:`. If an action starts with `- actions:`, or a condition starts with `- conditions:`, Home Assistant can't tell what the item is.
+
+Plural keys further inside an item are correct. For example, an **Or** condition or a **Choose** option has its own `conditions:` list.
+
+#### Resolution
+
+1. In each action, change `- actions:` back to `- action:`.
+2. In each condition, change `- conditions:` back to `- condition:`.
+3. Save the automation.
+
+{% enddetails %}
+
 ## My automation behaves differently when I run it manually
 
 Use this section if the automation works when you select **Run actions**, but not when the trigger happens, or the other way around.
@@ -943,7 +1017,7 @@ The automation only runs when all its conditions are met.
 To run the automation when at least one condition is met, put the conditions in an **Or** building block:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. Under **And if**, select **Add building block**, and then select **Or**.
+2. Under **And if**, select **Add condition**, and then select **Blocks** > **Or**.
 3. Drag the conditions into the **Or** building block by their handle {% icon "mdi:drag-horizontal-variant" %}.
 4. Select **Save**.
 
@@ -1027,7 +1101,7 @@ The automation has a **Time** condition with **Days of the week**, and a time ra
 To cover exactly one night, for example, from Friday 22:00 to Saturday 06:00, split the range into two **Time** conditions in an **Or** building block:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. Under **And if**, select **Add building block**, and then select **Or**.
+2. Under **And if**, select **Add condition**, and then select **Blocks** > **Or**.
 3. In the **Or** building block, add two **Time** conditions:
    - One with **After** set to 22:00, and **Days of the week** set to Friday.
    - One with **Before** set to 06:00, and **Days of the week** set to Saturday.

@@ -10,7 +10,7 @@ related_actions:
   - mastodon.unmute_account
 ---
 
-The **Update profile** action changes the information and pictures on your Mastodon profile.
+The **Mastodon: Update profile** action changes the information and pictures on your Mastodon profile.
 
 This is handy when you want your profile to reflect what is happening at home, for example updating your bio with the current indoor temperature or swapping your header image with the season. You can update your display name, bio, pictures, and several profile settings.
 
@@ -43,11 +43,17 @@ Bio:
 Profile picture:
   description: An image to set as your profile picture. WEBP, PNG, or JPG. At most 8 MB. Downscaled to 400x400px. Cannot be combined with deleting the profile picture.
   required: false
+Profile picture alt text:
+  description: "Alternative text describing your avatar for people who are blind or visually impaired. Tip: If using a profile photo, describe the person pictured in a few words using third person and avoid redundant phrases like *Photo of*. For example: *Alex wearing a green shirt and glasses*."
+  required: false
 Delete profile picture:
   description: Permanently remove your current profile picture. Cannot be combined with setting a profile picture.
   required: false
 Header picture:
   description: An image to set as your profile header. WEBP, PNG, or JPG. At most 8 MB. Downscaled to 1500x500px. Cannot be combined with deleting the header picture.
+  required: false
+Header picture alt text:
+  description: Alternative text describing your profile header for people who are blind or visually impaired.
   required: false
 Delete header picture:
   description: Permanently remove your current header picture. Cannot be combined with setting a header picture.
@@ -108,6 +114,11 @@ avatar:
     Downscaled to 400x400px. Cannot be combined with delete_avatar.
   required: false
   type: map
+avatar_description:
+  description: >
+    "Alternative text describing your avatar for people who are blind or visually impaired. Tip: If using a profile photo, describe the person pictured in a few words using third person and avoid redundant phrases like *Photo of*. For example: *Alex wearing a green shirt and glasses*."
+  required: false
+  type: string
 delete_avatar:
   description: >
     Permanently remove your current profile picture. Cannot be combined with
@@ -121,6 +132,11 @@ header:
     Downscaled to 1500x500px. Cannot be combined with delete_header.
   required: false
   type: map
+header_description:
+  description: >
+    Alternative text describing your profile header for people who are blind or visually impaired.
+  required: false
+  type: string
 delete_header:
   description: >
     Permanently remove your current header picture. Cannot be combined with

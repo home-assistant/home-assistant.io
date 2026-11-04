@@ -1,20 +1,7 @@
 ---
-title: Droplet
 description: Instructions on how to set up Droplet in Home Assistant.
-ha_category:
-  - Sensor
-ha_config_flow: true
 ha_release: '2025.10'
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@sarahseidman'
 ha_domain: droplet
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: bronze
 ---
 
 The **Droplet** {% term integration %} seamlessly connects your Home Assistant setup to [Droplet](https://shop.hydrificwater.com/pages/buy-droplet) -- an advanced all-in-one smart home water sensor.

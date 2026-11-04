@@ -1,0 +1,18 @@
+{
+  "domain": "google_cloud",
+  "name": "Google Cloud",
+  "integration_type": "service",
+  "codeowners": [
+    "@lufton",
+    "@tronikos"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "ai_voice.speech"
+  ],
+  "platforms": [
+    "stt",
+    "tts"
+  ]
+}

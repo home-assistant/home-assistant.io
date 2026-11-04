@@ -1,0 +1,19 @@
+{
+  "domain": "kegtron",
+  "name": "Kegtron",
+  "integration_type": "device",
+  "codeowners": [
+    "@Ernst79"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

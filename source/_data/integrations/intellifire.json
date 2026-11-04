@@ -1,0 +1,25 @@
+{
+  "domain": "intellifire",
+  "name": "IntelliFire",
+  "integration_type": "device",
+  "codeowners": [
+    "@jeeftor"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "fan",
+    "light",
+    "number",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

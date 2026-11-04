@@ -25,12 +25,12 @@ UNIX timestamps are useful when you need to perform arithmetic with dates and ti
 {% include template_functions/usage.md %}
 
 {% template_function_usage %}
-function: '{{ as_timestamp("2024-03-15T14:30:00+01:00") }}'
+function: '{{ as_timestamp("2024-03-15T14:50:00+01:00") }}'
 type: float
 output: "1710510600.0"
 
 ---
-filter: '{{ "2024-03-15T14:30:00+01:00" | as_timestamp }}'
+filter: '{{ "2024-03-15T14:50:00+01:00" | as_timestamp }}'
 type: float
 output: "1710510600.0"
 {% endtemplate_function_usage %}
@@ -40,7 +40,7 @@ output: "1710510600.0"
 ```signature
 as_timestamp(
     value: datetime | str,
-    default: Any = None,
+    default: Any,
 ) -> float | Any
 ```
 
@@ -56,7 +56,7 @@ value:
   type: [string, datetime]
 default:
   description: >
-    Value to return if the conversion fails. If not provided, an error is raised on invalid input.
+    The value to return if the conversion fails, such as `0`. If you leave out `default` and the conversion fails, `as_timestamp` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}

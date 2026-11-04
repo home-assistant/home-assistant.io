@@ -1,0 +1,24 @@
+{
+  "domain": "wilight",
+  "name": "WiLight",
+  "integration_type": "hub",
+  "codeowners": [
+    "@leofig-rj"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "plugs_switches",
+    "lighting",
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "cover",
+    "fan",
+    "light",
+    "switch"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

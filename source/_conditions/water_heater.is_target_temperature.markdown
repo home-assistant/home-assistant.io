@@ -36,7 +36,7 @@ To use **Water heater target temperature** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The target temperature setpoint has to meet this threshold for the condition to pass. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a setpoint equal to either bound passes. Default is **Above**.
+    The target temperature setpoint has to meet this threshold for the condition to pass. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** includes both bounds: a setpoint equal to either bound passes. **Outside range** excludes both bounds: a setpoint equal to either bound does not pass. Default is **Above**.
 
     You can use a fixed number or select a temperature sensor, a temperature number entity, or a [number helper](/integrations/input_number/) as the threshold.
 Unit:
@@ -91,12 +91,12 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The setpoint must be strictly above the threshold to pass.
     - `type: below` (exclusive): Sets a maximum. The setpoint must be strictly below the threshold to pass.
-    - `type: between` (exclusive): Defines a range. The setpoint must be strictly between both bounds to pass.
-    - `type: outside` (inclusive): Defines an outside-range. The setpoint must be at or beyond either bound to pass.
+    - `type: between` (inclusive): Defines a range. The setpoint must be between the two bounds, or equal to one of them, to pass.
+    - `type: outside` (exclusive): Defines an outside-range. The setpoint must be beyond either bound to pass.
 
     For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`.
 
-    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated.
+    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated. Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the condition doesn't pass.
   required: true
   type: map
 behavior:
@@ -107,9 +107,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the setpoint must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:10:00` waits 10 minutes.
+    How long the setpoint must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:10:00` waits 10 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -122,7 +122,7 @@ for:
 - The target water heater entity must expose a target temperature attribute.
 - Threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and input number helpers.
 - This condition checks the target temperature setpoint, not the current measured water temperature.
-- With **Any**, unavailable and unknown water heaters are skipped. With **All**, they make the condition fail.
+{% include conditions/unavailable_targets.md entities="water heaters" %}
 - To check the current measured temperature instead of the setpoint, use [Temperature value](/conditions/temperature.is_value/).
 
 {% include conditions/try_it.md %}

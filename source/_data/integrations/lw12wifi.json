@@ -1,0 +1,12 @@
+{
+  "domain": "lw12wifi",
+  "name": "LAGUTE LW-12",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "lighting.led_strips_controllers"
+  ],
+  "platforms": [
+    "light"
+  ]
+}

@@ -10,9 +10,9 @@ related_actions:
   - ntfy.delete
 ---
 
-The **Publish notification** action publishes a notification message to a **ntfy** topic.
+The **ntfy: Publish notification** action publishes a notification message to a **ntfy** topic.
 
-With the **Publish notification** action you can take full advantage of the **ntfy** service’s capabilities. You can customize the message content and appearance with priority, links, attachments, tags, emojis, and more.
+With the **ntfy: Publish notification** action you can take full advantage of the **ntfy** service’s capabilities. You can customize the message content and appearance with priority, links, attachments, tags, emojis, and more.
 
 {% include actions/ui_header.md %}
 
@@ -185,8 +185,6 @@ action: |
 This sends a notification to the topic `mytopic` with the message content `triggered`.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 title:
@@ -404,7 +402,11 @@ clear:
 You can send a notification with a camera snapshot, for example when someone rings the doorbell.
 
 - **Action**: ntfy: Publish notification
-- **Target**: ntfy topic
+  - **Target**: ntfy topic
+  - **Title**: `Someone is at the door`
+  - **Attach local file**: Select Demo camera (`camera.demo_camera`) in the media picker
+  - **Attachment filename**: `camera-snapshot.jpg`
+  - **Tags/Emojis**: `bellhop_bell`
 
 {% details "YAML example for a notification with a camera snapshot" %}
 
@@ -432,7 +434,13 @@ This action sends a notification that will only be delivered after a specified d
 To reset the timer (for example, after a successful daily check-in), you must send the notification again. This cancels the previously scheduled notification and starts a new 24-hour countdown.
 
 - **Action**: ntfy: Publish notification
-- **Target**: ntfy topic
+  - **Target**: ntfy topic
+  - **Title**: `Dead Man's Switch Activated`
+  - **Message**: `I haven't checked in for 24 hours. Please check on me.`
+  - **Message priority**: Maximum
+  - **Delay delivery**: `24:00:00`
+  - **Sequence ID**: `dead-mans-switch-check-in`
+  - **Tags/Emojis**: `warning`, `skull`
 
 {% details "YAML example for a dead man's switch" %}
 
@@ -460,7 +468,13 @@ action: |
 This action sends a notification with an action button that, when tapped, opens a specific URL. For example, you can send an alert that includes a direct link to a relevant dashboard or camera feed.
 
 - **Action**: ntfy: Publish notification
-- **Target**: ntfy topic
+  - **Target**: ntfy topic
+  - **Message**: `The garage door has been open for 10 minutes.`
+  - **Action buttons**:
+    - **Action type**: Open website/app
+    - **Label**: `View Garage Camera`
+    - **Clear notification** enabled
+    - **URL**: `http://homeassistant.local/lovelace/garage`
 
 {% details "YAML example for a notification with a button to open a URL" %}
 
@@ -485,7 +499,13 @@ action: |
 This action sends a notification that can trigger a webhook or another automation via an HTTP request. For example, you can create a "Party Mode" button that, when tapped, tells Home Assistant to run a script.
 
 - **Action**: ntfy: Publish notification
-- **Target**: ntfy topic
+  - **Target**: ntfy topic
+  - **Message**: `The party is starting!`
+  - **Action buttons**:
+    - **Action type**: Send HTTP request
+    - **Label**: `Start Party Mode`
+    - **URL**: `http://homeassistant.local/api/webhook/party-mode-webhook`
+    - **HTTP method**: POST
 
 {% details "YAML example for a notification with a button to trigger a webhook" %}
 
@@ -510,7 +530,13 @@ action: |
 This action sends a notification that allows you to copy a value to the clipboard. This is useful for sharing temporary information like guest Wi-Fi passwords or access codes.
 
 - **Action**: ntfy: Publish notification
-- **Target**: ntfy topic
+  - **Target**: ntfy topic
+  - **Title**: `Guest Wi-Fi Password`
+  - **Message**: `Here is the guest Wi-Fi password for today.`
+  - **Action buttons**:
+    - **Action type**: Copy to clipboard
+    - **Label**: `Copy Password`
+    - **Value**: `GuestPass1234!`
 
 {% details "YAML example for a notification with a copy to clipboard button" %}
 
@@ -535,7 +561,12 @@ action: |
 This action sends a notification that can trigger an Android broadcast intent to start sleep tracking in Sleep as Android.
 
 - **Action**: ntfy: Publish notification
-- **Target**: ntfy topic
+  - **Target**: ntfy topic
+  - **Message**: `Time for bed?`
+  - **Action buttons**:
+    - **Action type**: Send Android broadcast
+    - **Label**: `Start sleep tracking`
+    - **Intent**: `com.urbandroid.sleep.START_SLEEP_TRACK`
 
 {% details "YAML example for a notification with a button to trigger an Android broadcast" %}
 

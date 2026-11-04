@@ -1,19 +1,7 @@
 ---
-title: Medcom Bluetooth
 description: Integrate International Medcom radiation monitors
-ha_category:
-  - Environment
-  - Sensor
 ha_release: '2023.10'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@elafargue'
 ha_domain: medcom_ble
-ha_bluetooth: true
-ha_platforms:
-  - sensor
-ha_config_flow: true
-ha_integration_type: device
 ---
 
 Integrates International Medcom Bluetooth-enabled radiation monitors into Home Assistant.

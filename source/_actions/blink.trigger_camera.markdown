@@ -9,7 +9,7 @@ related_actions:
   - blink.save_recent_clips
 ---
 
-The **Trigger camera** action asks a Blink camera to take a new still image.
+The **Blink: Trigger camera** action asks a Blink camera to take a new still image.
 
 This is handy when you want an up-to-date snapshot from an automation or a script, for example before saving the image somewhere with the [camera](/integrations/camera/) actions.
 
@@ -22,7 +22,7 @@ To trigger a camera from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Blink camera you want to trigger.
-6. From the actions shown for that target, select **Blink: Trigger camera**.
+6. From the actions shown for that target, under **Blink**, select **Trigger camera**.
 7. Select **Save**.
 
 This action has no additional options in the UI.
@@ -51,11 +51,10 @@ This action has no additional options in YAML.
 
 {% include actions/more_examples.md %}
 
-### Automation: snap a picture and save it locally
+### Script: snap a picture and save it locally
 
 Take a new image with a Blink camera and then save it to a local file using the [camera snapshot](/integrations/camera/#action-snapshot) action.
 
-- **Trigger**: whatever should start the snapshot, such as a motion sensor
 - **Action 1**: Blink: Trigger camera
   - **Target**: Front door camera
 - **Action 2**: Camera: Take snapshot

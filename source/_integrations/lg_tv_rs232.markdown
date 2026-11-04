@@ -1,19 +1,7 @@
 ---
-title: LG TV via Serial
 description: Instructions on how to integrate LG TVs via their RS-232 serial port into Home Assistant.
-ha_category:
-  - Media player
-  - Serial-controlled
-ha_iot_class: Local Polling
 ha_release: 2026.6
-ha_codeowners:
-  - '@balloob'
-ha_config_flow: true
 ha_domain: lg_tv_rs232
-ha_platforms:
-  - media_player
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **LG TV via Serial** {% term integration %} lets you control LG TVs by connecting to their RS-232 serial port. Because Home Assistant talks straight to the TV, control is local, fast, and works on TVs without smart features or a network connection.

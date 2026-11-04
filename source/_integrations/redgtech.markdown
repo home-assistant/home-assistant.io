@@ -1,19 +1,7 @@
 ---
-title: Redgtech
 description: Integrate your Redgtech smart switches with Home Assistant.
-ha_category:
-  - Switch
 ha_release: 2026.3
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@jonhsady'
-  - '@luan-nvg'
 ha_domain: redgtech
-ha_platforms:
-  - switch
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Redgtech** {% term integration %} connects your [Redgtech](https://redgtech.com.br/) smart switches to Home Assistant. Redgtech is a Brazilian smart home brand that makes cloud-connected switches and relays. With this integration, you can control and monitor your Redgtech switches directly from Home Assistant.

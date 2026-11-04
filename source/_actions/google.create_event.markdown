@@ -21,7 +21,7 @@ To create a Google Calendar event from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the calendar you want to add the event to.
-6. From the actions shown for that target, select **Create event in Google Calendar**.
+6. From the actions shown for that target, under **Google Calendar**, select **Create event in Google Calendar**.
 7. Set the **Summary** and the start and end of the event.
 8. Select **Save**.
 
@@ -123,10 +123,14 @@ location:
 
 When the washing machine finishes, record it on a calendar so you have a history of when laundry was done.
 
-- **Trigger**: Washing machine power drops to idle
-- **Action**: Create event in Google Calendar
+- **Trigger**: State changed
+  - **Entity**: Washing machine status sensor
+  - **To**: Idle
+- **Action**: Google Calendar: Create event in Google Calendar
   - **Target**: Home log
-  - **Summary**: Laundry finished
+  - **Summary**: `Laundry finished`
+  - **Start time**: `2024-03-10 18:00:00`
+  - **End time**: `2024-03-10 18:01:00`
 
 {% details "Show example YAML" %}
 

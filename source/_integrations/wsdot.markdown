@@ -1,22 +1,12 @@
 ---
-title: Washington State Department of Transportation (WSDOT)
 description: Instructions on how to integrate WSDOT data into your home.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: 0.37
 ha_domain: wsdot
-ha_platforms:
-  - sensor
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs
-ha_config_flow: true
-ha_codeowners:
-  - '@ucodery'
 ---
 
 The **Washington State Department of Transportation (WSDOT)** {% term integration %} will give you travel time information from the [Washington State Department of Transportation (WSDOT)](https://wsdot.com/).

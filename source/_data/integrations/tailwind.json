@@ -1,0 +1,25 @@
+{
+  "domain": "tailwind",
+  "name": "Tailwind",
+  "integration_type": "device",
+  "codeowners": [
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "cover",
+    "diagnostics",
+    "number"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

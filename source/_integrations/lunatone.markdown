@@ -1,25 +1,7 @@
 ---
-title: Lunatone
 description: Instructions on how to integrate Lunatone REST API devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Hub
-  - Light
-  - Sensor
 ha_release: 2025.11
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@MoonDevLT'
 ha_domain: lunatone
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - light
-  - sensor
-ha_integration_type: hub
-ha_zeroconf: true
-ha_quality_scale: silver
 ---
 
 The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API. This allows you to use lights and sensors in Home Assistant that are connected to the DALI bus via your device.

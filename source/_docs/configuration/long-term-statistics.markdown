@@ -16,7 +16,7 @@ By default, Home Assistant saves every state change of your entities in its data
 
 You don't have to set anything up. Home Assistant creates both kinds automatically for the sensors that support them. On this page, "statistics" means both kinds. Where only one kind applies, the page says which.
 
-Both kinds are different from the [**Statistics**](/integrations/statistics/) integration. That integration is a helper that creates a new sensor, for example, the average of another sensor over the last hour.
+Both kinds are different from the [**Statistics**](/integrations/statistics/) integration. That integration is a [helper](/docs/configuration/helpers/) that creates a new sensor, for example, the average of another sensor over the last hour.
 
 ## Which sensors have statistics
 

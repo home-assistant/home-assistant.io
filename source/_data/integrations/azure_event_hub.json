@@ -1,0 +1,13 @@
+{
+  "domain": "azure_event_hub",
+  "name": "Azure Event Hub",
+  "integration_type": "service",
+  "codeowners": [
+    "@eavanvalkenburg"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ]
+}

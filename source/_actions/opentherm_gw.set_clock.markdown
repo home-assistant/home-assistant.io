@@ -5,7 +5,7 @@ domain: opentherm_gw
 description: "Sets the clock and day of the week on the connected thermostat."
 ---
 
-The **Set clock** action provides the time and day of the week to your OpenTherm Gateway. The value is forwarded to the thermostat on its next date or time request. The OpenTherm Gateway cannot accurately keep track of time, so it only retains this information for about 61 seconds.
+The **OpenTherm Gateway: Set clock** action provides the time and day of the week to your OpenTherm Gateway. The value is forwarded to the thermostat on its next date or time request. The OpenTherm Gateway cannot accurately keep track of time, so it only retains this information for about 61 seconds.
 
 {% include actions/ui_header.md %}
 

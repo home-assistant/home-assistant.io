@@ -1,15 +1,7 @@
 ---
-title: IFTTT
 description: Instructions on how to set up IFTTT within Home Assistant.
-ha_category:
-  - Automation
-ha_iot_class: Cloud Push
 ha_release: 0.8
-ha_config_flow: true
 ha_domain: ifttt
-ha_platforms:
-  - alarm_control_panel
-ha_integration_type: integration
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT integration, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel). This requires the [Pro plan](https://ifttt.com/plans) or higher.
@@ -174,7 +166,7 @@ Send an event to IFTTT every time Home Assistant starts. In IFTTT, an applet wit
 
 - **Trigger**: Home Assistant
   - **Event**: Start
-- **Action**: Trigger
+- **Action**: IFTTT: Trigger
   - **Event**: `home_assistant_started`
   - **Value 1**: `Home Assistant is up and running`
 

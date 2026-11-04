@@ -1,15 +1,7 @@
 ---
-title: X
 description: Instructions on how to add X notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_release: 0.12
 ha_domain: twitter
-ha_iot_class: Cloud Push
-ha_platforms:
-  - notify
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **X** {% term integration %} uses [X](https://twitter.com) to deliver notifications from Home Assistant.

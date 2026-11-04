@@ -1,0 +1,17 @@
+{
+  "domain": "mill",
+  "name": "Mill",
+  "codeowners": [
+    "@danielhiversen"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate",
+    "number",
+    "sensor"
+  ]
+}

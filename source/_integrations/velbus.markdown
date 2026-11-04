@@ -1,33 +1,7 @@
 ---
-title: Velbus
 description: Access and control your Velbus devices.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Hub
-  - Light
-  - Sensor
-  - Switch
-ha_iot_class: Local Push
 ha_release: '0.50'
-ha_config_flow: true
-ha_codeowners:
-  - '@Cereal2nd'
-  - '@brefra'
 ha_domain: velbus
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - light
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
@@ -104,13 +78,21 @@ Every dimmer module will be represented as a light entity in Home Assistant. You
 For each input module, a light entity will be created to control the LED of the push buttons. You can turn the LED on and off and set the flash mode.
 
 {% note %}
-The pushbutton LEDs of input modules are disabled by default. These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
+The pushbutton LEDs of input modules are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
 {% endnote %}
 
 ### Binary sensor
 
 Every input module will be represented as a binary sensor entity in Home Assistant. The binary sensor will be on when the input is active and off when the input is inactive.
 
+### Event
+
+Each physical Velbus button also has an event entity, with the same name as the button's binary sensor. The event entity records how the button was pressed, so you can react to a short or long press in an automation:
+
+- `short_press`: The button was pressed and released without a long press. This is recorded when you release the button.
+- `long_press`: The Velbus module reported a long press. This is recorded right away, while you're still holding the button. Releasing the button afterward doesn't record another press.
+
+The Velbus module decides whether a press counts as long. You can't change this in Home Assistant.
 ### Select
 
 Every module that supports programs will have a select entity in Home Assistant. You can select the program that you want to activate.

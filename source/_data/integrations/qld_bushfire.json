@@ -1,0 +1,16 @@
+{
+  "domain": "qld_bushfire",
+  "name": "Queensland Bushfire Alert",
+  "integration_type": "service",
+  "codeowners": [
+    "@exxamalte"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "weather_alerts.public_warnings"
+  ],
+  "platforms": [
+    "geo_location"
+  ]
+}

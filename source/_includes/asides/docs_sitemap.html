@@ -1,24 +1,25 @@
 {%- comment -%}
-  The automation branch stays open on the trigger, condition, and action
-  reference pages, so you keep the automation context when you browse them.
+  The automation branch stays open on the trigger, condition, action, and
+  building block reference pages, so you keep the automation context when you
+  browse them.
 {%- endcomment -%}
 {%- assign in_automation_reference = false -%}
-{%- if root == 'triggers' or root == 'conditions' or root == 'actions' -%}
+{%- if root == 'triggers' or root == 'conditions' or root == 'actions' or root == 'building-blocks' -%}
   {%- assign in_automation_reference = true -%}
 {%- endif -%}
 
 <li>
   <iconify-icon icon="mdi:robot-happy"></iconify-icon> {% active_link /docs/automation/ Automations %}
-  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'script' or doc == 'scene' or in_automation_reference or include.docs_index %}
+  {% if doc == 'automation' or doc == 'blueprint' or doc == 'script' or doc == 'scene' or in_automation_reference or include.docs_index %}
   <ul>
+    <li>
+      {% icon "mdi:sign-direction" %} {% active_link /docs/automation/which-tool-to-use/ Which tool to use %}
+    </li>
     <li>
       {% icon "mdi:robot-happy" %} {% active_link /docs/automation/basics/ Understanding automations %}
       {% if doc == 'automation' or in_automation_reference or include.docs_index %}
       <ul>
-        <li>{% active_link /docs/automation/how-automations-react-to-changes/ How automations react to changes %}</li>
-        <li>{% active_link /docs/automation/which-tool-to-use/ Which tool to use %}</li>
-        <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
-        <li>{% active_link /docs/automation/editor/ Automation editor %}</li>
+        <li>{% active_link /docs/automation/editor/ Automation editors %}</li>
         <li>
           {% active_link /docs/automation/trigger/ Triggers %}
           <ul>
@@ -35,12 +36,20 @@
           {% active_link /docs/automation/action/ Actions %}
           <ul>
             <li>{% active_link /actions/ All actions %}</li>
-            <li>{% active_link /docs/automation/automation_integration_actions/ Actions of the automation integration %}</li>
+            <li>
+              {% active_link /docs/automation/building-blocks/ Building blocks %}
+              <ul>
+                <li>{% active_link /building-blocks/ All building blocks %}</li>
+              </ul>
+            </li>
           </ul>
         </li>
+        <li>{% active_link /docs/automation/targets/ Targets %}</li>
+        <li>{% active_link /docs/automation/durations/ Durations %}</li>
+        <li>{% active_link /docs/automation/how-automations-react-to-changes/ How automations react to changes %}</li>
         <li>{% active_link /docs/automation/modes/ Automation modes %}</li>
-        <li>{% active_link /docs/automation/templating/ Automation templates %}</li>
         <li>{% active_link /docs/automation/yaml/ Automations in YAML %}</li>
+        <li>{% active_link /docs/automation/trigger-data/ Trigger data in templates %}</li>
         <li>{% active_link /docs/automation/testing/ Testing automations %}</li>
         <li>{% active_link /docs/automation/troubleshooting/ Troubleshooting automations %}</li>
       </ul>
@@ -48,31 +57,18 @@
     </li>
     <li>
       {% icon "mdi:palette" %} {% active_link /docs/scene/ Scenes %}
-      {% if doc == 'scene' or include.docs_index %}
-      <ul>
-        <li>{% active_link /docs/scene/editor/ Editor %}</li>
-      </ul>
-      {% endif %}
     </li>
     <li>
       {% icon "mdi:script-text-play" %} {% active_link /docs/script/ Scripts %}
     </li>
     <li>
       {% icon "mdi:palette-swatch" %} {% active_link /docs/blueprint/ Blueprints %}
-      {% if doc == 'blueprint' or include.docs_index %}
+      {% if doc == 'blueprint' or page.url == '/docs/automation/using_blueprints/' or include.docs_index %}
       <ul>
+        <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
         <li>{% active_link /docs/blueprint/tutorial/ Tutorial %}</li>
         <li>{% active_link /docs/blueprint/schema/ Blueprint schema %}</li>
         <li>{% active_link /docs/blueprint/selectors/ Selectors %}</li>
-      </ul>
-      {% endif %}
-    </li>
-    <li>
-      {% icon "mdi:script-text" %} {% active_link /docs/scripts/ Building blocks and actions %}
-      {% if doc == 'scripts' or include.docs_index %}
-      <ul>
-        <li>{% active_link /docs/scripts/perform-actions/ Actions %}</li>
-        <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
       </ul>
       {% endif %}
     </li>
@@ -127,7 +123,7 @@
         <li>{% active_link /dashboards/actions/ Dashboard actions %}</li>
         <li><a
             class="external-link"
-            href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
+            href="https://contributors.home-assistant.io/frontend/custom-ui/card/"
             >Developing custom cards
                      </a></li>
       </ul>
@@ -209,6 +205,7 @@
   <ul>
     <li>{% active_link /docs/energy/electricity-grid/ Electricity grid %}</li>
     <li>{% active_link /docs/energy/solar-panels/ Solar panels %}</li>
+    <li>{% active_link /docs/energy/home-consumption/ Home consumption %}</li>
     <li>{% active_link /docs/energy/battery/ Home batteries %}</li>
     <li>{% active_link /docs/energy/gas/ Gas usage %}</li>
     <li>{% active_link /docs/energy/water/ Water usage %}</li>
@@ -232,8 +229,9 @@
     <li>{% active_link /docs/templating/dates-and-times/ Dates and times %}</li>
     <li>{% active_link /docs/templating/python-methods/ Python methods %}</li>
     <li>{% active_link /docs/templating/patterns/ Common patterns %}</li>
+    <li>{% active_link /docs/templating/limited-templates/ Limited templates %}</li>
     <li>{% active_link /docs/templating/debugging/ Debugging templates %}</li>
-    <li>{% active_link /docs/templating/errors/ Error messages %}</li>
+    <li>{% active_link /docs/templating/errors/ Troubleshooting template errors %}</li>
     <li>{% active_link /docs/templating/custom-templates/ Custom templates and macros %}</li>
     <li>{% active_link /docs/templating/tutorial-battery-alerts/ Tutorial: Low battery alerts %}</li>
     <li>{% active_link /docs/templating/tutorial-average-temperature/ Tutorial: Average temperature %}</li>
@@ -246,35 +244,71 @@
   {% icon "mdi:update" %} {% active_link /common-tasks/general/ Common tasks %}
   {% if root == 'common-tasks' or include.docs_index %}
   <ul>
-    <li>{% active_link /common-tasks/general/ Installation independent %}</li>
-    <li>{% active_link /common-tasks/os/ Home Assistant Operating System %}</li>
+    <li>
+      {% active_link /common-tasks/general/ Installation independent %}
+      <ul>
+        <li>{% active_link /common-tasks/general/backups/ Backups %}</li>
+        <li>{% active_link /common-tasks/general/logs/ Logs %}</li>
+        <li>{% active_link /common-tasks/general/restarting/ Reload, restart, reboot, shut down %}</li>
+        <li>{% active_link /common-tasks/general/updating/ Updates %}</li>
+      </ul>
+    </li>
+    <li>
+      {% active_link /common-tasks/os/ Home Assistant Operating System %}
+      <ul>
+        <li>{% active_link /common-tasks/os/apps/ Installing and managing apps %}</li>
+        <li>{% active_link /common-tasks/os/logs/ Logs %}</li>
+      </ul>
+    </li>
     <li>{% active_link /common-tasks/container/ Home Assistant Container %}</li>
     <li>{% active_link /docs/troubleshooting_general/ General troubleshooting %}</li>
   </ul>
   {% endif %}
 </li>
 
+{%- assign concept_urls = "/docs/apps-and-integrations/,/docs/configuration/entities_domains/,/docs/configuration/state_object/,/docs/configuration/events/,/docs/configuration/long-term-statistics/" | split: "," -%}
 <li>
-  {% icon "mdi:cogs" %} {% active_link /docs/configuration/basic Configuration %}
+  {% icon "mdi:lightbulb-on-outline" %} {% active_link /docs/configuration/entities_domains/ Home Assistant concepts %}
+  {% if concept_urls contains page.url or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/apps-and-integrations/ Apps and integrations %}</li>
+    <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
+    <li>{% active_link /docs/configuration/events/ Events %}</li>
+    <li>{% active_link /docs/configuration/long-term-statistics/ Long-term statistics %}</li>
+    <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:cogs" %} {% active_link /docs/configuration/overview/ Configuration %}
   {% if doc == 'configuration' or include.docs_index %}
   <ul>
+    <li>{% active_link /docs/configuration/overview/ Overview %}</li>
     <li>{% active_link /docs/configuration/basic/ Home information %}</li>
+    <li>{% active_link /docs/configuration/network/ Network %}</li>
     <li>{% active_link /docs/configuration/user-configuration/ People and user configuration %}</li>
-    <li>{% active_link /docs/configuration/customizing-devices/ Customizing entities %}</li>
-    <li>{% active_link /docs/configuration/remote/ Remote access to Home Assistant %}</li>
-    <li>{% active_link /docs/configuration/securing/ Securing your Home Assistant %}</li>
-    <li>{% active_link /docs/configuration/secrets/ Storing secrets in YAML %}</li>
-    <li>{% active_link /docs/configuration/yaml/ YAML syntax %}</li>
-    <li>{% active_link /docs/configuration/ The configuration.yaml file %}</li>
-    <li>{% active_link /docs/configuration/troubleshooting/ Troubleshooting configuration %}</li>
-    <li>{% active_link /docs/configuration/splitting_configuration/ Splitting up the configuration %}</li>
-    <li>{% active_link /docs/configuration/packages/ Packages %}</li>
-    <li>{% active_link /docs/configuration/events/ Events %}</li>
-    <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
-    <li>{% active_link /docs/configuration/long-term-statistics/ Long-term statistics %}</li>
-    <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
+    <li>{% active_link /docs/configuration/customizing-entities/ Customizing entities %}</li>
     <li>{% active_link /docs/configuration/helpers/ Helpers %}</li>
-    <li>{% active_link /docs/configuration/platform_options/ Entity component platform options %}</li>
+    <li>
+      Remote access and security
+      <ul>
+        <li>{% active_link /docs/configuration/remote/ Remote access to Home Assistant %}</li>
+        <li>{% active_link /docs/configuration/securing/ Securing your Home Assistant %}</li>
+      </ul>
+    </li>
+    <li>
+      YAML configuration
+      <ul>
+        <li>{% active_link /docs/configuration/ The configuration.yaml file %}</li>
+        <li>{% active_link /docs/configuration/yaml/ YAML syntax %}</li>
+        <li>{% active_link /docs/configuration/secrets/ Storing secrets in YAML %}</li>
+        <li>{% active_link /docs/configuration/splitting_configuration/ Splitting up the configuration %}</li>
+        <li>{% active_link /docs/configuration/packages/ Packages %}</li>
+        <li>{% active_link /docs/configuration/platform_options/ Entity component platform options %}</li>
+      </ul>
+    </li>
+    <li>{% active_link /docs/configuration/troubleshooting/ Troubleshooting configuration %}</li>
   </ul>
   {% endif %}
 </li>

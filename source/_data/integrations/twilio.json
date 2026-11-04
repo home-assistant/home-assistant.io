@@ -1,0 +1,10 @@
+{
+  "domain": "twilio",
+  "name": "Twilio",
+  "integration_type": "service",
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "messaging_notifications.email_sms_calls"
+  ]
+}

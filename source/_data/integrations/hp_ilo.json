@@ -1,0 +1,12 @@
+{
+  "domain": "hp_ilo",
+  "name": "HP Integrated Lights-Out (ILO)",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.nas_servers"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

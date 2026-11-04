@@ -5,6 +5,9 @@ domain: hassio
 description: "Reboots the host system."
 related_actions:
   - hassio.host_shutdown
+related:
+  - docs: /common-tasks/general/restarting/#rebooting-the-system
+    title: Rebooting the system
 ---
 
 Use this action to reboot the host system that Home Assistant runs on. This restarts the whole machine, not just Home Assistant, so every app and the operating system restart with it.
@@ -21,7 +24,7 @@ To reboot the host from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Reboot the host system**.
+5. Search for and select **Home Assistant Supervisor: Reboot the host system**.
 6. Select **Save**.
 
 ### Options in the UI

@@ -1,22 +1,7 @@
 ---
-title: Nuki Bridge
 description: Instructions on how to integrate a Nuki Bridge to control their Smart Lock devices.
-ha_category:
-  - Lock
 ha_release: 0.38
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@pschmitt'
-  - '@pvizeli'
-  - '@pree'
 ha_domain: nuki
-ha_platforms:
-  - binary_sensor
-  - lock
-  - sensor
-ha_config_flow: true
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 The **Nuki Bridge** {% term integration %} allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via a [Nuki Bridge](https://help.nuki.io/hc/en-001/sections/360004474718-Bridge). 

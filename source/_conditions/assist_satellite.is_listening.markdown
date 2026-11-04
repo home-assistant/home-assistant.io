@@ -52,8 +52,6 @@ This passes when `assist_satellite.living_room` is currently listening for a voi
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -65,9 +63,9 @@ behavior:
 for:
   description: >
     Duration the satellite must have been in the listening state before the condition passes.
-    Accepts a duration string like `00:00:02` for 2 seconds. Use small values only, as listening windows are typically just a few seconds long.
+    Accepts a duration string like `00:00:02` for 2 seconds. Use small values only, as listening windows are typically just a few seconds long. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -79,7 +77,7 @@ for:
 
 - The **Listening** state is active from the moment the wake word is confirmed until the satellite finishes capturing the voice command and hands it to the pipeline. This window is typically two to five seconds long.
 - Because the listening window is short, the **For at least** option should only be set to small values, a few seconds at most. A duration longer than the typical capture window will prevent this condition from ever passing under normal use.
-- Satellites that have an **Unavailable** or **Unknown** state do not count as listening. Home Assistant skips them and evaluates the condition using the remaining targeted satellites.
+{% include conditions/unavailable_targets.md entities="satellites" %}
 - To check another pipeline state, use [Satellite is idle](/conditions/assist_satellite.is_idle/), [Satellite is processing](/conditions/assist_satellite.is_processing/), or [Satellite is responding](/conditions/assist_satellite.is_responding/).
 
 {% include conditions/try_it.md %}

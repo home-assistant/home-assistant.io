@@ -1,0 +1,10 @@
+{
+  "domain": "foursquare",
+  "name": "Foursquare",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "news_social_media",
+    "presence_location"
+  ]
+}

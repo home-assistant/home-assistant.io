@@ -1,0 +1,16 @@
+{
+  "domain": "smart_meter_texas",
+  "name": "Smart Meter Texas",
+  "integration_type": "hub",
+  "codeowners": [
+    "@grahamwetzler"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

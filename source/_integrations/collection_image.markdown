@@ -1,19 +1,7 @@
 ---
-title: Collection image
 description: Instructions on how to set up Collection image in Home Assistant.
-ha_category:
-  - Image
-  - Utility
 ha_release: 2026.9
-ha_iot_class: Calculated
-ha_codeowners:
-  - '@karwosts'
 ha_domain: collection_image
-ha_config_flow: true
-ha_platforms:
-  - image
-ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 The **Collection image** {% term integration %} creates an [image entity](/integrations/image/) based on one or more [media source folders](/integrations/media_source) selected during integration setup. From the selected folders, a single image is randomly chosen and shown in the image entity.

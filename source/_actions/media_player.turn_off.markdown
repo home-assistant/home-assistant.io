@@ -58,7 +58,9 @@ This action has no additional YAML options beyond the target.
 
 Turn off a media player when nobody is home, for example to make sure the TV is not left running.
 
-- **Trigger**: Everyone leaves home
+- **Trigger**: State changed
+  - **Entity**: Home zone
+  - **To**: 0
 - **Action**: Turn off media player
   - **Target**: Living room TV
 

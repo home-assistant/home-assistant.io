@@ -1,0 +1,28 @@
+{
+  "domain": "devolo_home_network",
+  "name": "devolo Home Network",
+  "integration_type": "device",
+  "codeowners": [
+    "@2Fake",
+    "@Shutgun"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "device_tracker",
+    "diagnostics",
+    "image",
+    "sensor",
+    "switch",
+    "update"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

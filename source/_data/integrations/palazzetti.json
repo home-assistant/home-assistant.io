@@ -1,0 +1,23 @@
+{
+  "domain": "palazzetti",
+  "name": "Palazzetti",
+  "integration_type": "device",
+  "codeowners": [
+    "@dotvav"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "button",
+    "climate",
+    "diagnostics",
+    "number",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

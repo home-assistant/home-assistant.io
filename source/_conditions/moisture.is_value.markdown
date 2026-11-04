@@ -34,7 +34,7 @@ To use **Moisture level** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The moisture level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter a fixed percentage (0–100), or **Entity** to use a sensor or number helper as a dynamic threshold.
+    The moisture level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** includes both bounds: a reading equal to either bound passes. **Outside range** excludes both bounds: a reading equal to either bound does not pass. Choose **Number** to enter a fixed percentage (0–100), or **Entity** to use a sensor or number helper as a dynamic threshold.
 Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
@@ -107,10 +107,10 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
     - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
-    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
-    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: between` (inclusive): Defines a range. The reading must be between the two bounds, or equal to one of them, to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: outside` (exclusive): Defines an outside-range. The reading must be beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
 
-    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
+    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity. The entity must use `%` as its unit. If it has a different unit, or no unit, the condition doesn't pass.
   required: true
   type: map
 behavior:
@@ -123,20 +123,20 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="moisture sensor" example="sensor.plant_moisture" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
 - This condition works with sensors that have the **moisture** device class, such as soil moisture probes. For wet/dry leak sensors, use [Moisture is detected](/conditions/moisture.is_detected/) or [Moisture is not detected](/conditions/moisture.is_not_detected/) instead.
-- Entities that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md %}
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation runs.
 
 {% include conditions/try_it.md %}

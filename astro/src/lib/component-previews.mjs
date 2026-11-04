@@ -31,8 +31,8 @@ export function getComponentPreviews() {
         slug,
         name: data.title ?? fileName,
         description: data.description,
-        // Full-width components (header, footer) get a tile that spans
-        // the whole browser row instead of one grid cell.
+        // Full-width components (header, footer) render edge to edge,
+        // without the demo padding.
         wide: Boolean(data.wide),
         variants: data.variants ?? [],
         Component: componentModules[componentPath]?.default,

@@ -1,19 +1,7 @@
 ---
-title: Shark IQ
 description: Integrate your Shark IQ robot vacuum with Home Assistant.
-ha_category:
-  - Vacuum
-ha_iot_class: Cloud Polling
 ha_release: 0.115
-ha_config_flow: true
-ha_codeowners:
-  - '@JeffResc'
-  - '@funkybunch'
-  - '@TheOneOgre'
 ha_domain: sharkiq
-ha_platforms:
-  - vacuum
-ha_integration_type: hub
 ---
 
 The **Shark IQ** {% term integration %} allows you to control your [Shark IQ](https://www.sharkclean.com/vacuums/robot-vacuums/) vacuum.

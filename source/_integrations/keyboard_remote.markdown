@@ -1,17 +1,7 @@
 ---
-title: Keyboard Remote
 description: Instructions on how to use a keyboard or remote control as an input device for automations in Home Assistant.
-ha_category:
-  - Other
 ha_release: 0.29
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@bendavid'
-  - '@lanrat'
 ha_domain: keyboard_remote
-ha_integration_type: hub
-ha_quality_scale: legacy
 ---
 
 The **Keyboard Remote** {% term integration %} lets you use a USB or Bluetooth keyboard, remote control, or any Linux `evdev`-compatible input device to trigger automations in Home Assistant. Instead of creating entities, the integration fires events whenever a key is pressed, released, or held down. You can listen for these events in your automations to control lights, media players, or anything else in your smart home.

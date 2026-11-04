@@ -1,0 +1,18 @@
+{
+  "domain": "marantz_infrared",
+  "name": "Marantz Infrared",
+  "integration_type": "device",
+  "codeowners": [
+    "@balloob"
+  ],
+  "config_flow": true,
+  "iot_class": "assumed_state",
+  "quality_scale": "silver",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "button",
+    "media_player"
+  ]
+}

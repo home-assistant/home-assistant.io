@@ -1,29 +1,7 @@
 ---
-title: LIFX
 description: Instructions on how to integrate LIFX into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Light
-  - Select
-  - Sensor
-ha_iot_class: Local Polling
 ha_release: 0.81
-ha_config_flow: true
 ha_domain: lifx
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - select
-  - sensor
-ha_integration_type: device
-ha_dhcp: true
-ha_zeroconf: true
-ha_codeowners:
-  - '@Djelibeybi'
 ---
 
 The **LIFX** {% term integration %} controls [LIFX](https://www.lifx.com) lights over your local network, without going through the LIFX cloud. Use it to switch your lights on and off, set their color and brightness, and start the animated effects that LIFX lights can run.
@@ -147,7 +125,7 @@ Both buttons are configuration entities.
 - **RSSI**
   - **Description**: Reports the current Wi-Fi signal strength of the light.
   - **Available for**: all LIFX lights
-  - **Remarks**: Diagnostic entity, disabled by default. To use it, enable the entity first. Home Assistant only asks the light for its signal strength while the entity is enabled, which saves a request on every update. The unit depends on the light's firmware.
+  - **Remarks**: Diagnostic entity, [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). To use it, enable the entity first. Home Assistant only asks the light for its signal strength while the entity is enabled, which saves a request on every update. The unit depends on the light's firmware.
 
 ### Binary sensors
 
@@ -245,9 +223,14 @@ Here are a few automation examples that use the actions provided by the LIFX int
 
 Pulse the living room lights a few times so you notice the doorbell even if the sound is turned down.
 
-- **Trigger**: State of the doorbell button changes to pressed
-- **Action**: Pulse effect
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
+- **Action**: LIFX: Pulse effect
   - **Target**: Living room (`light.living_room`)
+  - **Mode**: Breathe
+  - **Color name**: `white`
+  - **Cycles**: `3`
 
 Use the blueprint to pick the sensor, the lights, and the flash color without writing any YAML.
 
@@ -257,9 +240,11 @@ Use the blueprint to pick the sensor, the lights, and the flash color without wr
 
 Start the Sky effect on a LIFX Ceiling light at sunset, using the slow sunset scene. To return the light to normal control later, use the [**Stop effect**](/actions/lifx.effect_stop/) action.
 
-- **Trigger**: Sun: after sunset
-- **Action**: Sky effect
+- **Trigger**: Sunset
+- **Action**: LIFX: Sky effect
   - **Target**: Bedroom ceiling (`light.bedroom_ceiling`)
+  - **Sky type**: Sunset
+  - **Speed**: `120` seconds
 
 Use the blueprint to choose the lights, the sky type, the speed, and how long after sunset the effect starts.
 
@@ -269,9 +254,12 @@ Use the blueprint to choose the lights, the sky type, the speed, and how long af
 
 Start a two-hour HEV cycle on a LIFX Clean light at 2 AM every night. The example runs from 2 AM to 4 AM, when rooms are most likely to be empty. If your schedule is different, adjust the start time. We strongly recommend running each cycle for at least two continuous hours.
 
-- **Trigger**: Time: 02:00
-- **Action**: Set HEV cycle state
+- **Trigger**: Time
+  - **At**: `02:00`
+- **Action**: LIFX: Set HEV cycle state
   - **Target**: Bathroom (`light.bathroom`)
+  - **Enable**: On
+  - **Duration**: `7200` seconds
 
 Use the blueprint to choose the start time, the LIFX Clean lights, and how long the cycle runs.
 
@@ -280,6 +268,8 @@ Use the blueprint to choose the start time, the LIFX Clean lights, and how long 
 ## Data updates
 
 The **LIFX** integration {% term polling polls %} each light over your local network every 10 seconds. Changes made outside Home Assistant, such as from the LIFX app or a wall switch, can take up to that long to show up. After Home Assistant changes a light or starts an effect, it reads the light again straight away, and once more when a transition finishes, instead of waiting for the next poll.
+
+A light that does not answer a poll keeps showing its last known state. It only becomes unavailable after it misses three polls in a row, and any answer resets the count. This rides out the odd dropped reply on a busy Wi-Fi or Thread network without the light flickering to unavailable.
 
 Home Assistant also searches for LIFX lights every 15 minutes, which finds new lights and updates the address of lights you have already added. Zeroconf/HomeKit and DHCP discovery find lights as well.
 

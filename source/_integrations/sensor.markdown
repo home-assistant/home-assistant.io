@@ -1,16 +1,9 @@
 ---
-title: Sensor
 description: Instructions on how to set up your sensors with Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 0.7
-ha_quality_scale: internal
 ha_domain: sensor
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard

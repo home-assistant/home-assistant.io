@@ -1,25 +1,7 @@
 ---
-title: Fjäråskupan
 description: Instructions on how to configure fjäråskupan integration.
-ha_category:
-  - Binary sensor
-  - Button
-  - Fan
-  - Light
 ha_release: 2021.9
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@elupus'
 ha_domain: fjaraskupan
-ha_platforms:
-  - binary_sensor
-  - button
-  - fan
-  - light
-  - number
-  - sensor
-ha_integration_type: hub
 ---
 
 [Fjäråskupan](https://fjaraskupan.se/) allows you to control your Bluetooth equipped kitchen fan.

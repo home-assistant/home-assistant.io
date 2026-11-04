@@ -1,0 +1,30 @@
+{
+  "domain": "litterrobot",
+  "name": "Whisker",
+  "integration_type": "hub",
+  "codeowners": [
+    "@natekspencer",
+    "@tkdrob"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "pets"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "light",
+    "select",
+    "sensor",
+    "switch",
+    "time",
+    "update",
+    "vacuum"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

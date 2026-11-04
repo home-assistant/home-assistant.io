@@ -1,20 +1,7 @@
 ---
-title: EARN-E P1 Meter
 description: Monitor your smart meter's energy and gas data in real-time with the EARN-E P1 Meter integration.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2026.5
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_dhcp: true
-ha_codeowners:
-  - '@Miggets7'
 ha_domain: earn_e_p1
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **EARN-E P1 Meter** {% term integration %} connects to the [EARN-E energy monitor](https://earn-e.com/product/energiemonitor/), a device that reads your smart meter's P1 port and broadcasts real-time energy data via UDP on the local network. This integration listens for those broadcasts and exposes them as sensor entities.

@@ -1,36 +1,7 @@
 ---
-title: LaMetric
 description: Instructions on how to integrate LaMetric TIME and SKY with Home Assistant.
-ha_category:
-  - Button
-  - Notifications
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Update
-ha_iot_class: Local Polling
 ha_release: 0.49
-ha_codeowners:
-  - '@robbiet480'
-  - '@frenck'
-  - '@bachya'
 ha_domain: lametric
-ha_platforms:
-  - button
-  - diagnostics
-  - notify
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-  - update
-ha_integration_type: device
-ha_config_flow: true
-ha_ssdp: true
-ha_dhcp: true
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
@@ -205,6 +176,11 @@ sound_url:
   description: "An MP3 file to play with the notification, instead of a built-in sound: a media source ID of a file in Home Assistant, or the URL of the file. When `sound` is given as well, that sound plays when the file cannot be fetched."
   required: false
   type: string
+repeat:
+  description: "How many times the sound is played with the notification. Set to `0` to keep playing it until the notification is dismissed. Does not apply to sounds fetched from a URL."
+  required: false
+  type: integer
+  default: 1
 {% endconfiguration %}
 
 ## Data updates

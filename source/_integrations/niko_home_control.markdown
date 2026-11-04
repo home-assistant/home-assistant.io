@@ -1,23 +1,7 @@
 ---
-title: Niko Home Control
 description: Instructions on how to integrate Niko Home Control 1 lights into Home Assistant.
-ha_codeowners:
-  - '@VandeurenGlenn'
-ha_config_flow: true
-ha_category:
-  - Climate
-  - Cover
-  - Light
-  - Scene
-ha_iot_class: Local Push
 ha_release: 0.82
 ha_domain: niko_home_control
-ha_platforms:
-  - climate
-  - cover
-  - light
-  - scene
-ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file

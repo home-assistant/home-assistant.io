@@ -1,5 +1,5 @@
 ---
-title: Stop vacuum
+title: "Stop vacuum cleaner"
 action: vacuum.stop
 domain: vacuum
 description: "Stops the current activity of a vacuum."
@@ -34,8 +34,6 @@ This stops `vacuum.upstairs`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum, area, or entity to stop.
@@ -57,9 +55,11 @@ target:
 
 If a leak sensor activates in the kitchen, this automation stops the vacuum immediately so it does not drive through water.
 
-- **Trigger**: Leak detected
-- **Action**: Stop vacuum
-- **Target**: Downstairs vacuum
+- **Trigger**: State changed
+  - **Entity**: Kitchen leak sensor
+  - **To**: Wet
+- **Action**: Stop vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for stopping a vacuum on leak detection" %}
 

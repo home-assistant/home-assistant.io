@@ -1,15 +1,7 @@
 ---
-title: Input boolean
 description: Instructions on how to use the input boolean helper with Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_release: 0.11
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: input_boolean
-ha_integration_type: helper
 ---
 
 The **Input boolean** {% term integration %} lets you create a toggle {% term helper %}: an entity that stores an on or off {% term state %} you can set yourself. Because the value is not tied to a physical device, you can use it as an adjustable switch for your automations, scripts, and dashboards. For example, you can create a toggle helper to enable or disable a set of automations, mark guest mode as active, or track whether you are on vacation.

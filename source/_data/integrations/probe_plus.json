@@ -1,0 +1,20 @@
+{
+  "domain": "probe_plus",
+  "name": "Probe Plus",
+  "integration_type": "device",
+  "codeowners": [
+    "@pantherale0"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

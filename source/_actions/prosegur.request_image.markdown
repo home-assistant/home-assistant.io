@@ -1,5 +1,5 @@
 ---
-title: "Request image"
+title: "Request camera image"
 action: prosegur.request_image
 domain: prosegur
 description: "Asks the Prosegur cloud service for a new image from a camera."
@@ -16,7 +16,7 @@ To request an image from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Prosegur camera you want a new image from.
-6. From the actions shown for that target, select **Prosegur: Request image**.
+6. From the actions shown for that target, under **Prosegur Alarm**, select **Request camera image**.
 7. Select **Save**.
 
 ### Options in the UI

@@ -1,0 +1,9 @@
+{
+  "domain": "plant",
+  "name": "Plant Monitor",
+  "quality_scale": "internal",
+  "categories": [
+    "garden_plants",
+    "helpers.calculate_value"
+  ]
+}

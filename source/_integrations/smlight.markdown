@@ -1,32 +1,7 @@
 ---
-title: SMLIGHT SLZB
 description: The SMLIGHT SLZB integration allows users to monitor and manage their SMLIGHT SLZB devices from directly within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Infrared
-  - Light
-  - Sensor
-  - Switch
-  - Update
 ha_release: 2024.9
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: smlight
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - sensor
-  - switch
-  - update
-ha_codeowners:
-  - '@tl-sl'
-ha_integration_type: device
-ha_dhcp: true
-ha_quality_scale: platinum
 ---
 
 The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage your [SLZB](https://smlight.tech/) devices directly from Home Assistant. This integration provides direct access to many features available in the SLZB device's web UI, such as managing firmware updates, monitoring device health through diagnostic sensors, and controlling settings like LED modes or restarting the device.
@@ -155,6 +130,10 @@ To use the Bluetooth remote adapter, select a [scanning mode](/integrations/blue
 3. Select a **Bluetooth scanning mode**.
 
 Setting a mode other than **Disabled** automatically enables the Bluetooth remote adapter on the SMLIGHT device.
+
+{% important %}
+Changing the mode from **Disabled** to another mode, or back to **Disabled**, restarts the SLZB device to apply the change. During the restart, its Zigbee or Thread radios are unavailable. Applications connected to them, such as ZHA, Zigbee2MQTT, or an OpenThread Border Router, lose their connection and might not reconnect automatically. Make this change at a convenient time, and check those applications afterward. Changing between the other modes does not restart the device.
+{% endimportant %}
 
 {% tip %}
 SMLIGHT devices do _not_ support proxying active (GATT) connections.

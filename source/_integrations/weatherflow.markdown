@@ -1,20 +1,7 @@
 ---
-title: WeatherFlow
 description: Instructions on how to integrate your WeatherFlow Tempest into Home Assistant over your local network.
 ha_release: '2023.10'
-ha_category:
-  - Environment
-  - Sensor
-ha_platforms:
-  - event
-  - sensor
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@natekspencer'
-  - '@jeeftor'
 ha_domain: weatherflow
-ha_integration_type: hub
 ---
 
 The **WeatherFlow** {% term integration %} is a local-only {% term integration %} that reads weather data from all [WeatherFlow Tempest](https://tempest.earth/tempest-home-weather-system/)-compatible weather stations on the local network.
@@ -141,7 +128,13 @@ Additionally, the following diagnostic sensors are available:
 
 ## Event entities
 
-The WeatherFlow Tempest station also sends event triggers when it starts raining and when there is a lightning strike nearby.
+WeatherFlow devices also send events when precipitation starts and when they detect a lightning strike. Each device only gets the event entities for the events it sends:
+
+- **Tempest**: **Lightning strike** and **Precipitation start**
+- **AIR**: **Lightning strike** only
+- **SKY**: **Precipitation start** only
+- **Hub**: no event entities
+
 This {% term integration %} will expose these {% term event %} {% term entities %} and can be used for automations. The following entities will be exposed:
 
 - **Lightning strike**

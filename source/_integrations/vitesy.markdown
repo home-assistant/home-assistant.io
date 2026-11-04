@@ -1,25 +1,7 @@
 ---
-title: Vitesy
 description: Instructions on how to integrate Vitesy devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Health
-  - Select
-  - Sensor
 ha_release: '2026.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@chemelli74'
 ha_domain: vitesy
-ha_platforms:
-  - binary_sensor
-  - button
-  - select
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Vitesy** {% term integration %} connects Home Assistant to your [Vitesy](https://vitesy.com/) air quality devices through the Vitesy Hub cloud service.
@@ -119,8 +101,9 @@ Here are a few ideas to get you started.
 
 Send a notification to your phone when the air quality score falls below a threshold.
 
-- **Trigger**: When the air quality score drops below 40%
+- **Trigger**: Numeric state crossed threshold
   - **Target**: Air quality score (`sensor.shelfy_air_quality_score`)
+  - **Below**: `40`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -149,8 +132,9 @@ automation: |
 
 Send a notification on the day the purification filter is due for maintenance.
 
-- **Trigger**: When the current time reaches the filter change due date
+- **Trigger**: Time
   - **Target**: Filter change due (`sensor.shelfy_filter_change_due`)
+  - **At time**: Shelfy filter change due sensor
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

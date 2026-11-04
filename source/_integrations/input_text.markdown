@@ -1,15 +1,7 @@
 ---
-title: Input text
 description: Instructions on how to integrate the Input text integration into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_release: 0.53
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: input_text
-ha_integration_type: helper
 ---
 
 The **Input text** {% term integration %} lets you create a text {% term helper %}: an entity that stores a text value you can set yourself. Because the value is not tied to a physical device, you can use it as an adjustable text setting for your automations, scripts, and dashboards. For example, you can create a text helper to store a status message, a name, or a code. It can also be set to password mode, which obscures the text as you type.

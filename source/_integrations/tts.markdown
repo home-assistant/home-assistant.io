@@ -1,17 +1,7 @@
 ---
-title: Text-to-speech (TTS)
 description: Instructions on how to set up text-to-speech (TTS) with Home Assistant.
-ha_category:
-  - Media source
-  - Text-to-speech
 ha_release: 0.35
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: tts
-ha_quality_scale: internal
-ha_platforms:
-  - notify
-ha_integration_type: entity
 related:
   - url: https://www.home-assistant.io/integrations/#text-to-speech
     title: List of integrations using the TTS integration

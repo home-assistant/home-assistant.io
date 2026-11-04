@@ -1,0 +1,16 @@
+{
+  "domain": "eafm",
+  "name": "Environment Agency Flood Gauges",
+  "integration_type": "service",
+  "codeowners": [
+    "@Jc2k"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.public_warnings"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

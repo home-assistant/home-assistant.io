@@ -1,19 +1,7 @@
 ---
-title: Teltonika
 description: Instructions on how to integrate Teltonika routers with Home Assistant.
 ha_release: 2026.3
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@karlbeecken'
 ha_domain: teltonika
-ha_integration_type: device
-ha_dhcp: true
-ha_config_flow: true
-ha_quality_scale: silver
-ha_category:
-  - Sensor
-ha_platforms:
-  - sensor
 related:
   - url: https://teltonika-networks.com/
     title: Teltonika Networks
