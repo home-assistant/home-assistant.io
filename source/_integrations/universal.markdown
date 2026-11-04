@@ -96,7 +96,7 @@ browse_media_entity:
   required: false
   type: string
 device_class:
-  description: The device class that this entity represents. Can be `tv`, `speaker`, or `receiver`.
+  description: Sets the [device class](/integrations/media_player/#device-class) of the media player, such as `tv` or `speaker`.
   required: false
   type: string
 unique_id:

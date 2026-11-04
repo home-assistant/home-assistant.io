@@ -3379,7 +3379,7 @@ weather:
       required: false
       type: template
     condition:
-      description: The current weather condition.
+      description: The current weather condition. It must resolve to one of Home Assistant's [recognized weather conditions](/integrations/weather/#condition-mapping).
       required: true
       type: template
     dew_point:
