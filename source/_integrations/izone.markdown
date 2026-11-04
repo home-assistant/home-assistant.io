@@ -70,7 +70,7 @@ If UDP discovery traffic is blocked, you can still set up a controller by choosi
 
 Unit modes off, heat, cool, dry, and fan only are supported. For units fitted with the iSave system, which vents external air into the house, this is available as the **Eco** preset.
 
-The entity exposes a `supply_temperature` attribute. Use the **Supply temperature** sensor entity (below) instead.
+The `supply_temperature` attribute of the controller climate entity is deprecated and will be removed in Home Assistant 2027.6. Use the **Supply temperature** sensor entity (below) instead.
 
 ### Zone control mode
 
@@ -96,9 +96,9 @@ In this mode, the controller's current temperature is the return air temperature
 
 When the **Eco** preset is on, the controller's current temperature is the supply air temperature in both modes.
 
-### Legacy attributes
+### Deprecated attributes
 
-The controller climate entity also has the attributes `control_zone`, `control_zone_name`, and `control_zone_setpoint`. For new automations and dashboards, use `control_zone_source` instead. To get the target temperature of the controlling zone, read the `temperature` attribute of the climate entity it names.
+The controller climate entity also has the attributes `control_zone`, `control_zone_name`, and `control_zone_setpoint`. These attributes are deprecated and will be removed in Home Assistant 2027.6. Use `control_zone_source` instead. To get the target temperature of the controlling zone, read the `temperature` attribute of the climate entity it names.
 
 ### Sensors
 
@@ -122,6 +122,8 @@ Each zone has the following entities for its damper:
 - **Damper position**: The position the controller is driving the damper to, as a percentage.
 
 If your installer has locked airflow adjustment on the iZone controller, **Damper minimum** and **Damper maximum** are unavailable. If only the minimum airflow is locked, only **Damper minimum** is unavailable.
+
+The `airflow_min` and `airflow_max` attributes of the zone climate entities are deprecated and will be removed in Home Assistant 2027.6. Use **Damper minimum** and **Damper maximum** instead.
 
 **Damper position** is only created for zones that report a damper position. Some systems don't report it and show a constant 50%, so the entity is disabled by default unless at least one zone reports a different value. To use it anyway, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
