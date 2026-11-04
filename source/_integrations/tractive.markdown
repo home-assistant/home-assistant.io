@@ -19,7 +19,7 @@ Password:
 
 ## Supported functionality
 
-The **Tractive** integration provides the following entities for each pet registered in your Tractive account. The integration creates two devices per pet: a tracker device named **Tracker** followed by the tracker ID, which holds the entities related to the tracker hardware, and a device named after your pet, which holds the activity, rest, sleep, and weight sensors.
+The **Tractive** integration provides the following entities for each pet registered in your Tractive account. The integration creates two devices per pet: a tracker device named **Tracker** followed by the tracker ID, which holds the entities related to the tracker hardware, and a device named after your pet, which holds the activity, rest, sleep, health status, and weight sensors.
 
 ### Binary sensors
 
@@ -39,6 +39,10 @@ The **Tractive** integration provides the following entities for each pet regist
 
 - **Activity time**
   - **Description**: Time your pet has been active today.
+- **Bark status**
+  - **Description**: Status of your pet's barking compared to its usual level, as shown in the Tractive app.
+  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today
+  - **Remarks**: Disabled by default.
 - **Battery**
   - **Description**: Battery level of the tracker.
 - **Daily goal**
@@ -49,6 +53,16 @@ The **Tractive** integration provides the following entities for each pet regist
   - **Description**: Time your pet has slept during the night.
 - **Rest time**
   - **Description**: Time your pet has been resting today.
+- **Resting heart rate status**
+  - **Description**: Status of your pet's resting heart rate compared to its baseline, as shown in the Tractive app.
+  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today
+- **Resting respiratory rate status**
+  - **Description**: Status of your pet's resting respiratory rate compared to its baseline, as shown in the Tractive app.
+  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today
+- **Scratch status**
+  - **Description**: Status of your pet's scratching compared to its usual level, as shown in the Tractive app.
+  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today
+  - **Remarks**: Disabled by default.
 - **Status**
   - **Description**: Current status of the tracker.
   - **Options**: Inaccurate position, Not reporting, Operational, System shutdown user, System startup
@@ -57,7 +71,8 @@ The **Tractive** integration provides the following entities for each pet regist
   - **Remarks**: The entity state is `unknown` if no weight is set for your pet. Home Assistant checks for weight changes every 30 minutes.
 
 {% note %}
-The **Activity time**, **Daily goal**, **Day sleep**, **Night sleep**, and **Rest time** sensors are only created for pets whose tracker provides health data. Trackers without health features and trackers with an inactive subscription do not provide this data.
+The **Activity time**, **Bark status**, **Daily goal**, **Day sleep**, **Night sleep**, **Rest time**, **Resting heart rate status**, **Resting respiratory rate status**, and **Scratch status** sensors are only created for pets whose tracker provides health data. Trackers without health features and trackers with an inactive subscription do not provide this data.
+The health status sensors are `unknown` when Tractive reports a status that Home Assistant does not know yet.
 {% endnote %}
 
 ### Switches
