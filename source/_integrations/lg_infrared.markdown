@@ -118,9 +118,9 @@ A media player entity with the `receiver` device class is created when an infrar
 
 Button entities are created when an infrared emitter is configured. Each button sends the corresponding infrared command to the Home Theater when pressed.
 
-- **Menu & navigation**: **Home**, **Input**, **Info**, **Disc menu**, **Title/Popup**, **Up**, **Down**, **Left**, **Right**, **OK**, **Back**, **Clear**
+- **Menu & navigation**: **Home**, **Input**, **Info**, **Disc menu**, **Title/popup**, **Up**, **Down**, **Left**, **Right**, **OK**, **Back**, **Clear**
 - **Numeric keypad & Asterisk**: **0** through **9**, **Asterisk**
-- **Playback, sound & settings**: **Open/Close**, **Optical/TV sound**, **Sound effect**, **Speaker level**, **Audio track**, **Subtitle**, **Sleep**, **Record**, **Repeat**, **Rewind**, **Fast forward**
+- **Playback, sound & settings**: **Open/close**, **Optical/TV sound**, **Sound effect**, **Speaker level**, **Audio track**, **Subtitle**, **Sleep**, **Record**, **Repeat**, **Rewind**, **Fast forward**
 - **Color buttons**: **Red**, **Green**, **Yellow**, **Blue**
 
 ### Air conditioner
