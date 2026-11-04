@@ -2,9 +2,10 @@
 title: Nature Remo
 description: Instructions on how to integrate Nature Remo smart remote controllers with Home Assistant.
 ha_release: '2026.11'
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - buttons_remotes
+  - energy.meters_monitoring
+  - sensors.temperature_humidity
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: nature_remo
@@ -44,10 +45,6 @@ Access token:
   description: "The personal access token generated at [home.nature.global](https://home.nature.global/). One token gives access to all homes and devices of the account."
 {% endconfiguration_basic %}
 
-## Data updates
-
-The integration {% term polling polls %} the Nature cloud every 60 seconds (two API requests per cycle). The Nature API allows 30 requests per 5 minutes **per account**, shared by every API client using the same account, so configure the integration only once per account. If the account still runs into the rate limit, the integration pauses polling and retries once the reset time reported by the API has passed.
-
 ## Sensors
 
 Remo hubs expose their built-in sensors (availability varies by model):
@@ -65,49 +62,79 @@ Remo E and Remo E lite expose their smart-meter readings, ready for the [energy 
 
 ## Example automations
 
-{% details "Warn when a room gets hot" %}
+{% include docs/paste_yaml_tip.md %}
 
-{% raw %}
+### Automation: warn when a room gets hot
 
-```yaml
-automation:
-  - alias: "Warn when the living room gets hot"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.living_remo_temperature
-        above: 28
-        for: "00:10:00"
-    actions:
-      - action: notify.notify
-        data:
-          message: >-
-            Living room is at
-            {{ states('sensor.living_remo_temperature') }} °C.
-```
+This automation sends a notification when the living room stays above 28 °C for 10 minutes.
 
-{% endraw %}
+- **Trigger**: Numeric state
+  - **Entity**: Living Remo Temperature (`sensor.living_remo_temperature`)
+  - **Above**: `28`
+  - **For**: 10 minutes
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: {% raw %}`Living room is at {{ states('sensor.living_remo_temperature') }} °C.`{% endraw %}
+
+{% details "YAML example for a hot room warning" %}
+
+{% example %}
+automation: |
+  alias: "Warn when the living room gets hot"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.living_remo_temperature
+      above: 28
+      for: "00:10:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >-
+          Living room is at
+          {{ states('sensor.living_remo_temperature') }} °C.
+{% endexample %}
 
 {% enddetails %}
 
+## Data updates
+
+The integration {% term polling polls %} the Nature cloud every 60 seconds (two API requests per cycle). The Nature API allows 30 requests per 5 minutes **per account**, shared by every API client using the same account, so configure the integration only once per account. If the account still runs into the rate limit, the integration pauses polling and retries once the reset time reported by the API has passed.
+
 ## Known limitations
 
-- The Nature cloud has no push channel, so all data arrives by polling; state changes can take up to a minute to appear.
-- Motion is reported only as the timestamp of the last detection. A real-time motion binary sensor is not possible with this API.
-- Hubs running older firmware do not report an online/offline flag; an unplugged hub is only noticeable through readings that stop updating.
+### Polling delay
+
+The Nature cloud has no push channel, so all data arrives by polling; state changes can take up to a minute to appear.
+
+### Motion detection
+
+Motion is reported only as the timestamp of the last detection. A real-time motion binary sensor is not possible with this API.
+
+### Offline detection
+
+Hubs running older firmware do not report an online/offline flag; an unplugged hub is only noticeable through readings that stop updating.
 
 ## Troubleshooting
 
-### The entry fails with "Access token is invalid or was revoked"
+{% details 'The entry fails with "Access token is invalid or was revoked"' %}
 
 Home Assistant could not authenticate against the Nature cloud, because the access token was revoked or belongs to an account that no longer exists. Generate a new token at [home.nature.global](https://home.nature.global/), delete the Nature Remo entry, and set the integration up again with the new token.
 
-### Log messages about the rate limit
+{% enddetails %}
+
+{% details "Log messages about the rate limit" %}
 
 The 30-requests-per-5-minutes budget is shared across everything using your Nature account. If you see rate-limit errors, check for a second Home Assistant instance, scripts, or other integrations polling the same account, and remove the duplicates.
 
-### A device shows no sensor entities
+{% enddetails %}
+
+{% details "A device shows no sensor entities" %}
 
 Not every Remo model has every sensor: the Remo nano has none, only the Remo E family provides smart-meter readings, and humidity requires a model with a humidity sensor. Readings the device has never reported do not create entities.
+
+{% enddetails %}
 
 ## Removing the integration
 
