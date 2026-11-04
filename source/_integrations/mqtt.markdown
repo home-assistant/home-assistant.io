@@ -173,6 +173,7 @@ The time in seconds between sending keep alive messages for this client. The def
 #### Broker certificate validation
 
 To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose **Auto**. This validates the broker certificate against the bundled certificate authority (CA) certificates. If a self-signed certificate is used, select **Custom**. A custom PEM- or DER-encoded CA certificate can be uploaded. Select **Next** to show the control to upload the CA certificate.
+Instead of uploading the CA certificate, you can enter the path to a PEM-encoded CA certificate file in **Custom CA certificate file path**, for example `/ssl/mqtt_ca.crt`. You cannot upload a CA certificate and enter a file path at the same time.
 If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the **Ignore broker certificate validation** switch on.
 
 #### MQTT Protocol
@@ -183,6 +184,23 @@ Home Assistant requires that your broker supports MQTT protocol version `5`. Mos
 
 With a secure broker connection, it is possible to use a client certificate for authentication. To set the client certificate and private key, turn on the option **Use a client certificate** and select **Next** to reveal file upload controls. A client certificate and the corresponding private key must be uploaded together. Both client certificate and private key must be either PEM- or DER-encoded. If the private key is encrypted with a password, ensure you supply the correct password when uploading the client certificate and key files.
 
+Instead of uploading the client certificate and private key, you can load them from files. Enter the paths in **Client certificate file path** and **Private key file path**, for example `/ssl/mqtt_client.crt` and `/ssl/mqtt_client.key`. Loading certificates from files makes it easier to renew them, as you only need to replace the files. Keep the following in mind:
+
+- The files must be PEM-encoded, and the private key file must not be encrypted with a password.
+- For each certificate or key, either upload a file or enter a file path, not both.
+- The files are loaded when MQTT is set up. A renewed certificate is used after MQTT is reloaded or Home Assistant is restarted.
+
+To learn how to create client certificates and set up the Mosquitto broker to require them, see [Setting up client certificate authentication](#setting-up-client-certificate-authentication).
+
+#### Client certificate expiry
+
+Home Assistant checks when the loaded client certificate expires, when MQTT is set up and once a day after that. If the client certificate expires within 30 days, a [repair issue](/integrations/repairs/) is created:
+
+- If the client certificate was uploaded, upload a renewed client certificate and private key by reconfiguring the MQTT broker settings.
+- If the client certificate is loaded from a file, and a renewed certificate is installed in that file, the repair offers to reload MQTT, so the renewed certificate is used.
+- If the client certificate is loaded from a file, but no renewed certificate is installed yet, replace the client certificate and private key files with renewed ones.
+- If the installed client certificate, private key, or CA certificate file cannot be loaded, or the client certificate and private key do not match, the repair tells you which file has a problem. MQTT keeps using the certificate that was loaded, but might not start correctly after a restart until the files are fixed.
+
 #### Using WebSockets as transport
 
 You can select `websockets` as the transport method if your MQTT broker supports it. When you select `websockets` and select **Next**, you will be able to add a WebSockets path (default is `/`) and WebSockets headers (optional). The target WebSockets URI `ws://{broker}:{port}{ws_path}` is built with the `broker`, `port`, and `ws_path` (WebSocket path) settings.
@@ -191,6 +209,94 @@ To configure the WebSocket's headers, supply a valid JSON dictionary string. For
 {% note %}
 A configured client certificate will only be active if broker certificate validation is enabled.
 {% endnote %}
+
+### Setting up client certificate authentication
+
+With client certificate authentication, the MQTT broker only accepts clients that present a certificate signed by a certificate authority (CA) that the broker trusts. Public certificate authorities, like Let's Encrypt, do not issue client certificates. You create your own CA, and use it to sign a certificate for the broker and a certificate for Home Assistant.
+
+The steps below use [OpenSSL](https://www.openssl.org/). You can run the commands on your computer, or on your Home Assistant system using the [Terminal & SSH app](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_ssh).
+
+#### Creating the certificates
+
+1. Create the CA certificate and its private key. The CA certificate is valid for 10 years.
+
+   ```bash
+   openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -nodes \
+     -keyout mqtt_ca.key -out mqtt_ca.crt -subj "/CN=MQTT CA"
+   ```
+
+   Keep `mqtt_ca.key` in a safe place, and do not copy it to your MQTT broker or to Home Assistant. You need it to sign renewed certificates.
+
+2. Create the certificate for the MQTT broker. The certificate must include the hostname that Home Assistant uses to connect to the broker. When you use the Mosquitto broker app, Home Assistant connects to `core-mosquitto`. Add other hostnames or IP addresses of your broker to `subjectAltName` if other clients connect to the broker using TLS, for example `DNS:homeassistant.local,IP:192.168.1.10`.
+
+   ```bash
+   openssl req -newkey rsa:2048 -nodes -keyout mqtt_server.key \
+     -out mqtt_server.csr -subj "/CN=core-mosquitto"
+   printf "subjectAltName=DNS:core-mosquitto\nextendedKeyUsage=serverAuth\n" > mqtt_server.ext
+   openssl x509 -req -in mqtt_server.csr -CA mqtt_ca.crt -CAkey mqtt_ca.key \
+     -CAcreateserial -sha256 -days 365 -extfile mqtt_server.ext -out mqtt_server.crt
+   ```
+
+3. Create the client certificate for Home Assistant. The private key is not encrypted, so Home Assistant can load it from a file.
+
+   ```bash
+   openssl req -newkey rsa:2048 -nodes -keyout mqtt_client.key \
+     -out mqtt_client.csr -subj "/CN=homeassistant"
+   printf "extendedKeyUsage=clientAuth\n" > mqtt_client.ext
+   openssl x509 -req -in mqtt_client.csr -CA mqtt_ca.crt -CAkey mqtt_ca.key \
+     -CAcreateserial -sha256 -days 365 -extfile mqtt_client.ext -out mqtt_client.crt
+   ```
+
+4. Copy `mqtt_ca.crt`, `mqtt_server.crt`, `mqtt_server.key`, `mqtt_client.crt`, and `mqtt_client.key` to the `ssl` folder of your Home Assistant system, for example using the [Samba share app](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_samba).
+
+#### Setting up the Mosquitto broker app
+
+1. Open the [Mosquitto broker app configuration](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto) and go to the **Configuration** tab.
+2. Set the following options:
+
+   ```yaml
+   certfile: mqtt_server.crt
+   keyfile: mqtt_server.key
+   cafile: mqtt_ca.crt
+   require_certificate: true
+   ```
+
+3. Save the configuration and restart the app.
+
+With `require_certificate` turned on, clients that connect on the encrypted ports (by default `8883`, and `8884` for WebSockets) must present a client certificate signed by your CA, and must also log in with a username and password. Unencrypted connections on ports `1883` and `1884` are not affected. To only allow encrypted connections, remove these ports in the **Network** section of the app configuration.
+
+#### Setting up a standalone Mosquitto broker
+
+If you run Mosquitto yourself, copy `mqtt_ca.crt`, `mqtt_server.crt`, and `mqtt_server.key` to your broker, for example to `/etc/mosquitto/certs/`, and add a TLS listener to your Mosquitto configuration:
+
+```text
+listener 8883
+cafile /etc/mosquitto/certs/mqtt_ca.crt
+certfile /etc/mosquitto/certs/mqtt_server.crt
+keyfile /etc/mosquitto/certs/mqtt_server.key
+require_certificate true
+use_identity_as_username true
+```
+
+With `use_identity_as_username`, Mosquitto uses the common name (CN) of the client certificate, `homeassistant` in this example, as the username, and no password is needed. Make sure the certificate for the broker includes the hostname that Home Assistant uses to connect to the broker. Restart Mosquitto to apply the changes.
+
+#### Setting up Home Assistant
+
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
+2. Select the MQTT integration.
+3. Select {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+4. Set **Port** to `8883`. When you use the Mosquitto broker app, keep `core-mosquitto` as **Broker**, and keep the username and password.
+5. Expand **Other settings**, and set the following:
+   - **Broker certificate validation**: **Custom**
+   - **Custom CA certificate file path**: `/ssl/mqtt_ca.crt`
+   - **Use a client certificate**: on
+   - **Client certificate file path**: `/ssl/mqtt_client.crt`
+   - **Private key file path**: `/ssl/mqtt_client.key`
+6. Select **Submit**.
+
+#### Renewing the client certificate
+
+The client certificate in this example is valid for one year. Before it expires, create a renewed client certificate by repeating step 3 of [Creating the certificates](#creating-the-certificates), using the same CA. Then replace `mqtt_client.crt` and `mqtt_client.key` in the `ssl` folder. When the loaded certificate expires within 30 days, Home Assistant detects the renewed certificate, and a [repair issue](#client-certificate-expiry) offers to reload MQTT. You can also reload the MQTT integration yourself to use the renewed certificate right away. The certificate for the broker must be renewed in the same way, by repeating step 2 and restarting the broker.
 
 ## Configure MQTT options
 
