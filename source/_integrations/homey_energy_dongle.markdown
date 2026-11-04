@@ -1,7 +1,21 @@
 ---
+title: Homey Energy Dongle
 description: Instructions on how to integrate the Homey Energy Dongle with Home Assistant.
 ha_release: 2026.12
+ha_categories:
+  - energy.meters_monitoring
+  - water.meters_leak_detection
+ha_platforms:
+  - diagnostics
+  - sensor
+ha_iot_class: Local Push
+ha_quality_scale: gold
+ha_config_flow: true
+ha_codeowners:
+  - '@Doekse'
 ha_domain: homey_energy_dongle
+ha_integration_type: device
+ha_zeroconf: true
 ---
 
 The **Homey Energy Dongle** {% term integration %} shows the data of your smart meter in Home Assistant. Plug the [Homey Energy Dongle](https://homey.app/energy-dongle/) into the P1 port of your smart meter, and Home Assistant receives your energy usage in real time over your local network. No cloud needed.
@@ -162,7 +176,7 @@ When the active tariff is swapped, or sensors are missing, you may have selected
 
 ### The IP address of the Homey Energy Dongle changed
 
-Home Assistant updates the IP address automatically when it discovers the Homey Energy Dongle again. You can also change it with **Reconfigure**, like in [Wrong or missing values](#wrong-or-missing-values). To prevent this, give the Homey Energy Dongle a fixed IP address in your router.
+When your smart meter sends a serial number, Home Assistant updates the IP address automatically when it discovers the Homey Energy Dongle again. Most Swedish and DSMR 2.2 meters don't send one. For those meters, change the **Host** with **Reconfigure**, like in [Wrong or missing values](#wrong-or-missing-values). To prevent this, give the Homey Energy Dongle a fixed IP address in your router.
 
 ### Reporting an issue
 
