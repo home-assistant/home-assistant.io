@@ -898,8 +898,10 @@ const diagram = [
     }
   }
 
-  /* The white outline (181 × 353) around the screenshot, which has its
-     own black bezel and rounded corners. */
+  /* The white outline (181 × 353) around the screenshot. Figma's
+     screenshot (node 2955:1744) has an even 6px dark bezel with rounded
+     screen corners; the exported one squares off the screen at the top,
+     so the bezel is drawn over it here, like the laptop's. */
   .phone {
     border-radius: 4.35cqi;
     height: 84.65%;
@@ -907,6 +909,15 @@ const diagram = [
     overflow: hidden;
     top: 7.43%;
     width: 25.42%;
+
+    &::after {
+      border: 0.84cqi solid #000b18;
+      border-radius: calc(4.35cqi - max(1px, 0.21cqi));
+      content: "";
+      inset: 0;
+      pointer-events: none;
+      position: absolute;
+    }
   }
 
   /* The serial diagram, scaling with its column. */
