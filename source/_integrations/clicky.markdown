@@ -47,4 +47,6 @@ The integration adds the following sensors for each website that you set up:
 
 ## Removing the integration
 
+This integration follows standard integration removal.
+
 {% include integrations/remove_device_service.md %}
