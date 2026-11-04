@@ -115,7 +115,7 @@ Acaia scales only run their auto-off timer while no device is connected to them 
 
 To change this, set the **Idle disconnect timeout** option to a number of minutes. Once the weight hasn't changed for that long, Home Assistant disconnects and leaves the scale alone until it turns itself off. It reconnects within about 15 seconds of the scale being turned on again.
 
-If you want to use the scale again before it has turned itself off, turn it off for more than 30 seconds and then back on. Saving the integration options also reconnects it.
+If you want to use the scale again before it has turned itself off, turn it off for more than 30 seconds and then back on. Reloading the integration also reconnects it.
 
 ## Known limitations
 
