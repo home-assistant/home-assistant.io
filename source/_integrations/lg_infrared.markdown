@@ -276,7 +276,7 @@ automation: |
 
 - The TV and home theater media player and button entities use assumed state, meaning Home Assistant cannot verify the actual state of the device. For TVs, commands received from the physical remote are exposed as events only and do not update entity state.
 - The climate entity for the air conditioner also uses assumed state, even with physical remote state tracking enabled. The receiver reports what the remote sent, not what the unit is actually doing, so the two can still drift apart, for example if something blocks the line of sight.
-- Turning on and turning off the TV or home theater both send the same IR power toggle command, as is standard with infrared remotes.
+- Turning on and turning off the home theater both send the same IR power toggle command. The TV uses separate power-on and power-off commands.
 - Volume control for the TV and home theater is step-based only; there is no way to set an absolute volume level.
 - For the air conditioner, the dry mode temperature is fixed at 24 °C by the LG air conditioner infrared protocol and cannot be changed. Fan only mode has no target temperature at all. Changing the target temperature in either mode is remembered for the next time you switch to cool or heat, but nothing is sent to the unit.
 - Changing the fan speed while the air conditioner is off is also remembered rather than sent. It is applied with the next command that turns the unit on.
