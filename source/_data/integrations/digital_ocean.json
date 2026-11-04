@@ -1,0 +1,16 @@
+{
+  "domain": "digital_ocean",
+  "name": "Digital Ocean",
+  "codeowners": [
+    "@fabaff"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "switch"
+  ]
+}

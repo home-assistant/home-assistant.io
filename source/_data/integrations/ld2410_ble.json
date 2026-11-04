@@ -1,0 +1,20 @@
+{
+  "domain": "ld2410_ble",
+  "name": "LD2410 BLE",
+  "integration_type": "device",
+  "codeowners": [
+    "@930913"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "sensors.motion_presence"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

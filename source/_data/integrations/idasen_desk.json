@@ -1,0 +1,22 @@
+{
+  "domain": "idasen_desk",
+  "name": "IKEA Idasen Desk",
+  "integration_type": "device",
+  "codeowners": [
+    "@abmantis"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "health_wellbeing"
+  ],
+  "platforms": [
+    "button",
+    "cover",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

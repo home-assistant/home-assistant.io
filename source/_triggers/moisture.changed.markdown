@@ -112,11 +112,12 @@ threshold:
   type: map
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="moisture sensor" example="sensor.plant_moisture" %}
 
 ## Good to know
 
 - This trigger works with sensors that have the **moisture** device class, such as soil moisture probes. For wet/dry leak sensors, use [Moisture detected](/triggers/moisture.detected/) or [Moisture cleared](/triggers/moisture.cleared/) instead.
+- If you use an entity as the threshold, it must use `%` as its unit. If it has a different unit, or no unit, the trigger doesn't react.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when moisture first crosses a specific level, use [Moisture content crossed threshold](/triggers/moisture.crossed_threshold/) instead.

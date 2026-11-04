@@ -1,0 +1,19 @@
+{
+  "domain": "meteo_france",
+  "name": "Météo-France",
+  "integration_type": "service",
+  "codeowners": [
+    "@oncleben31",
+    "@Quentame"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.forecasts",
+    "weather_alerts.public_warnings"
+  ],
+  "platforms": [
+    "sensor",
+    "weather"
+  ]
+}

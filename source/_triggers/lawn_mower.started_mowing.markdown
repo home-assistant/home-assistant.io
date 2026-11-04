@@ -57,9 +57,9 @@ behavior:
 for:
   description: >
     How long the mower must stay in the mowing state before the trigger fires.
-    Accepts a duration like `00:02:00` for two minutes.
+    Accepts a duration like `00:02:00` for two minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

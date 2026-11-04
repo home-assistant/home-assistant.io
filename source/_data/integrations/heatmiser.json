@@ -1,0 +1,15 @@
+{
+  "domain": "heatmiser",
+  "name": "Heatmiser",
+  "codeowners": [
+    "@andylockran"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate"
+  ]
+}

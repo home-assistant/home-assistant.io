@@ -1,24 +1,7 @@
 ---
-title: Portainer
 description: Instructions on how to integrate Portainer with Home Assistant.
-ha_categories:
-  - computers_network.nas_servers
 ha_release: '2025.10'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@erwindouna'
 ha_domain: portainer
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - sensor
-  - switch
-  - update
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **Portainer** {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).

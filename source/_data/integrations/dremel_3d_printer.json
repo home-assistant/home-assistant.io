@@ -1,0 +1,19 @@
+{
+  "domain": "dremel_3d_printer",
+  "name": "Dremel 3D Printer",
+  "integration_type": "device",
+  "codeowners": [
+    "@tkdrob"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.printers"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "camera",
+    "sensor"
+  ]
+}

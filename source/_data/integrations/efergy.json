@@ -1,0 +1,16 @@
+{
+  "domain": "efergy",
+  "name": "Efergy",
+  "integration_type": "hub",
+  "codeowners": [
+    "@tkdrob"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -19,18 +19,16 @@ The **SenseCAP** {% term integration %} adds [Seeed Studio SenseCAP](https://www
 
 ## Supported devices
 
-| Model | Measurements |
-| --- | --- |
-| S2101 | Temperature, relative humidity |
-| S2102 | Illuminance |
-| S2103 | Temperature, relative humidity, carbon dioxide |
-| S2104 | Soil temperature, soil moisture |
-| S2105 | Soil temperature, soil moisture, electrical conductivity |
-| S2106 | Temperature, pH |
-| S2107 | Temperature from three probes |
-| S2120 | Temperature, relative humidity, illuminance, UV index, atmospheric pressure, wind speed, wind direction, wind gust, rainfall intensity, accumulated rainfall |
+- **S2101**: Temperature, relative humidity
+- **S2102**: Illuminance
+- **S2103**: Temperature, relative humidity, carbon dioxide
+- **S2104**: Soil temperature, soil moisture
+- **S2105**: Soil temperature, soil moisture, electrical conductivity
+- **S2106**: Temperature, pH
+- **S2107**: Temperature from three probes
+- **S2120**: Temperature, relative humidity, illuminance, UV index, atmospheric pressure, wind speed, wind direction, wind gust, rainfall intensity, accumulated rainfall
 
-All supported models also expose battery percentage. S2106 and S2107 require ChirpStack catalog identities.
+Every model also has a **Battery** sensor, shown under **Diagnostic** on the device page. S2106 and S2107 require ChirpStack catalog identities.
 
 ## Prerequisites
 
@@ -46,7 +44,7 @@ Confirm the discovered SenseCAP integration, or add it manually. One entry inclu
 
 Readings update when a device sends an uplink. Sensors show **Unknown** until their first reading after Home Assistant starts. If a LoRaWAN connection is lost, its sensors become unavailable until the connection recovers.
 
-The **Battery** sensor appears under **Diagnostic**. It uses the LoRaWAN device-status battery percentage when available, otherwise the battery percentage in SenseCAP uplinks. It shows **Unknown** until a battery report arrives.
+The **Battery** sensor uses the LoRaWAN device-status battery percentage when available, otherwise the battery percentage in SenseCAP uplinks. It shows **Unknown** until a battery report arrives.
 
 Home Assistant updates its device list when a connection integration reports additions or removals.
 

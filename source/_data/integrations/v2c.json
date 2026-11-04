@@ -1,0 +1,22 @@
+{
+  "domain": "v2c",
+  "name": "V2C",
+  "integration_type": "device",
+  "codeowners": [
+    "@dgomes"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.ev_charging"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "light",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ]
+}

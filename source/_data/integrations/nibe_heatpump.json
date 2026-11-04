@@ -1,0 +1,23 @@
+{
+  "domain": "nibe_heatpump",
+  "name": "Nibe Heat Pump",
+  "integration_type": "device",
+  "codeowners": [
+    "@elupus"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "water_heater"
+  ]
+}

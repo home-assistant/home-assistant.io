@@ -1,0 +1,18 @@
+{
+  "domain": "adguard",
+  "name": "AdGuard Home",
+  "integration_type": "service",
+  "codeowners": [
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "sensor",
+    "switch",
+    "update"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "domain": "mythicbeastsdns",
+  "name": "Mythic Beasts DNS",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.routers_network"
+  ]
+}

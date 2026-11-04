@@ -1,0 +1,13 @@
+{
+  "domain": "thinkingcleaner",
+  "name": "Thinking Cleaner",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "appliances_cleaning.cleaning"
+  ],
+  "platforms": [
+    "sensor",
+    "switch"
+  ]
+}

@@ -5,8 +5,8 @@ description: "Set up presence detection in Home Assistant to trigger automations
 
 Presence detection tells Home Assistant who is at home and where they are. That is one of the most useful pieces of information you can give your smart home, because it lets your automations react to people arriving and leaving:
 
-- Send me a notification when my child arrives at school
-- Turn on the AC when I leave work
+- Get a notification when your child arrives at school
+- Turn on the AC when you leave work
 
 <p class='img'>
     <img src="/images/dashboards/map-card.png" alt="Screenshot of the Map dashboard in Home Assistant showing four people, two of them at the home zone, one at a shop zone, and one on their own."/>
@@ -15,7 +15,7 @@ Presence detection tells Home Assistant who is at home and where they are. That 
 
 ## About setting up zone presence detection
 
-There are different ways of setting up zone presence detection. One way is to run an app on your phone to send detailed location information to your Home Assistant instance. Another way to detect presence is by checking which {% term devices %} are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can detect if people are at home.
+There are different ways of setting up zone presence detection. One way is to run an app on your phone to send detailed location information to your Home Assistant instance. Another way to detect presence is by checking which {% term devices %} are connected to the network. You can do that if you have a [supported router](/integrations/category/presence_location/network_presence/). By leveraging what your router already knows, you can detect if people are at home.
 
 ## Adding zone presence detection with a mobile phone
 
@@ -27,7 +27,7 @@ There are different ways of setting up zone presence detection. One way is to ru
   - The easiest way to do this is by enabling
     - [Home Assistant Cloud](https://nabucasa.com/config/)
 - Mobile phone:
-  - Android (Android 6 or later) or iPhone (iOS 15 or later)
+  - Android (Android 6 or later) or iPhone (iOS 16.4 or later)
   - Phone plan with Internet access
   - Access to your local network where Home Assistant is running
 - [Home Assistant Companion app installed](https://companion.home-assistant.io/docs/getting_started/) on your phone.
@@ -37,11 +37,15 @@ There are different ways of setting up zone presence detection. One way is to ru
 ### To add zone presence detection with a mobile phone
 
 1. Open the Home Assistant Companion app on your phone and log in to your Home Assistant instance.
-2. On the screen to **Connect to Home Assistant**, make sure you activate **Enable location tracking**.
-   - Select **Continue**.
-3. Go to {% my integrations title="**Settings** > **Devices** & **Services**" %} and look for the new integration that was added: **Mobile App**.
-   - On the integration card, select **1 Device**. This opens the device info page.
-   - You now see your phone name and its entities.
+2. When the app asks for location permission, select **Share my location**.
+   - Then, allow location access all the time, so that Home Assistant also gets your location when the app isn't open:
+     - On iPhone, select **Allow While Using the App** first, and then **Allow always** when your phone asks again.
+     - On Android 6 to 9, select **Allow**. This also allows location access when the app isn't open.
+     - On Android 10, select **Allow all the time**.
+     - On Android 11 and later, the first prompt doesn't offer **Allow all the time**. Allow access while using the app. Then, in the app's location permission in your phone's settings, select **Allow all the time**.
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and look for the new integration that was added: **Mobile App**.
+   - Select the **Mobile App** integration, and then select your phone.
+   - Result: The device page opens. You see your phone name and its entities.
 4. To view the location of your phone on the map, open the **Map** dashboard.
    - You now see a marker on that map with your picture or your initials.
    - It floats above the current location of your phone. Under **People**, you are listed as **Me**.
@@ -63,19 +67,5 @@ There are different ways of setting up zone presence detection. One way is to ru
    - To use it for zone presence detection outside your home, the smartwatch requires a mobile plan.
 2. Go to {% my people title="**Settings** > **People**" %} and select the person.
 3. Scroll down and under **Select the devices that belong to this person**, select the device.
-
-[routers]: /integrations/#presence-detection
-[nmap]: /integrations/nmap_tracker
-[ha-bluetooth]: /integrations/bluetooth_tracker
-[ha-bluetooth-le]: /integrations/bluetooth_le_tracker
-[ha-locative]: /integrations/locative
-[ha-gpslogger]: /integrations/gpslogger
-[ha-presence]: /integrations/#presence-detection
-[mqtt-self]: /integrations/mqtt/#run-your-own
-[mqtt-cloud]: /integrations/mqtt/#cloudmqtt
-[zone]: /integrations/zone/
-[trigger]: /getting-started/automation-trigger/#zone-trigger
-[condition]: /getting-started/automation-condition/#zone-condition
-[companion]: https://companion.home-assistant.io/
 
 {% include getting-started/next_step.html step="Join the Community" link="/getting-started/join-the-community/" %}

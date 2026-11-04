@@ -68,9 +68,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the humidifier must be actively humidifying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has been actively humidifying for 5 minutes.
+    How long the humidifier must be actively humidifying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has been actively humidifying for 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

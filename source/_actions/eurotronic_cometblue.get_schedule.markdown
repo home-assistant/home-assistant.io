@@ -41,7 +41,7 @@ action: |
 
 This loads the current schedule from `climate.kitchen` and stores it in the response variable `my_schedule`.
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Eurotronic Comet Blue thermostat" example="climate.kitchen" %}
 
 ## Good to know
 

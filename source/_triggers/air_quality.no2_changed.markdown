@@ -60,7 +60,7 @@ This fires whenever the street-side NO2 sensor reading changes to a value above 
    unit_example_entity="input_number.no2_alert_level"
    unit_example_value="50" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="nitrogen dioxide sensor" example="sensor.living_room_nitrogen_dioxide" %}
 
 ## Good to know
 

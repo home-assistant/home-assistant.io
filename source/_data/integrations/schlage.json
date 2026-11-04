@@ -1,0 +1,21 @@
+{
+  "domain": "schlage",
+  "name": "Schlage",
+  "integration_type": "hub",
+  "codeowners": [
+    "@dknowles2"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "security_safety.locks_access"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "lock",
+    "select",
+    "sensor",
+    "switch"
+  ]
+}

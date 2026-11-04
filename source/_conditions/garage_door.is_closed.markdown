@@ -57,13 +57,13 @@ behavior:
   default: any
 for:
   description: >
-    How long the garage door must have stayed closed before the condition passes.
+    How long the garage door must have stayed closed before the condition passes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="garage door sensor or motorized garage door" example="cover.garage_door" %}
 
 {% include conditions/behavior.md %}
 

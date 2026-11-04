@@ -1,0 +1,25 @@
+{
+  "domain": "icloud",
+  "name": "Apple iCloud",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Quentame",
+    "@nzapponi",
+    "@timlaing"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "presence_location.phones_companion_apps",
+    "productivity_information.calendars_todos",
+    "productivity_information.documents_photos"
+  ],
+  "platforms": [
+    "button",
+    "calendar",
+    "device_tracker",
+    "diagnostics",
+    "sensor",
+    "todo"
+  ]
+}

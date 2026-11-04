@@ -1813,6 +1813,8 @@ actions:
     target: !input lights
 ```
 
+When someone sets up the blueprint, they can exclude some targets. The input then contains an `exclude` block. Pass the input to `target` as a whole, as in the example above. A template that reads only parts of the input, such as `lights.entity_id`, ignores the `exclude` block. The action then also runs on the excluded entities.
+
 {% endimportant %}
 
 ### Example target selectors <!-- omit from toc -->

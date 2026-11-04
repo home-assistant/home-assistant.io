@@ -1,0 +1,18 @@
+{
+  "domain": "proximity",
+  "name": "Proximity",
+  "codeowners": [
+    "@mib1185"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "presence_location",
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

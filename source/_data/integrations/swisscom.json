@@ -1,0 +1,14 @@
+{
+  "domain": "swisscom",
+  "name": "Swisscom Internet-Box",
+  "integration_type": "hub",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "presence_location.network_presence",
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

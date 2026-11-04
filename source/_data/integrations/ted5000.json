@@ -1,0 +1,12 @@
+{
+  "domain": "ted5000",
+  "name": "The Energy Detective TED5000",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

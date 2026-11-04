@@ -1,21 +1,7 @@
 ---
-title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
-ha_categories:
-  - energy.energy_prices
-  - energy.meters_monitoring
 ha_release: 0.8
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@danielhiversen'
 ha_domain: tibber
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - notify
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Tibber** {% term integration %} provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.

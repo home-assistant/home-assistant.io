@@ -1,0 +1,23 @@
+{
+  "domain": "twinkly",
+  "name": "Twinkly",
+  "integration_type": "device",
+  "codeowners": [
+    "@dr1rrb",
+    "@Robbie1221",
+    "@Olen"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "lighting.led_strips_controllers"
+  ],
+  "platforms": [
+    "diagnostics",
+    "light",
+    "select"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

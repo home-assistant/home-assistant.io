@@ -1,22 +1,7 @@
 ---
-title: Eurotronic Comet Blue
 description: Instructions on how to integrate Eurotronic Comet Blue Thermostats into Home Assistant.
-ha_categories:
-  - climate.thermostats_heating
-ha_iot_class: Local Polling
 ha_release: 2026.5
-ha_config_flow: true
-ha_bluetooth: true
-ha_codeowners:
-  - '@rikroe'
 ha_domain: eurotronic_cometblue
-ha_integration_type: device
-ha_quality_scale: bronze
-ha_platforms:
-  - button
-  - climate
-  - number
-  - sensor
 ---
 
 The **Eurotronic Comet Blue** {% term integration %} allows you to integrate Eurotronic Comet Blue (and similar) thermostats.
@@ -113,9 +98,11 @@ Use these examples as a starting point. Replace the entity IDs with the ones fro
 
 Home Assistant checks the daylight saving time status each day at 5:00 AM. When the status differs from the previous day, it presses the thermostat's **Sync time** button.
 
-- **Trigger**: At 5:00 AM
+- **Trigger**: Time
+  - **At time**: `05:00`
 - **Condition**: Daylight saving time status changed since the previous day
-- **Action**: Press **Sync time**
+- **Action**: Press button
+  - **Target**: Living room sync time button
 
 {% details "YAML example for syncing the thermostat clock after a daylight saving time change" %}
 
@@ -139,8 +126,12 @@ automation: |
 
 When a device tracker changes to **home**, this automation selects the **Comfort** preset. If holiday mode is active, Home Assistant cannot change the preset. To turn off holiday mode, press and hold the thermostat's `MENU` button until it resets.
 
-- **Trigger**: Device tracker changes to **home**
-- **Action**: Set the thermostat preset to **Comfort**
+- **Trigger**: State changed
+  - **Entity**: Phone device tracker
+  - **To**: Home
+- **Action**: Set thermostat preset mode
+  - **Target**: Living room radiator thermostat
+  - **Preset mode**: `comfort`
 
 {% details "YAML example for selecting Comfort when you return home" %}
 

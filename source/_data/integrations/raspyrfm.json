@@ -1,0 +1,12 @@
+{
+  "domain": "raspyrfm",
+  "name": "RaspyRFM",
+  "iot_class": "assumed_state",
+  "quality_scale": "legacy",
+  "categories": [
+    "plugs_switches"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

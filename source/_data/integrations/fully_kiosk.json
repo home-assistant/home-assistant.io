@@ -1,0 +1,30 @@
+{
+  "domain": "fully_kiosk",
+  "name": "Fully Kiosk Browser",
+  "integration_type": "device",
+  "codeowners": [
+    "@cgarwood"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "computers_network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "camera",
+    "diagnostics",
+    "image",
+    "media_player",
+    "notify",
+    "number",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp",
+    "mqtt"
+  ]
+}
