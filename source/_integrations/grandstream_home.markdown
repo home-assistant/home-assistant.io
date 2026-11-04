@@ -16,7 +16,7 @@ ha_quality_scale: bronze
 ha_zeroconf: true
 ---
 
-The **Grandstream Home** {% term integration %} allows you to integrate Grandstream devices with Home Assistant for monitoring. This integration supports door access control systems (GDS372x, GSC356X).
+The **Grandstream Home** {% term integration %} allows you to integrate [Grandstream](https://www.grandstream.com/) devices with Home Assistant for monitoring. This integration supports door access control systems (GDS372x, GSC356X).
 
 ## Supported devices
 
@@ -28,19 +28,6 @@ Door access control devices with SIP calling capabilities.
 
 - GDS372x series devices
 - GSC356X series devices
-
-### Device model discovery
-
-The integration automatically discovers device models via mDNS/Zeroconf:
-
-- GDS
-  - mDNS service: `_https._tcp.local.`
-  - Example name: `gds_001122334455`
-- GSC
-  - mDNS service: `_https._tcp.local.`
-  - Example name: `gsc_001122334455`
-
-Device names follow the format: `{device_type}_{mac_address}`.
 
 ## Prerequisites
 
@@ -73,10 +60,6 @@ Verify SSL certificate:
     required: false
     type: boolean
 {% endconfiguration_basic %}
-
-### Automatic discovery
-
-The integration supports automatic device discovery via mDNS/Zeroconf. Discovered devices will appear on the {% my integrations title="**Settings** > **Devices & services**" %} page with a notification to configure them.
 
 ## Supported functionality
 
@@ -175,14 +158,3 @@ To resolve this issue, try the following steps:
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-
-## Support
-
-For issues and feature requests:
-
-- [GitHub Issues](https://github.com/home-assistant/core/issues) (for core integration)
-- [Home Assistant Community Forum](https://community.home-assistant.io/)
-
-## See also
-
-- [Grandstream official website](https://www.grandstream.com/)
