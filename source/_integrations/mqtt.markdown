@@ -188,6 +188,8 @@ Instead of uploading the client certificate and private key, you can load them f
 
 - The files must be PEM-encoded, and the private key file must not be encrypted with a password.
 - For each certificate or key, either upload a file or enter a file path, not both.
+- The client certificate and private key must both be uploaded, or both be loaded from files.
+- The client certificate and private key files are only used when **Use a client certificate** is turned on. The CA certificate file is only used when **Broker certificate validation** is set to **Custom**.
 - The files are loaded when MQTT is set up. A renewed certificate is used after MQTT is reloaded or Home Assistant is restarted.
 
 To learn how to create client certificates and set up the Mosquitto broker to require them, see [Setting up client certificate authentication](#setting-up-client-certificate-authentication).
