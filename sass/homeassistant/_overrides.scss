@@ -1830,7 +1830,7 @@ lite-youtube::before {
 ul.sidebar-menu {
   a.active {
     color: #000;
-    font-weight: bold;
+    font-weight: 600;
     border-left: 4px solid $primary-color;
     padding: 0 8px;
     display: inline-block;
@@ -1919,7 +1919,7 @@ div.config-vars {
   }
 
   .config-vars-label-name {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 16px;
     color: #222222bd;
   }
