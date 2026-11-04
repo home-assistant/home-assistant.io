@@ -113,7 +113,7 @@ jobs:
           BRANCH: ${{ needs.plan.outputs.branch }}
           CORE: ${{ needs.plan.outputs.core }}
         run: |
-          paths=(source/_data/integrations source/_data/integration_categories.json CODEOWNERS)
+          paths=(source/_data/integrations source/_data/integration_categories.json source/_integrations CODEOWNERS)
           if [ -z "$(git status --porcelain -- "${paths[@]}")" ]; then
             echo "Already in sync with core $CORE"
             exit 0
