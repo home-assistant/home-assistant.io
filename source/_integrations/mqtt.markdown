@@ -265,7 +265,7 @@ The steps below use [OpenSSL](https://www.openssl.org/). You can run the command
 
 3. Save the configuration and restart the app.
 
-With `require_certificate` turned on, clients that connect on the encrypted ports (by default `8883`, and `8884` for WebSockets) must present a client certificate signed by your CA, and must also log in with a username and password. Unencrypted connections on ports `1883` and `1884` are not affected. To only allow encrypted connections, remove these ports in the **Network** section of the app configuration.
+With `require_certificate` turned on, clients that connect on the encrypted ports (by default `8883`, and `8884` for WebSockets) must present a client certificate signed by your CA, and must also log in with a username and password. Unencrypted connections on ports `1883` and `1884` are not affected. To stop exposing the unencrypted ports on your network, remove these ports in the **Network** section of the app configuration. Home Assistant and other apps can still connect to the unencrypted ports internally.
 
 #### Setting up a standalone Mosquitto broker
 
@@ -298,7 +298,7 @@ With `use_identity_as_username`, Mosquitto uses the common name (CN) of the clie
 
 #### Renewing the client certificate
 
-The client certificate in this example is valid for one year. Before it expires, create a renewed client certificate by repeating step 3 of [Creating the certificates](#creating-the-certificates), using the same CA. Then replace `mqtt_client.crt` and `mqtt_client.key` in the `ssl` folder. When the loaded certificate expires within 30 days, Home Assistant detects the renewed certificate, and a [repair issue](#client-certificate-expiry) offers to reload MQTT. You can also reload the MQTT integration yourself to use the renewed certificate right away. The certificate for the broker must be renewed in the same way, by repeating step 2 and restarting the broker.
+The client certificate in this example is valid for one year. Before it expires, create a renewed client certificate by repeating step 3 of [Creating the certificates](#creating-the-certificates), using the same CA. Then replace `mqtt_client.crt` and `mqtt_client.key` in the `ssl` folder. When the loaded certificate expires within 30 days, Home Assistant detects the renewed certificate, and a [repair issue](#client-certificate-expiry) offers to reload MQTT. You can also reload the MQTT integration yourself to use the renewed certificate right away. The certificate for the broker must be renewed in the same way: repeat step 2, replace `mqtt_server.crt` and `mqtt_server.key` on your broker, and restart the broker.
 
 ## Configure MQTT options
 
