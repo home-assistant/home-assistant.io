@@ -1,9 +1,9 @@
 ---
 title: Clicky
 description: Instructions on how to integrate Clicky within Home Assistant.
-ha_category:
-  - Sensor
-ha_release: 2026.9
+ha_categories:
+  - computers_network.monitoring
+ha_release: 2026.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -25,7 +25,7 @@ This means you must have at least one website set up in Clicky.
 
 You can use this integration with Clicky's free plan.
 
-{% include integrations/config_flow.md %}
+{% include integrations/config_flow.md name="Clicky Web Analytics" %}
 
 {% configuration_basic %}
 Site ID:
