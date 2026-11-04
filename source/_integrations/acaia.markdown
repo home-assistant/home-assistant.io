@@ -5,9 +5,7 @@ ha_release: 2024.12
 ha_category:
   - Binary sensor
   - Button
-  - Number
   - Sensor
-  - Switch
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: acaia
@@ -15,9 +13,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
-  - number
   - sensor
-  - switch
 ha_bluetooth: true
 ha_codeowners:
   - '@zweckj'
@@ -29,13 +25,20 @@ The **Acaia** {% term integration %} allows you to control [Acaia](https://acaia
 
 If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring the device manually, your scale needs to be turned on during setup.
 
-Once the integration is set up, Home Assistant will try to connect to your scale every 15 seconds. This means there is sometimes a small delay between you turning the scale on and Home Assistant connecting to it. Because the scale only runs its own auto-off timer while nothing is connected to it, a permanent connection keeps it from turning off by itself. See [Letting the scale turn off automatically](#letting-the-scale-turn-off-automatically) to change this.
+Once the integration is set up, Home Assistant will try to connect to your scale every 15 seconds. This means there is sometimes a small delay between you turning the scale on and Home Assistant connecting to it. Because the scale only runs its own auto-off timer while nothing is connected to it, a permanent connection keeps it from turning off by itself. Use the **Idle disconnect timeout** option to change this.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Device:
   description: "The Bluetooth device that is your scale."
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Idle disconnect timeout:
+  description: "Minutes without a weight change after which Home Assistant disconnects from the scale, so the scale can turn itself off. Set to `0` (the default) to stay connected."
 {% endconfiguration_basic %}
 
 ## Available platforms & entities
@@ -50,19 +53,11 @@ Device:
 - **Reset timer**: Resets the timer. If the timer is running, it will continue to run.
 - **Start/stop timer**: Starts or stops the timer, depending on whether the timer is currently running. Does not reset, but continue the timer.
 
-### Numbers
-
-- **Idle disconnect timeout**: Minutes without a weight change after which Home Assistant disconnects from the scale, so the scale can turn itself off. Home Assistant reconnects once the scale has turned off and is turned on again. Set to `0` (the default) to stay connected.
-
 ### Sensors
 
 - **Battery**: Current battery level of the scale.
 - **Volume flow rate**: Calculates the current flow rate (in mL/s) while brewing.
 - **Weight**: The weight currently shown on the scale.
-
-### Switches
-
-- **Keep connected**: Whether Home Assistant keeps a connection to the scale and reconnects to it automatically. On by default. Turn it off to disconnect and let the scale turn itself off; turning it back on reconnects immediately.
 
 ## Supported devices
 
@@ -114,48 +109,13 @@ actions:
 
 {% enddetails %}
 
-### Only stay connected while brewing
-
-{% details "Example YAML configuration" %}
-
-```yaml
-alias: "Connect to scale while brewing"
-description: "Keep the scale connected only while brewing, so it can turn itself off afterwards."
-triggers:
-  - trigger: state
-    entity_id:
-      - binary_sensor.lm001234_brewing_active
-    to: "on"
-    id: brewing
-  - trigger: state
-    entity_id:
-      - binary_sensor.lm001234_brewing_active
-    to: "off"
-    for:
-      minutes: 5
-    id: done
-actions:
-  - if:
-      - condition: trigger
-        id: brewing
-    then:
-      - action: switch.turn_on
-        target:
-          entity_id: switch.lunar_keep_connected
-    else:
-      - action: switch.turn_off
-        target:
-          entity_id: switch.lunar_keep_connected
-```
-
-{% enddetails %}
-
 ## Letting the scale turn off automatically
 
-Acaia scales only run their auto-off timer while no device is connected to them over Bluetooth. By default, Home Assistant stays connected at all times, so the scale never turns itself off and its battery drains even when it is not in use. There are two ways to change this:
+Acaia scales only run their auto-off timer while no device is connected to them over Bluetooth. By default, Home Assistant stays connected at all times, so the scale never turns itself off and its battery drains even when it is not in use.
 
-- Set **Idle disconnect timeout** to a number of minutes. Once the weight hasn't changed for that long, Home Assistant disconnects and waits for the scale to turn off. It reconnects as soon as the scale is turned on again. If you use the scale again before it has turned off, turn the scale off and on again, or toggle **Keep connected** off and on, to reconnect.
-- Turn off **Keep connected** and turn it back on with an automation when you need the scale, for example when your coffee machine starts brewing.
+To change this, set the **Idle disconnect timeout** option to a number of minutes. Once the weight hasn't changed for that long, Home Assistant disconnects and leaves the scale alone until it turns itself off. It reconnects within about 15 seconds of the scale being turned on again.
+
+If you want to use the scale again before it has turned itself off, turn it off for more than 30 seconds and then back on. Saving the integration options also reconnects it.
 
 ## Known limitations
 
