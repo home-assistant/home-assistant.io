@@ -19,7 +19,7 @@ export default {
         "<h2>Every purchase supports the Open Home</h2><p>As a commercial " +
         "partner of the Open Home Foundation, Nabu Casa contributes the " +
         "majority of profit from selling licensed Home Assistant hardware to " +
-        "supporting the foundation – and its projects like Home " +
+        "supporting the foundation, and its projects like Home " +
         "Assistant, ESPHome, and Music Assistant.</p>",
     },
   ],
