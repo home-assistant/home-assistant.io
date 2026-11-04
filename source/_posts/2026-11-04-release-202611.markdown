@@ -611,11 +611,45 @@ We welcome the following new integrations in this release:
 
 It is not just new {% term integrations %} that have been added; existing ones keep getting better too. Here are some of the noteworthy improvements this release:
 
-- **[LLM]** and **[System Log]**: AI assistants that use the Home Assistant LLM API can now read your system log, so they can help you track down problems. Thanks, [@allenporter]!
-- **[Calendar]** and **[Group]**: Combine several calendars into a calendar group, which shows the events of all its member calendars together. Thanks, [@elupus]!
+- **[ESPHome]** {% term devices %} can now share one of their serial ports over your network, so an {% term integration %} can reach a serial-connected device, like an AV receiver or an energy meter, from anywhere in the house. **[Zigbee Home Automation]** can use it for a Zigbee adapter plugged into an ESPHome device, and keeps working when that adapter moves to another one. Add the serial proxy component to your ESPHome device, and the port shows up when you set up the integration that needs it. Thanks, [@puddly]!
+- **[Shelly]** added an {% term update "update entity" %} for the BLU TRV, a **Last seen** {% term sensor %} that tells you when a battery-powered device last reported in, a single action to set a cover's position and tilt at once, and a sensor for what sent the last command to the device. Thanks, [@bieniu] and [@thecode]!
+- **[Tuya]** supports more {% term devices %} again: heated towel racks, with their temperature control, switches, modes, and a countdown sensor, water valves on irrigation controllers, and the switches that were missing on multi-gang wall switches. Thanks, [@rngarcia], [@tritter], [@alainmic], and [@huangjt1]!
+- **[UniFi Protect]** now supports the UniFi Protect Alarm Hub. It is added as its own {% term device %}, with {% term "binary sensor" "binary sensors" %} for tamper, backup battery, and each zone input. A new action triggers an alarm webhook, key fobs report their signal quality, and the API key only mode gained chimes, doorbell messages, pan and tilt control, and speaker audio. Thanks, [@RaHehl], [@SteveEdson], and [@jzila]!
 - **[Zigbee Home Automation]**: Each ZHA group now gets its own device, named after the group. You can give a group its own area, and its entities are all in one place, just like any other device. Thanks, [@TheJulianJES]!
+- **[Bosch SHC]** grew a lot this release. The Intrusion Detection System of your controller is now an alarm control panel that you can arm and disarm without a code, each room and each heating circuit gets a {% term climate "climate entity" %}, and Light Control micromodule dimmers show up as {% term lights %}. On top of that, there is a self-test button for smoke detectors, sensors for the Room Thermostat II, notification switches for the Camera 360 and Camera Eyes, and a long list of settings you can now change from Home Assistant, such as motion, smoke, and vibration sensitivity, the thermostat display, the state after a power outage, the temperature offset, and the LED brightness. Thanks, [@mosandlt]!
+- **[HomematicIP Cloud]** added an identify button that makes a {% term device %} signal where it is, a heating output {% term "binary sensor" %} for wall thermostats, the water supply stop valve with its water alarm sensor, distance and height sensors for the ELV-SH-DUSI, and the motion and illuminance entities of the HmIP-SMO230. An access authorization with a PIN can now be used with the **Pull latch** {% term action %}. Thanks, [@lackas]!
+- **[Teslemetry]** builds on the local Powerwall support from last release: grid and site {% term "binary sensor" "binary sensors" %}, solar string sensors, and battery dispatch {% term actions %} now come straight from your Powerwall over your own network. Vehicles gained Bluetooth binary sensors and buttons to keep the accessory power on, and Wall Connectors report the energy they delivered today. Thanks, [@Bre77]!
+- **[Amazon Alexa]** can show a camera's live view on an Echo Show, for cameras that support <abbr title="Web Real-Time Communication">WebRTC</abbr>, either directly or through [go2rtc](/integrations/go2rtc/). Thanks, [@nolimit-labs]!
+- **[Alexa Devices]** now supports the Amazon Echo Glow, including brightness, color, and light modes like **Campfire** and **Disco** as effects. Notifications can carry a title, and air quality monitors gained a switch for their LED. Thanks, [@jamesonuk] and [@chemelli74]!
+- **[Midea]** keeps growing: washing machines and dryers with their controls and a progress sensor, refrigerator door {% term "binary sensor" "binary sensors" %}, the water heater entities that were still missing, a power switch for air purifiers, and a prompt tone switch for dehumidifiers. Thanks, [@rokam], [@jebentancour], [@devPalacio], and [@vrpolice]!
+- **[Template]** gained water heater and media player entities. Template covers can report and set their speed, and trigger-based template entities can now use the variables of their {% term trigger %}. Thanks, [@lboue], [@Petro31], and [@Bascht74]!
+- **[MQTT]** {% term devices %} can have child devices, so a device with several parts shows each part separately. The MQTT entity editor also gained a picker for the unit of measurement. Thanks, [@jbouwh]!
+- **[Calendar]** and **[Group]**: Combine several calendars into a calendar group, which shows the events of all its member calendars together. Thanks, [@elupus]!
+- **[Lutron Caseta]** creates an {% term "event entity" %} for every keypad and Pico remote button, so a physical button press can start an {% term automation %} directly. Lutron Athena processors are now supported as well. Thanks, [@davidrecordon] and [@ImperatorRuscal]!
+- **[LIFX]** Ceiling and Mirror lights now expose their two components separately, so you can light a room softly with only the uplight of a Ceiling or the backlight of a Mirror, and switch on the other one when you need more light. The Color Sweep effect was added too. Thanks, [@Djelibeybi]!
+- **[Nanoleaf]** panels with touch support report single taps, double taps, and swipes as an {% term "event entity" %}. On the Nanoleaf 4D, the screen mirroring modes are available as light effects. Thanks, [@SeoFood] and [@loebi-ch]!
+- **[WLED]** added a switch for the AudioReactive usermod, a button that jumps to the next entry of a playlist, and temperature and humidity sensors for devices with the matching usermods. Thanks, [@frenck]!
+- **[SwitchBot Bluetooth]** added the Circulator Fan Pro, key state sensors for the Climate Panel, a button to sync the date and time of the Meter Pro, and a button that puts a random image on the Art Frame. Thanks, [@Onero-testdev], [@skirmess], and [@italo-lombardi]!
+- **[Renault]** now supports two-factor authentication. If your My Renault account has it turned on, Home Assistant asks for the verification code that was sent to your email. Entities are also set up per vehicle, so a vehicle you add to your account later shows up on its own. Thanks, [@epenet]!
+- **[Apple iCloud]** added more sensors and {% term "binary sensor" "binary sensors" %} for each of your devices, and a **Play sound** button that rings a misplaced device, even when it is set to mute or do not disturb. Thanks, [@timlaing] and [@TeroPihlaja]!
+- **[LaMetric]** can be set up by pressing the button on top of the device, so you don't need a LaMetric account for it at all. The screensaver can be switched on and off, and scheduled with start and end time entities. Notifications can play a sound from a URL and repeat it. Thanks, [@frenck] and [@ElYoM]!
+- **[Rituals Perfume Genie]** gained a firmware {% term update "update entity" %}, a switch for the standby LED so the diffuser doesn't light up your bedroom at night, a {% term "binary sensor" %} that tells you whether a cartridge is inserted, and a fill level in percent. Thanks, [@frenck]!
+- **[Ecovacs]** robots gained a button to wash the mop, a number to set after how many minutes of cleaning the station washes it, a switch and a frequency select for emptying the dust bin, an efficiency mode select, and more lifespan sensors. Lawn mowers can now be stopped. Thanks, [@erwindouna]!
 - **[Tractive]**: The integration has been reworked to make it more reliable and fix most known issues. It also adds a pet weight sensor. Thanks, [@bieniu]!
-- **[Satel Integra]**: Keep an eye on your alarm panel's health with new system status sensors. You can now see when the panel is in service mode or reports a problem, including power supply and battery faults. Thanks, [@Tommatheussen]
+- **[Zonneplan]** brings your home battery into Home Assistant, with its state of charge, power, battery and inverter state, what it earned today and in total, and a select to change its control mode. EV charge points gained binary sensors. Thanks, [@erwindouna]!
+- **[MELCloud Home]** keeps a connection open to the service, so changes reach Home Assistant as they happen instead of on the next poll. It also added the outdoor temperature of air-to-air units, the frost protection status, and binary sensors for the protections that are active. Thanks, [@erwindouna]!
+- **[Portainer]** reports its own version as an {% term update "update entity" %}, including how far along an install is, and added buttons to prune the build cache and unused networks. Thanks, [@erwindouna]!
+- **[NeoPool]** can connect to your pool controller over a direct serial connection, next to Modbus over the network. It added selects, a temperature setpoint for intelligent mode, and a sensor for the filtration time remaining. Thanks, [@svasek]!
+- **[Sofar]** inverters can be read over a direct RS485 serial connection as well as Modbus TCP, and gained battery cut-off state of charge sensors and a fault {% term "event entity" %}. Setting up got a lot more reliable too, including inverters that are asleep at the time. Thanks, [@darkrain-nl]!
+- **[Rain Bird]** added a next run sensor for each program, a button to sync the controller's clock, and the zones with their run times in the description of each calendar event. Thanks, [@pavandave] and [@airdrummingfool]!
+- **[System Bridge]** added sensors for the load average, the network download and upload rates, the disk read and write rates, and the battery state and AC power of the machine it runs on. Thanks, [@timmo001]!
+- **[Discord]** channels, users, and direct messages can be added as notification targets from the UI. Each one becomes its own notify {% term entity %}, so you no longer need the channel ID every time you send a message. Thanks, [@joostlek]!
+- **[SmartThings]** washers and dryers report their progress, and TVs gained picture mode and sound mode selects. Thanks, [@xthree] and [@zivgin]!
+- **[Velbus]** creates an {% term "event entity" %} for every physical button, which records whether it was a short or a long press. Thanks, [@fredericdepuydt]!
+- **[Satel Integra]**: Keep an eye on your alarm panel's health with new system status sensors. You can now see when the panel is in service mode or reports a problem, including power supply and battery faults. Thanks, [@Tommatheussen]!
+- **[Victron GX]** devices can install firmware updates from Home Assistant, and **[my-PV]** added an update entity and a {% term climate "climate entity" %}. Thanks, [@tomer-w] and [@rrooggiieerr]!
+- **[Google Gemini]** text-to-speech now runs on Gemini 3.8 Flash by default, with a style option to steer how a message is spoken, the voices from the voice library, and more supported languages. **[OpenAI]** added support for GPT-6.1 Terra. Thanks, [@nikosavola] and [@Shulyaka]!
+- **[LLM]** and **[System Log]**: AI assistants that use the Home Assistant LLM API can now read your system log, so they can help you track down problems. Thanks, [@allenporter]!
 
 #### Infrared and radio frequency keep growing
 
@@ -627,20 +661,87 @@ It is not just new {% term integrations %} that have been added; existing ones k
 
 Thanks to [@bieniu], [@abmantis], [@Dr-Blank], [@tr4nt0r], and [@eseverson] for these improvements.
 
+[@airdrummingfool]: https://github.com/airdrummingfool
+[@alainmic]: https://github.com/alainmic
 [@allenporter]: https://github.com/allenporter
 [@abmantis]: https://github.com/abmantis
 [@arturpragacz]: https://github.com/arturpragacz
+[@Bascht74]: https://github.com/Bascht74
+[@Bre77]: https://github.com/Bre77
+[@darkrain-nl]: https://github.com/darkrain-nl
+[@davidrecordon]: https://github.com/davidrecordon
+[@devPalacio]: https://github.com/devPalacio
+[@ElYoM]: https://github.com/ElYoM
 [@elupus]: https://github.com/elupus
+[@fredericdepuydt]: https://github.com/fredericdepuydt
+[@huangjt1]: https://github.com/huangjt1
+[@ImperatorRuscal]: https://github.com/ImperatorRuscal
+[@italo-lombardi]: https://github.com/italo-lombardi
+[@jamesonuk]: https://github.com/jamesonuk
+[@jebentancour]: https://github.com/jebentancour
+[@jzila]: https://github.com/jzila
+[@lackas]: https://github.com/lackas
+[@lboue]: https://github.com/lboue
+[@loebi-ch]: https://github.com/loebi-ch
+[@nikosavola]: https://github.com/nikosavola
+[@nolimit-labs]: https://github.com/nolimit-labs
+[@Onero-testdev]: https://github.com/Onero-testdev
+[@pavandave]: https://github.com/pavandave
+[@Petro31]: https://github.com/Petro31
+[@rngarcia]: https://github.com/rngarcia
+[@rokam]: https://github.com/rokam
+[@SeoFood]: https://github.com/SeoFood
+[@Shulyaka]: https://github.com/Shulyaka
+[@skirmess]: https://github.com/skirmess
+[@SteveEdson]: https://github.com/SteveEdson
+[@svasek]: https://github.com/svasek
+[@TeroPihlaja]: https://github.com/TeroPihlaja
+[@thecode]: https://github.com/thecode
+[@tomer-w]: https://github.com/tomer-w
 [@Tommatheussen]: https://github.com/Tommatheussen
+[@tritter]: https://github.com/tritter
+[@vrpolice]: https://github.com/vrpolice
+[@xthree]: https://github.com/xthree
+[@zivgin]: https://github.com/zivgin
+[Alexa Devices]: /integrations/alexa_devices
+[Amazon Alexa]: /integrations/alexa
+[Apple iCloud]: /integrations/icloud
+[Bosch SHC]: /integrations/bosch_shc
 [Calendar]: /integrations/calendar
+[Discord]: /integrations/discord
+[ESPHome]: /integrations/esphome
+[Ecovacs]: /integrations/ecovacs
+[Google Gemini]: /integrations/google_generative_ai_conversation
 [Group]: /integrations/group
+[HomematicIP Cloud]: /integrations/homematicip_cloud
 [LED Infrared]: /integrations/led_infrared
 [LLM]: /integrations/llm
+[Lutron Caseta]: /integrations/lutron_caseta
+[MELCloud Home]: /integrations/melcloud_home
+[MQTT]: /integrations/mqtt
+[Nanoleaf]: /integrations/nanoleaf
+[NeoPool]: /integrations/neopool
+[OpenAI]: /integrations/openai_conversation
+[Portainer]: /integrations/portainer
 [Radio Frequency]: /integrations/radio_frequency
+[Rain Bird]: /integrations/rainbird
+[Rituals Perfume Genie]: /integrations/rituals_perfume_genie
 [Satel Integra]: /integrations/satel_integra
 [Shelly]: /integrations/shelly
+[SmartThings]: /integrations/smartthings
+[Sofar]: /integrations/sofar
+[SwitchBot Bluetooth]: /integrations/switchbot
+[System Bridge]: /integrations/system_bridge
 [System Log]: /integrations/system_log
+[Template]: /integrations/template
+[Teslemetry]: /integrations/teslemetry
+[Tuya]: /integrations/tuya
+[UniFi Protect]: /integrations/unifiprotect
+[Velbus]: /integrations/velbus
+[Victron GX]: /integrations/victron_gx
+[WLED]: /integrations/wled
 [Zigbee Home Automation]: /integrations/zha
+[Zonneplan]: /integrations/zonneplan
 
 ### Integration quality scale achievements
 
