@@ -637,7 +637,7 @@ Thanks to [@bieniu], [@abmantis], [@Dr-Blank], [@tr4nt0r], and [@eseverson] for 
 [LED Infrared]: /integrations/led_infrared
 [LLM]: /integrations/llm
 [Radio Frequency]: /integrations/radio_frequency
-[Satel Integra]: /integrations/satel_integra/
+[Satel Integra]: /integrations/satel_integra
 [Shelly]: /integrations/shelly
 [System Log]: /integrations/system_log
 [Zigbee Home Automation]: /integrations/zha
