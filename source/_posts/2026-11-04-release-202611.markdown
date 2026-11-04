@@ -615,7 +615,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Calendar]** and **[Group]**: Combine several calendars into a calendar group, which shows the events of all its member calendars together. Thanks, [@elupus]!
 - **[Zigbee Home Automation]**: Each ZHA group now gets its own device, named after the group. You can give a group its own area, and its entities are all in one place, just like any other device. Thanks, [@TheJulianJES]!
 - **[Tractive]**: The integration has been reworked to make it more reliable and fix most known issues. It also adds a pet weight sensor. Thanks, [@bieniu]!
-- **[Satel Integra](/integrations/satel_integra/)**: Keep an eye on your alarm panel's health with new system status sensors. You can now see when the panel is in service mode or reports a problem, including power supply and battery faults. Thanks, [@Tommatheussen]
+- **[Satel Integra]**: Keep an eye on your alarm panel's health with new system status sensors. You can now see when the panel is in service mode or reports a problem, including power supply and battery faults. Thanks, [@Tommatheussen]
 
 #### Infrared and radio frequency keep growing
 
@@ -631,11 +631,13 @@ Thanks to [@bieniu], [@abmantis], [@Dr-Blank], [@tr4nt0r], and [@eseverson] for 
 [@abmantis]: https://github.com/abmantis
 [@arturpragacz]: https://github.com/arturpragacz
 [@elupus]: https://github.com/elupus
+[@Tommatheussen]: https://github.com/Tommatheussen
 [Calendar]: /integrations/calendar
 [Group]: /integrations/group
 [LED Infrared]: /integrations/led_infrared
 [LLM]: /integrations/llm
 [Radio Frequency]: /integrations/radio_frequency
+[Satel Integra]: /integrations/satel_integra/
 [Shelly]: /integrations/shelly
 [System Log]: /integrations/system_log
 [Zigbee Home Automation]: /integrations/zha
