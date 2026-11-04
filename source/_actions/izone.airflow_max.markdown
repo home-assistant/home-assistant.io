@@ -2,10 +2,14 @@
 title: "Set maximum airflow"
 action: izone.airflow_max
 domain: izone
-description: "Sets the maximum airflow percentage for an iZone zone."
+description: "Deprecated. Sets the maximum airflow percentage for an iZone zone."
 related_actions:
   - izone.airflow_min
 ---
+
+{% warning %}
+This action is deprecated and will be removed in Home Assistant 2027.6. Use the zone's **Damper maximum** number entity with the [`number.set_value`](/actions/number.set_value/) action instead. For more information, see [Zone dampers](/integrations/izone/#zone-dampers).
+{% endwarning %}
 
 Use this action to set the maximum airflow for an iZone zone, so the zone never draws more than that much airflow. This is useful to balance your system, for example to stop one room taking all the air from the rest of the house.
 

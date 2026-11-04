@@ -2,10 +2,14 @@
 title: "Set minimum airflow"
 action: izone.airflow_min
 domain: izone
-description: "Sets the minimum airflow percentage for an iZone zone."
+description: "Deprecated. Sets the minimum airflow percentage for an iZone zone."
 related_actions:
   - izone.airflow_max
 ---
+
+{% warning %}
+This action is deprecated and will be removed in Home Assistant 2027.6. Use the zone's **Damper minimum** number entity with the [`number.set_value`](/actions/number.set_value/) action instead. For more information, see [Zone dampers](/integrations/izone/#zone-dampers).
+{% endwarning %}
 
 Use this action to set the minimum airflow for an iZone zone, so the zone always keeps at least that much airflow when it's open. This is useful to make sure a room never gets starved of air, for example a bedroom you want to stay gently ventilated.
 
