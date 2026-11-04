@@ -130,7 +130,6 @@ automation: |
 
 Stop charging once your vehicle's battery level goes above 80% by turning off the smart outlet or switch that powers your charger. The automation runs when the **SoC** value rises past 80, so a reading of exactly 80% does not turn off the outlet.
 
-- **Trigger**: Numeric state: **SoC** sensor of your vehicle above `80`
 - **Trigger**: Numeric state crossed threshold
   - **Entity**: The SoC sensor of your vehicle
   - **Above**: `80`
