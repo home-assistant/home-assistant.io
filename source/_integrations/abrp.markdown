@@ -101,8 +101,11 @@ With your vehicle's battery data in Home Assistant, you can react to charge leve
 
 Get a notification on your phone when your vehicle's battery level drops below 20%, so you remember to charge it.
 
-- **Trigger**: Numeric state: **SoC** sensor of your vehicle below `20`
-- **Action**: Send a notification message to your phone
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: The SoC sensor of your vehicle
+  - **Below**: `20` 
+- **Action**: Send a notification message
+  - **Target**: My phone
 
 {% details "YAML example for a low battery notification" %}
 
@@ -128,7 +131,11 @@ automation: |
 Stop charging once your vehicle's battery level goes above 80% by turning off the smart outlet or switch that powers your charger. The automation runs when the **SoC** value rises past 80, so a reading of exactly 80% does not turn off the outlet.
 
 - **Trigger**: Numeric state: **SoC** sensor of your vehicle above `80`
-- **Action**: Turn off the switch for your charging outlet
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: The SoC sensor of your vehicle
+  - **Above**: `80`
+- **Action**: Turn off switch
+  - **Target**: The switch for your charging outlet
 
 {% details "YAML example for turning off a charging outlet above 80%" %}
 
