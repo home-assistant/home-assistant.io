@@ -1,8 +1,7 @@
 ---
 // "Every purchase supports the Open Home Foundation" banner of a
-// Connect product page: "Brought to you by" with the Nabu Casa logo,
-// "A commercial partner of the" with the Open Home Foundation logo, a
-// heading and a paragraph, beside a photo, on a light blue gradient.
+// Connect product page: the Nabu Casa and Open Home Foundation logos,
+// a heading and a paragraph, beside a photo, on a light blue gradient.
 // The heading and text are the slot, as the product pages word them
 // slightly differently.
 //
@@ -35,24 +34,18 @@ const { image, imageAlt } = Astro.props;
   />
   <div class="text">
     <p class="partner">
-      <span>
-        Brought to you by
-        <img
-          src={nabuCasa.src}
-          width={nabuCasa.width}
-          height={nabuCasa.height}
-          alt="Nabu Casa"
-        />
-      </span>
-      <span>
-        A commercial partner of the
-        <img
-          src={openHomeFoundation.src}
-          width={openHomeFoundation.width}
-          height={openHomeFoundation.height}
-          alt="Open Home Foundation"
-        />
-      </span>
+      <img
+        src={nabuCasa.src}
+        width={nabuCasa.width}
+        height={nabuCasa.height}
+        alt="Nabu Casa"
+      />
+      <img
+        src={openHomeFoundation.src}
+        width={openHomeFoundation.width}
+        height={openHomeFoundation.height}
+        alt="Open Home Foundation"
+      />
     </p>
     <slot />
   </div>
@@ -113,31 +106,20 @@ const { image, imageAlt } = Astro.props;
     }
   }
 
-  /* Each text sits on one line with its logo; on a narrow column the
-     Open Home Foundation's pair wraps below Nabu Casa's, and on the
-     narrowest phones a logo wraps below its text. */
+  /* The two logos side by side, as in Figma; on the narrowest phones
+     the Open Home Foundation's wraps below Nabu Casa's. */
   .partner {
     align-items: center;
-    column-gap: var(--space-xlarge);
     display: flex;
     flex-wrap: wrap;
-    font-weight: 500;
-    row-gap: var(--space-xsmall);
+    gap: var(--space-xsmall) var(--space-large);
 
     .text & {
-      color: var(--color-ink);
       padding-block: var(--space-small);
     }
 
-    span {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-xsmall) var(--space-small);
-    }
-
     img {
-      height: 1.0625rem;
+      height: 1.25rem;
       width: auto;
     }
   }

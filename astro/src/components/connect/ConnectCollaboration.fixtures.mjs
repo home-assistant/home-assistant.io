@@ -5,7 +5,7 @@ import boardLogos from "../../assets/connect/aux-2/board-logos.webp";
 export default {
   title: "Connect collaboration banner",
   description:
-    "\"Brought to you by Nabu Casa\" banner on light blue, photo beside " +
+    "Nabu Casa and Open Home Foundation banner on light blue, photo beside " +
     "the text from 992px.",
   variants: [
     {
