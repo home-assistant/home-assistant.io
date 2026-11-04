@@ -49,9 +49,7 @@ To restore a backup of a previous installation:
 
 ## Step 3: Finish the setup
 
-In this last step, you define the location of your home, choose the data that you want to share, and finish your setup.
-
-The home location is used to configure the time zone, unit system, and currency. It is also used to create the home [zone](/integrations/zone/), which marks the area of your home with a default radius of 100 meters. You can use the home location and zone in automations, such as opening the shades at sunrise or starting the vacuum when you leave home. You can always change this information later in the settings.
+In this last step, you define the location of your home, choose the data that you want to share, and finish your setup. The location of your home is used the create the [home zone](/integrations/zone/#about-the-home-zone). To change it later, refer to [editing zones](/integrations/zone/#adding-a-new-zone-or-editing-zones).
 
 1. Enter the location of your home. Do one of the following:
    - Search for your address under **Search address**.
