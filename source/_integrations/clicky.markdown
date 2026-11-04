@@ -38,8 +38,8 @@ Site key:
 
 The integration adds the following sensors for each website that you set up:
 
-- Number of visitors online
-- Total time spent
+- **Number of visitors online**: the number of visitors currently active on your website
+- **Total time spent**: the total amount of time spent on your site by all visitors combined
 
 ## Troubleshooting
 
