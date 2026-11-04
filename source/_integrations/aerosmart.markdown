@@ -2,8 +2,9 @@
 title: aerosmart
 description: Instructions on how to integrate an aerosmart ventilation and heat-pump system with Home Assistant.
 ha_release: 2026.11
-ha_category:
-  - Sensor
+ha_categories:
+  - climate.fans_ventilation
+  - climate.heat_pumps_air_conditioning
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
