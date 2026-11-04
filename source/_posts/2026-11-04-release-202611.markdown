@@ -426,7 +426,7 @@ Thanks to our community for keeping pace with the new {% term integrations %} an
 We welcome the following new integrations in this release:
 
 - **[A Better Routeplanner]**, added by [@mtandersson]  
-  Bring the vehicles in your A Better Routeplanner (ABRP) account into Home Assistant. Each vehicle gets sensors for its state of charge, range, battery temperature, odometer, and charging state. Sign in with your ABRP account. <!-- TODO: docs not merged yet, see home-assistant.io#48148 -->
+  Bring the vehicles in your A Better Routeplanner (ABRP) account into Home Assistant. Each vehicle gets sensors for its state of charge, range, battery temperature, odometer, and charging state. Sign in with your ABRP account.
 
 - **[aerosmart]**, added by [@kayloehmann]  
   Monitor an aerosmart ventilation and heat-pump installation over Modbus, through a TCP gateway or a serial connection. No vendor app or cloud service is needed. Home Assistant reads operating values, filter information, and controller status. <!-- TODO: docs not merged yet, see home-assistant.io#49199 -->
@@ -441,7 +441,7 @@ We welcome the following new integrations in this release:
   Connect a [BLUETTI](https://www.bluettipower.com/) power station over your network using its built-in Modbus TCP interface. No account, API key, or cloud connection is needed, so readings continue if your internet connection is down.
 
 - **[Bosch Smart Camera]**, added by [@mosandlt]  
-  Connect your Bosch SingleKey ID account to use [Bosch Smart Home](https://www.bosch-smarthome.com/) cameras, such as the Eyes Outdoor and the 360° Indoor camera. This first version sets up the account connection, and the cameras themselves follow in a later release. <!-- TODO: docs not merged yet, see home-assistant.io#49724 -->
+  Connect your Bosch SingleKey ID account to use [Bosch Smart Home](https://www.bosch-smarthome.com/) cameras, such as the Eyes Outdoor and the 360° Indoor camera. This first version sets up the account connection, and the cameras themselves follow in a later release.
 
 - **[ChirpStack]**, added by [@balloobbot]  
   Connect your [ChirpStack](https://www.chirpstack.io/) LoRaWAN network server to Home Assistant. Select a tenant and its applications to make supported devices available.
@@ -462,7 +462,7 @@ We welcome the following new integrations in this release:
   Get weather forecasts for locations worldwide from [Foreca](https://business.foreca.com). For noncommercial use, you can use a free Foreca Weather API Freemium key or one of its premium packages.
 
 - **[Grandstream Home]**, added by [@wtxu-gs]  
-  Monitor Grandstream GDS372x and GSC356X door access systems from Home Assistant. Home Assistant discovers them on your local network.
+  Monitor Grandstream GDS372x and GSC356X door access systems from Home Assistant. Home Assistant discovers them on your local network. <!-- TODO: docs not merged yet, see home-assistant.io#44819 -->
 
 - **[Hase iQ]**, added by [@bbayszczak]  
   Monitor the combustion phase, firebox temperature, heat-up progress, and combustion performance of a HASE wood stove with iQ monitoring. Home Assistant reads the stove over your local network, without the vendor app or a cloud service. You can get a {% term notification %} when it is time to add wood. The integration is read-only, so it cannot turn the stove on or off.
@@ -498,7 +498,7 @@ We welcome the following new integrations in this release:
   Search your pharmacy's catalog and order medication for pickup using your [Mijn Farmad Apotheek](https://procura.farmad.be/) account. The service is used by more than 1,000 pharmacies in Flanders. The integration provides two {% term actions %}: search and order.
 
 - **[Nature Remo]**, added by [@tnj]  
-  Connect [Nature](https://nature.global/) Remo smart remote controllers through the Nature cloud. Each Remo reports the temperature and humidity of its room. A Remo E also reports energy imported from and exported to the grid for the [Energy dashboard](/docs/energy/).
+  Connect [Nature](https://nature.global/) Remo smart remote controllers through the Nature cloud. Each Remo reports the temperature and humidity of its room. A Remo E also reports energy imported from and exported to the grid for the [Energy dashboard](/docs/energy/). <!-- TODO: docs not merged yet, see home-assistant.io#47190 -->
 
 - **[OKOK Scale]**, added by [@rrooggiieerr], launching at 🏆 platinum quality  
   Connect a Bluetooth scale that works with the [OKOK·International](https://okokapp.com/) app. Chart your weight on a dashboard and use each new measurement in {% term automations %}. The integration does not depend on the OKOK cloud app.
@@ -510,19 +510,19 @@ We welcome the following new integrations in this release:
   Monitor [RainbowMiner](https://github.com/RainbowMiner/RainbowMiner), open-source cryptocurrency mining software that switches between algorithms, pools, and coins on its own. Home Assistant reads its local API, so you can follow the mining status, earnings, and power consumption.
 
 - **[Seafile]**, added by [@erwindouna]  
-  Connect your own [Seafile](https://www.seafile.com/) file sync and share server. See the size, number of files, and last change of the libraries you pick, and store your {% term backups %} on the server. <!-- TODO: docs not merged yet, see home-assistant.io#49251 -->
+  Connect your own [Seafile](https://www.seafile.com/) file sync and share server. See the size, number of files, and last change of the libraries you pick, and store your {% term backups %} on the server.
 
 - **[SenseCAP]**, added by [@balloob]  
-  Add supported [Seeed Studio SenseCAP](https://www.seeedstudio.com/SenseCAP-c-1825.html) sensors from your LoRaWAN connections. Depending on the model, Home Assistant provides temperature, humidity, illuminance, carbon dioxide, soil, and weather readings, plus battery level.
+  Add supported [Seeed Studio SenseCAP](https://www.seeedstudio.com/SenseCAP-c-1825.html) sensors from your LoRaWAN connections. Depending on the model, Home Assistant provides temperature, humidity, illuminance, carbon dioxide, soil, and weather readings, plus battery level. <!-- TODO: docs not merged yet, see home-assistant.io#49207 -->
 
 - **[SilverCrest Infrared]**, added by [@tr4nt0r]  
-  Control SilverCrest fans and air coolers with an infrared emitter already set up in Home Assistant. Turn a device on or off and set its other functions. Infrared is one-way, so the integration cannot confirm the device's state. <!-- TODO: docs not merged yet, see home-assistant.io#49921 -->
+  Control SilverCrest fans and air coolers with an infrared emitter already set up in Home Assistant. Turn a device on or off and set its other functions. Infrared is one-way, so the integration cannot confirm the device's state.
 
 - **[SmartyPlants]**, added by [@bigbimbs]  
   Connect SmartyPlants plant sensors to Home Assistant. See soil moisture, temperature, humidity, and light, along with each plant's health score and fertilizing countdown. You can get a reminder when a plant needs water.
 
 - **[Solyx Energy Cloud]**, added by [@MartinaeyNL]  
-  Monitor and control a Nymo device from [Solyx Energy](https://www.solyxenergy.nl). The Nymo heats an electric boiler with the solar power you would otherwise feed back to the grid, so your surplus is stored as hot water. <!-- TODO: docs not merged yet, see home-assistant.io#46887 -->
+  Monitor and control a Nymo device from [Solyx Energy](https://www.solyxenergy.nl). The Nymo heats an electric boiler with the solar power you would otherwise feed back to the grid, so your surplus is stored as hot water.
 
 - **[Spin EV Charger]**, added by [@Dr-Blank]  
   Connect an [Exicom](https://www.exicom.in/) Spin EV charger directly over Bluetooth Low Energy, without a cloud service or vendor account.
@@ -749,15 +749,17 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
-- **17 integrations reached platinum** 🏆
+- **19 integrations reached platinum** 🏆
   - [1-Wire], thanks to [@epenet]
   - [Axle Energy], thanks to [@Herbertmt978]
+  - [Chef iQ], thanks to [@Invader444]
   - [Gatus], thanks to [@TN-1]
   - [Gree Infrared], thanks to [@Dr-Blank]
   - [LaMetric], thanks to [@frenck]
   - [LG Infrared], thanks to [@Dr-Blank]
   - [LIFX], thanks to [@Djelibeybi]
   - [Midea], thanks to [@chemelli74]
+  - [Minecraft Server], thanks to [@elmurato]
   - [PVOutput], thanks to [@frenck]
   - [Qube heat pump], thanks to [@MattieGit]
   - [Radio Browser], thanks to [@frenck]
@@ -768,8 +770,9 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Vistapool], thanks to [@fdebrus]
   - [WattWächter Plus], thanks to [@smartcircuits]
 
-- **2 integrations reached gold** 🥇
+- **3 integrations reached gold** 🥇
   - [Airly], thanks to [@bieniu]
+  - [Imou], thanks to [@Imou-OpenPlatform]
   - [Qingping], thanks to [@tengfeili-qingping]
 
 - **6 integrations reached silver** 🥈
@@ -780,7 +783,8 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Threema], thanks to [@LukasQ]
   - [Tractive], thanks to [@bieniu]
 
-- **6 integrations reached bronze** 🥉
+- **7 integrations reached bronze** 🥉
+  - [Bluesound], thanks to [@LouisChrist]
   - [Holiday], thanks to [@gjohansson-ST]
   - [LOQED Touch Smart Lock], thanks to [@mikewoudenberg]
   - [Nettigo Air Monitor], thanks to [@bieniu]
@@ -794,6 +798,9 @@ A big thank you to all the contributors involved! 👏
 
 [integration quality scale]: /docs/quality_scale/
 [@bieniu]: https://github.com/bieniu
+[@elmurato]: https://github.com/elmurato
+[@Imou-OpenPlatform]: https://github.com/Imou-OpenPlatform
+[@Invader444]: https://github.com/Invader444
 [@Djelibeybi]: https://github.com/Djelibeybi
 [@epenet]: https://github.com/epenet
 [@fdebrus]: https://github.com/fdebrus
@@ -811,16 +818,20 @@ A big thank you to all the contributors involved! 👏
 [1-Wire]: /integrations/onewire
 [Airly]: /integrations/airly
 [Axle Energy]: /integrations/axle_energy
+[Bluesound]: /integrations/bluesound
+[Chef iQ]: /integrations/chef_iq
 [DNS IP]: /integrations/dnsip
 [Eurotronic Comet Blue]: /integrations/eurotronic_cometblue
 [Gatus]: /integrations/gatus
 [Gree Infrared]: /integrations/gree_infrared
 [Holiday]: /integrations/holiday
+[Imou]: /integrations/imou
 [LaMetric]: /integrations/lametric
 [LG Infrared]: /integrations/lg_infrared
 [LIFX]: /integrations/lifx
 [LOQED Touch Smart Lock]: /integrations/loqed
 [Midea]: /integrations/midea
+[Minecraft Server]: /integrations/minecraft_server
 [my-PV]: /integrations/my_pv
 [Nettigo Air Monitor]: /integrations/nam
 [PVOutput]: /integrations/pvoutput
