@@ -83,9 +83,7 @@ Newer Homematic IP alarm systems refuse to arm while a window is open or a devic
 
 ## Arm the alarm system anyway
 
-If the alarm system refuses to arm because a window is open or a device is unreachable, the `homematicip_cloud.arm_anyway` action arms it anyway, in the `away` or `home` mode, and leaves the sensors that block it unmonitored.
-
-The action only skips the sensors named in the last refusal. If others block as well, it does not arm and names them in the error. Running the action again arms past them too.
+If the alarm system refuses to arm because a window is open or a device is unreachable, the [`homematicip_cloud.arm_anyway`](/actions/homematicip_cloud.arm_anyway/) action arms it anyway, in the `away` or `home` mode, and leaves the sensors that block it unmonitored.
 
 ## Supported devices
 
