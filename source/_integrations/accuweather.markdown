@@ -163,6 +163,73 @@ A forecast sensor is created for a given day only when AccuWeather provides that
   - **Attributes**:
     - **Direction**: The wind direction, such as NW.
 
+## AccuWeather automation examples
+
+The following examples show how to use AccuWeather data in Home Assistant automations. They are starting points, and you can adapt them to create your own automations.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Notify when the forecasted UV index is high
+
+This automation sends a notification to your mobile device when today's forecasted UV index rises above 5. The **UV index day 0** sensor shows the UV index forecast for today and is enabled by default. Replace the entity IDs in the example with the entity IDs of your own AccuWeather sensor and mobile device.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Home UV index day 0 (`sensor.home_uv_index_day_0`)
+  - **Above**: `5`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Title**: `High UV index today`
+  - **Message**: A message with the forecasted UV index
+
+{% details "YAML example for notifying when the forecasted UV index is high" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the forecasted UV index is high"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.home_uv_index_day_0
+      above: 5
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "High UV index today"
+        message: >
+          The forecasted UV index for today is
+          {{ states('sensor.home_uv_index_day_0') }}.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turn off the garden sprinkler when it starts raining
+
+This automation turns off your garden sprinkler when AccuWeather reports precipitation at your location. The **Precipitation** sensor shows the amount of precipitation in the past hour. Replace the entity IDs in the example with the entity IDs of your own AccuWeather sensor and sprinkler switch.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Home Precipitation (`sensor.home_precipitation`)
+  - **Above**: `0`
+- **Action**: Turn off switch
+  - **Target**: Garden sprinkler (`switch.garden_sprinkler`)
+
+{% details "YAML example for turning off the garden sprinkler when it starts raining" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the garden sprinkler when it starts raining"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.home_precipitation
+      above: 0
+  actions:
+    - action: switch.turn_off
+      target:
+        entity_id: switch.garden_sprinkler
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 By default, the integration {% term polling polls %} the current weather condition data from the AccuWeather API every 10 minutes, daily forecast data every 6 hours, and hourly forecast data every 30 minutes.
