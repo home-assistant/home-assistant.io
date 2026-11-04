@@ -3,12 +3,8 @@ title: GL.iNet
 description: Connect and control your GL.iNet Matter devices using the Matter integration
 ha_release: '2026.11'
 ha_iot_class: Local Push
-ha_categories:
-  - sensors.motion_presence
 ha_domain: glinet
 ha_integration_type: brand
-ha_platforms:
-  - binary_sensor
 ha_iot_standard: matter
 ha_brand: true
 ---
