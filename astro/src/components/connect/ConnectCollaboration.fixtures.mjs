@@ -17,9 +17,11 @@ export default {
       },
       slot:
         "<h2>Every purchase supports the Open Home</h2><p>Nabu Casa designs " +
-        "and builds official Home Assistant hardware. As the commercial " +
+        "and builds official Home Assistant hardware. As a commercial " +
         "partner of the Open Home Foundation, Nabu Casa contributes the " +
-        "majority of its profits to the foundation.</p>",
+        "majority of its profits from the sale of this hardware to the " +
+        "foundation. This means every purchase supports the development " +
+        "of projects like Home Assistant, Music Assistant, and ESPHome.</p>",
     },
   ],
 };
