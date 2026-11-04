@@ -9,6 +9,10 @@
   "categories": [
     "climate.thermostats_heating"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "climate",
     "number",

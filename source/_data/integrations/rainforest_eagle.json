@@ -12,6 +12,9 @@
   "categories": [
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "zigbee"
+  ],
   "platforms": [
     "diagnostics",
     "sensor"

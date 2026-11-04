@@ -12,6 +12,9 @@
     "energy.energy_prices",
     "energy.solar_batteries"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

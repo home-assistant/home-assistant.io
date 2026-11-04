@@ -15,6 +15,9 @@
     "blinds_curtains",
     "plugs_switches"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

@@ -12,6 +12,9 @@
     "lighting.bulbs_lamps",
     "security_safety.locks_access"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "camera",
     "light",

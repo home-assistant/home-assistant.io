@@ -10,6 +10,9 @@
   "categories": [
     "media_entertainment.gaming"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "media_player"
   ]

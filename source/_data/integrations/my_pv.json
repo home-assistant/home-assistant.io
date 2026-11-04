@@ -13,6 +13,9 @@
     "energy.solar_batteries",
     "climate.water_heaters"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "climate",

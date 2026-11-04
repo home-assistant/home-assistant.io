@@ -11,6 +11,9 @@
   "categories": [
     "media_entertainment.tv_streaming"
   ],
+  "connectivity": [
+    "infrared"
+  ],
   "platforms": [
     "media_player"
   ]

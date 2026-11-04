@@ -7,6 +7,9 @@
   "categories": [
     "media_entertainment.speakers_audio"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "media_player"
   ]

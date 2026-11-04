@@ -10,6 +10,9 @@
   "categories": [
     "sensors.motion_presence"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "binary_sensor",
     "sensor"

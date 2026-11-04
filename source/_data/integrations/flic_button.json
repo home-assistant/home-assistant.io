@@ -11,6 +11,9 @@
   "categories": [
     "buttons_remotes"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "event",
     "number"

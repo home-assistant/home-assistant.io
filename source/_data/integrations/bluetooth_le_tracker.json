@@ -6,6 +6,9 @@
   "categories": [
     "presence_location"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "device_tracker"
   ]
