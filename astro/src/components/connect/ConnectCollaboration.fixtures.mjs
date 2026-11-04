@@ -16,12 +16,12 @@ export default {
         imageAlt: "The back of the Connect AUX-2's circuit board",
       },
       slot:
-        "<h2>Every purchase supports the Open Home</h2><p>Nabu Casa designs " +
-        "and builds official Home Assistant hardware. As a commercial " +
+        "<h2>Every purchase supports the Open Home</h2><p>As a commercial " +
         "partner of the Open Home Foundation, Nabu Casa contributes the " +
-        "majority of its profits from the sale of this hardware to the " +
-        "foundation. This means every purchase supports the development " +
-        "of projects like Home Assistant, Music Assistant, and ESPHome.</p>",
+        "majority of profit from selling licensed Nabu Casa hardware to " +
+        "supporting the foundation. This means every purchase helps " +
+        "develop projects like Home Assistant, ESPHome, and Music " +
+        "Assistant.</p>",
     },
   ],
 };
