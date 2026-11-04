@@ -3,7 +3,7 @@ title: Croma Infrared
 description: Integration to control Croma TVs using an infrared emitter.
 ha_categories:
   - media_entertainment.tv_streaming
-ha_release: '2026.11'
+ha_release: '2026.12'
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@Dr-Blank'
