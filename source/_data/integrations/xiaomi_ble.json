@@ -13,6 +13,9 @@
     "garden_plants",
     "health_wellbeing"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

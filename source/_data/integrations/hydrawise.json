@@ -13,6 +13,9 @@
   "categories": [
     "garden_plants"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

@@ -11,6 +11,9 @@
     "sensors",
     "diy_makers"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

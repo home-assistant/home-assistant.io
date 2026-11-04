@@ -12,6 +12,9 @@
     "appliances_cleaning",
     "climate.fans_ventilation"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

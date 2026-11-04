@@ -12,6 +12,9 @@
     "presence_location.network_presence",
     "security_safety.alarm_systems"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "alarm_control_panel",
     "binary_sensor",

@@ -13,6 +13,9 @@
     "lighting.led_strips_controllers",
     "diy_makers.boards_hardware"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "diagnostics",

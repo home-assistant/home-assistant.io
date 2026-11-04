@@ -12,6 +12,9 @@
     "energy.meters_monitoring",
     "energy.solar_batteries"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

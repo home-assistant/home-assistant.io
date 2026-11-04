@@ -12,6 +12,9 @@
   "categories": [
     "hubs_protocols.wireless_protocols"
   ],
+  "connectivity": [
+    "insteon"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

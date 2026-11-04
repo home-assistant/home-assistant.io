@@ -11,6 +11,9 @@
     "ai_voice.speech",
     "ai_voice.voice_assistants"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "assist_satellite",
     "binary_sensor",

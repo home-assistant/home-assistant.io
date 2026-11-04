@@ -7,6 +7,9 @@
     "weather_alerts",
     "diy_makers"
   ],
+  "connectivity": [
+    "mqtt"
+  ],
   "platforms": [
     "sensor"
   ]

@@ -10,6 +10,9 @@
     "diy_makers",
     "plugs_switches"
   ],
+  "connectivity": [
+    "mqtt"
+  ],
   "platforms": [
     "binary_sensor",
     "camera",

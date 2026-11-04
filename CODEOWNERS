@@ -11,6 +11,7 @@
 source/_integrations/3_day_blinds.markdown @starkillerOG
 source/_integrations/_integration_docs_template.markdown @home-assistant/core
 source/_integrations/abode.markdown @shred86
+source/_integrations/abrp.markdown @mtandersson
 source/_integrations/acaia.markdown @zweckj
 source/_integrations/accuweather.markdown @bieniu
 source/_integrations/acmeda.markdown @atmurray
@@ -23,6 +24,7 @@ source/_integrations/advantage_air.markdown @Bre77
 source/_integrations/aemet.markdown @Noltari
 source/_integrations/aep_ohio.markdown @tronikos
 source/_integrations/aep_texas.markdown @tronikos
+source/_integrations/aerosmart.markdown @kayloehmann
 source/_integrations/agent_dvr.markdown @ispysoftware
 source/_integrations/ai_task.markdown @home-assistant/core
 source/_integrations/aidot.markdown @s1eedz @HongBryan
@@ -147,7 +149,7 @@ source/_integrations/bluetti_modbus.markdown @chpego
 source/_integrations/bond.markdown @bdraco @prystupa @joshs85 @marciogranzotto
 source/_integrations/bosch_alarm.markdown @mag1024 @sanjay900
 source/_integrations/bosch_shc.markdown @tschamm @mosandlt
-source/_integrations/bosch_shc_camera.markdown @mosandlt
+source/_integrations/bosch_smart_camera.markdown @mosandlt
 source/_integrations/brands.markdown @home-assistant/core
 source/_integrations/brandt.markdown @imicknl
 source/_integrations/braviatv.markdown @bieniu @Drafteed
@@ -365,6 +367,7 @@ source/_integrations/fjaraskupan.markdown @elupus
 source/_integrations/flexit.markdown @troelde
 source/_integrations/flexit_bacnet.markdown @lellky @piotrbulinski
 source/_integrations/flexom.markdown @imicknl
+source/_integrations/flic_button.markdown @50ButtonsEach
 source/_integrations/flo.markdown @dmulcahey
 source/_integrations/flow_it.markdown @albertogeniola
 source/_integrations/flume.markdown @ChrisMandich @bdraco @jeeftor
@@ -437,6 +440,7 @@ source/_integrations/google_wifi.markdown @EReaso
 source/_integrations/govee_ble.markdown @bdraco
 source/_integrations/govee_light_local.markdown @Galorhallen
 source/_integrations/gpsd.markdown @fabaff @jrieger
+source/_integrations/grandstream_home.markdown @wtxu-gs
 source/_integrations/gree.markdown @cmroche
 source/_integrations/gree_infrared.markdown @Dr-Blank
 source/_integrations/green_planet_energy.markdown @petschni
@@ -757,6 +761,7 @@ source/_integrations/nam.markdown @bieniu
 source/_integrations/namecheapdns.markdown @tr4nt0r
 source/_integrations/nanoleaf.markdown @milanmeu @joostlek @loebi-ch @JaspervRijbroek @jonathanrobichaud4
 source/_integrations/nasweb.markdown @nasWebio
+source/_integrations/nature_remo.markdown @tnj
 source/_integrations/nederlandse_spoorwegen.markdown @YarmoM @heindrichpaul
 source/_integrations/neff.markdown @DavidMStraub @Diegorro98 @MartinHjelmare
 source/_integrations/neo.markdown @bieniu @thecode @chemelli74 @bdraco
@@ -1004,11 +1009,13 @@ source/_integrations/scrape.markdown @fabaff @gjohansson-ST
 source/_integrations/screenaway.markdown @starkillerOG
 source/_integrations/screenlogic.markdown @dieselrabbit @bdraco
 source/_integrations/script.markdown @home-assistant/core
+source/_integrations/seafile.markdown @erwindouna
 source/_integrations/search.markdown @home-assistant/core
 source/_integrations/season.markdown @frenck
 source/_integrations/select.markdown @home-assistant/core
 source/_integrations/select.mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/sense.markdown @kbickar
+source/_integrations/sensecap_lorawan.markdown @balloob
 source/_integrations/sensibo.markdown @andrey-git @gjohansson-ST
 source/_integrations/sensirion_ble.markdown @akx
 source/_integrations/sensor.ios.markdown @robbiet480
@@ -1037,6 +1044,7 @@ source/_integrations/siemens.markdown @DavidMStraub @Diegorro98 @MartinHjelmare
 source/_integrations/sighthound.markdown @robmarkcole
 source/_integrations/signal_messenger.markdown @bbernhard
 source/_integrations/silla_prism.markdown @ebaschiera
+source/_integrations/silvercrest_infrared.markdown @tr4nt0r
 source/_integrations/simplefin.markdown @scottg489 @jeeftor
 source/_integrations/simplepush.markdown @engrbm87
 source/_integrations/simplisafe.markdown @bachya

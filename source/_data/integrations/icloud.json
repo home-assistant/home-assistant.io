@@ -14,6 +14,9 @@
     "productivity_information.calendars_todos",
     "productivity_information.documents_photos"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

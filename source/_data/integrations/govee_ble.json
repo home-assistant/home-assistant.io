@@ -12,6 +12,9 @@
     "appliances_cleaning.cooking",
     "buttons_remotes"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

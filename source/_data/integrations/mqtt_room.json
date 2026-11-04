@@ -7,6 +7,9 @@
     "presence_location",
     "diy_makers"
   ],
+  "connectivity": [
+    "mqtt"
+  ],
   "platforms": [
     "sensor"
   ]

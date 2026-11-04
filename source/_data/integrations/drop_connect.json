@@ -12,6 +12,9 @@
     "water.meters_leak_detection",
     "water.water_treatment"
   ],
+  "connectivity": [
+    "mqtt"
+  ],
   "platforms": [
     "binary_sensor",
     "select",

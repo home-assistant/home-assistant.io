@@ -11,6 +11,9 @@
     "local_services",
     "news_social_media"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]
