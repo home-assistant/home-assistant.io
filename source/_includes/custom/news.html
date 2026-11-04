@@ -8,10 +8,15 @@
       <iframe title="Livestream" allow="autoplay; encrypted-media; picture-in-picture"
         referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
     </div>
-    <div class="livestream-card-banner">
-      <div>
-        <strong class="livestream-card-status"></strong> <span class="livestream-card-subtitle"></span>
-      </div>
+    <div class="livestream-card-overlay">
+      <span class="livestream-card-status">
+        <span class="livestream-card-dot" aria-hidden="true"></span>
+        <span class="livestream-card-eyebrow"></span>
+      </span>
+      <span class="livestream-card-foot">
+        <span class="livestream-card-title"></span>
+        <span class="livestream-card-meta"></span>
+      </span>
     </div>
   </a>
 
@@ -312,8 +317,8 @@
     const YOUTUBE_ID = /^[A-Za-z0-9_-]{11}$/;
 
     const STATUS_LABEL = {
-      live: 'Live now!',
-      upcoming: 'Live soon!',
+      live: 'Live now',
+      upcoming: 'Upcoming livestream',
       past: 'Our latest stream',
     };
 
@@ -399,7 +404,7 @@
 
     function formatCountdown(startMs, now) {
       let secs = Math.floor((startMs - now) / 1000);
-      if (secs <= 0) return 'Live soon!';
+      if (secs <= 0) return 'Live soon';
 
       const days = Math.floor(secs / 86400);
       secs -= days * 86400;
@@ -494,18 +499,22 @@
         return state;
       }
 
-      const status = card.querySelector('.livestream-card-status');
-      const subtitle = card.querySelector('.livestream-card-subtitle');
+      const status = card.querySelector('.livestream-card-eyebrow');
+      const title = card.querySelector('.livestream-card-title');
+      const meta = card.querySelector('.livestream-card-meta');
       const label = info.title || info.channelName || 'Home Assistant livestream';
 
       if (link) card.href = link.href;
       else card.removeAttribute('href');
       card.setAttribute('aria-label', label + ' on YouTube');
-      if (subtitle) subtitle.textContent = label;
+      if (title) title.textContent = label;
+      if (meta) meta.textContent = '';
 
+      // Upcoming streams count down in the status pill and show the local
+      // start time under the title.
       const startMs = state === 'upcoming' ? Date.parse(info.startTime) : NaN;
       if (!isNaN(startMs)) {
-        if (subtitle) subtitle.textContent = formatLocalStartTime(info.startTime);
+        if (meta) meta.textContent = formatLocalStartTime(info.startTime);
         const tick = () => {
           if (status) status.textContent = formatCountdown(startMs, Date.now());
           if (startMs - Date.now() > 0) return;
