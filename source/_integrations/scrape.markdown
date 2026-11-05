@@ -152,7 +152,7 @@ sensor:
       required: false
       type: template
     device_class:
-      description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+      description: Sets the [device class](/integrations/sensor/#device-class), changing the device state and icon that is displayed on the UI. It does not set the `unit_of_measurement`.
       required: false
       type: device_class
       default: None

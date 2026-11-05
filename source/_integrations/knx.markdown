@@ -746,7 +746,7 @@ sync_state:
   type: [boolean, string, integer]
   default: true
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 reset_after:
@@ -1254,7 +1254,7 @@ invert_angle:
   default: false
   type: boolean
 device_class:
-  description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/cover/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 sync_state:
@@ -2086,7 +2086,7 @@ respond_to_read:
   type: boolean
   default: false
 device_class:
-  description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/switch/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 sync_state:

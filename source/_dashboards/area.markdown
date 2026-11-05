@@ -104,12 +104,12 @@ alert_classes:
   required: false
   type: list
   default: "moisture, motion"
-  description: A list of binary sensor device classes which will populate alert icons in the card when the state is on. If the display type is set to `compact`, only the first alert icon will be displayed.
+  description: A list of [binary sensor device classes](/integrations/binary_sensor/#device-class) which will populate alert icons in the card when the state is on. If the display type is set to `compact`, only the first alert icon will be displayed.
 sensor_classes:
   required: false
   type: list
   default: "temperature, humidity"
-  description: A list of sensor device classes to display for the area. Most classes (such as temperature, humidity, or pressure) show the median value when multiple sensors are present. Sensors representing cumulative measurements (such as power, energy, gas, or water) show the sum instead.
+  description: A list of [sensor device classes](/integrations/sensor/#device-class) to display for the area. Most classes (such as temperature, humidity, or pressure) show the median value when multiple sensors are present. Sensors representing cumulative measurements (such as power, energy, gas, or water) show the sum instead.
 features:
   required: false
   description: Additional widgets to control entities in the area. See [available features](/dashboards/features).

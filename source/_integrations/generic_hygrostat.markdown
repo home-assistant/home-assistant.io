@@ -64,7 +64,7 @@ target_humidity:
   required: false
   type: float
 device_class:
-  description: Whether the switch specified in the *humidifier* option to be treated as a humidifier or a dehumidifier device. Must be either "humidifier" or "dehumidifier"
+  description: Sets the [device class](/integrations/humidifier/#device-class), which defines whether the switch specified in the `humidifier` option is treated as a humidifier or a dehumidifier. Must be either `humidifier` or `dehumidifier`.
   required: false
   type: string
   default: "humidifier"
