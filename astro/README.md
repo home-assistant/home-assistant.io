@@ -66,6 +66,16 @@ has it and its Markdown stays shared. If the Astro build fails on a
 production deploy, the copy is skipped and Jekyll's version is
 published instead.
 
+A designed page is not Markdown in a reading column, so it gets a
+page of its own in `src/pages` instead — `src/pages/what-the-heck/index.astro`
+for `/what-the-heck/`, built from components in `src/components/`. The route
+still goes in `served-routes.json`, which is what publishes it over
+Jekyll's; `[...page].astro` skips a route that has its own page.
+Those pages share the Jekyll stylesheet for the page
+(`sass/homeassistant/pages/…`, reachable from SCSS because
+`astro.config.mjs` puts `sass/` on the load path), so one change of
+design reaches both stacks while they both build the page.
+
 Site settings the layout needs (title, release version, search key)
 come from the repository's `_config.yml`, read by `src/lib/site.mjs`,
 so both stacks always show the same values.
@@ -96,6 +106,14 @@ like any other local file. To use another mark, add its API endpoint
 to that list and import the file. If the API cannot be reached, the
 build keeps the copy from the previous build and warns; with no copy
 to fall back on, it fails rather than ship broken images.
+
+## Where components live
+
+Only common components, the ones used throughout the whole site, belong
+at the root of `src/components/`. A component that is specific to a
+single page, or a one-off, goes in a folder named for that page. For
+example, the components of the Month of "What the Heck?!" page live in
+`src/components/what-the-heck/`.
 
 ## Component previews
 
