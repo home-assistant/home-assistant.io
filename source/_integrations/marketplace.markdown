@@ -209,7 +209,7 @@ A GitHub connection is needed for:
 
 The connection does not request access to private repositories or permission to make changes on GitHub. The Marketplace can read only the public information available without signing in.
 
-The connection is only used when the Marketplace gets its content from GitHub. With a mirror as the [download source](#download-source), the Marketplace does not use your GitHub account.
+The connection is only used when the Marketplace gets its content from GitHub. With a relay as the [download source](#download-source), the Marketplace does not use your GitHub account.
 
 ### Connecting your GitHub account
 
@@ -230,15 +230,15 @@ You can revoke the connection at any time in your GitHub account settings under 
 
 ## Download source
 
-By default, the Marketplace gets the catalog and everything you install from GitHub. Where GitHub cannot be reached, such as in mainland China, the Marketplace can use mirrors instead. A mirror serves the same content from other servers.
+By default, the Marketplace gets the catalog and everything you install from GitHub. If GitHub is unstable, the Marketplace can use a relay instead. A relay forwards the Marketplace's downloads through a server that can reach GitHub.
 
 The following download sources are available:
 
 - **GitHub**: run by GitHub and the Open Home Foundation. This is the default.
-- **Unofficial China mirrors**: run by the Home Assistant China community ([hasscn.top](https://hasscn.top)). When these mirrors cannot be reached, downloads fall back to third-party proxies.
+- **Chinese Community Relays**: run by the Home Assistant community in China ([hasscn.top](https://hasscn.top)). When a relay cannot be reached, downloads fall back to third-party relays.
 
 {% important %}
-With a mirror as the download source, everything the Marketplace downloads goes through whoever runs that mirror, or a third-party proxy: the catalog, and the content you install. Only choose a download source you trust.
+With a relay as the download source, everything the Marketplace downloads goes through whoever runs that relay, including any third-party relays it falls back to: the catalog, and the content you install. Only choose a download source you trust.
 {% endimportant %}
 
 To change the download source:
@@ -249,7 +249,7 @@ To change the download source:
 
 The Marketplace restarts with the new download source right away.
 
-If the Marketplace cannot reach the catalog and a mirror is available for your country, a repair suggests the mirror. You can switch to the mirror from the repair, or keep using GitHub. If you keep using GitHub, the Marketplace stops suggesting the mirror.
+If the Marketplace cannot reach the catalog and a relay is available for your country, a repair suggests the relay. You can switch to the relay from the repair, or keep using GitHub. If you keep using GitHub, the Marketplace stops suggesting the relay.
 
 ## Coming from HACS
 
@@ -263,7 +263,7 @@ During the migration:
 - Your custom repositories and update entities carry over with their names, areas, and labels.
 - The HACS integration is removed, together with its files.
 - Bookmarks to `/hacs` open the Marketplace.
-- If you used the Chinese version of HACS, the Marketplace switches to the [China mirrors](#download-source) as the download source. A GitHub token from its shared pool is removed. Your own GitHub connection is kept.
+- If you used [HACS-China](https://github.com/hacs-china), the Marketplace switches to the [Chinese Community Relays](#download-source) as the download source. A GitHub token from its shared pool is removed. Your own GitHub connection is kept.
 
 The following HACS features and paths change in the Marketplace:
 
