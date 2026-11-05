@@ -8,36 +8,6 @@
 # `areas`.
 
 entities:
-  - entity_id: light.bedroom
-    state: "on"
-    attributes:
-      friendly_name: Bedroom
-      supported_color_modes:
-        - brightness
-      color_mode: brightness
-      brightness: 120
-  - entity_id: light.office
-    state: "on"
-    attributes:
-      friendly_name: Office
-      supported_color_modes:
-        - brightness
-      color_mode: brightness
-      brightness: 230
-  - entity_id: sensor.cpu_usage
-    state: "34"
-    attributes:
-      friendly_name: CPU usage
-      state_class: measurement
-      unit_of_measurement: "%"
-  - entity_id: sensor.kitchen_humidity
-    state: "52"
-    attributes:
-      friendly_name: Kitchen humidity
-      device_class: humidity
-      state_class: measurement
-      unit_of_measurement: "%"
-
   # Card features, see source/dashboards/features.markdown
   - entity_id: alarm_control_panel.home_alarm
     state: disarmed
@@ -271,6 +241,14 @@ entities:
       friendly_name: Laundry
       duration: "0:45:00"
       remaining: "0:32:10"
+    # Presets in seconds, kept in the entity registry
+    options:
+      timer:
+        presets:
+          - 300
+          - 900
+          - 1800
+          - 3600
   - entity_id: switch.coffee_maker
     state: "on"
     attributes:
@@ -388,123 +366,64 @@ areas:
   - area_id: kitchen
     name: Kitchen
 
+# The height in pixels each demo takes once its cards have loaded. The page
+# keeps this room for the demo while it loads, so the content below doesn't
+# move. A tile card with one feature takes two rows of a section: 120.
+heights:
+  feature_alarm_modes: 120
+  feature_bar_gauge: 120
+  feature_button: 120
+  feature_climate_fan_modes: 120
+  feature_climate_hvac_modes: 120
+  feature_climate_preset_modes: 120
+  feature_climate_swing_modes: 120
+  feature_climate_swing_horizontal_modes: 120
+  feature_counter_actions: 120
+  feature_cover_open_close: 120
+  feature_cover_position: 120
+  feature_cover_position_favorite: 120
+  feature_cover_tilt: 120
+  feature_cover_tilt_favorite: 120
+  feature_cover_tilt_position: 120
+  feature_date: 120
+  feature_fan_direction: 120
+  feature_fan_oscillate: 120
+  feature_fan_speed: 120
+  feature_humidifier_modes: 120
+  feature_humidifier_toggle: 120
+  feature_lawn_mower_commands: 120
+  feature_light_brightness: 120
+  feature_light_color: 120
+  feature_light_color_favorites: 120
+  feature_light_color_temp: 120
+  feature_light_effect: 120
+  feature_lock_commands: 120
+  feature_lock_open_door: 120
+  feature_media_player_playback: 120
+  feature_media_player_sound_mode: 120
+  feature_media_player_source: 120
+  feature_media_player_volume_buttons: 120
+  feature_media_player_volume_slider: 120
+  feature_numeric_input: 120
+  feature_select_options: 120
+  feature_target_humidity: 120
+  feature_target_temperature: 120
+  feature_timer_actions: 120
+  feature_timer_presets: 120
+  feature_toggle: 120
+  feature_trend_graph: 120
+  feature_update_actions: 120
+  feature_vacuum_commands: 120
+  feature_vacuum_fan_speed: 120
+  feature_valve_open_close: 120
+  feature_valve_position: 120
+  feature_valve_position_favorite: 120
+  feature_water_heater_operation_modes: 120
+  feature_area_controls: 184
+  feature_temperature_forecast: 120
+  feature_precipitation_forecast: 120
+
 demos:
-  light_names:
-    - type: light
-      entity: light.bedroom
-      name: Kids bedroom
-      grid_options:
-        columns: 6
-    - type: light
-      entity: light.office
-      name: My office
-      grid_options:
-        columns: 6
-
-  gauge_name_unit:
-    - type: gauge
-      name: CPU usage
-      unit: "%"
-      entity: sensor.cpu_usage
-
-  gauge_segments:
-    - type: gauge
-      entity: sensor.kitchen_humidity
-      needle: true
-      min: 20
-      max: 80
-      segments:
-        - from: 0
-          color: "#db4437"
-        - from: 35
-          color: "#ffa600"
-        - from: 40
-          color: "#43a047"
-        - from: 60
-          color: "#ffa600"
-        - from: 65
-          color: "#db4437"
-
-  # Clock card, the examples of source/_dashboards/clock.markdown
-  clock_default:
-    - type: clock
-
-  clock_large:
-    - type: clock
-      clock_size: large
-      time_format: "12"
-      show_seconds: true
-
-  clock_medium:
-    - type: clock
-      clock_size: medium
-      time_format: "12"
-      show_seconds: false
-
-  clock_london:
-    - type: clock
-      clock_size: medium
-      time_zone: Europe/London
-      title: London 💂
-
-  clock_new_york:
-    - type: clock
-      clock_size: medium
-      time_format: "12"
-      time_zone: America/New_York
-      title: New York 🦅
-
-  clock_analog_hour_ticks:
-    - type: clock
-      clock_style: analog
-      clock_size: medium
-      analog_options:
-        border: false
-        ticks: hour
-
-  clock_analog_minute_ticks:
-    - type: clock
-      clock_style: analog
-      clock_size: medium
-      show_seconds: true
-      analog_options:
-        border: true
-        ticks: minute
-
-  clock_analog_no_ticks:
-    - type: clock
-      clock_style: analog
-      clock_size: medium
-      show_seconds: true
-      analog_options:
-        border: true
-        ticks: none
-      title: Mountain Time
-
-  # Date card, the examples of source/_dashboards/date.markdown
-  date_default:
-    - type: date
-
-  date_large:
-    - type: date
-      title: Today
-      date_size: large
-
-  date_day_month_year:
-    - type: date
-      date_format:
-        - day-2-digit
-        - separator-slash
-        - month-2-digit
-        - separator-slash
-        - year-numeric
-
-  date_tokyo:
-    - type: date
-      title: Tokyo
-      time_zone: Asia/Tokyo
-      no_background: true
-
   # Card features, one tile card each, with the feature of the example on
   # source/dashboards/features.markdown
   feature_alarm_modes:
@@ -906,6 +825,15 @@ demos:
             - pause
             - cancel
             - finish
+
+  feature_timer_presets:
+    - type: tile
+      entity: timer.laundry
+      grid_options:
+        columns: 12
+      features:
+        - type: timer-presets
+          style: buttons
 
   feature_toggle:
     - type: tile

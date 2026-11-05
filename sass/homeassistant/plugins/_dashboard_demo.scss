@@ -6,9 +6,27 @@ figure.dashboard-demo {
   box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
   background-color: #fafafa;
 
-  // Keeps room for the cards until they are added, so the page moves less.
-  &.pending {
-    min-height: 160px;
+  // Keeps the height of the cards from the start, so nothing below the demo
+  // moves when they load.
+  .dashboard-demo-stage {
+    min-height: var(--demo-height);
+  }
+
+  // A skeleton in place of the cards until they are added, pulsing like
+  // ha-skeleton in the frontend.
+  &.pending .dashboard-demo-stage::before {
+    content: "";
+    display: block;
+    max-width: 500px;
+    height: var(--demo-height);
+    margin: 0 auto;
+    border-radius: 12px;
+    background-color: #e8e8e8;
+    animation: dashboard-demo-pulse 2s ease-in-out infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
 
   // The screenshot to show when the demo can't show the cards.
@@ -18,7 +36,7 @@ figure.dashboard-demo {
   }
 
   &.show-fallback {
-    .dashboard-demo-section {
+    .dashboard-demo-stage {
       display: none;
     }
 
@@ -53,5 +71,16 @@ figure.dashboard-demo {
 
   > ha-embed-card[hidden] {
     display: none;
+  }
+}
+
+@keyframes dashboard-demo-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
   }
 }

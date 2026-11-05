@@ -1,12 +1,11 @@
-// Runs the live card demos of source/_includes/dashboard/demo.html.
+// Starts the live card demos of source/_includes/dashboard/demo.html.
 //
-// The script of the Home Assistant demo loads early, when a demo comes near,
-// so pages without one, or with one far down, don't pay for it. Each demo
-// only adds its cards from its template once it is in view, so animations,
-// like the needle of a gauge, play where they can be seen.
+// The script of the Home Assistant demo loads with the page, see
+// source/_includes/javascripts/scripts.html. Each demo keeps its height with a
+// placeholder until it is in view, then adds its cards from its template, so
+// animations, like the needle of a gauge, play where they can be seen.
 // See https://contributors.home-assistant.io/frontend/custom-ui/demo/
 (() => {
-  const EMBED_SCRIPT_URL = "https://demo.home-assistant.io/embed.js";
   const SECTION_COLUMNS = 12;
 
   const figures = document.querySelectorAll("figure.dashboard-demo.pending");
@@ -14,12 +13,6 @@
   if (figures.length === 0) {
     return;
   }
-
-  let embedLoaded;
-  const loadEmbed = () => {
-    embedLoaded ??= import(EMBED_SCRIPT_URL);
-    return embedLoaded;
-  };
 
   // Shows the screenshot of the demo instead of its cards, when it has one.
   const showFallback = (figure) => {
@@ -56,10 +49,14 @@
   };
 
   // A card or card feature the released demo doesn't know yet, like one new
-  // in the next release, renders as an error card.
-  const hasErrorCard = (root) =>
+  // in the next release, renders as an error card. A card feature that needs
+  // something the released demo can't give it yet renders nothing.
+  const cannotShow = (root) =>
     deepElements(root).some(
-      (element) => element.localName === "hui-error-card"
+      (element) =>
+        element.localName === "hui-error-card" ||
+        (element.localName === "hui-card-feature" &&
+          element.getBoundingClientRect().height === 0)
     );
 
   const checkErrors = async (figure, cards) => {
@@ -68,7 +65,7 @@
         continue;
       }
       await settle(card.shadowRoot);
-      if (hasErrorCard(card.shadowRoot)) {
+      if (cannotShow(card.shadowRoot)) {
         showFallback(figure);
         return;
       }
@@ -125,38 +122,34 @@
     check();
   };
 
-  // Loads the script of the demo when any demo comes near.
-  const loadObserver = new IntersectionObserver(
-    (entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        loadObserver.disconnect();
-        loadEmbed().catch(() => undefined);
-      }
-    },
-    { rootMargin: "400px 0px" }
-  );
+  // The script of the demo tells the page when it fails to load.
+  const showAllFallbacks = () => figures.forEach(showFallback);
 
-  // Activates each demo once it is in view.
-  const activateObserver = new IntersectionObserver(
+  if (window.dashboardDemoFailed) {
+    showAllFallbacks();
+    return;
+  }
+  document.addEventListener("dashboard-demo-failed", showAllFallbacks, {
+    once: true,
+  });
+
+  const demoReady = customElements.whenDefined("ha-embed-card");
+
+  // Starts each demo once it is in view.
+  const observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) {
           continue;
         }
-        activateObserver.unobserve(entry.target);
-        loadEmbed()
-          .then(() => activate(entry.target))
-          .catch((error) => {
-            console.error("Loading the card demo failed", error);
-            showFallback(entry.target);
-          });
+        observer.unobserve(entry.target);
+        demoReady.then(() => activate(entry.target));
       }
     },
     { threshold: 0.25 }
   );
 
   for (const figure of figures) {
-    loadObserver.observe(figure);
-    activateObserver.observe(figure);
+    observer.observe(figure);
   }
 })();
