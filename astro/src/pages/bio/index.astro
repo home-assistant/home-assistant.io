@@ -11,6 +11,12 @@
 //
 // Built from the site's components: a Card for each item of a feed,
 // a Button for each curated link and an Icon for each social link.
+//
+// The page is static, so it is built showing what is live at build time.
+// Items with `starts` or `ends` are also rendered, hidden, with their
+// times, and the script at the end shows and hides them as time passes
+// (see src/lib/bio-schedule.mjs). Without JavaScript the page stays as
+// it was built.
 import fs from "node:fs";
 import path from "node:path";
 import { getEntry } from "astro:content";
@@ -44,6 +50,17 @@ const data = Object.fromEntries(
 );
 
 const sections = resolve(config, posts, now, setting("url"), data);
+const iso = (date) => (date ? date.toISOString() : undefined);
+// What the script needs to show or hide an entry later.
+const schedule = (entry) => ({
+  hidden: entry.hidden,
+  "data-key": entry.key,
+  "data-variant": entry.variant,
+  "data-starts": iso(entry.starts),
+  "data-ends": iso(entry.ends),
+  "data-airs": iso(entry.airs),
+  "data-note-after": entry.noteAfter ?? undefined,
+});
 const socials = socialLinks(config);
 const name = setting("title");
 ---
@@ -64,13 +81,14 @@ const name = setting("title");
       {
         sections.map((section, sectionIndex) =>
           section.type === "feed" ? (
-            <section class="feed">
+            <section class="feed" hidden={section.hidden}>
               {section.title && <h2>{section.title}</h2>}
-              <ul class="list">
-                {section.tiles.map((tile, tileIndex) => {
+              <ul class="list" data-schedule data-limit={section.limit}>
+                {section.entries.map((tile) => {
                   const video = tile.kind === "video";
+                  const tileIndex = section.tiles.indexOf(tile);
                   return (
-                    <li>
+                    <li {...schedule(tile)}>
                       <Card
                         href={tile.url}
                         title={tile.label}
@@ -80,7 +98,7 @@ const name = setting("title");
                         imageWidth={video ? undefined : 1200}
                         imageHeight={video ? undefined : 630}
                         tone={video ? "dark" : tile.featured ? "accent" : "default"}
-                        eager={sectionIndex === 0 && tileIndex < 2}
+                        eager={sectionIndex === 0 && tileIndex >= 0 && tileIndex < 2}
                         rel="noopener"
                         data-section={section.title ?? "links"}
                         data-source={tile.source}
@@ -102,11 +120,11 @@ const name = setting("title");
               </ul>
             </section>
           ) : (
-            <section class="links">
+            <section class="links" hidden={section.hidden}>
               {section.title && <h2>{section.title}</h2>}
-              <ul class="list">
-                {section.tiles.map((tile) => (
-                  <li>
+              <ul class="list" data-schedule>
+                {section.entries.map((tile) => (
+                  <li {...schedule(tile)}>
                     <Button
                       class="link"
                       href={tile.url}
@@ -154,6 +172,67 @@ const name = setting("title");
     </main>
   </body>
 </html>
+
+<script>
+  // Shows and hides scheduled items by the same rule the build used, with
+  // the website's own time rather than the visitor's clock, which can be
+  // wrong or set on purpose. One HEAD request reads the server's time from
+  // the response's Date header; from there the page counts with
+  // performance.now(), which ignores the system clock and changes to it.
+  // If the request fails, nothing changes: the page stays as it was built.
+  // Runs on load and every minute after, so a page left open picks up a
+  // livestream as it starts.
+  import { isShowing, showingKeys } from "../../lib/bio-schedule.mjs";
+
+  // The server's time, and the performance.now() it belongs to: the
+  // middle of the request, when the server most likely wrote the header.
+  async function serverTime(): Promise<{ time: number; at: number } | null> {
+    try {
+      const sent = performance.now();
+      const response = await fetch(location.pathname, { method: "HEAD", cache: "no-store" });
+      const received = performance.now();
+      const date = Date.parse(response.headers.get("Date") ?? "");
+      if (!response.ok || Number.isNaN(date)) return null;
+      // A response from a cache says how old it is in Age.
+      const age = Number(response.headers.get("Age")) || 0;
+      return { time: date + age * 1000, at: (sent + received) / 2 };
+    } catch {
+      return null;
+    }
+  }
+
+  function update(now: number) {
+    for (const list of document.querySelectorAll<HTMLElement>("[data-schedule]")) {
+      const items = [...list.children] as HTMLElement[];
+      const entries = items.map((item) => ({
+        key: item.dataset.key,
+        variant: item.dataset.variant,
+        starts: item.dataset.starts,
+        ends: item.dataset.ends,
+      }));
+      const keys = showingKeys(entries, Number(list.dataset.limit) || Infinity, now);
+      items.forEach((item, index) => {
+        item.hidden = !isShowing(entries[index], keys);
+        // A video that has started says when it aired, not when it starts.
+        const { airs, noteAfter } = item.dataset;
+        const meta = item.querySelector(".meta");
+        if (airs && noteAfter && meta && Date.parse(airs) <= now) meta.textContent = noteAfter;
+      });
+      const section = list.closest("section");
+      if (section) section.hidden = keys.length === 0;
+    }
+  }
+
+  // Most of the time nothing is scheduled, and there is nothing to check.
+  if (document.querySelector("[data-starts], [data-ends]")) {
+    serverTime().then((server) => {
+      if (server === null) return;
+      const now = () => server.time + (performance.now() - server.at);
+      update(now());
+      setInterval(() => update(now()), 60 * 1000);
+    });
+  }
+</script>
 
 <style lang="scss" is:global>
   body.bio-page {

@@ -4,6 +4,40 @@
 # block to remove it. A mistake here fails the build and names the line, so
 # nothing broken can reach the live page. The page itself is built by Astro:
 # astro/src/pages/bio/index.astro, with the rules in astro/src/lib/bio.mjs.
+#
+# What fills the page by itself
+#   Blog posts, release notes and newsletter issues appear on their own when
+#   they're published. The Latest list keeps the newest few (its `limit`),
+#   so older ones drop off by themselves. They never need dates added here.
+#
+# Scheduling what you add by hand
+#   Anything you add by hand (an `insert` in Latest, a link, a pin) can
+#   have `starts` and `ends`, so you can merge it early and let it come
+#   down by itself. Both are optional:
+#     - No `starts`: it shows as soon as the change is live.
+#     - No `ends`: it stays until you delete it. A YouTube video is the
+#       exception: it comes down at the end of the day after it airs.
+#
+#   Write dates and times like this. Times are UTC unless you add an offset:
+#     starts: 2026-11-15                  # from midnight UTC, Nov 15
+#     starts: 2026-11-15T17:30:00Z        # from 17:30 UTC
+#     starts: 2026-11-15T18:30:00+01:00   # the same moment, in CET
+#     ends: 2026-11-15                    # up through the whole of Nov 15
+#     ends: 2026-11-15T20:00:00Z          # down at 20:00 UTC
+#
+#   The page is built when a change is merged, and it checks the time with
+#   the website (not the visitor's own clock) to show or hide scheduled
+#   items at the right time. You don't need to merge anything when `starts`
+#   or `ends` passes. Delete ended items whenever it suits you; until then
+#   they do nothing.
+#
+#   Scheduled items are in the page before they show, so anyone who reads
+#   the page's source can see them early. Don't schedule anything that must
+#   stay secret until it starts: merge it at the time instead.
+#
+#   For `ends` that has passed, the item is gone. For `starts` still to come,
+#   the item waits in the page, hidden, and takes its place in the list
+#   (pushing the oldest item out of a full list) when the time comes.
 
 avatar: /images/favicon-192x192-full.png
 tagline: Open source home automation that puts local control and privacy first.
@@ -18,24 +52,31 @@ sections:
     limit: 5
     images: true
     hero: true
-    # Add anything else to the list here. It sits in date order with the
-    # rest; delete it when it's no longer relevant.
+    # Add anything else to the list here. `date` sets where it sits among
+    # the rest (newest first). Add `starts` and `ends` to show it only for
+    # a while (see the top of this file).
     insert:
       - title: "The merch store is open!"
         url: https://store.openhomefoundation.org
         date: 2026-10-21
         label: Announcement        # optional, shown before the date
         image: "https://store.openhomefoundation.org/cdn/shop/files/store-hero-bg.webp"  # optional
+        # starts: 2026-10-21T09:00:00Z  # optional, see the top of this file
+        # ends: 2026-11-30              # optional
     # A YouTube video or livestream shows like a video player and opens
-    # YouTube. Before it starts it reads "Starts November 15 · 18:00 UTC".
+    # YouTube. Before it airs it reads "Starts November 15 · 18:00 UTC";
+    # after, it shows the date. `airs` also sets where it sits in the list.
+    # It comes down at the end of the day after it airs unless you set `ends`.
     #  - type: youtube
     #    video: https://www.youtube.com/watch?v=XyAL1to3Lm4   # or just the ID
     #    title: "State of the Open Home 2026"
-    #    start: 2026-11-15T18:00:00Z                          # or just a date
+    #    airs: 2026-11-15T18:00:00Z                           # or just a date
     #    label: Livestream                                    # optional
+    #    starts: 2026-11-08                                   # optional: show it from a week before
+    #    ends: 2026-11-22                                     # optional: keep the replay up longer
 
-  # Links that always sit under the Latest list. Add a campaign here, or give
-  # a link starts and ends dates to show it only for a while.
+  # Links that always sit under the Latest list. Add a campaign here, and
+  # give it `starts` and `ends` to show it only for a while.
   - type: links
     title: Featured
     items:
@@ -88,13 +129,14 @@ sources:
     label: Newsletter
     limit: 1
 
-  # Pin a post when the timing has to be exact, such as a launch. Pinned
-  # items go to the top of the list. Remove them, or let `expires` pass, and
-  # the list is back to newest first.
+  # Pin something to the top of the Latest list, such as a launch. Remove
+  # it, or let its `ends` pass, and the list is back to newest first.
+  # (`expires` is the old name for `ends` and still works.)
   pinned:
     type: pinned
     items: []
     #  - title: "2026.11: An example"
     #    url: /blog/2026/11/05/release-202611/
     #    image: auto
-    #    expires: 2026-11-12
+    #    starts: 2026-11-05T17:00:00Z   # optional
+    #    ends: 2026-11-12               # optional
