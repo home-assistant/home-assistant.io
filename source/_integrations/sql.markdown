@@ -89,7 +89,7 @@ sql:
       required: false
       type: string
     state_class:
-      description: "Provide [state class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) for this sensor."
+      description: "Provide [state class](/integrations/sensor/#state-class) for this sensor."
       required: false
       type: string
     icon:

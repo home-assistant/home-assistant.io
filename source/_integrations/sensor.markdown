@@ -32,12 +32,14 @@ The state class tells Home Assistant what kind of value a sensor has. Home Assis
 
 Not every sensor has a state class. A sensor with a state class must have a number as its state, so a sensor that shows text or a date doesn't have one. A sensor without a state class has no long-term statistics.
 
-The integration that provides the sensor usually sets the state class. There are four state classes:
+The integration that provides the sensor usually sets the state class. When you create a sensor yourself, for example with a [template helper](/integrations/template/), you choose the state class. In templates, the state class is the `state_class` attribute of the entity.
 
-- **Measurement**: A value right now, for example, a temperature or the current power use.
-- **Measurement angle**: An angle right now, in degrees, for example, the wind direction.
-- **Total**: An amount that can go up and down, for example, the energy you put into and take out of a home battery.
-- **Total increasing**: An amount that only goes up, except when it's reset, for example, an energy meter.
+There are four state classes. Each item shows the name you see in the Home Assistant interface, followed by the state class as Home Assistant stores it.
+
+- **Measurement** (`measurement`): A value right now, for example, a temperature or the current power use.
+- **Measurement angle** (`measurement_angle`): An angle right now, in degrees, for example, the wind direction.
+- **Total** (`total`): An amount that can go up and down, for example, the energy you put into and take out of a home battery.
+- **Total increasing** (`total_increasing`): An amount that only goes up, except when it's reset, for example, an energy meter.
 
 ## Device class
 

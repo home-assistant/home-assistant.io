@@ -2015,7 +2015,7 @@ always_callback:
   type: boolean
   default: false
 state_class:
-  description: Overrides the DPT's default [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
+  description: Overrides the DPT's default [state_class](/integrations/sensor/#state-class).
   required: false
   type: string
 device_class:
