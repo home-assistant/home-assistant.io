@@ -45,7 +45,7 @@ To change the name only on one card or badge, set the name in the card or badge 
      - To change the order, drag the parts.
      - To remove a part, select its {% icon "mdi:close" %} icon.
    - To enter your own name, select **Custom** and enter the name.
-4. To go back to the default name, select **Restore default name** {% icon "mdi:restore" %}.
+4. To go back to the default name, select **Restore default name** ({% icon "mdi:restore" %}).
 5. Select **Save**.
 
 You can also set the name in YAML, as described in the following sections.
