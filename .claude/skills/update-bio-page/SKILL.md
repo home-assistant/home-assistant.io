@@ -1,6 +1,6 @@
 ---
 name: update-bio-page
-description: Use this whenever someone wants to add, schedule, change, or remove anything on the link-in-bio page (https://www.home-assistant.io/bio/, source/_data/bio.yml) — a livestream, YouTube video, announcement, campaign, store link, pinned post, or featured link — even if they only say "put X on the bio page", "add the livestream to bio", "link in bio", or "show this from Friday until Sunday". Also use it to explain why something is or isn't showing on the bio page.
+description: Use this whenever someone wants to add, schedule, change, or remove anything on the link-in-bio page (https://www.home-assistant.io/bio/, source/_data/bio.yml) — a livestream, YouTube video, announcement, campaign, store link, pinned post, or featured link — even if they only say "put X on the bio page", "add the livestream to bio", "link in bio", or "show this from Friday until Sunday". Also use it to clean up old items ("tidy the bio page", "take the stream down"), and to explain why something is or isn't showing on the bio page.
 ---
 
 # Update the link-in-bio page
@@ -17,6 +17,8 @@ Find out:
 - **The title** as it should read on the page, and **the URL**.
 - **When it should appear and disappear**, if it's time-limited, and in which time zone.
 - **Where it goes**, if they have a view. Otherwise pick the place using step 3.
+
+Whatever they asked for, also look for old items to clear out (see [Clear out old items](#clear-out-old-items)). Ask about those in the same message as your other questions. If they only asked for a cleanup, go straight to that section.
 
 Don't add new blog posts, release notes, or newsletter issues by hand. They appear in the Latest list by themselves once published, and older ones drop off as new ones arrive. If someone asks to add one of those, tell them it will appear on its own. Only pin it if they need it at the top.
 
@@ -36,6 +38,7 @@ Ask when:
 - **They want to remove something that isn't there,** or that comes from a feed (blog, release notes, newsletter), which can't be deleted from `bio.yml`. Explain what they're seeing and ask what they want.
 - **Where it goes isn't clear,** and the table in step 3 fits more than one place.
 - **The wording breaks the writing rules,** such as all caps or a title much longer than the other items. Suggest a version and ask them to confirm it.
+- **The file has old items in it.** List what you found and ask whether to remove them (see [Clear out old items](#clear-out-old-items)).
 
 How to ask:
 
@@ -138,12 +141,36 @@ Tell the requester, in plain language:
 - What was added and where it will appear.
 - When it appears and disappears, in their time zone as well as UTC.
 - That it needs to be merged before `starts` (or, without a `starts`, that it goes live when merged).
-- That ended items can be deleted from `bio.yml` whenever convenient, since they no longer show.
+- What you removed, and anything you left in because they wanted to keep it.
 
 Don't commit, push, or open a pull request unless asked.
 
-## Removing or tidying
+## Clear out old items
 
-- To take something down now, delete its block. To take it down later, give it an `ends`.
-- Delete items whose `ends` has passed when you're editing the file anyway.
-- Leave the `sources` section alone unless someone wants to change which feeds fill the Latest list.
+Items added by hand stay in `bio.yml` after they stop showing. They do no harm, but they make the file harder to read and easier to get wrong. Each time you edit the file, check for old items and offer to remove them.
+
+### Find them
+
+Check today's date and time in UTC first. Then look for:
+
+- **Ended items:** anything whose `ends` has passed. These never show again.
+- **Finished videos:** a YouTube item with no `ends` has come down by the end of the day after its `airs`.
+- **Items pushed out of Latest for good:** an item in the Latest list whose `starts` has passed but that isn't in the built page (`astro/dist/bio/index.html`, after `npx astro build`). At least five newer items are ahead of it, and newer items keep coming, so it won't come back. The only exception is when something above it is scheduled to end.
+- **Pins with no `ends` that have been up a while:** a pin stays at the top of Latest until someone removes it. If it looks like it was for a launch or event that's over, ask.
+- **Featured links that look time-limited but have no `ends`:** such as a sale, an event, a survey, or a livestream. Ask whether they're still current.
+
+Leave these alone: the **Get started** links, the `sources` section, `socials`, and the commented-out examples in the file. Only change them if someone asks.
+
+### Ask before you remove anything
+
+Never delete an item without the requester's OK, even one that has clearly ended. Someone might want to reuse it, or it might be the record of what ran.
+
+- List each item in plain language, with why you think it's old. For example: "'The merch store is open!' (an announcement from October 21) is no longer showing: five newer posts are ahead of it."
+- Group them into "these have ended and no longer show" and "these are still showing, but might be out of date". Suggest removing the first group and ask about the second.
+- If there's nothing old, don't mention it.
+
+### Remove them
+
+- Delete the whole block for each item they agreed to remove, including any comment lines that belong only to it.
+- To take something down now, delete its block. To take it down later instead, give it an `ends`.
+- Run the checks in step 6 again. The build should pass, and nothing that should still be showing should be missing from `astro/dist/bio/index.html`.
