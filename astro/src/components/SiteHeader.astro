@@ -34,9 +34,9 @@
 //     makes it `position: fixed` so content scrolls underneath; that
 //     belongs to the page layout, not to the header.
 //
-// The temporary "WTH" item for the Month of "What the Heck?!" is
-// WthNavButton.astro, placed first in the menu as the Jekyll header
-// does, and styled below under `.nav-wth`.
+// "What the Heck?!" is a temporary item for the Month of "What the
+// Heck?!", last in the menu as in the Jekyll header. Remove it from
+// both when the month is over.
 //
 // One behavior moves in from the page: right-clicking the logo opens
 // the brand guidelines on the contributors website. Jekyll wires that up in
@@ -45,7 +45,6 @@
 import "../styles/tokens.scss";
 import Button from "./Button.astro";
 import Icon from "./Icon.astro";
-import WthNavButton from "./what-the-heck/WthNavButton.astro";
 import type { IconName } from "../lib/icons";
 // Both logos come from the Open Home Foundation brand assets API and
 // are downloaded into src/assets/brands/ when the build starts (see
@@ -56,8 +55,6 @@ import logoInverseUrl from "../assets/brands/home-assistant-lockup-monochrome-da
 const {
   pathname = "",
   dark = false,
-  /** Which look the "WTH" button takes; see WthNavButton.astro. */
-  wthLook = "plain",
   version,
   versionUrl,
   releasedOn,
@@ -124,6 +121,7 @@ const navigation: NavigationItem[] = [
   { label: "Integrations", href: "/integrations/", roots: ["integrations"] },
   { label: "Blog", href: "/blog/", roots: ["blog"] },
   { label: "Need help?", href: "/help/", roots: ["help"] },
+  { label: "What the Heck?!", href: "/what-the-heck/", roots: ["what-the-heck"] },
 ];
 
 const versionTitle =
@@ -167,13 +165,6 @@ const versionTitle =
       </label>
 
       <ul class="menu">
-        {/* The Month of "What the Heck?!" (temporary). Light headers get
-            the light button. The dark header, over the homepage hero's
-            blue, gets the ink one in the bar; its panel is light, so it
-            gets the light one there. Styles below, in `.nav-wth`. */}
-        {dark && <WthNavButton onDark look={wthLook} />}
-        <WthNavButton look={wthLook} />
-
         {
           navigation.map(({ label, href, roots, items }) => (
             <li>
@@ -490,18 +481,6 @@ const versionTitle =
     order: -1;
   }
 
-  /* The "WTH" button (WthNavButton.astro) leads that row, ahead of
-     "Get started". The ink one is for the dark bar only. */
-  .menu > .nav-wth {
-    margin: 0 0 var(--space-small) var(--layout-gutter);
-    order: -2;
-    width: auto;
-
-    &.on-dark {
-      display: none;
-    }
-  }
-
   /* DocSearch renders its button into the empty container; reduce it to
      the magnifier in the navigation color, as on the live site.
      The button is DocSearch's markup, hence :global. */
@@ -608,21 +587,6 @@ const versionTitle =
 
     .nav-cta {
       margin-left: var(--space-small);
-    }
-
-    /* In the bar it follows the order of the list, ahead of the rest.
-       Over the hero it is the ink button, on a light bar the light one. */
-    .menu > .nav-wth {
-      margin: 0 var(--space-small) 0 0;
-      order: 0;
-
-      &.on-dark {
-        display: flex;
-      }
-    }
-
-    .site-header.dark .menu > .nav-wth:not(.on-dark) {
-      display: none;
     }
   }
 
