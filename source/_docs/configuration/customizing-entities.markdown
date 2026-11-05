@@ -24,15 +24,21 @@ If the device is a [child device](#parent-and-child-devices), such as a socket o
 When you rename an entity, enter only the entity name. Home Assistant adds the device name where it is needed.
 An _entity ID_ identifies the entity in automations, scripts, and other configuration, such as `sensor.living_room_thermostat_temperature`.
 Changing an entity name does not change its entity ID.
+Renaming a floor, area, or device, or moving a device to another area, does not change entity IDs either.
+Names only change how items are shown, so your automations, scripts, and history keep working.
 
 Follow these recommendations in your Home Assistant setup:
 
 - Name each item for what it is, rather than where it is or what it belongs to. For example, name an area `Living room` instead of `Ground floor living room`, and a device `Multi sensor` instead of `Office multi sensor`.
+- Give each area and floor a unique name. Unlike devices and entities, two areas cannot have the same name. For example, if you have a bathroom on each floor, name them `Bathroom` and `Guest bathroom`.
 - Use the device name to identify the physical device and the entity name to identify what the device reports or controls. For example, a device named `Thermostat` can have an entity named `Temperature`.
 - If an entity represents the main function of its device, such as the switch of a smart plug, rename the device instead of the entity. Then [turn on **Main entity of the device**](#changing-the-attributes-of-an-entity) for that entity. For example, rename a smart plug to `Coffee machine`, and its switch is shown as `Coffee machine` instead of `Smart plug Switch`.
+- Leave **Main entity of the device** turned off for devices with several functions of equal importance, such as a multi sensor or a 2-gang wall switch. Give each of their entities a short name for its function instead, such as `Temperature` and `Humidity`.
+- If an entity measures or controls something in a different area than its device, [assign the entity its own area](/docs/organizing/areas/#to-assign-an-entity-to-a-different-area-than-its-device). Home Assistant then shows the entity name without the device name. For example, an outdoor temperature sensor connected to a heating controller in the boiler room can show as `Outdoor temperature`.
+- If a device gets its name from another system, such as Zigbee2MQTT or ESPHome, and that name already includes the area or the function, rename the device in Home Assistant. You can also change the name in the other system.
 - Give otherwise identical devices a distinguishing name that is meaningful to you. For example, use `Left window sensor` and `Right window sensor` if their position is how you tell them apart.
 - [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant uses this information in pickers, dialogs, and tables, so you do not need to include the location in the names of areas, devices, and entities.
-- Change the displayed name on a dashboard card when you only want a different label in that dashboard. You do not need to change the entity name.
+- [Change the displayed name on a dashboard card](/dashboards/naming/) when you only want a different label in that dashboard. You can choose which parts of the name to show, or enter your own text. You do not need to change the entity name.
 
 If you already use a naming strategy that works for you, you do not need to rename existing items.
 Use these recommendations for new items, or when an existing name makes an item hard to identify.
