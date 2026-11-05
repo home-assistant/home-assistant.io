@@ -27,6 +27,51 @@
     </label>
 
     <ul class="menu">
+      {%- comment -%}
+        Promotes the Month of "What the Heck?!" for as long as it runs: a
+        second call to action, built on the "Get started" button, with a
+        doodle of the /wth/ hero inside it. Remove this item, its stylesheet
+        partial and the `nav_wth` entry in
+        sass/homeassistant/_homeassistant.scss when the month is over.
+      {%- endcomment %}
+      <li class="nav-wth">
+        <a class="nav-button nav-wth__button{% if root == 'wth' %} active{% endif %}" href="/wth/" title='Month of "What the Heck?!"'>
+          {%- comment -%}
+            The doodle: hero routing clipped to the pill, with a pulse
+            running through it, and the hero's node in the icon's place. The
+            routing is anchored to the right edge, where the node sits, so
+            the label's width never moves it.
+          {%- endcomment %}
+          <span class="nav-wth__flow" aria-hidden="true"><svg viewBox="0 0 120 38" fill="none" focusable="false">
+            <g stroke-linecap="round" fill="none">
+              <path class="nav-wth__run" d="M0 10h52a8 8 0 0 1 8 8v4a8 8 0 0 0 8 8h52" />
+              <path class="nav-wth__run nav-wth__run--dashed" d="M30 38v-6a8 8 0 0 1 8-8h14" />
+              <path class="nav-wth__pulse" pathLength="1" d="M0 10h52a8 8 0 0 1 8 8v4a8 8 0 0 0 8 8h52" />
+            </g>
+          </svg></span>
+          <span class="label">WTH</span>
+          <span class="icon nav-wth__node" aria-hidden="true"><span class="nav-wth__mark">?!</span></span>
+        </a>
+      </li>
+      {%- comment -%}
+        The same button in its light variant, so the two can be compared on
+        the deploy preview. Keep whichever wins and delete the other.
+      {%- endcomment %}
+      <li class="nav-wth nav-wth--light">
+        <a class="nav-button nav-wth__button nav-wth__button--light{% if root == 'wth' %} active{% endif %}" href="/wth/" title='Month of "What the Heck?!"'>
+          <span class="nav-wth__flow" aria-hidden="true"><svg viewBox="0 0 120 38" fill="none" focusable="false">
+            <g stroke-linecap="round" fill="none">
+              <path class="nav-wth__run" d="M0 10h52a8 8 0 0 1 8 8v4a8 8 0 0 0 8 8h52" />
+              <path class="nav-wth__run nav-wth__run--dashed" d="M30 38v-6a8 8 0 0 1 8-8h14" />
+              <path class="nav-wth__pulse" pathLength="1" d="M0 10h52a8 8 0 0 1 8 8v4a8 8 0 0 0 8 8h52" />
+            </g>
+          </svg></span>
+          <span class="label">WTH</span>
+          <span class="icon nav-wth__node" aria-hidden="true"><span class="nav-wth__mark">?!</span></span>
+        </a>
+      </li>
+      {%- comment -%} Eases the doodle's speed on hover; see the script. {%- endcomment %}
+      <script src="/javascripts/wth/nav-button.js" type="module"></script>
       <li>
         <a {% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'common-tasks' %}class="active"{% endif %} href="/docs/">Documentation {% icon "mdi:chevron-down" %}</a>
         <ul>

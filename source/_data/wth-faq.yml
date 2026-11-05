@@ -1,0 +1,28 @@
+items:
+  - question: Do I need an account to post?
+    answer: Yes, you need a free account on our <a href="https://community.home-assistant.io">community forum</a>. Signing up takes a minute.
+  - question: I have multiple things. Should I put them all in a single topic?
+    answer: No, please create a separate topic for each one. There is no limit on how many WTH topics you can create. Smaller topics are much easier to discuss, vote on, and pick up.
+  - question: I don't run Home Assistant myself, someone else in my home does. Can I still post?
+    answer: Yes, please! You are exactly who we would love to hear from this year. You don't need to know how it all works behind the scenes. Just tell us what it is like to live with it.
+  - question: I'm posting on behalf of someone in my home. Is that OK?
+    answer: Absolutely. Just mention that it comes from them, and use their words as much as you can. How they describe it tells us a lot.
+  - question: English isn't my first language. Can I still join?
+    answer: |
+      <p>Of course. The forum is in English, but don't let that stop you. Feel free to use AI or a translation tool to translate your WTH. If you do, please say so in your post, and add your original text in a hidden details block below it, like this:</p><pre><code>[details="Original text"]
+      Your text in your own language.
+      [/details]</code></pre><p>That way, nothing gets lost in translation, and people can always check what you originally meant. This is the same approach we use in our <a href="https://developers.home-assistant.io/docs/ai_policy" target="_blank" rel="noopener">AI policy</a>.</p>
+  - question: Does it have to be about Home Assistant itself? What about the mobile app, the documentation, or the website?
+    answer: All of it counts. If it is part of your Home Assistant experience, it is a valid WTH.
+  - question: My WTH from the last edition still isn't solved. Can I post it again?
+    answer: Yes. This is a new edition, and a lot has changed since then. Please create a new topic, and feel free to link to the old one.
+  - question: Is everything that is reported going to be fixed?
+    answer: No, there is no guarantee for that. The goal is to make it easy to tell us what bugs you, for one whole month. What you share helps us understand where Home Assistant is hard, and helps shape what we work on next.
+  - question: My WTH is one of the top-voted ones, so it's going to be fixed, right?
+    answer: This is not a popularity contest. Votes help us see how many people run into the same thing, but they don't guarantee anything gets picked up.
+  - question: I really want a new integration or app so I can use my devices. Is this the right place?
+    answer: No, this event is not for requesting new integrations or apps. Please open a <a href="https://github.com/orgs/home-assistant/discussions" target="_blank" rel="noopener">feature request on GitHub</a> for that.
+  - question: I found a bug, and I'm comfortable with GitHub. Where should I report it?
+    answer: If you are comfortable using GitHub, please <a href="https://github.com/home-assistant/core/issues/new/choose" target="_blank" rel="noopener">file an issue there</a> instead. That way, it ends up directly with the people who can fix it, and we can track its progress too.
+  - question: I'm a contributor and want to fix a WTH. How do I let people know?
+    answer: Reply in the WTH topic and link to your pull request. That way, everyone following the topic knows something is happening.

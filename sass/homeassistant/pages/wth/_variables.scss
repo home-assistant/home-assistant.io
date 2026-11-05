@@ -1,0 +1,68 @@
+@use 'mixins' as *;
+
+// Palette sampled from the 2026 key visual. The mint matches the secondary
+// colour already used on the community page; the blue is the Home Assistant
+// brand blue.
+:root {
+    --wth-mint: #16F3BE;
+    --wth-mint-ink: #056B51;
+    --wth-sky: #5AB9EE;
+    --wth-brand: #18BCF2;
+
+    --wth-ink: #1E2126;
+    --wth-ink-soft: #4F606E;
+
+    --wth-bg: #F2F4F9;
+    --wth-surface: #FFFFFF;
+    --wth-surface-soft: #F7F8FB;
+    --wth-border: #E2E7F0;
+
+    // Keyboard focus. Ink clears 3:1 against every surface either page
+    // uses, down to 7.3:1 on the claw machine cabinet. Sections that
+    // invert to ink override it; see `#how-it-works`.
+    --wth-focus: #1E2126;
+
+    --wth-line-blue: #9BDEF6;
+    --wth-line-mint: #9DECE5;
+
+    // Containers and widths
+    --container-max-width: 1100px;
+    --container-full-max-width: 1400px;
+    --container-gutters: 24px;
+
+    --section-spacing-y: 52px;
+    --card-radius: 20px;
+
+    // Typography
+    --typography-base-font: "Figtree", sans-serif;
+
+    --typography-h1-font-size: 34px;
+    --typography-h1-font-weight: 700;
+    --typography-h1-line-height: 1.05;
+
+    --typography-h2-font-size: 28px;
+    --typography-h2-font-weight: 700;
+    --typography-h2-line-height: 1.1;
+
+    --typography-h3-font-size: 19px;
+    --typography-h3-font-weight: 700;
+    --typography-h3-line-height: 1.25;
+
+    --typography-paragraph-font-size: 16px;
+    --typography-paragraph-line-height: 1.55;
+
+    --typography-lead-font-size: 18px;
+    --typography-lead-line-height: 1.5;
+}
+
+@include bp(desktop) {
+    :root {
+        --section-spacing-y: 88px;
+
+        --typography-h1-font-size: 60px;
+        --typography-h2-font-size: 42px;
+        --typography-h3-font-size: 22px;
+        --typography-paragraph-font-size: 17px;
+        --typography-lead-font-size: 22px;
+    }
+}
