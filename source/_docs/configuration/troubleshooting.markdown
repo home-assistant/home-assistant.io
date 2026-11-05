@@ -221,7 +221,9 @@ When you turn off debug logging, Home Assistant downloads the log right away. Th
 
 ### Viewing the live log of an integration
 
-While debug logging is on, you can follow the log messages of one integration as they come in, without going through the full log. The debug logging must be enabled for the integration. For the steps, refer to [enabling debug logging](#enabling-debug-logging).
+ While debug logging is on, you can follow the log messages of one integration as they come in, without going through the full log.
+ 
+ Prerequisite: Debug logging is enabled for the integration. For the steps, refer to [enabling debug logging](#enabling-debug-logging).
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
 2. Next to **Debug logging enabled**, select **Show logs**.
