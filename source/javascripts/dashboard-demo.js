@@ -14,64 +14,6 @@
     return;
   }
 
-  // Shows the screenshot of the demo instead of its cards, when it has one.
-  const showFallback = (figure) => {
-    if (figure.querySelector(".dashboard-demo-fallback")) {
-      figure.classList.add("show-fallback");
-    }
-  };
-
-  // Every element in a card, through the shadow roots of its elements.
-  const deepElements = (root) =>
-    [...root.querySelectorAll("*")].flatMap((element) =>
-      element.shadowRoot
-        ? [element, ...deepElements(element.shadowRoot)]
-        : [element]
-    );
-
-  // Waits until the elements of a card have finished rendering. Rendering
-  // can add elements, like the features of a tile card, so wait until no
-  // new ones turn up.
-  const settle = async (root) => {
-    let count = -1;
-
-    for (let round = 0; round < 10; round++) {
-      const elements = deepElements(root).filter(
-        (element) => element.updateComplete
-      );
-
-      if (elements.length === count) {
-        return;
-      }
-      count = elements.length;
-      await Promise.all(elements.map((element) => element.updateComplete));
-    }
-  };
-
-  // A card or card feature the released demo doesn't know yet, like one new
-  // in the next release, renders as an error card. A card feature that needs
-  // something the released demo can't give it yet renders nothing.
-  const cannotShow = (root) =>
-    deepElements(root).some(
-      (element) =>
-        element.localName === "hui-error-card" ||
-        (element.localName === "hui-card-feature" &&
-          element.getBoundingClientRect().height === 0)
-    );
-
-  const checkErrors = async (figure, cards) => {
-    for (const card of cards) {
-      if (!card.shadowRoot) {
-        continue;
-      }
-      await settle(card.shadowRoot);
-      if (cannotShow(card.shadowRoot)) {
-        showFallback(figure);
-        return;
-      }
-    }
-  };
-
   // Each card sets the columns it takes in a section as `--column-size`.
   // When all cards fit in one row, the section narrows to that row, so the
   // row sits in the middle.
@@ -93,7 +35,7 @@
   };
 
   // Adds the cards of the demo to the page, and follows their size. A card
-  // sets its size each time it has rendered, so check it then.
+  // sets its size each time it has rendered.
   const activate = (figure) => {
     const template = figure.querySelector("template.dashboard-demo-template");
 
@@ -102,16 +44,9 @@
 
     const section = figure.querySelector(".dashboard-demo-section");
     const cards = section.querySelectorAll(":scope > ha-embed-card");
-    const hasFallback = Boolean(
-      figure.querySelector(".dashboard-demo-fallback")
+    const cardObserver = new MutationObserver(() =>
+      fitSection(section, cards)
     );
-    const check = () => {
-      fitSection(section, cards);
-      if (hasFallback) {
-        checkErrors(figure, cards);
-      }
-    };
-    const cardObserver = new MutationObserver(check);
 
     for (const card of cards) {
       cardObserver.observe(card, {
@@ -119,19 +54,8 @@
         attributeFilter: ["style", "hidden", "full-width"],
       });
     }
-    check();
+    fitSection(section, cards);
   };
-
-  // The script of the demo tells the page when it fails to load.
-  const showAllFallbacks = () => figures.forEach(showFallback);
-
-  if (window.dashboardDemoFailed) {
-    showAllFallbacks();
-    return;
-  }
-  document.addEventListener("dashboard-demo-failed", showAllFallbacks, {
-    once: true,
-  });
 
   const demoReady = customElements.whenDefined("ha-embed-card");
 

@@ -29,22 +29,6 @@ figure.dashboard-demo {
     }
   }
 
-  // The screenshot to show when the demo can't show the cards.
-  .dashboard-demo-fallback {
-    display: none;
-    margin: 0 auto;
-  }
-
-  &.show-fallback {
-    .dashboard-demo-stage {
-      display: none;
-    }
-
-    .dashboard-demo-fallback {
-      display: block;
-    }
-  }
-
   figcaption {
     margin-top: 8px;
     text-align: center;

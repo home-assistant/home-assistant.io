@@ -9,13 +9,7 @@
   source/javascripts/dashboard-demo.js adds the cards from the template once
   they are in view, so their animations play where they can be seen.
 
-  The demo follows the released frontend, so a card or card feature that is
-  new in the next release shows as an error, or not at all, until then. Give
-  it an `image` and `alt` to show that screenshot instead, when a card shows
-  an error, a card feature shows nothing, or the demo fails to load.
-
   {% include dashboard/demo.html demo="feature_toggle" caption="Toggle." %}
-  {% include dashboard/demo.html demo="feature_new" image="/images/dashboards/features/new.png" alt="Screenshot of the tile card with the new feature" %}
 {%- endcomment -%}
 {%- assign demo_data = site.data.dashboard_demos -%}
 {%- assign demo_cards = demo_data.demos[include.demo] -%}
@@ -44,9 +38,6 @@
       </ha-embed-provider>
     </template>
   </div>
-  {%- if include.image %}
-  <img class="dashboard-demo-fallback" src="{{ include.image }}" alt="{{ include.alt }}" loading="lazy">
-  {%- endif %}
   {%- if include.caption %}
   <figcaption>{{ include.caption }}</figcaption>
   {%- endif %}

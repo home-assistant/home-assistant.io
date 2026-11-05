@@ -8,7 +8,7 @@
   of the release in the address keeps one cached copy of the demo per
   release.
 {%- endcomment %}
-<script type="module" src="https://demo.home-assistant.io/embed.js?v={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}" onerror="window.dashboardDemoFailed = true; document.dispatchEvent(new Event('dashboard-demo-failed'))"></script>
+<script type="module" src="https://demo.home-assistant.io/embed.js?v={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}"></script>
 <script src="{{ '/javascripts/dashboard-demo.js' | cache_buster }}" type="text/javascript" defer></script>
 {% endif %}
 
