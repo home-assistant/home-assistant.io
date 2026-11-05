@@ -37,7 +37,7 @@ To change the name only on one card or badge, set the name in the card or badge 
 ## Changing the name in the dashboard editor
 
 1. In the top-right corner of your dashboard, select **Edit dashboard** ({% icon "mdi:pencil" %}), then select **Edit** on the card or badge you want to change.
-2. Expand the **Content** section.
+2. If the editor has a **Content** section, expand it.
 3. In the **Name** field, choose how to build the name:
    - To combine parts of the name, select **Composed**.
      - To add a part, select **Add**, then select **Entity**, **Device**, **Parent device**, **Area**, or **Floor**.
