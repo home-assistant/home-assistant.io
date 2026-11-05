@@ -55,6 +55,12 @@ const iso = (date) => (date ? date.toISOString() : undefined);
 const schedule = (entry) => ({
   hidden: entry.hidden,
   "data-key": entry.key,
+  "data-url": entry.url,
+  "data-source": entry.source,
+  "data-rank": entry.rank || undefined,
+  "data-cap": entry.cap ?? undefined,
+  "data-pinned": entry.pinned || undefined,
+  "data-fallback-for": entry.fallbackFor?.length ? entry.fallbackFor.join(" ") : undefined,
   "data-variant": entry.variant,
   "data-starts": iso(entry.starts),
   "data-ends": iso(entry.ends),
@@ -83,7 +89,7 @@ const name = setting("title");
           section.type === "feed" ? (
             <section class="feed" hidden={section.hidden}>
               {section.title && <h2>{section.title}</h2>}
-              <ul class="list" data-schedule data-limit={section.limit}>
+              <ul class="list" data-schedule data-order={section.order} data-limit={section.limit} data-claims={section.claims || undefined}>
                 {section.entries.map((tile) => {
                   const video = tile.kind === "video";
                   const tileIndex = section.tiles.indexOf(tile);
@@ -122,7 +128,7 @@ const name = setting("title");
           ) : (
             <section class="links" hidden={section.hidden}>
               {section.title && <h2>{section.title}</h2>}
-              <ul class="list" data-schedule>
+              <ul class="list" data-schedule data-order={section.order}>
                 {section.entries.map((tile) => (
                   <li {...schedule(tile)}>
                     <Button
@@ -182,7 +188,7 @@ const name = setting("title");
   // If the request fails, nothing changes: the page stays as it was built.
   // Runs on load and every minute after, so a page left open picks up a
   // livestream as it starts.
-  import { isShowing, showingKeys } from "../../lib/bio-schedule.mjs";
+  import { isShowing, select } from "../../lib/bio-schedule.mjs";
 
   // The server's time, and the performance.now() it belongs to: the
   // middle of the request, when the server most likely wrote the header.
@@ -201,16 +207,37 @@ const name = setting("title");
     }
   }
 
-  function update(now: number) {
-    for (const list of document.querySelectorAll<HTMLElement>("[data-schedule]")) {
+  // The page's lists as the rule in bio-schedule.mjs reads them, in the
+  // order the build passed them.
+  const lists = [...document.querySelectorAll<HTMLElement>("[data-schedule]")]
+    .map((list) => {
       const items = [...list.children] as HTMLElement[];
-      const entries = items.map((item) => ({
-        key: item.dataset.key,
-        variant: item.dataset.variant,
-        starts: item.dataset.starts,
-        ends: item.dataset.ends,
-      }));
-      const keys = showingKeys(entries, Number(list.dataset.limit) || Infinity, now);
+      return {
+        list,
+        items,
+        order: Number(list.dataset.order),
+        limit: Number(list.dataset.limit) || Infinity,
+        claims: list.dataset.claims !== undefined,
+        entries: items.map(({ dataset }) => ({
+          key: dataset.key,
+          url: dataset.url,
+          source: dataset.source,
+          rank: Number(dataset.rank) || 0,
+          cap: Number(dataset.cap) || null,
+          pinned: dataset.pinned !== undefined,
+          fallbackFor: dataset.fallbackFor ? dataset.fallbackFor.split(" ") : [],
+          variant: dataset.variant,
+          starts: dataset.starts,
+          ends: dataset.ends,
+        })),
+      };
+    })
+    .sort((a, b) => a.order - b.order);
+
+  function update(now: number) {
+    const picks = select(lists, now);
+    lists.forEach(({ list, items, entries }, listIndex) => {
+      const keys = picks[listIndex];
       items.forEach((item, index) => {
         item.hidden = !isShowing(entries[index], keys);
         // A video that has started says when it aired, not when it starts.
@@ -220,7 +247,7 @@ const name = setting("title");
       });
       const section = list.closest("section");
       if (section) section.hidden = keys.length === 0;
-    }
+    });
   }
 
   // Most of the time nothing is scheduled, and there is nothing to check.

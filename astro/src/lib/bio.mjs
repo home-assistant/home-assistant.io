@@ -12,7 +12,7 @@
 // silently rendering an empty section on the live page.
 import fs from "node:fs";
 import path from "node:path";
-import { isOpen, isShowing, showingKeys } from "./bio-schedule.mjs";
+import { isShowing, select } from "./bio-schedule.mjs";
 
 const SECTION_TYPES = ["links", "feed"];
 const SOURCE_TYPES = ["posts", "pinned", "data"];
@@ -366,46 +366,146 @@ function scalar(raw) {
 // empty section would render as a heading above nothing.
 //
 // Each section has:
-//   - `entries`: everything to render, in order. Each has `hidden` (not
-//     showing at build time), `key`, `starts` and `ends`, and maybe a
-//     `variant` (see bio-schedule.mjs). The script on the page uses these
-//     to show and hide entries as time passes.
+//   - `entries`: everything to render, in order, including items that only
+//     show later. Each has `hidden` (not showing at build time) and what
+//     the rule in bio-schedule.mjs needs to show and hide it as time
+//     passes: `key`, `url`, `source`, `starts`, `ends`, and maybe `cap`,
+//     `pinned`, `fallbackFor` and `variant`.
 //   - `tiles`: the entries showing at build time.
+//   - `limit`, `claims`: how the rule treats the list, and `order`, its
+//     place among the page's lists.
 //   - `hidden`: nothing is showing yet, but something will.
 export function resolve(config, posts, now, siteUrl, data = {}) {
   const sources = config.sources ?? {};
   const newestFirst = [...posts].sort((a, b) => b.date - a.date);
   const sections = config.sections ?? [];
-  const feedItems = claimFeedItems(sections, sources, newestFirst, now, data);
+  const lists = buildLists(sections, sources, newestFirst, now, data, siteUrl);
+  select(lists, now).forEach((keys, index) => (lists[index].keys = keys));
 
   return sections.flatMap((section, index) => {
-    const feed = section.type === "feed";
-    const limit = feed ? (section.limit ?? 1) : Infinity;
-    const entries = feed
-      ? feedEntries(feedItems.get(index) ?? [], section, sources, newestFirst, siteUrl, now)
-      : linkEntries(section, newestFirst, siteUrl, now);
-
-    if (entries.length === 0) return [];
-
-    const keys = showingKeys(entries, limit, now);
-    const shown = entries.map((entry) => ({ ...entry, hidden: !isShowing(entry, keys) }));
-    const tiles = shown.filter((entry) => !entry.hidden);
-    return [{ title: section.title, type: section.type, limit: feed ? limit : null, entries: shown, tiles, hidden: tiles.length === 0 }];
+    const list = lists[index];
+    if (!list || list.entries.length === 0) return [];
+    const entries = list.entries.map((entry) => ({ ...entry, hidden: !isShowing(entry, list.keys) }));
+    const tiles = entries.filter((entry) => !entry.hidden);
+    return [
+      {
+        title: section.title,
+        type: section.type,
+        order: list.order,
+        limit: Number.isFinite(list.limit) ? list.limit : null,
+        claims: list.claims,
+        entries,
+        tiles,
+        hidden: tiles.length === 0,
+      },
+    ];
   });
 }
 
-const scheduled = (item) => Boolean(item.starts || item.ends);
+// Feeds first, then curated links, each in YAML order. Curated links
+// don't claim links, so the store can be in Latest and Featured at once.
+function buildLists(sections, sources, posts, now, data, siteUrl) {
+  const merged = sections.map((section) => (section.type === "feed" ? mergedItems(section, sources, posts, now, data) : null));
+  const holders = linkHolders(merged, sources, now);
+  return sections.map((section, index) => {
+    if (section.type !== "feed") {
+      return { order: index, limit: Infinity, claims: false, entries: linkEntries(section, posts, siteUrl, now) };
+    }
+    const limit = section.limit ?? 1;
+    const kept = canShow(merged[index], index, limit, holders, sources, now);
+    return { order: index, limit, claims: true, entries: feedEntries(kept, section, sources, posts, siteUrl, now) };
+  });
+}
+
+// Up from now on, until it's removed: nothing about it will change.
+const fixed = (item, now) => (!item.starts || item.starts <= now) && !item.ends;
+const isPinned = (item, sources) => sources[item.source]?.type === "pinned";
+
+// How strong an item's claim to its link is (see select in
+// bio-schedule.mjs): someone chose a pin; a category feed describes a
+// post better than the general blog does.
+function rankOf(item, sources) {
+  if (isPinned(item, sources)) return 2;
+  return sources[item.source]?.category ? 1 : 0;
+}
+
+// Pinned sources with a pin that is up for good: their fallback never shows.
+function pinnedForGood(items, sources, now) {
+  return new Set(items.filter((item) => isPinned(item, sources) && fixed(item, now)).map((item) => item.source));
+}
+
+const shut = (item, forGood) => (item.fallbackFor ?? []).some((source) => forGood.has(source));
+
+// Every feed item that might show, by link, to see which could take a
+// link from another.
+function linkHolders(merged, sources, now) {
+  const holders = new Map();
+  merged.forEach((items, list) => {
+    if (!items) return;
+    const forGood = pinnedForGood(items, sources, now);
+    items.forEach((item, position) => {
+      if (shut(item, forGood)) return;
+      const holder = { list, position, rank: rankOf(item, sources), always: fixed(item, now) && !(item.fallbackFor ?? []).length };
+      holders.set(item.url, [...(holders.get(item.url) ?? []), holder]);
+    });
+  });
+  return holders;
+}
+
+// Who gets a link when both are up: the higher rank, then the earlier
+// list, then the earlier item. The same order as select.
+const beats = (a, b) => a.rank > b.rank || (a.rank === b.rank && (a.list < b.list || (a.list === b.list && a.position < b.position)));
+
+// The items of a feed that might ever show, each marked `sure` if it is
+// certain to show whenever the list gets that far: it is up for good,
+// stands in for no pin, and nothing could take its link. Once the list
+// has `limit` sure items, nothing after them can show. Leaving out what
+// can never show keeps the page small: the blog alone has hundreds of
+// posts.
+function canShow(items, list, limit, holders, sources, now) {
+  const forGood = pinnedForGood(items, sources, now);
+  const kept = [];
+  const sureBySource = new Map();
+  let sure = 0;
+  items.forEach((item, position) => {
+    if (sure >= limit || shut(item, forGood)) return;
+    const me = { list, position, rank: rankOf(item, sources) };
+    const rivals = (holders.get(item.url) ?? []).filter((holder) => beats(holder, me));
+    // Something always up takes the link.
+    if (rivals.some((holder) => holder.always)) return;
+    // The source is full with items that always show.
+    const cap = sources[item.source]?.limit;
+    if (cap && (sureBySource.get(item.source) ?? 0) >= cap) return;
+
+    const isSure = fixed(item, now) && !(item.fallbackFor ?? []).length && rivals.length === 0;
+    kept.push({ ...item, rank: me.rank, sure: isSure });
+    if (!isSure) return;
+    sure++;
+    sureBySource.set(item.source, (sureBySource.get(item.source) ?? 0) + 1);
+  });
+  return kept;
+}
 
 // A large first card can only go to an item that might come first: one
-// with nothing before it that is sure to show. Those get a hero version
-// and, unless they are always first, a row version too. Without an image
-// an item stays a normal tile rather than a card with a hole. A video
+// with nothing sure to show before it. Those get a hero version and,
+// unless they are always first, a row version too. Without an image an
+// item stays a normal tile rather than a card with a hole. A video
 // already is a large card.
 function feedEntries(items, section, sources, posts, siteUrl, now) {
   return items.flatMap((item, index) => {
-    const base = { key: String(index), starts: item.starts ?? null, ends: item.ends ?? null };
+    const base = {
+      key: String(index),
+      url: item.url,
+      source: item.source,
+      rank: item.rank,
+      cap: sources[item.source]?.limit ?? null,
+      pinned: isPinned(item, sources),
+      fallbackFor: item.fallbackFor ?? [],
+      starts: item.starts ?? null,
+      ends: item.ends ?? null,
+    };
     const row = { ...feedTile(item, section, sources, posts, siteUrl, now, false), ...base };
-    if (section.hero !== true || item.video || !items.slice(0, index).every(scheduled)) return [row];
+    if (section.hero !== true || item.video || items.slice(0, index).some((before) => before.sure)) return [row];
 
     const hero = { ...feedTile(item, section, sources, posts, siteUrl, now, true), ...base, kind: "hero" };
     if (!hero.image) return [row];
@@ -422,76 +522,24 @@ function linkEntries(section, posts, siteUrl, now) {
   return section.items.flatMap((item, index) => {
     const window = windowOf(item);
     if (window.ends && window.ends <= now) return [];
-    return [{ ...linkTile(item, posts, siteUrl), key: String(index), ...window }];
+    return [{ ...linkTile(item, posts, siteUrl), key: String(index), url: item.url, ...window }];
   });
 }
 
-// On release day the release post is also the newest blog post. It should
-// appear once, under the section that describes it best: a pin first,
-// then a category feed such as releases, and only then the general blog,
-// which backfills with its next post. Sections still render in YAML order.
-function claimFeedItems(sections, sources, posts, now, data) {
-  const candidates = sections.flatMap((section, index) =>
-    section.type === "feed" ? [[index, section, mergedItems(section, sources, posts, now, data)]] : [],
-  );
-
-  const claimed = new Set();
-  const result = new Map();
-  candidates
-    .sort(([indexA, , itemsA], [indexB, , itemsB]) => specificity(itemsB, sources) - specificity(itemsA, sources) || indexA - indexB)
-    .forEach(([index, section, items]) => {
-      const taken = canShow(items.filter((item) => !claimed.has(item.url)), section.limit ?? 1);
-      taken.forEach((item) => claimed.add(item.url));
-      result.set(index, taken);
-    });
-  return result;
-}
-
-// The items that can ever show in a list of `limit`: every scheduled
-// item until there are `limit` unscheduled ones, which always show and
-// so keep anything after them out.
-function canShow(items, limit) {
-  const taken = [];
-  let always = 0;
-  for (const item of items) {
-    if (always >= limit) break;
-    taken.push(item);
-    if (!scheduled(item)) always++;
-  }
-  return taken;
-}
-
-// Everything a feed section's sources produce, as one list: an active pin
-// first, because someone chose it, then the rest newest first, whichever
-// feed they came from. A source's `limit` caps how many of its items can
-// take part, so one busy feed can't crowd out the others.
+// Everything a feed section's sources produce, as one list: pins first,
+// because someone chose them, then the rest newest first, whichever feed
+// they came from. Duplicate links and each source's `limit` are left to
+// the rule in bio-schedule.mjs, because which items win depends on which
+// are up at the time.
 function mergedItems(section, sources, posts, now, data) {
-  // Pins go first before duplicates are dropped, so a pin of a post that
-  // is also in the blog keeps its place and title whatever the order of
-  // `sources`.
-  const isPinned = (item) => (sources[item.source]?.type === "pinned" ? 1 : 0);
-  const all = [
+  const items = [
     ...sectionSources(section).flatMap((name) => resolveSource(name, sources, posts, now, data)),
     ...insertedItems(section),
-  ]
-    .filter((item) => !(item.ends && item.ends <= now))
-    .sort((a, b) => isPinned(b) - isPinned(a));
+  ].filter((item) => !(item.ends && item.ends <= now));
 
-  const taken = new Map();
-  const seenUrls = new Set();
-  const items = all.filter((item) => {
-    const cap = sources[item.source]?.limit;
-    const count = taken.get(item.source) ?? 0;
-    if (cap && count >= cap) return false;
-    taken.set(item.source, count + 1);
-    if (seenUrls.has(item.url)) return false;
-    seenUrls.add(item.url);
-    return true;
-  });
-
-  const pinned = items.filter((item) => sources[item.source]?.type === "pinned");
+  const pinned = items.filter((item) => isPinned(item, sources));
   const dated = items
-    .filter((item) => sources[item.source]?.type !== "pinned")
+    .filter((item) => !isPinned(item, sources))
     .sort((a, b) => (b.date?.getTime() ?? 0) - (a.date?.getTime() ?? 0));
   return [...pinned, ...dated];
 }
@@ -533,14 +581,6 @@ function insertedItems(section) {
   });
 }
 
-// Which source actually produced the items: a pin may have fallen back.
-function specificity(items, sources) {
-  const source = sources[items[0]?.source];
-  if (!source) return 0;
-  if (source.type === "pinned") return 2;
-  return source.category ? 1 : 0;
-}
-
 function resolveSource(name, sources, posts, now, data = {}, seen = []) {
   const source = sources[name];
   if (!source || seen.includes(name)) return [];
@@ -553,15 +593,16 @@ function resolveSource(name, sources, posts, now, data = {}, seen = []) {
       .map((item) => ({ ...item, ...windowOf(item, name), source: name }))
       .filter((item) => !(item.ends && item.ends <= now));
   }
+  if (!source.fallback) return items;
 
-  // An ended or empty pin is not an error: it means "back to the feed".
-  // The fallback is decided at build time: while no pin is showing, the
-  // fallback's items follow any pin still to start.
-  if (source.fallback && !items.some((item) => isOpen(item, now))) {
-    return [...items, ...resolveSource(source.fallback, sources, posts, now, data, [...seen, name])];
-  }
+  const fallback = () => resolveSource(source.fallback, sources, posts, now, data, [...seen, name]);
+  // An empty source is not an error: it means "use the fallback".
+  if (source.type !== "pinned") return items.length > 0 ? items : fallback();
 
-  return items;
+  // A pinned source's fallback shows whenever none of its pins is up, so
+  // its items come along, marked, unless a pin is up for good.
+  if (items.some((item) => fixed(item, now))) return items;
+  return [...items, ...fallback().map((item) => ({ ...item, fallbackFor: [...(item.fallbackFor ?? []), name] }))];
 }
 
 // Items downloaded before the build, such as the newsletter (the

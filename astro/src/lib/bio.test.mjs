@@ -6,7 +6,7 @@ import os from "node:os";
 import path from "node:path";
 import { describe, it } from "node:test";
 import { BioConfigError, dataItems, imageFor, loadPosts, parseEnd, resolve, validate, youtubeId } from "./bio.mjs";
-import { isShowing, showingKeys } from "./bio-schedule.mjs";
+import { isShowing, select } from "./bio-schedule.mjs";
 
 const NOW = new Date("2026-10-22T00:00:00Z");
 const SITE = "https://www.home-assistant.io";
@@ -41,6 +41,14 @@ const config = (overrides = {}) => ({
 
 const labels = (cfg, data = {}, posts = POSTS) =>
   resolve(cfg, posts, NOW, SITE, data).flatMap((section) => section.tiles.map((tile) => tile.label));
+
+// What the script on the page shows at `at`, from what the build rendered:
+// the labels showing in each section, by title.
+const showingAt = (sections, at) => {
+  const ordered = [...sections].sort((a, b) => a.order - b.order);
+  const picks = select(ordered, new Date(at));
+  return Object.fromEntries(ordered.map((s, i) => [s.title ?? "", s.entries.filter((e) => isShowing(e, picks[i])).map((e) => e.label)]));
+};
 
 const titled = (sections) => Object.fromEntries(sections.map((s) => [s.title, s.tiles.map((t) => t.label)]));
 
@@ -296,11 +304,11 @@ describe("inserted items", () => {
   it("come in at the top when a future starts passes", () => {
     const cfg = mergedConfig({ insert: [{ title: "Scheduled", url: "/s/", starts: "2026-10-30" }] });
     validate(cfg);
-    const { entries } = resolve(cfg, POSTS, NOW, SITE, { newsletter: NEWSLETTER })[0];
+    const sections = resolve(cfg, POSTS, NOW, SITE, { newsletter: NEWSLETTER });
+    const { entries } = sections[0];
     assert.equal(entries[0].label, "Scheduled");
     assert.equal(entries[0].hidden, true);
-    const keys = showingKeys(entries, 3, new Date("2026-10-31T00:00:00Z"));
-    assert.deepEqual(entries.filter((e) => isShowing(e, keys)).map((e) => e.label), ["Scheduled", "Voice", "Latest issue"]);
+    assert.deepEqual(showingAt(sections, "2026-10-31T00:00:00Z").Latest, ["Scheduled", "Voice", "Latest issue"]);
   });
 
   it("need a valid starts", () =>
@@ -496,7 +504,8 @@ describe("scheduled items", () => {
   });
 
   it("renders the item that moves up when a scheduled one ends", () => {
-    const { entries } = section(mergedConfig({ insert: [insert({ ends: "2026-10-23T12:00:00Z" })] }));
+    const latest = section(mergedConfig({ insert: [insert({ ends: "2026-10-23T12:00:00Z" })] }));
+    const { entries } = latest;
     // limit 3: the insert and 3 items that always show.
     assert.deepEqual(entries.map((e) => [e.label, e.hidden]), [
       ["AUX2 livestream", false],
@@ -504,19 +513,18 @@ describe("scheduled items", () => {
       ["Latest issue", false],
       ["2026.10", true],
     ]);
-    const later = new Date("2026-10-23T13:00:00Z");
-    const keys = showingKeys(entries, 3, later);
-    assert.deepEqual(entries.filter((e) => isShowing(e, keys)).map((e) => e.label), ["Voice", "Latest issue", "2026.10"]);
+    assert.deepEqual(showingAt([latest], "2026-10-23T13:00:00Z").Latest, ["Voice", "Latest issue", "2026.10"]);
   });
 
   it("gives an item that might come first a hero and a row version", () => {
-    const { entries } = section(mergedConfig({ hero: true, insert: [insert({ ends: "2026-10-23", image: "auto" })] }));
+    const latest = section(mergedConfig({ hero: true, insert: [insert({ ends: "2026-10-23", image: "auto" })] }));
+    const { entries } = latest;
     assert.deepEqual(entries.slice(0, 3).map((e) => [e.label, e.kind, e.variant ?? null, e.hidden]), [
       ["AUX2 livestream", "hero", null, false],
       ["Voice", "hero", "hero", true],
       ["Voice", "link", "row", false],
     ]);
-    const keys = showingKeys(entries, 3, new Date("2026-10-25T00:00:00Z"));
+    const keys = select([latest], new Date("2026-10-25T00:00:00Z"))[0];
     assert.deepEqual(entries.filter((e) => isShowing(e, keys)).map((e) => [e.label, e.kind]), [
       ["Voice", "hero"],
       ["Latest issue", "link"],
@@ -546,4 +554,79 @@ describe("scheduled items", () => {
       mergedConfig({}, { pinned: { type: "pinned", items: [{ title: "x", url: "/x/", expires: "2026-11-01" }] } }),
       "sources.pinned.items[0].expires: is now called ends",
     ));
+});
+
+describe("items that depend on which others are up", () => {
+  const BUILD = "2026-10-22T00:00:00Z";
+  const P = (day, title, categories = []) => ({ url: `/blog/${day}/`, date: new Date(`${day}T00:00:00Z`), data: { title, categories } });
+  const posts = [P("2026-10-20", "Release", ["Release-Notes"]), P("2026-10-14", "Voice"), P("2026-10-01", "Older")];
+  const build = (cfg) => {
+    validate(cfg);
+    return resolve(cfg, posts, new Date(BUILD), SITE);
+  };
+  const latest = (pins, extra = {}) => ({
+    sections: [{ type: "feed", title: "Latest", sources: ["pinned", "blog"], limit: 3 }],
+    sources: { blog: { type: "posts" }, pinned: { type: "pinned", items: pins, ...extra } },
+  });
+
+  it("shows a post in its own place before and after a pin of it", () => {
+    const sections = build(latest([{ title: "Pinned voice", url: "/blog/2026-10-14/", starts: "2026-10-23", ends: "2026-10-25" }]));
+    assert.deepEqual(showingAt(sections, "2026-10-22T12:00:00Z").Latest, ["Release", "Voice", "Older"]);
+    assert.deepEqual(showingAt(sections, "2026-10-24T00:00:00Z").Latest, ["Pinned voice", "Release", "Older"]);
+    assert.deepEqual(showingAt(sections, "2026-10-26T00:00:00Z").Latest, ["Release", "Voice", "Older"]);
+  });
+
+  it("counts a source's limit against the items showing", () => {
+    const sections = build(
+      latest(
+        [
+          { title: "A", url: "/a/", ends: "2026-10-23T00:00:00Z" },
+          { title: "B", url: "/b/", starts: "2026-10-24" },
+        ],
+        { limit: 1 },
+      ),
+    );
+    assert.deepEqual(showingAt(sections, "2026-10-22T12:00:00Z").Latest, ["A", "Release", "Voice"]);
+    assert.deepEqual(showingAt(sections, "2026-10-23T12:00:00Z").Latest, ["Release", "Voice", "Older"]);
+    assert.deepEqual(showingAt(sections, "2026-10-24T12:00:00Z").Latest, ["B", "Release", "Voice"]);
+  });
+
+  it("brings the fallback back when the pin ends", () => {
+    const sections = build({
+      sections: [{ type: "feed", title: "Latest", source: "top", limit: 1 }],
+      sources: { blog: { type: "posts" }, top: { type: "pinned", fallback: "blog", items: [{ title: "Pin", url: "/p/", ends: "2026-10-23T00:00:00Z" }] } },
+    });
+    assert.deepEqual(showingAt(sections, "2026-10-22T12:00:00Z").Latest, ["Pin"]);
+    assert.deepEqual(showingAt(sections, "2026-10-23T12:00:00Z").Latest, ["Release"]);
+  });
+
+  it("leaves out the fallback behind a pin that is up for good", () => {
+    const [section] = build({
+      sections: [{ type: "feed", title: "Latest", source: "top", limit: 1 }],
+      sources: { blog: { type: "posts" }, top: { type: "pinned", fallback: "blog", items: [{ title: "Pin", url: "/p/" }] } },
+    });
+    assert.deepEqual(section.entries.map((e) => e.label), ["Pin"]);
+  });
+
+  it("lets another list have a link until a pin claims it", () => {
+    const sections = build({
+      sections: [
+        { type: "feed", title: "Latest", sources: ["pinned", "blog"], limit: 1 },
+        { type: "feed", title: "Releases", source: "releases", limit: 1 },
+      ],
+      sources: {
+        blog: { type: "posts" },
+        releases: { type: "posts", category: "Release-Notes" },
+        pinned: { type: "pinned", items: [{ title: "Pinned release", url: "/blog/2026-10-20/", starts: "2026-10-25" }] },
+      },
+    });
+    assert.deepEqual(showingAt(sections, "2026-10-22T12:00:00Z"), { Latest: ["Voice"], Releases: ["Release"] });
+    assert.deepEqual(showingAt(sections, "2026-10-26T00:00:00Z"), { Latest: ["Pinned release"], Releases: [] });
+  });
+
+  it("matches what the build shows", () => {
+    const sections = build(latest([{ title: "Pinned voice", url: "/blog/2026-10-14/", starts: "2026-10-23" }]));
+    const atBuild = showingAt(sections, BUILD);
+    assert.deepEqual(atBuild, titled(sections));
+  });
 });
