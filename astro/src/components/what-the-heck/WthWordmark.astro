@@ -37,6 +37,24 @@ import "../../styles/wth.scss";
     <span class="wth-mark__word wth-mark__word--date" data-text="NOVEMBER 2026">NOVEMBER 2026</span>
   </span>
 </span>
+<script is:inline>
+  // As the WTH blog header does (source/_includes/blog/wth-2026-header.html):
+  // hide the CSS wordmark while the 3D one loads, so the plain text doesn't
+  // flash up before its outline and the intro. Without JavaScript this
+  // never runs and the CSS wordmark shows as usual. logo.js only draws the
+  // first wordmark on the page, and needs WebGL 2 with float color buffers;
+  // without them, keep logo.js away and show the CSS wordmark right away.
+  (function () {
+    var mark = document.currentScript && document.currentScript.previousElementSibling;
+    if (!mark || mark !== document.querySelector(".wth-mark[data-wth-logo]")) return;
+    var canvas = document.createElement("canvas");
+    var gl = canvas.getContext && canvas.getContext("webgl2");
+    if (gl && gl.getExtension("EXT_color_buffer_float")) mark.classList.add("wth-mark--loading");
+    else mark.removeAttribute("data-wth-logo");
+    var lose = gl && gl.getExtension("WEBGL_lose_context");
+    if (lose) lose.loseContext();
+  })();
+</script>
 
 <style lang="scss">
   @use "sass:list";
@@ -68,6 +86,20 @@ import "../../styles/wth.scss";
   // The 3D wordmark replaces this one once it has drawn.
   .wth-mark:global(.wth-mark--replaced) {
     display: none;
+  }
+
+  // Hidden while the 3D wordmark loads (the script above adds the class),
+  // keeping its space so nothing moves. It shows after a few seconds if
+  // the 3D wordmark hasn't drawn by then, as on the blog.
+  .wth-mark:global(.wth-mark--loading) {
+    animation: wth-mark-reveal 0s 3s forwards;
+    visibility: hidden;
+  }
+
+  @keyframes wth-mark-reveal {
+    to {
+      visibility: visible;
+    }
   }
 
   .wth-mark__line {
