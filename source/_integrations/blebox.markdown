@@ -501,7 +501,7 @@ This integration adds the Blebox device as a sensor entity and a binary sensor e
 
 ### tankSensor PRO
 
-This integration adds the BleBox device as 4 sensor entities to Home Assistant.
+This integration adds the BleBox device as 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
