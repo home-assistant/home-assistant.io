@@ -14,7 +14,7 @@ Several options in automations and scripts take a duration. For example, the **F
 
 ## Entering a duration in the UI
 
-In the UI, you enter a duration in hours, minutes, and seconds. For the **Delay** action, the timeout of the wait actions, and the **Interval** option of the [Button held, optionally repeating](/triggers/button.held/) trigger, you can also enter milliseconds.
+In the UI, you enter a duration in hours, minutes, and seconds. For the **Delay** action and the timeout of the wait actions, you can also enter milliseconds.
 
 The **State changed**, **Numeric state crossed threshold**, and **Template** triggers also let you use a {% term template %} for **For at least**. Under **For at least**, choose **Template** instead of **Duration**, and enter the template. For details, refer to [Templates in durations](#templates-in-durations).
 

@@ -60,7 +60,6 @@ These are the properties available for an entity trigger:
 Some other triggers with a full trigger key include different properties:
 
 - The [calendar](#calendar-triggers), [moon](#moon-triggers), and [sun](#sun-triggers) triggers, described on this page
-- [**Button held, optionally repeating**](/triggers/button.held/#trigger-variables), described on its own page
 - [**Timer remaining time reached**](/triggers/timer.remaining_time_reached/#trigger-variables), described on its own page
 - The to-do item triggers, such as [**To-do item added**](/triggers/todo.item_added/#trigger-variables), described on their own pages
 
