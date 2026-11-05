@@ -2,6 +2,11 @@
 description: Instructions on how to integrate ENGIE Belgium energy prices into Home Assistant.
 ha_release: 2026.11
 ha_domain: engie_be
+ha_platforms:
+  - binary_sensor
+  - sensor
+ha_integration_type: service
+ha_quality_scale: silver
 ---
 
 The **ENGIE Belgium** {% term integration %} integrates the [ENGIE Belgium](https://www.engie.be) API with Home Assistant.
@@ -98,6 +103,75 @@ To follow the cost of your consumption, go to {% my config_energy title="**Setti
 
 Addresses on a dynamic tariff get the **EPEX tomorrow prices available** binary sensor. It turns on once the hourly and the quarter-hourly prices for tomorrow are both published.
 
+They also get the **EPEX current hourly price is negative** and the **EPEX current quarter-hourly price is negative** binary sensors. They are on while the price of the hour or quarter hour you are in is negative. They turn off when the price returns to zero or above, and read unknown when no price covers the current moment.
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
+
+## ENGIE Belgium automation examples
+
+These examples cover common dynamic-tariff automations: run an appliance when electricity gets cheap, and hear about tomorrow's prices the moment they are published. When you create these automations in the automation editor, it fills in the device ID of your contract for you.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Running the dishwasher when electricity is cheap
+
+This automation starts the dishwasher the moment the price of the current hour goes below 0.10 EUR/kWh, so the program runs during the cheap hours of the day.
+
+- **Trigger**: EPEX current hourly price crossed threshold
+  - **Contracts**: Main Street 1, 1000 Brussels
+  - **Below**: 0.10
+- **Action**: Turn on switch
+  - **Target**: Dishwasher (`switch.dishwasher`)
+
+{% details "YAML example for running the dishwasher when electricity is cheap" %}
+
+{% example %}
+automation: |
+  alias: "Run the dishwasher when electricity is cheap"
+  triggers:
+    - trigger: engie_be.epex_current_hour_crossed_threshold
+      options:
+        device_id: 0123456789abcdef0123456789abcdef
+        below: 0.10
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.dishwasher
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Getting a notification when tomorrow's prices are in
+
+This automation sends a notification once tomorrow's EPEX prices are published, so you can plan the next day while the evening is still ahead.
+
+- **Trigger**: EPEX prices for tomorrow published
+  - **Contracts**: Main Street 1, 1000 Brussels
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a notification when tomorrow's prices are in" %}
+
+{% example %}
+automation: |
+  alias: "Notify when tomorrow's prices are published"
+  triggers:
+    - trigger: engie_be.epex_tomorrow_prices_published
+      options:
+        device_id: 0123456789abcdef0123456789abcdef
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Electricity prices"
+        message: "Tomorrow's EPEX prices are available."
+{% endexample %}
+
+{% enddetails %}
+
 ## Multiple households
 
 A single ENGIE login can cover more than one address or meter. The integration adds every active business agreement on the account as its own device, named after the address, and groups that address's price sensors under it. An address that has an agreement but no priced meters still shows up as a device, so you can tell it was found.
@@ -106,7 +180,7 @@ A single ENGIE login can cover more than one address or meter. The integration a
 
 The integration polls the ENGIE API once an hour. Contracted prices only change when your tariff is revised, so there is nothing to gain from polling more often. The sign-in tokens it uses are refreshed on their own, so it keeps working without you signing in again.
 
-For an address on a dynamic tariff, the integration also fetches the EPEX day-ahead prices once an hour. The EPEX sensors refresh on every quarter-hour boundary, so the current and next prices switch on time. If the prices cannot be fetched during startup, the sensors stay unavailable and come back once a retry succeeds.
+For an address on a dynamic tariff, the integration also fetches the EPEX day-ahead prices once an hour. It keeps fetching them even when every EPEX sensor is turned off, so the EPEX triggers and conditions keep working. The EPEX sensors refresh on every quarter-hour boundary, so the current and next prices switch on time. If the prices cannot be fetched during startup, the sensors stay unavailable and come back once a retry succeeds.
 
 If the session is revoked, the integration can no longer reach the API and its sensors become unavailable. The usual cause is signing in to the same ENGIE account somewhere else, so a dedicated user (see [Prerequisites](#prerequisites)) avoids it. Home Assistant will ask you to sign in again.
 
