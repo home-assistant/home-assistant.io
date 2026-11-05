@@ -63,3 +63,8 @@
 // Most of what is in here should be moved to the correct file and remoted
 // from here.
 @use 'overrides' as *;
+
+// Temporary: the "WTH" item in the main menu. Loaded after 'base/header' so
+// it can recolour the header's own navigation variables. Remove when the
+// Month of "What the Heck?!" is over.
+@use 'base/nav_wth' as *;
