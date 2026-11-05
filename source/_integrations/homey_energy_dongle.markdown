@@ -73,8 +73,8 @@ Home Assistant only adds sensors for the data your smart meter sends. When new d
 - **Power (phase 1, 2, 3)**: Your net power usage per phase in W.
 - **Voltage (phase 1, 2, 3)**: The voltage per phase.
 - **Current (phase 1, 2, 3)**: The current per phase.
-- **Total energy imported**: All energy you used from the grid, in kWh.
-- **Total energy exported**: All energy you returned to the grid, in kWh.
+- **Total energy imported**: All energy you used from the grid, in kWh. Only when your smart meter sends a total. Most Dutch and Belgian meters only send the tariffs below.
+- **Total energy exported**: All energy you returned to the grid, in kWh. Only when your smart meter sends a total.
 - **Total energy imported (high tariff)** and **(low tariff)**: The energy you used per tariff. Meters with more than two tariffs show **Total energy imported (tariff 1–4)** instead.
 - **Total energy exported (high tariff)** and **(low tariff)**: The energy you returned per tariff. Meters with more than two tariffs show **Total energy exported (tariff 1–4)** instead.
 - **Active tariff**: Whether the high or low tariff is active.
@@ -97,7 +97,7 @@ When a gas, water, or heat meter is connected to your smart meter, Home Assistan
 ### Add your smart meter to the Energy dashboard
 
 1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
-2. Under **Electricity grid**, add **Total energy imported** as grid consumption and **Total energy exported** as return to grid.
+2. Under **Electricity grid**, add **Total energy imported** as grid consumption and **Total energy exported** as return to grid. When your smart meter doesn't send a total, add each tariff sensor instead, for example **Total energy imported (high tariff)** and **Total energy imported (low tariff)** as grid consumption.
 3. Under **Gas consumption** or **Water consumption**, add the **Meter reading** sensor of your gas or water meter.
 
 ### Get notified when a phase is overloaded
