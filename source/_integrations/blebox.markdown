@@ -499,7 +499,7 @@ This integration adds the Blebox device as a sensor entity and a binary sensor e
 - An option to change the detection mode is available in the wBox app.
 - After changing settings, the device needs to be reloaded.
 
-### tankSensor
+### tankSensor PRO
 
 This integration adds the BleBox device as 4 sensor entities to Home Assistant.
 
@@ -507,7 +507,6 @@ This integration adds the BleBox device as 4 sensor entities to Home Assistant.
 
 - Periodic read of tank fill level
 - Periodic read of liquid height
-- Periodic read of gauge pressure
 - Periodic read of liquid volume
 
 {% note %}
