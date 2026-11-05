@@ -137,6 +137,12 @@ const ideas = [
     z-index: -1;
   }
   .stage {
+    /* On wide screens the line and the button wait for the wordmark and
+       the cards to land (the last card pops in at about 1.6s), so the
+       hero builds up and then says what to do. Phones, where they come
+       first and the cards follow, show them straight away. */
+    --fh-lead-delay: 1.6s;
+    --fh-action-delay: 1.8s;
     height: calc(100svh - var(--header-height));
     /* On short screens the hero grows a little past the screen rather than
        letting the button ride up into the intro line. */
@@ -227,7 +233,6 @@ const ideas = [
   /* Wordmark and one line, in the upper middle. */
   .center {
     align-items: center;
-    animation: wth-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
     display: flex;
     flex-direction: column;
     gap: var(--space-large);
@@ -239,14 +244,14 @@ const ideas = [
     translate: -50% -50%;
     z-index: 3;
   }
-  .mark { width: 100%; :global(.wth-mark) { font-size: clamp(2.2rem, 1.2rem + 3.6vw, 6rem); margin-inline: auto; } }
-  .lead { color: var(--wth-ink-soft); font-family: var(--font-sans); font-size: var(--font-size-xlarge); line-height: 1.5; margin: 0; }
+  .mark { animation: wth-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; width: 100%; :global(.wth-mark) { font-size: clamp(2.2rem, 1.2rem + 3.6vw, 6rem); margin-inline: auto; } }
+  .lead { animation: wth-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--fh-lead-delay, 0.1s) both; color: var(--wth-ink-soft); font-family: var(--font-sans); font-size: var(--font-size-xlarge); line-height: 1.5; margin: 0; }
 
   /* The button and the line of ideas under it. (The blog is linked from
      the challenge note in the tips, so the hero keeps to one action.) */
   .action {
     align-items: center;
-    animation: wth-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+    animation: wth-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--fh-action-delay, 0.15s) both;
     display: flex;
     flex-direction: column;
     gap: var(--space-medium);
@@ -330,7 +335,7 @@ const ideas = [
      forum cards in a row that runs edge to edge and scrolls sideways, with
      room inside so lifted cards and shadows aren't cut off. */
   @media (max-width: 48rem) {
-    .stage { display: flex; flex-direction: column; gap: var(--space-xlarge); height: auto; min-height: 0; padding: var(--space-xxlarge) var(--wth-gutter); }
+    .stage { --fh-lead-delay: 0.1s; --fh-action-delay: 0.15s; display: flex; flex-direction: column; gap: var(--space-xlarge); height: auto; min-height: 0; padding: var(--space-xxlarge) var(--wth-gutter); }
     .stage::after { height: 6rem; }
     .center, .action { left: auto; position: relative; top: auto; translate: none; }
     .center { order: -2; }
@@ -354,7 +359,7 @@ const ideas = [
     .pipes { opacity: 0.35; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .card a, .center, .action, .prompt__text { animation: none; }
+    .card a, .mark, .lead, .action, .prompt__text { animation: none; }
   }
 </style>
 
