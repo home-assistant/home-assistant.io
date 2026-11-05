@@ -174,7 +174,7 @@ On {% term "Home Assistant Operating System" %}, you can also copy backups direc
 
 ## Downloading a backup from Home Assistant Link
 
-If you were logged in to Home Assistant Link and had Cloud backup enabled when creating a backup, your last backup is stored on Home Assistant Link.
+If you were logged in to Home Assistant Link and had Link backup enabled when creating a backup, your last backup is stored on Home Assistant Link.
 
 You can download the backup from the backups page in Home Assistant, or from your Home Assistant Link account.
 

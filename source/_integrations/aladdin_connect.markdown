@@ -117,7 +117,7 @@ Door status and battery level are updated by {% term polling %} the Aladdin Conn
 
 ### Setup fails with "cloud not enabled"
 
-This error means Home Assistant Link is not active. Go to {% my cloud title="**Settings** > **Home Assistant Link**" %} and verify you have an active [Home Assistant Link](https://www.nabucasa.com/) subscription.
+This error means Home Assistant Link is not active. Go to {% my link title="**Settings** > **Home Assistant Link**" %} and verify you have an active [Home Assistant Link](https://www.nabucasa.com/) subscription.
 
 ### OAuth sign-in fails or times out
 

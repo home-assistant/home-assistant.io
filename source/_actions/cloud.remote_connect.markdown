@@ -9,7 +9,7 @@ related_actions:
 
 Use this action to turn on remote access through Home Assistant Link. With remote access on, you can reach your Home Assistant from outside your home network, using your Nabu Casa URL.
 
-This does the same as the toggle on the **Remote connection** card under {% my cloud title="**Settings** > **Home Assistant Link**" %} > **Remote access**. The setting is kept, also after a restart.
+This does the same as the toggle on the **Remote connection** card under {% my link title="**Settings** > **Home Assistant Link**" %} > **Remote access**. The setting is kept, also after a restart.
 
 {% include actions/ui_header.md %}
 
