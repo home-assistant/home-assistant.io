@@ -267,7 +267,7 @@ This will show if there are firmware updates available for the UniFi network dev
 
 ## IPS engine updates
 
-UniFi gateways that report their Suricata intrusion prevention system (IPS) engine get a diagnostic **IPS engine** update entity. It shows the running engine version and, when the gateway has an engine upgrade queued, the version it will upgrade to. It shows an update as available when a queued engine upgrade has not been applied yet. While the gateway does not report its engine version, the entity state is unknown.
+UniFi gateways that report their Suricata intrusion prevention system (IPS) engine get a diagnostic **IPS engine** update entity. This entity is disabled by default. It shows the running engine version and, when the gateway has an engine upgrade queued, the version it will upgrade to. It shows an update as available when a queued engine upgrade has not been applied yet.
 
 This entity is informational only: the engine upgrade cannot be installed from Home Assistant. The entity is still useful in automations, for example to get notified when an engine upgrade is waiting.
 
