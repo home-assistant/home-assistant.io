@@ -54,8 +54,9 @@ entity_id:
   type: string
 fallback:
   description: >
-    If `true`, returns the name of the device when the entity has no name of its own, such as the main entity of a device. For example, `entity_name("switch.coffee_machine", fallback=true)` returns `Coffee machine` instead of an empty string. Defaults to `false`.
+    If `true`, returns the name of the device when the entity has no name of its own, such as the main entity of a device. For example, `entity_name("switch.coffee_machine", fallback=true)` returns `Coffee machine` instead of an empty string.
   required: false
+  default: "false"
   type: boolean
 {% endfunction_parameters %}
 
@@ -64,6 +65,7 @@ fallback:
 - Returns `None` when the entity does not exist. Chain with [`| default(value)`](/template-functions/default/) for a fallback.
 - Uses the name from the entity registry first, without the device name, then falls back to the friendly name of the state object.
 - An entity without a name of its own, such as the main entity of a device, returns an empty string. To get the device name instead, use `fallback=true`.
+- When you use `entity_name` as a filter, add the parameter in parentheses: `| entity_name(fallback=true)`. With [`map`](/template-functions/map/), use `map("entity_name", fallback=true)`.
 - If the entity has its own area assigned, instead of using the area of its device, `fallback=true` does not return the device name.
 - Pass an entity ID, not a state object.
 
