@@ -62,7 +62,7 @@ You can group cards without using horizontal or vertical stack cards.
 The view comes with one section to which you can directly add a card.
 
 1. To add a card, select the **Add card** button.
-   - Follow the [steps on adding cards](/dashboards/cards/#adding-cards-to-your-dashboard).
+   - Follow the [steps on adding cards or devices](/dashboards/cards/#adding-cards-or-devices-to-your-dashboard).
 
    ![Add Section button](/images/dashboards/sections_view_add-card-or-section.png)
 
