@@ -18,6 +18,8 @@ import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import WthHeroBackground from "./WthHeroBackground.astro";
 import WthWordmark from "./WthWordmark.astro";
+import WthIcon from "./WthIcon.astro";
+import Button from "../Button.astro";
 import { forumUrl, statements } from "../../lib/wth.mjs";
 import { loadWthForum, pickWthTopics } from "../../lib/wth-forum.mjs";
 
@@ -84,8 +86,8 @@ const ideas = [
             <span class="post__title">{card.title}</span>
             {card.votes !== null && (
               <span class="post__meta">
-                <span class="post__count" aria-label={`${card.votes} votes`}><iconify-icon icon="mdi:arrow-up-bold-outline" aria-hidden="true"></iconify-icon><span data-n="votes">{card.votes}</span></span>
-                <span class="post__count" aria-label={`${card.replies} replies`}><iconify-icon icon="mdi:comment-outline" aria-hidden="true"></iconify-icon><span data-n="replies">{card.replies}</span></span>
+                <span class="post__count" aria-label={`${card.votes} votes`}><WthIcon name="mdi:arrow-up-bold-outline" title="Votes" /><span data-n="votes">{card.votes}</span></span>
+                <span class="post__count" aria-label={`${card.replies} replies`}><WthIcon name="mdi:comment-outline" title="Replies" /><span data-n="replies">{card.replies}</span></span>
               </span>
             )}
           </a>
@@ -100,15 +102,12 @@ const ideas = [
     </div>
 
     <div class="action">
-      <a class="glow" href={forumUrl}>
-        <span>Share your WTH</span>
-        <span class="glow__mark" aria-hidden="true">?!</span>
-      </a>
+      <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">Share your WTH</Button>
       <p class="prompt" data-wth-prompt>
         <span class="prompt__label">Not sure what to write? Try</span>
         <button type="button" class="prompt__idea" aria-label="Show another idea">
           {ideas.map((idea, i) => <span class="prompt__text" hidden={i !== 0}>{idea}</span>)}
-          <span class="prompt__next" aria-hidden="true"><iconify-icon icon="mdi:refresh"></iconify-icon></span>
+          <span class="prompt__next" aria-hidden="true"><WthIcon name="mdi:refresh" title="" /></span>
         </button>
       </p>
     </div>
@@ -257,38 +256,6 @@ const ideas = [
     top: 74%;
     translate: -50% -50%;
     z-index: 4;
-  }
-
-  .glow {
-    align-items: center;
-    background: var(--wth-mint);
-    border-radius: var(--radius-pill);
-    color: var(--wth-ink-base);
-    display: inline-flex;
-    font-family: var(--font-heading);
-    font-size: clamp(1.15rem, 0.95rem + 0.7vw, 1.5rem);
-    font-weight: 600;
-    gap: var(--space-large);
-    min-height: 4.25rem;
-    padding: 0 0.55rem 0 2.1rem;
-    text-decoration: none;
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-    &:hover,
-    &:focus-visible { transform: translateY(-2px) scale(1.04); }
-    &:hover .glow__mark,
-    &:focus-visible .glow__mark { rotate: 14deg; }
-    &:focus-visible { outline: 4px solid var(--wth-focus); outline-offset: 6px; }
-  }
-  .glow__mark {
-    align-items: center;
-    background: var(--wth-surface);
-    border-radius: 50%;
-    display: inline-flex;
-    font-weight: 800;
-    height: 3.1rem;
-    justify-content: center;
-    transition: rotate 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-    width: 3.1rem;
   }
 
   /* One quiet line of ideas: the idea itself is a small button, so tapping

@@ -12,6 +12,7 @@
 import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import WthSection from "./WthSection.astro";
+import WthIcon from "./WthIcon.astro";
 interface Props {
   heading?: string;
   tone?: "page" | "surface" | "band" | "inherit";
@@ -38,8 +39,8 @@ const steps = [
         <span class="post__head"><span class="avatar avatar--you">Y</span><b>You</b><span>· just now</span></span>
         <span class="post__title">Restoring a backup shows no progress indication.</span>
         <span class="post__meta">
-          <span class="votes"><iconify-icon icon="mdi:arrow-up-bold-outline"></iconify-icon><span data-votes>1</span> votes</span>
-          <span><iconify-icon icon="mdi:comment-outline"></iconify-icon><span data-replies>0</span> replies</span>
+          <span class="votes"><WthIcon name="mdi:arrow-up-bold-outline" title="" /><span data-votes>1</span> votes</span>
+          <span><WthIcon name="mdi:comment-outline" title="" /><span data-replies>0</span> replies</span>
         </span>
       </div>
 
@@ -50,8 +51,8 @@ const steps = [
 
       <div class="pr">
         <span class="pr__title">
-          <span class="pr__icon pr__icon--open"><iconify-icon icon="octicon:git-pull-request-16"></iconify-icon></span>
-          <span class="pr__icon pr__icon--merged"><iconify-icon icon="octicon:git-merge-16"></iconify-icon></span>
+          <span class="pr__icon pr__icon--open"><WthIcon name="octicon:git-pull-request-16" title="" /></span>
+          <span class="pr__icon pr__icon--merged"><WthIcon name="octicon:git-merge-16" title="" /></span>
           Show progress while restoring a backup
         </span>
         <span class="pr__line">
@@ -59,7 +60,7 @@ const steps = [
           <span class="pr__who"><b>contributor</b> <span class="when-open">wants to merge 1 commit into</span><span class="when-merged">merged 1 commit into</span> <code>dev</code></span>
         </span>
         <span class="pr__labels"><span class="label label--area">frontend</span><span class="label label--wth">WTH</span></span>
-        <span class="pr__checks"><span class="pr__ok"><iconify-icon icon="octicon:check-circle-fill-16"></iconify-icon></span>All checks have passed</span>
+        <span class="pr__checks"><span class="pr__ok"><WthIcon name="octicon:check-circle-fill-16" title="" /></span>All checks have passed</span>
       </div>
     </div>
   </div>

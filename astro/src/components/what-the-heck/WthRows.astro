@@ -5,6 +5,7 @@
 import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
 import { statements, replies } from "../../lib/wth.mjs";
+import Button from "../Button.astro";
 const s = (i: number) => statements[i].replace(" What the heck?!", "");
 const rows = [
   { label: "Things that should be easy", items: [s(2), s(6), s(10)], dir: "left" },
@@ -39,9 +40,10 @@ const copies = [0, 1, 2];
       ))}
     </div>
   </div>
-  <button type="button" class="toggle" aria-pressed="false" data-wth-rows-toggle>
-    <span class="i-pause"><iconify-icon icon="mdi:pause" aria-hidden="true"></iconify-icon></span><span class="i-play"><iconify-icon icon="mdi:play" aria-hidden="true"></iconify-icon></span><span class="label">Pause</span>
-  </button>
+  <div class="toggle" data-wth-rows-toggle>
+    <Button scheme="secondary" outline icon="pause" data-pause>Pause</Button>
+    <Button scheme="secondary" outline icon="play" data-play hidden>Play</Button>
+  </div>
 </section>
 
 <style lang="scss">
@@ -121,26 +123,10 @@ const copies = [0, 1, 2];
     &.alt { rotate: -1.5deg; }
   }
   .toggle {
-    align-items: center;
     align-self: flex-end;
-    background: var(--wth-surface);
-    border: 1px solid var(--wth-border);
-    border-radius: var(--radius-pill);
-    color: var(--wth-ink);
-    cursor: pointer;
-    display: inline-flex;
-    font: inherit;
-    font-size: var(--font-size-medium);
-    font-weight: 600;
-    gap: var(--space-xsmall);
     margin-right: var(--wth-gutter);
-    min-height: 2.75rem;
-    padding: 0 var(--space-large);
+    :global([hidden]) { display: none; }
   }
-  .i-play, .toggle[aria-pressed="true"] .i-pause { display: none; }
-  .toggle[aria-pressed="true"] .i-play { display: inline-flex; }
-  .i-pause { display: inline-flex; }
-  .toggle:focus-visible { outline: 3px solid var(--wth-focus); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) {
     .track { animation: none; flex-wrap: wrap; padding-inline: var(--wth-gutter); width: auto; }
     .set[aria-hidden] { display: none; }
@@ -163,12 +149,15 @@ const copies = [0, 1, 2];
     addEventListener("resize", tune);
     document.fonts?.ready.then(tune);
 
-    const button = root.querySelector<HTMLButtonElement>("[data-wth-rows-toggle]");
-    const label = button?.querySelector(".label");
-    button?.addEventListener("click", () => {
-      const paused = root.classList.toggle("paused");
-      button.setAttribute("aria-pressed", String(paused));
-      if (label) label.textContent = paused ? "Play" : "Pause";
-    });
+    const pause = root.querySelector<HTMLElement>("[data-pause]");
+    const play = root.querySelector<HTMLElement>("[data-play]");
+    const set = (paused: boolean) => {
+      root.classList.toggle("paused", paused);
+      pause?.toggleAttribute("hidden", paused);
+      play?.toggleAttribute("hidden", !paused);
+      (paused ? play : pause)?.focus();
+    };
+    pause?.addEventListener("click", () => set(true));
+    play?.addEventListener("click", () => set(false));
   });
 </script>
