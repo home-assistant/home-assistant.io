@@ -7,7 +7,7 @@ ha_domain: alexa
 
 ## Automatic setup via Home Assistant Link
 
-With [Home Assistant Link](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Link, you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
+With [Home Assistant Link](/link/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Link, you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
 
 For Home Assistant Link Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 

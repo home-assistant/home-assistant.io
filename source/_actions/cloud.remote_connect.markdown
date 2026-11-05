@@ -43,7 +43,7 @@ This action has no additional options in YAML.
 
 ## Good to know
 
-- You need to be signed in to [Home Assistant Link](/integrations/cloud/) for remote access to work.
+- You need to be signed in to [Home Assistant Link](/integrations/link/) for remote access to work.
 - Only administrators can run this action.
 - To turn remote access off again, use [Disable Home Assistant Link remote access](/actions/cloud.remote_disconnect/).
 

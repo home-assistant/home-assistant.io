@@ -49,7 +49,7 @@ The integration does not connect to your vehicle directly. It uses the telemetry
 
 - An [A Better Routeplanner](https://abetterrouteplanner.com/) account.
 - At least one vehicle in your ABRP garage.
-- The [Home Assistant Link](/integrations/cloud/) integration loaded. It is included in `default_config:`, which is enabled by default. If you removed `default_config:` from your {% term "configuration.yaml" %}, add `cloud:` instead.
+- The [Home Assistant Link](/integrations/link/) integration loaded. It is included in `default_config:`, which is enabled by default. If you removed `default_config:` from your {% term "configuration.yaml" %}, add `cloud:` instead.
 
 {% include integrations/config_flow.md %}
 
@@ -198,7 +198,7 @@ To resolve this issue:
 
 ### Setup stops with a message about default_config
 
-If setup stops and asks you to run Home Assistant with `default_config` enabled, the [Home Assistant Link](/integrations/cloud/) integration is not loaded. Add `default_config:` or `cloud:` to your {% term "configuration.yaml" %}, restart Home Assistant, and add the integration again.
+If setup stops and asks you to run Home Assistant with `default_config` enabled, the [Home Assistant Link](/integrations/link/) integration is not loaded. Add `default_config:` or `cloud:` to your {% term "configuration.yaml" %}, restart Home Assistant, and add the integration again.
 
 ### Sensor states appear stale
 

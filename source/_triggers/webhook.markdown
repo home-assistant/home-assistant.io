@@ -41,7 +41,7 @@ Webhook settings:
 
 ## Using a webhook with Home Assistant Link
 
-With [Home Assistant Link](/cloud/), a webhook gets a public address. Apps and services can then reach it from anywhere, without opening your Home Assistant to the internet.
+With [Home Assistant Link](/link/), a webhook gets a public address. Apps and services can then reach it from anywhere, without opening your Home Assistant to the internet.
 
 1. In the automation, select **Webhook settings** {% icon "mdi:cog" %} on the trigger, and turn off **Only accessible from the local network**. Then, select **Save**.
    - Requests through Home Assistant Link don't count as local, so the webhook must accept requests from outside your local network. Webhooks that only accept local requests don't appear in the list of Home Assistant Link webhooks.

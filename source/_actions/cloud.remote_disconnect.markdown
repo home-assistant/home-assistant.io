@@ -43,7 +43,7 @@ This action has no additional options in YAML.
 
 ## Good to know
 
-- You need to be signed in to [Home Assistant Link](/integrations/cloud/) for remote access to work.
+- You need to be signed in to [Home Assistant Link](/integrations/link/) for remote access to work.
 - Only administrators can run this action.
 - If you run this action while you're away from home, you lose remote access right away. To be able to turn it back on remotely, enable **Allow external activation of remote access** under **Remote access** first.
 - To turn remote access on again, use [Enable Home Assistant Link remote access](/actions/cloud.remote_connect/).

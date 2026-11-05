@@ -15,13 +15,13 @@ Amazon Alexa provides a Smart Home API for richer home automation control withou
 - _"Alexa, set the thermostat to cool."_
 - _"Alexa, is the garage door open?"_
 
-It takes considerable effort to configure. Your Home Assistant instance must be accessible from the Internet, and you need to create an Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Link](/integrations/cloud/).
+It takes considerable effort to configure. Your Home Assistant instance must be accessible from the Internet, and you need to create an Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Link](/integrations/link/).
 
 The [Emulated Hue integration][emulated-hue-integration] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
 
 {% note %}
 
-With [Home Assistant Link](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Link you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
+With [Home Assistant Link](/link/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Link you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
 <br/>
 <br/>
 For Home Assistant Link Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
