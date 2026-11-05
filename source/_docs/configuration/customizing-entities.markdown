@@ -55,7 +55,7 @@ To change entity attributes, follow these steps:
            If something other than Latin script is used, the entity ID is based on the English default name. This is because entity IDs must use lowercase letters, numbers, and underscores.
 
    - Enter or edit the entity name.
-     - If the entity represents the main function of its device, you can turn on **Main entity of the device** instead. The entity is then called by the name of its device. For example, if a smart plug called `Coffee machine` has an entity called `Power`, the entity is shown as `Coffee machine` instead of `Coffee machine Power`. The entity also uses the area of its device. To rename the device, select **change the device name**.
+     - If the entity represents the main function of its device, you can turn on **Main entity of the device** instead. The entity is then called by the name of its device. For example, if a smart plug called `Coffee machine` has an entity called `Power`, the entity is shown as `Coffee machine` instead of `Coffee machine Power`. The entity also uses the area of its device. To rename the device, select **change the device name**, or follow the steps in [Renaming a device](#renaming-a-device).
    - If needed, from the **Show as** menu, you can select a different [device class](/integrations/homeassistant/#device-class).
    - If you like, add a [label](/docs/organizing/labels/).
 
@@ -63,6 +63,22 @@ To change entity attributes, follow these steps:
 5. If you changed the entity ID and use this entity in automations or scripts, update the entity ID there as well.
    - Changing only the entity name does not affect your automations or scripts because they refer to the entity ID.
    - Go to {% my automations title="**Settings** > **Automations & scenes**" %}, open the respective tab, and find your automation or script.
+
+## Renaming a device
+
+The device name is part of the name of its entities.
+When you rename a device, its entities show the new device name.
+For example, if you rename the device `Smart plug` to `Coffee machine`, its `Power` entity is shown as `Coffee machine Power`.
+
+To rename a device, follow these steps:
+
+1. Go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %} and select the device.
+2. In the top-right corner, select **Edit settings** ({% icon "mdi:pencil" %}).
+3. In the **Name** field, enter the new name.
+   - To go back to the name provided by the integration, clear the field.
+4. To apply the changes, select **Update**.
+
+Renaming a device does not change the entity IDs of its entities, so your automations and scripts keep working.
 
 ## Hidden entities
 
