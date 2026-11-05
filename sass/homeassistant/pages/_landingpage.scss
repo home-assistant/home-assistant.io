@@ -462,7 +462,7 @@ $ha__primary_color: #03a9f4;
               letter-spacing: -2px;
               font-size: 48px;
               line-height: 56px;
-              font-weight: bold;
+              font-weight: 600;
             }
 
             .vision-block-content {
@@ -502,7 +502,7 @@ $ha__primary_color: #03a9f4;
           .mood-card-type {
             width: 60px;
             text-align: start;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 32px;
             line-height: 32px;
 
@@ -536,7 +536,7 @@ $ha__primary_color: #03a9f4;
                 justify-items: left;
 
                 span:first-of-type {
-                  font-weight: bold;
+                  font-weight: 600;
                 }
               }
             }
@@ -568,7 +568,7 @@ $ha__primary_color: #03a9f4;
 
           span:first-of-type {
             color: $ha__primary_color;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 16px;
             line-height: 15px;
           }
@@ -621,7 +621,7 @@ $ha__primary_color: #03a9f4;
 
         .spec-content {
           grid-column: 2 / span 4;
-          font-weight: bold;
+          font-weight: 600;
           margin-top: 16px;
 
           .spec-content-additional {
@@ -663,7 +663,7 @@ $ha__primary_color: #03a9f4;
             }
 
             span:last-of-type {
-              font-weight: bold;
+              font-weight: 600;
               font-size: 1.425em;
               word-spacing: -4px;
             }
@@ -776,7 +776,7 @@ $ha__primary_color: #03a9f4;
     float: right;
     font-size: 12.25px;
     font-weight: 400;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 32px;
     padding: 8px 16px 4px;
     position: fixed;
@@ -833,7 +833,7 @@ $ha__primary_color: #03a9f4;
         display: flex;
         justify-content: space-between;
         padding: 24px 24px 0px;
-        font-weight: bold;
+        font-weight: 600;
         font-size: 24px;
 
         svg {

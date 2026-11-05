@@ -1,21 +1,7 @@
 ---
-title: Jellyfin
 description: Instructions on how to integrate the Jellyfin integration into Home Assistant.
-ha_categories:
-  - media_entertainment.tv_streaming
 ha_release: '2021.12'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@RunC0deRun'
-  - '@ctalkington'
-ha_config_flow: true
 ha_domain: jellyfin
-ha_platforms:
-  - diagnostics
-  - media_player
-  - remote
-  - sensor
-ha_integration_type: service
 ---
 
 The **Jellyfin** {% term integration %} exposes a [Jellyfin](https://jellyfin.org/) server as a media source in Home Assistant. This integration has been tested with Jellyfin server version 10.6.4 and later.

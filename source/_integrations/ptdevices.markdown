@@ -1,20 +1,7 @@
 ---
-title: PTDevices
 description: Instructions on how to integrate your PTLevel into Home Assistant.
 ha_release: 2026.6
-ha_categories:
-  - water
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_iot_class: Cloud Polling
-ha_quality_scale: bronze
-ha_config_flow: true
-ha_codeowners:
-  - '@ParemTech-Inc'
-  - '@frogman85978'
 ha_domain: ptdevices
-ha_integration_type: hub
 ---
 
 The **PTDevices** {% term integration %} allows you to integrate your [PTLevel](https://paremtech.com/wireless-ptlevel/) into Home Assistant.

@@ -1,0 +1,24 @@
+{
+  "domain": "loqed",
+  "name": "LOQED Touch Smart Lock",
+  "integration_type": "device",
+  "codeowners": [
+    "@mikewoudenberg"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "security_safety.locks_access"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "lock",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

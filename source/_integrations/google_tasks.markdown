@@ -1,17 +1,7 @@
 ---
-title: Google Tasks
 description: Instructions on how to use Google Tasks in Home Assistant.
-ha_categories:
-  - productivity_information.calendars_todos
-ha_iot_class: Cloud Polling
 ha_release: 2023.11
-ha_config_flow: true
 ha_domain: google_tasks
-ha_codeowners:
-  - '@allenporter'
-ha_integration_type: service
-ha_platforms:
-  - todo
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation

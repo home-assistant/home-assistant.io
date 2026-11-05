@@ -1,20 +1,7 @@
 ---
-title: Aladdin Connect
 description: Instructions on how to integrate Genie Aladdin Connect garage door openers with Home Assistant for monitoring and control.
-ha_categories:
-  - blinds_curtains
 ha_release: 0.75
-ha_iot_class: Cloud Polling
 ha_domain: aladdin_connect
-ha_platforms:
-  - cover
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_codeowners:
-  - '@swcloudgenie'
-ha_config_flow: true
-ha_dhcp: true
 ---
 
 The **Aladdin Connect** {% term integration %} lets you open, close, and check the status of Genie Aladdin Connect garage doors through Home Assistant. It also reports the battery level of your opener's backup battery.

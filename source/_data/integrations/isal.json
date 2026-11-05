@@ -1,0 +1,10 @@
+{
+  "domain": "isal",
+  "name": "Intelligent Storage Acceleration",
+  "integration_type": "system",
+  "codeowners": [
+    "@bdraco"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "internal"
+}

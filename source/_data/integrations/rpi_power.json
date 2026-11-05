@@ -1,0 +1,17 @@
+{
+  "domain": "rpi_power",
+  "name": "Raspberry Pi Power Supply Checker",
+  "codeowners": [
+    "@shenxn",
+    "@swetoast"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "diy_makers.boards_hardware",
+    "computers_network.monitoring"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

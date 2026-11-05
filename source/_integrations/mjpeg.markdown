@@ -1,15 +1,7 @@
 ---
-title: MJPEG IP Camera
 description: Instructions on how to integrate IP cameras within Home Assistant.
-ha_categories:
-  - security_safety.cameras
 ha_release: pre 0.7
-ha_iot_class: Local Push
 ha_domain: mjpeg
-ha_config_flow: true
-ha_platforms:
-  - camera
-ha_integration_type: integration
 ---
 
 The **MJPEG IP Camera** {% term integration %} allows you to integrate IP cameras which are

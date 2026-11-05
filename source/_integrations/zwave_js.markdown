@@ -1,34 +1,8 @@
 ---
-title: Z-Wave
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 featured: true
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: '2021.2'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/z-wave'
 ha_domain: zwave_js
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-ha_integration_type: hub
-ha_zeroconf: true
 related:
   - docs: /connect/zwa-2
     title: Home Assistant Connect ZWA-2 Z-Wave adapter

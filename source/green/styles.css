@@ -282,7 +282,7 @@ a:hover,
 }
 
 strong {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 h1 {
@@ -358,7 +358,7 @@ h2,
 h3,
 h4 {
   margin-bottom: 10px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 h1 {

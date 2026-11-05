@@ -1,22 +1,7 @@
 ---
-title: Eurotronic Comet Blue
 description: Instructions on how to integrate Eurotronic Comet Blue Thermostats into Home Assistant.
-ha_categories:
-  - climate.thermostats_heating
-ha_iot_class: Local Polling
 ha_release: 2026.5
-ha_config_flow: true
-ha_bluetooth: true
-ha_codeowners:
-  - '@rikroe'
 ha_domain: eurotronic_cometblue
-ha_integration_type: device
-ha_quality_scale: bronze
-ha_platforms:
-  - button
-  - climate
-  - number
-  - sensor
 ---
 
 The **Eurotronic Comet Blue** {% term integration %} allows you to integrate Eurotronic Comet Blue (and similar) thermostats.
@@ -179,12 +164,18 @@ The integration {% term polling polls %} data from the thermostat every 5 minute
 
 ## Troubleshooting
 
+### Connectivity
+
 As the data is refreshed using an active Bluetooth connection, {% term polling %} can fail due to connection issues.
 
 If you see repeated connection issues, try the following:
 
 1. Move your Home Assistant host closer to the thermostat.
 2. Add [ESPHome Bluetooth proxies](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) closer to the thermostat.
+
+### Viewing device diagnostics
+
+Each setup of this integration contains one thermostat. Its diagnostics include information about the thermostat and its Bluetooth connection, as well as converted data and the most recent raw values received. This information can help troubleshoot conversion or connection issues. To download diagnostics, follow the [steps to download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ## Removing the integration
 

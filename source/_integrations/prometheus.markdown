@@ -1,18 +1,10 @@
 ---
-title: Prometheus
 description: Record events in Prometheus.
-ha_categories:
-  - computers_network.monitoring
 ha_release: 0.49
-ha_iot_class: Assumed State
 ha_domain: prometheus
-ha_codeowners:
-  - '@knyar'
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Prometheus** {% term integration %} exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.

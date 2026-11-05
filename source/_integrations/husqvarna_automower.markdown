@@ -1,28 +1,7 @@
 ---
-title: Husqvarna Automower
 description: Instructions on how to integrate Husqvarna Automower lawn mowers into Home Assistant.
-ha_categories:
-  - garden_plants
 ha_release: 2024.3
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Thomas55555'
-ha_platforms:
-  - binary_sensor
-  - button
-  - calendar
-  - device_tracker
-  - diagnostics
-  - event
-  - lawn_mower
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
 ha_domain: husqvarna_automower
-ha_quality_scale: silver
 ---
 
 The **Husqvarna Automower** {% term integration %} provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
