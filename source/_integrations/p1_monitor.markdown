@@ -1,18 +1,7 @@
 ---
-title: P1 Monitor
 description: Instructions on how to integrate P1 Monitor within Home Assistant.
-ha_category:
-  - Energy
 ha_release: 2021.9
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@klaasnicolaas'
 ha_domain: p1_monitor
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: device
 ---
 
 The **P1 Monitor** {% term integration %} allows you to gather data from your [P1 Monitor](https://www.ztatz.nl/p1-monitor/) device and use it in Home Assistant.

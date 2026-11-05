@@ -8,7 +8,7 @@ related_actions:
   - easyenergy.get_energy_return_prices
 ---
 
-The **Get energy usage prices** action fetches the prices for energy that you use (buy) from easyEnergy and returns them as response data.
+The **easyEnergy: Get energy usage prices** action fetches the prices for energy that you use (buy) from easyEnergy and returns them as response data.
 
 This action does not target an entity. Instead, you select which easyEnergy configuration entry to use.
 

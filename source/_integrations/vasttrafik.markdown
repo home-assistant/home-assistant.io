@@ -1,18 +1,10 @@
 ---
-title: Västtrafik
 description: Instructions on how to integrate timetable data for traveling in Sweden within Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: '0.30'
 ha_domain: vasttrafik
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Västtrafik** {% term integration %} will provide you traveling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.

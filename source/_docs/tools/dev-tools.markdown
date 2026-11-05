@@ -19,6 +19,7 @@ The Tools page has the following tabs:
 - [**YAML** tab](#yaml-tab): Check your configuration, reload YAML configuration, and restart Home Assistant.
 - [**States** tab](#states-tab): See the current state and attributes of your entities, and set a state to test automations.
 - [**Actions** tab](#actions-tab): Perform any {% term action %}, for example, to control a device.
+- [**Action history** tab](#action-history-tab): See the actions that were performed during a time range you choose.
 - [**Template** tab](#template-editor-tab): Write a template and see its result right away.
 - [**Events** tab](#events-tab): Fire an event, or listen to events to see what happens.
 - [**Statistics** tab](#statistics-tab): Find, fix, and adjust {% term "long-term statistics" %}.
@@ -28,13 +29,13 @@ The Tools page has the following tabs:
 
 The YAML tab provides buttons to trigger a check of configuration files and to reload the configuration. Reloading is needed to apply changes that you've made to the configuration.
 
-It is almost the same as the option under **Settings** > three dots {% icon "mdi:dots-vertical" %} menu (top right) > **Restart Home Assistant** > **Quick reload**. The only difference is that **Quick reload** reloads all the configuration, whereas this YAML tab allows you to only reload one specific configuration at a time.
+It is almost the same as **Quick reload**, which you open from the power {% icon "mdi:power" %} icon under {% my system_dashboard title="**Settings** > **System**" %}. The only difference is that **Quick reload** reloads all the configuration, whereas this YAML tab allows you to only reload one specific configuration at a time. For the steps of a quick reload, refer to [Reloading the YAML configuration](/common-tasks/general/restarting/#reloading-the-yaml-configuration).
 
 ### Reloading the YAML configuration
 
 For configuration changes to become effective, the configuration must be reloaded. Most integrations in Home Assistant (that do not interact with {% term devices %} or {% term services %}) can reload changes made to their configuration in {% term "`configuration.yaml`" %} without needing to restart Home Assistant.
 
-1. Go to {% my server_controls title="**Settings** > **Tools** > **YAML**" %} and scroll down to the **YAML configuration reloading** section. Alternatively, select the **C** key from anywhere in the UI to open the command palette of the [quick search](/docs/tools/quick-search/) and then search for `reload`.
+1. Go to {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %} and scroll down to the **YAML configuration reloading** section. Alternatively, select the **C** key from anywhere in the UI to open the command palette of the [quick search](/docs/tools/quick-search/) and then search for `reload`.
    - You are presented with a list of integrations, such as **Automations** or **Conversation**.
 
     ![Reload configuration changes](/images/docs/configuration/reloading_config.png)
@@ -54,7 +55,7 @@ You can also set the state of an entity here. This only changes what Home Assist
 
 The list can contain hundreds of {% term entities %}. To find the entity you are looking for, or to check which entities have a certain {% term state %} or attribute, filter the list. For example, you can show all {% term lights %} that are on, or all entities in one {% term area %}.
 
-1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+1. Go to {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 2. Optional: To show more columns, select **Device**, **Area**, or **Attributes** above the list. These options are not shown on narrow screens.
 3. In the filter field above a column, enter the text you are looking for.
    - The filters are not case-sensitive and match any part of the text. To use a wildcard, enter `*`, for example, `office*light`.
@@ -77,7 +78,7 @@ To avoid this:
 - Turn off any of these automations that you don't want to run.
 {% endnote %}
 
-1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+1. Go to {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 2. In the list, select the entity ID. Or, in the **Set state** section at the top, select **Select an entity** and choose the entity.
    - Result: The **Set state** section shows the current state and attributes of the entity.
 3. Under **State**, enter the new state. To test a trigger, reproduce the change it reacts to, as set in its **From** and **To** options. If the entity already has the new state, set it to a different state first. Setting the same state again is not a state change, so the trigger does not react.
@@ -96,19 +97,21 @@ Most actions work on a target, such as an {% term entity %}, a device, or an {% 
 
 ### Performing an action
 
-1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
+1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
 2. In the **Action** dropdown list, select the action. The list shows the name of each action, with its integration on the right. For example, to turn on a light, select **Turn on light**, with **Light** next to it. You can also search by name, integration, or action ID, such as `light.turn_on`.
    - Result: The options of the action are shown.
 3. If the action accepts a target, select **Add target**, and then select what you want to control, for example, an entity or an area.
-4. Fill in the options that you need.
-5. Select **Perform action**.
+4. Optional: To leave out some entities, select **Exclude target**, and then select what to leave out.
+   - For example, leave out one light in an area. For details, refer to [Excluding targets](/docs/automation/targets/#excluding-targets).
+5. Fill in the options that you need.
+6. Select **Perform action**.
    - Result: The action runs. If the action returns data, the data is shown under **Response**. To use the data in a template, select **Copy to clipboard as template**.
 
 ### Performing an action in YAML mode
 
 Some options, and {% term templates %}, are only available in **YAML mode**. In **UI mode**, these options are listed under **Parameters only available in YAML mode**.
 
-1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, and select the action in the **Action** dropdown list.
+1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}, and select the action in the **Action** dropdown list.
 2. Select **YAML mode**.
    - Result: The action is shown in YAML. Below it, **All available parameters** lists all options of the action.
 3. Edit the YAML. To fill in example values, select **Fill example data**.
@@ -125,6 +128,54 @@ Some options, and {% term templates %}, are only available in **YAML mode**. In 
 
 4. Select **Perform action**.
    - Result: The action runs. If the action returns data, the data is shown under **Response**.
+
+## Action history tab
+
+The **Action history** tab lists the {% term actions %} that were performed in Home Assistant during a time range you choose. For each action, it shows what the action targeted, what performed it, and when. Use it to find out why a {% term device %} turned on or off, which {% term automation %} or {% term script %} performed an action, or which data an action was performed with.
+
+The tab is only shown if the [Activity](/integrations/logbook/) integration is loaded. **Activity** is part of the [default configuration](/integrations/default_config/). The action history comes from the database that the [Recorder](/integrations/recorder/) maintains, so it only covers the period that the Recorder keeps.
+
+The list shows the following columns:
+
+- **Action**: The name of the action. Under the name, the action ID is shown, for example, **Turn on light** with `light.turn_on`.
+- **Targets**: The {% term entities %}, devices, {% term areas %}, floors, and labels that the action targeted.
+- **Cause**: What performed the action, for example, a user, an automation, a script, a state change, or an {% term integration %}.
+- **Time**: The date and time the action was performed, to the second. The newest actions are shown first.
+
+### Viewing the action history
+
+1. Go to **Settings** > **Tools** > **Action history**.
+   - Result: The list shows the actions performed from the start of the previous hour until now.
+2. Optional: To show a different period, at the top of the list, select the date range. Select a preset, or select a start and end date and time.
+3. Optional: To find an action, enter text in the search box. The search matches the action name, the action ID, the targets, and the cause.
+4. Optional: To show actions performed since you opened the tab, select **Refresh** {% icon "mdi:refresh" %}. The list doesn't update on its own.
+
+### Viewing the details of an action
+
+1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+   - Result: A dialog shows the details of the action:
+     - **Time**: The date and time the action was performed, to the second.
+     - **Cause**: What or who performed the action and, if available, what triggered it.
+     - **User**: The user the action was performed for, if this user isn't already shown as the cause.
+     - **Context ID**: The ID of the context that the action was performed in. You can use it to find related events.
+     - **Data**: The data the action was performed with, in YAML, such as the targets and options.
+2. Optional: If **View trace** is shown, select it to open the automation or script's [trace](/docs/automation/troubleshooting/#traces) and see why it ran. This option is only shown while Home Assistant still keeps the trace of that run.
+
+### Copying the YAML of an action
+
+You can copy the YAML of an action and use it in an automation or a script.
+
+1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+2. In the action dialog, select **Copy as YAML** {% icon "mdi:content-copy" %} button to copy the YAML.
+   - Result: The action is copied with its targets and data, in the same format as an action in an automation.
+
+### Performing an action again
+
+To perform an action again with the same data:
+
+1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+2. In the action dialog, select **Perform again**. This button is only shown if the action is still available.
+   - Result: The action runs again, and controls the same devices as the first time.
 
 ## Template editor tab
 
@@ -143,7 +194,7 @@ Your template is kept in your browser, so it is still there the next time you op
 
 Use this to check that a template gives the result you expect, before you use it elsewhere.
 
-1. Go to {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
+1. Go to {% my tools_template title="**Settings** > **Tools** > **Template**" %}.
 2. In the **Template editor**, enter your template.
    - The editor starts with a demo template. To start with an empty editor, in the toolbar of the editor, select **Clear** {% icon "mdi:trash-can-outline" %}. To go back to the demo template, select **Reset to demo template** {% icon "mdi:restore" %}.
    - To get suggestions, for example, for entity IDs, place the cursor inside a function that supports it, and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>.
@@ -175,7 +226,7 @@ To avoid this:
 - Turn off any of these automations that you don't want to run.
 {% endnote %}
 
-1. Go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
+1. Go to {% my tools_events title="**Settings** > **Tools** > **Events**" %}.
 2. Under **Event type**, enter the event type. You can also select an event type under **Active listeners**. This list shows the event types that something in Home Assistant is listening to.
 3. Optional: Under **Event data (YAML, optional)**, enter the data of the event. To test a trigger that filters on event data, enter at least the same data as in the trigger. Additional data does not matter.
 4. Select **Fire event**.
@@ -204,7 +255,7 @@ The following automation reacts to that event:
 
 Use this to see which events happen and what data they contain. For example, listen for events to find out which event a button sends when you press it, so you can set up a trigger that reacts to it. Listening doesn't change anything in Home Assistant.
 
-1. Go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
+1. Go to {% my tools_events title="**Settings** > **Tools** > **Events**" %}.
 2. Under **Listen to events**, in **Event to subscribe to**, enter the event type.
    - If you don't know the event type, enter `*` to listen to all events. This shows many events, and only the latest 100 are kept, so use **Filter events** in the next step to narrow them down.
    - You can also find event types under **Active listeners**, on the [events page](/docs/configuration/events/), or in the documentation of the integration.
@@ -235,7 +286,7 @@ context:
 
 ## Statistics tab
 
-Home Assistant keeps {% term "long-term statistics" %} for sensors that measure something over time, such as temperature or energy use. Some {% term integrations %} also add statistics directly, without a sensor, for example, the energy use that your utility reports. Home Assistant stores statistics in its database, which the [Recorder](/integrations/recorder/) maintains. History graphs, statistics cards, and the Energy dashboard use these statistics. The **Statistics** tab lists all long-term statistics, with their name, statistic ID, unit, source, and any issue.
+Home Assistant keeps {% term "long-term statistics" %} for sensors that measure something over time, such as temperature or energy use. Some {% term integrations %} also add statistics directly, without a sensor, for example, the energy use that your utility reports. Home Assistant stores statistics in its database, which the [Recorder](/integrations/recorder/) maintains. History graphs, statistics cards, and the Energy dashboard use these statistics. The **Statistics** tab lists all long-term statistics, with their name, statistic ID, unit, source, and any issue. For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
 
 Use the **Statistics** tab to:
 
@@ -256,12 +307,12 @@ Some fixes delete the statistics of the entity. Deleted statistics can't be rest
 To avoid this:
 
 - Read the dialog carefully before you select **Delete**.
-- Before you delete statistics, [create a backup](/common-tasks/general/#creating-a-manual-backup).
+- Before you delete statistics, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup).
 {% endimportant %}
 
 #### To fix a statistics issue
 
-1. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+1. Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
 2. In the row of the statistic with the issue, select **Fix issue**. If Home Assistant can't fix the issue for you, the button is called **Info** instead.
    - Result: A dialog explains the issue and what you can do about it.
    ![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
@@ -279,7 +330,7 @@ Sometimes a statistic has a wrong value at one point in time, for example, after
 
 #### To adjust a statistic
 
-1. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+1. Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
 2. In the row of the statistic, select **Adjust sum** {% icon "mdi:slope-uphill" %}. If this button is not shown, the statistic can't be adjusted.
    - Result: The **Adjust a statistic** dialog shows the changes around the current time.
 3. Find the wrong value:
@@ -304,12 +355,12 @@ Deleted statistics can't be restored, except from a backup.
 To avoid this:
 
 - Check that you selected the right statistics.
-- Before you delete statistics, [create a backup](/common-tasks/general/#creating-a-manual-backup).
+- Before you delete statistics, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup).
 {% endimportant %}
 
 #### To delete statistics
 
-1. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+1. Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
 2. Next to the search field, select **Enter selection mode** {% icon "mdi:format-list-checks" %}.
 3. Select the statistics that you want to delete. To select all statistics with an issue, open the selection menu and select **Select all with issues**.
 4. Select **Delete selected statistics**, and then select **Delete**.
@@ -317,13 +368,13 @@ To avoid this:
 
 ## Assist tab
 
-The **Assist** tab lets you test how Assist understands a sentence, without running anything. Home Assistant checks the sentence against the [built-in sentences](/voice_control/builtin_sentences/), your [custom sentences](/integrations/conversation/#adding-custom-sentences), and the [sentence triggers](/docs/automation/trigger/#sentence-trigger) of your {% term automations %}, and shows what matches. No {% term action %} runs, and no automation starts. Use it to find out why Assist doesn't understand a sentence, or to check a new sentence before you use it.
+The **Assist** tab lets you test how Assist understands a sentence, without running anything. Home Assistant checks the sentence against the [built-in sentences](/voice_control/builtin_sentences/), your [custom sentences](/integrations/conversation/#adding-custom-sentences), and the [sentence triggers](/triggers/conversation/) of your {% term automations %}, and shows what matches. No {% term action %} runs, and no automation starts. Use it to find out why Assist doesn't understand a sentence, or to check a new sentence before you use it.
 
 The **Assist** tab only tests the built-in Home Assistant conversation agent. If your assistant uses another conversation agent, such as an AI agent, [test the sentence in the debug view](/voice_control/troubleshooting/#test-a-sentence-per-assistant-without-voice-while-executing-the-commands) instead.
 
 ### Testing a sentence
 
-1. Go to {% my developer_assist title="**Settings** > **Tools** > **Assist**" %}.
+1. Go to {% my tools_assist title="**Settings** > **Tools** > **Assist**" %}.
 2. Under **Language**, select the language of the sentence.
 3. Under **Sentences**, enter the sentence. To test several sentences at once, enter each sentence on its own line. To start a new line, press <kbd>Shift</kbd>+<kbd>Enter</kbd>.
    - The **Assist** tab doesn't know which device you're talking to. If a sentence relies on the area of your voice assistant, such as _turn on the lights_, add the area, for example, _turn on the lights in the kitchen_.

@@ -8,7 +8,7 @@ related_actions:
   - xiaomi_miio.vacuum_goto
 ---
 
-The **Vacuum clean zone** action starts a Xiaomi robot vacuum cleaning one or more rectangular zones. You define each zone with a set of coordinates, and you choose how many times the vacuum cleans each one.
+The **Xiaomi Home: Vacuum clean zone** action starts a Xiaomi robot vacuum cleaning one or more rectangular zones. You define each zone with a set of coordinates, and you choose how many times the vacuum cleans each one.
 
 {% include actions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To clean a zone from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Xiaomi robot vacuum you want to control.
-6. From the actions shown for that target, select **Vacuum clean zone**.
+6. From the actions shown for that target, under **Xiaomi Home**, select **Vacuum clean zone**.
 7. Enter the **Zone** coordinates and the number of **Repeats**.
 8. Select **Save**.
 

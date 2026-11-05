@@ -34,7 +34,7 @@ To use **Illuminance** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The light level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter a fixed value in lux, or **Entity** to use a sensor, number entity, or number helper as a dynamic threshold.
+    The light level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** includes both bounds: a reading equal to either bound passes. **Outside range** excludes both bounds: a reading equal to either bound does not pass. Choose **Number** to enter a fixed value in lux, or **Entity** to use a sensor, number entity, or number helper as a dynamic threshold.
 Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
@@ -107,10 +107,10 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass. Provide `value` with a `number` key (lux value) or an `entity` key.
     - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass. Provide `value` with a `number` key (lux value) or an `entity` key.
-    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
-    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: between` (inclusive): Defines a range. The reading must be between the two bounds, or equal to one of them, to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: outside` (exclusive): Defines an outside-range. The reading must be beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
 
-    For the `number` key, use a value in lux. For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
+    For the `number` key, use a value in lux. For the `entity` key, use an `input_number`, `number`, or `sensor` entity. The entity must use `lx` as its unit. If it has a different unit, or no unit, the condition doesn't pass.
   required: true
   type: map
 behavior:
@@ -123,13 +123,13 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="illuminance sensor" example="sensor.living_room_illuminance" %}
 
 {% include conditions/behavior.md %}
 
@@ -139,7 +139,7 @@ for:
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
 - Number entity support applies to threshold values, not to the target being checked. The number entity must use the illuminance device class.
 - For binary light/dark sensors, use [Light level is detected](/conditions/illuminance.is_detected/) or [Light level is not detected](/conditions/illuminance.is_not_detected/) instead.
-- Entities that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md %}
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation runs.
 
 {% include conditions/try_it.md %}

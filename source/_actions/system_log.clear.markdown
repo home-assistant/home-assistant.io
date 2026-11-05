@@ -7,7 +7,7 @@ related_actions:
   - system_log.write
 ---
 
-The **Clear system log** action removes all stored errors and warnings from the system log. Use it to start with a clean slate, for example after you have fixed a problem and want to confirm that the error does not come back.
+The **System Log: Clear system log** action removes all stored errors and warnings from the system log. Use it to start with a clean slate, for example after you have fixed a problem and want to confirm that the error does not come back.
 
 {% include actions/ui_header.md %}
 

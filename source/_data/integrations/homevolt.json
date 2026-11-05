@@ -1,0 +1,25 @@
+{
+  "domain": "homevolt",
+  "name": "Homevolt",
+  "integration_type": "device",
+  "codeowners": [
+    "@danielhiversen",
+    "@liudger"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "diagnostics",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

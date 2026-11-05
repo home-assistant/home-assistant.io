@@ -1,0 +1,22 @@
+{
+  "domain": "tradfri",
+  "name": "IKEA TRÅDFRI",
+  "integration_type": "hub",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "hubs_protocols.smart_home_hubs",
+    "lighting.bulbs_lamps"
+  ],
+  "platforms": [
+    "cover",
+    "diagnostics",
+    "fan",
+    "light",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "homekit"
+  ]
+}

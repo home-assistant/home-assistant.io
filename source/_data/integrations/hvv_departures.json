@@ -1,0 +1,17 @@
+{
+  "domain": "hvv_departures",
+  "name": "HVV Departures",
+  "integration_type": "service",
+  "codeowners": [
+    "@vigonotion"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "vehicles_transport.public_transport"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

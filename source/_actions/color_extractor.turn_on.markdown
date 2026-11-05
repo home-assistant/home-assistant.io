@@ -7,7 +7,7 @@ related_actions:
   - color_extractor.get_color
 ---
 
-The **Turn on** action extracts the predominant color from an image and turns on one or more lights set to that color. You provide the image as a web URL or as a file on the system running Home Assistant, and the action picks the most dominant color and applies it as the light's RGB color.
+The **ColorExtractor: Turn on** action extracts the predominant color from an image and turns on one or more lights set to that color. You provide the image as a web URL or as a file on the system running Home Assistant, and the action picks the most dominant color and applies it as the light's RGB color.
 
 Because this action then calls [`light.turn_on`](/actions/light.turn_on/), you can also pass any valid `light.turn_on` options, such as `brightness_pct` or `transition`. The `rgb_color` is set for you from the extracted color.
 
@@ -24,7 +24,7 @@ To turn on a light with an extracted color from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or light entity you want to control.
-6. From the actions shown for that target, select **ColorExtractor: Turn on**.
+6. From the actions shown for that target, under **ColorExtractor**, select **Turn on**.
 7. Enter either an **Image URL** or an **Image path**, and set any of the options you need.
 8. Select **Save**.
 
@@ -91,7 +91,8 @@ Provide either `color_extract_url` or `color_extract_path`. The two options are 
 
 Use this automation to set your shelf lights to the predominant color of the album art whenever it changes on a Chromecast.
 
-- **Trigger**: Chromecast state changes
+- **Trigger**: State changed
+  - **Entity**: Chromecast media player
 - **Action**: ColorExtractor: Turn on
   - **Target**: Shelf lights
   - **Image URL**: The Chromecast album art

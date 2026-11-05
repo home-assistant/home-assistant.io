@@ -1,5 +1,5 @@
 ---
-title: Rename node
+title: "Rename node on ISY"
 action: isy994.rename_node
 domain: isy994
 description: "Renames a node or scene on the ISY."
@@ -21,7 +21,7 @@ To use this action in an automation or script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the ISY entity you want to rename.
-6. From the actions shown for that target, select **ISY: Rename node**.
+6. From the actions shown for that target, under **Universal Devices ISY/IoX**, select **Rename node on ISY**.
 7. In the **Name** field, enter the new name.
 8. Select **Save**.
 

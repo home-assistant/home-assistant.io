@@ -9,7 +9,7 @@ related_actions:
   - ihc.set_runtime_value_float
 ---
 
-The **Pulse** action sends a short pulse to a resource on your IHC controller. The resource is switched on and then off again after a 400 ms delay, which is handy for triggering inputs that expect a momentary signal.
+The **IHC Controller: Pulse** action sends a short pulse to a resource on your IHC controller. The resource is switched on and then off again after a 400 ms delay, which is handy for triggering inputs that expect a momentary signal.
 
 {% include actions/ui_header.md %}
 

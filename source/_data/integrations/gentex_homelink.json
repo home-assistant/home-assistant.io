@@ -1,0 +1,19 @@
+{
+  "domain": "gentex_homelink",
+  "name": "HomeLink",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Gentex-Corporation/Homelink",
+    "@rjones-gentex"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "buttons_remotes",
+    "vehicles_transport.cars_evs"
+  ],
+  "platforms": [
+    "event"
+  ]
+}

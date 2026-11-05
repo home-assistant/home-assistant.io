@@ -1,23 +1,7 @@
 ---
-title: Flow-it
 description: Instructions on how to integrate Flow-it ventilation systems into Home Assistant.
-ha_category:
-  - Fan
-  - Sensor
-  - Switch
 ha_release: 2026.9
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@albertogeniola'
 ha_domain: flow_it
-ha_platforms:
-  - fan
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: bronze
-ha_zeroconf: true
 related:
   - url: https://www.flow-it.it/en
     title: Flow-it
@@ -25,7 +9,7 @@ related:
 
 The **Flow-it** {% term integration %} lets you monitor and control your Flow-it ventilation system in Home Assistant.
 
-You can control the fan speed, turn intake and exhaust airflow on or off, activate preset modes like Auto or Boost, monitor air quality, temperature, humidity, and filter status, and automate your Flow-it ventilation system alongside other smart home devices.
+You can control the fan speed, turn intake and exhaust airflow on or off, activate preset modes like Auto or Boost, monitor air quality, temperature, humidity, filter status, and system alerts, and automate your Flow-it ventilation system alongside other smart home devices.
 
 ## Supported devices
 
@@ -58,6 +42,30 @@ Password:
 ## Supported functionality
 
 The **Flow-it** integration provides the following entities.
+
+### Binary sensors
+
+- **Bypass active**
+  - **Description**: Indicates whether the bypass is active.
+- **Condensation alert**
+  - **Description**: Indicates whether condensation is detected.
+  - **Entity category**: Diagnostic.
+- **General issue**
+  - **Description**: Indicates whether a general issue is detected.
+  - **Entity category**: Diagnostic.
+- **Ice alert**
+  - **Description**: Indicates whether ice formation is detected.
+  - **Entity category**: Diagnostic.
+- **Service required**
+  - **Description**: Indicates whether maintenance or service is required.
+  - **Entity category**: Diagnostic.
+- **Update reboot pending**
+  - **Description**: Indicates whether a restart is pending to complete a firmware update.
+  - **Entity category**: Diagnostic.
+- **Warmup mode**
+  - **Description**: Indicates whether warmup mode is active.
+  - **Entity category**: Diagnostic.
+  - **Remarks**: Disabled by default.
 
 ### Fans
 

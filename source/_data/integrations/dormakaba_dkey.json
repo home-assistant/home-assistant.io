@@ -1,0 +1,21 @@
+{
+  "domain": "dormakaba_dkey",
+  "name": "Dormakaba dKey",
+  "integration_type": "device",
+  "codeowners": [
+    "@emontnemery"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "security_safety.locks_access"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "lock",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

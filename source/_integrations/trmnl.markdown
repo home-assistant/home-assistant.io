@@ -1,23 +1,7 @@
 ---
-title: TRMNL
 description: Instructions on how to integrate TRMNL with Home Assistant.
-ha_category:
-  - Sensor
-  - Switch
-  - Time
 ha_release: 2026.4
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@joostlek'
 ha_domain: trmnl
-ha_platforms:
-  - diagnostics
-  - sensor
-  - switch
-  - time
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **TRMNL** {% term integration %} allows you to monitor your [TRMNL](https://usetrmnl.com/) e-paper (e-ink) displays in Home Assistant. TRMNL devices are low-power e-ink displays that show content such as calendars, weather, and custom dashboards at a glance.
@@ -52,7 +36,7 @@ The **TRMNL** integration provides the following entities for each TRMNL device 
 ### Sensors
 
 - **Battery**: The current battery level of the device, in percent.
-- **Battery voltage**: The current battery voltage of the device, in volts (V). This entity is disabled by default.
+- **Battery voltage**: The current battery voltage of the device, in volts (V). This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Signal strength**: The raw Wi-Fi received signal strength indicator (RSSI) of the device, in dBm. This entity is disabled by default.
 - **Wi-Fi strength**: The Wi-Fi connection quality of the device, shown as a percentage derived from the RSSI value. This entity is disabled by default.
 

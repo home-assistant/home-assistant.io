@@ -1,17 +1,7 @@
 ---
-title: Anthem A/V Receivers
 description: Instructions on how to integrate Anthem A/V Receivers into Home Assistant.
-ha_category:
-  - Media player
-ha_iot_class: Local Push
 ha_release: 0.37
 ha_domain: anthemav
-ha_codeowners:
-  - '@hyralex'
-ha_config_flow: true
-ha_platforms:
-  - media_player
-ha_integration_type: device
 ---
 
 Both [Anthem]'s current and last generation of <abbr title="Audio & video">A/V</abbr> receivers and processors support IP-based network control. This Home Assistant {% term integration %} adds proper "local push" support for any of these receivers on your network.

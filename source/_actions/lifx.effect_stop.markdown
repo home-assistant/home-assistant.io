@@ -13,7 +13,7 @@ related_actions:
   - lifx.set_state
 ---
 
-The **Stop effect** action stops a running effect on LIFX lights. Use it to end an effect that runs until you stop it, such as [Color loop effect](/actions/lifx.effect_colorloop/) or [Move effect](/actions/lifx.effect_move/), or to cut a longer effect short.
+The **LIFX: Stop effect** action stops a running effect on LIFX lights. Use it to end an effect that runs until you stop it, such as [Color loop effect](/actions/lifx.effect_colorloop/) or [Move effect](/actions/lifx.effect_move/), or to cut a longer effect short.
 
 One call covers both kinds of effect. Home Assistant stops the effects it runs itself, such as Pulse and Color loop, and it also turns off the effects that run on the light's own firmware, such as Move, Flame, Morph, and Sky. Lights that aren't running an effect are left alone, so it's safe to point this action at a whole area or floor.
 
@@ -25,7 +25,7 @@ To stop a running effect from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Stop effect**.
+5. From the search box, search for and select **LIFX: Stop effect**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX lights are in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 7. Select **Save**.
 
@@ -68,8 +68,9 @@ This action has no options. All you provide is the target.
 
 At 11 pm, stop any effect still running on your LIFX lights and turn them off, so nothing keeps animating overnight.
 
-- **Trigger**: Time is 11:00 pm
-- **Action**: Stop effect
+- **Trigger**: Time
+  - **At time**: `23:00`
+- **Action**: LIFX: Stop effect
   - **Target**: Living room lights (`light.living_room`)
 - **Action**: Turn off light
   - **Target**: Living room lights (`light.living_room`)
@@ -93,8 +94,10 @@ automation: |
 
 When the last person leaves home, stop any running effect and send a confirmation to your phone.
 
-- **Trigger**: Everyone leaves the home zone (`zone.home`)
-- **Action**: Stop effect
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Home
+  - **Below**: `1`
+- **Action**: LIFX: Stop effect
   - **Target**: All LIFX lights (`light.living_room`, `light.hallway`)
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

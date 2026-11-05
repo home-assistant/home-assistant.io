@@ -1,24 +1,7 @@
 ---
-title: Derivative
 description: Instructions on how to integrate Derivative Sensor into Home Assistant.
-ha_category:
-  - Energy
-  - Helper
-  - Sensor
-  - Utility
 ha_release: 0.105
-ha_iot_class: Calculated
-ha_qa_scale: internal
-ha_codeowners:
-  - '@afaucogney'
-  - '@karwosts'
 ha_domain: derivative
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: helper
-ha_quality_scale: internal
 ---
 
 The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) {% term integration %} creates a sensor that estimates the derivative of the

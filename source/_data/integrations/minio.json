@@ -1,0 +1,12 @@
+{
+  "domain": "minio",
+  "name": "Minio",
+  "codeowners": [
+    "@tkislan"
+  ],
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ]
+}

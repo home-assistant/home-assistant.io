@@ -1,20 +1,10 @@
 ---
-title: KEF
 description: Instructions on how to integrate KEF Speakers into Home Assistant.
-ha_category:
-  - Media player
-ha_iot_class: Local Polling
 ha_release: 0.104
-ha_codeowners:
-  - '@basnijholt'
 ha_domain: kef
-ha_platforms:
-  - media_player
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **KEF** {% term integration %} allows you to control the KEF LS50 Wireless and [KEF LSX](https://international.kef.com/products/lsx) speakers from Home Assistant.

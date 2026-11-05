@@ -1,22 +1,11 @@
 ---
-title: Zonneplan
 description: Get electricity and gas prices from Zonneplan in Home Assistant.
-ha_category:
-  - Energy
-ha_release: "2026.10"
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@erwindouna'
+ha_release: '2026.10'
 ha_domain: zonneplan
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Zonneplan** {% term integration %} lets you retrieve electricity and gas price information from [Zonneplan](https://www.zonneplan.nl/), a Dutch provider of dynamic energy contracts and energy services, including home batteries and EV charge points.
-This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, and the status of your Zonneplan home battery.
+This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, and the status of your Zonneplan home battery and EV charge point.
 
 ## Prerequisites
 
@@ -28,7 +17,7 @@ During setup, you are asked for the email address linked to your Zonneplan accou
 
 ## Data updates
 
-The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, and the status of each home battery every 5 minutes.
+The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status of each home battery every 5 minutes, and the status of each EV charge point every minute. The price sensors also update at the start of every quarter hour, using the prices from the last update.
 
 ## Supported functionality
 
@@ -37,6 +26,7 @@ The Zonneplan integration retrieves data from the Zonneplan cloud API on a regul
 The following sensors are provided by this integration:
 
 - **Current electricity price**: The electricity price for the current hour.
+- **Current quarter-hour electricity price**: The electricity price for the current quarter hour.
 - **Next hour electricity price**: The electricity price for the next hour.
 - **Current electricity tariff group**: How Zonneplan classifies the price of the current hour: Low, Normal, or High.
 - **Current sustainability score**: Zonneplan's score, from 0 to 100%, for how sustainable the electricity supplied in the current hour is.
@@ -54,24 +44,47 @@ The following sensors are provided by this integration:
 
 The **Electricity price low today start time** and **Electricity price low today end time** sensors mark the block of consecutive hours around today's lowest price. The matching **tomorrow** sensors do the same for tomorrow, once its prices are published. This lets you build automations that act on the entire block of cheap hours instead of a single hour.
 
+#### Home battery
+
+If your account has a Zonneplan home battery, the integration adds a device for each battery with these sensors:
+
+- **Battery**: The state of charge, in %.
+- **Power**: The power the battery delivers, in W. Positive while discharging, negative while charging.
+- **Battery state**: What the battery is doing: `Charging`, `Discharging`, `Operative`, `Standby`, `Sleeping`, `Starting`, `Throttled`, `Shutting down`, `Off`, `Updating`, `Cooling`, `Preheating`, `Backup power active`, `Fault`, `Permanent fault`, or `Unknown state`.
+- **Inverter state**: What the battery inverter is doing, with the same states as **Battery state**.
+- **Total earned**: What the battery has earned in total since it was installed.
+- **Earned today**: What the battery has earned so far today. This can be negative.
+- **Energy charged today**: The energy charged into the battery so far today, in kWh.
+- **Energy discharged today**: The energy discharged from the battery so far today, in kWh.
+- **Charge cycles**: The number of full charge cycles.
+- **Backup power capacity** (diagnostic): The most energy that can be reserved for backup power, in Wh.
+
 ### Binary sensors
 
 - **Electricity price low**: On while the current hour falls in today's block of cheapest hours, the same block as the low price start and end time sensors. Off at all other hours. The state updates at the start of every hour.
 
 #### Home battery
 
-If your account has a Zonneplan home battery, the integration adds a device for each battery with these binary sensors:
+Each home battery device also has these binary sensors:
 
 - **Home optimization active**: On while home optimization is actively steering the battery.
 - **Grid congestion**: On while grid congestion is limiting the battery.
 - **Load balancing overload**: On while dynamic load balancing is limiting the battery to prevent overloading your grid connection.
 - **Backup power active**: On while the battery supplies backup power to your home.
 
+#### EV charge point
+
+If your account has a Zonneplan EV charge point, the integration adds a device for each charge point with these binary sensors:
+
+- **Connectivity**: On while the charge point is connected to Zonneplan.
+- **Overload protection**: On while the charge point limits charging to prevent overloading your grid connection.
+- **Automatic charging paused**: On after you stop a charging session by hand, while automatic charging stays paused.
+
 ## Known limitations
 
 ### Unsupported devices and functionality
 
-The integration does not yet expose entities for Zonneplan EV charge points or solar panels. For home batteries, only the binary sensors listed above are available.
+The integration does not yet expose entities for Zonneplan solar panels. EV charge points can't be controlled yet. Only the charge point entities listed above are available.
 
 ### Delayed usage data
 

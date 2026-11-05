@@ -10,7 +10,7 @@ related_triggers:
 
 The **Humidifier mode changed** trigger fires after the operating mode of a humidifier {% term entity %} changes. Modes are device-specific and typically include options like **Normal**, **Eco**, **Sleep**, **Auto**, or **Baby**, though the exact modes available depend on your device. Use **Humidifier mode changed** to react when the mode changes, for example to automatically lower the target humidity on all your humidifiers when one of them switches to **Eco** mode, keeping your whole home in sync with a single mode change.
 
-You can optionally filter the trigger to fire only when the humidifier switches to a specific mode. Leave the mode option empty to fire on any mode change.
+You choose one or more modes, and the trigger reacts when the humidifier switches to one of them.
 
 {% include triggers/ui_header.md %}
 
@@ -21,7 +21,7 @@ To use **Humidifier mode changed** in an automation, follow these steps:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your humidifier is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Humidifier mode changed**.
-6. Optionally, under **Mode**, select one or more modes you want to watch for. Leave it empty to trigger on any mode change.
+6. Under **Mode**, select one or more modes you want to monitor.
 7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple humidifiers are targeted.
 8. Under **For at least**, set how long the humidifier must remain in the new mode before the trigger fires. Leave it at zero to fire immediately.
 9. Select **Save**.
@@ -30,7 +30,8 @@ To use **Humidifier mode changed** in an automation, follow these steps:
 
 {% options_ui %}
 Mode:
-  description: The mode or modes the humidifier must switch to for the trigger to fire. Typical modes include **Normal**, **Eco**, **Away**, **Boost**, **Comfort**, **Home**, **Sleep**, **Auto**, and **Baby**, though the exact modes available depend on your device. Default is empty, which fires on any mode change.
+  description: The mode or modes the humidifier must switch to for the trigger to fire. Typical modes include **Normal**, **Eco**, **Away**, **Boost**, **Comfort**, **Home**, **Sleep**, **Auto**, and **Baby**, though the exact modes available depend on your device.
+  required: true
 Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
@@ -52,32 +53,20 @@ trigger: |
   trigger: humidifier.mode_changed
   target:
     entity_id: humidifier.bedroom
-{% endexample %}
-
-This fires every time the bedroom humidifier switches to a different mode.
-
-To fire only when the humidifier switches to a specific mode:
-
-{% example %}
-trigger: |
-  trigger: humidifier.mode_changed
-  target:
-    entity_id: humidifier.bedroom
   options:
     mode: "sleep"
 {% endexample %}
 
-### Options in YAML
+This reacts when the bedroom humidifier switches to the **Sleep** mode.
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+### Options in YAML
 
 {% options_yaml %}
 mode:
   description: >
-    The mode or modes the humidifier must switch to for the trigger to fire. Accepts a single mode string or a list of modes. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes available depend on your device. Omit to fire on any mode change.
-  required: false
+    The mode or modes the humidifier must switch to for the trigger to fire. Accepts a single mode string or a list of modes. Typical modes include `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby`, though the exact modes available depend on your device.
+  required: true
   type: string
-  default: (empty, fires on any mode change)
 behavior:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
@@ -90,9 +79,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the humidifier must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the humidifier has stayed in the new mode for 10 seconds, which is useful to ignore brief transitional modes some devices cycle through during startup.
+    How long the humidifier must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the humidifier has stayed in the new mode for 10 seconds, which is useful to ignore brief transitional modes some devices cycle through during startup. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -104,7 +93,7 @@ for:
 
 - The target humidifier entity must support the mode you want to use.
 - The available modes depend entirely on the device. Check your humidifier's documentation or the Home Assistant entity's attributes to see which modes are supported.
-- If you filter by mode, the trigger only fires when the humidifier _enters_ that mode, not when it leaves it.
+- The trigger only reacts when the humidifier changes to one of the selected modes, not when it changes from a selected mode to a mode that isn't selected. It also doesn't react when the humidifier switches between two selected modes.
 - To check whether the humidifier is currently in a specific mode during a condition step, use the **Humidifier is in mode** condition.
 
 {% include triggers/try_it.md %}
@@ -119,7 +108,8 @@ When the bedroom humidifier switches to sleep mode, dim the lights and activate 
   - **Target**: Bedroom humidifier
   - **Mode**: sleep
   - **Trigger when**: Each
-- **Action**: Turn on light (night scene)
+- **Action**: Activate scene
+  - **Target**: Bedroom night scene
 
 {% details "YAML example for a sleep-mode scene" %}
 

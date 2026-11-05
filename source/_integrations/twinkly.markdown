@@ -1,22 +1,7 @@
 ---
-title: Twinkly
 description: Instructions on how to integrate Twinkly LED string to Home Assistant.
-ha_category:
-  - Light
 ha_release: 2020.12
-ha_config_flow: true
 ha_domain: twinkly
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@dr1rrb'
-  - '@Robbie1221'
-  - '@Olen'
-ha_platforms:
-  - diagnostics
-  - light
-  - select
-ha_dhcp: true
-ha_integration_type: device
 ---
 
 The **Twinkly** {% term integration %} allows you to control [Twinkly](https://twinkly.com/) LED string from Home Assistant.

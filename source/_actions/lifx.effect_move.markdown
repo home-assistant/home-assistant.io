@@ -22,7 +22,7 @@ To start the Move effect from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Move effect**.
+5. From the search box, search for and select **LIFX: Move effect**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX lights are in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 7. Set **Speed** and **Direction** to control the animation. To recolor the light before the effect starts, pick a value in **Theme**.
 8. Select **Save**.
@@ -99,7 +99,7 @@ The [Themes](/integrations/lifx/#themes) section of the LIFX integration page li
 - You can change the colors while the effect is running. The animation continues with the new colors.
 - **Power on** is on by default, so a light that is off is turned on before the effect starts.
 - To stop the animation, use [Stop effect](/actions/lifx.effect_stop/).
-- You can also start this effect with default options by calling [Turn on a light](/actions/light.turn_on/) with the effect set to `effect_move`.
+- You can also start this effect with default options by calling [Turn on light](/actions/light.turn_on/) with the effect set to `effect_move`.
 
 {% include actions/try_it.md %}
 
@@ -110,15 +110,16 @@ The [Themes](/integrations/lifx/#themes) section of the LIFX integration page li
 Set an evening mood on the living room strip when the sun goes down, with the colors drifting slowly to the left.
 
 - **Trigger**: Sunset
-- **Action**: Move effect
+- **Action**: LIFX: Move effect
   - **Target**: Living room strip (`light.living_room_strip`)
+  - **Speed**: `10` seconds
+  - **Theme**: Evening
 
 {% example %}
 automation: |
   alias: "Start the Move effect at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: lifx.effect_move
       target:
@@ -132,10 +133,12 @@ automation: |
 
 When someone arrives home, run a fast, colorful animation on the hallway beam for two minutes, then stop it.
 
-- **Trigger**: Anne arrives home
-- **Action**: Move effect
+- **Trigger**: State changed
+  - **Entity**: Anne person
+  - **To**: Home
+- **Action**: LIFX: Move effect
   - **Target**: Hallway beam (`light.hallway_beam`)
-- **Action**: Stop effect
+- **Action**: LIFX: Stop effect
   - **Target**: Hallway beam (`light.hallway_beam`)
 
 {% example %}

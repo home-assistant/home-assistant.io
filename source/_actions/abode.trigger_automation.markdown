@@ -8,7 +8,7 @@ related_actions:
   - abode.change_setting
 ---
 
-The **Trigger automation** action triggers an automation that is set up in your Abode system.
+The **Abode: Trigger automation** action triggers an automation that is set up in your Abode system.
 
 Abode automations are represented in Home Assistant as switch entities, so you select the switch that matches the automation you want to run.
 

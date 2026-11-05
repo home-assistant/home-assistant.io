@@ -1,23 +1,7 @@
 ---
-title: Neato Botvac
 description: Instructions on how to integrate your Neato within Home Assistant.
-ha_category:
-  - Button
-  - Camera
-  - Sensor
-  - Switch
-  - Vacuum
-ha_iot_class: Cloud Polling
 ha_release: 0.33
-ha_config_flow: true
 ha_domain: neato
-ha_platforms:
-  - button
-  - camera
-  - sensor
-  - switch
-  - vacuum
-ha_integration_type: hub
 ---
 
 The **Neato** {% term integration %} allows you to control your [Neato Botvac Connected Robots][botvac-connected].

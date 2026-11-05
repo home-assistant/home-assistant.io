@@ -1,18 +1,7 @@
 ---
-title: Google Mail
 description: Instructions on how to use Google Mail in Home Assistant.
-ha_category:
-  - Notifications
-ha_iot_class: Cloud Polling
 ha_release: '2023.2'
-ha_config_flow: true
 ha_domain: google_mail
-ha_platforms:
-  - notify
-  - sensor
-ha_codeowners:
-  - '@tkdrob'
-ha_integration_type: service
 api: Gmail API
 api_link: https://console.cloud.google.com/apis/library/gmail.googleapis.com
 ---

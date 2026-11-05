@@ -1,0 +1,9 @@
+{
+  "domain": "stt",
+  "name": "Speech-to-text (STT)",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

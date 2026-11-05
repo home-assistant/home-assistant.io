@@ -1,23 +1,10 @@
 ---
-title: EZcontrol XS1
 description: Instructions on how to integrate an XS1 Gateway within Home Assistant.
-ha_category:
-  - Climate
-  - Hub
-  - Sensor
-  - Switch
 ha_release: 0.88
-ha_iot_class: Local Polling
 ha_domain: xs1
-ha_platforms:
-  - climate
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The [EZcontrol XS1](http://www.ezcontrol.de/content/view/36/28/) {% term integration %} for Home Assistant allows you to observe and control devices configured on the XS1 Gateway. Please have a look at the official documentation for using this gateway [Bedienungsanleitung v3.0.0.0](http://www.ezcontrol.de/support/downloads/XS1/xs1manual/Bedienungsanleitung_EZcontrol_XS1_3.0.0.0-2.pdf).

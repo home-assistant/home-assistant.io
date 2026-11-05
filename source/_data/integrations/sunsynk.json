@@ -1,0 +1,17 @@
+{
+  "domain": "sunsynk",
+  "name": "Sunsynk",
+  "integration_type": "hub",
+  "codeowners": [
+    "@jamesridgway"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

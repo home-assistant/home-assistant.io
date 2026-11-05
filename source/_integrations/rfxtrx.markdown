@@ -1,33 +1,7 @@
 ---
-title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Event
-  - Hub
-  - Light
-  - Sensor
-  - Siren
-  - Switch
-ha_iot_class: Local Push
 ha_release: pre 0.7
-ha_config_flow: true
-ha_codeowners:
-  - '@danielhiversen'
-  - '@elupus'
-  - '@RobBie1221'
 ha_domain: rfxtrx
-ha_platforms:
-  - binary_sensor
-  - cover
-  - diagnostics
-  - event
-  - light
-  - sensor
-  - siren
-  - switch
-ha_integration_type: hub
 ---
 
 The **RFXCOM RFXtrx** {% term integration %} supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
@@ -341,7 +315,7 @@ automation:
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
-- Go to: {% my developer_template title="**Settings** > **Tools** > **Template**" %}
+- Go to: {% my tools_template title="**Settings** > **Tools** > **Template**" %}
 - Use the following codes to generate an event:
 
 ### Switch: ARC

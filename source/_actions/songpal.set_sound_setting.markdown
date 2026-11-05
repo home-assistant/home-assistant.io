@@ -78,11 +78,12 @@ value:
 
 In the evening, switch on night mode on your soundbar so late-night viewing stays quiet.
 
-- **Trigger**: Every day at 22:00
-- **Action**: Set sound setting
+- **Trigger**: Time
+  - **At time**: `22:00`
+- **Action**: Sony Songpal: Sets sound setting
   - **Target**: Soundbar
-  - **Name**: nightMode
-  - **Value**: on
+  - **Name**: `nightMode`
+  - **Value**: `on`
 
 {% details "YAML example for turning on night mode" %}
 

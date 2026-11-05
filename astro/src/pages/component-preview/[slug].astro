@@ -5,6 +5,7 @@
 // Deliberately no Base layout: the stage stays chrome-less apart from
 // a slim toolbar, so nothing constrains or restyles the component.
 import { getComponentPreviews } from "../../lib/component-previews.mjs";
+import PreviewDemo from "../../lib/PreviewDemo.astro";
 
 export function getStaticPaths() {
   return getComponentPreviews().map((entry) => ({
@@ -54,12 +55,10 @@ const { name, description, variants, Component, path } = entry;
     {
       Component ? (
         variants.map((variant) => (
-          <section>
+          <section class:list={{ dark: variant.dark }}>
             <div class="variant-label">{variant.name}</div>
             <div class="stage">
-              <Component {...(variant.props ?? {})}>
-                {variant.slot && <Fragment set:html={variant.slot} />}
-              </Component>
+              <PreviewDemo Component={Component} variant={variant} />
             </div>
           </section>
         ))
@@ -79,7 +78,10 @@ const { name, description, variants, Component, path } = entry;
     font-family:
       -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
       sans-serif;
-    line-height: 1.6;
+    /* Whole-pixel line heights and padding keep every stage on the
+       pixel grid, as a component is at the top of a real page; at
+       fractional offsets small artwork rasterizes up to 1px askew. */
+    line-height: 1.5rem;
     margin: 0;
   }
   .toolbar {
@@ -90,7 +92,7 @@ const { name, description, variants, Component, path } = entry;
     flex-wrap: wrap;
     font-size: 0.85rem;
     gap: 0.75rem;
-    padding: 0.4rem 1rem;
+    padding: 0.5rem 1rem;
   }
   .toolbar a {
     color: #0b7ab0;
@@ -111,6 +113,7 @@ const { name, description, variants, Component, path } = entry;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.05em;
+    line-height: 1rem;
     padding: 0.25rem 1rem;
     text-transform: uppercase;
   }
@@ -118,6 +121,16 @@ const { name, description, variants, Component, path } = entry;
     /* No padding on purpose: components render at full viewport
        width, exactly as they would on a real page. */
     padding: 0;
+  }
+  /* Variants meant for dark backgrounds (fixture `dark: true`): the
+     whole section, label included, renders on black. */
+  .dark {
+    background: #000;
+  }
+  .dark .variant-label {
+    background: #000;
+    border-color: #374151;
+    color: #9ca3af;
   }
   .error {
     color: #b91c1c;

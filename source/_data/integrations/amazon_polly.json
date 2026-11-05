@@ -1,0 +1,15 @@
+{
+  "domain": "amazon_polly",
+  "name": "Amazon Polly",
+  "codeowners": [
+    "@jschlyter"
+  ],
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "ai_voice.speech"
+  ],
+  "platforms": [
+    "tts"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "domain": "manual",
+  "name": "Manual alarm control panel",
+  "integration_type": "helper",
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers",
+    "security_safety.alarm_systems"
+  ],
+  "platforms": [
+    "alarm_control_panel"
+  ]
+}

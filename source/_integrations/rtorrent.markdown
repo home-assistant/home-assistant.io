@@ -1,18 +1,10 @@
 ---
-title: rTorrent
 description: Instructions on how to integrate rTorrent sensors within Home Assistant.
-ha_category:
-  - Downloading
 ha_release: 0.81
-ha_iot_class: Local Polling
 ha_domain: rtorrent
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **rTorrent** {% term integration %} allows you to monitor your downloads with [rTorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automations based on the information.

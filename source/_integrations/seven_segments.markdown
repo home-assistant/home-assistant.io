@@ -1,19 +1,11 @@
 ---
-title: Seven Segments OCR
 description: Instructions on how to use OCR for seven segments displays into Home Assistant.
-ha_category:
-  - Image processing
 ha_release: 0.45
 og_image: /images/screenshots/ssocr.png
-ha_iot_class: Local Polling
 ha_domain: seven_segments
-ha_codeowners:
-  - '@fabaff'
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Seven Segments OCR** {% term integration %} allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).

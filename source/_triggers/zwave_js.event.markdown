@@ -1,5 +1,5 @@
 ---
-title: "Z-Wave event"
+title: "Z-Wave JS event received"
 trigger: zwave_js.event
 domain: zwave_js
 description: "Triggers on Z-Wave JS controller, driver, or node events, including events that are not handled by Home Assistant automatically."
@@ -8,7 +8,7 @@ related_triggers:
   - event
 ---
 
-The **Z-Wave event** trigger fires on Z-Wave JS controller, driver, or node events. Use it to react to events that the Z-Wave JS layer reports but that Home Assistant does not surface as a regular state change.
+The **Z-Wave JS event received** trigger fires on Z-Wave JS controller, driver, or node events. Use it to react to events that the Z-Wave JS layer reports but that Home Assistant does not surface as a regular state change.
 
 This trigger is useful when:
 
@@ -120,7 +120,7 @@ partial_dict_match:
 
 ### Available trigger data
 
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variables:
+In addition to the [standard automation trigger data](/docs/automation/trigger-data/#properties-of-all-triggers), this trigger exposes the following template variables:
 
 - `trigger.device_id`: Device ID for the device in the device registry. Only included for `node` events.
 - `trigger.node_id`: Z-Wave node ID. Only included for `node` events.
@@ -134,13 +134,13 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 This automation fires when the `interview failed` event is reported for one of the listed devices, and only when the failure is final.
 
-- **Trigger**: Z-Wave event
+- **Trigger**: Z-Wave JS event received
   - **Device**: Garage door lock
   - **Entities**: `lock.front_lock`, `lock.back_door`
   - **Event source**: `node`
   - **Event**: `interview failed`
   - **Event data**: `args.isFinal: true` with **Partial dict match** enabled
-- **Action**: Send a notification
+- **Action**: Send a notification message
 
 {% details "YAML example for a final interview failure notification" %}
 

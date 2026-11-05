@@ -1,21 +1,7 @@
 ---
-title: Android Debug Bridge
 description: Instructions on how to integrate Android and Fire TV devices into Home Assistant.
-ha_category:
-  - Media player
-  - Remote
 ha_release: 0.7.6
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@JeffLIrion'
-  - '@ollo69'
 ha_domain: androidtv
-ha_platforms:
-  - diagnostics
-  - media_player
-  - remote
-ha_integration_type: device
 ---
 
 The **Android Debug Bridge** {% term integration %} allows you to control an Android device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
@@ -104,7 +90,7 @@ Some devices, such as the Insignia F30 series, disappear from the network when t
 
 ## Launching and stopping apps
 
-The `media_player.select_source` action allows you to launch an app on your device. Provide the app ID as the `source`. You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
+The `media_player.select_source` action allows you to launch an app on your device. Provide the app ID as the `source`. You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/script/) to start and stop Netflix as follows:
 
 ```yaml
 start_netflix:

@@ -1,20 +1,7 @@
 ---
-title: Marketplace
 description: Find and install community-created integrations, dashboard cards, themes, and templates.
-ha_category:
-  - Other
 ha_release: 2026.11
-ha_iot_class: Cloud Polling
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: marketplace
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - switch
-  - update
-ha_integration_type: system
 related:
   - docs: /integrations/update/
     title: Update entities
@@ -222,6 +209,8 @@ A GitHub connection is needed for:
 
 The connection does not request access to private repositories or permission to make changes on GitHub. The Marketplace can read only the public information available without signing in.
 
+The connection is only used when the Marketplace gets its content from GitHub. With a mirror as the [download source](#download-source), the Marketplace does not use your GitHub account.
+
 ### Connecting your GitHub account
 
 The Marketplace uses GitHub's device sign-in method. You approve the connection in GitHub rather than entering your password in Home Assistant.
@@ -239,6 +228,29 @@ To connect GitHub before you need it, or to connect a different GitHub account, 
 
 You can revoke the connection at any time in your GitHub account settings under **Applications** > **Authorized OAuth Apps**. The Marketplace then notices that the token no longer works and asks you to connect again. Until you do, Marketplace features that require GitHub become unavailable.
 
+## Download source
+
+By default, the Marketplace gets the catalog and everything you install from GitHub. Where GitHub cannot be reached, such as in mainland China, the Marketplace can use mirrors instead. A mirror serves the same content from other servers.
+
+The following download sources are available:
+
+- **GitHub**: run by GitHub and the Open Home Foundation. This is the default.
+- **Unofficial China mirrors**: run by the Home Assistant China community ([hasscn.top](https://hasscn.top)). When these mirrors cannot be reached, downloads fall back to third-party proxies.
+
+{% important %}
+With a mirror as the download source, everything the Marketplace downloads goes through whoever runs that mirror, or a third-party proxy: the catalog, and the content you install. Only choose a download source you trust.
+{% endimportant %}
+
+To change the download source:
+
+1. Go to **Settings** > **Marketplace**.
+2. In the upper-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Download source**.
+3. Choose the download source, then select **Submit**.
+
+The Marketplace restarts with the new download source right away.
+
+If the Marketplace cannot reach the catalog and a mirror is available for your country, a repair suggests the mirror. You can switch to the mirror from the repair, or keep using GitHub. If you keep using GitHub, the Marketplace stops suggesting the mirror.
+
 ## Coming from HACS
 
 The Marketplace replaces the Home Assistant Community Store (HACS) in Home Assistant. If you used HACS, the Marketplace migrates your HACS content automatically when Home Assistant starts after the update.
@@ -251,6 +263,7 @@ During the migration:
 - Your custom repositories and update entities carry over with their names, areas, and labels.
 - The HACS integration is removed, together with its files.
 - Bookmarks to `/hacs` open the Marketplace.
+- If you used the Chinese version of HACS, the Marketplace switches to the [China mirrors](#download-source) as the download source. A GitHub token from its shared pool is removed. Your own GitHub connection is kept.
 
 The following HACS features and paths change in the Marketplace:
 

@@ -104,7 +104,7 @@ subsystem1_functionality1:
 
 ## Customizing entities with packages
 
-It is possible to [customize entities](/docs/configuration/customizing-devices/) within packages. Just create your customization entries under:
+It is possible to [customize entities](/docs/configuration/customizing-entities/) within packages. Just create your customization entries under:
 
 ```yaml
 homeassistant:

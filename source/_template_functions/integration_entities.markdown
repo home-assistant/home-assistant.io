@@ -7,7 +7,7 @@ available_as:
   - filter
 category: entity
 return_type: "list of strings"
-limited: false
+limited: true
 since: "2022.4"
 related_functions:
   - config_entry_id

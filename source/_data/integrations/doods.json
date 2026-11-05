@@ -1,0 +1,12 @@
+{
+  "domain": "doods",
+  "name": "DOODS - Dedicated Open Object Detection Service",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "ai_voice.image_recognition"
+  ],
+  "platforms": [
+    "image_processing"
+  ]
+}

@@ -69,7 +69,9 @@ fan_mode:
 
 Set a climate device to a higher fan speed when the room gets warm.
 
-- **Trigger**: Indoor temperature rises above 26 °C
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Living room temperature
+  - **Above**: `26`
 - **Action**: Set thermostat fan mode
   - **Target**: Living room thermostat
   - **Fan mode**: high

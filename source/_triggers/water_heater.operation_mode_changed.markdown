@@ -75,8 +75,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 operation_mode:
   description: >
@@ -95,9 +93,9 @@ behavior:
   default: each
 for:
   description: >
-    How long the water heater must stay in the selected mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes.
+    How long the water heater must stay in the selected mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -108,7 +106,7 @@ for:
 ## Good to know
 
 - The target water heater entity must support the operation mode you want to use.
-- This trigger fires when the mode changes _to_ one of the selected modes. It does not fire when the water heater leaves that mode.
+- The trigger only reacts when the operation mode changes to one of the selected modes, not when it changes from a selected mode to a mode that isn't selected. It also doesn't react when the water heater switches between two selected modes.
 - `unavailable` and `unknown` are not offered as selectable modes.
 - To react when the water heater simply turns on or off, use [Water heater turned on](/triggers/water_heater.turned_on/) or [Water heater turned off](/triggers/water_heater.turned_off/).
 

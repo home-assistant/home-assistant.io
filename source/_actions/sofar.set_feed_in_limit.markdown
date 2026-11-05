@@ -90,7 +90,7 @@ max_power:
 
 Some grid connections cap how much a household may export. This automation lowers the feed-in limit at sunrise and raises it again at sunset, so exports stay compliant during daylight generation hours.
 
-- **Trigger**: Sun, sunrise
+- **Trigger**: Sunrise
 - **Action**: Sofar: Set feed-in limit
 
 {% details "YAML example for a daytime export cap" %}
@@ -99,8 +99,7 @@ Some grid connections cap how much a household may export. This automation lower
 automation: |
   alias: "Cap Sofar feed-in during the day"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   actions:
     - action: sofar.set_feed_in_limit
       data:

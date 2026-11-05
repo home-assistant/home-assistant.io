@@ -1,5 +1,5 @@
 ---
-title: "Reload MQTT entities"
+title: "Reload"
 action: mqtt.reload
 domain: mqtt
 description: "Reloads MQTT entities from your YAML configuration."
@@ -20,7 +20,7 @@ To reload MQTT entities from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Reload**.
+5. Search for and select **MQTT: Reload**.
 6. Select **Save**.
 
 ### Options in the UI
@@ -42,7 +42,7 @@ This action has no options.
 
 ## Good to know
 
-- You usually run this action straight from {% my developer_services title="**Settings** > **Tools** > **Actions**" %} right after editing your MQTT entities, so you can see the result without a restart.
+- You usually run this action straight from {% my tools_actions title="**Settings** > **Tools** > **Actions**" %} right after editing your MQTT entities, so you can see the result without a restart.
 - When the reload finishes, Home Assistant fires an `event_mqtt_reloaded` event. You can use this event as an automation trigger.
 - Only administrators can run this action.
 

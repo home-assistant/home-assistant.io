@@ -1,0 +1,24 @@
+{
+  "domain": "slide_local",
+  "name": "Slide Local",
+  "integration_type": "device",
+  "codeowners": [
+    "@dontinelli"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "gold",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "button",
+    "cover",
+    "diagnostics",
+    "switch"
+  ],
+  "discovery": [
+    "homekit",
+    "zeroconf"
+  ]
+}

@@ -1,30 +1,7 @@
 ---
-title: August
 description: Instructions on how to integrate your August devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Lock
-  - Sensor
 ha_release: 0.64
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
 ha_domain: august
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - event
-  - lock
-  - sensor
-ha_integration_type: hub
 ---
 
 The **August** {% term integration %} allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.

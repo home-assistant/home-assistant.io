@@ -1,0 +1,14 @@
+{
+  "domain": "radio_browser",
+  "name": "Radio Browser",
+  "integration_type": "service",
+  "codeowners": [
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "media_entertainment.music_radio_services"
+  ]
+}

@@ -8,7 +8,7 @@ related_actions:
   - elkm1.sensor_zone_bypass
 ---
 
-The **Alarm clear bypass** action clears the bypass for all zones associated with the specified Elk-M1 area. The zones are then monitored again while the system is armed.
+The **Elk-M1 Control: Alarm clear bypass** action clears the bypass for all zones associated with the specified Elk-M1 area. The zones are then monitored again while the system is armed.
 
 This is useful when you want an automation to restore monitoring of zones that were previously bypassed.
 

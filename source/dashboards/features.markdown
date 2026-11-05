@@ -89,6 +89,17 @@ features:
   - type: "bar-gauge"
     min: 0
     max: 100
+    segments:
+      - from: 0
+        color: '#db4437'
+      - from: 35.5
+        color: '#ffa600'
+      - from: 40
+        color: '#43a047'
+      - from: 60
+        color: '#ffa600'
+      - from: 65
+        color: '#db4437'
 ```
 
 {% configuration features %}
@@ -106,6 +117,36 @@ max:
   description: Maximum value for the gauge range.
   type: integer
   default: 100
+severity:
+  required: false
+  description: Allows setting of colors for different numbers.
+  type: map
+  keys:
+    green:
+      required: false
+      description: Value from which to start green color.
+      type: float
+    yellow:
+      required: false
+      description: Value from which to start yellow color.
+      type: float
+    red:
+      required: false
+      description: Value from which to start red color.
+      type: float
+segments:
+  required: false
+  description: List of colors and their corresponding start values. Segments will override the severity settings.
+  type: list
+  keys:
+    from:
+      required: true
+      description: Value from which to start the color.
+      type: float
+    color:
+      required: true
+      description: Color of the segment, may be any CSS color declaration like "red", "#0000FF" or "rgb(255, 120, 0)".
+      type: string
 {% endconfiguration %}
 
 ## Button
@@ -584,15 +625,29 @@ Widget that displays speed controls for a [fan](/integrations/fan).
   Screenshot of the tile card with fan speed feature
 </p>
 
+The available style depends on how many speeds your fan supports:
+
+- Fans that only support being turned on or off always use buttons.
+- Fans with 2 to 5 speeds use buttons by default, but you can switch to a slider.
+- Fans with 6 to 10 speeds use a slider by default, but you can switch to buttons.
+- Fans with more than 10 speeds always use a slider.
+
+If the buttons don't fit the width of the card, a slider is shown instead, regardless of whether buttons are the default or your own choice.
+
 ```yaml
 features:
   - type: "fan-speed"
+    style: "buttons"
 ```
 
 {% configuration features %}
 type:
   required: true
   description: "`fan-speed`"
+  type: string
+style:
+  required: false
+  description: "Which style of control to display. It can be either `buttons` or `slider`. The default depends on how many speeds the fan supports. See above."
   type: string
 {% endconfiguration %}
 
@@ -674,8 +729,8 @@ type:
   description: "`lawn-mower-commands`"
   type: string
 commands:
-  required: true
-  description: List of commands to show on the card. The list can contain `start_pause` and `dock`.
+  required: false
+  description: List of commands to show on the card. The list can contain `start_pause`, `stop`, and `dock`. If not set, all commands supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -698,6 +753,35 @@ type:
   required: true
   description: "`light-brightness`"
   type: string
+{% endconfiguration %}
+
+## Light color
+
+Widget that displays controls to select the color for a [light](/integrations/light).
+
+You can show the hue, the saturation, or both. When both are shown, select the small button next to the control to switch between them.
+
+<p class='img'>
+  <img src='/images/dashboards/features/light_color.png' alt='Screenshot of the tile card with the light color feature'>
+  Screenshot of the tile card with the light color feature
+</p>
+
+```yaml
+features:
+  - type: "light-color"
+    controls: "hue"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-color`"
+  type: string
+controls:
+  required: false
+  description: "Which controls to display. It can be `hue`, `saturation`, or `hue_saturation`."
+  type: string
+  default: hue
 {% endconfiguration %}
 
 ## Light color favorites
@@ -765,7 +849,7 @@ type:
   type: string
 effects:
   required: false
-  description: "List of effects to show in the dropdown. Use this to filter or reorder the available effects. The effect names depend on your device and can be found in the `effect_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all effects supported by the entity are shown."
+  description: "List of effects to show in the dropdown. Use this to filter or reorder the available effects. The effect names depend on your device and can be found in the `effect_list` attribute of the entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}. When not specified, all effects supported by the entity are shown."
   type: list
 {% endconfiguration %}
 
@@ -866,7 +950,7 @@ type:
   type: string
 sound_modes:
   required: false
-  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available sound modes are shown."
+  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available sound modes are shown."
   type: list
 {% endconfiguration %}
 
@@ -1042,16 +1126,17 @@ style:
 
 ## Target temperature
 
-Widget that displays buttons to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater).
+Widget that displays buttons or a slider to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater). For climate entities with a target temperature range, the feature shows separate controls for the low and high targets.
 
 <p class='img'>
-  <img src='/images/dashboards/features/target_temperature.png' alt='Screenshot of the tile card with the target temperature feature'>
-  Screenshot of the tile card with the target temperature feature
+  <img src='/images/dashboards/features/target_temperature.png' alt='Screenshot of tile cards with the target temperature feature, using the buttons style and the slider style'>
+  Screenshot of tile cards with the target temperature feature, using the buttons style (left) and the slider style (right)
 </p>
 
 ```yaml
 features:
   - type: "target-temperature"
+    style: "slider"
 ```
 
 {% configuration features %}
@@ -1059,6 +1144,11 @@ type:
   required: true
   description: "`target-temperature`"
   type: string
+style:
+  required: false
+  description: "How the target temperature should be displayed. It can be either `buttons` or `slider`."
+  type: string
+  default: buttons
 {% endconfiguration %}
 
 ## Timer actions
@@ -1257,7 +1347,7 @@ type:
   type: string
 fan_speeds:
   required: false
-  description: "List of fan speeds to show in the dropdown. Use this to filter or reorder the available fan speeds. The fan speed names depend on your device and can be found in the `fan_speed_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available fan speeds are shown."
+  description: "List of fan speeds to show in the dropdown. Use this to filter or reorder the available fan speeds. The fan speed names depend on your device and can be found in the `fan_speed_list` attribute of the entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available fan speeds are shown."
   type: list
 {% endconfiguration %}
 
