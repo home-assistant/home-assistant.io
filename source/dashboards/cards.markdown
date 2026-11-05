@@ -58,7 +58,7 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
         - Browse the list of available cards.
         - If you are using the **Sections** view, try the **Tile** card in the **Suggested cards** section.
         ![Add card by Card type dialog](/images/blog/2024-03-dashboard-chapter-1/sections-add-card-by-card.png)
-   - From a copied card: If you copied a card, **Paste card** is shown at the bottom left of the dialog. Select it to add the copied card. The same works for badges when you add a badge.
+   - From a copied card: If you copied a card, **Paste card** is shown at the bottom left of the dialog. Select it to add the card. The same works for badges when you add a badge.
 
 7. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
 8. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
