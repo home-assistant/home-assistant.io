@@ -339,9 +339,12 @@ const ideas = [
       display: flex;
       gap: var(--space-large);
       inset: auto;
-      margin-inline: calc(-1 * var(--wth-gutter));
+      /* A scrolling row clips on both axes, so it keeps room under the
+         cards for their whole shadow (0 10px 28px reaches about 2.4rem),
+         and gives that room back below so the spacing stays the same. */
+      margin: 0 calc(-1 * var(--wth-gutter)) -1.5rem;
       overflow-x: auto;
-      padding: 0.75rem var(--wth-gutter) 1.25rem;
+      padding: 0.75rem var(--wth-gutter) 2.75rem;
       position: relative;
       scroll-padding-inline: var(--wth-gutter);
       scroll-snap-type: x mandatory;
