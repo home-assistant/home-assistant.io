@@ -1,20 +1,10 @@
 ---
-title: aREST
 description: Instructions on how to integrate aREST within Home Assistant.
-ha_categories:
-  - diy_makers.boards_hardware
-ha_iot_class: Local Polling
 ha_release: 0.9
 ha_domain: arest
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 There is currently support for the following device types within Home Assistant:

@@ -1,0 +1,25 @@
+{
+  "domain": "bluesound",
+  "name": "Bluesound",
+  "integration_type": "device",
+  "codeowners": [
+    "@thrawnarn",
+    "@LouisChrist"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "button",
+    "media_player"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

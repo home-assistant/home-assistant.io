@@ -1,0 +1,19 @@
+{
+  "domain": "energenie_power_sockets",
+  "name": "Energenie Power Sockets",
+  "integration_type": "device",
+  "codeowners": [
+    "@gnumpi"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "plugs_switches"
+  ],
+  "connectivity": [
+    "serial"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

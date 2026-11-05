@@ -1,19 +1,7 @@
 ---
-title: Specialized Turbo
 description: Read telemetry from Specialized Turbo e-bikes over Bluetooth Low Energy in Home Assistant.
-ha_categories:
-  - vehicles_transport.bikes_scooters
 ha_release: '2026.9'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@JamieMagee'
 ha_domain: specialized_turbo
-ha_integration_type: device
-ha_quality_scale: silver
-ha_platforms:
-  - sensor
-ha_bluetooth: true
 related:
   - docs: /integrations/bluetooth/
     title: Bluetooth

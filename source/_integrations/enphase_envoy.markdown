@@ -1,27 +1,7 @@
 ---
-title: Enphase Envoy
 description: Instructions on how to set up Enphase Envoy with Home Assistant.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 0.76
-ha_iot_class: Local Polling
 ha_domain: enphase_envoy
-ha_zeroconf: true
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-  - '@cgarwood'
-  - '@catsmanac'
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Enphase Envoy** {% term integration %} is used to integrate with the [Enphase IQ Gateway](https://enphase.com/installers/communication), a communication device for [Enphase](https://enphase.com/homeowners) solar inverters and batteries. In this documentation, as well as in integration entity names, the Enphase IQ Gateway is commonly referred to as `Envoy`, a name from the conception times of this integration and retained for its compact format.
@@ -359,11 +339,13 @@ For each IQ Battery, an Encharge device is created, linked to the Envoy parent d
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Apparent Power**: Current apparent power in VA
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Last reported**: Time when Envoy received last update from the battery.
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Communication level 2.4 GHz**: Communication level of the wireless 2.4 GHz channel on a scale from 0 to 5. This diagnostic entity is disabled by default.
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Communication level sub-GHz**: Communication level of the sub-GHz channel on a scale from 0 to 5. This diagnostic entity is disabled by default.
 
 ##### Individual IQ battery binary sensor entities
 
-- **Encharge <abbr title="Encharge serial number">SN</abbr> Communicating**: Communication status of encharge battery, Connected / Disconnected. This is a diagnostics entity.
-- **Encharge <abbr title="Encharge serial number">SN</abbr> DC Switch**: DC Switched off status of encharge battery, On / Off. This is a diagnostics entity.
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Communicating**: Communication status of encharge battery, Connected / Disconnected. This is a diagnostic entity.
+- **Encharge <abbr title="Encharge serial number">SN</abbr> DC Switch**: DC Switched off status of encharge battery, On / Off. This is a diagnostic entity.
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_encharge.png" alt="iq battery">
@@ -401,14 +383,14 @@ For each AC-battery a device is created, nested under the ACB aggregate device. 
 - **AC Battery <abbr title="AC-battery serial number">SN</abbr> Power**: Power reported by the battery in W
 - **AC Battery <abbr title="AC-battery serial number">SN</abbr> Charge status**: Battery charge status: charging, discharging, idle, unknown
 - **AC Battery <abbr title="AC-battery serial number">SN</abbr> Sleep state**: Battery sleep state: awake, going to sleep, asleep, waking
-- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Temperature**: Maximum cell temperature in degrees C or F, based on your localization. This is a diagnostics entity.
-- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Last reported**: Time when Envoy last received an update from the battery. This is a diagnostics entity.
-- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Sleep SOC target**: State of charge band the battery is configured to sleep within. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Temperature**: Maximum cell temperature in degrees C or F, based on your localization. This is a diagnostic entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Last reported**: Time when Envoy last received an update from the battery. This is a diagnostic entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Sleep SOC target**: State of charge band the battery is configured to sleep within. This is a diagnostic entity.
 
 ##### Individual AC-battery binary sensor entities
 
-- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Communicating**: Communication status of the AC-battery, Connected / Disconnected. This is a diagnostics entity.
-- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Operating**: Operating status of the AC-battery, On / Off. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Communicating**: Communication status of the AC-battery, Connected / Disconnected. This is a diagnostic entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Operating**: Operating status of the AC-battery, On / Off. This is a diagnostic entity.
 - **AC Battery <abbr title="AC-battery serial number">SN</abbr> Producing**: Producing status of the AC-battery, On / Off.
 
 ##### AC-battery sleep and wake controls
@@ -458,6 +440,7 @@ Data for an installed Enphase Enpower off-grid enabling switch is available in v
 
 #### Enpower binary sensor entities
 
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Communicating**: Communication status of the Enpower switch: connected or disconnected. This is a diagnostic entity.
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Grid status**: status of the grid.
 
 #### Enpower number entities
@@ -472,7 +455,9 @@ Data for an installed Enphase Enpower off-grid enabling switch is available in v
 
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Last reported**: Time when Envoy received last update from the enpower device.
-- **Enpower <abbr title="Encharge serial number">SN</abbr> Communicating**: Communication status of enpower switch, Connected / Disconnected. This is a diagnostics entity.
+
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Communication level 2.4 GHz**: Communication level of the wireless 2.4 GHz channel on a scale from 0 to 5. This diagnostic entity is disabled by default.
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Communication level sub-GHz**: Communication level of the sub-GHz channel on a scale from 0 to 5. This diagnostic entity is disabled by default.
 
 #### Enpower switch entities
 
@@ -528,7 +513,7 @@ The IQ Meter Collar has the net-consumption CT integrated. The CT data is report
 - **Collar <abbr title="Collar serial number">SN</abbr> MID State**: Status of enphase Microgrid Interconnection Device, open / closed.
 - **Collar <abbr title="Collar serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
 - **Collar <abbr title="Collar serial number">SN</abbr> Last reported**: Time when Envoy received last update from the collar device.
-- **Collar <abbr title="Collar serial number">SN</abbr> Communicating**: Communication status of the collar, Connected / Disconnected. This is a diagnostics entity.
+- **Collar <abbr title="Collar serial number">SN</abbr> Communicating**: Communication status of the collar, Connected / Disconnected. This is a diagnostic entity.
 
 {% note %}
 Practical use learned that "Grid state" does not seem to reflect actual grid state changes. Off/On grid state rather seems to be reflected in Admin state values on grid / off grid. Be aware when using these entities. With time, more accurate details for these Collar entities may become available.
@@ -541,7 +526,7 @@ The Enphase C6 combiner controller (C6CC) provides some status information to th
 #### C6CC status entities
 
 - **C6CC <abbr title="C6CC serial number">SN</abbr> Last reported**: Time when Envoy received last update from the combiner device.
-- **C6CC <abbr title="C6CC serial number">SN</abbr> Communicating**: Communication status of C6 Combiner, Connected / Disconnected. This is a diagnostics entity.
+- **C6CC <abbr title="C6CC serial number">SN</abbr> Communicating**: Communication status of C6 Combiner, Connected / Disconnected. This is a diagnostic entity.
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_collar_and_ccc_data.png" alt="envoy collar and c6cc">

@@ -1,20 +1,7 @@
 ---
-title: Telegram bot
 description: Telegram bot support
-ha_categories:
-  - messaging_notifications.chat_apps
 ha_release: 0.42
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_domain: telegram_bot
-ha_integration_type: service
-ha_quality_scale: gold
-ha_codeowners:
-  - '@hanwg'
-ha_platforms:
-  - diagnostics
-  - event
-  - notify
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
@@ -199,26 +186,6 @@ data:
 {% enddetails %}
 
 {% include integrations/actions.md %}
-
-## Telegram notification platform
-
-{% warning %}
-
-The notification platform has been marked as legacy and might be deprecated in the future.
-Please use [notifiers](./#notifiers) instead.
-
-{% endwarning %}
-
-The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents, and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag`, `disable_web_page_preview`, and `message_thread_id` are also supported.
-
-The required YAML configuration now reduces to:
-
-```yaml
-notify:
-  - platform: telegram
-    name: NOTIFIER_NAME
-    chat_id: USER_CHAT_ID
-```
 
 ## Event entity
 

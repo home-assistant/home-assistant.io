@@ -1,19 +1,10 @@
 ---
-title: OpenWrt (ubus)
 description: Instructions on how to integrate OpenWrt devices into Home Assistant.
-ha_categories:
-  - presence_location.network_presence
-  - computers_network.routers_network
 ha_release: 0.7.6
-ha_iot_class: Local Polling
 ha_domain: ubus
-ha_platforms:
-  - device_tracker
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://openwrt.org/docs/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in client devices connected to the access point on the OpenWrt device.

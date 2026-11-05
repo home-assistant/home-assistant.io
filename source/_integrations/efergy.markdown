@@ -1,17 +1,7 @@
 ---
-title: Efergy
 description: Instructions on how to integrate Efergy devices within Home Assistant.
-ha_categories:
-  - energy.meters_monitoring
 ha_release: pre 0.7
-ha_config_flow: true
-ha_iot_class: Cloud Polling
 ha_domain: efergy
-ha_platforms:
-  - sensor
-ha_codeowners:
-  - '@tkdrob'
-ha_integration_type: hub
 ---
 
 Integrate your [Efergy](https://efergy.com) meter information into Home Assistant.

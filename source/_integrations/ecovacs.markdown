@@ -1,30 +1,7 @@
 ---
-title: Ecovacs
 description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
-ha_categories:
-  - appliances_cleaning.cleaning
-  - garden_plants
-ha_iot_class: Cloud Push
 ha_release: 0.77
-ha_codeowners:
-  - '@mib1185'
-  - '@edenhaus'
-  - '@Augar'
-ha_config_flow: true
 ha_domain: ecovacs
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - image
-  - lawn_mower
-  - number
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_integration_type: hub
 ---
 
 The **Ecovacs** {% term integration %} integrates [Ecovacs](https://www.ecovacs.com) robotic vacuum cleaners and lawn mowers.
@@ -56,7 +33,7 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   - `Relocate`: Button entity to trigger manual relocation.
-  - `Station actions`: For each supported station action, a button entity will be created.
+  - `Station actions`: For each supported station action, a button entity will be created: `Clean base`, `Dry mop`, `Empty dustbin`, and `Wash mop`.
 - **Event**:
   - `Last job`: Provides the stop reason as event_type
 - **Image**:
@@ -64,11 +41,13 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Number**:
   - `Clean count`: Set the number of times to clean the area. Disabled by default.
   - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees). Disabled by default.
+  - `Mop wash interval`: Set after how many minutes of cleaning the station washes the mop. Disabled by default.
   - `Volume`: Set the volume. Disabled by default.
   - `Water flow level`: Set a precise water flow level used during cleaning with the mop.
 - **Select**:
   - `Active map`: Select the active map. The ID will be shown when the map has no name.
   - `Auto-empty frequency`: Set how often the station empties the dust bin of the bot.
+  - `Efficiency mode`: Choose between `Standard` and `Energy efficient` cleaning. Disabled by default.
   - `Water flow level`: Choose from predefined water flow levels used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean. Disabled by default.
 - **Sensor**:
@@ -88,6 +67,7 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Total cleaning duration` (`Total mowing duration` for mowers): The total cleaning time
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Auto-empty`: Enable the station to empty the dust bin of the bot automatically. Set how often with the `Auto-empty frequency` select.
   - `Border spin`: Enable border spin, which means the bot will tilt to reach corners during mopping. Present on bots without an extendable mop. Disabled by default.
   - `Border switch`: Enable border switch. Disabled by default.
   - `Carpet auto-boost suction`: Enable maximum fan speed if a carpet is detected. Disabled by default.
@@ -98,6 +78,10 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
   - `Safe protect`: Enable "Safe protect" feature. Disabled by default.
   - `True detect`: Enable "True detect" feature. Disabled by default.
+
+## Lawn mower
+
+The `ecovacs` lawn mower platform allows you to start, pause, and stop mowing with your Ecovacs GOAT mower, and to send it back to its station.
 
 ## Vacuum
 

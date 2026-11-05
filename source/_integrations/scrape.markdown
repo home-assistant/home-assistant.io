@@ -1,18 +1,7 @@
 ---
-title: Scrape
 description: Instructions on how to integrate Web scrape sensors into Home Assistant.
-ha_categories:
-  - diy_makers.web_data_connectors
 ha_release: 0.31
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fabaff'
-  - '@gjohansson-ST'
 ha_domain: scrape
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_config_flow: true
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -154,7 +143,7 @@ sensor:
       type: string
       default: None
     state_class:
-      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      description: "The [state_class](/integrations/sensor/#state-class) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None
@@ -163,7 +152,7 @@ sensor:
       required: false
       type: template
     device_class:
-      description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+      description: Sets the [device class](/integrations/sensor/#device-class), changing the device state and icon that is displayed on the UI. It does not set the `unit_of_measurement`.
       required: false
       type: device_class
       default: None

@@ -1,20 +1,7 @@
 ---
-title: Jewish Calendar
 description: Instructions on integrating the Jewish Calendar integration within Home Assistant.
-ha_categories:
-  - productivity_information.calendars_todos
-ha_iot_class: Calculated
 ha_release: 0.79
-ha_codeowners:
-  - '@tsvi'
 ha_domain: jewish_calendar
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - diagnostics
-  - sensor
-ha_integration_type: integration
-ha_config_flow: true
 ---
 
 The **Jewish Calendar** {% term integration %} exposes Jewish calendar information through multiple sensors.

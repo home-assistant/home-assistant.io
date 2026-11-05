@@ -1,24 +1,7 @@
 ---
-title: NETGEAR
 description: Instructions on how to integrate NETGEAR routers into Home Assistant.
-ha_categories:
-  - computers_network.routers_network
-  - presence_location.network_presence
-ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: netgear
-ha_platforms:
-  - button
-  - device_tracker
-  - sensor
-  - switch
-  - update
-ha_config_flow: true
-ha_codeowners:
-  - '@Quentame'
-  - '@starkillerOG'
-ha_ssdp: true
-ha_integration_type: hub
 ---
 
 This {% term integration %} allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the NETGEAR device.

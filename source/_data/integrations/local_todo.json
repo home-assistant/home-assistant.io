@@ -1,0 +1,15 @@
+{
+  "domain": "local_todo",
+  "name": "Local to-do",
+  "codeowners": [
+    "@allenporter"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "productivity_information.calendars_todos"
+  ],
+  "platforms": [
+    "todo"
+  ]
+}

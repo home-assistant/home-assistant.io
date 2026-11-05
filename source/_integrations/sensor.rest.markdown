@@ -124,7 +124,7 @@ scan_interval:
   type: integer
   default: 30
 state_class:
-  description: The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor.
+  description: The [state_class](/integrations/sensor/#state-class) of the sensor.
   required: false
   type: string
 timeout:

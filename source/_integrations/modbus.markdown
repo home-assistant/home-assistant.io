@@ -1,20 +1,7 @@
 ---
-title: Modbus
 description: Instructions on how to manually register Modbus entities and platforms.
-ha_categories:
-  - diy_makers
 ha_release: pre 0.7
-ha_iot_class: Local Polling
 ha_domain: modbus
-ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - fan
-  - light
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -1702,7 +1689,7 @@ sensors:
       required: false
       type: integer
     state_class:
-      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor."
+      description: "The [state_class](/integrations/sensor/#state-class) of the sensor."
       required: false
       type: string
     structure:

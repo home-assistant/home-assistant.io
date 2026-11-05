@@ -1,25 +1,10 @@
 ---
-title: RFLink
 description: Instructions on how to integrate RFLink gateway into Home Assistant.
-ha_categories:
-  - hubs_protocols.wireless_protocols
-  - diy_makers.boards_hardware
-ha_iot_class: Assumed State
 ha_release: 0.38
 ha_domain: rflink
-ha_platforms:
-  - binary_sensor
-  - cover
-  - light
-  - sensor
-  - switch
-ha_codeowners:
-  - '@javicalle'
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **RFLink** {% term integration %} supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).

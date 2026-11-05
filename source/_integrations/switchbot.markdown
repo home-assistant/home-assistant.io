@@ -1,42 +1,9 @@
 ---
-title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
-ha_categories:
-  - sensors
-  - blinds_curtains
-  - plugs_switches
 ha_release: 0.78
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@danielhiversen'
-  - '@RenierM26'
-  - '@murtas'
-  - '@Eloston'
-  - '@dsypniewski'
-  - '@zerzhang'
 ha_domain: switchbot
 works_with:
   - bluetooth
-ha_bluetooth: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: gold
 ---
 
 The **SwitchBot Bluetooth** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, and hubs.
@@ -188,6 +155,7 @@ In addition to the certified devices, the following devices are also supported:
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Circulator Fan Pro](https://www.switch-bot.com/products/switchbot-battery-circulator-fan-2-pro)
 - Standing Fan (FAN2)
 
 ### Vacuums
@@ -543,6 +511,8 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+- on button press event
+- off button press event
 
 #### Keypad Vision (Pro)
 
@@ -814,7 +784,7 @@ Features:
 
 ### Fans
 
-Fan entities are added for Battery Circulator Fan/Circulator Fan and Standing Fan.
+Fan entities are added for Battery Circulator Fan/Circulator Fan, Circulator Fan Pro, and Standing Fan.
 
 #### Battery Circulator Fan/Circulator Fan
 
@@ -825,6 +795,17 @@ Features:
 - set mode
 - oscillate left and right
 - get battery level (Battery Circulator Fan only)
+
+#### Circulator Fan Pro
+
+This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+The Circulator Fan Pro combines a fan with a built-in night light. It adds the following entities:
+
+- A fan that supports turning on or off, setting the speed, setting the mode (including hurricane), and oscillating.
+- A light for the two-level (high and low) night light.
+- A switch for vertical oscillation.
+- A sensor for the battery level.
 
 #### Standing Fan
 
@@ -841,6 +822,10 @@ Features:
 ### Air Purifiers
 
 Fan entities are added for Air Purifier, and Air Purifier Table.
+
+The **Filter usage** diagnostic sensor shows the number of hours the filter has been used, as reported by the device.
+
+After replacing the filter, use the **Reset filter usage** button under **Configuration** on the device page to reset the device counter. The sensor reports zero after the device confirms the reset.
 
 Air purifier currently supports three speed levels, which you can adjust by setting the mode.
 
@@ -861,6 +846,8 @@ Features:
 - set LED RGB
 - set LED brightness
 - get air quality level
+- get filter usage in hours
+- reset filter usage after replacing the filter
 - get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 #### Air Purifier Table
@@ -879,6 +866,8 @@ Features:
 - set LED RGB
 - set LED brightness
 - get air quality level
+- get filter usage in hours
+- reset filter usage after replacing the filter
 - get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 ### Vacuums
@@ -940,6 +929,7 @@ Note: Users need to preset images in the app.
 Features:
 - next image
 - previous image
+- random image
 
 {% include integrations/actions.md %}
 

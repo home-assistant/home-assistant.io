@@ -1,12 +1,7 @@
 ---
-title: Garage door
 description: This integration provides garage door automation triggers and conditions.
 ha_release: 2026.4
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: garage_door
-ha_integration_type: system
 ---
 
 The **Garage door** {% term integration %} provides automation triggers and conditions for binary sensors with device class `garage_door` and covers with device class `garage`.

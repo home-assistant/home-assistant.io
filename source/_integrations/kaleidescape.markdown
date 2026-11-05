@@ -1,20 +1,7 @@
 ---
-title: Kaleidescape
 description: Control Kaleidescape movie players from Home Assistant, and use their playback and video sensors in automations.
-ha_categories:
-  - media_entertainment.tv_streaming
 ha_release: '2022.4'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_ssdp: true
-ha_codeowners:
-  - '@SteveEasley'
 ha_domain: kaleidescape
-ha_platforms:
-  - media_player
-  - remote
-  - sensor
-ha_integration_type: device
 ---
 
 The **Kaleidescape** {% term integration %} lets you control and automate [Kaleidescape](https://www.kaleidescape.com/) movie players from Home Assistant. You can see what is playing, send remote commands to the player, and use the playback and video information of the current movie in automations.

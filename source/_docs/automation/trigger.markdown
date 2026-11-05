@@ -43,7 +43,7 @@ General triggers, such as **State changed** and **Numeric state crossed threshol
 
 An automation can have more than one trigger. Any of them can start the automation. If the automation is still running when a trigger reacts, its [mode](/docs/automation/modes/) decides what happens. To do different things depending on which trigger reacted, add a **Triggered by** condition and select the trigger. For the steps, refer to [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
 
-One trigger can also watch several targets, for example, all lights in a room. Its **Trigger when** option decides whether it reacts each time one of the targets changes, only for the first one, or once all targets have made the change. For details, refer to [Automation targets](/docs/automation/targets/#triggers-each-first-and-all).
+One trigger can also watch several targets, for example, all lights in a room. Its **Trigger when** option decides whether it reacts each time one of the targets changes, only for the first one, or once all targets have made the change. For details, refer to [Automation targets](/docs/automation/targets/#triggers-each-first-and-all). To leave out some of the targets, for example, one motion sensor in a room, refer to [Excluding targets](/docs/automation/targets/#excluding-targets).
 
 To start an automation only when two things are both true, add a trigger for each change, and a condition for each of the two things. For an example, refer to [when two things must both be true](/docs/automation/how-automations-react-to-changes/#when-two-things-must-both-be-true).
 
@@ -85,8 +85,7 @@ In YAML, a trigger can also have the following elements:
 In the visual automation editor, select triggers directly when you add a **Triggered by** condition.
 Home Assistant creates and manages the trigger IDs needed for those selections.
 
-To set a specific trigger ID yourself, edit the automation in YAML.
-All triggers can be assigned an optional `id`.
+To set a specific trigger ID, [edit the ID from the user interface](#editing-the-id-of-a-trigger-from-the-ui) or change the `id` in YAML.
 If the ID is omitted, Home Assistant uses the trigger's position in the trigger list.
 You can reference the `id` in [Triggered by](/conditions/trigger/) conditions and in actions.
 IDs do not have to be unique.
@@ -257,61 +256,7 @@ For setup steps, YAML options, and examples for the time trigger, see [Time trig
 
 ### Webhook trigger
 
-Webhook trigger reacts when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/templating/limited-templates/).
-
-{% note %}
-The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incoming webhook triggers.
-{% endnote %}
-
-```yaml
-automation:
-  trigger_variables:
-    webhook_id_variable: "template_webhook_id"
-  triggers:
-    - trigger: webhook
-      webhook_id: "some_hook_id"
-      allowed_methods:
-        - POST
-        - PUT
-      local_only: true
-    - trigger: webhook
-      webhook_id: "{{ webhook_id_variable }}"
-      allowed_methods:
-        - POST
-```
-
-You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:
-
-```shell
-curl -X POST -d 'key=value&key2=value2' http://your-home-assistant:8123/api/webhook/some_hook_id
-```
-
-Webhooks support HTTP POST, PUT, HEAD, and GET requests; POST requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by selecting **Webhook settings** {% icon "mdi:cog" %} next to the webhook ID.
-
-By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by selecting **Webhook settings** {% icon "mdi:cog" %} next to the webhook ID.
-
-Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
-
-Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
-
-#### Webhook data
-
-Payloads may either be encoded as form data or JSON. Depending on that, its data will be available in an automation template as either `trigger.data` or `trigger.json`. URL query parameters are also available in the template as `trigger.query`.
-
-Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, for example:
-
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' http://your-home-assistant:8123/api/webhook/some_hook_id
-```
-
-#### Webhook security
-
-Webhook endpoints don't require authentication, other than knowing a valid webhook ID. Security best practices for webhooks include:
-
-- Do not use webhooks to trigger automations that are destructive, or that can create safety issues. For example, do not use a webhook to unlock a lock, or open a garage door.
-- Treat a webhook ID like a password: use a unique, non-guessable value, and keep it secret.
-- Do not copy-and-paste webhook IDs from public sources, including blueprints. Always create your own.
-- Keep the `local_only` option enabled for webhooks if access from the internet is not required.
+For setup steps, YAML options, and examples for the **Webhook** trigger, see [Webhook trigger](/triggers/webhook/).
 
 ### Zone trigger
 
@@ -403,6 +348,17 @@ triggers:
 ```
 
 This blueprint automation can then be triggered either by the fixed manual_event trigger, or additionally by any triggers selected in the trigger selector. This is also applicable for `wait_for_trigger` action.
+
+## Editing the ID of a trigger from the UI
+
+Trigger IDs are created automatically, so you don't need to set one yourself. Set your own ID if you want to refer to the trigger by a name you choose, for example, in [Triggered by](/conditions/trigger/) conditions, in templates as `trigger.id`, and in YAML as `id`.
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}, and open the automation.
+2. In the **When** section, on the right side of the trigger, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Edit ID**.
+   - Result: The **Edit trigger ID** dialog opens.
+3. In **Trigger ID**, enter the new ID. For example, `sun_has_set`.
+4. Select **Submit** to save the new ID.
+5. Select **Save** to save the automation.
 
 ## Creating an automation with actions that depend on different triggers
 

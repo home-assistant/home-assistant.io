@@ -1,12 +1,7 @@
 ---
-title: Update
 description: Instructions on how to use update entities with Home Assistant.
 ha_release: 2022.4
-ha_quality_scale: internal
 ha_domain: update
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
   - docs: /docs/configuration/customizing-entities/
     title: Customizing devices

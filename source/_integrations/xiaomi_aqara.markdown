@@ -1,24 +1,7 @@
 ---
-title: Xiaomi Gateway (Aqara)
 description: Instructions for how to integrate the Xiaomi Gateway (Aqara) within Home Assistant.
-ha_categories:
-  - hubs_protocols.smart_home_hubs
 ha_release: 0.57
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@danielhiversen'
-  - '@syssi'
 ha_domain: xiaomi_aqara
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - cover
-  - light
-  - lock
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **Xiaomi Gateway (Aqara)** {% term integration %} allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.

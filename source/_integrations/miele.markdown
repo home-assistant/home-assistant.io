@@ -1,29 +1,7 @@
 ---
-title: Miele
 description: Instructions on how to set up the Miele integration within Home Assistant.
-ha_categories:
-  - appliances_cleaning
-  - climate.fans_ventilation
-ha_iot_class: Cloud Push
 ha_release: '2025.5'
 ha_domain: miele
-ha_codeowners:
-  - '@astrandb'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - light
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_integration_type: hub
-ha_zeroconf: true
-ha_quality_scale: platinum
 ---
 
 The **Miele** {% term integration %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).

@@ -1,0 +1,17 @@
+{
+  "domain": "omnilogic",
+  "name": "Hayward Omnilogic",
+  "integration_type": "hub",
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "water.pools_spas"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor",
+    "switch"
+  ]
+}

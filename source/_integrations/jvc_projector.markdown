@@ -1,21 +1,7 @@
 ---
-title: JVC Projector
 description: Control JVC projectors from Home Assistant, and use their power status, signal information, and picture settings in automations.
-ha_categories:
-  - media_entertainment.tv_streaming
 ha_release: '2023.6'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@SteveEasley'
 ha_domain: jvc_projector
-ha_platforms:
-  - binary_sensor
-  - remote
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **JVC Projector** {% term integration %} lets you control and automate [JVC projectors](https://www.jvc.com/usa/projectors/) from Home Assistant. You can turn the projector on and off, send remote commands, change settings such as the input and picture mode, and use the power status and signal information in automations.

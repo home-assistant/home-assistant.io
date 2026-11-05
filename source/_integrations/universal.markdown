@@ -1,15 +1,7 @@
 ---
-title: Universal media player
 description: Instructions on how to create a universal media player in Home Assistant.
-ha_categories:
-  - media_entertainment
-ha_iot_class: Calculated
 ha_release: 0.11
-ha_quality_scale: internal
 ha_domain: universal
-ha_platforms:
-  - media_player
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -96,7 +88,7 @@ browse_media_entity:
   required: false
   type: string
 device_class:
-  description: The device class that this entity represents. Can be `tv`, `speaker`, or `receiver`.
+  description: Sets the [device class](/integrations/media_player/#device-class) of the media player, such as `tv` or `speaker`.
   required: false
   type: string
 unique_id:

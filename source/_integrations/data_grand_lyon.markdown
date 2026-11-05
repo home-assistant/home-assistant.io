@@ -1,21 +1,7 @@
 ---
-title: Data Grand Lyon
 description: Instructions on how to integrate Grand Lyon open data into Home Assistant.
 ha_release: 2026.6
-ha_categories:
-  - vehicles_transport.public_transport
-  - local_services
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@Crocmagnon'
 ha_domain: data_grand_lyon
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **Data Grand Lyon** {% term integration %} lets you monitor data from the [Grand Lyon open data platform](https://data.grandlyon.com/) (city of Lyon, France).

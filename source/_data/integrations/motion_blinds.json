@@ -1,0 +1,24 @@
+{
+  "domain": "motion_blinds",
+  "name": "Motionblinds",
+  "integration_type": "hub",
+  "codeowners": [
+    "@starkillerOG"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "button",
+    "cover",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

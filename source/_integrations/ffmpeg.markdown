@@ -1,11 +1,7 @@
 ---
-title: FFmpeg
 description: Instructions on how to integrate FFmpeg within Home Assistant.
 ha_release: 0.29
 ha_domain: ffmpeg
-ha_platforms:
-  - camera
-ha_integration_type: system
 ---
 
 The **FFmpeg** {% term integration %} allows other Home Assistant integrations to process

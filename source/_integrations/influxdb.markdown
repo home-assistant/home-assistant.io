@@ -1,21 +1,10 @@
 ---
-title: InfluxDB
 description: Record events in InfluxDB.
-ha_categories:
-  - diy_makers.web_data_connectors
 ha_release: 0.9
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@mdegat01'
-  - '@Robbie1221'
 ha_domain: influxdb
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_config_flow: true
 ---
 
 The **InfluxDB** {% term integration %} lets you transfer all state changes to an external [InfluxDB](https://influxdata.com/) database. This integration supports:

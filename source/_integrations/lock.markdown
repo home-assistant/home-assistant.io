@@ -1,12 +1,7 @@
 ---
-title: Lock
 description: Instructions on how to set up your locks with Home Assistant.
 ha_release: 0.9
-ha_quality_scale: internal
 ha_domain: lock
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 Keeps track of the locks in your environment, their state, and lets you control them.

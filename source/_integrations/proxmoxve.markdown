@@ -1,27 +1,10 @@
 ---
-title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
-ha_categories:
-  - computers_network.nas_servers
 ha_release: 0.103
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@Corbeno'
-  - '@erwindouna'
-  - '@CoMPaTech'
 ha_domain: proxmoxve
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - sensor
-  - update
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: gold
-ha_config_flow: true
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration lets you monitor your Proxmox VE nodes, virtual machines, and containers in Home Assistant, and exposes control actions (if your Proxmox permissions allow it).
