@@ -1712,7 +1712,7 @@ sensors:
         word_byte:
           description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     unit_of_measurement:
-      description: "Unit to attach to value."
+      description: "Unit to attach to value. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes)."
       required: false
       type: string
     unique_id:

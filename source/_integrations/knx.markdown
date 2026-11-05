@@ -1814,7 +1814,7 @@ device_class:
   required: false
   type: string
 unit_of_measurement:
-  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
+  description: Overrides the DPT's default native unit of measurement. The unit must be one of the [units listed for the selected device class](/integrations/number/#list-of-available-device-classes).
   required: false
   type: string
 sync_state:
@@ -2023,7 +2023,7 @@ device_class:
   required: false
   type: string
 unit_of_measurement:
-  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
+  description: Overrides the DPT's default native unit of measurement. The unit must be one of the [units listed for the selected device class](/integrations/sensor/#list-of-available-device-classes).
   required: false
   type: string
 {% endconfiguration %}

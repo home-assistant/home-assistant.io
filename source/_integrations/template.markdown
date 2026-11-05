@@ -2748,7 +2748,7 @@ number:
       type: template
       default: optimistic
     unit_of_measurement:
-      description: Defines the units of measurement of the number, if any.
+      description: Defines the units of measurement of the number, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/number/#list-of-available-device-classes).
       required: false
       type: string
       default: None
@@ -2995,7 +2995,7 @@ sensor:
       type: string
       default: None
     unit_of_measurement:
-      description: "Defines the units of measurement of the sensor, if any. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value."
+      description: "Defines the units of measurement of the sensor, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes). This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None
