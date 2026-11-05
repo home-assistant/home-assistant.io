@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       astro:
-        specifier: 7.4.4
-        version: 7.4.4(sass@1.107.1)(yaml@2.9.1)
+        specifier: 7.4.5
+        version: 7.4.5(sass@1.107.1)(yaml@2.9.1)
       gsap:
         specifier: 3.12.5
         version: 3.12.5
@@ -628,8 +628,8 @@ packages:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
     engines: {node: '>= 0.4'}
 
-  astro@7.4.4:
-    resolution: {integrity: sha512-e+BzhGCaIY/H1tV/BQPTbOPZVZ8wuu6+bbpc+3oSMH2UgoB1l9peSGASk6nswtYra9PO9OoMREhldKtQkZ5TVw==}
+  astro@7.4.5:
+    resolution: {integrity: sha512-n5lET11/qnrOWn4wNpXxD9g2VKkTIa162hHgrkMPChMQC5q/xh2lY2OerK5mpsEAFCNmXsYA7NISE+9Uo7Cxxg==}
     engines: {node: '>=22.23.4', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
     peerDependencies:
@@ -1823,7 +1823,7 @@ snapshots:
 
   aria-query@5.3.2: {}
 
-  astro@7.4.4(sass@1.107.1)(yaml@2.9.1):
+  astro@7.4.5(sass@1.107.1)(yaml@2.9.1):
     dependencies:
       '@astrojs/compiler-rs': 0.5.2
       '@astrojs/internal-helpers': 0.13.0
