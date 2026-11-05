@@ -144,8 +144,8 @@ When Home Assistant receives no data for 60 seconds, the sensors become unavaila
 - The Homey Energy Dongle allows two Local API connections at the same time. Home Assistant uses one of them.
 - The Local API has no password. Anyone on your local network can read your smart meter data.
 - Home Assistant can't read encrypted smart meter data. Some energy providers in Austria, Luxembourg, and Sweden encrypt the data of your smart meter.
-- When the IP address of the Homey Energy Dongle changes, Home Assistant only updates it automatically for meters that send a serial number. Swedish and Hungarian (E.ON) meters don't. For those meters, [update the IP address](#the-ip-address-of-the-homey-energy-dongle-changed) yourself.
-- Home Assistant doesn't remove gas, water, or heat meters that are disconnected from your smart meter, because wireless meters can be out of reach for a while. To remove one, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Homey Energy Dongle**, open the device, and select **Delete**.
+- Home Assistant recognizes the Homey Energy Dongle by the name it advertises on your network. When you add it by IP address and Home Assistant has never discovered it, for example because it's on another network, Home Assistant can't follow it to a new IP address. [Update the IP address](#the-ip-address-of-the-homey-energy-dongle-changed) yourself.
+- Home Assistant doesn't remove meters that are missing from the data, because wireless meters can be out of reach for a while. To remove one, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Homey Energy Dongle**, open the device, and select **Delete**.
 
 ## Troubleshooting
 
@@ -176,7 +176,15 @@ When the active tariff is swapped, or sensors are missing, you may have selected
 
 ### The IP address of the Homey Energy Dongle changed
 
-When your smart meter sends a serial number, Home Assistant updates the IP address automatically when it discovers the Homey Energy Dongle again. Swedish and Hungarian (E.ON) meters don't send one. For those meters, change the **Host** with **Reconfigure**, like in [Wrong or missing values](#wrong-or-missing-values). To prevent this, give the Homey Energy Dongle a fixed IP address in your router.
+Home Assistant updates the IP address automatically when it discovers the Homey Energy Dongle again. When Home Assistant can't discover it, change the **Host** with **Reconfigure**, like in [Wrong or missing values](#wrong-or-missing-values). After that, Home Assistant follows the Homey Energy Dongle again once it discovers it on the new IP address. To prevent this, give the Homey Energy Dongle a fixed IP address in your router.
+
+If you ignored the discovered Homey Energy Dongle and then added it by IP address, Home Assistant can't follow it to a new IP address. Remove the ignored entry under **Ignored integrations** on the {% my integrations title="**Settings** > **Devices & services**" %} page.
+
+### Your smart meter was replaced
+
+When your energy provider replaces your smart meter, Home Assistant adds the new meter as a new **Electricity meter** device with its own sensors. The sensors of the old meter become unknown, so the readings of the two meters don't mix in your energy statistics. Add the new sensors to the [Energy dashboard](#add-your-smart-meter-to-the-energy-dashboard), then delete the old device, like described in [Known limitations](#known-limitations).
+
+DSMR 2.2 and Q3D meters don't protect their data with a checksum, so Home Assistant can't tell two of these meters apart. A new DSMR 2.2 or Q3D meter keeps using the existing sensors.
 
 ### Reporting an issue
 
