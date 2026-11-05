@@ -1,0 +1,57 @@
+// Live card demos, from source/_includes/dashboard/demo.html.
+figure.dashboard-demo {
+  margin: 0 0 1.5em 0;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
+  background-color: #fafafa;
+
+  // Keeps room for the cards until they are added, so the page moves less.
+  &.pending {
+    min-height: 160px;
+  }
+
+  // The screenshot to show when the demo can't show the cards.
+  .dashboard-demo-fallback {
+    display: none;
+    margin: 0 auto;
+  }
+
+  &.show-fallback {
+    .dashboard-demo-section {
+      display: none;
+    }
+
+    .dashboard-demo-fallback {
+      display: block;
+    }
+  }
+
+  figcaption {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+}
+
+// The grid of a section in the sections view of a dashboard. Each card sets
+// the columns and rows it takes. When all cards fit in one row, the section
+// is only as wide as that row.
+.dashboard-demo-section {
+  --gap: 8px;
+  --columns: 12;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  gap: var(--gap);
+  min-height: 56px;
+  max-width: calc(
+    (min(500px, 100%) - 11 * var(--gap)) / 12 * var(--columns) +
+      (var(--columns) - 1) * var(--gap)
+  );
+  margin: 0 auto;
+
+  > ha-embed-card[hidden] {
+    display: none;
+  }
+}
