@@ -110,6 +110,18 @@ const description =
           target.scrollIntoView({ behavior: "smooth" });
         });
       });
+
+      // The Plausible goal "Share WTH": a click on any of the page's "Share
+      // your WTH" buttons, with which one in `context` (hero, tips, cta).
+      // The buttons open the forum in a new tab, so this page stays to send
+      // it.
+      document.querySelectorAll<HTMLElement>("[data-wth-share]").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (typeof window.plausible === "function") {
+            window.plausible("Share WTH", { props: { context: button.dataset.wthShare } });
+          }
+        });
+      });
     </script>
   </body>
 </html>
