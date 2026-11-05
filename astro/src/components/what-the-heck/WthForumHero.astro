@@ -138,11 +138,12 @@ const ideas = [
   }
   .stage {
     /* On wide screens the line and the button wait for the wordmark and
-       the cards to land (the last card pops in at about 1.6s), so the
+       the cards to land (the last card pops in at about 1.6s; the line starts
+       just before, as they settle), so the
        hero builds up and then says what to do. Phones, where they come
        first and the cards follow, show them straight away. */
-    --fh-lead-delay: 1.6s;
-    --fh-action-delay: 1.8s;
+    --fh-lead-delay: 1.4s;
+    --fh-action-delay: 1.6s;
     height: calc(100svh - var(--header-height));
     /* On short screens the hero grows a little past the screen rather than
        letting the button ride up into the intro line. */
