@@ -8,9 +8,9 @@ The **DoorBird** {% term integration %} allows you to integrate your [DoorBird](
 
 There is currently support for the following device types within Home Assistant:
 
-- [Camera](#camera) - View live and historical event based images.
+- [Camera](#camera) - View the live video.
 - [Image](#image) - View the last doorbell ring and last motion images.
-- [Button](#button) - Enable control of relays and camera low-light/night vision (IR) and resetting favorites.
+- [Button](#button) - Control relays and the low-light/night vision (IR) array, and reset favorites.
 - [Event](#event) - Monitor doorbell ring and motion events.
 
 ## Setup
@@ -100,23 +100,21 @@ You can also create automation actions based on the DoorBird RFID scanner being 
 
 ## Camera
 
-The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
-
-The last doorbell ring and last motion still images are also available as [image](#image) entities.
-
-{% note %}
-The camera entities are kept for backwards compatibility and are planned to be deprecated in a future release, so prefer the image entities going forward.
-{% endnote %}
+The `doorbird` camera platform provides an entity for the live video from your DoorBird device.
 
 ## Image
 
-The `doorbird` image platform provides an entity for the last doorbell ring image and an entity for the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device.
-These entities use push-based updates driven by the device's events. Each image refreshes the moment a doorbell ring or motion event fires, rather than on a polling interval.
+The `doorbird` image platform provides an entity for the last doorbell ring image and an entity for the last motion image from your DoorBird device.
+Each image refreshes the moment a doorbell ring or motion event fires.
+
+{% important %}
+The image entities only update when your DoorBird device sends doorbell ring and motion events to Home Assistant. Make sure these [events](#events) are set up, or the images will not refresh.
+{% endimportant %}
 
 ## Button
 
-The `doorbird` button platform allows you to power connected relays and trigger the low-light/dark Infra-Red (IR) array on your [DoorBird](https://www.doorbird.com/) video doorbell device.
+The `doorbird` button platform provides an entity for each connected relay, an entity for the low-light/night vision (IR) array, and an entity for resetting the favorites on your DoorBird device.
 
 ## Event
 
-An event entity will be created for each doorbell or motion event with a configured HTTP(s) call in the [schedule](#schedules).
+The `doorbird` event platform provides an entity for each doorbell or motion event with a configured HTTP(S) call in the [schedule](#schedules).
