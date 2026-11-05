@@ -137,7 +137,7 @@ automation: |
 
 The Homey Energy Dongle pushes new data to Home Assistant as soon as your smart meter sends it. DSMR 5 meters send data every second, DSMR 4 meters every 10 seconds.
 
-When Home Assistant receives no data for 60 seconds, the sensors become unavailable. Home Assistant then tries to reconnect every 30 seconds.
+When Home Assistant receives no data for 60 seconds, the sensors become unavailable. Home Assistant then tries to reconnect every 30 seconds. When a single meter is missing from the data, for example a wireless gas meter that's out of reach, only the sensors of that meter become unavailable.
 
 ## Known limitations
 
@@ -182,7 +182,7 @@ If you ignored the discovered Homey Energy Dongle and then added it by IP addres
 
 ### Your smart meter was replaced
 
-When your energy provider replaces your smart meter, Home Assistant adds the new meter as a new **Electricity meter** device with its own sensors. The sensors of the old meter become unknown, so the readings of the two meters don't mix in your energy statistics. Add the new sensors to the [Energy dashboard](#add-your-smart-meter-to-the-energy-dashboard), then delete the old device, like described in [Known limitations](#known-limitations).
+When your energy provider replaces your smart meter, Home Assistant adds the new meter as a new **Electricity meter** device with its own sensors. The sensors of the old meter become unavailable, so the readings of the two meters don't mix in your energy statistics. Add the new sensors to the [Energy dashboard](#add-your-smart-meter-to-the-energy-dashboard), then delete the old device, like described in [Known limitations](#known-limitations).
 
 DSMR 2.2 and Q3D meters don't protect their data with a checksum, so Home Assistant can't tell two of these meters apart. A new DSMR 2.2 or Q3D meter keeps using the existing sensors.
 
