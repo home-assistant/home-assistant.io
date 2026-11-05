@@ -87,32 +87,38 @@ const copies = [0, 1, 2];
     letter-spacing: -0.5px;
     white-space: nowrap;
   }
+  /* The WTHs as the campaign's chat draws them: white, a hairline border,
+     a soft shadow and a speech-bubble corner, leaning a touch. */
   .bubble {
     background: var(--wth-surface);
-    border: 2px solid var(--wth-ink);
-    border-radius: 1.25rem 1.25rem 1.25rem 0.3rem;
-    box-shadow: 0.3rem 0.3rem 0 var(--wth-mint);
+    border: 1px solid var(--wth-border);
+    border-radius: 1.25rem 1.25rem 1.25rem 0.375rem;
+    box-shadow: 0 8px 22px rgb(30 33 38 / 8%);
+    color: var(--wth-ink);
     flex: none;
-    font-family: var(--font-sans);
+    font-family: var(--font-heading);
     font-size: var(--font-size-large);
     font-weight: 600;
     line-height: 1.35;
-    padding: var(--space-large) var(--space-xlarge);
-    transform: rotate(-2deg);
+    padding: var(--space-medium) var(--space-large);
+    rotate: -1.5deg;
     width: 17rem;
-    &.alt { box-shadow: 0.3rem 0.3rem 0 var(--wth-sky); transform: rotate(2deg); }
+    &.alt { rotate: 1.5deg; }
   }
+  /* And our replies, as the chat's replies: mint, tail on the right. */
   .reply {
     background: var(--wth-mint);
-    border-radius: 1.1rem 1.1rem 0.3rem 1.1rem;
-    color: var(--wth-ink-base);
+    border-radius: 1.25rem 1.25rem 0.375rem 1.25rem;
+    box-shadow: 0 10px 24px rgb(5 107 81 / 18%);
+    color: var(--wth-ink);
     flex: none;
-    font-size: clamp(1.1rem, 0.9rem + 0.6vw, 1.5rem);
-    font-weight: 700;
-    padding: 0.35em 0.7em;
-    transform: rotate(-2deg);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    padding: var(--space-medium) 1.125rem;
+    rotate: 1.5deg;
     white-space: nowrap;
-    &.alt { background: var(--wth-sky); transform: rotate(2deg); }
+    &.alt { rotate: -1.5deg; }
   }
   .toggle {
     align-items: center;

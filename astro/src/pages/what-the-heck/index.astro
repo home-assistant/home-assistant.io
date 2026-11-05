@@ -26,7 +26,7 @@ import WthTips from "../../components/what-the-heck/WthTips.astro";
 import WthHouseholdNote from "../../components/what-the-heck/WthHouseholdNote.astro";
 import WthJourney from "../../components/what-the-heck/WthJourney.astro";
 import WthRows from "../../components/what-the-heck/WthRows.astro";
-import WthEndCta from "../../components/what-the-heck/WthEndCta.astro";
+import WthCta from "../../components/what-the-heck/WthCta.astro";
 import { release } from "../../lib/site.mjs";
 import "../../styles/tokens.scss";
 import "../../styles/wth.scss";
@@ -87,12 +87,12 @@ const description =
     <main class="wth">
       {/* One job: getting people to post. The hero (button, ideas and real
           forum WTHs), the tips with this year's challenge, what happens
-          next, the WTH rows, and a closing call to action. */}
+          next, the WTH rows, and the closing call to action. */}
       <WthForumHero />
       <WthTips><WthHouseholdNote /></WthTips>
       <WthJourney variant="card" story="after" tone="band" />
       <WthRows />
-      <WthEndCta />
+      <WthCta />
     </main>
 
     <SiteFooter />
