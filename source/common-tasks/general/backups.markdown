@@ -117,7 +117,7 @@ If you have Home Assistant Link, you can store a backup of maximum 5&nbsp;GB on 
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and on the **Automatic backup** card, select **Configure backup settings**.
 2. Under **Locations**, turn on all the backup locations you want to use.
-   - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
+   - If you don't see Home Assistant Link in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you want to back up to your NAS (such as [Synology](/integrations/synology_dsm/#backup-location)) or a cloud provider (such as [Google Drive](/integrations/google_drive/) or [Microsoft OneDrive](/integrations/onedrive/)), check their integration documentation for specific instructions on setting up a Home Assistant backup.
    - If you don't see your network storage or local disk, you haven't added it with the **Backup** usage. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) or [adding a local disk](/common-tasks/os/#adding-a-local-disk), and select the **Backup** usage.
    ![Define the backup locations](/images/screenshots/network-storage/backup_locations_encryption.png)
@@ -279,7 +279,7 @@ You can use a backup during the onboarding process to restore your configuration
        - You can access any connected network drive from there.
      - Select the backup file.
    - To restore a backup from Home Assistant Link:
-     - On the welcome screen, select **Home Assistant Cloud**.
+     - On the welcome screen, select **Home Assistant Link**.
      - Sign in to Home Assistant Link.
 3. In the dialog, select all the parts you want to restore.
       - Your current system will be overwritten with the parts that you choose to restore.

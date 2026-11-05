@@ -26,7 +26,7 @@ There are multiple options to consider:
 
 If you have Nabu Casa's [Home Assistant Link](https://support.nabucasa.com/hc/en-us/categories/24734619902749), the easiest way to resolve this, is by visiting your Home Assistant instance from the remote URL.
 
-Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %}.
+Go to {% my cloud title="**Settings** > **Home Assistant Link**" %}.
 
 Visit your instance on the remote URL. Now you can set up the integration as normal, without getting the "No URL Available" message.
 

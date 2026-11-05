@@ -52,7 +52,7 @@ Only open up remote access when you actually need it. This automation turns it o
 - **Trigger**: Zone left
   - **Target**: You
   - **Zone**: Home
-- **Action**: Home Assistant Cloud: Enable Home Assistant Cloud remote access
+- **Action**: Home Assistant Link: Enable Home Assistant Link remote access
 
 {% details "YAML example for turning on remote access when you leave" %}
 
@@ -78,7 +78,7 @@ When you're home, you reach Home Assistant on your local network. This automatio
 - **Trigger**: Zone entered
   - **Target**: You
   - **Zone**: Home
-- **Action**: Home Assistant Cloud: Disable Home Assistant Cloud remote access
+- **Action**: Home Assistant Link: Disable Home Assistant Link remote access
 
 {% details "YAML example for turning off remote access when you get home" %}
 

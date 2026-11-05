@@ -45,7 +45,7 @@ With [Home Assistant Link](/link/), a webhook gets a public address. Apps and se
 
 1. In the automation, select **Webhook settings** {% icon "mdi:cog" %} on the trigger, and turn off **Only accessible from the local network**. Then, select **Save**.
    - Requests through Home Assistant Link don't count as local, so the webhook must accept requests from outside your local network. Webhooks that only accept local requests don't appear in the list of Home Assistant Link webhooks.
-2. Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %}, and select **Webhooks**.
+2. Go to {% my cloud title="**Settings** > **Home Assistant Link**" %}, and select **Webhooks**.
 3. Next to your automation, turn on the switch.
    - Result: A dialog shows the **Public address** of the webhook.
 4. Use the public address in the app or service. To see the address again later, select **Manage** next to the automation.
