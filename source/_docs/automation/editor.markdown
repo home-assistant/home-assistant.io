@@ -140,7 +140,7 @@ In the **Menu** {% icon "mdi:dots-vertical" %} of the row, select **Delete**. To
 
 ## List of keyboard shortcuts
 
-The visual editor supports the following keyboard shortcuts. On a Mac, use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd>. The shortcuts don't work while you type in a text field.
+The visual editor supports the following keyboard shortcuts. On a Mac, use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd>. Most of the shortcuts don't work while you type in a text field.
 
 - <kbd>Ctrl</kbd>+<kbd>S</kbd>: Save the automation.
 - <kbd>Ctrl</kbd>+<kbd>Z</kbd>: Undo.
@@ -149,7 +149,7 @@ The visual editor supports the following keyboard shortcuts. On a Mac, use <kbd>
 - <kbd>Ctrl</kbd>+<kbd>X</kbd>: Cut the selected trigger, condition, or action.
 - <kbd>Ctrl</kbd>+<kbd>V</kbd>: Paste after the selected trigger, condition, or action.
 - <kbd>Ctrl</kbd>+<kbd>Delete</kbd> or <kbd>Ctrl</kbd>+<kbd>Backspace</kbd>: Delete the selected trigger, condition, or action.
-- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd>: Switch between the visual editor and the YAML editor. This shortcut also works in the script and scene editors, in card and dashboard editors, and in **Settings** > **Tools** > **Actions**.
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd>: Switch between the visual editor and the YAML editor. This shortcut also works in the script and scene editors, in card and dashboard editors, and in **Settings** > **Tools** > **Actions**. It also works work while you type in a text field.
 
 To see all shortcuts, open the keyboard shortcuts dialog with <kbd>Shift</kbd>+<kbd>?</kbd>.
 
