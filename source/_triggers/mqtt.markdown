@@ -64,7 +64,7 @@ trigger: |
   value_template: "{{ value_json.state }}"
 {% endexample %}
 
-You can use templates in `topic` and `payload`, for example with [trigger variables](/docs/automation/trigger/#trigger-variables). `topic` only supports [limited templates](/docs/templating/limited-templates/).
+You can use [templates](/docs/templating/) in `topic` and `payload`, for example with [trigger variables](/docs/automation/trigger/#trigger-variables).
 
 {% example %}
 automation: |
@@ -78,6 +78,43 @@ automation: |
       payload: "{{ 'state:' ~ value }}"
 {% endexample %}
 
+The `topic` follows changes. When an entity state, or a device, area, floor, or label that the template uses changes, the trigger switches to the new topic. You don't have to reload the automation. The `payload` is worked out once, when the trigger is set up.
+
+This is useful in blueprints. For example, Zigbee2MQTT publishes the actions of a remote on a topic that contains the name of the device. The blueprint below builds the topic from the device you pick. When you rename the remote in Zigbee2MQTT, the trigger follows the new name.
+
+{% raw %}
+
+```yaml
+blueprint:
+  name: "Toggle a light with a Zigbee2MQTT remote"
+  domain: automation
+  input:
+    remote:
+      name: Remote
+      selector:
+        device:
+          filter:
+            - integration: mqtt
+    light:
+      name: Light
+      selector:
+        entity:
+          filter:
+            - domain: light
+trigger_variables:
+  remote: !input remote
+triggers:
+  - trigger: mqtt
+    topic: "zigbee2mqtt/{{ device_attr(remote, 'name') }}/action"
+    payload: "single"
+actions:
+  - action: light.toggle
+    target:
+      entity_id: !input light
+```
+
+{% endraw %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -86,7 +123,7 @@ trigger:
   required: true
   type: string
 topic:
-  description: The MQTT topic to listen to. Supports limited templates.
+  description: The MQTT topic to listen to. Supports templates. When the result of the template changes, the trigger switches to the new topic.
   required: true
   type: string
 payload:
@@ -112,7 +149,9 @@ qos:
 ## Good to know
 
 - If you do not set **Payload** (`payload`), the trigger fires for any message on the configured topic.
-- The `topic` option supports [limited templates](/docs/templating/limited-templates/), and the `payload` option supports templates. Both are evaluated when the trigger is set up. They are not re-evaluated for each incoming MQTT message.
+- The `topic` and `payload` options support templates. They are not worked out again for each incoming MQTT message.
+- The `topic` follows changes of the entities, devices, areas, floors, and labels that the template uses. The `payload` is worked out once, when the trigger is set up.
+- When the trigger switches to a new topic, a retained message on the new topic starts the automation. This is the same as when the automation is set up.
 - By default, MQTT payloads are decoded as `utf-8`. If the payload is binary data, such as an image or another byte payload, set `encoding` to an empty string in YAML.
 - If the incoming payload contains valid JSON, the trigger data includes `trigger.payload_json`.
 
