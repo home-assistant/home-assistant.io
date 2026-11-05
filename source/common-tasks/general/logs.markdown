@@ -33,6 +33,9 @@ The **Logs** page shows the errors and warnings of Home Assistant. A message tha
 3. To see the entire log, select **Menu** {% icon "mdi:dots-vertical" %} > **Show raw logs**.
    - To go back to the errors and warnings, select **Menu** {% icon "mdi:dots-vertical" %} > **Show condensed logs**.
 4. To find a message, enter a word from the message in the **Search logs** field.
+5. To see only the messages of some integrations, select the integrations in the filter. The errors, warnings and the raw logs then only show the messages of the selected integrations.
+   - Your search, the filter, and whether you show the raw logs are kept in the address of the page. You can bookmark a filtered view or share a link to it.
+6. In the raw logs, each search result is shown with three lines before and after it. To see the lines in between, select the button between the results.
 
 ## Downloading the logs
 
