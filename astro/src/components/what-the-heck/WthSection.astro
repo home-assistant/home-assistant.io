@@ -57,6 +57,13 @@ const { id, heading, lead, tone = "page" } = Astro.props;
     --wth-section-surface: var(--wth-wash);
   }
 
+  /* A section pinned by GSAP (see WthJourney) is fixed in the window while
+     its pin-spacer holds its place. On a window taller than the section,
+     the spacer shows above and below it: give it the section's surface so
+     there's no gap of page colour. */
+  :global(.pin-spacer):has(> .surface) { background-color: var(--wth-surface); }
+  :global(.pin-spacer):has(> .band) { background-color: var(--wth-wash); }
+
   .content {
     margin-inline: auto;
     max-width: var(--wth-measure);
