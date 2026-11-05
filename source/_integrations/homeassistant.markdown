@@ -176,7 +176,7 @@ device_class:
   type: device_class
   default: None
 unit_of_measurement:
-  description: Defines the units of measurement, if any. This will also influence the graphical presentation in the history visualization as continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values.
+  description: Defines the units of measurement, if any. For a sensor with a `device_class`, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes). This will also influence the graphical presentation in the history visualization as continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values.
   required: false
   type: string
   default: None

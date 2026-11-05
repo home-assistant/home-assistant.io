@@ -198,7 +198,7 @@ command_line:
           required: false
           type: string
         unit_of_measurement:
-          description: Defines the unit of measurement of the sensor, if any.
+          description: Defines the unit of measurement of the sensor, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes).
           required: false
           type: string
         value_template:

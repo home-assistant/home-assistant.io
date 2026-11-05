@@ -341,7 +341,7 @@ ignore_non_numeric:
   required: false
   default: false
 unit_of_measurement:
-  description: Only available for `sensor` group. Set the unit of measurement for the sensor.
+  description: Only available for `sensor` group. Set the unit of measurement for the sensor. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes).
   type: string
   required: false
 device_class:
