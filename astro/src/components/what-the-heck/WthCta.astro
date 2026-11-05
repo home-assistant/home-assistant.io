@@ -36,6 +36,9 @@ import { blogUrl, forumUrl } from "../../lib/wth.mjs";
   @use "../../styles/breakpoints";
 
   section {
+    /* Follows the blue band of "What happens next?": fades from its blue
+       into the page colour instead of starting at a hard edge. */
+    background: linear-gradient(to bottom, var(--wth-wash), var(--wth-page) var(--wth-section-space));
     padding-block: var(--wth-section-space);
   }
 
