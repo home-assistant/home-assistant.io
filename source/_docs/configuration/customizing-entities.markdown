@@ -20,8 +20,12 @@ Home Assistant can use this information when it creates new entity IDs.
 
 An _entity name_ identifies the specific function or data point, such as `Temperature` or `Power`.
 By default, when an entity belongs to a device, Home Assistant displays the device name with the entity name, such as `Thermostat Temperature`.
+
 If the device is a [child device](#parent-and-child-devices), such as a socket of a power strip, Home Assistant also adds the name of the parent device, unless the child device has its own area.
-When you rename an entity, enter only the entity name. Home Assistant adds the device name where it is needed.
+
+When you rename an entity, enter only the entity name.
+Home Assistant adds the device name where it is needed.
+
 An _entity ID_ identifies the entity in automations, scripts, and other configuration, such as `sensor.living_room_thermostat_temperature`.
 Changing an entity name does not change its entity ID.
 Renaming a floor, area, or device, or moving a device to another area, does not change entity IDs either.
