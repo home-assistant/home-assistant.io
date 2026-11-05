@@ -22,11 +22,23 @@ To add AEMET OpenData integration go to {% my integrations title="**Settings** >
 {% configuration_basic %}
 API Key:
   description: "API Key from the website"
+Remind me before the API key expires:
+  description: "Show a persistent notification three days before the API key expires."
+API key generation date:
+  description: "Date the API key was generated. Used to calculate the expiry date."
 Name:
   description: "Name of the integration"
 Location:
   description: "Latitude and longitude for weather forecast and sensor"
 {% endconfiguration_basic %}
+
+### API key expiry
+
+AEMET API keys expire every three months. Enter the date the key was generated when adding or updating the integration. If you leave it empty, the current date is used. The generation date is only used by Home Assistant to calculate the expiry date.
+
+When the API key expiry reminder is enabled, Home Assistant creates a persistent notification three days before the key expires, at 09:00 local time. When the key expires or AEMET rejects it, Home Assistant starts a reauthentication flow where you can enter a new API key and its generation date.
+
+You can also update the API key and generation date from the integration options at any time.
 
 The integration creates one weather entity per forecast mode and also sensors for all available conditions. There are two forecast modes, `daily` for daily forecast up to 6 days or `hourly` for an hourly forecast up to 3 days.
 
