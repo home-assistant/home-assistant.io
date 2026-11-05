@@ -270,7 +270,7 @@ If your air conditioner reacts to most commands but not to one mode or button, y
 
 The event entity only fires for commands it receives from an LG TV remote. Signals from other remotes, including universal remotes set to another brand, are ignored.
 
-1. Make sure you selected an infrared receiver for the TV during setup. You can't add one later. Remove the TV from the integration and add it again with the receiver selected.
+1. Make sure the TV has an infrared receiver selected. If it does not, add one by [reconfiguring the integration](#reconfiguring-the-integration).
 2. Check that the infrared receiver entity updates when you press a button. If it does not, refer to [An infrared receiver does not pick up signals](/integrations/infrared/#an-infrared-receiver-does-not-pick-up-signals).
 
 ### Reporting an issue
