@@ -45,7 +45,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
 - [Back up your installation](/common-tasks/general/backups/).
   - Make sure the backup is stored on a [backup location](/common-tasks/general/backups/#defining-backup-locations) outside of the device where Home Assistant is installed.
-    - For example, if Home Assistant is installed on [Home Assistant Green](/green), make sure it is stored on [Home Assistant Link](/common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-cloud) or another location.
+    - For example, if Home Assistant is installed on [Home Assistant Green](/green), make sure it is stored on [Home Assistant Link](/common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-link) or another location.
   - So that you can [restore from that backup](/common-tasks/general/backups/#restoring-a-backup) in case there is an issue with the system.
 
 #### To update the Home Assistant Operating System

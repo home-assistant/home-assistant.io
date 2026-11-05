@@ -117,7 +117,7 @@ If you have Home Assistant Link, you can store a backup of maximum 5&nbsp;GB on 
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and on the **Automatic backup** card, select **Configure backup settings**.
 2. Under **Locations**, turn on all the backup locations you want to use.
-   - If you don't see Home Assistant Link in the list, you are not [logged in](https://www.nabucasa.com/config/).
+   - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you want to back up to your NAS (such as [Synology](/integrations/synology_dsm/#backup-location)) or a cloud provider (such as [Google Drive](/integrations/google_drive/) or [Microsoft OneDrive](/integrations/onedrive/)), check their integration documentation for specific instructions on setting up a Home Assistant backup.
    - If you don't see your network storage or local disk, you haven't added it with the **Backup** usage. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) or [adding a local disk](/common-tasks/os/#adding-a-local-disk), and select the **Backup** usage.
    ![Define the backup locations](/images/screenshots/network-storage/backup_locations_encryption.png)
@@ -382,7 +382,7 @@ First, find out which storage has the problem. If it's Home Assistant's own stor
    1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}, and in the top-right corner, select **Home Assistant Core** > **Supervisor**.
    2. Find the error. It includes the path of the file that couldn't be read or written.
    3. If the path contains `mounts/` followed by the name of your network storage, the problem is on the network storage. Check that the share is available, and that the user you entered in Home Assistant can write to it. The other steps don't apply.
-2. Check if you have a recent backup on another location, such as [Home Assistant Link](#about-the-backup-storage-on-home-assistant-cloud) or network storage.
+2. Check if you have a recent backup on another location, such as [Home Assistant Link](#about-the-backup-storage-on-home-assistant-link) or network storage.
    - Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and select **Show all backups**. The **Locations** column shows where each backup is stored.
    - Backups on other locations aren't affected by the storage problem. If you have a recent one, continue with step 6.
 3. If you can't reach Home Assistant at all, use a backup from another location.
@@ -670,7 +670,7 @@ The errors mean the following:
 
 1. Check the encryption key. Use the key from the [backup emergency kit](/more-info/backup-emergency-kit/) of the system that created the backup.
    - If you changed the encryption key after you created the backup, use the old key.
-2. Use another copy of the backup. For example, [download it again from Home Assistant Link](#downloading-a-backup-from-home-assistant-cloud), or use the copy from your network storage or another backup location.
+2. Use another copy of the backup. For example, [download it again from Home Assistant Link](#downloading-a-backup-from-home-assistant-link), or use the copy from your network storage or another backup location.
    - If you copied the file yourself, copy it again. Then, check that the copy is the same size as the original.
 3. Upload the `.tar` file as it is. Don't unpack it and pack it again.
 4. If no copy of the backup works, the backup can't be used. Use an older backup.

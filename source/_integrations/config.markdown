@@ -13,7 +13,7 @@ This is an internal integration and is enabled by default.
 
 The **Settings** menu provides access to the following panels:
 
-### Home Assistant Link
+### Home Assistant Cloud
 
 Enables you to connect to [Home Assistant Link](https://support.nabucasa.com/hc/articles/26260474250269) to use features such as secure remote access, voice assistants, or cloud storage for backups.
 
