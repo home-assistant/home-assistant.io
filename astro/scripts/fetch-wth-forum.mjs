@@ -9,6 +9,11 @@
 // this month, by votes, plus its latest topics, so the hero shows both the
 // big ones and fresh ones. On any failure it leaves the previous file alone
 // and exits 0, so a forum hiccup never breaks the site build.
+//
+// The file is committed, so a build where the forum can't be reached (for
+// example when Cloudflare turns away the build server) still shows real
+// topics from the last snapshot instead of the page's example WTHs. Run the
+// script and commit the result to refresh the snapshot.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
