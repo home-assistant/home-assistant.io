@@ -44,6 +44,7 @@ Enjoy the release!
 - [Welcome to the Marketplace](#welcome-to-the-marketplace)
   - [Browse and install](#browse-and-install)
   - [Custom repositories](#custom-repositories)
+  - [Where your downloads come from](#where-your-downloads-come-from)
   - [Thank you, HACS](#thank-you-hacs)
 - [Exclude items from a target](#exclude-items-from-a-target)
 - [Copy and paste dashboard sections](#copy-and-paste-dashboard-sections)
@@ -127,6 +128,14 @@ Not every project is in the catalog. To add one that is missing, select **Add fr
 The **Custom repositories** page lists repositories you added this way and lets you open or remove them. A repository stays in the list until you uninstall it.
 
 Custom repositories require a GitHub connection. The Marketplace uses GitHub device sign-in, so you approve the connection on GitHub without entering your password in Home Assistant. The connection only reads public information and cannot access private repositories.
+
+### Where your downloads come from
+
+By default, the Marketplace gets its catalog and everything you install from GitHub. Where GitHub cannot be reached, such as in mainland China, you can switch to the mirrors run by the Home Assistant China community. Go to **Settings** > **Marketplace**, select the three dots {% icon "mdi:dots-vertical" %} menu in the upper-right corner, and select **Download source**. If the Marketplace cannot reach the catalog and a mirror is available for your country, a repair suggests it.
+
+Everything the Marketplace downloads then goes through whoever runs that mirror, and through a third-party proxy whenever those mirrors cannot be reached: the catalog, and the code you install. Only pick a download source you trust. If you used the Chinese version of HACS, the Marketplace selects these mirrors for you when it migrates.
+
+Thanks, [@frenck]!
 
 ### Thank you, HACS
 
@@ -852,9 +861,16 @@ There is even more packed into this release. Here are some of the other changes 
 - **Switch to YAML with the keyboard.** Press Ctrl + Shift + Y, or Cmd + Shift + Y on a Mac, to move between the visual editor and the {% term YAML %} editor. It works in the automation, script, and scene editors, in card and dashboard editors, and in **Settings** > **Tools** > **Actions**. You can find it in the keyboard shortcuts dialog, under **Other**. Thanks, [@Jump-333]!
 - **Drag picture elements into place.** In the Picture elements card editor, select an element in the preview and drag it where you want it, instead of working out its coordinates. Thanks, [@RaHehl]!
 - **Combine calendars into one.** Create a calendar group with the [Group] integration, and it shows the events of all its member [calendars][Calendar] together. Thanks, [@elupus]!
+- **See what is coming up.** Selecting a calendar {% term entity %} now lists its upcoming events, instead of only the one in progress. Thanks, [@elupus]!
 - **Let your AI assistant read the system log.** AI assistants that use the Home Assistant [LLM] API can now read your [System Log], so they can help you track down problems. Thanks, [@allenporter]!
 - **Water heaters and media players in Template.** The [Template] integration can now create water heater and media player entities. Template {% term covers %} can also report and set their speed. Thanks, [@lboue], [@Petro31], and [@Bascht74]!
 - **Use trigger variables in template entities.** Trigger-based template entities can now use the variables of their {% term trigger %}. Thanks, [@Petro31]!
+- **Fire on anything but one state.** In the [state trigger](/triggers/state/), **From** and **To** gained an **Is not** option, so an {% term automation %} can start when an {% term entity %} changes to any state except the one you pick. Thanks, [@Skaronator]!
+- **Clear out several rows at once.** The tables for tags, labels, dashboards, and blueprints gained a selection mode: tick the rows you no longer need and delete them in one go. The Marketplace has it too, for uninstalling. Thanks, [@DaanVervacke]!
+- **Easier to use without a mouse.** Data tables can now be operated with the keyboard and read by a screen reader, icon-only badges and tile icons have accessible names, and the thermostat card is labeled for screen readers. Thanks, [@wendevlin], [@timmo001], and [@karwosts]!
+- **Choose which clients may connect over HTTPS.** The [HTTP](/integrations/http/) integration lets you pick a <abbr title="Transport Layer Security">TLS</abbr> profile. **Intermediate v6** is the new default and works with almost every browser, app, and device, while **Modern v6** accepts TLS 1.3 only. If your installation still uses an older profile, a repair offers the current one. Thanks, [@Markus98]!
+- **More on your Energy dashboard.** You can add your home's total consumption to the [Energy dashboard](/docs/energy/), and the legends of the power and device graphs now show the current value of each source. Thanks, [@Jump-333]!
+- **Follow your Thread and Matter networks.** Thread network information moved to a page of its own, and the Matter network map now also shows the {% term devices %} that reach Home Assistant through a bridge. Thanks, [@ovflowd] and [@mib1185]!
 
 ### Your AI assistant can help troubleshoot
 
@@ -867,6 +883,10 @@ The [KNX](/integrations/knx/) integration brings an LLM API of its own, with too
 Thanks, [@balloob], [@allenporter], and [@martinhoefling]!
 
 [@martinhoefling]: https://github.com/martinhoefling
+[@karwosts]: https://github.com/karwosts
+[@Markus98]: https://github.com/Markus98
+[@mib1185]: https://github.com/mib1185
+[@ovflowd]: https://github.com/ovflowd
 
 ## Need help? Join the community
 
