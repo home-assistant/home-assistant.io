@@ -24,9 +24,10 @@ import { forumUrl, statements } from "../../lib/wth.mjs";
 import { loadWthForum, pickWthTopics } from "../../lib/wth-forum.mjs";
 
 const forum = loadWthForum();
-// A pool larger than the hero shows: the page picks a fresh twelve from it
-// on every visit (see the script below), so returning visitors see
-// different WTHs. The pool is as fresh as the last build.
+// A pool larger than the hero shows, most-voted first, of the community's
+// best-backed WTHs: the top six always show and the page picks the other
+// six afresh on every visit (see the script below). The pool is as fresh
+// as the last build.
 const pool = pickWthTopics(forum, 36).map(({ title, url, author, avatar, votes, replies }) => ({ title, url, author, avatar, votes, replies }));
 let cards = pool.slice(0, 12);
 // Without fetched topics, fall back to the page's own example WTHs.
@@ -356,8 +357,8 @@ const ideas = [
 
 <script>
   // A fresh pick of forum WTHs on every visit: the build ships a pool, and
-  // each card is filled from a shuffled copy of it. Without the script the
-  // build's own twelve stay.
+  // the cards are filled from it. Without the script the build's own
+  // twelve (the most-voted) stay.
   document.querySelectorAll<HTMLElement>("[data-wth-forum-hero]").forEach((hero) => {
     const data = hero.querySelector<HTMLScriptElement>("[data-wth-pool]");
     if (!data) return;
@@ -365,10 +366,18 @@ const ideas = [
     try { pool = JSON.parse(data.textContent || "[]"); } catch { return; }
     const cards = [...hero.querySelectorAll<HTMLElement>(".card")];
     if (pool.length <= cards.length) return;
-    for (let i = pool.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [pool[i], pool[j]] = [pool[j], pool[i]];
-    }
+    const shuffle = <T,>(list: T[]) => {
+      for (let i = list.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [list[i], list[j]] = [list[j], list[i]];
+      }
+      return list;
+    };
+    // The pool comes most-voted first. The biggest WTHs always show; the
+    // other half of the cards rotate through the rest, and all of them
+    // swap places so the top ones aren't always in the same spots.
+    const keep = Math.ceil(cards.length / 2);
+    pool = shuffle([...pool.slice(0, keep), ...shuffle(pool.slice(keep)).slice(0, cards.length - keep)]);
     cards.forEach((card, i) => {
       const t = pool[i];
       const link = card.querySelector("a");

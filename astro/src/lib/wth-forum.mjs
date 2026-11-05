@@ -1,6 +1,6 @@
 // Loads the WTH topics that scripts/fetch-wth-forum.mjs saves from the
-// community forum, and picks the ones a hero should show: the most-voted
-// mixed with the newest, so it shows both the big asks and fresh voices.
+// community forum, and picks the ones the hero should show: the
+// community's most-backed WTHs, with titles that make sense on a card.
 import fs from "node:fs";
 import path from "node:path";
 
@@ -15,25 +15,28 @@ export function loadWthForum(root = path.resolve(process.cwd(), "..")) {
   }
 }
 
-const trim = (text, max) => {
-  if (!text || text.length <= max) return text;
-  const cut = text.slice(0, max);
-  return cut.slice(0, cut.lastIndexOf(" ")).replace(/[,.;:–-]+$/, "") + "…";
-};
+// What makes a topic worth showing in the hero: enough votes that the
+// community has backed it, and a title long enough to say what the problem
+// is ("Scene States" or "Naming things" don't, on a card of their own).
+export const MIN_VOTES = 10;
+export const MIN_TITLE_WORDS = 5;
 
-/** Up to `count` topics: alternately the next most-voted and the next
- *  newest, never the same topic twice, with excerpts trimmed to fit a card. */
+const words = (text = "") => text.split(/\s+/).filter(Boolean).length;
+export const isQualityTopic = (topic) => (topic.votes ?? 0) >= MIN_VOTES && words(topic.title) >= MIN_TITLE_WORDS;
+
+/** Up to `count` topics, most-voted first, from those that pass
+ *  isQualityTopic. If too few pass (early in the month), the rest are
+ *  filled with the next most-voted topics that have a full title, so the
+ *  hero still has its cards. */
 export function pickWthTopics(data, count = 14) {
   if (!data) return [];
-  const seen = new Set();
-  const picked = [];
-  const queues = [[...data.top], [...data.latest].filter((t) => t.excerpt)];
-  for (let i = 0; picked.length < count && (queues[0].length || queues[1].length); i++) {
-    const queue = queues[i % 3 === 2 ? 1 : 0].length ? queues[i % 3 === 2 ? 1 : 0] : queues[0].length ? queues[0] : queues[1];
-    const topic = queue.shift();
-    if (!topic || seen.has(topic.id)) continue;
-    seen.add(topic.id);
-    picked.push({ ...topic, excerpt: trim(topic.excerpt, 110) });
+  const byId = new Map();
+  for (const topic of [...data.top, ...data.latest]) if (!byId.has(topic.id)) byId.set(topic.id, topic);
+  const ranked = [...byId.values()].sort((a, b) => (b.votes ?? 0) - (a.votes ?? 0) || (b.replies ?? 0) - (a.replies ?? 0));
+  const picked = ranked.filter(isQualityTopic).slice(0, count);
+  if (picked.length < count) {
+    const extra = ranked.filter((t) => !isQualityTopic(t) && words(t.title) >= MIN_TITLE_WORDS);
+    picked.push(...extra.slice(0, count - picked.length));
   }
   return picked;
 }
