@@ -13,6 +13,7 @@ The following entities can be grouped:
 - [binary sensor (binary sensors)](/integrations/binary_sensor/)
 - [button (buttons)](/integrations/button/)
 - [calendar (calendars)](/integrations/calendar/)
+- [climate (thermostats and air conditioners)](/integrations/climate/)
 - [cover (covers)](/integrations/cover/)
 - [event (events)](/integrations/event/)
 - [fan (fans)](/integrations/fan/)
@@ -71,6 +72,31 @@ A calendar group shows the events of all its member calendars together.
 - Otherwise, the group state is `off`.
 - The group attributes show the current event, or the next upcoming event, across all group members.
 - Events can't be created, edited, or deleted through a calendar group. Make these changes in the member calendars.
+
+### Climate groups
+
+A climate group lets you control several thermostats or air conditioners as one. The group combines the features and modes of its members. When you control the group, each action is only sent to the members that support it.
+
+The group state is its HVAC mode:
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
+- Otherwise, the group state is the highest-priority HVAC mode of its members, in this order: `heat`, `cool`, `heat_cool`, `auto`, `dry`, `fan_only`, `off`. This means the group is only `off` when all available members are `off`.
+
+The other values of the group are combined from its members:
+
+- **HVAC action**: The highest-priority action of its members, in this order: `heating`, `preheating`, `defrosting`, `cooling`, `drying`, `fan`, `idle`, `off`.
+- **Current and target temperature and humidity**: The average of the members that report them.
+- **Minimum and maximum temperature and humidity**: The range that every member accepts. This is the highest minimum and the lowest maximum of the members, so any value you set on the group is accepted by all members.
+- **Temperature and humidity step**: The largest step of the members.
+- **Available modes**: All HVAC, fan, preset, and swing modes of the members.
+- **Current fan, preset, and swing mode**: The mode used by most members. If there is a tie, the mode of the first member in the group is used.
+
+When you control the group:
+
+- A new target temperature, temperature range, or humidity is only sent to the members that support it.
+- A new HVAC, fan, preset, or swing mode is only sent to the members that support that mode.
+- Turning on the group only turns on members that are off. Members that are already running keep their current mode.
 
 ### Cover and valve groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover and valve groups behave:
@@ -200,6 +226,18 @@ calendar:
     entities:
       - calendar.work
       - calendar.school
+```
+
+Example YAML configuration of a climate group:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: group
+    name: "Downstairs thermostats"
+    entities:
+      - climate.living_room
+      - climate.kitchen
 ```
 
 Example YAML configuration of a cover group:
