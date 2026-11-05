@@ -1,24 +1,7 @@
 ---
-title: NRGkick
 description: Integrate the NRGkick Gen2 mobile EV charger using the local REST JSON API.
-ha_categories:
-  - energy.ev_charging
-ha_iot_class: Local Polling
-ha_quality_scale: silver
 ha_release: 2026.2
-ha_codeowners:
-  - '@andijakl'
 ha_domain: nrgkick
-ha_integration_type: device
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - diagnostics
-  - number
-  - sensor
-  - switch
 related:
   - url: https://www.nrgkick.com/
     title: NRGkick Website
@@ -146,13 +129,13 @@ These sensors are only available on NRGkick SIM models.
 
 ##### Powerflow
 
-- **Charging current** (A): Max current signaled to the EV.
+- **Offered charging current** (A): Max current signaled to the EV. This can differ from the set charging current, for example when load management limits it.
 - **Peak power**\*\* (W): Highest power during the most recent charge session.
 - **Total active power** (W): Total active power across all phases.
 - **Total reactive power**\*\* (var): Total reactive power across all phases.
 - **Total apparent power**\*\* (VA): Total apparent power across all phases.
 - **Total power factor**\*\* (%): Power factor across all phases.
-- **Charging voltage** (V): Average charging voltage across phases.
+- **Average voltage** (V): Average voltage across all phases, also while not charging.
 - **Powerflow grid frequency**\*\* (Hz): Grid frequency reported in powerflow data.
 - **L1 voltage**\*\* (V): Voltage on phase L1.
 - **L1 current** (A): Current on phase L1.
@@ -200,7 +183,7 @@ These sensors are only available on NRGkick SIM models.
 - **Domestic plug 2 temperature** (°C): Domestic attachment pin 2 temperature.
 
 {% important %}
-The sensors marked with \*\* are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) documentation for information on how to do this.
+The sensors marked with \*\* are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) documentation for information on how to do this.
 {% endimportant %}
 
 ### Device tracker
@@ -229,7 +212,7 @@ The integration creates the following controls.
 
 Entity IDs depend on your device name in Home Assistant. The examples below assume the default device name of `NRGkick`.
 
-- `sensor.nrgkick_charging_current`: Charging current.
+- `sensor.nrgkick_offered_charging_current`: Offered charging current.
 - `sensor.nrgkick_charged_energy`: Charged energy.
 - `sensor.nrgkick_total_charged_energy`: Total charged energy. Recommended for the Home Assistant energy dashboard.
 - `sensor.nrgkick_status`: Charging status.

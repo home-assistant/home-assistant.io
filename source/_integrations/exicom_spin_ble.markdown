@@ -1,24 +1,23 @@
 ---
-title: Spin EV Charger
 description: Instructions on how to integrate Exicom Spin EV chargers over Bluetooth Low Energy with Home Assistant.
-ha_categories:
-  - energy.ev_charging
 ha_release: "2026.11"
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Dr-Blank'
-ha_domain: spin_ble
-ha_bluetooth: true
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
+ha_domain: exicom_spin_ble
 ---
 
 The **Spin EV Charger** {% term integration %} connects Home Assistant to [Exicom](https://www.exicom.in/) Spin EV chargers over Bluetooth Low Energy.
 
 The charger is read directly through Home Assistant's [Bluetooth](/integrations/bluetooth) stack. There is no cloud service and no vendor account involved.
+
+Use it to track the energy your vehicle uses in the [Energy dashboard](/home-energy-management), start and stop charging from automations, for example to charge during off-peak hours, and get notified when the charger reports a problem.
+
+## Use cases
+
+The Spin EV Charger integration is useful in scenarios like the following:
+
+- Track how much energy each charging session uses and add the charger to the [Energy dashboard](/home-energy-management) to see what EV charging costs over time.
+- Start charging when your off-peak tariff begins, and stop it before the peak tariff starts.
+- Pause charging while other large loads, such as an oven or a heat pump, are running, to stay below the limit of your electrical service.
+- Get a notification when your vehicle is plugged in, when a charging session ends, or when the charger reports a problem.
 
 ## Supported devices
 
@@ -48,6 +47,8 @@ Changing this option reloads the integration.
 
 ## Supported functionality
 
+### Sensors
+
 The integration creates the following sensors:
 
 - **State**: What the charger is doing. One of *Available*, *Starting up*, *Starting*, *Charging*, *Paused by vehicle*, *Paused by charger*, *Finishing*, *Idle*, *Fault*, or *Out of service*.
@@ -56,6 +57,112 @@ The integration creates the following sensors:
 - **Session energy**: Energy delivered during the current or most recent charging session, in kilowatt-hours (kWh). This value resets when a new session starts.
 - **Lifetime energy**: Total energy the charger has delivered over its life, in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
 
+### Binary sensors
+
+- **Plug**: On while a vehicle is plugged in. The charger cannot tell while it is starting up or out of service, so the sensor is off then.
+- **Problem**: On while the charger reports at least one active alarm, such as a mains fault or an open earth wire.
+
+### Switches
+
+- **Charging**: Starts and stops a charging session. The switch is on while a session is open, including while it is paused by the vehicle or by the charger, since a paused session resumes without a command. A vehicle must be plugged in for charging to start.
+
+## Spin EV Charger automation examples
+
+The integration talks to the charger locally, so automations that read or control the charger keep working without an internet connection. Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Charge during off-peak hours
+
+If your electricity tariff is cheaper at night, you can leave the vehicle plugged in and start charging when the off-peak period begins.
+
+- **Trigger**: Time: 22:00
+- **Condition**: State: The **Plug** binary sensor is on
+  - **Entity**: Plug sensor of the charger (`binary_sensor.ev_charger_plug`)
+- **Action**: Turn on switch
+  - **Target**: Charging switch of the charger (`switch.ev_charger_charging`)
+
+{% details "YAML example for charging during off-peak hours" %}
+
+{% example %}
+automation: |
+  alias: "Start EV charging at off-peak hours"
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.ev_charger_plug
+      state: "on"
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.ev_charger_charging
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Get notified when the charger reports a problem
+
+The **Problem** binary sensor turns on when the charger reports an alarm, such as a mains fault. A notification lets you check on the charger before you need the vehicle.
+
+- **Trigger**: State: The **Problem** binary sensor turns on
+  - **Entity**: Problem sensor of the charger (`binary_sensor.ev_charger_problem`)
+- **Action**: Send a notification message
+  - **Target**: Your notification entity (`notify.my_device`)
+  - **Message**: `The EV charger reports a problem.`
+
+{% details "YAML example for a problem notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the EV charger reports a problem"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.ev_charger_problem
+      to: "on"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The EV charger reports a problem."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Get notified when a charging session ends
+
+When the charging session closes, a notification tells you how much energy the session delivered.
+
+- **Trigger**: State: The **Charging** switch turns off
+  - **Entity**: Charging switch of the charger (`switch.ev_charger_charging`)
+- **Action**: Send a notification message with the **Session energy** sensor value
+  - **Target**: Your notification entity (`notify.my_device`)
+  - **Message**: `Charging finished after {{ states('sensor.ev_charger_session_energy') }} kWh.`
+
+{% details "YAML example for a session summary notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify when EV charging ends"
+  triggers:
+    - trigger: state
+      entity_id: switch.ev_charger_charging
+      from: "on"
+      to: "off"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          Charging finished after
+          {{ states('sensor.ev_charger_session_energy') }} kWh.
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 The integration {% term polling polls %} the charger over Bluetooth. The interval follows what the charger is doing:
@@ -63,7 +170,7 @@ The integration {% term polling polls %} the charger over Bluetooth. The interva
 - Every 60 seconds while a charging session is open, which includes sessions paused by the vehicle or by the charger, since those can resume without a command.
 - Every 5 minutes otherwise, so that a slot handed back between polls leaves the phone app long uncontested stretches.
 
-The interval is not configurable. Entities become unavailable when the charger cannot be reached, for example when it is out of range or another Bluetooth client holds its slot.
+The charger is also read again about 2 seconds after a command, once it has had time to report the new state. The interval is not configurable. Entities become unavailable when the charger cannot be reached, for example when it is out of range or another Bluetooth client holds its slot.
 
 ## Known limitations
 
@@ -74,7 +181,9 @@ The interval is not configurable. Entities become unavailable when the charger c
 
 ### Charger control
 
-The integration only reads from the charger. Starting and stopping a session, and setting the charging current, are not supported.
+- Setting the charging current is not supported.
+- The charger refuses to start charging with no vehicle plugged in, and refuses to stop when no session is open. The charger does not say why it refused, so Home Assistant shows the same error for every refusal.
+- A command needs the charger's Bluetooth slot, the same as a poll. While the vendor phone app holds the slot, commands fail.
 
 ## Troubleshooting
 
@@ -113,6 +222,21 @@ To resolve this issue, try the following steps:
 1. Close the vendor phone app and try again.
 2. Check **Settings** > **Connectivity** > **Bluetooth** > **Connection monitor** and confirm the adapter or proxy has a free active connection slot.
 3. Move the charger, the proxy, or the adapter so they are closer together.
+
+{% enddetails %}
+
+{% details "The charger refuses to start or stop charging" %}
+
+### Symptom: "The charger refused the command"
+
+Turning the **Charging** switch on or off reports that the charger refused the command.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. To start charging, check that the vehicle is plugged in and that the **State** sensor does not show *Starting up*.
+2. To stop charging, check that the **State** sensor shows a session in progress. If no session is open, there is nothing to stop.
 
 {% enddetails %}
 

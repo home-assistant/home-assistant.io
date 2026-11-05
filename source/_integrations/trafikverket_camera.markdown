@@ -1,19 +1,7 @@
 ---
-title: Trafikverket Camera
 description: Instructions on how to integrate Trafikverket Camera within Home Assistant.
-ha_categories:
-  - vehicles_transport
 ha_release: 2023.9
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@gjohansson-ST'
 ha_domain: trafikverket_camera
-ha_platforms:
-  - binary_sensor
-  - camera
-  - sensor
-ha_integration_type: service
 ---
 
 The **Trafikverket Camera** {% term integration %} shows images from the public traffic cameras of [Trafikverket](https://www.trafikverket.se/), the Swedish Transport Administration. Use it to check road and traffic conditions on your route in Sweden directly from your Home Assistant dashboard.
@@ -87,7 +75,7 @@ The **Trafikverket Camera** integration provides the following entities for each
   - **Description**: The date and time when the latest picture was taken.
 - **Modified**
   - **Description**: The date and time when the camera information was last changed.
-  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Photo URL**
   - **Description**: The web address of the latest picture.
   - **Remarks**: Disabled by default.

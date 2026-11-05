@@ -1,20 +1,7 @@
 ---
-title: Venstar
 description: Instructions for how to integrate Venstar WiFi thermostats within Home Assistant.
-ha_categories:
-  - climate.thermostats_heating
 ha_release: 0.62
-ha_iot_class: Local Polling
 ha_domain: venstar
-ha_platforms:
-  - binary_sensor
-  - climate
-  - sensor
-ha_codeowners:
-  - '@garbled1'
-  - '@jhollowe'
-ha_config_flow: true
-ha_integration_type: device
 ---
 
 The **Venstar** {% term integration %} allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.

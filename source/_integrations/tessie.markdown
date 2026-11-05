@@ -1,32 +1,7 @@
 ---
-title: Tessie
 description: Instructions on how to integrate Tessie within Home Assistant.
-ha_categories:
-  - vehicles_transport.cars_evs
-  - energy.solar_batteries
 ha_release: 2024.1
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Bre77'
 ha_domain: tessie
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - device_tracker
-  - diagnostics
-  - lock
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-  - text
-  - update
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Tessie** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.

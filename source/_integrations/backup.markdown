@@ -1,19 +1,7 @@
 ---
-title: Backup
 description: Create and restore backups of your Home Assistant installation.
-ha_categories:
-  - computers_network
 ha_release: 2022.4
-ha_quality_scale: internal
 ha_domain: backup
-ha_codeowners:
-  - '@home-assistant/core'
-ha_iot_class: Calculated
-ha_platforms:
-  - diagnostics
-  - event
-  - sensor
-ha_integration_type: service
 related:
   - docs: /common-tasks/general/backups/
     title: Backups

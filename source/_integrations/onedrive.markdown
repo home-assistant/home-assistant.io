@@ -1,22 +1,10 @@
 ---
-title: OneDrive
 description: Instructions on how to set up OneDrive to be used with backups.
 ha_release: 2025.2
-ha_categories:
-  - productivity_information.documents_photos
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: onedrive
-ha_codeowners:
-  - '@zweckj'
-ha_integration_type: service
 related:
   - docs: /common-tasks/general/backups/
     title: Backups
-ha_quality_scale: platinum
-ha_platforms:
-  - diagnostics
-  - sensor
 ---
 
 This {% term integration %} allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/backups/) as well as uploading generic files to your OneDrive.
@@ -79,7 +67,7 @@ The integration will request the following permissions on your OneDrive for the 
 
 The integration provides the following sensors, which are updated every 5 minutes:
 
-- **Total available storage**: The total size of your drive ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
+- **Total available storage**: The total size of your drive ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - **Used storage**: The amount of storage you have used up
 - **Remaining storage**: The amount of storage that is left in your drive
 - **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`

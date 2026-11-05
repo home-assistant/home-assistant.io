@@ -1,34 +1,8 @@
 ---
-title: Z-Wave
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 featured: true
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: '2021.2'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/z-wave'
 ha_domain: zwave_js
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-ha_integration_type: hub
-ha_zeroconf: true
 related:
   - docs: /connect/zwa-2
     title: Home Assistant Connect ZWA-2 Z-Wave adapter
@@ -344,7 +318,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
 
 5. Remove the temporary files you uploaded to the `/tmp` folder for the migration.
-6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app.
+6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app. For the steps, refer to [Uninstalling an app](/common-tasks/os/apps/#uninstalling-an-app).
 
 ## Overriding the radio frequency region of the adapter in the Z-Wave JS app
 
@@ -472,7 +446,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ### Entities available for every Z-Wave device
 
-1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
+1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
 2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` action.
 3. **Adapter/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [adapter](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot). The statistics can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
 
@@ -667,7 +641,7 @@ Value Notification example:
 
 ### Value updated events
 
-Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to in order to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/docs/configuration/customizing-devices/#assumed_state).
+Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to in order to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/integrations/homeassistant/#assumed_state).
 
 The following devices currently support this event:
 

@@ -12,6 +12,7 @@
     "energy.solar_batteries"
   ],
   "platforms": [
+    "diagnostics",
     "sensor"
   ]
 }

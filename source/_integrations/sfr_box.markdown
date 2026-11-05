@@ -1,21 +1,7 @@
 ---
-title: SFR Box
 description: Instructions on how to integrate your SFR Box broadband router into Home Assistant.
-ha_categories:
-  - computers_network.routers_network
 ha_release: 2023.2
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@epenet'
 ha_domain: sfr_box
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - sensor
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **SFR Box** {% term integration %} connects your **SFR** broadband router to Home Assistant over your local network. It shows the state of your internet connection, details about your DSL or fiber line, and the status of your phone line. You can restart the box from Home Assistant.
@@ -96,7 +82,7 @@ Some entities depend on the type of internet line, which the integration detects
 
 - **DSL attenuation down** and **DSL attenuation up**
   - **Description**: Signal attenuation of the DSL line, in dB, for download and upload
-  - **Remarks**: Only available on DSL lines. These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: Only available on DSL lines. These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **DSL connect count**
   - **Description**: Number of DSL connection attempts
   - **Remarks**: Only available on DSL lines. This entity is disabled by default

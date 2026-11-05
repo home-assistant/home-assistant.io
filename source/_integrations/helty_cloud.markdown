@@ -1,20 +1,7 @@
 ---
-title: Helty Flow Cloud
 description: Instructions on how to integrate cloud-connected Helty Flow ventilation units with Home Assistant.
-ha_categories:
-  - climate.fans_ventilation
 ha_release: 2026.11
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@ebaschiera'
 ha_domain: helty_cloud
-ha_platforms:
-  - binary_sensor
-  - fan
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Helty Flow Cloud** {% term integration %} lets you control [Helty Flow](https://www.heltyair.com/) decentralized heat-recovery ventilation units (also known as <abbr title="Mechanical ventilation with heat recovery">MVHR</abbr> units) that are fitted with the recent control panel, the one managed through the Helty Home app.

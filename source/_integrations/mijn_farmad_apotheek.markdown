@@ -1,16 +1,7 @@
 ---
-title: Mijn Farmad Apotheek
 description: Search and order medication at your Farmad-connected pharmacy in Home Assistant.
 ha_release: 2026.11
-ha_categories:
-  - health_wellbeing
-ha_iot_class: Cloud Polling
 ha_domain: mijn_farmad_apotheek
-ha_integration_type: service
-ha_config_flow: true
-ha_codeowners:
-  - '@DaanVervacke'
-ha_quality_scale: bronze
 ---
 
 The **Mijn Farmad Apotheek** {% term integration %} lets you search the product catalog of your pharmacy and order medication for pickup from Home Assistant, using your [Mijn Farmad Apotheek](https://procura.farmad.be/) account. Mijn Farmad Apotheek is the online service of pharmacies connected to Farmad, a platform used by more than 1000 pharmacies in Flanders.

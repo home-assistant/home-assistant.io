@@ -1,17 +1,7 @@
 ---
-title: Home Assistant Cloud
 description: Enable the Home Assistant Cloud integration.
 ha_release: '0.60'
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@home-assistant/cloud'
 ha_domain: cloud
-ha_platforms:
-  - binary_sensor
-  - conversation
-  - stt
-  - tts
-ha_integration_type: system
 related:
   - url: https://support.nabucasa.com/hc/categories/24734619902749
     title: Home Assistant Cloud user documentation

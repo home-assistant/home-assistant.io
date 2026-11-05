@@ -1,26 +1,7 @@
 ---
-title: SMLIGHT SLZB
 description: The SMLIGHT SLZB integration allows users to monitor and manage their SMLIGHT SLZB devices from directly within Home Assistant.
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: 2024.9
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: smlight
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - sensor
-  - switch
-  - update
-ha_codeowners:
-  - '@tl-sl'
-ha_integration_type: device
-ha_dhcp: true
-ha_quality_scale: platinum
 ---
 
 The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage your [SLZB](https://smlight.tech/) devices directly from Home Assistant. This integration provides direct access to many features available in the SLZB device's web UI, such as managing firmware updates, monitoring device health through diagnostic sensors, and controlling settings like LED modes or restarting the device.

@@ -1,22 +1,7 @@
 ---
-title: NextDNS
 description: Instructions on how to integrate NextDNS within Home Assistant.
-ha_categories:
-  - computers_network.routers_network
 ha_release: 2022.8
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bieniu'
 ha_domain: nextdns
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **NextDNS** {% term integration %} is used to integrate with [NextDNS](https://nextdns.io), a DNS service that protects you from security threats, blocks advertisements and trackers on websites and in apps, and provides a safe and supervised internet for kids on all devices and on all networks. The integration lets you monitor NextDNS statistics and control its configuration.
@@ -67,7 +52,7 @@ The **NextDNS** integration provides the following entities.
   - **Description**: Shows the percentage of blocked DNS queries
 - **DNS-over-HTTP/3 queries**
   - **Description**: Shows the number of DNS queries via DNS-over-HTTP/3
-  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **DNS-over-HTTP/3 queries ratio**
   - **Description**: Shows the percentage of DNS queries via DNS-over-HTTP/3
   - **Remarks**: This entity is disabled by default

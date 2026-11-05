@@ -1,22 +1,7 @@
 ---
-title: Satel Integra
 description: Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.
-ha_categories:
-  - security_safety.alarm_systems
 ha_release: 0.54
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Tommatheussen'
 ha_domain: satel_integra
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Satel Integra** {% term integration %} allows you to connect your [Satel Integra alarm system](https://www.satel.pl/en/product-category/intruder-alarms/integra/) to Home Assistant to control and monitor your alarm system.
@@ -52,6 +37,8 @@ If you do not have access to the DLOADX program or your project file, ask your i
 
 {% include integrations/config_flow.md %}
 
+### Configuration parameters
+
 {% configuration_basic %}
 Host:
   description: The IP address of the Satel Integra ETHM module.
@@ -60,8 +47,13 @@ Port:
 Integration encryption key:
   description: Encryption key to use if an encrypted connection is used, as configured in DLOADX
     for the ETHM-1 Plus module. Leave empty if not using an encrypted connection.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
 Code:
-  description: Optional code that will be used to toggle switchable outputs.
+  description: The 4- to 16-digit user code configured on the alarm panel. The integration uses this code to toggle switchable outputs. Leave the field empty if you do not need to control switchable outputs.
 {% endconfiguration_basic %}
 
 ## Configuring partitions, zones, and outputs

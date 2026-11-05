@@ -1,19 +1,7 @@
 ---
-title: Alpha Bidet Infrared
 description: Integration to control Alpha Bidet bidet seats using an infrared transmitter.
-ha_categories:
-  - health_wellbeing
 ha_release: '2026.11'
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@eseverson'
 ha_domain: alpha_bidet_infrared
-ha_config_flow: true
-ha_platforms:
-  - button
-  - select
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Alpha Bidet Infrared** {% term integration %} lets you control an Alpha Bidet bidet seat using any infrared transmitter previously configured in Home Assistant. It sends the same infrared commands as the bidet's wireless remote.
