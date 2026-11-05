@@ -21,6 +21,7 @@
 import SiteHead from "../../components/SiteHead.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
+import DocSearch from "../../components/DocSearch.astro";
 import WthForumHero from "../../components/what-the-heck/WthForumHero.astro";
 import WthTips from "../../components/what-the-heck/WthTips.astro";
 import WthHouseholdNote from "../../components/what-the-heck/WthHouseholdNote.astro";
@@ -96,6 +97,8 @@ const description =
     </main>
 
     <SiteFooter />
+    {/* The header's search button and shortcut, as Page.astro starts them. */}
+    <DocSearch />
 
     <script>
       // The links in the hero scroll rather than jump, as the

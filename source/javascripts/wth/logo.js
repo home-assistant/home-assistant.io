@@ -118,10 +118,16 @@ function clamp(value) {
     return Math.max(-1, Math.min(1, value));
 }
 
+// WebGL 2 alone is not enough: the sticker outline renders into float
+// color buffers, which need EXT_color_buffer_float. Without it those passes
+// fail silently (WebGL errors don't throw), so keep the CSS wordmark.
 function supportsWebGL() {
     try {
         const canvas = document.createElement('canvas');
-        return Boolean(canvas.getContext('webgl2'));
+        const gl = canvas.getContext('webgl2');
+        const ok = Boolean(gl && gl.getExtension('EXT_color_buffer_float'));
+        gl?.getExtension('WEBGL_lose_context')?.loseContext();
+        return ok;
     } catch {
         return false;
     }

@@ -62,7 +62,10 @@ function show(sea, card) {
     // duration, leftwards, or rightwards when the lane runs in reverse.
     const duration = drift.effect.getComputedTiming().duration;
     const along = (track.offsetWidth / 2) * (getComputedStyle(track).animationDirection === 'reverse' ? -1 : 1);
-    const time = Number(drift.currentTime) - (delta * duration) / along;
+    // The drift repeats forever, so its time keeps growing past one loop;
+    // take where it is within the current loop before moving it.
+    const now = ((Number(drift.currentTime) % duration) + duration) % duration;
+    const time = now - (delta * duration) / along;
     // The card is only in the first run, so it cannot be moved past one loop.
     // The track starts a little in from the edge, so the cards are all
     // within reach of the sea.

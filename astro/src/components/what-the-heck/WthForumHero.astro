@@ -69,7 +69,7 @@ const ideas = [
     <div class="pipes pipes--left" aria-hidden="true"><WthHeroBackground /></div>
     <div class="pipes pipes--right" aria-hidden="true"><WthHeroBackground /></div>
 
-    <script type="application/json" data-wth-pool set:html={JSON.stringify(pool)} />
+    <script type="application/json" data-wth-pool set:html={JSON.stringify(pool).replace(/</g, "\\u003c")} />
     <ul class="collage" aria-label="WTHs people have already posted">
       {placed.map((card) => (
         <li
