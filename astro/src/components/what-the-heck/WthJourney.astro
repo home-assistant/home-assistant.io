@@ -89,7 +89,9 @@ const steps = [
   .steps b { display: block; font-size: var(--font-size-xlarge); }
   .steps .d { color: var(--wth-ink-soft); display: block; font-family: var(--font-sans); font-size: var(--font-size-large); }
 
-  .note { color: var(--wth-ink); font-family: var(--font-heading); font-size: var(--font-size-xxlarge); font-weight: 600; line-height: 1.4; margin: var(--space-xxlarge) 0 0; max-width: 46rem; }
+  /* The section's closing line: centred under the example, a step or two
+     larger than body text but still under the section heading. */
+  .note { color: var(--wth-ink); font-family: var(--font-heading); font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem); font-weight: 600; line-height: 1.3; margin: var(--space-xxlarge) auto 0; max-width: 58rem; text-align: center; text-wrap: balance; }
 
   /* The example: a post, a reply and a pull request, stacked loosely. */
   .stage {
