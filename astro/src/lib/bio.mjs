@@ -94,17 +94,20 @@ export function parseEnd(value, keyPath) {
   return new Date(date.getTime() + DAY_MS);
 }
 
-// When an item shows: from `starts` until `ends`, both optional.
-// `expires` is the old name for `ends` on pins and still works.
+// When an item shows: from `starts` until `ends`.
 function windowOf(item, keyPath = "item") {
-  const endKey = has(item, "expires") ? "expires" : "ends";
-  return { starts: parseTime(item.starts, `${keyPath}.starts`), ends: parseEnd(item[endKey], `${keyPath}.${endKey}`) };
+  return { starts: parseTime(item.starts, `${keyPath}.starts`), ends: parseEnd(item.ends, `${keyPath}.ends`) };
 }
 
-function validateWindow(item, keyPath) {
-  if (has(item, "ends") && has(item, "expires")) fail(`${keyPath}.expires`, "use ends only. expires is its old name");
+// Keys that were renamed, or are easy to reach for. Naming the right key
+// beats an item that silently ignores its dates.
+function validateWindow(item, keyPath, video = false) {
+  const renamed = { expires: "ends", start: video ? "airs" : "starts", date: video ? "airs" : "starts" };
+  for (const [old, current] of Object.entries(renamed)) {
+    if (has(item, old)) fail(`${keyPath}.${old}`, `is now called ${current}`);
+  }
   const { starts, ends } = windowOf(item, keyPath);
-  if (starts && ends && ends <= starts) fail(`${keyPath}.${has(item, "expires") ? "expires" : "ends"}`, "must be after starts");
+  if (starts && ends && ends <= starts) fail(`${keyPath}.ends`, "must be after starts");
 }
 
 // -- YouTube ------------------------------------------------------------------
@@ -230,35 +233,34 @@ function validateSection(section, index, sources) {
   });
 }
 
-// Items written straight into a feed. The date decides where each one
-// sits, so it is required. A YouTube video takes its link and picture
-// from the video, and its date from when it airs. Any of them can have
-// `starts` and `ends` to show only for a while.
+// Items written straight into a feed. `starts` is when one appears, and
+// also where it sits and the date shown on it, as a post's publish date
+// is, so it is required: a scheduled item comes in at the top. A YouTube
+// video takes its link and picture from the video, and its place and
+// date from when it `airs`; `starts` on a video only shows it early.
+// Any of them can have `ends`.
 function validateInserts(inserts, keyPath) {
   if (!Array.isArray(inserts)) fail(keyPath, "must be a list of items");
 
   inserts.forEach((item, index) => {
     const itemPath = `${keyPath}[${index}]`;
-    if (!isMap(item)) fail(itemPath, "must be a map with title, url and date");
+    if (!isMap(item)) fail(itemPath, "must be a map with title, url and starts");
     if (blank(item.title)) fail(`${itemPath}.title`, "is required");
     if (has(item, "label") && blank(item.label)) fail(`${itemPath}.label`, "must be text, e.g. Event");
-    validateWindow(item, itemPath);
+    validateWindow(item, itemPath, item.type === "youtube");
 
     if (item.type === "youtube") {
       if (!youtubeId(item.video)) {
         fail(`${itemPath}.video`, "must be a YouTube video ID or link, e.g. https://www.youtube.com/watch?v=XyAL1to3Lm4");
       }
-      if (!blank(item.airs) && !blank(item.start)) fail(`${itemPath}.start`, "use airs only. start is its old name");
-      const airsKey = blank(item.airs) && !blank(item.start) ? "start" : "airs";
-      if (blank(item[airsKey])) fail(`${itemPath}.airs`, "is required, e.g. 2026-11-15T18:00:00Z");
-      parseTime(item[airsKey], `${itemPath}.${airsKey}`);
+      if (blank(item.airs)) fail(`${itemPath}.airs`, "is required, e.g. 2026-11-15T18:00:00Z");
+      parseTime(item.airs, `${itemPath}.airs`);
       return;
     }
     if (has(item, "type")) fail(`${itemPath}.type`, "must be youtube, or left out for a plain link");
 
     requireUrl(item, itemPath);
-    if (blank(item.date)) fail(`${itemPath}.date`, "is required, e.g. 2026-11-01");
-    parseTime(item.date, `${itemPath}.date`);
+    if (blank(item.starts)) fail(`${itemPath}.starts`, "is required: when it appears, e.g. 2026-11-01");
   });
 }
 
@@ -495,7 +497,8 @@ function mergedItems(section, sources, posts, now, data) {
 }
 
 // `insert:` entries on a feed section. They have no source of their own,
-// so they carry their own label and take their place by date.
+// so they carry their own label and take their place by `starts` (a
+// video by `airs`).
 //
 // A video without an `ends` comes down at the end of the day after it
 // airs (UTC), so a livestream doesn't linger once it's over.
@@ -504,13 +507,12 @@ function insertedItems(section) {
     const window = windowOf(item);
     if (item.type === "youtube") {
       const id = youtubeId(item.video);
-      const airsValue = blank(item.airs) ? item.start : item.airs;
-      const airs = parseTime(airsValue, "insert");
+      const airs = parseTime(item.airs, "insert");
       return {
         title: item.title,
         url: `https://www.youtube.com/watch?v=${id}`,
         date: airs,
-        timed: hasTime(airsValue),
+        timed: hasTime(item.airs),
         image: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
         label: item.label,
         video: true,
@@ -522,7 +524,7 @@ function insertedItems(section) {
     return {
       title: item.title,
       url: item.url,
-      date: parseTime(item.date, "insert"),
+      date: window.starts,
       image: item.image,
       label: item.label,
       source: "inserted",

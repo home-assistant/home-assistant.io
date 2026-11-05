@@ -99,13 +99,13 @@ describe("pins", () => {
 
   it("wins while active", () => {
     const cfg = config();
-    cfg.sources.latest.items = [{ title: "Launch", url: "/launch/", expires: "2026-11-01" }];
+    cfg.sources.latest.items = [{ title: "Launch", url: "/launch/", ends: "2026-11-01" }];
     assert.deepEqual(labels(cfg), ["Launch"]);
   });
 
   it("hands back to the feed once expired", () => {
     const cfg = config();
-    cfg.sources.latest.items = [{ title: "Launch", url: "/launch/", expires: "2026-10-01" }];
+    cfg.sources.latest.items = [{ title: "Launch", url: "/launch/", ends: "2026-10-01" }];
     assert.deepEqual(labels(cfg), ["Voice"]);
   });
 });
@@ -274,7 +274,7 @@ describe("merged lists", () => {
 describe("inserted items", () => {
   it("take their place by date", () =>
     assert.deepEqual(
-      merged(mergedConfig({ limit: 10, insert: [{ title: "Community Day", url: "https://example.test/day/", date: "2026-10-10", label: "Event" }] })),
+      merged(mergedConfig({ limit: 10, insert: [{ title: "Community Day", url: "https://example.test/day/", starts: "2026-10-10", label: "Event" }] })),
       [
         ["Voice", "Blog · October 14, 2026"],
         ["Community Day", "Event · October 10, 2026"],
@@ -284,17 +284,32 @@ describe("inserted items", () => {
     ));
 
   it("become the hero when newest", () => {
-    const cfg = mergedConfig({ hero: true, insert: [{ title: "Launch", url: "https://example.test/launch/", date: "2026-10-20", image: "auto" }] });
+    const cfg = mergedConfig({ hero: true, insert: [{ title: "Launch", url: "https://example.test/launch/", starts: "2026-10-20", image: "auto" }] });
     const tile = resolve(cfg, POSTS, NOW, SITE, { newsletter: NEWSLETTER })[0].tiles[0];
     assert.equal(tile.label, "Launch");
     assert.equal(tile.kind, "hero");
     assert.ok(tile.image.includes("assets.openhomefoundation.org/opengraph"));
   });
 
-  it("need a date", () => assertInvalid(mergedConfig({ insert: [{ title: "Undated", url: "/x/" }] }), "sections[0].insert[0].date: is required"));
+  it("need starts", () => assertInvalid(mergedConfig({ insert: [{ title: "Undated", url: "/x/" }] }), "sections[0].insert[0].starts: is required"));
 
-  it("need a valid date", () =>
-    assertInvalid(mergedConfig({ insert: [{ title: "Bad", url: "/x/", date: "10/11/2026" }] }), 'sections[0].insert[0].date: "10/11/2026" is not a date'));
+  it("come in at the top when a future starts passes", () => {
+    const cfg = mergedConfig({ insert: [{ title: "Scheduled", url: "/s/", starts: "2026-10-30" }] });
+    validate(cfg);
+    const { entries } = resolve(cfg, POSTS, NOW, SITE, { newsletter: NEWSLETTER })[0];
+    assert.equal(entries[0].label, "Scheduled");
+    assert.equal(entries[0].hidden, true);
+    const keys = showingKeys(entries, 3, new Date("2026-10-31T00:00:00Z"));
+    assert.deepEqual(entries.filter((e) => isShowing(e, keys)).map((e) => e.label), ["Scheduled", "Voice", "Latest issue"]);
+  });
+
+  it("need a valid starts", () =>
+    assertInvalid(mergedConfig({ insert: [{ title: "Bad", url: "/x/", starts: "10/11/2026" }] }), 'sections[0].insert[0].starts: "10/11/2026" is not a date'));
+
+  it("name the new key for a renamed one", () => {
+    assertInvalid(mergedConfig({ insert: [{ title: "Old", url: "/o/", date: "2026-10-01" }] }), "sections[0].insert[0].date: is now called starts");
+    assertInvalid(mergedConfig({ insert: [{ title: "Old", url: "/o/", start: "2026-10-01" }] }), "sections[0].insert[0].start: is now called starts");
+  });
 });
 
 describe("YouTube inserts", () => {
@@ -358,11 +373,16 @@ describe("YouTube inserts", () => {
   it("needs airs", () =>
     assertInvalid(mergedConfig({ insert: [video({ airs: undefined })] }), "sections[0].insert[0].airs: is required"));
 
-  it("still reads start, the old name for airs", () =>
-    assert.equal(tiles([video({ airs: undefined, start: "2026-11-15" })])[0].note, "Livestream · Starts November 15"));
+  it("names airs for start or date", () => {
+    assertInvalid(mergedConfig({ insert: [video({ airs: undefined, start: "2026-11-15" })] }), "sections[0].insert[0].start: is now called airs");
+    assertInvalid(mergedConfig({ insert: [video({ date: "2026-11-15" })] }), "sections[0].insert[0].date: is now called airs");
+  });
 
-  it("rejects both airs and start", () =>
-    assertInvalid(mergedConfig({ insert: [video({ start: "2026-11-15" })] }), "sections[0].insert[0].start: use airs only"));
+  it("can show before it airs", () => {
+    const [entry] = resolve(mergedConfig({ insert: [video({ starts: "2026-11-12" })] }), POSTS, NOW, SITE, {})[0].entries;
+    assert.equal(entry.label, "State of the Open Home");
+    assert.equal(entry.starts.toISOString(), "2026-11-12T00:00:00.000Z");
+  });
 
   it("comes down at the end of the day after it airs", () => {
     const [entry] = tiles([video({ airs: "2026-10-20T18:00:00Z" })], new Date("2026-10-21T23:00:00Z"));
@@ -449,7 +469,7 @@ describe("reading posts", () => {
 });
 
 describe("scheduled items", () => {
-  const insert = (overrides = {}) => ({ title: "AUX2 livestream", url: "https://example.test/live/", date: "2026-10-21", ...overrides });
+  const insert = (overrides = {}) => ({ title: "AUX2 livestream", url: "https://example.test/live/", starts: "2026-10-21", ...overrides });
   const section = (cfg) => {
     validate(cfg);
     return resolve(cfg, POSTS, NOW, SITE, { newsletter: NEWSLETTER })[0];
@@ -471,7 +491,7 @@ describe("scheduled items", () => {
   it("shows an insert inside its window and leaves it out once ended", () => {
     const running = section(mergedConfig({ insert: [insert({ starts: "2026-10-21", ends: "2026-10-22" })] }));
     assert.equal(running.tiles[0].label, "AUX2 livestream");
-    const ended = section(mergedConfig({ insert: [insert({ ends: "2026-10-20" })] }));
+    const ended = section(mergedConfig({ insert: [insert({ starts: "2026-10-19", ends: "2026-10-20" })] }));
     assert.ok(!ended.entries.some((e) => e.label === "AUX2 livestream"));
   });
 
@@ -504,11 +524,11 @@ describe("scheduled items", () => {
     ]);
   });
 
-  it("pins can start and end, and expires still works", () => {
+  it("pins can start and end", () => {
     const pin = (item) => mergedConfig({}, { pinned: { type: "pinned", items: [{ title: "Launch", url: "/launch/", ...item }] } });
     assert.equal(section(pin({ starts: "2026-10-23" })).tiles[0].label, "Voice");
     assert.equal(section(pin({ ends: "2026-10-23" })).tiles[0].label, "Launch");
-    assert.equal(section(pin({ expires: "2026-10-23" })).tiles[0].label, "Launch");
+    assert.equal(section(pin({})).tiles[0].label, "Launch");
   });
 
   it("brings a section in hidden when its only link starts later", () => {
@@ -521,9 +541,9 @@ describe("scheduled items", () => {
   it("rejects ends before starts", () =>
     assertInvalid(mergedConfig({ insert: [insert({ starts: "2026-11-02", ends: "2026-11-01" })] }), "sections[0].insert[0].ends: must be after starts"));
 
-  it("rejects both ends and expires", () =>
+  it("names ends for expires", () =>
     assertInvalid(
-      mergedConfig({}, { pinned: { type: "pinned", items: [{ title: "x", url: "/x/", ends: "2026-11-01", expires: "2026-11-01" }] } }),
-      "sources.pinned.items[0].expires: use ends only",
+      mergedConfig({}, { pinned: { type: "pinned", items: [{ title: "x", url: "/x/", expires: "2026-11-01" }] } }),
+      "sources.pinned.items[0].expires: is now called ends",
     ));
 });

@@ -10,13 +10,20 @@
 #   they're published. The Latest list keeps the newest few (its `limit`),
 #   so older ones drop off by themselves. They never need dates added here.
 #
-# Scheduling what you add by hand
-#   Anything you add by hand (an `insert` in Latest, a link, a pin) can
-#   have `starts` and `ends`, so you can merge it early and let it come
-#   down by itself. Both are optional:
-#     - No `starts`: it shows as soon as the change is live.
-#     - No `ends`: it stays until you delete it. A YouTube video is the
-#       exception: it comes down at the end of the day after it airs.
+# What you add by hand: `starts` and `ends`
+#   Anything you add by hand (an item in Latest, a link, a pin) uses the
+#   same two keys:
+#     - `starts`: when it appears. In the Latest list it's required, and it
+#       also sets the item's place and the date shown on it, just like a
+#       blog post's publish date. A date in the past shows it right away;
+#       a future one makes it wait, then come in at the top of the list.
+#       Elsewhere it's optional: without it, an item shows as soon as the
+#       change is live.
+#     - `ends`: when it goes. Optional: without it, the item stays until
+#       you delete it.
+#   A YouTube video or livestream also has `airs`: when it goes out, which
+#   sets its place and date. Without `ends` it comes down at the end of the
+#   day after it airs.
 #
 #   Write dates and times like this. Times are UTC unless you add an offset:
 #     starts: 2026-11-15                  # from midnight UTC, Nov 15
@@ -25,19 +32,13 @@
 #     ends: 2026-11-15                    # up through the whole of Nov 15
 #     ends: 2026-11-15T20:00:00Z          # down at 20:00 UTC
 #
-#   The page is built when a change is merged, and it checks the time with
-#   the website (not the visitor's own clock) to show or hide scheduled
-#   items at the right time. You don't need to merge anything when `starts`
-#   or `ends` passes. Delete ended items whenever it suits you; until then
-#   they do nothing.
+#   You don't need to merge anything when `starts` or `ends` passes: the
+#   page checks the time with the website (not the visitor's own clock) and
+#   shows or hides items itself. Delete ended items whenever it suits you.
 #
 #   Scheduled items are in the page before they show, so anyone who reads
 #   the page's source can see them early. Don't schedule anything that must
 #   stay secret until it starts: merge it at the time instead.
-#
-#   For `ends` that has passed, the item is gone. For `starts` still to come,
-#   the item waits in the page, hidden, and takes its place in the list
-#   (pushing the oldest item out of a full list) when the time comes.
 
 avatar: /images/favicon-192x192-full.png
 tagline: Open source home automation that puts local control and privacy first.
@@ -52,21 +53,23 @@ sections:
     limit: 5
     images: true
     hero: true
-    # Add anything else to the list here. `date` sets where it sits among
-    # the rest (newest first). Add `starts` and `ends` to show it only for
-    # a while (see the top of this file).
+    # Add anything else to the list here, with `starts` and, if you like,
+    # `ends` (see the top of this file).
     insert:
       - title: "The merch store is open!"
         url: https://store.openhomefoundation.org
-        date: 2026-10-21
+        starts: 2026-10-21
         label: Announcement        # optional, shown before the date
         image: "https://store.openhomefoundation.org/cdn/shop/files/store-hero-bg.webp"  # optional
-        # starts: 2026-10-21T09:00:00Z  # optional, see the top of this file
-        # ends: 2026-11-30              # optional
+    # A scheduled item: it comes in at the top when `starts` passes.
+    #  - title: "Community Day is this Saturday"
+    #    url: https://example.com/community-day/
+    #    label: Event
+    #    starts: 2026-11-20T09:00:00Z
+    #    ends: 2026-11-22
     # A YouTube video or livestream shows like a video player and opens
     # YouTube. Before it airs it reads "Starts November 15 · 18:00 UTC";
-    # after, it shows the date. `airs` also sets where it sits in the list.
-    # It comes down at the end of the day after it airs unless you set `ends`.
+    # after, it shows the date it aired.
     #  - type: youtube
     #    video: https://www.youtube.com/watch?v=XyAL1to3Lm4   # or just the ID
     #    title: "State of the Open Home 2026"
@@ -131,7 +134,6 @@ sources:
 
   # Pin something to the top of the Latest list, such as a launch. Remove
   # it, or let its `ends` pass, and the list is back to newest first.
-  # (`expires` is the old name for `ends` and still works.)
   pinned:
     type: pinned
     items: []
