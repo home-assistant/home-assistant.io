@@ -55,6 +55,18 @@ A discovered power station is set up on the default port `502`. If you set a dif
 Home Assistant can share a Modbus connection between integrations. Another integration that already talks to the same power station shares the connection instead of opening a second one.
 {% endnote %}
 
+## Reconfiguration
+
+If the power station gets a new IP address or you change its Modbus port, you can update the entry without removing the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **E3/DC** integration.
+2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
+3. Update the **Host** and **Port**, then select **Submit**.
+
+The integration reads the serial number again and accepts the new settings only if they lead to the same power station.
+
+When Home Assistant discovers the power station at a new IP address, it updates the host by itself.
+
 ## Supported functionality
 
 ### Sensors
@@ -111,7 +123,7 @@ Home Assistant got no answer from the power station at the host and port you ent
 
 1. Check that Modbus is turned on in the power station's **Smart Home** menu, and that the port matches.
 2. Check that Home Assistant is in the same subnet as the power station. The power station answers Modbus requests only from devices in its own subnet.
-3. Check that the host is the power station's current IP address. To keep it from changing, give the power station a fixed IP address in your router.
+3. Check that the host is the power station's current IP address. If it changed, [reconfigure](#reconfiguration) the entry with the new address. To keep it from changing, give the power station a fixed IP address in your router.
 
 {% enddetails %}
 
@@ -127,8 +139,8 @@ Home Assistant recognizes your power station by the serial number it read when y
 
 #### Resolution
 
-1. Give the power station of this entry its old IP address back, for example with a fixed IP address in your router.
-2. To use the power station that answers now, delete this entry and add the integration again.
+1. If the power station of this entry moved to a new IP address, [reconfigure](#reconfiguration) the entry with that address. A fixed IP address in your router keeps it from moving again.
+2. To use the power station that answers now instead, add it as a new entry and delete this one.
 
 {% enddetails %}
 
