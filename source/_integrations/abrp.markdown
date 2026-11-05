@@ -49,11 +49,11 @@ The integration does not connect to your vehicle directly. It uses the telemetry
 
 - An [A Better Routeplanner](https://abetterrouteplanner.com/) account.
 - At least one vehicle in your ABRP garage.
-- The [Home Assistant Cloud](/integrations/cloud/) integration loaded. It is included in `default_config:`, which is enabled by default. If you removed `default_config:` from your {% term "configuration.yaml" %}, add `cloud:` instead.
+- The [Home Assistant Link](/integrations/cloud/) integration loaded. It is included in `default_config:`, which is enabled by default. If you removed `default_config:` from your {% term "configuration.yaml" %}, add `cloud:` instead.
 
 {% include integrations/config_flow.md %}
 
-During setup, you sign in to ABRP and every vehicle in your ABRP garage is added to Home Assistant. Sign-in uses account linking provided by Home Assistant Cloud. This service is free and does not require a Home Assistant Cloud subscription, so you do not need API credentials or a developer app.
+During setup, you sign in to ABRP and every vehicle in your ABRP garage is added to Home Assistant. Sign-in uses account linking provided by Home Assistant Link. This service is free and does not require a Home Assistant Link subscription, so you do not need API credentials or a developer app.
 
 To monitor vehicles from more than one ABRP account, add the integration once for each account.
 
@@ -198,7 +198,7 @@ To resolve this issue:
 
 ### Setup stops with a message about default_config
 
-If setup stops and asks you to run Home Assistant with `default_config` enabled, the [Home Assistant Cloud](/integrations/cloud/) integration is not loaded. Add `default_config:` or `cloud:` to your {% term "configuration.yaml" %}, restart Home Assistant, and add the integration again.
+If setup stops and asks you to run Home Assistant with `default_config` enabled, the [Home Assistant Link](/integrations/cloud/) integration is not loaded. Add `default_config:` or `cloud:` to your {% term "configuration.yaml" %}, restart Home Assistant, and add the integration again.
 
 ### Sensor states appear stale
 
