@@ -138,7 +138,14 @@ For a helper that you set up in YAML, you can't change its own settings in the U
 
 ## Creating a similar helper
 
-You can't copy a helper. To use the same settings for several things, [create a new helper](#creating-a-helper) for each one. For example, to show the average temperature of each floor, create one **Combine the state of several sensors** helper per floor. In each one, select the temperature sensors of that floor.
+Some helpers allow you to duplicate existing setups.
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
+2. Choose the option **Duplicate** on the helper to be duplicated.
+3. Adjust the options as needed.
+4. Select **Create** or **Submit**, depending on the type of helper.
+
+If you cannot duplicate a helper, you can still use the same settings for multiple items by [creating a new helper](#creating-a-helper) for each one. For example, to display the average temperature for each floor of a house, create one **Combine the state of several sensors** helper per floor. In each helper, select the temperature sensors assigned to that specific floor.
 
 ## What happens to a helper value after a restart?
 
