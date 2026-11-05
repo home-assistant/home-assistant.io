@@ -70,7 +70,7 @@ The view comes with one section to which you can directly add a card.
    - **Manual section**: An empty section that you fill card by card.
    - **Automatic section**: A section that picks its own cards. For details, refer to [Adding an automatic section](#adding-an-automatic-section).
    - **Paste section**: The section you copied, if you [copied a section](#copying-cutting-and-pasting-a-section).
-3. A [heading card](/dashboards/heading) will be automatically added to the top of the section.
+3. If you chose **Manual section**, a [heading card](/dashboards/heading) is automatically added to the top of the section.
    - To edit it, select the card.
    - If you don't want a heading title at the top of the section, delete this card.
    - The title can be added again later, like any other card.
@@ -136,7 +136,7 @@ You can copy or move a section to another place in the same view, to another vie
 
 1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. In the top right corner of the section, select **Menu** {% icon "mdi:dots-vertical" %} and then select **Copy**, or select **Cut** to move it.
-3. Go to the view where you want the section. It can be on another dashboard.
+3. Go to the view where you want the section. If it is on another dashboard, select that dashboard's edit {% icon "mdi:edit" %} button before continuing.
 4. In the section after which you want to add the new one, select **Menu** {% icon "mdi:dots-vertical" %} > **Paste**.
    - Result: The section is added after that section.
 5. Select **Done**.
