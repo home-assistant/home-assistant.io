@@ -71,6 +71,8 @@ The integration exposes the different round trip times milliseconds as entities:
 - `Jitter` - the variation in round trip times
 - `Packet loss` - the percentage of missed ICMP replies
 
+When the host does not reply at all, `Packet loss` shows 100% and the round trip time and jitter entities become unavailable, since there is nothing to measure. When the host name can't be resolved, all of these entities become unavailable.
+
 **These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and can be enabled in the UI if needed.**
 
 ## Presence detection
