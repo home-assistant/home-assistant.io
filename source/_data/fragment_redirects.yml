@@ -29,6 +29,9 @@
   enabling-entities: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
   to-enable-or-disable-a-single-entity: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
   to-enable-or-disable-multiple-entities: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
+"/common-tasks/general/backups/":
+  about-the-backup-storage-on-home-assistant-cloud: /common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-link
+  downloading-a-backup-from-home-assistant-cloud: /common-tasks/general/backups/#downloading-a-backup-from-home-assistant-link
 "/common-tasks/general/logs/":
   viewing-the-logs-of-other-parts-of-the-system: /common-tasks/os/logs/#viewing-the-logs-of-other-parts-of-the-system
   viewing-the-logs-of-an-earlier-startup: /common-tasks/os/logs/#viewing-the-logs-of-an-earlier-startup
