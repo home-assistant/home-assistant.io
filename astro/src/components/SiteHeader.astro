@@ -56,6 +56,8 @@ import logoInverseUrl from "../assets/brands/home-assistant-lockup-monochrome-da
 const {
   pathname = "",
   dark = false,
+  /** Which look the "WTH" button takes; see WthNavButton.astro. */
+  wthLook = "plain",
   version,
   versionUrl,
   releasedOn,
@@ -169,8 +171,8 @@ const versionTitle =
             the light button. The dark header, over the homepage hero's
             blue, gets the ink one in the bar; its panel is light, so it
             gets the light one there. Styles below, in `.nav-wth`. */}
-        {dark && <WthNavButton onDark />}
-        <WthNavButton />
+        {dark && <WthNavButton onDark look={wthLook} />}
+        <WthNavButton look={wthLook} />
 
         {
           navigation.map(({ label, href, roots, items }) => (

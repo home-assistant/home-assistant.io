@@ -12,7 +12,7 @@ const tips = [
   },
   {
     title: "Tell it like it is",
-    text: "Explain the problem, we\u2019ll figure out the fix.",
+    text: "Explain the problem, the community will figure out the fix.",
   },
   { title: "Be kind", text: "That includes everyone on our forum!" },
 ];

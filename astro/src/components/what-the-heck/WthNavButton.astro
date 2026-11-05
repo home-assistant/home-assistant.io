@@ -31,20 +31,41 @@ interface Props {
   href?: string;
   /** The ink variant, for the dark header over the homepage hero. */
   onDark?: boolean;
+  /**
+   * How the label is set. Concepts, under review:
+   * - "plain" (the default): Figtree, as before.
+   * - "sticker": the hero wordmark's sticker style (white letters, sky
+   *   outline, ink extrude, mint rim, a slight turn) in the same pill.
+   * - "sticker-solo": the same, a size up, without the "?!" node.
+   * - "badge": no pill at all; "WTH?!" as a small sticker of its own,
+   *   outlined like the hero wordmark (blue, then mint around it).
+   * - "sticker-button": the same sticker in a plain pill: no running
+   *   doodle and no node.
+   */
+  look?: "plain" | "sticker" | "sticker-solo" | "badge" | "sticker-button";
 }
 
 // The rest is for the header, which styles this item through the scope
 // attribute Astro hands down (see SiteHeader.astro).
-const { href = "/what-the-heck/", onDark = false, ...attributes } = Astro.props;
+const { href = "/what-the-heck/", onDark = false, look = "plain", ...attributes } = Astro.props;
+const sticker = look !== "plain";
+// The two looks outlined like the hero wordmark: blue around each letter,
+// mint around that, both on their own layers beneath the white letters.
+const outlined = look === "badge" || look === "sticker-button";
+const text = outlined ? "WTH?!" : "WTH";
 ---
 
 <li class:list={["nav-wth", { "on-dark": onDark }]} {...attributes}>
   <a
-    class:list={["nav-wth__button", { "nav-wth__button--dark": onDark }]}
+    class:list={[
+      "nav-wth__button",
+      { "nav-wth__button--dark": onDark, "nav-wth__button--sticker": sticker },
+      sticker && `nav-wth__button--${look}`,
+    ]}
     href={href}
     title='Month of "What the Heck?!"'
   >
-    <span class="nav-wth__flow" aria-hidden="true">
+    {!outlined && <span class="nav-wth__flow" aria-hidden="true">
       <svg viewBox="0 0 120 38" fill="none" focusable="false">
         <g stroke-linecap="round" fill="none">
           <path class="nav-wth__run" d="M0 10h52a8 8 0 0 1 8 8v4a8 8 0 0 0 8 8h52"></path>
@@ -52,16 +73,54 @@ const { href = "/what-the-heck/", onDark = false, ...attributes } = Astro.props;
           <path class="nav-wth__pulse" pathLength="1" d="M0 10h52a8 8 0 0 1 8 8v4a8 8 0 0 0 8 8h52"></path>
         </g>
       </svg>
-    </span>
-    <span class="label">WTH</span>
-    <span class="icon" aria-hidden="true"><span class="nav-wth__mark">?!</span></span>
+    </span>}
+    {sticker ? (
+      <span class="label" aria-label={text}>
+        {/* Two copies of the word, stacked: every letter's 3D side and rim on
+            the back layer, every white letter on the front one, so a moving
+            letter never covers its neighbour. */}
+        {(outlined ? ["back", "mid", "front"] : ["back", "front"]).map((layer) => (
+          <span class:list={["layer", layer]} aria-hidden="true">
+            {[...text].map((ch, i) => <span class="ch" style={`--i:${i}`}>{ch}</span>)}
+          </span>
+        ))}
+      </span>
+    ) : (
+      <span class="label">{text}</span>
+    )}
+    {(look === "plain" || look === "sticker") && <span class="icon" aria-hidden="true"><span class="nav-wth__mark">?!</span></span>}
   </a>
   {/* Eases the doodle's speed on hover; shared with the Jekyll header. */}
   <script is:inline type="module" src="/javascripts/wth/nav-button.js"></script>
 </li>
 
 <style lang="scss">
+  @use "sass:list";
   @use "../../styles/breakpoints";
+
+  // The wordmark's extrude (WthWordmark.astro), in fewer, larger steps so
+  // it still reads at button size.
+  @function extrude($color, $steps, $dx, $dy) {
+    $shadows: ();
+    @for $i from 1 through $steps {
+      $shadows: list.append($shadows, ($dx * $i) ($dy * $i) 0 $color, comma);
+    }
+    @return $shadows;
+  }
+
+  // The same extrude, but each step's offset comes from --sx and --sy
+  // (one step's shift) times --deep, so hover can deepen it.
+  @function extrude-live($color, $steps) {
+    $shadows: ();
+    @for $i from 1 through $steps {
+      $shadows: list.append(
+        $shadows,
+        calc(var(--sx) * #{$i} * var(--deep)) calc(var(--sy) * #{$i} * var(--deep)) 0 $color,
+        comma
+      );
+    }
+    @return $shadows;
+  }
 
   /* The campaign's mint and teal, inked with the "Get started" button's own
      navy so the two calls to action read as a pair. The navy clears 9.9:1
@@ -86,8 +145,9 @@ const { href = "/what-the-heck/", onDark = false, ...attributes } = Astro.props;
     --ring: var(--pill-mint);
     --ring-width: 0.09375rem;
     /* The doodle's colours. */
-    --wth-run: rgb(22 243 190 / 55%);
-    --wth-pulse: var(--pill-blue);
+    /* Kept light so the label stays easy to read over them. */
+    --wth-run: rgb(22 243 190 / 32%);
+    --wth-pulse: rgb(24 188 242 / 55%);
     --wth-pulse-delay: -1.5s;
     /* The flow's speed, as a multiple of its resting pace; see below. */
     --wth-speed: 1;
@@ -145,8 +205,8 @@ const { href = "/what-the-heck/", onDark = false, ...attributes } = Astro.props;
     --active-surface: var(--pill-mint);
     --active-text: var(--pill-ink);
     --ring-width: 0;
-    --wth-run: rgb(22 243 190 / 30%);
-    --wth-pulse: var(--pill-mint);
+    --wth-run: rgb(22 243 190 / 18%);
+    --wth-pulse: rgb(22 243 190 / 55%);
     --wth-pulse-delay: 0s;
   }
 
@@ -155,6 +215,161 @@ const { href = "/what-the-heck/", onDark = false, ...attributes } = Astro.props;
   .label {
     position: relative;
     text-box: trim-both cap alphabetic;
+  }
+
+  /* Sticker looks: the hero wordmark's letters, at button size, in one
+     solid blue: white letters standing on a blue rim and a blue 3D
+     extrude. Flat on the page; the extrude is what makes it
+     look 3D.
+
+     Built as two stacked layers of the same word: the back layer draws
+     every letter's blue (rim and extrude), the front layer every white
+     face, and nothing else. Both move together, letter for letter, so all
+     the blue sits beneath all the white: where letters meet or pass each
+     other, no blue ever lands on a white face.
+
+     Motion, all inside the pill (which clips anything outside it):
+     - On page load only: the letters fall into the pill from above, one
+       after another, and land with a little squash.
+     - After that they stay still; hovering only speeds up the doodle, as
+       on the plain button. Archivo Black is loaded
+     on the WTH pages; elsewhere the style falls back to Figtree. */
+  @property --deep {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
+  }
+
+  .nav-wth__button--sticker {
+    --sticker-blue: #18bcf2;
+    overflow: hidden;
+  }
+
+  /* Sizes in whole pixels, and a label height that leaves an even gap in
+     the pill above and below, so the word lands on the pixel grid and its
+     blue rim comes out the same thickness on every side at real size. */
+  .nav-wth__button--sticker .label {
+    --sx: 1px;
+    --sy: 1px;
+    /* Six steps at half a pixel: the 3D side stays inside the 3px rim, so
+       the outline is even all round. The bare sticker sets 1 (below). */
+    --deep: 0.5;
+    display: inline-grid;
+    font-family: "Archivo Black", var(--font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    position: relative;
+    text-box: normal;
+  }
+
+  .layer {
+    align-items: baseline;
+    display: inline-flex;
+    gap: 0.08em;
+    grid-area: 1 / 1;
+  }
+
+  .mid { position: relative; z-index: 1; }
+  .front { position: relative; z-index: 2; }
+
+  .ch {
+    animation: wth-nav-fall-in 0.55s calc(var(--i) * 90ms + 250ms) backwards;
+    display: inline-block;
+    paint-order: stroke fill;
+    transform-origin: 50% 90%;
+  }
+
+  /* Back: the rim (a wide stroke) and the 3D side, all one blue. The
+     stroke is rounded to an even number of pixels, so exactly half of it,
+     a whole number of pixels, shows outside each edge of the letter. */
+  .back .ch {
+    color: var(--sticker-rim, var(--sticker-blue));
+    text-shadow: extrude-live(var(--sticker-depth, var(--sticker-blue)), 6);
+    -webkit-text-stroke: 0.3em var(--sticker-rim, var(--sticker-blue));
+    -webkit-text-stroke-width: round(nearest, 0.3em, 2px);
+  }
+
+  /* Front: only the white face of each letter. No outline here: any blue
+     on this layer would be drawn over the next letter's white where they
+     meet. The outline comes from the back layer's rim. */
+  .front .ch {
+    color: #fff;
+  }
+
+  /* Falls in from above the pill, speeding up like a dropped thing, then
+     lands with a small squash and settles. */
+  @keyframes wth-nav-fall-in {
+    0% { animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.55); transform: translateY(-1.9em) rotate(-10deg); }
+    72% { animation-timing-function: ease-out; transform: translateY(0.06em) scale(1.08, 0.86); }
+    100% { transform: none; }
+  }
+
+  /* 18px in the 38px pill, 16px in the 32px one: 10px and 8px either side. */
+  @media only screen and (min-width: breakpoints.$lap) {
+    .nav-wth__button--sticker .label { font-size: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-wth__button--sticker .ch { animation: none; }
+  }
+
+  /* A size up and no node: the sticker is the button. */
+  .nav-wth__button--sticker-solo {
+    padding-inline: var(--space-large);
+    .label { font-size: 0.98rem; }
+    @media only screen and (min-width: breakpoints.$lap) {
+      padding-inline: var(--space-xlarge);
+      .label { font-size: 1.08rem; }
+    }
+  }
+
+  /* No pill: just the sticker, slightly larger than the header's text so
+     it pokes out of the bar like a sticker on it. Its plate does the work
+     the pill did. */
+  /* Outlined looks: like the hero wordmark, two outlines round each letter
+     instead of a slanted 3D side: blue hugging the letter, mint around
+     the blue. Three layers of the same word, each moving as one with the
+     others: all the mint at the back, all the blue in the middle, all the
+     white faces on top, so outlines never land on a neighbour's face.
+     Stroke widths are whole, even pixel counts, so each outline is the
+     same thickness on every side. */
+  .nav-wth__button--badge,
+  .nav-wth__button--sticker-button {
+    .back .ch {
+      color: var(--pill-mint);
+      text-shadow: none;
+      -webkit-text-stroke: 0.5em var(--pill-mint);
+      -webkit-text-stroke-width: round(nearest, 0.5em, 2px);
+    }
+    .mid .ch {
+      color: var(--pill-blue);
+      paint-order: stroke fill;
+      -webkit-text-stroke: 0.24em var(--pill-blue);
+      -webkit-text-stroke-width: round(nearest, 0.24em, 2px);
+    }
+  }
+
+  /* The sticker in a plain pill: the pill without its doodle or node,
+     sized so the outlined word sits inside it. */
+  .nav-wth__button--sticker-button {
+    padding-inline: var(--space-large);
+    @media only screen and (min-width: breakpoints.$lap) {
+      padding-inline: var(--space-xlarge);
+    }
+  }
+
+  .nav-wth__button--badge {
+    overflow: visible;
+    --surface: none;
+    --active-surface: none;
+    --ring-width: 0;
+    padding: 0 var(--space-small);
+    .label { font-size: 1.35rem; }
+    @media only screen and (min-width: breakpoints.$lap) {
+      .label { font-size: 1.6rem; }
+    }
+    &:focus-visible .label { outline: 2px solid var(--pill-blue); outline-offset: 4px; }
   }
 
   /* The icon's place holds the node instead of the button's arrow. */

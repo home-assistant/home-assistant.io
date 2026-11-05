@@ -52,6 +52,8 @@ task :generate do
   abort("Generating newsletter data failed") unless success
   success = system "rake wth_stats_data"
   abort("Generating WTH stats failed") unless success
+  success = system "rake wth_forum_data"
+  abort("Fetching WTH forum topics failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   # The Astro build runs on every deploy (see astro/README.md). Jekyll
@@ -135,6 +137,7 @@ task :preview, :listen do |t, args|
   system "rake meetups_data"
   system "rake newsletter_data"
   system "rake wth_stats_data"
+  system "rake wth_forum_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -353,6 +356,13 @@ WTH_STATS_SINCE = "2026-01-01"
 
 # How many pull requests the page shows as cards.
 WTH_PULL_REQUESTS_SHOWN = 40
+
+desc "Fetch WTH topics from the community forum, for the What the Heck?! hero"
+task :wth_forum_data do
+  # The script keeps the last file and exits 0 if the forum can't be
+  # reached, so a forum hiccup never fails the build.
+  system "node astro/scripts/fetch-wth-forum.mjs"
+end
 
 desc "Fetch the pull requests that fix a WTH, for the What the Heck?! page"
 task :wth_stats_data do

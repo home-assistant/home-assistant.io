@@ -1,0 +1,16 @@
+---
+// The page's last word: a full-width mint band with one line and the
+// button, right before the footer.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import Button from "../Button.astro";
+import { forumUrl } from "../../lib/wth.mjs";
+---
+<section class="end" aria-labelledby="end-title">
+  <h2 id="end-title">Got a WTH?</h2>
+  <Button href={forumUrl} scheme="secondary" icon target="_blank" rel="noopener">Share your WTH</Button>
+</section>
+<style lang="scss">
+  .end { align-items: center; background: var(--wth-mint); display: flex; flex-direction: column; gap: var(--space-xlarge); padding: var(--wth-section-space) var(--wth-gutter); text-align: center; }
+  h2 { color: var(--wth-ink-base); font-family: var(--font-heading); font-size: clamp(2rem, 1.2rem + 2.4vw, 3.25rem); font-weight: 800; letter-spacing: -0.5px; margin: 0; }
+</style>

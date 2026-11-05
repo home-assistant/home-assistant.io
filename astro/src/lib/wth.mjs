@@ -7,7 +7,7 @@
 
 /** The forum category every call to action on the page points at. */
 export const forumUrl =
-  "https://community.home-assistant.io/c/month-of-what-the-heck/61";
+  "https://community.home-assistant.io/c/month-of-what-the-heck/64";
 
 /** The blog post that tells the whole story. */
 export const blogUrl =

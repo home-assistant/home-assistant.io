@@ -25,7 +25,7 @@ const tips = [
   },
   {
     title: "Tell it like it is",
-    text: "Explain the problem, we’ll figure out the fix.",
+    text: "Explain the problem, the community will figure out the fix.",
   },
   {
     title: "Be kind",
@@ -36,6 +36,9 @@ const tips = [
 
 <WthSection id="how-it-works" tone="band" heading="Four tips for a great WTH">
   <WthSteps steps={tips} />
+  {/* Anything passed in (such as this year's challenge note) sits between
+      the tips and the button. */}
+  <slot />
   <div class="actions">
     <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">
       Share your WTH

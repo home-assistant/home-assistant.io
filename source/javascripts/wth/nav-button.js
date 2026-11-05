@@ -13,6 +13,9 @@ function follow(button) {
     const update = () => {
         const speed = parseFloat(getComputedStyle(button).getPropertyValue('--wth-speed')) || 1;
         button.getAnimations({ subtree: true }).forEach((animation) => {
+            // Only the doodle: the sticker label's own letter animations
+            // keep their pace.
+            if (animation.effect?.target?.closest?.('.label')) return;
             animation.playbackRate = speed;
         });
     };

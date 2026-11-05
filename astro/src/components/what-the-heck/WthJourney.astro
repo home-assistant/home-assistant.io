@@ -1,0 +1,207 @@
+---
+// How one WTH becomes a fix, told with one example in about a screen of
+// scrolling. The section pins briefly while the example plays; the step
+// list follows the animation's own labels, so a step lights up exactly
+// when its moment lands.
+//
+// Two stagings: "card" (a bubble that collects votes, flips into a pull
+// request and is stamped merged) and "thread" (the same story as a forum
+// thread on a phone). The example is a real WTH with an illustrative fix.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import WthSection from "./WthSection.astro";
+interface Props {
+  variant?: "card" | "thread";
+  /** "full": the six steps from post to release. "after": four steps, told
+   *  to the person who just shared, with no promise of a fix. Card only. */
+  story?: "full" | "after";
+  heading?: string;
+  tone?: "page" | "surface" | "band" | "inherit";
+  id?: string;
+}
+const { variant = "card", story = "full", heading, tone = "page", id = "how" } = Astro.props;
+const after = story === "after" && variant === "card";
+const fullSteps = [
+  ["Someone shares it", "On the forum, in their own words."],
+  ["Everyone piles on", "Votes and replies show what matters most."],
+  ["A contributor claims it", "So nobody builds the same thing twice."],
+  ["It becomes a pull request", "Linked back to the WTH."],
+  ["It gets merged", "Reviewed, tested and accepted."],
+  ["It ships to your home", "In an upcoming release."],
+];
+const afterSteps = [
+  ["You share it", "On the forum, in your own words."],
+  ["People read it", "Votes and replies show how many others it bothers."],
+  ["Someone picks it up", "Contributors look through the WTHs for things they can fix, and may choose yours!"],
+  ["It lands as an update", "If your WTH is fixed, you’ll see the results in an upcoming release."],
+];
+const steps = after ? afterSteps : fullSteps;
+---
+<WthSection id={id} tone={tone} heading={heading ?? (after ? "What happens next?" : "How a WTH becomes a fix")}>
+  <div class="journey" data-wth-journey={variant} data-story={after ? "after" : "full"}>
+    <ol class="steps">
+      {steps.map(([t, d], i) => (
+        <li class:list={{ on: i === 0 }}><span class="n">{i + 1}</span><div><b>{t}</b><span class="d">{d}</span></div></li>
+      ))}
+    </ol>
+    <div class="stage" aria-hidden="true">
+      {variant === "card" ? (
+        <>
+          <span class="vote" style="left:4%;top:12%">+1</span>
+          <span class="vote" style="right:6%;top:8%">♥ +1</span>
+          <span class="vote" style="left:10%;bottom:16%">Same here!</span>
+          <span class="vote" style="right:2%;bottom:26%">+1</span>
+          <div class="flip-wrap"><div class="flip">
+            <div class="face front">Restoring a backup shows no progress indication. What the heck?!</div>
+            <div class="face back">
+              <span class="repo">home-assistant / frontend · pull request</span>
+              <span class="title">Show progress while restoring a backup</span>
+              <span class="lines"><i style="width:82%"></i><i style="width:60%"></i><i style="width:90%"></i></span>
+              <span class="state" data-state>Open</span>
+              <span class="stamp">Merged</span>
+            </div>
+          </div></div>
+          <div class="claim"><i></i>I’ll take this one!</div>
+          <div class="toast"><span class="ico"></span><span><b>Update available</b><small>Home Assistant [next release]</small></span></div>
+        </>
+      ) : (
+        <div class="phone">
+          <div class="bar">Month of “What the Heck?!”<small>Community forum</small></div>
+          <div class="notif"><span class="ico"></span><span><b>Update available</b><small>Your WTH fix is in [next release]</small></span></div>
+          <div class="msgs">
+            <div class="msg"><div><small class="who">[forum user]</small><span class="cb">Restoring a backup shows no progress indication. What the heck?!</span></div></div>
+            <div class="msg"><div class="reacts"><span>♥ +1</span><span>+1</span><span>Same here!</span></div></div>
+            <div class="msg"><div class="mine"><small class="who">[contributor]</small><span class="cb me">I’ll take this one!</span></div></div>
+            <div class="msg"><div class="preview"><small>github.com/home-assistant/frontend</small><b>Show progress while restoring a backup</b><span class="state" data-state>Open</span></div></div>
+            <div class="msg"><div class="sys"><span>Pull request merged</span></div></div>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+  <p class:list={["note", { big: after }]}>{after
+    ? "We can’t promise that every WTH gets fixed, but every one is read, and together they shape what we build next."
+    : "An example journey: the WTH is real, the pull request is illustrative."}</p>
+</WthSection>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+  .journey {
+    align-items: center;
+    display: grid;
+    gap: var(--space-xxlarge);
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: var(--space-xxlarge);
+    min-height: min(36rem, 80svh);
+  }
+  @media only screen and (min-width: breakpoints.$desk) {
+    .journey { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  }
+  .steps { display: grid; gap: var(--space-xsmall); list-style: none; margin: 0; padding: 0; }
+  .steps li { align-items: start; display: grid; gap: var(--space-medium); grid-template-columns: 2.25rem 1fr; opacity: 0.4; padding-block: var(--space-small); transition: opacity 0.3s; }
+  .steps li.on { opacity: 1; }
+  .n { align-items: center; border: 2px solid var(--wth-ink); border-radius: 50%; box-sizing: border-box; display: flex; flex: none; font-size: var(--font-size-large); font-weight: 800; height: 2.25rem; justify-content: center; line-height: 1; width: 2.25rem; }
+  .on .n { background: var(--wth-mint); border-color: var(--wth-mint); }
+  .steps b { display: block; font-size: var(--font-size-xlarge); }
+  .steps .d { color: var(--wth-ink-soft); display: block; font-family: var(--font-sans); font-size: var(--font-size-large); }
+  .stage { height: min(30rem, 62svh); position: relative; }
+  .note { color: var(--wth-ink-soft); font-family: var(--font-sans); font-size: var(--font-size-medium); margin: var(--space-xlarge) 0 0; }
+  .note.big { color: var(--wth-ink); font-family: var(--font-heading); font-size: var(--font-size-xxlarge); font-weight: 600; line-height: 1.4; max-width: 46rem; }
+
+  /* card */
+  .flip-wrap { left: 50%; perspective: 1200px; position: absolute; top: 50%; translate: -50% -50%; width: min(26rem, 88%); }
+  .flip { position: relative; transform-style: preserve-3d; }
+  .face { backface-visibility: hidden; border-radius: var(--radius-large); }
+  .front { background: var(--wth-surface); border: 3px solid var(--wth-ink-base); border-radius: 1.5rem 1.5rem 1.5rem 0.4rem; font-size: var(--font-size-xxlarge); font-weight: 700; line-height: 1.3; padding: var(--space-xlarge); }
+  .back { background: var(--wth-surface); border: 1px solid var(--wth-border); box-shadow: var(--shadow-panel); display: flex; flex-direction: column; gap: var(--space-medium); inset: 0; padding: var(--space-xlarge); position: absolute; transform: rotateY(180deg); }
+  .repo { color: var(--wth-ink-soft); font-family: var(--font-sans); font-size: var(--font-size-medium); font-weight: 600; }
+  .title { font-size: var(--font-size-xlarge); font-weight: 700; }
+  .lines { display: grid; gap: 0.45rem; i { background: var(--wth-border); border-radius: 1rem; display: block; height: 0.55rem; } }
+  .state { align-self: flex-start; border: 1.5px solid var(--wth-sky); border-radius: var(--radius-pill); color: var(--color-highlight-shade); font-size: var(--font-size-small); font-weight: 700; padding: 0.15rem 0.7rem; }
+  .stamp { background: var(--wth-surface); border: 4px solid var(--wth-merged); border-radius: 0.6rem; color: var(--wth-merged); font-size: 1.6rem; font-weight: 900; opacity: 0; padding: 0.2rem 0.9rem; position: absolute; right: -6%; rotate: -12deg; top: -14%; }
+  .vote { background: var(--wth-mint); border-radius: var(--radius-pill); font-weight: 800; opacity: 0; padding: 0.35rem 0.8rem; position: absolute; }
+  .claim { align-items: center; background: var(--wth-sky); border-radius: 1.2rem 1.2rem 0.3rem 1.2rem; bottom: 4%; display: flex; font-weight: 700; gap: var(--space-small); opacity: 0; padding: var(--space-medium) var(--space-large); position: absolute; right: 2%; i { background: #fff; border-radius: 50%; height: 1.6rem; width: 1.6rem; } }
+  .toast, .notif { align-items: center; background: var(--wth-surface); border-radius: 1rem; box-shadow: var(--shadow-panel); display: flex; gap: var(--space-medium); padding: var(--space-medium) var(--space-large);
+    .ico { background: var(--color-highlight); border-radius: 0.6rem; flex: none; height: 2.5rem; width: 2.5rem; }
+    b { display: block; } small { color: var(--wth-ink-soft); font-family: var(--font-sans); } }
+  .toast { bottom: 2%; left: 50%; opacity: 0; position: absolute; translate: -50% 0; width: min(22rem, 90%); }
+
+  /* thread */
+  .phone { background: var(--wth-page); border: 0.6rem solid var(--wth-ink-base); border-radius: 2.6rem; height: 100%; left: 50%; overflow: hidden; position: absolute; top: 0; translate: -50% 0; width: min(20rem, 92%); }
+  .bar { background: var(--wth-surface); border-bottom: 1px solid var(--wth-border); font-weight: 700; padding: var(--space-large); position: relative; z-index: 2; small { color: var(--wth-ink-soft); display: block; font-family: var(--font-sans); font-weight: 500; } }
+  .notif { left: 0.5rem; position: absolute; right: 0.5rem; top: 0.5rem; translate: 0 -150%; z-index: 3; }
+  .msgs { bottom: var(--space-large); display: flex; flex-direction: column; left: var(--space-medium); position: absolute; right: var(--space-medium); }
+  .msg { overflow: hidden; > div { margin-top: var(--space-medium); } }
+  .who { color: var(--wth-ink-soft); display: block; font-family: var(--font-sans); margin-bottom: 0.2rem; }
+  .cb { background: var(--wth-surface); border: 2px solid var(--wth-ink-base); border-radius: 1rem 1rem 1rem 0.25rem; display: inline-block; font-family: var(--font-sans); font-weight: 600; padding: var(--space-medium); }
+  .mine { text-align: right; }
+  .cb.me { background: var(--wth-sky); border-color: var(--wth-sky); border-radius: 1rem 1rem 0.25rem 1rem; }
+  .reacts { display: flex; gap: 0.3rem; span { background: var(--wth-surface); border: 1px solid var(--wth-border); border-radius: var(--radius-pill); font-size: var(--font-size-medium); font-weight: 700; padding: 0.2rem 0.6rem; } }
+  .preview { background: var(--wth-surface); border: 1px solid var(--wth-border); border-radius: 0.8rem; display: flex; flex-direction: column; gap: 0.4rem; padding: var(--space-medium); small { color: var(--wth-ink-soft); font-family: var(--font-sans); } }
+  .sys { text-align: center; span { background: var(--wth-mint); border-radius: var(--radius-pill); font-size: var(--font-size-small); font-weight: 700; padding: 0.2rem 0.7rem; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vote, .claim, .stamp, .toast, .notif { display: none; }
+    .back { margin-top: var(--space-large); position: relative; transform: none; }
+    .flip-wrap { position: relative; left: auto; top: auto; translate: none; margin-inline: auto; }
+    .stage { height: auto; }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+    document.querySelectorAll<HTMLElement>("[data-wth-journey]").forEach((root) => {
+      const q = gsap.utils.selector(root);
+      const lis = q(".steps li");
+      const state = q("[data-state]")[0] as HTMLElement;
+      // On wide screens the section pins for about a screen while the
+      // example plays. On narrow ones the steps stack above the example and
+      // the whole thing is taller than the screen, so pinning would hide
+      // part of it: there the example simply plays as it scrolls through.
+      const wide = matchMedia("(min-width: 71.25rem)").matches;
+      const stage = root.querySelector(".stage");
+      const tl = gsap.timeline({
+        scrollTrigger: wide
+          ? { trigger: root, start: "center center", end: "+=120%", pin: root.closest("section"), scrub: 0.6 }
+          : { trigger: stage, start: "top 85%", end: "bottom 35%", scrub: 0.6 },
+      });
+      if (root.dataset.wthJourney === "card" && root.dataset.story === "after") {
+        // The first step's picture (the shared WTH) is already there on
+        // arrival; scrolling starts from the votes.
+        tl.addLabel("s0").to({}, { duration: 0.3 })
+          .addLabel("s1").to(q(".vote"), { opacity: 1, scale: 1.1, stagger: 0.08, duration: 0.4, ease: "back.out(3)" }).to(q(".vote"), { opacity: 0, y: -24, duration: 0.3 }, "+=0.2")
+          .addLabel("s2").fromTo(q(".claim"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }).to(q(".claim"), { opacity: 0, duration: 0.3 }, "+=0.2")
+          .to(q(".flip"), { rotateY: 180, duration: 0.8, ease: "power2.inOut" })
+          .addLabel("s3").fromTo(q(".stamp"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(3)" })
+          .to(state, { backgroundColor: "#8250df", borderColor: "#8250df", color: "#fff", duration: 0.2 }, "<")
+          .to(q(".flip-wrap"), { scale: 0.6, y: -50, opacity: 0.35, duration: 0.5 }, "+=0.2").to(q(".toast"), { opacity: 1, y: -10, duration: 0.5 }, "<+0.2").to({}, { duration: 0.3 });
+      } else if (root.dataset.wthJourney === "card") {
+        tl.addLabel("s0").from(q(".flip-wrap"), { scale: 0.6, opacity: 0, duration: 0.6, ease: "back.out(1.6)" })
+          .addLabel("s1").to(q(".vote"), { opacity: 1, scale: 1.1, stagger: 0.08, duration: 0.4, ease: "back.out(3)" }).to(q(".vote"), { opacity: 0, y: -24, duration: 0.3 }, "+=0.2")
+          .addLabel("s2").fromTo(q(".claim"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }).to(q(".claim"), { opacity: 0, duration: 0.3 }, "+=0.3")
+          .addLabel("s3").to(q(".flip"), { rotateY: 180, duration: 0.8, ease: "power2.inOut" })
+          .addLabel("s4").fromTo(q(".stamp"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(3)" })
+          .to(state, { backgroundColor: "#8250df", borderColor: "#8250df", color: "#fff", duration: 0.2 }, "<")
+          .addLabel("s5", "+=0.3").to(q(".flip-wrap"), { scale: 0.6, y: -50, opacity: 0.35, duration: 0.5 }).to(q(".toast"), { opacity: 1, y: -10, duration: 0.5 }, "<+0.2").to({}, { duration: 0.3 });
+      } else {
+        const m = q(".msg"); gsap.set(m, { height: 0, opacity: 0 });
+        const grow = { height: "auto", opacity: 1, duration: 0.5, ease: "power2.out" };
+        tl.addLabel("s0").to(m[0], grow).addLabel("s1", "+=0.2").to(m[1], grow)
+          .addLabel("s2", "+=0.2").to(m[2], grow).addLabel("s3", "+=0.2").to(m[3], grow)
+          .addLabel("s4", "+=0.2").to(m[4], grow).to(state, { backgroundColor: "#8250df", borderColor: "#8250df", color: "#fff", duration: 0.2 }, "<")
+          .addLabel("s5", "+=0.2").to(q(".notif"), { translate: "0 0", duration: 0.5, ease: "back.out(1.6)" }).to({}, { duration: 0.3 });
+      }
+      const marks = Object.keys(tl.labels).filter((l) => /^s\d$/.test(l)).sort().map((l) => tl.labels[l]);
+      const mergedAt = root.dataset.story === "after" ? 3 : 4;
+      tl.eventCallback("onUpdate", () => {
+        const t = tl.time(); let i = 0;
+        marks.forEach((m, k) => { if (t >= m - 0.001) i = k; });
+        lis.forEach((li, k) => li.classList.toggle("on", k === i));
+        state.textContent = i >= mergedAt ? "Merged" : "Open";
+      });
+    });
+  });
+</script>

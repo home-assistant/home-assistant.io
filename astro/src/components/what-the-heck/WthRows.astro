@@ -1,0 +1,168 @@
+---
+// Rows of real WTHs that drift sideways on their own, alternating
+// direction: three kinds of WTH, then the replies they get. Slow enough to
+// read, and one button pauses them all. With reduced motion they sit still and wrap.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import { statements, replies } from "../../lib/wth.mjs";
+const s = (i: number) => statements[i].replace(" What the heck?!", "");
+const rows = [
+  { label: "Things that should be easy", items: [s(2), s(6), s(10)], dir: "left" },
+  { label: "Things you can’t find", items: [s(13), s(4), s(8)], dir: "right" },
+  { label: "Things that just annoy you", items: [s(16), s(3), s(7)], dir: "left" },
+];
+// Each row repeats its run three times, so a full loop never shows an end,
+// however wide the screen.
+const copies = [0, 1, 2];
+---
+<section class="rows" aria-label="Examples of WTHs" data-wth-rows>
+  {rows.map((row, r) => (
+    <div class:list={["row", row.dir]}>
+      <div class="track">
+        {copies.map((copy) => (
+          <div class="set" aria-hidden={copy ? "true" : undefined}>
+            {r % 2 === 0 && <span class="big">{row.label}</span>}
+            {row.items.map((item, i) => <span class:list={["bubble", { alt: (i + r) % 2 }]}>{item}</span>)}
+            {r % 2 === 1 && <span class="big">{row.label}</span>}
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+  <div class="row right">
+    <div class="track">
+      {copies.map((copy) => (
+        <div class="set" aria-hidden={copy ? "true" : undefined}>
+          <span class="big">And our answer?</span>
+          {replies.slice(0, 4).map((reply, i) => <span class:list={["reply", { alt: i % 2 }]}>{reply}</span>)}
+        </div>
+      ))}
+    </div>
+  </div>
+  <button type="button" class="toggle" aria-pressed="false" data-wth-rows-toggle>
+    <span class="i-pause"><iconify-icon icon="mdi:pause" aria-hidden="true"></iconify-icon></span><span class="i-play"><iconify-icon icon="mdi:play" aria-hidden="true"></iconify-icon></span><span class="label">Pause</span>
+  </button>
+</section>
+
+<style lang="scss">
+  .rows {
+    background: var(--wth-surface);
+    border-block: 1px solid var(--wth-border);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    /* Clip sideways only: the tilted bubbles and their offset shadows
+       poke a little above and below each row and must not be cut off.
+       ("clip", unlike "hidden", leaves the other direction alone.) */
+    overflow-x: clip;
+    overflow-y: visible;
+    padding-block: var(--wth-section-space);
+    position: relative;
+  }
+  .row { overflow-x: clip; overflow-y: visible; padding-block: 0.25rem; }
+  .track {
+    animation: wth-drift var(--wth-drift-time, 90s) linear infinite;
+    display: flex;
+    width: max-content;
+  }
+  .right .track { animation-direction: reverse; }
+  .rows:global(.paused) .track { animation-play-state: paused; }
+  .set {
+    align-items: center;
+    display: flex;
+    flex: none;
+    gap: var(--space-xlarge);
+    padding-right: var(--space-xlarge);
+  }
+  @keyframes wth-drift {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(calc(-100% / 3), 0, 0); }
+  }
+  .big {
+    color: var(--wth-ink);
+    flex: none;
+    /* The page's own heading size, not a poster size. */
+    font-size: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+  }
+  .bubble {
+    background: var(--wth-surface);
+    border: 2px solid var(--wth-ink);
+    border-radius: 1.25rem 1.25rem 1.25rem 0.3rem;
+    box-shadow: 0.3rem 0.3rem 0 var(--wth-mint);
+    flex: none;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    line-height: 1.35;
+    padding: var(--space-large) var(--space-xlarge);
+    transform: rotate(-2deg);
+    width: 17rem;
+    &.alt { box-shadow: 0.3rem 0.3rem 0 var(--wth-sky); transform: rotate(2deg); }
+  }
+  .reply {
+    background: var(--wth-mint);
+    border-radius: 1.1rem 1.1rem 0.3rem 1.1rem;
+    color: var(--wth-ink-base);
+    flex: none;
+    font-size: clamp(1.1rem, 0.9rem + 0.6vw, 1.5rem);
+    font-weight: 700;
+    padding: 0.35em 0.7em;
+    transform: rotate(-2deg);
+    white-space: nowrap;
+    &.alt { background: var(--wth-sky); transform: rotate(2deg); }
+  }
+  .toggle {
+    align-items: center;
+    align-self: flex-end;
+    background: var(--wth-surface);
+    border: 1px solid var(--wth-border);
+    border-radius: var(--radius-pill);
+    color: var(--wth-ink);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-size: var(--font-size-medium);
+    font-weight: 600;
+    gap: var(--space-xsmall);
+    margin-right: var(--wth-gutter);
+    min-height: 2.75rem;
+    padding: 0 var(--space-large);
+  }
+  .i-play, .toggle[aria-pressed="true"] .i-pause { display: none; }
+  .toggle[aria-pressed="true"] .i-play { display: inline-flex; }
+  .i-pause { display: inline-flex; }
+  .toggle:focus-visible { outline: 3px solid var(--wth-focus); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    .track { animation: none; flex-wrap: wrap; padding-inline: var(--wth-gutter); width: auto; }
+    .set[aria-hidden] { display: none; }
+    .set { flex-wrap: wrap; }
+    .toggle { display: none; }
+  }
+</style>
+
+<script>
+  // Set each row's loop time from how long one run is, so every row drifts
+  // at the same easy reading pace (about 32px a second) whatever its length.
+  const PACE = 32;
+  document.querySelectorAll<HTMLElement>("[data-wth-rows]").forEach((root) => {
+    const tune = () =>
+      root.querySelectorAll<HTMLElement>(".track").forEach((track) => {
+        const set = track.querySelector<HTMLElement>(".set");
+        if (set) track.style.setProperty("--wth-drift-time", `${Math.round(set.offsetWidth / PACE)}s`);
+      });
+    tune();
+    addEventListener("resize", tune);
+    document.fonts?.ready.then(tune);
+
+    const button = root.querySelector<HTMLButtonElement>("[data-wth-rows-toggle]");
+    const label = button?.querySelector(".label");
+    button?.addEventListener("click", () => {
+      const paused = root.classList.toggle("paused");
+      button.setAttribute("aria-pressed", String(paused));
+      if (label) label.textContent = paused ? "Play" : "Pause";
+    });
+  });
+</script>
