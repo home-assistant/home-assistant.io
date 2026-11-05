@@ -206,7 +206,7 @@ Debug logging stays on if you restart Home Assistant once, so the log also shows
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
 2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Enable debug logging**.
    - Result: The integration page shows **Debug logging enabled**.
-3. Make the problem happen again. To follow the messages while you make the problem happen, refer to [Viewing the live log of an integration](#viewing-the-live-log-of-an-integration) instead.
+3. Make the problem happen again. If you want to follow the messages as they come in while you reproduce the problem, see [Viewing the live log of an integration](#viewing-the-live-log-of-an-integration).
    - For example, run the automation that fails, or use the device that doesn't respond.
 4. To get the log, continue with [Disabling debug logging and downloading the log](#disabling-debug-logging-and-downloading-the-log).
 
