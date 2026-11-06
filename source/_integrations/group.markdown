@@ -137,7 +137,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
       - if at least one member has a numeric state: calculated according to the `type`
       - otherwise: set to `unknown`
 - The variable `ignore_non_numeric` can be combined with the type `first_available` to always take the first available numeric state from a group.
-- The type `stdev` calculates the sample standard deviation, which needs at least two numeric states. With fewer, the group state is `unknown`, whatever `ignore_non_numeric` is set to.
+- The type `stdev` calculates the sample standard deviation, which needs at least two numeric states. With fewer, a group that is not `unavailable` has the state `unknown`, whatever `ignore_non_numeric` is set to.
 
 ## Managing groups
 
