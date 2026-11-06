@@ -6,7 +6,7 @@ related:
   - docs: /voice_control/builtin_sentences/
     title: Sentences starter kit
   - url: https://www.nabucasa.com/config/
-    title: Home Assistant Cloud
+    title: Home Assistant Link
 ---
 
 Home Assistant Voice relies on different technologies, models, and data sources to process wake words and commands in all languages. Our and other communities' projects rely on volunteers who donate their time, voice, or language knowledge to improve.

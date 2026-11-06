@@ -1,13 +1,13 @@
 ---
-title: "Disable Home Assistant Cloud remote access"
+title: "Disable Home Assistant Link remote access"
 action: cloud.remote_disconnect
 domain: cloud
-description: "Turns off remote access to your Home Assistant through Home Assistant Cloud."
+description: "Turns off remote access to your Home Assistant through Home Assistant Link."
 related_actions:
   - cloud.remote_connect
 ---
 
-Use this action to turn off remote access through Home Assistant Cloud. With remote access off, you can no longer reach your Home Assistant from outside your home network through your Nabu Casa URL. Other Home Assistant Cloud features, like voice assistants and backups, keep working.
+Use this action to turn off remote access through Home Assistant Link. With remote access off, you can no longer reach your Home Assistant from outside your home network through your Nabu Casa URL. Other Home Assistant Link features, like voice assistants and backups, keep working.
 
 This does the same as the toggle on the **Remote connection** card under {% my cloud title="**Settings** > **Home Assistant Cloud**" %} > **Remote access**. The setting is kept, also after a restart.
 
@@ -43,10 +43,10 @@ This action has no additional options in YAML.
 
 ## Good to know
 
-- You need to be signed in to [Home Assistant Cloud](/integrations/cloud/) for remote access to work.
+- You need to be signed in to [Home Assistant Link](/integrations/cloud/) for remote access to work.
 - Only administrators can run this action.
 - If you run this action while you're away from home, you lose remote access right away. To be able to turn it back on remotely, enable **Allow external activation of remote access** under **Remote access** first.
-- To turn remote access on again, use [Enable Home Assistant Cloud remote access](/actions/cloud.remote_connect/).
+- To turn remote access on again, use [Enable Home Assistant Link remote access](/actions/cloud.remote_connect/).
 
 {% include actions/try_it.md %}
 

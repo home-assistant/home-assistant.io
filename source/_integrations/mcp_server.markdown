@@ -30,7 +30,7 @@ If you want your Home Assistant conversation agent to use tools from another ser
   2. If the **Model Context Protocol** card shows an **Enable** button, select it.
   3. Next to the URL you want to use, select the copy icon {% icon "mdi:content-copy" %}. We recommend **Main URL**. By default, it exposes all tools, and you can change this in the [configuration options](#configuration-options). Under **Individual URLs**, each set of tools also has its own URL.
 - An AI agent that supports MCP servers.
-- If the AI agent runs in the cloud, for example when you use it through a website, your Home Assistant instance must be accessible from the internet. Use [Home Assistant Cloud](/integrations/cloud/) or another method of [remote access](/docs/configuration/remote/).
+- If the AI agent runs in the cloud, for example when you use it through a website, your Home Assistant instance must be accessible from the internet. Use [Home Assistant Link](/integrations/cloud/) or another method of [remote access](/docs/configuration/remote/).
 
 For detailed configuration instructions, refer to the [Client configuration](#client-configuration) section.
 
@@ -231,7 +231,7 @@ This can occur for two reasons:
 1. Go to {% my network title="**Settings** > **System** > **Network**" %} and make sure that the **External URL** (or **Internal URL**) matches the exact hostname and scheme used by the remote LLM client to reach Home Assistant.
 2. If using a reverse proxy or tunnel (such as Cloudflare Tunnel), make sure Home Assistant is configured to trust forwarded headers from the proxy. See [Reverse proxies in the HTTP integration documentation](/integrations/http/#reverse-proxies) for details on configuring **Trust X-Forwarded-For** and **Trusted proxies**.
 3. If the LLM client supports manual OAuth configuration (such as ChatGPT's user-defined OAuth client), enter the authorization and token endpoints manually rather than relying on automatic discovery.
-4. Using [Home Assistant Cloud](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) avoids reverse-proxy and tunnel configuration pitfalls because it automatically handles canonical hostnames and SSL termination.
+4. Using [Home Assistant Link](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) avoids reverse-proxy and tunnel configuration pitfalls because it automatically handles canonical hostnames and SSL termination.
 
 ## Removing the integration
 
