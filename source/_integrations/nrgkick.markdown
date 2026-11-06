@@ -110,7 +110,7 @@ The ability to add your charger to the [Home Assistant energy dashboard](/home-e
 ##### Network
 
 - **SSID**\*\*: Wi-Fi network name of the currently connected network.
-- **Signal strength** (dBm): Wi-Fi signal strength (RSSI).
+- **Signal strength**\*\* (dBm): Wi-Fi signal strength (RSSI).
 
 ##### Cellular (only if available)
 
@@ -170,8 +170,8 @@ These sensors are only available on NRGkick SIM models.
   - _Wakeup_ ({% term state %}: `wakeup`): The charger is waking up or preparing a session.
 - **Charge count**: Vehicle plug-in cycle count.
 - **RCD trigger**: Indicates if the RCD got triggered and which type.
-- **Warning code**: Current warning code reported by the device.
-- **Error code**: Current error code reported by the device.
+- **Warning**: Current warning code reported by the device.
+- **Error**: Current error code reported by the device.
 
 ##### Temperatures
 
