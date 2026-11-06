@@ -11,7 +11,7 @@ related:
   - docs: /voice_control/builtin_sentences
     title: Sentences starter kit
   - url: https://www.nabucasa.com/config/
-    title: Home Assistant Cloud
+    title: Home Assistant Link
   - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition
 ---
