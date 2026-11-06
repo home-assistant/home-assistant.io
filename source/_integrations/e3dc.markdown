@@ -81,7 +81,7 @@ The power station device has these binary sensors:
 
 - **Charging locked** and **Discharging locked**: the energy management system has blocked the battery.
 - **Emergency power ready**: emergency power is available once the battery is charged.
-- **Weather-based charging**: charging capacity is held back for the expected sunshine.
+- **Charging limited by forecast**: the weather forecast holds back charging capacity for the expected sunshine. This shows whether that is happening right now, not whether the forecast setting is on.
 - **Feed-in limited**: output is throttled because the maximum feed-in was reached.
 - **Charging lockout period** and **Discharging lockout period**: a lockout time from **Smart Charge** is active. Disabled by default.
 
