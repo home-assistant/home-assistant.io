@@ -56,7 +56,7 @@ The **Sync time** button appears under the **Configuration** section of the devi
 
 ### Numbers
 
-Home Assistant creates number entities for the setpoints of each heating circuit and of the domestic hot water. They appear under the **Configuration** section of their sub-device page.
+Home Assistant creates number entities for the setpoints of each heating circuit and of the domestic hot water. They appear under the **Configuration** section of the heating circuit or domestic hot water device page.
 
 - **Comfort temperature** and **Reduced temperature**: the setpoints a heating circuit uses during the comfort and reduced periods of its time program.
 - **Nominal temperature** and **Reduced temperature**: the setpoints of the domestic hot water.
