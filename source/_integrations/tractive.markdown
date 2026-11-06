@@ -41,7 +41,7 @@ The **Tractive** integration provides the following entities for each pet regist
   - **Description**: Time your pet has been active today.
 - **Bark status**
   - **Description**: Status of your pet's barking compared to its usual level, as shown in the Tractive app.
-  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today
+  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today, Not synced yet
 - **Battery**
   - **Description**: Battery level of the tracker.
 - **Daily goal**
@@ -54,13 +54,13 @@ The **Tractive** integration provides the following entities for each pet regist
   - **Description**: Time your pet has been resting today.
 - **Resting heart rate status**
   - **Description**: Status of your pet's resting heart rate compared to its baseline, as shown in the Tractive app.
-  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today
+  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today, Not synced yet
 - **Resting respiratory rate status**
   - **Description**: Status of your pet's resting respiratory rate compared to its baseline, as shown in the Tractive app.
-  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today
+  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today, Not synced yet
 - **Scratch status**
   - **Description**: Status of your pet's scratching compared to its usual level, as shown in the Tractive app.
-  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today
+  - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today, Not synced yet
 - **Status**
   - **Description**: Current status of the tracker.
   - **Options**: Inaccurate position, Not reporting, Operational, System shutdown user, System startup
