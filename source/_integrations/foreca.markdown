@@ -45,9 +45,11 @@ To add another location later, select **Add location** on the Foreca entry under
 
 ### Weather
 
-The integration creates one weather {% term entity %} per location, providing the current conditions, a daily forecast for the next 10 days, and an hourly forecast for the next 48 hours.
+The integration creates one weather {% term entity %} per location, providing the current conditions, a daily forecast for the next 14 days, and an hourly forecast for the next 7 days.
 
 The current conditions include temperature, apparent temperature, dew point, humidity, air pressure, wind speed, wind gust speed, wind bearing, visibility, cloud coverage, and UV index.
+
+Each daily forecast includes the condition, maximum and minimum temperature, maximum apparent temperature and dew point, precipitation and its probability, maximum wind speed and gust speed, wind bearing, air pressure, cloud coverage, and UV index. Each hourly forecast includes the condition, temperature, apparent temperature, dew point, humidity, precipitation and its probability, wind speed, wind gust speed, wind bearing, air pressure, cloud coverage, and UV index.
 
 ### Sensors
 
