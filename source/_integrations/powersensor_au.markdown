@@ -82,7 +82,7 @@ Which entities a sensor has depends on its role.
   - **Available for**: Sensors with the water role
   - **Remarks**: If it stays unavailable, see [Troubleshooting](#troubleshooting).
 - **Device role**
-  - **Description**: The sensor's current role.
+  - **Description**: The sensor's current role. Shows **Unknown** if the sensor has no role yet, see [Reconfiguration](#reconfiguration). Shows **Unsupported** if the sensor reports a role that Home Assistant doesn't support.
   - **Available for**: All sensors
   - **Remarks**: Diagnostic entity
 - **Signal strength (Bluetooth)**
