@@ -11,6 +11,9 @@
   "categories": [
     "media_entertainment"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "media_player"
   ]

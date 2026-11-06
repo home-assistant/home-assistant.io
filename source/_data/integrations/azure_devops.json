@@ -10,6 +10,9 @@
   "categories": [
     "computers_network.cloud_developer_tools"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

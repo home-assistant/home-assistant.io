@@ -11,6 +11,9 @@
   "categories": [
     "water"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "diagnostics",
     "sensor"

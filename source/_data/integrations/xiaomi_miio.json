@@ -14,6 +14,10 @@
     "climate.air_purifiers_humidifiers",
     "appliances_cleaning.cleaning"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "air_quality",
     "alarm_control_panel",

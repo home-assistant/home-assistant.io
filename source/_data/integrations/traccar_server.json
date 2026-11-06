@@ -6,6 +6,9 @@
   "categories": [
     "presence_location.trackers"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "device_tracker",

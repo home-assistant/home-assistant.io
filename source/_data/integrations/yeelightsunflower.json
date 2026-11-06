@@ -9,6 +9,9 @@
   "categories": [
     "lighting.bulbs_lamps"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "light"
   ]

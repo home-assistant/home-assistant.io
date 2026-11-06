@@ -12,6 +12,9 @@
   "categories": [
     "health_wellbeing"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "button",
     "number",
