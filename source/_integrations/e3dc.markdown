@@ -11,6 +11,7 @@ ha_domain: e3dc
 ha_config_flow: true
 ha_integration_type: device
 ha_platforms:
+  - diagnostics
   - sensor
 ha_quality_scale: bronze
 ha_zeroconf: true
