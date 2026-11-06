@@ -59,11 +59,13 @@ Each location also gets three sensors for the current conditions:
 
 The sensors come from the same requests as the weather entity, so they add nothing to your request count.
 
+{% include integrations/actions.md %}
+
 ## Data updates
 
 The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses three requests per location, around 144 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Every location you add polls separately, so that limit allows around 13 of them. Because the integration polls continuously, a Freemium key used this way does not go idle.
 
-The `weather.get_forecasts` action reads the forecast the integration has already retrieved, so using it in templates and automations costs no extra requests.
+The `weather.get_forecasts` and `foreca.get_forecasts_extra` actions read the forecast the integration has already retrieved, so using them in templates and automations costs no extra requests.
 
 ## Known limitations
 
