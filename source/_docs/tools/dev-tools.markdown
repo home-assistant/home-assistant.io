@@ -293,7 +293,7 @@ Use the **Statistics** tab to:
 - Find the statistics that an {% term integration %} created, for example, to use them in the Energy dashboard.
 - Fix an issue that stops Home Assistant from keeping statistics for an entity.
 - Correct a wrong value, for example, a spike in your energy use.
-- Delete statistics that you no longer need.
+- [Delete statistics](#deleting-statistics) that you no longer need, or [remove bad readings from a time range](#deleting-statistics-in-a-time-range).
 
 ### Fixing a statistics issue
 
@@ -365,6 +365,26 @@ To avoid this:
 3. Select the statistics that you want to delete. To select all statistics with an issue, open the selection menu and select **Select all with issues**.
 4. Select **Delete selected statistics**, and then select **Delete**.
    - Result: The statistics are deleted from the database.
+
+### Deleting statistics in a time range
+
+One bad measurement can ruin the graph of a sensor. Statistics of values such as temperature can't be adjusted, but you can delete the statistics of a time range. Everything outside that range stays.
+
+{% important %}
+**Risk of data loss**
+
+Deleted statistics can't be restored, except from a backup. Before you delete statistics, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup) and make sure that you select the right statistics to delete.
+{% endimportant %}
+
+To delete statistics in a time range:
+
+1. Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+2. In the row of the statistic, select **Delete statistics in a time range** {% icon "mdi:delete-clock" %}.
+   - Result: The **Delete statistics in a time range** dialog opens.
+3. Select the start and end time.
+   - The dialog shows a graph of the statistics in that range, so you can check them before you delete anything.
+4. Select **Delete**.
+   - Result: The statistics in the time range are deleted.
 
 ## Assist tab
 
