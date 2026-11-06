@@ -77,7 +77,10 @@ The SmartThings Button platform provides the following buttons:
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | [`ovenOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#ovenOperatingState)     | Stop                  |
 | `custom.waterFilter`                                                                                                              | Reset water filter    |
+| `samsungce.dishwasherOperation` and `custom.dishwasherDelayStartTime`                                                             | Start later           |
 | `samsungce.hoodFilter`                                                                                                            | Reset hood filter     |
+
+To schedule a delayed start on a Samsung dishwasher, make sure the dishwasher is stopped and remote control is enabled on it, set **Delay start** to the number of minutes before the cycle should start (up to 24 hours), then press **Start later**. To cancel a scheduled start, press **Cancel**.
 
 ### Climate
 
@@ -186,6 +189,7 @@ The SmartThings number platform lets you control numeric values for the followin
 
 | SmartThings capability                                                                                                                                 | Number entity                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
+| `custom.dishwasherDelayStartTime`                                                                                                                      | Delay start                  |
 | `custom.washerRinseCycles`                                                                                                                             | Washer rinse cycles          |
 | `samsungce.hoodFanSpeed` (on hood component)                                                                                                           | Hood fan speed               |
 | [`thermostatCoolingSetpoint`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatCoolingSetpoint) (on cooler, freezer, or onedoor components) | Refrigerator temperature |
