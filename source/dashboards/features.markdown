@@ -530,15 +530,11 @@ type:
 
 Widget that displays buttons or icons to control the preset mode for a [fan](/integrations/fan).
 
-<p class='img'>
-  <img src='/images/dashboards/features/fan_preset_modes.png' alt='Screenshot of the tile card with the fan preset modes feature'>
-  Screenshot of the tile card with the fan preset modes feature
-</p>
+{% include dashboard/demo.html demo="feature_fan_preset_modes" caption="The tile card with the fan preset modes feature." %}
 
 ```yaml
 features:
   - type: "fan-preset-modes"
-    style: "icons"
     preset_modes:
       - auto
       - smart

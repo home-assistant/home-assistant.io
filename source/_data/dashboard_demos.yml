@@ -388,6 +388,7 @@ heights:
   feature_date: 120
   feature_fan_direction: 120
   feature_fan_oscillate: 120
+  feature_fan_preset_modes: 120
   feature_fan_speed: 120
   feature_humidifier_modes: 120
   feature_humidifier_toggle: 120
@@ -620,6 +621,19 @@ demos:
         columns: 12
       features:
         - type: fan-oscillate
+
+  feature_fan_preset_modes:
+    - type: tile
+      entity: fan.ceiling_fan
+      grid_options:
+        columns: 12
+      features:
+        - type: fan-preset-modes
+          preset_modes:
+            - auto
+            - smart
+            - sleep
+            - "on"
 
   feature_fan_speed:
     - type: tile
