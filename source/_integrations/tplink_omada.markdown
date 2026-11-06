@@ -35,7 +35,7 @@ Controller versions 5.1.0 and later are supported.
 
 {% configuration_basic %}
 Host:
-    description: "Enter the URL of the Omada management interface. You can get this from your Omada web management interface."
+    description: "Enter the URL of the Omada management interface, for example `https://192.168.1.10` or `https://omada.example.com`. If your controller uses a custom port, add it after the address, for example `https://192.168.1.10:8043`. Use the address only, without a page path such as `/login`. If you leave out `http://` or `https://`, Home Assistant uses `https://`. You can get this from your Omada web management interface."
 Verify SSL Certificates:
     description: "Un-check this box if you are using an HTTPS URL and you have not installed a matching device certificate for the Omada controller."
 Username:
