@@ -11,6 +11,7 @@ ha_domain: e3dc
 ha_config_flow: true
 ha_integration_type: device
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_quality_scale: bronze
 ha_zeroconf: true
@@ -23,6 +24,7 @@ The **E3/DC** {% term integration %} connects Home Assistant to an E3/DC home po
 - Seeing where your power goes. Solar production, battery charging and discharging, house consumption and grid import and export are all live sensors.
 - Running appliances on surplus solar. Start a heavy load once the solar power exceeds what the house uses.
 - Knowing when the house runs on backup power. The emergency power sensor shows when the power station supplies the house during a grid failure.
+- Noticing when backup power is not ready. The **Emergency power ready** binary sensor shows whether the power station can switch to emergency power. How long it can then supply the house depends on the battery's charge, which the **Battery** sensor shows.
 
 ## Supported devices
 
@@ -73,9 +75,19 @@ These sensors depend on the installed hardware:
 
 The integration checks the wallboxes and power meters when it starts. After you add a wallbox or a power meter, reload the integration.
 
+### Binary sensors
+
+The power station device has these binary sensors:
+
+- **Charging locked** and **Discharging locked**: the energy management system has blocked the battery.
+- **Emergency power ready**: emergency power is available once the battery is charged.
+- **Charging limited by forecast**: the weather forecast holds back charging capacity for the expected sunshine. This shows whether that is happening right now, not whether the forecast setting is on.
+- **Feed-in limited**: output is throttled because the maximum feed-in was reached.
+- **Charging lockout period** and **Discharging lockout period**: a lockout time from **Smart Charge** is active. Disabled by default.
+
 ## Data updates
 
-The integration polls the power flows every 5 seconds.
+The integration polls the power flows and the energy management status every 5 seconds.
 
 ## Troubleshooting
 
