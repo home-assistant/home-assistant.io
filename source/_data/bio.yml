@@ -39,6 +39,17 @@
 #   Scheduled items are in the page before they show, so anyone who reads
 #   the page's source can see them early. Don't schedule anything that must
 #   stay secret until it starts: merge it at the time instead.
+#
+# Images
+#   Optional. YouTube items use the video's thumbnail by themselves. For
+#   anything else, set `image:` to one of these:
+#     image: auto                              # the link's social preview image
+#     image: https://example.com/banner.webp   # an image the linked site hosts
+#     image: /images/bio/2026-11-community-day.webp
+#   For a new image, save it in source/images/bio/ with the date in its
+#   name. Make it 1200 × 630 pixels, WebP or JPEG, under about 200 KB, and
+#   keep text and faces away from the edges: the cards crop to fit. One
+#   image is enough: the small cards get a resized copy automatically.
 
 avatar: /images/favicon-192x192-full.png
 tagline: Open source home automation that puts local control and privacy first.

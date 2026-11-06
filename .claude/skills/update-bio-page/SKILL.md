@@ -118,7 +118,11 @@ There are no other date keys. If you use `date`, `start`, or `expires`, the buil
 
 - Titles and labels follow the Home Assistant writing style. Use sentence-style capitalization, except for names and the exact title of a YouTube video or blog post.
 - `label` is a short word shown before the date, such as `Livestream`, `Announcement`, or `Event`.
-- Images are optional. `image: auto` uses the link's social preview image. For a YouTube item, the video's thumbnail is used automatically.
+- Images are optional. For a YouTube item, the video's thumbnail is used automatically. For anything else, in this order:
+  - `image: auto` uses the link's social preview image: a blog post's own image, or the preview image of any other page. Try this first. It usually needs no new image.
+  - A full `https://` URL of an image the linked site already hosts, such as the merch store's banner. Small row cards get a thumbnail-sized copy from Netlify's image CDN, but only for this site's images and the hosts listed in `astro/src/lib/images.mjs`. An image from any other host is sent at full size and shrunk by the browser, which is slower and can look jagged. In that case, save a copy in `source/images/bio/` instead (next point). Don't add a new host to that list unless someone asks: it also needs a matching entry in `netlify.toml`.
+  - A new image, if the requester sends one. Save it in `source/images/bio/`, with a short lowercase name and the date, such as `source/images/bio/2026-11-community-day.webp`. Then set `image: /images/bio/2026-11-community-day.webp`. Save one image only, 1200 × 630 pixels, as WebP or JPEG, under about 200 KB. That size is for the large card at the top of Latest, which shows it at up to about 1100 pixels wide on high-resolution screens. Don't make a separate small version: the CDN makes the thumbnails from this one. Any other shape is cropped to fit. Keep important text and faces away from the edges, because the smaller row card crops tighter. Images in `source/images/` don't show on the Astro dev server (`localhost:4321`), only once the site is built with `rake generate` or deployed.
+- Don't ask the requester for an image if `image: auto` gives a good one. If an item has no image and `auto` doesn't fit, ask whether they have one rather than making one up.
 - Use site paths for links to this site (`/installation/`) and full URLs (`https://…`) for everything else.
 
 ## 6. Check it
@@ -172,5 +176,6 @@ Never delete an item without the requester's OK, even one that has clearly ended
 ### Remove them
 
 - Delete the whole block for each item they agreed to remove, including any comment lines that belong only to it.
+- If the item used an image in `source/images/bio/`, delete that too, unless something else on the site uses it (search the repo for its file name first).
 - To take something down now, delete its block. To take it down later instead, give it an `ends`.
 - Run the checks in step 6 again. The build should pass, and nothing that should still be showing should be missing from `astro/dist/bio/index.html`.

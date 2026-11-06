@@ -192,6 +192,11 @@ const name = setting("title");
 
   // The server's time, and the performance.now() it belongs to: the
   // middle of the request, when the server most likely wrote the header.
+  // `no-store` skips the browser's cache, whose copy would carry an old
+  // Date. The CDN (Cloudflare in front of Netlify) writes a fresh Date on
+  // every response, even when it serves a cached page, so Date alone is
+  // the time. Don't add Age: that's how long the CDN has held the page,
+  // and adding it would put the clock ahead by up to the cache lifetime.
   async function serverTime(): Promise<{ time: number; at: number } | null> {
     try {
       const sent = performance.now();
@@ -199,9 +204,7 @@ const name = setting("title");
       const received = performance.now();
       const date = Date.parse(response.headers.get("Date") ?? "");
       if (!response.ok || Number.isNaN(date)) return null;
-      // A response from a cache says how old it is in Age.
-      const age = Number(response.headers.get("Age")) || 0;
-      return { time: date + age * 1000, at: (sent + received) / 2 };
+      return { time: date, at: (sent + received) / 2 };
     } catch {
       return null;
     }
