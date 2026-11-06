@@ -76,7 +76,7 @@ This method is useful, for example, if you are on the page of a device and want 
 4. Select the dashboard, the view, and then select **Next**.
 5. Set the options in the **Device section configuration** dialog and select **Save**, or select **Add to dashboard**, depending on the type of the selected view.
    - In a [sections view](/dashboards/sections/), a **Device** section for this device is added. It stays up to date when the device gets new entities.
-   - In other views, an **Entities** card is added. Select which categories of entities to include.
+   - In other views, an **Entities** card is added.
 
 ## Showing or hiding a card or badge conditionally
 
