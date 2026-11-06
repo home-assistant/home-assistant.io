@@ -96,6 +96,18 @@ The iCloud integration adds the following sensors for each device on your Apple 
 
 The location sensors are only added for devices that report a location, and the lock, Lost Mode, and erase sensors only for devices that support those features. The **Floor**, **Last locked**, **Last lost**, and **Last wiped** entities are disabled by default.
 
+#### iCloud storage
+
+The integration also adds sensors for your Apple Account's iCloud storage:
+
+- **Total storage**: The total storage capacity available to your account.
+- **Used storage**: The amount of storage currently used.
+- **Available storage**: The remaining storage capacity.
+- **Storage usage**: The percentage of storage currently used.
+- **Storage by category**: The storage used by photos, backups, documents, mail, messages, and any other categories Apple reports.
+
+Storage sensors appear on your account device and update every hour. Category sensors are added when Apple first reports that category. If a category is missing from a later response, its value becomes unknown. If storage cannot be retrieved, the storage sensors become unavailable until the next successful update.
+
 ### To-do list
 
 The iCloud integration adds a to-do list entity for each of your Apple Reminders lists. You can add, edit, complete, and delete reminders, including their due date and notes. Changes sync back to your Apple devices. By default, only unfinished reminders are fetched. To also fetch completed reminders, enable **Include completed reminders** in the [configuration options](#configuration-options).
