@@ -21,3 +21,5 @@ Supported devices:
 The soundbar pushes its state to Home Assistant as soon as it changes.
 
 When the soundbar is unplugged or loses power, for example when it is powered through a smart plug, its entity becomes unavailable within a few seconds. Home Assistant keeps trying to reconnect in the background and reconnects within a few seconds once the soundbar is back on the network. You do not need to reload the integration.
+
+While the soundbar is unavailable, actions on it fail with an error. An action sent just as the soundbar loses power also fails, within a few seconds.
