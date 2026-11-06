@@ -110,7 +110,7 @@ The ability to add your charger to the [Home Assistant energy dashboard](/home-e
 ##### Network
 
 - **SSID**\*\*: Wi-Fi network name of the currently connected network.
-- **Signal strength** (dBm): Wi-Fi signal strength (RSSI).
+- **Signal strength**\*\* (dBm): Wi-Fi signal strength (RSSI).
 
 ##### Cellular (only if available)
 
@@ -129,13 +129,13 @@ These sensors are only available on NRGkick SIM models.
 
 ##### Powerflow
 
-- **Charging current** (A): Max current signaled to the EV.
+- **Offered charging current** (A): Max current signaled to the EV. This can differ from the set charging current, for example when load management limits it.
 - **Peak power**\*\* (W): Highest power during the most recent charge session.
 - **Total active power** (W): Total active power across all phases.
 - **Total reactive power**\*\* (var): Total reactive power across all phases.
 - **Total apparent power**\*\* (VA): Total apparent power across all phases.
 - **Total power factor**\*\* (%): Power factor across all phases.
-- **Charging voltage** (V): Average charging voltage across phases.
+- **Average voltage** (V): Average voltage across all phases, also while not charging.
 - **Powerflow grid frequency**\*\* (Hz): Grid frequency reported in powerflow data.
 - **L1 voltage**\*\* (V): Voltage on phase L1.
 - **L1 current** (A): Current on phase L1.
@@ -170,8 +170,8 @@ These sensors are only available on NRGkick SIM models.
   - _Wakeup_ ({% term state %}: `wakeup`): The charger is waking up or preparing a session.
 - **Charge count**: Vehicle plug-in cycle count.
 - **RCD trigger**: Indicates if the RCD got triggered and which type.
-- **Warning code**: Current warning code reported by the device.
-- **Error code**: Current error code reported by the device.
+- **Warning**: Current warning code reported by the device.
+- **Error**: Current error code reported by the device.
 
 ##### Temperatures
 
@@ -212,7 +212,7 @@ The integration creates the following controls.
 
 Entity IDs depend on your device name in Home Assistant. The examples below assume the default device name of `NRGkick`.
 
-- `sensor.nrgkick_charging_current`: Charging current.
+- `sensor.nrgkick_offered_charging_current`: Offered charging current.
 - `sensor.nrgkick_charged_energy`: Charged energy.
 - `sensor.nrgkick_total_charged_energy`: Total charged energy. Recommended for the Home Assistant energy dashboard.
 - `sensor.nrgkick_status`: Charging status.

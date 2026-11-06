@@ -57,6 +57,8 @@ Represents the heating controls of your device.
 Viessmann devices with room temperature sensing will show the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
 {% endnote %}
 
+The holiday programs appear as **Holiday** and **Holiday at home** binary sensors, with sensors for their start and end dates.
+
 ### Fan
 
 Ventilation units are displayed as fans and enable the change of speed and use of presets.
@@ -69,9 +71,15 @@ Represents the domestic hot water controls of your device.
 It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore, the operation mode of that integration is just available as an attribute and cannot be modified.
 {% endnote %}
 
+### Binary sensor
+
+Binary sensors show on and off states of the device, such as a running burner or compressor. Each room of a ViCare room control also has a **Window** and a **Condensation risk** binary sensor.
+
 ### Sensor
 
 Additional data for a device is available as separate sensors. The sensors are automatically discovered based on the available API data points.
+
+The rooms of a ViCare room control appear as separate devices named **Room 0**, **Room 1**, and so on, each with a temperature and a humidity sensor. The Viessmann API does not provide the room names, so rename the devices and assign them to areas as needed.
 
 ### Button
 
