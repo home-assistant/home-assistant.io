@@ -55,7 +55,7 @@ Credential type:
   description: The type of credential to write together with the user, either pin_code or password. Set it together with Credential data.
   required: false
 Credential slot:
-  description: The credential slot index. When not set, the first available slot for the credential type is used.
+  description: The credential slot index. When not set, the first available slot for the credential type is used, or, on locks that cannot store a user without a credential, the user's own slot (the user ID). On those locks, writing a credential to an existing user replaces that user's credential.
   required: false
 Credential data:
   description: The credential data, such as the PIN digits or password string. Set it together with Credential type.
@@ -132,7 +132,7 @@ credential_type:
   required: false
   type: string
 credential_slot:
-  description: The credential slot index. When not set, the first available slot for the credential type is used.
+  description: The credential slot index. When not set, the first available slot for the credential type is used, or, on locks that cannot store a user without a credential, the user's own slot (the user ID). On those locks, writing a credential to an existing user replaces that user's credential.
   required: false
   type: integer
 credential_data:
