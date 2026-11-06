@@ -94,6 +94,12 @@ For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switch
 
 {% include integrations/actions.md %}
 
+## Data updates
+
+Switcher devices push their state to Home Assistant: each device broadcasts its current status on the local network every few seconds, and the integration updates the entities as soon as a broadcast is received. There is no polling.
+
+If Home Assistant does not receive a broadcast from a device for 30 seconds, the device's entities are marked as unavailable. They become available again as soon as the next broadcast is received.
+
 ## Notes
 
 Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 10003, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
