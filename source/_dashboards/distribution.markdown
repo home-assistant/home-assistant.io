@@ -42,6 +42,11 @@ title:
   required: false
   description: The card title.
   type: string
+expand_legend:
+  required: false
+  description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Options for entities
