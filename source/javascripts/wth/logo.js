@@ -47,7 +47,9 @@ const FONT_URL = new URL('logo-font.json', import.meta.url).href;
 
 // Sizes in world units, where 1 is the font size of the large line.
 const SIZE_SM = 0.68;
-const SIZE_DATE = 0.28;
+// The date is sized to run about as wide as the large line (HECK?!), times
+// this factor.
+const DATE_WIDTH = 1;
 const TRACKING = -0.01;
 // Gaps between the outlines of neighbouring words and lines.
 const WORD_GAP = 0.1;
@@ -352,6 +354,15 @@ class WthLogo {
         return { group, meshes };
     }
 
+    // The advance width of a line's text at size 1, from the font.
+    textWidth(line) {
+        const text = [...line.querySelectorAll('.wth-mark__word')]
+            .map((word) => (word.dataset.text || word.textContent).trim())
+            .join(' ');
+        const { glyphs, resolution } = this.font.data;
+        return [...text].reduce((sum, char) => sum + (glyphs[char] || glyphs['?']).ha / resolution + TRACKING, 0);
+    }
+
     // Lays the words out in lines like the CSS version. Words are placed by
     // the outlines they have once rotated, so lines stay left-aligned and
     // tight whatever the poses are.
@@ -359,10 +370,14 @@ class WthLogo {
         let top = 0;
         let depth = 0;
 
+        const large = this.mark.querySelector('.wth-mark__line--lg');
+        const dateLine = this.mark.querySelector('.wth-mark__line--date');
+        const sizeDate = large && dateLine ? (this.textWidth(large) / this.textWidth(dateLine)) * DATE_WIDTH : 0.28;
+
         // Bottom line first, so each line can sit on top of the one below.
         [...this.mark.querySelectorAll('.wth-mark__line')].reverse().forEach((line) => {
             const isDate = line.classList.contains('wth-mark__line--date');
-            const size = isDate ? SIZE_DATE : line.classList.contains('wth-mark__line--lg') ? 1 : SIZE_SM;
+            const size = isDate ? sizeDate : line.classList.contains('wth-mark__line--lg') ? 1 : SIZE_SM;
             const words = [...line.querySelectorAll('.wth-mark__word')].map((word) => {
                 const variant = [...word.classList]
                     .map((name) => name.match(/^wth-mark__word--(.+)$/)?.[1])
