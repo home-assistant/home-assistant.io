@@ -81,6 +81,10 @@ If the access authorization has a PIN, use the `homematicip_cloud.pull_latch` ac
 
 Newer Homematic IP alarm systems refuse to arm while a window is open or a device is unreachable. Home Assistant then reports an error naming those devices, and the **Arming blocked** binary sensor of the access point turns on. It only follows the commands sent from Home Assistant and stays on until the next one goes through.
 
+## Arm the alarm system anyway
+
+If the alarm system refuses to arm because a window is open or a device is unreachable, the [`homematicip_cloud.arm_anyway`](/actions/homematicip_cloud.arm_anyway/) action arms it anyway, in the `away` or `home` mode, and leaves the sensors that block it unmonitored.
+
 ## Supported devices
 
 The list below shows which Home Assistant entities each supported Homematic IP device contributes. Devices are grouped by Home Assistant entity platform; a single physical device often contributes entities on more than one platform (for example, a wall thermostat appears under *Climate*, *Sensors*, and *Binary sensors* for the battery state). If your device isn't listed, see [My device isn't recognized](#my-device-isnt-recognized).
