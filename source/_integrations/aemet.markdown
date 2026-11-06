@@ -34,7 +34,7 @@ Location:
 
 ### API key expiry
 
-AEMET API keys expire every three months. Enter the date the key was generated when adding or updating the integration. If you leave it empty, the current date is used. The generation date is only used by Home Assistant to calculate the expiry date.
+AEMET API keys expire every three months. Enter the date the key was generated when adding the integration or replacing its API key. If you leave the date empty during setup or when replacing the key, including reauthentication, the current date is used. When editing the options without replacing the key, leaving the date empty keeps the stored generation date. If no date is stored and you enable the reminder, the current date is used. Home Assistant uses the generation date only to calculate the expiry date.
 
 When the API key expiry reminder is enabled, Home Assistant creates a persistent notification three days before the key expires, at 09:00 local time. When the key expires or AEMET rejects it, Home Assistant starts a reauthentication flow where you can enter a new API key and its generation date.
 
