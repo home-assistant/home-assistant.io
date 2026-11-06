@@ -55,7 +55,7 @@ Enter the Envoy access token manually:
 Envoy access token:
   description: "Enter the access token retrieved from the [Enphase token portal](https://entrez.enphaseenergy.com). The description text below the field includes the link to the portal and the current token lifetime. This field is only available when **Enter the Envoy access token manually** is enabled."
 Envoy has no solar inverters:
-  description: "If your Envoy has no solar inverters installed, select this option. When selected, the integration will not collect the missing solar production data. This to avoid significant response delays in the Envoy which may result in integration startup failures or data collection delays. See [NO SOLAR mode](#no-solar-mode) below."
+  description: "If your Envoy has no solar inverters installed, select this option. When selected, the integration will not collect the missing solar production data. This avoids significant response delays in the Envoy which may result in integration startup failures or data collection delays. See [NO SOLAR mode](#no-solar-mode) below."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -538,13 +538,13 @@ The Enphase C6 combiner controller (C6CC) provides some status information to th
 
 ## NO SOLAR mode
 
-Originally the enphase_envoy integration and the Envoy device configurations were solar centric. It started with solar inverters and the Envoy as a gateway device for control. With the advent of battery installations, the landscape has changed. From initially adding same brand batteries to the existing Enphase solar arrays to more recently adding Enphase batteries to an existing different brand of solar. The latter comes with an Envoy device that does not control the solar side, but just the batteries instead.
+Originally the enphase_envoy integration and the Envoy device configurations were solar centric. It started with solar inverters and the Envoy as a gateway device for control. With the advent of battery installations, the landscape has changed. In many cases same brand batteries are added to an existing Enphase solar array. In other cases Enphase batteries are added to an existing solar installation of a different brand. The latter comes with an Envoy device that does not control the solar side, but only the batteries.
 
-The Envoy without inverters has issues with requests for solar production data. These requests hang in the Envoy and lead to timeouts and retries. This is significantly delaying the integration startup to the extend it may even fail off and on. And even when successfully started, data collection incurs delays. All this while there is no data to use in the first place.
+The Envoy without inverters has issues with requests for solar production data. These requests hang in the Envoy and lead to timeouts and retries. This is significantly delaying the integration startup to the extend that it may even fail off and on. And even when successfully started, data collection incurs delays. All this while there is no data to use in the first place.
 
-In this situation the integration can be [configured to run in NO SOLAR mode](#envoy-has-no-solar-inverters). It will not attempt to collect the solar production data and mitigate these issues. All other data, like for batteries or current transformers, is collected if these are available.
+In this situation the integration can be [configured to run in NO SOLAR mode](#envoy-has-no-solar-inverters). It will not attempt to collect the solar production data which mitigates these issues. All other data, like for batteries or current transformers, is collected if these are available.
 
-The old envoy non-metered production data can and is still collected and used for production values. At the moment it is unclear what these values represent.
+The old envoy non-metered production data is still collected and used for production values. At the moment it is unclear what these values represent.
 
 ## Data polling interval
 
