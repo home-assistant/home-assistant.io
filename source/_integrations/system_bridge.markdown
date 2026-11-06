@@ -320,7 +320,7 @@ automation: |
 If Home Assistant can't connect when you set up the integration, or the computer's entities stay unavailable:
 
 1. Check System Bridge is running on the computer, for example by opening its [web client](https://system-bridge.timmo.dev/using/web-client/).
-2. Check the host and port. From another device on your network, open `http://YOUR_COMPUTER:9170` in a browser, using your port if you changed it. If the System Bridge web client loads, Home Assistant can reach it too.
+2. Check the host and port. From another device on your network, open `http://YOUR_COMPUTER:9170` in a browser, using your port if you changed it. If the System Bridge web client loads, that device can reach the computer. Also check that routing and firewall rules allow Home Assistant to reach the same host and port.
 3. Check the computer's firewall allows incoming connections on the System Bridge port.
 4. If the computer gets its IP address from DHCP, give it a fixed address, or use its hostname. A computer that Home Assistant discovered gets its address updated when it changes.
 
