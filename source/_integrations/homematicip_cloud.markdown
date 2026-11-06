@@ -81,6 +81,10 @@ If the access authorization has a PIN, use the `homematicip_cloud.pull_latch` ac
 
 Newer Homematic IP alarm systems refuse to arm while a window is open or a device is unreachable. Home Assistant then reports an error naming those devices, and the **Arming blocked** binary sensor of the access point turns on. It only follows the commands sent from Home Assistant and stays on until the next one goes through.
 
+## Arm the alarm system anyway
+
+If the alarm system refuses to arm because a window is open or a device is unreachable, the [`homematicip_cloud.arm_anyway`](/actions/homematicip_cloud.arm_anyway/) action arms it anyway, in the `away` or `home` mode, and leaves the sensors that block it unmonitored.
+
 ## Supported devices
 
 The list below shows which Home Assistant entities each supported Homematic IP device contributes. Devices are grouped by Home Assistant entity platform; a single physical device often contributes entities on more than one platform (for example, a wall thermostat appears under *Climate*, *Sensors*, and *Binary sensors* for the battery state). If your device isn't listed, see [My device isn't recognized](#my-device-isnt-recognized).
@@ -105,6 +109,7 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 - Wired input module – 32 channels (`HmIPW-DRI32`)
 - Battery sensors on remote controls (`HmIP-RC8`, `HmIP-WRC2`, `HmIP-WRCC2`, `HmIP-WRC6`, `HmIP-WRC6-230`, `HmIPW-WRC6`, `HmIP-KRC4`, `HmIP-KRCA`, `HmIP-BRC2`, `HmIP-MOD-RC8`)
 - Full Flush Lock Controller glass-break and lock state sensors (`HmIP-FLC`)
+- Door lock sensor (`HmIP-DLS`)
 - Heating output of wall thermostats, shown when the thermostat's switching output is enabled (`HmIP-BWTH`, `HmIP-WGT`, `HmIP-WGT-A`, `HmIP-WGTC`)
 
 ### Buttons
