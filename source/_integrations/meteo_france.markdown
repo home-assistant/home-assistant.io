@@ -15,6 +15,11 @@ It displays the current weather along with a 5 days forecast and create sensors,
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+City:
+  description: "Postal code or city name of the location you want weather forecasts for. Postal codes are only supported in France. If several cities match your search, choose the right one from the list."
+{% endconfiguration_basic %}
+
 
 ## Weather platform
 
