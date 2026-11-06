@@ -120,3 +120,36 @@ The `doorbird` button platform allows you to power connected relays and trigger 
 ## Event
 
 An event entity will be created for each doorbell or motion event with a configured HTTP(s) call in the [schedule](#schedules).
+
+## Actions
+
+### Action `doorbird.restart`
+
+{% version_added 2026.12 %}
+
+Restarts one or more DoorBird devices. A device is unavailable for a short time while it reboots. This action can only be called by an administrator. Calls from automations and scripts are not affected. The DoorBird user that Home Assistant uses needs the "API-Operator" permission.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `device_id` | no | The DoorBird device or devices to restart. |
+
+The action has no schedule of its own. To restart a DoorBird at a set time, call it from an automation. This example restarts a device every Sunday at 03:30:
+
+```yaml
+automation:
+  - alias: "Restart DoorBird weekly"
+    triggers:
+      - trigger: time
+        at: "03:30:00"
+    conditions:
+      - condition: time
+        weekday:
+          - sun
+    actions:
+      - action: doorbird.restart
+        data:
+          device_id:
+            - YOUR_DEVICE_ID
+```
+
+The easiest way to get the device ID is to add the **DoorBird: Restart** action in the automation editor and pick the device. The editor fills it in for you.
