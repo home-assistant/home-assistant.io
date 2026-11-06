@@ -1,8 +1,8 @@
 ---
-title: "Button held, optionally repeating"
+title: "Button held"
 trigger: button.held
 domain: button
-description: "Triggers when one or more buttons are held, and optionally again at a set interval for as long as they stay held."
+description: "Triggers when one or more buttons are held, optionally repeating at a set interval for as long as they stay held."
 related_triggers:
   - button.pressed
   - event.received
@@ -20,7 +20,7 @@ To use this trigger in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), select the button event entity you want to monitor. You can also select an area, a floor, a device, or a label.
-5. From the triggers shown for that target, select **Button held, optionally repeating**.
+5. From the triggers shown for that target, select **Button held**.
 6. Optional: To make the trigger fire again while the button stays held, select **Interval**, and enter how often. If you don't select **Interval**, the trigger fires once per hold.
 7. Select **Save**.
 
@@ -111,7 +111,7 @@ For the data that all triggers include, refer to [Trigger data in templates](/do
 
 Use this automation to keep making a light brighter for as long as you hold a button on your remote control. This needs a button that reports both **Long press start** and **Long press end**.
 
-- **Trigger**: Button held, optionally repeating
+- **Trigger**: Button held
   - **Target**: Living room remote brightness up button
   - **Interval**: 500 milliseconds
 - **Action**: Turn on light
@@ -144,7 +144,7 @@ automation: |
 
 Use this automation to turn off all the lights on a floor when you hold a wall switch button for a few seconds, so a short hold doesn't turn them off by accident. The trigger fires every second after the hold starts, and the condition only lets the third repeat through. This needs a button that reports both **Long press start** and **Long press end**.
 
-- **Trigger**: Button held, optionally repeating
+- **Trigger**: Button held
   - **Target**: Hallway switch button
   - **Interval**: 1 second
 - **Condition**: Template
