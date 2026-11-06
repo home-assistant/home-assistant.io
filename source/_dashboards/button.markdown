@@ -69,7 +69,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/). It defaults to the entity name only if the card interacts with an entity. Otherwise, if not configured, no name is displayed.
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/). If not configured, the default name of the entity is displayed only if the card interacts with an entity. Otherwise, no name is displayed.
   type: [string, map, list]
   default: Entity name
 icon:
