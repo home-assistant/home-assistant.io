@@ -1097,6 +1097,26 @@ The Flow-it {% term integration %} is now called **AriaQ**, because the manufact
 
 {% enddetails %}
 
+{% details "Frontend" %}
+
+The Home Assistant frontend now requires Chrome 67, Safari 15.4 (iOS and iPadOS 15.4), or Firefox 98 or newer. An older browser now shows a message on the launch screen instead of loading forever.
+
+These devices can no longer open Home Assistant, in the browser or in the Home Assistant app:
+
+- iPad Air 1, iPad mini 2, iPad mini 3, iPhone 5s, iPhone 6, iPhone 6 Plus, and iPod touch 6, which can't be updated past iOS 12.
+- Macs that can't run macOS 10.15 Catalina or newer, as Safari 15.4 needs Catalina.
+- Fire tablets that still use Amazon WebView 59: the 2015 and 2016 Fire 7, Fire HD 8, and Fire HD 10 on Fire OS 5, and any Fire tablet on Fire OS 6.3.0.1. This includes kiosk browsers such as Fully Kiosk, which use the same WebView. Tablets on Fire OS 5.6.4 or newer (2017 models), Fire OS 6.3.1.2 or newer, or Fire OS 7 keep working, so check for a Fire OS update first.
+
+The first generation Chromecast is not affected.
+
+([@maartenla] - [frontend#55138]) ([Frontend documentation])
+
+[@maartenla]: https://github.com/maartenla
+[frontend#55138]: https://github.com/home-assistant/frontend/pull/55138
+[Frontend documentation]: /integrations/frontend/
+
+{% enddetails %}
+
 {% details "General Transit Feed Specification (GTFS)" %}
 
 GTFS stop times are in the agency's local time. Previously, when the time zone configured in your Home Assistant instance differed from the GTFS feed time zone, you could use the `offset` parameter to match the time zones. The integration now automatically applies an offset, so a manual offset is no longer required and may overcorrect the feed stop times.
