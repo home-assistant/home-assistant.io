@@ -113,6 +113,68 @@ The **Seafile** integration {% term polling polls %} your Seafile server every 5
 
 The list of backups is cached for 5 minutes. Backups that you add or delete in Seafile directly can take up to 5 minutes to show up in Home Assistant.
 
+## Examples
+
+The following examples use a library named **Documents** and a library named **Laptop backup**. Replace the entity IDs with those of your own libraries.
+
+### Notify when a library grows too large
+
+This automation sends a notification when the **Documents** library grows past 50 GiB. The threshold is in the unit the **Size** sensor is shown in, which is GiB by default.
+
+```yaml
+automation:
+  - alias: "Seafile library grows too large"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.documents_size
+        above: 50
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          message: "The Documents library in Seafile is now {{ states('sensor.documents_size') }} GiB."
+```
+
+### Empty the trash of a library every week
+
+This automation empties the trash of the **Documents** library every Sunday at 03:00. Files in the trash are deleted permanently, so only use this for libraries where you don't need to restore deleted files.
+
+```yaml
+automation:
+  - alias: "Empty Seafile trash weekly"
+    triggers:
+      - trigger: time
+        at: "03:00:00"
+    conditions:
+      - condition: time
+        weekday: sun
+    actions:
+      - action: button.press
+        target:
+          entity_id: button.documents_empty_trash
+```
+
+### Notify when a backup library stops changing
+
+This automation sends a notification when the **Laptop backup** library has not changed for 7 days, which can mean that your backups stopped running.
+
+```yaml
+automation:
+  - alias: "Seafile backup library not updated"
+    triggers:
+      - trigger: template
+        value_template: >
+          {% set modified = states('sensor.laptop_backup_last_modified') | as_datetime(None) %}
+          {{ modified is not none and now() - modified > timedelta(days=7) }}
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          message: "The Laptop backup library in Seafile has not changed for 7 days."
+```
+
 ## Supported versions
 
 The integration has been tested with Seafile 13 and 14 (Community Edition).
