@@ -607,7 +607,7 @@ The list of ZHA limitations may not be exhaustive.
 
 **Zigbee Green Power (ZGP) devices depend on the coordinator's radio type or on nearby router devices:**
 
-- Only some Zigbee Coordinator firmware can receive Green Power messages directly at the Zigbee Coordinator adapter, those with firmware based Silicon Labs EmberZNet or Ziggurat.
+- Zigbee coordinators with firmware based on Silicon Labs EmberZNet or Ziggurat can receive Green Power messages directly.
 - deCONZ based adapters have partial support for receiving ZGP messages directly but have issues with unencrypted frames.
 - With other radio types, such as Texas Instruments (`znp`), ZiGate (`zigate`), and XBee (`xbee`), Green Power devices only work if Zigbee 3.0 router devices are in range. These routers act as Green Power proxies and pass the messages on to the Zigbee Coordinator adapter.
 - Each router device can only proxy a limited number of Green Power devices. For details, refer to [Adding Green Power devices](#adding-green-power-devices).
