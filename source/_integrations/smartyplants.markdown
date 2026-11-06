@@ -37,11 +37,21 @@ The integration polls every minute. To have readings arrive immediately as well:
 
 Pushed updates are verified against that secret, so an update that is not correctly signed is rejected. Polling continues either way as a fallback, so the integration still works if a push is missed.
 
-The secret is set while adding the integration and cannot be changed afterwards. To use a different one, remove the integration and add it again.
-
 {% note %}
 Home Assistant must be reachable from the internet for a webhook to be delivered. If it is not, leave the secret empty and the integration polls instead.
 {% endnote %}
+
+## Reconfiguration
+
+The API key and the webhook secret can both be changed after setup, without removing the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **SmartyPlants**.
+2. Select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, then select **Reconfigure**.
+3. Enter the new API key, and the new signing secret if you are changing it. Clear the secret to stop using a webhook and poll only.
+
+The new API key has to belong to the same SmartyPlants account the integration was set up with. A key for a different account is refused, and the existing key is kept.
+
+The webhook URL does not change when you reconfigure, so there is nothing to update in the SmartyPlants app.
 
 ## Supported functionality
 
@@ -185,13 +195,12 @@ A sensor that the SmartyPlants cloud reports as offline has its entities marked 
 - The integration is read-only. Renaming a plant or assigning a sensor is done in the SmartyPlants app.
 - Sensors are read once when the integration starts. A sensor added in the SmartyPlants app appears after you reload the integration.
 - Plants that have no sensor attached are not shown.
-- The webhook secret cannot be changed once the integration is added.
 
 ## Troubleshooting
 
 ### The integration cannot connect
 
-Check that the API key is still valid in the SmartyPlants app under **Settings**. If it was revoked or regenerated, delete the integration and add it again with the new key.
+Check that the API key is still valid in the SmartyPlants app under **Settings**. If it was revoked or regenerated, [reconfigure](#reconfiguration) the integration with the new key.
 
 ### The API key is refused even though it is correct
 
