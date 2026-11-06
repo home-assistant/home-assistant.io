@@ -368,7 +368,7 @@ To avoid this:
 
 ### Deleting statistics in a time range
 
-One bad measurement can ruin the graph of a sensor. Statistics of values such as temperature can't be adjusted, but you can delete the statistics of a time range. Everything outside that range stays.
+Statistics of values such as temperature can't be adjusted, but you can delete statistics for a time range. Home Assistant deletes entire five-minute and hourly statistics periods that overlap the selected range, including periods that only partly overlap. Periods that do not overlap the range are kept.
 
 {% important %}
 **Risk of data loss**
