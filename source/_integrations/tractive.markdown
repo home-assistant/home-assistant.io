@@ -42,7 +42,6 @@ The **Tractive** integration provides the following entities for each pet regist
 - **Bark status**
   - **Description**: Status of your pet's barking compared to its usual level, as shown in the Tractive app.
   - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today
-  - **Remarks**: Disabled by default.
 - **Battery**
   - **Description**: Battery level of the tracker.
 - **Daily goal**
@@ -62,7 +61,6 @@ The **Tractive** integration provides the following entities for each pet regist
 - **Scratch status**
   - **Description**: Status of your pet's scratching compared to its usual level, as shown in the Tractive app.
   - **Options**: Calculating baseline, Elevated, Infrequent, Normal, Not enough data today
-  - **Remarks**: Disabled by default.
 - **Status**
   - **Description**: Current status of the tracker.
   - **Options**: Inaccurate position, Not reporting, Operational, System shutdown user, System startup
