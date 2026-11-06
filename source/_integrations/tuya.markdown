@@ -106,4 +106,6 @@ This integration only communicates with the Tuya cloud. It doesn't use Home Assi
 
 #### Resolution
 
-If the device is paired directly with your phone, add it to the app through a Tuya Bluetooth or multi-mode gateway instead. If it's already connected through a gateway, make sure the gateway and device show as online in the app. If they do and the entities are still unavailable, [open an issue](https://github.com/home-assistant/core/issues) and include the device diagnostics.
+1. If the device is paired directly with your phone, add it to the app through a Tuya Bluetooth or multi-mode gateway instead. 
+2. If it's already connected through a gateway, make sure the gateway and device show as online in the app. 
+3. If they do and the entities are still unavailable, [open an issue](https://github.com/home-assistant/core/issues) and include the device diagnostics.
