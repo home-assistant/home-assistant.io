@@ -80,7 +80,7 @@ These sensors depend on the firmware:
 - **Stored energy**, **Battery capacity**, **Maximum charge power** and **Maximum discharge power**, if the power station reports its battery capacity. Maximum discharge power is negative. All but stored energy are diagnostic sensors.
 - **Inverter mode**, a diagnostic sensor. It shows normal operation, or the idle, off-grid power save mode.
 - **Active power failsafe timeout** and **Reactive power failsafe timeout**, diagnostic sensors that are disabled by default. They show how long an active or reactive power setpoint holds. A timeout of 0 turns the failsafe off.
-- **SG Ready status**, a diagnostic sensor that is disabled by default. It shows the raw status code, because the E3/DC Modbus manual documents no values.
+- **SG Ready status**, a diagnostic sensor that is disabled by default. It shows the SG Ready operating state: **Blocked**, **Normal operation**, **Switch-on recommended** or **Forced on**. The E3/DC Modbus manual documents no values for this register, so the states follow the SG Ready standard. Any other value shows as unknown.
 
 ## Data updates
 
