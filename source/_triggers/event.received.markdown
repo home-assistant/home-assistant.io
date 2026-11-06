@@ -7,6 +7,7 @@ related_triggers:
   - event
   - state
   - doorbell.rang
+  - button.pressed
 ---
 
 The **Event received** trigger runs an automation when a physical event entity — such as a doorbell, a remote control button, or a motion sensor — detects a specific type of event. Use it when you want to react to a particular event type, like a doorbell ring or a double press, rather than any state change on the entity.

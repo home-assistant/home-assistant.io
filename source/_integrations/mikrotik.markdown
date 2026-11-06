@@ -123,6 +123,7 @@ The integration creates sensor entities when the connected device exposes that i
 - CPU usage
 - Device temperature
 - Device power voltage
+- Fan 1 speed (<abbr title="revolutions per minute">RPM</abbr>)
 
 ### Buttons
 

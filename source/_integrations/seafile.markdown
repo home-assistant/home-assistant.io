@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: seafile
 ha_platforms:
   - backup
+  - button
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -81,6 +82,21 @@ Each library is added as a separate device in Home Assistant, with the following
 - **Last modified**
   - **Description**: Time the library was last changed.
 
+### Buttons
+
+- **Empty trash**
+  - **Description**: Permanently deletes the files and folders in the trash of the library. This can't be undone. Only the owner or an admin of the library can empty its trash.
+
+### Selects
+
+- **History**
+  - **Description**: How much file history Seafile keeps for the library, so you can restore older versions of files.
+  - **Options**:
+    - **Keep full history**: Keep all older versions. This is the default in Seafile.
+    - **Don't keep history**: Keep no older versions. Seafile removes the existing history.
+    - **Keep a period of history**: Keep the older versions for a set number of days. Switching to it from another option sets a period of 30 days. A period that is already set stays as it is. You can change the number of days in Seafile.
+  - **Remarks**: Only available for libraries you own or administer.
+
 ### Backups
 
 Each library with **Store backups** turned on is available as a backup location in Home Assistant, named after the account and the library, for example, **admin@example.com (seafile.example.com) - Documents**. Libraries you select while setting up the integration have backups turned off; turn them on by reconfiguring the library.
@@ -105,6 +121,7 @@ The integration has been tested with Seafile 13 and 14 (Community Edition).
 
 - Encrypted libraries are not supported and are not shown in the list of libraries.
 - An account on a server can only be added once.
+- Changing **History** fails with a permission error if the Seafile server administrator has turned off the library history setting.
 
 ## Troubleshooting
 
