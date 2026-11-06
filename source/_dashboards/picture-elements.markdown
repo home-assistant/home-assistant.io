@@ -23,6 +23,8 @@ The cards allow you to position icons or text and even buttons on an image based
 
 {% include dashboard/edit_dashboard.md %}
 
+In the preview of the card configuration dialog, you can select the element and drag it where you want it. The `left` and `top` values in **Style** are automatically updated.
+
 ## YAML configuration
 
 The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
