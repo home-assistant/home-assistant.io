@@ -216,16 +216,16 @@ entities:
         - music
         - game
       supported_features: 85437
-  - entity_id: number.oven_timer
+  - entity_id: input_number.oven_timer
     state: "25"
     attributes:
       friendly_name: Oven timer
       min: 0
       max: 120
       step: 5
-      mode: auto
+      mode: slider
       unit_of_measurement: min
-  - entity_id: select.washer_program
+  - entity_id: input_select.washer_program
     state: Normal
     attributes:
       friendly_name: Washer program
@@ -787,7 +787,7 @@ demos:
 
   feature_numeric_input:
     - type: tile
-      entity: number.oven_timer
+      entity: input_number.oven_timer
       grid_options:
         columns: 12
       features:
@@ -796,7 +796,7 @@ demos:
 
   feature_select_options:
     - type: tile
-      entity: select.washer_program
+      entity: input_select.washer_program
       grid_options:
         columns: 12
       features:
