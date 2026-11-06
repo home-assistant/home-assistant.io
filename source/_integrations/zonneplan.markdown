@@ -17,7 +17,7 @@ During setup, you are asked for the email address linked to your Zonneplan accou
 
 ## Data updates
 
-The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status of each home battery every 5 minutes, and the status of each EV charge point every minute.
+The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status of each home battery every 5 minutes, and the status of each EV charge point every minute. The price sensors also update at the start of every quarter hour, using the prices from the last update.
 
 ## Supported functionality
 
@@ -26,6 +26,7 @@ The Zonneplan integration retrieves data from the Zonneplan cloud API on a regul
 The following sensors are provided by this integration:
 
 - **Current electricity price**: The electricity price for the current hour.
+- **Current quarter-hour electricity price**: The electricity price for the current quarter hour.
 - **Next hour electricity price**: The electricity price for the next hour.
 - **Current electricity tariff group**: How Zonneplan classifies the price of the current hour: Low, Normal, or High.
 - **Current sustainability score**: Zonneplan's score, from 0 to 100%, for how sustainable the electricity supplied in the current hour is.

@@ -43,9 +43,9 @@ The integration will update its sensors by {% term polling %} the HannaCloud acc
 The Hanna integration provides the following entities.
 
 #### Sensors
-- **Chlorine flow rate**: Monitors chlorine dosing rate
+- **Chlorine injection**: Volume of chlorine (mL) dosed in the current dosing cycle. It counts up from 0 and resets when the cycle ends; it is not a rate.
 - **Chlorine ORP value**: Measures oxidation-reduction potential with calibration data as attributes
-- **pH Acid/base flow rate**: Monitors acid/base chemical dosing rate
+- **pH acid/base injection**: Volume of acid/base (mL) dosed in the current dosing cycle. It counts up from 0 and resets when the cycle ends; it is not a rate.
 - **pH value**: Measures pH level with calibration data as attributes
 - **Air temperature**: Air temperature reported by the device
 - **Water temperature**: Water temperature reported by the device

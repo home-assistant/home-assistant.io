@@ -83,7 +83,7 @@ For an RS485 connection, set the protocol of the inverter's RS485 port to **SunS
 
 {% include integrations/config_flow.md %}
 
-Setting up starts by picking how the inverter is reached, **Network (Modbus TCP)** or **Serial (RS485)**. A discovered inverter skips that question: it announced itself over the network.
+Setting up starts by picking how the inverter is reached, **Modbus TCP** or **Serial port (Modbus RTU)**. A discovered inverter skips that question: it announced itself over the network.
 
 For a network connection:
 
