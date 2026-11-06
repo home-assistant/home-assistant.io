@@ -94,8 +94,14 @@ Each library is added as a separate device in Home Assistant, with the following
   - **Options**:
     - **Keep full history**: Keep all older versions. This is the default in Seafile.
     - **Don't keep history**: Keep no older versions. Seafile removes the existing history.
-    - **Keep a period of history**: Keep the older versions for a set number of days. Switching to it from another option sets a period of 30 days. A period that is already set stays as it is. You can change the number of days in Seafile.
+    - **Keep a period of history**: Keep the older versions for a set number of days. Switching to it from another option sets a period of 30 days. A period that is already set stays as it is. Change the number of days with **History days**.
   - **Remarks**: Only available for libraries you own or administer.
+
+### Numbers
+
+- **History days**
+  - **Description**: For how many days Seafile keeps the older versions of files in the library, from 1 to 3650.
+  - **Remarks**: Only available when **History** is set to **Keep a period of history**.
 
 ### Backups
 
@@ -121,7 +127,7 @@ The integration has been tested with Seafile 13 and 14 (Community Edition).
 
 - Encrypted libraries are not supported and are not shown in the list of libraries.
 - An account on a server can only be added once.
-- Changing **History** fails with a permission error if the Seafile server administrator has turned off the library history setting.
+- Changing **History** or **History days** fails with a permission error if the Seafile server administrator has turned off the library history setting.
 
 ## Troubleshooting
 
