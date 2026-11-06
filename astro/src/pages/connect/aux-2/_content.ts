@@ -1,6 +1,7 @@
 // Specifications and FAQ of the Connect AUX-2 page, from the Figma file
 // "Connect AUX-2" ("Specs", node 2002:31255; "FAQ", node 2002:36190).
 // The leading underscore keeps this file out of the page routes.
+import type { FaqItem } from "../../../components/connect/ConnectFaq.astro";
 import explodedBase from "../../../assets/connect/aux-2/exploded-base.svg";
 import explodedBoard from "../../../assets/connect/aux-2/exploded-board.webp";
 import explodedLid from "../../../assets/connect/aux-2/exploded-lid.svg";
@@ -163,13 +164,76 @@ export const specs = [
   },
 ];
 
-// TODO: the Figma file has placeholder questions ("Can I speak my
-// mind?") and one placeholder answer; replace with the real FAQ. The
-// other Connect pages read theirs from source/_data/product/connect/.
-const placeholder = {
-  question: "Can I speak my mind?",
-  answer:
-    "<p>You're always free to share your honest perspectives and constructive feedback about Home Assistant in your content. Creator Network members are also given the chance to offer feedback about the monthly changes directly to the team before it releases.</p>",
-};
-
-export const faq = Array.from({ length: 5 }, () => placeholder);
+// FAQ. Answers are HTML. Each item can take an optional `cta`
+// ({ label, href }), shown as a button under the answer.
+export const faq: FaqItem[] = [
+  {
+    question: "Does Connect AUX-2 require Home Assistant to work?",
+    answer:
+      "<p>Yes. Connect AUX-2 is built as a native Home Assistant device, so you get full local control and privacy. You need Home Assistant 2026.9 or later to set it up and manage it, and it's added to Home Assistant through the ESPHome integration.</p>",
+  },
+  {
+    question: "Does it have an audio input?",
+    answer:
+      "<p>No. Connect AUX-2 is designed to play music, not receive it, so it only has an audio output.</p>",
+  },
+  {
+    question: "Can it send or receive Bluetooth audio?",
+    answer: "<p>No. Audio plays only through the 3.5 mm audio output.</p>",
+  },
+  {
+    question: "Does Connect AUX-2 come with any audio or serial cables?",
+    answer:
+      "<p>No. Audio setups vary widely, from 3.5 mm AUX and RCA to dedicated RS-232 serial connections. Buying cables separately lets you choose the exact length and connector type that fits your equipment. See <a href=\"#specs\">In the box</a> for what's included.</p>",
+  },
+  {
+    question: "Does it work with every device that uses serial?",
+    answer:
+      "<p>No. It can only control serial devices that have an integration in Home Assistant.</p>",
+  },
+  {
+    question: "Can Connect AUX-2 connect to Zigbee devices?",
+    answer:
+      "<p>Yes, but we recommend caution. This setup hasn't been widely tested yet, and the setup guide is in the developer documentation. It works only with ZHA, not Zigbee2MQTT, and needs Home Assistant 2026.11 or later.</p>",
+  },
+  {
+    question: "Can it connect to Thread devices?",
+    answer:
+      "<p>No. Thread support isn't planned for Connect AUX-2.</p>",
+  },
+  {
+    question: "What app do I use to play music?",
+    answer:
+      "<p>Music Assistant, which is free. It finds Connect AUX-2 automatically as a Sendspin player.</p>",
+  },
+  {
+    question: "Which streaming services are supported?",
+    answer:
+      "<p>Any service that Music Assistant supports. Music Assistant plays from streaming services and from your own music files.</p>",
+  },
+  {
+    question: "Can I connect Connect AUX-2 to my existing stereo or speakers?",
+    answer:
+      "<p>Yes. It works with any stereo, AV receiver, or powered speakers that have an auxiliary input. It doesn't amplify, so unpowered speakers need an audio amplifier.</p>",
+  },
+  {
+    question: "Can it play in sync with my other speakers?",
+    answer:
+      "<p>Yes. Music Assistant can group speakers to play in sync, including AirPlay and some Sonos speakers.</p>",
+  },
+  {
+    question: "How is it powered?",
+    answer:
+      "<p>By USB-C (5 V, 2 A) or Power over Ethernet (802.3af or better). Use one power source at a time.</p>",
+  },
+  {
+    question: "Does Connect AUX-2 connect over Wi-Fi or Ethernet?",
+    answer:
+      "<p>Either one. Wi-Fi is 2.4 GHz only. For the most reliable connection, use Ethernet.</p>",
+  },
+  {
+    question: "Can Home Assistant turn on my receiver or change its volume?",
+    answer:
+      "<p>Yes, if the receiver has an RS-232 serial port and a Home Assistant integration.</p>",
+  },
+];

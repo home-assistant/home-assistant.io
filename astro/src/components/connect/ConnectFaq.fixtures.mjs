@@ -16,5 +16,18 @@ export default {
         ],
       },
     },
+    {
+      name: "with call to action",
+      props: {
+        items: [
+          {
+            question: "Which streaming services are supported?",
+            answer: "<p>Any service that Music Assistant supports.</p>",
+            cta: { label: "See supported services", href: "#" },
+          },
+          { question: "A second question", answer: "<p>Its answer.</p>" },
+        ],
+      },
+    },
   ],
 };

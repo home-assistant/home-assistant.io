@@ -332,8 +332,9 @@ Content (check with the product and docs teams):
 
 - Price is not final. The page shows "$69 / €59" (Figma); the copy doc
   says "$69/€69", waiting for confirmation from Gordon.
-- FAQ is placeholder ("Can I speak my mind?" five times). The other
-  Connect pages read theirs from `source/_data/product/connect/`.
+- FAQ answers have no calls to action yet. Each item takes an
+  optional `cta` (`{ label, href }`) in `_content.ts`, rendered as a
+  button under the answer; v2 adds them there.
 - The "Best spot" footnote should link to an FAQ entry about which
   adapters work (ZBT-1, ZBT-2, ZWA-2). It links to `#faq` for now.
 - Copy issues:

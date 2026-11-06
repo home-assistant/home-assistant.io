@@ -11,14 +11,18 @@
 // in the Figma file's FAQ colors: a blue dot with a white plus, open a
 // white dot with a minus in a white halo.
 //
-// Answers are HTML, as the Jekyll pages' FAQ data is.
-interface Item {
+// Answers are HTML, as the Jekyll pages' FAQ data is. An item can take
+// an optional `cta`, a button under its answer.
+import Button from "../Button.astro";
+
+export interface FaqItem {
   question: string;
   answer: string;
+  cta?: { label: string; href: string };
 }
 
 interface Props {
-  items: Item[];
+  items: FaqItem[];
 }
 
 const { items } = Astro.props;
@@ -28,13 +32,20 @@ const { items } = Astro.props;
   <div class="inner">
     <h2>Any questions?</h2>
     {
-      items.map(({ question, answer }: Item, i: number) => (
+      items.map(({ question, answer, cta }: FaqItem, i: number) => (
         <details open={i === 0}>
           <summary>
             {question}
             <span class="toggle" aria-hidden="true" />
           </summary>
           <div class="answer" set:html={answer} />
+          {cta && (
+            <div class="cta">
+              <Button href={cta.href} icon>
+                {cta.label}
+              </Button>
+            </div>
+          )}
         </details>
       ))
     }
@@ -160,6 +171,8 @@ const { items } = Astro.props;
     color: var(--color-ink-muted);
     font-size: var(--font-size-medium);
     line-height: 1.2;
+    /* Keep clear of the toggle column: end where the question does. */
+    padding-right: calc(1.5rem + var(--space-medium) + var(--space-xlarge));
     padding-top: var(--space-small);
 
     :global(p) {
@@ -169,6 +182,10 @@ const { items } = Astro.props;
     :global(a) {
       color: inherit;
     }
+  }
+
+  .cta {
+    padding-top: var(--space-medium);
   }
 
   @media only screen and (min-width: breakpoints.$connect-desk) {
