@@ -59,8 +59,8 @@ Home Assistant can share a Modbus connection between integrations. Another integ
 
 If the power station gets a new IP address or you change its Modbus port, you can update the entry without removing the integration:
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **E3/DC** integration.
-2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **E3/DC** integration.
+2. Next to the power station entry, select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
 3. Update the **Host** and **Port**, then select **Submit**.
 
 The integration reads the serial number again and accepts the new settings only if they lead to the same power station.
