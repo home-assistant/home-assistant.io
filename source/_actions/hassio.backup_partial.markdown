@@ -2,6 +2,7 @@
 title: "Create a partial backup"
 action: hassio.backup_partial
 domain: hassio
+response: optional
 description: "Creates a partial backup."
 related_actions:
   - hassio.backup_full
@@ -106,6 +107,8 @@ homeassistant_exclude_database:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 This action returns the slug of the backup it created, so you can use it in later steps.
 

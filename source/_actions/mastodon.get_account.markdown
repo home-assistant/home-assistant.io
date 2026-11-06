@@ -2,6 +2,7 @@
 title: "Get account"
 action: mastodon.get_account
 domain: mastodon
+response: required
 description: "Gets information about a Mastodon account."
 related_actions:
   - mastodon.post
@@ -13,8 +14,6 @@ related_actions:
 The **Mastodon: Get account** action looks up a Mastodon account and returns its details, such as the display name, follower count, and number of posts.
 
 This is handy when you want to react to changes on an account you follow, for example showing a follower count on your dashboard or triggering an automation when an account publishes a new post. It only returns accounts that are federated with your instance.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -72,6 +71,8 @@ account_name:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains an `account` mapping with the account details. Useful fields include:
 

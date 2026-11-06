@@ -2,12 +2,11 @@
 title: "Get forecast"
 action: forecast_solar.get_forecast
 domain: forecast_solar
+response: required
 description: "Returns the solar production forecast from Forecast.Solar."
 ---
 
 Use this action to get the full solar production forecast from [Forecast.Solar](/integrations/forecast_solar/), for example to plan when to run your dishwasher or charge your car on sunshine. Where the forecast sensors give you a few key numbers, this action gives you the whole forecast, period by period.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -82,6 +81,8 @@ resolution:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains two mappings, each keyed by the start time of a period:
 
