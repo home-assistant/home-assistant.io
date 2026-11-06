@@ -96,6 +96,7 @@ source/_integrations/assist_satellite.markdown @home-assistant/core @synesthesia
 source/_integrations/asuswrt.markdown @kennedyshead @ollo69 @Vaskivskyi
 source/_integrations/atag.markdown @MatsNL
 source/_integrations/atlanticcityelectric.markdown @tronikos
+source/_integrations/atomberg.markdown @ratulbmg
 source/_integrations/atome.markdown @baqs
 source/_integrations/august.markdown @bdraco
 source/_integrations/august_ble.markdown @bdraco
