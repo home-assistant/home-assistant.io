@@ -11,6 +11,9 @@
     "climate.thermostats_heating",
     "climate.air_purifiers_humidifiers"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "climate",
     "humidifier",

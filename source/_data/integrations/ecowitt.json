@@ -11,6 +11,9 @@
     "sensors",
     "weather_alerts"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

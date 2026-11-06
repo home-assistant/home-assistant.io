@@ -9,6 +9,9 @@
   "categories": [
     "media_entertainment.tv_streaming"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor"
   ]

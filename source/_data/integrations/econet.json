@@ -11,6 +11,9 @@
     "climate.water_heaters",
     "climate.thermostats_heating"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

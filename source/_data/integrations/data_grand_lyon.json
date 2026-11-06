@@ -12,6 +12,9 @@
     "vehicles_transport.public_transport",
     "local_services"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

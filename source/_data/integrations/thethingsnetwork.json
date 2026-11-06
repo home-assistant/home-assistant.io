@@ -11,6 +11,9 @@
     "hubs_protocols.wireless_protocols",
     "diy_makers.web_data_connectors"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]
