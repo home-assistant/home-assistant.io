@@ -28,6 +28,8 @@ The **E3/DC** {% term integration %} connects Home Assistant to an E3/DC home po
 
 The integration supports E3/DC home power stations whose Modbus interface uses the E3/DC protocol ("Simple Mode"), such as the S10 E, S10 E PRO, S10 X, S20 X PRO and E3/DC one, and the systems running the Q10 and P10 firmware lines.
 
+Newer firmware releases add registers: the failsafe timeouts from release 2025_06, the inverter mode from release 2025_43, and the battery's limits and stored energy from release 2026_04. The SG Ready status comes with the 32-bit power meter values. The integration checks which of these your firmware serves during setup and adds only the matching entities. After a firmware update, reload the integration.
+
 ## Unsupported devices
 
 The SunSpec protocol mode of the Modbus interface is not supported. E3/DC systems reached only over the RSCP protocol are not supported either.
@@ -73,9 +75,16 @@ These sensors depend on the installed hardware:
 
 The integration checks the wallboxes and power meters when it starts. After you add a wallbox or a power meter, reload the integration.
 
+These sensors depend on the firmware:
+
+- **Stored energy**, **Battery capacity**, **Maximum charge power** and **Maximum discharge power**, if the power station reports its battery capacity. Maximum discharge power is negative. All but stored energy are diagnostic sensors.
+- **Inverter mode**, a diagnostic sensor. It shows normal operation, or the idle, off-grid power save mode.
+- **Active power failsafe timeout** and **Reactive power failsafe timeout**, diagnostic sensors that are disabled by default. They show how long an active or reactive power setpoint holds. A timeout of 0 turns the failsafe off.
+- **SG Ready status**, a diagnostic sensor that is disabled by default. It shows the SG Ready operating state: **Blocked**, **Normal operation**, **Switch-on recommended** or **Forced on**. Any other value shows as unknown.
+
 ## Data updates
 
-The integration polls the power flows every 5 seconds.
+The integration polls the power station every 5 seconds.
 
 ## Troubleshooting
 
