@@ -13,7 +13,9 @@
 // stays, for the search box in the header.
 import { allowedReferrers, setting } from "../lib/site.mjs";
 
-const { title, description } = Astro.props;
+// `ogImage`: a root-relative path to the social sharing image, like
+// Jekyll's `og_image` front matter; the site default otherwise.
+const { title, description, ogImage } = Astro.props;
 
 const siteTitle = setting("title");
 const siteUrl = setting("url");
@@ -26,7 +28,7 @@ const truncate = (text, length) =>
 const pageDescription = description ?? setting("description");
 
 const socialTitle = title ?? siteTitle;
-const socialImage = new URL("/images/default-social.png", siteUrl).href;
+const socialImage = new URL(ogImage ?? "/images/default-social.png", siteUrl).href;
 
 // Plausible's referrer filter: referrers outside the allowlist are
 // reported as one aggregate bucket.

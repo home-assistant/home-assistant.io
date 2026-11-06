@@ -19,13 +19,13 @@ import "../styles/tokens.scss";
 
 // `stickyHeader` off lets the site header scroll away with the page,
 // for pages with their own bar pinned at the top (ConnectNav).
-const { title, description, stickyHeader = true } = Astro.props;
+const { title, description, ogImage, stickyHeader = true } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <SiteHead title={title} description={description} />
+    <SiteHead title={title} description={description} ogImage={ogImage} />
   </head>
   <body>
     <div class:list={["masthead", { sticky: stickyHeader }]}>
