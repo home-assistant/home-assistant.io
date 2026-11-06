@@ -103,7 +103,7 @@ When in manual token entry mode, you will have to take care of timely token upda
 
 ## Reconfigure
 
-This integration supports updating the Envoy configuration through a `reconfigure` menu option for the Enphase Envoy integration in {% my integrations title="**Settings** > **Devices & services** > **Integrations** " %}. The reconfiguration allows for changing the Envoy IP address, username, password, manual token entry mode, the token and/or envoy has no solar. The `reconfigure` menu will show the form as described in [Credentials and/or token configuration](#credentials-andor-token-configuration) and [Required manual input](#required-manual-input) with current configured information.
+This integration supports updating the Envoy configuration through a `reconfigure` menu option for the Enphase Envoy integration in {% my integrations title="**Settings** > **Devices & services** > **Integrations** " %}. The reconfiguration allows for changing the Envoy IP address, username, password, manual token entry mode, the token and/or Envoy has no solar inverters setting. The `reconfigure` menu will show the form as described in [Credentials and/or token configuration](#credentials-andor-token-configuration) and [Required manual input](#required-manual-input) with current configured information.
 
 Use this menu when:
 
@@ -536,11 +536,11 @@ The Enphase C6 combiner controller (C6CC) provides some status information to th
   <figcaption>Envoy IQ Metered Collar and C6 Combiner Controller entities.</figcaption>
 </figure>
 
-## NO SOLAR mode
+## No solar mode
 
 Originally the enphase_envoy integration and the Envoy device configurations were solar centric. It started with solar inverters and the Envoy as a gateway device for control. With the advent of battery installations, the landscape has changed. In many cases same brand batteries are added to an existing Enphase solar array. In other cases Enphase batteries are added to an existing solar installation of a different brand. The latter comes with an Envoy device that does not control the solar side, but only the batteries.
 
-The Envoy without inverters has issues with requests for solar production data. These requests hang in the Envoy and lead to timeouts and retries. This is significantly delaying the integration startup to the extend that it may even fail off and on. And even when successfully started, data collection incurs delays. All this while there is no data to use in the first place.
+The Envoy without inverters has issues with requests for solar production data. These requests hang in the Envoy and lead to timeouts and retries. This is significantly delaying the integration startup to the extent that it may even fail off and on. And even when successfully started, data collection incurs delays. All this while there is no data to use in the first place.
 
 In this situation the integration can be [configured to run in NO SOLAR mode](#envoy-has-no-solar-inverters). It will not attempt to collect the solar production data which mitigates these issues. All other data, like for batteries or current transformers, is collected if these are available.
 
