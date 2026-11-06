@@ -33,7 +33,7 @@ If you are using Home Assistant in kiosk mode, for example if you have a tablet 
 7. Select an icon from the **Icon** dropdown list, such as `mdi:account-tie-voice`.
 8. In the **Interactions** section:
    - Select the desired tap behavior and, in the related dropdown list, select **Assist**.
-   - Select the assistant you want to use, for example **Home Assistant Cloud**, from the **Assistant** dropdown list.
+   - Select the assistant you want to use, for example **Home Assistant Link**, from the **Assistant** dropdown list.
      - You can use any assistant that you have previously set up.
      - If you have assistants in different languages, you can add a button for each of these languages.
    - Enable **Start listening** if you are using Assist with your voice. If you don’t want to use voice and just want to type, you do not need to enable listening.

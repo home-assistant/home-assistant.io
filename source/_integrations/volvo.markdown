@@ -46,7 +46,7 @@ To avoid hitting request limits, **create one API application per vehicle** you 
 {% note %}
 Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo. This service is **provided for free**, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
 
-Read the "**Using custom application credentials**"-section if you have the [cloud integration](/integrations/cloud) disabled.
+Read the "**Using custom application credentials**"-section if you have the [link integration](/integrations/link) disabled.
 {% endnote %}
 
 {% details "Using custom application credentials" icon="mdi:account-key" %}

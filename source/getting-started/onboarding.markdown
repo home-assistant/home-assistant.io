@@ -27,7 +27,7 @@ After you have [installed](/installation/) Home Assistant on your device, there 
 
      - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.
      - Select **Create account**.
-   - To restore a backup of a previous installation, under **Or restore**, select **Upload backup** or **Home Assistant Cloud**. For the steps, refer to [Restoring a backup during onboarding](/common-tasks/general/backups/#restoring-a-backup-during-onboarding).
+   - To restore a backup of a previous installation, under **Or restore**, select **Upload backup** or **Home Assistant Link**. For the steps, refer to [Restoring a backup during onboarding](/common-tasks/general/backups/#restoring-a-backup-during-onboarding).
      - If you have a Home Assistant Yellow, follow the [Yellow documentation on restoring from backup](https://support.nabucasa.com/hc/articles/25454643790237).
      - If you have a Home Assistant Green, follow the [Green documentation on restoring from backup](https://support.nabucasa.com/hc/articles/25160431579165).
 3. Enter the location of your home.
