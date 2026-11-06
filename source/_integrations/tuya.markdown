@@ -17,6 +17,8 @@ During the setup process, you will need:
 - A second screen (such as a phone, tablet, or another computer) to display the QR code that appears during configuration
 - The Smart Life or Tuya Smart app installed on your mobile device to scan the QR code
 
+If you have Bluetooth devices, add them to the app through a Tuya Bluetooth or multi-mode gateway, not directly through your phone. For more information, refer to [Bluetooth device is unavailable](#bluetooth-device-is-unavailable).
+
 ### Obtaining User Code for sign-in
 
 To sign-in, you will need to get your **User Code** from the Smart Life /
@@ -91,3 +93,17 @@ Feeders are dependent on [tuya-device-handlers](https://github.com/home-assistan
 #### Resolution
 
 Open a issue to [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) with information provided from QueryThingsDataModel API result from iot.tuya.com (under Cloud / API Explorer / Device Control).
+
+### Bluetooth device is unavailable
+
+#### Symptom: "Unavailable" entities on a Bluetooth device
+
+The device works in the Tuya Smart or Smart Life app, but its entities are unavailable in Home Assistant.
+
+#### Description
+
+This integration only communicates with the Tuya cloud. It doesn't use Home Assistant's Bluetooth integration or Bluetooth proxies. The app can work because your phone connects to the device directly over Bluetooth, but Home Assistant relies on what the Tuya cloud reports.
+
+#### Resolution
+
+Add the device to the app through a Tuya Bluetooth or multi-mode gateway, not directly through your phone. If the entities are still unavailable after that, [open an issue](https://github.com/home-assistant/core/issues) and include the device diagnostics.
