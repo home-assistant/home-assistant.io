@@ -37,8 +37,9 @@ import { blogUrl, forumUrl } from "../../lib/wth.mjs";
 
   section {
     /* Follows the blue band of "What happens next?": fades from its blue
-       into the page colour instead of starting at a hard edge. */
-    background: linear-gradient(to bottom, var(--wth-wash), var(--wth-page) var(--wth-section-space));
+       into the page background (the one the footer's skyline sits on)
+       instead of starting at a hard edge. */
+    background: linear-gradient(to bottom, var(--wth-wash), var(--color-page) var(--wth-section-space));
     padding-block: var(--wth-section-space);
   }
 

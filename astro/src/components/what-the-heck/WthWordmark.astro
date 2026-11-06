@@ -196,21 +196,21 @@ import "../../styles/wth.scss";
     --rz: 3.5deg;
   }
 
-  // The date, in small type under the words. Its strokes are thicker in
-  // `em` again, so they keep the large line's absolute weight at this
-  // size.
+  // The date, in smaller type under the words. Its strokes are thicker in
+  // `em`, so they keep the large line's absolute weight at this size.
   .wth-mark__line.wth-mark__line--date {
-    // Centred under the words above.
+    // Centred under the words above, and sized to run about as wide as
+    // HECK?! (logo.js does the same for the 3D version).
     align-self: center;
-    font-size: 0.28em;
+    font-size: 0.45em;
     margin-top: 0.12em;
 
     .wth-mark__word {
-      text-shadow: extrude(#1e2126, 18, 0.0186em, 0.0132em);
-      -webkit-text-stroke-width: 0.79em;
+      text-shadow: extrude(#1e2126, 18, 0.0101em, 0.0072em);
+      -webkit-text-stroke-width: 0.43em;
 
       &::before {
-        -webkit-text-stroke-width: 1.57em;
+        -webkit-text-stroke-width: 0.86em;
       }
     }
   }
@@ -259,10 +259,10 @@ import "../../styles/wth.scss";
       }
 
       .wth-mark__line.wth-mark__line--date & {
-        -webkit-text-stroke-width: 0.11em;
+        -webkit-text-stroke-width: 0.06em;
 
         &::before {
-          -webkit-text-stroke-width: 0.57em;
+          -webkit-text-stroke-width: 0.31em;
         }
       }
     }
