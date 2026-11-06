@@ -125,7 +125,6 @@ An event entity will be created for each doorbell or motion event with a configu
 
 ### Action `doorbird.restart`
 
-{% version_added 2026.12 %}
 
 Restarts one or more DoorBird devices. A device is unavailable for a short time while it reboots. This action can only be called by an administrator. Calls from automations and scripts are not affected. The DoorBird user that Home Assistant uses needs the "API-Operator" permission.
 
