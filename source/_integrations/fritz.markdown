@@ -49,8 +49,6 @@ Uses an SSL certificate:
     description: Whether to use SSL encryption for connecting to your FRITZ!Box router.
 Enable network device tracking:
     description: Whether to enable or disable the network device tracking feature. When disabled, all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
-Allow non-admin users to get mesh info:
-    description: Whether non-admin users can use the [get mesh info](/actions/fritz.get_mesh_info/) action. Administrators can always use it.
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
