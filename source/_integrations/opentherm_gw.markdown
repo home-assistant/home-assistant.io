@@ -65,6 +65,26 @@ Pressing this button, which can be found on the `OpenTherm Boiler` device, trigg
 
 The restart button on the `OpenTherm Gateway` device can be used to restart the OpenTherm Gateway.
 
+### Number
+
+#### Control setpoint 1 override - Control setpoint 2 override
+
+{% warning %}
+The use of these entities involves a level of risk and is not recommended. Possible consequences of using these entities are uncontrolled heating of the boiler, inefficient and inaccurate heating of your home and disturbing your thermostat's internal heating algorithm. This may have a long-term impact even after you stop using these entities.
+
+Read the [stand-alone operation notes](https://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using these entities.
+
+To reduce the risks involved as much as possible, use the following guidelines:
+
+- Update your OpenTherm Gateway to firmware version 5.8/6.5 or greater.
+- Send values of 8 °C (46.4 °F) or higher at intervals of at most 1 minute as long as there is a heating need.
+- Keep values as low as possible.
+
+{% endwarning %}
+
+These number entities, which can be found on the `OpenTherm Gateway` device, allow you to override the control setpoint for the respective central heating circuit. When active, the OpenTherm Gateway overrides the control setpoint determined by the thermostat. Set the entity to 0 °C (32 °F) to return control to the thermostat.
+These entities are disabled by default.
+
 ### Select
 
 Several `select` configuration entities can be found on the `OpenTherm Gateway` device. These can be used to configure the LEDs and GPIO pins of the OpenTherm Gateway. More information about the available modes can be found in the sections [LED modes](#led-modes) and [GPIO modes](#gpio-modes) or in the [commands documentation](https://otgw.tclcode.com/firmware.html#configuration) of the OpenTherm Gateway.

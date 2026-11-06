@@ -269,6 +269,8 @@ Use the blueprint to choose the start time, the LIFX Clean lights, and how long 
 
 The **LIFX** integration {% term polling polls %} each light over your local network every 10 seconds. Changes made outside Home Assistant, such as from the LIFX app or a wall switch, can take up to that long to show up. After Home Assistant changes a light or starts an effect, it reads the light again straight away, and once more when a transition finishes, instead of waiting for the next poll.
 
+A light that does not answer a poll keeps showing its last known state. It only becomes unavailable after it misses three polls in a row, and any answer resets the count. This rides out the odd dropped reply on a busy Wi-Fi or Thread network without the light flickering to unavailable.
+
 Home Assistant also searches for LIFX lights every 15 minutes, which finds new lights and updates the address of lights you have already added. Zeroconf/HomeKit and DHCP discovery find lights as well.
 
 ## Known limitations

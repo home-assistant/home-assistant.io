@@ -105,6 +105,12 @@ Sleep sensors are only created if the {% term integration %} can find sleep data
 
 Workout {% term calendar %} and the workout and activity sensors show if the latest available data point is no older than 14 days.
 
+### Basal metabolic rate
+
+The **Basal metabolic rate** sensor shows your estimated daily energy requirement at rest in kilocalories per day (kcal/day). It is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and is created only when Withings returns this measurement.
+
+Withings lists basal metabolic rate as requiring its Advanced Biomarkers API plan. See [Withings' available health data](https://developer.withings.com/developer-guide/v3/data-api/all-available-health-data/) for supported devices and API availability.
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.

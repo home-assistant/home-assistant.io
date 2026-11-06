@@ -61,7 +61,7 @@ Before creating a backup, check if you can reduce the size of the backup. This i
    - Note the `purge_keep_days` option, and the include and exclude options.
 2. On Home Assistant OS, to check how much space you've used in total, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
    - From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information**, and check under **Home Assistant Supervisor** > **Disk used**.
-   - If you have apps installed that you no longer use, uninstall those apps. Some apps require quite a bit of space.
+   - If you have apps installed that you no longer use, uninstall those apps. Some apps require quite a bit of space. For the steps, refer to [Uninstalling an app](/common-tasks/os/apps/#uninstalling-an-app).
 3. If you want to store the backup on your network storage instead of just locally on your system, follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
 
 ## Setting up an automatic backup process
@@ -154,17 +154,19 @@ This creates a backup instantly. You can create a manual backup at any time, irr
 
 When you download a backup from the Home Assistant backup page, it is decrypted on the fly, so that you can view the data using your favorite archive tool. This works for all backup locations, including Home Assistant Cloud, if the backup uses your current encryption key. If the backup uses a different key, Home Assistant asks for that key. You can also download the backup encrypted.
 
-There are multiple ways to download your local backup from your Home Assistant instance and store it on another device:
+To store a local backup on another device, you can download it from the backups page, or copy it from the backup folder.
 
-**Option 1**: Download from the backup page:
+### To download a backup from the backups page
 
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
 2. In the list, on the row of the backup you want to download, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download**.
    - Result: The backup is stored in the **Downloads** folder of your computer.
-3. If a backup is stored on multiple locations, you can select where you download it from:
+3. If a backup is stored in several locations, you can choose where to download it from:
    - Select the backup, and under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
-**Option 2**: On Home Assistant OS, copy backups from the backup folder:
+### To copy backups from the backup folder
+
+On {% term "Home Assistant Operating System" %}, you can also copy backups directly from the `backup` folder.
 
 1. If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/os/#configuring-access-to-files), using one of the methods listed there.
    - For example, [use the Samba share app](/common-tasks/os/#installing-and-using-the-samba-share-app).
@@ -174,16 +176,18 @@ There are multiple ways to download your local backup from your Home Assistant i
 
 If you were logged in to Home Assistant Cloud and had Cloud backup enabled when creating a backup, your last backup is stored on Home Assistant Cloud.
 
-There are two ways to download the backup from Home Assistant Cloud:
+You can download the backup from the backups page in Home Assistant, or from your Home Assistant Cloud account.
 
-- **Option 1**: From the backups page
-  1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
-  2. Select the backup from the list.
-  3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
+### To download a Home Assistant Cloud backup from the backups page
 
-- **Option 2**: From your Home Assistant Cloud account
-  1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
-  2. Under **Stored files**, you can see the latest available backup file. Select the **Download** button.
+1. In Home Assistant, go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
+2. Select the backup from the list.
+3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
+
+### To download a backup from your Home Assistant Cloud account
+
+1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
+2. Under **Cloud services** > **Backups**, find the latest available backup file, and select **Download**.
 
 ## App update backups
 
@@ -205,21 +209,21 @@ On {% term "Home Assistant Operating System" %}, Home Assistant can create a bac
 
 If you defined a retention for automatic backups, old automatic backups are deleted automatically. The retention doesn't delete manual backups, so you might still have some old backups around that you want to delete. Home Assistant Cloud is an exception: it only keeps the last backup that was uploaded to it, also if that's a manual backup.
 
-To delete old backups, follow these steps:
+You can delete backups in Home Assistant. A backup on Home Assistant Cloud can also be deleted from your Home Assistant Cloud account.
 
-1. In Home Assistant, under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
-2. To **delete one backup**: from the list, select the backup of interest.
-   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
-3. To **delete multiple backups**: select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
-   - From the list of backups, select all the ones you want to delete and select **Delete selected**.
-   - {% icon "mdi:information-outline" %} Consider keeping at least one recent backup for recovery purposes.
-4. To **delete a backup that is stored on Home Assistant Cloud**, you have 2 options:
-   - **Option 1**: Trigger backup deletion from within Home Assistant
-     - Follow steps 1 and 2 from above.
-     - When you select **Delete** in Home Assistant, the backup is deleted from all its locations, including Home Assistant Cloud.
-   - **Option 2**: Delete the backup from the Nabu Casa account page.
-     - Log in to your [Nabu Casa account](https://account.nabucasa.com/).
-     - Under **Backups**, delete the backup.
+### To delete backups in Home Assistant
+
+1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
+2. Delete one or more backups:
+   - To delete one backup, select it from the list. Then, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
+   - To delete several backups, select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button. Select the backups that you want to delete, and then select **Delete selected**.
+   - Consider keeping at least one recent backup, so that you can recover your system if needed.
+   - Result: The backups are deleted from all their locations, including Home Assistant Cloud.
+
+### To delete a backup from your Home Assistant Cloud account
+
+1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
+2. Under **Backups**, delete the backup.
 
 ## Restoring a backup
 
@@ -267,14 +271,14 @@ You can use a backup during the onboarding process to restore your configuration
 
 1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or a Connect&nbsp;ZBT-2):
    - make sure to plug them into the new device.
-2. You can either restore a backup from your local machine or a backup stored on Home Assistant Cloud:
-   - **Option 1**: restoring from a local backup.
+2. Select the backup that you want to restore. It can be a backup file on your computer, or a backup stored on Home Assistant Cloud.
+   - To restore a backup file from your computer:
      - On the welcome screen, select **Upload backup**.
      - Select **Select backup file**.
-       - The file explorer opens on the device on which you are viewing the Home Assistant User interface.
+       - The file explorer opens on the device on which you are viewing the Home Assistant user interface.
        - You can access any connected network drive from there.
      - Select the backup file.
-   - **Option 2**: restoring from a Home Assistant Cloud backup.
+   - To restore a backup from Home Assistant Cloud:
      - On the welcome screen, select **Home Assistant Cloud**.
      - Sign in to Home Assistant Cloud.
 3. In the dialog, select all the parts you want to restore.
@@ -432,6 +436,149 @@ This only happens with the default SQLite database. If you use MariaDB or Postgr
    2. Under **Backup cycle**, set **Time** to **Custom**, and pick a time later in the day.
       - **Time** is only shown when **Schedule** is set to **Daily** or **Custom days**.
 3. If backups keep failing, make the database smaller. For example, keep fewer days of history, or exclude entities that change often. For details, refer to [Preparing for a backup](#preparing-for-a-backup).
+
+{% enddetails %}
+
+{% details "A backup location is unavailable" %}
+
+### Symptom: "The backup location … is unavailable"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, Home Assistant shows **The backup location … is unavailable**. The title shows the internal ID of the location, not its name.
+
+#### Description
+
+The location is still selected for automatic backups, but Home Assistant can't use it. This happens when the integration that provides the location isn't loaded. For example, you removed or disabled the integration, or it failed to start. Automatic backups skip this location until it's available again.
+
+The repair goes away when the location is available again, or when you remove it from the automatic backup settings.
+
+#### Resolution
+
+1. If you still want to use the location, go to {% my integrations title="**Settings** > **Devices & services**" %}, and check the integration that provides it.
+   - If the integration shows an error, fix it. For the steps, refer to the documentation of the integration.
+2. If you no longer use the location, remove it from the automatic backup settings:
+   1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. On the **Automatic backup** card, select **Configure backup settings**.
+   2. Under **Locations** > **Unavailable locations**, next to the location, select the delete {% icon "mdi:delete" %} icon.
+
+{% enddetails %}
+
+{% details "An automatic backup wasn't uploaded to all locations" %}
+
+### Symptom: "Automatic backup could not be uploaded to the configured locations"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, Home Assistant shows **Automatic backup could not be uploaded to the configured locations**. The repair lists the locations that failed.
+
+#### Description
+
+Home Assistant created the backup, but couldn't store it on one or more of the selected locations. For example, the location was offline or full. The backup is still stored on the other locations.
+
+Home Assistant only shows this repair for automatic backups. The repair goes away after the next automatic backup that completes without errors.
+
+#### Resolution
+
+1. Find the reason in the logs. For the steps, refer to ["Last automatic backup failed" or "Failed to create backup"](#symptom-last-automatic-backup-failed-or-failed-to-create-backup).
+2. Fix the problem with the location. For example, free up space on it.
+3. To check the fix right away, [create a manual backup](#creating-a-manual-backup) on that location.
+
+{% enddetails %}
+
+{% details "An automatic backup doesn't include all apps" %}
+
+### Symptom: "Not all apps could be included in automatic backup"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, Home Assistant shows **Not all apps could be included in automatic backup**. The repair lists the apps that failed.
+
+#### Description
+
+Home Assistant created the backup, but couldn't back up one or more apps. The backup doesn't contain these apps. The details page of the backup also shows them, under **Failed apps**.
+
+Home Assistant only shows this repair for automatic backups. The repair goes away after the next automatic backup that completes without errors.
+
+#### Resolution
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}, and in the top-right corner, select **Home Assistant Core** > **Supervisor**.
+   - The log shows why the app couldn't be backed up.
+2. Depending on the error in the log, do the following:
+   - `Failed running pre-/post backup command`: The app's own preparation for the backup failed. To see why, go to {% my supervisor title="**Settings** > **Apps**" %}, select the app, and open the **Log** tab. Restart the app, and then try again.
+   - `Can't write backup tarfile for app`: Home Assistant couldn't add a file of the app to the backup. The end of the error names the file and the reason:
+     - `I/O error`: The storage couldn't read the file. Refer to [A backup fails with an I/O error or a read-only file system](#symptom-errno-5-io-error-or-errno-30-read-only-file-system).
+     - `No such file or directory`: The file was removed while the backup ran. Create the backup again.
+     - `Permission denied`: Home Assistant isn't allowed to read the file. This can happen with files that another app or tool created. Change the permissions of the file with the tool that created it. Only delete the file if you're sure that nobody needs it anymore.
+   - For other errors, update the app or restart it, and then try again.
+3. To check the fix right away, [create a manual backup](#creating-a-manual-backup).
+
+{% enddetails %}
+
+{% details "An automatic backup doesn't include all folders" %}
+
+### Symptom: "Not all folders could be included in automatic backup"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, Home Assistant shows **Not all folders could be included in automatic backup**. The repair lists the folders that failed, such as `media` or `share`.
+
+#### Description
+
+Home Assistant created the backup, but couldn't back up one or more folders. The backup doesn't contain these folders. The details page of the backup also shows them, under **Failed folders**.
+
+Home Assistant only shows this repair for automatic backups. The repair goes away after the next automatic backup that completes without errors.
+
+#### Resolution
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}, and in the top-right corner, select **Home Assistant Core** > **Supervisor**.
+   - The log shows why the folder couldn't be backed up.
+2. Find the error that starts with `Can't backup folder`. The end of the error names the file that couldn't be added, and the reason:
+   - `I/O error`: The storage couldn't read the file. Refer to [A backup fails with an I/O error or a read-only file system](#symptom-errno-5-io-error-or-errno-30-read-only-file-system).
+   - `No such file or directory`: The file was removed while the backup ran. Create the backup again.
+   - `Permission denied`: Home Assistant isn't allowed to read the file. This can happen with files that another app or tool created. Change the permissions of the file with the tool that created it. Only delete the file if you're sure that nobody needs it anymore.
+3. To check the fix right away, [create a manual backup](#creating-a-manual-backup).
+
+{% enddetails %}
+
+{% details "An automatic backup was created with errors" %}
+
+### Symptom: "Automatic backup was created with errors"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, Home Assistant shows **Automatic backup was created with errors**. The repair lists the following:
+
+- The locations the backup couldn't be uploaded to
+- The apps that couldn't be backed up
+- The folders that couldn't be backed up
+
+#### Description
+
+Home Assistant created the backup, but more than one kind of problem occurred. For example, an app couldn't be backed up, and the upload to a location failed. A dash (`-`) in the list means that there was no problem of that kind.
+
+Home Assistant only shows this repair for automatic backups. The repair goes away after the next automatic backup that completes without errors.
+
+#### Resolution
+
+Fix each problem in the list:
+
+- For locations, refer to [An automatic backup wasn't uploaded to all locations](#symptom-automatic-backup-could-not-be-uploaded-to-the-configured-locations).
+- For apps, refer to [An automatic backup doesn't include all apps](#symptom-not-all-apps-could-be-included-in-automatic-backup).
+- For folders, refer to [An automatic backup doesn't include all folders](#symptom-not-all-folders-could-be-included-in-automatic-backup).
+
+{% enddetails %}
+
+{% details "A backup says that some data is missing" %}
+
+### Symptom: "This backup was not created successfully. Some data is missing."
+
+When you open a backup, its details page shows **This backup was not created successfully. Some data is missing.** Below it, the page lists **Failed apps**, **Failed folders**, or both.
+
+#### Description
+
+The backup was created, but some apps or folders couldn't be backed up. The backup doesn't contain them. The rest of the backup was stored as usual.
+
+This applies to both automatic and manual backups.
+
+#### Resolution
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}, and in the top-right corner, select **Home Assistant Core** > **Supervisor**.
+   - The log shows why the apps or folders couldn't be backed up.
+2. To find out what the error means and how to fix it, refer to one of the following entries:
+   - [An automatic backup doesn't include all apps](#symptom-not-all-apps-could-be-included-in-automatic-backup)
+   - [An automatic backup doesn't include all folders](#symptom-not-all-folders-could-be-included-in-automatic-backup)
+3. [Create a new backup](#creating-a-manual-backup).
+4. Keep the backup with missing data until you have a complete backup.
 
 {% enddetails %}
 
