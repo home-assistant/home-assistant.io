@@ -84,3 +84,9 @@ The weather alert is available for the metropolitan France and Andorre.
 The `weather_alert` sensor state give the current weather alert status for the department linked to the city. Only one entity by department is created.
 
 The sensor attributes give access to each type of alerts raised by Météo-France.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
