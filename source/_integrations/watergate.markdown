@@ -102,6 +102,12 @@ The Watergate integration provides the following entities.
   - **Description**: The duration of continuous water flow, in minutes, that triggers the automatic shut-off.
   - **Remarks**: This is a configuration entity. It has no effect while the **Auto shut-off** switch is turned off.
 
+#### Buttons
+
+- **Reboot**
+  - **Description**: Reboots the Sonic device.
+  - **Remarks**: This is a configuration entity. The device is unreachable while it restarts, so entities may briefly become unavailable and recover on their own once the device is back online. The button never retries a reboot on its own.
+
 #### Events
 
 - **Auto Shut-Off**
@@ -119,7 +125,7 @@ Thanks to the webhook option, Sonic will provide live telemetry every second whe
 
 ## Known limitations
 
-The integration does not provide the ability to control the device buzzer, reboot the device, or change the device's Wi-Fi configuration.
+The integration does not provide the ability to control the device buzzer or change the device's Wi-Fi configuration.
 
 Sonic firmware 2.11 and older does not report the two flow directions separately. On such a device, the **Water meter negative volume** and **Water meter negative duration** entities stay unavailable, and **Water meter volume** and **Water meter duration** report the difference between the normal and reverse readings rather than the normal direction alone.
 
