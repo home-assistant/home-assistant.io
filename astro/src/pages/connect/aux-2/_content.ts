@@ -53,9 +53,7 @@ export const specs = [
     title: "Product details",
     items: [
       { label: "SoCs", value: ["ESP32-S3"] },
-      // TODO: Figma says "Digital-to-Audio"; a DAC is a digital-to-analog
-      // converter. Confirm with the product team.
-      { label: "Digital-to-Audio (DAC) chip", value: ["TI PCM5122", "112 dB SNR"] },
+      { label: "Digital-to-Analog Converter (DAC) chip", value: ["TI PCM5122", "112 dB SNR"] },
       {
         label: "Power",
         value: ["USB-C", "2A (or higher) / 5 V DC", "Power-over-Ethernet (802.3af)"],

@@ -338,8 +338,6 @@ Content (check with the product and docs teams):
 - The "Best spot" footnote should link to an FAQ entry about which
   adapters work (ZBT-1, ZBT-2, ZWA-2). It links to `#faq` for now.
 - Copy issues:
-  - "Digital-to-Audio (DAC) chip": a DAC is a digital-to-analog
-    converter.
   - British spelling ("Analogue") on an American English site.
   - "3,5mm" uses a decimal comma.
 - Mobile copy in Figma differs in places. The page uses the desktop
