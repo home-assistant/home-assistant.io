@@ -605,10 +605,20 @@ The list of ZHA limitations may not be exhaustive.
 
 - Home Assistant's user interface does not currently support scanning a QR code for Zigbee 3.0 secure provisioning for device pre-commissioning in ZHA's UI (instead, you currently need to use the `zha.permit` action with the qr_code parameter).
 
-**ZHA does _not_ currently support devices that can only use:**
+**Zigbee Green Power (ZGP) devices depend on the coordinator's radio type or on nearby router devices:**
 
-- The ZSE ("Zigbee Smart Energy") profile:
-  - This is due to the "Zigbee SE" specification not being part of the standard Zigbee 3.0 specification and thus not implemented in most of the Zigbee protocol stacks that are commonly available Zigbee Coordinator radio adapters and modules.
+- Only Zigbee Coordinator adapters with firmware based on Silicon Labs EmberZNet or Ziggurat have full support for receiving Zigbee Green Power (ZGP) messages directly.
+- deCONZ based adapters only have partial support for receiving ZGP messages directly but have issues receiving ZGP messages with unencrypted frames.
+- With other radio types, such as Texas Instruments (`znp`), ZiGate (`zigate`), and XBee (`xbee`), Green Power devices only work if Zigbee 3.0 router devices are in range. These routers act as Green Power proxies and pass the messages on to the Zigbee Coordinator adapter.
+- Each router device can only proxy a limited number of Green Power devices. For details, refer to [Adding Green Power devices](#adding-green-power-devices).
+
+**ZHA does *not* currently support devices that can only use the ZSE ("Zigbee Smart Energy") profile:**
+
+- Devices whose firmware only implements the Zigbee Smart Energy (ZSE, also called Zigbee SE or SEP 1.x) profile cannot be added to ZHA today. This includes many utility smart meters and in-home displays.
+- Devices that implement ZSE *and* a standard Zigbee 3.0 or Zigbee Home Automation 1.x profile can still join ZHA, but only through that standard profile.
+- Zigbee Smart Energy was a separate specification and not part of Zigbee 3.0, so the Zigbee stacks on most coordinators do not implement it.
+- Many ZSE devices use Sub-GHz frequencies, which current Zigbee Coordinator adapters cannot receive.
+- Zigbee Smart Energy was added to be a part of the Zigbee 4.0 specification as standard, but there are no implementations for that yet.
 
 {% enddetails %}
 
