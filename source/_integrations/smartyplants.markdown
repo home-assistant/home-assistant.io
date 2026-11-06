@@ -24,7 +24,7 @@ The integration works with any SmartyPlants soil sensor that reports to the Smar
 API key:
   description: "The API key created in the SmartyPlants app under **Settings**. It identifies your account to Home Assistant."
 Webhook secret:
-  description: "Optional, and only set while adding the integration. The signing secret shown by the SmartyPlants app after you add Home Assistant's webhook URL. Home Assistant must be reachable from the internet to receive pushed updates, so leave this empty to use polling only. See [Live updates with a webhook](#live-updates-with-a-webhook)."
+  description: "Optional. The signing secret shown by the SmartyPlants app after you add Home Assistant's webhook URL. Home Assistant must be reachable from the internet to receive pushed updates, so leave this empty to use polling only. It can be changed later, see [Reconfiguration](#reconfiguration)."
 {% endconfiguration_basic %}
 
 ### Live updates with a webhook
@@ -51,7 +51,7 @@ The API key and the webhook secret can both be changed after setup, without remo
 
 The new API key has to belong to the same SmartyPlants account the integration was set up with. A key for a different account is refused, and the existing key is kept.
 
-The webhook URL does not change when you reconfigure, so there is nothing to update in the SmartyPlants app.
+The webhook URL does not change when you reconfigure, so there is nothing to update in the SmartyPlants app. If Home Assistant has no address reachable from the internet, there is no URL to offer and only the API key can be changed.
 
 ## Supported functionality
 
