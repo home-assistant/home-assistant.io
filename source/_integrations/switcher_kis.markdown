@@ -96,7 +96,7 @@ For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switch
 
 ## Data updates
 
-Switcher devices push their state to Home Assistant: each device broadcasts its current status on the local network every few seconds, and the integration updates the entities as soon as a broadcast is received. There is no polling.
+Switcher devices push their state to Home Assistant. Each device broadcasts its current status on the local network every few seconds, and the integration updates the entities as soon as a broadcast is received. There is no polling.
 
 If Home Assistant does not receive a broadcast from a device for 30 seconds, the device's entities are marked as unavailable. They become available again as soon as the next broadcast is received.
 
