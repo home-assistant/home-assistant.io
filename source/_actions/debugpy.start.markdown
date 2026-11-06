@@ -1,11 +1,11 @@
 ---
-title: Start the remote Python debugger
+title: "Start"
 action: debugpy.start
 domain: debugpy
 description: "Inject and start the remote Python debugger at runtime."
 ---
 
-The **Start** action injects and starts the remote Python debugger while Home Assistant is running.
+The **Remote Python Debugger: Start** action injects and starts the remote Python debugger while Home Assistant is running.
 
 It is meant for the case where you loaded the [Remote Python Debugger](/integrations/debugpy/) integration with the `start` option set to `false`. The debugger then stays out of the way until you need it, and this action turns it on without a restart. This keeps the performance and memory cost of the debugger off your system until the moment you want to attach to it.
 

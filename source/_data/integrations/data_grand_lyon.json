@@ -1,0 +1,20 @@
+{
+  "domain": "data_grand_lyon",
+  "name": "Data Grand Lyon",
+  "integration_type": "service",
+  "codeowners": [
+    "@Crocmagnon"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "vehicles_transport.public_transport",
+    "local_services"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ]
+}

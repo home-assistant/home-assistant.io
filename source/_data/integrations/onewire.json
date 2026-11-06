@@ -1,0 +1,26 @@
+{
+  "domain": "onewire",
+  "name": "1-Wire",
+  "integration_type": "hub",
+  "codeowners": [
+    "@garbled1",
+    "@epenet"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "diy_makers.boards_hardware",
+    "sensors.temperature_humidity"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

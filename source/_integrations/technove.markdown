@@ -1,22 +1,7 @@
 ---
-title: TechnoVE
 description: Instructions on how to integrate TechnoVE smart EV charging stations with Home Assistant.
-ha_category:
-  - Car
 ha_release: 2024.2
-ha_iot_class: Local Polling
 ha_domain: technove
-ha_config_flow: true
-ha_zeroconf: true
-ha_codeowners:
-  - '@Moustachauve'
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - number
-  - sensor
-  - switch
-ha_integration_type: device
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
@@ -131,26 +116,7 @@ The **TechnoVE** integration {% term polling polls %} data from the charging sta
 
 Send a notification or execute custom actions when your electric vehicle finishes charging on your TechnoVE charging station:
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/technove_charging_completed_notification.yaml" %}
-
-{% details "Example YAML" %}
-
-{% example %}
-automation: |
-  alias: "Notify when charging is completed"
-  triggers:
-    - trigger: state
-      entity_id: sensor.technove_station_status
-      from: plugged_charging
-      to: plugged_waiting
-  actions:
-    - action: notify.notify
-      data:
-        title: "EV charging completed"
-        message: "Your vehicle has finished charging on the TechnoVE station."
-{% endexample %}
-
-{% enddetails %}
+{% blueprint_example blueprint="technove/charging_completed_notification.yaml" %}
 
 ## Known limitations
 
@@ -175,7 +141,7 @@ If you see a "Failed to connect" error when trying to add the integration:
 
 If the station keeps going unavailable and coming back:
 
-1. Check the **Signal strength** sensor, if available. This entity may be disabled by default, so you might need to enable it first. If you don't see it, check your router, access point, or manufacturer tools to verify the station's Wi-Fi signal quality. A weak signal can cause intermittent connection issues.
+1. Check the **Signal strength** sensor, if available. This entity may be [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), so you might need to enable it first. If you don't see it, check your router, access point, or manufacturer tools to verify the station's Wi-Fi signal quality. A weak signal can cause intermittent connection issues.
 2. Consider moving the station closer to your Wi-Fi access point or adding a Wi-Fi extender.
 3. Make sure your network is not blocking local traffic between Home Assistant and the station.
 

@@ -1,0 +1,14 @@
+{
+  "domain": "mfi",
+  "name": "Ubiquiti mFi mPort",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "plugs_switches",
+    "sensors"
+  ],
+  "platforms": [
+    "sensor",
+    "switch"
+  ]
+}

@@ -5,7 +5,7 @@ domain: elkm1
 description: "Turns on an Elk-M1 output for a set duration."
 ---
 
-The **Switch output turn on for** action turns on an Elk-M1 output and automatically turns it back off after the duration you set.
+The **Elk-M1 Control: Switch output turn on for** action turns on an Elk-M1 output and automatically turns it back off after the duration you set.
 
 This is useful when you want an automation to activate an output for a fixed amount of time, for example to pulse a relay, trigger a gate, or run a siren for a few seconds.
 

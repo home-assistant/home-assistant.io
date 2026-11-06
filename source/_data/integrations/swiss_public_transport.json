@@ -1,0 +1,17 @@
+{
+  "domain": "swiss_public_transport",
+  "name": "Swiss public transport",
+  "integration_type": "service",
+  "codeowners": [
+    "@fabaff",
+    "@miaucl"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "vehicles_transport.public_transport"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

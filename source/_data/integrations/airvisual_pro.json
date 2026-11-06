@@ -1,0 +1,17 @@
+{
+  "domain": "airvisual_pro",
+  "name": "AirVisual Pro",
+  "integration_type": "device",
+  "codeowners": [
+    "@bachya"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

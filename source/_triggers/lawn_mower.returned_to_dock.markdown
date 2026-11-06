@@ -46,8 +46,6 @@ This fires when `lawn_mower.backyard` reaches the dock.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -59,9 +57,9 @@ behavior:
 for:
   description: >
     How long the mower must stay docked before the trigger fires. Accepts a
-    duration like `00:05:00` for five minutes.
+    duration like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

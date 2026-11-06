@@ -1,0 +1,20 @@
+{
+  "domain": "songpal",
+  "name": "Sony Songpal",
+  "integration_type": "device",
+  "codeowners": [
+    "@rytilahti",
+    "@shenxn"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "media_player"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

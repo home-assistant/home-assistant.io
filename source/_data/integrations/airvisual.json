@@ -1,0 +1,17 @@
+{
+  "domain": "airvisual",
+  "name": "AirVisual Cloud",
+  "integration_type": "service",
+  "codeowners": [
+    "@bachya"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.air_quality_pollen"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

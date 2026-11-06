@@ -18,7 +18,7 @@ To set the maximum airflow from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the zone you want to adjust.
-6. From the actions shown for that target, select **Set maximum airflow**.
+6. From the actions shown for that target, under **iZone**, select **Set maximum airflow**.
 7. Set the **Percent** for the maximum airflow.
 8. Select **Save**.
 
@@ -68,8 +68,12 @@ airflow:
 
 On hot afternoons, cap the living room airflow so the rest of the house keeps cooling evenly.
 
-- **Trigger**: Outdoor temperature rises above 30 °C
-- **Action**: iZone: Set maximum airflow on the living room
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Outdoor temperature
+  - **Above**: `30`
+- **Action**: iZone: Set maximum airflow
+  - **Target**: Living room thermostat
+  - **Percent**: `70`%
 
 {% details "YAML example for limiting airflow on hot days" %}
 

@@ -31,6 +31,9 @@ export function getComponentPreviews() {
         slug,
         name: data.title ?? fileName,
         description: data.description,
+        // Full-width components (header, footer) render edge to edge,
+        // without the demo padding.
+        wide: Boolean(data.wide),
         variants: data.variants ?? [],
         Component: componentModules[componentPath]?.default,
         path: componentPath.replace("../", "src/"),

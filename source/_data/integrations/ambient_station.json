@@ -1,0 +1,19 @@
+{
+  "domain": "ambient_station",
+  "name": "Ambient Weather Station",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bachya"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "weather_alerts",
+    "sensors.temperature_humidity"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ]
+}

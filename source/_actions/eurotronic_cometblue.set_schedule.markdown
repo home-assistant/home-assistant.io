@@ -8,7 +8,7 @@ related_actions:
   - eurotronic_cometblue.get_schedule
 ---
 
-The **Set schedule** action pushes a new schedule to a Eurotronic Comet Blue thermostat.
+The **Eurotronic Comet Blue: Set schedule** action pushes a new schedule to a Eurotronic Comet Blue thermostat.
 
 During the times when the schedule is active, the device will automatically try to reach the **Comfort** preset temperature.
 When inactive, the **Eco** preset is used.
@@ -119,7 +119,7 @@ sunday:
   type: list
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Eurotronic Comet Blue thermostat" example="climate.kitchen" %}
 
 {% include actions/try_it.md %}
 

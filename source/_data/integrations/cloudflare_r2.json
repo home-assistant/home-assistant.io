@@ -1,0 +1,14 @@
+{
+  "domain": "cloudflare_r2",
+  "name": "Cloudflare R2",
+  "integration_type": "service",
+  "codeowners": [
+    "@corrreia"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ]
+}

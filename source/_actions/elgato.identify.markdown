@@ -1,5 +1,5 @@
 ---
-title: "Identify a light"
+title: "Identify"
 action: elgato.identify
 domain: elgato
 description: "Briefly blinks an Elgato Light to identify it or as a visual notification."
@@ -16,7 +16,7 @@ To identify a light from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to control.
-6. From the actions shown for that target, select **Identify**.
+6. From the actions shown for that target, under **Elgato Light**, select **Identify**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -56,8 +56,10 @@ This action has no additional YAML options beyond the target.
 
 Briefly flash the Elgato Light when your doorbell is pressed.
 
-- **Trigger**: Doorbell turns on
-- **Action**: Identify a light
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
+- **Action**: Elgato Light: Identify
   - **Target**: Elgato Key Light
 
 {% details "Show example YAML" %}

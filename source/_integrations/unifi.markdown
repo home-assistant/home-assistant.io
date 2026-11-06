@@ -1,30 +1,7 @@
 ---
-title: UniFi Network
 description: Instructions on how to configure UniFi Network integration with UniFi Network application by Ubiquiti.
-ha_category:
-  - Hub
-  - Image
-  - Presence detection
-  - Sensor
-  - Switch
-  - Update
 ha_release: 0.81
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Kane610'
 ha_domain: unifi
-ha_platforms:
-  - button
-  - device_tracker
-  - diagnostics
-  - image
-  - light
-  - sensor
-  - switch
-  - update
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 [UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
@@ -236,6 +213,15 @@ Get entities reporting uptime per network client or UniFi Network device.
 ### Power Outlet sensor
 
 Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro).
+
+### UPS sensors
+
+Compatible UniFi UPS devices provide sensors for battery level, remaining battery runtime, output power, output current, output voltage, and output power factor.
+
+Home Assistant also provides an additional voltage sensor that depends on your UPS model:
+
+- **UniFi UPS 2U**: a bypass voltage sensor.
+- **UniFi UPS 2U Pro**: an input voltage sensor.
 
 ### Device temperature sensor
 

@@ -8,7 +8,7 @@ related_actions:
   - elkm1.alarm_display_message
 ---
 
-The **Speak word** action plays one of the Elk-M1 panel's built-in words through its voice output.
+The **Elk-M1 Control: Speak word** action plays one of the Elk-M1 panel's built-in words through its voice output.
 
 This is useful when you want an automation to say a single word out loud, or to build up a spoken message one word at a time.
 

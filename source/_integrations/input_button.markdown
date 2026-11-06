@@ -1,15 +1,7 @@
 ---
-title: Input button
 description: Instructions on how to use the input button helper with Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_release: 2022.2
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: input_button
-ha_integration_type: helper
 ---
 
 The **Input button** {% term integration %} lets you create a button {% term helper %}: an entity you can press, but that does not store an on or off {% term state %}. Because the button is not tied to a physical device, you can use it to start something from the user interface, such as running a script or triggering an {% term automation %}. For example, you can create a button helper to ring a doorbell chime, restart a routine, or send yourself a notification.

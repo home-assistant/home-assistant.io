@@ -1,5 +1,5 @@
 ---
-title: "Set date value"
+title: "Set date"
 action: date.set_value
 domain: date
 description: "Sets the value of a date entity."
@@ -66,7 +66,7 @@ date:
 
 Move a date entity forward whenever a maintenance task is marked done.
 
-- **Trigger**: State: Filter replaced changes to _on_
+- **Trigger**: State changed: Filter replaced changes to _on_
 - **Action**: Set date
   - **Target**: Next filter change
   - **Date**: A date of your choosing

@@ -9,7 +9,7 @@ related_actions:
   - blink.trigger_camera
 ---
 
-The **Save video** action saves the last recorded video clip of a Blink camera to a local file.
+The **Blink: Save video** action saves the last recorded video clip of a Blink camera to a local file.
 
 This is handy when you want to keep a copy of a clip on your own system instead of relying on Blink's servers, for example to save the latest recording when motion is detected.
 
@@ -22,7 +22,7 @@ To save a video from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Blink camera whose last clip you want to save.
-6. From the actions shown for that target, select **Blink: Save video**.
+6. From the actions shown for that target, under **Blink**, select **Save video**.
 7. Enter the **File name** where the clip is saved.
 8. Select **Save**.
 
@@ -73,7 +73,9 @@ filename:
 
 When motion is detected, save the last recorded clip locally with the date and time in the filename, so each recording is kept as a separate file.
 
-- **Trigger**: Motion is detected
+- **Trigger**: State changed
+  - **Entity**: Blink front door motion detected sensor
+  - **To**: Detected
 - **Action**: Blink: Save video
   - **Target**: Front door camera
   - **File name**: a path that includes the current date and time

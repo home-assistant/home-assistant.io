@@ -85,7 +85,7 @@ Disable the motion lighting automation so the lights stay as they are during the
 
 - **Trigger**: Media player started playing
   - **Target**: Living room
-- **Action**: Turn off automation
+- **Action**: Automation: Turn off automation
   - **Target**: Motion lights
 
 {% details "Show example YAML" %}

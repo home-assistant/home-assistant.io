@@ -1,30 +1,9 @@
 ---
-title: AirGradient
 description: Instructions on how to set up AirGradient devices in Home Assistant.
-ha_category:
-  - Health
-  - Sensor
-  - Update
-ha_config_flow: true
 ha_release: 2024.6
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@airgradienthq'
-  - '@joostlek'
 ha_domain: airgradient
-ha_platforms:
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: device
-ha_zeroconf: true
 works_with:
   - local
-ha_quality_scale: platinum
 ---
 
 The **AirGradient** {% term integration %} will fetch data from your [AirGradient devices](https://www.airgradient.com/).
@@ -36,11 +15,9 @@ AirGradient creates indoor, outdoor, and portable air quality monitors that enab
 - Warn to open windows when CO2 levels are too high.
 - Control ventilation systems based on air quality.
 
-## Supported devices
+## Works with Home Assistant certified devices
 
-- [AirGradient Indoor Air Quality Monitor](https://www.airgradient.com/indoor/)
-- [AirGradient Outdoor Air Quality Monitor](https://www.airgradient.com/outdoor/)
-- [AirGradient Portable Air Quality Monitor](https://www.airgradient.com/portable/)
+{% include integrations/device_list.html brand="airgradient" %}
 
 {% important %}
 Devices using the legacy local API require [firmware](https://www.airgradient.com/documentation/firmwares) version 3.1.1 or later to be set up or discovered by Home Assistant. This minimum version does not apply to the portable monitor, AirGradient Go.
@@ -75,7 +52,7 @@ The integration will fetch data from each device. The following sensors are supp
 - Temperature
 - Total volatile organic compounds index
 - Battery percentage
-- Battery voltage (disabled by default)
+- Battery voltage ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - Input voltage (disabled by default)
 - PM0.5 particle count (disabled by default)
 - PM1 particle count (disabled by default)
@@ -111,6 +88,8 @@ The following entities are supported:
 - Configuration source
 - Data used for the LED bar
 - Display PM standard
+- Altitude unit
+- Measurement interval
 - CO2 automatic baseline calibration days
 - NOx learning offset
 - Total volatile organic compounds learning offset
@@ -131,6 +110,8 @@ To install the update, the device needs to be rebooted.
 ## Data updates
 
 This integration uses local {% term polling %}, meaning it checks for changes to all entities by regularly communicating with the AirGradient device.
+
+The **Measurement interval** setting controls how often the device takes measurements (1 to 3600 seconds). Home Assistant continues to retrieve the latest measurements every minute, regardless of this setting.
 
 The integration will retrieve data from the device every minute.
 

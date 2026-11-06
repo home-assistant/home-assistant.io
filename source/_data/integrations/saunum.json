@@ -1,0 +1,23 @@
+{
+  "domain": "saunum",
+  "name": "Saunum",
+  "integration_type": "device",
+  "codeowners": [
+    "@mettolen"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "water.pools_spas",
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "diagnostics",
+    "light",
+    "number",
+    "sensor"
+  ]
+}

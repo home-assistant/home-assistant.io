@@ -1,0 +1,17 @@
+{
+  "domain": "google_air_quality",
+  "name": "Google Air Quality",
+  "integration_type": "service",
+  "codeowners": [
+    "@Thomas55555"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "weather_alerts.air_quality_pollen"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

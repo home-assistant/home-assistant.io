@@ -8,7 +8,7 @@ related_actions:
   - ecobee.delete_vacation
 ---
 
-The **Resume program** action resumes the programmed schedule of presets on an ecobee thermostat. This cancels any manual temperature settings or selected preset.
+The **ecobee: Resume program** action resumes the programmed schedule of presets on an ecobee thermostat. This cancels any manual temperature settings or selected preset.
 
 This is handy at the end of an automation that sets a temporary temperature, so the thermostat returns to its normal schedule afterward. To cancel a vacation, use the [Delete vacation](/actions/ecobee.delete_vacation/) action instead.
 

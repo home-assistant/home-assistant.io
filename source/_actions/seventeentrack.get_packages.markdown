@@ -8,7 +8,7 @@ related_actions:
   - seventeentrack.archive_package
 ---
 
-The **Get packages** action queries the 17Track API and returns the latest data for your tracked packages. You can limit the result to packages in specific states, such as packages that are in transit or ready to be picked up.
+The **17TRACK: Get packages** action queries the 17Track API and returns the latest data for your tracked packages. You can limit the result to packages in specific states, such as packages that are in transit or ready to be picked up.
 
 This is handy when you want to use up-to-date package information in an automation or a script, for example to send yourself a notification listing everything that is out for delivery today.
 

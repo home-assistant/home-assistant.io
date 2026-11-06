@@ -19,7 +19,7 @@ To reconnect a wireless client from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Reconnect wireless client**.
+5. From the list of actions, search for and select **UniFi Network: Reconnect wireless client**.
 6. Select the UniFi wireless client device you want to reconnect.
 7. Select **Save**.
 
@@ -63,8 +63,11 @@ device_id:
 
 If a wireless device keeps losing its connection, you can ask it to reconnect automatically when it becomes unavailable for a few minutes.
 
-- **Trigger**: Smart plug unavailable for 5 minutes
-- **Action**: Reconnect wireless client
+- **Trigger**: State changed
+  - **Entity**: Garden smart plug switch
+  - **To**: Unavailable
+  - **For at least**: `00:05:00`
+- **Action**: UniFi Network: Reconnect wireless client
   - **Device**: Garden smart plug
 
 {% details "Show example YAML" %}

@@ -1,7 +1,7 @@
 ---
 title: "Test if sequence: sequence"
 function_name: "sequence"
-description: "Tests whether a value is a sequence (list, tuple, or string)."
+description: "Tests whether a value is a sequence (list, tuple, string, or dictionary)."
 available_as:
   - test
 category: type
@@ -15,7 +15,7 @@ related_functions:
   - typeof
 ---
 
-The `sequence` test checks whether a value is a sequence type, which includes lists, tuples, and strings. Unlike the [`iterable`](/template-functions/iterable/) test, it returns `false` for dictionaries and generators. Unlike [`mapping`](/template-functions/mapping/), it returns `false` for dictionaries.
+The `sequence` test checks whether a value has a length and can be indexed. This includes lists, tuples, strings, and dictionaries. Unlike the [`iterable`](/template-functions/iterable/) test, it returns `false` for generators and sets. It also returns `false` for numbers and `none`.
 
 This is useful when you need to distinguish between sequences (ordered, indexed collections) and mappings (key-value collections). For example, when processing {% term entity %} attributes that could be either a list or a dictionary, testing with `sequence` (and confirming the value is not a [`mapping`](/template-functions/mapping/)) lets you determine the correct way to access the data.
 
@@ -45,7 +45,7 @@ The following parameters can be provided to this test.
 {% function_parameters %}
 value:
   description: >
-    The value to test. Returns `true` if the value is a sequence (list, tuple, or string).
+    The value to test. Returns `true` if the value is a sequence (list, tuple, string, or dictionary).
   required: true
   type: any
 {% endfunction_parameters %}
@@ -61,7 +61,7 @@ value:
 
 ### Check various types
 
-Lists and strings are sequences, but dictionaries and numbers are not.
+Lists, strings, and dictionaries are sequences, but numbers are not.
 
 {% example %}
 template: |

@@ -1,0 +1,14 @@
+{
+  "domain": "thethingsnetwork_lorawan",
+  "name": "The Things Network",
+  "integration_type": "hub",
+  "codeowners": [
+    "@balloob"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "hubs_protocols.wireless_protocols"
+  ]
+}

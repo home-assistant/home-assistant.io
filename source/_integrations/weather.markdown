@@ -1,14 +1,7 @@
 ---
-title: Weather
 description: Instructions on how to set up your Weather platforms with Home Assistant.
-ha_category:
-  - Weather
 ha_release: 0.32
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: weather
-ha_integration_type: entity
 ---
 
 The **Weather** {% term integration %} gather meteorological information from web services and display the conditions and other details about the weather at the given location.

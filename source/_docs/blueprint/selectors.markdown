@@ -56,16 +56,17 @@ The following selectors are currently available:
 - [Time selector](#time-selector)
 - [Trigger selector](#trigger-selector)
   - [Example - Merging with existing triggers](#example---merging-with-existing-triggers)
+- [Unit of measurement selector](#unit-of-measurement-selector)
 
 Interactive demos of each of these selectors can be found on the
-[Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
+[Home Assistant contributors website](https://contributors.home-assistant.io/design/components/selector/).
 
 If no selector is defined, a text input for a single line will be shown.
 
 ## Action selector
 
 The action selector allows you to input one or more sequences of actions.
-On the user interface, the action part of the automation editor will be shown.
+On the user interface, the action part of the visual automation editor will be shown.
 The value of the input will contain a list of actions to perform.
 
 ![Screenshot of an action selector](/images/blueprints/selector-action.png)
@@ -195,7 +196,7 @@ entity:
       description: >
         Limits the list of areas to areas that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+        For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
 multiple:
@@ -605,7 +606,7 @@ entity:
       description: >
         Limits the list of devices to devices that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+        For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
 filter:
@@ -709,6 +710,21 @@ multiple:
   type: boolean
   default: false
   required: false
+context:
+  description: >
+    Limits the selectable device classes based on the value of another input
+    in the same blueprint or form. Each key refers to the name of that input.
+  type: map
+  required: false
+  keys:
+    filter_unit_of_measurement:
+      description: >
+        The name of an input that uses a [unit of measurement selector](#unit-of-measurement-selector).
+        Device classes that do not support the selected unit are listed last
+        and cannot be selected. If exactly one device class supports the unit
+        and no device class is selected yet, it is selected.
+      type: string
+      required: false
 {% endconfiguration %}
 
 The output of this selector is the device class, or (in case `multiple` is set to
@@ -750,10 +766,10 @@ enable_millisecond:
   type: boolean
   default: false
   required: false
-allow_negative:
-  description: When `true`, the duration selector will allow for selecting positive or negative values.
-  type: boolean
-  default: false
+mode:
+  description: "Whether the duration can be negative. `positive` only lets you enter positive durations. `signed` provides a picker showing values that can go both ways, like a time correction. `offset` lets you choose between **No offset**, **Before**, and **After**, and then enter the duration. Offset suits times relative to an event, like sunrise or the start of a calendar event."
+  type: string
+  default: positive
   required: false
 {% endconfiguration %}
 
@@ -766,6 +782,15 @@ hours: 12
 minutes: 30
 seconds: 15 # Only when enable_second is set to true (default)
 milliseconds: 500 # Only when enable_millisecond was set to true
+```
+
+With the `signed` and `offset` modes, a negative duration, or an offset before the event, has negative values. Choosing **No offset** gives a duration of zero.
+
+```yaml
+# Example output for 30 minutes before the event
+hours: 0
+minutes: -30
+seconds: 0
 ```
 
 ## Entity selector
@@ -1364,7 +1389,7 @@ translation_key:
     Allows translations provided by an integration where `translation_key`
     is the translation key that is providing the unit_of_measurement string
     translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    [Backend Localization](https://contributors.home-assistant.io/core/integrations/translations/#selectors)
     for more information.
   type: string
   required: false
@@ -1440,6 +1465,10 @@ fields:
   type: map
   required: false
   keys:
+    default:
+      description: The value used to pre-populate this field when adding a new object.
+      required: false
+      type: any
     label:
       description: The label of the field
       required: false
@@ -1468,7 +1497,7 @@ translation_key:
     Allows translations provided by an integration where `translation_key`
     is the translation key that is providing the selector option strings
     translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    [Backend Localization](https://contributors.home-assistant.io/core/integrations/translations/#selectors)
     for more information.
   type: string
   required: false
@@ -1578,7 +1607,7 @@ translation_key:
     Allows translations provided by an integration where `translation_key`
     is the translation key that is providing the selector option strings
     translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    [Backend Localization](https://contributors.home-assistant.io/core/integrations/translations/#selectors)
     for more information.
   type: string
   required: false
@@ -1783,7 +1812,7 @@ entity:
       description: >
         Limits the targets to entities with a certain supported feature, for example,
         `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+        For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
 {% endconfiguration %}
@@ -1798,6 +1827,8 @@ actions:
   - action: light.turn_on
     target: !input lights
 ```
+
+When someone sets up the blueprint, they can exclude some targets. The input then contains an `exclude` block. Pass the input to `target` as a whole, as in the example above. A template that reads only parts of the input, such as `lights.entity_id`, ignores the `exclude` block. The action then also runs on the excluded entities.
 
 {% endimportant %}
 
@@ -1954,4 +1985,99 @@ triggers:
   - triggers: !input my_trigger_input
   - platform: numeric_state
   [...]
+```
+
+## Unit of measurement selector
+
+The unit of measurement selector lets you select a unit of measurement, such as `°C` or `kWh`.
+The selector returns a single unit of measurement, or no value if no unit is selected.
+
+This selector shows all available units, and also accepts a custom unit:
+
+```yaml
+unit_of_measurement:
+```
+
+This selector limits selectable units to the units of the `temperature` sensor device class.
+
+```yaml
+unit_of_measurement:
+  device_classes:
+    - temperature
+```
+
+{% configuration unit_of_measurement %}
+device_classes:
+  description: >
+    Limits the selectable units to the units supported by the
+    [sensor device classes](/integrations/sensor/#device-class) supplied.
+    A device class that does not use a unit, such as `date` or `enum`, only
+    allows selecting no unit. When not configured, or when a device class does
+    not limit its units, such as `monetary`, any unit is selectable.
+  type: [string, list]
+  required: false
+state_classes:
+  description: >
+    Limits the selectable units to the units supported by the
+    [sensor state classes](#state-class-selector) supplied. When combined with
+    `device_classes`, only units that match both are selectable. When not
+    configured, or when a state class does not limit its units, such as
+    `measurement` or `total`, any unit is selectable.
+  type: [string, list]
+  required: false
+context:
+  description: >
+    Limits the selectable units based on the value of another input in the
+    same blueprint or form. Each key refers to the name of that input.
+  type: map
+  required: false
+  keys:
+    filter_device_class:
+      description: >
+        The name of an input that uses a [device class selector](#device-class-selector).
+        The selectable units are limited to the units of the selected device class.
+      type: string
+      required: false
+    filter_state_class:
+      description: >
+        The name of an input that uses a [state class selector](#state-class-selector).
+        The selectable units are limited to the units of the selected state class.
+      type: string
+      required: false
+{% endconfiguration %}
+
+### Example unit of measurement selector
+
+This blueprint example limits the selectable units to the device class and
+state class selected in the other inputs of the blueprint, and the selectable
+device classes to the selected unit:
+
+```yaml
+blueprint:
+  input:
+    device_class:
+      name: Device class
+      selector:
+        device_class:
+          domain: sensor
+          context:
+            filter_unit_of_measurement: unit
+    state_class:
+      name: State class
+      selector:
+        state_class:
+    unit:
+      name: Unit of measurement
+      selector:
+        unit_of_measurement:
+          context:
+            filter_device_class: device_class
+            filter_state_class: state_class
+```
+
+The output of this selector is the unit of measurement.
+
+```yaml
+# Example unit of measurement selector output result
+°C
 ```

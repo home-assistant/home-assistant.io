@@ -1,23 +1,7 @@
 ---
-title: Android TV Remote
 description: Instructions on how to integrate Android TV Remote into Home Assistant.
-ha_category:
-  - Media player
-  - Remote
 ha_release: 2023.5
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@tronikos'
-  - '@Drafteed'
 ha_domain: androidtv_remote
-ha_zeroconf: true
-ha_platforms:
-  - diagnostics
-  - media_player
-  - remote
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Android TV Remote** {% term integration %} allows you to control an Android TV and launching apps. For this to work, the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices (Fire TV devices are a notable exception).
@@ -51,11 +35,13 @@ Examples of deep links for popular applications:
 | App | Deep link |
 | --- | --- |
 | YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
-| Netflix | `https://www.netflix.com/title` or `netflix://`
+| Netflix | `https://www.netflix.com/title/<title ID>?source=30` or `netflix://`
 | Prime Video | `https://app.primevideo.com`
 | Disney+ | `https://www.disneyplus.com`
 | Plex | `plex://`
 | Twitch | `twitch://home` `[home, stream, game, video, clip, search, browse, channel, user]`
+
+The Netflix app opens a specific title only when the link ends with `?source=30`. Without it, the app opens, but shows or resumes the last watched title. The title ID is the number in the title's address on netflix.com.
 
 Example:
 

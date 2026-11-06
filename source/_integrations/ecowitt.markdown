@@ -1,21 +1,7 @@
 ---
-title: Ecowitt
 description: Instructions on how to integrate Ecowitt Weather Station within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
-  - Weather
 ha_release: 2022.9
-ha_iot_class: Local Push
 ha_domain: ecowitt
-ha_config_flow: true
-ha_codeowners:
-  - '@pvizeli'
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: device
 ---
 
 The **Ecowitt** {% term integration %} allows you to integrate [Ecowitt](https://www.ecowitt.com/) devices into Home Assistant.

@@ -92,7 +92,9 @@ sleep_temp:
 
 When everyone leaves home, lower the comfort temperature of the living room to save energy.
 
-- **Trigger**: Everyone leaves home
+- **Trigger**: State changed
+  - **Entity**: Home zone
+  - **To**: 0
 - **Action**: Mill: Set room temperature
 
 {% details "YAML example for lowering the temperature while away" %}

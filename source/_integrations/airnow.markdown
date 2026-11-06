@@ -1,18 +1,7 @@
 ---
-title: AirNow
 description: Instructions on how to integrate AirNow within Home Assistant.
-ha_category:
-  - Health
 ha_release: 2021.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@asymworks'
 ha_domain: airnow
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **AirNow** {% term integration %} uses the [AirNow](https://www.airnow.gov/) web service

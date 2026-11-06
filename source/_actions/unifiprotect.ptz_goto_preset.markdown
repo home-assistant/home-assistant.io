@@ -69,7 +69,7 @@ preset:
 
 Move a PTZ camera to a driveway preset when a motion sensor detects activity.
 
-- **Trigger**: State: Driveway motion sensor changes to _on_
+- **Trigger**: State changed: Driveway motion sensor changes to _on_
 - **Action**: UniFi Protect: PTZ go to preset
 
 {% details "YAML example for moving a camera to a preset on motion" %}

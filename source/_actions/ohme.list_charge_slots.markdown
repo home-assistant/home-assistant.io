@@ -7,7 +7,7 @@ related_actions:
   - ohme.set_price_cap
 ---
 
-The **List charge slots** action fetches the charge slots from the plan that Ohme generated for your charger. Charge slots are only returned while a charge is in progress.
+The **Ohme: List charge slots** action fetches the charge slots from the plan that Ohme generated for your charger. Charge slots are only returned while a charge is in progress.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
@@ -98,7 +98,7 @@ slots:
 
 Charge slots are only returned if a charge is in progress. This automation fires the moment the car is plugged in, fetches the planned charge slots, and sends them as a notification. With this automation you can confirm the charger has scheduled charging in the cheapest and lowest-carbon window without opening the app.
 
-- **Trigger**: State (sensor `sensor.ohme_home_pro_status` changes from `unplugged`)
+- **Trigger**: State changed (sensor `sensor.ohme_home_pro_status` changes from `unplugged`)
 - **Action**: Ohme: List charge slots
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
