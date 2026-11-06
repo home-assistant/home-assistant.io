@@ -168,6 +168,7 @@ Most smart meters need to be unlocked with a PIN from your energy provider befor
 
 - Make sure the WattWächter device is connected to the same network as Home Assistant.
 - Verify the device is powered on and reachable (try accessing its web interface in a browser).
+- If the device is already set up through MQTT, Home Assistant doesn't offer it for discovery, because every sensor would exist twice. You can still add it manually. Once you delete its MQTT device in Home Assistant, the device is offered again on its next discovery, for example after restarting Home Assistant.
 - You can always add the device manually by entering its IP address.
 
 ### Authentication failed
