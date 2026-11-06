@@ -155,8 +155,8 @@ On the device page, the **Minimum charge level** and **Target charge level** num
 - **Outside temperature**
   - **Description**: The temperature outside the vehicle
 - **Inside temperature**
-  - **Description**: The temperature inside the vehicle
-  - **Remarks**: Updated only when the vehicle sends data, for example at the end of a trip, so the value can be outdated while the vehicle is parked
+  - **Description**: The temperature inside the vehicle.
+  - **Remarks**: Updated only when the vehicle sends data, for example at the end of a trip, so the value can be outdated while the vehicle is parked.
 - **HVAC SoC threshold**
   - **Description**: The minimum battery <abbr title="state of charge">SoC</abbr>, in %, needed to start the air conditioning remotely
 - **Front left tyre pressure**, **Front right tyre pressure**, **Rear left tyre pressure**, and **Rear right tyre pressure**
