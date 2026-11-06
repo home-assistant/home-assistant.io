@@ -620,7 +620,7 @@ Home Assistant didn't record what caused the change. Often, the change came from
 
 #### Resolution
 
-- Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %} and check if an action targeted the device at that time. If none did, the change came from outside Home Assistant.
+- Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %}, select a date range that includes the change, and check for actions that could have changed the device. If you don't find a matching action, continue with the checks below.
 - Check the device and the app of the manufacturer for schedules, scenes, or automations that control the device.
 - Check the documentation of the integration, and the logs under {% my logs title="**Settings** > **System** > **Logs**" %}, for changes that the integration made.
 
