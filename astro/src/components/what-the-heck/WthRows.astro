@@ -48,11 +48,9 @@ const copies = [0, 1, 2];
 
 <style lang="scss">
   .rows {
-    /* Comes in from the page colour of "Over to you!" above with a fade
-       rather than a hard edge, settling on the surface by the time the
-       first row starts. */
-    background: linear-gradient(to bottom, var(--wth-page), var(--wth-surface) var(--wth-section-space));
-    border-bottom: 1px solid var(--wth-border);
+    /* The page background, as "Over to you!" above and the footer's
+       skyline below, so the end of the page reads as one surface. */
+    background: var(--color-page);
     display: flex;
     flex-direction: column;
     gap: clamp(1.25rem, 3vw, 2.5rem);
