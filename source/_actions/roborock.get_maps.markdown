@@ -5,6 +5,7 @@ domain: roborock
 description: "Retrieves the map and room information of a Roborock vacuum."
 related_actions:
   - roborock.set_vacuum_goto_position
+  - roborock.set_vacuum_zoned_cleaning
   - roborock.get_vacuum_current_position
 ---
 
@@ -21,7 +22,7 @@ To get a vacuum's maps from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Roborock vacuum whose maps you want to retrieve.
-6. From the actions shown for that target, select **Get maps**.
+6. From the actions shown for that target, under **Roborock**, select **Get maps**.
 7. Select **Save**.
 
 This action has no additional options in the UI.

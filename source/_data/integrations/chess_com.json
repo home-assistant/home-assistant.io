@@ -1,0 +1,18 @@
+{
+  "domain": "chess_com",
+  "name": "Chess.com",
+  "integration_type": "service",
+  "codeowners": [
+    "@joostlek"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "media_entertainment.gaming"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

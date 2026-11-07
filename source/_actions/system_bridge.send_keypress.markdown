@@ -7,7 +7,7 @@ related_actions:
   - system_bridge.send_text
 ---
 
-The **Send keyboard keypress** action sends a single keyboard keypress to a System Bridge server, as if the key was pressed on the server's keyboard.
+The **System Bridge: Send keyboard keypress** action sends a single keyboard keypress to a System Bridge server, as if the key was pressed on the server's keyboard.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 

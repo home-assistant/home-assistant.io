@@ -1,22 +1,7 @@
 ---
-title: Fressnapf Tracker
 description: Instructions on how to integrate Fressnapf GPS Trackers into Home Assistant.
-ha_category:
-  - Presence detection
-ha_iot_class: Cloud Polling
 ha_release: 2026.1
-ha_config_flow: true
-ha_codeowners:
-  - '@eifinger'
 ha_domain: fressnapf_tracker
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - light
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Fressnapf Tracker** {% term integration %} allows you to integrate [Fressnapf GPS Trackers](https://tracker.fressnapf.de/) into Home Assistant.

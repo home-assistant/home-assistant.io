@@ -1,0 +1,12 @@
+{
+  "domain": "counter",
+  "name": "Counter",
+  "integration_type": "helper",
+  "codeowners": [
+    "@fabaff"
+  ],
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.store_value"
+  ]
+}

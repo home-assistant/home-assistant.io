@@ -1,25 +1,12 @@
 ---
-title: HTML5 Push Notifications
 description: Instructions on how to use the HTML5 push notifications platform from Home Assistant.
-ha_category:
-  - Event
-  - Notifications
 ha_release: 0.27
-ha_config_flow: true
-ha_iot_class: Cloud Push
 ha_domain: html5
-ha_platforms:
-  - event
-  - notify
-ha_integration_type: service
 related:
   - url: https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API
     title: MDN Notifications API documentation
   - url: https://support.google.com/webmasters/answer/9008080#domain_name_verification
     title: Domain name verification
-ha_codeowners:
-  - '@alexyao2015'
-  - '@tr4nt0r'
 ---
 
 The **HTML5 Push Notifications** {% term integration %} lets you receive push notifications in supported browsers.
@@ -52,10 +39,10 @@ VAPID private key:
 
 Assuming you have already configured the platform:
 
-{% my profile badge %}
+{% my profile_browser badge %}
 
-1. Open the Home Assistant {% my profile title="**User profile**" %} page in [a supported browser](#supported-platforms).
-   - To open the page, select the **User Profile** link above or in Home Assistant, select your user account initials at the bottom of the sidebar.
+1. In [a supported browser](#supported-platforms), go to {% my profile_browser title="**User profile** > **This browser**" %}.
+   - To open your profile in Home Assistant, select your name at the bottom of the sidebar. Then select **This browser**.
 2. Assuming you have met all the [requirements](#prerequisites) above, you should see a **Receive notifications** toggle.
    - If the toggle is greyed out, make sure you are viewing Home Assistant via its external HTTPS address. 
    - Also, make sure you have added the {% my integrations title="**HTML5 Push Notifications**" domain="html5" %} integration to Home Assistant.

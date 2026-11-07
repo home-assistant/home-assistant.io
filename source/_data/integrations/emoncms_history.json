@@ -1,0 +1,13 @@
+{
+  "domain": "emoncms_history",
+  "name": "Emoncms History",
+  "codeowners": [
+    "@alexandrecuer"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "energy.meters_monitoring",
+    "diy_makers.web_data_connectors"
+  ]
+}

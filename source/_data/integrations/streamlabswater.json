@@ -1,0 +1,14 @@
+{
+  "domain": "streamlabswater",
+  "name": "StreamLabs",
+  "integration_type": "service",
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "water.meters_leak_detection"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

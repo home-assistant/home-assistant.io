@@ -9,7 +9,7 @@ related_actions:
   - velbus.clear_cache
 ---
 
-Use this action to synchronize the clock of your Velbus modules to the Home Assistant clock. This is the same as the **Sync clock** button in the VelbusLink software.
+Use the **Velbus: Sync clock** action to synchronize the clock of your Velbus modules to the Home Assistant clock. This is the same as the **Sync clock** button in the VelbusLink software.
 
 {% include actions/ui_header.md %}
 

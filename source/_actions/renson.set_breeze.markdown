@@ -8,7 +8,7 @@ related_actions:
   - renson.set_pollution_settings
 ---
 
-The **Set Breeze** action configures the Breeze function of your Renson ventilation unit. Breeze increases ventilation when the outdoor temperature rises above a set value, which helps cool your home naturally.
+The **Renson: Set Breeze** action configures the Breeze function of your Renson ventilation unit. Breeze increases ventilation when the outdoor temperature rises above a set value, which helps cool your home naturally.
 
 You set the ventilation level to use, the temperature that activates Breeze, and whether the function is turned on.
 
@@ -23,7 +23,7 @@ To configure Breeze from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Renson ventilation unit.
-6. From the actions shown for that target, select **Renson: Set Breeze**.
+6. From the actions shown for that target, under **Renson**, select **Set Breeze**.
 7. Select the **Level** and **Temperature**, then turn **Activate** on or off.
 8. Select **Save**.
 
@@ -88,7 +88,9 @@ activate:
 
 This automation enables the Breeze function at the start of summer so the unit ventilates more whenever it gets warm outside.
 
-- **Trigger**: an input boolean for summer mode turns on
+- **Trigger**: State changed
+  - **Entity**: Summer mode helper
+  - **To**: On
 - **Action**: Renson: Set Breeze
   - **Target**: the ventilation unit
   - **Level**: `level3`

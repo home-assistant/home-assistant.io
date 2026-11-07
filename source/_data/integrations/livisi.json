@@ -1,0 +1,19 @@
+{
+  "domain": "livisi",
+  "name": "LIVISI Smart Home",
+  "integration_type": "hub",
+  "codeowners": [
+    "@StefanIacobLivisi",
+    "@planbnet"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "switch"
+  ]
+}

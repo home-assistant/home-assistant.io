@@ -15,7 +15,7 @@ This section provides troubleshooting steps for the ESP32-S3-BOX-3 by Espressif.
 
 The ESP32-S3-BOX-3 shows a message that it is unable to connect to Wi-Fi.
 
-### Remedy
+### Resolution
 
 1. First, check if your network is ready in general.
    1. Make sure your router is on and within reach.
@@ -53,7 +53,7 @@ The ESP32-S3-BOX-3 shows a message that it is unable to connect to Wi-Fi.
 
 The installation wizard never shows the dialog to connect to the Wi-Fi, but directly returns to the screen with **Install Voice Assistant**.
 
-### Remedy
+### Resolution
 
 1. Disconnect the USB cable connecting the ESP32-S3-BOX-3 and connect it again.
 2. If this didn't help, check if you are using a USB cable that is power only and does not transfer data.
@@ -68,7 +68,7 @@ The ESP32-S3-BOX-3 shows a message that there is no Home Assistant.
 
 This message indicates that the device could connect to the Wi-Fi, but is unable to communicate with Home Assistant.
 
-### Remedy
+### Resolution
 
 1. If you see this message during a restart or while an update is running, wait until the restart or update is finished.
    - In this case, there is nothing you need to do. It is expected that the device temporarily stops communicating.

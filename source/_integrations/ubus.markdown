@@ -1,18 +1,10 @@
 ---
-title: OpenWrt (ubus)
 description: Instructions on how to integrate OpenWrt devices into Home Assistant.
-ha_category:
-  - Presence detection
 ha_release: 0.7.6
-ha_iot_class: Local Polling
 ha_domain: ubus
-ha_platforms:
-  - device_tracker
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://openwrt.org/docs/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in client devices connected to the access point on the OpenWrt device.
@@ -159,7 +151,7 @@ If you find that this never creates `known_devices.yaml`, or if you need more in
 3. In another window, observe the logs.
 
     - If using an {% term "Home Assistant Supervisor" %} based installation, such as the
-    {% term "Home Assistant Operating System" %}, log in through the [SSH add-on](/common-tasks/os/#installing-and-using-the-ssh-add-on) and run the following command:
+    {% term "Home Assistant Operating System" %}, log in through the [SSH add-on](/common-tasks/os/#installing-and-using-the-ssh-app) and run the following command:
 
       ```bash
       ha core logs --follow | grep device_tracker

@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently armed in night mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -58,9 +56,9 @@ behavior:
   default: any
 for:
   description: >
-    Duration the alarm must have been armed in night mode before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the alarm must have been armed in night mode before the condition passes. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -70,7 +68,7 @@ for:
 
 ## Good to know
 
-- Alarm panels that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as armed night. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted alarm is unavailable.
+{% include conditions/unavailable_targets.md entities="alarm panels" %}
 - If you want to check whether the alarm is armed in any mode (not just night), use [Alarm is armed](/conditions/alarm_control_panel.is_armed/).
 - To check the opposite state, use [Alarm is disarmed](/conditions/alarm_control_panel.is_disarmed/).
 
@@ -82,7 +80,7 @@ for:
 
 When the hallway motion sensor detects movement, turn on the hallway light at 10% brightness, but only while the alarm is armed in night mode. During the day, you want full brightness instead.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Hallway motion sensor
   - **To**: On
 - **Condition**: Alarm is armed night
@@ -116,7 +114,7 @@ automation: |
 
 The doorbell normally announces visitors through every speaker, but nobody wants that at 2 AM. Add a night-mode check so the speakers stay silent overnight and you get a quiet phone notification instead.
 
-- **Trigger**: State: Doorbell pressed
+- **Trigger**: State changed: Doorbell pressed
 - **Condition**: Alarm is armed night
 - **Action**: Send a notification message (skip the speaker announcement)
   - **Target**: My Device (`notify.my_device`)

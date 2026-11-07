@@ -1,5 +1,5 @@
 ---
-title: "Get the PIN codes of a Schlage lock"
+title: "Get PIN codes"
 action: schlage.get_codes
 domain: schlage
 description: "Returns all PIN codes stored on a Schlage lock."
@@ -10,7 +10,7 @@ related_actions:
 
 Use this action to retrieve all PIN codes stored on a Schlage lock. For example, you can use it to check which codes are set before adding or removing one.
 
-This action returns its result as [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) and does not change anything on the lock.
+This action returns its result as [response data](/docs/automation/action/#action-response-data) and does not change anything on the lock.
 
 {% include actions/ui_header.md %}
 
@@ -21,7 +21,7 @@ To get the PIN codes from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Schlage lock.
-6. From the actions shown for that target, select **Schlage: Get PIN codes**.
+6. From the actions shown for that target, under **Schlage**, select **Get PIN codes**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -50,17 +50,108 @@ This action has no additional YAML options beyond the target.
 
 ## Response data
 
-The action returns the result for each targeted lock, keyed by entity ID. For each lock, it returns a mapping of the stored codes, keyed by a unique code identifier. Each code has a `name` and the `code` itself.
+The action returns the result for each targeted lock, keyed by entity ID. For each lock, it returns a mapping of the stored codes, keyed by a unique code identifier. Each code has the following fields:
+
+- **name**: The name of the PIN code.
+- **code**: The PIN value.
+- **access_code_id**: A unique access code identifier.
+- **schedule**: The schedule for this PIN, or `null` for permanent PINs.
 
 ```yaml
 lock.front_door:
   93ab517c-0000-0000-0000-000000000000:
     name: Example Person
     code: "3333"
+    access_code_id: "93ab517c-0000-0000-0000-000000000000"
+    schedule: null
   82958b77-0000-0000-0000-000000000000:
-    name: Example person 2
-    code: "2222"
+    name: Guest
+    code: "1234"
+    access_code_id: "82958b77-0000-0000-0000-000000000000"
+    schedule:
+      type: temporary
+      start_datetime: "2026-09-01T15:00:00+00:00"
+      end_datetime: "2026-09-01T16:00:00+00:00"
 ```
+
+### Schedule formats
+
+The `schedule` field describes when a PIN is active. It is `null` for permanent PINs, or one of the following shapes:
+
+**Temporary**: set via the `start_datetime` and `end_datetime` fields:
+
+```json
+{
+  "type": "temporary",
+  "start_datetime": "2026-09-01T15:00:00+00:00",
+  "end_datetime": "2026-09-01T16:00:00+00:00"
+}
+```
+
+**Recurring**: a single recurring schedule set through the Schlage app:
+
+```json
+{
+  "type": "recurring",
+  "days_of_week": {
+    "sun": false,
+    "mon": true,
+    "tue": true,
+    "wed": true,
+    "thu": true,
+    "fri": true,
+    "sat": false
+  },
+  "start_time": "08:00:00",
+  "end_time": "17:00:00"
+}
+```
+
+A recurring schedule has the following fields:
+
+- **days_of_week**: One boolean per day of the week, indicating whether the schedule is active on that day.
+- **start_time**: The time of day the schedule starts, as a string in `HH:MM:SS` format.
+- **end_time**: The time of day the schedule ends, as a string in `HH:MM:SS` format.
+
+**Multi-recurring**: two time windows, also set through the Schlage app:
+
+```json
+{
+  "type": "multi_recurring",
+  "windows": [
+    {
+      "days_of_week": {
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false
+      },
+      "start_time": "08:00:00",
+      "end_time": "12:00:00"
+    },
+    {
+      "days_of_week": {
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false
+      },
+      "start_time": "13:00:00",
+      "end_time": "17:00:00"
+    }
+  ]
+}
+```
+
+Each window in a multi_recurring schedule uses the same fields as a recurring schedule.
+
+Recurring and multi_recurring schedules are configured through the Schlage app and cannot be set through Home Assistant service actions.
 
 {% include actions/try_it.md %}
 

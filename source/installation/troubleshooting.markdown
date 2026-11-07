@@ -7,7 +7,7 @@ It can happen that you run into trouble while installing and onboarding Home Ass
 
 ## Can’t access Home Assistant in my browser
 
-### Symptom: “This site can’t be reached”
+### Symptom
 
 When trying to access Home Assistant in the browser, the browser shows the message “This site can’t be reached”.
 
@@ -46,7 +46,7 @@ To resolve this issue, try the following steps:
 
 ## "Error installing Home Assistant"
 
-### Symptom: During onboarding, there is an "Error installing Home Assistant"
+### Symptom
 
 You are in the onboarding procedure, but you get the message **Error installing Home Assistant**.
 
@@ -65,11 +65,9 @@ You are in the onboarding procedure, but you get the message **Error installing 
 
 ## Stuck at "Preparing Home Assistant"
 
-### Symptom: Onboarding seems stuck at "Preparing Home Assistant"
+### Symptom
 
 You are in the onboarding procedure, but the process seems stuck at the step **Preparing Home Assistant**.
-
-![Home Assistant preparation](/images/getting-started/onboarding_preparing_01.png)
 
 ### Resolution
 

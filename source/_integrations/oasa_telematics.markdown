@@ -1,19 +1,10 @@
 ---
-title: OASA Telematics
 description: Instructions on how to integrate bus and trolley arrival data for Greek OASA Telematics within Home Assistant.
-ha_category:
-  - Sensor
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: 0.92
 ha_domain: oasa_telematics
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **OASA Telematics** {% term integration %} will provide you with bus and trolley arrival times for Greek public transport for Athens, using real-time data from [OASA Telematics](https://telematics.oasa.gr/en/).

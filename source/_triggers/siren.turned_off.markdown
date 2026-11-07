@@ -27,6 +27,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sirens are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted siren turns off, **First** to fire only when the first targeted siren turns off, or **All** to fire only after every targeted siren has turned off.
+  required: false
 For at least:
   description: How long the siren must stay off before the trigger fires. Set to zero to fire right away.
 {% endoptions_ui %}
@@ -46,8 +47,6 @@ This fires every time `siren.entry` turns off.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -59,9 +58,9 @@ behavior:
 for:
   description: >
     How long the siren must stay off before the trigger fires.
-    Accepts a duration string like `00:05:00`.
+    Accepts a duration string like `00:05:00`. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

@@ -1,5 +1,5 @@
 ---
-title: "Clear a Matter lock user"
+title: "Clear lock user"
 action: matter.clear_lock_user
 domain: matter
 description: "Deletes a user and their credentials from a Matter lock."
@@ -22,7 +22,7 @@ To clear a lock user from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the lock you want to manage.
-6. From the actions shown for that target, select **Clear a Matter lock user**.
+6. From the actions shown for that target, under **Matter**, select **Clear lock user**.
 7. Enter the **User index** to remove.
 8. Select **Save**.
 
@@ -66,7 +66,7 @@ user_index:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Good to know
 

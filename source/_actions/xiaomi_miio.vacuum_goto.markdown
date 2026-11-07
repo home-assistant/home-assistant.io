@@ -8,7 +8,7 @@ related_actions:
   - xiaomi_miio.vacuum_clean_segment
 ---
 
-The **Vacuum go to** action sends a Xiaomi robot vacuum to a specific point on its map, defined by an x- and y-coordinate.
+The **Xiaomi Home: Vacuum go to** action sends a Xiaomi robot vacuum to a specific point on its map, defined by an x- and y-coordinate.
 
 {% include actions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To send the vacuum to a coordinate from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Xiaomi robot vacuum you want to control.
-6. From the actions shown for that target, select **Vacuum go to**.
+6. From the actions shown for that target, under **Xiaomi Home**, select **Vacuum go to**.
 7. Enter the **X coordinate** and **Y coordinate**.
 8. Select **Save**.
 

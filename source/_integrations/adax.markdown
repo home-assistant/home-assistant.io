@@ -1,20 +1,7 @@
 ---
-title: Adax
 description: Instructions on how to integrate Adax heater into Home Assistant.
-ha_category:
-  - Climate
-  - Sensor
 ha_release: 2021.8
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@danielhiversen'
-  - '@lazytarget'
 ha_domain: adax
-ha_config_flow: true
-ha_platforms:
-  - climate
-  - sensor
-ha_integration_type: integration
 ---
 
 The **Adax** {% term integration %} integrates Adax heaters into Home Assistant and can be configured to use a local or cloud interface.

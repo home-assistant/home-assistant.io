@@ -5,6 +5,7 @@ domain: environment_canada
 description: "Retrieves the active weather alerts for an Environment Canada location."
 related_actions:
   - environment_canada.get_forecasts
+  - environment_canada.get_precipitation_forecast
   - environment_canada.set_radar_type
 ---
 

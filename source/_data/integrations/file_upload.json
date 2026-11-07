@@ -1,0 +1,9 @@
+{
+  "domain": "file_upload",
+  "name": "File upload",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

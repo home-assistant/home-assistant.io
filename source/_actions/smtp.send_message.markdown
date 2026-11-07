@@ -8,7 +8,7 @@ related_actions:
   - notify.send_message
 ---
 
-The **Send message** action sends an email notification. You can use plain text or HTML content, embed images inline in the HTML body, and attach images or other files.
+The **SMTP: Send message** action sends an email notification. You can use plain text or HTML content, embed images inline in the HTML body, and attach images or other files.
 
 {% include actions/ui_header.md %}
 
@@ -38,6 +38,9 @@ HTML message:
   required: false
 Attachments:
   description: Attach images or other files from camera, image, TTS, or local media source. When selecting a camera entity, a snapshot of the current view will be captured and attached to the email.
+  required: false
+Priority:
+  description: Priority of the email notification. Possible values are **lowest**, **low**, **normal**, **high**, and **highest**. Support for this setting varies between email clients.
   required: false
 {% endoptions_ui %}
 
@@ -110,6 +113,11 @@ attachments:
     Attach images or other files from camera, image, TTS, or local media source. When selecting a camera entity, a snapshot of the current view will be captured and attached to the email.
   required: false
   type: list
+priority:
+  description: >
+    Priority of the email notification. Possible values are `lowest`, `low`, `normal`, `high` and `highest`. Support for this setting varies between email clients.
+  required: false
+  type: string
 {% endoptions_yaml %}
 
 #### Attachment options in YAML

@@ -1,0 +1,25 @@
+{
+  "domain": "abode",
+  "name": "Abode",
+  "codeowners": [
+    "@shred86"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "security_safety.alarm_systems"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "camera",
+    "cover",
+    "light",
+    "lock",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "homekit"
+  ]
+}

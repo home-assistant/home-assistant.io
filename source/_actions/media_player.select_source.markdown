@@ -69,7 +69,9 @@ source:
 
 Select a source when a trigger fires, for example to switch a receiver to the TV input.
 
-- **Trigger**: TV turns on
+- **Trigger**: State changed
+  - **Entity**: Living room tv media player
+  - **To**: On
 - **Action**: Select media player source
   - **Target**: Living room receiver
   - **Source**: TV

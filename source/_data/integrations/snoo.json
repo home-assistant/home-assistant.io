@@ -1,0 +1,22 @@
+{
+  "domain": "snoo",
+  "name": "Happiest Baby Snoo",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Lash-L"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "health_wellbeing"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "event",
+    "select",
+    "sensor",
+    "switch"
+  ]
+}

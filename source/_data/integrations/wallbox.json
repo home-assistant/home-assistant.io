@@ -1,0 +1,21 @@
+{
+  "domain": "wallbox",
+  "name": "Wallbox",
+  "integration_type": "device",
+  "codeowners": [
+    "@hesselonline"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "energy.ev_charging"
+  ],
+  "platforms": [
+    "button",
+    "lock",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ]
+}

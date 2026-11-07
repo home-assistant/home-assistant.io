@@ -9,7 +9,7 @@ related_actions:
   - ntfy.delete
 ---
 
-The **Dismiss notification** action marks a previously sent message in a **ntfy** topic as read without deleting it. This is useful when the notification no longer requires attention but should remain available for later review or reference.
+The **ntfy: Dismiss notification** action marks a previously sent message in a **ntfy** topic as read without deleting it. This is useful when the notification no longer requires attention but should remain available for later review or reference.
 
 To dismiss a notification, you must provide its message ID or sequence ID. The sequence ID can be specified when sending a notification.
 

@@ -1,14 +1,7 @@
 ---
-title: Tags
 description: Instructions on how to get started with tags in Home Assistant
-ha_category:
-  - Automation
 ha_release: 0.115
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: tag
-ha_quality_scale: internal
-ha_integration_type: entity
 ---
 
 <p class='img'>
@@ -48,6 +41,8 @@ State shows the time when the card was last scanned in datetime string format. F
 
 - **Tag ID**: identification as set during creation of the tag.
 - **Last scanned by device ID**: Which device did scan the tag last time, useful in automations for doing different things depending on which device scanned the tag.
+
+{% include integrations/triggers.md %}
 
 ## Building an RFID jukebox
 
@@ -91,7 +86,7 @@ automation:
     - delay: 2 # timeout before we allow processing next scan
 ```
 
-To find your scanner's device ID, open {% my developer_events title="**Settings** > **Tools** > **Events**" %}, select **Listen to events** and subscribe to `tag_scanned`.
+To find your scanner's device ID, open {% my tools_events title="**Settings** > **Tools** > **Events**" %}, select **Listen to events** and subscribe to `tag_scanned`.
 Then scan a tag on the reader and note down the `device_id` from the `data` section.
 
 ## Printing tags

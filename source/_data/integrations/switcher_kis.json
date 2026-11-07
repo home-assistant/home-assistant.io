@@ -1,0 +1,26 @@
+{
+  "domain": "switcher_kis",
+  "name": "Switcher",
+  "integration_type": "hub",
+  "codeowners": [
+    "@thecode",
+    "@YogevBokobza"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "silver",
+  "categories": [
+    "plugs_switches",
+    "climate.water_heaters",
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "button",
+    "climate",
+    "cover",
+    "diagnostics",
+    "light",
+    "sensor",
+    "switch"
+  ]
+}

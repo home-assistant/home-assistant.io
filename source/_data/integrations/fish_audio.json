@@ -1,0 +1,17 @@
+{
+  "domain": "fish_audio",
+  "name": "Fish Audio",
+  "integration_type": "service",
+  "codeowners": [
+    "@noambav"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "ai_voice.speech"
+  ],
+  "platforms": [
+    "tts"
+  ]
+}

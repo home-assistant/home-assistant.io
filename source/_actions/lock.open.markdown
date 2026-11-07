@@ -82,9 +82,11 @@ code:
 
 If you have a lockable gate that supports opening, Home Assistant can unlatch it when you arrive. This automation opens the front gate when your person entity changes to home.
 
-- **Trigger**: Person changes to home
+- **Trigger**: State changed
+  - **Entity**: Alex person
+  - **To**: Home
 - **Action**: Open lock
-- **Target**: Front gate lock
+  - **Target**: Front gate lock
 
 {% details "YAML example for opening the front gate on arrival" %}
 
@@ -107,9 +109,11 @@ automation: |
 
 If you use a user-created {% term helper %} to expose a dashboard button, you can use that helper to open a supported door. This automation opens the building door when the helper is turned on. Create the helper separately before using this example.
 
-- **Trigger**: User-created helper turns on
+- **Trigger**: State changed
+  - **Entity**: Open building door helper
+  - **To**: On
 - **Action**: Open lock
-- **Target**: Building door lock
+  - **Target**: Building door lock
 
 {% details "YAML example for opening a door from a helper" %}
 

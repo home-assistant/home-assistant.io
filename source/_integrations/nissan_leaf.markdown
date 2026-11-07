@@ -1,29 +1,18 @@
 ---
-title: Nissan Leaf
 description: Instructions for how to integrate Nissan Leaf(s) into Home Assistant.
-ha_category:
-  - Car
 ha_release: 0.89
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@filcole'
 ha_domain: nissan_leaf
-ha_platforms:
-  - binary_sensor
-  - button
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Nissan Leaf** {% term integration %} offers integration with the [NissanConnect EV](https://www.nissan.co.uk/dashboard.html) cloud service. NissanConnect EV was previously known as Nissan Carwings.
 
 {% important %}
-Please be aware that the `nissan_leaf` {% term integration %} only works with Nissan vehicles from before 2019. Newer vehicles will not work with this integration.
+The `nissan_leaf` {% term integration %} only works with Nissan vehicles from before 2019. Newer vehicles will not work with this integration.
+
+Nissan discontinued the NissanConnect EV service in the UK and Europe on March 30, 2026, for the vehicles supported by this integration. As a result, this integration no longer works with NissanConnect EV accounts in the UK and Europe.
 {% endimportant %}
 
 The {% term integration %} offers:

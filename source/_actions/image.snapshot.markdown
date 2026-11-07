@@ -16,7 +16,7 @@ To take an image snapshot from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the image entity you want to capture.
-6. From the actions shown for that target, select **Image: Take image snapshot**.
+6. From the actions shown for that target, select **Take image snapshot**.
 7. Set the **Filename** where the snapshot is saved.
 8. Select **Save**.
 
@@ -68,7 +68,8 @@ filename:
 
 Save a snapshot whenever the image changes and keep the date and time in the filename, so each capture is stored as a separate file.
 
-- **Trigger**: The image entity changes
+- **Trigger**: State changed
+  - **Entity**: Front door
 - **Action**: Take image snapshot
   - **Target**: Front door image
   - **Filename**: a path that includes the current date and time

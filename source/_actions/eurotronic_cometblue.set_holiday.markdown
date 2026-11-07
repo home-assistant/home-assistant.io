@@ -1,12 +1,12 @@
 ---
-title: "Set holiday"
+title: "Set holiday/away mode"
 action: eurotronic_cometblue.set_holiday
 domain: eurotronic_cometblue
 description: "Set holiday/away mode on a thermostat."
 since: "2026.7"
 ---
 
-The **Set holiday** action enables holiday mode on a Eurotronic Comet Blue thermostat.
+The **Eurotronic Comet Blue: Set holiday/away mode** action enables holiday mode on a Eurotronic Comet Blue thermostat.
 
 While holiday mode is active, the thermostat uses the temperature you set here instead of following its normal schedule.
 
@@ -24,7 +24,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Eurotronic Comet Blue: Set holiday (away mode)**.
+5. From the search box, search for and select **Eurotronic Comet Blue: Set holiday/away mode**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick one or more thermostats.
 7. Set **From**, **To**, and **Temperature**.
 8. Select **Save**.
@@ -81,7 +81,7 @@ temperature:
   type: float
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Eurotronic Comet Blue thermostat" example="climate.living_room_radiator" %}
 
 ## Good to know
 

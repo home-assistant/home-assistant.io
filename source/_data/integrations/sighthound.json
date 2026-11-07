@@ -1,0 +1,15 @@
+{
+  "domain": "sighthound",
+  "name": "Sighthound",
+  "codeowners": [
+    "@robmarkcole"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "ai_voice.image_recognition"
+  ],
+  "platforms": [
+    "image_processing"
+  ]
+}
