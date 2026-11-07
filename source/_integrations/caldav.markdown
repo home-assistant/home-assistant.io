@@ -174,7 +174,7 @@ You can add, edit, and delete events on the [calendar dashboard](/integrations/c
 
 A recurring event can only be changed or deleted as a whole: open its first occurrence and select **This and all future events**. To change or delete a single occurrence, or the occurrences from a later one on, use your calendar app. Home Assistant shows an error for those changes.
 
-The start and repeat rule of a recurring event can't be changed from Home Assistant once some of its occurrences were changed or deleted, a recurring event can't switch between all-day and timed, and if its repeat rule sets the days (for example every Monday), its start can only move to another time on the same day. Calendars set up with `custom_calendars` can only add events.
+The start and repeat rule of a recurring event can't be changed from Home Assistant once some of its occurrences were changed or deleted. A recurring event can't switch between all-day and timed, and its start has to be one of the times its repeat rule produces: an event that repeats every Monday can only move to another Monday. Calendars set up with `custom_calendars` can only add events.
 
 ## Calendar Event Automations
 
