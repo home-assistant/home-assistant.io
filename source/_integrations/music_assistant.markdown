@@ -40,6 +40,7 @@ There is currently support for the following Home Assistant Platforms:
 - [Dashboard displays](#dashboards)
 - [Button](#favorite-current-song-button)
 - [Time](#sleep-timer)
+- [Switch](#queue-settings)
 
 Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
 
@@ -109,9 +110,11 @@ The **Sleep timer** entity is disabled by default. To use it, [enable the entity
 The Music Assistant integration creates two switch entities for the queue of each player:
 
 - **Crossfade**: Fades the end of each track into the start of the next one.
-- **Autoplay**: Keeps playing similar music when the queue runs out.
+- **Autoplay**: Keeps playing similar music when the queue runs out. Autoplay can't be turned on while repeat is on.
 
-These entities need a Music Assistant server newer than 2.10.
+The switches belong to the player's own queue. While a player plays along with another player, change them on that other player.
+
+These entities require Music Assistant server version 2.11 or later.
 
 ### Player options
 
