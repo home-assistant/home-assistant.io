@@ -289,6 +289,8 @@ layout: horizontal
 
 The gas flow Sankey graph shows the real-time flow of gas in your home. Unlike the gas Sankey card, which shows historical gas data based on the selected date range, this card displays current flow values and is not affected by the date picker selection.
 
+To use this card, configure a gas flow rate sensor for each source or individual device you want to display on the {% my config_energy title="energy configuration page" %}. Cumulative gas consumption sensors alone cannot supply data to this card.
+
 It visualizes the instantaneous gas flow from sources to the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
 
 ### YAML configuration
