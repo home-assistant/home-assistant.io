@@ -104,6 +104,12 @@ The Music Assistant integration creates a **Sleep timer** time entity for each p
 
 The **Sleep timer** entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first.
 
+### Playback speed
+
+The Music Assistant integration creates a **Playback speed** number entity for each player. It sets the speed of the audiobook or podcast episode that is playing, from half speed (0.5) to three times the normal speed (3.0). Music always plays at normal speed.
+
+The **Playback speed** entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first. It needs a Music Assistant server newer than 2.10.
+
 ### Player options
 
 If a player provider supports player options, the Music Assistant integration exposes additional entities. For example, you may have a number entity to adjust the media player's bass or treble value. Refer to the [Player documentation](https://www.music-assistant.io/player-support/) to see whether your player supports this.
