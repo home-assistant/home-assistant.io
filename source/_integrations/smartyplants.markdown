@@ -51,7 +51,7 @@ The API key and the webhook secret can both be changed after setup, without remo
 
 The new API key has to belong to the same SmartyPlants account the integration was set up with. A key for a different account is refused, and the existing key is kept.
 
-The webhook URL does not change when you reconfigure, so there is nothing to update in the SmartyPlants app. If Home Assistant has no address reachable from the internet, there is no URL to offer and only the API key can be changed.
+The webhook URL does not change when you reconfigure, so there is nothing to update in the SmartyPlants app. If Home Assistant has no address reachable from the internet the URL cannot be shown, but the secret can still be changed or cleared, and the webhook you already added in the app keeps working. An integration set up without a webhook is offered the API key on its own.
 
 ## Supported functionality
 
