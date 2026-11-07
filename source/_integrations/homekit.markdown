@@ -403,7 +403,7 @@ A camera can record to HomeKit Secure Video when motion is detected. This requir
 
 To turn it on, go to **Settings** > **Devices & services**, select **Configure** on the HomeKit entry of the camera, and select the camera under **Cameras that record to HomeKit Secure Video**. Then turn on recording for the camera in the Home app.
 
-Each recording runs FFmpeg, which encodes the video to the format the home hub selects. This needs a capable CPU. If the camera is set to native H.264 (`video_codec: copy`), the stream is recorded as is. The camera must then send H.264 with a keyframe interval of 4 seconds or less. Each recording runs its own FFmpeg process and opens its own connection to the camera.
+Each recording runs FFmpeg, which encodes the video to the format the home hub selects. This needs a capable CPU. If the camera is set to native H.264 (`video_codec: copy`), the stream is recorded as is. The camera must then send H.264 with a keyframe interval of 4 seconds or less. Every recording opens its own connection to the camera.
 
 There is no prebuffer, so the first seconds of a motion event are missing from the recording. Turning the camera off in the Home app also stops live video and snapshots.
 
