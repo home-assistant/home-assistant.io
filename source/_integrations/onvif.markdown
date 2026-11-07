@@ -64,7 +64,7 @@ To help with development of this integration, enable `info` level logging for `h
 | Last Clock Synchronization | Sensor | Timestamp | When the device clock was last synchronized. |
 | Last Backup | Sensor | Timestamp | When the last backup of the device configuration has been retrieved. |
 
-Event entities do not have an on or off state. Each time the device reports the event, the entity fires a `triggered` event, and its state becomes the time it was last triggered. Use them as triggers in automations.
+Event entities do not have an on or off state. Each time the device reports the event, the entity updates its state to the time it was last triggered and sets its `event_type` attribute to `triggered`. To use an event entity in an automation, select it as the target, select the [**Event received** trigger](/triggers/event.received/), and choose the `triggered` event type.
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
 
