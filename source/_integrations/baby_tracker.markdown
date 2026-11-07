@@ -64,7 +64,7 @@ Each baby has three sensors. Their state is the time of the baby's newest record
 
 ## Baby Tracker (Nighp) automation examples
 
-These examples use a baby named Juniper, so the sensors are `sensor.juniper_last_feed` and `sensor.juniper_last_diaper`. The entity IDs in your Home Assistant follow your baby's name.
+These examples use a baby named Homer, so the sensors are `sensor.homer_last_feed` and `sensor.homer_last_diaper`. The entity IDs in your Home Assistant follow your baby's name.
 
 {% include docs/paste_yaml_tip.md %}
 
@@ -73,7 +73,7 @@ These examples use a baby named Juniper, so the sensors are `sensor.juniper_last
 The state of **Last feed** changes each time a new feed appears. A state trigger with a duration therefore runs when four hours pass without a new feed.
 
 - **Trigger**: State of an entity
-  - **Entity**: Juniper Last feed
+  - **Entity**: Homer Last feed
   - **For**: 4 hours
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -82,10 +82,10 @@ The state of **Last feed** changes each time a new feed appears. A state trigger
 
 {% example %}
 automation: |
-  alias: "Juniper has not had a feed in four hours"
+  alias: "Homer has not had a feed in four hours"
   triggers:
     - trigger: state
-      entity_id: sensor.juniper_last_feed
+      entity_id: sensor.homer_last_feed
       for:
         hours: 4
   actions:
@@ -93,7 +93,7 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        message: "Juniper has not had a feed in four hours."
+        message: "Homer has not had a feed in four hours."
 {% endexample %}
 
 {% enddetails %}
@@ -103,7 +103,7 @@ automation: |
 The state of **Last diaper** changes each time a new diaper appears, whether it was logged on a phone or somewhere else. This example sends a message when that happens, and ignores the sensor becoming unknown or unavailable.
 
 - **Trigger**: State of an entity
-  - **Entity**: Juniper Last diaper
+  - **Entity**: Homer Last diaper
   - **Not from**: Unknown, Unavailable
   - **Not to**: Unknown, Unavailable
 - **Action**: Send a notification message
@@ -113,10 +113,10 @@ The state of **Last diaper** changes each time a new diaper appears, whether it 
 
 {% example %}
 automation: |
-  alias: "Juniper has a new diaper"
+  alias: "Homer has a new diaper"
   triggers:
     - trigger: state
-      entity_id: sensor.juniper_last_diaper
+      entity_id: sensor.homer_last_diaper
       not_from:
         - "unknown"
         - "unavailable"
@@ -128,7 +128,7 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        message: "A new diaper was logged for Juniper."
+        message: "A new diaper was logged for Homer."
 {% endexample %}
 
 {% enddetails %}
