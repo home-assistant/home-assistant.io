@@ -95,7 +95,7 @@ recorder:
       default: true
       type: boolean
     purge_keep_days:
-      description: Specify the number of history days to keep in recorder database after a purge.
+      description: Specify the number of history days to keep in recorder database after a purge. The latest state of each entity is kept even if it is older, so the [logbook](/integrations/logbook/) can still show its next change. To remove all data of an entity, use the [`recorder.purge_entities`](/actions/recorder.purge_entities/) action.
       required: false
       default: 10
       type: integer
