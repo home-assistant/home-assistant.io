@@ -136,6 +136,8 @@ Reboot the NAS.
 
 Shutdown the NAS.
 
+{% include integrations/actions.md %}
+
 ## Selects
 
 ### Fan speed mode
