@@ -104,6 +104,12 @@ The Music Assistant integration creates a **Sleep timer** time entity for each p
 
 The **Sleep timer** entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first.
 
+### DSP preset
+
+The Music Assistant integration creates a **DSP preset** select entity for each player. It lists the DSP presets you saved in Music Assistant and shows which one the player uses. Selecting a preset applies it to the player and turns its DSP on. The entity is unavailable while you have no DSP presets.
+
+This entity needs a Music Assistant server newer than 2.10. Changing the preset needs the right to change player settings: it works when Home Assistant uses the Music Assistant app or is set up with a Music Assistant administrator account.
+
 ### Player options
 
 If a player provider supports player options, the Music Assistant integration exposes additional entities. For example, you may have a number entity to adjust the media player's bass or treble value. Refer to the [Player documentation](https://www.music-assistant.io/player-support/) to see whether your player supports this.
