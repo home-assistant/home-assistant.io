@@ -34,7 +34,7 @@ Limit:
 Offset:
   description: The point in the queue to start returning items from.
 Username:
-  description: Retrieve the queue items as this Music Assistant user. The items are only returned when this user may access the player.
+  description: Retrieve the queue items as this Music Assistant user. The action fails when this user may not access the player. When omitted, the items are retrieved as the Home Assistant user who started the action, if that user is linked to a Music Assistant user.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -63,7 +63,7 @@ offset:
   type: integer
   default: 0
 username:
-  description: Retrieve the queue items as this Music Assistant user. The items are only returned when this user may access the player. When omitted, the items are retrieved as the Home Assistant user who started the action, if that user is linked to a Music Assistant user.
+  description: Retrieve the queue items as this Music Assistant user. The action fails when this user may not access the player. When omitted, the items are retrieved as the Home Assistant user who started the action, if that user is linked to a Music Assistant user.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -114,7 +114,7 @@ script: |
 
 - Some metadata, such as favorite status, explicit status, last played, played count, and disc art URL, is only available for items that are in the Music Assistant library.
 - Without a **Limit**, the action only reads the queue details Home Assistant already has. With a limit, it also requests the items from the Music Assistant server.
-- Retrieving the queue items as a specific user needs a Music Assistant server newer than 2.10.
+- Retrieving the queue items as a specific user requires Music Assistant server version 2.11 or later.
 
 {% include actions/stuck.md %}
 
