@@ -71,8 +71,7 @@ The following sensors are available via the open JSON interface:
 | efficiency            | %      | Efficiency (equals to power_ac / power_dc) |
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
 | usage                 | %      | Usage (equals to consumption_ac / power_ac) |
-| firmware_version      | str    | Installed firmware version |
-| firmware_release_date | date   | Release date of the installed firmware version |
+
 
 {% note %}
 The solarlog integration is using the solarlog_cli pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the library.
@@ -91,6 +90,8 @@ The following additional sensor becomes available:
 | charge_level          | %      | Current charge level of battery.*          |
 | charging_power        | W      | Current power charging battery.*           |
 | discharging_power     | W      | Current power discharging battery.*        |
+| firmware_version      | str    | Installed firmware version                 |
+| firmware_release_date | date   | Release date of the installed firmware version |
 | self_consumption_year | kWh    | Annual self-consumed solar power.          |
 
 *Only available, if battery connected to solarlog.
