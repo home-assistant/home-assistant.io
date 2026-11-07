@@ -109,7 +109,7 @@ The **Sleep timer** entity is disabled by default. To use it, [enable the entity
 The Music Assistant integration creates two switch entities for the queue of each player:
 
 - **Crossfade**: Fades the end of each track into the start of the next one.
-- **Don't stop the music**: Keeps playing similar music when the queue runs out.
+- **Autoplay**: Keeps playing similar music when the queue runs out.
 
 These entities need a Music Assistant server newer than 2.10.
 
