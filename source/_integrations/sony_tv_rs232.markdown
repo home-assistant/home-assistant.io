@@ -66,11 +66,11 @@ The media player is an *assumed-state* entity: it reflects the last acknowledged
 
 Sony TVs do not report changes on their own over RS-232. On displays that answer status queries (Pro Bravia), Home Assistant {% term polling polls %} the TV every 60 seconds:
 
-- While the TV is on, it asks for the power state, input source, volume and mute state.
+- While the TV is on, it asks for the power state, input source, volume, mute state and sound mode.
 - While the TV is in standby, it only asks for the power state, so turning the TV on with its remote is noticed within a minute.
 - A few seconds after the integration sees the TV turn on, whether from Home Assistant or with its remote, it queries the TV once more so the entity repopulates once the set has booted.
 
-Consumer Bravia sets that ignore status queries are not polled at all. Their entity only changes when a command sent from Home Assistant is acknowledged; changes made with the TV's remote are not picked up.
+Consumer Bravia sets that ignore status queries are not polled at all. Their entity only changes when a command sent from Home Assistant is acknowledged; changes made with the TV's remote are not picked up. Stepping the volume up or down leaves the volume level unknown until it is next set, because the TV does not say where the step landed.
 
 ## Automation examples
 
