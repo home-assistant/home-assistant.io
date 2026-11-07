@@ -75,7 +75,7 @@ Injection sensors only appear when your contract includes injection, for example
 
 #### Time-of-use tariff slots and current prices
 
-On a time-of-use tariff, the price you pay depends on the time of day. The supplier schedule comes from your ENGIE contract, and the grid operator schedule comes from the company that operates your electricity network, like Fluvius in Flanders, ORES or RESA in Wallonia, and Sibelga in Brussels. The two can differ: in Wallonia and Brussels, the grid tariff also switches during the day, so the grid operator sensors switch even when your supplier contract has a single rate.
+On a time-of-use tariff, such as a day and night rate or a rate with peak, off-peak, and super off-peak hours, the price you pay depends on the time of day. The supplier schedule comes from your ENGIE contract, and the grid operator schedule comes from the company that operates your electricity network, like Fluvius in Flanders, ORES or RESA in Wallonia, and Sibelga in Brussels. The two can differ: in Wallonia and Brussels, the grid tariff also switches during the day, so the grid operator sensors switch even when your supplier contract has a single rate.
 
 The integration reads the weekly tariff schedule of each electricity meter and creates a sensor for the tariff slot that applies right now:
 
