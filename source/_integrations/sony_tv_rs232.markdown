@@ -1,7 +1,18 @@
 ---
+title: Sony TV RS-232
 description: Instructions on how to integrate Sony Bravia TVs via their RS-232 serial port into Home Assistant.
+ha_category:
+  - Media player
 ha_release: 2026.12
+ha_iot_class: Local Polling
+ha_codeowners:
+  - '@bbangert'
+ha_config_flow: true
 ha_domain: sony_tv_rs232
+ha_platforms:
+  - media_player
+ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Sony TV RS-232** {% term integration %} lets you control Sony Bravia TVs by connecting to their RS-232 serial port. Because Home Assistant talks straight to the TV, control is local and fast, and it works on TVs whose network control is disabled, in rack rooms with serial matrices, and in wall-mounted installs that were wired for serial.
@@ -24,7 +35,7 @@ Sony Bravia TVs and Pro Bravia / B2B displays with an RS-232C control port (a DE
 {% include integrations/serial_connected.md %}
 
 - Sony TVs use a null-modem (cross-over) cable: the TX and RX lines must be swapped. The serial settings are fixed at 9600 baud, 8N1, no flow control.
-- Sony TVs only accept the power-on command while in standby if their **Standby Command** mode was armed while the TV was on. The integration arms it on every connection, so after setting up the integration turn the TV on once; power control works from then on.
+- Sony TVs only accept the power-on command while in standby if their **Standby Command** mode was armed while the TV was on. The integration arms it whenever it sees the TV on, so turn the TV on before adding the integration. On a consumer Bravia set that does not answer status queries, the integration cannot see the TV turn on and only arms the mode when it connects: if the TV was in standby during setup, turn it on and then reload the integration once.
 
 {% include integrations/config_flow.md %}
 
@@ -57,54 +68,76 @@ Sony TVs do not report changes on their own over RS-232. On displays that answer
 
 - While the TV is on, it asks for the power state, input source, volume and mute state.
 - While the TV is in standby, it only asks for the power state, so turning the TV on with its remote is noticed within a minute.
-- A few seconds after the TV reports that it turned on, the integration queries it once more so the entity repopulates once the set has booted.
+- A few seconds after the integration sees the TV turn on, whether from Home Assistant or with its remote, it queries the TV once more so the entity repopulates once the set has booted.
 
 Consumer Bravia sets that ignore status queries are not polled at all. Their entity only changes when a command sent from Home Assistant is acknowledged; changes made with the TV's remote are not picked up.
 
 ## Automation examples
 
+The examples use `media_player.sony_tv` as the TV's entity ID. Replace it with the entity ID of your TV.
+
 {% include docs/paste_yaml_tip.md %}
 
 ### Turn the TV off when everyone leaves home
 
-```yaml
-automation:
-  - alias: "Turn off the living room TV when away"
-    triggers:
-      - trigger: state
-        entity_id: zone.home
-        to: "0"
-    actions:
-      - action: media_player.turn_off
-        target:
-          entity_id: media_player.sony_tv
-```
+- **Trigger**: Entity: State of the **Home** zone changes to `0`
+- **Action**: Media player: Turn off, targeting the TV
+
+{% details "YAML example for turning off the TV when everyone leaves" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the living room TV when away"
+  triggers:
+    - trigger: state
+      entity_id: zone.home
+      to: "0"
+  actions:
+    - action: media_player.turn_off
+      target:
+        entity_id: media_player.sony_tv
+{% endexample %}
+
+{% enddetails %}
 
 ### Switch to HDMI 1 for movie night
 
-```yaml
-automation:
-  - alias: "Movie night switches the TV to HDMI 1"
-    triggers:
-      - trigger: state
-        entity_id: input_boolean.movie_night
-        to: "on"
-    actions:
-      - action: media_player.turn_on
-        target:
-          entity_id: media_player.sony_tv
-      - action: media_player.select_source
-        target:
-          entity_id: media_player.sony_tv
-        data:
-          source: "HDMI 1"
-```
+This example is triggered by a [toggle helper](/integrations/input_boolean/) named **Movie night** (`input_boolean.movie_night`). Create the helper first, or replace the trigger with your own.
+
+- **Trigger**: Entity: State of **Movie night** changes to on
+- **Actions**:
+  - Media player: Turn on, targeting the TV
+  - Media player: Select source **HDMI 1**, targeting the TV
+
+{% details "YAML example for switching to HDMI 1 for movie night" %}
+
+In YAML, a source is given by its value (`hdmi1`), not the name shown in the interface (**HDMI 1**).
+
+{% example %}
+automation: |
+  alias: "Movie night switches the TV to HDMI 1"
+  triggers:
+    - trigger: state
+      entity_id: input_boolean.movie_night
+      to: "on"
+  actions:
+    - action: media_player.turn_on
+      target:
+        entity_id: media_player.sony_tv
+    - action: media_player.select_source
+      target:
+        entity_id: media_player.sony_tv
+      data:
+        source: hdmi1
+{% endexample %}
+
+{% enddetails %}
 
 ## Known limitations
 
 - Setup cannot detect whether a TV is actually wired to the port: Sony's protocol has no ping, and consumer sets ignore status queries, so an empty port looks the same as a set-only TV.
 - Consumer Bravia sets do not answer status queries, so their entity reflects only the commands sent from Home Assistant.
-- Power-on from standby only works if the TV's Standby Command mode has been armed while the TV was on (see Prerequisites).
+- Power-on from standby only works once the TV's Standby Command mode has been armed while the TV was on (see Prerequisites).
 - A TV that has been idle for more than a few seconds loses the first command sent to it and answers with a parse error. The integration resends that one command automatically, so the first action after a quiet period is slightly slower.
 - Different Sony models support different subsets of the command set, so some input sources or sound modes may not be selectable on every TV.
 
@@ -120,7 +153,7 @@ The port opens but the TV is not listening. Check that the cable is a null-modem
 
 ### Turning the TV on does not work
 
-The TV's Standby Command mode is not armed. Turn the TV on with its remote once while the integration is connected; it arms the mode on every connection, and power-on works from then on.
+The TV's Standby Command mode is not armed. Turn the TV on with its remote. On a display that answers status queries, the integration arms the mode at its next poll, within a minute. On a consumer Bravia set, reload the integration while the TV is on. Power-on works from then on.
 
 ## Removing the integration
 
