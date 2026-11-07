@@ -17,7 +17,7 @@ ha_quality_scale: bronze
 
 The **Baby Tracker (Nighp)** {% term integration %} connects your account for the Baby Tracker app by Nighp to Home Assistant. It shows each baby's last diaper, feed, and sleep as sensors, so you can see them on a dashboard or use them in automations. For example, you can send yourself a message when a baby hasn't had a feed in four hours.
 
-This integration is not made or supported by Nighp, the maker of Baby Tracker. For help, open an issue in the Home Assistant core repository; please don't contact Nighp.
+This integration is not made or supported by Nighp, the maker of Baby Tracker. For help, open an issue in the Home Assistant Core repository; please don't contact Nighp.
 
 ## Supported devices
 
