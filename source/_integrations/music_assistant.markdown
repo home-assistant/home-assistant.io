@@ -106,7 +106,7 @@ The **Sleep timer** entity is disabled by default. To use it, [enable the entity
 
 ### Playback speed
 
-The Music Assistant integration creates a **Playback speed** number entity for each player. It sets the speed of the audiobook or podcast episode that is playing, from half speed (0.5) to three times the normal speed (3.0). Music always plays at normal speed.
+The Music Assistant integration creates a **Playback speed** number entity for each player. It sets the speed of the audiobook or podcast episode that is playing, from half speed (0.5) to three times the normal speed (3.0). The entity is unavailable while anything else plays, such as music.
 
 The **Playback speed** entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first. It needs a Music Assistant server newer than 2.10.
 
