@@ -91,7 +91,7 @@ When the address is not on a dynamic tariff, each electricity meter gets a curre
 - **Electricity current offtake price**: the offtake price that applies right now
 - **Electricity current injection price**: the injection price that applies right now
 
-These sensors join the supplier schedule with the prices above, so they switch on its slot boundaries. They include VAT, are shown with six decimals, and have no excluding-VAT version. Their `slot_code` attribute shows the slot the price belongs to, and `next_transition`, `next_slot_code`, and `next_price` show when the price changes and what it becomes. When the current slot has no published price, the sensors show no value and try again at the next slot boundary.
+These sensors join the supplier schedule with the prices above, so they switch on its slot boundaries. They include VAT, are shown with six decimals, and have no excluding-VAT version. Their `slot_code` attribute shows the slot the price belongs to, and `next_transition`, `next_slot_code`, and `next_price` show when the price changes and what it becomes. When the current slot has no published price, the sensors show no value and try again at the next slot boundary. To try again right away, call the [Update entity](/actions/homeassistant.update_entity/) action on one of the current price sensors.
 
 A meter whose schedules never switch gets none of these sensors, and injection sensors only appear when your contract includes injection. Addresses on a dynamic tariff keep the slot sensors, but not the current price sensors, since the EPEX sensors already follow the price.
 
