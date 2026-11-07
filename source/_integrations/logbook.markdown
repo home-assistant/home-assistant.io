@@ -9,6 +9,8 @@ related:
 
 The **Activity** {% term integration %} provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order. It depends on the [Recorder](/integrations/recorder/) integration for storing the data. This means that if the Recorder integration is set up to use a database such as MySQL or PostgreSQL, the Activity integration uses that database instead of the default SQLite database.
 
+The **Activity** integration also provides the [**Action history**](/docs/tools/dev-tools/#action-history-tab) tab under {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %}, which lists the actions that were performed and what performed them.
+
 ## Viewing activity in the Activity panel
 
 The **Activity** panel shows recorded changes and events in your home, with the most recent events first. You can narrow it down to the areas, devices, or entities you are interested in.

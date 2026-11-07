@@ -601,7 +601,8 @@ An automation, a script, a scene, a person, an integration, or the device itself
      - **By** and the name of a person who changed it in the UI or the app.
      - **Via** and the name of an integration, for example, when a scene or an action changed it.
 3. If an automation or script caused the change, select **View trace** to see why it ran. **View trace** is only shown while Home Assistant still keeps the trace of that run.
-4. To see which automations, scripts, and scenes use the entity, in the dialog of the entity, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Related**.
+4. To see all actions that were performed around that time, and what performed them, go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %} and select the date range.
+5. To see which automations, scripts, and scenes use the entity, in the dialog of the entity, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Related**.
 
 {% enddetails %}
 
@@ -619,6 +620,7 @@ Home Assistant didn't record what caused the change. Often, the change came from
 
 #### Resolution
 
+- Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %}, select a date range that includes the change, and check for actions that could have changed the device. If you don't find a matching action, continue with the checks below.
 - Check the device and the app of the manufacturer for schedules, scenes, or automations that control the device.
 - Check the documentation of the integration, and the logs under {% my logs title="**Settings** > **System** > **Logs**" %}, for changes that the integration made.
 
