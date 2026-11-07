@@ -93,7 +93,7 @@ When the address is not on a dynamic tariff, each electricity meter gets a curre
 
 These sensors join the supplier schedule with the prices above, so they switch on its slot boundaries. They include VAT, are shown with six decimals, and have no excluding-VAT version. Their `slot_code` attribute shows the slot the price belongs to, and `next_transition`, `next_slot_code`, and `next_price` show when the price changes and what it becomes. When the current slot has no published price, the sensors show no value and try again at the next slot boundary. To try again right away, call the [Update entity](/actions/homeassistant.update_entity/) action on one of the current price sensors.
 
-A meter whose schedules never switch gets none of these sensors, and injection sensors only appear when your contract includes injection. Addresses on a dynamic tariff keep the slot sensors, but not the current price sensors, since the EPEX sensors already follow the price.
+A meter whose schedules never switch gets none of these sensors. The slot sensors need nothing beyond the schedule, so a missing injection price does not remove the injection slot sensor. The current price sensors also need a switching supplier schedule and prices for their direction, so a contract without injection compensation gets no current injection price sensor. Addresses on a dynamic tariff keep the slot sensors, but not the current price sensors, since the EPEX sensors already follow the price.
 
 To follow the cost of your consumption, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and set up grid consumption with the **Use an entity with current price** option. Select **Electricity current offtake price**. The Energy dashboard then shows the supplier energy price only, so the estimate is lower than your actual ENGIE bill.
 
@@ -159,7 +159,7 @@ The integration could not look up your tariff while it was starting, for example
 
 ### The current price sensors did not appear
 
-Addresses on a dynamic tariff get no current price sensors, since the EPEX sensors follow the price instead. Everywhere else, the integration first needs to look up your tariff before it can create them. When that lookup fails during startup, it retries in the background, and the sensors appear once it succeeds. A direction without prices gets no sensor either, like injection on a contract without injection compensation.
+Addresses on a dynamic tariff get no current price sensors, since the EPEX sensors follow the price instead. Everywhere else, the integration first needs to look up your tariff before it can create them. When that lookup fails during startup, it retries in the background, and the sensors appear once it succeeds. They also need a switching supplier schedule and prices for their direction. A single-rate supplier contract gets none, even when the grid operator slot sensors do appear. A direction without prices, like injection on a contract without injection compensation, gets no sensor either.
 
 ## Removing the integration
 
