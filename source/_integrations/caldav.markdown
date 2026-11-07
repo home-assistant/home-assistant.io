@@ -172,9 +172,7 @@ A CalDAV server keeps a canceled event in the calendar instead of deleting it. H
 
 You can add, edit, and delete events on the [calendar dashboard](/integrations/calendar/#viewing-and-managing-calendars).
 
-A recurring event can only be changed or deleted as a whole: open its first occurrence and select **This and all future events**. To change or delete a single occurrence, or the occurrences from a later one on, use your calendar app. Home Assistant shows an error for those changes, and for any change to a recurring event whose first occurrence was changed or deleted.
-
-The start and repeat rule of a recurring event can't be changed from Home Assistant once some of its occurrences were changed or deleted. A recurring event can't switch between all-day and timed, and its start has to be one of the times its repeat rule produces: an event that repeats every Monday can only move to another Monday. Calendars set up with `custom_calendars` can only add events.
+A recurring event can only be changed or deleted as a whole: open its first occurrence and select **This and all future events**. Home Assistant can change its title, description, and location. To change its times or repeat rule, a single occurrence, or the occurrences from a later one on, use your calendar app. Home Assistant shows an error for those changes, for any change to a recurring event whose first occurrence was changed or deleted, and for adding a repeat rule to an event. Calendars set up with `custom_calendars` can only add events.
 
 ## Calendar Event Automations
 
