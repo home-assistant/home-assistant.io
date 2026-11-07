@@ -75,25 +75,25 @@ Injection sensors only appear when your contract includes injection, for example
 
 #### Time-of-use tariff slots and current prices
 
-On a time-of-use tariff, the price you pay depends on the time of day. The supplier schedule comes from your ENGIE contract, and the grid operator schedule comes from the company that operates your electricity network, like Fluvius in Flanders, ORES or RESA in Wallonia, and Sibelga in Brussels. The two can differ: in Wallonia and Brussels, the grid tariff is still time-based, so the grid operator sensors switch even when your supplier contract has a single rate.
+On a time-of-use tariff, the price you pay depends on the time of day. The supplier schedule comes from your ENGIE contract, and the grid operator schedule comes from the company that operates your electricity network, like Fluvius in Flanders, ORES or RESA in Wallonia, and Sibelga in Brussels. The two can differ: in Wallonia and Brussels, the grid tariff also switches during the day, so the grid operator sensors switch even when your supplier contract has a single rate.
 
-The integration reads the weekly tariff schedule of each electricity meter and creates a slot sensor for each switching schedule and direction, showing the tariff slot that applies right now:
+The integration reads the weekly tariff schedule of each electricity meter and creates a sensor for the tariff slot that applies right now:
 
 - **Supplier offtake slot**: the slot your supplier applies to your consumption, like peak or off-peak
 - **Supplier injection slot**: the slot your supplier applies to your injection
 - **Grid operator offtake slot**: the slot your grid operator applies to your consumption
 - **Grid operator injection slot**: the slot your grid operator applies to your injection
 
-Each slot sensor lists the weekly schedule of its direction in the `weekday_slots` attribute, with the code, start and end time, and cost indicator of every slot. The `optimal_slot` attribute holds the cheapest slot for offtake and the best-paid one for injection, and `next_transition` shows when the next switch happens.
+Each slot sensor lists the full week in its `weekday_slots` attribute, with the start and end time of every slot. The `optimal_slot` attribute holds the cheapest slot for offtake and the best-paid one for injection, and `next_transition` shows when the next switch happens.
 
-When the address is not on a dynamic tariff, each electricity meter gets a current price sensor for each direction that has both a switching supplier schedule and contract prices:
+When the address is not on a dynamic tariff, each electricity meter also gets the current price sensors:
 
 - **Electricity current offtake price**: the offtake price that applies right now
 - **Electricity current injection price**: the injection price that applies right now
 
-These sensors join the supplier schedule with the prices above, so they switch on its slot boundaries. They include VAT, are shown with six decimals, and have no excluding-VAT version. Their `slot_code` attribute shows the slot the price belongs to, and `next_transition`, `next_slot_code`, and `next_price` show when the price changes and what it becomes. When the current slot has no published price, the sensors show no value and try again at the next slot boundary. To try again right away, call the [Update entity](/actions/homeassistant.update_entity/) action on one of the current price sensors.
+These sensors show the price of the slot that applies right now, taken from the tariff prices above. Like the other price sensors, they include VAT and are shown with six decimals. They have no excluding-VAT version. Their `slot_code` attribute shows the slot the price belongs to, and `next_transition`, `next_slot_code`, and `next_price` show when the price changes and what it becomes. When the current slot has no published price, the sensors have no value and try again at the next switch. To try again right away, call the [Update entity](/actions/homeassistant.update_entity/) action on one of the current price sensors.
 
-A meter whose schedules never switch gets none of these sensors. The slot sensors need nothing beyond the schedule, so a missing injection price does not remove the injection slot sensor. The current price sensors also need a switching supplier schedule and prices for their direction, so a contract without injection compensation gets no current injection price sensor. Addresses on a dynamic tariff keep the slot sensors, but not the current price sensors, since the EPEX sensors already follow the price.
+None of these sensors appear when your tariff never switches during the day. The current price sensors only appear when your supplier tariff switches and the slots have prices, so a contract without injection compensation gets no current injection price sensor, but the injection slot sensors stay. Addresses on a dynamic tariff keep the slot sensors, but not the current price sensors, since the EPEX sensors already follow the price.
 
 To follow the cost of your consumption, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and set up grid consumption with the **Use an entity with current price** option. Select **Electricity current offtake price**. The Energy dashboard then shows the supplier energy price only, so the estimate is lower than your actual ENGIE bill.
 
@@ -130,7 +130,7 @@ A single ENGIE login can cover more than one address or meter. The integration a
 
 The integration polls the ENGIE API once an hour. Contracted prices only change when your tariff is revised, so there is nothing to gain from polling more often. The sign-in tokens it uses are refreshed on their own, so it keeps working without you signing in again.
 
-The time-of-use tariff schedules are fetched once an hour as well. The slot sensors switch exactly on the slot boundary, and the current price sensors also switch when a new price period starts, so they change on time without waiting for the next fetch.
+The time-of-use tariff schedules are fetched once an hour as well. The sensors switch the moment the tariff slot changes, without waiting for the next fetch, and the current price sensors also switch when a new price period starts.
 
 For an address on a dynamic tariff, the integration also fetches the EPEX day-ahead prices once an hour. The EPEX sensors refresh on every quarter-hour boundary, so the current and next prices switch on time. If the prices cannot be fetched during startup, the sensors stay unavailable and come back once a retry succeeds.
 
@@ -159,7 +159,7 @@ The integration could not look up your tariff while it was starting, for example
 
 ### The current price sensors did not appear
 
-Addresses on a dynamic tariff get no current price sensors, since the EPEX sensors follow the price instead. Everywhere else, the integration first needs to look up your tariff before it can create them. When that lookup fails during startup, it retries in the background, and the sensors appear once it succeeds. They also need a switching supplier schedule and prices for their direction. A single-rate supplier contract gets none, even when the grid operator slot sensors do appear. A direction without prices, like injection on a contract without injection compensation, gets no sensor either.
+Addresses on a dynamic tariff get no current price sensors, since the EPEX sensors follow the price instead. Everywhere else, the integration first needs to look up your tariff before it can create them. When that lookup fails during startup, it retries in the background, and the sensors appear once it succeeds. They also need a supplier tariff that switches during the day and slots with prices, so a single-rate supplier contract gets none, even when the grid operator slot sensors do appear.
 
 ## Removing the integration
 
