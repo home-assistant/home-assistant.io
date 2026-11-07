@@ -96,11 +96,11 @@ To follow the cost of your consumption, go to {% my config_energy title="**Setti
 
 #### Capacity tariff peak sensors
 
-In Flanders, part of your network costs is billed as a [capacity tariff](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief) based on your monthly peak. With a digital meter, the network operator measures your consumption every 15 minutes, and the tariff uses the highest 15-minute average of the month, expressed in kilowatts (kW). Everyone pays at least a minimum contribution equal to a 2.5 kW peak, so spreading heavy appliances, such as an electric car or a heat pump, over time lowers what you pay. See the [Vlaamse Nutsregulator](https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/capaciteitstarief) for how the tariff is calculated and the current rates.
+In Flanders, part of your network costs is billed as a [capacity tariff](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief) based on your monthly peak. With a digital meter, the network operator measures your consumption every 15 minutes, and the tariff uses the highest 15-minute average of the month, expressed in kilowatts (kW). Everyone pays at least a minimum contribution, so spreading heavy appliances, such as an electric car or a heat pump, over time lowers what you pay. See the [Vlaamse Nutsregulator](https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/capaciteitstarief) for how the tariff is calculated and the current rates.
 
 Every address (business agreement) gets the following peak sensors:
 
-- **Capacity tariff monthly power peak**: highest 15-minute average power of the current month, in kW
+- **Capacity tariff monthly power peak**: highest 15-minute average power of the month, in kW
 - **Capacity tariff monthly energy peak**: energy you consumed during that 15-minute peak window, in kWh
 - **Capacity tariff monthly peak start**: when the monthly peak window started
 - **Capacity tariff monthly peak end**: when the monthly peak window ended
@@ -128,7 +128,7 @@ The integration polls the ENGIE API once an hour. Contracted prices only change 
 
 For an address on a dynamic tariff, the integration also fetches the EPEX day-ahead prices once an hour. The EPEX sensors refresh on every quarter-hour boundary, so the current and next prices switch on time. If the prices cannot be fetched during startup, the sensors stay unavailable and come back once a retry succeeds.
 
-The capacity tariff peak sensors are polled once an hour as well. ENGIE publishes peaks after the fact, so a new peak shows up once ENGIE has published it, not while it is happening.
+The capacity tariff peak sensors are polled once an hour as well, so they pick up a newly published peak on the next poll.
 
 If the session is revoked, the integration can no longer reach the API and its sensors become unavailable. The usual cause is signing in to the same ENGIE account somewhere else, so a dedicated user (see [Prerequisites](#prerequisites)) avoids it. Home Assistant will ask you to sign in again.
 
