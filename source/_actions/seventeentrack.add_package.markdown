@@ -22,7 +22,8 @@ To add a package from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **17TRACK: Add a package**.
 6. Select the **17Track service**, then enter the **Package tracking number to add** and a **Package friendly name**.
-7. Select **Save**.
+7. To choose a carrier, enable **First carrier code** and enter its numeric code. You can also enter a **Last-mile carrier code**.
+8. Select **Save**.
 
 This action does not support targets. In the UI, you select the 17Track service through the **17Track service** field instead of choosing an area, device, entity, or label.
 
@@ -38,6 +39,12 @@ Package tracking number to add:
 Package friendly name:
   description: The friendly name to give the package.
   required: true
+First carrier code:
+  description: The numeric carrier code. Leave blank to let 17TRACK detect the carrier.
+  required: false
+Last-mile carrier code:
+  description: The numeric code for the last-mile carrier. Requires a first carrier code. Leave blank to keep the last-mile carrier detected by 17TRACK.
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -73,10 +80,23 @@ package_friendly_name:
     The friendly name to give the package.
   required: true
   type: string
+first_carrier:
+  description: >
+    The numeric carrier code. Omit to let 17TRACK detect the carrier.
+  required: false
+  type: [integer, string]
+second_carrier:
+  description: >
+    The numeric code for the last-mile carrier. Requires `first_carrier`. Omit to keep the last-mile carrier detected by 17TRACK.
+  required: false
+  type: [integer, string]
 {% endoptions_yaml %}
 
 ## Good to know
 
+- Look up carrier codes in the [17TRACK carrier catalog](https://help.17track.net/hc/en-us/articles/37467353177753-Supported-carriers-and-carrier-codes).
+- To look up carrier codes in an automation, fetch the [public JSON catalog](https://res.17track.net/asset/carrier/info/apicarrier.all.json) with a [RESTful Command](/integrations/rest_command/). Match the carrier by `_name` and use its numeric `key` as the carrier code.
+- If adding a package with a carrier code fails, check your 17TRACK account before retrying. The package may already have been added.
 - Combine this action with dashboard {% term helpers %} to create an automation that adds a package to 17Track when you enter the new package data from the dashboard:
   - Create an [input text](/integrations/input_text/) helper for each of the following required fields: **Package tracking number to add**, **Package friendly name** and **17Track service**, and then add them to a new card in your dashboard.
   - Since the value of **17Track service** (`config_entry_id`) never changes once set, you can pre-fill it in the helper and leave it fixed. Only the first two helpers need to be filled in each time you want to add a package.
