@@ -67,7 +67,7 @@ The system sensors are diagnostic entities:
   - **Description**: The time your system last started.
 - **Temperature**
   - **Description**: The CPU temperature.
-  - **Remarks**: Only available if TrueNAS reports a CPU temperature when the integration starts. Virtual machines and hardware without a temperature sensor don't report one.
+  - **Remarks**: Added once TrueNAS reports a CPU temperature. Virtual machines and hardware without a temperature sensor don't report one.
 - **CPU usage**
   - **Description**: How much of the CPU is in use, in percent.
 - **CPU load shortterm**, **CPU load midterm**, and **CPU load longterm**
@@ -172,7 +172,7 @@ If a poll fails, all sensors become unavailable until a later poll succeeds. To 
 
 - The integration only reads the system health and the network traffic. It doesn't report pools, disks, datasets, apps, or virtual machines, and it can't control your system.
 - Home Assistant doesn't discover TrueNAS on your network, so you add it by entering the host.
-- You can't change the host or the API key of an existing entry. To change them, delete the entry and add the integration again.
+- You can't change the host of an existing entry. To change it, delete the entry and add the integration again. You can only enter a new API key when TrueNAS rejects the current one.
 - Authentication gateways in front of TrueNAS are not supported. Cloudflare Access, Authelia, HTTP basic authentication, and similar services intercept the WebSocket connection before it reaches TrueNAS, so the API key never gets to TrueNAS. Use a local IP address or a VPN instead, or a reverse proxy that only terminates TLS and forwards the WebSocket connection unchanged.
 
 ## Troubleshooting
@@ -181,7 +181,7 @@ If a poll fails, all sensors become unavailable until a later poll succeeds. To 
 
 ### Symptom: "Invalid authentication"
 
-When you add the integration, the form shows this error. An integration that was already set up reports "The TrueNAS API key was rejected", and its sensors are unavailable.
+When you add the integration, the form shows this error. If TrueNAS rejects the key of an integration that was already set up, its sensors become unavailable, the integration stops polling, and Home Assistant asks you to reauthenticate.
 
 #### Description
 
@@ -191,7 +191,7 @@ TrueNAS rejected the API key. This doesn't always mean the key is wrong. TrueNAS
 
 1. In TrueNAS, go to **Credentials** > **Users**, and check that **TrueNAS Access** is turned on for the user of the key.
 2. Check that the API key still exists and hasn't expired. If it has, create a new one.
-3. To use a new key, delete the entry and add the integration again.
+3. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}, open the TrueNAS CE entry that asks you to reauthenticate, and enter the API key. If the key itself was fine, enter the same key again.
 
 {% enddetails %}
 
