@@ -101,7 +101,7 @@ In addition, information from devices connected to the Solar-Log device becomes 
 |-----------------------|--------|:-------------------------------------------|
 | current_power         | W      | Current power provided/used by the device. |
 | consumption_year      | kWh    | Total energy provided/used by the device.  |
-| status                | str    | Current status of the device.              |
+| device_status         |        | Current status of the device.              |
 
 ### Additional template sensor
 
