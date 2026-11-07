@@ -86,7 +86,7 @@ The integration reads the weekly tariff schedule of each electricity meter and c
 
 Each slot sensor lists the weekly schedule of its direction in the `weekday_slots` attribute, with the code, start and end time, and cost indicator of every slot. The `optimal_slot` attribute holds the cheapest slot for offtake and the best-paid one for injection, and `next_transition` shows when the next switch happens.
 
-When the address is not on a dynamic tariff, each meter also gets the current price sensors:
+When the address is not on a dynamic tariff, each electricity meter gets a current price sensor for each direction that has both a switching supplier schedule and contract prices:
 
 - **Electricity current offtake price**: the offtake price that applies right now
 - **Electricity current injection price**: the injection price that applies right now
