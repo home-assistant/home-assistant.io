@@ -40,6 +40,7 @@ There is currently support for the following Home Assistant Platforms:
 - [Dashboard displays](#dashboards)
 - [Button](#favorite-current-song-button)
 - [Time](#sleep-timer)
+- [Number](#playback-speed)
 
 Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
 
@@ -106,9 +107,11 @@ The **Sleep timer** entity is disabled by default. To use it, [enable the entity
 
 ### Playback speed
 
-The Music Assistant integration creates a **Playback speed** number entity for each player. It sets the speed of the audiobook or podcast episode that is playing, from half speed (0.5) to three times the normal speed (3.0). The entity is unavailable while anything else plays, such as music.
+The Music Assistant integration creates a **Playback speed** number entity for each player. It sets the speed of the current item in the player's queue, from half speed (0.5) to three times the normal speed (3.0). This works for audiobooks and podcast episodes, also while they are paused. For any other item, such as music, and while the queue is empty, the entity is unavailable.
 
-The **Playback speed** entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first. It needs a Music Assistant server newer than 2.10.
+The entity belongs to the player's own queue. While a player plays along with another player, use the entity of that other player.
+
+The **Playback speed** entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first. It requires Music Assistant server version 2.11 or later.
 
 ### Player options
 
