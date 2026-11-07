@@ -1,12 +1,12 @@
 ---
-description: Instructions on how to integrate ENGIE Belgium energy prices into Home Assistant.
+description: Instructions on how to integrate ENGIE Belgium energy prices and time-of-use tariffs into Home Assistant.
 ha_release: 2026.11
 ha_domain: engie_be
 ---
 
 The **ENGIE Belgium** {% term integration %} integrates the [ENGIE Belgium](https://www.engie.be) API with Home Assistant.
 
-The integration makes it possible to retrieve the electricity and gas prices from your ENGIE Belgium contracts, to gain insight into your rate and to adjust your consumption accordingly. It creates one set of price sensors per address (business agreement) on your account. An address on a dynamic tariff gets sensors for the Belgian EPEX day-ahead wholesale prices.
+The integration makes it possible to retrieve the electricity and gas prices from your ENGIE Belgium contracts, to gain insight into your rate and to adjust your consumption accordingly. It creates one set of price sensors per address (business agreement) on your account, plus time-of-use tariff sensors for your electricity meters. An address on a dynamic tariff gets sensors for the Belgian EPEX day-ahead wholesale prices.
 
 Use case: Follow the current electricity and gas prices for each meter on a dashboard and see them change whenever your tariff is revised. Use the price sensors in automations that estimate the cost of running appliances. On a dynamic tariff, run flexible appliances, such as a dishwasher or a tumble dryer, during the cheap hours of the EPEX day-ahead prices. Compare the offtake and injection prices to decide when it pays to use your solar production yourself instead of sending it back to the grid.
 
@@ -40,7 +40,7 @@ The **ENGIE Belgium** integration provides the following entities.
 
 ### Sensors
 
-The integration looks at the contract on each meter and creates the price sensors that fit it.
+The integration looks at the contract on each meter and creates the price sensors that fit it. Meters on a time-of-use tariff also get sensors for the active tariff slot and the current price.
 
 #### Fixed and variable tariff prices
 
@@ -72,6 +72,30 @@ A tri-rate contract adds a super off-peak sensor on top of the peak and off-peak
 - **Electricity super off-peak injection price**: injection price during super off-peak hours
 
 Injection sensors only appear when your contract includes injection, for example when you have solar panels.
+
+#### Time-of-use tariff slots and current prices
+
+On a time-of-use tariff, such as a day and night rate or a rate with peak, off-peak, and super off-peak hours, the price you pay depends on the time of day. The supplier schedule comes from your ENGIE contract, and the grid operator schedule comes from the company that operates your electricity network, like Fluvius in Flanders, ORES or RESA in Wallonia, and Sibelga in Brussels. The two can differ: in Wallonia and Brussels, the grid tariff also switches during the day, so the grid operator sensors switch even when your supplier contract has a single rate.
+
+The integration reads the weekly tariff schedule of each electricity meter and creates a sensor for the tariff slot that applies right now:
+
+- **Supplier offtake slot**: the slot your supplier applies to your consumption, like peak or off-peak
+- **Supplier injection slot**: the slot your supplier applies to your injection
+- **Grid operator offtake slot**: the slot your grid operator applies to your consumption
+- **Grid operator injection slot**: the slot your grid operator applies to your injection
+
+Each slot sensor lists the full week in its `weekday_slots` attribute, with the start and end time of every slot. The `optimal_slot` attribute holds the cheapest slot for offtake and the best-paid one for injection, and `next_transition` shows when the next switch happens.
+
+When the address is not on a dynamic tariff, each electricity meter also gets the current price sensors:
+
+- **Electricity current offtake price**: the offtake price that applies right now
+- **Electricity current injection price**: the injection price that applies right now
+
+These sensors show the price of the slot that applies right now, taken from the tariff prices above. Like the other price sensors, they include VAT and are shown with six decimals. They have no excluding-VAT version. Their `slot_code` attribute shows the slot the price belongs to, and `next_transition`, `next_slot_code`, and `next_price` show when the price changes and what it becomes. When the current slot has no published price, the sensors have no value and try again at the next switch. To try again right away, call the [Update entity](/actions/homeassistant.update_entity/) action on one of the current price sensors.
+
+Which sensors you get depends on your tariff. On a tariff that never switches, like a single rate, none of them appear. Otherwise, you get a slot sensor for each schedule that switches, your supplier's, your grid operator's, or both. The current price sensors only appear when your supplier tariff switches and the slots have prices. Without injection compensation, for example, there is no current injection price sensor, while the injection slot sensors stay. Addresses on a dynamic tariff keep the slot sensors, but not the current price sensors, since the EPEX sensors already follow the price.
+
+To follow the cost of your consumption, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and set up grid consumption with the **Use an entity with current price** option. Select **Electricity current offtake price**. The Energy dashboard then shows the supplier energy price only, so the estimate is lower than your actual ENGIE bill.
 
 #### Dynamic tariff (EPEX) prices
 
@@ -106,6 +130,8 @@ A single ENGIE login can cover more than one address or meter. The integration a
 
 The integration polls the ENGIE API once an hour. Contracted prices only change when your tariff is revised, so there is nothing to gain from polling more often. The sign-in tokens it uses are refreshed on their own, so it keeps working without you signing in again.
 
+The time-of-use tariff schedules are fetched once an hour as well. The sensors switch the moment the tariff slot changes, without waiting for the next fetch, and the current price sensors also switch when a new price period starts.
+
 For an address on a dynamic tariff, the integration also fetches the EPEX day-ahead prices once an hour. The EPEX sensors refresh on every quarter-hour boundary, so the current and next prices switch on time. If the prices cannot be fetched during startup, the sensors stay unavailable and come back once a retry succeeds.
 
 If the session is revoked, the integration can no longer reach the API and its sensors become unavailable. The usual cause is signing in to the same ENGIE account somewhere else, so a dedicated user (see [Prerequisites](#prerequisites)) avoids it. Home Assistant will ask you to sign in again.
@@ -130,6 +156,10 @@ The integration could not fetch the EPEX day-ahead prices, for example because t
 ### The EPEX price sensors did not appear
 
 The integration could not look up your tariff while it was starting, for example because the ENGIE API was unreachable. It retries the lookup in the background, so the sensors of a dynamic address appear once it succeeds.
+
+### The current price sensors did not appear
+
+Addresses on a dynamic tariff get no current price sensors, since the EPEX sensors follow the price instead. Everywhere else, the integration first needs to look up your tariff before it can create them. When that lookup fails during startup, it retries in the background, and the sensors appear once it succeeds. They also need a supplier tariff that switches during the day and slots with prices, so a single-rate supplier contract gets none, even when the grid operator slot sensors do appear.
 
 ## Removing the integration
 
