@@ -70,11 +70,12 @@ These examples use a baby named Homer, so the sensors are `sensor.homer_last_fee
 
 ### Automation: Send a message when a baby hasn't had a feed in four hours
 
-The state of **Last feed** changes each time a new feed appears. A state trigger with a duration therefore runs when four hours pass without a new feed.
+**Last feed** is the time of the newest feed. A time trigger can run four hours after it: a new feed before then moves the reminder later, and a feed logged after the fact counts from when it happened. While the sensor is unknown or unavailable, the trigger waits.
 
-- **Trigger**: State of an entity
-  - **Entity**: Homer Last feed
-  - **For**: 4 hours
+- **Trigger**: Time
+  - **Mode**: Value of a date/time helper or timestamp-class sensor
+  - **Entity with timestamp**: Homer Last feed
+  - **Offset**: 04:00:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -84,10 +85,10 @@ The state of **Last feed** changes each time a new feed appears. A state trigger
 automation: |
   alias: "Homer has not had a feed in four hours"
   triggers:
-    - trigger: state
-      entity_id: sensor.homer_last_feed
-      for:
-        hours: 4
+    - trigger: time
+      at:
+        entity_id: sensor.homer_last_feed
+        offset: "04:00:00"
   actions:
     - action: notify.send_message
       target:
@@ -104,8 +105,8 @@ The state of **Last diaper** changes each time a new diaper appears, whether it 
 
 - **Trigger**: State of an entity
   - **Entity**: Homer Last diaper
-  - **Not from**: Unknown, Unavailable
-  - **Not to**: Unknown, Unavailable
+  - **From**: Is not Unknown, Unavailable
+  - **To**: Is not Unknown, Unavailable
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -215,7 +216,7 @@ Home Assistant couldn't update from the Baby Tracker service, so the sensors are
 
 1. Check that your Home Assistant instance is connected to the internet.
 2. Look in the Home Assistant log for the error. It names the reason the update failed.
-3. If the error continues, report it at [github.com/wtadler/ha-baby-tracker](https://github.com/wtadler/ha-baby-tracker/issues).
+3. If the error continues, report it in the [Home Assistant Core issue tracker](https://github.com/home-assistant/core/issues).
 
 ### Symptom: A sensor doesn't show a record you just logged
 
