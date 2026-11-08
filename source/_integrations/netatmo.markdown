@@ -79,7 +79,7 @@ It further provides support for Legrand/BTicino dimmers.
 
 ## Number
 
-The `netatmo` number platform provides a *Temperature offset* entity for each room with a [Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) or [Smart Radiator Valve](https://www.netatmo.com/additional-smart-radiator-valve). You can set a value from -5°C to +5°C, which is stored locally in Home Assistant only, for use in your own templates or automations, for example to build a corrected temperature sensor. Netatmo's cloud API does not support the "True Temperature" calibration feature found in the Netatmo app, so this value is never sent to the device or to Netatmo's servers.
+The `netatmo` number platform provides a *True temperature* entity for each room with a [Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) or [Smart Radiator Valve](https://www.netatmo.com/additional-smart-radiator-valve). Enter the room's actual temperature, for example read from an external thermometer, and Home Assistant calculates and stores the correction as an offset, which you can use in your own templates or automations, for example to build a corrected temperature sensor, or to resynchronize the reading against an external sensor. Netatmo's cloud API does not support the "True Temperature" calibration feature found in the Netatmo app, so this value is never sent to the device or to Netatmo's servers.
 
 ## Sensor
 
