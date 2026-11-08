@@ -93,7 +93,7 @@ Number entities are available to adjust values like the predefined temperature f
 
 Select entities allow configuring the domestic hot water (<abbr title="domestic hot water">DHW</abbr>) operating mode of your Viessmann device. Available options depend on the specific device model and may include `balanced`, `economical`, or `off` modes.
 
-Each heating circuit also has an **Operating mode** select that offers all operation modes the device reports, such as **DHW only**, **DHW and heating**, or **Standby**. Some of them, like **DHW only**, cannot be set through the HVAC modes of the climate entity.
+Each heating circuit also has an **Operating mode** select that offers all operation modes the device reports, such as **DHW only**, **DHW and heating**, or **Standby**. The climate entity maps several of these modes to the same HVAC mode, the select sets each one directly.
 
 ### Switch
 
