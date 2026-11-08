@@ -31,6 +31,7 @@ ha_platforms:
   - diagnostics
   - fan
   - light
+  - number
   - select
   - sensor
   - switch
@@ -51,6 +52,7 @@ There is currently support for the following device types within Home Assistant:
 - [Cover](#cover)
 - [Fan](#fan)
 - [Light](#light)
+- [Number](#number)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Webhook Events](#webhook-events)
@@ -109,6 +111,10 @@ The `netatmo` fan platform provides support for Legrand centralized ventilation 
 
 The `netatmo` light platform is consuming information provided by a [Netatmo Smart Outdoor](https://www.netatmo.com/smart-outdoor-camera) camera and requires an active webhook. This integration allows you to turn on/off the flood lights.
 It further provides support for Legrand/BTicino dimmers.
+
+## Number
+
+The `netatmo` number platform provides a *Temperature offset* entity for each room with a [Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) or [Smart Radiator Valve](https://www.netatmo.com/additional-smart-radiator-valve). You can set a value from -5°C to +5°C, which is stored locally in Home Assistant only, for use in your own templates or automations, for example to build a corrected temperature sensor. Netatmo's cloud API does not support the "True Temperature" calibration feature found in the Netatmo app, so this value is never sent to the device or to Netatmo's servers.
 
 ## Sensor
 
