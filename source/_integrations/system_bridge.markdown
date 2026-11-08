@@ -192,7 +192,7 @@ Sends a notification to the computer, with options `notify.send_message` doesn't
 | `path` | yes | File or folder on the computer to open when the notification is clicked. Can't be used with `url`. |
 
 {% important %}
-`url` and `path` let anyone who can use the notify entity choose what opens on the computer when the notification is clicked. Only give access to the entity to people you trust with that.
+Only administrators can use this action, as `url` and `path` choose what opens on the computer when the notification is clicked.
 {% endimportant %}
 
 {% example %}
@@ -248,14 +248,15 @@ action: |
 
 ### Notification events
 
-With System Bridge 5.20.0 or later, each computer has a notification {% term event %} {% term entity %}, such as `event.my_computer_notification`. It fires when a notification sent by Home Assistant is clicked or closed on the computer.
+With System Bridge 5.20.0 or later, each computer has a notification {% term event %} {% term entity %}, such as `event.my_computer_notification`. It fires when a notification sent by Home Assistant is clicked or closed on the computer, and, with System Bridge 5.27.0 or later, when System Bridge sends a notification from anywhere.
 
 | Event type | Attributes | When |
 | ---------- | ---------- | ---- |
+| `sent` | `notification_id`, `title`, `message`, `buttons` | System Bridge sent a notification, from Home Assistant or another app. `buttons` lists each button's `id` and `label`. |
 | `clicked` | `notification_id`, `action` | The notification or one of its buttons was clicked. `action` is the button's `id`, or `default` for the notification itself. |
 | `closed` | `notification_id`, `reason` | The notification closed without a click. `reason` is `expired`, `dismissed` or `closed`. |
 
-`notification_id` is the `id` that `system_bridge.send_message` returned, so you can tell which notification it was. Linux reports clicks and closes, Windows only clicks, and macOS neither.
+`notification_id` is the same for every event about one notification, and matches the `id` that `system_bridge.send_message` returned, so you can follow a notification from `sent` to its click or close. Linux reports clicks and closes, Windows only clicks, and macOS neither.
 
 {% raw %}
 
