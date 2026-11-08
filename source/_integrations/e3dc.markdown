@@ -28,7 +28,7 @@ The **E3/DC** {% term integration %} connects Home Assistant to an E3/DC home po
 
 The integration supports E3/DC home power stations whose Modbus interface uses the E3/DC protocol ("Simple Mode"), such as the S10 E, S10 E PRO, S10 X, S20 X PRO and E3/DC one, and the systems running the Q10 and P10 firmware lines.
 
-Newer firmware releases add registers: the failsafe timeouts from release 2025_06, the inverter mode from release 2025_43, and the battery's limits and stored energy from release 2026_04. The SG Ready status comes with the 32-bit power meter values. The integration checks which of these your firmware serves during setup and adds only the matching entities. After a firmware update, reload the integration.
+Newer firmware releases add registers: the failsafe timeouts from release 2025_06, the inverter mode from release 2025_43, and the battery's limits and stored energy from release 2026_04. The inverter values also depend on the firmware. The SG Ready status comes with the 32-bit power meter values. The integration checks which of these your firmware serves during setup and adds only the matching entities. After a firmware update, reload the integration.
 
 ## Unsupported devices
 
@@ -73,7 +73,7 @@ These sensors depend on the installed hardware:
 - **Additional feeder power**, in watts, if a power meter measures an additional feeder, such as a second PV inverter.
 - **Emergency power**, if the power station supports emergency power. It shows whether emergency power is active, inactive or not available. On the S10 E and S10 E PRO, **Motor switch off** means the emergency power motor switch is not in its on position.
 
-The integration checks the wallboxes and power meters when it starts. After you add a wallbox or a power meter, reload the integration.
+The integration checks for these when it starts. After you add a wallbox or a power meter for an additional feeder, reload the integration.
 
 These sensors depend on the firmware:
 
@@ -81,6 +81,21 @@ These sensors depend on the firmware:
 - **Inverter mode**, a diagnostic sensor. It shows normal operation, or the idle, off-grid power save mode.
 - **Active power failsafe timeout** and **Reactive power failsafe timeout**, diagnostic sensors that are disabled by default. They show how long an active or reactive power setpoint holds. A timeout of 0 turns the failsafe off.
 - **SG Ready status**, a diagnostic sensor that is disabled by default. It shows the SG Ready operating state: **Blocked**, **Normal operation**, **Switch-on recommended** or **Forced on**. Any other value shows as unknown.
+
+### Power meters and inverters
+
+Each configured power meter gets its own device, linked to the power station. The devices are numbered by the power meter's slot, starting at 0. Each one has these sensors:
+
+- **Meter type**, a diagnostic sensor. It shows what the meter measures, such as **Grid connection point** or **External production**.
+- **Power**, the meter's total power in watts.
+- **Power L1**, **Power L2** and **Power L3**, the power per phase. They are disabled by default.
+
+The power station's own inverter, and each additional inverter that reports a grid voltage, also get a device. Each one has these sensors:
+
+- **Active power L1** to **L3**, and **DC power 1** to **3** for its DC trackers, in watts.
+- The apparent power, reactive power, voltage and current per phase, the frequency, and the voltage and current of each DC tracker. They are disabled by default.
+
+Power meters and additional inverters appear as soon as the power station reports them, including ones you add later.
 
 ## Data updates
 
