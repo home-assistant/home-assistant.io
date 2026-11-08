@@ -58,15 +58,24 @@ Turning the thermostat on switches it back to the last HVAC mode it had since Ho
 
 #### Presets
 
-- **Home**: The thermostat follows its weekly program, like the **Auto** HVAC mode.
-- **Away**: The thermostat's Defrost (anti-freeze) mode. The thermostat heats to its Defrost temperature, which can only be set on the thermostat.
-- **Boost**: The thermostat's Boost mode. The thermostat heats to its Boost temperature for a limited time. The Boost temperature can only be set on the thermostat; the duration can be changed in the FENIX Control app.
+The presets have the same names as the modes in the FENIX Control app.
+
+- **Program**: The thermostat follows its weekly program, like the **Auto** HVAC mode.
+- **Defrost**: The thermostat's anti-freeze mode. The thermostat heats to its Defrost temperature.
+- **Boost**: The thermostat heats to its Boost temperature for a limited time. The duration can be changed in the FENIX Control app.
 
 When the thermostat is in a preset, the HVAC mode shows **Auto**.
 
 #### Target temperature
 
-You can set the target temperature between 5 °C and 35 °C in steps of 0.5 °C. In **Auto**, and in the **Away** (Defrost) and **Boost** presets, the target temperature shows the temperature the thermostat currently regulates to: the temperature of its weekly program, or the Defrost or Boost temperature set on the thermostat. Changing the target temperature in these modes switches the thermostat to **Heat** (manual) with the new temperature. While the thermostat is **Off**, set the HVAC mode to **Heat** first.
+The target temperature shows the temperature the thermostat regulates to, and you can change it in steps of 0.5 °C:
+
+- In **Heat**, it's the temperature you set.
+- In the **Defrost** and **Boost** presets, it's the Defrost or Boost temperature. Changing it sets that temperature, and the thermostat stays in the preset.
+- In **Auto** (**Program**), it's the temperature of the weekly program. Changing it switches the thermostat to **Heat** with the new temperature.
+- While the thermostat is **Off**, set the HVAC mode to **Heat** first.
+
+The range is the one the thermostat accepts for the current mode: 5 °C to 35 °C, and 2 °C to 15 °C for the Defrost temperature.
 
 ### Holidays
 
@@ -83,7 +92,7 @@ If the cloud can't be reached, the thermostats show as unavailable until the nex
 - The integration needs the FENIX Control cloud. The thermostats have no local API.
 - Holidays can't be set or canceled from Home Assistant. Use the FENIX Control app.
 - The weekly program can't be changed from Home Assistant.
-- Home Assistant can't change the Defrost or Boost temperature or the Boost duration.
+- Home Assistant can't change the Boost duration.
 - The integration doesn't provide sensor entities.
 
 ## Troubleshooting
