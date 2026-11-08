@@ -11,7 +11,7 @@ related_actions:
   - recorder.disable
 ---
 
-Use this action to retrieve recorded state history for one or more entities over a time period. This is handy when an automation or script needs raw historical state transitions, for example to detect sequences, calculate durations, or apply custom logic based on past states. For other actions provided by this integration, see the [Recorder actions list](/integrations/recorder#list-of-actions).
+Use this action to retrieve recorded state history for one or more entities over a time period. This is handy when an automation or script needs raw historical state transitions, for example to detect sequences, calculate durations, or apply custom logic based on past states.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
