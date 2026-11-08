@@ -26,7 +26,7 @@ This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3(B), or an E
 ## Prerequisites
 
 - Home Assistant 2023.12 or later, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
-- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome or Edge browser on a desktop (not Android/iOS)
 - One of the Espressif ESP32-S3-BOX variants:

@@ -1,6 +1,6 @@
 {
-  "domain": "cloud",
-  "name": "Home Assistant Cloud",
+  "domain": "link",
+  "name": "Home Assistant Link",
   "integration_type": "system",
   "codeowners": [
     "@home-assistant/cloud"
