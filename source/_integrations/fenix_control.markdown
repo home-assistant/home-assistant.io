@@ -66,7 +66,7 @@ When the thermostat is in a preset, the HVAC mode shows **Auto**.
 
 #### Target temperature
 
-You can set the target temperature between 5 °C and 35 °C in steps of 0.5 °C. The target temperature can only be changed in the **Heat** HVAC mode. To set a temperature from an automation while the thermostat is in **Auto** or **Off**, first set the HVAC mode to **Heat**.
+You can set the target temperature between 5 °C and 35 °C in steps of 0.5 °C. In **Auto**, and in the **Away** (Defrost) and **Boost** presets, the target temperature shows the temperature the thermostat currently regulates to: the temperature of its weekly program, or the Defrost or Boost temperature set on the thermostat. Changing the target temperature in these modes switches the thermostat to **Heat** (manual) with the new temperature. While the thermostat is **Off**, set the HVAC mode to **Heat** first.
 
 ### Holidays
 
@@ -83,7 +83,7 @@ If the cloud can't be reached, the thermostats show as unavailable until the nex
 - The integration needs the FENIX Control cloud. The thermostats have no local API.
 - Holidays can't be set or canceled from Home Assistant. Use the FENIX Control app.
 - The weekly program can't be changed from Home Assistant.
-- Home Assistant can't change the Defrost or Boost temperature or the Boost duration. The target temperature can be set in Heat (manual) mode only.
+- Home Assistant can't change the Defrost or Boost temperature or the Boost duration.
 - The integration doesn't provide sensor entities.
 
 ## Troubleshooting
