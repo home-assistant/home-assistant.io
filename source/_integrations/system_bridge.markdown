@@ -162,73 +162,134 @@ The integration provides an update component, which will notify you when a new v
 
 ## Notifiers
 
-The **System Bridge** {% term integration %} adds a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [notify platform](#notifications-notifysystem_bridge_hostname) instead. For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
+The **System Bridge** {% term integration %} adds a notify {% term entity %} for each computer. To send a plain notification, use the `notify.send_message` {% term action %}. For urgency, buttons, a sound or what opens on click, use the [`system_bridge.send_message`](#action-system_bridgesend_message) action. For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
 
 {% example %}
 action: |
   action: notify.send_message
   target:
-    entity_id: notify.my_device
+    entity_id: notify.my_computer
   data:
     title: "Reminder"
     message: "Have you considered frogs?"
 {% endexample %}
 
-## Notifications
+### Action: `system_bridge.send_message`
 
-You can send notifications to the device using the `notify.system_bridge_hostname` notify entity.
+Sends a notification to the computer, with options `notify.send_message` doesn't have. It returns the notification's `id`, which you can use to match the events and dismiss it later.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `entity_id` | no | The System Bridge notify entity to send to. |
+| `message` | no | The message body of the notification. |
+| `title` | yes | Title of the notification. Defaults to `Home Assistant`. |
+| `icon` | yes | Icon name or image path on the computer to show with the notification. |
+| `urgency` | yes | `low`, `normal` or `critical`. Critical notifications stay until they're dismissed. Linux only. |
+| `duration` | yes | How long the notification shows for. |
+| `buttons` | yes | Up to 3 buttons, each with an `id` and a `label`. Pressing one reports its `id`. The `id` can't be `default`, which is reported when the notification itself is clicked. Linux and Windows only. |
+| `sound` | yes | Path to a sound file on the computer to play with the notification. Linux only. |
+| `url` | yes | URL to open on the computer when the notification is clicked. Can't be used with `path`. |
+| `path` | yes | File or folder on the computer to open when the notification is clicked. Can't be used with `url`. |
+
+{% important %}
+`url` and `path` let anyone who can use the notify entity choose what opens on the computer when the notification is clicked. Only give access to the entity to people you trust with that.
+{% endimportant %}
+
+{% example %}
+action: |
+  action: system_bridge.send_message
+  target:
+    entity_id: notify.my_computer
+  data:
+    title: "Front door"
+    message: "Someone's at the door"
+    urgency: critical
+    duration:
+      seconds: 30
+    buttons:
+      - id: unlock
+        label: "Unlock"
+      - id: ignore
+        label: "Ignore"
+    url: "http://homeassistant.local:8123/lovelace/cameras"
+  response_variable: notification
+{% endexample %}
+
+The response looks like this:
 
 ```yaml
-action: notify.system_bridge_hostname
-data:
-  data:
-    image: "https://brands.home-assistant.io/system_bridge/logo@2x.png"
-    timeout: 30
-    actions:
-      - command: api
-        data:
-          endpoint: open
-          method: POST
-          body:
-            url: "http://homeassistant.local:8123/lovelace/cameras"
-        label: "Open Cameras"
-    audio:
-      source: "https://d3qhmae9zx9eb.cloudfront.net/home/amzn_sfx_doorbell_chime_02.mp3"
-      volume: 80
-  title: "Test Title"
-  message: "This is a message"
+notify.my_computer:
+  id: 12
 ```
 
-### Parameters
+The `id` is empty with System Bridge versions before 5.20.0, and `0` when the computer has no notification service.
 
-- **target**: The target to send the notification to. This can be ignored.
-- **title**: The title of the notification.
-- **message**: The message of the notification.
-- **data**: The data to send to the device. See below for more information.
+### Action: `system_bridge.dismiss_message`
 
-#### Actions (`data` parameter)
+Closes a notification on the computer, using the `id` that `system_bridge.send_message` returned. Linux only: on Windows and macOS, and for a notification that's no longer open, the action fails.
 
-This is a list of actions that can be sent to the device. These are buttons that show below the title, message, and image.
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `entity_id` | no | The System Bridge notify entity that sent the notification. |
+| `id` | no | The `id` that `system_bridge.send_message` returned. |
 
-- **command**: The command to send to the device. For example, `api` sends a request to the System Bridge API.
-- **label**: The label of the button.
-- **data**: The data to send to the device. The available parameters for the `api` command are `endpoint`, `method`, `body`, and `params`.
+{% raw %}
 
-Here is an example action that opens a URL in the device's browser:
-
-```yaml
-- command: api
-  label: "Open Cameras"
+{% example %}
+action: |
+  action: system_bridge.dismiss_message
+  target:
+    entity_id: notify.my_computer
   data:
-    endpoint: open
-    method: POST
-    body:
-      url: "http://homeassistant.local:8123/lovelace/cameras"
-```
+    id: "{{ notification['notify.my_computer'].id }}"
+{% endexample %}
 
-#### Audio (`data` parameter)
+{% endraw %}
 
-This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file, such as an MP3.
+### Notification events
+
+With System Bridge 5.20.0 or later, each computer has a notification {% term event %} {% term entity %}, such as `event.my_computer_notification`. It fires when a notification sent by Home Assistant is clicked or closed on the computer.
+
+| Event type | Attributes | When |
+| ---------- | ---------- | ---- |
+| `clicked` | `notification_id`, `action` | The notification or one of its buttons was clicked. `action` is the button's `id`, or `default` for the notification itself. |
+| `closed` | `notification_id`, `reason` | The notification closed without a click. `reason` is `expired`, `dismissed` or `closed`. |
+
+`notification_id` is the `id` that `system_bridge.send_message` returned, so you can tell which notification it was. Linux reports clicks and closes, Windows only clicks, and macOS neither.
+
+{% raw %}
+
+{% example %}
+automation: |
+  triggers:
+    - trigger: state
+      entity_id: event.my_computer_notification
+      not_from: unavailable
+  conditions:
+    - condition: state
+      entity_id: event.my_computer_notification
+      attribute: event_type
+      state: clicked
+    - condition: template
+      value_template: "{{ trigger.to_state.attributes.action == 'unlock' }}"
+  actions:
+    - action: lock.unlock
+      target:
+        entity_id: lock.front_door
+{% endexample %}
+
+{% endraw %}
+
+### Legacy notify action
+
+The `notify.system_bridge_<hostname>` action is deprecated and will be removed in Home Assistant 2027.6. Using it creates a repair issue. Use `notify.send_message` or `system_bridge.send_message` with the notify entity instead:
+
+- `title` and `message` stay the same.
+- `data.icon` becomes `icon`.
+- `data.timeout` becomes `duration`, a time period such as `seconds: 10`. System Bridge read the legacy `timeout` as milliseconds.
+- `data.actions` with an `OPEN_URL` or `OPEN_PATH` command become `url` or `path`. For buttons, use `buttons`, each with an `id` and a `label`.
+- `data.audio.source` becomes `sound`, a sound file on the computer. URLs and `volume` never worked.
+- `data.image` isn't used by System Bridge and has no replacement.
 
 {% include integrations/actions.md %}
 
