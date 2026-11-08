@@ -11,14 +11,14 @@ related_actions:
   - recorder.disable
 ---
 
-Use this action to retrieve recorded state history for one or more entities over a time period. This is handy when an automation or script needs raw historical state transitions, for example to detect sequences, calculate durations, or apply custom logic based on past states.
+Use this action to retrieve recorded state history for one or more entities over a time period. This is handy when an automation or script needs raw historical state transitions, for example to detect sequences, calculate durations, or apply custom logic based on past states. For other actions provided by this integration, see the [Recorder actions list](/integrations/recorder#list-of-actions).
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 Only users with administrator rights can run this action.
 
 {% note %}
-History is retrieved from the recorder database and is subject to your recorder retention period (`purge_keep_days`).
+History is retrieved from the recorder database and is subject to your recorder retention period ([`purge_keep_days`](/integrations/recorder/#purge_keep_days), which defaults to 10 days).
 {% endnote %}
 
 {% include actions/ui_header.md %}
@@ -31,7 +31,8 @@ To get history from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the list of actions, search for and select **Recorder: Get Recorder history**.
 6. Set the options you want to use.
-7. Select **Save**.
+7. In **Response variable**, enter a variable name to store the result, for example `entity_history`.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -103,7 +104,7 @@ history:
       end: "2025-10-06T11:02:30.052671+00:00"
       state: "off"
     - start: "2025-10-06T11:02:30.052671+00:00"
-      end: "2025-10-06T11:03:17.792387+00:00"
+      end: "2025-10-06T12:00:00+00:00"
       state: "on"
   sensor.hvac_action:
     - start: "2025-10-06T11:00:00+00:00"
@@ -115,7 +116,7 @@ history:
 
 - **Consecutive duplicate states**: Consecutive duplicate state values recorded across Home Assistant restarts or frequent sensor reports are merged into a continuous state span.
 - **Timestamp clamping**: If an entity had a state established before `start_time`, its `start` timestamp is clamped to `start_time` so all returned segments fit cleanly within the requested window.
-- **Limit and truncation**: Each entity is capped at 1,000 state segments. If an entity exceeds 1,000 segments, the action raises an error by default to prevent automations from silently acting on incomplete data. Set `allow_truncation: true` if you want the first 1,000 segments returned anyway.
+- **Limit and truncation**: Each entity is capped at 1,000 records. To prevent automations from silently acting on partial data, the action raises an error by default if the database query exceeds 1,000 recorded changes or more than 1,000 state segments are returned. When `allow_truncation: true` is set, results are truncated at the limit, which may cover only an earlier portion of the requested time window and result in fewer than 1,000 segments after duplicate states are merged.
 - **Attributes**: Only state values are returned; state attributes are not included.
 - **Statistics vs. state history**: To retrieve periodic aggregated statistics (such as min, max, mean, or sum) rather than raw state transitions, use the [`recorder.get_statistics`](/actions/recorder.get_statistics/) action instead.
 
