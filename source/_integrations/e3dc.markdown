@@ -71,6 +71,7 @@ These sensors depend on the installed hardware:
 
 - **Wallbox power** and **Wallbox solar power**, in watts, if a wallbox is configured.
 - **Additional feeder power**, in watts, if a power meter measures an additional feeder, such as a second PV inverter.
+- **Grid power L1**, **Grid power L2** and **Grid power L3**, the power per phase at the grid connection point, if a power meter measures it. They are disabled by default.
 - **Emergency power**, if the power station supports emergency power. It shows whether emergency power is active, inactive or not available. On the S10 E and S10 E PRO, **Motor switch off** means the emergency power motor switch is not in its on position.
 
 The integration checks for these when it starts. After you add a wallbox or a power meter for an additional feeder, reload the integration.
@@ -84,18 +85,18 @@ These sensors depend on the firmware:
 
 ### Power meters and inverters
 
-Each configured power meter gets its own device, linked to the power station. The devices are numbered by the power meter's slot, starting at 0. Each one has these sensors:
+Each configured power meter gets its own device, connected through the power station. The meter at the grid connection point is the exception: the power station's grid sensors cover it. Each power meter device has these sensors:
 
-- **Meter type**, a diagnostic sensor. It shows what the meter measures, such as **Grid connection point** or **External production**.
+- **Meter type**, a diagnostic sensor. It shows what the meter measures, such as **External production** or **External consumption**.
 - **Power**, the meter's total power in watts.
 - **Power L1**, **Power L2** and **Power L3**, the power per phase. They are disabled by default.
 
-The power station's own inverter, and each additional inverter that reports a grid voltage, also get a device. Each one has these sensors:
+The power station's own inverter is a part of the power station's device. Each additional inverter that reports a grid voltage gets its own device, connected through the power station. Each inverter has these sensors:
 
 - **Active power L1** to **L3**, and **DC power 1** to **3** for its DC trackers, in watts.
 - The apparent power, reactive power, voltage and current per phase, the frequency, and the voltage and current of each DC tracker. They are disabled by default.
 
-Power meters and additional inverters appear as soon as the power station reports them, including ones you add later.
+The devices are numbered from 1 when the power station has more than one power meter or inverter. Power meters and additional inverters appear as soon as the power station reports them, including ones you add later.
 
 ## Data updates
 
