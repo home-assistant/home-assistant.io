@@ -24,6 +24,16 @@ List of models known to be supported:
 - RT6600ax
 {% endnote %}
 
+## Migrating from YAML configuration
+
+If you previously configured Synology SRM in YAML, follow these steps to switch to setup through the UI:
+
+1. Note the entity IDs of the devices you track, then remove the `synology_srm` device tracker platform for this router from `configuration.yaml`.
+2. Remove those devices' entries from `known_devices.yaml`. Keep entries used by other legacy trackers.
+3. Restart Home Assistant to stop the legacy scanner and release the removed trackers' entity IDs.
+4. Add Synology SRM using the configuration steps above and select the devices you want to track. You must select at least one device.
+5. If needed, change the entity IDs of the new trackers to their previous IDs to keep existing person assignments and automations working. If you keep the new IDs instead, update those references to use the new trackers.
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
