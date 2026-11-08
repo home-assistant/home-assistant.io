@@ -1,8 +1,8 @@
 ---
 title: Sony TV RS-232
 description: Instructions on how to integrate Sony Bravia TVs via their RS-232 serial port into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 2026.12
 ha_iot_class: Local Polling
 ha_codeowners:
