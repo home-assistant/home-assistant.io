@@ -14,6 +14,19 @@ The Powerfox FLOW device delivers its measurements via a daily/hourly report end
 If you have a **PA 201901**, **PA 201902**, or **PB 202001** (poweropti+) and prefer to poll your device locally without relying on the cloud, see the [Powerfox Local](/integrations/powerfox_local) integration.
 {% endnote %}
 
+## Use cases
+
+- Track electricity, gas, heat, and water consumption and costs in the [energy dashboard](/energy).
+- Get notified when power usage stays unusually high, so you can switch off large loads.
+- Use the returned energy sensor to run appliances when your solar panels produce more than you use.
+- Compare daily gas consumption and cost over time.
+
+## Prerequisites
+
+1. Create a Powerfox account in the Powerfox app.
+2. Add your Poweropti or Powerfox FLOW device to your account.
+3. Confirm that the app shows measurements from your device.
+
 {% include integrations/config_flow.md %}
 
 ### Configuration parameters
@@ -39,7 +52,13 @@ Not all Poweropti devices are supported currently. Check the list below to see i
 
 ## Data updates
 
-The integration polls the Powerfox cloud every 10 seconds. Power, heat, and water meters return real-time snapshots. The Powerfox FLOW relies on the hourly/daily report endpoint. The coordinator still polls every 10 seconds, but the values refresh whenever Powerfox publishes a new block in the report.
+The integration uses {% term polling %} to fetch data from the Powerfox cloud at the following intervals:
+
+- Power, heat, and water meters: every 10 seconds.
+- Powerfox FLOW gas meters: every 5 minutes, because Powerfox publishes these values as hourly and daily report blocks.
+- The list of devices in your account: every 30 minutes.
+
+Devices you add to your Powerfox account appear in Home Assistant automatically after the next device list update. Devices you remove from your account are also removed from Home Assistant. The integration reloads when the list of devices changes.
 
 ## Actions
 
@@ -126,11 +145,62 @@ FLOW data is exposed via the Powerfox report endpoint and provides daily/hourly 
 
 The energy-based variants are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) in the entity registry. Enable them if you have a gas-to-kWh conversion configured in Powerfox.
 
+## Known limitations
+
+- The integration requires an internet connection and the Powerfox cloud. For supported devices, the [Powerfox Local](/integrations/powerfox_local) integration works without the cloud.
+- Powerfox FLOW values are not real-time. They change when Powerfox publishes a new report block.
+- If one device in your account has no data yet, or its data is restricted by privacy settings, the integration keeps retrying to start. Sensors for your other devices are unavailable until the start succeeds.
+- An account needs at least one device before you can set up the integration.
+
 ## Troubleshooting
+
+{% details "No devices were found in this Powerfox account" %}
+
+### Symptom
+
+When you set up the integration, the form shows "No devices were found in this Powerfox account."
+
+#### Description
+
+The email address and password are correct, but no device is linked to this account.
+
+#### Resolution
+
+1. Open the Powerfox app and sign in with the same account.
+2. Add your device to the account, then try again.
+
+{% enddetails %}
+
+{% details "Data is restricted due to privacy settings" %}
+
+### Symptom
+
+Sensors of a device are unavailable, and the logs show that its data is restricted due to privacy settings in the Powerfox app.
+
+#### Description
+
+Powerfox refuses to share data for this device because data transmission has been denied for the account.
+
+#### Resolution
+
+Allow data transmission in the Powerfox app, then wait for the next update.
+
+{% enddetails %}
 
 {% details "Cost sensors stay at zero" %}
 
-Powerfox only publishes currency fields when a tariffs are configured in their app. Set the tariff inside the Powerfox app, then wait for the next report; the Home Assistant sensors will populate once the API exposes those fields.
+### Symptom
+
+The gas cost sensors stay at zero.
+
+#### Description
+
+Powerfox only publishes currency fields when a tariff is configured in the app.
+
+#### Resolution
+
+Set the tariff in the Powerfox app, then wait for the next report. The sensors update once the API provides those fields.
+
 {% enddetails %}
 
 ## Removing the integration
