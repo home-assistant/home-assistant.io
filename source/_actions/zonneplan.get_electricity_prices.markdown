@@ -31,7 +31,7 @@ Config entry:
   description: The Zonneplan config entry to get the prices of.
   required: true
 Interval:
-  description: Select **Hour** for a price per hour, or **Quarter hour** for a price per 15 minutes.
+  description: Select **Hour** (selected by default) for a price per hour, or **Quarter hour** for a price per 15 minutes.
   required: true
 {% endoptions_ui %}
 
