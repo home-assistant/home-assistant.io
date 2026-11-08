@@ -2011,6 +2011,7 @@ source/_actions/rainmachine.unpause_watering.markdown @bachya
 source/_actions/rainmachine.unrestrict_watering.markdown @bachya
 source/_actions/recorder.disable.markdown @home-assistant/core
 source/_actions/recorder.enable.markdown @home-assistant/core
+source/_actions/recorder.get_history.markdown @home-assistant/core
 source/_actions/recorder.get_statistics.markdown @home-assistant/core
 source/_actions/recorder.purge.markdown @home-assistant/core
 source/_actions/recorder.purge_entities.markdown @home-assistant/core

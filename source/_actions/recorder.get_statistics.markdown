@@ -4,6 +4,7 @@ action: recorder.get_statistics
 domain: recorder
 description: "Retrieves long-term statistics for one or more entities."
 related_actions:
+  - recorder.get_history
   - recorder.purge
   - recorder.purge_entities
   - recorder.enable
