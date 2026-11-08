@@ -107,7 +107,8 @@ script: |
       data:
         message: >
           In the queue:
-          {{ queue_info['media_player.kitchen_speaker'].queue_items | map(attribute='name') | join(', ') }}
+          {{ queue_info['media_player.kitchen_speaker'].queue_items
+             | map(attribute='name') | join(', ') }}
 {% endexample %}
 
 ## Good to know
