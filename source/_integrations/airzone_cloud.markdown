@@ -18,6 +18,12 @@ In this case, the Airzone Cloud integration can continue to be used without a pa
 
 Note that this integration still communicates with the Airzone Cloud API, even when Home Assistant and the Airzone devices are on the same local network.
 
+### IPv6 connectivity issue
+
+Airzone Cloud currently has an issue with IPv6 that may prevent it from correctly identifying local network access. When API requests are made over IPv6, Airzone Cloud may incorrectly treat Home Assistant as being outside the local network, even when Home Assistant and the Airzone devices are connected to the same network.
+
+Until Airzone resolves this issue, configure your DNS server to block AAAA record responses for `m.airzonecloud.com`. This forces Home Assistant to connect to the Airzone Cloud API over IPv4, allowing the API to correctly recognize local access without requiring a paid subscription.
+
 ## Aidoo / Aidoo Pro
 
 These devices are Wi-Fi controllers that are normally connected to a single air conditioner split system.
