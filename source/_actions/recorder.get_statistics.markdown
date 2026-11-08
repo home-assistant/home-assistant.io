@@ -18,7 +18,7 @@ This action returns its result in a response variable, which you can use in late
 Only users with administrator rights can run this action.
 
 {% note %}
-Statistics are only available for entities that store {% term "Long-term statistics" %}.
+Statistics are only available for entities that store {% term "Long-term statistics" %}. For other entities (or to retrieve raw state transitions), use [`recorder.get_history`](/actions/recorder.get_history/) instead.
 {% endnote %}
 
 {% include actions/ui_header.md %}
