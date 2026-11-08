@@ -1,23 +1,12 @@
 ---
-title: Karakeep
 description: Instructions on how to integrate Karakeep into Home Assistant.
 ha_release: 2026.8
-ha_category:
-  - Sensor
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: karakeep
-ha_codeowners:
-  - '@sli-cka'
-ha_integration_type: service
-ha_quality_scale: bronze
 related:
   - url: https://karakeep.app/
     title: Karakeep
   - url: https://docs.karakeep.app/
     title: Karakeep documentation
-ha_platforms:
-  - sensor
 ---
 
 The **Karakeep** {% term integration %} allows you to connect your [Karakeep](https://karakeep.app/) instance to Home Assistant and monitor bookmark statistics.

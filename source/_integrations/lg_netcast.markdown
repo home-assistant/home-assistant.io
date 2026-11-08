@@ -1,19 +1,7 @@
 ---
-title: LG Netcast
 description: Instructions on how to integrate a LG TV (Netcast 3.0 & 4.0) within Home Assistant.
-ha_category:
-  - Media player
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: '0.20'
 ha_domain: lg_netcast
-ha_platforms:
-  - media_player
-  - remote
-ha_codeowners:
-  - '@Drafteed'
-  - '@splinter98'
-ha_integration_type: device
 ---
 
 The **LG Netcast** {% term integration %} allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013).

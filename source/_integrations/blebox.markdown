@@ -1,37 +1,7 @@
 ---
-title: BleBox devices
 description: Instructions on how to integrate BleBox devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Light
-  - Sensor
-  - Switch
-  - Update
 ha_release: '0.110'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bbx-a'
-  - '@swistakm'
-  - '@bkobus-bbx'
 ha_domain: blebox
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - light
-  - sensor
-  - switch
-  - update
-ha_integration_type: device
-ha_zeroconf: true
-ha_dhcp: true
-ha_quality_scale: gold
 ---
 
 [BleBox](https://blebox.eu/) produces compact, low-power, feature-rich Wi-Fi devices for home automation. You can find the full product range on the [BleBox products page](https://blebox.eu/en/products/) and in the [BleBox product catalog](https://blebox.eu/en/products/katalog/).
@@ -529,6 +499,21 @@ This integration adds the Blebox device as a sensor entity and a binary sensor e
 - An option to change the detection mode is available in the wBox app.
 - After changing settings, the device needs to be reloaded.
 
+### tankSensor
+
+This integration adds the BleBox device as 4 sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of tank fill level
+- Periodic read of liquid height
+- Periodic read of gauge pressure
+- Periodic read of liquid volume
+
+{% note %}
+Depending on the device configuration, some of the readings may be unavailable. If the probe is not configured, Home Assistant shows a repair. For details, see [tankSensor probe is not configured](#tanksensor-probe-is-not-configured).
+{% endnote %}
+
 ### energyMeter DIN
 
 This integration adds the Blebox device as multiple sensor entities to Home Assistant.
@@ -602,7 +587,7 @@ this ID like a password.
 {% note %}
 In order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt, please refer to the
-general [documentation of automations with webhook triggers](/docs/automation/trigger/#webhook-trigger).
+general [documentation of automations with webhook triggers](/triggers/webhook/).
 {% endnote %}
 
 ### uRemote, sRemote, inBox via actionBox
@@ -1243,6 +1228,23 @@ The device's IP address has likely changed due to a DHCP lease renewal.
 1. Check the current IP address of the device in your router's DHCP client list or in the wBox app.
 2. To prevent this from happening again, assign a static IP address or a DHCP reservation to the device in your router settings.
 3. If the IP address has changed, remove the existing integration entry and add it again with the new IP address.
+
+### tankSensor probe is not configured
+
+#### Symptom
+
+A tankSensor entity shows as unavailable, and a repair named **_Device_: _Sensor_ probe not configured** appears in {% my repairs title="**Settings** > **System** > **Repairs**" %}.
+
+#### Description
+
+The device reports that the probe for this sensor is not configured, so it cannot provide a reading. Home Assistant raises one repair for each affected sensor.
+
+#### Resolution
+
+1. Open the wBox app and go to the settings of your tankSensor.
+2. Configure the probe.
+
+When the probe is configured, the sensor starts reporting readings again and the repair disappears on its own. You don't need to change anything in Home Assistant.
 
 ## Known limitations
 

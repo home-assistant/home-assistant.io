@@ -66,6 +66,10 @@ time_zone:
   description: Change the timezone used for the time on a per-card level. Defaults to the user profile setting.
   type: string
   required: false
+date_format:
+  description: "Shows the date with the time, either as a preset or as a list of date parts. If left empty, no date is shown. See [Formatting the date](/dashboards/date/#formatting-the-date) on the date card page for the available presets and parts."
+  type: [string, list]
+  required: false
 analog_options:
   description: When using the analog clock style, this allows you to configure the appearance of the clock.
   type: map
@@ -163,6 +167,14 @@ title: New York 🦅
 <img src='/images/dashboards/clock_card_new_york.png' alt='Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title'>
 Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title
 </p>
+
+A medium-sized clock showing the date below the time, using the long date preset:
+
+```yaml
+type: clock
+clock_size: medium
+date_format: long
+```
 
 Analog clock with no border and hour ticks:
 

@@ -7,7 +7,7 @@ related_actions:
   - huawei_lte.suspend_integration
 ---
 
-The **Resume integration** action resumes the integration after it was suspended with the [Suspend integration](/actions/huawei_lte.suspend_integration/) action. The integration logs back in to the router on demand.
+The **Huawei LTE: Resume integration** action resumes the integration after it was suspended with the [Suspend integration](/actions/huawei_lte.suspend_integration/) action. The integration logs back in to the router on demand.
 
 This action does not target an entity. Only users with administrator rights can run it. If you have more than one router configured, you provide the router URL.
 

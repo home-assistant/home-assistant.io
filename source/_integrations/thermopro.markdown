@@ -1,20 +1,7 @@
 ---
-title: ThermoPro
 description: Instructions on how to integrate ThermoPro devices into Home Assistant.
-ha_category:
-  - Sensor
-ha_bluetooth: true
 ha_release: 2022.9
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@bdraco'
-  - '@h3ss'
 ha_domain: thermopro
-ha_config_flow: true
-ha_platforms:
-  - button
-  - sensor
-ha_integration_type: device
 ---
 
 Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.

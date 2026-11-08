@@ -5,7 +5,7 @@
   <div class='section'>
     <h2 class="h1 title epsilon">{% icon "mdi:play-circle-outline" %} Action: <code>{{ page.action }}</code></h2>
 
-    {%- if page.domain -%}
+    {%- if page.domain and page.action contains '.' -%}
     <div class='section'>
       {% icon "mdi:puzzle-outline" %}&nbsp;Integration: <a href='/integrations/{{ page.domain }}/'>{{ domain_label }}</a>
     </div>
@@ -23,8 +23,10 @@
     </div>
     {%- endif -%}
 
+    {%- if page.action contains '.' -%}
     <div class='section'>
       {% my tools_perform_action badge service=page.action %}
     </div>
+    {%- endif -%}
   </div>
 </section>

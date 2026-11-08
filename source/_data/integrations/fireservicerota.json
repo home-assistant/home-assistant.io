@@ -1,0 +1,19 @@
+{
+  "domain": "fireservicerota",
+  "name": "FireServiceRota",
+  "integration_type": "service",
+  "codeowners": [
+    "@cyberjunky"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "messaging_notifications.push_notifications",
+    "productivity_information.calendars_todos"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor",
+    "switch"
+  ]
+}

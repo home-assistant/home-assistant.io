@@ -8,7 +8,7 @@ related_actions:
   - abode.trigger_automation
 ---
 
-The **Change setting** action changes a setting on your Abode system.
+The **Abode: Change setting** action changes a setting on your Abode system.
 
 For a full list of settings and valid values, see the [`jaraco.abode` settings section](https://github.com/jaraco/jaraco.abode/blob/main/README.rst#settings).
 

@@ -1,0 +1,19 @@
+{
+  "domain": "anthropic",
+  "name": "Anthropic",
+  "integration_type": "service",
+  "codeowners": [
+    "@Shulyaka"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "ai_voice.ai_models"
+  ],
+  "platforms": [
+    "ai_task",
+    "conversation",
+    "diagnostics"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "domain": "filesize",
+  "name": "File size",
+  "codeowners": [
+    "@gjohansson-ST"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

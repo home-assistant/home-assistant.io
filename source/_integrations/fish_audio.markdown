@@ -1,18 +1,7 @@
 ---
-title: Fish Audio
 description: Instructions on how to set up Fish Audio integration with Home Assistant.
-ha_category:
-  - Text-to-speech
 ha_release: 2026.1
-ha_iot_class: Cloud Polling
 ha_domain: fish_audio
-ha_platforms:
-  - tts
-ha_config_flow: true
-ha_integration_type: service
-ha_codeowners:
-  - '@noambav'
-ha_quality_scale: bronze
 ---
 
 The **Fish Audio** {% term integration %} brings high-quality voice cloning and a wide variety of public voices to Home Assistant. It provides a text-to-speech (<abbr title="text-to-speech">TTS</abbr>) service, allowing you to create expressive, human-like speech.

@@ -1,11 +1,11 @@
 ---
-title: Reload Command Line
+title: "Reload"
 action: command_line.reload
 domain: command_line
 description: "Reloads the Command Line configuration from your YAML configuration."
 ---
 
-The **Reload Command Line** action reloads all Command Line entities from your YAML configuration. Use it after you change your Command Line setup in `configuration.yaml` and want Home Assistant to apply those changes without a restart.
+The **Command line: Reload** action reloads all Command Line entities from your YAML configuration. Use it after you change your Command Line setup in `configuration.yaml` and want Home Assistant to apply those changes without a restart.
 
 Only users with administrator rights can run this action.
 
@@ -17,7 +17,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Reload Command Line**.
+5. From the search box, search for and select **Command line: Reload**.
 6. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -55,8 +55,10 @@ This action has no additional options in YAML.
 
 If you edit your Command Line configuration and toggle a helper to apply the change, you can reload without restarting Home Assistant.
 
-- **Trigger**: A user-created helper turns on
-- **Action**: Reload Command Line
+- **Trigger**: State changed
+  - **Entity**: Reload command line helper
+  - **To**: On
+- **Action**: Command line: Reload
 
 {% details "YAML example for reloading Command Line from a helper" %}
 

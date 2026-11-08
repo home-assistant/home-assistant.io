@@ -1,19 +1,7 @@
 ---
-title: Todoist
 description: Instructions on how to integrate Todoist into Home Assistant.
-ha_category:
-  - Calendar
-  - To-do list
-ha_iot_class: Cloud Polling
 ha_release: 0.54
-ha_codeowners:
-  - '@boralyl'
 ha_domain: todoist
-ha_platforms:
-  - calendar
-  - todo
-ha_integration_type: service
-ha_config_flow: true
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation

@@ -1,18 +1,10 @@
 ---
-title: Microsoft Text-to-Speech (TTS)
 description: Instructions on how to set up Microsoft text-to-speech with Home Assistant.
-ha_category:
-  - Text-to-speech
-ha_iot_class: Cloud Push
 ha_release: 0.57
 ha_domain: microsoft
-ha_platforms:
-  - tts
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Microsoft text-to-speech** {% term integration %} uses the [TTS engine of the Microsoft Speech Service](https://learn.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) to read a text with natural sounding voices. This integration uses an API that is part of the Cognitive Services offering and is known as the Microsoft Speech API. For this integration to work, you need a free API key. You can use your [Azure subscription](https://azure.microsoft.com) to create an [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).

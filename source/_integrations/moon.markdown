@@ -1,19 +1,7 @@
 ---
-title: Moon
 description: Instructions on how to integrate the moon sensor into Home Assistant.
-ha_category:
-  - Environment
-ha_iot_class: Calculated
 ha_release: 0.38
-ha_quality_scale: internal
-ha_codeowners:
-  - '@fabaff'
-  - '@frenck'
 ha_domain: moon
-ha_platforms:
-  - sensor
-ha_config_flow: true
-ha_integration_type: service
 ---
 
 The **Moon** {% term integration %} adds a sensor to Home Assistant that tells you the current phase of the moon, from new moon to full moon and back again.

@@ -3,11 +3,33 @@
 {%- assign include_brand_lower = include.brand | downcase -%}
 {%- if company_brand_lower == include_brand_lower -%}
 {%- if include.hide_list -%}
-For the full list of {{ company.devices | size }} certified {{ include.brand }} devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand={{ include.brand | downcase | url_encode }}" target="_blank" rel="noopener">filtered device list</a>.
+For the full list of {{ company.devices | size }} certified {{ include.name | default: include.brand }} devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand={{ include.brand | downcase | url_encode }}" target="_blank" rel="noopener">filtered device list</a>.
 {%- else -%}
-<ul>
+<ul class="wwha-device-list">
 {%- for device in company.devices %}
-<li><a href="{{ device.websiteLink | escape }}" target="_blank" rel="noopener">{{ device.fullName | escape_once }}</a></li>
+{%- assign show_device = true -%}
+{%- if include.protocol -%}
+{%- assign show_device = false -%}
+{%- assign wanted_protocols = include.protocol | split: "," -%}
+{%- for wanted_protocol in wanted_protocols -%}
+{%- assign wanted_protocol_trimmed = wanted_protocol | strip -%}
+{%- if device.protocol contains wanted_protocol_trimmed -%}
+{%- assign show_device = true -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- if show_device %}
+{%- assign details = "" | split: "" -%}
+{%- if device.modelNumber != empty -%}{%- assign details = details | push: device.modelNumber -%}{%- endif -%}
+{%- if device.region.size > 0 -%}{%- assign regions = device.region | join: ", " -%}{%- assign details = details | push: regions -%}{%- endif %}
+<li><a href="{{ device.websiteLink | escape }}" target="_blank" rel="noopener">{{ device.fullName | escape_once }}</a>{% if details.size > 0 %} ({{ details | join: ", " | escape_once }}){% endif %}
+{%- assign hub = device.relatedProducts -%}
+{%- if hub.text and hub.text != empty %}
+{%- capture hub_name -%}{%- if hub.url != empty -%}<a href="{{ hub.url | escape }}" target="_blank" rel="noopener">{{ hub.text | escape_once }}</a>{%- else -%}{{ hub.text | escape_once }}{%- endif -%}{%- endcapture %}
+<ul class="wwha-device-hub"><li>{% if hub.text contains "require" %}{{ hub_name }}{% else %}Requires a vendor hub: {{ hub_name }}{% endif %}</li></ul>
+{%- endif -%}
+</li>
+{%- endif -%}
 {%- endfor %}
 </ul>
 {%- endif -%}

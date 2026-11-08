@@ -28,9 +28,9 @@ Select at least one device or entity.
 
 {% options_ui %}
 Devices:
-  description: The LG webOS TVs to monitor.
+  description: The LG webOS TVs to monitor. At least one of `device_id` or `entity_id` must be set.
 Entities:
-  description: The LG webOS TV media players to monitor.
+  description: The LG webOS TV media players to monitor. At least one of `device_id` or `entity_id` must be set.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -47,19 +47,17 @@ This fires every time Home Assistant requests `media_player.lg_webos_tv` to turn
 
 ### Options in YAML
 
-At least one of `device_id` or `entity_id` is required.
-
 {% options_yaml %}
 trigger:
   description: The trigger type. For this trigger, use `webostv.turn_on`.
   required: true
   type: string
 device_id:
-  description: One or more device IDs of LG webOS TVs to monitor.
+  description: One or more device IDs of LG webOS TVs to monitor. At least one of `device_id` or `entity_id` must be set.
   required: false
   type: [string, list]
 entity_id:
-  description: One or more entity IDs of LG webOS TV media players to monitor.
+  description: One or more entity IDs of LG webOS TV media players to monitor. At least one of `device_id` or `entity_id` must be set.
   required: false
   type: [string, list]
 {% endoptions_yaml %}

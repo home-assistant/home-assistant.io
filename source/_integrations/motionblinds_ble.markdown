@@ -1,22 +1,7 @@
 ---
-title: Motionblinds Bluetooth
 description: Instructions on how to integrate Motionblinds Bluetooth motors into Home Assistant.
-ha_category:
-  - Cover
-ha_iot_class: Assumed State
 ha_release: 2024.4
 ha_domain: motionblinds_ble
-ha_codeowners:
-  - '@LennP'
-  - '@jerrybboy'
-ha_config_flow: true
-ha_platforms:
-  - button
-  - cover
-  - diagnostics
-  - select
-  - sensor
-ha_integration_type: device
 ---
 
 This {% term integration %} adds support for [Motionblinds](https://motionblinds.com/) Bluetooth motors. Want to motorize your existing blinds? This can be done with Motionblinds motor CMD-03. Made-to-measure window coverings with Motionblinds are available through a worldwide reseller network.
@@ -56,7 +41,7 @@ The following entities are available for a Motionblinds Bluetooth device:
 
 ## Actions
 
-Since Motionblinds Bluetooth motors require a Bluetooth connection to control them, Home Assistant does not get automatic updates of the motor's state by default. Therefore, you can use the [homeassistant.update_entity](/docs/scripts/perform-actions/#homeassistant-actions) action on any entity belonging to a Motionblinds Bluetooth device, which will connect to your Motionblinds Bluetooth motor and update the state of all entities belong to that device. However, be aware that doing so may impact battery life.
+Since Motionblinds Bluetooth motors require a Bluetooth connection to control them, Home Assistant does not get automatic updates of the motor's state by default. Therefore, you can use the [homeassistant.update_entity](/actions/homeassistant.update_entity/) action on any entity belonging to a Motionblinds Bluetooth device, which will connect to your Motionblinds Bluetooth motor and update the state of all entities belonging to that device. However, be aware that doing so may impact battery life.
 
 This can also be automated using a YAML automation. For instance, the following automation connects to your Motionblind every 24 hours to update its state in Home Assistant:
 

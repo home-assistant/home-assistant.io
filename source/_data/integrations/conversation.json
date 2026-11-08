@@ -1,0 +1,11 @@
+{
+  "domain": "conversation",
+  "name": "Conversation",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core",
+    "@synesthesiam",
+    "@arturpragacz"
+  ],
+  "quality_scale": "internal"
+}

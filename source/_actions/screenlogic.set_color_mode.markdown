@@ -8,7 +8,7 @@ related_actions:
   - screenlogic.stop_super_chlorination
 ---
 
-The **Set color mode** action changes the color mode for every color-capable light attached to your ScreenLogic gateway, such as IntelliBrite lights. You can switch the lights to a fixed color, a dynamic show like party or romance, or a control mode such as saving and recalling colors.
+The **Pentair ScreenLogic: Set color mode** action changes the color mode for every color-capable light attached to your ScreenLogic gateway, such as IntelliBrite lights. You can switch the lights to a fixed color, a dynamic show like party or romance, or a control mode such as saving and recalling colors.
 
 This is handy for setting the mood automatically, for example switching to a calm color in the evening or a festive show when guests arrive.
 
@@ -101,7 +101,7 @@ The `color_mode` value accepts one of the following:
 
 When the evening starts, set the pool lights to a slow, calming color show.
 
-- **Trigger**: Sun, after sunset
+- **Trigger**: Sunset
 - **Action**: Pentair ScreenLogic: Set color mode
 
 {% details "YAML example for an evening color mode" %}
@@ -110,8 +110,7 @@ When the evening starts, set the pool lights to a slow, calming color show.
 automation: |
   alias: "Evening pool lights"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: screenlogic.set_color_mode
       data:

@@ -1,5 +1,5 @@
 ---
-title: "Delete an autocharge vehicle"
+title: "Delete autocharge vehicle"
 action: peblar.delete_vehicle_token
 domain: peblar
 description: "Deletes a vehicle from the Peblar charger's autocharge list."
@@ -10,7 +10,7 @@ related:
   - action: peblar.add_vehicle_token
 ---
 
-The **Delete autocharge vehicle** action removes a vehicle from the Peblar charger's autocharge list. Once removed, that car no longer authorizes itself when it is plugged in.
+The **Peblar: Delete autocharge vehicle** action removes a vehicle from the Peblar charger's autocharge list. Once removed, that car no longer authorizes itself when it is plugged in.
 
 {% note %}
 Autocharge is only available on Peblar chargers that are equipped with power line communication hardware.

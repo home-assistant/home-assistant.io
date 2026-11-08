@@ -1,0 +1,20 @@
+{
+  "domain": "jvc_projector",
+  "name": "JVC Projector",
+  "integration_type": "device",
+  "codeowners": [
+    "@SteveEasley"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "remote",
+    "select",
+    "sensor",
+    "switch"
+  ]
+}

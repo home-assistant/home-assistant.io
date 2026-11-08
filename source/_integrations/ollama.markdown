@@ -1,32 +1,21 @@
 ---
-title: Ollama
 description: Instructions on how to integrate Ollama
-ha_category:
-  - AI
-  - Voice
 ha_release: 2024.4
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@synesthesiam'
 ha_domain: ollama
-ha_integration_type: service
 related:
   - docs: /docs/templating/
     title: Home Assistant Templating
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
-  - docs: /docs/automation/trigger/#sentence-trigger
+  - docs: /triggers/conversation/
     title: Sentence trigger
-ha_platforms:
-  - conversation
 ---
 
 The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server.
 
-Controlling Home Assistant is an experimental feature that provides the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is an experimental feature that provides the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 This integration requires an external Ollama server, which is available for macOS, Linux, and Windows. Follow the [download instructions](https://ollama.com/download) to install the server. Once installed, configure Ollama to be [accessible over the network](https://github.com/ollama/ollama/blob/main/docs/faq.mdx#how-can-i-expose-ollama-on-my-network).
 
@@ -43,8 +32,8 @@ Model:
   description: Name of the [Ollama model](https://ollama.com/library) to use, such as `mistral` or `llama2:13b`. Models will be automatically downloaded during setup.
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
-Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it. This feature is considered experimental and see [Controlling Home Assistant](#controlling-home-assistant) below for details on model limitations.
+AI tools:
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices. Controlling Home Assistant with Ollama is experimental. See [Controlling Home Assistant](#controlling-home-assistant) below for model limitations."
 Context window size:
   description: "The context window size is the number of tokens the model can take as input. Home Assistant defaults to 8k, which is larger than the default value in Ollama Server (2k), and you may adjust it based on the maximum context size of the specific model used. A larger value will better support larger homes with more entities, and smaller values may lower Ollama server RAM usage."
 Max history messages:
@@ -61,11 +50,11 @@ If you want to experiment with local LLMs using Home Assistant, we recommend exp
 
 Only models that support [Tools](https://ollama.com/search?c=tools) may control Home Assistant.
 
-Smaller models may not [reliably maintain a conversation](https://llama.meta.com/docs/model-cards-and-prompt-formats/llama3_1/#llama-3.1-instruct) when controlling
-Home Assistant is enabled. However, you may use multiple Ollama configurations that
+Smaller models may not [reliably maintain a conversation](https://llama.meta.com/docs/model-cards-and-prompt-formats/llama3_1/#llama-3.1-instruct) when a set of tools
+is selected in **AI tools**. However, you may use multiple Ollama configurations that
 share the same model, but use different prompts:
 
-- Add the Ollama integration without enabling control of Home Assistant. You can use
+- Add the Ollama integration without selecting anything in **AI tools**. You can use
   this conversation agent to have a conversation.
-- Add an additional Ollama integration, using the same model, enabling control of Home Assistant.
+- Add an additional Ollama integration, using the same model, and select a set of tools in **AI tools**.
   You can use this conversation agent to control Home Assistant.

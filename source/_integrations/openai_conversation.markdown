@@ -1,18 +1,7 @@
 ---
-title: OpenAI
 description: Instructions on how to integrate OpenAI as a conversation agent
-ha_category:
-  - AI
-  - Voice
 ha_release: 2023.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: openai_conversation
-ha_integration_type: service
-ha_platforms:
-  - conversation
-  - stt
-  - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -22,16 +11,13 @@ related:
     title: OpenAI API key
   - url: https://www.openai.com
     title: OpenAI
-ha_quality_scale: bronze
-ha_codeowners:
-  - '@Shulyaka'
 ---
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
 
-Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 This integration requires an API key to use, [which you can generate here.](https://platform.openai.com/account/api-keys). This is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
 
@@ -71,8 +57,8 @@ The Conversation and AI Task subentries have the following configuration options
 {% configuration_basic %}
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
-Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+AI tools:
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices."
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
 {% endconfiguration_basic %}

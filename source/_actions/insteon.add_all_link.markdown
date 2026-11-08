@@ -8,7 +8,7 @@ related_actions:
   - insteon.add_default_links
 ---
 
-The **Add All-Link** action puts the Insteon Modem (IM) into All-Linking mode so you can link a device to it. The modem can be linked as a controller or as a responder.
+The **Insteon: Add All-Link** action puts the Insteon Modem (IM) into All-Linking mode so you can link a device to it. The modem can be linked as a controller or as a responder.
 
 This is useful when you want to manually build an All-Link between the modem and a device, for example to extend or repair the links that let your Insteon devices talk to each other.
 

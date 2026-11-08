@@ -1,30 +1,10 @@
 ---
-title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-  - Update
 ha_release: 0.103
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@Corbeno'
-  - '@erwindouna'
-  - '@CoMPaTech'
 ha_domain: proxmoxve
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - sensor
-  - update
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: gold
-ha_config_flow: true
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration lets you monitor your Proxmox VE nodes, virtual machines, and containers in Home Assistant, and exposes control actions (if your Proxmox permissions allow it).
@@ -191,19 +171,21 @@ Some entities are not enabled by default, you can enable them via the device pag
 ### Button
 
 - **Create snapshot**: Creates a snapshot of a VM/LXC.
-- **Start**: Starts a node/VM/LXC.
+- **Start**: Starts a VM/LXC.
 - **Start all**: Starts all VMs and LXCs known on a node.
-- **Stop**: Stops a node/VM/LXC.
+- **Stop**: Stops a VM/LXC immediately.
 - **Stop all**: Stops all VMs and LXCs known on a node.
-- **Restart**: Restarts a VM/LXC.
-- **Reboot**: Reboots a node.
-- **Shutdown**: Shuts a node/VM down.
-- **Hibernate**: Puts a VM in hibernation; only available to VMs.
+- **Suspend all**: Suspends all VMs on a node.
+- **Restart**: Restarts a node/VM/LXC.
+- **Shut down**: Shuts a node/VM down.
+- **Pause**: Pauses a VM; only available to VMs.
+- **Suspend**: Suspends a VM to disk (hibernation); only available to VMs.
+- **Resume**: Resumes a paused VM; only available to VMs.
 - **Reset**: Resets a VM; only available to VMs.
 
 {% note %}
-**Reboot** and **Shutdown** will attempt to perform a graceful action (if you have the guest agent installed). On a node this will attempt the graceful shutdown of every VM/LXC.
-**Restart** and **Stop**/**Stop all** will stop a running system immediately. In other words, it is like pulling the power plug of a running computer.
+**Restart** and **Shut down** stop a system cleanly. **Restart** shuts a VM or LXC down and then starts it again. **Shut down** on a VM sends an ACPI shutdown event to the guest operating system. On a node, these buttons restart or shut down the host.
+**Stop** ends a running VM or LXC immediately. It is like pulling the power plug of a running computer and may damage data.
 {% endnote %}
 
 ### Update

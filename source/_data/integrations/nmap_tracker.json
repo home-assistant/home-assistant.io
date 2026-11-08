@@ -1,0 +1,12 @@
+{
+  "domain": "nmap_tracker",
+  "name": "Nmap Tracker",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "presence_location.network_presence"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

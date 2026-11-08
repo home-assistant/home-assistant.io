@@ -9,7 +9,7 @@ related_actions:
   - yeelight.set_color_flow_scene
 ---
 
-The **Set music mode** action enables or disables music mode on a Yeelight light.
+The **Yeelight: Set music mode** action enables or disables music mode on a Yeelight light.
 
 Music mode opens a direct connection to the light, which lets Home Assistant send many commands in quick succession without hitting the rate limit the light normally applies. This is useful for smooth, fast effects, such as light shows that follow your music.
 
@@ -22,7 +22,7 @@ To enable or disable music mode from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Yeelight light you want to control.
-6. From the actions shown for that target, select **Set music mode**.
+6. From the actions shown for that target, under **Yeelight**, select **Set music mode**.
 7. Enable or disable **Music mode**.
 8. Select **Save**.
 

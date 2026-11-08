@@ -1,0 +1,20 @@
+{
+  "domain": "radiotherm",
+  "name": "Radio Thermostat",
+  "integration_type": "device",
+  "codeowners": [
+    "@vinnyfuria"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

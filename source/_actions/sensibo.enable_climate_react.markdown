@@ -1,5 +1,5 @@
 ---
-title: "Enable Climate React on a Sensibo device"
+title: "Enable Climate React"
 action: sensibo.enable_climate_react
 domain: sensibo
 description: "Enables and configures Climate React on a Sensibo climate device."
@@ -21,7 +21,7 @@ To enable Climate React from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sensibo climate device.
-6. From the actions shown for that target, select **Sensibo: Enable Climate React**.
+6. From the actions shown for that target, under **Sensibo**, select **Enable Climate React**.
 7. Set the thresholds, the states, and the trigger type.
 8. Select **Save**.
 

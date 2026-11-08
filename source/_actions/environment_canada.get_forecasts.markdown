@@ -20,7 +20,7 @@ To get forecasts from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the weather entity you want to read.
-6. From the actions shown for that target, select **Get forecasts**.
+6. From the actions shown for that target, under **Environment Canada**, select **Get forecasts**.
 7. In the **Response variable** field, enter a name to store the data in, such as `forecasts`.
 8. Select **Save**.
 

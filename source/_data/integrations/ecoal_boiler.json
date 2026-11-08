@@ -1,0 +1,13 @@
+{
+  "domain": "ecoal_boiler",
+  "name": "eSterownik eCoal.pl Boiler",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "sensor",
+    "switch"
+  ]
+}

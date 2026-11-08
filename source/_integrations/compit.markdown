@@ -1,26 +1,7 @@
 ---
-title: Compit
 description: Instructions on how to integrate Compit devices within Home Assistant.
-ha_category:
-  - Climate
-  - Water Heater
 ha_release: '2025.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Przemko92'
 ha_domain: compit
-ha_platforms:
-  - binary_sensor
-  - climate
-  - fan
-  - number
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Compit** {% term integration %} allows you to integrate air conditioning, ventilation, and heating controllers with Home Assistant. You need a Compit iNext account, which you can set up at [inext.compit.pl](https://inext.compit.pl).

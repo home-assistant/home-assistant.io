@@ -1,0 +1,18 @@
+{
+  "domain": "statistics",
+  "name": "Statistics",
+  "integration_type": "helper",
+  "codeowners": [
+    "@ThomDietrich",
+    "@gjohansson-ST"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

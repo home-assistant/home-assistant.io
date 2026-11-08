@@ -1,18 +1,7 @@
 ---
-title: Epion
 description: Instructions on how to integrate Epion Air CO2 sensors with Home Assistant
-ha_category:
-  - Environment
-  - Sensor
 ha_release: '2024.2'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@lhgravendeel'
-ha_config_flow: true
 ha_domain: epion
-ha_platforms:
-  - sensor
-ha_integration_type: hub
 ---
 
 Integrates Epion Air sensors into Home Assistant.

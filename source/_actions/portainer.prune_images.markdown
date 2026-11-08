@@ -8,7 +8,7 @@ related_actions:
   - portainer.recreate_container
 ---
 
-The **Prune unused images** action removes unused images from a Portainer endpoint to free up disk space. You can limit the cleanup to images that have been unused for at least a certain time, or to dangling images only.
+The **Portainer: Prune unused images** action removes unused images from a Portainer endpoint to free up disk space. You can limit the cleanup to images that have been unused for at least a certain time, or to dangling images only.
 
 Only administrators can run this action.
 
@@ -81,7 +81,10 @@ dangling:
 
 This automation prunes images that have been unused for more than a week, keeping the Docker host tidy without removing images you still rely on.
 
-- **Trigger**: A scheduled time
+- **Trigger**: Time
+  - **At time**: `03:00`
+- **Condition**: Time
+  - **Days of the week**: Sunday
 - **Action**: Portainer: Prune unused images
 
 {% details "YAML example for weekly image cleanup" %}

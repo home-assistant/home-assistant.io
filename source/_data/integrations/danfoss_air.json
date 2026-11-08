@@ -1,0 +1,14 @@
+{
+  "domain": "danfoss_air",
+  "name": "Danfoss Air",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor",
+    "switch"
+  ]
+}

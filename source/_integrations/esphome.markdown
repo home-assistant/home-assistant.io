@@ -1,52 +1,8 @@
 ---
-title: ESPHome
 description: Support for ESPHome devices using the native ESPHome API.
 featured: true
-ha_category:
-  - Alarm
-  - DIY
-  - Infrared
-  - Radio frequency
-  - Serial
-  - Update
 ha_release: 0.85
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@jesserockz'
-  - '@kbx81'
-  - '@bdraco'
-  - '@arturpragacz'
 ha_domain: esphome
-ha_zeroconf: true
-ha_platforms:
-  - alarm_control_panel
-  - assist_satellite
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - date
-  - datetime
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-  - text
-  - time
-  - update
-  - valve
-  - water_heater
-ha_integration_type: device
-ha_dhcp: true
-ha_quality_scale: platinum
 ---
 
 ## Overview
@@ -121,7 +77,7 @@ An ESPHome device can provide capabilities to the following integrations:
 
 - **Bluetooth** integration: extends the range of Home Assistant, so that it can see and connect to Bluetooth devices all over your home. For more details, refer to the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) integration.
 - **Infrared** integration: sends commands to infrared-controlled devices, such as TVs and air conditioners, and receives signals from handheld remotes. For more details, refer to the [Infrared](/integrations/infrared/) integration.
-- **Radio frequency** integration: sends commands to devices that use sub-GHz radio frequencies, such as remote outlets and string lights. For more details, refer to the [Radio frequency](/integrations/radio_frequency/) integration.
+- **Radio frequency** integration: sends commands to devices that use sub-GHz radio frequencies, such as remote outlets and string lights, and receives signals from devices such as handheld remotes and sensors. For more details, refer to the [Radio frequency](/integrations/radio_frequency/) integration.
 - **Serial** integration: shares one of the serial ports of the ESPHome device over your network, so that integrations can reach a serial-connected device such as an AV receiver or an energy meter. For more details, refer to the [Serial](/integrations/serial/) integration.
 
 Once you add the ESPHome device to Home Assistant, its proxy capabilities become available to the related integrations. You still need to configure the integration that uses the capability, such as selecting the shared serial port.

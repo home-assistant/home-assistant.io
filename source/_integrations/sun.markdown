@@ -1,19 +1,7 @@
 ---
-title: Sun
 description: Instructions on how to track the sun within Home Assistant.
-ha_category:
-  - Environment
 ha_release: pre 0.7
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_iot_class: Calculated
 ha_domain: sun
-ha_config_flow: true
-ha_integration_type: service
-ha_platforms:
-  - binary_sensor
-  - sensor
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -29,7 +17,7 @@ automations as
 [a condition with an optional offset to test if the sun has already set or risen][sun_condition].
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
-[sun_condition]: /docs/scripts/conditions/#sun-condition
+[sun_condition]: /conditions/sun/
 
 ## Configured by default
 
@@ -62,30 +50,37 @@ sun:
 
 Home Assistant provides a set of dedicated sun triggers for sunrise, sunset, dawn, dusk, solar noon, solar midnight, golden hour, blue hour, midnight sun, polar night, and the sun's elevation. See the [list of triggers](#list-of-triggers) below for the full set.
 
-The classic `sun` trigger described here is still supported.
+For example, to run an automation at sunrise, use the [Sunrise](/triggers/sun.sunrise/) trigger. In the automation editor, add a trigger and search for **Sunrise**. To run it before or after sunrise, set an **Offset**, and choose **Before** or **After** under **Offset type**.
 
-The sun's event listener performs the action when the sun rises or sets, with an optional offset.
+In YAML, the Sunrise trigger looks like this:
 
-The sun trigger needs the trigger type `sun`, an event (`sunset` or `sunrise`), and an optional offset:
+```yaml
+triggers:
+  - trigger: sun.sunrise
+```
+
+### Classic sun trigger
+
+The classic `sun` trigger is still supported. It reacts when the sun rises or sets, with an optional offset. The dedicated triggers offer more sun events, such as dawn, dusk, and golden hour, and let you set the offset as **Before** or **After** in the UI.
+
+The classic sun trigger needs the trigger type `sun` and an event (`sunset` or `sunrise`):
 
 ```yaml
 triggers:
   - trigger: sun
     event: sunrise
-    # Fire one hour before sunrise.
-    offset: "-01:00:00"
 ```
 
 The following keys are available:
 
 - **`event`**: Required. Either `sunrise` or `sunset`.
-- **`offset`**: Optional. A time offset relative to the sun event, specified as a number of seconds or in `HH:MM:SS` format. A negative value fires the trigger _before_ the sun event, a positive value fires it _after_.
+- **`offset`**: Optional. A time offset relative to the sun event, specified as a number of seconds or in `HH:MM:SS` format. A negative value makes the trigger react _before_ the sun event, a positive value makes it react _after_.
 
 For example, if sunrise is at 06:00 and you set `offset: "-01:00:00"`, the automation runs at 05:00. With `offset: "01:00:00"`, it runs at 07:00. The same rule applies to sunset.
 
 {% tip %}
 
-Because the duration of twilight varies throughout the year, a fixed offset is not always the best way to trigger automations around dawn or dusk. For more precise dawn or dusk automations, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger instead.
+Because the duration of twilight varies throughout the year, a fixed offset is not always the best way to trigger automations around dawn or dusk. For more precise dawn or dusk automations, use the [Dawn](/triggers/sun.dawn/) or [Dusk](/triggers/sun.dusk/) trigger, where you can choose the **Twilight type**. To react at a specific angle of the sun, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger.
 
 {% endtip %}
 

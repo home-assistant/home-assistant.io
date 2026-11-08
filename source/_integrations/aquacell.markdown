@@ -1,17 +1,7 @@
 ---
-title: AquaCell
 description: Instructions on how to integrate AquaCell with Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 2024.7
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Jordi1990'
 ha_domain: aquacell
-ha_platforms:
-  - sensor
-ha_integration_type: device
 ---
 
 AquaCell is a water-softening device made by [Culligan](https://culliganinternational.com). The [AquaCell](https://www.aquacell-waterontharder.nl/) {% term integration %} allows you to monitor your AquaCell device in Home Assistant.

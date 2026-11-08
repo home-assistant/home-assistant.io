@@ -72,7 +72,8 @@ cycle:
 
 Move a select entity to its previous option each time you press a button.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Previous scene helper
 - **Action**: Select previous option
   - **Target**: Light scene preset
 

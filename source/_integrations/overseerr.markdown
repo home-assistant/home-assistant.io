@@ -1,24 +1,7 @@
 ---
-title: Seerr
 description: Instructions on how to set up Seerr with Home Assistant.
-ha_category:
-  - Event
-  - Multimedia
-  - Sensor
 ha_release: 2025.2
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@joostlek'
-  - '@AmGarera'
-  - '@felixschndr'
 ha_domain: overseerr
-ha_integration_type: service
-ha_platforms:
-  - diagnostics
-  - event
-  - sensor
-ha_quality_scale: platinum
 ---
 
 Seerr is a service that allows you to manage media requests and to integrate these media requests with Plex, Jellyfin, Radarr, and Sonarr. The **Seerr** {% term integration %} allows you to integrate your [Seerr](https://seerr.dev/) instance. The integration is backward compatible with [Overseerr](https://github.com/sct/overseerr).

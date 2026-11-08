@@ -1,0 +1,17 @@
+{
+  "domain": "adax",
+  "name": "Adax",
+  "codeowners": [
+    "@danielhiversen",
+    "@lazytarget"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate",
+    "sensor"
+  ]
+}

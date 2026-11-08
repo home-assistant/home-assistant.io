@@ -9,7 +9,7 @@ related_triggers:
 
 The **Door closed** trigger fires when a targeted door changes to closed. Use it when you want an automation to run only after a door is shut, like locking up, turning lights off, or resuming another routine.
 
-This trigger is especially useful for routines that should wait for a clear end state, such as a garage door finishing its close cycle or a back door being fully shut before you lock it.
+This trigger is especially useful for routines that should wait for a clear end state, such as a motorized door finishing its close cycle or a back door being fully shut before you lock it.
 
 {% include triggers/ui_header.md %}
 
@@ -19,7 +19,7 @@ To use this trigger in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. From the search box, search for and select **Door closed**.
-5. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your door is in, like your entryway or garage. You can also select a floor, a device, a specific entity, or a label.
+5. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your door is in, like your entryway or hallway. You can also select a floor, a device, a specific entity, or a label.
 6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All**.
 7. Under **For at least**, enter how long the door must stay closed before the trigger fires. Leave it at zero to fire right away.
 8. Select **Save**.
@@ -50,8 +50,6 @@ This fires when `binary_sensor.back_door` closes.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -62,19 +60,20 @@ behavior:
 for:
   description: >
     How long the door must stay closed before the trigger fires.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="door sensor or motorized door" example="binary_sensor.front_door" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
 - Use a door contact sensor or door cover that uses the door device class.
+- Garage doors have their own trigger. To react when a garage door closes, use [Garage door closed](/triggers/garage_door.closed/).
 - If an entity comes back from **Unavailable** or **Unknown**, that recovery does not count as the door closing.
 - The **For at least** option only fires the automation if the door stays closed for the entire time you set.
 
@@ -89,7 +88,7 @@ This automation waits until the back door has stayed closed for 30 seconds, then
 - **Trigger**: Door closed
 - **Target**: Back door sensor
 - **For at least**: 00:00:30
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking the back door after it closes" %}
 
@@ -110,12 +109,12 @@ automation: |
 
 {% enddetails %}
 
-### Automation: turn off the hallway light after the garage door closes
+### Automation: turn off the hallway light after the front door closes
 
-If you turn on a nearby hallway light while bringing things in from the car, there is no reason to leave it on once the garage is shut again. This automation turns the light off after the garage door has stayed closed for a minute.
+If you turn on a nearby hallway light while bringing things in through the front door, there is no reason to leave it on once the door is shut again. This automation turns the light off after the front door has stayed closed for a minute.
 
 - **Trigger**: Door closed
-- **Target**: Garage door
+- **Target**: Front door
 - **For at least**: 00:01:00
 - **Action**: Turn off light
 
@@ -123,11 +122,11 @@ If you turn on a nearby hallway light while bringing things in from the car, the
 
 {% example %}
 automation: |
-  alias: "Turn off hallway light after garage door closes"
+  alias: "Turn off hallway light after front door closes"
   triggers:
     - trigger: door.closed
       target:
-        entity_id: cover.garage_door
+        entity_id: binary_sensor.front_door
       options:
         for: "00:01:00"
   actions:

@@ -1,26 +1,7 @@
 ---
-title: Telldus Live
 description: Instructions on how to integrate Telldus Live into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Hub
-  - Light
-  - Sensor
-  - Switch
 ha_release: 0.11
-ha_config_flow: true
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fredrike'
 ha_domain: tellduslive
-ha_platforms:
-  - binary_sensor
-  - cover
-  - light
-  - sensor
-  - switch
-ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file

@@ -1,18 +1,7 @@
 ---
-title: File size
 description: Integration for monitoring the size of a file.
-ha_category:
-  - Sensor
-  - Utility
-ha_iot_class: Local Polling
 ha_release: 0.64
 ha_domain: filesize
-ha_platforms:
-  - sensor
-ha_codeowners:
-  - '@gjohansson-ST'
-ha_config_flow: true
-ha_integration_type: integration
 ---
 
 The **File size** {% term integration %} is for displaying the size in MB of a file.

@@ -1,25 +1,7 @@
 ---
-title: Nibe Heat Pump
 description: Instructions on how to integrate a Nibe Heat Pump into Home Assistant.
-ha_category:
-  - Climate
-  - Modbus-controlled
 ha_release: '2022.10'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@elupus'
 ha_domain: nibe_heatpump
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - number
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: device
 ---
 
 The **Nibe Heat Pump** {% term integration %} allows you to control and monitor [Nibe Heat Pumps](https://www.nibe.eu/en-eu/products/heat-pumps) in Home Assistant.

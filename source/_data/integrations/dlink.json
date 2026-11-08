@@ -1,0 +1,19 @@
+{
+  "domain": "dlink",
+  "name": "D-Link Wi-Fi Smart Plugs",
+  "integration_type": "device",
+  "codeowners": [
+    "@tkdrob"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "plugs_switches"
+  ],
+  "platforms": [
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

@@ -51,6 +51,12 @@ User accounts come in two levels of access:
 
 You set whether a user is an administrator with the **Administrator** toggle when you create or edit their account.
 
+### Username format
+
+Usernames must be lowercase and can't start or end with a space. We recommend not using spaces at all. When someone signs in, Home Assistant ignores uppercase and lowercase letters, and spaces before or after the username.
+
+Some older usernames still contain uppercase letters or start or end with a space. Those keep working unless two usernames differ only in uppercase and lowercase letters, or in spaces before or after them. In that case, only one of these users can sign in. For example, `Bob` and `bob` match the same login.
+
 ## About your account profile
 
 Once you're signed in, you can manage your personal settings on the {% my profile title="**User profile**" %} page. To open it, select your name at the very bottom of the sidebar.
@@ -146,8 +152,7 @@ The username is the name that is used to log in. It can differ from the display 
 2. Select the person whose username you want to change.
 3. Next to the username, select {% icon "mdi:pencil" %} **Edit**.
 4. In the **Change username** dialog, enter the **New username** and select **Change**.
-   - The username must be lowercase and must not contain spaces.
-   - Signing in is case-sensitive.
+   - The username must be lowercase and can't start or end with a space. For details, refer to [Username format](#username-format).
 
 ## Changing authentication settings
 

@@ -7,7 +7,7 @@ related_actions:
   - xiaomi_miio.light_set_delayed_turn_off
 ---
 
-The **Light set scene** action activates one of the fixed scenes built into a Xiaomi Philips light.
+The **Xiaomi Home: Light set scene** action activates one of the fixed scenes built into a Xiaomi Philips light.
 
 {% include actions/ui_header.md %}
 

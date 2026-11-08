@@ -1,20 +1,7 @@
 ---
-title: LiteLLM
 description: Instructions on how to integrate a LiteLLM proxy as a conversation agent and speech-to-text service in Home Assistant
-ha_category:
-  - AI
-  - Speech-to-text
 ha_release: 2026.8
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@luismalves'
 ha_domain: litellm
-ha_integration_type: service
-ha_platforms:
-  - conversation
-  - stt
-ha_quality_scale: bronze
 ---
 
 The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use a LiteLLM proxy as a conversation agent or [speech-to-text](/integrations/stt/) service in Home Assistant.
@@ -53,8 +40,8 @@ Model:
    description: "The model to use for the conversation agent. The list is discovered from your LiteLLM proxy."
 Instructions:
    description: "Instruct how the LLM should respond. This field supports [templates](/docs/configuration/templating/)."
-Control Home Assistant:
-   description: "Select which tools the agent can use to interact with your devices and entities. Leave empty if you do not want the agent to control Home Assistant."
+AI tools:
+   description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices. Leave it empty if you do not want the agent to control Home Assistant."
 {% endconfiguration_basic %}
 
 To change the model, instructions, or tools later, select the conversation agent and choose **Reconfigure conversation agent**.
@@ -86,7 +73,7 @@ To change these settings later, select the speech-to-text service and choose **R
 
 For each conversation agent you add, you can use it in [Assist](/voice_control/) like any other conversation agent. Speech-to-text entities can be selected in an [Assist pipeline](/integrations/assist_pipeline/).
 
-When you grant the agent control of Home Assistant, it can call the configured tools to interact with your devices and entities. To choose which devices and entities the agent can access, see [exposing entities to Assist](/voice_control/voice_remote_expose_devices/).
+When you select tools in **AI tools**, the agent can call them to interact with your devices and entities. To choose which devices and entities **Device control** can access, see [exposing entities to Assist](/voice_control/voice_remote_expose_devices/).
 
 ## Removing the integration
 

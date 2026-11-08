@@ -1,24 +1,7 @@
 ---
-title: Google Gemini
 description: Instructions on how to integrate Google Gemini as a conversation agent
-ha_category:
-  - AI
-  - Speech-to-text
-  - Text-to-speech
-  - Voice
 ha_release: 2023.6
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@tronikos'
-  - '@ivanlh'
 ha_domain: google_generative_ai_conversation
-ha_integration_type: service
-ha_platforms:
-  - conversation
-  - diagnostics
-  - stt
-  - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -32,9 +15,9 @@ related:
 
 The **Google Gemini** {% term integration %} adds a conversation agent, speech-to-text, and text-to-speech entities powered by [Google Gemini](https://ai.google.dev/) to Home Assistant. The conversation agent can optionally be allowed to control Home Assistant.
 
-Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 This integration requires an API key to use, [which you can generate here](https://aistudio.google.com/app/apikey), and to be in one of the [available regions](https://ai.google.dev/gemini-api/docs/available-regions).
 
@@ -54,8 +37,8 @@ Comparison of the plans is available [at this pricing page](https://ai.google.de
 {% configuration_basic %}
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
-Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+AI tools:
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices."
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
 {% endconfiguration_basic %}
@@ -66,22 +49,26 @@ If you choose to not use the recommended settings, you can configure the followi
 Model:
   description: Model used to generate response.
 Temperature:
-  description: Creativity allowed in the responses. Higher values produce a more random and varied response. A temperature of zero will be deterministic.
+  description: Creativity allowed in the responses for models that support custom sampling. Higher values produce a more random and varied response.
 Top P:
-  description: Probability threshold for top-p sampling.
+  description: Probability threshold for top-p sampling. This setting applies only to models that support custom sampling.
 Top K:
-  description: Number of top-scored tokens to consider during generation.
+  description: Number of top-scored tokens to consider during generation. This setting applies only to models that support custom sampling.
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate.
 Thinking budget:
   description: The token budget for internal reasoning before the model generates a response (Gemini 2.5 models only). Set this to `-1` to let the model decide automatically, `0` to disable reasoning (not available for Gemini 2.5 Pro), or a positive number for a custom budget.
 Thinking level:
-  description: The level of internal reasoning for Gemini 3 models. For Gemini Flash series models, you can choose **Minimal**, **Auto**, **Low**, **Medium**, or **High**. For Gemini 3.1 Pro, you can choose **Auto**, **Low**, **Medium**, or **High**. This setting is ignored for Gemini 2.5 models, which use the thinking budget instead.
+  description: The level of internal reasoning for Gemini 3 and later text models, including the latest text aliases. You can select **Minimal**, **Auto**, **Low**, **Medium**, or **High**. **Minimal** is unavailable on Pro models, the latest text aliases, and Gemini 3.6 and later models, except Gemini 3.6 Flash (not Flash-Lite). If your selected level is unsupported, the integration uses the model default and keeps your saved choice. For example, Gemini 3.8 uses the model default when you select **Minimal**. Gemini 2.5 models use the thinking budget instead.
 Safety settings:
   description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
 Enable Google Search tool:
-  description: Enables the model to [query Google Search](https://ai.google.dev/gemini-api/docs/grounding). This can only be enabled when the "Control Home Assistant" setting is set to "No control". See below for a workaround using it with "Assist".
+  description: Enables the model to [query Google Search](https://ai.google.dev/gemini-api/docs/grounding). This can only be enabled when nothing is selected in **AI tools**. See below for a workaround to use it with **Device control**.
 {% endconfiguration_basic %}
+
+Temperature, top-p, and top-k apply to Gemini models with numeric versions before 3.6, except Gemini 3.5 Flash-Lite and Gemini 3.5 Transcribe. They also apply to Gemini Robotics-ER 1.6 and non-Gemini models. For other Gemini models, including the latest text aliases, the integration omits these settings from requests and uses the model defaults. Your saved values remain available when you switch back to a model that supports custom sampling. An unrecognized older Gemini model may use its defaults instead of your saved values.
+
+For text-to-speech, the same model-specific behavior applies to temperature. Thinking settings apply to supported text models. Switching models keeps your saved settings, while selecting the recommended settings resets the configurable options.
 
 ## Google Search
 
@@ -92,7 +79,7 @@ But you can do the following workaround that exposes a script to voice assistant
 
 1. Add a second Google Gemini conversation agent.
 2. Select **Configure**
-3. In the **Control Home Assistant** section, uncheck **Device control** and any other options.
+3. In **AI tools**, uncheck **Device control** and any other options.
 4. Uncheck **Recommended model settings**
 5. Select **Submit**
 6. Check **Enable Google Search tool**

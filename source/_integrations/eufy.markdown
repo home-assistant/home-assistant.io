@@ -1,21 +1,10 @@
 ---
-title: EufyHome
 description: Instructions on how to integrate EufyHome devices into Home Assistant.
-ha_category:
-  - Hub
-  - Light
-  - Switch
 ha_release: 0.68
-ha_iot_class: Local Polling
 ha_domain: eufy
-ha_platforms:
-  - light
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **EufyHome** {% term integration %} is the main integration to integrate [eufy](https://eufy.com/) devices sold under the EufyHome product line with Home Assistant.

@@ -319,19 +319,19 @@ At least one of `after` or `before` must be used for this condition to be valid.
 
 ### Template
 
-Tests if a template renders `true`. This condition works the same way as the [Template condition](/docs/scripts/conditions/#template-condition) in automations and uses the same options.
+Tests if a template renders `true`. This condition works the same way as the [Template condition](/conditions/template/) in automations and uses the same options.
 
 ### Sun
 
-Tests the position of the sun, for example, whether it is after sunset. This condition works the same way as the [Sun conditions](/docs/scripts/conditions/#sun-conditions) in automations and uses the same options.
+Tests the position of the sun, for example, whether it is after sunset. This condition works the same way as the [Sun condition](/conditions/sun/) in automations and uses the same options.
 
 ### Zone
 
-Tests if a person or device tracker is in a zone. This condition works the same way as the [Zone conditions](/docs/scripts/conditions/#zone-conditions) in automations and uses the same options.
+Tests if a person or device tracker is in a zone. This condition works the same way as the [Zone condition](/conditions/zone/) in automations and uses the same options.
 
 ### Device
 
-Tests a condition that a device provides, for example, whether a light is on. This condition works the same way as the [Device conditions](/docs/scripts/conditions/#device-conditions) in automations. Set it up in the UI, because the options depend on the device.
+Tests a condition that a device provides, for example, whether a light is on. This condition works the same way as the [Device condition](/conditions/device/) in automations. Set it up in the UI, because the options depend on the device.
 
 ### And
 

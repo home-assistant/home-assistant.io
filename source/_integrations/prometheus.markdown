@@ -1,18 +1,10 @@
 ---
-title: Prometheus
 description: Record events in Prometheus.
-ha_category:
-  - History
 ha_release: 0.49
-ha_iot_class: Assumed State
 ha_domain: prometheus
-ha_codeowners:
-  - '@knyar'
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Prometheus** {% term integration %} exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
@@ -73,7 +65,7 @@ override_metric:
 component_config:
   type: string
   required: false
-  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Editing entity settings in YAML](/integrations/homeassistant/#editing-entity-settings-in-yaml) for format.
   keys:
     override_metric:
       type: string
@@ -82,7 +74,7 @@ component_config:
 component_config_domain:
   type: string
   required: false
-  description: This attribute contains domain-specific integration override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains domain-specific integration override values. See [Editing entity settings in YAML](/integrations/homeassistant/#editing-entity-settings-in-yaml) for format.
   keys:
     override_metric:
       type: string
@@ -91,7 +83,7 @@ component_config_domain:
 component_config_glob:
   type: string
   required: false
-  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Editing entity settings in YAML](/integrations/homeassistant/#editing-entity-settings-in-yaml) for format.
   keys:
     override_metric:
       type: string
@@ -167,7 +159,7 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
       - targets: ['HOSTNAME:8123']
 ```
 
-Replace `your.longlived.token` with a Home Assistant [generated token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
+Replace `your.longlived.token` with a Home Assistant [generated token](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens).
 
 The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
 

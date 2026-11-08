@@ -1,18 +1,7 @@
 ---
-title: Sonarr
 description: Instructions on how to integrate Sonarr with Home Assistant.
-ha_category:
-  - Downloading
 ha_release: 0.34
-ha_iot_class: Local Polling
 ha_domain: sonarr
-ha_config_flow: true
-ha_codeowners:
-  - '@ctalkington'
-ha_platforms:
-  - calendar
-  - sensor
-ha_integration_type: service
 ---
 
 The **Sonarr** {% term integration %} pulls data from a given [Sonarr](https://sonarr.tv/) instance.
@@ -35,7 +24,7 @@ A {% term calendar %} entity is created that shows your upcoming episodes. Each 
 The Sonarr integration will add the following sensors:
 
 - **Upcoming**: The number of upcoming episodes.
-- **Commands**: The number of commands being run. (disabled by default)
+- **Commands**: The number of commands being run. ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - **Disk space**: Available disk space in gigabytes. (disabled by default)
 - **Queue**: The number of episodes in the download queue. (disabled by default)
 - **Shows**: The number of series in Sonarr. (disabled by default)

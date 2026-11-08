@@ -1,15 +1,7 @@
 ---
-title: Transport NSW
 description: Instructions on how to integrate timetable data for Transport NSW (Australia) within Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: 0.81
 ha_domain: transport_nsw
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **Transport NSW** {% term integration %} will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.

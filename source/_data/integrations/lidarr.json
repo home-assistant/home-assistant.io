@@ -1,0 +1,16 @@
+{
+  "domain": "lidarr",
+  "name": "Lidarr",
+  "integration_type": "service",
+  "codeowners": [
+    "@tkdrob"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.music_radio_services"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "domain": "unifi_discovery",
+  "name": "UniFi Discovery",
+  "integration_type": "system",
+  "codeowners": [
+    "@RaHehl"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "internal",
+  "discovery": [
+    "dhcp",
+    "ssdp"
+  ]
+}

@@ -7,36 +7,28 @@ related_triggers:
   - air_quality.voc_ratio_changed
 ---
 
-The **Volatile organic compounds ratio crossed threshold** trigger fires when the <abbr title="volatile organic compounds">VOC</abbr> ratio reading on one or more air quality sensors crosses a specific level. While the VOC level measures an absolute concentration, the VOC ratio expresses the reading as a proportion of a reference baseline, making it easier to spot relative changes. Some sensors report this as a percentage or index value.
+The **Volatile organic compounds ratio crossed threshold** trigger fires when the <abbr title="volatile organic compounds">VOC</abbr> ratio reading on one or more air quality sensors crosses a specific level. While the VOC level measures the mass of VOCs in the air, in μg/m³, the VOC ratio measures their share of the air, in parts per billion (ppb) or parts per million (ppm).
 
 Picture your kitchen extractor fan turning on the instant cooking fumes push the VOC ratio past its normal baseline, clearing the air before odors spread through the house. Or getting an alert on your phone when cleaning products cause a spike so you know to open a window. This trigger reacts to relative shifts in air quality, which is ideal for catching sudden changes even when absolute readings vary from sensor to sensor.
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-5. From the triggers shown for that target, select **Volatile organic compounds ratio crossed threshold**.
-6. Under **Threshold type**, set the VOC ratio the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how multiple targets interact.
-8. Under **For at least**, set how long the reading must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
-9. Select **Save**.
+{% include triggers/threshold_crossed_steps.md
+   title="Volatile organic compounds ratio crossed threshold"
+   sensor="VOC ratio sensor"
+   areas="kitchen or living room"
+   unit_phrase_ui="a fixed level"
+   has_unit="true"
+   unit_label="ratio unit"
+   unit_options="ppb or ppm" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: The VOC ratio the reading has to cross for the trigger to fire. You must enter a fixed number, or reference a helper entity that provides the value.
-Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
-  required: false
-  default: Each
-For at least:
-  description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
-{% endoptions_ui %}
+{% include triggers/threshold_crossed_options_ui.md
+   unit_phrase_ui="a fixed level"
+   has_unit="true"
+   unit_label="ratio unit"
+   unit_options_code="`ppb` or `ppm`" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -48,45 +40,36 @@ trigger: |
   target:
     entity_id: sensor.kitchen_voc_ratio
   options:
-    threshold: 50
-    behavior: each
+    threshold:
+      type: above
+      value:
+        number: 150
+        unit_of_measurement: "ppb"
 {% endexample %}
 
-This fires whenever the kitchen VOC ratio sensor crosses 50 in either direction.
+This fires when the kitchen VOC ratio sensor reading rises above 150 ppb.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+{% include triggers/threshold_crossed_options_yaml.md
+   unit_phrase_yaml="literal number"
+   has_unit="true"
+   unit_label="ratio unit"
+   unit_options_code="`ppb` or `ppm`"
+   unit_default="ppb"
+   unit_example_entity="input_number.voc_ratio_alert_level"
+   unit_example_value="60"
+   entity_unit_note="When using the `entity` key, Home Assistant converts the value from the entity's unit: `ppb`, `ppm`, or `%`. An entity without a unit is read as a plain ratio, so 150 ppb is `0.00000015`." %}
 
-{% options_yaml %}
-threshold:
-  description: >
-    The VOC ratio the reading has to cross for the trigger to fire. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
-  type: any
-behavior:
-  description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: false
-  type: string
-  default: each
-for:
-  description: >
-    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
-  required: true
-  type: string
-  default: "00:00:00"
-{% endoptions_yaml %}
-
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="volatile organic compounds ratio sensor" example="sensor.living_room_voc_ratio" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
-- The trigger fires on any crossing, up or down. If you only want one direction, add a condition that checks whether the current VOC ratio is above or below your threshold.
+- The threshold type sets the direction. With **Above**, the trigger fires when the ratio rises above the threshold. With **Below**, it fires when the ratio drops below it.
 - The VOC ratio is different from the absolute VOC level. Check your sensor's documentation to understand what scale or baseline it uses.
-- Pair this trigger with [Volatile organic compounds ratio changed](/triggers/air_quality.voc_ratio_changed/) if you also want to track smaller fluctuations between crossings.
+- Pair this trigger with [Volatile organic compounds ratio changed](/triggers/air_quality.voc_ratio_changed/) if you want to react to every change of the ratio instead.
 
 {% include triggers/try_it.md %}
 
@@ -94,12 +77,12 @@ for:
 
 ### Automation: clear cooking fumes before they spread
 
-Frying and searing create a burst of fumes that quickly fills the kitchen. This automation turns on the extractor fan the moment the VOC ratio crosses 50, pulling cooking odors out before they drift into the rest of the house.
+Frying and searing create a burst of fumes that quickly fills the kitchen. This automation turns on the extractor fan the moment the VOC ratio rises above 150 ppb, pulling cooking odors out before they drift into the rest of the house.
 
 - **Trigger**: Volatile organic compounds ratio crossed threshold
-- **Target**: Kitchen VOC ratio sensor
-- **Threshold type**: 50
-- **Trigger when**: Each
+  - **Target**: Kitchen VOC ratio sensor
+  - **Threshold type**: Above 150 ppb
+  - **Trigger when**: Each
 - **Action**: Turn on fan (kitchen extractor)
 
 {% details "YAML example for VOC ratio kitchen extractor" %}
@@ -112,8 +95,11 @@ automation: |
       target:
         entity_id: sensor.kitchen_voc_ratio
       options:
-        threshold: 50
-        behavior: each
+        threshold:
+          type: above
+          value:
+            number: 150
+            unit_of_measurement: "ppb"
   actions:
     - action: fan.turn_on
       target:

@@ -1,15 +1,7 @@
 ---
-title: LoRaWAN
 description: Provide support for integrating LoRaWAN devices and backends into Home Assistant.
-ha_category:
-  - Network
 ha_release: 2026.11
-ha_iot_class: Local Push
-ha_quality_scale: internal
-ha_codeowners:
-  - '@balloob'
 ha_domain: lorawan
-ha_integration_type: service
 ---
 
 The **LoRaWAN** {% term integration %} connects <abbr title="Long Range Wide Area Network">LoRaWAN</abbr> connection integrations with device integrations in Home Assistant. Connection integrations provide connections to your LoRaWAN networks. Device integrations use those connections to expose supported devices and their entities.

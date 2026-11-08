@@ -1,18 +1,7 @@
 ---
-title: Hase iQ
 description: Instructions on how to read the state of a Hase iQ wood stove in Home Assistant.
-ha_category:
-  - Sensor
-ha_iot_class: Local Polling
 ha_release: 2026.11
-ha_codeowners:
-  - '@bbayszczak'
-ha_config_flow: true
 ha_domain: hase_iq
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Hase iQ** {% term integration %} lets you follow a HASE wood stove with the iQ combustion monitoring from Home Assistant: the combustion phase, the firebox temperature, the heat-up progress, and the combustion performance.

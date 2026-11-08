@@ -9,7 +9,7 @@ related_actions:
   - bang_olufsen.beolink_unexpand
 ---
 
-The **Beolink leave** action makes the target Bang & Olufsen device leave the [Beolink](https://support.bang-olufsen.com/hc/en-us/articles/4411572883089-What-is-Beolink-Multiroom) experience it is part of.
+The **Bang & Olufsen: Beolink leave** action makes the target Bang & Olufsen device leave the [Beolink](https://support.bang-olufsen.com/hc/en-us/articles/4411572883089-What-is-Beolink-Multiroom) experience it is part of.
 
 This is useful for taking a single device out of a multiroom group.
 
@@ -22,7 +22,7 @@ To leave a Beolink experience from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Bang & Olufsen device you want to control. You can also select an area, a device, or a label.
-6. From the actions shown for that target, select **Beolink leave**.
+6. From the actions shown for that target, under **Bang & Olufsen**, select **Beolink leave**.
 7. Select **Save**.
 
 This action has no additional options in the UI.

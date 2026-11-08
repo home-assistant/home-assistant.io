@@ -1,15 +1,7 @@
 ---
-title: Schedule
 description: Instructions on how to make a weekly schedule in Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_release: 2022.9
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: schedule
-ha_integration_type: helper
 ---
 
 The **Schedule** {% term integration %} lets you create a weekly schedule {% term entity %} in Home Assistant from time blocks with defined start and end times. The schedule is active when a time block starts and becomes inactive when it ends, so you can use it as a trigger or condition in automations and scripts.
@@ -155,6 +147,60 @@ A time block cannot cross midnight. To keep a schedule active across midnight, c
 2. Create a block from `00:00` to `05:00` on the following day.
 
 The schedule stays `on` across midnight when these blocks touch.
+
+## Copying a schedule
+
+To create a new schedule based on another one, read the time blocks of the existing schedule with the [**Get schedule**](/actions/schedule.get_schedule/) action and then use them to create the new one.
+
+1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
+2. Search for and select **Get schedule**.
+3. Make sure the **UI mode** is selected.
+4. Select **Add target** and then select the schedule you want to copy.
+5. Select **Perform action**.
+   - Result: Under **Response**, the time blocks of the schedule for each day of the week are listed, including any additional data.
+6. Create the new schedule in one of these ways:
+   - **In the UI**: Add the time blocks shown in the response to a new schedule helper.
+   - **In YAML**: Copy the time blocks of the response into a `schedule:` section in your {% term "`configuration.yaml`" %} file and then run the [**Reload schedules**](/actions/schedule.reload) action. For the steps on how to access and edit the YAML configuration file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configurationyaml).
+
+{% note %}
+Schedules created in YAML can't be edited in the UI. To edit them, change the YAML and reload the schedules.
+{% endnote %}
+
+### YAML example
+
+This example shows the response of `schedule.vacuum_robot` and the new schedule using that response. You can then change the time blocks of the new schedule as needed.
+
+```yaml
+schedule.vacuum_robot:
+  monday:
+    - from: "09:00:00"
+      to: "15:00:00"
+  tuesday: []
+  wednesday: []
+  thursday:
+    - from: "09:00:00"
+      to: "15:00:00"
+  friday: []
+  saturday: []
+  sunday: []
+```
+
+```yaml
+schedule:
+  vacuum_robot_weekend:
+    name: "Vacuum robot weekend"
+    monday:
+      - from: "09:00:00"
+        to: "15:00:00"
+    tuesday: []
+    wednesday: []
+    thursday:
+      - from: "09:00:00"
+        to: "15:00:00"
+    friday: []
+    saturday: []
+    sunday: []
+```
 
 {% include integrations/triggers.md %}
 

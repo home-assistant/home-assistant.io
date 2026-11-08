@@ -1,0 +1,19 @@
+{
+  "domain": "geniushub",
+  "name": "Genius Hub",
+  "codeowners": [
+    "@manzanotti"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "sensor",
+    "switch",
+    "water_heater"
+  ]
+}

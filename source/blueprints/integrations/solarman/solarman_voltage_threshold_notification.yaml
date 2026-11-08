@@ -1,0 +1,49 @@
+blueprint:
+  name: "Solarman voltage threshold notification"
+  description: >
+    Create a Home Assistant persistent notification when a Solarman voltage
+    sensor stays above your threshold for 5 minutes.
+  domain: automation
+  input:
+    voltage_sensor:
+      name: "Solarman voltage sensor (V)"
+      description: >
+        Select a voltage sensor whose unit is V. Sensors with other units will
+        not send a notification.
+      selector:
+        entity:
+          filter:
+            - integration: solarman
+              domain: sensor
+              device_class: voltage
+    threshold:
+      name: "Your threshold (V)"
+      selector:
+        number:
+          min: 0
+          max: 500
+          step: 1
+          unit_of_measurement: "V"
+          mode: box
+
+triggers:
+  - trigger: numeric_state
+    entity_id: !input voltage_sensor
+    above: !input threshold
+    for: "00:05:00"
+
+conditions:
+  - condition: template
+    value_template: >-
+      {{ state_attr(trigger.entity_id, 'unit_of_measurement') == 'V'
+         and is_number(states(trigger.entity_id))
+         and (states(trigger.entity_id) | float) > (trigger.above | float) }}
+
+actions:
+  - action: persistent_notification.create
+    data:
+      title: "Solarman voltage reminder"
+      message: >
+        {{ state_attr(trigger.entity_id, 'friendly_name') or trigger.entity_id }}:
+        {{ states(trigger.entity_id) }} V in Home Assistant, above your
+        {{ trigger.above }} V threshold for 5 minutes.

@@ -1,5 +1,5 @@
 ---
-title: "Publish an MQTT message"
+title: "Publish"
 action: mqtt.publish
 domain: mqtt
 description: "Publishes a message to an MQTT topic."
@@ -18,7 +18,7 @@ To publish a message from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Publish**.
+5. Search for and select **MQTT: Publish**.
 6. Enter the **Topic** to publish to.
 7. Optionally, enter the **Payload** to send. Under **Publish options**, you can also set the quality of service, the retain flag, and other options.
 8. Select **Save**.
@@ -109,8 +109,13 @@ message_expiry_interval:
 
 Send a command to a device over MQTT as soon as you arrive home.
 
-- **Trigger**: You arrive home
-- **Action**: Publish an MQTT message
+- **Trigger**: State changed
+  - **Entity**: Me person
+  - **To**: Home
+- **Action**: MQTT: Publish
+  - **Topic**: `homeassistant/light/porch/command`
+  - **Payload**: `ON`
+  - **Retain**: On
 
 {% details "Show example YAML" %}
 

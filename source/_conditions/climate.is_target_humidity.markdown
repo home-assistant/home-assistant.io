@@ -34,7 +34,7 @@ To use **Thermostat target humidity** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    Controls how the target humidity is compared and where the threshold value comes from. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a setpoint equal to either bound passes. Choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
+    Controls how the target humidity is compared and where the threshold value comes from. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** includes both bounds: a setpoint equal to either bound passes. **Outside range** excludes both bounds: a setpoint equal to either bound does not pass. Choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
 Condition passes if:
   description: When multiple thermostats are targeted, controls how results combine. Pick **Any** to pass if at least one targeted thermostat meets the threshold, or **All** to pass only when every targeted thermostat does. Default is **Any**.
 For at least:
@@ -78,11 +78,11 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The setpoint must be strictly above the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
     - `type: below` (exclusive): Sets a maximum. The setpoint must be strictly below the threshold to pass. Provide `value` with a `number` key (0–100) or an `entity` key.
-    - `type: between` (exclusive): Defines a range. The setpoint must be strictly between both bounds to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
-    - `type: outside` (inclusive): Defines an outside-range. The setpoint must be at or beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: between` (inclusive): Defines a range. The setpoint must be between the two bounds, or equal to one of them, to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: outside` (exclusive): Defines an outside-range. The setpoint must be beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
 
-    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
-  required: false
+    For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity. The entity must use `%` as its unit. If it has a different unit, or no unit, the condition doesn't pass.
+  required: true
   type: map
 behavior:
   description: >
@@ -92,9 +92,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the thermostat must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the thermostat must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -106,7 +106,7 @@ for:
 
 - The target thermostat must support target humidity and expose a target humidity attribute to Home Assistant.
 - This condition checks the thermostat's _target humidity_ setpoint, not the actual measured humidity in the room. To react to the measured humidity, use the [Relative humidity](/conditions/humidity.is_value/) condition instead.
-- Thermostats in the **Unavailable** or **Unknown** state are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="thermostats" %}
 - Target humidity is expressed as a percentage. The valid range depends on the device, but is typically between 30% and 70%.
 
 {% include conditions/try_it.md %}
@@ -115,11 +115,14 @@ for:
 
 ### Automation: turn on the dehumidifier when humidity setpoint is high
 
-When the bedroom thermostat's target humidity is set to 60% or above, turn on a standalone dehumidifier to help reach the target. This automation triggers when the thermostat's humidity setpoint changes.
+When the bedroom thermostat's target humidity is set above 60%, turn on a standalone dehumidifier to help reach the target. This automation triggers when the thermostat's humidity setpoint changes.
 
 - **Trigger**: State changed, for the `humidity` attribute of the bedroom thermostat
-- **Condition**: Target humidity is 60% or higher
-- **Action**: Turn on the dehumidifier
+- **Condition**: Thermostat target humidity
+  - **Target**: Bedroom thermostat
+  - **Threshold type**: Above `60` %
+- **Action**: Turn on switch
+  - **Target**: Dehumidifier
 
 {% example %}
 automation: |

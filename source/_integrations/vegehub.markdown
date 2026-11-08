@@ -1,19 +1,7 @@
 ---
-title: Vegetronix VegeHub
 description: Instructions on how to integrate a VegeHub device with Home Assistant.
-ha_category:
-  - Sensor
-  - Switch
-ha_config_flow: true
 ha_release: 2025.7
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@thulrus'
 ha_domain: vegehub
-ha_platforms:
-  - sensor
-  - switch
-ha_integration_type: hub
 related:
   - url: https://vegetronix.com/Products/ha/VG-HUB-RELAY/
     title: VegeHub product page
@@ -21,8 +9,6 @@ related:
     title: VegeHub Quick Start Guide
   - url: https://vegetronix.com/Products/VG-HUB-GEN2/Manual
     title: VegeHub Manual
-ha_quality_scale: bronze
-ha_zeroconf: true
 ---
 
 The **[Vegetronix VegeHub](https://vegetronix.com/Products/ha/VG-HUB-RELAY/)** is a compact, network-connected device designed for agricultural monitoring and control. It supports a variety of environmental sensors—including *soil moisture, soil temperature, light, and more*—making it suitable for use in gardening, landscaping, and precision agriculture. In addition to monitoring, the VegeHub can also control actuators such as *relays, pumps, or water valves*, enabling automation of irrigation and other systems. This {% term integration %} allows Home Assistant to receive real-time data from VegeHub devices and optionally control connected outputs.

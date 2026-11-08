@@ -40,7 +40,7 @@ To use **Thermostat target temperature** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The temperature level the thermostat setpoint has to meet for the condition to pass. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a setpoint equal to either bound passes. Choose **Number** to enter a fixed temperature value, or **Entity** to use a sensor or number helper as a dynamic threshold.
+    The temperature level the thermostat setpoint has to meet for the condition to pass. **Above** and **Below** are exclusive: a setpoint equal to the threshold does not pass. **In range** includes both bounds: a setpoint equal to either bound passes. **Outside range** excludes both bounds: a setpoint equal to either bound does not pass. Choose **Number** to enter a fixed temperature value, or **Entity** to use a sensor or number helper as a dynamic threshold.
 Unit:
   description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references).
   default: °C
@@ -115,8 +115,8 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The setpoint must be strictly above the threshold to pass.
     - `type: below` (exclusive): Sets a maximum. The setpoint must be strictly below the threshold to pass.
-    - `type: between` (exclusive): Defines a range. The setpoint must be strictly between both bounds to pass.
-    - `type: outside` (inclusive): Defines an outside-range. The setpoint must be at or beyond either bound to pass.
+    - `type: between` (inclusive): Defines a range. The setpoint must be between the two bounds, or equal to one of them, to pass.
+    - `type: outside` (exclusive): Defines an outside-range. The setpoint must be beyond either bound to pass.
 
     For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`. For example:
 
@@ -131,7 +131,7 @@ threshold:
         unit_of_measurement: °C
     ```
 
-    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated.
+    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated. Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the condition doesn't pass.
   required: true
   type: map
 behavior:
@@ -142,9 +142,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the thermostat must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the thermostat must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -158,7 +158,7 @@ for:
 - The target thermostat must expose a target temperature attribute to Home Assistant.
 - In **Heat/Cool** mode with dual setpoints, the target thermostat must expose a single target temperature attribute.
 - This condition checks the thermostat's _target temperature_ setpoint, not the actual measured temperature in the room. To react to the measured temperature, use the [Temperature value](/conditions/temperature.is_value/) condition instead.
-- Thermostats in the **Unavailable** or **Unknown** state are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="thermostats" %}
 - For thermostats in heat-cool mode that support dual setpoints, this condition checks the single target temperature attribute.
 
 {% include conditions/try_it.md %}
@@ -167,11 +167,14 @@ for:
 
 ### Automation: close window covers when heating setpoint is high
 
-When the living room thermostat's target temperature is set to 22°C or above, close the window covers to help retain heat. This automation triggers when the thermostat's temperature setpoint changes.
+When the living room thermostat's target temperature is set above 22°C, close the window covers to help retain heat. This automation triggers when the thermostat's temperature setpoint changes.
 
 - **Trigger**: State changed, for the `temperature` attribute of the living room thermostat
-- **Condition**: Target temperature is 22°C or higher
-- **Action**: Close the living room blinds
+- **Condition**: Thermostat target temperature
+  - **Target**: Living room thermostat
+  - **Threshold type**: Above `22`°C
+- **Action**: Close cover
+  - **Target**: Living room blinds
 
 {% example %}
 automation: |
@@ -201,8 +204,11 @@ automation: |
 When the bedroom thermostat's target temperature is set within the comfort range of 20-22°C, set the ceiling fan to low speed. This provides gentle air circulation without creating drafts.
 
 - **Trigger**: State changed, for the `temperature` attribute of the bedroom thermostat
-- **Condition**: Target temperature is between 20°C and 22°C
-- **Action**: Set ceiling fan to low speed
+- **Condition**: Thermostat target temperature
+  - **Threshold type**: In range, from `20`°C to `22`°C
+- **Action**: Set fan speed
+  - **Target**: Bedroom ceiling fan
+  - **Percentage**: `20` %
 
 {% example %}
 automation: |

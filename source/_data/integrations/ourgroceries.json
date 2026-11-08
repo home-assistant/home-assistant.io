@@ -1,0 +1,16 @@
+{
+  "domain": "ourgroceries",
+  "name": "OurGroceries",
+  "integration_type": "service",
+  "codeowners": [
+    "@OnFreund"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "productivity_information.shopping_groceries"
+  ],
+  "platforms": [
+    "todo"
+  ]
+}

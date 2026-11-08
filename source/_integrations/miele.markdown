@@ -1,37 +1,7 @@
 ---
-title: Miele
 description: Instructions on how to set up the Miele integration within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Hub
-  - Light
-  - Select
-  - Sensor
-  - Switch
-  - Vacuum
-ha_iot_class: Cloud Push
 ha_release: '2025.5'
 ha_domain: miele
-ha_codeowners:
-  - '@astrandb'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - light
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_integration_type: hub
-ha_zeroconf: true
-ha_quality_scale: platinum
 ---
 
 The **Miele** {% term integration %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
@@ -296,6 +266,6 @@ Unknown can also be displayed if the state is reported as unknown by the API, us
 
 ## Removing the integration
 
-This integration follows standard integration removal. If you have entered your own credentials, you will be asked if you want to keep them or delete them. If you want to delete them later you can do that from the tree-dot menu in {% my integrations title="**Settings** > **Devices & services**" %}.
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}

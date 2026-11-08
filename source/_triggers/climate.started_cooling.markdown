@@ -58,8 +58,6 @@ This fires every time `climate.living_room` begins actively cooling.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -73,9 +71,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the thermostat must stay in the cooling state before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has been cooling for 10 seconds, which helps avoid false triggers from brief cooling cycles.
+    How long the thermostat must stay in the cooling state before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has been cooling for 10 seconds, which helps avoid false triggers from brief cooling cycles. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
