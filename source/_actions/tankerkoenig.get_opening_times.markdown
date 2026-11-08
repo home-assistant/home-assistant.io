@@ -21,7 +21,8 @@ To get the opening times from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Tankerkoenig: Get opening times**.
 6. Select the `Status` binary sensor of each gas station as the target.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the opening times in, such as `opening_times`. You'll use this name to read the opening times in later steps.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -70,8 +71,8 @@ output: |
 
 ## Good to know
 
-- The opening times are read from Tankerkönig when the action is called. To stay within the API limits, they are reused for up to an hour.
-- If Tankerkönig can't be reached, the action fails with an error instead of returning outdated data.
+- To stay within the API limits, the opening times are fetched from Tankerkönig at most once an hour. Within that hour, the action returns the stored opening times without contacting Tankerkönig.
+- Once the stored opening times are older than an hour, the action fetches them again. If Tankerkönig can't be reached at that point, the action fails with an error instead of returning the older opening times.
 
 {% include actions/try_it.md %}
 
