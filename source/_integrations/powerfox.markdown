@@ -16,9 +16,10 @@ If you have a **PA 201901**, **PA 201902**, or **PB 202001** (poweropti+) and pr
 
 ## Use cases
 
-- Track electricity, gas, heat, and water consumption and costs in the [energy dashboard](/energy).
+- Track electricity, gas, and water consumption and costs in the [energy dashboard](/energy).
+- Monitor the energy and water use of your heating system with the heat meter sensors.
 - Get notified when power usage stays unusually high, so you can switch off large loads.
-- Use the returned energy sensor to run appliances when your solar panels produce more than you use.
+- Compare how much energy you return to the grid with how much you use over time.
 - Compare daily gas consumption and cost over time.
 
 ## Prerequisites
@@ -58,7 +59,9 @@ The integration uses {% term polling %} to fetch data from the Powerfox cloud at
 - Powerfox FLOW gas meters: every 5 minutes, because Powerfox publishes these values as hourly and daily report blocks.
 - The list of devices in your account: every 30 minutes.
 
-Devices you add to your Powerfox account appear in Home Assistant automatically after the next device list update. Devices you remove from your account are also removed from Home Assistant. The integration reloads when the list of devices changes.
+Devices you add to your Powerfox account appear in Home Assistant automatically after the next device list update. Devices you remove from your account are also removed from Home Assistant after the next successful device list update. The integration reloads when the list of devices changes.
+
+If you remove the last device from your account, Home Assistant keeps it, because Powerfox then reports no devices at all. You can delete it manually from its device page.
 
 ## Actions
 
@@ -149,7 +152,7 @@ The energy-based variants are [disabled by default](/docs/configuration/customiz
 
 - The integration requires an internet connection and the Powerfox cloud. For supported devices, the [Powerfox Local](/integrations/powerfox_local) integration works without the cloud.
 - Powerfox FLOW values are not real-time. They change when Powerfox publishes a new report block.
-- If one device in your account has no data yet, or its data is restricted by privacy settings, the integration keeps retrying to start. Sensors for your other devices are unavailable until the start succeeds.
+- Sensors of a device appear once Powerfox provides data for it. Until then, the device has no sensors in Home Assistant.
 - An account needs at least one device before you can set up the integration.
 
 ## Troubleshooting
@@ -175,7 +178,7 @@ The email address and password are correct, but no device is linked to this acco
 
 ### Symptom
 
-Sensors of a device are unavailable, and the logs show that its data is restricted due to privacy settings in the Powerfox app.
+Sensors of a device are missing or unavailable. The logs can show that its data is not available or is restricted due to privacy settings in the Powerfox app.
 
 #### Description
 
