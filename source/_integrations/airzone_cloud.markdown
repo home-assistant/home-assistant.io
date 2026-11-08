@@ -10,6 +10,14 @@ There are two main types of Airzone devices:
 - [Aidoo](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/wi-fi/) / [Aidoo Pro](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/pro/)
 - [Easyzone (US)](https://www.airzonecontrol.com/aa/en/control-solutions/easyzone/) / [Flexa (EU)](https://www.airzonecontrol.com/ib/es/soluciones-de-control/flexa/)
 
+## Airzone Cloud subscription
+
+Airzone Cloud now requires a paid subscription for remote API access. However, a subscription is not required when Home Assistant and the Airzone devices are connected to the same local network.
+
+In this case, the Airzone Cloud integration can continue to be used without a paid subscription, as API requests originating from the same network as the Airzone devices are considered local access.
+
+Note that this integration still communicates with the Airzone Cloud API, even when Home Assistant and the Airzone devices are on the same local network.
+
 ## Aidoo / Aidoo Pro
 
 These devices are Wi-Fi controllers that are normally connected to a single air conditioner split system.
