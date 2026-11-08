@@ -58,7 +58,7 @@ The integration {% term polling polls %} each unit every 60 seconds. After a com
 ## Known limitations
 
 - Status updates and commands depend on Mitsubishi's service and an internet connection.
-- The cloud does not report whether a unit is actively heating or cooling. The current HVAC action is only shown when the unit is off.
+- HVAC action reflects the latest cloud status: heating, cooling, or idle in **Heat/Cool** mode, as well as off and fan-only activity. Activity remains unknown in **Cool**, **Heat**, and **Dry** modes because the cloud does not confirm whether the compressor is running. After you select a mode, the reported activity changes when the next poll confirms it.
 - Rate limits can delay updates and commands.
 - Local control is never selected automatically, even if local credentials or an IP address become available.
 
