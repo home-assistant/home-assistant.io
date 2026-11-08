@@ -80,9 +80,10 @@ end_time:
   required: false
   type: string
 allow_truncation:
-  description: Truncate the returned history to the first 1,000 records per entity instead of raising an error when the limit is exceeded. Defaults to false.
+  description: Truncate the returned history to the first 1,000 records per entity instead of raising an error when the limit is exceeded.
   required: false
   type: boolean
+  default: false
 {% endoptions_yaml %}
 
 ## Response data
