@@ -29,7 +29,7 @@ To get history from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Recorder: Get Recorder history**.
+5. From the list of actions, search for and select **Get Recorder history**.
 6. Set the options you want to use.
 7. In **Response variable**, enter a variable name to store the result, for example `entity_history`.
 8. Select **Save**.
@@ -89,7 +89,7 @@ allow_truncation:
 
 ## Response data
 
-The action returns the history keyed by each entity ID requested. Each entity contains a list of state segments covering the requested time window:
+The action returns a nested `history` mapping containing only entities and time spans with available recorded history. Each entity contains a list of state segments:
 
 - `start`: The start timestamp of the state segment (ISO 8601 UTC).
 - `end`: The end timestamp of the state segment (ISO 8601 UTC).
@@ -114,11 +114,11 @@ history:
 
 ## Good to know
 
-- **Consecutive duplicate states**: Consecutive duplicate state values recorded across Home Assistant restarts or frequent sensor reports are merged into a continuous state span.
-- **Timestamp clamping**: If an entity had a state established before `start_time`, its `start` timestamp is clamped to `start_time` so all returned segments fit cleanly within the requested window.
-- **Limit and truncation**: Each entity is capped at 1,000 records. To prevent automations from silently acting on partial data, the action raises an error by default if the database query exceeds 1,000 recorded changes or more than 1,000 state segments are returned. When `allow_truncation: true` is set, results are truncated at the limit, which may cover only an earlier portion of the requested time window and result in fewer than 1,000 segments after duplicate states are merged.
-- **Attributes**: Only state values are returned; state attributes are not included.
-- **Statistics vs. state history**: To retrieve periodic aggregated statistics (such as min, max, mean, or sum) rather than raw state transitions, use the [`recorder.get_statistics`](/actions/recorder.get_statistics/) action instead.
+- Consecutive duplicate states: Consecutive duplicate state values recorded across Home Assistant restarts or frequent sensor reports are merged into a continuous state span.
+- Timestamp clamping: If an entity had a state established before `start_time`, its `start` timestamp is clamped to `start_time` so all returned segments fit cleanly within the requested window.
+- Limit and truncation: Each entity is capped at 1,000 records. To prevent automations from silently acting on partial data, the action raises an error by default if the database query exceeds 1,000 recorded changes or more than 1,000 state segments are returned. When `allow_truncation: true` is set, results are truncated at the limit, which may cover only an earlier portion of the requested time window and result in fewer than 1,000 segments after duplicate states are merged.
+- Attributes: Only state values are returned; state attributes are not included.
+- Statistics vs. state history: To retrieve periodic aggregated statistics (such as min, max, mean, or sum) rather than raw state transitions, use the [`recorder.get_statistics`](/actions/recorder.get_statistics/) action instead.
 
 {% include actions/stuck.md %}
 
