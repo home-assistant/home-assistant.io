@@ -105,7 +105,7 @@ The `climate.set_temperature` action always affects the current normal temperatu
 
 The ViCare integration maps the Home Assistant HVAC modes to Viessmann operation modes as follows:
 
-- `off`: maps to `Standby`, which switches off heating and domestic hot water.
+- `off`: maps to `Standby`, which switches off heating and domestic hot water. Devices without standby use `DHW` (hot water only) or `ForcedReduced` instead.
 - `heat`: maps to `ForcedNormal`, which permanently sets heating to the normal temperature.
 - `auto`: maps to `DHWandHeating`, which switches between the reduced and normal temperature based on the heating schedule programmed in your device.
 
