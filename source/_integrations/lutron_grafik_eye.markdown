@@ -36,7 +36,7 @@ Host:
 Port:
   description: "The Telnet port of the Ethernet interface (default: `23`)."
 Password:
-  description: "The password for the Ethernet interface (defaults: `nwk` for connection 1 and `nwk2` for connection 2)."
+  description: "The password for the Ethernet interface (default: `nwk` for connection 1 and `nwk2` for connection 2)."
 {% endconfiguration_basic %}
 
 ## Supported functionality
