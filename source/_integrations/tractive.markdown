@@ -6,7 +6,9 @@ ha_domain: tractive
 
 [Tractive](https://tractive.com/en/) is an Austrian company that develops real-time location trackers for pets and other animals using GPS and GSM technology.
 
-The Tractive integration allows you to monitor locations of your pets from within Home Assistant and set up automations based on the information.
+The **Tractive** {% term integration %} brings the location of your pets and the status of their Tractive trackers into Home Assistant. You can see where your pet is on a map and follow your pet's activity and sleep on your dashboards.
+
+Use cases: Get a notification when your dog leaves home and turn on live tracking to find it faster. Get reminded to charge the tracker before the battery runs out. Make the tracker beep or light up to find your cat in the dark. If your tracker provides health data, keep an eye on whether your pet reaches its daily activity goal.
 
 {% include integrations/config_flow.md %}
 
@@ -72,6 +74,87 @@ The **Activity time**, **Daily goal**, **Day sleep**, **Night sleep**, and **Res
 {% note %}
 The switches are unavailable while the tracker is in a power saving zone.
 {% endnote %}
+
+## Tractive automation examples
+
+The following examples show how to use your Tractive tracker in Home Assistant automations. They are starting points, and you can adapt them to create your own automations.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Notify when your pet leaves home
+
+This automation sends a notification to your mobile device when your pet leaves your home zone and turns on live tracking, so the tracker reports its location more often while you look for your pet. If you set up a power saving zone at home in the Tractive app, the **Live tracking** switch is unavailable until the tracker leaves that zone. Replace the entity IDs in the example with the entity IDs of your own Tractive tracker and mobile device.
+
+- **Trigger**: Zone left
+  - **Target**: Tracker ABCD1234 (`device_tracker.tracker_abcd1234`)
+  - **Zone**: Home (`zone.home`)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: `Your pet has left home. Live tracking is now on.`
+- **Action**: Turn on switch
+  - **Target**: Tracker ABCD1234 Live tracking (`switch.tracker_abcd1234_live_tracking`)
+
+{% details "YAML example for notifying when your pet leaves home" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the pet leaves home"
+  triggers:
+    - trigger: zone.left
+      target:
+        entity_id: device_tracker.tracker_abcd1234
+      options:
+        zone: zone.home
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Your pet has left home. Live tracking is now on."
+    - action: switch.turn_on
+      target:
+        entity_id: switch.tracker_abcd1234_live_tracking
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Remind you to charge the tracker
+
+This automation sends a notification to your mobile device when the battery level of the tracker drops below 20%, so you can charge it before it runs out. Replace the entity IDs in the example with the entity IDs of your own Tractive tracker and mobile device.
+
+- **Trigger**: Battery level crossed threshold
+  - **Target**: Tracker ABCD1234 Battery (`sensor.tracker_abcd1234_battery`)
+  - **Threshold type**: Below 20%
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: A message with the current battery level
+
+{% details "YAML example for reminding you to charge the tracker" %}
+
+{% example %}
+automation: |
+  alias: "Remind me to charge the pet tracker"
+  triggers:
+    - trigger: battery.level_crossed_threshold
+      target:
+        entity_id: sensor.tracker_abcd1234_battery
+      options:
+        threshold:
+          type: below
+          value:
+            number: 20
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          The pet tracker battery is at
+          {{ states('sensor.tracker_abcd1234_battery') }}%.
+          Time to charge it.
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
