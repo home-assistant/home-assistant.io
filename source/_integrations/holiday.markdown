@@ -46,7 +46,7 @@ Each entry of the **Holiday** integration creates a service {% term device %} wi
 ### Calendar
 
 - **Holiday calendar**
-  - **Description**: A read-only calendar with one all-day event for each holiday. The calendar is named after the country, and the region if you selected one, for example, `calendar.germany`. The event title is the name of the holiday, and the event location is the name of the calendar.
+  - **Description**: A read-only calendar with one all-day event for each holiday. The calendar is named after the country, and the region if you selected one, for example, `calendar.germany`. The event title is the name of the holiday, and the event location is the name of the calendar. If several holidays fall on the same date, they share one event, and the title lists all holiday names in alphabetical order, separated by a semicolon. For example, `Christmas Day; Some other holiday`.
   - **State**: **On** during a holiday, and **Off** on all other days.
   - **Attributes**: The attributes show the next upcoming holiday, such as its name (`message`), start and end time, and location.
 
@@ -54,17 +54,17 @@ A {% term calendar %} entity has a state and attributes that represent the next 
 
 ## Holiday automation examples
 
-Each holiday is a separate calendar event, so you can use a calendar trigger to start an automation when a holiday begins or ends. You can also use the calendar state in a condition to check whether today is a holiday. For an overview, refer to [calendar automations](/integrations/calendar#automation). You can use [calendar trigger variables](/docs/automation/trigger-data/#calendar-triggers), such as the event `summary` and `location`, in conditions and actions.
+Each holiday date is a calendar event, so you can use a calendar trigger to start an automation when a holiday begins or ends. Holidays on the same date share one event with a combined title, so check whether the title contains the holiday name instead of matching the full title. You can also use the calendar state in a condition to check whether today is a holiday. For an overview, refer to [calendar automations](/integrations/calendar#automation). You can use [calendar trigger variables](/docs/automation/trigger-data/#calendar-triggers), such as the event `summary` and `location`, in conditions and actions.
 
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: Turn on the Christmas lights on Christmas Day
 
-Turn on your festive lights when Christmas Day starts. The condition checks the name of the holiday, so the automation only runs on Christmas Day and not on other holidays. The holiday name must match the name shown on your calendar, which depends on your language.
+Turn on your festive lights when Christmas Day starts. The condition checks the name of the holiday, so the automation only runs on Christmas Day and not on other holidays. It also works when another holiday falls on the same date. The holiday name must match the name shown on your calendar, which depends on your language.
 
 - **Trigger**: Calendar event starts
   - **Target**: Germany (`calendar.germany`)
-- **Condition**: The event title is `Christmas Day`
+- **Condition**: The event title includes `Christmas Day`
 - **Action**: Turn on light
   - **Target**: Christmas lights (`light.christmas_lights`)
 
@@ -78,7 +78,7 @@ automation: |
       event: start
       entity_id: calendar.germany
   conditions:
-    - "{{ trigger.calendar_event.summary == 'Christmas Day' }}"
+    - "{{ 'Christmas Day' in trigger.calendar_event.summary.split('; ') }}"
   actions:
     - action: light.turn_on
       target:
@@ -124,9 +124,10 @@ The holiday data is included in the integration, so no data is fetched from the 
 
 - The calendar is read-only. You cannot add, change, or remove holidays.
 - All holidays are all-day events. Holidays from the **Half day** category also show as all-day events.
+- Holidays on the same date share one event. The event title combines the holiday names, separated by a semicolon.
 - The country of an existing entry cannot be changed. To show holidays for another country, add the integration again.
-- Holiday names use the language of your Home Assistant if the country supports it. Otherwise, they use the main language of the country. The language is set when the integration starts, so after you change the language of Home Assistant, reload the integration.
-- The name of the calendar is set in your Home Assistant language when you add the integration. It does not change when you change the language later.
+- Holiday names use the system language of Home Assistant, set under **Settings** > **System** > **General**, if the country supports it. Otherwise, they use the main language of the country. The language you select in your user profile is not used. The language is set when the integration starts, so after you change the system language, reload the integration.
+- The name of the calendar is set in the system language when you add the integration. It does not change when you change the language later.
 - The calendar only shows holidays, not regular workdays or weekends. To check whether a day is a workday, use the [Workday](/integrations/workday/) integration.
 
 ## Troubleshooting
@@ -187,12 +188,13 @@ The names of the holidays on the calendar are not in the language you use in Hom
 
 #### Description
 
-The holidays library does not have translations for every country. If your language is not available for the country, the names use the main language of that country. The language is also only set when the integration starts.
+The integration uses the system language of Home Assistant, not the language you select in your user profile. The holidays library also does not have translations for every country. If your language is not available for the country, the names use the main language of that country. The language is only set when the integration starts.
 
 #### Resolution
 
-1. If you recently changed the language of Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Holiday**, and reload the entry.
-2. If the names are still in another language, your language is not available for this country in the holidays library.
+1. Go to {% my general title="**Settings** > **System** > **General**" %} and check that **Language** is set to the language you want.
+2. If you changed the language, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Holiday**, and reload the entry.
+3. If the names are still in another language, your language is not available for this country in the holidays library.
 
 {% enddetails %}
 
