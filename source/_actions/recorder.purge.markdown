@@ -74,7 +74,7 @@ apply_filter:
 
 - Purging does not immediately reduce disk usage, but it significantly slows down further growth. To reclaim disk space, use the **Repack** option, keeping in mind it is a heavy operation.
 - To remove data for specific entities, domains, or patterns instead of a time-based cleanup, use the [Purge Recorder entities](/actions/recorder.purge_entities/) action.
-- The latest state of each entity that is still recorded is kept, even if it is older than the days you keep. A state that a newer state change links to is also kept until that change is purged. This way the [logbook](/integrations/logbook/) still shows changes of entities that rarely change. To remove all data of an entity, including its latest state, use the [Purge Recorder entities](/actions/recorder.purge_entities/) action.
+- The latest state of each entity that is still recorded is kept, even if it is older than the days you keep. A state that a newer state change links to is also kept until that change is purged. This way the [Activity](/integrations/logbook/) panel still shows changes of entities that rarely change. To remove all data of an entity, including its latest state, use the [Purge Recorder entities](/actions/recorder.purge_entities/) action.
 
 {% include actions/stuck.md %}
 
