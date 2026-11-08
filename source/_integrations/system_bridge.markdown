@@ -22,14 +22,14 @@ You will need your token. For instructions on finding your token, follow the ste
 
 This integration provides the following binary sensors:
 
-| Name                  | Description                          |
-| --------------------- | ------------------------------------ |
-| AC Power              | Whether the device is on AC power    |
-| Battery Is Charging   | Whether the battery is charging      |
-| Camera In Use         | Whether the camera/webcam is in use  |
-| Locked                | Whether the user's session is locked |
-| Pending Reboot        | Whether a reboot is pending          |
-| New Version Available | Whether a new version is available   |
+| Name                  | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| AC Power              | Whether the device is on AC power                |
+| Battery Is Charging   | Whether the battery is charging                  |
+| Camera In Use         | Whether the camera/webcam is in use              |
+| Session lock          | Whether the user's session is Locked or Unlocked |
+| Pending Reboot        | Whether a reboot is pending                      |
+| New Version Available | Whether a new version is available               |
 
 ## Sensors
 
