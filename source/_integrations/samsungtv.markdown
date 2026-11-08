@@ -44,6 +44,10 @@ The Samsung Smart TV integration provides the following entities and functionali
 - **Command sequences**: Execute multiple commands in sequence
 - **Extended key support**: Navigation, menu control, and specialized functions
 
+### Binary sensor
+
+The **Art mode** {% term "binary sensor" %} appears on the device page when Home Assistant connects to a compatible Samsung The Frame TV over WebSocket. The sensor shows **On** when Art Mode is active and **Off** when it is inactive. It shows **Unavailable** while the TV is in standby or when Home Assistant can't read the Art Mode status.
+
 ### Diagnostics
 
 - **Device diagnostics**: Troubleshooting information for device connectivity and status
