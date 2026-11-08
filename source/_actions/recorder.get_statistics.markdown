@@ -135,7 +135,7 @@ statistics:
 
 ## Good to know
 
-- Only entities that store {% term "Long-term statistics" %} return data. If an entity has no statistics, it is not included in the response.
+- Only entities that store {% term "Long-term statistics" %} return data. If an entity has no statistics, it is not included in the response. For other entities (or to retrieve raw state transitions), use [`recorder.get_history`](/actions/recorder.get_history/) instead.
 - The value types you set in **Types** decide which fields each period contains, on top of the start and end that are always present.
 
 {% include actions/stuck.md %}

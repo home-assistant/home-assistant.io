@@ -116,6 +116,7 @@ history:
 - **Timestamp clamping**: If an entity had a state established before `start_time`, its `start` timestamp is clamped to `start_time` so all returned segments fit cleanly within the requested window.
 - **Limit and truncation**: Each entity is capped at 1,000 state segments. If an entity exceeds 1,000 segments, the action raises an error by default to prevent automations from silently acting on incomplete data. Set `allow_truncation: true` if you want the first 1,000 segments returned anyway.
 - **Attributes**: Only state values are returned; state attributes are not included.
+- **Statistics vs. state history**: To retrieve periodic aggregated statistics (such as min, max, mean, or sum) rather than raw state transitions, use the [`recorder.get_statistics`](/actions/recorder.get_statistics/) action instead.
 
 {% include actions/stuck.md %}
 
