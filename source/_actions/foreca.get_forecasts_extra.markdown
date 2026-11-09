@@ -5,11 +5,11 @@ domain: foreca
 description: "Retrieves Foreca forecast values that the standard forecast has no place for, such as precipitation type, snow, solar radiation, sunshine, and sunrise."
 ---
 
-The **Foreca: Get extra forecast values** action returns forecast values that the standard [`weather.get_forecasts`](/integrations/weather#action-weatherget_forecasts) action has no field for, such as the precipitation type, snow accumulation and depth, solar radiation, sunshine duration, and sunrise and sunset times.
+The **Get extra forecast values** action returns forecast values that the standard [`weather.get_forecasts`](/actions/weather.get_forecasts/) action has no field for, such as the precipitation type, snow accumulation and depth, solar radiation, sunshine duration, and sunrise and sunset times.
 
 Use it, for example, to plan solar charging around the expected solar radiation, or to warn about snow on the roads before a morning commute.
 
-{% include actions/targets.md domain="weather" %}
+{% include actions/targets.md domain="weather" entity_type="Foreca weather entity" example="weather.home" %}
 
 {% include actions/ui_header.md %}
 
@@ -19,10 +19,11 @@ To get the extra forecast values from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Foreca: Get extra forecast values**.
-6. Select the Foreca weather entity as the target, then choose the **Forecast type**.
-7. In the **Response variable** field, enter a name to store the data in, such as `extra_forecast`.
-8. Select **Save**.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the Foreca weather entity you want to read. You can also select an area, a device, or a label.
+6. From the actions shown for that target, select **Get extra forecast values**.
+7. Select the **Forecast type** to retrieve.
+8. In the **Response variable** field, enter a name to store the data in, such as `extra_forecast`.
+9. Select **Save**.
 
 ### Options in the UI
 
@@ -58,7 +59,7 @@ type:
 
 ## Response data
 
-The response is a mapping of the targeted weather entities, each containing a `forecast` field. The `forecast` field is a list with one entry per hour or day, matching the entries of `weather.get_forecasts`. Values are in the weather entity's units.
+The response is a mapping of the targeted weather entities, each containing a `forecast` field. The `forecast` field is a list with one entry per hour or day, matching the entries of `weather.get_forecasts`. Values are in the weather entity's units. A value that the forecast doesn't include is `null`, so check for it before using the value in a calculation or a comparison.
 
 Each hourly entry includes:
 
