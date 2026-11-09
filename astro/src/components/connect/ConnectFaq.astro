@@ -13,7 +13,7 @@
 //
 // Answers are HTML, as the Jekyll pages' FAQ data is. An item can take
 // an optional `cta`, a button under its answer.
-import Button from "../../Button.astro";
+import Button from "../Button.astro";
 
 export interface FaqItem {
   question: string;
@@ -53,8 +53,8 @@ const { items } = Astro.props;
 </section>
 
 <style lang="scss">
-  @use "../../../styles/breakpoints";
-  @use "../../../styles/layout";
+  @use "../../styles/breakpoints";
+  @use "../../styles/layout";
 
   .connect-faq {
     background: var(--color-footer-surface);

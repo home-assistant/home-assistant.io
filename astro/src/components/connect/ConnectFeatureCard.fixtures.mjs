@@ -4,10 +4,10 @@
 // from 992px.
 //
 // Not a port of a Jekyll element, so there is no `liquid` source.
-import wholeHomeAudio from "../../../assets/connect/icons/whole-home-audio.svg";
-import advancedControl from "../../../assets/connect/icons/advanced-control.svg";
-import connectAnywhere from "../../../assets/connect/icons/connect-anywhere.svg";
-import bluetooth from "../../../assets/connect/icons/bluetooth.svg";
+import wholeHomeAudio from "../../assets/connect/icons/whole-home-audio.svg";
+import advancedControl from "../../assets/connect/icons/advanced-control.svg";
+import connectAnywhere from "../../assets/connect/icons/connect-anywhere.svg";
+import bluetooth from "../../assets/connect/icons/bluetooth.svg";
 
 const card = (icon, title, slot) => ({ props: { icon, title }, slot });
 

@@ -15,7 +15,7 @@
 //     Without the script, or with reduced motion, it is simply there.
 //   - The prices scale with the window (--font-size-display, 128px at
 //     its largest as in Figma).
-import Button from "../../Button.astro";
+import Button from "../Button.astro";
 
 interface Props {
   // Prices as shown, with their currency signs: "$69", "€59".
@@ -47,7 +47,7 @@ const { usd, eur, buyHref } = Astro.props;
 </section>
 
 <script>
-  import { reveal } from "../../../lib/motion";
+  import { reveal } from "../../lib/motion";
 
   // Fade the glow in when the price scrolls into view (styles:
   // .is-armed hides it, .is-revealed shows it).
@@ -57,8 +57,8 @@ const { usd, eur, buyHref } = Astro.props;
 </script>
 
 <style lang="scss">
-  @use "../../../styles/breakpoints";
-  @use "../../../styles/layout";
+  @use "../../styles/breakpoints";
+  @use "../../styles/layout";
 
   .connect-price {
     @include layout.container;

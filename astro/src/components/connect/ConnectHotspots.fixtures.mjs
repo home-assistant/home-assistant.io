@@ -4,11 +4,11 @@
 // rotate" fades to the back.
 //
 // Not a port of a Jekyll element, so there is no `liquid` source.
-import sideAudio from "../../../assets/connect/aux-2/aux-2-side-audio.webp";
-import sideBack from "../../../assets/connect/aux-2/aux-2-side-back.webp";
-import wholeHomeAudio from "../../../assets/connect/icons/whole-home-audio.svg";
-import serialPorts from "../../../assets/connect/icons/serial-ports.svg";
-import connectAnywhere from "../../../assets/connect/icons/connect-anywhere.svg";
+import sideAudio from "../../assets/connect/aux-2/aux-2-side-audio.webp";
+import sideBack from "../../assets/connect/aux-2/aux-2-side-back.webp";
+import wholeHomeAudio from "../../assets/connect/icons/whole-home-audio.svg";
+import serialPorts from "../../assets/connect/icons/serial-ports.svg";
+import connectAnywhere from "../../assets/connect/icons/connect-anywhere.svg";
 
 export default {
   title: "Connect hotspots",

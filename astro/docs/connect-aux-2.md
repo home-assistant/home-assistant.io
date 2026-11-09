@@ -46,10 +46,12 @@ Layouts:
   DocSearch. `Page.astro` now wraps it. The ToS page's rendered body is
   byte-identical to before the split.
 
-Components in `src/components/connect/aux-2/` (only this page uses them
-so far; see "Where files go" in the README), each with a
-`.fixtures.mjs` unless noted. `ConnectDrawing` is there too, with its
-engine in `src/lib/connect/aux-2/drawing/`:
+Connect line components in `src/components/connect/` (see "Where files
+go" in the README), each with a `.fixtures.mjs`. Some still have
+AUX-2 details built in, to be generalized when the next Connect page
+is built. The one AUX-2-specific component, `ConnectDrawing`, is in
+`src/components/connect/aux-2/`, with its engine in
+`src/lib/connect/aux-2/drawing/`:
 
 | Component | Section(s) |
 | --- | --- |

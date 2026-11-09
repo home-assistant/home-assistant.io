@@ -45,7 +45,7 @@
 //   - Choosing a link in the open menu closes it.
 //   - The Buy button stays in the bar on phones, left of the menu
 //     button, with a smaller product name to make room.
-import Button from "../../Button.astro";
+import Button from "../Button.astro";
 
 interface Link {
   label: string;
@@ -137,8 +137,8 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
 </script>
 
 <style lang="scss">
-  @use "../../../styles/breakpoints";
-  @use "../../../styles/layout";
+  @use "../../styles/breakpoints";
+  @use "../../styles/layout";
 
   /* Section links land below the stuck bar, not under it. */
   :global(html:has([data-connect-nav])) {

@@ -82,17 +82,19 @@ Decide which kind this is before writing markup, and say so:
 
 ## Where the component goes
 
-File it by which pages use it (the rule is in `astro/README.md`,
+File it by what it is built for (the rule is in `astro/README.md`,
 "Where files go"):
 
 - Site-wide building blocks (header, footer, buttons, dialogs) in
   `astro/src/components/<Name>.astro`.
-- Used by more than one product in a product line in the line's
-  folder, such as `astro/src/components/connect/<Name>.astro`.
-- Used by one product's page only in that product's folder, such as
+- Built for a product line's pages (product bar, hero, price, FAQ) in
+  the line's folder, such as `astro/src/components/connect/<Name>.astro`,
+  even while only one of the line's pages uses it.
+- Specific to one product (its own drawing, photos or content built
+  in) in that product's folder, such as
   `astro/src/components/connect/aux-2/<Name>.astro`. It keeps the
-  line's name prefix (`ConnectNav`), so it can move up a folder later
-  without a rename.
+  line's name prefix (`ConnectDrawing`), so it can move up a folder
+  later without a rename. When unsure which it is, ask.
 
 Scripts and assets that belong to one product follow the same folders
 in `src/lib/` and `src/assets/`. Never import from a narrower folder
