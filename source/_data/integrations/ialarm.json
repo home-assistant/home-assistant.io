@@ -1,0 +1,20 @@
+{
+  "domain": "ialarm",
+  "name": "Antifurto365 iAlarm",
+  "integration_type": "device",
+  "codeowners": [
+    "@RyuzakiKK",
+    "@bigmoby"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "security_safety.alarm_systems"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "alarm_control_panel"
+  ]
+}

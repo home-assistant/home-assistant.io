@@ -1,0 +1,41 @@
+---
+title: No device left behind
+description: Something new from Home Assistant is coming on November 11.
+layout: null
+permalink: /no-device-left-behind/
+og_image: /images/no-device-left-behind/social.webp
+sitemap: false
+---
+{%- comment -%}
+  The No device left behind page is built by Astro
+  (astro/src/pages/no-device-left-behind/index.astro) and published over
+  this file by `rake generate` (astro/served-routes.json). This minimal
+  page is only what visitors get if the Astro build fails on a production
+  deploy, so /no-device-left-behind/ never turns into a missing page.
+{%- endcomment -%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+    <meta name="robots" content="noindex">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:image" content="{{ page.og_image | absolute_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ page.og_image | absolute_url }}">
+    <style>
+      body { margin: 0; padding: 3rem 1rem; background: #0b0f14; color: #e6eef6; font: 1rem/1.5 system-ui, sans-serif; text-align: center; }
+      a { display: inline-block; margin-top: 1rem; padding: .75rem 1.25rem; border: 1px solid rgba(230, 238, 246, .2); border-radius: 999px; color: inherit; font-weight: 600; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <h1>{{ page.title }}</h1>
+    <p><strong>Coming soon</strong><br>
+    <time datetime="2026-11-11T21:00+01:00">November 11, 12:00PM PT / 3:00PM ET / 21:00 CET</time></p>
+    <a href="https://www.youtube.com/@home_assistant?sub_confirmation=1">Subscribe on YouTube</a>
+  </body>
+</html>

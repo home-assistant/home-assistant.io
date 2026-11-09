@@ -1,0 +1,20 @@
+{
+  "domain": "modbus",
+  "name": "Modbus",
+  "iot_class": "local_polling",
+  "categories": [
+    "diy_makers"
+  ],
+  "connectivity": [
+    "modbus"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "cover",
+    "fan",
+    "light",
+    "sensor",
+    "switch"
+  ]
+}

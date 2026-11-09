@@ -1,20 +1,7 @@
 ---
-title: Modbus
 description: Instructions on how to manually register Modbus entities and platforms.
-ha_categories:
-  - diy_makers
 ha_release: pre 0.7
-ha_iot_class: Local Polling
 ha_domain: modbus
-ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - fan
-  - light
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -31,6 +18,10 @@ If no integration supports your device, you can still get to its data by manuall
 ## Setting up Modbus control in Home Assistant
 
 Some devices have a Modbus interface, such as solar inverters, heat pumps, and ventilation units. Home Assistant can read data from these devices and control them.
+
+{% warning %}
+Modbus TCP does not authenticate clients, and it does not encrypt traffic. Another device that can reach the Modbus TCP port can read data and write values the device accepts, without going through Home Assistant. Keep your Modbus TCP devices on a trusted network segment.
+{% endwarning %}
 
 To set up your Modbus device, add the integration for your device. For the steps, refer to [Setting up a device integration that uses Modbus](#setting-up-a-device-integration-that-uses-modbus).
 
@@ -1698,7 +1689,7 @@ sensors:
       required: false
       type: integer
     state_class:
-      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor."
+      description: "The [state_class](/integrations/sensor/#state-class) of the sensor."
       required: false
       type: string
     structure:
@@ -1721,7 +1712,7 @@ sensors:
         word_byte:
           description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     unit_of_measurement:
-      description: "Unit to attach to value."
+      description: "Unit to attach to value. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes)."
       required: false
       type: string
     unique_id:

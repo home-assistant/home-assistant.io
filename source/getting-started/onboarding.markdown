@@ -1,52 +1,74 @@
 ---
 title: "Onboarding Home Assistant"
 description: "Set up Home Assistant for the first time. Create your account, restore from a backup, or pick up where you left off."
-toc: false
 ---
 
-After Home Assistant has been [installed](/installation/) on your device, there are 5 steps to complete setting up Home Assistant. The entire onboarding takes only a few minutes and is done in your browser, so no command-line or coding is required.
+After you have [installed](/installation/) Home Assistant on your device, there are three steps to complete the setup. The entire onboarding takes only a few minutes and is done in your browser. You don't need to use the command line or write any code.
 
-1. Open the address shown in your installation guide in your browser.
-   - For Home Assistant Operating System, this is usually [http://homeassistant.local/](http://homeassistant.local/).
-     - If Home Assistant does not open at that address, try [http://homeassistant.local:8123/](http://homeassistant.local:8123/).
-     - Result: You now see the **Preparing Home Assistant** page, while Home Assistant downloads its latest version. This may take 20 minutes or more, depending on your hardware and internet connection. Once preparation is finished, the welcome screen is shown.
-   - For Home Assistant Container: usually `http://<host>:8123`, where `<host>` is the host name or IP address of the computer running Home Assistant Container.
-     - Result: The welcome screen is shown.
-   - If you ran into issues with this step, refer to the [installation troubleshooting](/installation/troubleshooting/).
-2. On the welcome screen, you can either create a new installation or restore an existing installation from a backup.
+## Step 1: Open the welcome screen
 
-    ![Welcome screen with the Create my smart home button and the restore options](/images/getting-started/onboarding_preparing_01_.png)
+In your browser, open the address shown in your installation guide.
 
-   - To create a new installation, select **Create my smart home**, and then create the owner account of Home Assistant:
-     - {% icon "mdi:information-outline" %} This account is an administrator account. It will always be able to change everything.
-     - Enter a **Name**, **Username**, and **Password**, and repeat the password under **Confirm password**.
-       - Make sure the username is lowercase and contains no whitespace.
-       - The **Name** is the name of the person that is shown in the UI. The username is used for login.
+- For {% term "Home Assistant Operating System" %}, this is usually `http://homeassistant.local/`.
+  - If Home Assistant does not open at that address, try `http://homeassistant.local:8123/`.
+  - Result: You now see the **Preparing Home Assistant** page, while Home Assistant downloads its latest version. This might take 20 minutes or more, depending on your hardware and internet connection. Once preparation is finished, the welcome screen is shown.
+- For {% term "Home Assistant Container" %}, this is usually `http://YOUR_HOST:8123`, where `YOUR_HOST` is the host name or IP address of the computer running Home Assistant Container.
+  - Result: The welcome screen is shown.
+- If you run into issues with this step, refer to the [installation troubleshooting](/installation/troubleshooting/).
 
-        ![Set your username and password.](/images/getting-started/onboarding_username.png)
-     - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.
-     - Select **Create account**.
-   - To restore a backup of a previous installation, under **Or restore**, select **Upload backup** or **Home Assistant Cloud**. For the steps, refer to [Restoring a backup during onboarding](/common-tasks/general/#restoring-a-backup-during-onboarding).
-     - If you have a Home Assistant Yellow, follow the [Yellow documentation on restoring from backup](https://support.nabucasa.com/hc/articles/25454643790237).
-     - If you have a Home Assistant Green, follow the [Green documentation on restoring from backup](https://support.nabucasa.com/hc/articles/25160431579165).
-3. Enter the location of your home.
-   - To find your location, search for your address under **Search address**. Or, to let Home Assistant detect it, select **Detect** {% icon "mdi:crosshairs-gps" %} at the end of the search field. This makes a one-time request to an external service.
-   - The home location is used to configure the time zone, unit system, and currency.
-   - It is also used to create the home [zone](/integrations/zone/), which designates the area of your home with a default radius of 100&nbsp;m.
-     - This home zone can be used for automations such as opening the shades at sunrise, or starting the vacuum when you leave the home.
-   - You can always change this information later in the settings.
-   - Select **Next**.
-     - If Home Assistant can't determine the country from your location, it then asks for your country, so that it uses the correct units. Select your country and select **Next**.
-4. On the **Help us help you** screen, select which information you are willing to share.
+## Step 2: Create a new installation or restore a backup
+
+On the welcome screen, choose whether to create an account for a new installation or restore a backup.
+
+![Screenshot of the Home Assistant welcome screen.](/images/getting-started/onboarding_preparing_01_.png)
+
+### Creating an account for a new installation
+
+To create an account for your new installation:
+
+1. On the welcome screen, select **Create my smart home**.
+2. Enter a **Name**, **Username**, and **Password**, and repeat the password under **Confirm password** to create the owner account of Home Assistant.
+   - Make sure the username is lowercase and contains no spaces.
+   - The **Name** is shown in the interface. You use the **Username** to log in.
+   - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.
+
+   ![Screenshot of the Create user form.](/images/getting-started/onboarding_username.png)
+
+3. Select **Create account**.
+   - Result: The owner account of Home Assistant is created.
+   - This account is an administrator account. It can always change all settings.
+
+### Restoring a configuration from a backup
+
+To restore a backup of a previous installation:
+
+1. On the welcome screen, under **Or restore**, select **Upload backup** or **Home Assistant Cloud**.
+2. Refer to [Restoring a backup during onboarding](/common-tasks/general/backups/#restoring-a-backup-during-onboarding) for the steps.
+   - If you have a Home Assistant Yellow, follow the [Yellow documentation on restoring or migrating from a backup](https://support.nabucasa.com/hc/articles/25454643790237).
+   - If you have a Home Assistant Green, follow the [Green documentation on restoring or migrating from a backup](https://support.nabucasa.com/hc/articles/25160431579165).
+
+## Step 3: Finish the setup
+
+In this last step, you define the location of your home, choose the data that you want to share, and finish your setup. The location of your home is used to create the [home zone](/integrations/zone/#about-the-home-zone). To change it later, refer to [editing zones](/integrations/zone/#adding-a-new-zone-or-editing-zones).
+
+1. Enter the location of your home. Do one of the following:
+   - Search for your address under **Search address**.
+   - Select **Detect** {% icon "mdi:crosshairs-gps" %} at the end of the search field to let Home Assistant detect the location of your home.
+     - If your browser can share its location (for example, when you access Home Assistant over HTTPS), your browser might ask for permission to share it.
+     - Otherwise, Home Assistant asks if it may detect your location by making a one-time request to an external service. Confirm to continue.
+   - Drag the home marker {% icon "mdi:home" %} on the map to the location of your home.
+2. Select **Next**.
+   - If Home Assistant can't determine the country or time zone from your location, it asks for them, so that it uses the correct units. Select your **Country** and, if shown, your **Time zone**, and then select **Next**.
+3. On the **Help us help you** screen, select which information you are willing to share, and then select **Next**.
+
+   ![Screenshot of the Help us help you screen with options to share basic analytics, usage, statistical data, and diagnostics.](/images/getting-started/onboarding_share_anonymized_info.png)
+
    - Sharing is turned off by default. Sharing some of this data helps the Home Assistant project find out which platforms to support and where to focus its efforts.
+   - **Usage** and **Statistical data** require **Basic analytics**. Turning on one of them also turns on **Basic analytics**. Turning off **Basic analytics** also turns them off.
    - The data is anonymized and aggregated. To see the charts made from this data, take a look at the [analytics page](https://analytics.home-assistant.io/).
-   - To confirm, select **Next**.
-
-   ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
-
-5. {% icon "mdi:party-popper" %} Review the final setup screen.
-   - If Home Assistant has found compatible devices, you see **We found compatible devices!** and a list of the discovered integrations. Some are already added, while others may need additional configuration.
+4. Review the final setup screen.
+   - If Home Assistant has found compatible devices, you see **We found compatible devices!** and a list of the discovered {% term integrations %}. Some are already added, while others might need additional configuration.
    - If no compatible devices are found, you see **All set!** instead.
-   - Select **Finish** to complete onboarding and open the default [dashboard](/dashboards/).
+5. Select **Finish** to complete onboarding and open the default [dashboard](/dashboards/).
 
 {% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}

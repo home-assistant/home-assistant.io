@@ -14,6 +14,19 @@ export default defineConfig({
   build: {
     format: "directory",
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // Stylesheets shared with the Jekyll build refer to each
+          // other from the `sass/` directory (`@use
+          // "homeassistant/pages/…"`), the way `rake compile_sass`
+          // passes it as a load path.
+          loadPaths: ["../sass"],
+        },
+      },
+    },
+  },
   integrations: [
     jekyllMarkdown(),
     // Logos from the Open Home Foundation brand assets API, downloaded

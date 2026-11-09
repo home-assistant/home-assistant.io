@@ -47,7 +47,7 @@ This fires whenever the office PM4 sensor reading changes to a value above 10 μ
 {% include triggers/threshold_changed_options_yaml.md
    unit_phrase_yaml="literal value in μg/m³" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="PM4 sensor" example="sensor.living_room_pm4" %}
 
 ## Good to know
 

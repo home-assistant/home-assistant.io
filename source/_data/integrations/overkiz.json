@@ -1,0 +1,39 @@
+{
+  "domain": "overkiz",
+  "name": "Overkiz",
+  "integration_type": "hub",
+  "codeowners": [
+    "@imicknl"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "diagnostics",
+    "fan",
+    "light",
+    "lock",
+    "number",
+    "scene",
+    "select",
+    "sensor",
+    "siren",
+    "switch",
+    "water_heater"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

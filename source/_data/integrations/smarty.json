@@ -1,0 +1,24 @@
+{
+  "domain": "smarty",
+  "name": "Salda Smarty",
+  "integration_type": "hub",
+  "codeowners": [
+    "@z0mbieprocess",
+    "@marcodutto"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.fans_ventilation"
+  ],
+  "connectivity": [
+    "modbus"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "fan",
+    "sensor",
+    "switch"
+  ]
+}

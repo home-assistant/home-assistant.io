@@ -1,18 +1,7 @@
 ---
-title: Trend
 description: Instructions on how to integrate Trend binary sensors into Home Assistant.
-ha_categories:
-  - helpers.calculate_value
 ha_release: 0.28
-ha_iot_class: Calculated
-ha_quality_scale: internal
 ha_domain: trend
-ha_platforms:
-  - binary_sensor
-ha_config_flow: true
-ha_integration_type: helper
-ha_codeowners:
-  - '@jpbede'
 ---
 
 The **Trend** {% term integration %} allows you to create sensors that show the trend of
@@ -65,7 +54,7 @@ sensors:
       required: false
       type: string
     device_class:
-      description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+      description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
       required: false
       type: string
     friendly_name:

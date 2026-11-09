@@ -129,6 +129,12 @@ module Jekyll
       return input unless input.is_a?(Array)
       input.sort_by { |item| item[key].to_s.downcase }
     end
+
+    # Remove the tooltips added by the `term` tag. Feed readers don't load
+    # the site's CSS, so they would show the definition mid-sentence.
+    def strip_terminology_tooltips(input)
+      input.gsub(%r{<span class='terminology-tooltip'>.*?</span>}m, '')
+    end
   end
 end
 

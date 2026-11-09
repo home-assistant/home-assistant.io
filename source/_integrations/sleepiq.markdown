@@ -1,25 +1,7 @@
 ---
-title: SleepIQ
 description: Instructions for how to integrate SleepIQ beds within Home Assistant.
-ha_categories:
-  - health_wellbeing
 ha_release: 0.29
-ha_iot_class: Cloud Polling
 ha_domain: sleepiq
-ha_config_flow: true
-ha_dhcp: true
-ha_codeowners:
-  - '@mfugate1'
-  - '@kbickar'
-ha_platforms:
-  - binary_sensor
-  - button
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **SleepIQ** {% term integration %} lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/pages/sleepiq-sleep-tracker).
@@ -44,6 +26,7 @@ There is currently support available for the following platforms within Home Ass
 - Select/Number - Set a foot warmer mode and timeout
 - Select/Number - Set core climate heat/cool modes and timeout
 - Sensor - View pressure of each side
+- Sensor - View last night's sleep score, sleep duration (time in bed), average heart rate, average respiratory rate, and heart rate variability for each side of the bed
 - Switch - Toggle Privacy mode
 
 ## Notes

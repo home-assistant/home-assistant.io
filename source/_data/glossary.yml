@@ -80,7 +80,7 @@
     of your configuration. This can be used to restore your Home Assistant as
     well as migrate to a new system. The backup feature is available for all
     [installation types](/installation/#about-installation-types).
-  link: /common-tasks/general/#backups
+  link: /common-tasks/general/backups/
   aliases:
     - backups
 - term: Binary sensor
@@ -196,9 +196,10 @@
     - covers
 - term: Custom integration
   definition: >-
-    A custom integration is an integration that has been created by someone from the Home Assistant community and has been published for others to use at their own risk. Custom integrations are not supported by the Home Assistant project. They are not reviewed or tested by the Home Assistant development team and thus may negatively impact the stability of your Home Assistant instance. An example of a custom integration is the [Spook](https://spook.boo/) integration.
+    A custom integration is an integration that has been created by someone from the Home Assistant community and has been published for others to use at their own risk. You can install custom integrations from the Marketplace. Custom integrations are not supported by the Home Assistant project. They are not reviewed or tested by the Home Assistant development team and thus may negatively impact the stability of your Home Assistant instance. An example of a custom integration is the [Spook](https://spook.boo/) integration.
   aliases:
     - custom integrations
+  link: /integrations/marketplace/
 - term: Customize
   definition: >-
     Customization allows you to overwrite the default parameters of your devices
@@ -532,10 +533,10 @@
     Applies the changes made to the Home Assistant configuration files. Changes
     are normally automatically updated. However, changes made outside of the
     front end will not be reflected in Home Assistant and require a reload. To
-    perform a manual reload, go to **Settings** > **System** > **Restart Home
-    Assistant** (top right) > **Quick reload**. More granular reload options
-    are available in *YAML configuration reloading* section in **Settings** >
-    **Tools** > **YAML**.
+    reload, go to **Settings** > **System**, select the power icon in the
+    top-right corner, and then select **Quick reload**. To reload only some
+    parts, go to **Settings** > **Tools** > **YAML**.
+  link: /common-tasks/general/restarting/#reloading-the-yaml-configuration
   excerpt: >
     Applies the changes made to Home Assistant configuration files. Changes are
     normally automatically updated. However, changes made outside of the front

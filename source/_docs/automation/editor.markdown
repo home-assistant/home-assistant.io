@@ -53,7 +53,7 @@ The table works like the other tables in Home Assistant. For the steps, refer to
 
 ## Undoing and redoing changes
 
-In the visual editor, you can undo and redo your changes before you save them.
+In the visual editor, you can undo and redo your changes, also after you save them.
 
 - To undo a change, in the top bar, select **Undo** {% icon "mdi:undo" %}.
 - To redo a change, in the top bar, select **Redo** {% icon "mdi:redo" %}.
@@ -117,6 +117,7 @@ In YAML, the name is stored in `alias`.
 
 - To add a copy in the same automation, in the **Menu** {% icon "mdi:dots-vertical" %} of the row, select **Duplicate**.
 - To copy or move it, in the **Menu** {% icon "mdi:dots-vertical" %} of the row, select **Copy** or **Cut**. Then, in the **Menu** {% icon "mdi:dots-vertical" %} of another row of the same kind, select **Paste**. The copy is inserted after that row. You can also paste it in another automation that you open in the same browser tab.
+- If you cut a row by mistake, select **Undo** in the message that appears, or [undo the change](#undoing-and-redoing-changes).
 - To change the order, drag the row by its handle {% icon "mdi:drag-horizontal-variant" %}.
 
 ### Turning off a trigger, condition, or action
@@ -139,7 +140,7 @@ In the **Menu** {% icon "mdi:dots-vertical" %} of the row, select **Delete**. To
 
 ## List of keyboard shortcuts
 
-The visual editor supports the following keyboard shortcuts. On a Mac, use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd>. The shortcuts don't work while you type in a text field.
+The visual editor supports the following keyboard shortcuts. On a Mac, use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd>. Most of the shortcuts don't work while you type in a text field.
 
 - <kbd>Ctrl</kbd>+<kbd>S</kbd>: Save the automation.
 - <kbd>Ctrl</kbd>+<kbd>Z</kbd>: Undo.
@@ -148,6 +149,9 @@ The visual editor supports the following keyboard shortcuts. On a Mac, use <kbd>
 - <kbd>Ctrl</kbd>+<kbd>X</kbd>: Cut the selected trigger, condition, or action.
 - <kbd>Ctrl</kbd>+<kbd>V</kbd>: Paste after the selected trigger, condition, or action.
 - <kbd>Ctrl</kbd>+<kbd>Delete</kbd> or <kbd>Ctrl</kbd>+<kbd>Backspace</kbd>: Delete the selected trigger, condition, or action.
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd>: Switch between the visual editor and the YAML editor. This shortcut also works in the script and scene editors, in card and dashboard editors, and in **Settings** > **Tools** > **Actions**. It also works work while you type in a text field.
+
+To see all shortcuts, open the keyboard shortcuts dialog with <kbd>Shift</kbd>+<kbd>?</kbd>.
 
 ## Checking the targeted entities of an automation
 

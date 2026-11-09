@@ -15,7 +15,8 @@ import SiteHead from "../components/SiteHead.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import PageFeedback from "../components/PageFeedback.astro";
-import { release, setting } from "../lib/site.mjs";
+import DocSearch from "../components/DocSearch.astro";
+import { release } from "../lib/site.mjs";
 import "../styles/tokens.scss";
 
 // `source` is the page's file in the repository, for the feedback
@@ -47,44 +48,7 @@ const { title, description, source } = Astro.props;
 
     <SiteFooter />
 
-    <script is:inline define:vars={{ apiKey: setting("algolia.api_key") }}>
-      // Deploy previews search the production index; keep result links
-      // on the preview being browsed.
-      function rewriteDocSearchPreviewUrl(url) {
-        if (!url || !location.hostname.endsWith("--home-assistant-docs.netlify.app")) {
-          return url;
-        }
-        try {
-          const result = new URL(url);
-          if (!["www.home-assistant.io", "home-assistant.io"].includes(result.hostname)) {
-            return url;
-          }
-          result.protocol = location.protocol;
-          result.host = location.host;
-          return result.toString();
-        } catch {
-          return url;
-        }
-      }
-      window.docSearchOptions = {
-        container: "#docsearch",
-        appId: "FBHBYS3J0U",
-        indexName: "home-assistant",
-        apiKey,
-        transformItems: (items) =>
-          items.map((item) => ({
-            ...item,
-            url: rewriteDocSearchPreviewUrl(item.url),
-            url_without_anchor: rewriteDocSearchPreviewUrl(item.url_without_anchor),
-          })),
-      };
-    </script>
-    <script
-      is:inline
-      src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js"
-      integrity="sha384-f/IEhh8fvOc2ALU79emLlUqAYXyqlA/zYhM+g5GlWMk15QBjTXy05TtmfT1TbtV6"
-      crossorigin="anonymous"
-      onload="docsearch(window.docSearchOptions)"></script>
+    <DocSearch />
   </body>
 </html>
 
