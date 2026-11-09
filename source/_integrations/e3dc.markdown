@@ -87,7 +87,7 @@ These sensors depend on the installed hardware:
 - **Grid power L1**, **Grid power L2** and **Grid power L3**, the power per phase at the grid connection point, if a power meter measures it. They are disabled by default.
 - **Emergency power**, if the power station supports emergency power. It shows whether emergency power is active, inactive or not available. On the S10 E and S10 E PRO, **Motor switch off** means the emergency power motor switch is not in its on position.
 
-The integration checks for these when it starts. After you add a wallbox or a power meter for an additional feeder, reload the integration.
+These sensors appear as soon as the power station reports the hardware. The integration only checks for a wallbox when it starts, so reload it after you add one.
 
 These sensors depend on the firmware:
 
@@ -104,19 +104,12 @@ Each configured power meter gets its own device, connected through the power sta
 - **Power**, the meter's total power in watts.
 - **Power L1**, **Power L2** and **Power L3**, the power per phase. They are disabled by default.
 
-The power station's own inverter is a part of the power station's device. Each additional inverter that reports a grid voltage gets its own device, connected through the power station. Each inverter has these sensors:
+The power station's own inverter gets its own device, **Inverter 1**, as a part of the power station's device. Each additional inverter that reports a grid voltage gets its own device, connected through the power station. Each inverter has these sensors:
 
 - **Active power L1** to **L3**, and **DC power 1** to **3** for its DC trackers, in watts.
 - The apparent power, reactive power, voltage and current per phase, the frequency, and the voltage and current of each DC tracker. They are disabled by default.
 
-Power meters and additional inverters appear as soon as the power station reports them, including ones you add later.
-
-These sensors depend on the firmware:
-
-- **Stored energy**, **Battery capacity**, **Maximum charge power** and **Maximum discharge power**, if the power station reports its battery capacity. Maximum discharge power is negative. All but stored energy are diagnostic sensors.
-- **Inverter mode**, a diagnostic sensor. It shows normal operation, or the idle, off-grid power save mode.
-- **Active power failsafe timeout** and **Reactive power failsafe timeout**, diagnostic sensors that are disabled by default. They show how long an active or reactive power setpoint holds. A timeout of 0 turns the failsafe off.
-- **SG Ready status**, a diagnostic sensor that is disabled by default. It shows the SG Ready operating state: **Blocked**, **Normal operation**, **Switch-on recommended** or **Forced on**. Any other value shows as unknown.
+Power meters and additional inverters appear as soon as the power station reports them, including ones you add later. The integration looks for inverter slots when it starts. If a slot doesn't answer then, reload the integration once its inverter is connected.
 
 ## Data updates
 
