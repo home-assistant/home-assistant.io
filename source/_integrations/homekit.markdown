@@ -150,6 +150,26 @@ homekit:
               description: Name of the entity to show in HomeKit. HomeKit will cache the name on the first run so the accessory must be [reset](#resetting-accessories) for any change to take effect.
               required: false
               type: string
+            manufacturer:
+              description: Manufacturer shown in the accessory details of the Home app. Replaces the manufacturer of the entity's device. Useful for entities that do not belong to a device, such as a universal media player or a template entity.
+              required: false
+              type: string
+            model:
+              description: Model shown in the accessory details of the Home app. Replaces the model of the entity's device.
+              required: false
+              type: string
+            sw_version:
+              description: Firmware version shown in the accessory details of the Home app. Replaces the software version of the entity's device. HomeKit only accepts up to three numbers, so other characters are left out. For example, `26.02-12.00.00` is shown as `26.2.12`. If the value contains no number, the Home Assistant version is shown.
+              required: false
+              type: string
+            hw_version:
+              description: Hardware version shown in the accessory details of the Home app. Replaces the hardware version of the entity's device. It uses the same format as `sw_version` and is left out if the value contains no number.
+              required: false
+              type: string
+            serial_number:
+              description: Serial number shown in the accessory details of the Home app. Replaces the serial number of the entity's device. When not set, the serial number of the device is used if Home Assistant knows it, otherwise an identifier from Home Assistant.
+              required: false
+              type: string
             linked_battery_sensor:
               description: The `entity_id` of a `sensor` entity to use as the battery of the accessory.
               required: false
