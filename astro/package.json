@@ -14,7 +14,7 @@
     "test": "node --test \"src/lib/*.test.mjs\""
   },
   "dependencies": {
-    "astro": "7.4.4",
+    "astro": "7.4.7",
     "gsap": "3.15.1"
   },
   "devDependencies": {
