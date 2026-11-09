@@ -258,6 +258,8 @@ With System Bridge 5.20.0 or later, each computer has a notification {% term eve
 
 `notification_id` is the same for every event about one notification, and matches the `id` that `system_bridge.send_message` returned, so you can follow a notification from `sent` to its click or close. Linux reports clicks and closes, Windows only clicks, and macOS neither.
 
+With System Bridge 5.28.0 or later, each notification is also pushed to phones paired with the [System Bridge Android app](https://system-bridge.timmo.dev/using/android/), with its buttons. Pressing a button on a phone reports `clicked` with the button's `id`, the same as pressing it on the computer, and closes the notification on the computer. A notification closed on the computer, including with `system_bridge.dismiss_message`, is cleared from the phones too.
+
 {% raw %}
 
 {% example %}
