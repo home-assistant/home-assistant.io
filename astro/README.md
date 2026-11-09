@@ -97,9 +97,34 @@ to that list and import the file. If the API cannot be reached, the
 build keeps the copy from the previous build and warns; with no copy
 to fall back on, it fails rather than ship broken images.
 
+## Where files go
+
+Components, scripts, styles and assets are filed by how widely they
+are shared, so a file's path says who may depend on it:
+
+- **Site-wide** at the top of the folder: anything any page can use,
+  such as `src/components/Button.astro` or `src/components/BuyDialog.astro`.
+- **Product line** in a folder named after the line: shared by the
+  line's product pages, such as `src/components/connect/ConnectNav.astro`.
+  Names start with the line (`Connect…`).
+- **One product** in a folder for that product inside its line:
+  anything that only makes sense for that product, such as the AUX-2
+  drawing in `src/components/connect/aux-2/Aux2Drawing.astro`. Names
+  start with the product (`Aux2…`).
+
+The same folders apply in `src/components/`, `src/lib/`,
+`src/styles/` and `src/assets/` (the AUX-2 drawing's engine is in
+`src/lib/connect/aux-2/drawing/`, its models in
+`src/assets/connect/aux-2/`). A file may use files from its own tier
+and the tiers above it, never from a narrower one: a Connect component
+must not import from `connect/aux-2/`. When a second product needs
+something from a product folder, generalize it (take its content as
+props) and move it up a tier. Content that belongs to one page, such as
+its copy and data, stays next to the page in `src/pages/`.
+
 ## Component previews
 
-Components live in `src/components/`. To make a component show up in
+Components live in `src/components/` (see "Where files go" above). To make a component show up in
 the tiled component browser at
 [`/astro-preview/component-preview/`](https://www.home-assistant.io/astro-preview/component-preview/),
 add a `<Name>.fixtures.mjs` file next to it that describes the

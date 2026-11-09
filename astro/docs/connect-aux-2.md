@@ -62,6 +62,12 @@ Components in `src/components/connect/`, each with a `.fixtures.mjs`:
 | `ConnectSpecs` | Specifications, `id="specs"`. |
 | `ConnectFaq` | FAQ accordion, `id="faq"`. |
 
+AUX-2 only, in `src/components/connect/aux-2/`:
+
+| Component | Section(s) |
+| --- | --- |
+| `Aux2Drawing` | The interactive drawing of the AUX-2 (poster, video, and the 3D drawing it opens). Its engine is in `src/lib/connect/aux-2/drawing/`, its models and videos in `src/assets/connect/aux-2/`. |
+
 Shared component: `src/components/CollaborationBadge.astro` ("Designed
 and built by"), a port of `source/_includes/collaboration/ohf-x-nabu-casa.html`
 for every product page.

@@ -52,7 +52,7 @@ import boardLogosImage from "../../../assets/connect/aux-2/board-logos.webp";
 import ConnectPrice from "../../../components/connect/ConnectPrice.astro";
 import ConnectCollaboration from "../../../components/connect/ConnectCollaboration.astro";
 import ConnectSpecs from "../../../components/connect/ConnectSpecs.astro";
-import ConnectDrawing from "../../../components/connect/ConnectDrawing.astro";
+import Aux2Drawing from "../../../components/connect/aux-2/Aux2Drawing.astro";
 import ConnectFaq from "../../../components/connect/ConnectFaq.astro";
 import { specs, faq, renderDrawing } from "./_content";
 import heroImage from "../../../assets/connect/aux-2/hero.webp";
@@ -442,7 +442,7 @@ const diagram = [
             Grove sensors.
           </ConnectFeatureCard>
         </div>
-        <ConnectDrawing
+        <Aux2Drawing
           class="powerful-drawing"
           alt="The back of the Connect AUX-2 with its reset button, USB-C power port and PoE Ethernet port"
           sizes="(min-width: 62rem) 50rem, 100vw"
@@ -563,7 +563,7 @@ const diagram = [
 
   .connect {
     --layout-max-width: var(--layout-product-width);
-    /* The opened drawing (ConnectDrawing) covers the whole page, the
+    /* The opened drawing (Aux2Drawing) covers the whole page, the
        stuck nav bar (z-index 10) included. */
     --drawing-layer: 20;
 

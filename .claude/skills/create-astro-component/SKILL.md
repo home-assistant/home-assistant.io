@@ -80,6 +80,18 @@ Decide which kind this is before writing markup, and say so:
    divs, flex/grid instead of float hacks — as long as the rendered
    result looks the same.
 
+## Where the component goes
+
+File it by how widely it is shared (the rule is in `astro/README.md`,
+"Where files go"): site-wide at the top of `astro/src/components/`,
+shared by a product line in the line's folder
+(`astro/src/components/connect/ConnectNav.astro`), and specific to one
+product in that product's folder inside the line
+(`astro/src/components/connect/aux-2/Aux2Drawing.astro`). Its scripts,
+styles and assets follow the same folders in `src/lib/`, `src/styles/`
+and `src/assets/`. Never import from a narrower tier than the
+component's own. When unsure whether a second product will use it, ask.
+
 ## Code standards
 
 These are the standards for all new Astro component code. The point
@@ -189,10 +201,10 @@ Batch these questions where possible instead of asking one at a time.
 
 Every component ships as a set:
 
-1. `astro/src/components/<Name>.astro` — the component, scoped
+1. `astro/src/components/[<line>/[<product>/]]<Name>.astro` — the component, scoped
    styles, a short comment naming the Jekyll source it replaces
    (plugin, include, or sass partial paths).
-2. `astro/src/components/<Name>.fixtures.mjs` — pure-data fixtures
+2. `<Name>.fixtures.mjs` next to it — pure-data fixtures
    (see `astro/README.md`): one variant per meaningful state, `props`
    and `slot` per variant, and the equivalent Jekyll `liquid` source
    for content components so the variants can drive the golden-output
