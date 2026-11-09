@@ -48,6 +48,12 @@ if (!entry) {
 }
 const { name, new: isNew, distributors } = entry.data;
 
+// Product codes stay on one line: "AUX-2", not "AUX-" and "2".
+const title = name.replace(
+  /[^\s<>]+-[^\s<>]+/g,
+  (code) => `<span class="code">${code}</span>`,
+);
+
 // The distributors' logos, bundled from Jekyll's images so they load
 // wherever the page is served (the Astro dev server and preview do not
 // serve source/images). products.yml names them by their site path,
@@ -90,7 +96,7 @@ const id = `buy-${product}`;
 <dialog class="buy-dialog" aria-labelledby={`${id}-title`} data-buy-dialog-root>
   <div class="panel">
     <div class="header">
-      <h2 class="title" id={`${id}-title`} set:html={name} />
+      <h2 class="title" id={`${id}-title`} set:html={title} />
       <form method="dialog">
         <button class="close" aria-label="Close">
           <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
@@ -280,8 +286,8 @@ const id = `buy-${product}`;
     background: var(--color-surface);
     border-radius: var(--radius-small);
     display: grid;
-    gap: var(--space-xlarge);
-    padding: var(--space-xlarge);
+    gap: var(--space-large);
+    padding: var(--space-large);
   }
 
   .header {
@@ -299,6 +305,10 @@ const id = `buy-${product}`;
 
     :global(strong) {
       font-weight: 600;
+    }
+
+    :global(.code) {
+      white-space: nowrap;
     }
   }
 
@@ -340,7 +350,7 @@ const id = `buy-${product}`;
   .content {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xlarge);
+    gap: var(--space-large);
     min-height: 0;
   }
 
@@ -348,6 +358,7 @@ const id = `buy-${product}`;
   .sidebar {
     background: #f0f0f3;
     border-radius: var(--radius-small);
+    box-sizing: border-box;
     min-width: 8.75rem;
     padding: var(--space-medium);
   }
@@ -424,6 +435,8 @@ const id = `buy-${product}`;
     }
   }
 
+  /* A short, wide tile as on the Jekyll dialog: the logo fills the
+     space above one line of "Ships from". */
   .distributor {
     align-items: center;
     border: 1px solid #f0f0f3;
@@ -432,11 +445,10 @@ const id = `buy-${product}`;
     color: var(--color-text);
     display: flex;
     flex-direction: column;
-    gap: var(--space-small);
-    /* Room for the logo and two lines of text, on every tile. */
-    height: 5.25rem;
+    gap: var(--space-xsmall);
+    height: 3.75rem;
     justify-content: center;
-    padding: var(--space-small);
+    padding: var(--space-xsmall);
     text-align: center;
     text-decoration: none;
     transition: background-color 0.1s;
@@ -445,12 +457,13 @@ const id = `buy-${product}`;
       background: #f0f0f3;
     }
 
-    /* The logo in a fixed band, so tiles with one or two lines of text
-       keep their logos the same size. */
+    /* Inset from the tile's edges, as on the Jekyll tiles. */
     img {
-      flex: none;
-      height: 2.25rem;
+      box-sizing: border-box;
+      flex: 1;
+      min-height: 0;
       object-fit: contain;
+      padding: var(--space-xsmall) var(--space-small) 0;
       width: 100%;
     }
 
@@ -461,12 +474,13 @@ const id = `buy-${product}`;
       font-size: var(--font-size-medium);
     }
 
-    /* Long places ("Czech Republic") wrap onto a second line. */
+    /* One line, as on the Jekyll tiles: the longest place ("Czech
+       Republic") just fits the three-column tile. */
     .from {
       color: var(--color-ink-muted);
       font-size: var(--font-size-xsmall);
       line-height: 1.2;
-      text-wrap: balance;
+      white-space: nowrap;
     }
   }
 
@@ -496,7 +510,7 @@ const id = `buy-${product}`;
      dialog, beside the regions); two on phones and narrow windows. */
   @container buy-distributors (min-width: 22rem) {
     .distributors {
-      gap: var(--space-large);
+      gap: var(--space-medium);
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }

@@ -887,6 +887,7 @@ zbt-2:
 
 aux-2:
   name: "<strong>Home Assistant</strong> Connect AUX-2"
+  new: true
   # The partners marked "Received" in the AUX-2 Where to Buy links
   # sheet. Still awaited: Grönahus (Sweden), SmartHome AU (Australia),
   # Jkollerup (Denmark). Herholdt's (South Africa) is not live at launch.
@@ -958,6 +959,7 @@ aux-2:
       ship_from: Germany
       ship_to: Europe
       url: https://www.reichelt.de/shop/produkt/home_assistant_connect_aux-2-445656
+      logo: /images/distributors/reichelt.webp
     - name: SmartDomo
       ship_from: Germany
       ship_to: Europe
