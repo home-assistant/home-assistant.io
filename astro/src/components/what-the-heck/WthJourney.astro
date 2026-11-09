@@ -1,0 +1,232 @@
+---
+// "What happens next?": what happens after someone shares a WTH, told with
+// one example in four steps, in the second person and without promising a
+// fix. The example plays as the section scrolls: on wide screens the
+// section pins for about a screen while it does; on narrow ones (where the
+// steps stack above the example) it simply plays as it passes.
+//
+// The pictures borrow from the places it really happens: the WTH as a
+// forum post, its votes, a contributor's reply, and the pull request as
+// GitHub shows one, going from open to merged. The WTH is a real one; the
+// votes, people and pull request are illustrative.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import WthSection from "./WthSection.astro";
+import WthIcon from "./WthIcon.astro";
+interface Props {
+  heading?: string;
+  tone?: "page" | "surface" | "band" | "inherit";
+  id?: string;
+}
+const { heading = "What happens next?", tone = "band", id = "how" } = Astro.props;
+const steps = [
+  ["You share it", "On the forum, in your own words."],
+  ["People read it", "Votes and replies show how many others it bothers."],
+  ["Someone picks it up", "Contributors look through the WTHs for things they can fix, and may choose yours!"],
+  ["It lands as an update", "If your WTH is fixed, you’ll see the results in an upcoming release."],
+];
+---
+<WthSection id={id} tone={tone} heading={heading}>
+  <div class="journey" data-wth-journey>
+    <ol class="steps">
+      {steps.map(([t, d], i) => (
+        <li class:list={{ on: i === 0 }}><span class="n">{i + 1}</span><div><b>{t}</b><span class="d">{d}</span></div></li>
+      ))}
+    </ol>
+
+    <div class="stage" aria-hidden="true">
+      <div class="post">
+        <span class="post__head"><span class="avatar avatar--you">Y</span><b>You</b><span>· just now</span></span>
+        <span class="post__title">Restoring a backup shows no progress indication.</span>
+        <span class="post__meta">
+          <span class="votes"><WthIcon name="mdi:arrow-up-bold-outline" title="" /><span data-votes>1</span> votes</span>
+          <span><WthIcon name="mdi:comment-outline" title="" /><span data-replies>0</span> replies</span>
+        </span>
+      </div>
+
+      <div class="claim">
+        <span class="avatar avatar--them">C</span>
+        <span class="claim__bubble">I’ll take this one!</span>
+      </div>
+
+      <div class="pr">
+        <span class="pr__title">
+          <span class="pr__icon pr__icon--open"><WthIcon name="octicon:git-pull-request-16" title="" /></span>
+          <span class="pr__icon pr__icon--merged"><WthIcon name="octicon:git-merge-16" title="" /></span>
+          Show progress while restoring a backup
+        </span>
+        <span class="pr__line">
+          <span class="pr__state"><span class="when-open">Open</span><span class="when-merged">Merged</span></span>
+          <span class="pr__who"><b>contributor</b> <span class="when-open">wants to merge 1 commit into</span><span class="when-merged">merged 1 commit into</span> <code>dev</code></span>
+        </span>
+        <span class="pr__labels"><span class="label label--area">frontend</span><span class="label label--wth">WTH</span></span>
+        <span class="pr__checks"><span class="pr__ok"><WthIcon name="octicon:check-circle-fill-16" title="" /></span>All checks have passed</span>
+      </div>
+    </div>
+  </div>
+  <p class="note">We can’t promise that every WTH gets fixed, but every one is read, and together they shape what we build next.</p>
+</WthSection>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  .journey {
+    align-items: center;
+    display: grid;
+    gap: var(--space-xxlarge);
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: var(--space-xxlarge);
+  }
+  @media only screen and (min-width: breakpoints.$desk) {
+    .journey { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: min(34rem, 78svh); }
+  }
+
+  .steps { display: grid; gap: var(--space-xsmall); list-style: none; margin: 0; padding: 0; }
+  .steps li { align-items: start; display: grid; gap: var(--space-medium); grid-template-columns: 2.25rem 1fr; opacity: 0.4; padding-block: var(--space-small); transition: opacity 0.3s; }
+  .steps li.on { opacity: 1; }
+  .n { align-items: center; border: 2px solid var(--wth-ink); border-radius: 50%; box-sizing: border-box; display: flex; flex: none; font-size: var(--font-size-large); font-weight: 800; height: 2.25rem; justify-content: center; line-height: 1; width: 2.25rem; }
+  .on .n { background: var(--wth-mint); border-color: var(--wth-mint); }
+  .steps b { display: block; font-size: var(--font-size-xlarge); }
+  .steps .d { color: var(--wth-ink-soft); display: block; font-family: var(--font-sans); font-size: var(--font-size-large); }
+
+  /* The section's closing line: centred under the example, a step or two
+     larger than body text but still under the section heading. */
+  .note { color: var(--wth-ink); font-family: var(--font-heading); font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem); font-weight: 600; line-height: 1.3; margin: var(--space-xxlarge) auto 0; max-width: 58rem; text-align: center; text-wrap: balance; }
+
+  /* The example: a post, a reply and a pull request, stacked loosely. */
+  .stage {
+    display: grid;
+    font-family: var(--font-sans);
+    gap: var(--space-large);
+    margin-inline: auto;
+    max-width: 30rem;
+    width: 100%;
+  }
+
+  .avatar { align-items: center; border-radius: 50%; color: #fff; display: inline-flex; flex: none; font-family: var(--font-heading); font-size: 0.75rem; font-weight: 800; height: 1.5rem; justify-content: center; width: 1.5rem; }
+  .avatar--you { background: var(--wth-sky); }
+  .avatar--them { background: var(--wth-mint-ink); }
+
+  /* The WTH, as on the hero's forum cards. */
+  .post {
+    background: var(--wth-surface);
+    border: 1px solid var(--wth-border);
+    border-radius: 1.25rem 1.25rem 1.25rem 0.375rem;
+    box-shadow: 0 16px 40px rgb(30 33 38 / 12%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-small);
+    justify-self: start;
+    padding: var(--space-large) var(--space-xlarge);
+    rotate: -1.5deg;
+    width: min(26rem, 100%);
+  }
+  .post__head { align-items: center; color: var(--wth-ink-soft); display: flex; font-size: var(--font-size-small); gap: var(--space-xsmall); b { color: var(--wth-ink); } }
+  .post__title { color: var(--wth-ink); font-family: var(--font-heading); font-size: var(--font-size-xlarge); font-weight: 600; line-height: 1.35; }
+  .post__meta { color: var(--wth-ink-soft); display: flex; font-size: var(--font-size-small); gap: var(--space-large);
+    > span { align-items: center; display: inline-flex; gap: 0.3rem; } }
+  .votes { color: var(--wth-mint-ink); font-weight: 700; }
+
+  /* The claim, as the campaign's chat replies look. */
+  .claim { align-items: flex-end; display: flex; gap: var(--space-small); justify-self: end; opacity: 0; }
+  .claim__bubble {
+    background: var(--wth-mint);
+    border-radius: 1.25rem 1.25rem 0.375rem 1.25rem;
+    box-shadow: 0 10px 24px rgb(5 107 81 / 18%);
+    color: var(--wth-ink);
+    font-weight: 600;
+    padding: var(--space-medium) 1.125rem;
+  }
+
+  /* The pull request, as GitHub lays one out: icon and title, the state
+     badge and who's merging what, labels, and the checks. */
+  .pr {
+    background: #fff;
+    border: 1px solid #d1d9e0;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 24px rgb(30 33 38 / 10%);
+    color: #1f2328;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+    gap: 0.6rem;
+    opacity: 0;
+    padding: 1rem 1.125rem;
+  }
+  .pr__title { align-items: flex-start; display: flex; font-size: 1.05rem; font-weight: 600; gap: 0.5rem; line-height: 1.35; }
+  /* Icons sit in spans that carry the classes, so they style the same
+     whether the icon renders as an <iconify-icon> or as plain SVG. */
+  .pr__icon { display: inline-flex; flex: none; font-size: 1.1rem; margin-top: 0.15rem; }
+  .pr__icon--open { color: #1a7f37; }
+  .pr__icon--merged { color: #8250df; display: none; }
+  .pr__line { align-items: center; color: #59636e; display: flex; flex-wrap: wrap; font-size: 0.875rem; gap: 0.5rem; b { color: #1f2328; } }
+  .pr__state { background: #1f883d; border-radius: 2em; color: #fff; font-size: 0.8125rem; font-weight: 600; padding: 0.2rem 0.75rem; transition: background-color 0.3s; }
+  code { background: #ddf4ff; border-radius: 0.375rem; color: #0969da; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; padding: 0.1rem 0.35rem; }
+  .pr__labels { display: flex; gap: 0.35rem; }
+  .label { border-radius: 2em; font-size: 0.75rem; font-weight: 600; padding: 0.1rem 0.6rem; }
+  .label--area { background: #e7ecf0; color: #1f2328; }
+  .label--wth { background: var(--wth-mint); color: var(--wth-ink-base); }
+  .pr__checks { align-items: center; border-top: 1px solid #d1d9e0; color: #59636e; display: flex; font-size: 0.8125rem; gap: 0.4rem; padding-top: 0.6rem; }
+  .pr__ok { color: #1a7f37; display: inline-flex; }
+  .when-merged { display: none; }
+
+  /* Merged: purple badge and icon, "merged" wording. */
+  .pr.is-merged {
+    .pr__state { background: #8250df; }
+    .pr__icon--open, .when-open { display: none; }
+    .pr__icon--merged { display: inline-flex; }
+    .when-merged { display: inline; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .claim, .pr { opacity: 1; }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+    document.querySelectorAll<HTMLElement>("[data-wth-journey]").forEach((root) => {
+      const q = gsap.utils.selector(root);
+      const lis = q(".steps li");
+      const pr = q(".pr")[0] as HTMLElement;
+      const votes = q("[data-votes]")[0] as HTMLElement;
+      const replies = q("[data-replies]")[0] as HTMLElement;
+      const count = { votes: 1, replies: 0 };
+      // Wide screens pin the section for about a screen while the example
+      // plays; narrow ones, where the steps stack above it, play it as the
+      // example scrolls through.
+      const wide = matchMedia("(min-width: 71.25rem)").matches;
+      const tl = gsap.timeline({
+        scrollTrigger: wide
+          ? { trigger: root, start: "center center", end: "+=110%", pin: root.closest("section"), scrub: 0.6 }
+          : { trigger: q(".stage")[0], start: "top 85%", end: "bottom 35%", scrub: 0.6 },
+      });
+      // 1. You share it: the post is already there.
+      tl.addLabel("s0").to({}, { duration: 0.4 })
+        // 2. People read it: the votes and replies climb.
+        .addLabel("s1")
+        .to(count, { votes: 48, replies: 12, duration: 0.8, ease: "power1.out", onUpdate: () => {
+          votes.textContent = String(Math.round(count.votes));
+          replies.textContent = String(Math.round(count.replies));
+        } })
+        // 3. Someone picks it up: a reply, then their pull request.
+        .addLabel("s2")
+        .fromTo(q(".claim"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" })
+        .fromTo(pr, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, "+=0.15")
+        // 4. It lands as an update: the pull request is merged.
+        .addLabel("s3", "+=0.3")
+        .to({}, { duration: 0.5 });
+      const marks = ["s0", "s1", "s2", "s3"].map((l) => tl.labels[l]);
+      tl.eventCallback("onUpdate", () => {
+        const t = tl.time();
+        let i = 0;
+        marks.forEach((m, k) => { if (t >= m - 0.001) i = k; });
+        lis.forEach((li, k) => li.classList.toggle("on", k === i));
+        pr.classList.toggle("is-merged", i >= 3);
+      });
+    });
+  });
+</script>

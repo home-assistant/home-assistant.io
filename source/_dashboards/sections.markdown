@@ -66,8 +66,11 @@ The view comes with one section to which you can directly add a card.
 
    ![Add Section button](/images/dashboards/sections_view_add-card-or-section.png)
 
-2. To add a new section, select the **Create section** button.
-3. A [heading card](/dashboards/heading) will be automatically added to the top of the section.
+2. To add a new section, select **Create section**, and then choose the kind of section:
+   - **Manual section**: An empty section that you fill card by card.
+   - **Automatic section**: A section that picks its own cards. For details, refer to [Adding an automatic section](#adding-an-automatic-section).
+   - **Paste section**: The section you copied, if you [copied a section](#copying-cutting-and-pasting-a-section).
+3. If you chose **Manual section**, a [heading card](/dashboards/heading) is automatically added to the top of the section.
    - To edit it, select the card.
    - If you don't want a heading title at the top of the section, delete this card.
    - The title can be added again later, like any other card.
@@ -76,6 +79,28 @@ The view comes with one section to which you can directly add a card.
    - Select the type of condition, and enter the parameters.
    - If you define multiple conditions, the section is only shown when all conditions are met.
    - If you did not define any conditions, the section is always shown, to all users.
+
+## Adding an automatic section
+
+An automatic section picks its cards itself, and stays up to date when you add or remove devices and entities. For example, add a light to the ground floor, and it shows up in your ground floor lights section on its own.
+
+1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
+2. Select **Create section** > **Automatic section**.
+   - Result: The list of automatic sections opens, each with a live preview.
+3. Select the section you want, and set its options:
+   - **Common controls**: The entities you use the most, like on the **Overview** dashboard.
+   - **Device**: The entities of one device, as tiles or in a single entities card, grouped by category. The heading shows the device name, its area, and its battery level.
+   - **Entities**: Every entity of the types you select, such as all lights or all batteries, in the areas, floors, devices, or labels you select. You can exclude entities you don't want.
+   - **Community sections**: Sections you installed from the [Marketplace](/integrations/marketplace/).
+4. Select **Save**.
+
+## Converting an automatic section to a manual section
+
+To edit, reorder, or remove the cards of an automatic section one by one, convert it to a manual section. The section keeps its cards, but it no longer updates on its own.
+
+1. In the top right corner of your dashboard, select the edit {% icon "mdi:edit" %} button.
+2. In the top right corner of the section, select **Menu** {% icon "mdi:dots-vertical" %} > **Convert to manual section**.
+3. Select **Convert**.
 
 ## Adding a section background
 
@@ -104,6 +129,19 @@ You can customize the default background color and the section corner rounding i
 1. To delete a section, go to the dashboard and in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. Open the view with the section you want to delete.
 3. Select the delete {% icon "mdi:trash" %} button.
+
+## Copying, cutting, and pasting a section
+
+You can copy or move a section to another place in the same view, to another view, or to another dashboard.
+
+1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
+2. In the top right corner of the section, select **Menu** {% icon "mdi:dots-vertical" %} and then select **Copy**, or select **Cut** to move it.
+3. Go to the view where you want the section. If it is on another dashboard, select that dashboard's edit {% icon "mdi:edit" %} button before continuing.
+4. In the section after which you want to add the new one, select **Menu** {% icon "mdi:dots-vertical" %} > **Paste**.
+   - Result: The section is added after that section.
+5. Select **Done**.
+
+When you create a section, you can also select the section you copied. For details, refer to [Adding sections and cards to a sections view](#adding-sections-and-cards-to-a-sections-view).
 
 ## Rearranging sections and cards
 

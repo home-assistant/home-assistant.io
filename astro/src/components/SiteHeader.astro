@@ -34,6 +34,10 @@
 //     makes it `position: fixed` so content scrolls underneath; that
 //     belongs to the page layout, not to the header.
 //
+// "What the Heck?!" is a temporary item for the Month of "What the
+// Heck?!", last in the menu as in the Jekyll header. Remove it from
+// both when the month is over.
+//
 // One behavior moves in from the page: right-clicking the logo opens
 // the brand guidelines on the contributors website. Jekyll wires that up in
 // `source/_includes/javascripts/scripts.html`; here the header's own
@@ -117,6 +121,7 @@ const navigation: NavigationItem[] = [
   { label: "Integrations", href: "/integrations/", roots: ["integrations"] },
   { label: "Blog", href: "/blog/", roots: ["blog"] },
   { label: "Need help?", href: "/help/", roots: ["help"] },
+  { label: "What the Heck?!", href: "/what-the-heck/", roots: ["what-the-heck"] },
 ];
 
 const versionTitle =

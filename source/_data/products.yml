@@ -163,7 +163,7 @@ green:
     - name: WIFIShop
       ship_from: Romania
       ship_to: Europe
-      url: https://www.wifishop.ro/en/cumpara/home-assistant-green-259
+      url: https://www.wifishop.ro/cumpara/home-assistant-green-259
       logo: /images/distributors/wifishop.webp
     - name: Inet.se
       ship_from: Sweden
@@ -193,7 +193,8 @@ green:
     - name: Reichelt
       ship_from: Germany
       ship_to: Europe
-      url: https://www.reichelt.com/de/en/shop/product/home_assistant_green-441682
+      url: https://www.reichelt.com/shop/product/home_assistant_green-441682
+      logo: /images/distributors/reichelt.webp
 yellow:
   name: "<strong>Home Assistant Yellow</strong>"
   distributors:
@@ -467,7 +468,7 @@ voice-pe:
     - name: WIFIShop
       ship_from: Romania
       ship_to: Europe
-      url: https://www.wifishop.ro/en/cumpara/home-assistant-voice-preview-edition-530
+      url: https://www.wifishop.ro/cumpara/home-assistant-voice-preview-edition-530
       logo: /images/distributors/wifishop.webp
     - name: Swiss-Domotique
       ship_from: Switzerland
@@ -527,7 +528,8 @@ voice-pe:
     - name: Reichelt
       ship_from: Germany
       ship_to: Europe
-      url: https://www.reichelt.com/de/en/shop/product/home_assistant_voice_pe-441683
+      url: https://www.reichelt.com/shop/product/home_assistant_voice_pe-441683
+      logo: /images/distributors/reichelt.webp
 zwa-2:
   name: "<strong>Home Assistant</strong> Connect ZWA-2"
   distributors:
@@ -663,7 +665,7 @@ zwa-2:
     - name: WIFIShop
       ship_from: Romania
       ship_to: Europe
-      url: https://www.wifishop.ro/zwa2.html
+      url: https://www.wifishop.ro/cumpara/home-assistant-connect-zwa-2-%E2%80%93-adaptor-z-wave-pentru-home-assistant-721
       logo: /images/distributors/wifishop.webp
     - name: Webhallen
       ship_from: Sweden
@@ -703,7 +705,8 @@ zwa-2:
     - name: Reichelt
       ship_from: Germany
       ship_to: Europe
-      url: https://www.reichelt.com/de/en/shop/product/home_assistant_connect_zwa-2-441684
+      url: https://www.reichelt.com/shop/product/home_assistant_connect_zwa-2-441684
+      logo: /images/distributors/reichelt.webp
 zbt-2:
   name: "<strong>Home Assistant</strong> Connect ZBT-2"
   distributors:
@@ -834,7 +837,7 @@ zbt-2:
     - name: WIFIShop
       ship_from: Romania
       ship_to: Europe
-      url: https://www.wifishop.ro/en/cumpara/home-assistant-connect-zbt-2-universal-zigbee-and-thread-adapter-for-744
+      url: https://www.wifishop.ro/cumpara/home-assistant-connect-zbt-2-%E2%80%93-adaptor-universal-zigbee-si-thread-744
       logo: /images/distributors/wifishop.webp
     - name: SmarterHome
       ship_from: Slovakia
@@ -894,7 +897,8 @@ zbt-2:
     - name: Reichelt
       ship_from: Germany
       ship_to: Europe
-      url: https://www.reichelt.com/de/en/shop/product/home_assistant_connect_zbt-2-441685
+      url: https://www.reichelt.com/shop/product/home_assistant_connect_zbt-2-441685
+      logo: /images/distributors/reichelt.webp
     - name: Smart Guys
       ship_from: Australia
       ship_to: Australia

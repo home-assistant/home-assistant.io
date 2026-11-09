@@ -36,8 +36,6 @@ Devices that require a token:
 - Switcher Light SL03
 - Switcher Heater
 
-If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
-
 ## Prerequisites
 
 Before the integration can find a device, you need to connect it to your network using the Switcher app.
@@ -94,10 +92,29 @@ For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switch
 
 {% include integrations/actions.md %}
 
-## Notes
+## Data updates
 
-Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 10003, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
-If Home Assistant and the Switcher device(s) are not on the same network, you will also need to have their traffic properly forwarded between the two networks.
+Switcher devices push their state to Home Assistant. Each device broadcasts its current status on the local network every few seconds, and the integration updates the entities as soon as a broadcast is received. There is no polling.
+
+If Home Assistant does not receive a broadcast from a device for 30 seconds, the device's entities are marked as unavailable. They become available again as soon as the next broadcast is received.
+
+## Troubleshooting
+
+### Devices are not discovered or become unavailable
+
+The integration discovers devices and receives their state from UDP broadcasts sent by the devices on the local network, and sends commands to the devices over TCP.
+
+- Make sure the device is connected to your network using the Switcher app.
+- Make sure the Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 10003, 20002 & 20003 and outgoing connections to the Switcher device(s) on TCP ports 9957 & 10000.
+- Broadcasts do not cross network boundaries. If Home Assistant and the Switcher device(s) are not on the same network (for example, on different VLANs or subnets), you need to forward the broadcast traffic between the two networks.
+
+### Unable to control the device
+
+If you completed the integration setup but are still unable to control the device, make sure your device's firmware is up-to-date.
+
+### Home Assistant asks to re-authenticate
+
+When a device that requires a token is discovered and no token is configured, Home Assistant asks you to re-authenticate the integration. Enter your Switcher account username and the local control key token, as described in the [prerequisites](#prerequisites).
 
 ## Removing the integration
 

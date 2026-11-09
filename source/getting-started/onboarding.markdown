@@ -32,7 +32,7 @@ To create an account for your new installation:
    - The **Name** is shown in the interface. You use the **Username** to log in.
    - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.
 
-   ![Screenshot of the Create user account.](/images/getting-started/onboarding_username.png)
+   ![Screenshot of the Create user form.](/images/getting-started/onboarding_username.png)
 
 3. Select **Create account**.
    - Result: The owner account of Home Assistant is created.

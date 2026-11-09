@@ -1,0 +1,99 @@
+---
+// The closing call to action: a mint card with the campaign's flow lines
+// behind it.
+//
+// Replaces source/what-the-heck/components/_cta.html and the `#cta` rules in
+// sass/homeassistant/pages/wth/_sections.scss.
+//
+// Fidelity: revamp. Same card, copy and artwork; spacing and the radius
+// come from the theme.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import Button from "../Button.astro";
+import WthCtaBackground from "./WthCtaBackground.astro";
+import { blogUrl, forumUrl } from "../../lib/wth.mjs";
+---
+
+<section id="cta">
+  <div class="content">
+    <div class="card">
+      <WthCtaBackground />
+
+      <h2>Over to you!</h2>
+      <p>
+        Still wondering what the heck it’s all about? Frenck tells the whole
+        story over on <a href={blogUrl}>our blog</a>. Or just dive right in. We
+        can’t wait to hear from you, and the people you live with!
+      </p>
+      <Button href={forumUrl} scheme="secondary" icon target="_blank" rel="noopener" data-wth-share="cta">
+        Share your WTH
+      </Button>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  section {
+    /* Follows the blue band of "What happens next?": fades from its blue
+       into the page background (the one the footer's skyline sits on)
+       instead of starting at a hard edge. */
+    background: linear-gradient(to bottom, var(--wth-wash), var(--color-page) var(--wth-section-space));
+    padding-block: var(--wth-section-space);
+  }
+
+  .content {
+    margin-inline: auto;
+    max-width: var(--wth-measure);
+    padding-inline: var(--wth-gutter);
+  }
+
+  .card {
+    background-color: var(--wth-mint);
+    border-radius: var(--radius-large);
+    isolation: isolate;
+    overflow: hidden;
+    padding: var(--space-xxlarge) var(--space-xlarge);
+    position: relative;
+    text-align: center;
+  }
+
+  h2 {
+    color: var(--wth-ink-base);
+    font-size: var(--wth-font-size-heading);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  p {
+    color: var(--wth-on-mint-soft);
+    font-size: var(--font-size-large);
+    line-height: 1.55;
+    margin: var(--space-large) auto 0;
+    max-width: 54ch;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+
+  .card :global(.button) {
+    margin-top: var(--space-xlarge);
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    .content {
+      padding-inline: var(--wth-gutter-wide);
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .card {
+      padding-block: 4.5rem;
+    }
+  }
+</style>

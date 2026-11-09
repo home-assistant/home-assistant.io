@@ -12,6 +12,7 @@
 // silently rendering an empty section on the live page.
 import fs from "node:fs";
 import path from "node:path";
+import { isShowing, select } from "./bio-schedule.mjs";
 
 const SECTION_TYPES = ["links", "feed"];
 const SOURCE_TYPES = ["posts", "pinned", "data"];
@@ -80,6 +81,34 @@ const DAY_NO_YEAR = new Intl.DateTimeFormat("en-US", { month: "long", day: "nume
 const TIME = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC" });
 
 export const formatDay = (date) => DAY.format(date);
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+const startOfDay = (date) => new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+
+// An `ends` with only a day keeps the item up through that whole day:
+// `ends: 2026-11-15` hides it at midnight UTC as the 16th begins. With a
+// time, it hides at that time.
+export function parseEnd(value, keyPath) {
+  const date = parseTime(value, keyPath);
+  if (!date || hasTime(value)) return date;
+  return new Date(date.getTime() + DAY_MS);
+}
+
+// When an item shows: from `starts` until `ends`.
+function windowOf(item, keyPath = "item") {
+  return { starts: parseTime(item.starts, `${keyPath}.starts`), ends: parseEnd(item.ends, `${keyPath}.ends`) };
+}
+
+// Keys that were renamed, or are easy to reach for. Naming the right key
+// beats an item that silently ignores its dates.
+function validateWindow(item, keyPath, video = false) {
+  const renamed = { expires: "ends", start: video ? "airs" : "starts", date: video ? "airs" : "starts" };
+  for (const [old, current] of Object.entries(renamed)) {
+    if (has(item, old)) fail(`${keyPath}.${old}`, `is now called ${current}`);
+  }
+  const { starts, ends } = windowOf(item, keyPath);
+  if (starts && ends && ends <= starts) fail(`${keyPath}.ends`, "must be after starts");
+}
 
 // -- YouTube ------------------------------------------------------------------
 
@@ -150,7 +179,7 @@ function validateSource(name, source, sources) {
     const itemPath = `${keyPath}.items[${index}]`;
     if (blank(item?.title)) fail(`${itemPath}.title`, "is required");
     requireUrl(item, itemPath);
-    parseTime(item.expires, `${itemPath}.expires`);
+    validateWindow(item, itemPath);
   });
 
   if (source.fallback === undefined || source.fallback === null) return;
@@ -200,36 +229,38 @@ function validateSection(section, index, sources) {
     const itemPath = `${keyPath}.items[${itemIndex}]`;
     if (blank(item?.label)) fail(`${itemPath}.label`, "is required");
     requireUrl(item, itemPath);
-    parseTime(item.starts, `${itemPath}.starts`);
-    parseTime(item.ends, `${itemPath}.ends`);
+    validateWindow(item, itemPath);
   });
 }
 
-// Items written straight into a feed. The date decides where each one
-// sits, so it is required. A YouTube video takes its link and picture
-// from the video, and its date from when it starts.
+// Items written straight into a feed. `starts` is when one appears, and
+// also where it sits and the date shown on it, as a post's publish date
+// is, so it is required: a scheduled item comes in at the top. A YouTube
+// video takes its link and picture from the video, and its place and
+// date from when it `airs`; `starts` on a video only shows it early.
+// Any of them can have `ends`.
 function validateInserts(inserts, keyPath) {
   if (!Array.isArray(inserts)) fail(keyPath, "must be a list of items");
 
   inserts.forEach((item, index) => {
     const itemPath = `${keyPath}[${index}]`;
-    if (!isMap(item)) fail(itemPath, "must be a map with title, url and date");
+    if (!isMap(item)) fail(itemPath, "must be a map with title, url and starts");
     if (blank(item.title)) fail(`${itemPath}.title`, "is required");
     if (has(item, "label") && blank(item.label)) fail(`${itemPath}.label`, "must be text, e.g. Event");
+    validateWindow(item, itemPath, item.type === "youtube");
 
     if (item.type === "youtube") {
       if (!youtubeId(item.video)) {
         fail(`${itemPath}.video`, "must be a YouTube video ID or link, e.g. https://www.youtube.com/watch?v=XyAL1to3Lm4");
       }
-      if (blank(item.start)) fail(`${itemPath}.start`, "is required, e.g. 2026-11-15T18:00:00Z");
-      parseTime(item.start, `${itemPath}.start`);
+      if (blank(item.airs)) fail(`${itemPath}.airs`, "is required, e.g. 2026-11-15T18:00:00Z");
+      parseTime(item.airs, `${itemPath}.airs`);
       return;
     }
     if (has(item, "type")) fail(`${itemPath}.type`, "must be youtube, or left out for a plain link");
 
     requireUrl(item, itemPath);
-    if (blank(item.date)) fail(`${itemPath}.date`, "is required, e.g. 2026-11-01");
-    parseTime(item.date, `${itemPath}.date`);
+    if (blank(item.starts)) fail(`${itemPath}.starts`, "is required: when it appears, e.g. 2026-11-01");
   });
 }
 
@@ -333,119 +364,221 @@ function scalar(raw) {
 
 // Plain objects for the page: only sections with something to show. An
 // empty section would render as a heading above nothing.
+//
+// Each section has:
+//   - `entries`: everything to render, in order, including items that only
+//     show later. Each has `hidden` (not showing at build time) and what
+//     the rule in bio-schedule.mjs needs to show and hide it as time
+//     passes: `key`, `url`, `source`, `starts`, `ends`, and maybe `cap`,
+//     `pinned`, `fallbackFor` and `variant`.
+//   - `tiles`: the entries showing at build time.
+//   - `limit`, `claims`: how the rule treats the list, and `order`, its
+//     place among the page's lists.
+//   - `hidden`: nothing is showing yet, but something will.
 export function resolve(config, posts, now, siteUrl, data = {}) {
   const sources = config.sources ?? {};
   const newestFirst = [...posts].sort((a, b) => b.date - a.date);
   const sections = config.sections ?? [];
-  const feedItems = claimFeedItems(sections, sources, newestFirst, now, data);
+  const lists = buildLists(sections, sources, newestFirst, now, data, siteUrl);
+  select(lists, now).forEach((keys, index) => (lists[index].keys = keys));
 
   return sections.flatMap((section, index) => {
-    const tiles =
-      section.type === "feed"
-        ? (feedItems.get(index) ?? []).map((item, position) =>
-            feedTile(item, section, sources, newestFirst, siteUrl, now, section.hero === true && position === 0),
-          )
-        : section.items.filter((item) => inWindow(item, now)).map((item) => linkTile(item, newestFirst, siteUrl));
-
-    if (tiles.length === 0) return [];
-
-    // The first item becomes a large card with its image on top. Without an
-    // image it stays a normal tile rather than a card with a hole. A video
-    // already is a large card.
-    if (section.hero === true && tiles[0].image && tiles[0].kind === "link") tiles[0].kind = "hero";
-
-    return [{ title: section.title, type: section.type, tiles }];
+    const list = lists[index];
+    if (!list || list.entries.length === 0) return [];
+    const entries = list.entries.map((entry) => ({ ...entry, hidden: !isShowing(entry, list.keys) }));
+    const tiles = entries.filter((entry) => !entry.hidden);
+    return [
+      {
+        title: section.title,
+        type: section.type,
+        order: list.order,
+        limit: Number.isFinite(list.limit) ? list.limit : null,
+        claims: list.claims,
+        entries,
+        tiles,
+        hidden: tiles.length === 0,
+      },
+    ];
   });
 }
 
-// On release day the release post is also the newest blog post. It should
-// appear once, under the section that describes it best: a pin first,
-// then a category feed such as releases, and only then the general blog,
-// which backfills with its next post. Sections still render in YAML order.
-function claimFeedItems(sections, sources, posts, now, data) {
-  const candidates = sections.flatMap((section, index) =>
-    section.type === "feed" ? [[index, section, mergedItems(section, sources, posts, now, data)]] : [],
-  );
-
-  const claimed = new Set();
-  const result = new Map();
-  candidates
-    .sort(([indexA, , itemsA], [indexB, , itemsB]) => specificity(itemsB, sources) - specificity(itemsA, sources) || indexA - indexB)
-    .forEach(([index, section, items]) => {
-      const taken = items.filter((item) => !claimed.has(item.url)).slice(0, section.limit ?? 1);
-      taken.forEach((item) => claimed.add(item.url));
-      result.set(index, taken);
-    });
-  return result;
+// Feeds first, then curated links, each in YAML order. Curated links
+// don't claim links, so the store can be in Latest and Featured at once.
+function buildLists(sections, sources, posts, now, data, siteUrl) {
+  const merged = sections.map((section) => (section.type === "feed" ? mergedItems(section, sources, posts, now, data) : null));
+  const holders = linkHolders(merged, sources, now);
+  return sections.map((section, index) => {
+    if (section.type !== "feed") {
+      return { order: index, limit: Infinity, claims: false, entries: linkEntries(section, posts, siteUrl, now) };
+    }
+    const limit = section.limit ?? 1;
+    const kept = canShow(merged[index], index, limit, holders, sources, now);
+    return { order: index, limit, claims: true, entries: feedEntries(kept, section, sources, posts, siteUrl, now) };
+  });
 }
 
-// Everything a feed section's sources produce, as one list: an active pin
-// first, because someone chose it, then the rest newest first, whichever
-// feed they came from. A source's `limit` caps how many of its items can
-// take part, so one busy feed can't crowd out the others.
+// Up from now on, until it's removed: nothing about it will change.
+const fixed = (item, now) => (!item.starts || item.starts <= now) && !item.ends;
+const isPinned = (item, sources) => sources[item.source]?.type === "pinned";
+
+// How strong an item's claim to its link is (see select in
+// bio-schedule.mjs): someone chose a pin; a category feed describes a
+// post better than the general blog does.
+function rankOf(item, sources) {
+  if (isPinned(item, sources)) return 2;
+  return sources[item.source]?.category ? 1 : 0;
+}
+
+// Pinned sources with a pin that is up for good: their fallback never shows.
+function pinnedForGood(items, sources, now) {
+  return new Set(items.filter((item) => isPinned(item, sources) && fixed(item, now)).map((item) => item.source));
+}
+
+const shut = (item, forGood) => (item.fallbackFor ?? []).some((source) => forGood.has(source));
+
+// Every feed item that might show, by link, to see which could take a
+// link from another.
+function linkHolders(merged, sources, now) {
+  const holders = new Map();
+  merged.forEach((items, list) => {
+    if (!items) return;
+    const forGood = pinnedForGood(items, sources, now);
+    items.forEach((item, position) => {
+      if (shut(item, forGood)) return;
+      const holder = { list, position, rank: rankOf(item, sources), always: fixed(item, now) && !(item.fallbackFor ?? []).length };
+      holders.set(item.url, [...(holders.get(item.url) ?? []), holder]);
+    });
+  });
+  return holders;
+}
+
+// Who gets a link when both are up: the higher rank, then the earlier
+// list, then the earlier item. The same order as select.
+const beats = (a, b) => a.rank > b.rank || (a.rank === b.rank && (a.list < b.list || (a.list === b.list && a.position < b.position)));
+
+// The items of a feed that might ever show, each marked `sure` if it is
+// certain to show whenever the list gets that far: it is up for good,
+// stands in for no pin, and nothing could take its link. Once the list
+// has `limit` sure items, nothing after them can show. Leaving out what
+// can never show keeps the page small: the blog alone has hundreds of
+// posts.
+function canShow(items, list, limit, holders, sources, now) {
+  const forGood = pinnedForGood(items, sources, now);
+  const kept = [];
+  const sureBySource = new Map();
+  let sure = 0;
+  items.forEach((item, position) => {
+    if (sure >= limit || shut(item, forGood)) return;
+    const me = { list, position, rank: rankOf(item, sources) };
+    const rivals = (holders.get(item.url) ?? []).filter((holder) => beats(holder, me));
+    // Something always up takes the link.
+    if (rivals.some((holder) => holder.always)) return;
+    // The source is full with items that always show.
+    const cap = sources[item.source]?.limit;
+    if (cap && (sureBySource.get(item.source) ?? 0) >= cap) return;
+
+    const isSure = fixed(item, now) && !(item.fallbackFor ?? []).length && rivals.length === 0;
+    kept.push({ ...item, rank: me.rank, sure: isSure });
+    if (!isSure) return;
+    sure++;
+    sureBySource.set(item.source, (sureBySource.get(item.source) ?? 0) + 1);
+  });
+  return kept;
+}
+
+// A large first card can only go to an item that might come first: one
+// with nothing sure to show before it. Those get a hero version and,
+// unless they are always first, a row version too. Without an image an
+// item stays a normal tile rather than a card with a hole. A video
+// already is a large card.
+function feedEntries(items, section, sources, posts, siteUrl, now) {
+  return items.flatMap((item, index) => {
+    const base = {
+      key: String(index),
+      url: item.url,
+      source: item.source,
+      rank: item.rank,
+      cap: sources[item.source]?.limit ?? null,
+      pinned: isPinned(item, sources),
+      fallbackFor: item.fallbackFor ?? [],
+      starts: item.starts ?? null,
+      ends: item.ends ?? null,
+    };
+    const row = { ...feedTile(item, section, sources, posts, siteUrl, now, false), ...base };
+    if (section.hero !== true || item.video || items.slice(0, index).some((before) => before.sure)) return [row];
+
+    const hero = { ...feedTile(item, section, sources, posts, siteUrl, now, true), ...base, kind: "hero" };
+    if (!hero.image) return [row];
+    if (index === 0) return [hero];
+    return [
+      { ...hero, variant: "hero" },
+      { ...row, variant: "row" },
+    ];
+  });
+}
+
+// Curated links, minus those that have ended. Links have no limit.
+function linkEntries(section, posts, siteUrl, now) {
+  return section.items.flatMap((item, index) => {
+    const window = windowOf(item);
+    if (window.ends && window.ends <= now) return [];
+    return [{ ...linkTile(item, posts, siteUrl), key: String(index), url: item.url, ...window }];
+  });
+}
+
+// Everything a feed section's sources produce, as one list: pins first,
+// because someone chose them, then the rest newest first, whichever feed
+// they came from. Duplicate links and each source's `limit` are left to
+// the rule in bio-schedule.mjs, because which items win depends on which
+// are up at the time.
 function mergedItems(section, sources, posts, now, data) {
-  // Pins go first before duplicates are dropped, so a pin of a post that
-  // is also in the blog keeps its place and title whatever the order of
-  // `sources`.
-  const isPinned = (item) => (sources[item.source]?.type === "pinned" ? 1 : 0);
-  const all = [
+  const items = [
     ...sectionSources(section).flatMap((name) => resolveSource(name, sources, posts, now, data)),
     ...insertedItems(section),
-  ].sort((a, b) => isPinned(b) - isPinned(a));
+  ].filter((item) => !(item.ends && item.ends <= now));
 
-  const taken = new Map();
-  const seenUrls = new Set();
-  const items = all.filter((item) => {
-    const cap = sources[item.source]?.limit;
-    const count = taken.get(item.source) ?? 0;
-    if (cap && count >= cap) return false;
-    taken.set(item.source, count + 1);
-    if (seenUrls.has(item.url)) return false;
-    seenUrls.add(item.url);
-    return true;
-  });
-
-  const pinned = items.filter((item) => sources[item.source]?.type === "pinned");
+  const pinned = items.filter((item) => isPinned(item, sources));
   const dated = items
-    .filter((item) => sources[item.source]?.type !== "pinned")
+    .filter((item) => !isPinned(item, sources))
     .sort((a, b) => (b.date?.getTime() ?? 0) - (a.date?.getTime() ?? 0));
   return [...pinned, ...dated];
 }
 
 // `insert:` entries on a feed section. They have no source of their own,
-// so they carry their own label and take their place by date.
+// so they carry their own label and take their place by `starts` (a
+// video by `airs`).
+//
+// A video without an `ends` comes down at the end of the day after it
+// airs (UTC), so a livestream doesn't linger once it's over.
 function insertedItems(section) {
   return (section.insert ?? []).map((item) => {
+    const window = windowOf(item);
     if (item.type === "youtube") {
       const id = youtubeId(item.video);
+      const airs = parseTime(item.airs, "insert");
       return {
         title: item.title,
         url: `https://www.youtube.com/watch?v=${id}`,
-        date: parseTime(item.start, "insert"),
-        timed: hasTime(item.start),
+        date: airs,
+        timed: hasTime(item.airs),
         image: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
         label: item.label,
         video: true,
         source: "inserted",
+        starts: window.starts,
+        ends: window.ends ?? new Date(startOfDay(airs).getTime() + 2 * DAY_MS),
       };
     }
     return {
       title: item.title,
       url: item.url,
-      date: parseTime(item.date, "insert"),
+      date: window.starts,
       image: item.image,
       label: item.label,
       source: "inserted",
+      ...window,
     };
   });
-}
-
-// Which source actually produced the items: a pin may have fallen back.
-function specificity(items, sources) {
-  const source = sources[items[0]?.source];
-  if (!source) return 0;
-  if (source.type === "pinned") return 2;
-  return source.category ? 1 : 0;
 }
 
 function resolveSource(name, sources, posts, now, data = {}, seen = []) {
@@ -457,17 +590,19 @@ function resolveSource(name, sources, posts, now, data = {}, seen = []) {
   else if (source.type === "data") items = dataItems(data[source.file], name);
   else if (source.type === "pinned") {
     items = (source.items ?? [])
-      .filter((item) => {
-        const expires = parseTime(item.expires, name);
-        return !(expires && expires <= now);
-      })
-      .map((item) => ({ ...item, source: name }));
+      .map((item) => ({ ...item, ...windowOf(item, name), source: name }))
+      .filter((item) => !(item.ends && item.ends <= now));
   }
+  if (!source.fallback) return items;
 
-  // An expired or empty pin is not an error: it means "back to the feed".
-  if (items.length === 0 && source.fallback) return resolveSource(source.fallback, sources, posts, now, data, [...seen, name]);
+  const fallback = () => resolveSource(source.fallback, sources, posts, now, data, [...seen, name]);
+  // An empty source is not an error: it means "use the fallback".
+  if (source.type !== "pinned") return items.length > 0 ? items : fallback();
 
-  return items;
+  // A pinned source's fallback shows whenever none of its pins is up, so
+  // its items come along, marked, unless a pin is up for good.
+  if (items.some((item) => fixed(item, now))) return items;
+  return [...items, ...fallback().map((item) => ({ ...item, fallbackFor: [...(item.fallbackFor ?? []), name] }))];
 }
 
 // Items downloaded before the build, such as the newsletter (the
@@ -516,16 +651,19 @@ function feedTile(item, section, sources, posts, siteUrl, now, hero) {
   const label = item.label ?? sources[item.source]?.label;
 
   if (item.video) {
-    // Before it starts: "Livestream · Starts November 15 · 18:00 UTC".
+    // Before it airs: "Livestream · Starts November 15 · 18:00 UTC". The
+    // script on the page swaps in `noteAfter` once it has started.
     const upcoming = item.date > now;
-    const when = upcoming
-      ? ["Starts " + DAY_NO_YEAR.format(item.date), item.timed ? `${TIME.format(item.date)} UTC` : null]
-      : [formatDay(item.date)];
+    const before = ["Starts " + DAY_NO_YEAR.format(item.date), item.timed ? `${TIME.format(item.date)} UTC` : null];
+    const after = [formatDay(item.date)];
+    const join = (when) => [label, ...when].filter(Boolean).join(" · ");
     return {
       kind: "video",
       label: item.title,
       url: item.url,
-      note: [label, ...when].filter(Boolean).join(" · "),
+      note: join(upcoming ? before : after),
+      noteAfter: upcoming ? join(after) : null,
+      airs: upcoming ? item.date : null,
       image: item.image,
       source: item.source,
     };
@@ -571,12 +709,6 @@ export function imageFor(item, posts, siteUrl) {
     url = siteUrl + pathname;
   }
   return `${OG_ENDPOINT}?url=${encodeURIComponent(url)}`;
-}
-
-function inWindow(item, now) {
-  const starts = parseTime(item.starts, "starts");
-  const ends = parseTime(item.ends, "ends");
-  return (!starts || starts <= now) && (!ends || ends > now);
 }
 
 export function socialLinks(config) {
