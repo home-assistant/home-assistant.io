@@ -15,7 +15,7 @@ To get a minute forecast from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the Foreca weather entity of the location you want the forecast for. You can also select an area, a device, or a label.
+5. Select what data you want to read. Under **By target** (see [Targets](#targets)), pick the Foreca weather entity of the location you want the forecast for. You can also select an area, a device, or a label.
 6. From the actions shown for that target, select **Get minute forecast**.
 7. In the **Response variable** field, enter a name to store the data in, such as `minute_forecast`.
 8. Select **Save**.
