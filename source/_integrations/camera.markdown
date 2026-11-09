@@ -85,7 +85,7 @@ When you open the live stream of a camera, there is no **Start talking** button.
 
 The button only appears when all of these are true:
 
-- The **Two-way audio** preview feature is enabled.
+- The **Two-way audio** Labs feature is enabled.
 - The camera and its integration support two-way audio.
 - Home Assistant can stream the camera using WebRTC.
 
