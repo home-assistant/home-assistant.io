@@ -6,6 +6,9 @@
   "categories": [
     "news_social_media"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "notify"
   ]

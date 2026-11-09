@@ -23,7 +23,7 @@ A target can be a single {% term entity %}, or a group of entities, such as all 
 You can use one or more targets in a trigger, condition, or action. You can also combine different target types, for example, one entity and an entire area.
 
 - **Entity**: That one entity, for example, the hallway light.
-- **Device**: The matching entities of that {% term device %}. If the device has [sub-devices](/docs/configuration/customizing-entities/#about-parent-devices-and-sub-devices), such as the outlets of a power strip, their matching entities are part of the target as well.
+- **Device**: The matching entities of that {% term device %}. If the device has [child devices](/docs/configuration/customizing-entities/#parent-and-child-devices), such as the outlets of a power strip, their matching entities are part of the target as well.
 - **Area**: The matching entities in that area.
 - **Floor**: The matching entities in all areas on that {% term floor %}.
 - **Label**: The matching entities that have that {% term label %}. If the label is on a device or an area, the matching entities of that device or area are part of the target as well.
@@ -77,7 +77,11 @@ Each exclusion is listed below the targets it excludes, with the number of entit
 
 Exclusions stay up to date, like targets. If you exclude an area and later add a light to that area, the light is left out as well. An entity excluded by an area, a device, a floor, or a label can't be included again on its own. The same applies to an entity whose exclusion also leaves out entities from another target. To include it again, remove that exclusion.
 
-Excluding an [old-style group](/integrations/group/#old-style-groups), such as `group.downstairs_lights`, leaves out only the group entity, not its members. This also applies to actions, even though they include old-style group members in the target. To exclude members, exclude them, their area, or their label.
+If you exclude a {% term group %}, only the group entity is excluded, not its members.
+If you exclude an [old-style group](/integrations/group/#old-style-groups), such as `group.downstairs_lights`:
+
+- In actions: the group entity is excluded, as well as its members and any groups nested inside it.
+- In triggers and conditions: only the group entity is excluded, not its members. Exclude its members, their area, or their label separately.
 
 ## When a target covers several entities
 

@@ -10,6 +10,9 @@
   "categories": [
     "water"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

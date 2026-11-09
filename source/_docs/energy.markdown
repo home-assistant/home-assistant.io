@@ -57,3 +57,16 @@ To make an unavailable card available, add the matching source or device on the 
 If you hide every card in an Energy dashboard tab, Home Assistant hides that tab. Home Assistant keeps at least one tab available, so the dashboard does not become empty.
 
 To show a hidden card or tab again, return to **Customize cards**, turn the card back on, and save your changes.
+
+## Combining sources of the same type
+
+If you have more than one source of the same type, like two grid tariffs, several solar panel arrays, or two water meters, the Energy dashboard can show them as one entry per type. For example, all your solar panels then show as one **Solar** series in the graphs. This only changes how the data is shown. Your energy configuration stays the same.
+
+To combine sources of the same type:
+
+1. Open the {% my energy title="Energy dashboard" %} and go to the **Electricity**, **Gas**, or **Water** tab.
+2. In the date picker at the bottom of the page, select **Menu** {% icon "mdi:dots-vertical" %} > **Combine sources**.
+
+To show each source on its own again, select **Combine sources** again.
+
+The **Combine sources** option is only shown on a tab where at least one source type has two or more sources. A type with a single source always looks the same. Home Assistant remembers your choice in your browser and applies it to the **Electricity**, **Gas**, and **Water** tabs. The **Summary** tab always combines sources, so the option is not shown there.

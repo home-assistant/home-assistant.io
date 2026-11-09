@@ -176,6 +176,11 @@ sound_url:
   description: "An MP3 file to play with the notification, instead of a built-in sound: a media source ID of a file in Home Assistant, or the URL of the file. When `sound` is given as well, that sound plays when the file cannot be fetched."
   required: false
   type: string
+repeat:
+  description: "How many times the sound is played with the notification. Set to `0` to keep playing it until the notification is dismissed. Does not apply to sounds fetched from a URL."
+  required: false
+  type: integer
+  default: 1
 {% endconfiguration %}
 
 ## Data updates

@@ -7,6 +7,9 @@
   "categories": [
     "plugs_switches"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "light"
   ]

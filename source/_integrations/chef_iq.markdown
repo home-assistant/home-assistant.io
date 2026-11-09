@@ -44,11 +44,17 @@ The integration is passive and read-only. It reports the probe's broadcast readi
 
 ## Troubleshooting
 
+### The probe is not discovered
+
 If the device is not discovered, try the following:
 
 1. Make sure that the probe is awake and broadcasting (take it off its dock).
 2. Make sure your Bluetooth adapter or proxy is in range of the probe.
 3. Make sure the [Bluetooth](/integrations/bluetooth/) integration is set up and working.
+
+### The sensors are unavailable
+
+The probe only broadcasts while it is awake. Once it has stopped broadcasting for a few minutes, for example because it is back on its dock, its sensors become unavailable. They recover on their own with the probe's next advertisement, so wake the probe or bring it back into range of a Bluetooth adapter or proxy.
 
 ## Removing the integration
 

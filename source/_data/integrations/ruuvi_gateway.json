@@ -11,6 +11,9 @@
     "sensors",
     "hubs_protocols.wireless_protocols"
   ],
+  "connectivity": [
+    "network"
+  ],
   "discovery": [
     "dhcp"
   ]

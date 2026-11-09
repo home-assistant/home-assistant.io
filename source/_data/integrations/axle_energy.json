@@ -11,6 +11,9 @@
   "categories": [
     "energy"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "calendar",

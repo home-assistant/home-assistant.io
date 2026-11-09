@@ -11,6 +11,9 @@
   "categories": [
     "climate.fans_ventilation"
   ],
+  "connectivity": [
+    "infrared"
+  ],
   "platforms": [
     "fan"
   ]

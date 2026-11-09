@@ -6,6 +6,9 @@
   "categories": [
     "computers_network.nas_servers"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor"
   ]

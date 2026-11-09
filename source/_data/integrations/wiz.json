@@ -12,6 +12,9 @@
     "lighting.bulbs_lamps",
     "plugs_switches"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

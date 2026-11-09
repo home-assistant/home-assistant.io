@@ -11,6 +11,9 @@
   "categories": [
     "hubs_protocols.building_automation"
   ],
+  "connectivity": [
+    "mqtt"
+  ],
   "platforms": [
     "switch"
   ],
