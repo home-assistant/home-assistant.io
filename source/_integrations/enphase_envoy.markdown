@@ -516,7 +516,7 @@ Generator support is a recent add to the integration. For some entities not all 
 - **Generator <abbr title="envoy serial number">SN</abbr> Operating state**: operating status `open`, `auto`, `standby` or `on`.
 - **Generator <abbr title="envoy serial number">SN</abbr> Start battery level**: state of charge for generator to start as diagnostic entity.
 - **Generator <abbr title="envoy serial number">SN</abbr> Stop battery level**: state of charge for generator to stop as diagnostic entity.
-- **Generator <abbr title="envoy serial number">SN</abbr> Nameplate rating**:  power rating in W as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Nameplate rating**: Generator power rating in kW. This is a diagnostic entity.
 - **Generator <abbr title="envoy serial number">SN</abbr> Maximum continuous current**:  maximum continuous current in A as diagnostic entity.
 - **Generator <abbr title="envoy serial number">SN</abbr> Start method**:  generator start method `manual`, `auto`as diagnostic entity.
 - **Generator <abbr title="envoy serial number">SN</abbr> Generator type**: what type generator, typically `standby` as diagnostic entity.
