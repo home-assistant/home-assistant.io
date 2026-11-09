@@ -13,8 +13,8 @@
 // beside it from the tablet width.
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import nabuCasa from "../../assets/collaboration/nabu-casa-dark.svg";
-import openHomeFoundation from "../../assets/brands/open-home-foundation-lockup-monochrome-light.svg";
+import nabuCasa from "../../../assets/collaboration/nabu-casa-dark.svg";
+import openHomeFoundation from "../../../assets/brands/open-home-foundation-lockup-monochrome-light.svg";
 
 interface Props {
   image: ImageMetadata;
@@ -52,7 +52,7 @@ const { image, imageAlt } = Astro.props;
 </section>
 
 <style lang="scss">
-  @use "../../styles/breakpoints";
+  @use "../../../styles/breakpoints";
 
   .connect-collaboration {
     /* Figma's "Banner Big" fill (a gradient from #a0c4d8 to #a0c5d8,

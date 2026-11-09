@@ -1,7 +1,7 @@
 // Specifications and FAQ of the Connect AUX-2 page, from the Figma file
 // "Connect AUX-2" ("Specs", node 2002:31255; "FAQ", node 2002:36190).
 // The leading underscore keeps this file out of the page routes.
-import type { FaqItem } from "../../../components/connect/ConnectFaq.astro";
+import type { FaqItem } from "../../../components/connect/aux-2/ConnectFaq.astro";
 import explodedBase from "../../../assets/connect/aux-2/exploded-base.svg";
 import explodedBoard from "../../../assets/connect/aux-2/exploded-board.webp";
 import explodedLid from "../../../assets/connect/aux-2/exploded-lid.svg";

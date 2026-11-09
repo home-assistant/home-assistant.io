@@ -24,7 +24,7 @@
 // reduced motion, the drawing is simply exploded.
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import { connectDesk } from "../../lib/breakpoints";
+import { connectDesk } from "../../../lib/breakpoints";
 
 interface Detail {
   term: string;
@@ -204,7 +204,7 @@ const svgLayer = (layer: Layer) => ({
 </section>
 
 <script>
-  import { reducedMotion, reveal } from "../../lib/motion";
+  import { reducedMotion, reveal } from "../../../lib/motion";
 
   // Lift the lid when the drawing scrolls into view (styles: .is-armed
   // lowers it, .is-revealed lifts it).
@@ -269,8 +269,8 @@ const svgLayer = (layer: Layer) => ({
 </script>
 
 <style lang="scss">
-  @use "../../styles/breakpoints";
-  @use "../../styles/layout";
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/layout";
 
   .connect-specs {
     @include layout.container;

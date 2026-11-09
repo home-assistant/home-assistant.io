@@ -1,6 +1,6 @@
 // Fixtures for the Connect collaboration banner, with the AUX-2 page's
 // photo and copy. Replaces source/connect/*/components/_collaboration.html.
-import boardLogos from "../../assets/connect/aux-2/board-logos.webp";
+import boardLogos from "../../../assets/connect/aux-2/board-logos.webp";
 
 export default {
   title: "Connect collaboration banner",

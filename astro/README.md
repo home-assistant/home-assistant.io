@@ -117,22 +117,20 @@ example, the components of the Month of "What the Heck?!" page live in
 
 ## Where files go
 
-Components are filed by what they are built for, so a component's
-path says how widely it is meant to be shared:
+Components are filed by which pages use them, so a component's path
+says how widely it is shared:
 
 - `src/components/<Name>.astro`: site-wide building blocks any page
   can use, such as the header, footer, `Button` and `BuyDialog`.
-- `src/components/<line>/<Name>.astro`: built for a product line's
-  pages, such as the Connect product bar,
-  `src/components/connect/ConnectNav.astro`, even while only one of
-  the line's pages uses it.
-- `src/components/<line>/<product>/<Name>.astro`: specific to one
-  product, such as the AUX-2 drawing,
-  `src/components/connect/aux-2/ConnectDrawing.astro`.
+- `src/components/<line>/<Name>.astro`: used by the pages of more than
+  one product in a product line, such as the Connect line
+  (`src/components/connect/`).
+- `src/components/<line>/<product>/<Name>.astro`: used by one
+  product's page only, such as `src/components/connect/aux-2/ConnectNav.astro`.
 
-Product components keep their line's name prefix (`ConnectDrawing`,
-not `Aux2Drawing`), so one that turns out to be useful to the whole
-line moves up a folder without a rename. Scripts that belong to one
+A product's components keep their line's name prefix (`ConnectNav`,
+not `Aux2Nav`): when a second product's page needs one, it moves up
+to the line's folder without a rename. Scripts that belong to one
 product follow the same folders in `src/lib/` (the AUX-2 drawing's
 engine is in `src/lib/connect/aux-2/drawing/`), as do its assets in
 `src/assets/` (`src/assets/connect/aux-2/`). A file only uses files

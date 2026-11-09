@@ -20,8 +20,8 @@
 //   - The lead text lines up with the badge's left edge on desktop
 //     instead of sitting further in.
 import type { ImageMetadata } from "astro";
-import ArtDirectedImage from "../ArtDirectedImage.astro";
-import CollaborationBadge from "../CollaborationBadge.astro";
+import ArtDirectedImage from "../../ArtDirectedImage.astro";
+import CollaborationBadge from "../../CollaborationBadge.astro";
 
 interface Props {
   // Product photo, a wide band of the scene that covers the hero at
@@ -98,8 +98,8 @@ const {
 </header>
 
 <style lang="scss">
-  @use "../../styles/breakpoints";
-  @use "../../styles/layout";
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/layout";
 
   .connect-hero {
     color: var(--color-text-inverse);
