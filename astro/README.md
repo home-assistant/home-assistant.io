@@ -71,8 +71,12 @@ gets depends only on the route list:
 - Route not listed and no Jekyll page: the URL returns a 404.
 
 So you can keep the old Jekyll page while moving a route to Astro, and
-switch back by removing the route from the list. Once you no longer
-need it, delete the Jekyll page so the content is not duplicated. A
+switch back by removing the route from the list. If the route has a
+page of its own in `src/pages`, delete the old Jekyll page once you no
+longer need it, so the content is not duplicated. Do not delete a
+route's Markdown file, such as `source/tos/index.markdown`, while it
+is served from the `pages` collection: it is not a duplicate, but the
+content Astro builds the page from. A
 route that is listed but that Astro does not build fails the build;
 there is no fallback to Jekyll.
 
