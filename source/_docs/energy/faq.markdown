@@ -31,7 +31,7 @@ The **Energy** dashboard tracks energy in kWh, and gas and water as volumes. If 
 4. Select **Create**, or **Use sensor** if the dialog only lists existing sensors.
    - Result: The sensor is created or reused, and added to the **Energy** dashboard.
 
-New sensors start counting when you create them, so earlier values are not included. The sensor that Home Assistant creates is an [Integration (Riemann sum integral)](/integrations/integration/) helper. You can find it under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}
+New sensors start counting when you create them, so earlier values are not included. The sensor that Home Assistant creates is an [Integration (Riemann sum integral)](/integrations/integration/) helper. You can find it under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
 
 ## Split consumption by tariffs
 
