@@ -138,6 +138,15 @@ Zones with a wireless temperature sensor have the following {% term sensor %} en
 
 The iZone controller only reports these in coarse steps. The RF signal is 100%, 50%, 25%, or 0%, and the battery is 100%, 50%, or 0%. The RF signal and battery sensors are only created for zones with a wireless sensor, and only if your iZone bridge reports the values.
 
+### Zone faults
+
+Each zone has the following {% term "binary sensor" %} entities, which show **Problem** when the iZone controller reports a fault:
+
+- **Damper fault**: (diagnostic) The controller reports a fault with the zone damper motor.
+- **Sensor fault**: (diagnostic) The controller reports a fault with the zone temperature sensor.
+
+**Sensor fault** is only created for zones with a temperature sensor, and only if your iZone bridge reports it. Older bridges don't report sensor faults.
+
 ## Diagnostics
 
 The iZone {% term integration %} provides diagnostics to help with troubleshooting. The download includes:
