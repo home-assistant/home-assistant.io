@@ -38,6 +38,59 @@ action: |
 
 {% include actions/targets.md domain="media_player" %}
 
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: keep the story playing with a button
+
+Sometimes a story is too good to stop. This automation cancels the sleep timer when a button helper is pressed, so the player keeps playing.
+
+- **Trigger**: Entity state: Keep playing button changes
+- **Action**: Yoto clear sleep timer
+  - **Target**: Yoto player
+
+{% details "YAML example for cancelling the timer with a button" %}
+
+{% example %}
+automation: |
+  alias: "Keep the story playing"
+  triggers:
+    - trigger: state
+      entity_id: input_button.keep_playing
+  actions:
+    - action: yoto.clear_sleep_timer
+      target:
+        entity_id: media_player.yoto_player
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: cancel the sleep timer when day mode starts
+
+A timer left over from the night should not stop the first story of the morning. This automation cancels the sleep timer when the player switches to day mode.
+
+- **Trigger**: Entity state: Yoto player Day mode changes to **Day**
+- **Action**: Yoto clear sleep timer
+  - **Target**: Yoto player
+
+{% details "YAML example for cancelling the timer in the morning" %}
+
+{% example %}
+automation: |
+  alias: "Cancel the Yoto sleep timer in the morning"
+  triggers:
+    - trigger: state
+      entity_id: sensor.yoto_player_day_mode
+      to: "day"
+  actions:
+    - action: yoto.clear_sleep_timer
+      target:
+        entity_id: media_player.yoto_player
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

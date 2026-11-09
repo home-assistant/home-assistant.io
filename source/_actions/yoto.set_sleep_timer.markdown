@@ -78,6 +78,72 @@ duration:
 - The player only receives a number of seconds. In end of track mode, the timer is calculated once from the time left in the current track. Seeking or changing tracks afterwards does not update it.
 - The **Sleep timer** sensor of the player shows when the running timer stops playback.
 
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: stop the story 30 minutes after bedtime playback starts
+
+At bedtime, a story can play for a while and then stop on its own. This automation sets a 30-minute sleep timer when the player starts playing after 7 PM.
+
+- **Trigger**: Entity state: Yoto player changes to **Playing**
+- **Condition**: Time: after 19:00
+- **Action**: Yoto set sleep timer
+  - **Target**: Yoto player
+  - **Mode**: Duration
+  - **Duration**: `00:30:00`
+
+{% details "YAML example for a bedtime sleep timer" %}
+
+{% example %}
+automation: |
+  alias: "Stop the story 30 minutes after bedtime playback starts"
+  triggers:
+    - trigger: state
+      entity_id: media_player.yoto_player
+      to: "playing"
+  conditions:
+    - condition: time
+      after: "19:00:00"
+  actions:
+    - action: yoto.set_sleep_timer
+      target:
+        entity_id: media_player.yoto_player
+      data:
+        mode: duration
+        duration:
+          minutes: 30
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: let the current track finish at lights out
+
+At lights out, the current track can finish instead of stopping in the middle. This automation stops playback at the end of the current track at 8:30 PM.
+
+- **Trigger**: Time: 20:30
+- **Action**: Yoto set sleep timer
+  - **Target**: Yoto player
+  - **Mode**: End of current track
+
+{% details "YAML example for stopping at the end of the track" %}
+
+{% example %}
+automation: |
+  alias: "Let the current track finish at lights out"
+  triggers:
+    - trigger: time
+      at: "20:30:00"
+  actions:
+    - action: yoto.set_sleep_timer
+      target:
+        entity_id: media_player.yoto_player
+      data:
+        mode: end_of_track
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
