@@ -123,6 +123,9 @@ Examples:
 
 Use the Home Assistant Liquid details block. Do not use the HTML5 variant.
 
+In troubleshooting sections, use one details block per problem.
+For the block title and the content inside it, follow [Troubleshooting](https://contributors.home-assistant.io/writing/guides/structure/#troubleshooting) in the topic-based authoring guide.
+
 ```markdown
 {% details "Generate client ID and client secret" %}
 
