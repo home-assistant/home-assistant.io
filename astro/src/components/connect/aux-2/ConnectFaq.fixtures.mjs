@@ -1,4 +1,4 @@
-// Fixtures for the Connect FAQ. The first question starts open.
+// Fixtures for the Connect FAQ. All questions start closed.
 export default {
   title: "Connect FAQ",
   wide: true,

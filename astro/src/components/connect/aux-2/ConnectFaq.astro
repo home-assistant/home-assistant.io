@@ -1,8 +1,8 @@
 ---
 // Frequently asked questions of a Connect product page: a heading and
 // an accordion of questions, on the site's light gray. Its id is
-// `faq`, the target of the product bar's FAQ link. The first question
-// is open, as in the Figma file.
+// `faq`, the target of the product bar's FAQ link. All questions start
+// closed (the Figma file shows the first one open).
 //
 // Built from "FAQ" in the Figma file "Connect AUX-2" (node 2002:36189).
 // It replaces the per-page `#faq` section of the Jekyll Connect pages
@@ -17,13 +17,13 @@
 // white dot with a minus in a white halo.
 //
 // Answers are HTML, as the Jekyll pages' FAQ data is. An item can take
-// an optional `cta`, a button under its answer.
+// an optional `cta`, a quiet text link with an arrow under its answer.
 //
 // The questions are also published as schema.org FAQPage structured
 // data, built from the same items so it always matches the page. Each
 // answer keeps its HTML (links included), and its CTA follows as a
 // link.
-import Button from "../../Button.astro";
+import Icon from "../../Icon.astro";
 
 export interface FaqItem {
   question: string;
@@ -67,7 +67,6 @@ const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
             class="state"
             type="checkbox"
             id={`faq-${i + 1}`}
-            checked={i === 0}
           />
           <label class="question" for={`faq-${i + 1}`}>
             {question}
@@ -78,11 +77,10 @@ const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
               <div class="slide">
                 <div class="answer" set:html={answer} />
                 {cta && (
-                  <div class="cta">
-                    <Button href={cta.href} icon>
-                      {cta.label}
-                    </Button>
-                  </div>
+                  <a class="cta" href={cta.href}>
+                    {cta.label}
+                    <Icon name="arrow-right" />
+                  </a>
                 )}
               </div>
             </div>
@@ -145,7 +143,7 @@ const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
     gap: var(--space-xlarge);
     justify-content: space-between;
     line-height: 1.2;
-    padding-bottom: var(--space-small);
+    padding-bottom: var(--space-large);
     padding-top: var(--space-xlarge);
     user-select: none;
 
@@ -226,7 +224,7 @@ const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
     display: grid;
     grid-template-rows: 0fr;
     overflow: hidden;
-    padding-bottom: var(--space-large);
+    padding-bottom: var(--space-small);
     transition: grid-template-rows 0.4s ease;
 
     .state:checked ~ & {
@@ -240,7 +238,7 @@ const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
 
   .slide {
     opacity: 0.875;
-    padding-bottom: var(--space-small);
+    padding-bottom: var(--space-large);
     transform: translateY(-100%);
     transition:
       transform 0.4s ease,
@@ -269,7 +267,7 @@ const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
   .answer {
     color: var(--color-ink-muted);
     font-size: var(--font-size-medium);
-    line-height: 1.2;
+    line-height: 1.5;
     /* Keep clear of the toggle column: end where the question does. */
     padding-right: calc(1.5rem + var(--space-medium) + var(--space-xlarge));
 
@@ -282,8 +280,44 @@ const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
     }
   }
 
+  /* The answer's follow-up: a text link in the question's color, its
+     arrow nudging forward on hover. */
   .cta {
-    padding-top: var(--space-medium);
+    align-items: center;
+    color: var(--color-ink);
+    display: inline-flex;
+    font-size: var(--font-size-medium);
+    font-weight: 500;
+    gap: var(--space-xsmall);
+    margin-top: var(--space-large);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 0.2s ease-out;
+
+    :global(.icon) {
+      transition: transform 0.2s ease-out;
+    }
+
+    &:hover {
+      text-decoration-color: currentColor;
+
+      :global(.icon) {
+        transform: translateX(0.125rem);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-ink);
+      outline-offset: var(--space-xsmall);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      :global(.icon) {
+        transition: none;
+      }
+    }
   }
 
   @media only screen and (min-width: breakpoints.$connect-desk) {
@@ -295,7 +329,8 @@ const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
       font-size: var(--font-size-xlarge);
     }
 
-    .answer {
+    .answer,
+    .cta {
       font-size: var(--font-size-large);
     }
   }
