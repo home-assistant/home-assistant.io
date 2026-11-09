@@ -13,6 +13,9 @@
   "categories": [
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor"
   ],

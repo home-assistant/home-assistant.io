@@ -7,6 +7,9 @@
   "categories": [
     "lighting.lighting_systems"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

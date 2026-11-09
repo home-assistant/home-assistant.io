@@ -11,6 +11,9 @@
   "categories": [
     "sensors"
   ],
+  "connectivity": [
+    "lorawan"
+  ],
   "platforms": [
     "sensor"
   ]

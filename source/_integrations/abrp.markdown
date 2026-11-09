@@ -197,12 +197,16 @@ To resolve this issue:
 
 ### Authentication errors
 
-If your ABRP session expires, the integration can no longer connect and its entities become unavailable.
+If ABRP no longer accepts your sign-in, the entities become unavailable and Home Assistant asks you to sign in again.
 
 To resolve this issue:
 
 1. Confirm you can log in to your account at the [A Better Routeplanner](https://abetterrouteplanner.com/) website.
-2. Remove the integration and add it again.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. Under **Attention required**, select **Reconfigure** on the **A Better Routeplanner** card, then confirm.
+4. Sign in with the same ABRP account. If you sign in with a different account, re-authentication stops. To try again, select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, select **Reload**, then select **Reconfigure** again.
+
+After you sign in, the integration reloads and your entities update again.
 
 ### Setup stops with a message about default_config
 

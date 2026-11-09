@@ -13,6 +13,9 @@
     "health_wellbeing",
     "security_safety.cameras"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "select",
     "sensor",

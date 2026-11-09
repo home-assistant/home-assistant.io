@@ -12,6 +12,10 @@
     "energy.solar_batteries",
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "modbus",
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

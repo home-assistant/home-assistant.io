@@ -11,6 +11,9 @@
   "categories": [
     "productivity_information.documents_photos"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor"
   ]

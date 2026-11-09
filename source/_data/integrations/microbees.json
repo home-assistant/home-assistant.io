@@ -11,6 +11,9 @@
     "hubs_protocols.smart_home_hubs",
     "plugs_switches"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

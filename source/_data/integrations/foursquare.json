@@ -6,5 +6,8 @@
   "categories": [
     "news_social_media",
     "presence_location"
+  ],
+  "connectivity": [
+    "cloud"
   ]
 }

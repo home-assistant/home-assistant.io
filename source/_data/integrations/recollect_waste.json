@@ -10,6 +10,9 @@
   "categories": [
     "local_services"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "calendar",
     "diagnostics",

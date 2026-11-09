@@ -9,6 +9,9 @@
   "categories": [
     "blinds_curtains"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "cover",
     "sensor"
