@@ -132,12 +132,11 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **PV strings**: Power for each solar panel string, plus voltage and current if you need more detail. Each string the inverter supports gets its own device, connected via the inverter. Only shown for PV-capable inverters.
 - **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery, plus combined power, state of charge, and state of health totals. Each battery gets its own device, such as **Battery 1**, connected via the inverter, and only batteries that respond are added. A battery added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
 - **Battery packs**: Remaining capacity, full charge capacity, charge cycles, highest and lowest cell voltage, and MOSFET and internal temperatures for each pack in a BTS battery tower, such as the BTS 5K. Each pack gets its own device, connected via the inverter and named after its group and place in the tower, such as **Battery pack 2.1**. The device shows the pack's model, <abbr title="battery management system">BMS</abbr> version, and serial number. A pack's sensors are added once it first answers, and are unavailable while it doesn't answer. Only shown for hybrid inverters with a BTS battery tower.
-  - Each cell's voltage and the pack's four cell temperatures are also available. Only the cells the pack has get a sensor.
 - **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. This includes the state of charge at which the battery stops charging, the levels at which it stops discharging on-grid and off-grid, and the level at which off-grid discharging resumes. Only shown for inverters with battery storage.
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 - **Current settings**: The feed-in limit, the active power limit, and the passive-mode setpoints as they're currently stored on the inverter, so you can read back what the actions below have set.
 
-The readings most people need are enabled by default. Per-phase detail, the reactive power totals, daily energy counters, the battery configuration, the battery pack cell sensors, and the current settings are disabled. To use one of them, enable it from the entity's settings.
+The readings most people need are enabled by default. Per-phase detail, the reactive power totals, daily energy counters, the battery configuration, and the current settings are disabled. To use one of them, enable it from the entity's settings.
 
 ### Switches
 
