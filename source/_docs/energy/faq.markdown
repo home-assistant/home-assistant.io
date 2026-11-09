@@ -19,6 +19,20 @@ Since Home Assistant works with discrete samples of power rather than continuous
 
 If you can sample power values frequently enough (for example, every few seconds), you can reliably estimate transferred energy using numerical approximations such as [Riemann sums](https://en.wikipedia.org/wiki/Riemann_sum).
 
+## Using a power sensor or a flow rate sensor
+
+The **Energy** dashboard tracks energy in kWh, and gas and water as volumes. If a device only reports power in watts, or a flow rate, Home Assistant can calculate the totals for you.
+
+1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
+2. Add an individual device, solar panels, home consumption, gas, or water, and select the power sensor or flow rate sensor.
+3. Select **Save**.
+   - Result: A dialog suggests a sensor that can be created from the sensor you selected.
+   - If a sensor that calculates the total from the same sensor already exists, the dialog lists that one instead, so you don't get a duplicate.
+4. Select **Create**, or **Use sensor** if the dialog only lists existing sensors.
+   - Result: The sensor is created or reused, and added to the **Energy** dashboard.
+
+New sensors start counting when you create them, so earlier values are not included. The sensor that Home Assistant creates is an [Integration (Riemann sum integral)](/integrations/integration/) helper. You can find it under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}
+
 ## Split consumption by tariffs
 
 If you are using a third-party device (for example, not reading directly from your utility meter or from the utility provider's cloud service) you need Home Assistant to split your energy measurements into two or more tariffs in accordance with your utility provider contract.
