@@ -25,6 +25,10 @@ The **History** panel shows how the states of your entities changed over time. T
    - Home Assistant remembers your targets and filters the next time you open the panel. To remove all of them, select **Clear filter** {% icon "mdi:filter-variant-remove" %} at the top of the pane.
 4. To change the time period, select the date range in the toolbar.
    - To move to the previous or next period, select the arrows next to the date range.
+5. Optional: To zoom in, drag across the part of a chart that you want to see.
+   - All charts on the panel zoom to the same period, so you can compare what several entities did at the same moment.
+   - To move the time period, or make it shorter or longer, use the slider in the bar at the bottom of the panel. You can also scroll sideways on a chart.
+   - To see the whole period again, select **Reset zoom** {% icon "mdi:restart" %}, or double-click the slider.
 
 ## Exporting data from the History panel
 
