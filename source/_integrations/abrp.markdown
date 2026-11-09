@@ -10,6 +10,7 @@ ha_codeowners:
   - '@mtandersson'
 ha_domain: abrp
 ha_platforms:
+  - device_tracker
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -87,6 +88,10 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
 - **State of health**: Estimated battery health percentage.
 - **Battery capacity**: Estimated usable battery capacity.
 
+### Device tracker
+
+- **Location**: The last known GPS location of the vehicle. It is added when the vehicle first reports a position and is listed under **Diagnostic** on the device page.
+
 ### Controls
 
 This is a read-only integration. It does not provide vehicle control actions like start charging, stop charging, climate control, or lock and unlock.
@@ -159,6 +164,8 @@ Telemetry is pushed from ABRP in near real time when ABRP receives vehicle updat
 
 Each sensor shows the newest value ABRP has for your vehicle. Some telemetry, like power and voltage, only changes while your vehicle is actively reporting, usually while driving or charging.
 
+The device tracker updates when ABRP receives a new position for your vehicle.
+
 Your ABRP garage list is read when the integration loads. Reload the integration after adding or renaming vehicles in ABRP. Removing a vehicle from ABRP does not automatically remove its device from Home Assistant.
 
 ## Known limitations
@@ -170,6 +177,10 @@ The integration is read-only and does not control your vehicle. To send commands
 ### Telemetry availability
 
 Data freshness depends on ABRP and your vehicle manufacturer data source. Some entities appear only after the first value is received.
+
+### Vehicle location
+
+The location is shown as ABRP reports it. For vehicles without a direct connection to ABRP, the position can come from the ABRP phone app, so the device tracker shows your phone's location instead.
 
 ### Route planning
 
@@ -206,9 +217,9 @@ This is expected when a vehicle is parked and not reporting data. Each sensor ke
 
 Home Assistant shows the same data as the A Better Routeplanner app and website, so you can compare them. If the value looks just as old in ABRP, your vehicle has not sent fresh telemetry yet and there is nothing to fix in Home Assistant.
 
-### Sensors show as unavailable
+### Entities show as unavailable
 
-Sensors become unavailable when the integration can no longer authenticate with ABRP. To fix this, follow the steps in [Authentication errors](#authentication-errors). If ABRP cannot be reached when Home Assistant starts, sensors stay unavailable until the integration connects. It retries automatically. During an ordinary connection interruption, sensors keep their latest values while the integration reconnects.
+Entities become unavailable when the integration can no longer authenticate with ABRP. To fix this, follow the steps in [Authentication errors](#authentication-errors). If ABRP cannot be reached when Home Assistant starts, entities stay unavailable until the integration connects. It retries automatically. During an ordinary connection interruption, entities keep their latest values while the integration reconnects.
 
 If the issue continues, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the issue, and include the logs in your issue report.
 
