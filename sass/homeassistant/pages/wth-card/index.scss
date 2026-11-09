@@ -15,10 +15,6 @@
 }
 
 .frontpage .picture-promo.wth-card {
-    // The light WTH blue, with the caption in dark ink: the ink clears
-    // 7:1 on every shade of the fade, from the pale card to the blue.
-    --caption-color: #18BCF2;
-
     // The key visual's background: a faint mint-to-blue wash over the page
     // grey.
     background:
@@ -29,7 +25,9 @@
     // Room above the caption for the wordmark.
     padding-top: 40%;
 
+    // No fade behind the caption: dark ink straight on the pale card.
     .caption {
+        background: none;
         color: var(--wth-ink);
         padding-top: 24px;
         position: relative;
