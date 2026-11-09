@@ -41,6 +41,8 @@ Prerequisites:
   - In a browser or a Home Assistant app, using an HTTPS address. Browsers only allow access to the microphone over a secure connection.
   - In the Home Assistant app on iPhone or iPad, version 2026.10.3 or later. The app also supports two-way audio over HTTP.
 
+To talk through a camera:
+
 1. Open the live stream of the camera.
    - For example, select the camera on your dashboard.
 2. Below the live stream, select **Start talking**.
