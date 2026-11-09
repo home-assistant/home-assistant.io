@@ -65,7 +65,7 @@ When **Automatic watering** is turned on, the zone follows the Smart Watering sc
 When **Manual watering** is turned on, the zone runs for 15 minutes.
 
 {% note %}
-Due to changes in the Hydrawise API the status of the Auto Watering switches has changed. Under normal conditions the Auto Watering switches correctly reflect the Smart Watering schedule on the Hydrawise mobile or web app. However, if a rain sensor is connected to the system and it is active (rain detected), or the zone is running the Auto Watering switch will turn off. After both of those conditions are removed the switch will again show the correct Auto Watering condition.
+Under normal conditions, the **Automatic watering** switch matches the Smart Watering schedule in the Hydrawise app. The switch turns off while a rain sensor detects rain or while the zone is running. When neither applies, the switch shows the correct state again.
 {% endnote %}
 
 The daily water use sensors can be added to the [energy dashboard](/docs/energy/water/) to track your garden's water use over time. The daily inactive water use is left out of the long-term statistics, as its value can drop during the day.
@@ -104,7 +104,7 @@ automation: |
 
 ### Automation: Get notified when a zone starts watering
 
-- **Trigger**: State of the **Watering** binary sensor of the zone changes to **On**
+- **Trigger**: State of the **Watering** binary sensor of the zone changes to **Running**
 - **Action**: Send a notification
 
 {% details "YAML example for a notification when watering starts" %}
@@ -117,7 +117,9 @@ automation: |
       entity_id: binary_sensor.front_lawn_watering
       to: "on"
   actions:
-    - action: notify.notify
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The front lawn started watering."
 {% endexample %}
@@ -138,7 +140,7 @@ A controller checks in with the Hydrawise cloud service about every 15 seconds, 
 - States can take up to a few minutes to update, as described under [Data updates](#data-updates).
 - The water use sensors require a flow meter connected to the controller.
 - The watering schedules and programs can't be changed from Home Assistant. Use the Hydrawise app for that.
-- **Manual watering** always runs a zone for 15 minutes, and opening a **Valve** runs it for its default watering duration. To water for a different duration, use the [start watering](#list-of-actions) action.
+- **Manual watering** always runs a zone for 15 minutes, and opening a **Valve** runs it for its default watering duration. To water for a different duration, use the [start watering](/actions/hydrawise.start_watering/) action.
 
 ## Troubleshooting
 
@@ -167,7 +169,7 @@ If the integration was already set up and stopped working after you changed your
 
 #### Description
 
-The controller isn't connected to the Hydrawise cloud service. The **Connectivity** binary sensor of the controller shows the connection.
+The controller isn't connected to the Hydrawise cloud service, or Home Assistant can't reach the Hydrawise cloud service. The **Connectivity** binary sensor of the controller shows the connection.
 
 #### Resolution
 
@@ -186,7 +188,7 @@ Home Assistant only learns about changes the next time it updates the data, as d
 
 #### Resolution
 
-This is expected. Don't add your own automations that update the Hydrawise entities more often: Hydrawise limits how often its API can be used, and too many requests can get your account blocked.
+This is expected. Updating the entities more often doesn't help: Hydrawise limits how often you can use its API, and once the integration reaches that limit, it shows data from an earlier request.
 
 {% enddetails %}
 
