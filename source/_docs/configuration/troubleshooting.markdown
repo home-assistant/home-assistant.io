@@ -206,7 +206,7 @@ Debug logging stays on if you restart Home Assistant once, so the log also shows
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
 2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Enable debug logging**.
    - Result: The integration page shows **Debug logging enabled**.
-3. Make the problem happen again.
+3. Make the problem happen again. If you want to follow the messages as they come in while you reproduce the problem, see [Viewing the live log of an integration](#viewing-the-live-log-of-an-integration).
    - For example, run the automation that fails, or use the device that doesn't respond.
 4. To get the log, continue with [Disabling debug logging and downloading the log](#disabling-debug-logging-and-downloading-the-log).
 
@@ -218,6 +218,20 @@ When you turn off debug logging, Home Assistant downloads the log right away. Th
 2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Disable debug logging**.
    - You can also select **Disable** next to **Debug logging enabled**.
    - Result: Your browser saves the log as a file, for example, `home-assistant_<integration>_<date and time>.log`.
+
+### Viewing the live log of an integration
+
+ While debug logging is on, you can follow the log messages of one integration as they come in, without going through the full log.
+ 
+ Prerequisite: Debug logging is enabled for the integration. For the steps, refer to [enabling debug logging](#enabling-debug-logging).
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
+2. Next to **Debug logging enabled**, select **Show logs**.
+   - Result: The **Live log** dialog opens. It shows the messages that the integration and its libraries logged since Home Assistant started, followed by new messages as they come in.
+3. Make the problem happen again, and watch the messages.
+   - To find a message, use the search field.
+   - To turn line wrapping on or off, use the wrap button.
+4. Optional: To keep a copy of the messages in the dialog, select **Download**.
 
 ### Setting log levels in YAML
 
