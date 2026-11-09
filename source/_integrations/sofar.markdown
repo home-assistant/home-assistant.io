@@ -69,7 +69,7 @@ Modbus unit ID:
 Home Assistant can share a Modbus connection between integrations when their connection settings are compatible. If another integration already uses the same serial port or bridge with different settings, such as another baud rate, setup fails with a connection error.
 {% endnote %}
 
-During setup, the integration also detects whether the inverter has EPS (Emergency Power Supply) wiring for an off-grid backup output, and polls its registers only if it does.
+During setup, the integration also detects whether the inverter has EPS (Emergency Power Supply) wiring for an off-grid backup output, and polls its registers only if it does. In the same way, it detects whether a hybrid inverter has a BTS battery tower. If the tower doesn't answer when the integration loads again later, for example after a restart, its battery packs are kept.
 
 ## Reconfiguration
 
@@ -130,7 +130,8 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **Grid and output measurements**: Frequency, and active, reactive, and apparent power, both at the inverter's output and at the point of common coupling (PCC). Total household load and external solar production, as reported by the inverter, are also included. Per-phase voltage, current, power, and power factor are available for inverters with multiple phases.
 - **Off-grid (EPS/backup) measurements**: The same kind of readings for the EPS/backup output. Only shown for inverters wired for EPS/backup power.
 - **PV strings**: Power for each solar panel string, plus voltage and current if you need more detail. Each string the inverter supports gets its own device, connected via the inverter. Only shown for PV-capable inverters.
-- **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery pack, plus combined power, state of charge, and state of health totals. Each pack gets its own device, connected via the inverter, and only packs that respond are added. A pack added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
+- **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery, plus combined power, state of charge, and state of health totals. Each battery gets its own device, such as **Battery 1**, connected via the inverter, and only batteries that respond are added. A battery added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
+- **Battery packs**: Remaining capacity, full charge capacity, charge cycles, highest and lowest cell voltage, and MOSFET and internal temperatures for each pack in a BTS battery tower, such as the BTS 5K. Each pack gets its own device, connected via the inverter and named after its group and place in the tower, such as **Battery pack 2.1**. The device shows the pack's model, <abbr title="battery management system">BMS</abbr> version, and serial number. A pack's sensors are added once it first answers, and are unavailable while it doesn't answer. Only shown for hybrid inverters with a BTS battery tower.
 - **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. This includes the state of charge at which the battery stops charging, the levels at which it stops discharging on-grid and off-grid, and the level at which off-grid discharging resumes. Only shown for inverters with battery storage.
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 - **Current settings**: The feed-in limit, the active power limit, and the passive-mode setpoints as they're currently stored on the inverter, so you can read back what the actions below have set.
@@ -261,7 +262,7 @@ automation: |
 
 ## Data updates
 
-The **Sofar** {% term integration %} {% term polling polls %} the inverter's live readings every 5 seconds. Values that rarely change, such as the device information and the battery configuration, are polled every 60 seconds instead, so each poll stays short.
+The **Sofar** {% term integration %} {% term polling polls %} the inverter's live readings every 5 seconds. Values that rarely change, such as the device information and the battery configuration, are polled every 60 seconds instead, so each poll stays short. The packs of a BTS battery tower are polled every 5 minutes, one pack at a time.
 
 A PV inverter switches off when there's no sunlight, so its entities are unavailable at night. If Home Assistant starts while the inverter is off, the integration still loads as long as the Modbus TCP bridge or serial port is reachable. Its entities stay unavailable until the inverter answers again.
 
@@ -323,10 +324,10 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-### To remove a battery pack
+### To remove a battery or battery pack
 
-Battery packs appear as separate devices under the inverter. A pack you physically remove stays listed until you delete its device. Packs the inverter still reports can't be deleted, and a pack you reconnect is added back on the next update. The inverter and its PV strings can't be deleted individually, since PV strings come from the inverter model rather than from a reading.
+Batteries and battery packs appear as separate devices under the inverter. One you physically remove stays listed until you delete its device. Batteries and packs the inverter still reports can't be deleted. A battery or battery pack you reconnect is added back on the next update. The inverter and its PV strings can't be deleted individually, since PV strings come from the inverter model rather than from a reading.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Sofar** integration card.
-2. From the list of devices, find the battery pack you want to remove.
-3. Next to the battery pack, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+2. From the list of devices, find the battery or battery pack you want to remove.
+3. Next to it, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
