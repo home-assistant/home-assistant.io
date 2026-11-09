@@ -15,6 +15,7 @@ ha_categories:
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - number
   - sensor
   - switch
 ha_quality_scale: bronze
@@ -35,7 +36,7 @@ Keep an eye on the mileage, fuel or battery level, and estimated driving range. 
 
 Track the battery's state of charge, electric range, charging power, charging state, and estimated time until fully charged. Get notified when charging starts, finishes, or is unexpectedly interrupted.
 
-Start or stop charging from Home Assistant, for example to charge only when electricity is cheap. The integration cannot schedule charging or change the charging limit.
+Start or stop charging from Home Assistant, for example to charge only when electricity is cheap. You can also change the charge limit, for example to charge to 100 % only before a long trip. The integration cannot schedule charging.
 
 ### Monitor climate control and auxiliary heating
 
@@ -90,6 +91,14 @@ The **Škoda** integration provides the following entities. The available entiti
 
 - **Parking position**: Where the vehicle is parked. The device tracker is named after the vehicle. While the vehicle is driving, the location is unknown.
 
+### Numbers
+
+Numbers are only created for settings the vehicle supports changing remotely.
+
+- **Charge limit**: The battery level at which charging stops, from 50 to 100 % in steps of 10 %, for vehicles that support charging.
+
+The vehicle applies a new value with a short delay. After you change it, the number shows the requested value until the next data update reports the actual value.
+
 ### Sensors
 
 - **Mileage**: Total distance driven, from the odometer.
@@ -100,7 +109,7 @@ The **Škoda** integration provides the following entities. The available entiti
 - **Air conditioning remaining time**: Estimated time when the target cabin temperature will be reached, while climate control is active.
 - **Charging power**: Current charging power, while the vehicle is actively charging.
 - **Charging state**: `charging`, `connect_cable`, `ready_for_charging`, `conserving`, `discharging`, or `charging_interrupted`.
-- **Time to full charge**: Estimated time when the battery will reach the defined target level, while charging.
+- **Time to full charge**: Estimated time when the battery will reach the charge limit, while charging.
 - **Charge type**: `ac`, `dc`, `off`, or `not_charging`.
 - **Auxiliary heating mode**: Current mode (heating/ventilation) of the auxiliary heating, for equipped vehicles.
 - **Auxiliary heating remaining duration**: Estimated time when auxiliary heating will finish, while active.
@@ -146,7 +155,7 @@ The Škoda public API enforces a rate limit per Vehicle Identification Number (V
 
 ## Known limitations
 
-- The integration can start and stop charging and active ventilation. It cannot control climate or auxiliary heating, change the charging limit, or lock or unlock the vehicle.
+- The integration can start and stop charging and active ventilation, and change the charge limit. It cannot control climate or auxiliary heating, schedule charging, or lock or unlock the vehicle.
 - Available sensors depend on the vehicle's model, powertrain, equipment, and the validity of Škoda Connect licenses.
 
 ## Troubleshooting
