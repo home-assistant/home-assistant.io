@@ -13,11 +13,11 @@ The app store lists the apps that you can install. To open it, go to {% my super
 
 The app store groups the apps by repository. A repository is a collection of apps that someone publishes. The app store includes the following repositories by default:
 
-- **Official apps**
-- **Home Assistant Community Apps**
-- **ESPHome**
-- **Music Assistant**
-- **Local apps**
+- **Official apps** has the apps that Home Assistant publishes. To browse them, refer to the [official app repository](https://github.com/home-assistant/apps).
+- **Home Assistant Community Apps** has apps that the community maintains. To browse them, refer to the [Home Assistant Community Apps repository](https://github.com/hassio-addons/repository).
+- **ESPHome** has the apps of the ESPHome project, such as the ESPHome Device Builder. To browse them, refer to the [ESPHome app repository](https://github.com/esphome/home-assistant-addon).
+- **Music Assistant** has the apps of the Music Assistant project. To browse them, refer to the [Music Assistant app repository](https://github.com/music-assistant/home-assistant-addon).
+- **Local apps** has the apps that are stored on your own system, for example, apps that you develop yourself.
 
 You can also add app repositories from the community. For the steps, refer to [Adding an app repository](#adding-an-app-repository).
 

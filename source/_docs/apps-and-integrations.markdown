@@ -15,7 +15,7 @@ You add integrations under {% my integrations title="**Settings** > **Devices & 
 
 An app is a separate application. It runs next to Home Assistant, with its own settings and its own log. For example, the File editor app lets you edit your configuration files in your browser, and the Samba share app lets you open your Home Assistant folders from your computer.
 
-Apps are only available on {% term "Home Assistant Operating System" %}. You install apps from the app store under {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}. The app store includes official apps, and you can add app repositories from the community. You manage the apps that you installed under {% my supervisor title="**Settings** > **Apps**" %}.
+Apps are only available on {% term "Home Assistant Operating System" %}. You install apps from the app store under {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}. The app store includes official apps, and you can add app repositories from the community. You manage the apps that you installed under {% my supervisor title="**Settings** > **Apps**" %}. For the steps, refer to [Installing and managing apps](/common-tasks/os/apps/).
 
 Each app uses disk space, memory, and processor time on your system, so only install the apps that you need.
 
