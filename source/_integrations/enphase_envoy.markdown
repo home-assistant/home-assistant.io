@@ -518,13 +518,13 @@ Generator support is a recent add to the integration. For some entities not all 
 - **Generator <abbr title="envoy serial number">SN</abbr> Stop battery level**: state of charge for generator to stop as diagnostic entity.
 - **Generator <abbr title="envoy serial number">SN</abbr> Nameplate rating**: Generator power rating in kW. This is a diagnostic entity.
 - **Generator <abbr title="envoy serial number">SN</abbr> Maximum continuous current**:  maximum continuous current in A as diagnostic entity.
-- **Generator <abbr title="envoy serial number">SN</abbr> Start method**:  generator start method `manual`, `auto`as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Start method**:  generator start method `manual`, `auto` as diagnostic entity.
 - **Generator <abbr title="envoy serial number">SN</abbr> Generator type**: Type of generator, typically `Standby` as diagnostic entity.
 - **Generator <abbr title="envoy serial number">SN</abbr> Warmup time**: time in minutes for generator warming up as diagnostic entity.
-- **Generator <abbr title="envoy serial number">SN</abbr> Cooldown time**: time in minutes for generator to cooldown as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Cooldown time**: time in minutes for generator to cool down as diagnostic entity.
 - **Generator <abbr title="envoy serial number">SN</abbr> Requested mode**: `open`, `auto`, `standby` or `on`.
 
-#### Generator binary_sensor entities
+#### Generator binary sensor entities
 
 - **Generator <abbr title="envoy serial number">SN</abbr> Present**: Generator is present as diagnostic entity.
 - **Generator <abbr title="envoy serial number">SN</abbr> Schedule Enabled**: Generator has an exercise schedule enabled.
