@@ -950,6 +950,12 @@ a.option-card:hover {
       color: $gray;
       font-size: 17px;
     }
+
+    .empty-state-marketplace {
+      max-width: 520px;
+      margin: 24px auto 0;
+      color: $gray;
+    }
   }
 
   // Where your search does find something.
