@@ -96,7 +96,7 @@ The integration reads the serial number again and only accepts the new settings 
 
 The **Sofar** integration provides the following entities.
 
-The inverter's power limits and its passive-mode setpoints each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
+The inverter's power limits, its passive-mode setpoints, and its battery cut-offs each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
 
 ### Binary sensors
 

@@ -49,6 +49,16 @@ The integration creates one weather {% term entity %} per location, providing th
 
 The current conditions include temperature, apparent temperature, dew point, humidity, air pressure, wind speed, wind gust speed, wind bearing, visibility, cloud coverage, and UV index.
 
+### Sensors
+
+Each location also gets three sensors for the current conditions:
+
+- **Precipitation intensity**: the current rate of precipitation, in mm/h.
+- **Precipitation probability**: the current probability of precipitation, in percent.
+- **Thunderstorm probability**: the current probability of thunder, in percent.
+
+The sensors come from the same requests as the weather entity, so they add nothing to your request count.
+
 ## Data updates
 
 The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses three requests per location, around 144 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Every location you add polls separately, so that limit allows around 13 of them. Because the integration polls continuously, a Freemium key used this way does not go idle.
