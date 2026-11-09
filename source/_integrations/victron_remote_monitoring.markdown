@@ -86,7 +86,7 @@ The `victron_remote_monitoring.get_forecast` action returns the cached hourly so
   - **Description**: Latest hour to return (exclusive). If omitted, the response includes the rest of the cached forecast. The end must be after the start.
   - **Optional**: Yes
 
-The response contains `solar_wh` and `consumption_wh`. Each is a mapping of local ISO timestamps to watt-hours. A missing series or an empty range returns an empty mapping.
+The response contains forecast, a list of hours ordered from earliest to latest. Each hour has datetime as a local ISO timestamp, plus solar and consumption in watt-hours. A series with no value for an hour omits that field. An empty range returns an empty list.
 
 ## Adding Victron Remote Monitoring to the Energy dashboard
 
