@@ -104,7 +104,7 @@ charge_cutoff_soc:
 
 - This action is only available on three-phase hybrid inverters with battery storage. It doesn't support lead-acid batteries, including AGM, gel, and flooded batteries. On other inverters or batteries, the action fails with an error instead of doing nothing silently.
 - If you set a **Charge cut-off state of charge** on an inverter that doesn't support it, the action fails with an error, and nothing is changed.
-- Cut-offs that already have the value you set aren't written again.
+- If all the cut-offs you set already have those values, nothing is written to the inverter.
 - To see the cut-offs currently stored on the inverter, enable the battery configuration sensors, such as **On-grid discharge cut-off state of charge**. They're disabled by default.
 
 {% include actions/try_it.md %}
