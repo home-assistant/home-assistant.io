@@ -162,52 +162,92 @@ export const specs = [
   },
 ];
 
-// FAQ. Answers are HTML. Each item can take an optional `cta`
-// ({ label, href }), shown as a button under the answer.
+// FAQ, from the "AUX-2 FAQ" sheet, in its order. Answers are HTML.
+// Each item can take an optional `cta` ({ label, href }), shown as a
+// button under the answer. Two CTAs in the sheet have no link yet:
+// "Play your streaming services on your stereo" (stereo question) and
+// "Control your TV and AV receiver from Home Assistant" (receiver
+// question).
 export const faq: FaqItem[] = [
   {
     question: "Does Connect AUX-2 require Home Assistant to work?",
     answer:
       "<p>Yes. Connect AUX-2 is built as a native Home Assistant device, so you get full local control and privacy. You need Home Assistant 2026.9 or later to set it up and manage it, and it's added to Home Assistant through the ESPHome integration.</p>",
+    cta: {
+      label: "Set up Home Assistant Connect AUX-2",
+      href: "https://support.nabucasa.com/hc/en-us/articles/40527754954653",
+    },
   },
   {
     question: "Does it have an audio input?",
     answer:
       "<p>No. Connect AUX-2 is designed to play music, not receive it, so it only has an audio output.</p>",
+    cta: {
+      label: "What Connect AUX-2 is and how it works",
+      href: "https://support.nabucasa.com/hc/en-us/articles/40528879660317",
+    },
   },
   {
     question: "Can it send or receive Bluetooth audio?",
     answer: "<p>No. Audio plays only through the 3.5 mm audio output.</p>",
+    cta: {
+      label: "Specifications and resources",
+      href: "https://support.nabucasa.com/hc/en-us/articles/40528929207453#audio",
+    },
   },
   {
     question: "Does Connect AUX-2 come with any audio or serial cables?",
     answer:
       "<p>No. Audio setups vary widely, from 3.5 mm AUX and RCA to dedicated RS-232 serial connections. Buying cables separately lets you choose the exact length and connector type that fits your equipment. See <a href=\"#specs\">In the box</a> for what's included.</p>",
+    cta: {
+      label: "What's in the box",
+      href: "https://support.nabucasa.com/hc/en-us/articles/40528614062621",
+    },
   },
   {
     question: "Does it work with every device that uses serial?",
     answer:
       "<p>No. It can only control serial devices that have an integration in Home Assistant.</p>",
+    cta: {
+      label: "Controlling devices over serial (RS-232)",
+      href: "https://support.nabucasa.com/hc/en-us/articles/40528797748125",
+    },
   },
   {
     question: "Can Connect AUX-2 connect to Zigbee devices?",
     answer:
       "<p>Yes, but we recommend caution. This setup hasn't been widely tested yet, and the setup guide is in the developer documentation. It works only with ZHA, not Zigbee2MQTT, and needs Home Assistant 2026.11 or later.</p>",
+    cta: {
+      label: "ZBT-2 setup guide (developer section)",
+      href: "https://support.nabucasa.com/hc/en-us/articles/40529064396445",
+    },
   },
   {
     question: "Can it connect to Thread devices?",
     answer:
       "<p>No. Thread support isn't planned for Connect AUX-2.</p>",
+    cta: {
+      label: "Specifications and resources",
+      href: "https://support.nabucasa.com/hc/en-us/articles/40528929207453#connectivity",
+    },
   },
   {
     question: "What app do I use to play music?",
     answer:
       "<p>Music Assistant, which is free. It finds Connect AUX-2 automatically as a Sendspin player.</p>",
+    cta: {
+      label: "Install Music Assistant",
+      href: "https://music-assistant.io/installation/",
+    },
   },
   {
     question: "Which streaming services are supported?",
     answer:
       "<p>Any service that Music Assistant supports. Music Assistant plays from streaming services and from your own music files.</p>",
+    cta: {
+      label: "Music Assistant music sources",
+      href: "https://music-assistant.io/music-providers/",
+    },
   },
   {
     question: "Can I connect Connect AUX-2 to my existing stereo or speakers?",
@@ -218,16 +258,28 @@ export const faq: FaqItem[] = [
     question: "Can it play in sync with my other speakers?",
     answer:
       "<p>Yes. Music Assistant can group speakers to play in sync, including AirPlay and some Sonos speakers.</p>",
+    cta: {
+      label: "Music Assistant groups",
+      href: "https://music-assistant.io/faq/groups/",
+    },
   },
   {
     question: "How is it powered?",
     answer:
       "<p>By USB-C (5 V, 2 A) or Power over Ethernet (802.3af or better). Use one power source at a time.</p>",
+    cta: {
+      label: "Power and network options",
+      href: "https://support.nabucasa.com/hc/en-us/articles/40528734420253",
+    },
   },
   {
     question: "Does Connect AUX-2 connect over Wi-Fi or Ethernet?",
     answer:
       "<p>Either one. Wi-Fi is 2.4 GHz only. For the most reliable connection, use Ethernet.</p>",
+    cta: {
+      label: "Power and network options",
+      href: "https://support.nabucasa.com/hc/en-us/articles/40528734420253",
+    },
   },
   {
     question: "Can Home Assistant turn on my receiver or change its volume?",
