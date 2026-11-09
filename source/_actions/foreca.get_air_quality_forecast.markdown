@@ -67,7 +67,7 @@ The response is a mapping of the targeted weather entities, each containing a `f
 
 - `datetime`: the start of the hour, or the start of the day in your Home Assistant time zone.
 - `aqi`: the overall air quality index.
-- `dominant_pollutant`: the pollutant that sets the index: `carbon_monoxide`, `nitrogen_dioxide`, `ozone`, `pm10`, `pm25`, or `sulphur_dioxide`.
+- `dominant_pollutant`: the pollutant that sets the index: `carbon_monoxide`, `nitrogen_dioxide`, `ozone`, `pm10`, `pm25`, or `sulphur_dioxide`. It is `null` when Foreca names no pollutant or one not in this list.
 - `aqi_co`, `aqi_no2`, `aqi_o3`, `aqi_so2`, `aqi_pm10`, and `aqi_pm25`: the index for each pollutant.
 
 For an `hourly` forecast, the response looks similar to this:
