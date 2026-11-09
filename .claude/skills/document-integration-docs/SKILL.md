@@ -287,7 +287,7 @@ Required review checks:
 - YAML examples follow the Home Assistant YAML style guide
 - helper usage, if any, is explicitly framed as user-created
 - every added or changed section has one topic type, and its heading follows the heading rules for that type in the topic-based authoring guide
-- sibling headings use the same grammatical form
+- sibling task headings use the same grammatical form (sibling headings of different topic types do not need to match)
 - task prerequisites use a `Prerequisites:` lead-in before the steps, unless they apply to the whole page
 - each troubleshooting problem is in its own `{% details %}` block titled with the symptom or exact error message, with the content structure from the integration page reference
 
