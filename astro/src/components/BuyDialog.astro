@@ -457,13 +457,14 @@ const id = `buy-${product}`;
       background: #f0f0f3;
     }
 
-    /* Inset from the tile's edges, as on the Jekyll tiles. */
+    /* Every logo fits the same box, well clear of the tile's edges, so
+       wide and tall logos look alike. */
     img {
       box-sizing: border-box;
       flex: 1;
       min-height: 0;
       object-fit: contain;
-      padding: var(--space-xsmall) var(--space-small) 0;
+      padding: var(--space-small) var(--space-large) 0;
       width: 100%;
     }
 
