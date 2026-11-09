@@ -114,11 +114,17 @@ Both buttons are configuration entities.
   - **Available for**: LIFX Nightvision lights
   - **Remarks**: Configuration entity. In an automation or a script, change it with the [**Select option**](/actions/select.select_option/) action.
 
+- **Mood**
+  - **Description**: Applies one of the LIFX app's Moods to the light, the way the app does.
+  - **Options**: any of the [available themes](#themes), shown as category and name
+  - **Available for**: multizone and matrix lights
+  - **Remarks**: Configuration entity. It shows the Mood Home Assistant applied, from this select or the [**Set mood**](/actions/lifx.set_mood/) action, for as long as the light still shows it. Any change to the light, including its brightness, sets it to unknown, and so does starting or stopping an effect. It is also unknown after Home Assistant restarts, and does not follow Moods picked in the LIFX app.
+
 - **Theme**
   - **Description**: Paints one of the built-in themes across the light.
-  - **Options**: any of the [available themes](#themes)
+  - **Options**: any of the [available themes](#themes), shown as category and name
   - **Available for**: multizone and matrix lights
-  - **Remarks**: Configuration entity. It shows the last theme applied from Home Assistant, not what the light is currently showing, so it does not change when you pick a theme in the LIFX app.
+  - **Remarks**: Configuration entity. It shows the theme Home Assistant painted, from this select, the [**Paint theme**](/actions/lifx.paint_theme/) action, or the Morph effect, for as long as the light still shows it. It goes unknown in the same cases as **Mood**, and while the Move effect runs, even when Move was started with a theme. Applying a Mood sets it to unknown, and painting a theme sets **Mood** to unknown.
 
 ### Sensors
 
@@ -178,6 +184,8 @@ The integration includes 369 predefined themes. Every category except Library ma
 Themes can be painted onto any LIFX light with the [**Paint theme**](/actions/lifx.paint_theme/) action. A multizone or matrix light spreads the theme across its zones, and a light with a single zone takes one color from the theme at random.
 
 You can also set a theme when you start the [**Move effect**](/actions/lifx.effect_move/) or [**Morph effect**](/actions/lifx.effect_morph/). To apply a theme by hand from the device page, use the **Theme** select entity, which multizone and matrix lights have.
+
+The same themes double as the LIFX app's Moods. The [**Set mood**](/actions/lifx.set_mood/) action and the **Mood** select apply one the way the LIFX app does, while **Paint theme** keeps Home Assistant's own arrangement. Every theme dropdown shows each theme as its category and name, such as **Moods > Dream**.
 
 The following themes are available:
 
