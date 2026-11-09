@@ -128,15 +128,15 @@ For each camera added in [Surveillance Station](https://www.synology.com/surveil
 
 ## Buttons
 
-### Button `reboot`
+### Restart
 
-Reboot the NAS.
+Restarts the NAS.
 
-### Button `shutdown`
+### Shut down
 
-Shutdown the NAS.
+Shuts down the NAS.
 
-{% include integrations/actions.md %}
+To restart or shut down the NAS from an automation or a script, target the button entity with the [**Press**](/actions/button.press/) action.
 
 ## Selects
 
