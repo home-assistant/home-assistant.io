@@ -93,6 +93,9 @@ If the cloud can't be reached, the thermostats show as unavailable until the nex
 - Holidays can't be set or canceled from Home Assistant. Use the FENIX Control app.
 - The weekly program can't be changed from Home Assistant.
 - Home Assistant can't change the Boost duration.
+- The target temperature is set in steps of 0.5 °C.
+- In Defrost and Boost, the target range is the range of that mode. To switch to Heat with a target outside it, change the mode first, then the target.
+- Changes go through the FENIX Control cloud. A thermostat can take up to a minute to apply them, and Home Assistant can briefly show the previous state until the next update.
 - The integration doesn't provide sensor entities.
 
 ## Troubleshooting
