@@ -62,7 +62,7 @@ Each location also gets the latest measurements from the nearest weather station
 - **Observation station**: the name of the station the measurements come from.
 - **Observation time**: when the station took the measurements. Disabled by default.
 - **Observed temperature** and **Observed humidity**.
-- **Observed condition**: the weather the station reports, such as sunny, rainy or snowy. Disabled by default.
+- **Observed condition**: the weather the station reports, such as sunny, rainy, or snowy. Disabled by default.
 - **Observed apparent temperature**, **Observed pressure**, **Observed wind speed**, **Observed wind gust speed**, **Observed wind direction**, **Observed visibility**, and **Observed snow depth**. These are disabled by default.
 
 Where no station reports nearby, the observation sensors show as unknown.
@@ -101,7 +101,7 @@ The `weather.get_forecasts` action reads the forecast the integration has alread
 
 #### Description
 
-The integration marks entities unavailable when the API cannot be reached or the daily request limit is exceeded. If only the weather station request fails, only the observation sensors are unavailable, and the rest keep updating.
+The integration marks entities unavailable when the API cannot be reached or the daily request limit is exceeded. If the weather station request fails for any reason other than a rejected API key, only the observation sensors are unavailable, and the rest keep updating.
 
 #### Resolution
 
