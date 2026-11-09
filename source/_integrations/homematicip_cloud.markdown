@@ -147,6 +147,7 @@ Floor heating actuators are operated through the climate group (`HMIP-FAL230-C6`
 ### Lights
 
 - Dimming actuators (`HmIP-BDT`, `HmIP-FDT`, `HmIP-PDT`)
+- Universal dimmer with push-button (`HmIP-UDI-PB2`)
 - Switch actuators with signal lamp or meter (`HmIP-BSL`, `HmIP-BSM`)
 - Wired dimmer module – 3 channels (`HmIPW-DRD3`)
 
