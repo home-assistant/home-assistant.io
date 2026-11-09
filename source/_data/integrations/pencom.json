@@ -7,6 +7,9 @@
     "diy_makers.boards_hardware",
     "plugs_switches"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "switch"
   ]

@@ -11,6 +11,9 @@
   "categories": [
     "vehicles_transport"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "camera",

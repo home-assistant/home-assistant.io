@@ -10,6 +10,9 @@
   "categories": [
     "climate"
   ],
+  "connectivity": [
+    "serial"
+  ],
   "platforms": [
     "climate"
   ]

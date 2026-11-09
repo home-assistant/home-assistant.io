@@ -13,6 +13,9 @@
   "categories": [
     "messaging_notifications.push_notifications"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "diagnostics",

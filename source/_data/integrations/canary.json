@@ -8,6 +8,9 @@
     "security_safety.cameras",
     "security_safety.alarm_systems"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "alarm_control_panel",
     "camera",

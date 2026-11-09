@@ -12,6 +12,9 @@
     "hubs_protocols.smart_home_hubs",
     "security_safety.alarm_systems"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "alarm_control_panel",
     "binary_sensor",

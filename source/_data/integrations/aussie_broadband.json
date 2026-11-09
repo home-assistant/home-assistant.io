@@ -11,6 +11,9 @@
   "categories": [
     "computers_network"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "diagnostics",
     "sensor"

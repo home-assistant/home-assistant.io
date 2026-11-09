@@ -11,6 +11,9 @@
   "categories": [
     "climate.air_purifiers_humidifiers"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",
