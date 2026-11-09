@@ -9,7 +9,7 @@ related_actions:
   - sofar.set_active_power_limit
 ---
 
-Use this action to set the charge levels at which your Sofar inverter stops discharging the battery, with the grid up and during a grid outage, and the level at which it stops charging. These are the same cut-offs, with the same ranges, as on the battery parameters page of the SofarCloud app. Only available on three-phase hybrid inverters with battery storage.
+Use this action to set the charge levels at which your Sofar inverter stops discharging the battery, with the grid up and during a grid outage, and the level at which it stops charging. These are the same cut-offs, with the same ranges, as on the battery parameters page of the SofarCloud app. Only available on three-phase hybrid inverters with battery storage, and not for lead-acid batteries.
 
 The inverter stores each change, so use this action for settings you change now and then, such as keeping a larger reserve ahead of a storm, rather than in automations that run often.
 
@@ -102,7 +102,7 @@ charge_cutoff_soc:
 
 ## Good to know
 
-- This action is only available on three-phase hybrid inverters with battery storage. On other inverters, the action fails with an error instead of doing nothing silently.
+- This action is only available on three-phase hybrid inverters with battery storage. It doesn't support lead-acid batteries, including AGM, gel, and flooded batteries. On other inverters or batteries, the action fails with an error instead of doing nothing silently.
 - If you set a **Charge cut-off state of charge** on an inverter that doesn't support it, the action fails with an error, and nothing is changed.
 - Cut-offs that already have the value you set aren't written again.
 - To see the cut-offs currently stored on the inverter, enable the battery configuration sensors, such as **On-grid discharge cut-off state of charge**. They're disabled by default.
@@ -118,7 +118,11 @@ A storm can take the grid down for hours, and a battery that's already run down 
 - **Trigger**: State changed
   - **Entity**: Storm warning helper
   - **To**: On
-- **Action**: Sofar: Set battery cut-offs
+- **Action**: Set battery cut-offs
+  - **Inverter**: Your Sofar inverter
+  - **On-grid discharge cut-off state of charge**: `50`
+  - **Off-grid discharge cut-off state of charge**: `10`
+  - **Off-grid discharge recovery state of charge**: `20`
 
 {% details "YAML example for keeping a storm reserve" %}
 
