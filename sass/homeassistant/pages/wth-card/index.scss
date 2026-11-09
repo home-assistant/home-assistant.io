@@ -15,8 +15,9 @@
 }
 
 .frontpage .picture-promo.wth-card {
-    // The brand blue, darkened so the white caption clears 4.5:1 on it.
-    --caption-color: #03729E;
+    // The light WTH blue, with the caption in dark ink: the ink clears
+    // 7:1 on every shade of the fade, from the pale card to the blue.
+    --caption-color: #18BCF2;
 
     // The key visual's background: a faint mint-to-blue wash over the page
     // grey.
@@ -29,8 +30,13 @@
     padding-top: 40%;
 
     .caption {
+        color: var(--wth-ink);
         padding-top: 24px;
         position: relative;
+
+        .subtitle {
+            text-shadow: none;
+        }
     }
 }
 
