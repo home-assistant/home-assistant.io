@@ -18,6 +18,11 @@
 //
 // Answers are HTML, as the Jekyll pages' FAQ data is. An item can take
 // an optional `cta`, a button under its answer.
+//
+// The questions are also published as schema.org FAQPage structured
+// data, built from the same items so it always matches the page. Each
+// answer keeps its HTML (links included), and its CTA follows as a
+// link.
 import Button from "../../Button.astro";
 
 export interface FaqItem {
@@ -31,7 +36,26 @@ interface Props {
 }
 
 const { items } = Astro.props;
+
+// The answer as schema.org reads it: the answer's HTML, then the CTA
+// as a link.
+const answerText = ({ answer, cta }: FaqItem) =>
+  cta ? `${answer}<p><a href="${cta.href}">${cta.label}</a></p>` : answer;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: answerText(item) },
+  })),
+};
+// "<" escaped so no answer can end the script element early.
+const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
 ---
+
+<script type="application/ld+json" set:html={schemaJson} />
 
 <section class="connect-faq" id="faq">
   <div class="inner">
