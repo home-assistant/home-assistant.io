@@ -21,4 +21,4 @@ Each app uses disk space, memory, and processor time on your system, so only ins
 
 Some integrations work together with an app. The documentation of the integration tells you if you need an app.
 
-If you use {% term "Home Assistant Container" %}, you can't install apps. You can still run the same software yourself, for example in its own container next to Home Assistant. If an integration needs that software, its documentation describes how to connect to it. To compare the installation types, refer to [About installation types](/installation/#about-installation-types).
+If you use {% term "Home Assistant Container" %}, you can't install apps. Many apps are based on software that you can also run yourself, for example in its own container next to Home Assistant. If an integration needs that software, check the documentation of the integration for how to connect to it. To compare the installation types, refer to [About installation types](/installation/#about-installation-types).
