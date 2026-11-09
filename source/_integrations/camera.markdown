@@ -44,12 +44,15 @@ Prerequisites:
 To talk through a camera:
 
 1. Open the live stream of the camera.
-   - For example, select the camera on your dashboard.
+   For example, select the camera on your dashboard.
 2. Below the live stream, select **Start talking**.
-   - The first time you do this, your browser or app asks for permission to use the microphone. Allow access.
-   - Result: The button changes to **Stop talking** and shows the level of the sound your microphone picks up. People near the camera can now hear you.
+   The first time you do this, your browser or app asks for permission to use the microphone.
+   Allow access.
+
+   The button changes to **Stop talking** and shows the level of the sound your microphone picks up.
+   People near the camera can now hear you.
 3. When you're done, select **Stop talking**.
-   - The microphone also turns off when you close the live stream.
+   The microphone also turns off when you close the live stream.
 
 ## Camera states
 
@@ -88,10 +91,12 @@ The button only appears when all of these are true:
 
 #### Resolution
 
+To make the button appear:
+
 1. Make sure the **Two-way audio** preview feature is enabled in {% my labs title="**Settings** > **System** > **Labs**" %}.
 2. Check the documentation of the integration of your camera to see if it supports two-way audio.
 3. Make sure Home Assistant can stream the camera using WebRTC.
-   - On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, the [go2rtc](/integrations/go2rtc/) integration provides WebRTC for your cameras automatically.
+   On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, the [go2rtc](/integrations/go2rtc/) integration provides WebRTC for your cameras automatically.
 
 When all of these are true, the **Start talking** button appears the next time you open the live stream.
 
@@ -132,6 +137,8 @@ Home Assistant shows the live stream using another streaming method, for example
 
 #### Resolution
 
+To get a WebRTC stream:
+
 1. Close the live stream and open it again.
 2. If the message is still there, go to {% my logs title="**Settings** > **System** > **Logs**" %} and look for errors from the integration of your camera or from the [go2rtc](/integrations/go2rtc/) integration.
 
@@ -149,6 +156,8 @@ When you hover over or tap the button, it shows the message "Microphone access w
 You or your device blocked Home Assistant from using the microphone.
 
 #### Resolution
+
+To allow microphone access:
 
 1. In the settings of your browser or device, allow Home Assistant to use the microphone.
 2. Close the live stream and open it again.
