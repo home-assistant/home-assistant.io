@@ -39,7 +39,7 @@ Enqueue:
 Enable radio mode:
   description: Turns on radio mode to auto-generate a playlist based on the selection.
 Shuffle:
-  description: Whether to play the content in randomized order. Only applies when the content starts playing right away. When left empty, the current shuffle setting of the queue is kept.
+  description: Whether to play the content in randomized order. Only applies when the content starts playing right away. When left empty, the queue's shuffle setting and the type of content decide.
 Start item:
   description: "The item to start playback from, instead of the first one. Use `latest` to play a podcast from its newest episode, or enter the URI, ID, or part of the name (at least 3 characters) of the track or episode to start from."
 Username:
@@ -88,10 +88,10 @@ radio_mode:
   type: boolean
   default: false
 shuffle:
-  description: "Whether to play the content in randomized order. Only applies when the content starts playing right away (`enqueue` set to `play` or `replace`)."
+  description: Whether to play the content in randomized order. Only applies when the content starts playing right away.
   required: false
   type: boolean
-  default: "The current shuffle setting of the queue"
+  default: "Decided by the queue's shuffle setting and the type of content"
 start_item:
   description: "The item to start playback from, instead of the first one. Use `latest` (or `newest`) to play a podcast from its newest episode, or give the URI, ID, or part of the name (at least 3 characters) of the track or episode to start from."
   required: false
