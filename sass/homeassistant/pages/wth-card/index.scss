@@ -25,9 +25,11 @@
     // Room above the caption for the wordmark.
     padding-top: 40%;
 
-    // No fade behind the caption: dark ink straight on the pale card.
+    // A white fade behind the caption, with the text in dark ink, so the
+    // routing lines fade out behind it.
+    --caption-color: #FFFFFF;
+
     .caption {
-        background: none;
         color: var(--wth-ink);
         padding-top: 24px;
         position: relative;
