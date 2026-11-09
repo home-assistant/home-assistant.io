@@ -311,6 +311,13 @@ main#page-wth {
     text-transform: uppercase;
 }
 
+// While the 3D wordmark loads, the CSS one stays hidden, so the flat text
+// does not flash up first. source/_includes/wth/3d-check.html adds `wth-3d`
+// when the 3D wordmark can be drawn, and logo.js removes it if drawing fails.
+.wth-3d .wth-mark[data-wth-logo] {
+    visibility: hidden;
+}
+
 // The 3D wordmark from source/javascripts/wth/logo.js. It replaces the CSS
 // version once it has drawn; the script sets the box's aspect ratio, and
 // sizes the canvas to reach past the box on every side, so the intro and

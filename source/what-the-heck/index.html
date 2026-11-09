@@ -55,10 +55,12 @@ wth_replies:
     }
   }
 </script>
-<script src="/javascripts/wth/logo.js" type="module"></script>
+<script src="/javascripts/wth/logo.js" type="module" onerror="document.documentElement.classList.remove('wth-3d')"></script>
 <script src="/javascripts/wth/flow-lines.js" type="module"></script>
 <script src="/javascripts/wth/wth-chat.js" type="module"></script>
 <script src="/javascripts/wth/wth-prs.js" type="module"></script>
+
+{% include wth/3d-check.html %}
 
 <main id="page-wth">
   <div class="container-full">

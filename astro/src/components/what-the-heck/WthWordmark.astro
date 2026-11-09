@@ -1,8 +1,9 @@
 ---
 // The "What the Heck?!" wordmark, rebuilt from the key visual as live
 // text. source/javascripts/wth/logo.js reads the words below and draws
-// them in 3D with three.js; this CSS version shows until that is ready,
-// and stays when WebGL is not available.
+// them in 3D with three.js. When it can, this CSS version stays hidden
+// until that is ready; it shows without JavaScript or WebGL, and when the
+// 3D version fails.
 //
 // It is three units -- WHAT, THE and HECK?! -- each rotated in 3D on its
 // own, with the date in small type underneath. The 3D version moves the
@@ -38,12 +39,13 @@ import "../../styles/wth.scss";
   </span>
 </span>
 <script is:inline>
-  // As the WTH blog header does (source/_includes/blog/wth-2026-header.html):
-  // hide the CSS wordmark while the 3D one loads, so the plain text doesn't
+  // As the WTH blog header does (source/_includes/wth/3d-check.html): hide
+  // the CSS wordmark while the 3D one loads, so the plain text doesn't
   // flash up before its outline and the intro. Without JavaScript this
   // never runs and the CSS wordmark shows as usual. logo.js only draws the
   // first wordmark on the page, and needs WebGL 2 with float color buffers;
   // without them, keep logo.js away and show the CSS wordmark right away.
+  // logo.js removes the class again if the 3D wordmark fails.
   (function () {
     var mark = document.currentScript && document.currentScript.previousElementSibling;
     if (!mark || mark !== document.querySelector(".wth-mark[data-wth-logo]")) return;
@@ -89,17 +91,11 @@ import "../../styles/wth.scss";
   }
 
   // Hidden while the 3D wordmark loads (the script above adds the class),
-  // keeping its space so nothing moves. It shows after a few seconds if
-  // the 3D wordmark hasn't drawn by then, as on the blog.
+  // keeping its space so nothing moves. There is no timed reveal, so the
+  // flat text never flashes up before the 3D version, however slowly it
+  // loads; logo.js removes the class if the 3D wordmark fails.
   .wth-mark:global(.wth-mark--loading) {
-    animation: wth-mark-reveal 0s 3s forwards;
     visibility: hidden;
-  }
-
-  @keyframes wth-mark-reveal {
-    to {
-      visibility: visible;
-    }
   }
 
   .wth-mark__line {
