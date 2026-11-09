@@ -67,7 +67,7 @@ The integration {% term polling polls %} the Foreca Weather API every 30 minutes
 
 The `weather.get_forecasts` action reads the forecast the integration has already retrieved, so using it in templates and automations costs no extra requests.
 
-The `foreca.get_minute_forecast` action requests fresh data, so each call uses one request.
+The `foreca.get_minute_forecast` action requests fresh data, so each call uses one request for every Foreca weather entity it targets.
 
 ## Known limitations
 

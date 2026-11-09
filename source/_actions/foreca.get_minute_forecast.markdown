@@ -48,7 +48,7 @@ The action returns the forecast for each targeted weather entity, keyed by its e
 
 `resolution` is the forecast's time resolution in minutes. It is `1` where the forecast is a radar nowcast, which covers Europe and the continental USA, and `60` elsewhere.
 
-`forecast` is a list of 60 entries, one for each minute of the next hour. Each entry has the following fields:
+`forecast` is a list of up to 60 entries, one for each minute of the next hour. A minute that the API returns without a valid time is left out, so the list can be shorter. Each entry has the following fields:
 
 - `datetime`: the minute the forecast is for.
 - `precipitation`: the forecasted precipitation rate, in the weather entity's precipitation unit per hour. It is `null` for a minute the forecast doesn't include a rate for.
@@ -69,7 +69,7 @@ weather.home:
 
 ## Good to know
 
-- Each call requests fresh data from the Foreca Weather API and counts toward your plan's daily request limit. Calling the action every few minutes around the clock can use more requests than the regular updates do.
+- Each call requests fresh data from the Foreca Weather API, one request for every Foreca weather entity it targets, and each request counts toward your plan's daily request limit. Calling the action every few minutes around the clock can use more requests than the regular updates do.
 - A `precipitation` value of 0 means no rain or snow is expected for that minute.
 
 {% include actions/try_it.md %}
