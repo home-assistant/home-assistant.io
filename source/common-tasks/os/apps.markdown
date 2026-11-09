@@ -19,9 +19,50 @@ The app store groups the apps by repository. A repository is a collection of app
 - **Music Assistant**
 - **Local apps**
 
-You can also add app repositories from the community. Home Assistant can't guarantee the quality or security of apps from other repositories. For the steps, refer to [Installing a third-party app repository](/common-tasks/os/#installing-a-third-party-app-repository).
+You can also add app repositories from the community. For the steps, refer to [Adding an app repository](#adding-an-app-repository).
 
 To check for new versions of the apps, in the app store, select **Menu** {% icon "mdi:dots-vertical" %} > **Check for updates**.
+
+## Adding an app repository
+
+Anyone can publish apps in their own app repository. To install apps from such a repository, add it to the app store first.
+
+Home Assistant can't guarantee the quality or security of apps from other repositories. An app can access your system and your data. Only add repositories from authors that you trust.
+
+### Prerequisites
+
+- Administrator rights.
+- {% term "Home Assistant Operating System" %}.
+- The web address of the repository, for example, `https://github.com/home-assistant/apps-example`.
+  - The author of the repository usually lists it in their documentation. On GitHub, it's the web address of the repository page.
+
+### To add an app repository
+
+1. Go to {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}.
+2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Repositories**.
+   - Result: The **Repositories** page lists your app repositories.
+3. Select **Add**.
+4. In the **Add repository** dialog, under **URL**, enter the web address of the repository, and then select **Add**.
+   - Result: The repository is added to the list. Its apps are shown in the app store.
+   - If the repository doesn't show up, refer to [An added repository doesn't show up](#an-added-repository-doesnt-show-up).
+
+## Removing an app repository
+
+If you no longer need the apps from a repository that you added, you can remove the repository. You can only remove a repository if none of its apps are installed.
+
+### Prerequisites
+
+- Administrator rights.
+- {% term "Home Assistant Operating System" %}.
+- None of the apps from the repository are installed. To uninstall an app, refer to [Uninstalling an app](#uninstalling-an-app).
+
+### To remove an app repository
+
+1. Go to {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}.
+2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Repositories**.
+3. Next to the repository, select **Remove** {% icon "mdi:delete" %}.
+   - If the button is grayed out, apps from the repository are still installed. The button shows **In use by installed apps**.
+4. To confirm, select **Remove**.
 
 ## Installing an app
 
@@ -152,3 +193,14 @@ To keep the data of an app, create a backup that includes the app before you uni
    - To also delete it, turn on **Also delete the app's configuration folder (if used)**.
    - To keep it, leave the option off. This is the default.
 4. Select **Uninstall**.
+
+## Troubleshooting
+
+### An added repository doesn't show up
+
+You added an app repository, but its apps aren't shown in the app store.
+
+1. Refresh your browser.
+2. If the apps still aren't shown, the repository may contain invalid configuration data. To find out, check the **Supervisor** log.
+   - Go to {% my logs title="**Settings** > **System** > **Logs**" %}. In the top-right corner, select the button that shows **Home Assistant Core**, and then select **Supervisor**.
+3. Report the problem to the author of the repository.

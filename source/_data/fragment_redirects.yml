@@ -40,6 +40,8 @@
   flashing-an-odroid-n2: /installation/odroid/#flashing-an-odroid-n2
   snapshots: /common-tasks/general/backups/
   backups: /common-tasks/general/backups/
+  installing-a-third-party-app-repository: /common-tasks/os/apps/#adding-an-app-repository
+  troubleshooting-repository-is-not-showing-up: /common-tasks/os/apps/#an-added-repository-doesnt-show-up
 "/conditions/":
   logical-conditions: /conditions/and/
   and-condition: /conditions/and/
