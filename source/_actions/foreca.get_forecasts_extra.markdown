@@ -2,12 +2,12 @@
 title: "Get extra forecast values"
 action: foreca.get_forecasts_extra
 domain: foreca
-description: "Retrieves Foreca forecast values that the standard forecast has no place for, such as precipitation type, snow, solar radiation, sunshine, and sunrise."
+description: "Retrieves Foreca forecast values that the standard forecast has no place for, such as precipitation type, snow, solar radiation, sunshine, sunrise, and the range of the daily forecast."
 ---
 
-The **Get extra forecast values** action returns forecast values that the standard [`weather.get_forecasts`](/actions/weather.get_forecasts/) action has no field for, such as the precipitation type, snow accumulation and depth, solar radiation, sunshine duration, and sunrise and sunset times.
+The **Get extra forecast values** action returns forecast values that the standard [`weather.get_forecasts`](/actions/weather.get_forecasts/) action has no field for, such as the precipitation type, snow accumulation and depth, solar radiation, sunshine duration, sunrise and sunset times, and how certain each day's forecast is.
 
-Use it, for example, to plan solar charging around the expected solar radiation, or to warn about snow on the roads before a morning commute.
+Use it, for example, to plan solar charging around the expected solar radiation, to warn about snow on the roads before a morning commute, or to protect plants when even a quarter of the forecast scenarios bring frost.
 
 {% include actions/targets.md domain="weather" entity_type="Foreca weather entity" example="weather.home" %}
 
@@ -84,6 +84,8 @@ Each daily entry includes:
 - `solar_radiation_sum`: the solar energy reaching the ground over the day, in Wh/m².
 - `sunrise` and `sunset`: the times of sunrise and sunset, in UTC.
 - `confidence`: how confident Foreca is in the forecast: `good`, `normal`, or `low`.
+- `temperature_ensemble` and `templow_ensemble`: the spread of the maximum and minimum temperature across the scenarios of Foreca's ensemble forecast. The keys `p000`, `p025`, `p050`, `p075`, and `p100` are the lowest value, the lower quartile, the median, the upper quartile, and the highest value.
+- `precipitation_ensemble`: the spread of the day's precipitation across the scenarios, in the precipitation unit. The keys `p010` to `p090` are the 10th, 25th, 50th, 75th, and 90th percentiles.
 
 For a `daily` forecast, the response looks similar to this:
 
@@ -104,6 +106,24 @@ output: |
         sunrise: "2026-11-06T05:54:46+00:00"
         sunset: "2026-11-06T14:11:42+00:00"
         confidence: good
+        temperature_ensemble:
+          p000: 3.69
+          p025: 4.02
+          p050: 4.02
+          p075: 4.02
+          p100: 4.36
+        templow_ensemble:
+          p000: -1.28
+          p025: -0.94
+          p050: -0.61
+          p075: -0.44
+          p100: 0.38
+        precipitation_ensemble:
+          p010: 0
+          p025: 0
+          p050: 0
+          p075: 0
+          p090: 0
 {% endexample %}
 
 ## Good to know
