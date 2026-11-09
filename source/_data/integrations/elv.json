@@ -9,6 +9,9 @@
   "categories": [
     "plugs_switches"
   ],
+  "connectivity": [
+    "serial"
+  ],
   "platforms": [
     "switch"
   ]

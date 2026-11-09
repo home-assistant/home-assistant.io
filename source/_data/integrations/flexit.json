@@ -10,6 +10,9 @@
   "categories": [
     "climate.fans_ventilation"
   ],
+  "connectivity": [
+    "modbus"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

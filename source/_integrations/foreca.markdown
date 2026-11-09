@@ -45,15 +45,52 @@ To add another location later, select **Add location** on the Foreca entry under
 
 ### Weather
 
-The integration creates one weather {% term entity %} per location, providing the current conditions, a daily forecast for the next 10 days, and an hourly forecast for the next 48 hours.
+The integration creates one weather {% term entity %} per location, providing the current conditions, a daily forecast for the next 14 days, and an hourly forecast for the next 7 days.
 
 The current conditions include temperature, apparent temperature, dew point, humidity, air pressure, wind speed, wind gust speed, wind bearing, visibility, cloud coverage, and UV index.
+
+The daily forecast includes:
+
+- Condition
+- Maximum and minimum temperature
+- Maximum apparent temperature
+- Maximum dew point
+- Total precipitation and its probability
+- Maximum wind speed and wind gust speed
+- Wind bearing
+- Air pressure
+- Cloud coverage
+- UV index
+
+The hourly forecast includes:
+
+- Condition
+- Temperature and apparent temperature
+- Dew point
+- Humidity
+- Precipitation and its probability
+- Wind speed, wind gust speed, and wind bearing
+- Air pressure
+- Cloud coverage
+- UV index
+
+### Sensors
+
+Each location also gets three sensors for the current conditions:
+
+- **Precipitation intensity**: the current rate of precipitation, in mm/h.
+- **Precipitation probability**: the current probability of precipitation, in percent.
+- **Thunderstorm probability**: the current probability of thunder, in percent.
+
+The sensors come from the same requests as the weather entity, so they add nothing to your request count.
+
+{% include integrations/actions.md %}
 
 ## Data updates
 
 The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses three requests per location, around 144 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Every location you add polls separately, so that limit allows around 13 of them. Because the integration polls continuously, a Freemium key used this way does not go idle.
 
-The `weather.get_forecasts` action reads the forecast the integration has already retrieved, so using it in templates and automations costs no extra requests.
+The `weather.get_forecasts` and `foreca.get_forecasts_extra` actions read the forecast the integration has already retrieved, so using them in templates and automations costs no extra requests.
 
 ## Known limitations
 

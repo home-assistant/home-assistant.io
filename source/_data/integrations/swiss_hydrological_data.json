@@ -9,6 +9,9 @@
   "categories": [
     "weather_alerts"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

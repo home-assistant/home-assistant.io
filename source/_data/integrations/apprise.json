@@ -9,6 +9,10 @@
   "categories": [
     "messaging_notifications"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "notify"
   ]

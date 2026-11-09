@@ -1,6 +1,6 @@
 {
   "domain": "google_assistant",
-  "name": "Google Assistant",
+  "name": "Google Home",
   "integration_type": "system",
   "codeowners": [
     "@home-assistant/cloud"

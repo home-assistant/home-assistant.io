@@ -9,5 +9,8 @@
   "iot_class": "cloud_polling",
   "categories": [
     "energy.meters_monitoring"
+  ],
+  "connectivity": [
+    "cloud"
   ]
 }
