@@ -26,7 +26,7 @@
     isolation: isolate;
     overflow: hidden;
     // Room above the caption for the wordmark.
-    padding-top: 40%;
+    padding-top: 50%;
 
     .caption {
         position: relative;
@@ -58,13 +58,13 @@
     }
 }
 
-// The wordmark sits in the top left, above the caption.
+// The wordmark sits centered, above the caption.
 .wth-card__mark {
     container-type: inline-size;
-    left: 8%;
+    left: 16%;
     position: absolute;
-    top: 10%;
-    width: 46%;
+    top: 7%;
+    width: 68%;
 }
 
 .wth-card {
