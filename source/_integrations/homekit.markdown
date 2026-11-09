@@ -51,6 +51,8 @@ homekit:
       fan.air_purifier:
         type: air_purifier
         linked_filter_life_level_sensor: sensor.air_purifier_filter_life_level
+      fan.bedroom_ceiling_fan:
+        linked_light: light.bedroom_ceiling_fan_light
       light.kitchen_table:
         name: Kitchen Table Light
       lock.front_door:
@@ -168,6 +170,10 @@ homekit:
               type: string
             linked_humidity_sensor:
               description: The `entity_id` of a `sensor` entity to use as the humidity sensor of the humidifier/dehumidifier accessory.
+              required: false
+              type: string
+            linked_light:
+              description: The `entity_id` of a `light` entity to add as a light to the accessory of a `fan` entity, or of a `media_player` entity shown as a television or a receiver (device class `tv` or `receiver`). A ceiling fan with a light kit, for example, then shows as a single accessory in the Home app. The light can be turned on and off from HomeKit, and dimmed when it supports brightness.
               required: false
               type: string
             linked_pm25_sensor:
