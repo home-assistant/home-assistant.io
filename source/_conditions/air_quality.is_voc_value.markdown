@@ -58,7 +58,7 @@ This passes when the living room VOC sensor reads above 300 μg/m³.
    unit_example_value="500"
    threshold_required="true" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="volatile organic compounds sensor" example="sensor.living_room_voc" %}
 
 {% include conditions/behavior.md %}
 

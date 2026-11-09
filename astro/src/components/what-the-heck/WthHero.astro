@@ -1,0 +1,133 @@
+---
+// The hero of the Month of "What the Heck?!" page: a rounded full-bleed
+// card with the wordmark, text and calls to action pinned to the bottom
+// left.
+//
+// Replaces source/what-the-heck/components/_hero.html and the `#hero` rules in
+// sass/homeassistant/pages/wth/_sections.scss.
+//
+// Fidelity: revamp. Same card, artwork and copy; spacing, radii and type
+// sizes come from the theme.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import WthHeroBackground from "./WthHeroBackground.astro";
+import WthWordmark from "./WthWordmark.astro";
+import Button from "../Button.astro";
+import { blogUrl, forumUrl } from "../../lib/wth.mjs";
+---
+
+<section id="hero">
+  <WthHeroBackground />
+
+  <div class="inner">
+    <div class="content">
+      <h1>
+        <span class="visually-hidden">
+          Month of “What the Heck?!”, November 2026
+        </span>
+        <WthWordmark />
+      </h1>
+
+      <p class="lead">
+        All month, we want your WTHs! Every one helps make Home Assistant better.
+      </p>
+
+      <div class="actions">
+        <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">Share your WTH</Button>
+        <Button href={blogUrl} scheme="secondary" outline>Learn more</Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  #hero {
+    /* The key visual's background: a faint blue-to-mint wash over white. */
+    background:
+      linear-gradient(
+        110deg,
+        rgb(255 255 255 / 10%) 10%,
+        rgb(24 188 242 / 10%) 55%,
+        rgb(22 243 190 / 10%) 97%
+      ),
+      var(--wth-surface);
+    border-radius: var(--radius-large);
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    justify-content: flex-end;
+    margin-inline: auto;
+    max-width: var(--wth-measure-wide);
+    min-height: 30rem;
+    overflow: hidden;
+    position: relative;
+    width: calc(100% - var(--space-xlarge));
+  }
+
+  .inner {
+    /* The page has no global border-box reset: keep the padding inside
+       the 100% width, or narrow screens push the text past the card. */
+    box-sizing: border-box;
+    display: flex;
+    /* Fills the card, so the content stays at the bottom. */
+    flex: 1 0 auto;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-inline: auto;
+    max-width: var(--wth-measure);
+    padding: var(--space-xlarge) var(--wth-gutter);
+    width: 100%;
+  }
+
+  .content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    max-width: 42rem;
+  }
+
+  h1 {
+    /* Full width of the content column, which the 3D wordmark's box sizes
+       itself against. */
+    align-self: stretch;
+    margin: 0;
+  }
+
+  .lead {
+    color: var(--wth-ink-soft);
+    font-size: var(--wth-font-size-lead);
+    line-height: 1.5;
+    margin: var(--space-xxlarge) 0 0;
+    max-width: 46ch;
+    text-wrap: balance;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-medium);
+    margin-top: var(--space-xxlarge);
+  }
+
+  .visually-hidden {
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    #hero {
+      min-height: 37.5rem;
+      width: calc(100% - var(--space-xxlarge));
+    }
+
+    .inner {
+      padding: var(--space-xxlarge) var(--wth-gutter-wide) 4rem;
+    }
+  }
+</style>

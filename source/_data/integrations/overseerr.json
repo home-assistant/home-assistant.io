@@ -1,0 +1,24 @@
+{
+  "domain": "overseerr",
+  "name": "Seerr",
+  "integration_type": "service",
+  "codeowners": [
+    "@joostlek",
+    "@AmGarera",
+    "@felixschndr"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "diagnostics",
+    "event",
+    "sensor"
+  ]
+}

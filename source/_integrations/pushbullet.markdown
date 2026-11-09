@@ -1,18 +1,7 @@
 ---
-title: Pushbullet
 description: Instructions on how to read user pushes in Home Assistant
-ha_categories:
-  - messaging_notifications.push_notifications
 ha_release: 0.44
-ha_iot_class: Cloud Polling
 ha_domain: pushbullet
-ha_platforms:
-  - notify
-  - sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@engrbm87'
-ha_config_flow: true
 ---
 
 There is currently support for the following device types within Home Assistant:

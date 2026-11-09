@@ -73,14 +73,14 @@ behavior:
   default: each
 for:
   description: |
-    How long the sensor or sensors must remain without detecting motion before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+    How long the sensor or sensors must remain without detecting motion before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
 <!-- Keep the "include" below if your integration supports targets -->
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="motion sensor" example="binary_sensor.hallway_motion" %}
 
 {% include triggers/behavior.md %}
 

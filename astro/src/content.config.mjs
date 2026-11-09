@@ -68,4 +68,13 @@ const products = defineCollection({
   }),
 });
 
-export const collections = { help, pages, products };
+// The link-in-bio page (src/pages/bio/index.astro) is described by one
+// data file, source/_data/bio.yml. Its rules are checked by
+// src/lib/bio.mjs, which names the key at fault, so the schema here
+// accepts any map.
+const bio = defineCollection({
+  loader: glob({ base: "../source/_data", pattern: "bio.yml" }),
+  schema: z.object({}).passthrough(),
+});
+
+export const collections = { help, pages, products, bio };

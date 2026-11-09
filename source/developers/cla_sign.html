@@ -184,7 +184,7 @@ description: "The Home Assistant contributor license agreement (CLA) signature p
     if (codeCheck && codeCheck.length > 0) {
       $.ajax({
         type: "POST",
-        url: "https://service-hub-bots.home-assistant.io/cla-sign/authorize",
+        url: "https://bots.openhomefoundation.org/cla-sign/authorize",
         data: JSON.stringify({"code": codeCheck}),
         contentType: "application/json",
       }).done(function(data){
@@ -228,7 +228,7 @@ description: "The Home Assistant contributor license agreement (CLA) signature p
         }
         $.ajax({
           type: "POST",
-          url: "https://service-hub-bots.home-assistant.io/cla-sign",
+          url: "https://bots.openhomefoundation.org/cla-sign",
           data: JSON.stringify(payload),
           contentType: "application/json",
         }).done(function(data){

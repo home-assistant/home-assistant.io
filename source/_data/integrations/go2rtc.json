@@ -1,0 +1,10 @@
+{
+  "domain": "go2rtc",
+  "name": "go2rtc",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "internal"
+}

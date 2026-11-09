@@ -52,7 +52,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md domain="binary_sensor" %}
+{% include conditions/targets.md entity_type="gas detector" example="binary_sensor.kitchen_gas" %}
 
 {% include conditions/behavior.md %}
 

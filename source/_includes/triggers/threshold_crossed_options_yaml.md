@@ -12,6 +12,8 @@ Parameters:
                       example. Requires unit_label, unit_options_code, unit_default,
                       unit_example_entity, and unit_example_value.
   unit_label          Unit label. For example: "temperature unit", "energy unit".
+  strict_unit         Set (to anything) when entity thresholds must report one of the
+                      allowed units (no system-unit fallback).
   unit_options_code   Inline code list of allowed units. For example: "`°C` or `°F`".
   unit_default        Default unit used in the example. For example: "°C".
   unit_example_entity Entity reference used in the example. For example:
@@ -32,7 +34,7 @@ threshold:
 
 {% if include.has_unit %}
 
-    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). {% if include.entity_unit_note %}{{ include.entity_unit_note }}{% else %}When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the threshold doesn't work.{% endif %}
+    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). {% if include.entity_unit_note %}{{ include.entity_unit_note }}{% elsif include.strict_unit %}When using the `entity` key, the unit is taken from the entity itself, so the entity must report its unit as {{ include.unit_options_code }}.{% else %}When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the trigger doesn't react.{% endif %}
 
     For example:
 
@@ -72,8 +74,8 @@ behavior:
   default: each
 for:
   description: |
-    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes.
+    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}

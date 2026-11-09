@@ -33,7 +33,7 @@ trigger: |
 
 This fires every time the selected option of the washing machine program dropdown changes.
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="dropdown entity or dropdown helper" example="select.washing_machine_program" %}
 
 ## Good to know
 

@@ -1,0 +1,26 @@
+{
+  "domain": "bang_olufsen",
+  "name": "Bang & Olufsen",
+  "integration_type": "device",
+  "codeowners": [
+    "@mj23000"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "event",
+    "media_player",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

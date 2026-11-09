@@ -117,7 +117,7 @@ This fires whenever any humidity sensor in the basement area changes to a value 
 {% include triggers/threshold_changed_options_yaml.md
    unit_phrase_yaml="literal percentage 0–100" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="humidity sensor, thermostat, humidifier, or weather entity" example="sensor.bathroom_humidity" %}
 
 ## Good to know
 

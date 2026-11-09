@@ -1,0 +1,23 @@
+{
+  "domain": "vitesy",
+  "name": "Vitesy",
+  "integration_type": "hub",
+  "codeowners": [
+    "@chemelli74"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "climate.air_purifiers_humidifiers"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "select",
+    "sensor"
+  ]
+}

@@ -1,12 +1,7 @@
 ---
-title: Activity
 description: Instructions on how to enable the activity integration for Home Assistant.
 ha_release: 0.7
 ha_domain: logbook
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: system
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -25,6 +20,7 @@ The **Activity** panel shows recorded changes and events in your home, with the 
 3. Optional: To narrow down the activity further, use the filters below the targets. The filters also work without a target.
    - **Type**: shows only activity of entities of the selected types. For example, select the **Motion** type under **Binary sensor** to see only motion activity.
    - **Integrations**: shows only activity of entities that are provided by the selected integrations.
+   - **Triggered by**: shows only activity with the selected cause, such as a person, **Automations**, **Scripts**, or **Integrations**, like HomeKit or Google Assistant. If a change was made through a user account that is not linked to a person, it is listed under **Integrations**. Activity without a known cause is listed under **Other**.
    - Home Assistant remembers your targets and filters the next time you open the panel. To remove all of them, select **Clear filter** {% icon "mdi:filter-variant-remove" %} at the top of the pane.
 4. To change the time period, select the date range in the toolbar.
    - To move to the previous or next period, select the arrows next to the date range.

@@ -1,18 +1,7 @@
 ---
-title: Spain electricity hourly pricing (PVPC)
 description: Instructions on how to set up the PVPC Hourly Pricing sensor in Home Assistant.
-ha_categories:
-  - energy.energy_prices
 ha_release: '0.108'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@azogue'
-  - '@chiro79'
 ha_domain: pvpc_hourly_pricing
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 This {% term integration %} uses the official API to get the hourly price of electricity in Spain from <https://www.esios.ree.es/en/pvpc>.
@@ -38,7 +27,7 @@ Set also your contracted power (in kW) for the two power periods that apply with
 In case you did nothing after the tariff change on 2021-06-01, both powers are equal, and the same you had for your existing contract.
 
 To access extra price sensors from ESIOS API, like the price for the **excess energy from self-consumption**, or the electricity price in the open market (useful if your provider indexes its price with it), 
-you must **request a personal token** by mailing to [consultasios@ree.es](mailto:consultasios@ree.es?subject=Personal%20token%20request).
+you must **request a personal token** through the [access token request form](https://www.esios.ree.es/en/token).
 Then, enable the API Token option for this integration.
 
 You can set up the integration 2 times; one for each geographic zone. To do this, add them again through the integrations panel under {% my integrations title="**Settings** > **Devices & services**" %}.

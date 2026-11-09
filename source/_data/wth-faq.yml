@@ -1,0 +1,19 @@
+# TODO: Placeholder copy. Every answer below is template text and needs
+# marketing review before it ships. Replace each TODO with the final wording
+# and fill in the bracketed placeholders; do not publish them as they are.
+#
+# Same schema as community-faq.yml: a list under `items`, each with a
+# `question` and an `answer` (the answer may contain HTML).
+items:
+  - question: What is the Month of "What the Heck?!"
+    answer: "TODO: Template copy. Describe in one or two sentences what the Month of \"What the Heck?!\" is and why Home Assistant is running it."
+  - question: Who can take part?
+    answer: "TODO: Template copy. Say who can take part, for example whether you need to be a Home Assistant user, a contributor, or both. [Confirm eligibility.]"
+  - question: How do I share an idea?
+    answer: "TODO: Template copy. Explain where and how to share an idea, with a link to [the forum category or submission form]."
+  - question: What happens to the ideas people share?
+    answer: "TODO: Template copy. Explain how ideas are reviewed, who looks at them, and what people can expect afterward. [Confirm the process.]"
+  - question: Where can I follow along?
+    answer: "TODO: Template copy. List the places to follow progress, such as [blog, forum, social channels]. [Add links.]"
+  - question: Where can I get help?
+    answer: "TODO: Template copy. Point people to [the right support channel] if they have questions about taking part or need help with Home Assistant itself."

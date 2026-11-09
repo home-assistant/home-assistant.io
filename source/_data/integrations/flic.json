@@ -1,0 +1,15 @@
+{
+  "domain": "flic",
+  "name": "Flic (legacy)",
+  "iot_class": "local_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "buttons_remotes"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}
