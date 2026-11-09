@@ -79,7 +79,7 @@ forecast_time_ref: '2020-08-20T19:25:00+00:00'
 
 #### About the `weather_alert` sensor
 
-The state is the highest alert level for the department of the city: `Vert`, `Jaune`, `Orange` or `Rouge`. The attributes give the alert level for each type of weather event, such as wind, rain or thunderstorms.
+The state is the highest alert level for the department of the city: `green`, `yellow`, `orange` or `red`. Home Assistant shows it in your language. The attributes give the alert level for each type of weather event, such as wind, rain or thunderstorms. They come from Météo-France and are in French.
 
 ## Data updates
 
@@ -106,8 +106,8 @@ automation: |
     - trigger: state
       entity_id: sensor.paris_weather_alert
       to:
-        - "Orange"
-        - "Rouge"
+        - "orange"
+        - "red"
   actions:
     - action: notify.notify
       data:
@@ -142,7 +142,7 @@ automation: |
 - Only one city per department provides the weather alert sensor. If you add several cities in the same department, only the first one gets it.
 - The rain forecast for the next hour is only available in the areas covered by Météo-France.
 - The probability sensors are only created when Météo-France provides this data for the location.
-- The weather descriptions, the types of rain and the alert levels come from Météo-France and are always in French.
+- The weather descriptions, the types of rain and the alert levels of each weather event come from Météo-France and are always in French.
 
 ## Troubleshooting
 
