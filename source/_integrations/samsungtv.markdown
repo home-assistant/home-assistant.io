@@ -6,13 +6,15 @@ ha_domain: samsungtv
 
 The **Samsung Smart TV** {% term integration %} allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
 
+Use cases: turn the TV off when everyone leaves home, pause playback when the doorbell rings, switch to a streaming app or HDMI input from a dashboard, or send remote key sequences from an automation.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-  host:
-    description: The IP address of the TV.
-  name:
-    description: The friendly name of the TV.
+Host:
+  description: The hostname or IP address of the TV.
+PIN:
+  description: "The PIN displayed on your TV. Only asked for TVs that use the encrypted protocol (some H and J series models). On other models, accept the authorization popup on the TV instead."
 {% endconfiguration_basic %}
 
 ## Supported devices
@@ -35,8 +37,8 @@ The Samsung Smart TV integration provides the following entities and functionali
 - **Volume control**: Adjust volume and mute/unmute
 - **Channel selection**: Change channels directly by number
 - **Source selection**: Switch between TV, HDMI inputs, and applications
-- **Playback control**: Play, pause, stop, and fast forward media
-- **Media information**: Display current channel, source, and playback metadata
+- **Playback control**: Play and pause media
+- **Next and previous track**: Sent to the TV as channel up and channel down
 
 ### Remote
 
@@ -52,8 +54,8 @@ The Samsung Smart TV integration provides the following entities and functionali
 
 ## Data updates
 
-The **SamsungTV** integration uses a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume level, and other state information.
-For older TV models that still use the legacy bridge implementation (internally called `SamsungTvBridge`), the integration polls the TV every 10 seconds to retrieve the latest state information.
+The integration polls every TV every 10 seconds to check if it is on. Depending on the model, it uses the local REST API, the WebSocket connection, or the legacy remote connection.
+If the TV supports UPnP, volume level and mute state are pushed to Home Assistant through UPnP events.
 
 ### Turn on action
 
