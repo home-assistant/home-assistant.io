@@ -13,7 +13,9 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "7.4.0"
+    "@dimforge/rapier3d-compat": "0.21.0",
+    "astro": "7.4.0",
+    "three": "0.187.0"
   },
   "devDependencies": {
     "sass": "^1.104.1"

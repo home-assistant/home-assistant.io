@@ -48,11 +48,11 @@ import bestSpotImage from "../../../assets/connect/aux-2/best-spot.webp";
 import bestSpotMobileImage from "../../../assets/connect/aux-2/best-spot-mobile.webp";
 import boardImage from "../../../assets/connect/aux-2/board.webp";
 import boardMobileImage from "../../../assets/connect/aux-2/board-mobile.webp";
-import backImage from "../../../assets/connect/aux-2/back.webp";
 import boardLogosImage from "../../../assets/connect/aux-2/board-logos.webp";
 import ConnectPrice from "../../../components/connect/ConnectPrice.astro";
 import ConnectCollaboration from "../../../components/connect/ConnectCollaboration.astro";
 import ConnectSpecs from "../../../components/connect/ConnectSpecs.astro";
+import ConnectDrawing from "../../../components/connect/ConnectDrawing.astro";
 import ConnectFaq from "../../../components/connect/ConnectFaq.astro";
 import { specs, faq, renderDrawing } from "./_content";
 import heroImage from "../../../assets/connect/aux-2/hero.webp";
@@ -442,11 +442,9 @@ const diagram = [
             Grove sensors.
           </ConnectFeatureCard>
         </div>
-        <Image
-          quality={85}
-          src={backImage}
+        <ConnectDrawing
+          class="powerful-drawing"
           alt="The back of the Connect AUX-2 with its reset button, USB-C power port and PoE Ethernet port"
-          widths={[backImage.width]}
           sizes="(min-width: 62rem) 50rem, 100vw"
         />
       </div>
@@ -565,6 +563,9 @@ const diagram = [
 
   .connect {
     --layout-max-width: var(--layout-product-width);
+    /* The opened drawing (ConnectDrawing) covers the whole page, the
+       stuck nav bar (z-index 10) included. */
+    --drawing-layer: 20;
 
     background: #000;
     color: var(--color-text-inverse);
@@ -807,13 +808,9 @@ const diagram = [
     display: grid;
     gap: var(--space-xlarge);
 
-    /* Figma's 345 × 238 phone crop; the file is cropped to cover both
-       it and the desktop crop. */
-    img {
+    /* Figma's 345 × 238 phone crop. The drawing covers any shape. */
+    :global(.powerful-drawing:not(.is-expanded)) {
       aspect-ratio: 345 / 238;
-      border-radius: var(--radius-medium);
-      height: auto;
-      object-fit: cover;
       width: 100%;
     }
   }
@@ -1068,12 +1065,11 @@ const diagram = [
     .powerful {
       grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      /* Size containment keeps the photo's own height out of the row,
-         so the heading and cards set it. */
-      img {
+      /* The heading and cards set the row's height; the drawing fills it. */
+      :global(.powerful-drawing:not(.is-expanded)) {
         aspect-ratio: auto;
-        contain: size;
         height: 100%;
+        min-height: 20rem;
       }
     }
 

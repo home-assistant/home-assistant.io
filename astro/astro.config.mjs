@@ -14,6 +14,40 @@ export default defineConfig({
   build: {
     format: "directory",
   },
+  vite: {
+    // The AUX-2 drawing loads these through a lazy import. Bundling them
+    // up front keeps the dev server from discovering them late and
+    // answering with "Outdated Optimize Dep" after files move.
+    optimizeDeps: {
+      include: [
+        "three",
+        "three/addons/controls/OrbitControls.js",
+        "three/addons/loaders/GLTFLoader.js",
+        "three/addons/libs/meshopt_decoder.module.js",
+        "@dimforge/rapier3d-compat",
+      ],
+    },
+    environments: {
+      client: {
+        build: {
+          rolldownOptions: {
+            output: {
+              // Some lazily loaded chunks and models use bare hashes for
+              // names. Everything else keeps Astro's usual name.[hash] pattern.
+              chunkFileNames: (chunk) =>
+                /^(canvas|engine)$/.test(chunk.name)
+                  ? "_astro/[hash].js"
+                  : `_astro/${chunk.name.replace(/@_@.*$/, "")}.[hash].js`,
+              assetFileNames: (asset) => {
+                const name = (asset.names?.[0] ?? "").split("@_@")[0];
+                return name.endsWith(".glb") ? "_astro/[hash][extname]" : `_astro/${name.replace(/\.[^.]+$/, "")}.[hash][extname]`;
+              },
+            },
+          },
+        },
+      },
+    },
+  },
   integrations: [
     jekyllMarkdown(),
     // Logos from the Open Home Foundation brand assets API, downloaded
