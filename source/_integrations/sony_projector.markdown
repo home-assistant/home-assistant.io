@@ -60,6 +60,8 @@ Home Assistant could not get a response from the projector.
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal.
+
+If you previously configured the projector in YAML, also remove its `sony_projector` entry from the `switch` section of your {% term "`configuration.yaml`" %} file. Otherwise, Home Assistant adds the integration again the next time it restarts.
 
 {% include integrations/remove_device_service.md %}
