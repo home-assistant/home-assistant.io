@@ -10,14 +10,14 @@ importers:
     dependencies:
       astro:
         specifier: 7.4.4
-        version: 7.4.4(sass@1.107.1)(yaml@2.9.1)
+        version: 7.4.4(sass@1.108.0)(yaml@2.9.1)
       gsap:
         specifier: 3.12.5
         version: 3.12.5
     devDependencies:
       sass:
         specifier: ^1.104.1
-        version: 1.107.1
+        version: 1.108.0
 
 packages:
 
@@ -1079,8 +1079,8 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
-  sass@1.107.1:
-    resolution: {integrity: sha512-aJ1/LvxOOb04YhmiBjzZn3jVwdHKol+OVhoMV6fFl02fF9T3i+5Mg9l/CnzqtM+NX5Jn5o3lAbs/ZJivTCLHfQ==}
+  sass@1.108.0:
+    resolution: {integrity: sha512-9HwnefouIfwY+XuA1rS5xOhALH5vsoe3SzYICG3MEwpkMbE7tpuh5ytZFRXUKPYkxY7lKdIbqxl+DxQGo8jwQQ==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -1823,7 +1823,7 @@ snapshots:
 
   aria-query@5.3.2: {}
 
-  astro@7.4.4(sass@1.107.1)(yaml@2.9.1):
+  astro@7.4.4(sass@1.108.0)(yaml@2.9.1):
     dependencies:
       '@astrojs/compiler-rs': 0.5.2
       '@astrojs/internal-helpers': 0.13.0
@@ -1872,8 +1872,8 @@ snapshots:
       unifont: 1.0.3
       unstorage: 1.17.6
       verkit: 0.5.0
-      vite: 8.3.5(sass@1.107.1)(yaml@2.9.1)
-      vitefu: 1.1.3(vite@8.3.5(sass@1.107.1)(yaml@2.9.1))
+      vite: 8.3.5(sass@1.108.0)(yaml@2.9.1)
+      vitefu: 1.1.3(vite@8.3.5(sass@1.108.0)(yaml@2.9.1))
       xxhash-wasm: 1.1.0
       yargs-parser: 22.0.0
       zod: 4.6.7
@@ -2314,7 +2314,7 @@ snapshots:
       '@rolldown/binding-win32-arm64-msvc': 1.2.16
       '@rolldown/binding-win32-x64-msvc': 1.2.16
 
-  sass@1.107.1:
+  sass@1.108.0:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.9
@@ -2504,7 +2504,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@8.3.5(sass@1.107.1)(yaml@2.9.1):
+  vite@8.3.5(sass@1.108.0)(yaml@2.9.1):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
@@ -2513,12 +2513,12 @@ snapshots:
       tinyglobby: 0.2.17
     optionalDependencies:
       fsevents: 2.3.3
-      sass: 1.107.1
+      sass: 1.108.0
       yaml: 2.9.1
 
-  vitefu@1.1.3(vite@8.3.5(sass@1.107.1)(yaml@2.9.1)):
+  vitefu@1.1.3(vite@8.3.5(sass@1.108.0)(yaml@2.9.1)):
     optionalDependencies:
-      vite: 8.3.5(sass@1.107.1)(yaml@2.9.1)
+      vite: 8.3.5(sass@1.108.0)(yaml@2.9.1)
 
   xxhash-wasm@1.1.0: {}
 
