@@ -58,3 +58,9 @@ For most use cases, "Color", "Movie" and "Playlist" modes are the most relevant.
 {% include integrations/config_flow.md %}
 
 _If configured using an IP address, on your router / DHCP, you should assign a static IP to your Twinkly device._
+
+## Removing the integration
+
+Twinkly follows the standard removal steps in Home Assistant.
+
+{% include integrations/remove_device_service.md %}
