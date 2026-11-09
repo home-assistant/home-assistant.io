@@ -18,35 +18,24 @@
     @return $shadows;
 }
 
-// Reveals the CSS wordmark when the 3D one has not replaced it in time.
-@keyframes wth-mark-reveal {
-    to {
-        visibility: visible;
-    }
-}
-
-// Include in the element that holds the wordmark. `$no-webgl` is the class
-// that element gets when WebGL is not available, so the CSS wordmark shows
-// right away.
-@mixin wth-wordmark($no-webgl) {
+// Include in the element that holds the wordmark.
+@mixin wth-wordmark {
     // The CSS wordmark holds exactly the box the 3D one draws in, so nothing
     // moves when it is swapped in. The ratio is the one logo.js sets on that
     // box, and the margins match `.wth-logo-3d` below.
     //
-    // It stays hidden while the 3D wordmark loads, so the text does not flash
-    // up before the intro. It shows straight away without WebGL (with the
-    // `$no-webgl` class), and after a few seconds if the 3D wordmark has not
-    // drawn by then.
+    // While the 3D wordmark loads, the CSS one stays hidden, so the flat text
+    // does not flash up first. source/_includes/wth/3d-check.html adds
+    // `wth-3d` when the 3D wordmark can be drawn, and logo.js removes it if
+    // drawing fails.
     .wth-mark {
         align-items: flex-start;
-        animation: wth-mark-reveal 0s 3s forwards;
         aspect-ratio: 2.187;
         display: flex;
         flex-direction: column;
         justify-content: center;
         margin: 0 0 -3% -4%;
         padding-left: 4%;
-        visibility: hidden;
         width: 104%;
         font-family: "Archivo Black", "Figtree", "Helvetica Neue", Arial, sans-serif;
         // Set `font-size` where the mixin is included: it drives the large
@@ -57,9 +46,8 @@
         text-transform: uppercase;
     }
 
-    &.#{$no-webgl} .wth-mark {
-        animation: none;
-        visibility: visible;
+    @at-root .wth-3d #{&} .wth-mark {
+        visibility: hidden;
     }
 
     // The 3D wordmark replaces the CSS one once it has drawn. The script sets

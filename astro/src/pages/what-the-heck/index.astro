@@ -67,7 +67,12 @@ const description =
     />
     <!-- Shared with the Jekyll build, which publishes them at the site
          root: the 3D wordmark and the moving backgrounds. -->
-    <script is:inline src="/javascripts/wth/logo.js" type="module"></script>
+    <script
+      is:inline
+      src="/javascripts/wth/logo.js"
+      type="module"
+      onerror="document.querySelectorAll('.wth-mark--loading').forEach(function (mark) { mark.classList.remove('wth-mark--loading'); })"
+    ></script>
     <script is:inline src="/javascripts/wth/flow-lines.js" type="module"
     ></script>
     <script is:inline src="/javascripts/wth/wth-chat.js" type="module"

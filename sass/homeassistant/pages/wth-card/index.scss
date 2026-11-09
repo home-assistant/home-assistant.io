@@ -68,7 +68,7 @@
 }
 
 .wth-card {
-    @include wth-wordmark('wth-card--no-webgl');
+    @include wth-wordmark;
 
     .wth-mark {
         font-size: 15.8cqi;

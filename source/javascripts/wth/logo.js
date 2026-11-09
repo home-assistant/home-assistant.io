@@ -682,17 +682,29 @@ class WthLogo {
     }
 }
 
+// Shows the CSS wordmark, which is hidden while the 3D one loads: by
+// `wth-3d` on the page (source/_includes/wth/3d-check.html), or by
+// `wth-mark--loading` on the wordmark (the Astro build's WthWordmark.astro).
+function showCssWordmark() {
+    document.documentElement.classList.remove('wth-3d');
+    document.querySelectorAll('.wth-mark--loading').forEach((mark) => mark.classList.remove('wth-mark--loading'));
+}
+
 async function init() {
     const mark = document.querySelector('.wth-mark[data-wth-logo]');
-    if (!mark || !supportsWebGL()) return;
+    if (!mark || !supportsWebGL()) {
+        showCssWordmark();
+        return;
+    }
 
     try {
         const response = await fetch(FONT_URL);
-        if (!response.ok) return;
+        if (!response.ok) throw new Error(`Font request failed: ${response.status}`);
         new WthLogo(mark, new Font(await response.json())).start();
     } catch (error) {
         // Keep the CSS wordmark if anything goes wrong.
         console.warn('WTH logo: falling back to the CSS wordmark.', error);
+        showCssWordmark();
     }
 }
 

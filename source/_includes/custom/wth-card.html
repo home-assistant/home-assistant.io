@@ -10,6 +10,7 @@
 {% endcomment %}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" />
 <link rel="stylesheet" href="/stylesheets/homeassistant/pages/wth-card/index.css" />
+{% include wth/3d-check.html %}
 <a href="/what-the-heck/" class="material-card picture-promo wth-card" aria-label="November is WTH?! month. Tell us what makes Home Assistant hard, confusing, or annoying for you, and the people you live with.">
   <div class="wth-card__art" aria-hidden="true">
     {% include wth/routing-lines.html %}
@@ -36,22 +37,6 @@
     </div>
   </div>
 </a>
-<script>
-  (function () {
-    // The 3D wordmark needs WebGL 2 with float color buffers, which its
-    // sticker outline renders into. Without them, keep logo.js away from the
-    // CSS wordmark and show it right away.
-    var card = document.currentScript.previousElementSibling;
-    var canvas = document.createElement("canvas");
-    var gl = canvas.getContext && canvas.getContext("webgl2");
-    if (!gl || !gl.getExtension("EXT_color_buffer_float")) {
-      card.querySelector("[data-wth-logo]").removeAttribute("data-wth-logo");
-      card.classList.add("wth-card--no-webgl");
-    }
-    var lose = gl && gl.getExtension("WEBGL_lose_context");
-    if (lose) lose.loseContext();
-  })();
-</script>
 <script type="importmap">
   {
     "imports": {
@@ -59,5 +44,5 @@
     }
   }
 </script>
-<script src="/javascripts/wth/logo.js" type="module"></script>
+<script src="/javascripts/wth/logo.js" type="module" onerror="document.documentElement.classList.remove('wth-3d')"></script>
 <script src="/javascripts/wth/hero-background.js" type="module"></script>

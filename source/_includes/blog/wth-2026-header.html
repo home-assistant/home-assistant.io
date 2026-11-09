@@ -32,24 +32,13 @@
   </div>
 </div>
 </template>
+{%- include wth/3d-check.html -%}
 <script>
   (function () {
     var template = document.getElementById("wth-blog-hero");
     var image = template && template.parentNode.querySelector(".wth-blog-hero-fallback");
     if (!image || !("content" in template)) return;
-    var hero = template.content.cloneNode(true);
-    // The 3D wordmark needs WebGL 2 with float color buffers, which its
-    // sticker outline renders into. Without them, keep logo.js away from the
-    // CSS wordmark and show it right away.
-    var canvas = document.createElement("canvas");
-    var gl = canvas.getContext && canvas.getContext("webgl2");
-    if (!gl || !gl.getExtension("EXT_color_buffer_float")) {
-      hero.querySelector("[data-wth-logo]").removeAttribute("data-wth-logo");
-      hero.querySelector(".wth-blog-hero").classList.add("wth-blog-hero--no-webgl");
-    }
-    var lose = gl && gl.getExtension("WEBGL_lose_context");
-    if (lose) lose.loseContext();
-    image.replaceWith(hero);
+    image.replaceWith(template.content.cloneNode(true));
   })();
 </script>
 <script type="importmap">
@@ -59,6 +48,6 @@
     }
   }
 </script>
-<script src="/javascripts/wth/logo.js" type="module"></script>
+<script src="/javascripts/wth/logo.js" type="module" onerror="document.documentElement.classList.remove('wth-3d')"></script>
 <script src="/javascripts/wth/hero-background.js" type="module"></script>
 </div>

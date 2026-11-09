@@ -96,7 +96,7 @@
 
 // The wordmark, as on the WTH landing page.
 .wth-blog-hero {
-    @include wth-wordmark('wth-blog-hero--no-webgl');
+    @include wth-wordmark;
 
     .wth-mark {
         font-size: 15cqi;
