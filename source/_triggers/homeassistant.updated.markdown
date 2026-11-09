@@ -47,6 +47,10 @@ For the data that all triggers include, refer to [Trigger data in templates](/do
 - The automation must be turned on when Home Assistant starts. If you create or turn on the automation later, the trigger doesn't fire until the next update.
 - To run an automation on every start of Home Assistant, not only after an update, use the [Home Assistant](/triggers/homeassistant/) trigger with **Start**.
 
+{% include triggers/try_it.md %}
+
+This trigger has no target entity to change. To test it, save and turn on the automation before the next Home Assistant version change. A normal restart won't fire it, and **Run actions** doesn't provide the version variables used by the notification example.
+
 {% include triggers/more_examples.md %}
 
 ### Automation: Notify after an update
@@ -54,6 +58,7 @@ For the data that all triggers include, refer to [Trigger data in templates](/do
 - **Trigger**: Home Assistant updated
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+  - **Message**: {% raw %}`Home Assistant updated from {{ trigger.from_version }} to {{ trigger.to_version }}.`{% endraw %}
 
 {% details "YAML example for an update notification" %}
 
