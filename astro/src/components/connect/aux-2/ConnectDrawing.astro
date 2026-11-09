@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import poster from "../../assets/connect/aux-2/drawing-start.jpg";
-import videoUrl from "../../assets/connect/aux-2/drawing.mp4";
-import smallVideoUrl from "../../assets/connect/aux-2/drawing-small.mp4";
+import poster from "../../../assets/connect/aux-2/drawing-start.jpg";
+import videoUrl from "../../../assets/connect/aux-2/drawing.mp4";
+import smallVideoUrl from "../../../assets/connect/aux-2/drawing-small.mp4";
 
 interface Props {
   alt: string;
@@ -70,9 +70,9 @@ const { alt, sizes, class: className } = Astro.props;
 </div>
 
 <script>
-  import { reducedMotion } from "../../lib/motion";
+  import { reducedMotion } from "../../../lib/motion";
 
-  type Drawing = typeof import("../../lib/canvas/index.js");
+  type Drawing = typeof import("../../../lib/connect/aux-2/drawing/index.js");
   type Live = Awaited<ReturnType<Drawing["mount"]>>;
 
   const FADE_START = 3.28;
@@ -337,7 +337,7 @@ const { alt, sizes, class: className } = Astro.props;
     let loading: Promise<Live> | null = null;
     const load = () => {
       loading ||= (async () => {
-        drawing ||= import("../../lib/canvas/index.js");
+        drawing ||= import("../../../lib/connect/aux-2/drawing/index.js");
         const { mount } = await drawing;
         live = await mount(box, {
           video: played ? video : null,

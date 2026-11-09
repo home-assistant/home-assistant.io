@@ -10,9 +10,9 @@ import { createMarker } from "./scale.js";
 import { buzz } from "./haptics.js";
 import { render as R, camera as CAM, column as C, modes, styles, copy, peakKey, showText, showHeight, realHeight, allStyles, canvasLabel, events } from "./config.js";
 
-import MODEL from "../../assets/connect/aux-2/a2.glb?url";
-import LEVELS from "../../assets/connect/aux-2/a2b.glb?url";
-import CAP_MODEL from "../../assets/connect/aux-2/a2c.glb?url";
+import MODEL from "../../../../assets/connect/aux-2/a2.glb?url";
+import LEVELS from "../../../../assets/connect/aux-2/a2b.glb?url";
+import CAP_MODEL from "../../../../assets/connect/aux-2/a2c.glb?url";
 
 export const preload = () => Promise.all([fetchModel(MODEL), fetchModel(LEVELS), fetchModel(CAP_MODEL)]);
 

@@ -1,6 +1,6 @@
 // Fixtures for the Connect specifications, with part of the AUX-2 page's
 // specs: plain items and an item with labelled values.
-import { drawing } from "../../pages/connect/aux-2/_content";
+import { drawing } from "../../../pages/connect/aux-2/_content";
 
 export default {
   title: "Connect specifications",

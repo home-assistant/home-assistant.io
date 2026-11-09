@@ -26,7 +26,7 @@
 // its card.
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import RotateIcon from "../../assets/connect/icons/rotate.svg";
+import RotateIcon from "../../../assets/connect/icons/rotate.svg";
 
 interface Port {
   // The port's name, for its point's button, such as "Audio port".
@@ -138,8 +138,8 @@ const data = JSON.stringify({
 </div>
 
 <script>
-  import { connectDesk } from "../../lib/breakpoints";
-  import { reducedMotion } from "../../lib/motion";
+  import { connectDesk } from "../../../lib/breakpoints";
+  import { reducedMotion } from "../../../lib/motion";
 
   // How long (ms) the photos take to fade from one to the other.
   const FADE = 500;
@@ -342,8 +342,8 @@ const data = JSON.stringify({
 </script>
 
 <style lang="scss">
-  @use "../../styles/breakpoints";
-  @use "../../styles/fade-border" as *;
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/fade-border" as *;
 
   /* The photos' backdrop blue: the panel, its text, the button, and the
      open point's halo. */

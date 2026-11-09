@@ -39,7 +39,7 @@
 //     the 6px gap on phones is 8px, and both sizes use the 16px radius
 //     (Figma: 12px on phones).
 import type { ImageMetadata } from "astro";
-import "../../styles/shimmer.scss";
+import "../../../styles/shimmer.scss";
 
 interface Props {
   // A 14px white line icon (src/assets/connect/icons/), or for `large`
@@ -96,14 +96,14 @@ const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
 </Card>
 
 <script>
-  import { initShimmer } from "../../lib/shimmer";
+  import { initShimmer } from "../../../lib/shimmer";
 
   initShimmer();
 </script>
 
 <style lang="scss">
-  @use "../../styles/breakpoints";
-  @use "../../styles/fade-border" as *;
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/fade-border" as *;
 
   .connect-feature-card {
     background: linear-gradient(rgb(0 19 38 / 80%) 17%, rgb(0 0 0 / 80%));

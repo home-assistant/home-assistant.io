@@ -35,7 +35,7 @@ export default defineConfig({
               // Some lazily loaded chunks and models use bare hashes for
               // names. Everything else keeps Astro's usual name.[hash] pattern.
               chunkFileNames: (chunk) =>
-                /^(canvas|engine)$/.test(chunk.name)
+                /^(drawing|engine)$/.test(chunk.name)
                   ? "_astro/[hash].js"
                   : `_astro/${chunk.name.replace(/@_@.*$/, "")}.[hash].js`,
               assetFileNames: (asset) => {
