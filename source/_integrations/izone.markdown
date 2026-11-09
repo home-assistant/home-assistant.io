@@ -145,7 +145,7 @@ Zones can have the following {% term "binary sensor" %} entities, which are crea
 - **Damper fault**: (diagnostic) The controller reports a fault with the zone damper motor.
 - **Sensor fault**: (diagnostic) The controller reports a fault with the zone temperature sensor.
 
-**Sensor fault** is only created for zones with a temperature sensor, and only if your iZone bridge reports it. Older bridges don't report sensor faults.
+**Sensor fault** is also only created for zones with a temperature sensor. Older bridges don't report sensor faults.
 
 ## Diagnostics
 
