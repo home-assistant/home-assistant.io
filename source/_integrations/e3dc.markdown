@@ -109,7 +109,7 @@ The power station's own inverter is a part of the power station's device. Each a
 - **Active power L1** to **L3**, and **DC power 1** to **3** for its DC trackers, in watts.
 - The apparent power, reactive power, voltage and current per phase, the frequency, and the voltage and current of each DC tracker. They are disabled by default.
 
-The devices are numbered from 1 when the power station has more than one power meter or inverter. Power meters and additional inverters appear as soon as the power station reports them, including ones you add later.
+Each device is numbered after the slot the E3/DC system reports it in, counted from 1. The power station's own inverter is **Inverter 1**. Power meters and additional inverters appear as soon as the power station reports them, including ones you add later.
 
 These sensors depend on the firmware:
 
