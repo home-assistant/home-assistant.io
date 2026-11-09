@@ -49,7 +49,30 @@ The integration creates one weather {% term entity %} per location, providing th
 
 The current conditions include temperature, apparent temperature, dew point, humidity, air pressure, wind speed, wind gust speed, wind bearing, visibility, cloud coverage, and UV index.
 
-Each daily forecast includes the condition, maximum and minimum temperature, maximum apparent temperature and dew point, precipitation and its probability, maximum wind speed and gust speed, wind bearing, air pressure, cloud coverage, and UV index. Each hourly forecast includes the condition, temperature, apparent temperature, dew point, humidity, precipitation and its probability, wind speed, wind gust speed, wind bearing, air pressure, cloud coverage, and UV index.
+The daily forecast includes:
+
+- Condition
+- Maximum and minimum temperature
+- Maximum apparent temperature
+- Maximum dew point
+- Total precipitation and its probability
+- Maximum wind speed and wind gust speed
+- Wind bearing
+- Air pressure
+- Cloud coverage
+- UV index
+
+The hourly forecast includes:
+
+- Condition
+- Temperature and apparent temperature
+- Dew point
+- Humidity
+- Precipitation and its probability
+- Wind speed, wind gust speed, and wind bearing
+- Air pressure
+- Cloud coverage
+- UV index
 
 ### Sensors
 
