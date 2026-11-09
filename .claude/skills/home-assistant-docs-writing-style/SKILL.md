@@ -94,7 +94,7 @@ Then follow the heading and content rules for that type in the guide:
 These rules are easy to get wrong, so check them explicitly:
 
 - Task headings name the action and its object, in one of the forms the guide lists: an `-ing` phrase, or an imperative for the stages of a longer procedure. Other forms, like "To ..." headings, do not match.
-- Sibling headings use the same grammatical form.
+- Sibling task headings use the same grammatical form. Sibling headings of different topic types, like "Areas", "Creating an area", and "Area settings", do not need to match.
 - Task prerequisites go directly before the steps, under a `Prerequisites:` lead-in. Use a `Prerequisites` heading only when the requirements apply to the whole page.
 - Troubleshooting puts each problem in its own `{% details %}` block, not under its own heading. The block title is the symptom or the exact error message the reader sees.
 
