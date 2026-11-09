@@ -1,0 +1,76 @@
+// The "What the Heck?!" card on the homepage, from
+// source/_includes/custom/wth-card.html. The card's caption comes from
+// `.picture-promo` in sass/homeassistant/_overrides.scss. Behind it is the
+// header of the WTH landing page: the 3D wordmark and the moving routing
+// lines.
+
+@use 'homeassistant/pages/wth-blog-header/wordmark' as *;
+
+// Read by source/javascripts/wth/logo.js for the wordmark's colours.
+:root {
+    --wth-mint: #16F3BE;
+    --wth-sky: #5AB9EE;
+    --wth-ink: #1E2126;
+    --wth-bg: #F2F4F9;
+}
+
+.frontpage .picture-promo.wth-card {
+    // The brand blue, darkened so the white caption clears 4.5:1 on it.
+    --caption-color: #03729E;
+
+    // The key visual's background: a faint mint-to-blue wash over the page
+    // grey.
+    background:
+        linear-gradient(110deg, rgba(242, 244, 249, 0.1) 10%, rgba(24, 188, 242, 0.1) 55%, rgba(22, 243, 190, 0.1) 97%),
+        var(--wth-bg);
+    isolation: isolate;
+    overflow: hidden;
+    // Room above the caption for the wordmark.
+    padding-top: 40%;
+
+    .caption {
+        position: relative;
+    }
+}
+
+.wth-card__art {
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+
+    // The routing lines from the key visual.
+    // source/javascripts/wth/hero-background.js adds the pulses that travel
+    // along them on scroll.
+    .wth-hero-bg {
+        inset: 0;
+        position: absolute;
+
+        svg {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .wth-hero-bg__art {
+        opacity: 0.4;
+    }
+}
+
+// The wordmark sits in the top left, above the caption.
+.wth-card__mark {
+    container-type: inline-size;
+    left: 8%;
+    position: absolute;
+    top: 10%;
+    width: 46%;
+}
+
+.wth-card {
+    @include wth-wordmark('wth-card--no-webgl');
+
+    .wth-mark {
+        font-size: 15.8cqi;
+    }
+}

@@ -542,7 +542,9 @@ class WthLogo {
         };
 
         window.addEventListener('deviceorientation', onOrientation);
-        if (typeof DeviceOrientationEvent.requestPermission !== 'function') return;
+        // Inside a link, such as the homepage card, a tap must follow the
+        // link, so do not ask there.
+        if (typeof DeviceOrientationEvent.requestPermission !== 'function' || this.mark.closest('a')) return;
 
         // Other browsers have the same call but send the tilt without it, so
         // only offer the tap while no tilt has come in.
