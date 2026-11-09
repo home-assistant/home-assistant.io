@@ -28,17 +28,9 @@
     // Room above the caption for the wordmark.
     padding-top: 40%;
 
-    // The card's background is pale, so the caption's fade builds up faster
-    // than on other promo cards, and the title gets the subtitle's shadow,
-    // to keep the white text readable.
     .caption {
-        background: linear-gradient(180deg, rgb(from var(--caption-color) r g b / 0) 0%, rgb(from var(--caption-color) r g b / 0.8) 35%, var(--caption-color) 100%);
         padding-top: 24px;
         position: relative;
-
-        .title {
-            text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.33);
-        }
     }
 }
 
