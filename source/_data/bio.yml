@@ -151,7 +151,7 @@ sources:
       - title: "The Open Home Foundation is a platinum sponsor of PyCon HK 2026"
         url: https://pycon.hk/2026/en/
         image: /images/bio/2026-11-pycon-hk.webp
-        expires: 2026-11-15T16:00:00Z  # end of November 15, Hong Kong time (UTC+8)
+        ends: 2026-11-15T16:00:00Z  # end of November 15, Hong Kong time (UTC+8)
     #  - title: "2026.11: An example"
     #    url: /blog/2026/11/05/release-202611/
     #    image: auto
