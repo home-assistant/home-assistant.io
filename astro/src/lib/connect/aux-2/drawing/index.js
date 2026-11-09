@@ -334,7 +334,7 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
     if (over || !column) return;
     over = true;
     marker.best(store.bests[mode]);
-    if (!bench && Number.isInteger(units) && units >= 1 && units <= C.capacity) track(events.score, { mode, score: units });
+    if (!bench && Number.isInteger(units) && units >= 1 && units <= C.capacity) track(events.name, { action: events.end, mode, score: units });
     show({ destroy: true, styles: allStyles || store.unlocked || bench ? STYLES : null, modes: true });
     freeCamera(true);
   }
@@ -365,7 +365,7 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
       store.mode = mode;
       writeStore(store);
       beaten = false;
-      if (!bench) track(events.start, { mode });
+      if (!bench) track(events.name, { action: events.start, mode });
       if (!store.hinted) overlay.hint(touch.matches ? copy.hintTouch : copy.hintKeys);
       overlay.scores(store.bests, mode, false);
       overlay.clearEnd();
