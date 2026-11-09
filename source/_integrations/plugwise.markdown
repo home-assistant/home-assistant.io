@@ -87,6 +87,23 @@ A generous number of sensors is provided for your climate setup. Examples includ
 - **Outdoor air temperature**
   - **Description**: The temperature reported by the sensor present in the outdoor unit of your HVAC system, such as a heat pump.
 
+#### Heater sensors
+
+Many heaters share extra information over OpenTherm, such as usage counters and status codes. Not every heater provides this information, so these sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). They are only created when your heater reports them. You can find most of them on the **OpenTherm** device.
+
+- **DHW flow rate**
+  - **Description**: The current flow of domestic hot water, in liters per minute.
+- **Burner starts**, **Central heating pump starts**, **DHW burner starts**, and **DHW pump starts**
+  - **Description**: The total number of times the burner or pump has started.
+- **Failed burner starts** and **Failed burner flame ignitions**
+  - **Description**: The total number of burner starts or flame ignitions that failed.
+- **Burner operation time**, **Central heating pump operation time**, **DHW burner operation time**, and **DHW pump operation time**
+  - **Description**: The total time, in hours, that the burner or pump has been running.
+- **OEM fault code**, **Application-specific fault code**, and **OEM diagnostic code**
+  - **Description**: The codes exactly as your heater reports them. The meaning of each code depends on the brand and model of your heater. To find out what a code means, check the manual of your heater.
+- **Maximum modulation level**
+  - **Description**: The maximum modulation level set on a connected OpenTherm thermostat. You can find this sensor on the thermostat device.
+
 #### Selects
 
 - **DHW mode**
