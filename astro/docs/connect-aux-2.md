@@ -353,10 +353,13 @@ Content (check with the product and docs teams):
 Behavior and integration:
 
 - The Buy buttons open the buy dialog (`BuyDialog`), which lists the
-  distributors under `aux-2` in `source/_data/products.yml`. That list
-  is empty for now, so the dialog says distributors are not listed
-  yet: add them in the same format as the other products. Without the
-  script, the buttons link to the price section (`#buy`).
+  distributors under `aux-2` in `source/_data/products.yml` (the
+  partners marked "Received" in the AUX-2 Where to Buy links sheet).
+  Without the script, the buttons link to the price section (`#buy`).
+- Opening the dialog sends Plausible's "Buy Dialog" event with a
+  `context` prop saying where it was opened: `navbar` (the product
+  bar's Buy button), `price` (the price section's Buy button) or
+  `fragment` (arriving with `#buy` in the address).
 - The product bar follows the ZBT-2 page's: sticky, 120px over the
   hero, shrinking to an 80px frosted white bar once the page scrolls.
   As on the Jekyll Connect pages, the site header scrolls away
