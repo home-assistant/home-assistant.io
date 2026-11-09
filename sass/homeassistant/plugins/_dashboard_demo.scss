@@ -1,0 +1,70 @@
+// Live card demos, from source/_includes/dashboard/demo.html.
+figure.dashboard-demo {
+  margin: 0 0 1.5em 0;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
+  background-color: #fafafa;
+
+  // Keeps the height of the cards from the start, so nothing below the demo
+  // moves when they load.
+  .dashboard-demo-stage {
+    min-height: var(--demo-height);
+  }
+
+  // A skeleton in place of the cards until they are added, pulsing like
+  // ha-skeleton in the frontend.
+  &.pending .dashboard-demo-stage::before {
+    content: "";
+    display: block;
+    max-width: 500px;
+    height: var(--demo-height);
+    margin: 0 auto;
+    border-radius: 12px;
+    background-color: #e8e8e8;
+    animation: dashboard-demo-pulse 2s ease-in-out infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  figcaption {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+}
+
+// The grid of a section in the sections view of a dashboard. Each card sets
+// the columns and rows it takes. When all cards fit in one row, the section
+// is only as wide as that row.
+.dashboard-demo-section {
+  --gap: 8px;
+  --columns: 12;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  gap: var(--gap);
+  min-height: 56px;
+  max-width: calc(
+    (min(500px, 100%) - 11 * var(--gap)) / 12 * var(--columns) +
+      (var(--columns) - 1) * var(--gap)
+  );
+  margin: 0 auto;
+
+  > ha-embed-card[hidden] {
+    display: none;
+  }
+}
+
+@keyframes dashboard-demo-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
