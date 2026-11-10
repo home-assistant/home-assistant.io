@@ -81,6 +81,8 @@ Additional data for a device is available as separate sensors. The sensors are a
 
 The rooms of a ViCare room control appear as separate devices named **Room 0**, **Room 1**, and so on, each with a temperature and a humidity sensor. The Viessmann API does not provide the room names, so rename the devices and assign them to areas as needed.
 
+Vitoset water softeners have a **Salt supply** sensor with the days the salt lasts, **Water consumption** and **Water consumption today** sensors, and a **Water flow** sensor.
+
 ### Button
 
 Button entities are available to trigger actions like a one-time charge of the water heater.
