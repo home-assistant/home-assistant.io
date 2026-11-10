@@ -8,7 +8,8 @@ related_triggers:
   - counter.maximum_reached
 ---
 
-The **Counter incremented** trigger fires when a counter {% term helper %} increases by its configured step size.
+The **Counter incremented** trigger reacts when the value of a counter {% term helper %} goes up by any amount. This happens with the [Increment counter](/actions/counter.increment/) action, and also when [Set counter value](/actions/counter.set_value/) or [Reset counter](/actions/counter.reset/) sets a higher value.
+
 Use it when you want another automation to react every time a count goes up, like updating a light, sending a reminder, or starting a follow-up task after a button press or another event increments the counter.
 
 {% include triggers/ui_header.md %}
@@ -47,9 +48,9 @@ This trigger has no additional YAML options.
 
 ## Good to know
 
-- The trigger fires each time the counter increments.
+- For example, setting a counter from 2 to 10 with **Set counter value** triggers it once. The step size of the counter doesn't matter.
 - A counter in the `unknown` or `unavailable` state does not fire the trigger until it has a valid value again.
-- Resetting a counter does not count as an increment. To react to resets, use [Counter reset](/triggers/counter.reset/).
+- A reset that raises the value also triggers it, together with [Counter reset](/triggers/counter.reset/). To react to resets only, use **Counter reset**.
 - To react only when a counter reaches its configured maximum, use [Counter reached maximum](/triggers/counter.maximum_reached/).
 
 {% include triggers/try_it.md %}
