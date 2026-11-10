@@ -52,23 +52,53 @@ function playNext() {
   }, HOLD);
 }
 
-const band = new IntersectionObserver(
-  (entries) => {
-    for (const entry of entries) {
-      const el = entry.target as HTMLElement;
-      if (entry.isIntersecting) {
-        inBand.add(el);
-      } else {
-        inBand.delete(el);
-        played.delete(el);
-        el.classList.remove("is-active");
-        if (active === el) active = null;
-      }
+function onBand(entries: IntersectionObserverEntry[]) {
+  for (const entry of entries) {
+    const el = entry.target as HTMLElement;
+    if (entry.isIntersecting) {
+      inBand.add(el);
+    } else {
+      inBand.delete(el);
+      played.delete(el);
+      el.classList.remove("is-active");
+      if (active === el) active = null;
     }
-    playNext();
-  },
-  { rootMargin: "-40% 0px -40% 0px" },
-);
+  }
+  playNext();
+}
+
+// A share of the viewport's height, in pixels, for a rootMargin.
+// Percentages in rootMargin are resolved against the root's width, even
+// for the top and bottom (as with CSS margins), so the band is sized in
+// pixels instead.
+const ofHeight = (share: number) =>
+  `${Math.round(window.innerHeight * share)}px`;
+
+// The middle fifth: 40% of the viewport's height off the top and off the
+// bottom. Rebuilt when the height changes (rotating the device, or the
+// browser's toolbars showing or hiding), a moment after it settles.
+const bandEls = new Set<HTMLElement>();
+let band = makeBand();
+let bandHeight = window.innerHeight;
+let resizing = 0;
+
+function makeBand() {
+  const edge = `-${ofHeight(0.4)}`;
+  return new IntersectionObserver(onBand, {
+    rootMargin: `${edge} 0px ${edge} 0px`,
+  });
+}
+
+window.addEventListener("resize", () => {
+  clearTimeout(resizing);
+  resizing = window.setTimeout(() => {
+    if (window.innerHeight === bandHeight || !bandEls.size) return;
+    bandHeight = window.innerHeight;
+    band.disconnect();
+    band = makeBand();
+    for (const el of bandEls) band.observe(el);
+  }, 150);
+});
 
 interface Options {
   selector: string;
@@ -78,10 +108,12 @@ interface Options {
   stagger: number;
 }
 
-const DEFAULTS: Options = {
+// The default rootMargin keeps the bottom tenth of the viewport out, in
+// pixels for the same reason as the band's; it is worked out when
+// initShimmer() runs.
+const DEFAULTS: Omit<Options, "rootMargin"> = {
   selector: "[data-shimmer]",
   threshold: 0.5,
-  rootMargin: "0px 0px -10% 0px",
   stagger: 120,
 };
 
@@ -116,7 +148,11 @@ export function initShimmer(
   options: Partial<Options> = {},
   root: ParentNode = document,
 ) {
-  const opts = { ...DEFAULTS, ...options };
+  const opts: Options = {
+    ...DEFAULTS,
+    rootMargin: `0px 0px -${ofHeight(0.1)} 0px`,
+    ...options,
+  };
   const els = [...root.querySelectorAll<HTMLElement>(opts.selector)].filter(
     (el) => !bound.has(el),
   );
@@ -140,7 +176,10 @@ export function initShimmer(
     if (mode === "hover") {
       el.addEventListener("pointerenter", onHover);
       el.addEventListener("focusin", onHover);
-      if (noHover.matches) band.observe(el);
+      if (noHover.matches) {
+        bandEls.add(el);
+        band.observe(el);
+      }
     } else if (mode !== "manual") {
       io.observe(el);
     }
