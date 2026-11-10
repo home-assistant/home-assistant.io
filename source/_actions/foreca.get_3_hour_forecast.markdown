@@ -5,7 +5,7 @@ domain: foreca
 description: "Retrieves the Foreca forecast in 3-hour steps for the next 14 days."
 ---
 
-Use this action to get a forecast in 3-hour steps for the next 14 days, for example to plan a weekend trip two weeks ahead by time of day. The hourly forecast of [`weather.get_forecasts`](/integrations/weather#action-weatherget_forecasts) covers 7 days, and its daily forecast has one entry per day, so this action returns the 3-hour forecast as [response data](/docs/automation/action/#action-response-data).
+Use this action to get a forecast in 3-hour steps for the next 14 days, for example to plan a weekend trip two weeks ahead by time of day. The hourly forecast of [`weather.get_forecasts`](/actions/weather.get_forecasts/) covers 7 days, and its daily forecast has one entry per day, so this action returns the 3-hour forecast as [response data](/docs/automation/action/#action-response-data).
 
 {% include actions/ui_header.md %}
 
@@ -15,8 +15,8 @@ To get a 3-hour forecast from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Foreca: Get 3-hour forecast**.
-6. Select the Foreca weather entity of the location you want the forecast for.
+5. Select what data you want to read. Under **By target** (see [Targets](#targets)), pick the Foreca weather entity of the location you want the forecast for. You can also select an area, a device, or a label.
+6. From the actions shown for that target, select **Get 3-hour forecast**.
 7. In the **Response variable** field, enter a name to store the data in, such as `three_hour_forecast`.
 8. Select **Save**.
 
@@ -40,11 +40,11 @@ action: |
 
 This action has no options beyond the target.
 
-{% include actions/targets.md domain="weather" %}
+{% include actions/targets.md domain="weather" entity_type="Foreca weather entity" example="weather.home" %}
 
 ## Response data
 
-The action returns the forecast for each targeted weather entity, keyed by its entity ID. For each entity, the response contains a `forecast` field with a list of 112 entries, one for every 3 hours of the next 14 days. Values are in the weather entity's units. Each entry has the fields of an hourly entry of [`weather.get_forecasts`](/integrations/weather#action-weatherget_forecasts) and of [`foreca.get_forecasts_extra`](/actions/foreca.get_forecasts_extra/). `precipitation` and `snow_accumulation` are the amounts for the 3 hours that end at `datetime`.
+The action returns the forecast for each targeted weather entity, keyed by its entity ID. For each entity, the response contains a `forecast` field with a list of 112 entries, one for every 3 hours of the next 14 days. Values are in the weather entity's units. Each entry has the fields of an hourly entry of [`weather.get_forecasts`](/actions/weather.get_forecasts/#response-data) and of [`foreca.get_forecasts_extra`](/actions/foreca.get_forecasts_extra/). `precipitation` and `snow_accumulation` are the amounts for the 3 hours that end at `datetime`.
 
 A trimmed example response looks like this:
 
