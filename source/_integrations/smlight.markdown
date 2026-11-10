@@ -147,16 +147,19 @@ To use the Bluetooth remote adapter, you need:
 - An SLZB U-series device running SLZB-OS `v3.3.3.dev7` or later.
 - Home Assistant `2026.8` or later.
 - The SMLIGHT SLZB integration set up in Home Assistant.
+- The Bluetooth integration. The SMLIGHT integration loads it as a dependency.
 
-For more information, refer to the [SMLIGHT Bluetooth Low Energy documentation](https://smlight.tech/support/manuals/books/slzb-os/page/bluetooth-low-energy).
-
-To use the Bluetooth remote adapter, select a [scanning mode](/integrations/bluetooth/#scanning-modes) in the integration options:
+To configure the Bluetooth remote adapter, select a [scanning mode](/integrations/bluetooth/#scanning-modes) in the SMLIGHT integration options:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select **Configure** on the **SMLIGHT SLZB** card.
+2. On the **SMLIGHT SLZB** integration card, select the options (gear) icon.
 3. Select a **Bluetooth scanning mode**.
 
 Setting a mode other than **Disabled** automatically enables the Bluetooth remote adapter on the SMLIGHT device.
+
+Alternatively, you can enable **BLE** and **Proxy advertisements** directly in the SLZB-OS web interface.
+
+For more information, refer to the [SMLIGHT Bluetooth Low Energy documentation](https://smlight.tech/support/manuals/books/slzb-os/page/bluetooth-low-energy).
 
 {% important %}
 Changing the mode from **Disabled** to another mode, or back to **Disabled**, restarts the SLZB device to apply the change. During the restart, its Zigbee or Thread radios are unavailable. Applications connected to them, such as ZHA, Zigbee2MQTT, or an OpenThread Border Router, lose their connection and might not reconnect automatically. Make this change at a convenient time, and check those applications afterward. Changing between the other modes does not restart the device.
