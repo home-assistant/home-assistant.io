@@ -196,7 +196,7 @@ Turning on the fan from Home Assistant switches it to **Manual** mode. Setting a
 
 The integration also creates the following entities for the fan:
 
-- **Boost**: A `switch` entity that turns the boost function of the device on or off. Boost works only while the fan is in **Auto** mode. The device does not support boost in **Manual** mode, so the switch is unavailable then.
+- **Boost**: A `switch` entity that turns the boost function of the device on or off. It's only available while the fan is in **Auto** mode.
 - **Illuminance level**: A `sensor` entity with the states **Dark**, **Twilight**, and **Bright**.
 - **Humidity level**: A `sensor` entity with the states **Low**, **Medium**, **High**, and **Very high**.
 - **Energy**: A `sensor` entity that shows the total energy consumed by the fan, in kWh by default.
