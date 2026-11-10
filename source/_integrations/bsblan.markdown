@@ -58,9 +58,9 @@ The target temperature is the setpoint the controller uses right now. The mode a
 
 In **Auto** mode, selecting a preset overrides the time program until its next switch point.
 
-In **Heat** mode, changing the target temperature changes the comfort setpoint, or the reduced setpoint when the **Eco** preset is active. In **Auto** and **Off** modes, changing it does nothing, because BSB-LAN can't override the setpoint the controller applies there. To change the temperatures **Auto** mode uses, change the **Comfort temperature** or **Reduced temperature** entity of the heating circuit.
+In **Heat** mode, changing the target temperature changes the comfort setpoint, or the reduced setpoint when the **Eco** preset is active. In **Auto** and **Off** modes, the controller decides the setpoint, so changing the target temperature has no effect. To change the temperatures that **Auto** mode uses, change the [comfort and reduced temperatures](#numbers) of the heating circuit.
 
-Presets are not available on devices connected over PPS.
+Presets aren't available for controllers connected over PPS.
 
 ### Water heater
 
