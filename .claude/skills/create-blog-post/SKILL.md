@@ -1,6 +1,6 @@
 ---
 name: create-blog-post
-description: Use this if the user wants to convert a blog post from Google Docs markdown to the format used in the Home Assistant website, or wants to publish an externally linked (crosspost) blog post that redirects to an article hosted on another site.
+description: Use this if the user wants to convert a blog post from a Google Docs Markdown or HTML export to the format used in the Home Assistant website, or wants to publish an externally linked (crosspost) blog post that redirects to an article hosted on another site.
 ---
 
 # Create Blog Post
@@ -14,7 +14,7 @@ There are two kinds of blog posts this skill handles:
 
 ## Usage
 
-Place your draft blog post markdown file in the project root `create-blog-post/` directory (e.g., `/workspaces/home-assistant.io/create-blog-post/`), then run:
+Place your draft blog post file (a Google Docs Markdown export, `.md`, or HTML export, `.html`) in the project root `create-blog-post/` directory (e.g., `/workspaces/home-assistant.io/create-blog-post/`), then run:
 
 ```shell
 /create-blog-post
@@ -29,12 +29,13 @@ Automates conversion of a draft markdown file with metadata into a production-re
 - Converts `### **– Summary break / Read more –**` to `<!--more-->`
 - Processes hero image and any additional images
 - Converts external links to HTML `<a>` tags with `target="_blank"`
+- Keeps the author’s inline formatting (bold, italics, and both) from the draft
 - Formats content (removes bold from headings, fixes link references)
 - Creates properly formatted blog post in `source/_posts/` with Jekyll front matter
 
 ## Required Files in `create-blog-post/` Directory
 
-1. **Draft markdown file** (any .md filename)
+1. **Draft file**: a Google Docs Markdown export (any `.md` filename) or HTML export (any `.html` filename, from **File** > **Download** > **Web page**)
 2. **`art.*`** - Hero/OG image (required, any common image format: `.webp`, `.png`, `.jpg`, `.jpeg`)
 3. **`image2.*`, `image3.*`, etc.** - Additional images (optional, any common image format)
 
@@ -90,6 +91,30 @@ Creates a production-ready blog post at:
 ## Conversion Process
 
 ### 1. Pre-process Draft
+
+**HTML drafts (`.html`)**
+
+Google Docs HTML exports do not use `<b>`, `<strong>`, `<i>`, or `<em>`. Bold and italics are stored as CSS classes on `<span>` elements (for example, `.c15{font-style:italic}`). If you strip tags or extract text without resolving those classes, every bold and italic word in the draft is silently lost.
+
+Do not extract the text by hand. Convert the HTML to Markdown with the helper script in this skill’s directory, then follow the rest of this process on the Markdown output:
+
+```shell
+python3 -I .claude/skills/create-blog-post/gdoc_html_to_markdown.py "create-blog-post/draft.html" > "create-blog-post/draft.md"
+```
+
+The script:
+
+- Resolves the CSS classes and writes `**bold**`, `*italic*`, and `***bold and italic***`
+- Joins phrases that Google Docs split across several spans, so a phrase comes out as `*one italic phrase*` instead of fragments
+- Writes headings, lists, and links, and removes Google redirect wrappers (`https://www.google.com/url?q=…`) from links
+- Writes images as `![][imageN]`, matching the exported file names (`images/image4.jpg` becomes `![][image4]`)
+- Removes Google Docs comments and comment anchors
+
+In an HTML export, the image numbers follow the export’s file names, not the order in the document. The first image in the content might be `image4`, not `image1`. Treat the first image in the “# Blog content” section as the hero image, whatever its number.
+
+HTML exports have no embedded base64 images, so skip the `sed` step below.
+
+**Markdown drafts (`.md`)**
 
 Before doing anything else, strip out embedded base64 image data from the draft file using a shell command. **Do not read the draft file before this step** — the base64 data can make the file extremely large.
 
@@ -175,6 +200,7 @@ If the blog post category is `Works-with-Home-Assistant`, look for a section tha
 - **Heading levels**: If content starts with H1 (`#`), demote all headings one level (content should start at H2)
 - **Backticks**: Strip erroneous `\`` characters (preserve code blocks/inline code)
 - **Text content**: Do not change the author's wording, phrasing, or writing style. The blog text should stay as-is. If you spot obvious typos or locale spelling issues (such as British English instead of American English), do not fix them silently — collect them and ask the user for confirmation before applying any changes.
+- **Inline formatting**: Keep every bold (`**text**`), italic (`*text*`), and bold italic (`***text***`) phrase from the draft body exactly where the author put it. Only remove bold or italics from headings. If you move a phrase into HTML (for example, a centered `<p>`), convert its formatting to `<strong>` and `<em>`, because Markdown markers are not processed inside HTML blocks. Google Docs Markdown exports sometimes escape or split markers (for example, `*word *` or `\*`); fix the markers so they render, without dropping the formatting.
 - **Emojis**: Preserve all emojis that appear in the blog content. Do not strip them out.
 - **Apostrophes and quotes**: Convert straight apostrophes (`'`) and speech marks (`"`) in prose — including quoted statements, like in blockquotes — to their curly equivalents (`’`, `“`/`”`). Only apply this to body text — never to HTML attribute values, URLs, code blocks/inline code, or Liquid/Jekyll syntax.
 
@@ -186,6 +212,13 @@ If the blog post category is `Works-with-Home-Assistant`, look for a section tha
 - Intro paragraph
 - `<!--more-->` tag after first paragraph
 - Remaining content
+
+### 8. Check inline formatting
+
+Before writing the summary, compare the inline formatting in the draft’s “# Blog content” section with the finished post:
+
+- Count the bold, italic, and bold italic phrases in both. The numbers must match, apart from any formatting you removed from headings or placeholders (such as `**[Button:] Buy now**`).
+- If anything is missing, add it back before you finish.
 
 ## Example
 
@@ -335,6 +368,7 @@ After the blog post has been created, output a summary to the user covering:
   - Link conversions (external to HTML, internal to relative markdown)
   - Quote/blockquote formatting
   - Heading changes (reformatted, promoted/demoted, bold removed)
+  - Inline formatting kept: the number of bold, italic, and bold italic phrases carried over from the draft
   - Escape character cleanup
   - Apostrophe/quote curling (straight to typographic)
 
