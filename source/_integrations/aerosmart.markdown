@@ -12,7 +12,6 @@ ha_codeowners:
 ha_domain: aerosmart
 ha_platforms:
   - number
-  - select
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -66,7 +65,6 @@ You can control the following settings from the aerosmart device page, dashboard
 
 - Room temperature setpoint from 14 to 26 °C.
 - Domestic hot water temperature setpoint from 20 to 55 °C.
-- Ventilation mode: manual level 0, 1, 2, or 3; automatic; or party.
 
 Home Assistant reads the value back from the controller after each change. If the controller does not confirm the requested value, Home Assistant reports an error and does not show the change as accepted.
 
