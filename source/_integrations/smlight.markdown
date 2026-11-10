@@ -142,6 +142,14 @@ For more details, see the [Infrared integration](/integrations/infrared/).
 
 SMLIGHT SLZB U-series devices running SLZB-OS can act as a Bluetooth remote adapter (proxy). They scan for and forward Bluetooth advertisement data to Home Assistant.
 
+To use the Bluetooth remote adapter, you need:
+
+- An SLZB U-series device running SLZB-OS `v3.3.3.dev7` or later.
+- Home Assistant `2026.8` or later.
+- The SMLIGHT SLZB integration set up in Home Assistant.
+
+For more information, refer to the [SMLIGHT Bluetooth Low Energy documentation](https://smlight.tech/support/manuals/books/slzb-os/page/bluetooth-low-energy).
+
 To use the Bluetooth remote adapter, select a [scanning mode](/integrations/bluetooth/#scanning-modes) in the integration options:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
