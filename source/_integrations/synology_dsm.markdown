@@ -136,7 +136,7 @@ Restarts the NAS.
 
 Shuts down the NAS.
 
-To restart or shut down the NAS from an automation or a script, target the button entity with the [**Press**](/actions/button.press/) action.
+To restart or shut down the NAS from an automation or a script, target the button entity with the [**Press button**](/actions/button.press/) action.
 
 ## Selects
 
