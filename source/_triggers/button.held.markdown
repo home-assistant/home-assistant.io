@@ -122,7 +122,7 @@ Use this automation to keep making a light brighter for as long as you hold a bu
 
 {% example %}
 automation: |
-  - alias: "Brighten the living room light while the remote button is held"
+    alias: "Brighten the living room light while the remote button is held"
     triggers:
       - trigger: button.held
         target:
@@ -156,7 +156,7 @@ Use this automation to turn off all the lights on a floor when you hold a wall s
 
 {% example %}
 automation: |
-  - alias: "Turn off all ground floor lights after holding the hallway button"
+    alias: "Turn off all ground floor lights after holding the hallway button"
     triggers:
       - trigger: button.held
         target:
