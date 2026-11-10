@@ -56,9 +56,6 @@ article.page header+p, p.lead {
 a {
   color: $link-color;
   text-decoration: none;
-  .menu & {
-    color: $link-color;
-  }
 }
 
 a.external-link iconify-icon,

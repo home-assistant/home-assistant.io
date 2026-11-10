@@ -1,0 +1,13 @@
+{
+  "domain": "downloader",
+  "name": "Downloader",
+  "integration_type": "service",
+  "codeowners": [
+    "@erwindouna"
+  ],
+  "config_flow": true,
+  "quality_scale": "internal",
+  "categories": [
+    "diy_makers.web_data_connectors"
+  ]
+}

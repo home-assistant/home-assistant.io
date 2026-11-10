@@ -1,0 +1,24 @@
+{
+  "domain": "romy",
+  "name": "ROMY Vacuum Cleaner",
+  "integration_type": "device",
+  "codeowners": [
+    "@xeniter"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "appliances_cleaning.cleaning"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor",
+    "vacuum"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

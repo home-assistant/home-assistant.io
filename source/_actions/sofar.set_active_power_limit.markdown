@@ -7,6 +7,7 @@ related_actions:
   - sofar.set_feed_in_limit
   - sofar.set_passive_mode_timeout
   - sofar.set_passive_mode_power
+  - sofar.set_battery_cutoffs
 ---
 
 Use this action to cap the inverter's own generation, as a percentage of its rated power. Unlike [Set feed-in limit](/actions/sofar.set_feed_in_limit/), which only throttles what reaches the grid, this caps generation directly, without depending on the inverter's own sense of grid flow.

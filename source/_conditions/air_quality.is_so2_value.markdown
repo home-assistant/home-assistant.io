@@ -58,7 +58,7 @@ This passes when the outdoor SO2 sensor reads above 40 μg/m³.
    unit_example_value="20"
    threshold_required="true" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="sulphur dioxide sensor" example="sensor.living_room_sulphur_dioxide" %}
 
 {% include conditions/behavior.md %}
 

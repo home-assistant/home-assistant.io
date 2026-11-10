@@ -18,7 +18,7 @@ related_functions:
 
 The `states` template function returns the current state of an {% term entity %} as a text value. For example, a light might return `on` or `off`, a temperature {% term sensor %} might return `21.5`, and a person might return `home` or `away`.
 
-This is the most fundamental template function in Home Assistant. Every time you want to read what a sensor is showing, check if a {% term device %} is on, or use a value in a {% term notification %} or calculation, you'll use `states()`. It's also the safest way to read a state because it returns `unknown` if the entity doesn't exist, instead of causing an error.
+This is the most fundamental template function in Home Assistant. Every time you want to read what a sensor is showing, check if a {% term device %} is on, or use a value in a {% term notification %} or calculation, you'll use `states()`. It's also a safe way to read a state. If the entity doesn't exist, it returns `unknown` instead of causing an error.
 
 {% tip %}
 For dashboards, a [Tile card](/dashboards/tile/) shows an entity's state without any template. Reach for `states()` when you need the value inside an automation, a notification message, or another template.
@@ -54,18 +54,18 @@ The following parameters can be provided to this function.
 {% function_parameters %}
 entity_id:
   description: >
-    The entity ID to get the state from. Returns the state as a string, or `unknown` if the entity does not exist.
+    The entity ID to get the state from. Returns the state as a string, or `unknown` if the entity does not exist or the ID is badly formed.
   required: true
   type: string
 rounded:
   description: >
-    When `true`, numeric states are rounded according to the entity's display precision (the same rounding shown in the UI). When omitted, it follows `with_unit`.
+    When `true`, the state of a sensor entity is rounded to its display precision, the same rounding shown in the UI. You can set the display precision in the sensor's settings, or the integration suggests one. Other entities return their state unchanged. When omitted, it follows `with_unit`.
   required: false
   default: "false"
   type: boolean
 with_unit:
   description: >
-    When `true`, appends the entity's unit of measurement to the state. Implies `rounded` unless `rounded` is set explicitly.
+    When `true`, adds a space and the entity's unit of measurement to the state, for example `21.5 °C`. Implies `rounded` unless `rounded` is set explicitly.
   required: false
   default: "false"
   type: boolean
@@ -93,7 +93,7 @@ Not sure what state an entity has? Go to {% my tools_states title="**Settings** 
 The value returned by `states()` is always a text string, even for numeric sensors. If you need to do math with it, convert it using `| float` or `| int` first.
 
 {% example %}
-template: '{{ states("sensor.temperature") | float + 1 }}'
+template: '{{ states("sensor.living_room_temperature") | float(0) + 1 }}'
 type: float
 output: "22.5"
 {% endexample %}
@@ -102,7 +102,10 @@ output: "22.5"
 
 - Returns the text `unknown` when the entity does not exist, not `None` and not an error.
 - The result is always a string, even for numeric sensors. Convert with [`float`](/template-functions/float/) or [`int`](/template-functions/int/) before doing math.
-- Using `states.sensor.name` (dotted notation) raises an error when the entity is missing, while `states("sensor.name")` does not.
+- Using `states.sensor.name.state` (dotted notation) for a missing entity gives an empty value and logs a warning. Errors can happen in the next step, for example when you convert the empty value with `| float`. With `states("sensor.name")`, you get `unknown` instead.
+- During startup, or when an entity is unavailable, the state is `unknown` or `unavailable`. Converting that text with `| float` without a default causes an error. Add a default, such as `| float(0)`, or check the entity first with [`has_value`](/template-functions/has_value/).
+- When you loop over states, the entities come in no particular order. They are not sorted.
+- In a template entity without a trigger, a loop over states updates less often. A loop over all states (`states`) updates at most once per minute. A loop over one domain, such as `states.light`, updates at most once per second. A change to an entity that the template names directly still updates it right away. For details, refer to [Rate limiting updates](/integrations/template/#rate-limiting-updates).
 
 {% include template_functions/try_it.md %}
 
@@ -126,7 +129,7 @@ action: |
 Read a sensor value, convert it to a number, and use it in a {% term condition %}.
 
 {% example %}
-template: '{{ states("sensor.humidity") | float > 70 }}'
+template: '{{ states("sensor.humidity") | float(0) > 70 }}'
 type: boolean
 output: "true"
 {% endexample %}

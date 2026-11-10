@@ -1,19 +1,7 @@
 ---
-title: PurpleAir
 description: Instructions on how to integrate PurpleAir sensors with Home Assistant.
-ha_categories:
-  - weather_alerts.air_quality_pollen
-  - sensors.air_quality
-ha_iot_class: Cloud Polling
 ha_release: 2023.1
-ha_codeowners:
-  - '@bachya'
 ha_domain: purpleair
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_config_flow: true
 ---
 
 [PurpleAir](https://www2.purpleair.com/) makes sensors that measure hyper-local air

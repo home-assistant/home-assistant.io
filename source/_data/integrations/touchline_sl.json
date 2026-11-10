@@ -1,0 +1,20 @@
+{
+  "domain": "touchline_sl",
+  "name": "Roth Touchline SL",
+  "integration_type": "hub",
+  "codeowners": [
+    "@jnsgruk"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "climate",
+    "sensor"
+  ]
+}
