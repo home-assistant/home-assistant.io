@@ -24,8 +24,6 @@ This {% term integration %} interacts with the Cloud API of [Airzone devices](ht
 
 {% important %}
 Airzone states that cloud integrations require a subscription, while local integrations remain free. Subscription requirements and available connection methods depend on the Airzone device. If your device supports a local API, consider using the [Airzone integration](/integrations/airzone/) instead of this cloud-based integration.
-
-If Home Assistant and the Airzone device are on the same local network but this integration returns an HTTP `402 Payment Required` error, the Cloud API may be failing to recognize the local connection. An IPv6-related local-network detection issue has been reported to Airzone. Check the [Airzone support information](https://support.airzonecontrol.com/aa/en/faqs/wird-sich-die-integration-mit-drittanbietersystemen-alexa-google-home-knx-bacnet-modbus-usw-mit-dem-neuen-modell-andern/) for current subscription and connectivity details.
 {% endimportant %}
 
 There are two main types of Airzone devices:
@@ -118,6 +116,26 @@ For each Airzone zone (thermostat), a switch entity is created to turn the therm
 ## Water heater
 
 For each Airzone device, a *water heater entity* is created if supported.
+
+## Troubleshooting
+
+{% details "402 Payment Required" %}
+
+### Symptom
+
+The integration fails to connect to the Airzone Cloud API and reports an HTTP `402 Payment Required` error.
+
+### Description
+
+Airzone requires a subscription for cloud integrations. If Home Assistant and the Airzone device are on the same local network, the Cloud API may still return this error if it does not recognize the connection as local. An IPv6-related local-network detection issue has been reported to Airzone.
+
+### Resolution
+
+- Check the [Airzone support information](https://support.airzonecontrol.com/aa/en/faqs/wird-sich-die-integration-mit-drittanbietersystemen-alexa-google-home-knx-bacnet-modbus-usw-mit-dem-neuen-modell-andern/) for current subscription and connectivity requirements.
+- If your device supports a local API, consider using the [Airzone integration](/integrations/airzone/) instead.
+- If the error persists, contact Airzone support to verify the subscription and local-connection status.
+
+{% enddetails %}
 
 ## Removing the integration
 
