@@ -8,10 +8,12 @@ everything is, what was decided, and what is still open.
 ## Status
 
 - All sections of the Figma desktop frame are built, top to bottom.
-- The page builds at `/connect/aux-2/` in `astro/dist`, so it is only
-  published under `/astro-preview/connect/aux-2/`. It is not in
-  `served-routes.json`, and the copy step in `rake generate` only
-  handles routes Jekyll also builds (see "Not done yet").
+- The page is served at `/connect/aux-2/`: it is in
+  `served-routes.json`, and `rake generate` copies it over the minimal
+  Jekyll page at `source/connect/aux-2/index.html`, which visitors only
+  get if the Astro build fails on a production deploy (the same set-up
+  as `/no-device-left-behind/`). The hardware page (`/hardware/`) links
+  to it.
 - Copy follows "Connect AUX-2 - Website copy.docx" (October 2026);
   Figma was the source before it.
 - Photos are placeholders exported from Figma (updated October 2026).
@@ -369,9 +371,6 @@ Behavior and integration:
   (`stickyHeader={false}` on `Site`). The ZBT-2 bar also has a "Docs"
   link to Nabu Casa's help center; add one when the AUX-2 has a docs
   page.
-- Serve the page at `/connect/aux-2/`. This needs a way to publish
-  Astro-only routes: the `rake generate` copy step only replaces pages
-  Jekyll also builds.
 - Accessibility: the "Rock-solid Bluetooth" banner now uses the
   marketing design system's navy heading and slate body colors. The
   heading has about 8:1 contrast on the photo. The slate body text has
