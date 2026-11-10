@@ -278,7 +278,7 @@ The Tractive API no longer accepts the saved credentials, for example because yo
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. On the Tractive entry, follow the prompt to re-authenticate and enter your current Tractive email address and password.
 
-If the form shows the message "The login details correspond to a different account", you entered the credentials of another Tractive account. Enter the credentials of the account you used to set up this integration entry. To add another account, set up the integration again instead.
+If Home Assistant shows the message "The login details correspond to a different account", you entered the credentials of another Tractive account. Start again, and enter the credentials of the account you used to set up this integration entry. To add another account, add the integration again instead.
 
 To update the credentials before Home Assistant asks for them, select the three-dot {% icon "mdi:dots-vertical" %} menu next to the Tractive entry, then select **Reconfigure**.
 
