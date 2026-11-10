@@ -37,7 +37,7 @@ Until you accept the warning, Home Assistant cannot install or update Marketplac
 
 Marketplace projects are published in GitHub repositories. A repository is a project's source-code location on GitHub.
 
-The Marketplace doesn't install apps. Apps run next to Home Assistant as separate applications, and you install them from the app store on {% term "Home Assistant Operating System" %}. For the differences, refer to [Apps and integrations](/docs/apps-and-integrations/#marketplace).
+The Marketplace doesn't install apps. Apps run next to Home Assistant as separate applications, and you install them from the app store on {% term "Home Assistant Operating System" %}. For the differences, refer to [Apps and integrations](/docs/apps-and-integrations/).
 
 The Marketplace includes the following content types.
 
