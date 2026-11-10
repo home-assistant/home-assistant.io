@@ -2,6 +2,7 @@
 title: "List autocharge vehicles"
 action: peblar.list_vehicle_tokens
 domain: peblar
+response: required
 description: "Returns the vehicles configured in the Peblar charger's autocharge list."
 related:
   - docs: /integrations/peblar/
@@ -61,6 +62,8 @@ config_entry_id:
 {% endoptions_yaml %}
 
 ### Response data
+
+{% include actions/response.md %}
 
 The action returns an object with a single `vehicles` member. Each vehicle has
 an `evcc_id` and an `alias`:

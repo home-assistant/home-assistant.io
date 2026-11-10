@@ -19,6 +19,7 @@
   "platforms": [
     "binary_sensor",
     "device_tracker",
+    "number",
     "sensor",
     "switch"
   ]

@@ -285,6 +285,7 @@ source/_integrations/duquesne_light.markdown @tronikos
 source/_integrations/dwd_weather_warnings.markdown @runningman84 @stephan192
 source/_integrations/dynalite.markdown @ziv1234
 source/_integrations/dyson_infrared.markdown @elax46
+source/_integrations/e3dc.markdown @AlCalzone
 source/_integrations/eafm.markdown @Jc2k
 source/_integrations/earn_e_p1.markdown @Miggets7
 source/_integrations/eastron.markdown @DCSBL @lexpostma
@@ -361,7 +362,6 @@ source/_integrations/firefly_iii.markdown @erwindouna
 source/_integrations/fireservicerota.markdown @cyberjunky
 source/_integrations/firmata.markdown @DaAwesomeP
 source/_integrations/fish_audio.markdown @noambav
-source/_integrations/fitbit.markdown @allenporter
 source/_integrations/fivem.markdown @Sander0542
 source/_integrations/fjaraskupan.markdown @elupus
 source/_integrations/flexit.markdown @troelde
@@ -1563,6 +1563,7 @@ source/_actions/google_sheets.append_sheet.markdown @tkdrob
 source/_actions/google_sheets.get_sheet.markdown @tkdrob
 source/_actions/google_travel_time.get_transit_times.markdown @eifinger @tronikos
 source/_actions/google_travel_time.get_travel_times.markdown @eifinger @tronikos
+source/_actions/google_weather.get_minute_forecast.markdown @tronikos
 source/_actions/green_planet_energy.get_cheapest_duration.markdown @petschni
 source/_actions/green_planet_energy.get_prices.markdown @petschni
 source/_actions/group.reload.markdown @home-assistant/core
@@ -1652,6 +1653,7 @@ source/_actions/homematic.virtualkey.markdown @pvizeli
 source/_actions/homematicip_cloud.activate_eco_mode_with_duration.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.activate_eco_mode_with_period.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.activate_vacation.markdown @hahn-th @lackas
+source/_actions/homematicip_cloud.arm_anyway.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.deactivate_eco_mode.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.deactivate_vacation.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.dump_hap_config.markdown @hahn-th @lackas
@@ -1730,8 +1732,6 @@ source/_actions/isy994.send_program_command.markdown @bdraco @shbatm
 source/_actions/isy994.send_raw_node_command.markdown @bdraco @shbatm
 source/_actions/isy994.set_zwave_lock_user_code.markdown @bdraco @shbatm
 source/_actions/isy994.set_zwave_parameter.markdown @bdraco @shbatm
-source/_actions/izone.airflow_max.markdown @Swamp-Ig
-source/_actions/izone.airflow_min.markdown @Swamp-Ig
 source/_actions/jellyfin.play_media_shuffle.markdown @RunC0deRun @ctalkington
 source/_actions/jewish_calendar.count_omer.markdown @tsvi
 source/_actions/keba.authorize.markdown @dannerph

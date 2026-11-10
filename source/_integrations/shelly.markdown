@@ -183,6 +183,24 @@ Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, yo
 
 To move a cover and its tilt to target positions with a single command, use the [**Set cover position and tilt**](/actions/shelly.set_cover_position_and_tilt/) action.
 
+## Fan entities
+
+Generation 2+ devices that have a fan component create a `fan` entity.
+
+The fan entity lets you turn the fan on or off and set its speed as a percentage. It also has two preset modes:
+
+- **Manual**: You control the fan yourself by turning it on or off and setting the speed.
+- **Auto**: The device controls the fan automatically.
+
+Turning the fan on or off from Home Assistant, or setting a speed, switches it to **Manual** mode. To let the device control the fan again, select the **Auto** preset mode. When you switch from **Auto** to **Manual**, the fan keeps its current on or off state and speed until you change it.
+
+The integration also creates the following entities for the fan:
+
+- **Boost**: A `switch` entity that turns the boost function of the device on or off. It's only available while the fan is in **Auto** mode.
+- **Illuminance level**: A `sensor` entity with the states **Dark**, **Twilight**, and **Bright**.
+- **Humidity level**: A `sensor` entity with the states **Low**, **Medium**, **High**, and **Very high**.
+- **Energy**: A `sensor` entity that shows the total energy consumed by the fan, in kWh by default.
+
 ## Binary input sensors
 
 ### Binary input sensors (generation 1)
