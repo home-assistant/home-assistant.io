@@ -91,6 +91,12 @@ The website uses the shared Open Home Foundation Plausible loader, included once
 - Textual content in YAML parameters must follow the same writing style as the documentation. For example, `title` parameter content should use sentence-style capitalization.
 - When adding a blog post to `source/_posts`, the author in the `author` front matter must exist as a top-level key in `source/_data/people.yml`. If the author is not present, add them before the post can be published.
 
+## Pull requests
+
+- When you draft a pull request description, use `.github/PULL_REQUEST_TEMPLATE.md`. Do not remove any of its text. Fill in each section, and check the boxes that apply.
+- Use `current` as the base branch for fixes and improvements to existing documentation. Use `next` for a new integration or a new feature that is not released yet.
+- If the change documents a pull request in a codebase like core or frontend, link that parent pull request in the **Additional information** section. Use one documentation pull request per parent pull request.
+
 ## AI policy
 
 This project follows the [Open Home Foundation AI Policy](../AI_POLICY.md). Autonomous contributions are not accepted: a human must review, understand, and be able to explain every change before it is submitted. Do not open issues or pull requests autonomously, and do not post comments on behalf of a user without their review.
