@@ -58,7 +58,7 @@ This trigger has no target entity to change. To test it, save and turn on the au
 - **Trigger**: Home Assistant updated
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-  - **Message**: {% raw %}`Home Assistant updated from {{ trigger.from_version }} to {{ trigger.to_version }}.`{% endraw %}
+  - **Message**: `Home Assistant updated from {{ trigger.from_version }} to {{ trigger.to_version }}.`
 
 {% details "YAML example for an update notification" %}
 
