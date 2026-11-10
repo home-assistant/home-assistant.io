@@ -9,9 +9,8 @@ everything is, what was decided, and what is still open.
 
 - All sections of the Figma desktop frame are built, top to bottom.
 - The page is served at `/connect/aux-2/`: it is in
-  `served-routes.json`, and `rake generate` copies it over the minimal
-  Jekyll page at `source/connect/aux-2/index.html`, which visitors only
-  get if the Astro build fails on a production deploy. The hardware page
+  `served-routes.json`, and `rake generate` publishes it there (it has
+  no Jekyll version). The hardware page
   (`/hardware/`) and the header's "Our hardware" menu link to it, and
   the launch teaser's old address, `/no-device-left-behind/`, redirects
   to it.
