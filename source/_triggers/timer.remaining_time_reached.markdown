@@ -39,7 +39,8 @@ trigger: |
   target:
     entity_id: timer.laundry
   options:
-    remaining: "00:05:00"
+    remaining:
+      minutes: 5
 {% endexample %}
 
 This fires when `timer.laundry` has five minutes left.
@@ -48,9 +49,9 @@ This fires when `timer.laundry` has five minutes left.
 
 {% options_yaml %}
 remaining:
-  description: The remaining time at which the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: "The remaining time at which the trigger reacts. Enter it as a duration with one or more of `days`, `hours`, `minutes`, `seconds`, and `milliseconds`, for example, `minutes: 5`."
   required: true
-  type: string
+  type: map
 {% endoptions_yaml %}
 
 {% include triggers/targets.md custom_trigger_variables="true" %}
@@ -82,7 +83,7 @@ Get a reminder before the cycle finishes so you can be ready to empty the machin
 
 - **Trigger**: Timer remaining time reached
   - **Target**: Laundry timer
-- **Time remaining**: 00:05:00
+  - **Time remaining**: 00:05:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -96,7 +97,8 @@ automation: |
       target:
         entity_id: timer.laundry
       options:
-        remaining: "00:05:00"
+        remaining:
+          minutes: 5
   actions:
     - action: notify.send_message
       target:
@@ -113,7 +115,7 @@ Use a short visual warning before a timed hallway light is about to turn off.
 
 - **Trigger**: Timer remaining time reached
   - **Target**: Entry timer
-- **Time remaining**: 00:01:00
+  - **Time remaining**: 00:01:00
 - **Action**: Turn on light
 
 {% details "YAML example for a hallway light warning" %}
@@ -126,7 +128,8 @@ automation: |
       target:
         entity_id: timer.entry
       options:
-        remaining: "00:01:00"
+        remaining:
+          minutes: 1
   actions:
     - action: light.turn_on
       target:
