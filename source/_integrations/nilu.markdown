@@ -1,20 +1,10 @@
 ---
-title: Norwegian Institute for Air Research (NILU)
 description: Instructions on how to integrate air pollution data from NILU within Home Assistant.
-ha_category:
-  - Health
-ha_iot_class: Cloud Polling
 ha_release: 0.87
-ha_codeowners:
-  - '@hfurubotten'
 ha_domain: nilu
-ha_platforms:
-  - air_quality
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **NILU** {% term integration %} shows measurements of current air quality from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) sensor stations within Norway. Makes data from the open API at [luftkvalitet.info](https://www.luftkvalitet.info) and [nilu.no](https://nilu.no/) available in Home Assistant.

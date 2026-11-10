@@ -1,24 +1,10 @@
 ---
-title: Prana
 description: Integration to control Prana recuperators.
 ha_release: 2026.2
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@prana-dev-official'
 ha_domain: prana
-ha_integration_type: device
 related:
   - url: https://prana.ua
     title: Prana
-ha_category: []
-ha_quality_scale: bronze
-ha_platforms:
-  - fan
-  - number
-  - sensor
-  - switch
-ha_config_flow: true
-ha_zeroconf: true
 ---
 
 The **Prana recuperators** {% term integration %} lets you control your Prana recuperator. You can manage motors and their operating modes, and monitor a range of sensors provided by the device.

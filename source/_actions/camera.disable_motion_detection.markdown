@@ -61,7 +61,7 @@ This action has no additional YAML options beyond the target.
 
 Turn off a camera's motion detection when someone arrives home.
 
-- **Trigger**: State: Person changes to home
+- **Trigger**: State changed: Person changes to home
 - **Action**: Disable camera motion detection
   - **Target**: Living room camera
 

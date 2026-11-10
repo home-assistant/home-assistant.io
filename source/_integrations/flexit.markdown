@@ -1,18 +1,7 @@
 ---
-title: Flexit
 description: Instructions on how to integrate a Flexit air handling unit into Home Assistant.
-ha_category:
-  - Climate
 ha_release: 0.47
-ha_iot_class: Local Polling
 ha_domain: flexit
-ha_platforms:
-  - climate
-ha_integration_type: device
-ha_quality_scale: legacy
-ha_codeowners:
-  - '@troelde'
-ha_config_flow: true
 ---
 
 The **Flexit** {% term integration %} connects [Flexit](https://www.flexit.no/en/) air handling units equipped with a CI66 Modbus adapter to Home Assistant.
@@ -21,24 +10,24 @@ The **Flexit** {% term integration %} connects [Flexit](https://www.flexit.no/en
 
 Your Flexit unit needs a [CI66 Modbus adapter](https://www.flexit.com/en/products/111647/modbus-adapter-ci66-k2-c2-uni/). Depending on how the adapter is connected, you need one of the following:
 
-- **Serial (Modbus RTU)**: The CI66 adapter is connected through an RS-485 interface. You can use a USB-to-RS485 converter connected to your Home Assistant host. Alternatively, as an experimental option, an [ESPHome Serial Proxy](https://esphome.io/components/serial_proxy/) with an RS-485 interface can expose the connection to Home Assistant as a network-attached serial port.
-- **Network (Modbus TCP) via bridge**: The CI66 adapter is wired to a Modbus TCP bridge or gateway on your network.
+- **Serial port (Modbus RTU)**: The CI66 adapter is connected through an RS-485 interface. You can use a USB-to-RS485 converter connected to your Home Assistant host. Alternatively, as an experimental option, an [ESPHome Serial Proxy](https://esphome.io/components/serial_proxy/) with an RS-485 interface can expose the connection to Home Assistant as a network-attached serial port.
+- **Modbus TCP**: The CI66 adapter is wired to a Modbus TCP bridge or gateway on your network.
 
 {% include integrations/config_flow.md %}
 
 When you set up the integration, you're asked to choose between a serial or a network connection.
 
 {% configuration_basic %}
-Serial device:
-  description: "The serial device your Flexit CI66 Modbus adapter is connected to. Only shown for a serial connection."
+Serial port:
+  description: "The serial port your Flexit CI66 Modbus adapter is connected to. Only shown for a serial connection."
 Baud rate:
-  description: "The baud rate of the serial connection. Defaults to `57600`. Only shown for a serial connection."
+  description: "The baud rate of the serial connection. Defaults to `9600`. Only shown for a serial connection."
 Host:
   description: "The hostname or IP address of your Flexit CI66 Modbus bridge. Only shown for a network connection."
 Port:
   description: "The port of your Flexit CI66 Modbus bridge. Defaults to `502`. Only shown for a network connection."
 Unit ID:
-  description: "The Modbus unit ID of your Flexit unit. Enter a value from `1` through `32`."
+  description: "The Modbus unit ID of your Flexit unit. Enter a value from `1` through `31`."
 {% endconfiguration_basic %}
 
 {% note %}
@@ -61,6 +50,23 @@ A repair issue in {% my integrations title="**Settings** > **Devices & services*
 
 The integration adds a climate entity for the Flexit unit. You can set a target temperature and choose a fan mode (**Off**, **Low**, **Medium**, or **High**). The current activity, such as heating, cooling, or idle, is shown as the entity's HVAC action.
 
+### Binary sensors
+
+The following binary sensors are categorized as diagnostic entities:
+
+- **Filter alarm**: Indicates whether the unit needs a filter replacement.
+- **Electric heater enabled**: Indicates whether the electric heater is enabled.
+
+### Sensors
+
+The following sensors are categorized as diagnostic entities:
+
+- **Air filter operating time**: The number of hours the current air filter has been in use.
+- **Heat exchanger regulation**: The current regulation level of the heat exchanger.
+- **Electric heater regulation**: The current regulation level of the electric heater.
+- **Cooling regulation**: The current regulation level of the cooling function.
+- **Outdoor air temperature**: The temperature of the air entering the unit from outside.
+
 ## Data updates
 
 The **Flexit** integration {% term polling polls %} the unit every 30 seconds.
@@ -69,7 +75,7 @@ The **Flexit** integration {% term polling polls %} the unit every 30 seconds.
 
 If setup fails with a connection error:
 
-- Make sure the serial device or host and port are correct and reachable from Home Assistant.
+- Make sure the serial port or host and port are correct and reachable from Home Assistant.
 - Make sure no other integration is already using the same connection with different settings.
 - Make sure the unit ID matches the Modbus address configured on your CI66 adapter.
 

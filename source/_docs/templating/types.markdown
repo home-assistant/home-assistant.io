@@ -212,15 +212,42 @@ template: |
   {{ [1, 2, 3] is iterable }}
   {{ {"a": 1} is mapping }}
   {{ None is none }}
+  {{ [1, 2, 3] is list }}
+  {{ "hello" is iterable }}
+  {{ "hello" is list }}
 output: |
   True
   True
   True
   True
   True
+  True
+  True
+  False
 {% endexample %}
 
-Useful type tests: `number`, [`string`](/template-functions/string/), `boolean`, `integer`, [`float`](/template-functions/float/), [`iterable`](/template-functions/iterable/), [`mapping`](/template-functions/mapping/), [`none`](/template-functions/none/), [`defined`](/template-functions/defined/). See the [Comparison](/template-functions/#comparison) category in the reference for the full list.
+The `iterable` test is true for anything you can loop over, including text, lists, and dictionaries. To check for a list, use the `list` test. To check for a set or a tuple, use the `set` or `tuple` test.
+
+Useful type tests: `number`, [`string`](/template-functions/string/), `boolean`, `integer`, [`float`](/template-functions/float/), `list`, `set`, `tuple`, [`iterable`](/template-functions/iterable/), [`mapping`](/template-functions/mapping/), [`none`](/template-functions/none/), [`defined`](/template-functions/defined/). See the [Comparison](/template-functions/#comparison) category in the reference for the full list.
+
+## What type does my template return?
+
+Inside a template, each value has its own type. The final result of a template, however, starts out as text. In most places, before Home Assistant uses the result, it removes spaces and line breaks at the start and end, and converts the result to the type it looks like:
+
+- A whole number, such as `42`, becomes an integer. A number with a decimal point, such as `22.5`, becomes a float.
+- `True` and `False` become booleans, and `None` becomes `None`.
+- A list, dictionary, set, or tuple, such as `[1, 2, 3]` or `{'temp': 22}`, becomes that type.
+- Everything else stays text.
+
+Some results look like a number or a boolean, but stay text:
+
+- Numbers with a leading zero, such as a postal code like `01234`
+- Numbers in scientific notation, such as `1e5`
+- Lowercase `true`, `false`, and `none`
+
+Text with commas between numbers, such as `22, 54`, doesn't stay text. It becomes a tuple, such as `(22, 54)`.
+
+This is why a template that returns a sensor state can show up as a number, even though the state is text inside the template. In the template editor, **Result type** shows the type after this conversion. To check the type of a value inside the template, use [`typeof`](#checking-what-type-you-have).
 
 ## Common type mistakes
 

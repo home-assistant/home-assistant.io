@@ -1,17 +1,7 @@
 ---
-title: OpenSky Network
 description: Instructions on how to integrate OpenSky Network into Home Assistant.
-ha_category:
-  - Transport
 ha_release: 0.43
-ha_iot_class: Cloud Polling
 ha_domain: opensky
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@joostlek'
-ha_config_flow: true
 ---
 
 The **OpenSky** {% term integration %} allows one to track overhead flights in a given region. It uses crowd-sourced data from the [OpenSky Network](https://opensky-network.org/) public API. It will also fire Home Assistant events when flights enter and exit the defined region.
@@ -19,12 +9,8 @@ The **OpenSky** {% term integration %} allows one to track overhead flights in a
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-latitude:
-  description: The latitude of the center of the area to track. Defaulted with the home's latitude.
-longitude:
-  description: The latitude of the center of the area to track. Defaulted with the home's longitude.
-radius:
-  description: The radius in meters around the latitude/longitude point to track.
+location:
+  description: The location and radius in meters of the area to track. Defaulted with the home's location.
 altitude:
   description: The maximum altitude in meters in which the planes are tracked. No input (or 0) means all planes in the area are tracked.
 {% endconfiguration_basic %}

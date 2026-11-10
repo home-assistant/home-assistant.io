@@ -1,0 +1,15 @@
+{
+  "domain": "raspberry_pi",
+  "name": "Raspberry Pi",
+  "integration_type": "hardware",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "legacy",
+  "categories": [
+    "diy_makers.boards_hardware"
+  ],
+  "platforms": [
+    "update"
+  ]
+}

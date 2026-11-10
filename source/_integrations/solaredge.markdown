@@ -1,21 +1,7 @@
 ---
-title: SolarEdge
 description: Instructions on how to integrate SolarEdge sensor within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 0.85
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: solaredge
-ha_dhcp: true
-ha_platforms:
-  - sensor
-ha_codeowners:
-  - '@frenck'
-  - '@bdraco'
-  - '@tronikos'
-ha_integration_type: device
 ---
 
 The **SolarEdge** {% term integration %} allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
@@ -32,9 +18,11 @@ You can configure either feature individually or both at the same time for the s
 
 To get sensors for your installation, you need your installation's site ID and an API key. You can get these by logging in to your [SolarEdge web portal](https://monitoring.solaredge.com/). Note: if your portal is not in English, the labels will be different.
 
-- Click on Admin and scroll down to API Access
-- Click on "Generate key"
-- Click on Save
+1. Go to **Admin** > **Site Access** > **Access Control** > **API Access**.
+2. Select **Generate key**.
+3. Select **Save**.
+
+Access to **API Access** depends on the permissions assigned to your SolarEdge account. If **Admin** is not available, contact your installer or SolarEdge site administrator to obtain access or the API key.
 
 Sensor data is updated every 15 minutes to stay within the daily rate limit of 300 requests per day.
 
@@ -46,7 +34,7 @@ To get detailed per-module production data, you need:
 
 The integration fetches energy production for the past 7 days every 12 hours and inserts the data into statistics.
 
-You can find the created statistics under {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}, searching for `solaredge:`.
+You can find the created statistics under {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}, searching for `solaredge:`.
 
 You can show them in the UI using the [`Statistic card`](/dashboards/statistic/) or [`Statistics graph card`](/dashboards/statistics-graph/).
 You can use them in automations using the [`SQL`](/integrations/sql/) integration.

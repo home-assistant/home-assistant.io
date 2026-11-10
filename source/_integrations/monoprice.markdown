@@ -1,18 +1,7 @@
 ---
-title: Monoprice 6-Zone Amplifier
 description: Instructions on how to integrate Monoprice 6-Zone Home Audio Controller into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 0.56
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@etsinko'
-  - '@OnFreund'
 ha_domain: monoprice
-ha_platforms:
-  - media_player
-ha_integration_type: hub
 ---
 
 The **Monoprice 6-Zone Amplifier** {% term integration %} allows you to control [Monoprice 6-Zone Amplifier](https://www.monoprice.com/product?p_id=10761) using a serial connection.

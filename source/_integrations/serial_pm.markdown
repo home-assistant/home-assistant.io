@@ -1,15 +1,7 @@
 ---
-title: Serial Particulate Matter
 description: Instructions on how to integrate particulate matter (dust) sensors with Home Assistant.
-ha_category:
-  - DIY
 ha_release: 0.26
-ha_iot_class: Local Polling
 ha_domain: serial_pm
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 Particulate matter sensors measure the amount of very small particles in the air.

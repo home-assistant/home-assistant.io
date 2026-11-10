@@ -1,0 +1,15 @@
+{
+  "domain": "kankun",
+  "name": "Kankun",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "plugs_switches"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

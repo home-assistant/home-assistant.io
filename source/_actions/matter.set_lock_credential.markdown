@@ -1,7 +1,8 @@
 ---
-title: "Set a Matter lock credential"
+title: "Set lock credential"
 action: matter.set_lock_credential
 domain: matter
+response: required
 description: "Adds or updates a credential, such as a PIN, on a Matter lock."
 related_actions:
   - matter.clear_lock_credential
@@ -13,8 +14,6 @@ Use this action to add or update a credential on a Matter lock. A credential is 
 
 If you leave the credential index empty, the lock automatically assigns the next available slot. If you leave the user index empty, the lock creates a new user for the credential.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
-
 {% include actions/ui_header.md %}
 
 To set a lock credential from an automation or a script:
@@ -24,7 +23,7 @@ To set a lock credential from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the lock you want to manage.
-6. From the actions shown for that target, select **Set a Matter lock credential**.
+6. From the actions shown for that target, under **Matter**, select **Set lock credential**.
 7. Set the **Credential type** and **Credential data**, and any other details you want.
 8. Select **Save**.
 
@@ -110,14 +109,16 @@ user_status:
   required: false
   type: string
 user_type:
-  description: The type of user to set when creating a new user for this credential. See the user types on the [Set a Matter lock user](/actions/matter.set_lock_user/) action.
+  description: The type of user to set when creating a new user for this credential. See the user types on the [Set lock user](/actions/matter.set_lock_user/) action.
   required: false
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns where the credential was stored. The response includes the following fields:
 

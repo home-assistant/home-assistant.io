@@ -1,18 +1,10 @@
 ---
-title: Linksys Smart Wi-Fi
 description: Instructions on how to integrate Linksys Smart Wi-Fi Router into Home Assistant.
-ha_category:
-  - Presence detection
-ha_iot_class: Local Polling
 ha_release: 0.48
 ha_domain: linksys_smart
-ha_platforms:
-  - device_tracker
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Linksys Smart Wi-Fi** {% term integration %} offers presence detection by looking at connected devices to a Linksys Smart Wi-Fi based router.

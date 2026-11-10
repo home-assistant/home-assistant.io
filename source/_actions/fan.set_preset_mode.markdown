@@ -75,8 +75,8 @@ If your bedroom fan uses ESPHome Speed Fan presets, you can switch it to **Low**
 
 - **Trigger**: Time: 22:30
 - **Action**: Set fan preset mode
-- **Target**: Bedroom fan
-- **Preset mode**: low
+  - **Target**: Bedroom fan
+  - **Preset mode**: `low`
 
 {% details "YAML example for a bedtime low preset" %}
 

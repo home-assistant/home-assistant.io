@@ -1,0 +1,13 @@
+{
+  "domain": "spaceapi",
+  "name": "SpaceAPI",
+  "integration_type": "service",
+  "codeowners": [
+    "@fabaff"
+  ],
+  "iot_class": "calculated",
+  "quality_scale": "legacy",
+  "categories": [
+    "diy_makers.web_data_connectors"
+  ]
+}

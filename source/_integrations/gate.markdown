@@ -1,14 +1,7 @@
 ---
-title: Gate
 description: Use gate triggers and conditions in Home Assistant automations.
-ha_category:
-  - Automation
 ha_release: 2026.4
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: gate
-ha_integration_type: system
 ---
 
 The **Gate** {% term integration %} provides dedicated triggers and conditions for gates in Home Assistant. It works with `cover` entities that use the `gate` device class, so you can react when a gate opens or closes, or check whether one is open before running an automation.
@@ -51,8 +44,7 @@ automation: |
       target:
         entity_id: cover.driveway_gate
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

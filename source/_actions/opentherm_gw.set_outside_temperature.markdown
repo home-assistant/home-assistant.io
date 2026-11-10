@@ -7,7 +7,7 @@ related_actions:
   - opentherm_gw.set_setback_temperature
 ---
 
-The **Set outside temperature** action provides an outside temperature to your thermostat. If your thermostat cannot display an outside temperature and does not support outside temperature correction (OTC), this has no effect. Not all thermostats can display the full supported range.
+The **OpenTherm Gateway: Set outside temperature** action provides an outside temperature to your thermostat. If your thermostat cannot display an outside temperature and does not support outside temperature correction (OTC), this has no effect. Not all thermostats can display the full supported range.
 
 {% include actions/ui_header.md %}
 

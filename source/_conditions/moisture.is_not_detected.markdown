@@ -58,20 +58,20 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the sensor or sensors must stay dry before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the sensor or sensors must stay dry before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="moisture detector" example="binary_sensor.kitchen_leak" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
 - This condition works with binary sensors that have the **moisture** device class, such as water leak sensors.
-- Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check for the opposite state, use [Moisture is detected](/conditions/moisture.is_detected/).
 - For percentage-based moisture readings (such as soil moisture probes), use [Moisture level](/conditions/moisture.is_value/) instead.
 

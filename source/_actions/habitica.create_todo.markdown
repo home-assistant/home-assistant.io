@@ -2,6 +2,7 @@
 title: "Create to-do"
 action: habitica.create_todo
 domain: habitica
+response: optional
 description: "Creates a to-do for your Habitica character."
 ---
 
@@ -120,6 +121,10 @@ alias:
   required: false
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

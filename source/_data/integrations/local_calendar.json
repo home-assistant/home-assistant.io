@@ -1,0 +1,16 @@
+{
+  "domain": "local_calendar",
+  "name": "Local calendar",
+  "codeowners": [
+    "@allenporter"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "productivity_information.calendars_todos"
+  ],
+  "platforms": [
+    "calendar",
+    "diagnostics"
+  ]
+}

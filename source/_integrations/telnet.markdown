@@ -1,18 +1,10 @@
 ---
-title: Telnet
 description: Instructions on how to integrate telnet switches into Home Assistant.
-ha_category:
-  - Switch
 ha_release: 0.54
-ha_iot_class: Local Polling
 ha_domain: telnet
-ha_platforms:
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Telnet** {% term integration %} allows you to control devices with telnet commands.

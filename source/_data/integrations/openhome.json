@@ -1,0 +1,23 @@
+{
+  "domain": "openhome",
+  "name": "Linn / OpenHome",
+  "integration_type": "device",
+  "codeowners": [
+    "@bazwilliams"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "media_player",
+    "update"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

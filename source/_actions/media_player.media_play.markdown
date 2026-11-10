@@ -59,7 +59,9 @@ This action has no additional YAML options beyond the target.
 
 Resume playback on a media player when a trigger fires, for example when motion is detected on the couch.
 
-- **Trigger**: Motion detected
+- **Trigger**: State changed
+  - **Entity**: Couch motion sensor
+  - **To**: Detected
 - **Action**: Play media
   - **Target**: Living room speaker
 

@@ -100,8 +100,11 @@ With the Home Assistant Operating System installed and accessible, you can now c
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
-
 <div style="margin-top:50px">
 <p>
     <i>We get commissions for purchases made through links in this post.</i></p>
 </div>
+
+## Install Home Assistant Container
+
+While we recommend using the {% term "Home Assistant Operating System" %}, you can also use the {% term "Home Assistant Container" %} method to install Home Assistant. To check the limitations and installation instructions, refer to [Home Assistant Container on Raspberry Pi](/installation/raspberrypi-other/).

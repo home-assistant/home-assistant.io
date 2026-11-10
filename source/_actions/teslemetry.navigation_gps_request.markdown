@@ -9,7 +9,7 @@ related_actions:
   - teslemetry.valet_mode
 ---
 
-The **Navigate to coordinates** action sends a destination to your Tesla vehicle's navigation system using latitude and longitude coordinates. The vehicle starts routing to that location, just as if you had searched for it on the in-car screen.
+The **Teslemetry: Navigate to coordinates** action sends a destination to your Tesla vehicle's navigation system using latitude and longitude coordinates. The vehicle starts routing to that location, just as if you had searched for it on the in-car screen.
 
 Use it to push a destination to the car from an automation, for example sending the address of an upcoming calendar appointment to the vehicle before you leave, or starting navigation home when you tap a button.
 

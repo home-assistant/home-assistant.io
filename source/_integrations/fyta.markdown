@@ -1,23 +1,7 @@
 ---
-title: FYTA
 description: Instructions on how to integrate FYTA sensors within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_release: 2024.4
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@dontinelli'
 ha_domain: fyta
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - image
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: platinum
-ha_dhcp: true
 ---
 
 The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta.de) to obtain the data from your plant sensors and integrate these into Home Assistant.
@@ -78,6 +62,7 @@ The following sensors are currently available per plant:
 | nutrients_status      |        | FYTA-Status (cf. scale below)              |
 | salinity_status       |        | FYTA-Status (cf. scale below)              |
 | temperature           | °C     | Temperature measured by sensor             |
+| last_update           | date   | Date when the sensor last sent an update to the FYTA hub |
 | light                 | μmol/h | Light measured by sensor (hourly photosynthetically active radiation PAR)|
 | moisture              | %      | Moisture measured by sensor                |
 | salinity              | mS/cm  | Salinity measured by sensor (measured as conductivity)|

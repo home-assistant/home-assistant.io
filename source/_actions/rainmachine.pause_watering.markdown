@@ -9,7 +9,7 @@ related_actions:
   - rainmachine.restrict_watering
 ---
 
-The **Pause all watering** action pauses every watering activity on a RainMachine controller for a set number of seconds. When the pause ends, the previous watering activities resume on their own.
+The **RainMachine: Pause all watering** action pauses every watering activity on a RainMachine controller for a set number of seconds. When the pause ends, the previous watering activities resume on their own.
 
 This is useful for short interruptions, like pausing the sprinklers while you are in the garden, without changing the underlying schedule.
 

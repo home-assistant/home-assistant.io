@@ -9,7 +9,7 @@ related_actions:
   - homematicip_cloud.activate_vacation
 ---
 
-The **Activate eco mode with duration** action turns on eco mode on your Homematic IP access point for a set number of minutes. After the duration passes, eco mode switches off again automatically.
+The **HomematicIP Cloud: Activate eco mode with duration** action turns on eco mode on your Homematic IP access point for a set number of minutes. After the duration passes, eco mode switches off again automatically.
 
 {% include actions/ui_header.md %}
 

@@ -1,30 +1,7 @@
 ---
-title: Yale Home
 description: Instructions on how to integrate your Yale devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Lock
-  - Sensor
 ha_release: 2024.9
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
 ha_domain: yale
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - event
-  - lock
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Yale** {% term integration %} allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) devices in Home Assistant.

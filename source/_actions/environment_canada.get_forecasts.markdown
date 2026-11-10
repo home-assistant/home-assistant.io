@@ -2,9 +2,11 @@
 title: "Get forecasts"
 action: environment_canada.get_forecasts
 domain: environment_canada
+response: required
 description: "Retrieves the raw daily and hourly forecast data from Environment Canada."
 related_actions:
   - environment_canada.get_alerts
+  - environment_canada.get_precipitation_forecast
   - environment_canada.set_radar_type
 ---
 
@@ -19,7 +21,7 @@ To get forecasts from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the weather entity you want to read.
-6. From the actions shown for that target, select **Get forecasts**.
+6. From the actions shown for that target, under **Environment Canada**, select **Get forecasts**.
 7. In the **Response variable** field, enter a name to store the data in, such as `forecasts`.
 8. Select **Save**.
 
@@ -44,6 +46,8 @@ This stores the daily and hourly forecast of `weather.home` in `forecasts`.
 {% include actions/targets.md domain="weather" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by the entity ID of each targeted weather entity. For every entity, the response holds two lists:
 

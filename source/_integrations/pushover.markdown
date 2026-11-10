@@ -1,22 +1,12 @@
 ---
-title: Pushover
 description: Instructions on how to add Pushover notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_release: pre 0.7
-ha_config_flow: true
-ha_iot_class: Cloud Push
 ha_domain: pushover
-ha_platforms:
-  - notify
-ha_integration_type: service
-ha_codeowners:
-  - '@engrbm87'
 ---
 
 The [Pushover action](https://pushover.net/) is a platform for the notify integration. This allows integrations to send messages to the user using Pushover.
 
-## Configuration
+## Prerequisites
 
 To get an API key, you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 
@@ -156,7 +146,7 @@ Receipt tracking is kept in memory. Receipts are lost when Home Assistant restar
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-Example notification triggered from the Alexa integration for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
+Example notification triggered from the Alexa integration for an intents is shown below which also uses a [template](/docs/templating/) for the message:
 
 ```yaml
 # Example configuration.yaml entries

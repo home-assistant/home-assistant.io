@@ -2,6 +2,15 @@
 
 <script src="{{ '/javascripts/terminology_tooltip.js' | cache_buster }}" type="text/javascript" defer></script>
 <script src="{{ '/javascripts/image-lightbox.js' | cache_buster }}" type="text/javascript" defer></script>
+{% if content contains "dashboard-demo-template" %}
+{%- comment -%}
+  The live card demos, see source/_includes/dashboard/demo.html. The version
+  of the release in the address keeps one cached copy of the demo per
+  release.
+{%- endcomment %}
+<script type="module" src="https://demo.home-assistant.io/embed.js?v={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}"></script>
+<script src="{{ '/javascripts/dashboard-demo.js' | cache_buster }}" type="text/javascript" defer></script>
+{% endif %}
 
 <script src="{{ '/javascripts/prism.js' | cache_buster }}" type="text/javascript" defer></script>
 <script src="{{ '/javascripts/prism-signature.js' | cache_buster }}" type="text/javascript" defer></script>
@@ -27,7 +36,7 @@
   });
   document.querySelector('.site-title').addEventListener('contextmenu', function (ev) {
     ev.preventDefault();
-    document.location.assign("https://design.home-assistant.io/#brand/logo")
+    document.location.assign("https://contributors.home-assistant.io/brand/name-and-logo/")
   });
 </script>
 

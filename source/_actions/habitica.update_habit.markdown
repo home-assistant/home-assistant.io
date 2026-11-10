@@ -2,6 +2,7 @@
 title: "Update a habit"
 action: habitica.update_habit
 domain: habitica
+response: optional
 description: "Updates an existing habit for your Habitica character."
 ---
 
@@ -136,6 +137,10 @@ alias:
   required: false
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

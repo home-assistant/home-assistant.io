@@ -1,18 +1,7 @@
 ---
-title: Meteo.lt
 description: Instructions on how to integrate Lithuanian Hydrometeorological Service (Meteo.lt) within Home Assistant.
 ha_release: 2025.11
-ha_iot_class: Cloud Polling
-ha_category:
-  - Weather
-ha_codeowners:
-  - '@xE1H'
-ha_config_flow: true
 ha_domain: meteo_lt
-ha_platforms:
-  - weather
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Meteo.lt** {% term integration %} uses meteorological data from the [Lithuanian Hydrometeorological Service](https://www.meteo.lt) (<abbr title="Lietuvos hidrometeorologijos tarnyba">LHMT</abbr>) to provide weather forecasts for locations in Lithuania. You can set up one or more locations via the user interface.

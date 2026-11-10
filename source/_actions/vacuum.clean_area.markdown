@@ -1,5 +1,5 @@
 ---
-title: Clean area
+title: "Clean area with vacuum cleaner"
 action: vacuum.clean_area
 domain: vacuum
 description: "Cleans specific mapped areas using vacuum segments."
@@ -27,16 +27,15 @@ action: |
   action: vacuum.clean_area
   target:
     entity_id: vacuum.cleaner
-  cleaning_area_id:
-    - living_room
-    - kitchen
+  data:
+    cleaning_area_id:
+      - living_room
+      - kitchen
 {% endexample %}
 
 This sends `vacuum.cleaner` to clean the `living_room` and `kitchen` areas.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -44,7 +43,10 @@ target:
   required: true
   type: map
 cleaning_area_id:
-  description: The areas to clean. Use Home Assistant area IDs.
+  description: |
+    The areas to clean. Use Home Assistant area IDs.
+
+    To find an area's ID, go to **Settings** > **Areas, labels & zones**. On the area card, select the edit {% icon "mdi:edit" %} button, and check **Area ID**. Areas created in older versions of Home Assistant can have an ID like `566619861ba442c19d31f5d20af2314c` instead of their name.
   required: true
   type: list
 {% endoptions_yaml %}
@@ -65,10 +67,12 @@ cleaning_area_id:
 After dinner, this automation checks whether anyone is still in the kitchen. If the room is empty, it sends the vacuum only to the areas that usually need attention.
 
 - **Trigger**: Time: 20:30
-- **Condition**: Kitchen presence sensor is off
-- **Action**: Clean area
-- **Target**: Main vacuum
-- **Area**: Kitchen, dining room
+- **Condition**: State
+  - **Entity**: Kitchen occupancy sensor
+  - **State**: Clear
+- **Action**: Clean area with vacuum cleaner
+  - **Target**: Main vacuum
+  - **Area**: Kitchen, dining room
 
 {% details "YAML example for a targeted after-dinner cleanup" %}
 
@@ -86,9 +90,10 @@ automation: |
     - action: vacuum.clean_area
       target:
         entity_id: vacuum.main_floor
-      cleaning_area_id:
-        - kitchen
-        - dining_room
+      data:
+        cleaning_area_id:
+          - kitchen
+          - dining_room
 {% endexample %}
 
 {% enddetails %}

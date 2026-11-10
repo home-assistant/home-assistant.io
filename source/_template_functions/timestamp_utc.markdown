@@ -17,21 +17,21 @@ related_functions:
 
 The `timestamp_utc` filter formats a UNIX timestamp as a datetime string in UTC (Coordinated Universal Time). It returns the date and time in the standard ISO-like format, without any local time zone conversion.
 
-This is useful when you need to display or log times in UTC, share timestamps with external services that expect UTC, or compare times across different time zones without ambiguity. If you want the local time representation instead, use [`timestamp_local`](/template-functions/timestamp_local/). If you need a custom format, use [`timestamp_custom`](/template-functions/timestamp_custom/) with the local_time parameter set to `false`.
+This is useful when you need to display or log times in UTC, share timestamps with external services that expect UTC, or compare times across different time zones without ambiguity. If you want the local time representation instead, use [`timestamp_local`](/template-functions/timestamp_local/). If you need a custom format, use [`timestamp_custom`](/template-functions/timestamp_custom/) with the `local` parameter set to `false`.
 
 {% include template_functions/usage.md %}
 
 {% template_function_usage %}
 filter: '{{ 1710510600 | timestamp_utc }}'
 type: string
-output: "2024-03-15 13:30:00+00:00"
+output: "2024-03-15T13:50:00+00:00"
 {% endtemplate_function_usage %}
 
 {% include template_functions/signatures.md %}
 
 ```signature
 value | timestamp_utc(
-    default: Any = None,
+    default: Any,
 ) -> str | Any
 ```
 
@@ -42,17 +42,17 @@ The following parameters can be provided to this filter.
 {% function_parameters %}
 default:
   description: >
-    Value to return if the formatting fails. If not provided, an error is raised on invalid input.
+    The value to return if the formatting fails, such as `"unknown"`. If you leave out `default` and the formatting fails, `timestamp_utc` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}
 
 ## Using a default value
 
-If the input might not be a valid timestamp, provide a default to avoid errors.
+If the input might not be a valid timestamp, provide a default to avoid errors. `float(none)` turns invalid text into `none`, so the default is used.
 
 {% example %}
-template: '{{ "invalid" | float(0) | timestamp_utc(default="unknown") }}'
+template: '{{ "invalid" | float(none) | timestamp_utc(default="unknown") }}'
 type: string
 output: "unknown"
 {% endexample %}
@@ -61,7 +61,8 @@ output: "unknown"
 
 - The input must be a UNIX timestamp (a number of seconds). Pass a datetime object through [`as_timestamp`](/template-functions/as_timestamp/) first.
 - The result is a string, not a datetime object.
-- Without a `default`, the filter raises an error for non-numeric inputs.
+- The input must be a number, not text. A numeric string such as `"1700000000"` fails too. Convert states with [`float`](/template-functions/float/) or [`int`](/template-functions/int/) first.
+- Without a `default`, the filter raises an error if the input isn't a number.
 
 {% include template_functions/try_it.md %}
 
@@ -75,12 +76,12 @@ Convert the last changed timestamp of an entity to a UTC datetime string.
 template: |
   {{ as_timestamp(states.sensor.temperature.last_changed) | timestamp_utc }}
 type: string
-output: "2024-03-15 13:30:00+00:00"
+output: "2024-03-15T13:30:00+00:00"
 {% endexample %}
 
 ### Compare local and UTC representations
 
-Display the same timestamp in both local and UTC format to see the difference.
+Display the same timestamp in both local and UTC format to see the difference. This example uses a time zone of UTC+1.
 
 {% example %}
 template: |
@@ -89,8 +90,8 @@ template: |
   UTC: {{ ts | timestamp_utc }}
 type: string
 output: |
-  Local: 2024-03-15 14:30:00+01:00
-  UTC: 2024-03-15 13:30:00+00:00
+  Local: 2024-03-15T14:30:00+01:00
+  UTC: 2024-03-15T13:30:00+00:00
 {% endexample %}
 
 ### Log an event time in UTC

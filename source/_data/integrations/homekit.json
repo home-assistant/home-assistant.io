@@ -1,0 +1,18 @@
+{
+  "domain": "homekit",
+  "name": "HomeKit Bridge",
+  "codeowners": [
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "other_ecosystems"
+  ],
+  "platforms": [
+    "diagnostics"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}
