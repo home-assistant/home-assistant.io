@@ -20,7 +20,7 @@ The **PlayStation Network** {% term integration %} lets you integrate informatio
 ## Prerequisites
 
 - To set up the PlayStation Network integration, you must first have an active PlayStation Network account. You can register for an account at the [Official PlayStation® Site](https://playstation.com/).
-- During setup, Home Assistant asks for your NPSSO token. To retrieve it, sign in to [playstation.com](https://playstation.com/) in your browser, then open the [Sony NPSSO endpoint](https://ca.account.sony.com/api/v1/ssocookie) in the **same browser**. The page returns a JSON response containing the `npsso` value. Copy that value into the Home Assistant config flow. Treat the NPSSO token like a password: do not share it or publish it.
+- During setup, Home Assistant asks for your NPSSO token. To retrieve it, sign in to [playstation.com](https://playstation.com/) in your browser, then open the [Sony NPSSO endpoint](https://ca.account.sony.com/api/v1/ssocookie) in the same browser. The page returns a JSON response containing the `npsso` value. Copy that value into the Home Assistant config flow. Treat the NPSSO token like a password: do not share it or publish it.
 - The NPSSO token is valid for two months. Once it expires, the integration will automatically prompt you to re-authenticate.
 
 {% note %}
