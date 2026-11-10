@@ -69,7 +69,7 @@ When you ask Assist "Is the garage door open?", this automation answers with the
 - **Trigger**: Sentence
   - **Sentence**: `Is the garage door open`
 - **Action**: Set conversation response
-  - **Set conversation response**: {% raw %}`The garage door is {{ states('cover.garage_door') }}.`{% endraw %}
+  - **Set conversation response**: `The garage door is {{ states('cover.garage_door') }}.`
 
 {% details "YAML example" %}
 

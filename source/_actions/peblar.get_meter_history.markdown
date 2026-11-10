@@ -114,7 +114,7 @@ The session that is still running has no end yet, so its end time, closing meter
 
 - Only administrators can run this action.
 - The charger keeps this log itself, so it reaches back further than Home Assistant does, and a database purge leaves it alone.
-- Times come back in UTC, as text. To show them in your own time zone, convert them first: {% raw %}`{{ session.start_time | as_datetime | as_local }}`{% endraw %}.
+- Times come back in UTC, as text. To show them in your own time zone, convert them first: `{{ session.start_time | as_datetime | as_local }}`.
 - A record that no longer matches its own checksum is marked `corrupted`. Do not bill on a corrupted record. If the charger returns no checksum outcome for a session, `corrupted` is `null`, not `true` or `false`.
 
 {% include actions/more_examples.md %}
