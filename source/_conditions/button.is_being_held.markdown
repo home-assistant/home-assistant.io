@@ -7,7 +7,7 @@ description: "Tests if one or more buttons are being held."
 
 The **Button is being held** condition passes while a button is held down. It checks [event entities](/integrations/event/) with the button device class, such as the buttons of a remote control or a wall switch. Use it to check whether a button is held when something else happens. For example, you can give a button a second function that only runs while you hold another button.
 
-A button counts as held from the moment it reports a **Long press start** (`long_press_start`) event until it reports any other event, such as **Long press end** (`long_press_end`) or an event type that is specific to the integration.
+A button counts as held from the moment it reports a **Long press start** (`long_press_start`) event until it reports any other event, such as **Long press end** (`long_press_end`) or an event type that is specific to the integration. A hold also ends 30 seconds after it starts, even if the button is still held.
 
 {% include conditions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To use **Button is being held** in an automation:
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), select the button event entity you want to check. You can also select a device, an area, a floor, or a label.
 5. From the conditions shown for that target, select **Button is being held**.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple buttons are targeted.
-7. Under **For at least**, set how long the button must have been held before the condition passes. Leave it at zero to pass as soon as the button is held.
+7. Under **For at least**, set how long the button must have been held before the condition passes. It must be less than 30 seconds. Leave it at zero to pass as soon as the button is held.
 8. Select **Save**.
 
 ### Options in the UI
@@ -28,7 +28,7 @@ To use **Button is being held** in an automation:
 Condition passes if:
   description: When multiple buttons are targeted, controls how results combine. Pick **Any** to pass if at least one targeted button is being held, or **All** to pass only when every targeted button is being held. Default is **Any**.
 For at least:
-  description: How long the button must have been held before the condition passes. The time counts from the latest **Long press start** of the button, not from when you pushed the button down. Default is zero (passes immediately).
+  description: How long the button must have been held before the condition passes. The time counts from the latest **Long press start** of the button, not from when you pushed the button down. Must be less than 30 seconds. Default is zero (passes immediately).
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -68,7 +68,7 @@ behavior:
   default: any
 for:
   description: >
-    How long the button must have been held before the condition passes. The time counts from the latest `long_press_start` of the button, not from when you pushed the button down. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+    How long the button must have been held before the condition passes. The time counts from the latest `long_press_start` of the button, not from when you pushed the button down. Must be less than 30 seconds. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
   type: [string, integer, map]
   default: "00:00:00"
@@ -84,8 +84,8 @@ for:
 - A button must support both the **Long press start** and **Long press end** [event types](/integrations/event/#event-types). Buttons that only report a hold when you release them, or that use their own event types for holds, are always skipped, even though you can still select them as a target. To see which event types a button supports, add an [Event received](/triggers/event.received/) trigger for it, and open the **Event type** list.
 {% include conditions/unavailable_targets.md entities="buttons" %}
 - Entities skipped for the other reasons above count the same way: if all targeted entities are skipped, **All** passes and **Any** fails.
-- The condition relies on the button reporting when you release it. If Home Assistant misses the release, for example because it restarted while you held the button, the condition keeps passing until the button reports its next event.
-- After Home Assistant restarts, or after a held button was `unavailable`, **For at least** counts from when Home Assistant restarted or the button came back, instead of from the start of the hold.
+- The condition relies on the button reporting when you release it. If Home Assistant misses the release, for example because it restarted while you held the button, the condition keeps passing until the button reports its next event, for at most 30 seconds.
+- After Home Assistant restarts, or after a held button was `unavailable`, **For at least** and the 30-second limit count from when Home Assistant restarted or the button came back, instead of from the start of the hold.
 - To start an automation when a button is held, use the [Button held](/triggers/button.held/) trigger. To react to a short press, use the [Button pressed](/triggers/button.pressed/) trigger.
 
 {% include conditions/try_it.md %}
