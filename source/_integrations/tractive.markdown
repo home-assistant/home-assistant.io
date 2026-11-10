@@ -10,6 +10,16 @@ The **Tractive** {% term integration %} brings the location of your pets and the
 
 Use cases: Get a notification when your dog leaves home and turn on live tracking to find it faster. Get reminded to charge the tracker before the battery runs out. Make the tracker beep or light up to find your cat in the dark. If your tracker provides health data, keep an eye on whether your pet reaches its daily activity goal.
 
+## Supported devices
+
+The integration supports all Tractive GPS trackers that are assigned to a pet in your Tractive account.
+
+## Unsupported devices
+
+The following trackers are not supported by the integration:
+
+- Trackers that are shared with you from another Tractive account. For details, refer to [Known limitations](#known-limitations).
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -165,6 +175,114 @@ The **Tractive** integration receives push updates from the Tractive API. When t
 - The integration requires a Tractive Premium subscription.
 - Your Tractive account must allow signing in with an email address and password. Accounts that can only sign in with a Google or Apple account are not supported.
 - Trackers (pets) that are shared from another account to your account are not visible in Home Assistant. You need to set up each Tractive account that owns a tracker (pet) as a separate integration entry.
+
+## Troubleshooting
+
+{% details "Can't sign in during setup" %}
+
+### Symptom: "Invalid authentication"
+
+When you try to set up the integration, the form shows the message "Invalid authentication".
+
+#### Description
+
+The Tractive API did not accept the email address and password you entered.
+
+#### Resolution
+
+1. Go to the [Tractive web app](https://my.tractive.com/) and check that you can sign in with the same email address and password.
+2. If you usually sign in with a Google or Apple account, make sure your Tractive account also has a password. The integration only supports signing in with an email address and password.
+3. Set up the integration again with the email address and password that work in the Tractive web app.
+
+{% enddetails %}
+
+{% details "Setup fails with too many requests" %}
+
+### Symptom: "Too many requests. Please try again later."
+
+When you try to set up the integration, reconfigure it, or sign in again, the form shows the message "Too many requests. Please try again later."
+
+#### Description
+
+The Tractive API limits how many requests it accepts in a short time. When that limit is reached, it rejects new sign-in attempts for a while.
+
+#### Resolution
+
+Wait a few minutes, then try again.
+
+{% enddetails %}
+
+{% details "A pet or tracker is missing" %}
+
+### Symptom: A pet or tracker from the Tractive app doesn't show up in Home Assistant
+
+You see a pet or tracker in the Tractive app, but Home Assistant has no device or entities for it.
+
+#### Description
+
+The integration only adds trackers that are assigned to a pet in the Tractive account you used to set up the integration. Pets without a tracker, and trackers that another account shares with you, are skipped. The integration looks for pets and trackers when it starts, so a tracker you assign later only shows up after the integration is reloaded.
+
+#### Resolution
+
+1. In the Tractive app, make sure the tracker is assigned to a pet.
+2. If the tracker is shared with you from another account, add the integration again with the Tractive account that owns the tracker. Each account gets its own entry.
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Tractive**. Next to the entry, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Reload**.
+
+{% enddetails %}
+
+{% details "Activity and sleep sensors are missing" %}
+
+### Symptom: The Activity time, Daily goal, Day sleep, Night sleep, and Rest time sensors are missing
+
+Your pet's device in Home Assistant has the **Weight** sensor, but no activity, rest, or sleep sensors.
+
+#### Description
+
+The integration only creates these sensors when the tracker provides health data. This depends on the tracker model and on your subscription. The integration checks for health data when it starts, so sensors for health data that becomes available later, for example after you upgrade your subscription, only show up after the integration is reloaded.
+
+#### Resolution
+
+1. In the Tractive app, check that you can see activity and sleep data for your pet. If the app doesn't show this data, your tracker or subscription doesn't provide it.
+2. If the app shows the data, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Tractive**. Next to the entry, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Reload**.
+
+{% enddetails %}
+
+{% details "The switches are unavailable" %}
+
+### Symptom: The Buzzer, LED, and Live tracking switches show as unavailable
+
+The other entities of the tracker work, but the switches show as unavailable.
+
+#### Description
+
+The tracker is in a power saving zone. The switches are unavailable while the tracker reports that it is in a power saving zone.
+
+#### Resolution
+
+Wait until the tracker leaves the power saving zone. The switches become available again automatically. To check whether the tracker is in a power saving zone, enable the **Power saving** binary sensor of the tracker, which is disabled by default.
+
+{% enddetails %}
+
+{% details "Home Assistant asks you to sign in again" %}
+
+### Symptom: Home Assistant asks you to re-authenticate the Tractive integration
+
+The Tractive entities stop updating, and Home Assistant shows that the Tractive integration needs your attention.
+
+#### Description
+
+The Tractive API no longer accepts the saved credentials, for example because you changed your Tractive password.
+
+#### Resolution
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the Tractive entry, follow the prompt to re-authenticate and enter your current Tractive email address and password.
+
+If Home Assistant shows the message "The login details correspond to a different account", you entered the credentials of another Tractive account. Start again, and enter the credentials of the account you used to set up this integration entry. To add another account, add the integration again instead.
+
+To update the credentials before Home Assistant asks for them, select the three-dot {% icon "mdi:dots-vertical" %} menu next to the Tractive entry, then select **Reconfigure**.
+
+{% enddetails %}
 
 ## Removing the integration
 

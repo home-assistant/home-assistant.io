@@ -58,42 +58,40 @@ task :generate do
   success = system "jekyll build"
   abort("Generating site failed") unless success
   # The Astro build runs on every deploy (see astro/README.md). Jekyll
-  # builds every route; the routes in astro/served-routes.json are then
-  # replaced with Astro's pages, and the whole Astro output is also
+  # builds its routes; the routes in astro/served-routes.json are then
+  # published from Astro's output, and the whole Astro output is also
   # browsable under the unlinked, noindexed /astro-preview/ path.
-  # Previews and CI abort on failure (that is what gates merges), while
-  # production deploys only warn: a failed Astro build then publishes
-  # Jekyll's version of the served routes instead of blocking the site.
+  # A served route does not need a Jekyll page: there is no fallback to
+  # Jekyll, so a failed Astro build fails every build, production
+  # included, rather than publishing the site without those pages.
   # pnpm comes from the root devDependencies (npx resolves it there),
   # since Node.js 25+ no longer bundles Corepack.
   astro_env = { "ASTRO_TELEMETRY_DISABLED" => "1" }
-  astro_success = system(astro_env, "npx pnpm install --frozen-lockfile", chdir: "astro") &&
-                  system(astro_env, "npx pnpm run build", chdir: "astro")
-  if ENV["CONTEXT"] == 'production'
-    puts "## WARNING: Astro build failed, continuing" unless astro_success
-  else
-    abort("Generating Astro site failed") unless astro_success
-  end
-  if astro_success
-    # Make the Astro output browsable at /astro-preview/ on every
-    # deploy, production included. It is not linked from anywhere and
-    # _headers marks the whole path noindex.
-    FileUtils.rm_rf("#{public_dir}astro-preview")
-    FileUtils.cp_r("astro/dist", "#{public_dir}astro-preview")
-    # Astro pages link their bundled stylesheets, scripts and images
-    # with root-absolute /_astro/ paths, which is where they belong
-    # once Astro serves real routes. Publish that directory at the
-    # site root too, or the preview pages lose their styles. The file
-    # names are content-hashed, so nothing can clash with Jekyll's
-    # output.
-    FileUtils.rm_rf("#{public_dir}_astro")
-    FileUtils.cp_r("astro/dist/_astro", "#{public_dir}_astro") if File.directory?("astro/dist/_astro")
-    # Serve the routes listed in astro/served-routes.json from Astro:
-    # their pages replace the ones Jekyll built at the same URL. If the
-    # Astro build failed (production only warns), Jekyll's pages stay.
-    JSON.parse(File.read("astro/served-routes.json")).each do |route|
-      FileUtils.cp("astro/dist/#{route}index.html", "#{public_dir}#{route}index.html")
-    end
+  success = system(astro_env, "npx pnpm install --frozen-lockfile", chdir: "astro") &&
+            system(astro_env, "npx pnpm run build", chdir: "astro")
+  abort("Generating Astro site failed") unless success
+  # Make the Astro output browsable at /astro-preview/ on every
+  # deploy, production included. It is not linked from anywhere and
+  # _headers marks the whole path noindex.
+  FileUtils.rm_rf("#{public_dir}astro-preview")
+  FileUtils.cp_r("astro/dist", "#{public_dir}astro-preview")
+  # Astro pages link their bundled stylesheets, scripts and images
+  # with root-absolute /_astro/ paths, which is where they belong
+  # once Astro serves real routes. Publish that directory at the
+  # site root too, or the preview pages lose their styles. The file
+  # names are content-hashed, so nothing can clash with Jekyll's
+  # output.
+  FileUtils.rm_rf("#{public_dir}_astro")
+  FileUtils.cp_r("astro/dist/_astro", "#{public_dir}_astro") if File.directory?("astro/dist/_astro")
+  # Serve the routes listed in astro/served-routes.json from Astro. If
+  # Jekyll also built a page at the route, Astro's page replaces it;
+  # if not, the route's directory is created. A served route that
+  # Astro did not build fails the build instead of turning into a 404.
+  JSON.parse(File.read("astro/served-routes.json")).each do |route|
+    astro_page = "astro/dist/#{route}index.html"
+    abort("Served route #{route} has no Astro page (#{astro_page})") unless File.file?(astro_page)
+    FileUtils.mkdir_p("#{public_dir}#{route}")
+    FileUtils.cp(astro_page, "#{public_dir}#{route}index.html")
   end
   if ENV["CONTEXT"] != 'production'
     File.open("#{public_dir}robots.txt", 'w') do |f|
