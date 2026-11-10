@@ -51,12 +51,10 @@ The **Sync time** button appears under the **Configuration** section of the devi
 
 The target temperature is the setpoint the controller uses right now. The mode and preset set which setpoint that is:
 
-| Mode | Preset | Heating circuit behavior |
-| ---- | ------ | ------------------------ |
-| Auto | Comfort or Eco | Follows its time program. The preset shows the level in effect. |
-| Heat | Comfort | Heats to the comfort setpoint until you change the mode or preset. |
-| Heat | Eco | Heats to the reduced setpoint until you change the mode or preset. |
-| Off | | Only heats to protect against frost. |
+- **Auto**: The heating circuit follows its time program. The preset shows whether the comfort or reduced level is in effect.
+- **Heat** with the **Comfort** preset: The heating circuit heats to the comfort setpoint until you change the mode or preset.
+- **Heat** with the **Eco** preset: The heating circuit heats to the reduced setpoint until you change the mode or preset.
+- **Off**: The heating circuit only heats to protect against frost. Selecting a preset switches it to **Heat**.
 
 In **Auto** mode, selecting a preset overrides the time program until its next switch point.
 
