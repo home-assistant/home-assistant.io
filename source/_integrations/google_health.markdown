@@ -209,6 +209,20 @@ After you authorize access, Home Assistant uses your Google Account profile to v
 
 {% enddetails %}
 
+{% details "Step count is lower than in the Google Health app" %}
+
+### Symptom: Step totals do not match
+
+Your step count in Home Assistant is lower than the total in the Google Health app, even after your device has synced and the integration has updated.
+
+#### Description
+
+Home Assistant displays the daily step total returned by the Google Health API. Google [acknowledged reports of differences between the API and app in July 2026](https://support.google.com/googlehealth/thread/450893169/?hl=en&msgid=451074221). In a [November 2026 update](https://support.google.com/googlehealth/thread/476210586/?hl=en&msgid=476625119), Google confirmed that it was working to resolve these inconsistencies.
+
+As of November 10, 2026, no fix or Home Assistant workaround has been confirmed for this issue. Refreshing Home Assistant more often cannot recover steps omitted from Google's API response. Follow the linked Google discussion for updates.
+
+{% enddetails %}
+
 ## Removing the integration
 
 This integration follows standard integration removal.
