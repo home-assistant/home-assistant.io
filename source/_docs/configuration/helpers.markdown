@@ -138,14 +138,26 @@ For a helper that you set up in YAML, you can't change its own settings in the U
 
 ## Creating a similar helper
 
-Some helpers allow you to duplicate existing setups.
+You can duplicate the following helpers that you set up in the UI:
+- toggle
+- button
+- text
+- number
+- date and/or time
+- dropdown
+- counter
+- timer
+- schedule helpers
+
+To duplicate a helper:
 
 1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
-2. Choose the option **Duplicate** on the helper to be duplicated.
-3. Adjust the options as needed.
-4. Select **Create** or **Submit**, depending on the type of helper.
+2. Next to the helper, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Duplicate**.
+   - A new helper opens with the same settings. Its name is the original name followed by **(Copy)**.
+3. Change the name and any settings you need.
+4. Select **Create**.
 
-If you cannot duplicate a helper, you can still use the same settings for multiple items by [creating a new helper](#creating-a-helper) for each one. For example, to display the average temperature for each floor of a house, create one **Combine the state of several sensors** helper per floor. In each helper, select the temperature sensors assigned to that specific floor.
+For other helpers, and for helpers set up in YAML, [create a new helper](#creating-a-helper) with the same settings instead. For example, to show the average temperature of each floor, create one **Combine the state of several sensors** helper per floor. In each one, select the temperature sensors of that floor.
 
 ## What happens to a helper value after a restart?
 
