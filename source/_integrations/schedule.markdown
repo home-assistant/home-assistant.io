@@ -157,6 +157,8 @@ The schedule stays `on` across midnight when these blocks touch.
 
 ## Copying a schedule
 
+To create a new schedule based on one you set up in the UI, duplicate it:
+
 1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
 2. Select the helper to be duplicated, and choose the option **Duplicate**.
 3. Adjust the options as needed.
