@@ -99,8 +99,10 @@ Google Docs HTML exports do not use `<b>`, `<strong>`, `<i>`, or `<em>`. Bold an
 Do not extract the text by hand. Convert the HTML to Markdown with the helper script in this skill’s directory, then follow the rest of this process on the Markdown output:
 
 ```shell
-python3 -I .claude/skills/create-blog-post/gdoc_html_to_markdown.py "create-blog-post/draft.html" > "create-blog-post/draft.md"
+python3 -I .claude/skills/create-blog-post/gdoc_html_to_markdown.py "create-blog-post/draft.html" "create-blog-post/draft.md"
 ```
+
+Pass the output file as the second argument instead of redirecting with `>`. The script only writes the file after the conversion succeeds, so a failed run never leaves an empty or truncated `draft.md`. The script uses only the Python standard library.
 
 The script:
 
