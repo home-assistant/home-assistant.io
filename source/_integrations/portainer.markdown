@@ -75,9 +75,17 @@ There is currently support for the following device types within Home Assistant:
 - **Containers paused**: Number of paused containers.
 - **Container count**: Total number of containers on the endpoint.
 - **Image count**: Total number of Docker images.
+
+#### Disk space sensors
+
+These sensors are disabled by default, because calculating them can take a long time on slower hardware (see [Data updates](#data-updates)). [Enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the ones you need.
+
 - **Container disk usage total size**: Total disk space used by containers.
+- **Container disk usage reclaimable**: Disk space used by containers that are not running.
 - **Image disk usage total size**: Total disk space used by images.
+- **Image disk usage reclaimable**: Disk space used by images that no container uses.
 - **Volume disk usage total size**: Total disk space used by volumes.
+- **Volume size**: Disk space used by a single volume. Unknown for volumes whose driver doesn't report a size.
 
 #### Stack sensors
 
@@ -151,18 +159,11 @@ Docker API Engine needs to be equal to or above version 1.44. Older versions are
 
 The integration normally updates every 60 seconds. The Portainer version is checked every 6 hours, because Portainer looks up the latest release on GitHub for every check. For more detailed steps on how to define a custom polling interval, follow the procedure below.
 
+The [disk space sensors](#disk-space-sensors) update every 30 minutes, and only for endpoints with at least one of them enabled. To calculate them, Docker adds up every file in every volume, which can take minutes on slower hardware.
+
 ### Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
-
-## Configuration options
-
-{% my integrations title="Go to **Settings** > **Devices & services**" %}, select the Portainer integration, then select **Configure**.
-
-{% configuration_basic %}
-Disk space sensors:
-  description: Enable or disable the disk space sensors. Disk space monitoring can be resource-intensive on lower-end hardware, leading to CPU spikes or timeouts. Disable this if you experience performance issues.
-{% endconfiguration_basic %}
 
 ## Known limitations
 
@@ -176,22 +177,19 @@ Currently, the integration does not support stacks or Edge computing.
 
 The integration fails to update, or you see timeout errors in the logs such as:
 
-- `Error communicating with API`
+- `Timed out fetching DF data for endpoint`
 - `Timeout fetching portainer data`
 
 #### Description
 
-On lower-end hardware with slower disks, such as a Raspberry Pi, collecting disk space usage data can be a resource-intensive operation and may cause timeouts during data updates.
+Docker calculates the disk space sensors by adding up every file in every volume. On lower-end hardware with slower disks, such as a Raspberry Pi, this can take long enough to cause timeouts.
 
 #### Resolution
 
-To resolve this, disable the disk space sensors. 
+[Disable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the [disk space sensors](#disk-space-sensors) of the endpoint. Once none of them are enabled, the integration stops fetching disk space data for that endpoint.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the Portainer integration, and then select **Configure**. 
-3. Turn off **Enable disk space sensors**.
+If timeouts persist, you can also reduce the load by [setting a longer polling interval](#defining-a-custom-polling-interval).
 
-If timeouts persist after disabling disk space sensors, you can also reduce the load by [setting a longer polling interval](#defining-a-custom-polling-interval).
 ## Removing the integration
 
 This integration follows standard integration removal.
