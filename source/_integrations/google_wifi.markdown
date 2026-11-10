@@ -46,8 +46,6 @@ monitored_conditions:
       description: The firmware version currently installed on the router.
     new_version:
       description: The latest available firmware version. Reports `Latest` when the router is up to date.
-    uptime:
-      description: The number of days since the router last restarted. This sensor is deprecated and will be removed in Home Assistant 2027.4. Use the Last restart sensor instead.
     last_restart:
       description: The date and time when the router last restarted.
     local_ip:
@@ -62,7 +60,6 @@ monitored_conditions:
 
 - **Current version**: The firmware version installed on the router.
 - **New version**: The latest firmware version available. Reports `Latest` when the router is up to date.
-- **Uptime**: The number of days since the router last restarted. This sensor is deprecated and will be removed in Home Assistant 2027.4. Use **Last restart** instead.
 - **Last restart**: The date and time when the router last restarted.
 - **Local IP**: The IP address reported for the router's WAN connection.
 - **Status**: Whether the router is online or offline.
