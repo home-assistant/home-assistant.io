@@ -110,7 +110,7 @@ The integration that provides the sensor sets these attributes. You can't change
 Create a template sensor helper that copies the value of your sensor and has the correct attributes:
 
 1. Create a template sensor helper. For the steps, refer to [Creating a template helper from the user interface](/integrations/template/#creating-a-template-helper-from-the-user-interface).
-2. In **State**, enter a template that reads your sensor, for example {% raw %}`{{ states('sensor.garden_water_meter') | float(none) }}`{% endraw %}.
+2. In **State**, enter a template that reads your sensor, for example `{{ states('sensor.garden_water_meter') | float(none) }}`.
    - The [`float(none)`](/template-functions/float/) filter keeps the template sensor working while your sensor has no value, for example while Home Assistant starts.
 3. Select the **Unit of measurement**, **Device class**, and **State class** that the Energy dashboard needs.
 4. Add the new template sensor to the Energy dashboard.
