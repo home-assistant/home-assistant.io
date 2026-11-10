@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: seafile
 ha_platforms:
   - backup
+  - button
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -68,6 +69,16 @@ Backup folder:
   description: "The folder in the library to store backups in. Defaults to `/Home Assistant backups`. It is created when the first backup is uploaded."
 {% endconfiguration_basic %}
 
+## Reconfiguration
+
+If your Seafile server moves to a new address, its certificate changes, or you want to log in with a different username or password, you can update the integration without removing and adding it again.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Seafile** integration.
+2. Next to the account, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Enter the **URL**, **Username** and **Password**, and change **Verify SSL certificate** if needed, then select **Submit**.
+
+Home Assistant logs in again and creates a new access token. It then tries to revoke the old token, using the previous URL and SSL setting. If that fails, for example because the old address no longer works, the old **Home Assistant** entry stays under the linked devices of your account, and you can remove it there yourself. You must log in to the same Seafile account that was set up before.
+
 ## Supported functionality
 
 Each library is added as a separate device in Home Assistant, with the following entities.
@@ -80,6 +91,27 @@ Each library is added as a separate device in Home Assistant, with the following
   - **Description**: Number of files in the library.
 - **Last modified**
   - **Description**: Time the library was last changed.
+
+### Buttons
+
+- **Empty trash**
+  - **Description**: Permanently deletes the files and folders in the trash of the library. This can't be undone. Only the owner or an admin of the library can empty its trash.
+
+### Selects
+
+- **History**
+  - **Description**: How much file history Seafile keeps for the library, so you can restore older versions of files.
+  - **Options**:
+    - **Keep full history**: Keep all older versions. This is the default in Seafile.
+    - **Don't keep history**: Keep no older versions. Seafile removes the existing history.
+    - **Keep a period of history**: Keep the older versions for a set number of days. Switching to it from another option sets a period of 30 days. A period that is already set stays as it is. Change the number of days with **History days**.
+  - **Remarks**: Only available for libraries you own or administer.
+
+### Numbers
+
+- **History days**
+  - **Description**: For how many days Seafile keeps the older versions of files in the library, from 1 to 3650.
+  - **Remarks**: Only available when **History** is set to **Keep a period of history**.
 
 ### Backups
 
@@ -105,7 +137,7 @@ The integration has been tested with Seafile 13 and 14 (Community Edition).
 
 - Encrypted libraries are not supported and are not shown in the list of libraries.
 - An account on a server can only be added once.
-- There is no reauthentication yet. If the access token is no longer accepted, remove the integration and add it again.
+- Changing **History** or **History days** fails with a permission error if the Seafile server administrator has turned off the library history setting.
 
 ## Troubleshooting
 
@@ -137,17 +169,20 @@ The library is not shown as a location when you create a backup.
 2. Turn on **Store backups** and select **Submit**.
 3. If the library still isn't listed, check that the integration is loaded and its sensors are available.
 
-### Symptom: The integration fails to load with an authentication error
+### Symptom: Home Assistant asks you to log in to Seafile again
 
-The integration shows an authentication error and its entities are unavailable.
+The Seafile integration needs attention and its entities are unavailable.
 
 #### Description
 
-The access token of the integration was revoked or is no longer valid.
+The access token of the integration was revoked or is no longer valid, for example, because the **Home Assistant** entry was removed from the linked devices of your account.
 
 #### Resolution
 
-Remove the integration and add it again with your current password.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Reconfigure** on the Seafile integration.
+2. Log in with the username and password of the same Seafile account. If the account uses two-factor authentication, also enter the code.
+
+Home Assistant creates a new access token and loads the integration again. Logging in with a different account is not accepted.
 
 ## Removing the integration
 

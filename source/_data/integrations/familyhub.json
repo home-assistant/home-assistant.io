@@ -6,6 +6,9 @@
   "categories": [
     "appliances_cleaning.cooking"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "camera"
   ]

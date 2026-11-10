@@ -7,6 +7,9 @@
     "lighting.bulbs_lamps",
     "plugs_switches"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "light",
     "switch"

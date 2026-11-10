@@ -10,6 +10,9 @@
     "climate.fans_ventilation",
     "lighting.bulbs_lamps"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

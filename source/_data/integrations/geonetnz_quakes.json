@@ -10,6 +10,9 @@
   "categories": [
     "weather_alerts.public_warnings"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "diagnostics",
     "geo_location",

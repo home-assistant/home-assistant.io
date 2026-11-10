@@ -2,6 +2,7 @@
 title: "Set user"
 action: zwave_js.set_user
 domain: zwave_js
+response: required
 description: "Creates or updates an access-control user on a Z-Wave lock."
 related_actions:
   - zwave_js.set_credential
@@ -108,6 +109,8 @@ active:
 {% include actions/targets.md domain="lock" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by lock entity. Each entry includes the assigned user index:
 

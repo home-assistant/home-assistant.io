@@ -12,6 +12,9 @@
     "diy_makers",
     "weather_alerts"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "camera",

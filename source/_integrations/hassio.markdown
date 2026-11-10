@@ -49,6 +49,7 @@ For Home Assistant Host, the following sensors are available:
 | Disk Free | no | Free space (in GB) left on the device
 | Disk Total | no | Total space (in GB) on the device
 | Disk Used | no | Used space (in GB) on the device
+| Disk Lifetime | no | Estimated percentage of lifetime used by the disk storing your data, from 0 (new) to 100 (estimated lifetime reached). Only NVMe and eMMC disks report this value
 
 ## Binary sensor entities
 

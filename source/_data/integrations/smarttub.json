@@ -10,6 +10,9 @@
   "categories": [
     "water.pools_spas"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

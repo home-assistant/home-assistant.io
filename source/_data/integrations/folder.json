@@ -1,6 +1,8 @@
 {
   "domain": "folder",
   "name": "Folder",
+  "integration_type": "service",
+  "config_flow": true,
   "iot_class": "local_polling",
   "quality_scale": "legacy",
   "categories": [
