@@ -8,7 +8,7 @@ related_triggers:
   - homeassistant.restart_required
 ---
 
-The **Home Assistant updated** trigger fires once after Home Assistant starts on a different version than the one it ran before. That is usually after an update, but going back to an older version, for example by restoring a backup, fires it too. The versions tell you which way it went.
+The **Home Assistant updated** trigger reacts once after Home Assistant starts on a different version than the one it ran before. That is usually after an update. Going back to an older version, for example by restoring a backup, also triggers it. The versions tell you which way it went.
 
 Use it to act right after an update, for example to send a notification with the new version, or only when Home Assistant installed the update on its own.
 
@@ -35,11 +35,11 @@ In templates, `trigger.from_version` holds the version Home Assistant ran before
 
 ## Good to know
 
-- The trigger fires once, right after Home Assistant has started on the new version. A restart on the same version does not fire it.
-- The first start of a new installation does not fire it. There is no version from before to compare with.
+- The trigger reacts once, right after Home Assistant has started on the new version. A restart on the same version does not trigger it.
+- The first start of a new installation does not trigger it. There is no version from before to compare with.
 - It works on every installation type, such as Home Assistant OS and Home Assistant Container.
 - `trigger.automatic` can only be `true` on Home Assistant OS, where Home Assistant can install bug fix updates on its own. On other installation types, it is always `false`.
-- If the automation is turned on, or automations are reloaded, after Home Assistant has started, the trigger does not fire for that start. It only fires for automations that are ready when Home Assistant starts.
+- If the automation is turned on, or automations are reloaded, after Home Assistant has started, the trigger does not react to that start. It only reacts in automations that are ready when Home Assistant starts.
 
 {% include triggers/try_it.md %}
 
