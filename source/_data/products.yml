@@ -908,9 +908,9 @@ zbt-2:
 aux-2:
   name: "<strong>Home Assistant</strong> Connect AUX-2"
   new: true
-  # The partners marked "Received" in the AUX-2 Where to Buy links
-  # sheet. Still awaited: Grönahus (Sweden), SmartHome AU (Australia),
-  # Jkollerup (Denmark). Herholdt's (South Africa) is not live at launch.
+  # The partners in the AUX-2 Where to Buy links sheet. Kjell sells for
+  # Grönahus, Smarthomes is Herholdt's store, and RaspberryPi.dk is
+  # Jkollerup's.
   distributors:
     # North America
     - name: Ameridroid
@@ -935,6 +935,11 @@ aux-2:
       url: https://www.seeedstudio.com/Home-Assistant-Connect-AUX-2-p-7038.html
       logo: /images/distributors/seeed-studio.webp
     # Australia
+    - name: SmartHome
+      ship_from: Australia
+      ship_to: Australia
+      url: https://www.smarthome.com.au/product/home-assistant-connect-aux-2/
+      logo: /images/distributors/smarthome.webp
     - name: Oz Smart Things
       ship_from: Australia
       ship_to: Australia
@@ -956,6 +961,11 @@ aux-2:
       ship_to: Europe
       url: https://smarterhome.sk/cs/adaptery-moduly-a-softver/home-assistant-connect-aux-2-poe-hub-pro-audio-rs-232-a-bluetooth-2638.html
       logo: /images/distributors/smarter-home.png
+    - name: RaspberryPi.dk
+      ship_from: Denmark
+      ship_to: Europe
+      url: https://raspberrypi.dk/en/product/home-assistant-connect-aux-2/
+      logo: /images/distributors/raspberrypi-dk.webp
     - name: Domadoo
       ship_from: France
       ship_to: Europe
@@ -1015,6 +1025,11 @@ aux-2:
       ship_to: Europe
       url: https://www.robbshop.nl/home-assistant-connect-aux-2
       logo: /images/distributors/robb.webp
+    - name: Kjell
+      ship_from: Norway
+      ship_to: Europe
+      url: https://www.kjell.com/no/88435
+      logo: /images/distributors/kjell-company.webp
     - name: Botland
       ship_from: Poland
       ship_to: Europe
@@ -1035,6 +1050,11 @@ aux-2:
       ship_to: Europe
       url: https://smarterhome.sk/sk/adaptery-moduly-a-softver/home-assistant-connect-aux-2-poe-hub-pre-audio-rs-232-a-bluetooth-2638.html
       logo: /images/distributors/smarter-home.png
+    - name: Kjell
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.kjell.com/se/88435
+      logo: /images/distributors/kjell-company.webp
     - name: Pi-Shop.ch
       ship_from: Switzerland
       ship_to: Europe
@@ -1060,3 +1080,8 @@ aux-2:
       ship_to: Europe
       url: https://thepihut.com/products/home-assistant-connect-aux-2
       logo: /images/distributors/pi-hut.webp
+    # Africa
+    - name: Smarthomes
+      ship_from: South Africa
+      ship_to: Africa
+      url: https://smart-homes.co.za/products/home-assistant-connect-aux-2
