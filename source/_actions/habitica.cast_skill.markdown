@@ -2,6 +2,7 @@
 title: "Cast a skill"
 action: habitica.cast_skill
 domain: habitica
+response: optional
 description: "Uses a skill or spell from your Habitica character on a task."
 ---
 
@@ -76,6 +77,10 @@ task:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 
