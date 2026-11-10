@@ -19,11 +19,11 @@ Connect AUX-2 is all about making your old gear new again. For example, its audi
 
 AUX-2 doesn’t just make older devices better, either. There’s also a lot of new equipment that can gain some new tricks. Kill that TV spyware, block it from the internet, and instead use your AUX-2 to control it, or get your Connect ZWA-2 in the best spot in your house while powering it with PoE.
 
-Connect AUX-2 is available worldwide today for $69 / €59.
+<p style="text-align: center;"><strong>Connect AUX-2 is available worldwide today for $69 / €59.</strong></p>
 
 I’m Shay, Product Manager at <a href="https://www.nabucasa.com/" target="_blank" rel="noopener">Nabu Casa</a>. You might know us as the team that makes official Home Assistant hardware and manages <a href="https://www.nabucasa.com/link/" target="_blank" rel="noopener">Home Assistant Link</a>. As one of the Open Home Foundation’s commercial partners, our work helps fund its mission to keep smart homes private, sustainable, and shaped by you. Choice and sustainability are two of the foundation’s three core principles, and they’re at the heart of Connect AUX-2: you get to run your home on your terms, using the tech you already own. In this post, we’ll cover how AUX-2 came to be, all of the cool things it can unlock for your smart home, and why we’re so excited to share it with the community.
 
-<a href="/connect/aux-2/#buy" style="display:block;text-align:center;"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/buy.webp" alt="Buy the Home Assistant Connect AUX-2" style="border: 0;box-shadow: none;"></a>
+<p style="text-align: center;"><a href="/connect/aux-2/#buy" class="button" style="display: inline-block; padding: 18px 48px; border-radius: 100px; font-size: 1.5rem; background-color: #005ebe; color: #fff; text-transform: uppercase;">Buy now</a></p>
 
 <!--more-->
 
