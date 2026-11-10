@@ -1,0 +1,19 @@
+{
+  "domain": "epic_games_store",
+  "name": "Epic Games Store",
+  "integration_type": "service",
+  "codeowners": [
+    "@Quentame"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "media_entertainment.gaming"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "calendar"
+  ]
+}

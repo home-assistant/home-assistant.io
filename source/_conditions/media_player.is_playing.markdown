@@ -12,8 +12,6 @@ The **Media player is playing** condition passes when the selected media player 
 
 Use **Media player is playing** to send reminders only while something is on, to adjust lighting for movie watching, or to stop another routine from interrupting playback.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is playing** in an automation:
@@ -78,9 +76,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long playback must stay active before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long playback must stay active before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -91,7 +89,7 @@ for:
 ## Good to know
 
 - This condition checks for active playback. If the device is on but idle, the condition does not pass.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you want the opposite test, use [Media player is not playing](/conditions/media_player.is_not_playing/).
 
 {% include conditions/try_it.md %}
@@ -135,7 +133,8 @@ automation: |
 
 When the movie scene starts, dim the room only if every targeted media player in the media room is already playing.
 
-- **Trigger**: Button pressed
+- **Trigger**: State changed
+  - **Entity**: Movie scene button helper
 - **Condition**: Media player is playing
   - **Target**: Media room
   - **Condition passes if**: All

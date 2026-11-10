@@ -1,15 +1,7 @@
 ---
-title: Minio
 description: Integration for interacting with Minio object storage.
-ha_category:
-  - Utility
-ha_iot_class: Cloud Push
 ha_release: 0.98
-ha_codeowners:
-  - '@tkislan'
 ha_domain: minio
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 This {% term integration %} adds interaction with [Minio](https://min.io).
@@ -118,39 +110,4 @@ automation:
         file_path: "/tmp/{{ trigger.event.data.file_name }}"
 ```
 
-## Actions
-
-These actions are provided:
-
-- `get`
-- `put`
-- `remove`
-
-### Action: Get
-
-The `minio.get` action downloads a file from Minio storage.
-
-| Data attribute | Required | Description                        |
-| ---------------------- | -------- | ---------------------------------- |
-| `bucket`               | yes      | Bucket to use                      |
-| `key`                  | yes      | Object key of the file             |
-| `file_path`            | yes      | File path on the local file system |
-
-### Action: Put
-
-The `minio.put` action uploads a file to Minio storage.
-
-| Data attribute | Required | Description                        |
-| ---------------------- | -------- | ---------------------------------- |
-| `bucket`               | yes      | Bucket to use                      |
-| `key`                  | yes      | Object key of the file             |
-| `file_path`            | yes      | File path on the local file system |
-
-### Action: Remove
-
-The `minio.remove` action deletes a file from Minio storage.
-
-| Data attribute | Required | Description            |
-| ---------------------- | -------- | ---------------------- |
-| `bucket`               | yes      | Bucket to use          |
-| `key`                  | yes      | Object key of the file |
+{% include integrations/actions.md %}

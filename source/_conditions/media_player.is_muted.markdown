@@ -12,8 +12,6 @@ The **Media player is muted** condition passes when the selected media player is
 
 Use **Media player is muted** to avoid sending spoken announcements over a muted speaker, to change lighting only during quiet listening, or to branch into a different action when a TV is muted.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is muted** in an automation:
@@ -78,9 +76,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the media player must stay muted before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the media player must stay muted before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -91,7 +89,7 @@ for:
 ## Good to know
 
 - This condition depends on the media player reporting its mute state.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you want the opposite test, use [Media player is not muted](/conditions/media_player.is_unmuted/).
 
 {% include conditions/try_it.md %}
@@ -102,7 +100,9 @@ for:
 
 When the doorbell rings, send a mobile notification only if the living room TV is muted.
 
-- **Trigger**: Doorbell pressed
+- **Trigger**: State changed
+  - **Entity**: Front doorbell sensor
+  - **To**: On
 - **Condition**: Media player is muted
   - **Target**: Living room TV
 - **Action**: Send a notification message

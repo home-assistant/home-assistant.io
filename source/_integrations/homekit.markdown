@@ -1,19 +1,8 @@
 ---
-title: HomeKit Bridge
 description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 featured: true
-ha_category:
-  - Voice
 ha_release: 0.64
-ha_iot_class: Local Push
 ha_domain: homekit
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-ha_zeroconf: true
-ha_platforms:
-  - diagnostics
-ha_integration_type: integration
 ---
 
 The **HomeKit Bridge** {% term integration %} allows you to make your Home Assistant entities available in Apple HomeKit,
@@ -33,7 +22,7 @@ which provides the possibility to pull HomeKit-enabled devices into Home Assista
 
 ## Manual configuration
 
-If you want make specific changes to the way entities are published to HomeKit, override the
+If you want to make specific changes to the way entities are published to HomeKit, override the
 IP address the HomeKit integration uses to communicate with your network or change the
 IP address the HomeKit uses to advertise itself to the network, then you will need to configure the
 HomeKit integration using an entry in your {% term "`configuration.yaml`" %} file.
@@ -52,6 +41,7 @@ homekit:
         - binary_sensor.*_occupancy
       include_entities:
         - binary_sensor.living_room_motion
+        - valve.front_lawn
     entity_config:
       alarm_control_panel.home:
         code: 1234
@@ -73,8 +63,10 @@ homekit:
           - feature: toggle_mute
       switch.bedroom_outlet:
         type: outlet
+      valve.front_lawn:
+        type: sprinkler
       camera.back_porch:
-        support_audio: True
+        support_audio: true
       sensor.some_co_sensor:
         co_threshold: 1000
       sensor.some_co2_sensor:
@@ -195,11 +187,11 @@ homekit:
               required: false
               type: string
             linked_valve_duration:
-              description: The `entity_id` of an `input_number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. Minimum value, maximum value, and step size are set based on the linked `input_number` entity.
+              description: The `entity_id` of an `input_number` or `number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`) or a valve accessory. The state, minimum value, maximum value, and step size of the entity configured for `linked_valve_duration` must be expressed in seconds.
               required: false
               type: string
             linked_valve_end_time:
-              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. The end time has to be maintained in Home Assistant. HomeKit will not update the state of this sensor. The maximum value is set based on the `input_number` of `linked_valve_duration`, or uses a default of 48 hours.
+              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`) or a valve accessory. The end time must be maintained in Home Assistant. HomeKit will not update the state of this sensor. The maximum value is set based on the entity configured for `linked_valve_duration`, or uses a default of 48 hours.
               required: false
               type: string
             low_battery_threshold:
@@ -222,10 +214,10 @@ homekit:
                   required: true
                   type: string
             type:
-              description: Only for `switch` and `fan` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`.
+              description: Only for `switch`, `fan`, `climate`, and `valve` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch`, and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`. Valid types for `climate` entities are `heater_cooler` and `thermostat`. Valid types for `valve` entities are `faucet`, `shower`, `sprinkler`, and `valve`. For `climate` entities, the type is chosen automatically when you leave this unset.
               required: false
               type: string
-              default: '`switch`'
+              default: "`switch` for `switch` entities, `fan` for `fan` entities, chosen automatically for `climate` entities, and `valve` for `valve` entities"
             stream_count:
               description: Only for `camera` entities. The number of simultaneous streams the camera can support.
               required: false
@@ -357,17 +349,35 @@ The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique
 
 ### Multiple HomeKit instances
 
-If you create a HomeKit integration via the UI (i.e., **Settings** > **Devices & services**), it must be configured via the UI **only**. While the UI currently offers limited configuration options, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
+If you create a HomeKit integration via the UI (for example, **Settings** > **Devices & services**), it must be configured via the UI **only**. While the UI currently offers limited configuration options, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
 
+### Climate accessory type
+
+Climate entities are exposed to HomeKit as one of two accessory types. Air conditioners and heat pumps that offer two or more fan speeds or a swing mode that can be turned off are listed as Heater Cooler accessory type. This puts the mode, target temperature, heating and cooling thresholds, fan speed, and swing on one tile, matching how the device works. Everything else, such as a central thermostat, is exposed as a Thermostat accessory. A climate entity that controls a target humidity always stays a Thermostat, since the Heater Cooler accessory cannot control humidity.
+
+This choice is made automatically the first time an entity is added to HomeKit. Entities that were already exposed before this feature was introduced keep their Thermostat accessory, and you can switch them to the Heater Cooler accessory at any time.
+
+You can also pick the accessory type yourself at any time. For a bridge created in the UI, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Configure** on the HomeKit bridge, and choose **Thermostat** or **Heater Cooler** for each climate entity in the climate step. For a bridge set up in YAML, set the entity's `type` to `heater_cooler` or `thermostat` in `entity_config`:
+
+```yaml
+# Example configuration.yaml entry
+homekit:
+  entity_config:
+    climate.living_room:
+      type: heater_cooler
+```
+
+The accessory keeps its identifier, which is derived from the entity ID, so its room assignment and name are preserved when the accessory type changes. Any Home app scenes or automations that referenced the old controls may need to be recreated against the new tile.
+
 ### Accessory mode
 
-When exposing a Camera, Activity based remote (a `remote` that supports activities), Lock, or Television media player (a `media_player` with device class `tv` or `receiver`) to HomeKit, `mode` must be set to `accessory`, and the relevant `include` filter should be setup to only include a single entity.
+When exposing a Camera, Activity based remote (a `remote` that supports activities), Lock, or Television media player (a `media_player` with device class `tv` or `receiver`) to HomeKit, `mode` must be set to `accessory`, and the relevant `include` filter should be set up to only include a single entity.
 
 To quickly add all accessory mode entities in the UI:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**).
+1. Create a new bridge via the UI (for example, **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**).
 2. Select `media_player`, `remote`, `lock`, and `camera` domains.
 3. Complete the flow as normal.
 4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one.
@@ -376,7 +386,7 @@ To quickly add all accessory mode entities in the UI:
 
 To add a single entity in accessory mode:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**)
+1. Create a new bridge via the UI (for example, **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**)
 2. Before pairing the bridge, access the options for the bridge.
 3. Change the mode to `accessory`
 4. Select the entity.
@@ -385,7 +395,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, all entities except hidden entities and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
+By default, all entities except [hidden entities](/docs/configuration/customizing-entities/#hidden-entities) and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -436,7 +446,7 @@ The following integrations are currently supported:
 | automation / button / input_boolean / input_button / lawn_mower / remote / scene / script / vacuum | Switch                 | All represented as switches.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | input_select / select                                         | Switch                 | Represented as a power strip with buttons for each option.                                                                                                                                                                                                                                                                                                                                                                                   |
 | binary_sensor                                                 | Sensor                 | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else.                                                                                                                                                                                                                                            |
-| camera                                                        | Camera                 | All camera devices. **HomeKit Secure Video is not supported at this time.**                                                                                                                                                                                                                                                                                                                                                                  |
+| camera                                                        | Camera                 | All camera devices. **HomeKit Secure Video is not supported.**                                                                                                                                                                                                                                                                                                                                                                  |
 | climate                                                       | Thermostat             | All climate devices.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | cover                                                         | GarageDoorOpener       | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`.                                                                                                                                                                                                                                                                                                                                              |
 | cover                                                         | WindowCovering         | All covers that support `set_cover_position`.                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -454,14 +464,14 @@ The following integrations are currently supported:
 | media_player                                                  | ReceiverMediaPlayer    | All media players that have `receiver` as their `device_class`.  Represented as Receiver and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later.                                                                                                                                   |
 | sensor                                                        | TemperatureSensor      | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`.                                                                                                                                                                                                                                                                                                                                 |
 | sensor                                                        | HumiditySensor         | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`.                                                                                                                                                                                                                                                                                                                                             |
-| sensor                                                        | AirQualitySensor       | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization).                                                                                                                                                                   |
+| sensor                                                        | AirQualitySensor       | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`ozone`/`sulphur_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization).                                                                                                                                         |
 | sensor                                                        | CarbonMonoxideSensor   | All sensors that have `carbon_monoxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                                                           |
 | sensor                                                        | CarbonDioxideSensor    | All sensors that have `co2` as part of their `entity_id` or `carbon_dioxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                    |
 | sensor                                                        | LightSensor            | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class`                                                                                                                                                                                                                                                                                                                                   |
 | switch                                                        | Switch                 | Represented as a switch by default but can be changed by using `type` within `entity_config`. Valve switches (type `faucet`, `shower`, `sprinkler`, or `valve`) can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                                                                                                |
 | water_heater                                                  | WaterHeater            | All `water_heater` devices.                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | device_automation                                             | DeviceTriggerAccessory | All devices that support triggers.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| valve                                                         | Valve                  | All `valve` devices can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| valve                                                         | Valve                  | Represented as a generic valve by default but can be changed by using `type` within `entity_config`. Valve entities (type `faucet`, `shower`, `sprinkler`, or `valve`) can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                             |
 
 # Device triggers
 
@@ -487,11 +497,13 @@ automation:
       event_data:
         key_name: arrow_right
 
-  # Send the arrow right key via a broadlink IR blaster
+  # Send the arrow right key via a Broadlink IR blaster
   actions:
-    - action: broadlink.send
-      host: 192.168.1.55
-      packet: XXXXXXXX
+    - action: remote.send_command
+      target:
+        entity_id: remote.living_room_ir_blaster
+      data:
+        command: b64:YOUR_IR_CODE
 ```
 
 ## Events
@@ -513,6 +525,8 @@ automation:
         message: "The garage door got opened via HomeKit"
 ```
 
+{% include integrations/actions.md %}
+
 ## Troubleshooting
 
 ### All or some devices are intermittently unresponsive
@@ -531,7 +545,7 @@ The following home hubs showed strong results when testing with 300 accessories:
 
 - Apple TV 4k Gen 1 (best results when using ethernet instead of Wi-Fi)
 
-The following home hubs have been reported to have trouble with a large number of accessories:
+The following home hubs have been reported to have trouble with many accessories:
 
 - Apple TV HD
 - Various iPad models
@@ -606,7 +620,7 @@ Please see the [Zero-configuration networking](/integrations/zeroconf/#troublesh
 
 Pairing eventually fails, you might see the error message, `NonUniqueNameException`, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
   
-If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
+If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
 
 #### Pairing hangs - only works with debug configuration
 
@@ -691,7 +705,7 @@ HomeKit camera snapshots tie up the HomeKit connection during snapshots. To avoi
 
 #### Resetting accessories
 
-You may use the `homekit.reset_accessory` action with one or more entity IDs to reset accessories whose configuration may have changed. This can be useful when changing a media player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
+You may use the [Reset accessory](/actions/homekit.reset_accessory/) action with one or more entity IDs to reset accessories whose configuration may have changed. This can be useful when changing a media player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
 
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 
@@ -699,7 +713,7 @@ With either strategy, the accessory will behave as if it's the first time the ac
 
 #### Unpairing and Re-pairing
 
-The HomeKit integration remembers a public key for each paired device. Occasionally, the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The `homekit.unpair` action will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
+The HomeKit integration remembers a public key for each paired device. Occasionally, the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The [Unpair an accessory or bridge](/actions/homekit.unpair/) action will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
 
 The accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.
 
@@ -714,3 +728,13 @@ HomeKit provides five values to represent air quality: Excellent, Good, Fair, In
 | Fair      | Unhealthy for Sensitive Groups (101-150) | 35.5 to 55.4  |
 | Inferior  | Unhealthy (151-200)                      | 55.5 to 125.4 |
 | Poor      | Very Unhealthy (201+)                    | 125.5+        |
+
+Ozone and sulphur dioxide sensor entities are mapped using the US AQI breakpoints for 8-hour ozone and 1-hour sulphur dioxide. The value is converted to ppb first. Ozone sensors can report in `ppb`, `ppm`, or `µg/m³`. Sulphur dioxide sensors can report in `ppb` or `µg/m³`. Sensors without a unit, or with a unit not listed here, are assumed to report in `µg/m³`. The mapping is as follows:
+
+| HomeKit   | US AQI                                   | Ozone ppb | Sulphur dioxide ppb |
+|-----------|------------------------------------------|-----------|---------------------|
+| Excellent | Good (0-50)                              | 0 to 54   | 0 to 35             |
+| Good      | Moderate (51-100)                        | 55 to 70  | 36 to 75            |
+| Fair      | Unhealthy for Sensitive Groups (101-150) | 71 to 85  | 76 to 185           |
+| Inferior  | Unhealthy (151-200)                      | 86 to 105 | 186 to 304          |
+| Poor      | Very Unhealthy (201+)                    | 106+      | 305+                |

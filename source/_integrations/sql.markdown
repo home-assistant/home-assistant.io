@@ -1,19 +1,7 @@
 ---
-title: SQL
 description: Instructions how to integrate SQL sensors into Home Assistant.
-ha_category:
-  - Sensor
-  - Utility
 ha_release: 0.63
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@gjohansson-ST'
-  - '@dougiteixeira'
 ha_domain: sql
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -101,7 +89,7 @@ sql:
       required: false
       type: string
     state_class:
-      description: "Provide [state class](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes) for this sensor."
+      description: "Provide [state class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) for this sensor."
       required: false
       type: string
     icon:
@@ -129,71 +117,13 @@ For more detailed steps on how to define a custom interval, follow the procedure
 
 {% include common-tasks/define_custom_polling.md %}
 
-## Actions
-
-### Action: SQL query
-
-The `sql.query` action executes an arbitrary read-only `SELECT` query against a database and gets the results back.
-
-- **Data attribute**: `query`
-  - **Description**: The `SELECT` query to execute. Only `SELECT` statements are allowed.
-  - **Optional**: No
-- **Data attribute**: `db_url`
-  - **Description**: The URL of the database to connect to. If not provided, the default Home Assistant recorder database will be used.
-  - **Optional**: Yes
-
-The `sql.query` action returns a list of rows, where each row is a dictionary of column names to values.
-
-#### Data type conversion
-
-The data returned by the database is converted to be compatible with the action response. The following conversions are applied:
-
-- `Decimal` types are converted to floats.
-- `Date` and `Datetime` objects are converted to ISO 8601 formatted strings.
-- `bytes` and `bytearray` are converted to a hexadecimal string prefixed with `0x`.
-- All other basic types (string, integer, float, boolean) are returned as is.
-
-#### Example
-
-##### Example of calling the `sql.query` action in an automation:
-
-```yaml
-action: sql.query
-data:
-  query: |-
-    SELECT
-      states.state,
-      last_updated_ts
-    FROM
-      states
-      INNER JOIN states_meta ON
-        states.metadata_id = states_meta.metadata_id
-    WHERE
-      states_meta.entity_id = 'sun.sun'
-    ORDER BY
-      last_updated_ts DESC
-    LIMIT
-      3;
-response_variable: sun_history
-```
-
-This would return a result similar to this, which will be stored in the `sun_history` variable:
-
-```yaml
-result:
-  - state: below_horizon
-    last_updated_ts: 1760634101.8498254
-  - state: below_horizon
-    last_updated_ts: 1760633981.849044
-  - state: below_horizon
-    last_updated_ts: 1760633861.848531
-```
+{% include integrations/actions.md %}
 
 ## Information
 
 See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
 
-The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified. For a full overview of available tables, columns, and indexes in that database, see the [Database](/docs/backend/database/) documentation.
+The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified.
 
 There is no explicit configuration required for attributes. The integration will set all columns returned by the query as attributes.
 

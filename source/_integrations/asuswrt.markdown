@@ -1,23 +1,7 @@
 ---
-title: ASUSWRT
 description: Instructions on how to integrate ASUSWRT into Home Assistant.
-ha_category:
-  - Hub
-  - Presence detection
-  - Sensor
 ha_release: 0.83
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@kennedyshead'
-  - '@ollo69'
-  - '@Vaskivskyi'
 ha_domain: asuswrt
-ha_platforms:
-  - device_tracker
-  - diagnostics
-  - sensor
-ha_integration_type: hub
 ---
 
 The **ASUSWRT** {% term integration %} can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
@@ -54,7 +38,7 @@ If the integration is configured to use the http(s) protocol, also the following
 - Last boot sensor (Timestamp)
 - Uptime sensor (HH:MM:SS)
 
-By default, the integration will create **enabled** Device Tracker entities for devices that HA already knows about via some other integration. The ASUSWRT integration will create **disabled** device_tracker entities for other devices on the network, and the user can enable them manually in the Home Assistant GUI: go to Settings > Devices & Services > Entities. Filter on Integrations = ASUSWRT. Filter on Status = Disabled. Now you should see the disabled device_tracker entities and you can enable them one at a time as desired.
+By default, the integration will create **enabled** Device Tracker entities for devices that HA already knows about via some other integration. The ASUSWRT integration will create **disabled** device_tracker entities for other devices on the network, and the user can enable them manually in the Home Assistant GUI: go to Settings > Devices & services > Entities. Filter on Integrations = ASUSWRT. Filter on Status = Disabled. Now you should see the disabled device_tracker entities and you can enable them one at a time as desired.
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
@@ -76,5 +60,6 @@ If you don't want to automatically track new detected device, disable the integr
 
 ## Padavan custom firmware (The rt-n56u project)
 
-The [rt-n56u project](https://bitbucket.org/padavan/rt-n56u) does not store `dnsmasq.leases` which is used to track devices at `/var/lib/misc/` as `asuswrt` do. However this integration can still be used for the rt-n56u project by changing the dnsmasq location using the `dnsmasq` variable to `dnsmasq: '/tmp'`
-Also, to get the statistics for the `WAN` port, specify `interface: 'eth3'` as this is the interface used in the rt-n56u project
+The [rt-n56u project](https://bitbucket.org/padavan/rt-n56u) does not store `dnsmasq.leases` in `/var/lib/misc/`, where `asuswrt` stores the file used to track connected devices. However, this integration can still be used with the rt-n56u project by setting the `dnsmasq` option to `/tmp`.
+
+To collect statistics for the `WAN` port, set the `interface` option to `eth3`, which is the interface used by the rt-n56u project.

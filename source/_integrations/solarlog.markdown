@@ -1,21 +1,7 @@
 ---
-title: Solar-Log
 description: Instructions on how to integrate Solar-Log sensors within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 0.101
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Ernst79'
-  - '@dontinelli'
 ha_domain: solarlog
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Solar-Log** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation. With the integration you may monitor the solar power production and power consumption as tracked with your Solar-Log device.
@@ -34,12 +20,12 @@ The `solarlog` integration uses the default host address "http://solar-log" if y
 
 {% important %}
 If password protection for the general user is deactivated, the open JSON interface is activated by default. For security reasons, it is recommended to activate the user's password.
-Please note that the open JSON interface only exposes a limited amount of data. Even if the open JSON interface has been activated, without the user's password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data), you either need the user's password or the user password should be deactivated (not recommended).
+The open JSON interface only exposes a limited amount of data. Even if the open JSON interface has been activated, without the user's password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data), you either need the user's password or the user password should be deactivated (not recommended).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
 
-To setup the integration you need the following information:
+To set up the integration you need the following information:
 
 {% configuration_basic %}
 Name:

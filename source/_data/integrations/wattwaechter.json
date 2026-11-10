@@ -1,0 +1,25 @@
+{
+  "domain": "wattwaechter",
+  "name": "WattWächter",
+  "integration_type": "device",
+  "codeowners": [
+    "@smartcircuits"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor",
+    "update"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

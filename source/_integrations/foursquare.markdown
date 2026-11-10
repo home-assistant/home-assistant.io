@@ -1,16 +1,10 @@
 ---
-title: Foursquare
 description: Instructions on how to the Foursquare API into Home Assistant.
-ha_category:
-  - Social
 ha_release: 0.26
-ha_iot_class: Cloud Push
 ha_domain: foursquare
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Foursquare** {% term integration %} accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and an action to check users in on Swarm.

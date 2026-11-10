@@ -27,7 +27,7 @@ Each recipe explains what it does, shows you a working template, and links to th
 Counting is one of the most common things you do with templates. "How many lights are on?" "How many windows are open?" These templates follow the same shape every time: list the entities, filter them, count the result.
 
 {% tip %}
-If all you need is a count on a dashboard, a [Group helper](/integrations/group/) can gather the entities and its state shows how many are active. No template needed.
+If you only need to know whether any of the entities is on, a [Group helper](/integrations/group/) can gather them. By default, its state is on when at least one member is on. It doesn't show how many, so to count them, use one of the templates below.
 {% endtip %}
 
 **Count how many lights are on:**
@@ -263,11 +263,11 @@ Home Assistant entities can go missing, go offline, or report `unknown`. Templat
 
 {% example %}
 template: |
-  {{ states('sensor.might_not_exist') | default('not available') }}
+  {{ state_attr('sensor.might_not_exist', 'unit') | default('not available', true) }}
 output: "not available"
 {% endexample %}
 
-The [`default`](/template-functions/default/) filter replaces a missing value with one you choose.
+The [`default`](/template-functions/default/) filter replaces a missing value with one you choose. With `true` as the second argument, it also replaces `None`, which [`state_attr`](/template-functions/state_attr/) returns for a missing entity or attribute. `default` doesn't help with [`states`](/template-functions/states/): for a missing entity, `states()` returns the text `unknown`, which isn't a missing value. To check an entity, use `has_value`.
 
 **With [`has_value`](/template-functions/has_value/):**
 

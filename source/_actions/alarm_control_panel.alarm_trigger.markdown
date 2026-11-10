@@ -83,8 +83,8 @@ code:
 
 Manually trigger the alarm to verify your siren and notification automations are working. Remember to disarm it again once you've confirmed everything works.
 
-- **Action**: Alarm control panel: Trigger alarm
-- **Target**: Home alarm
+- **Action**: Trigger alarm
+  - **Target**: Home alarm
 
 {% details "YAML example for manually triggering the alarm" %}
 
@@ -101,9 +101,11 @@ action: |
 
 Wire a physical button to trigger the alarm instantly. Keep the button in a discreet location so you have a quick way to sound the alarm in an emergency.
 
-- **Trigger**: Device: Panic button pressed
-- **Action**: Alarm control panel: Trigger alarm
-- **Target**: Home alarm
+- **Trigger**: State changed
+  - **Entity**: Panic button sensor
+  - **To**: On
+- **Action**: Trigger alarm
+  - **Target**: Home alarm
 
 {% details "YAML example for a panic button alarm trigger" %}
 
@@ -126,10 +128,15 @@ automation: |
 
 If a smoke sensor goes off while the alarm is not disarmed, trigger the alarm to sound the siren and alert you immediately.
 
-- **Trigger**: Smoke sensor detects smoke
-- **Condition**: Alarm is not disarmed
-- **Action**: Alarm control panel: Trigger alarm
-- **Target**: Home alarm
+- **Trigger**: State changed
+  - **Entity**: Smoke detector sensor
+  - **To**: Detected
+- **Condition**: Not
+  - **Condition**: State
+    - **Entity**: Home alarm
+    - **State**: Disarmed
+- **Action**: Trigger alarm
+  - **Target**: Home alarm
 
 {% details "YAML example for triggering the alarm on smoke detection" %}
 

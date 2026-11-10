@@ -11,8 +11,6 @@ The **Remote is off** condition passes when a remote {% term entity %} is curren
 
 When you target more than one remote, the condition's **behavior** option controls how the check combines results. You can require any targeted remote to be off, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -50,8 +48,6 @@ This passes when the living room remote is currently off.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,9 +57,9 @@ behavior:
   default: any
 for:
   description: |
-    How long the remote must have been off for the condition to pass. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` requires the remote to have been off for at least five minutes.
+    How long the remote must have been off for the condition to pass. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` requires the remote to have been off for at least five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -73,7 +69,7 @@ for:
 
 ## Good to know
 
-- Remotes that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped and do not count as off. With **Any** behavior, if all targeted remotes are unavailable or have an unknown state, the condition fails. With **All** behavior, if all targeted remotes are unavailable or have an unknown state, the condition passes.
+{% include conditions/unavailable_targets.md entities="remotes" %}
 - To gate an automation on a remote being on instead, use [Remote is on](/conditions/remote.is_on/).
 - Pair with the [Remote turned off](/triggers/remote.turned_off/) trigger to react only when a transition to off happens.
 
@@ -122,7 +118,7 @@ When your morning routine runs, this avoids sending another power-on command if 
 - **Condition**: Remote is off
   - **Target**: Living room remote
   - **For at least**: 00:01:00
-- **Action**: Turn on remote
+- **Action**: Turn on via remote
   - **Target**: Living room remote
 
 {% details "YAML example for a guarded morning power-on" %}

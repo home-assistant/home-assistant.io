@@ -1,24 +1,7 @@
 ---
-title: System Bridge
 description: How to integrate the System Bridge integration into Home Assistant.
-ha_category:
-  - Sensor
-  - System monitor
-  - Update
 ha_release: 2021.6
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@timmo001'
 ha_domain: system_bridge
-ha_platforms:
-  - binary_sensor
-  - media_player
-  - notify
-  - sensor
-  - update
-ha_zeroconf: true
-ha_integration_type: device
 ---
 
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
@@ -27,7 +10,7 @@ ha_integration_type: device
 
 ### Version
 
-This integration requires System Bridge 4.0.2 and above. Any older version will not work.
+This integration requires System Bridge 5.0.0 and above. Any older version will not work.
 
 ### Token
 
@@ -39,59 +22,135 @@ You will need your token. For instructions on finding your token, follow the ste
 
 This integration provides the following binary sensors:
 
-| Name                  | Description                         |
-| --------------------- | ----------------------------------- |
-| Battery Is Charging   | Whether the battery is charging     |
-| Camera In Use         | Whether the camera/webcam is in use |
-| Pending Reboot        | Whether a reboot is pending         |
-| New Version Available | Whether a new version is available  |
+| Name                  | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| AC Power              | Whether the device is on AC power                |
+| Battery Is Charging   | Whether the battery is charging                  |
+| Camera In Use         | Whether the camera/webcam is in use              |
+| Session lock          | Whether the user's session is Locked or Unlocked |
+| Pending Reboot        | Whether a reboot is pending                      |
+| New Version Available | Whether a new version is available               |
 
 ## Sensors
 
 This integration provides the following sensors:
 
-| Name                 | Description                                         |
-| -------------------- | --------------------------------------------------- |
-| Battery              | Battery level of the device                         |
-| Boot Time            | Time the device was turned on                       |
-| CPU Speed            | The current CPU speed                               |
-| Displays Connected   | Number of displays connected                        |
-| Display Resolution X | Display resolution (across)                         |
-| Display Resolution Y | Display resolution (down)                           |
-| Display Refresh Rate | Display refresh rate                                |
-| Filesystem(s)        | Space used for each drive letter / filesystem mount |
-| GPU Memory Free      | GPU memory free in GB                               |
-| GPU Usage %          | GPU usage percentage                                |
-| Kernel               | Version information of the Kernel                   |
-| Latest Version       | System Bridge Latest Version                        |
-| Load                 | System load percentage                              |
-| Power Usage          | Power usage in watts (if available)                 |
-| Memory Free          | Memory (RAM) free in GB                             |
-| Memory Used          | Memory (RAM) used in GB                             |
-| Memory Used %        | Memory (RAM) % used                                 |
-| Operating System     | Version information of the Operating System         |
-| Processes            | Shows count of processes on the system              |
-| Version              | System Bridge Version                               |
+| Name                      | Description                                                       |
+| ------------------------- | ----------------------------------------------------------------- |
+| Battery                   | Battery level of the device                                       |
+| Battery State             | Charging state of the battery                                     |
+| Boot Time                 | Time the device was turned on                                     |
+| CPU Speed                 | The current CPU speed                                             |
+| Disk Read Rate            | Total read rate across all disks                                  |
+| Disk Write Rate           | Total write rate across all disks                                 |
+| Displays Connected        | Number of displays connected                                      |
+| Display Resolution X      | Display resolution (across)                                       |
+| Display Resolution Y      | Display resolution (down)                                         |
+| Display Refresh Rate      | Display refresh rate                                              |
+| Filesystem(s)             | Space used for each drive letter / filesystem mount               |
+| GPU Memory Free           | GPU memory free in GB                                             |
+| GPU Usage %               | GPU usage percentage                                              |
+| Idle Time                 | Time since the user's last keyboard or mouse input                |
+| Kernel                    | Version information of the Kernel                                 |
+| Latest Version            | System Bridge Latest Version                                      |
+| Load                      | System load percentage                                            |
+| Load Average (1 min)      | Load average over 1 minute                                        |
+| Power Usage               | Power usage in watts (if available)                               |
+| Memory Free               | Memory (RAM) free in GB                                           |
+| Memory Used               | Memory (RAM) used in GB                                           |
+| Memory Usage              | Memory (RAM) % used                                               |
+| Network Download Rate     | Total download rate System Bridge reports for the device          |
+| Network Upload Rate       | Total upload rate System Bridge reports for the device            |
+| Interface SSID            | The Wi-Fi network a wireless interface is connected to            |
+| Interface Signal Strength | Wi-Fi signal strength of a wireless interface in dBm              |
+| Operating System          | Version information of the Operating System                       |
+| Processes                 | Shows count of processes on the system                            |
+| Swap Usage                | Swap % used                                                       |
+| Version                   | System Bridge Version                                             |
 
 These sensors are also available, but are not enabled by default:
 
-| Name                   | Description                        |
-| ---------------------- | ---------------------------------- |
-| CPU Temperature        | The current temperature of the CPU |
-| CPU Voltage            | The current voltage of the CPU     |
-| GPU Core Clock Speed   | GPU core clock speed in MHz        |
-| GPU Memory Clock Speed | GPU memory clock speed in MHz      |
-| GPU Fan Speed          | GPU fan speed percentage           |
-| GPU Memory Used        | GPU memory used in GB              |
-| GPU Memory Used %      | GPU memory used percentage         |
-| GPU Power Usage        | GPU power usage                    |
-| GPU Temperature        | The current temperature of the GPU |
+| Name                     | Description                                     |
+| ------------------------ | ----------------------------------------------- |
+| Battery Power            | Battery power draw in watts                     |
+| Battery Voltage          | Battery voltage in volts                        |
+| CPU Temperature          | The current temperature of the CPU              |
+| CPU Voltage              | The current voltage of the CPU                  |
+| Per-disk Read Rate       | Read rate of each disk                          |
+| Per-disk Write Rate      | Write rate of each disk                         |
+| GPU Core Clock Speed     | GPU core clock speed in MHz                     |
+| GPU Decoder Usage        | GPU video decoder usage percentage              |
+| GPU Encoder Usage        | GPU video encoder usage percentage              |
+| GPU Memory Clock Speed   | GPU memory clock speed in MHz                   |
+| GPU Fan Speed            | GPU fan speed in RPM                            |
+| GPU Fan Speed Percentage | GPU fan speed percentage                        |
+| GPU Memory Total         | Total GPU memory                                |
+| GPU Memory Used          | GPU memory used in GB                           |
+| GPU Memory Usage         | GPU memory used percentage                      |
+| GPU Performance State    | GPU performance state, such as `P0`             |
+| GPU Power Limit          | GPU power limit in watts                        |
+| GPU Power Usage          | GPU power usage                                 |
+| GPU Temperature          | The current temperature of the GPU              |
+| Interface Download Rate  | Download rate of each network interface         |
+| Interface Upload Rate    | Upload rate of each network interface           |
+| Interface Link Rate      | Wi-Fi link rate of a wireless interface in Mbps |
+| Load Average (5 min)     | Load average over 5 minutes                     |
+| Load Average (15 min)    | Load average over 15 minutes                    |
+| Swap Used                | Swap used in GB                                 |
+
+Load average sensors are only added on devices that report a load average.
+
+Not every GPU reports every value. GPU sensors System Bridge can't read for a GPU, such as encoder and decoder usage on some integrated GPUs, show as unknown.
+
+Network interface sensors are named after the interface, such as `eth0 download rate`. The download and upload rate sensors show Mbit/s by default, and you can change the unit in the entity settings. Loopback interfaces are left out, and sensors for an interface that appears later, such as a USB network adapter, are added when it first shows up. The Wi-Fi sensors are unknown while the interface isn't connected, and aren't available on macOS.
+
+Per-disk sensors are named after the disk, such as `/dev/sda1 read rate`. They're only added for disks that report read and write activity, and a disk that appears later, such as a USB drive, gets its sensors when it first shows up.
+
+Each battery System Bridge finds, including ones in connected devices such as a wireless mouse or headset, also gets a level and a state sensor named after its model, such as `PRO X SUPERLIGHT 2c battery`. They're enabled for connected devices, and disabled by default for the device's own batteries, which the battery sensors above already cover. Sensors for a battery that appears later, such as a headset being switched on, are added when it first shows up. The AC Power binary sensor is only added on devices that report it, so desktops don't get one.
+
+## Display controls
+
+Each display that reports its brightness gets a `Display YOUR_DISPLAY_ID brightness` number entity to set its brightness from 0 to 100%. Each display that reports its power state gets a `Display YOUR_DISPLAY_ID power` switch entity to turn it on or off. The switch shows off when the display is in standby, suspended, or off. A display connected later gets its entities when it first reports these values. A display that reports neither value doesn't get these entities.
+
+Brightness is set through the backlight on built-in screens and over Display Data Channel Command Interface (DDC/CI) on external monitors. Power is set over DDC/CI. On Linux with Hyprland, screens that don't support DDC/CI are turned on and off through Hyprland.
+
+## Power buttons
+
+The integration provides a button for each power command: **Sleep**, **Hibernate**, **Restart**, **Shut down**, **Lock**, and **Log out**. Pressing one sends the command to the device straight away, with no confirmation, so add a confirmation to any dashboard button that uses them. If System Bridge reports an error for a command, pressing the button shows it.
+
+The buttons do the same as the [`system_bridge.power_command`](/actions/system_bridge.power_command/) action, and are easier to add to a dashboard or an automation.
+
+## Power controls
+
+On Linux with power-profiles-daemon, the **Power profile** select entity shows the active power profile, such as **Balanced**, **Performance**, or **Power saver**, and switches to another. Only the profiles the device supports are listed.
+
+On Linux, the **Keep awake** switch entity keeps the device from idling, so it doesn't lock, blank the screen, or sleep for being idle. Turn it off to let the device idle again. On Omarchy, this is the same as the bar's stay awake switch.
+
+Each entity is added once the device first reports it, so devices without power profiles or keep awake support don't get them. These need System Bridge 5.20.0 or later.
 
 ## Media player
 
-The integration also provides a media player. This allows you control the currently playing media on your device.
+The integration provides a media player for the media currently playing on your device. It shows the title, artist, album, position and other details System Bridge reports, and you can play, pause, stop and skip tracks.
 
-> This is currently only supported devices running System Bridge on Windows.
+What else you can control depends on the operating system:
+
+- **Linux**: With System Bridge 5.20.0 or later, you can also seek, set the volume, and turn shuffle and repeat on or off, when the player supports it.
+- **Windows**: Shuffle and repeat are shown, but can't be changed.
+- **macOS**: Only play, pause and stop are available.
+
+When more than one app is playing, the media player follows the one that's playing, or else the first one that's paused. With System Bridge 5.23.0 or later, its source list holds every player it can see: pick one to show and control that player, or pick `Automatic` to go back to following the playing one. The pick resets when Home Assistant restarts.
+
+### Audio devices
+
+The `Audio` media player sets the volume of whichever output is the system default and mutes it, so it's the system volume. It follows the default when you switch outputs, which makes it the one to use in automations. Its source list holds your outputs: pick one to make it the default. The volume on the main media player is the playing app's own volume, not the system volume.
+
+Each audio output, such as speakers or headphones, also gets a media player named after it, such as `Speakers output`, to set its volume and mute it.
+
+Each audio input, such as a microphone, gets a `Microphone input volume` number entity to set its volume from 0 to 100%, and a `Microphone input mute` switch entity to mute it. An input only gets these entities once System Bridge reports its volume or mute state. The `Audio input` select entity picks the default input.
+
+An audio device connected later, such as a USB headset, gets its entities when it first shows up, and they become unavailable while it's disconnected.
+
+Audio devices need System Bridge 5.16.0 or later, on Linux or Windows. On Linux, they also require `pactl` with JSON support (PulseAudio 16 or later), using PulseAudio or PipeWire with `pipewire-pulse`.
 
 ## Media source
 
@@ -115,11 +174,9 @@ action: |
     message: "Have you considered frogs?"
 {% endexample %}
 
-## Actions
+## Notifications
 
-### Notifications `notify.system_bridge_hostname`
-
-You can send notifications to the device using the `notify` platform.
+You can send notifications to the device using the `notify.system_bridge_hostname` notify entity.
 
 ```yaml
 action: notify.system_bridge_hostname
@@ -142,26 +199,22 @@ data:
   message: "This is a message"
 ```
 
-#### Parameters
+### Parameters
 
-| Parameter | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| target    | The target to send the notification to. This can be ignored. |
-| title     | The title of the notification.                               |
-| message   | The message of the notification.                             |
-| data      | The data to send to the device. See below for info.          |
+- **target**: The target to send the notification to. This can be ignored.
+- **title**: The title of the notification.
+- **message**: The message of the notification.
+- **data**: The data to send to the device. See below for more information.
 
-##### Actions (`data` parameter)
+#### Actions (`data` parameter)
 
-This is an array of actions that can be sent to the device. These are buttons that show below the title, message and image.
+This is a list of actions that can be sent to the device. These are buttons that show below the title, message, and image.
 
-| Parameter | Description                                                                                                                |
-| --------- | -------------------------------------------------------------------------------------------------------------------------- |
-| command   | The command to send to the device. For example `api` will send a request to the System Bridge API.                         |
-| label     | The label of the button.                                                                                                   |
-| data      | The data to send to the device. The available parameters for the `api` command are: `endpoint`, `method` `body`, `params`. |
+- **command**: The command to send to the device. For example, `api` sends a request to the System Bridge API.
+- **label**: The label of the button.
+- **data**: The data to send to the device. The available parameters for the `api` command are `endpoint`, `method`, `body`, and `params`.
 
-Here is an example action that will open a URL in the device's browser:
+Here is an example action that opens a URL in the device's browser:
 
 ```yaml
 - command: api
@@ -173,185 +226,28 @@ Here is an example action that will open a URL in the device's browser:
       url: "http://homeassistant.local:8123/lovelace/cameras"
 ```
 
-##### Audio (`data` parameter)
+#### Audio (`data` parameter)
 
-This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file (an MP3 for example).
+This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file, such as an MP3.
 
-### Action: Get process by ID
+{% include integrations/actions.md %}
 
-The `system_bridge.get_process_by_id` action returns a process by its PID.
+## Data updates
 
-{% my developer_call_service service="system_bridge.get_process_by_id" title="Show action in your Home Assistant instance." %}
+System Bridge sends data to Home Assistant as it changes, over a WebSocket connection. If no data arrives for 30 seconds, Home Assistant checks the connection is still open and reconnects if it isn't.
 
-```yaml
-action: system_bridge.get_process_by_id
-data:
-  bridge: "deviceid"
-  id: 17752
-```
+With System Bridge 5.24.0 and later, the computer tells Home Assistant just before it goes to sleep or shuts down, so its entities become unavailable straight away. Home Assistant logs once that the computer is unavailable, and once when it's back.
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
+While the computer can't be reached, Home Assistant tries to reconnect after 30 seconds, then waits twice as long after each failed attempt, up to 2 minutes. Once it reconnects, the entities update again.
 
-```yaml
-id: 17752
-name: steam.exe
-cpu_usage: 0.9
-created: 1698951361.6117153
-memory_usage: 0.23782578821487121
-path: C:\Program Files (x86)\Steam\steam.exe
-status: running
-username: hostname\user
-working_directory: null
-```
+## Known limitations
 
-### Action: Get processes by name
+- Display brightness and power controls aren't available on macOS.
+- A display can report its brightness or power state without supporting changes to it. In that case, the action fails and shows the error message from System Bridge.
+- Some monitors stop responding to DDC/CI when they're off, so they can't be turned back on from Home Assistant.
 
-The `system_bridge.get_processes_by_name` action returns a count and a list of processes matching the name provided.
+## Removing the integration
 
-{% my developer_call_service service="system_bridge.get_processes_by_name" title="Show action in your Home Assistant instance." %}
+This integration follows standard integration removal. Removing it doesn't change System Bridge on your computer. To stop System Bridge as well, uninstall it there.
 
-```yaml
-action: system_bridge.get_processes_by_name
-data:
-  bridge: "deviceid"
-  name: discord
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-count: 1
-processes:
-  - id: 11196
-    name: Discord.exe
-    cpu_usage: 0.3
-    created: 1698951365.770648
-    memory_usage: 0.07285296297215042
-    path: C:\Users\user\AppData\Local\Discord\app\Discord.exe
-    status: running
-    username: hostname\user
-    working_directory: null
-```
-
-### Action: Open path
-
-The `system_bridge.open_path` action opens a URL or file on the server using the default application.
-
-{% my developer_call_service service="system_bridge.open_path" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.open_path
-data:
-  bridge: "deviceid"
-  path: "C:\\image.jpg"
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: abc123
-type: OPENED
-data:
-  path: C:\image.jpg
-message: Path opened
-```
-
-### Action: Open URL
-
-The `system_bridge.open_url` action opens a URL or file on the server using the default application.
-
-{% my developer_call_service service="system_bridge.open_url" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.open_url
-data:
-  bridge: "deviceid"
-  url: "https://home-assistant.io"
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: abc123
-type: OPENED
-data:
-  url: https://home-assistant.io
-message: URL opened
-```
-
-### Action: Send keypress
-
-The `system_bridge.send_keypress` action sends a keypress to the server.
-
-{% my developer_call_service service="system_bridge.send_keypress" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.send_keypress
-data:
-  bridge: "deviceid"
-  key: "a"
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: abc123
-type: KEYBOARD_KEY_PRESSED
-data:
-  key: a
-message: Key pressed
-```
-
-### Action: Send text
-
-The `system_bridge.send_text` action sends text for the server to type.
-
-{% my developer_call_service service="system_bridge.send_text" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.send_text
-data:
-  bridge: "deviceid"
-  text: "Hello"
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: abc123
-type: KEYBOARD_TEXT_SENT
-data:
-  text: Hello
-message: Text entered
-```
-
-### Action: Power command
-
-The `system_bridge.power_command` action sends a power command to the system.
-
-Supported commands are:
-
-- `hibernate`
-- `lock`
-- `logout`
-- `restart`
-- `shutdown`
-- `sleep`
-
-{% my developer_call_service service="system_bridge.power_command" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.power_command
-data:
-  bridge: "device"
-  command: "sleep"
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: abc123
-type: POWER_SLEEPING
-data: {}
-message: Sleeping
-```
+{% include integrations/remove_device_service.md %}

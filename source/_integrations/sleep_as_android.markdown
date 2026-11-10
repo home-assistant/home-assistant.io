@@ -1,21 +1,7 @@
 ---
-title: Sleep as Android
 description: Instructions on how to integrate Sleep as Android with Home Assistant.
-ha_category:
-  - Event
-  - Sensor
-ha_iot_class: Local Push
 ha_release: 2025.9
-ha_config_flow: true
-ha_codeowners:
-  - '@tr4nt0r'
 ha_domain: sleep_as_android
-ha_integration_type: service
-ha_platforms:
-  - diagnostics
-  - event
-  - sensor
-ha_quality_scale: platinum
 ---
 
 The **Sleep as Android** {% term integration %} connects the Sleep as Android app to Home Assistant, allowing you to trigger automations based on alarm clock or sleep cycle events.
@@ -201,11 +187,11 @@ The **Sleep as Android** app can be automated through its [Intent API](https://s
 - Start, stop, or pause sleep tracking
 - Stop lullaby playback
 
-Thanks to the **Home Assistant Companion App for Android**, which supports [broadcasting intents](/docs/notifications/notification-commands#broadcast-intent), you can trigger these actions directly from Home Assistant.
+Thanks to the **Home Assistant Companion App for Android**, which supports [broadcasting intents](https://companion.home-assistant.io/docs/notifications/notification-commands#broadcast-intent), you can trigger these actions directly from Home Assistant.
 
 To make this even easier, you can import the following blueprint. It supports nearly all Sleep as Android actions, so you can automate your sleep routine without writing any custom scripts:
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/sleep_as_android_trigger_app_actions.yaml" %}
+{% blueprint_example blueprint="sleep_as_android/sleep_as_android_trigger_app_actions.yaml" %}
 
 ## Data updates
 
@@ -219,7 +205,7 @@ This integration receives push updates from the Sleep as Android app whenever an
 
 ## Troubleshooting
 
-The **Sleep as Android** integration receives updates via a push from your Sleep as Android app to a webhook.  If you encounter issues, verify that your Home Assistant is reachable from your mobile phone.
+The **Sleep as Android** integration receives updates via a push from your Sleep as Android app to a webhook. If you encounter issues, verify that your Home Assistant is reachable from your mobile phone.
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 

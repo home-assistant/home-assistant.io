@@ -2,7 +2,7 @@
 title: "Thermostat turned off"
 trigger: climate.turned_off
 domain: climate
-description: "Triggers after one or more climate devices turn off."
+description: "Triggers when one or more thermostats turn off."
 related_triggers:
   - climate.turned_on
   - climate.hvac_mode_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Thermostat turned off** trigger fires after a climate {% term entity %} turns off. Climate entities include thermostats, air conditioners, heat pumps, and evaporative coolers. Use it to react the moment the device is shut down, whether it was switched off manually, by a schedule, through a {% term automation %}, or by a voice command.
 
 Note: The UI labels this trigger as "Thermostat," but it works with all climate entities.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -37,6 +35,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted thermostat turns off.
     - **First**: fires only when the first of a group turns off.
     - **All**: fires only after every targeted thermostat is off.
+  required: false
 For at least:
   description: How long the thermostat must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -56,8 +55,6 @@ This fires every time `climate.living_room` transitions to the off state.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -71,9 +68,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the thermostat must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has stayed off for 10 seconds, which helps ignore accidental toggles or brief power losses.
+    How long the thermostat must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has stayed off for 10 seconds, which helps ignore accidental toggles or brief power losses. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

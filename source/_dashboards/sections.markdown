@@ -32,10 +32,11 @@ You can group cards without using horizontal or vertical stack cards.
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
 2. Follow the steps on [adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard).
    - Under **View type**, select **Sections**.
-3. Under **Max number of sections wide**, select the maximum number of columns you want to see in the new sections view.
+3. Under **Max sections side by side**, select how many sections can be placed next to each other.
+   - Smaller screens fit fewer sections side by side, and phones stack them one under the other.
 4. Under **Dense section placement**, select if you want to allow the cards to be arranged automatically in order to fill gaps between cards.
    - This will remove some gaps, but it also means you have less control over the order of the cards.
-   - Note that this only applies to horizontal gaps if you used sections more than one column wide.
+   - Note that this only applies to horizontal gaps if you made some sections wider.
 5. When you are done, select **Save**.
    - You are now presented with a new, empty view.
    - If you chose a background image, the page is filled with that image.
@@ -81,12 +82,27 @@ The view comes with one section to which you can directly add a card.
 
 You can add a colored background to individual sections. This is a great way to visually group related cards or highlight important sections on your dashboard.
 
+The background is applied to the section itself, not to the cards inside it. The cards keep their own background.
+
 1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. Select the edit {% icon "mdi:edit" %} button on the section you want to customize.
 3. Enable the **Background** toggle.
 4. To change the background color and opacity, expand **Background options**.
-   - Pick a color from the predefined list, or enter a custom hex color code.
+   - Select **Default** to use the background color from your theme.
+   - Alternatively, pick a color from the predefined list, or enter a custom hex color code.
    - Use the **Opacity** slider to adjust the transparency of the background.
+
+If you have sections side by side on the same row, sections without a background automatically align with those that have one, keeping the row looking tidy.
+
+{% note %}
+If the cards in a section appear to take on the background color, your theme most likely uses a transparent card background. Set a card background color in your theme to keep the cards visually distinct.
+
+You can customize the default background color and the section corner rounding in a [custom theme](/integrations/frontend/#defining-themes) using the `ha-section-background-color` and `ha-section-border-radius` variables.
+{% endnote %}
+
+## Changing the width of a section
+
+To make a section wider, select the edit {% icon "mdi:edit" %} button on the section, and on the **Appearance** tab, select a **Width**. Cards keep their size, so a wider section fits more of them on each row. Cards with **Full width card** enabled stretch to the new width of the section.
 
 ## Deleting a section
 
@@ -196,9 +212,9 @@ views:
 
 ## Show or hide section conditionally
 
-You can choose to show or hide certain sections based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as that for the conditional card.
+You can choose to show or hide certain sections based on different conditions. The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
 
-To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab.
+To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab. Adding, reordering, and checking conditions work the same way as for cards. For the steps, refer to [Showing or hiding a card or badge conditionally](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally).
 
 ## Editing the footer
 
@@ -225,6 +241,11 @@ type:
   required: false
   description: "`sections`"
   type: string
+max_columns:
+  required: false
+  description: "Maximum number of sections placed side by side. Smaller screens fit fewer sections side by side."
+  type: integer
+  default: 4
 {% endconfiguration %}
 
 ## Header YAML configuration
@@ -249,6 +270,11 @@ card:
 ## Section YAML configuration
 
 {% configuration %}
+column_span:
+  required: false
+  description: "Width of the section, as a number of sections. For example, `2` makes the section twice as wide as a single section. It is limited by the `max_columns` setting of the view and by the screen size."
+  type: integer
+  default: 1
 background:
   required: false
   description: "Adds a colored background behind the section. Use `true` for the default color and opacity, or provide a map with `color` and `opacity` options."

@@ -1,15 +1,7 @@
 ---
-title: Transport NSW
 description: Instructions on how to integrate timetable data for Transport NSW (Australia) within Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: 0.81
 ha_domain: transport_nsw
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **Transport NSW** {% term integration %} will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
@@ -18,7 +10,7 @@ The **Transport NSW** {% term integration %} will give you the time until the ne
 
 Prerequisite is a free API key from [Transport NSW](https://opendata.transport.nsw.gov.au/). You will need to register an account and then create a new application. You will need to add the 'Trip Planner APIs' to your application. Transport NSW has [instructions for doing so](https://opendata.transport.nsw.gov.au/developers/userguide).
 
-In order to find your stop id, use the [Transport NSW stop finder](https://transportnsw.info/stop#/) and search for your stop. The URL will contain the stop id as a number.
+To find your stop id, use the [Transport NSW stop finder](https://transportnsw.info/stop#/) and search for your stop. The URL will contain the stop id as a number.
 
 You may also try going to Google maps and clicking on any bus/train/ferry stop. The pop up window shows the stop ID underneath the station name. For train stations the easiest way to get a stop id for a platform is through [Transport NSW Info](https://transportnsw.info/).
 

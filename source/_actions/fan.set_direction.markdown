@@ -10,8 +10,6 @@ related_actions:
 
 The **Set fan direction** action is useful for fans that can reverse their rotation. Use it when you want one direction for cooling and the opposite direction for a gentler airflow pattern.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:
@@ -75,8 +73,8 @@ If you prefer a stronger downward breeze during the hottest part of the day, swi
 
 - **Trigger**: Time: 13:00
 - **Action**: Set fan direction
-- **Target**: Ceiling fan
-- **Direction**: Forward
+  - **Target**: Ceiling fan
+  - **Direction**: Forward
 
 {% details "YAML example for afternoon forward airflow" %}
 
@@ -102,8 +100,8 @@ If your fan supports it, reverse rotation can give you a gentler feel while you 
 
 - **Trigger**: Time: 22:00
 - **Action**: Set fan direction
-- **Target**: Bedroom fan
-- **Direction**: Reverse
+  - **Target**: Bedroom fan
+  - **Direction**: Reverse
 
 {% details "YAML example for nighttime reverse airflow" %}
 

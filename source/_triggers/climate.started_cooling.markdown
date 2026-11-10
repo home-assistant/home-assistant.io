@@ -2,7 +2,7 @@
 title: "Thermostat started cooling"
 trigger: climate.started_cooling
 domain: climate
-description: "Triggers after one or more thermostats start cooling."
+description: "Triggers when one or more thermostats start cooling."
 related_triggers:
   - climate.started_heating
   - climate.started_drying
@@ -14,8 +14,6 @@ The **Thermostat started cooling** trigger fires after a thermostat {% term enti
 Use this trigger to react to the start of active cooling, for example to turn on a fan to distribute cool air or to close window coverings to block out heat.
 
 When you target more than one thermostat, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted thermostat starts cooling, only after all targeted thermostats have started cooling, or every single time any of them start cooling.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -40,6 +38,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted thermostat starts cooling.
     - **First**: fires only when the first of a group starts cooling.
     - **All**: fires only after every targeted thermostat is cooling.
+  required: false
 For at least:
   description: How long the thermostat must stay in the cooling state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
@@ -59,8 +58,6 @@ This fires every time `climate.living_room` begins actively cooling.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -74,9 +71,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the thermostat must stay in the cooling state before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has been cooling for 10 seconds, which helps avoid false triggers from brief cooling cycles.
+    How long the thermostat must stay in the cooling state before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has been cooling for 10 seconds, which helps avoid false triggers from brief cooling cycles. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

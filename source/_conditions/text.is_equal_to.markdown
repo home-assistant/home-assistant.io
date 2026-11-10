@@ -7,8 +7,6 @@ description: "Tests if one or more text entities are equal to a specified value.
 
 The **Text is equal to** condition passes when a text {% term entity %} holds a specific value. It works with both [Text](/integrations/text/) entities and [Text helpers](/integrations/input_text/). Use it to branch an automation based on a stored note, only continue when a device reports a known status string, or check that a code helper matches an expected value.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Text is equal to** in an automation:
@@ -65,20 +63,20 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the entity must have held the value for the condition to pass. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the entity must have held the value for the condition to pass. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="text entity or text helper" example="text.welcome_message" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
 - The comparison is exact and case-sensitive: `Away` and `away` are not equal.
-- A text entity in the `unknown` or `unavailable` state never matches a value.
+{% include conditions/unavailable_targets.md entities="text entities" %}
 - To react when a text value changes instead of testing the current value, use the [Text changed](/triggers/text.changed/) trigger.
 
 {% include conditions/try_it.md %}
@@ -89,7 +87,7 @@ for:
 
 When you leave home, this automation checks that the **house mode** helper is set to `away` before turning off the lights and locking the door.
 
-- **Trigger**: State: Person leaves home
+- **Trigger**: State changed: Person leaves home
 - **Condition**: Text is equal to
   - **Target**: House mode
   - **Value**: `away`

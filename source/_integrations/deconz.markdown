@@ -1,42 +1,7 @@
 ---
-title: deCONZ
-description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Scene
-  - Sensor
-  - Siren
-  - Switch
+description: Instructions on how to set up ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
 ha_release: 0.61
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Kane610'
 ha_domain: deconz
-ha_ssdp: true
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - fan
-  - light
-  - lock
-  - number
-  - scene
-  - select
-  - sensor
-  - siren
-  - switch
-ha_integration_type: hub
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
@@ -97,53 +62,7 @@ If you are having issues and want to report a problem, always start with making 
 
 If the state of {% term entities %} are only reflected in Home Assistant when the {% term integration %} is loaded (during restart, reload, setup) you probably have an issue with the WebSocket configuration where your deCONZ instance is running. The deCONZ integration uses the WebSocket port provided by the deCONZ REST API. If you're running the deCONZ Docker container make sure that it properly configures the WebSocket port so deCONZ can report what port is exposed outside of the containerized environment. Also, make sure to review firewall rules that might block communication over certain ports.
 
-## Device actions
-
-Available actions: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
-
-### Action `deconz.configure`
-
-Set the attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/about_rest/).
-
-| Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `field`                | No       | String representing a specific device in deCONZ.                            |
-| `entity`               | No       | String representing a specific Home Assistant entity of a device in deCONZ. |
-| `data`                 | No       | Data is a JSON object with what data you want to alter.                     |
-
-Either `entity` or `field` must be provided. If both are present, `field` will be interpreted as a subpath under the device path corresponding to the specified `entity`:
-
-```json
-{ "field": "/lights/1", "data": {"name": "light2"} }
-```
-
-```json
-{ "entity": "light.light1", "data": {"name": "light2"} }
-```
-
-```json
-{ "entity": "light.light1", "field: "/state", "data": {"on": true} }
-```
-
-```json
-{ "field": "/config", "data": {"permitjoin": 60} }
-```
-
-### Action `deconz.device_refresh`
-
-Refresh with devices added to deCONZ after Home Assistants latest restart.
-
-{% note %}
-deCONZ automatically signals Home Assistant when new {% term sensors %} are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this action or a restart of Home Assistant.
-{% endnote %}
-
-### Action `deconz.remove_orphaned_entries`
-
-Remove entries from {% term entity %} and device registry which are no longer provided by deCONZ.
-
-{% note %}
-It is recommended to use this {% term action %} after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
-{% endnote %}
+{% include integrations/actions.md %}
 
 ## Remote control devices
 
@@ -180,7 +99,7 @@ Specific gestures for the Aqara Magic Cube are:
 
 ### Finding your events
 
-Go to {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}. In the section **Listen to events** add `deconz_event` and press **START LISTENING**. All events from deCONZ will now be shown and by pushing your remote button while monitoring the log it should be fairly easy to find the events you are looking for.
+Go to {% my tools_events title="**Settings** > **Tools** > **Events**" %}. In the section **Listen to events** add `deconz_event` and press **START LISTENING**. All events from deCONZ will now be shown and by pushing your remote button while monitoring the log it should be fairly easy to find the events you are looking for.
 
 ### Device triggers
 
@@ -330,7 +249,7 @@ The Payload consists of an event (`emergency`, `fire`, `invalid_code` or `panic`
 
 The following sensor types are supported:
 
-- Alarm signalling
+- Alarm signaling
 - Fire/Smoke detection
 - Open/Close detection
 - Presence detection
@@ -385,7 +304,7 @@ Switches aren't exposed as ordinary entities, see the [deCONZ main integration](
 
 #### deCONZ Daylight Sensor
 
-The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from <https://github.com/mourner/suncalc>, on which the deCONZ implementation is based):
+The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from [SunCalc](https://github.com/mourner/suncalc), on which the deCONZ implementation is based):
 
 | Sensor State  | Description                                                              |
 | ------------- | ------------------------------------------------------------------------ |
@@ -408,7 +327,7 @@ The sensor also has an attribute called "daylight" that has the value `true` whe
 
 These states can be used in automations as a trigger (for example, trigger when a certain phase of daylight starts or ends) or condition (for example, trigger only if in a certain phase of daylight).
 
-Please note that the deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
+The deCONZ daylight sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
 
 ### Siren
 

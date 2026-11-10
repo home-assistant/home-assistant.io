@@ -10,8 +10,6 @@ related_actions:
 
 The **Turn on fan** action is useful when you want to start airflow right away. You can simply turn the fan on, or turn it on with a specific speed or preset mode in the same step.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:
@@ -81,7 +79,7 @@ Start the fan automatically when you usually go to bed.
 
 - **Trigger**: Time: 22:00
 - **Action**: Turn on fan
-- **Target**: Bedroom fan
+  - **Target**: Bedroom fan
 
 {% details "YAML example for a bedtime fan" %}
 
@@ -105,8 +103,8 @@ If your office warms up later in the day, you can start the fan at a moderate sp
 
 - **Trigger**: Time: 14:00
 - **Action**: Turn on fan
-- **Target**: Office fan
-- **Percentage**: 60
+  - **Target**: Office fan
+  - **Percentage**: `60`%
 
 {% details "YAML example for an afternoon office fan" %}
 

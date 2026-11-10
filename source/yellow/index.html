@@ -7,7 +7,7 @@ tagline: Home Assistant Yellow
 tagline_wide: false
 og_image: /images/yellow/yellow_hero.jpg
 hero_image: /images/yellow/yellow_hero.jpg
-frontpage: true
+frontpage: false
 frontpage_image: /images/frontpage/yellow-frontpage.jpg
 ---
 
@@ -51,7 +51,7 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
   #landingpage .page-content .content .bullet-points .item span{
     letter-spacing: unset;
   }
-  .banner-overlay-button, #landingpage .fab {
+  .banner-overlay-button:not(.disabled), #landingpage .fab {
     background-color: #ffc900 !important;
     color: black !important;
   }
@@ -138,8 +138,8 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
           <img src="/images/yellow/yellow-preview.jpg" />
         </a>
       </div>
-      <div class="banner-overlay-button buy">
-        <div>Order now</div>
+      <div class="banner-overlay-button disabled">
+        <div>Out of stock</div>
       </div>
     </div>
   </div>
@@ -317,7 +317,7 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
   </p>
   {% enddetails %}
 
-  {% details "What happened to Home Assistant Yellow Standard, and will it still be supported?" %} <p>The Home Assistant Yellow Standard was originally designed to be the beginner option in our product line, as it was pre-assembled and easier to get started with. In 2023, we launched the <a href="https://www.home-assistant.io/green" target="_blank">Home Assistant Green</a>, which offered similar features, including easy setup, but at a lower price point. This led us to end the manufacture of the Home Assistant Yellow Standard and focus on Yellow Kit versions for advanced users. Rest assured, it will continue to receive the same support and software updates as the Yellow Kit variants.
+  {% details "What happened to Home Assistant Yellow Standard, and will it still be supported?" %} <p>The Home Assistant Yellow Standard was originally designed to be the beginner option in our product line, as it was pre-assembled and easier to get started with. In 2023, we launched the <a href="https://www.home-assistant.io/green" target="_blank">Home Assistant Green</a>, which offered similar features, including easy setup, but at a lower price point. This led us to end the manufacture of the Home Assistant Yellow Standard and focus on Yellow Kit versions for those who enjoy assembling and customizing their own hardware. Rest assured, it will continue to receive the same support and software updates as the Yellow Kit variants.
   </p>
   {% enddetails %}
 
@@ -344,8 +344,8 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
 {% include custom/buy-dialog.html product="yellow" %}
 
 <div
-  class="fab buy" style="position: fixed; top: 78px; height: 48px;"
-  title="pre-order Home Assistant Yellow"
+  class="fab" style="position: fixed; top: 78px; height: 48px; background-color: #bdbdbd; cursor: default;"
+  title="Home Assistant Yellow is out of stock"
 >
   <svg style="width: 32px; height: 32px" viewBox="0 0 32 32">
     <path
@@ -353,5 +353,5 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
       d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"
     />
   </svg>
-  ORDER
+  OUT OF STOCK
 </div>

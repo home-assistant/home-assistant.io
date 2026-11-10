@@ -1,5 +1,5 @@
 ---
-title: Start cleaning
+title: "Start vacuum cleaner"
 action: vacuum.start
 domain: vacuum
 description: "Starts or resumes a cleaning task on a vacuum."
@@ -15,7 +15,7 @@ To use this action in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an automation, or select **Create automation**.
-3. In the **Add action** section, search for and select **Vacuum: Start vacuum cleaner**.
+3. In the **Add action** section, search for and select **Start vacuum cleaner**.
 4. Choose one or more vacuum entities or an area.
 5. Configure as needed and select **Save**.
 
@@ -35,8 +35,6 @@ This starts `vacuum.downstairs` and `vacuum.upstairs`.
 The `entity_id` is optional; omit it to target all vacuums.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -59,9 +57,10 @@ target:
 
 When the last person leaves home, this automation starts the downstairs vacuum so it can clean while the house is empty.
 
-- **Trigger**: Everyone leaves home
-- **Action**: Start cleaning
-- **Target**: Downstairs vacuum
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
+- **Action**: Start vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for starting the vacuum when nobody is home" %}
 
@@ -69,9 +68,9 @@ When the last person leaves home, this automation starts the downstairs vacuum s
 automation: |
   alias: "Start vacuum when house is empty"
   triggers:
-    - trigger: state
-      entity_id: group.family
-      to: not_home
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: vacuum.start
       target:

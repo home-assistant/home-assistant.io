@@ -16,7 +16,7 @@ related_functions:
   - float
 ---
 
-The `bool` template function converts a value to a boolean (`true` or `false`). It recognizes common truthy values like `true`, `yes`, `on`, `enable`, and `1`, as well as falsy values like `false`, `no`, `off`, `disable`, and `0`. If the value cannot be recognized as either, it returns the default you provide instead of raising an error.
+The `bool` template function converts a value to a boolean (`true` or `false`). It recognizes common truthy values like `true`, `yes`, `on`, `enable`, and `1`, as well as falsy values like `false`, `no`, `off`, `disable`, and `0`. If the value cannot be recognized as either, `bool` raises an error. If you provide a default, it returns the default instead.
 
 This is useful when working with {% term entity %} states or attributes that represent on/off or yes/no values as strings. For example, some {% term sensors %} report `on` or `off` as their state, and you might need to convert that to a proper boolean for use in a condition or calculation. The `bool` function understands all the common representations of true and false that appear throughout Home Assistant.
 
@@ -38,7 +38,7 @@ output: "false"
 ```signature
 bool(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> bool | Any
 ```
 
@@ -49,23 +49,23 @@ The following parameters can be provided to this function.
 {% function_parameters %}
 value:
   description: >
-    The value to convert to a boolean. Recognizes `true`/`false`, `yes`/`no`, `on`/`off`, `enable`/`disable`, `1`/`0`. Other values raise an error unless a default is provided.
+    The value to convert to a boolean. Recognizes `true`/`false`, `yes`/`no`, `on`/`off`, `enable`/`disable`, `1`/`0`. Numbers and booleans also work. Other values raise an error unless a default is provided.
   required: true
   type: any
 default:
   description: >
-    Value to return if the conversion fails. If not provided, an error is raised on unrecognized input.
+    The value to return if the conversion fails, such as `false`. If you leave out `default` and the conversion fails, `bool` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}
 
 ## Recognized values
 
-The filter converts the following values to `true`: `true`, `yes`, `on`, `enable`, `1`.
+The function and the filter convert the following values to `true`: `true`, `yes`, `on`, `enable`, `1`.
 
 It converts the following values to `false`: `false`, `no`, `off`, `disable`, `0`.
 
-All string comparisons are case-insensitive, so `True`, `TRUE`, and `true` all work.
+All text comparisons are case-insensitive, so `True`, `TRUE`, and `true` all work. Spaces at the start or end of the text are ignored.
 
 ## Using a default value
 
@@ -82,7 +82,9 @@ output: "false"
 
 - Only specific words are recognized as boolean. `"unavailable"` or `"unknown"` are not, so pass a default when reading sensor states.
 - Comparisons are case-insensitive, so `"YES"`, `"Yes"`, and `"yes"` all convert to `true`.
-- Integers other than `0` and `1` are not recognized and raise an error unless a default is given.
+- Any number other than `0` converts to `true`, including decimals like `0.5`. The number `0` converts to `false`.
+- The booleans `true` and `false` are returned unchanged.
+- Other values, such as `none`, raise an error unless you pass a default.
 
 {% include template_functions/try_it.md %}
 

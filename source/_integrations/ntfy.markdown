@@ -1,24 +1,7 @@
 ---
-title: ntfy
 description: Instructions on how to integrate ntfy with Home Assistant.
-ha_category:
-  - Event
-  - Notifications
-  - Update
-ha_iot_class: Cloud Push
 ha_release: 2025.5
-ha_config_flow: true
-ha_codeowners:
-  - '@tr4nt0r'
 ha_domain: ntfy
-ha_integration_type: service
-ha_platforms:
-  - diagnostics
-  - event
-  - notify
-  - sensor
-  - update
-ha_quality_scale: platinum
 ---
 
 The **ntfy** {% term integration %} allows publishing push notifications on [ntfy.sh](https://ntfy.sh/) or other ntfy services.
@@ -157,7 +140,7 @@ The **ntfy** integration adds a device representing the service, along with vari
   - **Description**: The total number of messages sent today.
 - **Messages remaining**
   - **Description**: The number of messages that can still be sent before the daily limit is reached.
-  - **Remarks**: Disabled by default
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **Messages usage limit**
   - **Description**: The maximum number of messages allowed per day on the account.
   - **Category**: Diagnostic
@@ -240,7 +223,7 @@ The integration retrieves data from **ntfy.sh** (or your own ntfy instance) ever
 
 ## Known limitations
 
-**ntfy** imposes various rate and usage limits. The official [ntfy.sh](https://ntfy.sh/) service allows up to **60 messages in a burst**, with a **replenishment rate of one message every 5 seconds** (i.e., the full 60-message capacity refills in 5 minutes).
+**ntfy** imposes various rate and usage limits. The official [ntfy.sh](https://ntfy.sh/) service allows up to **60 messages in a burst**, with a **replenishment rate of one message every 5 seconds** (that is, the full 60-message capacity refills in 5 minutes).
 
 Additional usage limits depend on your account tier. To view your current limits, go to [**Account → Usage**](https://ntfy.sh/account).
 

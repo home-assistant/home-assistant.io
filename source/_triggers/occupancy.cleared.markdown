@@ -2,7 +2,7 @@
 title: "Occupancy cleared"
 trigger: occupancy.cleared
 domain: occupancy
-description: "Triggers after one or more occupancy sensors report that a space is no longer occupied."
+description: "Triggers when one or more occupancy sensors stop detecting occupancy."
 related_triggers:
   - occupancy.detected
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Occupancy cleared** trigger fires when one or more occupancy sensors report that a space is no longer occupied.
 
 Use it to automate actions, such as turning off lights, lowering the heating, or running a clean-up routine, when a room or area becomes empty. Use a single sensor for a specific room and a group of sensors for larger spaces.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -60,8 +58,6 @@ This fires 15 minutes after the sensor entity `binary_sensor.occupancy_office` r
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -75,13 +71,13 @@ behavior:
   default: each
 for:
   description: |
-    How long the sensor or sensors must keep reporting the space as no longer occupied before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+    How long the sensor or sensors must keep reporting the space as no longer occupied before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="occupancy sensor" example="binary_sensor.office_occupancy" %}
 
 {% include triggers/behavior.md %}
 
@@ -103,7 +99,8 @@ When the office occupancy sensor reports the room as empty for 15 minutes, this 
   - **Target**: Office occupancy sensor
   - **For at least**: 00:15:00
 - **Action**: Turn off light (in the office)
-- **Action**: Set HVAC mode to off (office HVAC)
+- **Action**: Set thermostat HVAC mode
+  - **HVAC mode**: Off
 
 {% details "YAML example for turning off the office when empty" %}
 

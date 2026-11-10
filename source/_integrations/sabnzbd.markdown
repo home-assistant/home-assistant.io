@@ -1,23 +1,7 @@
 ---
-title: SABnzbd
 description: Instructions on how to integrate SABnzbd with Home Assistant.
-ha_category:
-  - Downloading
-  - Sensor
 ha_release: 0.7
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@shaiu'
-  - '@jpbede'
 ha_domain: sabnzbd
-ha_platforms:
-  - binary_sensor
-  - button
-  - number
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **SABnzbd** {% term integration %} allows you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and set up automations based on download status and activity.
@@ -37,7 +21,7 @@ Here are some practical ways you can use the SABnzbd integration:
 
 ## Prerequisites
 
-You need to grab your API key from your SABnzbd instance in order to configure this integration:
+You need to grab your API key from your SABnzbd instance to configure this integration:
 
 1. Navigate to your SABnzbd web interface.
 2. Select *Config** {% icon "mdi:settings" %}, then **General**.
@@ -67,7 +51,7 @@ API key:
 
 This integration creates the following sensors to monitor your SABnzbd instance:
 
-- **Status**: The current status of SABnzbd (Idle, Downloading, Paused, etc.)
+- **Status**: The current status of SABnzbd (such as Idle, Downloading, or Paused)
 - **Speed**: The current download speed in MB/s
 - **Queue**: The total size of the download queue in GB
 - **Left**: The remaining size of the download queue in GB

@@ -1,18 +1,7 @@
 ---
-title: Hanna
 description: Instructions on how to integrate HannaCloud within Home Assistant.
 ha_release: 2025.12
-ha_category:
-  - Sensor
-ha_codeowners:
-  - '@bestycame'
-ha_quality_scale: bronze
 ha_domain: hanna
-ha_integration_type: hub
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_platforms:
-  - sensor
 ---
 
 The **Hanna** {% term integration %} fetches data from your [Hanna Pool Controller](https://www.hannainstruments.be/en/Applicatons-measure-analyze/swimming-pool/ph-chlorine-control/systems/) device, by connecting to your [HannaCloud](https://www.hannacloud.com) account.
@@ -54,9 +43,9 @@ The integration will update its sensors by {% term polling %} the HannaCloud acc
 The Hanna integration provides the following entities.
 
 #### Sensors
-- **Chlorine flow rate**: Monitors chlorine dosing rate
+- **Chlorine injection**: Volume of chlorine (mL) dosed in the current dosing cycle. It counts up from 0 and resets when the cycle ends; it is not a rate.
 - **Chlorine ORP value**: Measures oxidation-reduction potential with calibration data as attributes
-- **pH Acid/base flow rate**: Monitors acid/base chemical dosing rate
+- **pH acid/base injection**: Volume of acid/base (mL) dosed in the current dosing cycle. It counts up from 0 and resets when the cycle ends; it is not a rate.
 - **pH value**: Measures pH level with calibration data as attributes
 - **Air temperature**: Air temperature reported by the device
 - **Water temperature**: Water temperature reported by the device

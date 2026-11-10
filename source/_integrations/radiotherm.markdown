@@ -1,20 +1,7 @@
 ---
-title: Radio Thermostat
 description: Instructions on how to integrate Radio Thermostat (3M Filtrete) thermostats within Home Assistant.
-ha_category:
-  - Climate
-  - Switch
-ha_iot_class: Local Polling
 ha_release: 0.7.6
 ha_domain: radiotherm
-ha_config_flow: true
-ha_codeowners:
-  - '@vinnyfuria'
-ha_platforms:
-  - climate
-  - switch
-ha_integration_type: device
-ha_dhcp: true
 ---
 
 The **Radio Thermostat** {% term integration %} lets you control a thermostat from [Radio Thermostat](https://www.radiothermostat.com/) or [3M Filtrete](https://www.filtrete.com/). Your thermostat must have the Wi-Fi module installed and connected to your network.

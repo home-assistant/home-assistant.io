@@ -2,7 +2,7 @@
 title: "Thermostat started heating"
 trigger: climate.started_heating
 domain: climate
-description: "Triggers after one or more thermostats start heating."
+description: "Triggers when one or more thermostats start heating."
 related_triggers:
   - climate.started_cooling
   - climate.started_drying
@@ -12,8 +12,6 @@ related_triggers:
 The **Thermostat started heating** trigger fires after a thermostat {% term entity %} begins actively heating. This trigger monitors the `hvac_action` attribute rather than the HVAC mode. A thermostat can be set to **Heat** mode but still be idle if the current temperature already meets the target. The trigger only fires when the thermostat actually starts producing heat.
 
 Use this trigger to react to the start of active heating, for example to turn on a fan to distribute warm air or to close window coverings to retain heat.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -38,6 +36,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted thermostat starts heating.
     - **First**: fires only when the first of a group starts heating.
     - **All**: fires only after every targeted thermostat is heating.
+  required: false
 For at least:
   description: How long the thermostat must stay in the heating state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
@@ -57,8 +56,6 @@ This fires every time `climate.living_room` begins actively heating.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -72,9 +69,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the thermostat must stay in the heating state before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has been heating for 10 seconds, which helps avoid false triggers from brief heating cycles.
+    How long the thermostat must stay in the heating state before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has been heating for 10 seconds, which helps avoid false triggers from brief heating cycles. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

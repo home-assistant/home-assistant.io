@@ -1,16 +1,7 @@
 ---
-title: DLNA Digital Media Server
 description: Instructions on how to access media stored on a DLNA DMS device with Home Assistant.
-ha_category:
-  - Media source
 ha_release: 2022.3
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@chishm'
 ha_domain: dlna_dms
-ha_ssdp: true
-ha_integration_type: service
 ---
 
 The **DLNA Digital Media Server** {% term integration %} allows you to browse and play media from a [DLNA Digital Media Server](https://www.dlna.org/). Configured DMS devices act as a [Media Source](/integrations/media_source/) and can be browsed in the Media panel.
@@ -56,3 +47,9 @@ target:
 data:
   media_content_id: 'media-source://dlna_dms/my_server/?dc:title="Big Buck Bunny"'
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

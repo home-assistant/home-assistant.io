@@ -13,8 +13,6 @@ The **Humidifier is on** condition passes when a humidifier {% term entity %} is
 
 When you target more than one humidifier, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted humidifier to be on, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Humidifier is on** in an automation:
@@ -61,9 +59,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the humidifier must have been continuously on before the condition passes. Useful to confirm the device has been running for a meaningful amount of time before taking action. Accepts a duration string in `HH:MM:SS` format.
+    How long the humidifier must have been continuously on before the condition passes. Useful to confirm the device has been running for a meaningful amount of time before taking action. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -74,7 +72,7 @@ for:
 ## Good to know
 
 - Being "on" does not mean the humidifier is actively running. A device that is on may idle once it reaches its target humidity and only resume when the air dries out. To check for an active humidification cycle, use [Humidifier is humidifying](/conditions/humidifier.is_humidifying/).
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as on. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted humidifier is unavailable.
+{% include conditions/unavailable_targets.md entities="humidifiers" %}
 - To gate an automation on the humidifier being off instead, use [Humidifier is off](/conditions/humidifier.is_off/).
 
 {% include conditions/try_it.md %}
@@ -89,7 +87,9 @@ At 22:00, lower the bedroom humidity target for sleeping, but only if the humidi
 - **Condition**: Humidifier is on
   - **Target**: Bedroom humidifier
   - **Condition passes if**: Any
-- **Action**: Humidifier: Set humidity
+- **Action**: Set humidifier target humidity
+  - **Target**: Bedroom humidifier
+  - **Humidity**: `45`%
 
 {% details "YAML example for a gated humidity adjustment" %}
 

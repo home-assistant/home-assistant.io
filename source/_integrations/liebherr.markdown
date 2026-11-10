@@ -1,15 +1,7 @@
 ---
-title: Liebherr
 description: Instructions on how to integrate Liebherr SmartDevice appliances into Home Assistant.
 ha_release: 2026.3
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@mettolen'
 ha_domain: liebherr
-ha_integration_type: hub
-ha_zeroconf: true
-ha_config_flow: true
-ha_quality_scale: platinum
 related:
   - url: https://home.liebherr.com/
     title: Liebherr
@@ -17,21 +9,6 @@ related:
     title: Liebherr SmartDevice appliances
   - url: https://developer.liebherr.com/apis/smartdevice-homeapi/
     title: Liebherr SmartDevice HomeAPI
-  - docs: /common-tasks/general/#defining-a-custom-polling-interval
-    title: Defining a custom polling interval
-ha_category:
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-ha_platforms:
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - switch
 ---
 
 The **Liebherr** {% term integration %} allows you to control and monitor [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud-based [SmartDevice HomeAPI](https://developer.liebherr.com/apis/smartdevice-homeapi/). With this integration, you can monitor temperatures, adjust cooling settings, and create automations to alert you when temperatures exceed safe food storage thresholds.
@@ -87,7 +64,19 @@ The Liebherr appliances operate based on the temperature unit selected on the de
 
 ## Supported functionality
 
-The **Liebherr** integration provides temperature monitoring, climate control, presentation lighting, and special feature management for refrigerator and freezer zones in your SmartDevice appliances.
+The **Liebherr** integration provides temperature monitoring, setpoint control, door control (AutoDoor), presentation lighting, and special feature management for refrigerator and freezer zones in your SmartDevice appliances.
+
+### Covers
+
+The integration creates cover entities for appliances equipped with an AutoDoor feature. The AutoDoor allows you to open and close the appliance door remotely.
+
+- **AutoDoor**: Controls the automatic door. Supports opening and closing the door.
+
+For appliances with multiple cooling zones, a separate cover entity is created for each zone that has an AutoDoor:
+
+- **Top zone AutoDoor**: Controls the automatic door for the uppermost compartment.
+- **Middle zone AutoDoor**: Controls the automatic door for the middle compartment (if present).
+- **Bottom zone AutoDoor**: Controls the automatic door for the lowermost compartment (if present).
 
 ### Lights
 
@@ -196,15 +185,7 @@ mode: single
 
 ## Data updates
 
-The **Liebherr** integration {% term polling polls %} data from the SmartDevice HomeAPI cloud service every 1 minute.
-
-If you have more than 2 devices, it is recommended to increase the polling interval to avoid hitting API rate limits.
-
-{% details "Defining a custom polling interval" %}
-
-{% include common-tasks/define_custom_polling.md %}
-
-{% enddetails %}
+The **Liebherr** integration refreshes the appliance list every 5 minutes to discover added or removed appliances. Appliance state updates, such as temperatures and operating modes, arrive independently in real time from the SmartDevice HomeAPI cloud service.
 
 ## Known limitations
 

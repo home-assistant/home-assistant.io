@@ -55,6 +55,24 @@
           "/ios/*",
           "/tag/*"
         ]
+      },
+      {
+        "appID": "GUYFAK8DC6.io.home-assistant.app.dev",
+        "paths": [
+          "NOT /ios/beta",
+          "NOT /ios/beta/*",
+          "/ios/*",
+          "/tag/*"
+        ]
+      },
+      {
+        "appID": "GUYFAK8DC6.io.home-assistant.app",
+        "paths": [
+          "NOT /ios/beta",
+          "NOT /ios/beta/*",
+          "/ios/*",
+          "/tag/*"
+        ]
       }
     ]
   }

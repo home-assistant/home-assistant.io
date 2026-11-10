@@ -10,8 +10,6 @@ related_actions:
 
 The **Toggle fan** action is useful when you want one control to flip a fan between on and off. Use it when the current state can vary and you want a single action that handles both directions.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:
@@ -63,7 +61,7 @@ If the fan is usually off at night but sometimes already running, a toggle lets 
 
 - **Trigger**: Time: 22:15
 - **Action**: Toggle fan
-- **Target**: Guest room fan
+  - **Target**: Guest room fan
 
 {% details "YAML example for a bedtime toggle" %}
 
@@ -85,9 +83,9 @@ automation: |
 
 If you use the deck in the evening, the patio fan can follow the deck light with a single action.
 
-- **Trigger**: State: Deck light changes to on
+- **Trigger**: State changed: Deck light changes to on
 - **Action**: Toggle fan
-- **Target**: Patio fan
+  - **Target**: Patio fan
 
 {% details "YAML example for a patio fan toggle" %}
 

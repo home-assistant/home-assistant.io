@@ -1,8 +1,6 @@
 ---
 title: "RESTful Sensor"
 description: Instructions on how to integrate REST sensors into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
 ha_domain: rest
@@ -126,7 +124,7 @@ scan_interval:
   type: integer
   default: 30
 state_class:
-  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  description: The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor.
   required: false
   type: string
 timeout:
@@ -154,7 +152,7 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 {% endconfiguration %}
 
 {% important %}
@@ -274,7 +272,7 @@ my_sensor_secret_token: Bearer gh_DHQIXKVf6Pr4H8Yqz8uhApk_mnV6Zje6Pr4H8Yqz8A8nCx
 
 ### Use GitHub to get the latest release of Home Assistant
 
-This sample is very similar to the [`updater`](/integrations/updater/) integration but the information is received from GitHub.
+This sample retrieves the latest Home Assistant release information from GitHub.
 
 ```yaml
 sensor:
@@ -312,7 +310,7 @@ rest:
         value_template: "{{ value_json.milliseconds_since_epoch }}"
 ```
 
-[JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath. If the endpoint returns XML, it will be converted to JSON using `xmltodict` before searching for attributes. You may find this [XML to JSON Converter](https://www.freeformatter.com/xml-to-json-converter.html) helpful for testing how your XML converts to JSON.
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath. If the endpoint returns XML, it will be converted to JSON using `xmltodict` before searching for attributes. You may find this [XML to JSON Converter](https://xmlable.com/json/) helpful for testing how your XML converts to JSON.
 
 ```yaml
 sensor:

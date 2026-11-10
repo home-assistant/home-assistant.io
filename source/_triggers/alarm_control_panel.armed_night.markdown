@@ -2,15 +2,13 @@
 title: "Alarm armed night"
 trigger: alarm_control_panel.armed_night
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed in night mode."
+description: "Triggers when one or more alarms become armed in night mode."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.disarmed
 ---
 
 The **Alarm armed night** trigger fires after an alarm control panel {% term entity %} switches to the armed night state. Night mode is designed for sleeping hours, keeping perimeter sensors and select interior zones active while allowing movement in bedrooms and bathrooms. Use this trigger to kick off a bedtime routine: turn off downstairs lights, lower the thermostat, and send a goodnight confirmation so you drift off knowing the house is secure.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,6 +28,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms night, **First** to fire only when the first panel in a group arms night, or **All** to fire only after every targeted panel is armed night.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay armed night before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -49,8 +49,6 @@ This fires every time `alarm_control_panel.home_alarm` transitions to the armed 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +58,9 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -85,11 +83,13 @@ for:
 When you arm the alarm in night mode, the house prepares for sleep. Downstairs lights turn off, and the thermostat lowers to a comfortable sleeping temperature.
 
 - **Trigger**: Alarm armed night
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn off downstairs lights
-- **Action**: Lower the thermostat
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn off light
+  - **Target**: Downstairs lights
+- **Action**: Set thermostat target temperature
+  - **Target temperature**: `18`
 
 {% details "YAML example for a bedtime routine" %}
 
@@ -121,10 +121,12 @@ automation: |
 A dim hallway light makes midnight trips to the bathroom safer. When the alarm switches to night mode, a soft glow lights the way without disturbing anyone.
 
 - **Trigger**: Alarm armed night
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn on hallway light at 5%
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn on light
+  - **Target**: Hallway light
+  - **Brightness**: `5` %
 
 {% details "YAML example for a hallway night light" %}
 

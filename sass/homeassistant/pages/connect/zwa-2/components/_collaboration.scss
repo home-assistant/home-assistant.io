@@ -53,7 +53,7 @@ section#collaboration {
             font-weight: 300;
             align-items: center;
             display: flex;
-            gap: 16px;
+            gap: 8px;
             font-size: 16px;
             margin-bottom: 12px;
 
@@ -63,11 +63,7 @@ section#collaboration {
             }
 
             img {
-                height: 25px;
-
-                @include bp(tablet) {
-                    height: 30px;
-                }
+                height: 24px;
             }
         }
 

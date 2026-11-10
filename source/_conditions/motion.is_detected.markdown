@@ -9,8 +9,6 @@ related_conditions:
 
 The **Motion is detected** condition passes when one or more motion sensors are detecting motion. Use it in an automation for turning devices on or off, running security checks or sending alerts if motion is detected.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -41,16 +39,14 @@ In YAML, refer to this condition as `motion.is_detected`. A basic example looks 
 condition: |
   condition: motion.is_detected
   target:
-    entity_id: motion.entrance_motion_sensor
+    entity_id: binary_sensor.entrance_motion
   options:
     for: "00:05:00"
 {% endexample %}
 
-This passes when the entity `motion.entrance_motion_sensor` has been continuously detecting motion for 5 minutes.
+This passes when the entity `binary_sensor.entrance_motion` has been continuously detecting motion for 5 minutes.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:
@@ -61,15 +57,15 @@ behavior:
   default: any
 for:
   description: >
-    How long one or more motion sensors must be continuously detecting motion before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long one or more motion sensors must be continuously detecting motion before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include conditions/targets.md entity_type="motion sensor" example="binary_sensor.hallway_motion" %}
 
-{% include triggers/behavior.md %}
+{% include conditions/behavior.md %}
 
 ## Good to know
 

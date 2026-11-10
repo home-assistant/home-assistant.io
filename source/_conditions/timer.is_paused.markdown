@@ -10,8 +10,6 @@ related_conditions:
 
 The **Timer is paused** condition passes when the timer is paused and still has time remaining. Use it when an automation should continue only while a countdown is on hold.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -49,8 +47,6 @@ This passes when `timer.movie_break` is paused.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple timers are targeted, controls how results combine. Accepts `all` or `any`.
@@ -58,9 +54,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the timer must remain paused before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the timer must remain paused before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -71,7 +67,7 @@ for:
 ## Good to know
 
 - A paused timer keeps its remaining time until it is restarted or cancelled.
-- Timers that are `unavailable` or `unknown` are skipped for **Any** and cause **All** to fail.
+{% include conditions/unavailable_targets.md entities="timers" %}
 
 {% include conditions/try_it.md %}
 
@@ -114,7 +110,7 @@ automation: |
 
 If a study timer is paused, you can use that state to bring the lamp back on at a comfortable brightness.
 
-- **Trigger**: Sun: after sunset
+- **Trigger**: Sunset
 - **Condition**: Timer is paused
   - **Target**: Study timer
 - **Condition passes if**: Any
@@ -126,8 +122,7 @@ If a study timer is paused, you can use that state to bring the lamp back on at 
 automation: |
   alias: "Turn on the reading lamp only if the study timer is paused"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: timer.is_paused
       target:

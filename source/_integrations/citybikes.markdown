@@ -1,18 +1,10 @@
 ---
-title: CityBikes
 description: Instructions on how to integrate data from the CityBikes API into Home Assistant.
-ha_category:
-  - Transport
 ha_release: 0.49
-ha_iot_class: Cloud Polling
 ha_domain: citybikes
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **CityBikes** {% term integration %} monitors bike availability at bike sharing stations in a chosen area. The data is provided by [CityBikes](https://citybik.es/#about), which supports bike sharing systems all around the world.

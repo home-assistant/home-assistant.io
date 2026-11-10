@@ -11,8 +11,6 @@ The **Garage door is open** condition passes when one or more targeted garage do
 
 This condition is useful for reminders, security checks, and routines that should warn you when a garage door has been left open.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -50,8 +48,6 @@ This passes when `cover.garage_door` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,22 +57,20 @@ behavior:
   default: any
 for:
   description: >
-    How long the garage door must have stayed open before the condition passes.
+    How long the garage door must have stayed open before the condition passes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="garage door sensor or motorized garage door" example="cover.garage_door" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- This condition works with garage door contact sensors that use the `garage_door` device class and garage door covers that use the `garage` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted garage door is open.
-- With **All**, the condition passes only if every available targeted garage door is open. If every targeted garage door is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- The target must be a garage door contact sensor with the garage door device class or a garage door cover with the garage device class.
+{% include conditions/unavailable_targets.md entities="garage doors" %}
 
 {% include conditions/try_it.md %}
 
@@ -86,7 +80,9 @@ for:
 
 If you have created a {% term helper %} to mark bedtime, this automation can use it to check whether the garage door is still open before you settle in for the night.
 
-- **Trigger**: Bedtime helper turns on
+- **Trigger**: State changed
+  - **Entity**: Bedtime mode helper
+  - **To**: On
 - **Condition**: Garage door is open
   - **Target**: Garage door
 - **Action**: Send a notification message
@@ -118,9 +114,11 @@ automation: |
 
 ### Automation: alert you if the garage door is still open after you leave home
 
-When the last person leaves home, this automation checks whether the garage door is still open. If it is, Home Assistant sends an alert so you can close it before getting too far away.
+When Frenck leaves home, this automation checks whether the garage door is still open. If it is, Home Assistant sends an alert so Frenck can close it before getting too far away.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Frenck
+  - **Zone**: Home
 - **Condition**: Garage door is open
   - **Target**: Garage door
 - **Action**: Send a notification message
@@ -132,10 +130,11 @@ When the last person leaves home, this automation checks whether the garage door
 automation: |
   alias: "Alert me if the garage door is open when leaving home"
   triggers:
-    - trigger: zone
-      entity_id: person.frenck
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.frenck
+      options:
+        zone: zone.home
   conditions:
     - condition: garage_door.is_open
       target:

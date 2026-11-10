@@ -10,8 +10,6 @@ related_conditions:
 
 The **Moisture is detected** condition passes when one or more moisture binary sensors are detecting water. Use it with leak sensors to gate an automation on wet conditions, like only sending a notification if a leak is currently present or only running a routine while the basement floor is still wet.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -60,20 +58,20 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the sensor or sensors must keep detecting moisture before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the sensor or sensors must keep detecting moisture before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="moisture detector" example="binary_sensor.kitchen_leak" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
 - This condition works with binary sensors that have the **moisture** device class, such as water leak sensors.
-- Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For percentage-based moisture readings (such as soil moisture probes), use [Moisture level](/conditions/moisture.is_value/) instead.
 - To check the opposite state, use [Moisture is not detected](/conditions/moisture.is_not_detected/).
 

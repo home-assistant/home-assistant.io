@@ -11,7 +11,7 @@ related_conditions:
 
 The **Battery is charging** condition passes when a battery-powered device is actively charging. A device is charging when it is connected to a power source, such as a charger, dock, or USB cable. Use **Battery is charging** to run an automation only while a device is plugged in, for example to delay noisy actions until a phone is on its charger, or to confirm a vacuum is docked and topping up before starting another routine.
 
-{% include integrations/labs_entity_triggers_note.md %}
+For a visual overview of all battery statuses, open {% my maintenance title="**Maintenance** dashboard" %}.
 
 {% include conditions/ui_header.md %}
 
@@ -43,10 +43,10 @@ In YAML, **Battery is charging** is referred to as `battery.is_charging`. A basi
 condition: |
   condition: battery.is_charging
   target:
-    entity_id: sensor.phone_battery
+    entity_id: binary_sensor.phone_battery_charging
 {% endexample %}
 
-This passes when `sensor.phone_battery` is charging.
+This passes when `binary_sensor.phone_battery_charging` is charging.
 
 ### Options in YAML
 
@@ -59,20 +59,20 @@ behavior:
   default: any
 for:
   description: >
-    How long the device must have been continuously charging before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the device must have been continuously charging before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="battery charging sensor" example="binary_sensor.phone_charging" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- The condition works with sensors and devices that report a charging state, such as devices that expose a battery charging attribute.
-- Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+- The target must be a binary sensor with the battery charging device class.
+{% include conditions/unavailable_targets.md entities="devices" %}
 - To check the opposite state, use [Battery is not charging](/conditions/battery.is_not_charging/).
 - To check the battery percentage instead, use [Battery level](/conditions/battery.is_level/).
 - For an overview of the status of your battery {% term entities %}, open the [**Maintenance** dashboard](/dashboards/dashboards/#dashboards-only-shown-in-the-dashboard-list-by-default). This dashboard allows you to quickly see which batteries need replacing.
@@ -101,7 +101,7 @@ automation: |
   conditions:
     - condition: battery.is_charging
       target:
-        entity_id: sensor.laptop_battery
+        entity_id: binary_sensor.laptop_battery_charging
   actions:
     - action: script.run_nightly_backup
 {% endexample %}

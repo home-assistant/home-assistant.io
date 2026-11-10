@@ -1,28 +1,10 @@
 ---
-title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
 ha_release: 0.103
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@Corbeno'
-  - '@erwindouna'
-  - '@CoMPaTech'
 ha_domain: proxmoxve
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - sensor
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
-ha_config_flow: true
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration lets you monitor your Proxmox VE nodes, virtual machines, and containers in Home Assistant, and exposes control actions (if your Proxmox permissions allow it).
@@ -166,6 +148,8 @@ To create a token:
 
 ## Entities
 
+Some entities are not enabled by default, you can enable them via the device page.
+
 ### Sensor
 
 - **CPU**: Percentage of CPU usage.
@@ -187,29 +171,72 @@ To create a token:
 ### Button
 
 - **Create snapshot**: Creates a snapshot of a VM/LXC.
-- **Start**: Starts a node/VM/LXC.
+- **Start**: Starts a VM/LXC.
 - **Start all**: Starts all VMs and LXCs known on a node.
-- **Stop**: Stops a node/VM/LXC.
+- **Stop**: Stops a VM/LXC immediately.
 - **Stop all**: Stops all VMs and LXCs known on a node.
-- **Restart**: Restarts a VM/LXC.
-- **Reboot**: Reboots a node.
-- **Shutdown**: Shuts a node/VM down.
-- **Hibernate**: Puts a VM in hibernation; only available to VMs.
+- **Suspend all**: Suspends all VMs on a node.
+- **Restart**: Restarts a node/VM/LXC.
+- **Shut down**: Shuts a node/VM down.
+- **Pause**: Pauses a VM; only available to VMs.
+- **Suspend**: Suspends a VM to disk (hibernation); only available to VMs.
+- **Resume**: Resumes a paused VM; only available to VMs.
 - **Reset**: Resets a VM; only available to VMs.
 
 {% note %}
-**Reboot** and **Shutdown** will attempt to perform a graceful action (if you have the guest agent installed). On a node this will attempt the graceful shutdown of every VM/LXC.
-**Restart** and **Stop**/**Stop all** will stop a running system immediately. In other words, it is like pulling the power plug of a running computer.
+**Restart** and **Shut down** stop a system cleanly. **Restart** shuts a VM or LXC down and then starts it again. **Shut down** on a VM sends an ACPI shutdown event to the guest operating system. On a node, these buttons restart or shut down the host.
+**Stop** ends a running VM or LXC immediately. It is like pulling the power plug of a running computer and may damage data.
 {% endnote %}
+
+### Update
+
+For each node in your Proxmox VE environment, the update entity shows whether the node is up to date or if a new version is available, including any pending package updates.
+
+## Data updates
+
+Data is {% term polling polled %} from devices every 60 seconds.
+
+## Examples
+
+### Alert for offline VM
+
+This example automation will alert you if a critical VM is  offline beyond a reasonable time.
+
+{% example %}
+automation: |
+  alias: "Proxmox Database VM Offline Alert"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.databaseserver_status
+      from: "on"
+      to: "off"
+      for:
+        minutes: 15
+  actions:
+    - action: notify.send_message
+      metadata: {}
+      data:
+        message: "The Database Server VM has been offline for over 15 minutes."
+      target:
+        entity_id: notify.notifier
+{% endexample %}
+
+## Known limitations
+
+Unfortunately not all storage types and data are exposed fully via the ProxmoxVE API.
 
 ## Troubleshooting
 
 ### Buttons not working
 
 If you want to use the `button` entities to perform actions on your node(s), additional privileges may be required:
-- For actions related to power, such as start, stop or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerManagemt`, or role `PVEVMUser`.
+- For actions related to power, such as start, stop, or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerMgmt`, or role `PVEVMUser`.
 - To create snapshots, the privilege `VM.Snapshot` is required, or role `PVEVMAdmin`.
-If monitoring works (e.g. sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
+If monitoring works (for example, sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
+
+### Update unavailable
+
+If the update entity for any of your nodes shows **Unavailable**, make sure your Proxmox VE user has the `Sys.Modify` privilege or the `PVEAdmin` role.
 
 ### Diagnostic data
 

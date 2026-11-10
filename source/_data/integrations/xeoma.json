@@ -1,0 +1,15 @@
+{
+  "domain": "xeoma",
+  "name": "Xeoma",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "security_safety.cameras"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "camera"
+  ]
+}
