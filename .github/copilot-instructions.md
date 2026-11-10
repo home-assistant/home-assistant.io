@@ -95,7 +95,7 @@ The website uses the shared Open Home Foundation Plausible loader, included once
 
 - When you draft a pull request description, use `.github/PULL_REQUEST_TEMPLATE.md`. Do not remove any of its text. Fill in each section, and check the boxes that apply.
 - Use `current` as the base branch for fixes and improvements to existing documentation. Use `next` for a new integration or a new feature that is not released yet.
-- If the change documents a pull request in a codebase like core or frontend, link that parent pull request in the **Additional information** section. Use one documentation pull request per parent pull request.
+- If the change documents a pull request in a codebase like core or frontend, link that parent pull request in the **Additional information** section. Ideally, use one documentation pull request per parent pull request, so that the documentation can be merged together with the code change.
 
 ## AI policy
 
