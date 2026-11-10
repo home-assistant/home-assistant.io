@@ -87,7 +87,7 @@ Use this automation to stop the blinds when you release a button on your remote 
 
 {% example %}
 automation: |
-  - alias: "Stop the living room blinds when the remote button is released"
+    alias: "Stop the living room blinds when the remote button is released"
     triggers:
       - trigger: button.hold_ended
         target:
@@ -113,7 +113,7 @@ Use this automation to let water run from the garden hose only while you hold a 
 
 {% example %}
 automation: |
-  - alias: "Close the garden hose valve when the button is released"
+    alias: "Close the garden hose valve when the button is released"
     triggers:
       - trigger: button.hold_ended
         target:
