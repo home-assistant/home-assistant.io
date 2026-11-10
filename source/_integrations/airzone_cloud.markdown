@@ -22,6 +22,12 @@ ha_integration_type: hub
 
 This {% term integration %} interacts with the Cloud API of [Airzone devices](https://www.airzone.es/en/).
 
+{% important %}
+Airzone states that cloud integrations require a subscription, while local integrations remain free. Subscription requirements and available connection methods depend on the Airzone device. If your device supports a local API, consider using the [Airzone integration](/integrations/airzone/) instead of this cloud-based integration.
+
+If Home Assistant and the Airzone device are on the same local network but this integration returns an HTTP `402 Payment Required` error, the Cloud API may be failing to recognize the local connection. An IPv6-related local-network detection issue has been reported to Airzone. Check the [Airzone support information](https://support.airzonecontrol.com/aa/en/faqs/wird-sich-die-integration-mit-drittanbietersystemen-alexa-google-home-knx-bacnet-modbus-usw-mit-dem-neuen-modell-andern/) for current subscription and connectivity details.
+{% endimportant %}
+
 There are two main types of Airzone devices:
 - [Aidoo](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/wi-fi/) / [Aidoo Pro](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/pro/)
 - [Easyzone (US)](https://www.airzonecontrol.com/aa/en/control-solutions/easyzone/) / [Flexa (EU)](https://www.airzonecontrol.com/ib/es/soluciones-de-control/flexa/)
