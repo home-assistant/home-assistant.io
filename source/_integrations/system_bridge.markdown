@@ -35,7 +35,7 @@ Host:
 Port:
   description: The port System Bridge listens on. The default is `9170`, and you can change it on the computer with the `SYSTEM_BRIDGE_PORT` environment variable.
 Token:
-  description: The token from the System Bridge settings. To find it, run `system-bridge client token` on the computer, as the same user that runs System Bridge.
+  description: The token from the System Bridge settings. To find it, run `system-bridge client token` on the computer, as the same user that runs System Bridge. On Windows, run `.\system-bridge.exe client token` in PowerShell from the `C:\Program Files\System Bridge` folder.
 {% endconfiguration_basic %}
 
 Home Assistant discovers computers running System Bridge on your network. A discovered computer shows up under {% my integrations title="**Settings** > **Devices & services**" %}, and you only need to enter its token.
@@ -234,9 +234,9 @@ This is an object containing the `source` and `volume` (0-100). The source must 
 - A display can report its brightness or power state without supporting changes to it. In that case, the action fails and shows the error message from System Bridge.
 - Some monitors stop responding to DDC/CI when they're off, so they can't be turned back on from Home Assistant.
 
-## Examples
+## System Bridge automation examples
 
-### Lock your computer when you leave home
+### Automation: Lock your computer when you leave home
 
 This automation locks the computer when everyone has left home. Replace `button.my_computer_lock` with your computer's **Lock** button.
 
@@ -258,7 +258,7 @@ automation: |
         entity_id: button.my_computer_lock
 {% endexample %}
 
-### Notify when a disk is nearly full
+### Automation: Notify when a disk is nearly full
 
 This automation sends a notification to your phone when a disk on the computer is more than 90% full. Replace `sensor.my_computer_c_space_used` with the space used sensor of the disk.
 
@@ -286,7 +286,7 @@ automation: |
         message: "The C: drive on your computer is more than 90% full."
 {% endexample %}
 
-### Show a notification on the computer when the doorbell rings
+### Automation: Show a notification on the computer when the doorbell rings
 
 This automation shows a notification on the computer when someone rings the doorbell. Replace `event.front_door_doorbell` with your doorbell's event entity, and `notify.my_computer` with your computer's notify entity.
 
