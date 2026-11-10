@@ -1,10 +1,10 @@
 ---
-description: Show SMHI weather forecasts, thunder probability, and fire risk for locations in Sweden in Home Assistant.
+description: Show SMHI weather forecasts, weather radar, thunder probability, and fire risk for locations in Sweden in Home Assistant.
 ha_release: 0.81
 ha_domain: smhi
 ---
 
-The **SMHI** {% term integration %} brings weather forecasts and fire risk forecasts from [SMHI](https://www.smhi.se/), the Swedish Meteorological and Hydrological Institute, into Home Assistant. Use it to show the weather and forecasts for your home on your dashboard, or to get notified when thunder or a high fire risk is expected.
+The **SMHI** {% term integration %} brings weather forecasts, weather radar, and fire risk forecasts from [SMHI](https://www.smhi.se/), the Swedish Meteorological and Hydrological Institute, into Home Assistant. Use it to show the weather and forecasts for your home on your dashboard, to see where it is raining right now, or to get notified when thunder or a high fire risk is expected.
 
 The integration works for locations in and near Sweden and does not need an account or an API key. Each location you add becomes its own entry in Home Assistant, with a weather entity and sensors for that location.
 
@@ -12,6 +12,7 @@ The integration works for locations in and near Sweden and does not need an acco
 
 - Show the current weather and the daily or hourly forecast for your home on your dashboard.
 - Get a notification when thunder is likely, so you have time to bring in garden furniture or unplug sensitive electronics.
+- See on the weather radar whether it is raining at your home right now, and show the radar map of Sweden on your dashboard.
 - Check the fire risk before you light a barbecue or a campfire, or get notified when the risk is high.
 - Follow the weather at a second location, such as a summer house, by adding it as a separate entry.
 
@@ -105,6 +106,25 @@ All fire risk sensors are disabled by default. To use them, [enable the sensors]
   - **Description**: How much water is available in the forest fuel.
   - **Options**: Very wet, Wet, Moderately wet, Dry, Very dry, Extremely dry
 
+### Radar sensors
+
+The radar sensors show what the SMHI weather radar measures at the location right now. Both sensors are disabled by default. To use them, [enable the sensors](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) you need.
+
+- **Radar precipitation intensity**
+  - **Description**: The precipitation intensity at the location, according to the latest radar image.
+  - **Unit**: mm/h
+  - **Remarks**: The value is 0 when the radar does not detect any precipitation at the location.
+- **Radar reflectivity**
+  - **Description**: The radar reflectivity at the location, according to the latest radar image. A higher value means heavier precipitation.
+  - **Unit**: dBZ
+  - **Remarks**: The value is -30, the lowest value on the radar scale, when the radar does not detect any precipitation at the location.
+
+### Image
+
+- **Radar**
+  - **Description**: The latest SMHI radar image of Sweden on a map, with the location of the entry marked. Show it on your dashboard with a picture entity card.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). The state of the entity is the time of the radar image, so it changes each time SMHI publishes a new image.
+
 ## SMHI automation examples
 
 You can use the SMHI sensors in automations, for example to get a warning before thunder or when the fire risk is high.
@@ -176,7 +196,11 @@ automation: |
 
 ## Data updates
 
-The integration {% term polling polls %} SMHI for new weather forecasts and fire risk forecasts every 31 minutes. The `weather.get_forecasts` action uses the forecast data that is already loaded, so it does not send extra requests to SMHI.
+The integration {% term polling polls %} SMHI for new weather forecasts and fire risk forecasts every 31 minutes.
+
+The radar data is loaded when the integration starts. After that, the integration polls SMHI for new radar data every 5 minutes, which is how often SMHI publishes a new radar image. This only happens when at least one of the radar entities is enabled. The radar image itself is only downloaded when it is shown, and once for each new radar image.
+
+The `weather.get_forecasts` action uses the forecast data that is already loaded, so it does not send extra requests to SMHI.
 
 The data comes from the [SMHI open data API](https://opendata.smhi.se/metfcst). SMHI provides the data for free under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/).
 
@@ -184,6 +208,8 @@ The data comes from the [SMHI open data API](https://opendata.smhi.se/metfcst). 
 
 - Only locations within the [SMHI forecast area](https://opendata.smhi.se/metfcst/pmp/geographic_area) can be added. This area covers Sweden and the areas close to it.
 - The current weather and the weather sensors use the first hour of the latest SMHI forecast. The fire risk sensors show today's SMHI fire risk forecast. None of these values are weather-station measurements.
+- The radar sensors are based on the SMHI weather radar, not on a rain gauge, so they can differ from the precipitation measured on the ground. If the location is outside the area the radar covers, the radar sensors show as unknown.
+- The radar image always shows the whole of Sweden. You cannot zoom in on your location.
 - The weather entity never reports the conditions hail, windy, or exceptional, because the SMHI forecast does not provide them.
 - The fire risk sensors are most useful during the fire season. Outside the season, some of them can show values like **Snow cover** or **Grass fire season over**, or have no value at all.
 - Each entry covers one location. To follow several locations, add the integration once for each location.
@@ -233,7 +259,7 @@ The weather entity and the sensors show as unavailable, or the integration shows
 
 Home Assistant could not get data from SMHI. This can happen when your internet connection is down or when the SMHI service has a temporary problem.
 
-The weather forecast and the fire risk forecast are loaded separately. If only the fire risk forecast fails, only the fire risk sensors become unavailable. When Home Assistant starts, both forecasts must load before the integration can set up.
+The weather forecast, the fire risk forecast, and the radar data are loaded separately. If only one of them fails, only the entities that use it become unavailable. For example, if only the radar fails, only the radar sensors and the radar image become unavailable. When Home Assistant starts, all three must load before the integration can set up.
 
 #### Resolution
 
