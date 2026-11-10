@@ -101,7 +101,7 @@ As always, we never use clips or glue; just four Phillips head screws and you ca
 
 Our last four products might have skipped Power over Ethernet (PoE), but the AUX-2 is *four products in one*… so by our calculations, we now have an even split of PoE and non-PoE devices 😉 Joking aside, we know how many of you love PoE, and we’re also big fans. For anyone new to it, PoE allows you to send both power *and* data to a device with a single Ethernet cable, which means you can place it anywhere you can run a cable, without the need for a nearby outlet. For installers or DIY pros, it provides amazing flexibility, and we thought this device was a perfect fit, as you can do some very advanced stuff with AUX-2.
 
-<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-ports.webp" alt="The front of Connect AUX-2 with a USB-A port, two RS-232 serial ports, a Grove port, and an audio jack"/>Power it with USB or PoE, and connect it with Ethernet or Wi-Fi.</p>
+<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-back.webp" alt="The back of Connect AUX-2 with a reset button, USB-C power port, and PoE Ethernet port"/>Power it with USB or PoE, and connect it with Ethernet or Wi-Fi.</p>
 
 We put a lot of work into getting it right: we tested the PoE port across a wide range of hardware to ensure it works reliably, even with picky networking gear. So we’ve learned a lot and could apply that to future products. Now we just need to make sure the demand is there.
 
