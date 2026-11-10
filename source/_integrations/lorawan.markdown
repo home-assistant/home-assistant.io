@@ -50,7 +50,9 @@ The connection list shows your connection integrations that are connected right 
 
 ### Viewing the network map
 
-The network map shows how your devices reach Home Assistant: from each device, through the gateways that received its last message, to the connection. Use it to see which gateways a device depends on, and to find devices that no gateway has received.
+The network map shows how your devices reach Home Assistant: from each device, through the gateways that received its last message, to the connection. Use it to see which gateways a device depends on.
+
+A dashed line means that Home Assistant has no gateway information for the device. For example, it hasn't received a message from the device yet, or the network server doesn't report which gateway received it.
 
 1. Go to {% my config_lorawan title="**Settings** > **Connectivity** > **LoRaWAN**" %}.
 2. Under **My network**, select **Show map**.
