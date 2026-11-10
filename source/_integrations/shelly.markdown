@@ -192,7 +192,7 @@ The fan entity lets you turn the fan on or off and set its speed as a percentage
 - **Manual**: You control the fan yourself by turning it on or off and setting the speed.
 - **Auto**: The device controls the fan automatically.
 
-Turning on the fan from Home Assistant switches it to **Manual** mode. Setting a speed also switches the fan to **Manual** mode and runs it at that speed. When you switch from **Auto** to **Manual**, the fan keeps its current on or off state and speed until you change it.
+Turning the fan on or off from Home Assistant, or setting a speed, switches it to **Manual** mode. To let the device control the fan again, select the **Auto** preset mode. When you switch from **Auto** to **Manual**, the fan keeps its current on or off state and speed until you change it.
 
 The integration also creates the following entities for the fan:
 
