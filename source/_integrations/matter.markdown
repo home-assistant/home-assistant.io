@@ -312,13 +312,16 @@ This section provides a bit more information on some of the categories:
 
 ## Talking through a Matter camera
 
-Prerequisites: A Matter server that supports cameras. Home Assistant only discovers cameras when the connected Matter server supports them. Update the Matter server app if your camera isn't found.
+Prerequisites: A Matter camera that supports two-way audio and a Matter server that supports cameras. Home Assistant only discovers cameras when the connected Matter server supports them. Update the Matter server app if your camera isn't found.
 
 To talk through the camera:
 
 1. Go to {% my labs title="**Settings** > **System** > **Labs**" %} and turn on the **Two-way audio** preview feature.
    - Result: A talk button appears in the live view.
 2. Open Home Assistant over HTTPS, since your browser only allows microphone access over a secure connection.
+3. Open the camera entity's live view and select the talk button.
+4. If your browser asks for microphone access, allow it. You can now talk through the camera.
+5. To stop transmitting audio, select the talk button again.
 
 ## Viewing your Matter network map
 
