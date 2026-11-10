@@ -63,7 +63,7 @@ The **Intesis Modbus** integration provides the following entities.
 
 - **Air conditioner**
   - **Description**: Controls the indoor unit connected to the gateway. You can turn it on and off and set the mode, the target temperature, the fan speed, and the swing mode. It also shows the current temperature measured by the unit.
-  - **Modes**: Auto, heat, dry, fan only, and cool
+  - **Modes**: Heat/cool, heat, dry, fan only, and cool. Heat/cool is the automatic mode of the unit, which heats or cools as needed to reach the target temperature.
   - **Fan speeds**: Auto, low, medium, and high. Units with four fan speeds also offer powerful.
   - **Swing modes**: Swing and positions 1 to 4. Only available if you selected **Unit has a swing vane** during setup.
   - **Remarks**: The target temperature is limited to the range the unit reports, typically 16&nbsp;°C to 30&nbsp;°C. Home Assistant always works in degrees Celsius with the gateway, whatever temperature format the gateway uses, and shows temperatures in the unit of your Home Assistant settings.
@@ -121,7 +121,7 @@ Changes made with the remote controller of the air conditioner show up in Home A
 
 ### Symptom: "Failed to connect"
 
-When trying to set up the integration, the form shows a message that starts with "Failed to connect".
+When trying to set up the integration, the form shows the message "Failed to connect".
 
 #### Description
 
@@ -133,7 +133,18 @@ Home Assistant didn't receive an answer from the gateway on the selected serial 
 2. Check the RS-485 wiring. If the A and B wires are swapped, the gateway doesn't answer.
 3. Make sure the **Baud rate** and **Modbus unit ID** match the DIP switches of the gateway.
 4. Make sure the termination resistor is on if the gateway is at the end of the RS-485 line.
-5. If another integration already uses the same serial port with different settings, the port can't be shared. Use the same baud rate for all devices on that line.
+
+### Symptom: "The serial port is already in use with other settings"
+
+When trying to set up the integration, the form shows this message.
+
+#### Description
+
+Another integration already uses the same serial port with a different baud rate. All devices on one RS-485 line have to use the same settings.
+
+#### Resolution
+
+Set the **Baud rate** to the one the other devices on that line use, and set the DIP switches of the gateway to match.
 
 ### Symptom: "This is a ... gateway"
 
