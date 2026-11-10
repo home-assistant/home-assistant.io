@@ -1,17 +1,7 @@
 ---
-title: Concord232
 description: Instructions on how to integrate Interlogix/GE Concord4 into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-ha_iot_class: Local Polling
 ha_release: 0.31
 ha_domain: concord232
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **Concord232** {% term integration %} provides integration with GE, Interlogix (and other brands) alarm panels that support the RS-232 Automation Control Panel interface module (or have it built in). Supported panels include Concord 4.

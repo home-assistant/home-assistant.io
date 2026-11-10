@@ -27,10 +27,10 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple windows are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted window opens, **First** to fire only when the first targeted window opens, or **All** to fire only after every targeted window is open.
-  required: true
+  required: false
 For at least:
   description: How long the window must stay open before the trigger fires. Set to zero to fire immediately.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -48,31 +48,29 @@ This fires when `binary_sensor.kitchen_window` opens.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple windows are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
   description: >
-    Duration the window must stay open before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
-  type: string
+    Duration the window must stay open before the trigger fires. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="window sensor or motorized window" example="binary_sensor.living_room_window" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
+- Use a binary sensor or cover that uses the window device class.
 - The trigger only fires when a window transitions from a known, valid state. If a window comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
-- This trigger works with binary sensors and covers that use the `window` device class.
 - To react when a window closes instead, use [Window closed](/triggers/window.closed/).
 
 {% include triggers/try_it.md %}
@@ -125,7 +123,8 @@ When a motorized skylight opens, there is little point in keeping the air condit
 - **Target**: Hallway skylight cover
 - **Trigger when**: Each
 - **For at least**: 00:02:00
-- **Action**: Climate: Turn off
+- **Action**: Turn off thermostat
+  - **Target**: Upstairs thermostat
 
 {% details "YAML example for pausing cooling when a skylight opens" %}
 

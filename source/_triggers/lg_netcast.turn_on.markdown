@@ -18,9 +18,10 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Under **By device**, select your LG Netcast device.
-5. From the triggers shown for that device, select **Device is requested to turn on**.
-6. Select **Save**.
+4. Select the **By type** tab. Under **Generic**, select **Device**.
+5. In the **Device** dropdown list, select your LG Netcast TV.
+6. In the **Trigger** dropdown list, select **Device is requested to turn on**.
+7. Select **Save**.
 
 ### Options in the UI
 
@@ -43,8 +44,6 @@ This fires when something requests the LG Netcast TV to turn on.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 trigger:
   description: The trigger type. For this trigger, use `lg_netcast.turn_on`.
@@ -62,8 +61,9 @@ entity_id:
 
 ## Good to know
 
-- This trigger fires when Home Assistant _requests_ the TV to turn on, not when the TV reports that it turned on. You need to provide an action (such as Wake-on-LAN or HDMI-CEC) to actually power on the device.
-- Both `media_player` and `remote` entities for the same LG Netcast device share the same turn-on trigger.
+- To turn on the TV from this trigger, add an action that can power on the TV, such as Wake-on-LAN or HDMI-CEC.
+- This trigger fires when Home Assistant _requests_ the TV to turn on, not when the TV reports that it turned on.
+- Both media player and remote entities for the same LG Netcast device share the same turn-on trigger.
 - If you want to react when the TV actually reports that it is on, use [Media player turned on](/triggers/media_player.turned_on/) instead.
 
 {% include triggers/try_it.md %}

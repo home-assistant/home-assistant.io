@@ -1,27 +1,13 @@
 ---
-title: energieleser
 description: Instructions on how to integrate energieleser devices in Home Assistant.
 ha_release: 2026.7
-ha_category:
-  - Energy
-  - Sensor
-ha_codeowners:
-  - '@AjinkyaGokhale'
-  - '@amitkio'
-ha_quality_scale: silver
 ha_domain: energieleser
-ha_integration_type: device
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - sensor
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
 ---
 
-The energieleser {% term integration %} fetches real-time consumption data reported by energieleser devices, such as stromleser.one, gasleser, wasserleser, and wärmeleser, using local HTTP API.
+The energieleser {% term integration %} fetches real-time consumption data reported by energieleser devices, such as stromleser.one, gasleser, gasleser.pulse, wasserleser, and wärmeleser, using local HTTP API.
 
 [energieleser](https://energieleser.de/) is a brand by nineti GmbH, a German company offering smart readers for utility meters.
 
@@ -31,6 +17,7 @@ The integration supports the following energieleser devices:
 
 - **stromleser.one** (electricity meter reader)
 - **gasleser** (gas meter reader)
+- **gasleser.pulse** (gas meter reader, pulse-counting variant)
 - **wasserleser** (water meter reader)
 - **wärmeleser** (heat meter reader)
 
@@ -65,11 +52,28 @@ The energieleser integration primarily provides the following features based on 
 - **Total gas**: Total gas volume measured by the meter (m³)
 - **Gas flow rate**: Current gas flow rate (m³/h)
 
+#### Diagnostic sensors
+
+- **Pulse count**: Total number of pulses detected by the meter.
+
+### gasleser.pulse
+
+- **Total gas**: Total gas volume measured by the meter (m³)
+- **Gas flow rate**: Current gas flow rate (m³/h)
+
+#### Diagnostic sensors
+
+- **Pulse count**: Total number of pulses detected by the meter.
+
 ### wasserleser
 
 - **Total water**: Total water volume measured by the meter (m³)
 - **Water flow rate**: Current water flow rate in liters per hour (L/h)
 - **Volume flow rate**: Current water flow rate in cubic meters per hour (m³/h)
+
+#### Diagnostic sensors
+
+- **Water today**: Cumulative water consumed today (m³)
 
 ### wärmeleser
 
@@ -80,9 +84,9 @@ The energieleser integration primarily provides the following features based on 
 - **Temperatures**: Flow temperature and return temperature (°C)
 - **Temperature difference**: Difference between flow and return temperature (K)
 
-### Common sensors
+### Common diagnostic sensors
 
-- **Signal strength**: Wi-Fi signal strength of the device (dBm)
+- **Signal strength**: Wi-Fi signal strength of the device (dBm). [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Data updates
 

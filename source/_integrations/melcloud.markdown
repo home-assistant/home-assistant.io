@@ -1,22 +1,7 @@
 ---
-title: MELCloud
 description: MELCloud integration
-ha_category:
-  - Climate
 ha_release: 0.106
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: melcloud
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - select
-  - sensor
-  - water_heater
-ha_integration_type: device
-ha_codeowners:
-  - '@erwindouna'
 ---
 
 The **MELCloud** {% term integration %} integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
@@ -55,9 +40,9 @@ The following parameters can be controlled for the `climate` platform entities:
 
 #### Controlling vanes
 
-The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` actions.
+The horizontal and vertical vane positions can be controlled using the [Set vane horizontal](/actions/melcloud.set_vane_horizontal/) and [Set vane vertical](/actions/melcloud.set_vane_vertical/) actions.
 
-Swing mode can also be used to control vertical vane position.
+The swing mode of the climate entity also controls the vertical vane position, and the horizontal swing mode controls the horizontal vane position.
 
 ### Sensor
 
@@ -77,7 +62,7 @@ The following switches can be used:
 
 ## Air-to-Water device
 
-An Air-to-Water device provides `water_heater`, `climate`, `select`, `sensor`, and `binary_sensor` platforms.
+An Air-to-Water device provides `water_heater`, `climate`, `select`, `number`, `sensor`, and `binary_sensor` platforms.
 
 ### Climate
 
@@ -87,7 +72,7 @@ A `climate` platform entity is provided for each radiator zone in the air-to-wat
 - HVAC mode: `heat` or `off`, and `cool` on cooling-capable systems.
 - Target room temperature.
 
-Each zone's temperature control method (**Room**, **Flow**, or **Curve**) is chosen with the operation mode `select` entity. See the [Select](#select) section below.
+Each zone's temperature control method (**Room**, **Flow**, or **Curve**) is chosen with the operation mode `select` entity, and the target flow temperature is set with the flow temperature `number` entity while in flow temperature mode. See the [Select](#select) and [Number](#number) sections below.
 
 #### State attributes
 
@@ -104,6 +89,10 @@ An operation mode `select` entity is provided for each radiator zone. It sets ho
 - **Curve**: The zone follows the weather compensation curve configured on the unit; the target is determined automatically. Heating only.
 
 The heating or cooling direction is set separately with the `climate` entity's HVAC mode, and the selected method is kept when the direction changes.
+
+### Number
+
+A flow temperature `number` entity is provided for each radiator zone to set its target flow temperature. It follows the zone's current heating or cooling direction and is only available while the zone is controlled by flow temperature. The setting does not apply in the other control methods.
 
 ### Sensor
 
@@ -145,7 +134,7 @@ The following binary sensors indicate component operating status and are categor
 
 - Boiler
 - Booster heater 1
-- Booster heater 2 _(disabled by default)_
+- Booster heater 2 _([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))_
 - Booster heater 2+ _(disabled by default)_
 - Immersion heater
 - Water pump 1
@@ -170,3 +159,73 @@ The following parameters can be controlled for the `water_heater` platform entit
 |Attribute|Description|Example|
 |---------|-----------|-------|
 |`status` |Current operation status|`heat`|
+
+{% include integrations/actions.md %}
+
+## MELCloud automation examples
+
+With the vane actions, you decide where the air from your air conditioner goes.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: swing the air from side to side while cooling
+
+When the air conditioner starts cooling, let the vanes swing from side to side, so the cool air spreads through the whole room.
+
+- **Trigger**: State changed
+  - **Entity**: Living room thermostat
+  - **Attribute**: HVAC action
+  - **To**: Cooling
+- **Action**: MELCloud: Set vane horizontal
+  - **Target**: Living room air conditioner (`climate.living_room`)
+  - **Position**: `swing`
+
+{% details "YAML example for swinging the air while cooling" %}
+
+{% example %}
+automation: |
+  alias: "Swing the air from side to side while cooling"
+  triggers:
+    - trigger: state
+      entity_id: climate.living_room
+      attribute: hvac_action
+      to: "cooling"
+  actions:
+    - action: melcloud.set_vane_horizontal
+      target:
+        entity_id: climate.living_room
+      data:
+        position: swing
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: swing the air up and down while heating
+
+Warm air rises. When the air conditioner starts heating, let the vanes swing up and down, so the warm air mixes better with the air in the room.
+
+- **Trigger**: State changed
+  - **Entity**: Living room air conditioner (`climate.living_room`)
+  - **To**: Heat
+- **Action**: MELCloud: Set vane vertical
+  - **Target**: Living room air conditioner (`climate.living_room`)
+  - **Position**: `swing`
+
+{% details "YAML example for swinging the air while heating" %}
+
+{% example %}
+automation: |
+  alias: "Swing the air up and down while heating"
+  triggers:
+    - trigger: state
+      entity_id: climate.living_room
+      to: "heat"
+  actions:
+    - action: melcloud.set_vane_vertical
+      target:
+        entity_id: climate.living_room
+      data:
+        position: swing
+{% endexample %}
+
+{% enddetails %}

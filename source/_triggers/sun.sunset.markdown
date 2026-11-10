@@ -21,24 +21,61 @@ To use this trigger in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. From the search box, search for and select **Sunset**.
-5. Select **Save**.
+5. Optionally, set an offset to fire before or after sunset:
+   - Under **Offset**, select **Before** or **After**.
+   - Under **Duration**, enter how far from sunset to fire, such as 30 minutes.
+6. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Offset:
+  description: |
+    Whether to fire before or after sunset:
+
+    - **No offset**: fires exactly at sunset. This is the default.
+    - **Before**: fires the duration you enter before sunset.
+    - **After**: fires the duration you enter after sunset.
+{% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `sun.sunset`. It has no options:
+In YAML, refer to this trigger as `sun.sunset`. A basic example looks like this:
 
 {% example %}
 trigger: |
   trigger: sun.sunset
 {% endexample %}
 
-This fires every day, the moment the sun sets below the horizon.
+This fires every day, the moment the sun sets below the horizon. To fire a fixed amount of time before or after sunset, add the `offset` option. A negative offset fires before and a positive one after:
+
+{% example %}
+trigger: |
+  trigger: sun.sunset
+  options:
+    offset:
+      minutes: -30
+{% endexample %}
+
+This fires 30 minutes before sunset every day.
+
+### Options in YAML
+
+{% options_yaml %}
+offset:
+  description: >
+    The length of time from sunset when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. A negative value, such as `minutes: -30` or `"-00:30:00"`, fires before sunset. A positive value fires after.
+  required: false
+  type: time
+  default: "00:00:00"
+{% endoptions_yaml %}
 
 ## Good to know
 
 - This trigger does not use a target. It applies to the sun at your configured home location.
-- The trigger fires exactly at sunset. To fire a fixed amount of time before or after sunset, use the classic [sun trigger](/integrations/sun/#automation-trigger), which accepts an offset. For light-based timing that adapts to the seasons, use [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) instead.
+- To fire a fixed amount of time before or after sunset, set the **Offset** option. For light-based timing that adapts to the seasons, use [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) instead.
 - To react to the last light after sunset, use [Dusk](/triggers/sun.dusk/). To react when the sun comes up, use [Sunrise](/triggers/sun.sunrise/).
+- The **Sun** entity can change to **Below horizon** a few minutes after this trigger fires. To check whether the sun has set, use the [Sun is set](/conditions/sun.is_set/) condition instead. Without an offset, it changes at the same moment as this trigger.
 
 {% include triggers/try_it.md %}
 

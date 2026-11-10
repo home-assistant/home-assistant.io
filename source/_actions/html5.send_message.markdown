@@ -9,7 +9,7 @@ related_actions:
   - html5.dismiss_message
 ---
 
-The **Send message** action sends a notification to a browser or installed web app (PWA) registered with HTML5 Push Notifications.
+The **HTML5 Push Notifications: Send message** action sends a notification to a browser or installed web app (PWA) registered with HTML5 Push Notifications.
 
 {% include actions/ui_header.md %}
 
@@ -271,8 +271,17 @@ icon:
 If the doorbell rings, receive an actionable notification with a camera snapshot. Opens the door when you tap the "Open door" action button.
 
 - **Trigger**: Doorbell rang (`event.doorbell`)
-- **Action**: Send message
-- **Target**: My desktop (`notify.my_desktop`)
+- **Action**: HTML5 Push Notifications: Send message
+  - **Target**: My desktop (`notify.my_desktop`)
+  - **Title**: `🔔 The doorbell rang.`
+  - **Message**: `Someone is at the entrance door.`
+  - **Icon**: `/local/entrancecamera_snapshot.jpg`
+  - **Action buttons**:
+    - **Action identifier**: `open-door`
+    - **Title**: `Open door`
+  - **Require interaction**: `True`
+  - **Time to live**: `00:05:00`
+  - **Urgency**: High
 
 {% example %}
 automation: |
@@ -288,7 +297,7 @@ automation: |
       data:
         title: 🔔 The doorbell rang.
         message: Someone is at the entrance door.
-        icon: https://homeassistant.example.com/www/entrancecamera_snapshot.jpg
+        icon: /local/entrancecamera_snapshot.jpg
         actions:
           - action: open-door
             title: Open door
@@ -298,10 +307,12 @@ automation: |
         urgency: high
 {% endexample %}
 
-- **Trigger**: Event
+- **Trigger**: Event received
+  - **Target**: Pc event
+  - **Event type**: Clicked
 - **Condition**: Template
 - **Action**: Open lock
-- **Target**: Entrance door
+  - **Target**: Entrance door
 
 {% example %}
 automation: |

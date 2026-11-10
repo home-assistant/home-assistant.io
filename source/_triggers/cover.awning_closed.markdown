@@ -50,34 +50,32 @@ This fires when `cover.patio_awning` changes to closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple awnings are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the awning must stay closed before the trigger fires.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="motorized awning" example="cover.patio_awning" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `awning` device class.
-- If an awning comes back from `unavailable` or `unknown`, that recovery does not count as the closing.
-- The `for` option fires the automation only if the awning stays closed for the entire time you set.
+- Use a cover entity with the awning device class.
+- If an awning comes back from **Unavailable** or **Unknown**, that recovery does not count as the closing.
+- The **For at least** option fires the automation only if the awning stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 

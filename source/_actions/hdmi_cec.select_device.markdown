@@ -11,7 +11,7 @@ related_actions:
   - hdmi_cec.volume
 ---
 
-The **Select device** action makes one HDMI-CEC device the active source, so your TV switches to its input. It is the CEC equivalent of pressing the input button on your remote and choosing, for example, your media player or game console.
+The **HDMI-CEC: Select device** action makes one HDMI-CEC device the active source, so your TV switches to its input. It is the CEC equivalent of pressing the input button on your remote and choosing, for example, your media player or game console.
 
 Use it to jump straight to the right input as part of an automation, such as switching the TV to your streaming box when you start a movie.
 
@@ -73,7 +73,9 @@ device:
 
 When movie night starts, make your streaming box the active source so the TV shows the right input.
 
-- **Trigger**: A movie-night helper turns on
+- **Trigger**: State changed
+  - **Entity**: Movie night helper
+  - **To**: On
 - **Action**: HDMI-CEC: Select device
 
 {% details "YAML example for switching to a device" %}

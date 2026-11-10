@@ -1,5 +1,5 @@
 ---
-title: "Send message"
+title: "Send a notification"
 action: bring.send_message
 domain: bring
 description: "Sends a push notification to members of a shared Bring! list."
@@ -24,7 +24,7 @@ To send a notification from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select a Bring! shopping list.
-6. From the actions shown for that target, select **Bring!: Send message**.
+6. From the actions shown for that target, under **Bring!**, select **Send a notification**.
 7. Select the **Notification type** to send. When you select **Urgent message**, also enter the **Item** to include.
 8. Select **Save**.
 
@@ -108,9 +108,13 @@ action: |
 
 When you leave the home zone, send an urgent message to the shared shopping list so other household members have a last chance to add items before you arrive at the shop.
 
-- **Trigger**: Zone: person leaves `zone.home`
-- **Action**: Bring!: Send message
-  - **Notification type**: Urgent message
+- **Trigger**: Zone left
+  - **Target**: Your name
+  - **Zone**: Home
+- **Action**: Bring!: Send a notification
+  - **Notification type**: `Attention! Attention! - We still urgently need: [Items]`
+  - **Target**: Bring shoppinglist to-do list
+  - **Item**: `Item 1`
 
 {% details "YAML example for notifying list members when leaving home to shop" %}
  
@@ -118,17 +122,18 @@ When you leave the home zone, send an urgent message to the shared shopping list
 automation: |
   alias: "Notify list when leaving home to shop"
   triggers:
-    - trigger: zone
-      entity_id: person.your_name
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.your_name
+      options:
+        zone: zone.home
   actions:
     - action: bring.send_message
       target:
         entity_id: todo.bring_shoppinglist
       data:
         message: urgent_message
-        item: ""
+        item: "Item 1"
 {% endexample %}
 
 {% enddetails %}

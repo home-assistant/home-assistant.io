@@ -22,7 +22,11 @@
 <meta property="fb:app_id" content="{{ site.social.facebook.app_id | escape_once }}">
 <meta property="og:title" content="{{ social_title | escape_once }}">
 <meta property="og:site_name" content="{{ site.title | escape_once }}">
+{% if page.external_url %}
+<meta property="og:url" content="{{ page.external_url | escape_once }}">
+{% else %}
 <meta property="og:url" content="{{ page.url | canonical_url | escape_once }}">
+{% endif %}
 <meta property="og:type" content="{% if page.categories %}article{% else %}website{% endif %}">
 <meta property="og:description" content="{{ social_description | escape_once }}">
 <meta property="og:image" content="{{ social_image | escape_once }}">

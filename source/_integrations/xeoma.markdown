@@ -1,18 +1,10 @@
 ---
-title: Xeoma
 description: Instructions on how to integrate camera video feeds from a Xeoma server in Home Assistant
-ha_category:
-  - Camera
-ha_iot_class: Local Polling
 ha_release: 0.62
 ha_domain: xeoma
-ha_platforms:
-  - camera
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Xeoma** {% term integration %} allows you to view the video feeds from a [Xeoma](https://felenasoft.com/xeoma) video surveillance server.

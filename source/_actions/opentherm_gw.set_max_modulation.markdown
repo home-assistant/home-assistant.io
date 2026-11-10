@@ -8,7 +8,7 @@ related_actions:
   - opentherm_gw.set_central_heating_ovrd
 ---
 
-The **Set max modulation** action overrides the maximum relative modulation level on your OpenTherm Gateway. Normally, the thermostat controls the maximum modulation level on the boiler. Setting this to any value other than -1 enables the override and lets the OpenTherm Gateway control this setting. Because of the potential consequences of leaving this setting enabled, the override is disabled when Home Assistant shuts down or restarts.
+The **OpenTherm Gateway: Set max modulation** action overrides the maximum relative modulation level on your OpenTherm Gateway. Normally, the thermostat controls the maximum modulation level on the boiler. Setting this to any value other than -1 enables the override and lets the OpenTherm Gateway control this setting. Because of the potential consequences of leaving this setting enabled, the override is disabled when Home Assistant shuts down or restarts.
 
 You only need this if you are writing your own software thermostat.
 

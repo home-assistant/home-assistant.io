@@ -1,5 +1,5 @@
 ---
-title: "Set the mode of a KEF speaker"
+title: "Set mode"
 action: kef.set_mode
 domain: kef
 description: "Sets the digital signal processing mode of a KEF speaker."
@@ -19,7 +19,7 @@ To set the mode from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the KEF speaker.
-6. From the actions shown for that target, select **KEF: Set mode**.
+6. From the actions shown for that target, under **KEF**, select **Set mode**.
 7. Set the options you want to change.
 8. Select **Save**.
 

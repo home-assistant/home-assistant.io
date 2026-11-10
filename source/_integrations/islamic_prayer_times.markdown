@@ -1,18 +1,7 @@
 ---
-title: Islamic Prayer Times
 description: Instructions on how to integrate the Islamic Prayer Times integration within Home Assistant.
-ha_category:
-  - Sensor
-ha_iot_class: Calculated
 ha_release: 0.85
-ha_config_flow: true
 ha_domain: islamic_prayer_times
-ha_codeowners:
-  - '@engrbm87'
-  - '@cpfair'
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 The **Islamic Prayer Times** {% term integration %} displays the various prayer times for Muslims as sensors.

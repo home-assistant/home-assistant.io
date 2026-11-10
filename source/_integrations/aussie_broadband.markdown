@@ -1,20 +1,7 @@
 ---
-title: Aussie Broadband
 description: Instructions on how to integrate Aussie Broadband within Home Assistant.
-ha_category:
-  - Network
-  - Sensor
 ha_release: 2022.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@nickw444'
-  - '@Bre77'
 ha_domain: aussie_broadband
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **Aussie Broadband** {% term integration %} displays various service metrics using the Aussie Broadband API.

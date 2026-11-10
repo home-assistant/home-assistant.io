@@ -1,5 +1,5 @@
 ---
-title: "Turn on a light"
+title: "Turn on light"
 action: light.turn_on
 domain: light
 description: "Turn a light on. Optionally set brightness, color, color temperature, an effect, or a transition."
@@ -27,8 +27,10 @@ To turn a light on from an automation or a script:
     - To turn on every light in a room, select an area.
     - To turn on every light on a floor, select a floor.
     - To turn on lights sharing a tag, select a label.
-7. _Optional_: under **Additional options**, set the brightness, color, color temperature, or transition.
-8. Select **Save**.
+7. _Optional_: set **Transition**, **Color**, **Color temperature**, **Brightness**, **Brightness step**, or **Effect**.
+   - Some options only show up if the selected light supports them.
+8. _Optional_: for other color formats, an exact brightness value, white mode, a profile, or a flash, open **Additional options**.
+9. Select **Save**.
 
 ### Options in the UI
 
@@ -36,26 +38,50 @@ To turn a light on from an automation or a script:
 Transition:
   description: How long, in seconds, it takes to get to the next state. Use this for a smooth fade instead of switching instantly.
   required: false
-Brightness:
-  description: How bright the light should be, on a scale from 0 (off) to 255 (brightest).
-  required: false
-Brightness percentage:
-  description: How bright the light should be, from 0% (off) to 100% (brightest).
-  required: false
 Color:
-  description: A color for the light. You can pick a named color, a color from the color wheel, or a specific value in RGB, hue/sat, or XY format.
+  description: The color for the light. Pick it from the color picker.
   required: false
 Color temperature:
   description: Warm or cool white, measured in Kelvin. Lower is warmer (more yellow), higher is cooler (more blue).
   required: false
+Brightness:
+  description: How bright the light should be, from 0% (off) to 100% (brightest).
+  required: false
+Brightness step:
+  description: Changes the current brightness by a percentage. Use a positive number to make the light brighter, or a negative number to dim it.
+  required: false
 Effect:
   description: A light effect to play, for example a color loop or a candle flicker. Available effects depend on the light.
   required: false
-Flash:
-  description: Ask the light to flash briefly, either short or long. Useful as a visual notification.
+RGBW-color:
+  description: Under **Additional options**. The color in RGBW format, with red, green, blue, and white values from 0 to 255.
+  required: false
+RGBWW-color:
+  description: Under **Additional options**. The color in RGBWW format, with red, green, blue, cold white, and warm white values from 0 to 255.
+  required: false
+Color name:
+  description: Under **Additional options**. A color by name, for example **Red** or **Turquoise**.
+  required: false
+Hue/Sat color:
+  description: Under **Additional options**. The color as hue (0 to 360) and saturation (0 to 100).
+  required: false
+XY-color:
+  description: Under **Additional options**. The color as X and Y coordinates, each a decimal number between 0 and 1.
+  required: false
+Brightness value:
+  description: Under **Additional options**. How bright the light should be, on a scale from 0 (off) to 255 (brightest).
+  required: false
+Brightness step value:
+  description: Under **Additional options**. Changes the current brightness by an amount on the 0 to 255 scale. Use a positive number to make the light brighter, or a negative number to dim it.
+  required: false
+White:
+  description: Under **Additional options**. Switches the light to white mode.
   required: false
 Profile:
-  description: The name of a light profile to apply. Profiles bundle a brightness and color together under a single name.
+  description: Under **Additional options**. The name of a light profile to apply. Profiles bundle a brightness and color together under a single name.
+  required: false
+Flash:
+  description: Under **Additional options**. Ask the light to flash briefly, either short or long. Useful as a visual notification.
   required: false
 {% endoptions_ui %}
 
@@ -73,8 +99,6 @@ action: |
 This turns on `light.kitchen` at its previous brightness and color.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 transition:
@@ -141,7 +165,7 @@ profile:
 - The **Turn on light** action works on any light {% term entity %}, such as bulbs, groups, fixtures, or strips.
 - If the light is already on, the call updates its attributes (brightness, color) without flashing off first.
 - Not every light supports every field. A bulb that only dims ignores color fields, and a color-only light ignores color temperature. Home Assistant quietly skips fields the device can't handle.
-- To reverse this action, use [Turn off a light](/actions/light.turn_off/). To flip a light between on and off with a single call, use [Toggle a light](/actions/light.toggle/).
+- To reverse this action, use [Turn off light](/actions/light.turn_off/). To flip a light between on and off with a single call, use [Toggle light](/actions/light.toggle/).
 
 {% include actions/try_it.md %}
 
@@ -152,9 +176,9 @@ profile:
 When you start winding down in the evening, dim the kitchen light to a warm white tone.
 
 - **Action**: Turn on light
-- **Target**: Kitchen light
-- **Brightness percentage**: 80
-- **Color**: warm_white
+  - **Target**: Kitchen light
+  - **Brightness**: `80`%
+  - **Color name**: Warm white
 
 {% details "YAML example for a cozy warm white scene" %}
 
@@ -175,9 +199,9 @@ action: |
 A long transition is a gentle way to wake up. Instead of snapping the light on, fade it up slowly.
 
 - **Action**: Turn on light
-- **Target**: Bedroom light
-- **Brightness percentage**: 100
-- **Transition**: 10 seconds
+  - **Target**: Bedroom light
+  - **Transition**: `10` seconds
+  - **Brightness**: `100`%
 
 {% details "YAML example for a sunrise-style fade-in" %}
 
@@ -198,8 +222,8 @@ action: |
 Target an area instead of a specific entity and Home Assistant resolves it to every light inside the room.
 
 - **Action**: Turn on light
-- **Target**: Living room
-- **Brightness percentage**: 60
+  - **Target**: Living room
+  - **Brightness**: `60`%
 
 {% details "YAML example for turning on every light in a room" %}
 
@@ -220,9 +244,10 @@ Greet the evening by turning the porch light on at a warm white tone as the sun 
 
 - **Trigger**: Sunset
 - **Action**: Turn on light
-- **Target**: Porch light
-- **Brightness percentage**: 60
-- **Color**: warm_white
+  - **Target**: Porch light
+  - **Color**: warm_white
+  - **Brightness**: `60`%
+  - **Color name**: Warm white
 
 {% details "YAML example for a sunset porch light automation" %}
 
@@ -247,11 +272,12 @@ automation: |
 Fade the bedroom light up over ten seconds at 7 in the morning on weekdays. A kinder way to start the day than a sudden flick.
 
 - **Trigger**: Time: 07:00
-- **Condition**: Day of the week is Monday to Friday
+- **Condition**: Time
+  - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, Friday
 - **Action**: Turn on light
-- **Target**: Bedroom light
-- **Brightness percentage**: 100
-- **Transition**: 10 seconds
+  - **Target**: Bedroom light
+  - **Transition**: `10` seconds
+  - **Brightness**: `100`%
 
 {% details "YAML example for a weekday sunrise alarm" %}
 
@@ -284,11 +310,13 @@ automation: |
 
 When you arrive home after dark, turn on every light in the living room at a comfortable level so the house greets you instead of leaving you fumbling for switches.
 
-- **Trigger**: Person: Paulus changes to home
-- **Condition**: Sun is below horizon
+- **Trigger**: State changed
+  - **Entity**: Paulus person
+  - **To**: Home
+- **Condition**: Sun is set
 - **Action**: Turn on light
-- **Target**: Living room
-- **Brightness percentage**: 60
+  - **Target**: Living room
+  - **Brightness**: `60`%
 
 {% details "YAML example for welcome home lighting" %}
 
@@ -300,8 +328,7 @@ automation: |
       entity_id: person.paulus
       to: home
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

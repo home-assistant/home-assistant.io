@@ -1,0 +1,20 @@
+{
+  "domain": "peco",
+  "name": "PECO Outage Counter",
+  "integration_type": "service",
+  "codeowners": [
+    "@IceBotYT"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "local_services"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

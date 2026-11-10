@@ -1,0 +1,20 @@
+{
+  "domain": "brottsplatskartan",
+  "name": "Brottsplatskartan",
+  "integration_type": "service",
+  "codeowners": [
+    "@gjohansson-ST"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "local_services",
+    "news_social_media"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

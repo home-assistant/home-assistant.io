@@ -1,27 +1,7 @@
 ---
-title: Vallox
 description: Instructions on how to integrate Vallox ventilation units into Home Assistant.
-ha_category:
-  - Fan
-  - Sensor
-  - Switch
-ha_config_flow: true
 ha_release: 0.96
-ha_iot_class: Local Polling
 ha_domain: vallox
-ha_platforms:
-  - binary_sensor
-  - date
-  - fan
-  - number
-  - sensor
-  - switch
-ha_codeowners:
-  - '@andre-richter'
-  - '@slovdahl'
-  - '@viiru-'
-  - '@yozik04'
-ha_integration_type: device
 ---
 
 The **Vallox** {% term integration %} lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
@@ -59,11 +39,13 @@ The date platform allows you to set the filter change date.
 
 For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan {% term entity %} to get a drop-down menu to select from. Alternatively, the action `fan/set_preset_mode` can be used.
 
-The four standard Vallox profiles are supported:
+The following Vallox profiles are supported. Availability depends on the connected unit and the presets it exposes, so some profiles may not appear on all devices:
 
 - `Home`
 - `Away`
 - `Boost`
 - `Fireplace`
+- `Extra` (available on devices/firmware that expose this preset)
+- `Auto` (available on devices/firmware that expose this preset; requires firmware v3.1.4 or newer)
 
 {% include integrations/actions.md %}

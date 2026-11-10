@@ -6,6 +6,7 @@ description: "Starts or resumes a lawn mower's mowing task."
 related_actions:
   - lawn_mower.pause
   - lawn_mower.dock
+  - lawn_mower.stop
 ---
 
 Use this action to start or resume mowing on a robotic lawn mower, for example to begin a scheduled run or pick up where a paused task left off.

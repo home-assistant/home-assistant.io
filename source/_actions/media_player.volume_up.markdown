@@ -58,7 +58,8 @@ This action has no additional YAML options beyond the target.
 
 Raise the volume each time you press a button.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Volume up helper
 - **Action**: Turn up media player volume
   - **Target**: Living room speaker
 

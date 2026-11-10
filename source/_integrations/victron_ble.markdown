@@ -1,19 +1,7 @@
 ---
-title: Victron BLE
 description: Instructions on how to integrate Victron BLE devices into Home Assistant.
-ha_category:
-  - Sensor
-ha_bluetooth: true
 ha_release: '2025.12'
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@rajlaud'
 ha_domain: victron_ble
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Victron BLE** {% term integration %} integrates [Victron Energy](https://www.victronenergy.com/) devices that support **Instant Readout via Bluetooth** (Bluetooth Low Energy, or BLE) into Home Assistant.
@@ -28,6 +16,9 @@ The integration supports the following Victron device types:
 - **DC-DC Converter** (Orion TR Smart)
 - **DC Energy Meter**
 - **Inverter/Charger** (MultiPlus, Quattro, Inverter RS via VE.Bus)
+- **Lithium Superpack NG**
+- **Lynx Smart BMS**
+- **Orion XS**
 - **Smart Battery Protect**
 - **Smart Lithium**
 - **Solar Charger** (SmartSolar, BlueSolar MPPT)
@@ -37,9 +28,7 @@ The integration supports the following Victron device types:
 The following device types are not yet supported:
 
 - **Inverter RS** (standalone, non-VE.Bus mode)
-- **Lynx Smart BMS**
 - **Multi RS**
-- **Orion XS**
 
 If your device advertises via BLE with Victron manufacturer data but is not in the supported list above, it may appear in Home Assistant with only a **Signal strength** sensor. This is because the integration can detect any Victron BLE device, but can only read sensor data from supported device types. Full sensor data will become available when support for that device type is added.
 

@@ -1,22 +1,7 @@
 ---
-title: Apple TV
 description: Instructions on how to integrate Apple TV devices into Home Assistant.
-ha_category:
-  - Media player
-  - Multimedia
-  - Remote
-ha_iot_class: Local Push
 ha_release: 0.49
 ha_domain: apple_tv
-ha_codeowners:
-  - '@postlund'
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - media_player
-  - remote
-ha_integration_type: device
 ---
 
 The **Apple TV** {% term integration %} allows you to control an Apple TV (any generation).
@@ -47,7 +32,7 @@ Examples of some `Deep Links` for popular applications:
 
 | App       | URL                                                                   |
 | --------- | --------------------------------------------------------------------- |
-| YouTube   | youtube://www.youtube.com/watch?v=dQw4w9WgXcQ                         |
+| YouTube   | youtube://watch/dQw4w9WgXcQ                                          |
 | Netflix   | https://www.netflix.com/title/80234304                                |
 | Disney+   | https://www.disneyplus.com/series/the-beatles-get-back/7DcWEeWVqrkE   |
 | Apple TV+ | https://tv.apple.com/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx |
@@ -77,7 +62,7 @@ target:
 action: media_player.play_media
 data:
   media_content_type: url
-  media_content_id: youtube://www.youtube.com/watch?v=dQw4w9WgXcQ
+  media_content_id: youtube://watch/dQw4w9WgXcQ
 target:
   entity_id: media_player.living_room_apple_tv
 ```
@@ -95,6 +80,9 @@ The following commands are currently available:
 - `home`
 - `top_menu`
 - `menu`
+- `control_center`
+- `turn_on`
+- `turn_off`
 - `select`
 - `play`
 - `pause`

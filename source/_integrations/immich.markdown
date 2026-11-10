@@ -1,23 +1,7 @@
 ---
-title: Immich
 description: Instructions on how to integrate an Immich user account into Home Assistant.
-ha_category:
-  - Media source
-  - Multimedia
-  - Sensor
-  - Update
 ha_release: 2025.6
-ha_config_flow: true
-ha_iot_class: Local Polling
 ha_domain: immich
-ha_platforms:
-  - diagnostics
-  - sensor
-  - update
-ha_codeowners:
-  - '@mib1185'
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 This {% term integration %} allows adding an [Immich](https://immich.app/) user account to Home Assistant.
@@ -100,7 +84,7 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 There are no known limitations.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 

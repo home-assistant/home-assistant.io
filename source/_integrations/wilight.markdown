@@ -1,25 +1,7 @@
 ---
-title: WiLight
 description: Instructions on how to integrate WiLight devices into Home Assistant.
-ha_category:
-  - Cover
-  - Fan
-  - Irrigation
-  - Light
-  - Switch
 ha_release: 0.115
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@leofig-rj'
 ha_domain: wilight
-ha_ssdp: true
-ha_platforms:
-  - cover
-  - fan
-  - light
-  - switch
-ha_integration_type: hub
 ---
 
 The **WiLight** {% term integration %} is to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.

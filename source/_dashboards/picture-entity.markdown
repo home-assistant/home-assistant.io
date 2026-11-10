@@ -34,8 +34,13 @@ type:
   type: string
 entity:
   required: true
-  description: "A camera, image, or person `entity_id` used for the picture."
+  description: "Entity to display. Camera, image, and person entities are shown as pictures by default."
   type: string
+show_entity_picture:
+  required: false
+  description: "Use the entity's `entity_picture` attribute as the image."
+  type: boolean
+  default: false
 camera_image:
   required: false
   description: "Camera `entity_id` to use. (not required if `entity` is already a camera-entity)."
@@ -116,6 +121,16 @@ Basic example:
 type: picture-entity
 entity: light.bed_light
 image: /local/bed_light.png
+```
+
+Use an entity's `entity_picture` attribute to show an entity-provided image, like an update entity that shows a component logo:
+
+```yaml
+type: picture-entity
+entity: update.home_assistant_core_update
+show_entity_picture: true
+show_state: true
+show_name: true
 ```
 
 Different images for each state (supports local, web, or `media-source://` URLs):

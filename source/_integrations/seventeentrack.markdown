@@ -1,17 +1,7 @@
 ---
-title: 17TRACK
 description: Instructions on how to use 17track.net data within Home Assistant
-ha_category:
-  - Postal Service
 ha_release: 0.83
-ha_config_flow: true
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@shaiu'
 ha_domain: seventeentrack
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 The **17TRACK** {% term integration %} allows users to get package data tied to their [17track.net](https://www.17track.net) account. The integration creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.

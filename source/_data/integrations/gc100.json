@@ -1,0 +1,16 @@
+{
+  "domain": "gc100",
+  "name": "Global Caché GC-100",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "diy_makers.boards_hardware"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "switch"
+  ]
+}

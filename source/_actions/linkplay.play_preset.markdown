@@ -18,7 +18,7 @@ To play a preset from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select a LinkPlay media player.
-6. From the actions shown for that target, select **Play preset**.
+6. From the actions shown for that target, under **LinkPlay**, select **Play preset**.
 7. Set the **Preset number** you want to play.
 8. Select **Save**.
 

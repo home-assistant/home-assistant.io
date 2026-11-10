@@ -1,0 +1,19 @@
+{
+  "domain": "influxdb",
+  "name": "InfluxDB",
+  "codeowners": [
+    "@mdegat01",
+    "@Robbie1221"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "diy_makers.web_data_connectors"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

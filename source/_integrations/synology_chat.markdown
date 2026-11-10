@@ -1,18 +1,10 @@
 ---
-title: Synology Chat
 description: Instructions on how to add a Synology Chat Bot notifications to Home Assistant.
-ha_iot_class: Cloud Push
 ha_release: 0.65
-ha_category:
-  - Notifications
 ha_domain: synology_chat
-ha_platforms:
-  - notify
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Synology Chat** {% term integration %} allows you to deliver notifications to your [Synology Chat](https://www.synology.com/en-us/dsm/feature/chat) install as a Synology Chat bot.

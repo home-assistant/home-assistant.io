@@ -9,7 +9,7 @@ related_actions:
   - bang_olufsen.beolink_join
 ---
 
-The **Beolink unexpand** action removes one or more devices from the [Beolink](https://support.bang-olufsen.com/hc/en-us/articles/4411572883089-What-is-Beolink-Multiroom) experience that the target device is hosting.
+The **Bang & Olufsen: Beolink unexpand** action removes one or more devices from the [Beolink](https://support.bang-olufsen.com/hc/en-us/articles/4411572883089-What-is-Beolink-Multiroom) experience that the target device is hosting.
 
 This is useful for dropping a specific room from a multiroom group while keeping the rest playing.
 
@@ -22,7 +22,7 @@ To remove devices from a Beolink experience from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Bang & Olufsen device you want to control. You can also select an area, a device, or a label.
-6. From the actions shown for that target, select **Beolink unexpand**.
+6. From the actions shown for that target, under **Bang & Olufsen**, select **Beolink unexpand**.
 7. Enter the **Beolink JIDs** to remove.
 8. Select **Save**.
 

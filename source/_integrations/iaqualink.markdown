@@ -1,28 +1,7 @@
 ---
-title: Jandy iAquaLink
 description: Instructions on how to configure Jandy iAquaLink integration.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Light
-  - Sensor
-  - Switch
 ha_release: 0.99
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@flz'
 ha_domain: iaqualink
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - light
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: silver
-ha_dhcp: true
 ---
 
 The **Jandy iAquaLink** {% term integration %} lets you monitor and control supported Jandy pool and spa systems from Home Assistant. Depending on the equipment connected to your controller, you can check water and air temperatures, control auxiliary equipment like pumps and water features, manage compatible pool lights, and adjust supported pool or spa heaters.

@@ -1,25 +1,7 @@
 ---
-title: Bang & Olufsen
 description: Instructions on how to integrate Bang & Olufsen devices into Home Assistant.
-ha_category:
-  - Event
-  - Media Player
-  - Multimedia
-  - Sensor
 ha_release: 2024.2
-ha_iot_class: Local Push
 ha_domain: bang_olufsen
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - event
-  - media_player
-  - sensor
-ha_codeowners:
-  - '@mj23000'
-ha_config_flow: true
-ha_zeroconf: true
-ha_integration_type: device
 ---
 
 The **Bang & Olufsen** {% term integration %} enables control of some of the features of certain [Bang & Olufsen](https://www.bang-olufsen.com/) devices through Home Assistant.
@@ -112,7 +94,7 @@ Many devices have the same button layout, but not all of them. These are the dif
 
 #### Beoremote One
 
-A Home Assistant device is created for each paired Beoremote One via their paired Mozart device. Event entities are created for each of the compatible keys on the remote. These event entities are disabled by default.
+A Home Assistant device is created for each paired Beoremote One via their paired Mozart device. Event entities are created for each of the compatible keys on the remote. These event entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 Beoremote One devices are automatically added as they are detected.
 

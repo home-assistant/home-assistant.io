@@ -5,7 +5,7 @@ domain: sharkiq
 description: "Cleans a specific user-defined room or set of rooms."
 ---
 
-The **Clean room** action sends a Shark IQ robot vacuum to clean one or more specific rooms, instead of cleaning the whole home. The available rooms are the ones you have set up in the Shark Clean app.
+The **Shark IQ: Clean room** action sends a Shark IQ robot vacuum to clean one or more specific rooms, instead of cleaning the whole home. The available rooms are the ones you have set up in the Shark Clean app.
 
 Use this action if you want targeted cleanups. For example, create an automation to clean only the kitchen after dinner without running a full cleaning cycle.
 
@@ -61,7 +61,7 @@ rooms:
 
 ## Good to know
 
-- Write each room name exactly as it appears in the Shark Clean app. To find the names Home Assistant understands, check the `Rooms` attribute of your Shark robot vacuum entity, for example in the [Developer tools](/docs/tools/dev-tools/).
+- Write each room name exactly as it appears in the Shark Clean app. To find the names Home Assistant understands, check the `Rooms` attribute of your Shark robot vacuum entity, for example in [Tools](/docs/tools/dev-tools/).
 - If you use the area selector in the UI, format the area names to match the names in the vacuum's `Rooms` attribute.
 
 {% include actions/try_it.md %}

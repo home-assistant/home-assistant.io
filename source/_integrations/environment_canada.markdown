@@ -1,23 +1,7 @@
 ---
-title: Environment Canada
 description: Weather data from Environment Canada.
-ha_category:
-  - Camera
-  - Sensor
-  - Weather
-ha_platforms:
-  - camera
-  - diagnostics
-  - sensor
-  - weather
 ha_release: 0.95
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@gwww'
-  - '@michaeldavie'
 ha_domain: environment_canada
-ha_config_flow: true
-ha_integration_type: service
 ---
 
 The **Environment Canada** {% term integration %} provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
@@ -42,7 +26,7 @@ The integration will create the entities listed below.
 ### Radar map (Camera)
 
 - Loop of radar imagery from the last 3 hours.
-- This entity is disabled by default and can be enabled in the entry's settings dialog.
+- This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and can be enabled in the entry's settings dialog.
 - Radar display settings can be customized through the integration options. See [Radar camera options](#radar-camera-options) below.
 
 ### Sensors
@@ -91,14 +75,31 @@ The alert sensors use the number of current alerts as their state, with an attri
 
 ## Radar camera options
 
-You can customize the radar display settings.
-The following settings are available:
+You can customize the radar display settings, grouped into four sections.
+
+### Map
+
+- **Map radius**: Radius of the radar map in kilometers, from 10 to 2,000 km (default: 200 km).
+
+### Radar
 
 - **Radar type**: The radar layer to display: **Rain**, **Snow**, or **Precipitation type** (a composite layer showing the type of precipitation). The default is **Precipitation type**.
-- **Show legend**: Whether to show the color legend on the radar image (default: off).
-- **Show timestamp**: Whether to show the timestamp on the radar image (default: on).
+- **Color scale**: Number of colors in the **Rain** and **Snow** radar images, either **8 colors** or **14 colors** (default: **14 colors**). This setting does not apply to the **Precipitation type** radar type, which always uses its own color scale.
 - **Radar opacity**: Opacity of the radar overlay, from 0 to 100 (default: 65).
-- **Map radius**: Radius of the radar map in kilometers, from 10 to 2,000 km (default: 200 km).
+- **Show legend**: Whether to show the color legend on the radar image (default: off).
+
+### Time
+
+- **Past minutes**: How far back the radar animation goes, in minutes, from 0 to 180 (default: 0, which uses the full history available from Environment Canada).
+- **Future minutes**: Extends the radar loop past now using Environment Canada's short-term forecast (nowcast) data, in minutes, from 0 to 72 (default: 0, no extrapolation frames). This setting only applies to the **Rain** and **Snow** radar types; it has no effect on **Precipitation type**.
+- **Show timestamp**: Whether to show the timestamp on the radar image (default: on).
+
+### Image
+
+This section is collapsed by default.
+
+- **Smooth radar image**: Whether to smooth the radar image instead of leaving it pixelated. Turning this on uses more bandwidth (default: off).
+- **Loop frame rate**: Frame rate of the radar animation, from 1 to 30 frames per second (FPS) (default: 5 FPS).
 
 ### Configuring radar camera display
 
@@ -162,11 +163,11 @@ The configuration snippet below adds a template sensor containing the current fo
 
 ```yaml
 - trigger:
-    - platform: time_pattern
+    - trigger: time_pattern
       hours: "/4"
-    - platform: homeassistant
+    - trigger: homeassistant
       event: start
-    - platform: event
+    - trigger: event
       event_type: event_template_reloaded
   actions:
     - action: environment_canada.get_forecasts
@@ -190,11 +191,11 @@ To get the alerts in a sensor with all the alert data, use the following, replac
 
 ```yaml
 - trigger:
-    - platform: time_pattern
+    - trigger: time_pattern
       minutes: "/1"
-    - platform: homeassistant
+    - trigger: homeassistant
       event: start
-    - platform: event
+    - trigger: event
       event_type: event_template_reloaded
   actions:
     - action: environment_canada.get_alerts

@@ -21,17 +21,19 @@ This is a quick way to turn a UNIX timestamp into a readable local date and time
 
 {% include template_functions/usage.md %}
 
+The examples use a time zone of UTC+1.
+
 {% template_function_usage %}
 filter: '{{ 1710510600 | timestamp_local }}'
 type: string
-output: "2024-03-15 14:30:00+01:00"
+output: "2024-03-15T14:50:00+01:00"
 {% endtemplate_function_usage %}
 
 {% include template_functions/signatures.md %}
 
 ```signature
 value | timestamp_local(
-    default: Any = None,
+    default: Any,
 ) -> str | Any
 ```
 
@@ -42,17 +44,17 @@ The following parameters can be provided to this filter.
 {% function_parameters %}
 default:
   description: >
-    Value to return if the formatting fails. If not provided, an error is raised on invalid input.
+    The value to return if the formatting fails, such as `"unknown"`. If you leave out `default` and the formatting fails, `timestamp_local` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}
 
 ## Using a default value
 
-If the input might not be a valid timestamp, provide a default to avoid errors.
+If the input might not be a valid timestamp, provide a default to avoid errors. `float(none)` turns invalid text into `none`, so the default is used.
 
 {% example %}
-template: '{{ "invalid" | float(0) | timestamp_local(default="unknown") }}'
+template: '{{ "invalid" | float(none) | timestamp_local(default="unknown") }}'
 type: string
 output: "unknown"
 {% endexample %}
@@ -61,7 +63,8 @@ output: "unknown"
 
 - The input must be a UNIX timestamp (a number of seconds). Pass a datetime object through [`as_timestamp`](/template-functions/as_timestamp/) first.
 - The result is a string, not a datetime object. To do datetime math, use [`as_local`](/template-functions/as_local/) instead.
-- Without a `default`, the filter raises an error for non-numeric inputs.
+- The input must be a number, not text. A numeric string such as `"1700000000"` fails too. Convert states with [`float`](/template-functions/float/) or [`int`](/template-functions/int/) first.
+- Without a `default`, the filter raises an error if the input isn't a number.
 
 {% include template_functions/try_it.md %}
 
@@ -75,7 +78,7 @@ Convert the last changed timestamp of an entity to a readable local time string.
 template: |
   {{ as_timestamp(states.sensor.temperature.last_changed) | timestamp_local }}
 type: string
-output: "2024-03-15 14:30:00+01:00"
+output: "2024-03-15T14:30:00+01:00"
 {% endexample %}
 
 ### Show the current time as a formatted string
@@ -85,7 +88,7 @@ Convert the current UNIX timestamp to a local datetime string.
 {% example %}
 template: '{{ as_timestamp(now()) | timestamp_local }}'
 type: string
-output: "2024-03-15 14:30:00+01:00"
+output: "2024-03-15T14:30:00+01:00"
 {% endexample %}
 
 ### Use in a notification

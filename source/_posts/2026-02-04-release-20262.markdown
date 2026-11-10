@@ -412,7 +412,7 @@ The following integrations are now available via the Home Assistant UI:
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
-- The **Developer tools** have been moved to the {% my general title="**Settings**" %} area. This change keeps all administrative and system tools in one central location, making the interface cleaner and more consistent. We understand this might take some getting used to, and we hear you! We're actively exploring adding full sidebar menu customization capabilities in the future, giving you the flexibility to organize your navigation exactly the way you want it.
+- The **Tools** have been moved to the {% my general title="**Settings**" %} area. This change keeps all administrative and system tools in one central location, making the interface cleaner and more consistent. We understand this might take some getting used to, and we hear you! We're actively exploring adding full sidebar menu customization capabilities in the future, giving you the flexibility to organize your navigation exactly the way you want it.
 - Dashboards now support calendar colors! Pick a color for each calendar, and it will show up in your calendar cards. The [Google Calendar] integration already supports this feature, thanks to [@Misiu].
 - [@karwosts] added live inline template previews to the template editor. As you type, you can instantly see the result of your template without needing to manually refresh.
 - The sidebar now features a subtle scroll fade effect and keeps **Settings** always visible at the bottom, so you never have to scroll to find it. Thanks, [@ildar170975]!

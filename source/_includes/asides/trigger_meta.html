@@ -1,10 +1,5 @@
-{%- assign domain_data = site.data.trigger_domains | where: 'key', page.domain | first -%}
-{%- if domain_data -%}
-  {%- assign domain_label = domain_data.label -%}
-{%- else -%}
-  {%- assign integration = site.integrations | where: 'ha_domain', page.domain | first -%}
-  {%- assign domain_label = integration.title | default: page.domain -%}
-{%- endif -%}
+{%- assign domain_entry = site.data.trigger_domain_lookup[page.domain] -%}
+{%- assign domain_label = domain_entry.label | default: page.domain -%}
 
 <section class="aside-module grid__item one-whole lap-one-half">
   <div class='section'>

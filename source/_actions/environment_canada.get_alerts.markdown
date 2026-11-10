@@ -2,15 +2,17 @@
 title: "Get alerts"
 action: environment_canada.get_alerts
 domain: environment_canada
+response: required
 description: "Retrieves the active weather alerts for an Environment Canada location."
 related_actions:
   - environment_canada.get_forecasts
+  - environment_canada.get_precipitation_forecast
   - environment_canada.set_radar_type
 ---
 
 Use this action to retrieve the active weather alerts for one of your Environment Canada locations, such as warnings, watches, advisories, statements, and endings.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to send a notification with the details of a current warning.
+For example, you can use the result to send a notification with the details of a current warning.
 
 {% include actions/ui_header.md %}
 
@@ -60,6 +62,8 @@ config_entry_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is a mapping keyed by alert category. Each category holds a list of the alerts that are currently active for that category:
 
