@@ -23,7 +23,7 @@ To run the pulse effect from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **LIFX: Pulse effect**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX lights are in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-7. Select **Mode** to choose how the color changes, then pick the flash color with either **Color name** or **RGB color**.
+7. Select **Mode** to choose how the color changes, then pick the flash color with one of **Color name**, **RGB color**, **Hue/Sat color**, **XY-color**, or **Color temperature**.
 8. _Optional_: set **Cycles** to flash more than once, and **Period** to make each flash faster or slower.
 9. Select **Save**.
 
@@ -40,10 +40,19 @@ Brightness:
   description: An alternative to the brightness value, as a percentage from 1 to 100. Use either this or the brightness value, not both.
   required: false
 Color name:
-  description: A human-readable color name for the temporary color, such as `red` or `green`.
+  description: A human-readable color name for the temporary color, such as `red` or `green`. Use only one of the color options.
   required: false
 RGB color:
-  description: The temporary color in RGB format, as a list of three numbers from 0 to 255. Use either this or the color name, not both.
+  description: The temporary color in RGB format, as a list of three numbers from 0 to 255. Use only one of the color options.
+  required: false
+Hue/Sat color:
+  description: The temporary color as a list of two numbers, a hue from 0 to 360 and a saturation from 0 to 100. Use only one of the color options.
+  required: false
+XY-color:
+  description: The temporary color as a list of two CIE 1931 x and y coordinates, each from 0 to 1. Use only one of the color options.
+  required: false
+Color temperature:
+  description: The temporary color as a white color temperature, from 1500 to 9000 Kelvin. Use only one of the color options.
   required: false
 Period:
   description: How long a single flash takes, in seconds. Accepts 0.05 to 60 seconds. If you leave it empty, the `strobe` mode uses 0.1 seconds and every other mode uses 1 second.
