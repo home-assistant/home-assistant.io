@@ -8,9 +8,9 @@ related_triggers:
   - homeassistant.restart_required
 ---
 
-The **Home Assistant updated** trigger reacts once after Home Assistant starts on a different version than the one it ran before. That is usually after an update. Going back to an older version, for example by restoring a backup, also triggers it. The versions tell you which way it went.
+The **Home Assistant updated** trigger fires once, after Home Assistant has started on a different version than it ran before, not only after an update. It doesn't fire on a normal restart.
 
-Use it to act right after an update, for example to send a notification with the new version, or only when Home Assistant installed the update on its own.
+Use it to do something after an update, for example, to send a notification with the version you updated from and to, or to reload something that needs the new version. You can also act only when Home Assistant installed the update on its own.
 
 {% include triggers/ui_header.md %}
 
@@ -31,29 +31,36 @@ trigger: |
   trigger: homeassistant.updated
 {% endexample %}
 
-In templates, `trigger.from_version` holds the version Home Assistant ran before, and `trigger.to_version` the version it runs now, such as `2026.10.3` and `2026.11.0`. `trigger.automatic` is `true` when Home Assistant installed the update on its own, and `false` when you installed it.
+## Trigger variables
+
+When the trigger reacts, the `trigger` variable contains the following data:
+
+- `trigger.from_version`: The version that Home Assistant ran before.
+- `trigger.to_version`: The version that Home Assistant runs now.
+- `trigger.automatic`: `true` when Home Assistant installed the update on its own, and `false` when you installed it.
+
+For the data that all triggers include, refer to [Trigger data in templates](/docs/automation/trigger-data/#properties-of-all-triggers).
 
 ## Good to know
 
-- The trigger reacts once, right after Home Assistant has started on the new version. A restart on the same version does not trigger it.
-- The first start of a new installation does not trigger it. There is no version from before to compare with.
-- It works on every installation type, such as Home Assistant OS and Home Assistant Container.
-- `trigger.automatic` can only be `true` on Home Assistant OS, where Home Assistant can install bug fix updates on its own. On other installation types, it is always `false`.
-- If the automation is turned on, or automations are reloaded, after Home Assistant has started, the trigger does not react to that start. It only reacts in automations that are ready when Home Assistant starts.
+- The trigger fires when Home Assistant has finished starting, once per version change.
+- A downgrade, for example, after you restore an older backup, also counts as a version change.
+- `trigger.automatic` can only be `true` on Home Assistant OS, where Home Assistant can install bug fix updates on its own. On other installation types, it's always `false`.
+- The automation must be turned on when Home Assistant starts. If you create or turn on the automation later, the trigger doesn't fire until the next update.
+- To run an automation on every start of Home Assistant, not only after an update, use the [Home Assistant](/triggers/homeassistant/) trigger with **Start**.
 
 {% include triggers/try_it.md %}
 
-For this trigger, there is no target entity to change. To test it, update Home Assistant, or temporarily switch to a trigger you can control while you build the rest of the automation.
+This trigger has no target entity to change. To test it, save and turn on the automation before the next Home Assistant version change. A normal restart won't fire it, and **Run actions** doesn't provide the version variables used by the notification example.
 
 {% include triggers/more_examples.md %}
 
-### Automation: notify after an update
-
-When Home Assistant was updated, send a notification with both versions.
+### Automation: Notify after an update
 
 - **Trigger**: Home Assistant updated
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+  - **Message**: {% raw %}`Home Assistant updated from {{ trigger.from_version }} to {{ trigger.to_version }}.`{% endraw %}
 
 {% details "YAML example for an update notification" %}
 
@@ -67,22 +74,19 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        message: >
-          Home Assistant was updated from {{ trigger.from_version }}
-          to {{ trigger.to_version }}.
+        message: "Home Assistant updated from {{ trigger.from_version }} to {{ trigger.to_version }}."
 {% endexample %}
 
 {% enddetails %}
 
-### Automation: notify only after an automatic update
-
-When Home Assistant installed an update on its own, send a notification, so you know it happened while you were not looking.
+### Automation: Notify only after an automatic update
 
 - **Trigger**: Home Assistant updated
 - **Condition**: Template
-  - The update was automatic.
+  - **Value template**: `{{ trigger.automatic }}`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+  - **Message**: `Home Assistant updated itself from {{ trigger.from_version }} to {{ trigger.to_version }}.`
 
 {% details "YAML example for an automatic update notification" %}
 
@@ -97,9 +101,7 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        message: >
-          Home Assistant updated itself from {{ trigger.from_version }}
-          to {{ trigger.to_version }}.
+        message: "Home Assistant updated itself from {{ trigger.from_version }} to {{ trigger.to_version }}."
 {% endexample %}
 
 {% enddetails %}
