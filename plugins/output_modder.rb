@@ -3,10 +3,9 @@
 # This is combined in a single plugin/filter to reduce the NokoGiri dom
 # parsing to just once per page/content.
 #
-# - Opens outgoing links in a new tab, and adds rel='external nofollow'
-#   to those not leading to Open Home Foundation sites or partners.
-#   (The Astro build does the same: astro/src/lib/external-links.mjs.)
 # - Automatically make headers linkable
+#
+# Outgoing links are handled for whole pages by external_links.rb.
 #
 require 'jekyll'
 require 'nokogiri'
@@ -15,32 +14,6 @@ module Jekyll
   module OutputModder
     def output_modder(content)
       dom = Nokogiri::HTML.fragment(content)
-
-      # Find all links: external links open in a new tab, and get
-      # rel='external nofollow'
-      dom.css('a').each do |link|
-        rel = %w[external nofollow]
-
-        # All external links start with 'http', skip when this one does not
-        next unless link.get_attribute('href') =~ /\Ahttp/i
-
-        # Skip our own links
-        next if link.get_attribute('href') =~ %r{\Ahttps?://(?:\w+\.)?home-assistant\.io(?:[/:?#]|\z)}i
-
-        # Open in a new tab, unless the link sets its own target
-        link.set_attribute('target', '_blank') unless link.get_attribute('target')
-
-        # Play nice with our own links
-        if link.get_attribute('href') =~ %r{\Ahttps?://(?:\w+\.)?(?:home-assistant\.io|esphome\.io|nabucasa\.com|openhomefoundation\.org|music-assistant\.io|apolloautomation\.com)(?:[/:?#]|\z)}i
-          next
-        end
-
-        # Play nice with links that already have a rel attribute set
-        rel.unshift(link.get_attribute('rel'))
-
-        # Add rel attribute to link
-        link.set_attribute('rel', rel.join(' ').strip)
-      end
 
       # Find all headers, make them linkable with unique slug names
       used_slugs = {}

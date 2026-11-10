@@ -1,6 +1,6 @@
-// Outgoing links open in a new tab, site-wide: the Astro side of the
-// Jekyll `output_modder` filter (plugins/output_modder.rb), with the
-// same rules, run on every page by src/middleware.ts.
+// Outgoing links open in a new tab, on whole pages: the Astro side of
+// the Jekyll plugin plugins/external_links.rb, with the same rules, run
+// on every page by src/middleware.ts. Keep the two in step.
 //
 // A link is outgoing when its href starts with "http" and does not lead
 // to home-assistant.io or one of its subdomains. An outgoing link gets
