@@ -85,7 +85,8 @@ Choose an area and add physical controllers for a scene.
 5. Set what each device should do when the scene turns on, directly on its card:
    - For dimmable lights, set **On level** (brightness) and **Ramp rate** (how quickly the light reaches that brightness).
    - For on/off devices, choose **On** or **Off**.
-   - For fans, choose a speed. For locks, choose **Locked** or **Unlocked**.
+   - For fans, choose a speed.
+   - For locks, choose **Locked** or **Unlocked**.
    - For devices with several outputs, such as keypads, select the outputs or buttons to include.
 6. Select **Save scene**. Writing the settings to the modem and devices can take a minute or two.
 
@@ -109,6 +110,24 @@ When you press a controller button, the light wired to that controller uses the 
 #### Importing existing device scenes
 
 If you already linked devices using their physical buttons or by editing their All-Link Databases, use **Utilities** > **Import device scenes** in the Insteon configuration panel to bring those scenes into the editor. First, read the participating devices' complete [All-Link Databases](#device-all-link-database). Select **Import** next to a scene marked **Ready to import**, give it a name, and confirm. Existing device links are kept, and Home Assistant control is added. The imported scene opens in the editor, where you can adjust its settings and assign an area.
+
+### Controlling Insteon scenes
+
+For manual control from Home Assistant, use the scene's switch. Home Assistant automatically creates a switch for each Insteon scene. Assign an **Area** in the scene editor to organize that switch with the room's other controls. You can also add the switch to a dashboard. Turning it on applies the scene's saved device settings; turning it off turns the scene off.
+
+#### Scene switch state
+
+The switch shows the scene's last on/off activity, not whether every device currently matches the scene's settings:
+
+- When you turn the scene on or off from Home Assistant, the switch updates accordingly.
+- For device-controlled scenes, pressing any controller button also updates the switch. Controllers that report their current state, such as keypad buttons, keep the switch in sync with that state.
+- For scenes without a controller that reports its state, including scenes controlled only by battery-powered remotes, the switch remembers the last scene command or button press. Home Assistant restores its last known state after a restart. Until a state is known, it can show as unknown.
+
+Changing an individual light does not necessarily change the scene switch. For example, the switch can stay on after you adjust a light's brightness separately.
+
+#### Automating scene control
+
+For automated control in automations and scripts, use the [Scene on](/actions/insteon.scene_on/) action to turn a scene on and the [Scene off](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon scene number, shown in the **Scene** column of the **Insteon Scenes** tab. These actions remain available for existing automations; you do not need to replace them with switch actions.
 
 ### Device overview
 
@@ -162,24 +181,6 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 - **Delete device**: Delete an Insteon device from the network using the device's Insteon address.
 - **Missing modem links**: Read every device's link database and list the devices Home Assistant cannot control, and the buttons whose use is not reported to Home Assistant.
 - **Import device scenes**: Find scenes created outside Home Assistant and [import them into the scene editor](#importing-existing-device-scenes).
-
-## Controlling Insteon scenes
-
-For manual control from Home Assistant, use the scene's switch. Home Assistant automatically creates a switch for each Insteon scene. Assign an **Area** in the scene editor to organize that switch with the room's other controls. You can also add the switch to a dashboard. Turning it on applies the scene's saved device settings; turning it off turns the scene off.
-
-### Scene switch state
-
-The switch shows the scene's last on/off activity, not whether every device currently matches the scene's settings:
-
-- When you turn the scene on or off from Home Assistant, the switch updates accordingly.
-- For device-controlled scenes, pressing any controller button also updates the switch. Controllers that report their current state, such as keypad buttons, keep the switch in sync with that state.
-- For scenes without a controller that reports its state, including scenes controlled only by battery-powered remotes, the switch remembers the last scene command or button press. Home Assistant restores its last known state after a restart. Until a state is known, it can show as unknown.
-
-Changing an individual light does not necessarily change the scene switch. For example, the switch can stay on after you adjust a light's brightness separately.
-
-### Automating scene control
-
-For automated control in automations and scripts, use the [Scene on](/actions/insteon.scene_on/) action to turn a scene on and the [Scene off](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon scene number, shown in the **Scene** column of the **Insteon Scenes** tab. These actions remain available for existing automations; you do not need to replace them with switch actions.
 
 ## Events and Mini-Remotes
 
