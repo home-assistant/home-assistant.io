@@ -974,6 +974,7 @@ join: ',' | split: ',' -%}
             <a class="empty-state-action" data-empty-action="everywhere" href="/integrations/">Search all categories</a>
             <button type="button" class="empty-state-action" data-empty-action="filters">Clear filters</button>
           </div>
+          <p class="empty-state-marketplace">The community may have made an integration that isn't listed here. You can install it from the <a href="/integrations/marketplace/">Marketplace</a> in Home Assistant.</p>
         </div>`;
       const cards = componentContainerEl.querySelectorAll('.option-card');
       integrations.forEach((integration, index) => {

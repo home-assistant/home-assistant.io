@@ -201,6 +201,8 @@ To keep the data of an app, create a backup that includes the app before you uni
 You added an app repository, but its apps aren't shown in the app store.
 
 1. Refresh your browser.
-2. If the apps still aren't shown, the repository may contain invalid configuration data. To find out, check the **Supervisor** log.
+2. Make sure that the repository contains apps.
+   - If it contains an integration, a dashboard card, or a theme, add it to the Marketplace instead. For the steps, refer to [Custom repositories](/integrations/marketplace/#custom-repositories).
+3. If the apps still aren't shown, the repository might contain invalid configuration data. To find out, check the **Supervisor** log.
    - Go to {% my logs title="**Settings** > **System** > **Logs**" %}. In the top-right corner, select the button that shows **Home Assistant Core**, and then select **Supervisor**.
-3. Report the problem to the author of the repository.
+4. Report the problem to the author of the repository.
