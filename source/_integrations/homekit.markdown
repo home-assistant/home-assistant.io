@@ -41,7 +41,10 @@ homekit:
         - binary_sensor.*_occupancy
       include_entities:
         - binary_sensor.living_room_motion
+        - fan.bedroom_ceiling_fan
         - valve.front_lawn
+      exclude_entities:
+        - light.bedroom_ceiling_fan_light
     entity_config:
       alarm_control_panel.home:
         code: 1234
@@ -173,7 +176,7 @@ homekit:
               required: false
               type: string
             linked_light:
-              description: The `entity_id` of a `light` entity to add as a light to the accessory of a `fan` entity, or of a `media_player` entity shown as a television or a receiver (device class `tv` or `receiver`). A ceiling fan with a light kit, for example, then shows as a single accessory in the Home app. The light can be turned on and off from HomeKit, and dimmed when it supports brightness.
+              description: The `entity_id` of a `light` entity to add as a light to the accessory of a `fan` entity, or of a `media_player` entity shown as a television or a receiver (device class `tv` or `receiver`). A ceiling fan with a light kit, for example, then shows as a single accessory in the Home app. To keep the light from also showing as an accessory of its own, exclude it from the `filter`, as in the example above. The light can be turned on and off from HomeKit, and dimmed when it supports brightness.
               required: false
               type: string
             linked_pm25_sensor:
