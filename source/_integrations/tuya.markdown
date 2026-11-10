@@ -50,7 +50,7 @@ Tuya supports scenes in their app. These allow triggering some of the more compl
 
 ## Infrared air conditioners
 
-Air conditioners that you added in the app as a remote of a Tuya infrared hub are shown as a climate {% term entity %}.
+Air conditioners that you added in the Smart Life or Tuya Smart app as a remote of a Tuya infrared hub are shown as a climate {% term entity %}.
 
 - The entity shows the state the remote was last used with, including changes made in the app. Changes made with the original remote of the air conditioner are not shown, because the hub does not receive them.
 - Every command sends the full state of the remote, so the air conditioner beeps once for every change. Some mode changes need more than one command.
