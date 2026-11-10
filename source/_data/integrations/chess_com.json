@@ -11,6 +11,9 @@
   "categories": [
     "media_entertainment.gaming"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "diagnostics",
     "sensor"

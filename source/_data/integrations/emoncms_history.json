@@ -9,5 +9,9 @@
   "categories": [
     "energy.meters_monitoring",
     "diy_makers.web_data_connectors"
+  ],
+  "connectivity": [
+    "cloud",
+    "network"
   ]
 }

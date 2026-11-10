@@ -11,6 +11,9 @@
   "categories": [
     "lighting.lighting_systems"
   ],
+  "connectivity": [
+    "dali"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

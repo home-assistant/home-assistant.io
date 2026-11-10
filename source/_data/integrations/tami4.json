@@ -11,6 +11,9 @@
     "water.water_treatment",
     "appliances_cleaning.cooking"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "button",
     "sensor"

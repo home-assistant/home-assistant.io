@@ -876,6 +876,10 @@ layout: null
 /actions/hassio.addon_stdin /actions/hassio.app_stdin/ 301
 /actions/hassio.addon_stop /actions/hassio.app_stop/ 301
 
+# Deprecated iZone airflow actions, replaced by the zone damper number entities
+/actions/izone.airflow_max /integrations/izone/#zone-dampers 301
+/actions/izone.airflow_min /integrations/izone/#zone-dampers 301
+
 # Template function category pages merged into index
 /template-functions/category/area/ /template-functions/#area
 /template-functions/category/collection/ /template-functions/#collection

@@ -9,6 +9,9 @@
   "categories": [
     "energy"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

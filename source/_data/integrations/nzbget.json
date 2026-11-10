@@ -11,6 +11,9 @@
     "computers_network.nas_servers",
     "media_entertainment.tv_streaming"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor",
     "switch"

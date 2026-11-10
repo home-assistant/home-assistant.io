@@ -13,6 +13,9 @@
     "diy_makers.boards_hardware",
     "sensors.temperature_humidity"
   ],
+  "connectivity": [
+    "onewire"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

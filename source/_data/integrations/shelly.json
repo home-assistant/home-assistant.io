@@ -16,6 +16,9 @@
     "lighting.bulbs_lamps",
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

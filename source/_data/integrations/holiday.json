@@ -12,6 +12,7 @@
     "productivity_information.calendars_todos"
   ],
   "platforms": [
-    "calendar"
+    "calendar",
+    "diagnostics"
   ]
 }
