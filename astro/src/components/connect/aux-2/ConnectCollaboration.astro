@@ -85,16 +85,18 @@ const { image, imageAlt } = Astro.props;
       padding-block: var(--space-medium);
     }
 
+    /* Navy, like the heading: the muted gray has too little contrast
+       on this blue (3.5:1, under the 4.5:1 that body text needs). */
     :global(p) {
-      color: var(--color-ink-muted);
+      color: var(--color-ink);
       font-size: var(--font-size-large);
       line-height: 1.2;
       margin: 0;
       padding-block: var(--space-xsmall);
     }
 
-    /* Links in the text, such as Nabu Casa's website: navy and
-       underlined, as the text has no other color to set them apart. */
+    /* Links in the text, such as Nabu Casa's website: underlined, as
+       they share the text's navy. */
     :global(a) {
       color: var(--color-ink);
       text-decoration: underline;
