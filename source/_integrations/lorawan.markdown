@@ -75,7 +75,10 @@ You add LoRaWAN devices on your LoRaWAN network server, in its management consol
 3. Select **Open management console**, and add the device there.
    - If the connection doesn't provide a link, for example for a self-hosted The Things Stack server, the dialog says so. Open the website of your network server yourself.
 
-When the device appears on your network server, Home Assistant shows the matching device integration in the **Discovered** section on {% my integrations title="**Settings** > **Devices & services**" %}.
+When the device appears on your network server, Home Assistant checks whether a device integration supports it. The device must be in one of the applications that you selected for the connection.
+
+- If the device integration isn't set up yet, Home Assistant shows it in the **Discovered** section on {% my integrations title="**Settings** > **Devices & services**" %}. Set it up from there.
+- If the device integration is already set up, it adds the device automatically.
 
 ## How LoRaWAN devices are handled
 
