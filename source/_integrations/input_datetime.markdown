@@ -1,15 +1,7 @@
 ---
-title: Input Datetime
 description: Instructions on how to integrate the Input Datetime integration into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_release: 0.55
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: input_datetime
-ha_integration_type: helper
 ---
 
 The **Input Datetime** {% term integration %} lets you create a date and time {% term helper %}: an entity that stores a date, a time, or both, which you can set yourself. Because the value is not tied to a physical device, you can use it as an adjustable date or time setting for your automations, scripts, and dashboards. For example, you can create a date and time helper to store a wake-up time, a target date, or the moment an automation should run.

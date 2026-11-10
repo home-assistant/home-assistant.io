@@ -1,17 +1,7 @@
 ---
-title: Ukraine Alarm
 description: Instructions on how to integrate Ukraine Alarm within Home Assistant.
-ha_category:
-  - Other
 ha_release: 2022.6
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@PaulAnnekov'
 ha_domain: ukraine_alarm
-ha_platforms:
-  - binary_sensor
-ha_integration_type: service
 ---
 
 The **Ukraine Alarm** {% term integration %} uses the siren.pp.ua API, a public wrapper for the [Ukraine Alarm](https://www.ukrainealarm.com/) web service, to provide air-raid siren notifications. The {% term integration %} creates 8 binary sensors for your selected region in Ukraine:

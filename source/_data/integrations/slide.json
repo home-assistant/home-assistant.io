@@ -1,0 +1,18 @@
+{
+  "domain": "slide",
+  "name": "Slide",
+  "codeowners": [
+    "@ualex73"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "cover"
+  ]
+}

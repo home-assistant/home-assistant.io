@@ -1,6 +1,9 @@
 ---
 title: My integration
 description: Example document structure and text blocks for integration documentation.
+# The title and the ha_ keys, except ha_domain and ha_release, come from the
+# integration manifest in core. A new page needs them until its integration
+# is synced from core, the sync then removes them.
 ha_release: 2025.3
 ha_iot_class: Local Push
 ha_codeowners:
@@ -8,9 +11,9 @@ ha_codeowners:
 ha_domain: my_integration
 ha_integration_type: hub
 related:
-  - url: https://developers.home-assistant.io/docs/documenting/standards
+  - url: https://contributors.home-assistant.io/writing/reference/style/
     title: Documentation standard
-  - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/
+  - url: https://contributors.home-assistant.io/core/quality-scale/rules/
     title: Integration Quality Scale - Rules
   - docs: /docs/glossary/
     title: Glossary
@@ -20,7 +23,7 @@ related:
 
 <!--- The integration documentation template provides a documentation structure as well as some example content per section. The example content is meant for inspiration, it may not apply for your integration or will at least have to be adapted. -->
 
-<!--- Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/). -->
+<!--- Use this template together with the contributor documentation, under [Documentation standard](https://contributors.home-assistant.io/writing/reference/style/) and the documentation rules of the [Integration Quality Scale](https://contributors.home-assistant.io/core/quality-scale/rules/). -->
 
 The **My integration** {% term integration %} is used to integrate with the devices of [MyCompany](https://www.mycompany.com). MyCompany creates various smart home appliances and devices and are known for their MyProduct.
 Use case: When you combine it with their other device you can do x.

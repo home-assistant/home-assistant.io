@@ -1,18 +1,10 @@
 ---
-title: NAD
 description: Instructions on how to integrate NAD receivers into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 0.36
-ha_iot_class: Local Polling
 ha_domain: nad
-ha_platforms:
-  - media_player
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **NAD** {% term integration %} allows you to control an [NAD receiver](https://nadelectronics.com/) through RS232, TCP and Telnet from Home Assistant.

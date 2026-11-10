@@ -1,18 +1,11 @@
 ---
-title: Event
 description: Instructions on how to use event entities in Home Assistant.
-ha_category:
-  - Event
 ha_release: 2023.8
-ha_quality_scale: internal
 ha_domain: event
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
   - docs: /triggers/event.received/
     title: Event received trigger
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard
@@ -55,7 +48,7 @@ The integration that provides the event entity sets the device class. When you c
 
 ### Device classes in automations and templates
 
-- Automations: The doorbell device class has its own trigger, [Doorbell rang](/triggers/doorbell.rang/). The trigger only reacts to event entities with that device class. The other device classes don't change how an event entity works in automations.
+- Automations: The button and doorbell device classes have their own triggers, [Button pressed](/triggers/button.pressed/) and [Doorbell rang](/triggers/doorbell.rang/). Each trigger only reacts to event entities with its device class. The motion device class doesn't change how an event entity works in automations.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `doorbell`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
@@ -65,6 +58,7 @@ An event entity without a device class is a generic event and shows {% icon "mdi
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. If the device class has its own trigger, the trigger is listed below the item.
 
 - {% icon "mdi:gesture-tap-button" %} **Button** (`button`): For buttons, such as the buttons of a remote control.
+  - Trigger: [Button pressed](/triggers/button.pressed/)
 - {% icon "mdi:doorbell" %} **Doorbell** (`doorbell`): For buttons that are used as a doorbell.
   - Trigger: [Doorbell rang](/triggers/doorbell.rang/)
 - {% icon "mdi:motion-sensor" %} **Motion** (`motion`): For motion detected by a motion sensor.

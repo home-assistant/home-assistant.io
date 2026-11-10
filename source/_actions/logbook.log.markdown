@@ -94,7 +94,7 @@ When a garden irrigation valve has been open for more than 30 minutes, close it 
 - **Trigger**: State changed
   - **Entity**: Garden irrigation (`valve.garden_irrigation`)
   - **To**: Open
-  - **For**:  `0:30:00`
+  - **For at least**:  `0:30:00`
 - **Action**: Close valve
   - **Target**: Garden irrigation
 - **Action**: Activity: Log activity

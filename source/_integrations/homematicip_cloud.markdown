@@ -1,44 +1,7 @@
 ---
-title: HomematicIP Cloud
 description: Instructions for integrating HomematicIP into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Sensor
-  - Switch
-  - Valve
-ha_iot_class: Cloud Push
 ha_release: 0.66
-ha_config_flow: true
 ha_domain: homematicip_cloud
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - sensor
-  - siren
-  - switch
-  - valve
-  - weather
-ha_integration_type: hub
-ha_codeowners:
-  - '@hahn-th'
-  - '@lackas'
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
@@ -114,6 +77,14 @@ The door opener of the HmIP-FLC and HmIP-FDC is a button entity. As with the HmI
 
 If the access authorization has a PIN, use the `homematicip_cloud.pull_latch` action with its `pin` field. The button itself cannot pass a PIN.
 
+## Arming refused by a sensor
+
+Newer Homematic IP alarm systems refuse to arm while a window is open or a device is unreachable. Home Assistant then reports an error naming those devices, and the **Arming blocked** binary sensor of the access point turns on. It only follows the commands sent from Home Assistant and stays on until the next one goes through.
+
+## Arm the alarm system anyway
+
+If the alarm system refuses to arm because a window is open or a device is unreachable, the [`homematicip_cloud.arm_anyway`](/actions/homematicip_cloud.arm_anyway/) action arms it anyway, in the `away` or `home` mode, and leaves the sensors that block it unmonitored.
+
 ## Supported devices
 
 The list below shows which Home Assistant entities each supported Homematic IP device contributes. Devices are grouped by Home Assistant entity platform; a single physical device often contributes entities on more than one platform (for example, a wall thermostat appears under *Climate*, *Sensors*, and *Binary sensors* for the battery state). If your device isn't listed, see [My device isn't recognized](#my-device-isnt-recognized).
@@ -124,7 +95,7 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 
 ### Binary sensors
 
-- Access point cloud connection (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Access point cloud connection and arming blocked (`HmIP-HAP`, `HmIP-HAP-B1`)
 - Window and door contacts, including the rotary handle sensor (`HmIP-SWDO`, `HmIP-SWDO-PL`, `HmIP-SWDO-I`, `HmIP-SWDM`, `HmIP-SWDM-B2`, `HmIP-SRH`)
 - Contact interfaces (`HmIP-FCI1`, `HmIP-FCI6`, `HmIP-SCI`)
 - Smoke detectors (`HmIP-SWSD`, `HmIP-SWSD-2`)
@@ -132,17 +103,21 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 - Acceleration and tilt sensors (`HmIP-SAM`, `HmIP-STV`)
 - Rain sensor (`HmIP-SRD`)
 - Water sensor (`HmIP-SWD`)
+- Water alarm of the water stop and supply unit (`HmIP-WSS`, `HmIP-WSS-GB`)
 - Alarm sirens (`HmIP-ASIR`, `HmIP-ASIR-O`, `HmIP-ASIR-B1`)
 - Pluggable power supply monitoring (`HmIP-PMFS`)
 - Wired input module – 32 channels (`HmIPW-DRI32`)
 - Battery sensors on remote controls (`HmIP-RC8`, `HmIP-WRC2`, `HmIP-WRCC2`, `HmIP-WRC6`, `HmIP-WRC6-230`, `HmIPW-WRC6`, `HmIP-KRC4`, `HmIP-KRCA`, `HmIP-BRC2`, `HmIP-MOD-RC8`)
 - Full Flush Lock Controller glass-break and lock state sensors (`HmIP-FLC`)
+- Door lock sensor (`HmIP-DLS`)
+- Heating output of wall thermostats, shown when the thermostat's switching output is enabled (`HmIP-BWTH`, `HmIP-WGT`, `HmIP-WGT-A`, `HmIP-WGTC`)
 
 ### Buttons
 
 - Wall-mounted garage door controller (`HmIP-WGC`)
 - Full Flush Lock Controller door opener (`HmIP-FLC`)
 - Full Flush Door Controller door opener (`HmIP-FDC`)
+- Identify, which makes the device signal its location, on devices that support it
 
 ### Climate
 
@@ -152,7 +127,7 @@ The integration creates one climate entity per room as a Homematic IP heating gr
 - Radiator thermostats (`HmIP-eTRV`, `HmIP-eTRV-2`, `HmIP-eTRV-2-UK`, `HmIP-eTRV-2-B`, `HmIP-eTRV-2-B1`, `HmIP-eTRV-C`, `HmIP-eTRV-E`)
 - Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`)
 
-Floor heating actuators are operated through the climate group and don't need their own entity (`HMIP-FAL230-C6`, `HMIP-FAL230-C10`, `HMIP-FAL24-C6`, `HMIP-FAL24-C10`, `HMIP-FALMOT-C12`).
+Floor heating actuators are operated through the climate group (`HMIP-FAL230-C6`, `HMIP-FAL230-C10`, `HMIP-FAL24-C6`, `HMIP-FAL24-C10`, `HMIP-FALMOT-C12`).
 
 ### Covers
 
@@ -172,6 +147,7 @@ Floor heating actuators are operated through the climate group and don't need th
 ### Lights
 
 - Dimming actuators (`HmIP-BDT`, `HmIP-FDT`, `HmIP-PDT`)
+- Universal dimmer with push-button (`HmIP-UDI-PB2`)
 - Switch actuators with signal lamp or meter (`HmIP-BSL`, `HmIP-BSM`)
 - Wired dimmer module – 3 channels (`HmIPW-DRD3`)
 
@@ -188,13 +164,15 @@ Floor heating actuators are operated through the climate group and don't need th
 - Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`, `HmIP-STHO`, `HmIP-STHO-A`)
 - External temperature sensors with two probes (`HmIP-STE2-PCB`, `ELV-SH-PTI2`)
 - Light sensor – outdoor (`HmIP-SLO`)
-- Motion and presence sensors (`HmIP-SMI`, `HmIP-SMO`, `HmIP-SPI`)
+- Motion and presence sensors (`HmIP-SMI`, `HmIP-SMO`, `HmIP-SMO230`, `HmIP-SPI`)
 - Passage sensor with direction recognition (`HmIP-SPDR`)
-- Floor heating actuator – 12 channels, valve positions (`HMIP-FALMOT-C12`)
+- Floor heating actuators – valve positions (`HMIP-FAL230-C6`, `HMIP-FAL230-C10`, `HMIP-FAL24-C6`, `HMIP-FAL24-C10`, `HMIP-FALMOT-C12`)
 - Fine dust sensor (`HmIP-SFD`)
 - Soil moisture sensor (`ELV-SH-SMSI`)
+- Ultrasonic distance sensor interface, distance and height (`ELV-SH-DUSI`)
 - Door lock pad (`HmIP-DLP`)
 - Carbon dioxide sensors (`HmIP-SCTH230`, `HmIP-WGTC`, `HmIPW-SCTHD`)
+- Water flow of the water stop and supply unit (`HmIP-WSS`, `HmIP-WSS-GB`)
 
 ### Switches
 
@@ -213,6 +191,7 @@ Floor heating actuators are operated through the climate group and don't need th
 ### Valves
 
 - Smart watering actuator (`ELV-SH-WSM`)
+- Water stop and supply unit (`HmIP-WSS`, `HmIP-WSS-GB`)
 
 ### Weather
 

@@ -1,0 +1,19 @@
+{
+  "domain": "caldav",
+  "name": "CalDAV",
+  "integration_type": "service",
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "productivity_information.calendars_todos"
+  ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
+  "platforms": [
+    "calendar",
+    "diagnostics",
+    "todo"
+  ]
+}

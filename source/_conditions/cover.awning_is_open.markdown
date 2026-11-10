@@ -50,8 +50,6 @@ This passes when `cover.patio_awning` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -63,22 +61,20 @@ behavior:
 for:
   description: >
     How long the awning must have stayed open before the condition
-    passes. Accepts a duration like `00:05:00` for five minutes.
+    passes. Accepts a duration like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="motorized awning" example="cover.patio_awning" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
 - The target must be a cover entity with the awning device class.
-- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted awning is open.
-- With **All**, the condition passes only if every available targeted awning is open. If every targeted awning is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
+{% include conditions/unavailable_targets.md entities="awnings" %}
 
 {% include conditions/try_it.md %}
 
@@ -116,7 +112,9 @@ automation: |
 
 When you leave home, this automation checks whether the awning is still open. If it is, Home Assistant sends a reminder so you can close it.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Morgan
+  - **Zone**: Home
 - **Condition**: Awning is open
   - **Target**: Patio awning
 - **Action**: Send a notification message
@@ -128,10 +126,11 @@ When you leave home, this automation checks whether the awning is still open. If
 automation: |
   alias: "Warn me if the awning is open when I leave home"
   triggers:
-    - trigger: zone
-      entity_id: person.morgan
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.morgan
+      options:
+        zone: zone.home
   conditions:
     - condition: cover.awning_is_open
       target:

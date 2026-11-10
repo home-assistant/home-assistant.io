@@ -1,0 +1,20 @@
+{
+  "domain": "laundrify",
+  "name": "laundrify",
+  "integration_type": "hub",
+  "codeowners": [
+    "@xLarry"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "appliances_cleaning.laundry"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

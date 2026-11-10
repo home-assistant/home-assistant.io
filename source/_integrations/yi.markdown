@@ -1,17 +1,7 @@
 ---
-title: Yi Home Cameras
 description: Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant.
-ha_category:
-  - Camera
 ha_release: 0.56
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@bachya'
 ha_domain: yi
-ha_platforms:
-  - camera
-ha_integration_type: device
-ha_quality_scale: legacy
 ---
 
 The **Yi Home Cameras** {% term integration %} allows you to use [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:

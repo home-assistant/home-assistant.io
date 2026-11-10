@@ -1,13 +1,7 @@
 ---
-title: Water heater
 description: Instructions on how to set up water heater devices within Home Assistant.
 ha_release: 0.81
 ha_domain: water_heater
-ha_quality_scale: internal
-ha_category: []
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 The **Water heater** {% term integration %} lets you monitor and control hot water heaters in Home Assistant. Water heater entities are provided by integrations that support your device. You can use them to check whether a water heater is on or off, adjust the target temperature, change the operation mode, and build automations around those changes.

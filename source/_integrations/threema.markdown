@@ -1,18 +1,7 @@
 ---
-title: Threema
 description: Instructions on how to send Threema messages from Home Assistant.
-ha_category:
-  - Notifications
 ha_release: '2026.10'
-ha_config_flow: true
-ha_iot_class: Cloud Push
 ha_domain: threema
-ha_platforms:
-  - notify
-ha_integration_type: service
-ha_quality_scale: bronze
-ha_codeowners:
-  - '@LukasQ'
 ---
 
 The **Threema** {% term integration %} allows you to send end-to-end encrypted text messages from Home Assistant to [Threema](https://threema.ch) users via the [Threema Gateway](https://gateway.threema.ch) service. This integration is designed for the **E2E (end-to-end) encryption mode** of Threema Gateway, where messages are encrypted locally before being sent. If no private key is configured, the integration falls back to **basic mode** (server-side encryption).
@@ -22,7 +11,7 @@ The **Threema** {% term integration %} allows you to send end-to-end encrypted t
 - A [Threema Gateway](https://gateway.threema.ch) account. For testing purposes, you can [request developer credits](https://gateway.threema.ch) from Threema.
 - A Gateway ID (starts with `*`). You can use an existing ID or create a new one during setup. Make sure to select the **E2E Gateway** configuration when making the request.
 - An API secret from the Threema Gateway dashboard.
-- Message credits on your Threema Gateway account. Sending a message costs **1,600 credits with E2E mode** or **800 credits with basic mode**.
+- Message credits on your Threema Gateway account. Requesting a Threema ID with E2E support **costs 1,600 credits** or **800 credits with basic support.**
 
 Setting up Threema Gateway is a two-step process:
 

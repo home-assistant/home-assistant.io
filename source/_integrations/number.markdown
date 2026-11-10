@@ -1,17 +1,9 @@
 ---
-title: Number
 description: Instructions on how to manage your Number entities with Home Assistant.
-ha_category:
-  - Number
 ha_release: 2020.12
-ha_quality_scale: internal
 ha_domain: number
-ha_codeowners:
-  - '@home-assistant/core'
-  - '@Shulyaka'
-ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard

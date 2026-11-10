@@ -75,8 +75,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% include triggers/threshold_crossed_options_yaml.md
    unit_phrase_yaml="literal number"
    has_unit="true"
@@ -86,7 +84,7 @@ YAML sometimes provides additional options for more complex use cases that are n
    unit_example_entity="input_number.max_comfort_temperature"
    unit_example_value="18" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="temperature sensor, thermostat, water heater, or weather entity" example="sensor.living_room_temperature" %}
 
 {% include triggers/behavior.md %}
 

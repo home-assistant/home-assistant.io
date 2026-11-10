@@ -1,22 +1,7 @@
 ---
-title: energieleser
 description: Instructions on how to integrate energieleser devices in Home Assistant.
 ha_release: 2026.7
-ha_category:
-  - Energy
-  - Sensor
-ha_codeowners:
-  - '@AjinkyaGokhale'
-  - '@NiccoFink'
-ha_quality_scale: platinum
 ha_domain: energieleser
-ha_integration_type: device
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - diagnostics
-  - sensor
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
@@ -101,7 +86,7 @@ The energieleser integration primarily provides the following features based on 
 
 ### Common diagnostic sensors
 
-- **Signal strength**: Wi-Fi signal strength of the device (dBm). Disabled by default.
+- **Signal strength**: Wi-Fi signal strength of the device (dBm). [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Data updates
 

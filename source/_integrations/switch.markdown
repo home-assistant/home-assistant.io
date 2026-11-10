@@ -1,18 +1,9 @@
 ---
-title: Switch
 description: Instructions on how to set up your switches with Home Assistant.
-ha_category:
-  - Switch
 ha_release: 0.7
-ha_quality_scale: internal
 ha_domain: switch
-ha_platforms:
-  - light
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard
@@ -61,7 +52,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 If a switch controls an outlet or a smart plug but shows up as a switch, or the other way around, you can change its device class.
 
-You can only change the device class in the UI if the switch has a unique ID. A switch without a unique ID shows a message in its entity settings instead. For such a switch, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
+You can only change the device class in the UI if the switch has a unique ID. A switch without a unique ID shows a message in its entity settings instead. For such a switch, you can change the device class in YAML with [customization](/docs/configuration/customizing-entities/#customizing-an-entity-in-yaml).
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the switch.
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.

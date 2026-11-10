@@ -1,24 +1,7 @@
 ---
-title: Daikin AC
 description: Instructions on how to integrate Daikin AC devices with Home Assistant.
-ha_category:
-  - Climate
-  - Energy
-  - Sensor
-  - Switch
 ha_release: 0.59
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@fredrike'
 ha_domain: daikin
-ha_zeroconf: true
-ha_platforms:
-  - climate
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
@@ -168,3 +151,5 @@ Currently known region codes:
 - TH
 
 If you experience problems with certain apps such as the Daikin ONECTA, try setting a lowercase region code (for example, `eu`).
+
+{% include integrations/actions.md %}

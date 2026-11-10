@@ -48,7 +48,9 @@ This passes while the sun is below the horizon.
 
 When motion is detected in the living room after the sun has set, close the blinds for the evening.
 
-- **Trigger**: Motion detected in the living room
+- **Trigger**: State changed
+  - **Entity**: Living room motion sensor
+  - **To**: Detected
 - **Condition**: Sun is set
 - **Action**: Close cover
   - **Target**: Living room blinds

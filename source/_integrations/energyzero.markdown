@@ -1,18 +1,7 @@
 ---
-title: EnergyZero
 description: Instructions on how to integrate EnergyZero within Home Assistant.
-ha_category:
-  - Energy
 ha_release: 2023.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@klaasnicolaas'
 ha_domain: energyzero
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **EnergyZero** {% term integration %} integrates the [EnergyZero](https://www.energyzero.nl/) API platform with Home Assistant.

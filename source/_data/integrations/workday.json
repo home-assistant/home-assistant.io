@@ -1,0 +1,21 @@
+{
+  "domain": "workday",
+  "name": "Workday",
+  "integration_type": "service",
+  "codeowners": [
+    "@fabaff",
+    "@gjohansson-ST"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "internal",
+  "categories": [
+    "productivity_information.calendars_todos",
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "calendar",
+    "diagnostics"
+  ]
+}

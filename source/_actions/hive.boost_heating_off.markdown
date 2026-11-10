@@ -8,7 +8,7 @@ related_actions:
   - hive.boost_hot_water
 ---
 
-The **Boost heating off** action turns off an active boost on a Hive heating zone or radiator valve. The zone returns to its schedule straight away.
+The **Hive: Boost heating off** action turns off an active boost on a Hive heating zone or radiator valve. The zone returns to its schedule straight away.
 
 {% include actions/ui_header.md %}
 

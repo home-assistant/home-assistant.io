@@ -19,7 +19,7 @@ To remove items from the queue from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the HEOS media player you want to control.
-6. From the actions shown for that target, select **Remove from queue**.
+6. From the actions shown for that target, under **Denon HEOS**, select **Remove from queue**.
 7. Enter the **Queue IDs** of the items you want to remove.
 8. Select **Save**.
 

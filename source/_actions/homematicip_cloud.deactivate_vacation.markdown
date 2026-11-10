@@ -9,7 +9,7 @@ related_actions:
   - homematicip_cloud.activate_eco_mode_with_duration
 ---
 
-The **Deactivate vacation** action turns off vacation mode on your Homematic IP access point right away, regardless of the end time that was set.
+The **HomematicIP Cloud: Deactivate vacation** action turns off vacation mode on your Homematic IP access point right away, regardless of the end time that was set.
 
 {% include actions/ui_header.md %}
 

@@ -1,20 +1,7 @@
 ---
-title: Opower
 description: Instructions on how to integrate Opower within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@tronikos'
 ha_domain: opower
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **Opower** {% term integration %} allows you to get energy information from utilities that use [Opower](https://www.oracle.com/utilities/opower-energy-efficiency/).

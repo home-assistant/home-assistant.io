@@ -2,10 +2,11 @@
 title: "Get minute forecast"
 action: openweathermap.get_minute_forecast
 domain: openweathermap
+response: required
 description: "Retrieves a minute-by-minute precipitation forecast for the next hour from OpenWeatherMap."
 ---
 
-Use this action to get a minute-by-minute precipitation forecast for the next hour, for example to decide whether to start the garden sprinklers or to send yourself a heads-up before rain arrives. It returns the forecasted rain or snow for each of the next 60 minutes as [response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data).
+Use this action to get a minute-by-minute precipitation forecast for the next hour, for example to decide whether to start the garden sprinklers or to send yourself a heads-up before rain arrives. It returns the forecasted rain or snow for each of the next 60 minutes as [response data](/docs/automation/action/#action-response-data).
 
 {% important %}
 The minute forecast is only available when the OpenWeatherMap integration mode is set to `v3.0`. The action fails if the mode is set to `current`, `forecast`, or `air pollution`.
@@ -47,6 +48,8 @@ This action has no options beyond the target.
 {% include actions/targets.md domain="weather" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the forecast for each targeted weather entity, keyed by its entity ID. For each entity, the response contains a `forecast` field with a list of 60 entries, one for each minute of the next hour. Each entry has the following fields:
 

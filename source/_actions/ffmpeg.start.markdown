@@ -1,5 +1,5 @@
 ---
-title: "Start FFmpeg sensor"
+title: "Start"
 action: ffmpeg.start
 domain: ffmpeg
 description: "Starts analyzing the stream of an FFmpeg-based sensor."
@@ -20,7 +20,7 @@ To start an FFmpeg sensor from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Start**.
+5. From the search box, search for and select **FFmpeg: Start**.
 6. Optional: In **Entity**, select the FFmpeg sensor. Leave it empty to start all FFmpeg sensors.
 7. Select **Save**.
 
@@ -69,11 +69,10 @@ entity_id:
 
 When you leave home, you want to know about motion on the driveway camera. This automation starts the FFmpeg motion sensor when you leave.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone left
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Leave
-- **Action**: Start
+- **Action**: FFmpeg: Start
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
 
 {% details "YAML example for starting motion analysis when you leave" %}
@@ -82,10 +81,11 @@ When you leave home, you want to know about motion on the driveway camera. This 
 automation: |
   alias: "Start driveway motion analysis when I leave"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: ffmpeg.start
       data:
@@ -100,7 +100,7 @@ Start the FFmpeg noise sensor of the nursery camera at 19:30, so you know when t
 
 - **Trigger**: Time
   - **At time**: 19:30
-- **Action**: Start
+- **Action**: FFmpeg: Start
   - **Entity**: Nursery noise (`binary_sensor.nursery_noise`)
 
 {% details "YAML example for starting a noise sensor at bedtime" %}

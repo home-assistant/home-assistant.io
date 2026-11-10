@@ -2,6 +2,7 @@
 title: "Send media group"
 action: telegram_bot.send_media_group
 domain: telegram_bot
+response: optional
 description: "Sends a group of photos, videos, documents, or audio files as an album."
 ---
 
@@ -113,6 +114,8 @@ chat_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 When the media group is sent, the action returns a `chats` list. Each item describes one delivered message:
 

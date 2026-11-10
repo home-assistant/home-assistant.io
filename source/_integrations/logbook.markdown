@@ -1,20 +1,15 @@
 ---
-title: Activity
 description: Instructions on how to enable the activity integration for Home Assistant.
-ha_category:
-  - History
 ha_release: 0.7
 ha_domain: logbook
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: system
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
 The **Activity** {% term integration %} provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order. It depends on the [Recorder](/integrations/recorder/) integration for storing the data. This means that if the Recorder integration is set up to use a database such as MySQL or PostgreSQL, the Activity integration uses that database instead of the default SQLite database.
+
+The **Activity** integration also provides the [**Action history**](/docs/tools/dev-tools/#action-history-tab) tab under {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %}, which lists the actions that were performed and what performed them.
 
 ## Viewing activity in the Activity panel
 

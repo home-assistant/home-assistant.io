@@ -1,5 +1,5 @@
 ---
-title: Clean spot
+title: "Clean spot with vacuum cleaner"
 action: vacuum.clean_spot
 domain: vacuum
 description: "Performs a spot cleaning at the vacuum's location."
@@ -34,8 +34,6 @@ Omitting `entity_id` targets all supported vacuums.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum, area, or group to spot clean.
@@ -57,9 +55,10 @@ target:
 
 If you notice a small mess, you can trigger a dedicated spot clean without starting a full-house run. This example starts a spot clean when a helper button is pressed.
 
-- **Trigger**: Helper button pressed
-- **Action**: Clean spot
-- **Target**: Office vacuum
+- **Trigger**: State changed
+  - **Entity**: Quick spot clean helper
+- **Action**: Clean spot with vacuum cleaner
+  - **Target**: Office vacuum
 
 {% details "YAML example for starting a quick spot clean" %}
 

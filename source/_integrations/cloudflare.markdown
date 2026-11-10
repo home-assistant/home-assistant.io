@@ -1,16 +1,7 @@
 ---
-title: Cloudflare
 description: Automatically update your Cloudflare DNS records.
-ha_category:
-  - Network
 ha_release: 0.74
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@ludeeus'
-  - '@ctalkington'
 ha_domain: cloudflare
-ha_config_flow: true
-ha_integration_type: service
 ---
 
 With the **Cloudflare** {% term integration %}, you can keep your Cloudflare DNS records up to date.

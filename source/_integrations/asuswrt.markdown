@@ -1,23 +1,7 @@
 ---
-title: ASUSWRT
 description: Instructions on how to integrate ASUSWRT into Home Assistant.
-ha_category:
-  - Hub
-  - Presence detection
-  - Sensor
 ha_release: 0.83
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@kennedyshead'
-  - '@ollo69'
-  - '@Vaskivskyi'
 ha_domain: asuswrt
-ha_platforms:
-  - device_tracker
-  - diagnostics
-  - sensor
-ha_integration_type: hub
 ---
 
 The **ASUSWRT** {% term integration %} can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.

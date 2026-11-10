@@ -1,24 +1,7 @@
 ---
-title: Nobø Ecohub
 description: Instructions on how to integrate Nobø Ecohub into Home Assistant.
-ha_category:
-  - Climate
 ha_release: '2022.10'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@echoromeo'
-  - '@oyvindwe'
 ha_domain: nobo_hub
-ha_platforms:
-  - climate
-  - diagnostics
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: platinum
-ha_dhcp: true
 related:
   - docs: /docs/organizing/areas/#creating-an-area
     title: Areas in Home Assistant

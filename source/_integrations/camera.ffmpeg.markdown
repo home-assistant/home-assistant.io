@@ -1,8 +1,6 @@
 ---
 title: "FFmpeg Camera"
 description: "Instructions on how to integrate a video feed via FFmpeg as a camera within Home Assistant."
-ha_category:
-  - Camera
 ha_release: 0.26
 ha_iot_class: Local Polling
 ha_domain: ffmpeg

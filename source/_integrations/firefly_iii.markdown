@@ -1,20 +1,7 @@
 ---
-title: Firefly III
 description: Instructions on how to integrate Firefly III with Home Assistant.
-ha_category:
-  - Finance
-  - Sensor
 ha_release: '2025.11'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@erwindouna'
 ha_domain: firefly_iii
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Firefly III** {% term integration %} is used as an interface to the [Firefly III API](https://api-docs.firefly-iii.org/).

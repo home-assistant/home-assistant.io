@@ -1,0 +1,21 @@
+{
+  "domain": "flexit",
+  "name": "Flexit",
+  "integration_type": "device",
+  "codeowners": [
+    "@troelde"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.fans_ventilation"
+  ],
+  "connectivity": [
+    "modbus"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "sensor"
+  ]
+}

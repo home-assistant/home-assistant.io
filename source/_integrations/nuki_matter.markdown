@@ -1,8 +1,8 @@
 ---
 title: Nuki Matter
 description: Control your Nuki Matter devices using the Matter integration.
-ha_category:
-  - Lock
+ha_categories:
+  - security_safety.locks_access
 ha_domain: nuki_matter
 ha_release: '2025.5'
 ha_codeowners:
@@ -26,6 +26,6 @@ To use this integration, you need a Thread border router that supports Matter. F
 
 For more information on setting up Matter with Nuki devices, refer to the [Nuki Matter setup guide](https://help.nuki.io/hc/en-001/articles/14596875392017-Setting-up-your-Matter-integration).
 
-## Supported devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="nuki" %}

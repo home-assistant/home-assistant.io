@@ -1,5 +1,5 @@
 ---
-title: "Profiler: Set asyncio debug"
+title: "Set asyncio debug"
 action: profiler.set_asyncio_debug
 domain: profiler
 description: "Enables or disables asyncio debug mode."

@@ -2,6 +2,7 @@
 title: "Get Recorder statistics"
 action: recorder.get_statistics
 domain: recorder
+response: required
 description: "Retrieves long-term statistics for one or more entities."
 related_actions:
   - recorder.purge
@@ -11,8 +12,6 @@ related_actions:
 ---
 
 Use this action to retrieve long-term statistics, such as the mean, minimum, maximum, or sum, for one or more entities over a time period. This is handy when an automation or script needs historical values, for example to compare this week's energy use with last week's.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 Only users with administrator rights can run this action.
 
@@ -28,7 +27,7 @@ To get statistics from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Get Recorder statistics**.
+5. From the list of actions, search for and select **Recorder: Get Recorder statistics**.
 6. Set the options you want to use.
 7. Select **Save**.
 
@@ -104,6 +103,8 @@ units:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the statistics keyed by each statistic ID you requested. Each one holds a list of periods. Every period always includes a start and end, plus the value types you asked for:
 

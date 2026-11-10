@@ -1,34 +1,7 @@
 ---
-title: La Marzocco
 description: Instructions on how to integrate your La Marzocco coffee machine with Home Assistant.
 ha_release: 2024.2
-ha_category:
-  - Binary sensor
-  - Calendar
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_domain: lamarzocco
-ha_platforms:
-  - binary_sensor
-  - button
-  - calendar
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_bluetooth: true
-ha_dhcp: true
-ha_codeowners:
-  - '@zweckj'
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 This {% term integration %} interacts with [La Marzocco](https://lamarzocco.com/it/en/) coffee machines through calls to the La Marzocco cloud API.
@@ -109,8 +82,8 @@ In **offline mode**, most entities will become unavailable. Only those marked wi
 | **Water tank empty** | Indicates whether the water tank needs a refill. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Brewing active** | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
 | **Backflush enabled** | Is on if you started the backflushing process. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| - |
-| **WebSocket connected** | Track your connection to the cloud WebSocket for real time updates. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| Disabled by default. |
-| **Bluetooth connected** | Track your connection over Bluetooth for local updates. | `all` | <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | Disabled by default. |
+| **WebSocket connected** | Track your connection to the cloud WebSocket for real time updates. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). |
+| **Bluetooth connected** | Track your connection over Bluetooth for local updates. | `all` | <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). |
 
 ## Sensors
 

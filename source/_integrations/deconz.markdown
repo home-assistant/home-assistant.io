@@ -1,42 +1,7 @@
 ---
-title: deCONZ
 description: Instructions on how to set up ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Scene
-  - Sensor
-  - Siren
-  - Switch
 ha_release: 0.61
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Kane610'
 ha_domain: deconz
-ha_ssdp: true
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - fan
-  - light
-  - lock
-  - number
-  - scene
-  - select
-  - sensor
-  - siren
-  - switch
-ha_integration_type: hub
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
@@ -362,7 +327,7 @@ The sensor also has an attribute called "daylight" that has the value `true` whe
 
 These states can be used in automations as a trigger (for example, trigger when a certain phase of daylight starts or ends) or condition (for example, trigger only if in a certain phase of daylight).
 
-The deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
+The deCONZ daylight sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
 
 ### Siren
 

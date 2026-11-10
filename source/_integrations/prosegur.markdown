@@ -1,20 +1,7 @@
 ---
-title: Prosegur Alarm
 description: Instructions on how to integrate Prosegur Smart Alarms into Home Assistant.
-ha_category:
-  - Alarm
-  - Camera
 ha_release: 2021.8
-ha_codeowners:
-  - '@dgomes'
-ha_iot_class: Cloud Polling
 ha_domain: prosegur
-ha_config_flow: true
-ha_platforms:
-  - alarm_control_panel
-  - camera
-  - diagnostics
-ha_integration_type: hub
 ---
 
 Integrate [Prosegur](https://www.prosegur.com/) Smart Alarms into Home Assistant. 

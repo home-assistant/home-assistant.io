@@ -1,16 +1,7 @@
 ---
-title: IDrive e2
 description: Instructions on how to set up an IDrive e2 bucket to use as a backup location.
 ha_release: 2026.3
-ha_category:
-  - Backup
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_domain: idrive_e2
-ha_codeowners:
-  - '@patrickvorgers'
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **IDrive e2** {% term integration %} allows you to use an [IDrive e2](https://www.idrive.com/s3-storage-e2/) bucket with Home Assistant Backups.

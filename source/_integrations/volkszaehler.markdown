@@ -1,18 +1,7 @@
 ---
-title: Volkszaehler
 description: Instructions on how to integrate Volkszaehler sensors into Home Assistant.
-ha_category:
-  - System monitor
-ha_iot_class: Local Polling
 ha_release: 0.78
 ha_domain: volkszaehler
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_quality_scale: legacy
-ha_config_flow: true
-ha_codeowners:
-  - '@StefanSchoof'
 ---
 
 The **Volkszaehler** {% term integration %} is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.

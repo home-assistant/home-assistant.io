@@ -9,7 +9,7 @@ related_actions:
   - xiaomi_aqara.stop_ringtone
 ---
 
-The **Remove device** action removes a specific device from a Xiaomi Aqara Gateway.
+The **Xiaomi Gateway (Aqara): Remove device** action removes a specific device from a Xiaomi Aqara Gateway.
 
 This is useful when you want to pair a device with another gateway, which first requires removing it from the current one.
 

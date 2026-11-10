@@ -1,0 +1,977 @@
+# Live card demos for the dashboard docs, rendered by
+# source/_includes/dashboard/demo.html with the embed of the Home Assistant
+# demo: https://contributors.home-assistant.io/frontend/custom-ui/demo/
+#
+# Each entry in `demos` holds the configuration of its cards, the same as in
+# a dashboard. A demo gets the entities of `entities` that its cards name in
+# their `entity`, or that are in the `area` of a card, with that area from
+# `areas`.
+
+entities:
+  # Card features, see source/dashboards/features.markdown
+  - entity_id: alarm_control_panel.home_alarm
+    state: disarmed
+    attributes:
+      friendly_name: Home alarm
+      code_arm_required: false
+      supported_features: 55
+  - entity_id: sensor.phone_battery
+    state: "72"
+    attributes:
+      friendly_name: Phone battery
+      device_class: battery
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: button.restart_router
+    state: "2026-11-04T08:15:00+00:00"
+    attributes:
+      friendly_name: Restart router
+      device_class: restart
+  - entity_id: climate.living_room
+    state: heat
+    attributes:
+      friendly_name: Living room
+      current_temperature: 20.5
+      temperature: 21
+      min_temp: 7
+      max_temp: 30
+      target_temp_step: 0.5
+      hvac_action: heating
+      hvac_modes:
+        - auto
+        - heat_cool
+        - heat
+        - cool
+        - dry
+        - fan_only
+        - "off"
+      fan_mode: low
+      fan_modes:
+        - "off"
+        - low
+        - medium
+        - high
+      preset_mode: home
+      preset_modes:
+        - home
+        - eco
+      swing_mode: "on"
+      swing_modes:
+        - "on"
+        - "off"
+      swing_horizontal_mode: "off"
+      swing_horizontal_modes:
+        - "on"
+        - "off"
+      supported_features: 953
+  - entity_id: climate.bedroom
+    state: heat
+    attributes:
+      friendly_name: Bedroom
+      current_temperature: 18.5
+      temperature: 19
+      min_temp: 7
+      max_temp: 30
+      target_temp_step: 0.5
+      hvac_action: heating
+      hvac_modes:
+        - heat
+        - "off"
+      supported_features: 1
+  - entity_id: counter.coffees_today
+    state: "3"
+    attributes:
+      friendly_name: Coffees today
+      initial: 0
+      step: 1
+      minimum: 0
+      maximum: 20
+  - entity_id: cover.living_room_blinds
+    state: open
+    attributes:
+      friendly_name: Living room blinds
+      device_class: blind
+      current_position: 70
+      supported_features: 15
+  - entity_id: cover.pergola_roof
+    state: open
+    attributes:
+      friendly_name: Pergola roof
+      device_class: awning
+      current_tilt_position: 60
+      supported_features: 240
+  - entity_id: date.next_filter_change
+    state: "2026-12-01"
+    attributes:
+      friendly_name: Next filter change
+  - entity_id: fan.ceiling_fan
+    state: "on"
+    attributes:
+      friendly_name: Ceiling fan
+      percentage: 67
+      percentage_step: 33.333333333333336
+      direction: forward
+      oscillating: false
+      preset_mode: auto
+      preset_modes:
+        - auto
+        - smart
+        - sleep
+        - "on"
+      supported_features: 63
+  - entity_id: humidifier.bedroom_humidifier
+    state: "on"
+    attributes:
+      friendly_name: Bedroom humidifier
+      device_class: humidifier
+      humidity: 45
+      current_humidity: 41
+      min_humidity: 30
+      max_humidity: 70
+      mode: home
+      available_modes:
+        - home
+        - eco
+        - sleep
+        - boost
+      supported_features: 1
+  - entity_id: lawn_mower.front_lawn
+    state: docked
+    attributes:
+      friendly_name: Front lawn mower
+      supported_features: 7
+  - entity_id: light.living_room
+    state: "on"
+    attributes:
+      friendly_name: Living room
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 180
+  - entity_id: light.desk_lamp
+    state: "on"
+    attributes:
+      friendly_name: Desk lamp
+      supported_color_modes:
+        - hs
+        - color_temp
+      color_mode: hs
+      hs_color:
+        - 210
+        - 60
+      brightness: 200
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6500
+      color_temp_kelvin: 3000
+  - entity_id: light.reading_lamp
+    state: "on"
+    attributes:
+      friendly_name: Reading lamp
+      supported_color_modes:
+        - color_temp
+      color_mode: color_temp
+      brightness: 200
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6500
+      color_temp_kelvin: 3200
+  - entity_id: light.led_strip
+    state: "on"
+    attributes:
+      friendly_name: LED strip
+      supported_color_modes:
+        - hs
+      color_mode: hs
+      hs_color:
+        - 280
+        - 70
+      brightness: 220
+      effect: Rainbow
+      effect_list:
+        - Solid
+        - Rainbow
+        - Candle
+        - Fireplace
+      supported_features: 4
+  - entity_id: lock.front_door
+    state: locked
+    attributes:
+      friendly_name: Front door
+      supported_features: 1
+  - entity_id: media_player.living_room_speaker
+    state: playing
+    attributes:
+      friendly_name: Living room speaker
+      media_title: Clair de lune
+      media_artist: Claude Debussy
+      volume_level: 0.45
+      is_volume_muted: false
+      source: TV
+      source_list:
+        - TV
+        - Bluetooth
+        - Radio
+      sound_mode: music
+      sound_mode_list:
+        - movie
+        - music
+        - game
+      supported_features: 85437
+  - entity_id: input_number.oven_timer
+    state: "25"
+    attributes:
+      friendly_name: Oven timer
+      min: 0
+      max: 120
+      step: 5
+      mode: slider
+      unit_of_measurement: min
+  - entity_id: input_select.washer_program
+    state: Normal
+    attributes:
+      friendly_name: Washer program
+      options:
+        - Normal
+        - Delicates
+        - Heavy duty
+        - Quick wash
+  # Paused, as an active timer counts down to a fixed time that would be past
+  - entity_id: timer.laundry
+    state: paused
+    attributes:
+      friendly_name: Laundry
+      duration: "0:45:00"
+      remaining: "0:32:10"
+    # Presets in seconds, kept in the entity registry
+    options:
+      timer:
+        presets:
+          - 300
+          - 900
+          - 1800
+          - 3600
+  - entity_id: switch.coffee_maker
+    state: "on"
+    attributes:
+      friendly_name: Coffee maker
+      device_class: outlet
+  - entity_id: sensor.outside_temperature
+    state: "12.3"
+    attributes:
+      friendly_name: Outside temperature
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: update.living_room_speaker_firmware
+    state: "on"
+    attributes:
+      friendly_name: Living room speaker firmware
+      installed_version: "2.4.1"
+      latest_version: "2.5.0"
+      title: Speaker firmware
+      in_progress: false
+      supported_features: 9
+  - entity_id: vacuum.downstairs_vacuum
+    state: docked
+    attributes:
+      friendly_name: Downstairs vacuum
+      fan_speed: Standard
+      fan_speed_list:
+        - Quiet
+        - Standard
+        - Turbo
+        - Max
+      supported_features: 13884
+  - entity_id: valve.garden_irrigation
+    state: open
+    attributes:
+      friendly_name: Garden irrigation
+      device_class: water
+      current_position: 60
+      supported_features: 15
+  - entity_id: water_heater.water_heater
+    state: eco
+    attributes:
+      friendly_name: Water heater
+      operation_mode: eco
+      operation_list:
+        - electric
+        - gas
+        - heat_pump
+        - eco
+        - performance
+        - high_demand
+        - "off"
+      temperature: 55
+      current_temperature: 52
+      min_temp: 40
+      max_temp: 70
+      target_temp_step: 1
+      supported_features: 3
+  - entity_id: light.kitchen_ceiling
+    state: "on"
+    area_id: kitchen
+    attributes:
+      friendly_name: Kitchen ceiling
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 200
+  - entity_id: light.kitchen_counter
+    state: "off"
+    area_id: kitchen
+    attributes:
+      friendly_name: Kitchen counter
+      supported_color_modes:
+        - onoff
+      color_mode: onoff
+  - entity_id: fan.kitchen_fan
+    state: "on"
+    area_id: kitchen
+    attributes:
+      friendly_name: Kitchen fan
+      percentage: 50
+      supported_features: 1
+  - entity_id: switch.kettle
+    state: "off"
+    area_id: kitchen
+    attributes:
+      friendly_name: Kettle
+      device_class: outlet
+  - entity_id: sensor.kitchen_temperature
+    state: "21.4"
+    area_id: kitchen
+    attributes:
+      friendly_name: Kitchen temperature
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: sensor.kitchen_air_humidity
+    state: "48"
+    area_id: kitchen
+    attributes:
+      friendly_name: Kitchen air humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: weather.home
+    state: partlycloudy
+    attributes:
+      friendly_name: Home
+      temperature: 14
+      temperature_unit: °C
+      precipitation_unit: mm
+      supported_features: 1
+
+areas:
+  - area_id: kitchen
+    name: Kitchen
+
+# The height in pixels each demo takes once its cards have loaded. The page
+# keeps this room for the demo while it loads, so the content below doesn't
+# move. A tile card with one feature takes two rows of a section: 120.
+heights:
+  feature_alarm_modes: 120
+  feature_bar_gauge: 120
+  feature_button: 120
+  feature_climate_fan_modes: 120
+  feature_climate_hvac_modes: 120
+  feature_climate_preset_modes: 120
+  feature_climate_swing_modes: 120
+  feature_climate_swing_horizontal_modes: 120
+  feature_counter_actions: 120
+  feature_cover_open_close: 120
+  feature_cover_position: 120
+  feature_cover_position_favorite: 120
+  feature_cover_tilt: 120
+  feature_cover_tilt_favorite: 120
+  feature_cover_tilt_position: 120
+  feature_date: 120
+  feature_fan_direction: 120
+  feature_fan_oscillate: 120
+  feature_fan_preset_modes: 120
+  feature_fan_speed: 120
+  feature_humidifier_modes: 120
+  feature_humidifier_toggle: 120
+  feature_lawn_mower_commands: 120
+  feature_light_brightness: 120
+  feature_light_color: 120
+  feature_light_color_favorites: 120
+  feature_light_color_temp: 120
+  feature_light_effect: 120
+  feature_lock_commands: 120
+  feature_lock_open_door: 120
+  feature_media_player_playback: 120
+  feature_media_player_sound_mode: 120
+  feature_media_player_source: 120
+  feature_media_player_volume_buttons: 120
+  feature_media_player_volume_slider: 120
+  feature_numeric_input: 120
+  feature_select_options: 120
+  feature_target_humidity: 120
+  feature_target_temperature: 120
+  feature_timer_actions: 120
+  feature_timer_presets: 120
+  feature_toggle: 120
+  feature_trend_graph: 120
+  feature_update_actions: 120
+  feature_vacuum_commands: 120
+  feature_vacuum_fan_speed: 120
+  feature_valve_open_close: 120
+  feature_valve_position: 120
+  feature_valve_position_favorite: 120
+  feature_water_heater_operation_modes: 120
+  feature_area_controls: 184
+  feature_temperature_forecast: 120
+  feature_precipitation_forecast: 120
+
+demos:
+  # Card features, one tile card each, with the feature of the example on
+  # source/dashboards/features.markdown
+  feature_alarm_modes:
+    - type: tile
+      entity: alarm_control_panel.home_alarm
+      grid_options:
+        columns: 12
+      features:
+        - type: alarm-modes
+          modes:
+            - armed_home
+            - armed_away
+            - armed_night
+            - armed_vacation
+            - armed_custom_bypass
+            - disarmed
+
+  feature_bar_gauge:
+    - type: tile
+      entity: sensor.phone_battery
+      grid_options:
+        columns: 12
+      features:
+        - type: bar-gauge
+          min: 0
+          max: 100
+          segments:
+            - from: 0
+              color: "#db4437"
+            - from: 35.5
+              color: "#ffa600"
+            - from: 40
+              color: "#43a047"
+            - from: 60
+              color: "#ffa600"
+            - from: 65
+              color: "#db4437"
+
+  feature_button:
+    - type: tile
+      entity: button.restart_router
+      grid_options:
+        columns: 12
+      features:
+        - type: button
+          action_name: Press
+
+  feature_climate_fan_modes:
+    - type: tile
+      entity: climate.living_room
+      grid_options:
+        columns: 12
+      features:
+        - type: climate-fan-modes
+          style: icons
+          fan_modes:
+            - "off"
+            - low
+            - medium
+            - high
+
+  feature_climate_hvac_modes:
+    - type: tile
+      entity: climate.living_room
+      grid_options:
+        columns: 12
+      features:
+        - type: climate-hvac-modes
+          hvac_modes:
+            - auto
+            - heat_cool
+            - heat
+            - cool
+            - dry
+            - fan_only
+            - "off"
+
+  feature_climate_preset_modes:
+    - type: tile
+      entity: climate.living_room
+      grid_options:
+        columns: 12
+      features:
+        - type: climate-preset-modes
+          style: icons
+          preset_modes:
+            - home
+            - eco
+
+  feature_climate_swing_modes:
+    - type: tile
+      entity: climate.living_room
+      grid_options:
+        columns: 12
+      features:
+        - type: climate-swing-modes
+          style: icons
+          swing_modes:
+            - "on"
+            - "off"
+
+  feature_climate_swing_horizontal_modes:
+    - type: tile
+      entity: climate.living_room
+      grid_options:
+        columns: 12
+      features:
+        - type: climate-swing-horizontal-modes
+          style: dropdown
+          swing_horizontal_modes:
+            - "on"
+            - "off"
+
+  feature_counter_actions:
+    - type: tile
+      entity: counter.coffees_today
+      grid_options:
+        columns: 12
+      features:
+        - type: counter-actions
+          actions:
+            - increment
+            - decrement
+            - reset
+
+  feature_cover_open_close:
+    - type: tile
+      entity: cover.living_room_blinds
+      grid_options:
+        columns: 12
+      features:
+        - type: cover-open-close
+
+  feature_cover_position:
+    - type: tile
+      entity: cover.living_room_blinds
+      grid_options:
+        columns: 12
+      features:
+        - type: cover-position
+
+  feature_cover_position_favorite:
+    - type: tile
+      entity: cover.living_room_blinds
+      grid_options:
+        columns: 12
+      features:
+        - type: cover-position-favorite
+
+  feature_cover_tilt:
+    - type: tile
+      entity: cover.pergola_roof
+      grid_options:
+        columns: 12
+      features:
+        - type: cover-tilt
+
+  feature_cover_tilt_favorite:
+    - type: tile
+      entity: cover.pergola_roof
+      grid_options:
+        columns: 12
+      features:
+        - type: cover-tilt-favorite
+
+  feature_cover_tilt_position:
+    - type: tile
+      entity: cover.pergola_roof
+      grid_options:
+        columns: 12
+      features:
+        - type: cover-tilt-position
+
+  feature_date:
+    - type: tile
+      entity: date.next_filter_change
+      grid_options:
+        columns: 12
+      features:
+        - type: date-set
+
+  feature_fan_direction:
+    - type: tile
+      entity: fan.ceiling_fan
+      grid_options:
+        columns: 12
+      features:
+        - type: fan-direction
+
+  feature_fan_oscillate:
+    - type: tile
+      entity: fan.ceiling_fan
+      grid_options:
+        columns: 12
+      features:
+        - type: fan-oscillate
+
+  feature_fan_preset_modes:
+    - type: tile
+      entity: fan.ceiling_fan
+      grid_options:
+        columns: 12
+      features:
+        - type: fan-preset-modes
+          preset_modes:
+            - auto
+            - smart
+            - sleep
+            - "on"
+
+  feature_fan_speed:
+    - type: tile
+      entity: fan.ceiling_fan
+      grid_options:
+        columns: 12
+      features:
+        - type: fan-speed
+          style: buttons
+
+  feature_humidifier_modes:
+    - type: tile
+      entity: humidifier.bedroom_humidifier
+      grid_options:
+        columns: 12
+      features:
+        - type: humidifier-modes
+          style: icons
+          modes:
+            - home
+            - eco
+
+  feature_humidifier_toggle:
+    - type: tile
+      entity: humidifier.bedroom_humidifier
+      grid_options:
+        columns: 12
+      features:
+        - type: humidifier-toggle
+
+  feature_lawn_mower_commands:
+    - type: tile
+      entity: lawn_mower.front_lawn
+      grid_options:
+        columns: 12
+      features:
+        - type: lawn-mower-commands
+          commands:
+            - start_pause
+            - dock
+
+  feature_light_brightness:
+    - type: tile
+      entity: light.living_room
+      grid_options:
+        columns: 12
+      features:
+        - type: light-brightness
+
+  feature_light_color:
+    - type: tile
+      entity: light.desk_lamp
+      grid_options:
+        columns: 12
+      features:
+        - type: light-color
+          controls: hue
+
+  feature_light_color_favorites:
+    - type: tile
+      entity: light.desk_lamp
+      grid_options:
+        columns: 12
+      features:
+        - type: light-color-favorites
+
+  feature_light_color_temp:
+    - type: tile
+      entity: light.reading_lamp
+      grid_options:
+        columns: 12
+      features:
+        - type: light-color-temp
+
+  feature_light_effect:
+    - type: tile
+      entity: light.led_strip
+      grid_options:
+        columns: 12
+      features:
+        - type: light-effect
+
+  feature_lock_commands:
+    - type: tile
+      entity: lock.front_door
+      grid_options:
+        columns: 12
+      features:
+        - type: lock-commands
+
+  feature_lock_open_door:
+    - type: tile
+      entity: lock.front_door
+      grid_options:
+        columns: 12
+      features:
+        - type: lock-open-door
+
+  feature_media_player_playback:
+    - type: tile
+      entity: media_player.living_room_speaker
+      grid_options:
+        columns: 12
+      features:
+        - type: media-player-playback
+          controls:
+            - media_play_pause
+            - media_previous_track
+            - media_next_track
+            - volume_mute
+
+  feature_media_player_sound_mode:
+    - type: tile
+      entity: media_player.living_room_speaker
+      grid_options:
+        columns: 12
+      features:
+        - type: media-player-sound-mode
+          sound_modes:
+            - movie
+            - music
+            - game
+
+  feature_media_player_source:
+    - type: tile
+      entity: media_player.living_room_speaker
+      grid_options:
+        columns: 12
+      features:
+        - type: media-player-source
+          sources:
+            - TV
+            - Bluetooth
+            - Radio
+
+  feature_media_player_volume_buttons:
+    - type: tile
+      entity: media_player.living_room_speaker
+      grid_options:
+        columns: 12
+      features:
+        - type: media-player-volume-buttons
+
+  feature_media_player_volume_slider:
+    - type: tile
+      entity: media_player.living_room_speaker
+      grid_options:
+        columns: 12
+      features:
+        - type: media-player-volume-slider
+
+  feature_numeric_input:
+    - type: tile
+      entity: input_number.oven_timer
+      grid_options:
+        columns: 12
+      features:
+        - type: numeric-input
+          style: buttons
+
+  feature_select_options:
+    - type: tile
+      entity: input_select.washer_program
+      grid_options:
+        columns: 12
+      features:
+        - type: select-options
+
+  feature_target_humidity:
+    - type: tile
+      entity: humidifier.bedroom_humidifier
+      grid_options:
+        columns: 12
+      features:
+        - type: target-humidity
+          style: buttons
+
+  feature_target_temperature:
+    - type: tile
+      entity: climate.bedroom
+      grid_options:
+        columns: 6
+      features:
+        - type: target-temperature
+          style: buttons
+    - type: tile
+      entity: climate.living_room
+      grid_options:
+        columns: 6
+      features:
+        - type: target-temperature
+          style: slider
+
+  feature_timer_actions:
+    - type: tile
+      entity: timer.laundry
+      grid_options:
+        columns: 12
+      features:
+        - type: timer-actions
+          actions:
+            - start
+            - pause
+            - cancel
+            - finish
+
+  feature_timer_presets:
+    - type: tile
+      entity: timer.laundry
+      grid_options:
+        columns: 12
+      features:
+        - type: timer-presets
+          style: buttons
+
+  feature_toggle:
+    - type: tile
+      entity: switch.coffee_maker
+      grid_options:
+        columns: 12
+      features:
+        - type: toggle
+
+  feature_trend_graph:
+    - type: tile
+      entity: sensor.outside_temperature
+      grid_options:
+        columns: 12
+      features:
+        - type: trend-graph
+          hours_to_show: 24
+          detail: true
+
+  feature_update_actions:
+    - type: tile
+      entity: update.living_room_speaker_firmware
+      grid_options:
+        columns: 12
+      features:
+        - type: update-actions
+          backup: ask
+
+  feature_vacuum_commands:
+    - type: tile
+      entity: vacuum.downstairs_vacuum
+      grid_options:
+        columns: 12
+      features:
+        - type: vacuum-commands
+          commands:
+            - start_pause
+            - stop
+            - clean_spot
+            - locate
+            - return_home
+
+  feature_vacuum_fan_speed:
+    - type: tile
+      entity: vacuum.downstairs_vacuum
+      grid_options:
+        columns: 12
+      features:
+        - type: vacuum-fan-speed
+
+  feature_valve_open_close:
+    - type: tile
+      entity: valve.garden_irrigation
+      grid_options:
+        columns: 12
+      features:
+        - type: valve-open-close
+
+  feature_valve_position:
+    - type: tile
+      entity: valve.garden_irrigation
+      grid_options:
+        columns: 12
+      features:
+        - type: valve-position
+
+  feature_valve_position_favorite:
+    - type: tile
+      entity: valve.garden_irrigation
+      grid_options:
+        columns: 12
+      features:
+        - type: valve-position-favorite
+
+  feature_water_heater_operation_modes:
+    - type: tile
+      entity: water_heater.water_heater
+      grid_options:
+        columns: 12
+      features:
+        - type: water-heater-operation-modes
+          operation_modes:
+            - electric
+            - gas
+            - heat_pump
+            - eco
+            - performance
+            - high_demand
+            - "off"
+
+  feature_area_controls:
+    - type: area
+      area: kitchen
+      display_type: compact
+      sensor_classes:
+        - temperature
+        - humidity
+      grid_options:
+        columns: 12
+      features:
+        - type: area-controls
+          controls:
+            - light
+            - fan
+            - switch
+            - entity_id: light.kitchen_counter
+
+  feature_temperature_forecast:
+    - type: tile
+      entity: weather.home
+      grid_options:
+        columns: 12
+      features:
+        - type: temperature-forecast
+          forecast_type: daily
+          days_to_show: 7
+
+  feature_precipitation_forecast:
+    - type: tile
+      entity: weather.home
+      grid_options:
+        columns: 12
+      features:
+        - type: precipitation-forecast
+          forecast_type: daily
+          days_to_show: 7
+          precipitation_type: amount

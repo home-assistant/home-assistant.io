@@ -1,21 +1,7 @@
 ---
-title: Utility Meter
 description: Instructions on how to integrate the Utility Meter into Home Assistant.
-ha_category:
-  - Helper
-  - Sensor
 ha_release: 0.87
-ha_iot_class: Local Push
-ha_quality_scale: internal
-ha_config_flow: true
-ha_codeowners:
-  - '@dgomes'
 ha_domain: utility_meter
-ha_platforms:
-  - diagnostics
-  - select
-  - sensor
-ha_integration_type: helper
 ---
 
 The **Utility Meter** {% term integration %} provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).

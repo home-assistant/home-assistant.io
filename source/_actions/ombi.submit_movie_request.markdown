@@ -8,7 +8,7 @@ related_actions:
   - ombi.submit_tv_request
 ---
 
-The **Submit movie request** action searches your Ombi instance for a movie by name and submits a request for the first matching result.
+The **Ombi: Submit movie request** action searches your Ombi instance for a movie by name and submits a request for the first matching result.
 
 This is handy when you want to request a film without opening the Ombi interface, for example from a voice assistant or a dashboard button.
 
@@ -65,7 +65,8 @@ name:
 
 When you press a dashboard button, request a specific movie in Ombi.
 
-- **Trigger**: A button helper is pressed
+- **Trigger**: State changed
+  - **Entity**: Movie request helper
 - **Action**: Ombi: Submit movie request
 
 {% details "YAML example for requesting a movie from a button" %}

@@ -1,15 +1,7 @@
 ---
-title: OwnTracks
 description: Instructions on how to use OwnTracks to track devices in Home Assistant.
-ha_category:
-  - Presence detection
-ha_iot_class: Local Push
 ha_release: 0.7.4
-ha_config_flow: true
 ha_domain: owntracks
-ha_platforms:
-  - device_tracker
-ha_integration_type: service
 ---
 
 [OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allows you to track your location and send it directly to Home Assistant. OwnTracks can be set up via  **{% my integrations title="Settings > Devices & services" %}**.

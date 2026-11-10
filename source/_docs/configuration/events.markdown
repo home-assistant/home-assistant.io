@@ -25,9 +25,9 @@ In an automation, an event can be the {% term trigger %}, but not a {% term cond
 2. Condition (optional): The automation checks whether it should continue, for example, based on the data in the event.
 3. Action: The automation makes something happen.
 
-Actions can create events of their own. When an action such as `light.turn_on` is performed, Home Assistant fires a `call_service` event. If the light then turns on, a `state_changed` event follows. Other steps in an automation, such as a delay or a condition, do not fire these events. To fire an event from an automation or script, use the [**Fire manual event**](/docs/scripts/#fire-an-event) action.
+Actions can create events of their own. When an action such as `light.turn_on` is performed, Home Assistant fires a `call_service` event. If the light then turns on, a `state_changed` event follows. Other steps in an automation, such as a delay or a condition, do not fire these events. To fire an event from an automation or script, use the [**Fire manual event**](/actions/event/) action.
 
-Most triggers in the automation editor are built on events. For example, the [**State changed**](/triggers/state/) trigger listens for `state_changed` events for the entities you select. When something has a state, such as a light, a door sensor, or the location of a person, use the **State changed** trigger. It is easier to set up than listening for the event yourself.
+Most triggers in the visual automation editor are built on events. For example, the [**State changed**](/triggers/state/) trigger listens for `state_changed` events for the entities you select. When something has a state, such as a light, a door sensor, or the location of a person, use the **State changed** trigger. It is easier to set up than listening for the event yourself.
 
 Use the [**Manual event received**](/triggers/event/) trigger when there is no state to watch:
 
@@ -57,7 +57,7 @@ All events share these basic fields:
 - `event_type`: Type of the event. Example: `call_service`.
 - `origin`: Origin of the event. `REMOTE` (coming in from the API, such as a webhook) or `LOCAL` (everything else).
 - `time_fired`: When the event was fired. Example: `2022-01-28T12:19:53.736380+00:00`.
-- `context`: Dictionary with the [context](https://data.home-assistant.io/docs/context/). Example: `{"id": "123", "parent_id": null, "user_id": "abc"}`.
+- `context`: Dictionary with the [context](https://contributors.home-assistant.io/data/reference/data-model/). Example: `{"id": "123", "parent_id": null, "user_id": "abc"}`.
 
 In addition, all events contain a `data` dictionary with event-specific information. These are described below.
 
@@ -256,6 +256,8 @@ This event is fired when an automation is triggered.
 - `name`: The name of the automation.
 - `entity_id`: The identifier of the automation.
 - `source`: Optional, description of the trigger that started the automation.
+- `item_id`: Optional, the `id` of the automation. Automations created in the UI always have an `id`. Automations in YAML only have one if you set it.
+- `run_id`: Optional, the ID of this run, used by the automation's traces. Set together with `item_id`.
 
 ### `scene_reloaded`
 
@@ -273,3 +275,5 @@ This event is fired when a script is run. A script can be started by a user or b
 
 - `name`: Name of the script that was run.
 - `entity_id`: Identifier of the script that was run.
+- `item_id`: The ID of the script, used by its traces. For example, `morning_routine` for `script.morning_routine`.
+- `run_id`: The ID of this run, used by the script's traces.

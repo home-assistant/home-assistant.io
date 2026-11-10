@@ -1,23 +1,7 @@
 ---
-title: SABnzbd
 description: Instructions on how to integrate SABnzbd with Home Assistant.
-ha_category:
-  - Downloading
-  - Sensor
 ha_release: 0.7
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@shaiu'
-  - '@jpbede'
 ha_domain: sabnzbd
-ha_platforms:
-  - binary_sensor
-  - button
-  - number
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **SABnzbd** {% term integration %} allows you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and set up automations based on download status and activity.

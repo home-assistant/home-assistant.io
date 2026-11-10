@@ -1,5 +1,5 @@
 ---
-title: "Start irrigation"
+title: "Start zone"
 action: yardian.start_irrigation
 domain: yardian
 description: "Starts the irrigation for a zone for a set number of minutes."
@@ -16,7 +16,7 @@ To start irrigation from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Yardian zone switch you want to water.
-6. From the actions shown for that target, select **Start irrigation**.
+6. From the actions shown for that target, under **Yardian**, select **Start zone**.
 7. Enter the **Duration** in minutes.
 8. Select **Save**.
 
@@ -62,10 +62,11 @@ duration:
 
 This automation waters your front lawn for 10 minutes every morning before sunrise, when evaporation is low.
 
-- **Trigger**: the time is 5:30 AM
-- **Action**: start irrigation
+- **Trigger**: Time
+  - **At time**: `05:30`
+- **Action**: Yardian: Start zone
   - **Target**: the front lawn zone switch
-  - **Duration**: `10`
+  - **Duration**: `10` minutes
 
 {% details "Show example YAML" %}
 

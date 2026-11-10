@@ -1,19 +1,7 @@
 ---
-title: Coinbase
 description: Instructions for how to add Coinbase sensors to Home Assistant.
-ha_category:
-  - Finance
-  - Sensor
 ha_release: 0.61
-ha_iot_class: Cloud Polling
 ha_domain: coinbase
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_codeowners:
-  - '@tombrien'
-ha_config_flow: true
-ha_integration_type: service
 ---
 
 The **Coinbase** {% term integration %} lets you access account balances and exchange rates from [Coinbase](https://coinbase.com).

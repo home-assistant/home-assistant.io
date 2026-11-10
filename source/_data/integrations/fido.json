@@ -1,0 +1,15 @@
+{
+  "domain": "fido",
+  "name": "Fido",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}
