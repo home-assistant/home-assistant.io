@@ -21,7 +21,7 @@ The Tado thermostats are internet connected thermostats. There exists an unoffic
 
 It currently supports presenting the current temperature, the setting temperature, and the current operation mode. The operation mode can be set to manual, auto, and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode).
 
-### Switch between home and away modes
+## Switch between home and away modes
 
 You can change the presence mode for your entire Tado home from any Tado climate entity:
 
