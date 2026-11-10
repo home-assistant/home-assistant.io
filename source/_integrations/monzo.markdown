@@ -1,22 +1,7 @@
 ---
-title: Monzo
 description: Connect Monzo bank accounts to Home Assistant to monitor account and pot balances.
-ha_category:
-  - Event
-  - Finance
-  - Sensor
 ha_release: 2024.6
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@jakemartin-icl'
-ha_config_flow: true
 ha_domain: monzo
-ha_platforms:
-  - diagnostics
-  - event
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 [Monzo](https://monzo.com/) is a digital bank. The **Monzo** {% term integration %} connects your Monzo accounts to Home Assistant. You can monitor account and pot balances, track how much you have spent today, react to new transactions, and move money between an account and its pots.

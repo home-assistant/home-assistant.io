@@ -61,7 +61,7 @@ If the fan is usually off at night but sometimes already running, a toggle lets 
 
 - **Trigger**: Time: 22:15
 - **Action**: Toggle fan
-- **Target**: Guest room fan
+  - **Target**: Guest room fan
 
 {% details "YAML example for a bedtime toggle" %}
 
@@ -85,7 +85,7 @@ If you use the deck in the evening, the patio fan can follow the deck light with
 
 - **Trigger**: State changed: Deck light changes to on
 - **Action**: Toggle fan
-- **Target**: Patio fan
+  - **Target**: Patio fan
 
 {% details "YAML example for a patio fan toggle" %}
 

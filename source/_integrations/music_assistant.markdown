@@ -1,35 +1,32 @@
 ---
-title: Music Assistant
 description: Instructions on how to integrate Music Assistant into Home Assistant.
 featured: true
-ha_category:
-  - Media player
 ha_release: 2024.12
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@music-assistant'
-  - '@arturpragacz'
 ha_domain: music_assistant
-ha_platforms:
-  - button
-  - media_player
-  - number
-  - select
-  - switch
-  - text
-ha_zeroconf: true
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://www.music-assistant.io/). Once configured, all [MA Players](https://www.music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
 
 ## Prerequisites
 
-Before installing this integration, ensure you have a running Music Assistant server. Instructions for installing the Music Assistant server are available in the [Music Assistant documentation](https://www.music-assistant.io/installation/)
+This integration connects to a Music Assistant server.
+
+- If you run {% term "Home Assistant Operating System" %}, you don't need to prepare anything. Home Assistant can install and start the official Music Assistant app for you during setup.
+- For other installation types, or if you want to run the Music Assistant server somewhere else, make sure you have a running Music Assistant server first. Instructions are available in the [Music Assistant documentation](https://www.music-assistant.io/installation/).
 
 {% include integrations/config_flow.md %}
+
+### Setting up with the Music Assistant app
+
+If you run {% term "Home Assistant Operating System" %}, the setup asks whether you want to use the official Music Assistant app.
+
+1. Keep **Use the official Music Assistant app** selected and select **Submit**.
+   - If the app is not installed yet, Home Assistant installs it. This can take several minutes.
+   - If the app is not running, Home Assistant starts it.
+2. If this is a new Music Assistant installation, Music Assistant opens in a new browser tab. Finish its initial setup there.
+   - Home Assistant continues automatically once the Music Assistant setup is done.
+
+If you already run Music Assistant in another way, for example in a different app, in your own container, or on another machine, clear the **Use the official Music Assistant app** checkbox. You can then enter the URL of your Music Assistant server manually.
 
 ### Manual configuration
 
@@ -42,6 +39,7 @@ There is currently support for the following Home Assistant Platforms:
 - [Media player](#media-player-entities)
 - [Dashboard displays](#dashboards)
 - [Button](#favorite-current-song-button)
+- [Time](#sleep-timer)
 
 Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
 
@@ -99,6 +97,12 @@ This feature requires Music Assistant server version 2.10 or later.
 ### Favorite current song button
 
 The Music Assistant integration creates a button entity for each player to favorite the current song. Pressing this button (manually or by automation) adds the current song to your Music Assistant favorites. This works for songs stored locally as well as for tracks from streaming providers. It also works with remote content such as Spotify Connect, AirPlay, or a radio station, as long as the external source provides an artist and title combination (and optionally the album). 
+
+### Sleep timer
+
+The Music Assistant integration creates a **Sleep timer** time entity for each player. Set it to the time of day when you want playback on that player to stop. If the time you set has already passed today, the sleep timer ends at that time tomorrow. When a sleep timer is active, the entity shows when it ends.
+
+The **Sleep timer** entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first.
 
 ### Player options
 

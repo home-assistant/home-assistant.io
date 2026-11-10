@@ -1,5 +1,5 @@
 ---
-title: "Start a timer"
+title: "Start timer"
 action: timer.start
 domain: timer
 description: "Starts a timer, or restarts it with a new duration."
@@ -21,15 +21,15 @@ To start a timer from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the timer you want to start.
-6. From the actions shown for that target, select **Timer: Start timer**.
-7. Optionally, set a **Duration** to start the timer with.
+6. From the actions shown for that target, under **Timer**, select **Start timer**.
+7. Optionally, set a **Duration** for how long the timer should count down before it finishes.
 8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Duration:
-  description: The duration to start the timer with, as a number of seconds or in `HH:MM:SS` format. If omitted, the timer uses its configured duration or the remaining time of a paused timer.
+  description: How long the timer counts down before it finishes, as a number of seconds or in `HH:MM:SS` format. If omitted, the timer uses its configured duration or the remaining time of a paused timer.
   required: false
 {% endoptions_ui %}
 
@@ -50,7 +50,7 @@ action: |
 
 {% options_yaml %}
 duration:
-  description: The duration to start the timer with, as a number of seconds or in `HH:MM:SS` format. If omitted, the timer uses its configured duration or the remaining time of a paused timer.
+  description: How long the timer counts down before it finishes, as a number of seconds or in `HH:MM:SS` format. If omitted, the timer uses its configured duration or the remaining time of a paused timer.
   required: false
   type: string
 {% endoptions_yaml %}

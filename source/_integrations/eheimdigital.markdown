@@ -1,34 +1,7 @@
 ---
-title: EHEIM Digital
 description: Instructions on how to set up EHEIM Digital with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
 ha_release: 2025.1
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@autinerd'
 ha_domain: eheimdigital
-ha_integration_type: hub
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_quality_scale: platinum
-ha_zeroconf: true
 ---
 
 The **EHEIM Digital** {% term integration %} allows you to control your [EHEIM Digital](https://eheim.com/en_GB/aquatics/eheim-digital/) smart aquarium devices from Home Assistant.

@@ -1,22 +1,7 @@
 ---
-title: Flume
 description: Documentation about the flume sensor.
-ha_category:
-  - Binary sensor
-  - Sensor
-ha_iot_class: Cloud Polling
 ha_release: 0.103
-ha_config_flow: true
-ha_codeowners:
-  - '@ChrisMandich'
-  - '@bdraco'
-  - '@jeeftor'
 ha_domain: flume
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file

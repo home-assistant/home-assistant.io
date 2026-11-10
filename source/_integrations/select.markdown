@@ -1,14 +1,7 @@
 ---
-title: Select
 description: Instructions on how to manage your Select entities with Home Assistant.
-ha_category:
-  - Select
 ha_release: 2021.7
-ha_quality_scale: internal
 ha_domain: select
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 The **Select** {% term integration %} manages the state of the select entities and allows

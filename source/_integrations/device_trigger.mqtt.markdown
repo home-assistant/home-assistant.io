@@ -1,8 +1,6 @@
 ---
 title: "MQTT Device trigger"
 description: "Instructions on how to integrate MQTT device triggers within Home Assistant."
-ha_category:
-  - Device automation
 ha_release: 0.106
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -14,8 +12,9 @@ An MQTT device trigger is a better option than a [binary sensor](/integrations/b
 
 ## Configuration
 
-MQTT device triggers are only supported through [MQTT discovery](/integrations/mqtt/#mqtt-discovery), manual setup through {% term "`configuration.yaml`" %} is not supported.
-The discovery topic needs to be: `<discovery_prefix>/device_automation/[<node_id>/]<object_id>/config`. Note that only one trigger may be defined per unique discovery topic. Also note that the combination of `type` and `subtype` should be unique for a device.
+{% include integrations/mqtt_config_methods.md item="device trigger" platform="device_automation" yaml=false %}
+
+Manual setup through {% term "`configuration.yaml`" %} is not supported. Note that only one trigger may be defined per unique discovery topic. Also note that the combination of `type` and `subtype` should be unique for a device.
 
 {% configuration %}
 automation_type:
@@ -47,55 +46,7 @@ subtype:
   description: "The subtype of the trigger, for example, `button_1`. Entries supported by the frontend: `turn_on`, `turn_off`, `button_1`, `button_2`, `button_3`, `button_4`, `button_5`, `button_6`. If set to an unsupported value, will render as `subtype type`, for example, `left_button pressed` with `type` set to `button_short_press` and `subtype` set to `left_button`"
   required: true
   type: string
-device:
-  description: "Information about the device this device trigger is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). At least one of identifiers or connections must be present to identify the device."
-  required: true
-  type: map
-  keys:
-    configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
-      required: false
-      type: string
-    connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
-      required: false
-      type: list
-    identifiers:
-      description: A list of IDs that uniquely identify the device. For example a serial number.
-      required: false
-      type: [list, string]
-    manufacturer:
-      description: The manufacturer of the device.
-      required: false
-      type: string
-    model:
-      description: The model of the device.
-      required: false
-      type: string
-    model_id:
-      description: The model identifier of the device.
-      required: false
-      type: string
-    name:
-      description: The name of the device.
-      required: false
-      type: string
-    serial_number:
-      description: "The serial number of the device."
-      required: false
-      type: string
-    suggested_area:
-      description: 'Suggest an area if the device isn’t in one yet.'
-      required: false
-      type: string
-    sw_version:
-      description: The firmware version of the device.
-      required: false
-      type: string
-    via_device:
-      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
-      required: false
-      type: string
+{% include integrations/mqtt_device.md item="device trigger" required=true unique_id=false %}
 value_template:
   description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the value."
   required: false

@@ -1,24 +1,7 @@
 ---
-title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
-ha_category:
-  - Binary sensor
-  - DIY
-  - Event
-ha_bluetooth: true
 ha_release: 2026.4
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@g4bri3lDev'
 ha_domain: opendisplay
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - event
-  - sensor
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **OpenDisplay** {% term integration %} lets you use [OpenDisplay](https://opendisplay.org/) e-paper displays with Home Assistant over Bluetooth Low Energy. You can upload images to the display from automations and scripts.
@@ -65,7 +48,7 @@ The **OpenDisplay** integration provides the following entities.
 
 Devices configured with [OpenDisplay Flex](https://opendisplay.org/protocol/flex-standard.html), including devices set up with an OpenDisplay Toolbox preset, can provide the following diagnostic sensors. Other OpenDisplay devices provide only the **Connectivity** binary sensor.
 
-- **Temperature**: The device chip temperature. Disabled by default.
+- **Temperature**: The device chip temperature. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Battery voltage**: The voltage of the attached battery. Available when the device uses battery or solar power. Disabled by default.
 - **Battery**: The battery charge as a percentage. Available when the device uses battery or solar power.
 
@@ -120,7 +103,7 @@ automation: |
 
 Change the display image when the sun sets.
 
-- **Trigger**: Sun: sunset
+- **Trigger**: Sunset
 - **Action**: OpenDisplay: Upload image
   - **Device**: Your OpenDisplay device
   - **Image**: The image to show
@@ -131,8 +114,7 @@ Change the display image when the sun sets.
 automation: |
   alias: "Show a sunset image on the display"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: opendisplay.upload_image
       data:

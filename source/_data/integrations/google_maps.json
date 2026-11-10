@@ -1,0 +1,15 @@
+{
+  "domain": "google_maps",
+  "name": "Google Maps",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "presence_location"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

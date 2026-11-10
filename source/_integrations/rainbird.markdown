@@ -1,29 +1,7 @@
 ---
-title: Rain Bird
 description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Calendar
-  - Irrigation
-  - Sensor
-  - Switch
-ha_config_flow: true
 ha_release: 0.61
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@konikvranik'
-  - '@allenporter'
 ha_domain: rainbird
-ha_platforms:
-  - binary_sensor
-  - button
-  - calendar
-  - diagnostics
-  - number
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **Rain Bird** {% term integration %} allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
@@ -103,12 +81,21 @@ The Rain Bird integration provides the following entities.
   - **Available for devices**: All. The number of buttons depends on how many programs your
     controller model supports.
 
+- **Sync time**
+  - **Description**: Sets the controller's date and time to the current time in your Home Assistant
+    time zone. Use it to correct a controller clock that has drifted, for example after a power
+    outage or a daylight saving time change. The button is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). To use it, enable it
+    from the controller's device page.
+  - **Available for devices**: All
+
 #### Calendar
 
 - **Controller irrigation schedule**
   - **Description**: The irrigation schedule {% term calendar %}
     entity is created for each schedule configured in the Rain Bird app. You can view the program schedule
     in the Home Assistant calendar UI, or trigger other automations based on the irrigation start or end time.
+    Each event's description lists the zones the program waters and each zone's run time in minutes, for
+    example `Zone 1: 25 min`. In automations, it is available as `trigger.calendar_event.description`.
   - **Available for devices**: Only available for Rain Bird devices irrigation schedules.
 
 #### Number

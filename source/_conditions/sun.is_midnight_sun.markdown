@@ -50,7 +50,8 @@ This passes only while the sun stays above the horizon around the clock.
 
 When it is bedtime during the midnight sun, close the bedroom blackout blinds so the room stays dark even though the sun is still up.
 
-- **Trigger**: Time is 10:00 PM
+- **Trigger**: Time
+  - **At time**: `22:00`
 - **Condition**: It is midnight sun
 - **Action**: Close cover
   - **Target**: Bedroom blackout blinds

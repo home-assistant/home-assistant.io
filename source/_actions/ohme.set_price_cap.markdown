@@ -7,7 +7,7 @@ related_actions:
   - ohme.list_charge_slots
 ---
 
-The **Set price cap** action sets the price threshold above which your Ohme charger stops charging. You can switch the price cap on or off with the **Price cap** switch entity.
+The **Ohme: Set price cap** action sets the price threshold above which your Ohme charger stops charging. You can switch the price cap on or off with the **Price cap** switch entity.
 
 {% include actions/ui_header.md %}
 

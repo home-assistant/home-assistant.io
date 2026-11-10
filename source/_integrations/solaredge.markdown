@@ -1,21 +1,7 @@
 ---
-title: SolarEdge
 description: Instructions on how to integrate SolarEdge sensor within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 0.85
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: solaredge
-ha_dhcp: true
-ha_platforms:
-  - sensor
-ha_codeowners:
-  - '@frenck'
-  - '@bdraco'
-  - '@tronikos'
-ha_integration_type: device
 ---
 
 The **SolarEdge** {% term integration %} allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.

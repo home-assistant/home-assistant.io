@@ -1,0 +1,9 @@
+{
+  "domain": "zone",
+  "name": "Zone",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

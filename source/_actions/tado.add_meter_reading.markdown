@@ -9,7 +9,7 @@ related_actions:
   - tado.set_climate_temperature_offset
 ---
 
-The **Add meter reading** action sends a meter reading to Tado Energy IQ. With Energy IQ, you can track your energy consumption and keep an eye on your heating costs.
+The **Tado: Add meter reading** action sends a meter reading to Tado Energy IQ. With Energy IQ, you can track your energy consumption and keep an eye on your heating costs.
 
 A common use is an automation that reads a gas or electricity meter sensor and submits the value to Tado on a daily schedule.
 

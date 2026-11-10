@@ -5,7 +5,7 @@ domain: tplink_omada
 description: "Forces a wireless client to reconnect to the Omada network."
 ---
 
-The **Reconnect wireless client** action forces a Wi-Fi client to reconnect to your Omada network. This is useful when a client has a troublesome connection that needs to be reset.
+The **TP-Link Omada: Reconnect wireless client** action forces a Wi-Fi client to reconnect to your Omada network. This is useful when a client has a troublesome connection that needs to be reset.
 
 This action does not target an entity. Instead, you select which Omada controller to use and provide the MAC address of the client you want to reconnect.
 
@@ -68,7 +68,10 @@ mac:
 
 This automation forces a wireless client to reconnect to your Omada network whenever a device that depends on it becomes unavailable for a few minutes, which can recover a stuck Wi-Fi connection.
 
-- **Trigger**: the device's entity stays unavailable for 5 minutes
+- **Trigger**: State changed
+  - **Entity**: Garage sensor signal sensor
+  - **To**: Unavailable
+  - **For at least**: `00:05:00`
 - **Action**: TP-Link Omada: Reconnect wireless client
   - **MAC address**: the client's MAC address
 

@@ -1,25 +1,7 @@
 ---
-title: Vitesy
 description: Instructions on how to integrate Vitesy devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Health
-  - Select
-  - Sensor
 ha_release: '2026.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@chemelli74'
 ha_domain: vitesy
-ha_platforms:
-  - binary_sensor
-  - button
-  - select
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Vitesy** {% term integration %} connects Home Assistant to your [Vitesy](https://vitesy.com/) air quality devices through the Vitesy Hub cloud service.
@@ -29,6 +11,7 @@ Vitesy makes smart air purifiers and air quality monitors. This integration read
 ## Use cases
 
 - Keep an eye on the air quality inside your refrigerator and get notified when it drops.
+- Track temperature, humidity, and carbon dioxide in a room, for example to know when to open a window.
 - Track how often and how long the refrigerator door is opened.
 - Switch the purifier mode from Home Assistant, for example to boost after a grocery run.
 - Get a reminder when the purification filter is due to be cleaned or replaced.
@@ -39,10 +22,8 @@ Vitesy makes smart air purifiers and air quality monitors. This integration read
 The following devices are supported:
 
 - Vitesy Shelfy (the refrigerator air purifier)
-
-## Unsupported devices
-
-Other Vitesy products, such as Natede and Eteria, are not supported yet.
+- Vitesy Natede
+- Vitesy Eteria
 
 ## Prerequisites
 
@@ -75,6 +56,24 @@ Each device in your Vitesy Hub account is added as a separate device in Home Ass
 - **Door open duration**
   - **Description**: Total time the refrigerator door was open during the latest measurement period.
   - **Available for**: Shelfy
+- **Temperature**
+  - **Description**: Temperature measured in the room.
+  - **Available for**: Natede, Eteria
+- **Humidity**
+  - **Description**: Relative humidity measured in the room.
+  - **Available for**: Natede, Eteria
+- **Volatile organic compounds parts**
+  - **Description**: Concentration of volatile organic compounds (VOC) in the air, in parts per million (ppm).
+  - **Available for**: Natede, Eteria
+- **Carbon dioxide**
+  - **Description**: Carbon dioxide (CO₂) concentration in the air, in parts per million (ppm).
+  - **Available for**: Natede, Eteria
+- **Carbon monoxide**
+  - **Description**: Carbon monoxide (CO) concentration in the air, in parts per million (ppm).
+  - **Available for**: Natede models with a carbon monoxide sensor
+- **PM2.5**
+  - **Description**: Concentration of fine particulate matter (PM2.5) in the air, in micrograms per cubic meter (µg/m³).
+  - **Available for**: Natede
 - **Battery**
   - **Description**: Battery charge level. Shown as diagnostic information on the device page.
   - **Available for**: Shelfy
@@ -119,8 +118,9 @@ Here are a few ideas to get you started.
 
 Send a notification to your phone when the air quality score falls below a threshold.
 
-- **Trigger**: When the air quality score drops below 40%
+- **Trigger**: Numeric state crossed threshold
   - **Target**: Air quality score (`sensor.shelfy_air_quality_score`)
+  - **Below**: `40`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -149,8 +149,9 @@ automation: |
 
 Send a notification on the day the purification filter is due for maintenance.
 
-- **Trigger**: When the current time reaches the filter change due date
+- **Trigger**: Time
   - **Target**: Filter change due (`sensor.shelfy_filter_change_due`)
+  - **At time**: Shelfy filter change due sensor
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -174,7 +175,7 @@ automation: |
 
 ## Known limitations
 
-- Only the Vitesy Shelfy is supported. Other Vitesy devices are not exposed yet.
+- Home Assistant only creates the environmental sensors that a device reports to Vitesy Hub. The exact set depends on the model and its sensor hardware.
 - The integration relies on the Vitesy Hub cloud service and needs an active internet connection.
 
 ## Troubleshooting

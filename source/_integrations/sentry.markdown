@@ -1,16 +1,7 @@
 ---
-title: Sentry
 description: Record errors to Sentry.
-ha_category:
-  - System monitor
-ha_iot_class: Cloud Polling
 ha_release: 0.104
-ha_config_flow: true
-ha_codeowners:
-  - '@dcramer'
-  - '@frenck'
 ha_domain: sentry
-ha_integration_type: service
 ---
 
 The **Sentry** {% term integration %} connects Home Assistant to [Sentry](https://sentry.io/), an error tracking service that can be cloud-hosted or self-hosted. It captures logged errors and unhandled exceptions and sends them to your Sentry instance, where you can browse, search, and get alerted on them.

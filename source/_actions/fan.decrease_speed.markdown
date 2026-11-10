@@ -73,8 +73,8 @@ Reduce the airflow a little once the evening has settled down.
 
 - **Trigger**: Time: 23:00
 - **Action**: Decrease fan speed
-- **Target**: Bedroom fan
-- **Decrement**: 10
+  - **Target**: Bedroom fan
+  - **Decrement**: `10`%
 
 {% details "YAML example for a quieter bedtime fan" %}
 
@@ -102,8 +102,8 @@ Once the day cools down, you may only need a softer airflow.
   - **Entity**: Sun
   - **To**: Below horizon
 - **Action**: Decrease fan speed
-- **Target**: Living room fan
-- **Decrement**: 20
+  - **Target**: Living room fan
+  - **Decrement**: `20`%
 
 {% details "YAML example for a sunset fan slowdown" %}
 

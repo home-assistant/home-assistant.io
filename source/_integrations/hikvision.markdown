@@ -1,22 +1,7 @@
 ---
-title: Hikvision
 description: Instructions on how to set up Hikvision cameras and NVRs within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Event
 ha_release: 0.35
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@mezz64'
-  - '@ptarjan'
 ha_domain: hikvision
-ha_platforms:
-  - binary_sensor
-  - camera
-  - event
-ha_integration_type: device
-ha_config_flow: true
 ---
 
 The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <abbr title="Network Video Recorder">NVR</abbr>](https://www.hikvision.com/) to Home Assistant, providing:
@@ -142,6 +127,7 @@ Supported event types are:
 - Recording Failure
 - Exiting Region
 - Entering Region
+- Thermometry (thermal cameras, as a **Temperature alarm** heat sensor)
 
 ### Availability
 

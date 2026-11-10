@@ -1,37 +1,7 @@
 ---
-title: Sensibo
 description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
 ha_release: 0.44
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@andrey-git'
-  - '@gjohansson-ST'
 ha_domain: sensibo
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_homekit: true
-ha_dhcp: true
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Sensibo** {% term integration %} integrates [Sensibo](https://sensibo.com) devices into Home Assistant.
@@ -68,7 +38,7 @@ API key:
 
 {% note %}
 
-Some entities are disabled by default, so you need to [enable them](/common-tasks/general/#to-enable-or-disable-a-single-entity) to use them.
+Some entities are disabled by default, so you need to [enable them](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to use them.
 
 Depending on device support, some entities might not be available as the device does not support them.
 
@@ -199,10 +169,11 @@ switch:
 automation:
   alias: "Example timer"
   triggers:
-    - trigger: zone
-      entity_id: person.me
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.me
+      options:
+        zone: zone.home
   actions:
     - action: sensibo.enable_timer
       data:

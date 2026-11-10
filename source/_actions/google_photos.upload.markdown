@@ -1,7 +1,8 @@
 ---
-title: "Upload"
+title: "Upload media to Google Photos"
 action: google_photos.upload
 domain: google_photos
+response: optional
 description: "Uploads one or more photos or videos from Home Assistant to Google Photos."
 ---
 
@@ -21,7 +22,7 @@ To upload media from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Google Photos: Upload**.
+5. From the search box, search for and select **Google Photos: Upload media to Google Photos**.
 6. Select the **Google Photos entry** to upload to. This is the Google Photos account you set up in Home Assistant. If you added more than one account, pick the one you want.
 7. Enter the **Filename** of the file to upload, and the **Album** to upload it to.
 8. In the **Response variable** field, enter a name to store the data in, such as `upload`.
@@ -83,7 +84,9 @@ album:
 
 ## Response data
 
-This action can return a response with the uploaded media. To use it, store the result in a response variable.
+{% include actions/response.md %}
+
+The response contains the uploaded media.
 
 The response contains the following fields:
 

@@ -2,6 +2,7 @@
 title: "Set user"
 action: zwave_js.set_user
 domain: zwave_js
+response: required
 description: "Creates or updates an access-control user on a Z-Wave lock."
 related_actions:
   - zwave_js.set_credential
@@ -28,7 +29,7 @@ To create or update a user from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the locks to create or update the user on.
-6. From the actions shown for that target, select **Set user**.
+6. From the actions shown for that target, under **Z-Wave**, select **Set user**.
 7. Set the options you want to use.
 8. In the **Response variable** field, enter a name to store the result, for example, `result`.
 9. Select **Save**.
@@ -108,6 +109,8 @@ active:
 {% include actions/targets.md domain="lock" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by lock entity. Each entry includes the assigned user index:
 

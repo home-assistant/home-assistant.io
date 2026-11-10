@@ -1,41 +1,7 @@
 ---
-title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Climate
-  - Cover
-  - Environment
-  - Fan
-  - Hub
-  - Light
-  - Media source
-  - Sensor
-  - Switch
-  - Weather
 ha_release: '0.20'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@cgtobi'
-ha_config_flow: true
 ha_domain: netatmo
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - diagnostics
-  - fan
-  - light
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 [Netatmo](https://www.netatmo.com/) is a smart home brand from the Legrand group that makes connected devices for the home, including weather stations, indoor and outdoor cameras, video doorbells, smart thermostats and radiator valves, air quality monitors, and Legrand and BTicino electrical products such as switches, dimmers, and power plugs.
@@ -85,7 +51,7 @@ It also exposes [Netatmo Smart Door and Window Sensors](https://www.netatmo.com/
 ## Button
 
 The `netatmo` button sensor platform provides support for moving compatible shutters to a preferred position.
-Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are disabled by default.
+Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Camera
 

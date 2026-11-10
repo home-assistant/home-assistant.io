@@ -1,29 +1,7 @@
 ---
-title: Xbox
 description: Instructions on how to set up Xbox devices in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Gaming
-  - Media player
-  - Media source
-  - Remote
-ha_iot_class: Cloud Polling
 ha_release: 0.117
-ha_codeowners:
-  - '@tr4nt0r'
 ha_domain: xbox
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - image
-  - media_player
-  - remote
-  - sensor
-ha_integration_type: hub
-ha_ssdp: true
-ha_dhcp: true
-ha_quality_scale: platinum
 ---
 
 The **Xbox** {% term integration %} allows you to connect Home Assistant to the **Xbox Network**.

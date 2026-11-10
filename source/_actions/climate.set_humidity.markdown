@@ -68,7 +68,9 @@ humidity:
 
 Set a climate device to a higher target humidity when the measured humidity drops too low.
 
-- **Trigger**: Indoor humidity drops below 35 %
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Living room humidity
+  - **Below**: `35`
 - **Action**: Set thermostat target humidity
   - **Target**: Living room thermostat
   - **Humidity**: 50

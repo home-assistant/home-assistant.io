@@ -1,5 +1,5 @@
 ---
-title: "Cancel the air conditioning of a Renault vehicle"
+title: "Cancel A/C"
 action: renault.ac_cancel
 domain: renault
 description: "Cancels the air conditioning of a Renault vehicle."

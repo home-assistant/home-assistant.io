@@ -1,19 +1,7 @@
 ---
-title: Denon AVR Network Receivers
 description: Instructions on how to integrate Denon AVR Network Receivers into Home Assistant.
-ha_category:
-  - Media player
-ha_iot_class: Local Push
 ha_release: 0.7.2
 ha_domain: denonavr
-ha_codeowners:
-  - '@ol-iver'
-  - '@starkillerOG'
-ha_config_flow: true
-ha_ssdp: true
-ha_platforms:
-  - media_player
-ha_integration_type: device
 ---
 
 The **Denon AVR Network Receivers** {% term integration %} allows you to control [Denon Network Receivers](https://www.denon.com/category/heos) from Home Assistant. It might be that your device is supported by the [Denon] platform.

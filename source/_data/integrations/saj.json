@@ -1,0 +1,20 @@
+{
+  "domain": "saj",
+  "name": "SAJ Solar Inverter",
+  "integration_type": "hub",
+  "codeowners": [
+    "@fredericvl",
+    "@edurenye"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

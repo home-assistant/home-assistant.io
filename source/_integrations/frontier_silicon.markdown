@@ -1,19 +1,7 @@
 ---
-title: Frontier Silicon
 description: Instructions on how to integrate Frontier Silicon Internet Radios into Home Assistant.
-ha_category:
-  - Media player
-ha_iot_class: Local Polling
 ha_release: '0.40'
 ha_domain: frontier_silicon
-ha_platforms:
-  - media_player
-  - switch
-ha_integration_type: device
-ha_codeowners:
-  - '@wlcrs'
-ha_ssdp: true
-ha_config_flow: true
 ---
 
 This {% term integration %} provides support for Internet Radios based on the [Frontier Silicon chipset]. Some manufacturers that offer products based on these chips include Hama, Medion, Silvercrest, Auna, TechniSat, Revo, and Pinell. These devices are usually controlled with the OKTIV or UNDOK apps.

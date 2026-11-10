@@ -2,6 +2,7 @@
 title: "ADB command"
 action: androidtv.adb_command
 domain: androidtv
+response: optional
 description: "Sends a key command or ADB shell command to an Android or Fire TV device."
 related_actions:
   - androidtv.learn_sendevent
@@ -57,6 +58,10 @@ command:
 
 {% include actions/targets.md domain="media_player" %}
 
+## Response data
+
+{% include actions/response.md %}
+
 ## Good to know
 
 - Key commands include `POWER`, `SLEEP`, `HOME`, `UP`, `DOWN`, `LEFT`, `RIGHT`, `CENTER`, `BACK`, and `MENU`. The full list lives in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
@@ -72,8 +77,9 @@ command:
 
 Send the `SLEEP` command to put the device to sleep on a schedule.
 
-- **Trigger**: Time is 11:00 PM
-- **Action**: ADB command
+- **Trigger**: Time
+  - **At time**: `23:00`
+- **Action**: Android Debug Bridge: ADB command
   - **Target**: Living room Fire TV
   - **Command**: `SLEEP`
 

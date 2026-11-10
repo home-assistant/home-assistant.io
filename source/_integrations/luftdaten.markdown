@@ -1,20 +1,7 @@
 ---
-title: Sensor.Community
 description: Instructions on how to add Sensor.Community sensors to Home Assistant.
-ha_category:
-  - Health
-  - Sensor
 ha_release: 0.82
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@fabaff'
-  - '@frenck'
 ha_domain: luftdaten
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: device
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics

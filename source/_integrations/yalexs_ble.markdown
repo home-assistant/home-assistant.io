@@ -1,22 +1,7 @@
 ---
-title: Yale Access Bluetooth
 description: Instructions on how to integrate Yale Access Bluetooth devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Lock
-  - Sensor
-ha_bluetooth: true
 ha_release: 2022.9
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@bdraco'
 ha_domain: yalexs_ble
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - lock
-  - sensor
-ha_integration_type: device
 ---
 
 Integrates [Yale Access](https://www.yalehome.com/us/en/products/smart-technology/yale-access) Bluetooth devices into Home Assistant.

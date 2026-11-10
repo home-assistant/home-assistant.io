@@ -7,6 +7,7 @@ related_actions:
   - sofar.set_active_power_limit
   - sofar.set_passive_mode_timeout
   - sofar.set_passive_mode_power
+  - sofar.set_battery_cutoffs
 ---
 
 Use this action to cap how much power your Sofar inverter feeds back into the grid. This is different from [Set active power limit](/actions/sofar.set_active_power_limit/), which caps the inverter's own generation directly: the feed-in limit only throttles export, and leaves the inverter free to generate more for local use.
@@ -90,7 +91,7 @@ max_power:
 
 Some grid connections cap how much a household may export. This automation lowers the feed-in limit at sunrise and raises it again at sunset, so exports stay compliant during daylight generation hours.
 
-- **Trigger**: Sun, sunrise
+- **Trigger**: Sunrise
 - **Action**: Sofar: Set feed-in limit
 
 {% details "YAML example for a daytime export cap" %}
@@ -99,8 +100,7 @@ Some grid connections cap how much a household may export. This automation lower
 automation: |
   alias: "Cap Sofar feed-in during the day"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   actions:
     - action: sofar.set_feed_in_limit
       data:

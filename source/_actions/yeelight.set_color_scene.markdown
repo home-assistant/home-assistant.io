@@ -9,7 +9,7 @@ related_actions:
   - yeelight.set_color_flow_scene
 ---
 
-The **Set color scene** action sets a Yeelight light to a specific RGB color and brightness. If the light is off, it turns on.
+The **Yeelight: Set color scene** action sets a Yeelight light to a specific RGB color and brightness. If the light is off, it turns on.
 
 This is useful for recalling a favorite color and brightness combination in a single step, for example as part of a movie or relax scene.
 
@@ -22,7 +22,7 @@ To set a color scene from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Yeelight light you want to control.
-6. From the actions shown for that target, select **Set color scene**.
+6. From the actions shown for that target, under **Yeelight**, select **Set color scene**.
 7. Enter the **RGB color** and the **Brightness**.
 8. Select **Save**.
 

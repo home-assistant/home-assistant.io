@@ -74,8 +74,7 @@ activity:
 
 At sunset, start a saved evening activity on a remote that supports activities.
 
-- **Trigger**: Sun
-  - **Event**: Sunset
+- **Trigger**: Sunset
 - **Action**: Turn on via remote
   - **Target**: Living room remote
   - **Activity**: Evening TV
@@ -86,8 +85,7 @@ At sunset, start a saved evening activity on a remote that supports activities.
 automation: |
   alias: "Start evening TV activity at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: remote.turn_on
       target:
@@ -105,7 +103,7 @@ When a person arrives home after dark, turn on the living room remote.
 - **Trigger**: State changed
   - **Entity**: Paulus (`person.paulus`)
   - **To**: Home
-- **Condition**: Sun is below horizon
+- **Condition**: Sun is set
 - **Action**: Turn on via remote
   - **Target**: Living room remote
 
@@ -119,8 +117,7 @@ automation: |
       entity_id: person.paulus
       to: home
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: remote.turn_on
       target:

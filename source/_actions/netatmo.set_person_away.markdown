@@ -19,7 +19,7 @@ To mark a person as away from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Netatmo Indoor camera you want to control.
-6. From the actions shown for that target, select **Set person away**.
+6. From the actions shown for that target, under **Netatmo**, select **Set person away**.
 7. _Optional_: Enter the **Person** you want to mark as away. Leave it empty to mark the whole home as empty.
 8. Select **Save**.
 
@@ -55,7 +55,7 @@ person:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Netatmo camera" example="camera.living_room" %}
 
 ## Good to know
 

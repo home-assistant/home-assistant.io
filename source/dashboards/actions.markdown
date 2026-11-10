@@ -24,6 +24,7 @@ Some cards have support for tap actions. These actions define what will happen w
 
 Actions can be enabled on the following cards:
 
+- [Alert](/dashboards/alert/)
 - [Button](/dashboards/button/)
 - [Entities](/dashboards/entities/)
 - [Gauge](/dashboards/gauge/)
@@ -330,4 +331,4 @@ hold_action:
 
 ## Limitations
 
-It is not possible to use templates for actions. But calling a [script](/docs/scripts/) is a good alternative.
+It is not possible to use templates for actions. But calling a [script](/docs/script/) is a good alternative.
