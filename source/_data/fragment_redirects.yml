@@ -258,3 +258,5 @@
 "/docs/configuration/troubleshooting/":
   disable-debug-logging-and-download-logs: /docs/configuration/troubleshooting/#disabling-debug-logging-and-downloading-the-log
   download-diagnostics: /docs/configuration/troubleshooting/#downloading-diagnostics
+"/docs/energy/faq/":
+  troubleshooting-missing-entities: /docs/energy/faq/#symptom-the-sensor-doesnt-appear-in-the-selection-list
