@@ -23,7 +23,9 @@ ha_integration_type: hub
 This {% term integration %} interacts with the Cloud API of [Airzone devices](https://www.airzone.es/en/).
 
 {% important %}
-Airzone's subscription requirements depend on the device and how you access it. According to the integration's code owner, the Cloud API can allow local control without a subscription when Home Assistant and the Airzone device are on the same network. A subscription may be required for control from outside your home. If your device supports a local API, you can also use the [Airzone integration](/integrations/airzone/), which does not use the cloud.
+Airzone charges a subscription to control some devices from outside your home. Local control stays free. When Home Assistant is on the same network as your Airzone device, this integration works without a subscription. Which devices need a subscription depends on your device. For details, refer to [Airzone support](https://support.airzonecontrol.com/aa/en/faqs/wird-sich-die-integration-mit-drittanbietersystemen-alexa-google-home-knx-bacnet-modbus-usw-mit-dem-neuen-modell-andern/).
+
+If your device supports the local API, you can also use the [Airzone](/integrations/airzone/) integration, which doesn't use the cloud.
 {% endimportant %}
 
 There are two main types of Airzone devices:
@@ -119,22 +121,22 @@ For each Airzone device, a *water heater entity* is created if supported.
 
 ## Troubleshooting
 
-{% details "402 Payment Required" %}
+{% details "Setup fails with a 402 Payment Required error" %}
 
-### Symptom
+### Symptom: "402 Payment Required"
 
-The integration fails to connect to the Airzone Cloud API and reports an HTTP `402 Payment Required` error.
+The integration can't connect to the Airzone Cloud API and reports an HTTP `402 Payment Required` error.
 
 ### Description
 
-When Home Assistant and the Airzone device are on the same local network, the Cloud API should allow local control without a subscription. However, an IPv6-related issue has been reported to Airzone: the API may fail to recognize that the device is on the same network and return this error.
+Without a subscription, Airzone only allows this integration when Home Assistant and the Airzone device are on the same network. If your network uses IPv6, the Airzone Cloud API might not recognize that they're on the same network, and it returns this error.
 
 ### Resolution
 
-- Make sure Home Assistant and the Airzone device are on the same local network.
-- Check the [Airzone support information](https://support.airzonecontrol.com/aa/en/faqs/wird-sich-die-integration-mit-drittanbietersystemen-alexa-google-home-knx-bacnet-modbus-usw-mit-dem-neuen-modell-andern/) for current subscription and connectivity requirements.
-- If your device supports a local API, use the [Airzone integration](/integrations/airzone/) instead.
-- If the error persists, contact Airzone support to verify the subscription and local-connection status.
+- Make sure Home Assistant and the Airzone device are on the same network.
+- If your network uses IPv6, make Home Assistant connect to `m.airzonecloud.com` over IPv4, for example with a DNS rule in your router that doesn't return IPv6 addresses for that host. Don't turn off IPv6 on the Home Assistant host, because other integrations, such as Matter, need it.
+- If your device supports the local API, use the [Airzone](/integrations/airzone/) integration instead.
+- If the error continues, contact Airzone support to check your subscription.
 
 {% enddetails %}
 
