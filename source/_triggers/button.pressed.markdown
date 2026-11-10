@@ -5,6 +5,7 @@ domain: button
 description: "Triggers when one or more buttons are pressed."
 related_triggers:
   - button.held
+  - button.hold_ended
   - event.received
 ---
 
@@ -84,7 +85,7 @@ press_count:
 - A button that reports both **Single press** and **Multi-press** waits briefly after a press to see if more presses follow, and only reports **Single press** if none do. So an automation set to **Single press** starts after a short delay, and a double press of that button never starts it.
 - Some buttons report each press separately and don't report **Multi-press**. With these buttons, a double press starts an automation set to **Single press** twice, and an automation set to **Double press** never starts. If the button reports its double press as another event type, use the [Event received](/triggers/event.received/) trigger to react to it.
 - Button entities and button helpers only support **Single press**. With any other number of presses, they never start the automation.
-- Other event types, such as **Long press start** or **Long press end**, don't start the automation. To react to a button being held, use the [Button held](/triggers/button.held/) trigger. To react to other event types, use the [Event received](/triggers/event.received/) trigger instead.
+- Other event types, such as **Long press start** or **Long press end**, don't start the automation. To react to a button being held, use the [Button held](/triggers/button.held/) trigger. To react to its release after a hold, use the [Button hold ended](/triggers/button.hold_ended/) trigger. To react to other event types, use the [Event received](/triggers/event.received/) trigger instead.
 - When **Number of presses** is set to **Single press**, if the button supports **Press start** but neither **Single press** nor **Press end**, this trigger also fires when you start holding the button. If you also use the [Button held](/triggers/button.held/) trigger for the same button, both triggers fire when you hold it.
 - Event entities with another device class are skipped, even if you select them directly.
 - An entity that doesn't support the selected number of presses never starts the automation. This includes button event entities that support none of **Single press**, **Press end**, or **Press start**, when **Number of presses** is set to **Single press**. Each press or event it receives records a **Did not trigger** trace instead. For details, refer to [Testing automations](/docs/automation/testing/#how-many-traces-are-kept). If a button supports **Multi-press** but reports a different number of presses, the automation doesn't start and no trace is recorded.
