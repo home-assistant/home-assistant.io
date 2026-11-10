@@ -160,9 +160,16 @@ The schedule stays `on` across midnight when these blocks touch.
 To create a new schedule based on one you set up in the UI, duplicate it:
 
 1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
-2. Select the helper to be duplicated, and choose the option **Duplicate**.
-3. Adjust the options as needed.
-4. Select **Create** or **Submit**, depending on the type of helper.
+2. Next to the schedule, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Duplicate**.
+3. Change the name and the time blocks as needed.
+4. Select **Create**.
+
+Schedules set up in YAML can't be duplicated. To copy one, read its time blocks with the [**Get schedule**](/actions/schedule.get_schedule/) action:
+
+1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
+2. Search for and select **Get schedule**, then select **Add target** and select the schedule.
+3. Select **Perform action**.
+4. Copy the time blocks under **Response** into a `schedule:` section in your {% term "`configuration.yaml`" %} file, then run the [**Reload schedules**](/actions/schedule.reload) action.
 
 {% note %}
 Schedules created in YAML can't be edited in the UI. To edit them, change the YAML and reload the schedules.
