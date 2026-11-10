@@ -85,7 +85,7 @@ homeassistant_exclude_database:
 
 {% include actions/response.md %}
 
-This action returns the slug of the backup it created, so you can use it in later steps, for example to copy or to reference the backup.
+The response contains the slug of the backup it created. For example, you can use the slug to copy or to reference the backup.
 
 {% example %}
 action: |

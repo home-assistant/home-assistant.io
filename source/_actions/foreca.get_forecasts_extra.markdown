@@ -2,6 +2,7 @@
 title: "Get extra forecast values"
 action: foreca.get_forecasts_extra
 domain: foreca
+response: required
 description: "Retrieves Foreca forecast values that the standard forecast has no place for, such as precipitation type, snow, solar radiation, sunshine, and sunrise."
 ---
 
@@ -58,6 +59,8 @@ type:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is a mapping of the targeted weather entities, each containing a `forecast` field. The `forecast` field is a list with one entry per hour or day, matching the entries of `weather.get_forecasts`. Values are in the weather entity's units. A value that the forecast doesn't include is `null`, so check for it before using the value in a calculation or a comparison.
 

@@ -86,7 +86,7 @@ album:
 
 {% include actions/response.md %}
 
-This action can return a response with the uploaded media. To use it, store the result in a response variable.
+The response contains the uploaded media.
 
 The response contains the following fields:
 

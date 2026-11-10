@@ -110,7 +110,7 @@ homeassistant_exclude_database:
 
 {% include actions/response.md %}
 
-This action returns the slug of the backup it created, so you can use it in later steps.
+The response contains the slug of the backup it created.
 
 {% example %}
 action: |

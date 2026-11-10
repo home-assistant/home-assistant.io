@@ -61,7 +61,7 @@ In the UI, this action has an **Entity** field instead of targets. There, you ca
 
 {% include actions/response.md %}
 
-This action can return the raw response from the TV, confirming the change. The exact fields depend on your TV. To capture the response, set a `response_variable` and use it in a later step.
+The response contains the raw response from the TV, confirming the change. The exact fields depend on your TV.
 
 ## Good to know
 

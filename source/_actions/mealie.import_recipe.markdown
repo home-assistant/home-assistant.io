@@ -76,7 +76,7 @@ include_tags:
 
 {% include actions/response.md %}
 
-This action optionally returns the imported recipe. To capture it, set a `response_variable` when you call the action.
+The response contains the imported recipe.
 
 {% include actions/try_it.md %}
 

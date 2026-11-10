@@ -71,7 +71,7 @@ torrent_filter:
 
 {% include actions/response.md %}
 
-The action returns a mapping keyed by the name of each torrent. Store it in a response variable (for example, `torrents`) so you can use it in later steps.
+The action returns a mapping keyed by the name of each torrent.
 
 - `id`: The ID of the torrent.
 - `name`: The name of the torrent.
