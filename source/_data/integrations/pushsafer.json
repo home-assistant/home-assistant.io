@@ -1,0 +1,15 @@
+{
+  "domain": "pushsafer",
+  "name": "Pushsafer",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "messaging_notifications.push_notifications"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

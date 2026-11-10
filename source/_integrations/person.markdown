@@ -1,11 +1,7 @@
 ---
-title: Person
 description: Instructions on how to set up people tracking within Home Assistant.
 ha_release: 0.88
-ha_quality_scale: internal
 ha_domain: person
-ha_iot_class: Calculated
-ha_integration_type: system
 related:
   - docs: /integrations/device_tracker/
     title: Device tracker

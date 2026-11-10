@@ -1,0 +1,18 @@
+{
+  "domain": "tapsaff",
+  "name": "Taps Aff",
+  "codeowners": [
+    "@bazwilliams"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

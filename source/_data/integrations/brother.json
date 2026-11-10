@@ -1,0 +1,25 @@
+{
+  "domain": "brother",
+  "name": "Brother Printer",
+  "integration_type": "device",
+  "codeowners": [
+    "@bieniu"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "computers_network.printers"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

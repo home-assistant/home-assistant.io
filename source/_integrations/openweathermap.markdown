@@ -1,22 +1,7 @@
 ---
-title: OpenWeatherMap
 description: Instructions on how to integrate OpenWeatherMap within Home Assistant.
 ha_release: 0.32
-ha_categories:
-  - weather_alerts.forecasts
-  - weather_alerts.air_quality_pollen
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@fabaff'
-  - '@freekode'
-  - '@nzapponi'
-  - '@wittypluck'
 ha_domain: openweathermap
-ha_platforms:
-  - sensor
-  - weather
-ha_integration_type: service
 related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval

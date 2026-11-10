@@ -60,7 +60,7 @@ This fires whenever the kitchen VOC sensor reading changes to a value above 50 Î
    unit_example_entity="input_number.voc_alert_level"
    unit_example_value="500" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="volatile organic compounds sensor" example="sensor.living_room_voc" %}
 
 ## Good to know
 

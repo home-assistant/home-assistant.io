@@ -1,22 +1,7 @@
 ---
-title: BTHome
 description: Instructions on how to integrate BTHome BLE devices into Home Assistant.
-ha_categories:
-  - sensors
-  - diy_makers
-ha_bluetooth: true
 ha_release: 2022.9
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Ernst79'
-  - '@thecode'
 ha_domain: bthome
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - event
-  - sensor
-ha_integration_type: integration
 ---
 
 Integrates [BTHome](https://bthome.io/) BLE devices into Home Assistant.

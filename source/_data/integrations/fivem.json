@@ -1,0 +1,20 @@
+{
+  "domain": "fivem",
+  "name": "FiveM",
+  "integration_type": "service",
+  "codeowners": [
+    "@Sander0542"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.gaming"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

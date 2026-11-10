@@ -1,21 +1,7 @@
 ---
-title: Brother Printer
 description: Instructions on how to integrate a Brother printer into Home Assistant.
-ha_categories:
-  - computers_network.printers
 ha_release: 0.104
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bieniu'
 ha_domain: brother
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Brother Printer** {% term integration %} allows you to read current data from your local Brother printer.
@@ -67,7 +53,7 @@ The **Brother Printer** integration provides the following entities.
   - **Description**: Printer door is open
 - **Input tray empty**
   - **Description**: Input tray is empty
-  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **Input tray missing**
   - **Description**: Input tray is missing
   - **Remarks**: This entity is disabled by default
@@ -196,8 +182,9 @@ Here is an idea to get you started.
 
 Use the **Paper jam** and **No paper** binary sensors to send a notification to your phone when the printer needs attention. Replace the entity IDs in the example with the entity IDs of your printer's binary sensors.
 
-- **Trigger**: State: **Paper jam** or **No paper** changes to detected
+- **Trigger**: State changed
   - **Target**: Your printer's **Paper jam** and **No paper** binary sensors
+  - **To**: Problem
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

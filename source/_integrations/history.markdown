@@ -1,12 +1,7 @@
 ---
-title: History
 description: Instructions on how to enable history support for Home Assistant.
 ha_release: pre 0.7
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: history
-ha_integration_type: system
 related:
   - docs: /integrations/recorder/
     title: Recorder integration

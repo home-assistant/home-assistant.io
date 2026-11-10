@@ -1,16 +1,7 @@
 ---
-title: Swisscom Internet-Box
 description: Instructions on how to integrate the Swisscom Internet-Box into Home Assistant.
-ha_categories:
-  - presence_location.network_presence
-  - computers_network.routers_network
 ha_release: 0.32
 ha_domain: swisscom
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_platforms:
-  - device_tracker
-ha_integration_type: hub
 related:
   - docs: /integrations/device_tracker/
     title: Device tracker

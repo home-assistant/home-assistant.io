@@ -1,0 +1,9 @@
+{
+  "domain": "tag",
+  "name": "Tags",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

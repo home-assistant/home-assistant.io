@@ -1,0 +1,23 @@
+{
+  "domain": "deako",
+  "name": "Deako",
+  "codeowners": [
+    "@sebirdman",
+    "@balake",
+    "@deakolights"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "plugs_switches"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "light"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

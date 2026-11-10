@@ -1,13 +1,7 @@
 ---
-title: Wake-word detection
 description: Detect a wake word in streaming audio.
 ha_release: '2023.9'
-ha_codeowners:
-  - '@home-assistant/core'
-  - '@synesthesiam'
 ha_domain: wake_word
-ha_integration_type: entity
-ha_quality_scale: internal
 ---
 
 A wake-word-detection {% term entity %} allows other {% term integrations %} or applications to detect wake words in streaming audio.

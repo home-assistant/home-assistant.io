@@ -1,0 +1,15 @@
+{
+  "domain": "foobot",
+  "name": "Foobot",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

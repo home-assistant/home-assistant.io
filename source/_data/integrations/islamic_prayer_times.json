@@ -1,0 +1,17 @@
+{
+  "domain": "islamic_prayer_times",
+  "name": "Islamic Prayer Times",
+  "integration_type": "service",
+  "codeowners": [
+    "@engrbm87",
+    "@cpfair"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "categories": [
+    "productivity_information.calendars_todos"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}
