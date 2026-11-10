@@ -13,7 +13,7 @@ You add integrations under {% my integrations title="**Settings** > **Devices & 
 
 ## Custom integrations
 
-A {% term "custom integration" %} is an integration that someone from the community creates. It works like the integrations that come with Home Assistant: it runs inside Home Assistant and can add devices and entities. Custom integrations can add support for devices and services that Home Assistant doesn't include.
+A {% term "custom integration" %} is an integration that someone from the community creates. It works like the integrations that come with Home Assistant: it runs inside Home Assistant and allows you to add devices and entities. Custom integrations offer support for devices and services that Home Assistant doesn't include.
 
 You install custom integrations from the Marketplace. The Home Assistant project doesn't make, test, or support them. For details, including the risks, refer to the [Marketplace integration](/integrations/marketplace/).
 
