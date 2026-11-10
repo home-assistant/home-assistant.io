@@ -225,7 +225,7 @@ The integration only adds trackers that are assigned to a pet in the Tractive ac
 #### Resolution
 
 1. In the Tractive app, make sure the tracker is assigned to a pet.
-2. If the tracker is shared with you from another account, set up the integration again with the Tractive account that owns the tracker.
+2. If the tracker is shared with you from another account, add the integration again with the Tractive account that owns the tracker. Each account gets its own entry.
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Tractive**. Next to the entry, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Reload**.
 
 {% enddetails %}
