@@ -1,15 +1,17 @@
 ---
-description: Instructions on how to integrate llama.cpp (and other OpenAI-compatible servers) as a conversation agent.
+description: Instructions on how to integrate llama.cpp (and other OpenAI-compatible servers) as a conversation agent and to generate data with AI tasks.
 ha_release: 2026.8
 ha_domain: llama_cpp
 related:
+  - docs: /integrations/ai_task/
+    title: AI Task
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Create an AI personality
 ---
 
-The **llama.cpp** {% term integration %} allows you to use a local or remote server that implements the OpenAI-compatible chat completions API as a conversation agent in Home Assistant.
+The **llama.cpp** {% term integration %} allows you to use a local or remote server that implements the OpenAI-compatible chat completions API as a conversation agent in Home Assistant. You can also use it to generate data with [AI tasks](/integrations/ai_task/) in your automations and scripts.
 
 This integration lets you connect with self-hosted models running on servers such as llama.cpp, llama-cpp-python, vLLM, DeepSeek, or other compatible API backends.
 
@@ -48,6 +50,13 @@ Once the connection is established, you will be prompted to select the chat mode
 
 {% include integrations/option_flow.md %}
 
+The integration provides the following types of subentries:
+
+- [Conversation](/integrations/conversation/)
+- [AI Task](/integrations/ai_task/)
+
+When you set up the integration, it adds one of each, using the chat model you selected. To add more, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **llama.cpp** integration, and select **Add conversation agent** or **Add AI task**.
+
 The conversation agent has the following configuration options:
 
 {% configuration_basic %}
@@ -59,7 +68,9 @@ Recommended model settings:
   description: "Select whether to use recommended model settings. If enabled, default values are used for max tokens, temperature, and top P."
 {% endconfiguration_basic %}
 
-If you choose not to use the recommended settings, you can configure the following options:
+The AI task has the same options, except **Instructions** and **AI tools**. The automation or script that runs the task provides the instructions.
+
+If you choose not to use the recommended settings, you can configure the following options for both the conversation agent and the AI task:
 
 {% configuration_basic %}
 Model:
@@ -77,10 +88,20 @@ Top P:
 The **llama.cpp** integration provides the following entities:
 
 - **Conversation agent**: A conversation agent that can handle text-based queries, respond to requests, and control Home Assistant devices when configured to do so
+- **AI task**: An AI task entity that generates data for your automations and scripts
+
+### Generating data with AI
+
+Use the [`ai_task.generate_data`](/actions/ai_task.generate_data/) action in your automations and scripts to generate text or structured data. If your model supports image input, you can also attach images, such as a camera snapshot.
 
 ## Known limitations
 
 This integration requires an external server that implements the OpenAI-compatible chat completions API. Features that depend on specific proprietary API properties (such as billing or usage tracking) are not supported.
+
+The AI task has the following limitations:
+
+- It only accepts image attachments. Other files, such as PDF documents, are rejected.
+- It cannot generate images.
 
 ## Troubleshooting
 
