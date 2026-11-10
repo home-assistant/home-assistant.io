@@ -55,7 +55,7 @@ Let’s face it, you’re not going to replace your solar inverter or brand-new 
 
 Home Assistant already supports a fast-growing list of serial devices, and they’re incredibly easy to set up and use. With two ports included, you can control two devices at once. Just get the right cable for your serial device, plug it into AUX-2, and add its integration in Home Assistant. Some devices need serial control turned on in their settings first, and then you’re set. So, if you’re sick of your LG TV listening into your home, cut it off from your network, and use the [LG TV serial integration](/integrations/lg_tv_rs232/) 😏
 
-### Serial technical deep dive
+{% note title="Serial technical deep dive" icon="mdi:serial-port" %}
 
 *This is helpful info for serial devs, but most people can probably skip this bit.*
 
@@ -64,6 +64,8 @@ To start off, we chose the RS-232 standard as it was the most common connector f
 Another choice was the 3.5 mm serial connector, allowing you to use the audio cables you already own to connect AV receivers and TVs. Don’t fret, out of the factory we put a sticker over the 3.5 mm serial ports to avoid people confusing them with audio ports (it probably won’t cause issues… but let’s not find out 😬).
 
 Other devices will use DB9, RJ11, mini-DIN, and the list goes on. We prototyped having other connections on the back (specifically trying to fit in DB9), but we found converter cables a better solution for all this variety. Another thing we spotted during testing was cables switching the RX and TX functions, and we decided to add switches to the bottom to allow people to buy any cable with the confidence that it will work (without opening it up ✂️).
+
+{% endnote %}
 
 ## Z-Wave in the best spot
 
