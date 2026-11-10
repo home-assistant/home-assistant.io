@@ -23,7 +23,7 @@ ha_integration_type: hub
 This {% term integration %} interacts with the Cloud API of [Airzone devices](https://www.airzone.es/en/).
 
 {% important %}
-Airzone states that cloud integrations require a subscription, while local integrations remain free. Subscription requirements and available connection methods depend on the Airzone device. If your device supports a local API, consider using the [Airzone integration](/integrations/airzone/) instead of this cloud-based integration.
+Airzone's subscription requirements depend on the device and how you access it. According to the integration's code owner, the Cloud API can allow local control without a subscription when Home Assistant and the Airzone device are on the same network. A subscription may be required for control from outside your home. If your device supports a local API, you can also use the [Airzone integration](/integrations/airzone/), which does not use the cloud.
 {% endimportant %}
 
 There are two main types of Airzone devices:
@@ -127,12 +127,13 @@ The integration fails to connect to the Airzone Cloud API and reports an HTTP `4
 
 ### Description
 
-Airzone requires a subscription for cloud integrations. If Home Assistant and the Airzone device are on the same local network, the Cloud API may still return this error if it does not recognize the connection as local. An IPv6-related local-network detection issue has been reported to Airzone.
+When Home Assistant and the Airzone device are on the same local network, the Cloud API should allow local control without a subscription. However, an IPv6-related issue has been reported to Airzone: the API may fail to recognize that the device is on the same network and return this error.
 
 ### Resolution
 
+- Make sure Home Assistant and the Airzone device are on the same local network.
 - Check the [Airzone support information](https://support.airzonecontrol.com/aa/en/faqs/wird-sich-die-integration-mit-drittanbietersystemen-alexa-google-home-knx-bacnet-modbus-usw-mit-dem-neuen-modell-andern/) for current subscription and connectivity requirements.
-- If your device supports a local API, consider using the [Airzone integration](/integrations/airzone/) instead.
+- If your device supports a local API, use the [Airzone integration](/integrations/airzone/) instead.
 - If the error persists, contact Airzone support to verify the subscription and local-connection status.
 
 {% enddetails %}
