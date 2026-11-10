@@ -45,7 +45,7 @@ End time:
   description: The end of the period to return history for. If omitted, returns all history from the start time onward.
   required: false
 Allow truncation:
-  description: Truncate the returned history to the first 1,000 records per entity instead of raising an error when the limit is exceeded.
+  description: Truncate the returned history instead of raising an error when an entity exceeds the limit of recorded state changes. The limit applies to recorded state changes, not returned segments.
   required: false
 {% endoptions_ui %}
 
@@ -81,7 +81,7 @@ end_time:
   required: false
   type: string
 allow_truncation:
-  description: Truncate the returned history to the first 1,000 records per entity instead of raising an error when the limit is exceeded.
+  description: Truncate the returned history instead of raising an error when an entity exceeds the limit of recorded state changes. The limit applies to recorded state changes, not returned segments.
   required: false
   type: boolean
   default: false
@@ -94,6 +94,8 @@ The action returns a nested `history` mapping containing only entities and time 
 - `start`: The start timestamp of the state segment (ISO 8601 UTC).
 - `end`: The end timestamp of the state segment (ISO 8601 UTC).
 - `state`: The state value during this segment.
+
+When `allow_truncation: true` is enabled, the response also includes a `truncated` list containing the entity IDs of any entities whose recorded history was truncated (or an empty list if none were truncated).
 
 An example of the response looks like this:
 
@@ -116,7 +118,7 @@ history:
 
 - Consecutive duplicate states: Consecutive duplicate state values recorded across Home Assistant restarts or frequent sensor reports are merged into a continuous state span.
 - Timestamp clamping: If an entity had a state established before `start_time`, its `start` timestamp is clamped to `start_time` so all returned segments fit cleanly within the requested window.
-- Limit and truncation: Each entity is capped at 1,000 records. To prevent automations from silently acting on partial data, the action raises an error by default if the database query exceeds 1,000 recorded changes or more than 1,000 state segments are returned. When `allow_truncation: true` is set, results are truncated at the limit, which may cover only an earlier portion of the requested time window and result in fewer than 1,000 segments after duplicate states are merged.
+- Limit and truncation: To prevent automations from silently acting on partial data, each entity query is capped at 1,000 recorded database changes. The action raises an error by default if an entity exceeds this limit. When `allow_truncation: true` is set, results are truncated at the limit instead of raising an error, and the truncated entity IDs are reported in `truncated`. Because the limit applies to recorded database rows before consecutive duplicate states are merged, entities that use `force_update` record a row on every update and reach the limit sooner than their returned history suggests, resulting in fewer than 1,000 returned segments that cover only an earlier portion of the requested time window.
 - Attributes: Only state values are returned; state attributes are not included.
 - Statistics vs. state history: To retrieve periodic aggregated statistics (such as min, max, mean, or sum) rather than raw state transitions, use the [`recorder.get_statistics`](/actions/recorder.get_statistics/) action instead.
 
