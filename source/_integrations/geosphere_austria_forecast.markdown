@@ -37,23 +37,12 @@ The location must be within the area covered by the forecast model: Austria and 
 
 {% configuration_basic %}
 Location:
-    description: "The first location to get the forecast for. Defaults to the home location set in your Home Assistant configuration. If you keep the home location, the location gets the name of your home, as set under **Settings** > **System** > **General**. Otherwise, it is named after its coordinates. You can rename it afterward."
+    description: "The location to get the forecast for. Defaults to the home location set in your Home Assistant configuration. If you keep the home location, the location gets the name of your home, as set under **Settings** > **System** > **General**. Otherwise, it is named after its coordinates. You can rename it afterward."
 {% endconfiguration_basic %}
 
 ## Adding more locations
 
-The integration can only be added once. Add more locations to the existing entry instead:
-
-1. Go to **Settings** > **Devices & services** and select **GeoSphere Austria Forecast**.
-2. Select **Add location**.
-3. Enter a name, select the location on the map, and select **Submit**.
-
-{% configuration_basic %}
-Name:
-    description: "The name of the location. It is used for the device and the weather entity. Defaults to the name of your home."
-Location:
-    description: "The location to get the forecast for. Defaults to the home location set in your Home Assistant configuration."
-{% endconfiguration_basic %}
+Each location is a separate entry with its own weather entity. To get the forecast for more than one location, add the integration again and select a different location.
 
 Locations that are close together can fall into the same 1 km cell of the forecast model. Such a location is not added again, because it would get the same forecast, and the form shows **Location is already configured**.
 
@@ -90,7 +79,7 @@ To use the hourly forecast in automations and templates, use the [`weather.get_f
 
 The integration {% term polling polls %} the forecast once per hour for each location. At the start of every hour, the weather entity moves on to the forecast for the new hour without a new request.
 
-GeoSphere Austria allows 240 forecast requests per hour. When you add or remove a location, the integration reloads and requests the forecast for every location once. Using the `weather.get_forecasts` action does not cause any requests.
+GeoSphere Austria allows 240 forecast requests per hour and 5 per second. Adding a location requests its forecast once to check the location and once more to set it up. When it updates the forecasts, the integration sends no more than 5 requests per second for all locations together. Using the `weather.get_forecasts` action does not cause any requests.
 
 ## Known limitations
 
@@ -111,7 +100,7 @@ The GeoSphere Austria service could not be reached or did not respond in time. T
 
 ### Entities are unavailable
 
-The forecast could not be updated. Home Assistant tries again automatically, and the entities recover once the GeoSphere Austria service is available again. If the service cannot be reached while Home Assistant starts, all locations are unavailable until it can be reached again.
+The forecast could not be updated. Home Assistant tries again automatically, and the entities recover once the GeoSphere Austria service is available again. Each location is retried on its own, so a problem with one location does not affect the others.
 
 ## Removing the integration
 
