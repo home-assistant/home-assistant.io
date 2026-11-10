@@ -127,9 +127,20 @@ CSS.
   it: a logo `<img>` with `height` and `width: auto` needs no magic
   width at all.
 - **Breakpoints come from `astro/src/styles/_breakpoints.scss`**
-  (`@use "../styles/breakpoints";`), which holds the three widths the
-  site has always used. Media queries cannot read custom properties,
-  so these are SCSS variables. Do not invent new breakpoints.
+  (`@use "../styles/breakpoints";`). Media queries cannot read custom
+  properties, so these are SCSS variables:
+  - `$lap` (30rem), `$desk` (71.25rem) and `$desk-wide` (80rem): the
+    three widths the site has always used. Use these by default.
+  - `$tab` (48rem): a tablet width, for a page that needs a layout
+    between phone and desk.
+  - `$connect-desk` (62rem): where the Connect product pages switch to
+    their desktop layout. Use it for Connect components and the
+    components they share (such as the collaboration badge), not for
+    the rest of the site.
+
+  For markup (`media` and `sizes` attributes), `astro/src/lib/breakpoints.ts`
+  holds the same widths; keep the two files in step. Do not invent
+  new breakpoints: if a component needs another width, ask first.
 - **Styles are SCSS**: every component's style block is
   `<style lang="scss">` (the `sass` package is a dev dependency of
   `astro/`). Use nesting and `&` to keep related rules together and
