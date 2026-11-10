@@ -68,6 +68,12 @@ It is recommended to run the Matter app (formerly known as Matter add-on) on Hom
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/matter-js/matterjs-server). The requirements and instructions for your host setup are described on that GitHub page.
 
+## Matter cameras
+
+Home Assistant supports cameras that use Matter 1.5 or later.
+
+After you add a Matter camera, you can watch its live video, take snapshots, and use the camera in your dashboards and automations, like any other camera in Home Assistant. The live video is streamed with <abbr title="Web Real-Time Communication">WebRTC</abbr>, directly between your browser and the camera. The camera entity follows the camera's privacy mode. Refer to the steps on [talking through a Matter camera](#talking-through-a-matter-camera).
+
 ## Adding a Matter device to Home Assistant
 
 Each Matter network is called a fabric. Each home automation controller that controls Matter devices has its own "fabric". You can add devices directly to the fabric of your Home Assistant instance, or share them from another fabric (for example from Google or Apple) to Home Assistant's fabric. We're going to explore all these options below.
@@ -303,6 +309,16 @@ This section provides a bit more information on some of the categories:
 **Network name**: Name of the network the device joined when it was commissioned.
 
 **IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
+
+## Talking through a Matter camera
+
+Prerequisites: A Matter server that supports cameras. Home Assistant only discovers cameras when the connected Matter server supports them. Update the Matter server app if your camera isn't found.
+
+To talk through the camera:
+
+1. Go to {% my labs title="**Settings** > **System** > **Labs**" %} and turn on the **Two-way audio** preview feature.
+   - Result: A talk button appears in the live view.
+2. Open Home Assistant over HTTPS, since your browser only allows microphone access over a secure connection.
 
 ## Viewing your Matter network map
 
