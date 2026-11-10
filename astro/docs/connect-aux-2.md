@@ -11,8 +11,9 @@ everything is, what was decided, and what is still open.
 - The page is served at `/connect/aux-2/`: it is in
   `served-routes.json`, and `rake generate` copies it over the minimal
   Jekyll page at `source/connect/aux-2/index.html`, which visitors only
-  get if the Astro build fails on a production deploy (the same set-up
-  as `/no-device-left-behind/`). The hardware page (`/hardware/`) links
+  get if the Astro build fails on a production deploy. The hardware page
+  (`/hardware/`) and the header's "Our hardware" menu link to it, and
+  the launch teaser's old address, `/no-device-left-behind/`, redirects
   to it.
 - Copy follows "Connect AUX-2 - Website copy.docx" (October 2026);
   Figma was the source before it.

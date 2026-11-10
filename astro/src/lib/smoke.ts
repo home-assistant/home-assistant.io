@@ -1,7 +1,8 @@
 /*
  * Adapted from the Music Assistant website hero (music-assistant.io,
  * src/components/home/smoke.ts, Apache-2.0) for the No device left behind
- * page (src/pages/no-device-left-behind/index.astro): Home Assistant
+ * teaser page (src/pages/no-device-left-behind/index.astro, since removed;
+ * it is in the history), kept for reuse: Home Assistant
  * colours, full-page (no top/bottom fade), the music notes behind a switch
  * (NOTES), and hidden words (WORD_LINES). The smoke keeps a fading memory
  * of the brightest it has been at each spot. Where the smoke over a letter
