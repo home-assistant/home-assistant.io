@@ -98,7 +98,7 @@ When someone fails to log in to Home Assistant, or an app sends a request with i
   - **Update type**: **added** and **updated**
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-  - **Message**: {% raw %}`{{ trigger.notification.message }}`{% endraw %}
+  - **Message**: `{{ trigger.notification.message }}`
 
 {% details "YAML example for sending a notification when a login attempt fails" %}
 

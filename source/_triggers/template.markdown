@@ -20,7 +20,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Search for and select the **Template** trigger.
 5. In **Value template**, enter a template that renders `true` when the trigger should react.
-   - For example: {% raw %}`{{ is_state('device_tracker.paulus', 'home') }}`{% endraw %}
+   - For example: `{{ is_state('device_tracker.paulus', 'home') }}`
 6. Optional: In **For at least**, enter how long the template must stay true before the trigger reacts. Instead of a **Duration**, you can enter a **Template**.
 7. Select **Save**.
 
@@ -80,7 +80,7 @@ trigger: |
 
 - The trigger only reacts when the template changes from false to true. If the template is already true when Home Assistant sets up the trigger, the trigger only reacts after the template has been false first.
 - These results count as true: `true`, a number other than `0`, and the strings `yes`, `on`, and `enable`. Any other result counts as false.
-- Home Assistant renders the template again when one of the entities in the template changes. You can also check an attribute, for example, with {% raw %}`{{ is_state_attr('climate.living_room', 'preset_mode', 'away') }}`{% endraw %}.
+- Home Assistant renders the template again when one of the entities in the template changes. You can also check an attribute, for example, with `{{ is_state_attr('climate.living_room', 'preset_mode', 'away') }}`.
 - A template that uses the current time, with `now()`, `utcnow()`, `today_at`, `relative_time`, `time_since`, or `time_until`, is rendered again at the start of every minute. For details, refer to [Getting the current time](/docs/templating/dates-and-times/#getting-the-current-time). A template without entities that doesn't use any of these is only rendered once, when Home Assistant sets up the trigger.
 - If you use **For at least** (`for`), the template must stay true for the entire time. If it becomes false before the time is up, the trigger doesn't react. Use a template that renders `true` or `false`: if the result changes while it stays true, for example from `5` to `6`, the timer stops, and the trigger only reacts after the template has been false first.
 - If you use **For at least** (`for`), the timer resets when Home Assistant restarts or automations reload. If that's a problem for your automation, you can have the automation set a [date and time helper](/integrations/input_datetime/) instead, and use that helper in a [Time trigger](/triggers/time/).
