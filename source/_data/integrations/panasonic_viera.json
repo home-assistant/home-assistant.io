@@ -11,6 +11,7 @@
     "network"
   ],
   "platforms": [
+    "diagnostics",
     "media_player",
     "remote"
   ]

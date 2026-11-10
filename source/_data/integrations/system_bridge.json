@@ -17,6 +17,7 @@
   "platforms": [
     "binary_sensor",
     "button",
+    "diagnostics",
     "media_player",
     "notify",
     "number",
