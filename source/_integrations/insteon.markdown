@@ -95,7 +95,7 @@ Choose an area and add physical controllers for a scene.
 Set each device's brightness, ramp rate, on/off state, or fan speed directly in the editor.
 </p>
 
-To remove a device or controller from the scene, select the trash icon next to it, then save. To delete the whole scene, open its three dots {% icon "mdi:dots-vertical" %} menu and select **Delete scene**. Deleting a scene also removes its scene links from the modem and devices.
+To remove a device or controller from the scene, select the trash {% icon "mdi:delete" %} icon next to it, then save. To delete the whole scene, open its three dots {% icon "mdi:dots-vertical" %} menu and select **Delete scene**. Deleting a scene also removes its scene links from the modem and devices.
 
 {% note %}
 Before saving or deleting a scene with battery-powered controllers, wake those devices and read their complete [All-Link Databases](#device-all-link-database). If the editor reports that a scene was not fully written, some devices may already have changed. Follow the message in the editor, then save again or retry deletion.
@@ -109,7 +109,14 @@ When you press a controller button, the light wired to that controller uses the 
 
 #### Importing existing device scenes
 
-If you already linked devices using their physical buttons or by editing their All-Link Databases, use **Utilities** > **Import device scenes** in the Insteon configuration panel to bring those scenes into the editor. First, read the participating devices' complete [All-Link Databases](#device-all-link-database). Select **Import** next to a scene marked **Ready to import**, give it a name, and confirm. Existing device links are kept, and Home Assistant control is added. The imported scene opens in the editor, where you can adjust its settings and assign an area.
+If you already linked devices using their physical buttons or by editing their All-Link Databases, you can import those scenes into the editor.
+
+1. Read the participating devices' complete [All-Link Databases](#device-all-link-database).
+2. In the [Insteon configuration panel](#insteon-configuration-panel), select **Utilities** > **Import device scenes**.
+3. Select **Import** next to a scene marked **Ready to import**.
+4. Enter a **Scene name** and select **Import**.
+
+Existing device links are kept, and Home Assistant control is added. The imported scene opens in the editor, where you can adjust its settings and assign an area.
 
 ### Controlling Insteon scenes
 
@@ -127,7 +134,7 @@ Changing an individual light does not necessarily change the scene switch. For e
 
 #### Automating scene control
 
-For automated control in automations and scripts, use the [Scene on](/actions/insteon.scene_on/) action to turn a scene on and the [Scene off](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon scene number, shown in the **Scene** column of the **Insteon Scenes** tab. These actions remain available for existing automations; you do not need to replace them with switch actions.
+For automated control in automations and scripts, use the [**Scene on**](/actions/insteon.scene_on/) action to turn a scene on and the [**Scene off**](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon scene number, shown in the **Scene** column of the **Insteon Scenes** tab. These actions remain available for existing automations; you do not need to replace them with switch actions.
 
 ### Device overview
 
