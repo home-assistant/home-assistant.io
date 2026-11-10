@@ -9,7 +9,7 @@ comments: true
 categories:
   - Announcements
 og_image: /images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/art.webp
-hero_image: /images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/image4.webp
+hero_image: /images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-audio.webp
 hero_image_alt: "Home Assistant Connect AUX-2 on a desk next to an amplifier, a speaker, and a vinyl record"
 ---
 
@@ -31,7 +31,7 @@ I’m Shay, Product Manager at <a href="https://www.nabucasa.com/" target="_blan
 
 Connect AUX-2 started as a much simpler idea. After we showed off [portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/) last October, our original concept was a compact box that allowed a Connect ZWA-2 or ZBT-2 to run over Power over Ethernet. Around the same time, we were exploring how we could bring serial devices into Home Assistant. Since PoE accounted for most of the hardware cost of Connect AUX-2, adding extra ports turned out to be surprisingly affordable.
 
-<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/image2.webp" alt="Diagram of Connect AUX-2 showing its Bluetooth antenna, digital and analog audio jack, Grove port, two serial ports, and USB-A port"/>Many ports, even more possibilities</p>
+<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-features.webp" alt="Diagram of Connect AUX-2 showing its Bluetooth antenna, digital and analog audio jack, Grove port, two serial ports, and USB-A port"/>Many ports, even more possibilities</p>
 
 That sparked our first idea: *merge the serial and USB designs (the S in that acronym does stand for serial anyways 😁)*. But why stop there? With <a href="https://www.music-assistant.io/" target="_blank" rel="noopener">Music Assistant</a> and <a href="https://www.sendspin-audio.com/" target="_blank" rel="noopener">Sendspin</a> rapidly becoming more awesome, it made sense to add a combo analog/digital audio jack. After more iteration, we found uses for a second serial port, a Grove connector, and an upgraded Bluetooth antenna. Eventually, we had to draw the line… otherwise, we would have never actually shipped it. That brings us to the name: AUX stands for Audio, USB, and X for serial… but it also sounds cool 😎
 
@@ -45,7 +45,7 @@ Optical audio brings clean, lossless CD-quality sound into the device. While ser
 
 AUX-2’s digital-to-analog converter (DAC), the chip that turns digital audio into sound, is a nice step up from the one used in the Voice Preview Edition, letting you plug it into nearly any AUX port 😁 Its digital output is the star of the show, allowing for your self-hosted FLAC music library to be played in perfect clarity. It also senses if the audio cable is analog or digital, and will automatically switch the playback to the right output.
 
-<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/image6.webp" alt="Music Assistant grouping Connect AUX-2 with two Apple HomePods and a WiiM Amp Pro"/>Lots of speakers all playing in sync with AUX-2</p>
+<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-music-assistant.webp" alt="Music Assistant grouping Connect AUX-2 with two Apple HomePods and a WiiM Amp Pro"/>Lots of speakers all playing in sync with AUX-2</p>
 
 <a href="https://www.music-assistant.io/" target="_blank" rel="noopener">Music Assistant</a> is what supercharges this whole setup. It supports <a href="https://www.music-assistant.io/music-providers/" target="_blank" rel="noopener">nearly every streaming service</a> under the sun, along with local files, combining them into one cohesive library, always choosing the best quality file to play on AUX-2. If you haven’t used Music Assistant in a while, it’s made huge leaps in the past several months. Specifically, it introduced the new <a href="https://www.sendspin-audio.com/" target="_blank" rel="noopener">Sendspin protocol</a>, which now lets you sync audio across smart speaker brands. This means you can play music in sync by grouping multiple AUX-2s together, or pair them with a HomePod, Sonos speaker, and more. Apparently, sound passes between walled gardens 🎶
 
@@ -75,7 +75,7 @@ Our Zigbee and Z-Wave adapters are some of the most powerful on the market, with
 
 We’d highly recommend using these devices over a wired connection, and PoE makes for a pretty streamlined setup. While Wi-Fi is possible to use (our testing with Connect ZWA-2 shows only [marginal increases in latency](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/#performance)), there’s still the chance of instability or, in the case of Zigbee, increased interference.
 
-<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/image5.webp" alt="Connect AUX-2 with a Connect ZWA-2 plugged into its USB port, using a single Ethernet cable for power and data"/>PoE gives you a pretty clean two-cable setup.</p>
+<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-zwa-2.webp" alt="Connect AUX-2 with a Connect ZWA-2 plugged into its USB port, using a single Ethernet cable for power and data"/>PoE gives you a pretty clean two-cable setup.</p>
 
 One thing we haven’t been able to get working is Thread connectivity; it’s just too latency-sensitive and cannot be run reliably over a network connection. Theoretically, a Connect ZBT-2 and AUX-2 could be combined to make a standalone OpenThread border router that runs independently of your Home Assistant system, but it requires a big rewrite of the serial communications and that work hasn’t even started yet.
 
@@ -83,7 +83,7 @@ One thing we haven’t been able to get working is Thread connectivity; it’s j
 
 Bluetooth is used by all sorts of smart home devices; some even make it seem like their cloud-connected hub is the only way to connect them. The truth is, Bluetooth devices often work better when directly connected to Home Assistant. Connect AUX-2 is our first purpose-built device to connect Bluetooth devices (called a [Bluetooth proxy](/integrations/bluetooth/#bluetooth-proxy-remote-adapter) in Home Assistant).
 
-<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/image1.webp" alt="Close-up of the Connect AUX-2 circuit board with its metal Bluetooth antenna on the right"/>That piece of metal on the right is a very capable antenna.</p>
+<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-bluetooth.webp" alt="Close-up of the Connect AUX-2 circuit board with its metal Bluetooth antenna on the right"/>That piece of metal on the right is a very capable antenna.</p>
 
 No flashing or configuration: when you add AUX-2 to Home Assistant, it will start discovering Bluetooth devices around your home. It has an optimized antenna, and you can put several in your home to improve Bluetooth connectivity. Also, when you use it with Ethernet, it will no longer be sharing the same antenna between Wi-Fi and Bluetooth, ensuring it’s dedicated to the job.
 
@@ -93,7 +93,7 @@ Like all official Home Assistant devices, we’ve made Connect AUX-2 to be tinke
 
 The Grove port on the AUX-2 offers an easy way to add sensors to the device without opening it up. It supports GPIO and I2C sensors, which measure things like temperature, humidity, or light via AUX-2. Those readings then show up in Home Assistant, where you can use them in dashboards and automations. For example, if you’re using AUX-2 to monitor your rack’s uninterruptible power supply (UPS) or power distribution unit (PDU), why not add a temperature sensor to keep an eye on its cooling? This can all be done with a $5 sensor and a little ESPHome building.
 
-<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/image7.webp" alt="The underside of Connect AUX-2 showing four Phillips head screws and the RS-232 TX/RX swap switches"/>These screws are the only thing between you and the insides.</p>
+<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-bottom.webp" alt="The underside of Connect AUX-2 showing four Phillips head screws and the RS-232 TX/RX swap switches"/>These screws are the only thing between you and the insides.</p>
 
 As always, we never use clips or glue; just four Phillips head screws and you can take the whole thing apart. We’ll also release all the PCB and 3D print files to get the modding community going.
 
@@ -101,7 +101,7 @@ As always, we never use clips or glue; just four Phillips head screws and you ca
 
 Our last four products might have skipped Power over Ethernet (PoE), but the AUX-2 is *four products in one*… so by our calculations, we now have an even split of PoE and non-PoE devices 😉 Joking aside, we know how many of you love PoE, and we’re also big fans. For anyone new to it, PoE allows you to send both power *and* data to a device with a single Ethernet cable, which means you can place it anywhere you can run a cable, without the need for a nearby outlet. For installers or DIY pros, it provides amazing flexibility, and we thought this device was a perfect fit, as you can do some very advanced stuff with AUX-2.
 
-<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/image3.webp" alt="The back of Connect AUX-2 with a reset button, USB-C power port, and PoE Ethernet port"/>Power it with USB or PoE, and connect it with Ethernet or Wi-Fi.</p>
+<p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-ports.webp" alt="The front of Connect AUX-2 with a USB-A port, two RS-232 serial ports, a Grove port, and an audio jack"/>Power it with USB or PoE, and connect it with Ethernet or Wi-Fi.</p>
 
 We put a lot of work into getting it right: we tested the PoE port across a wide range of hardware to ensure it works reliably, even with picky networking gear. So we’ve learned a lot and could apply that to future products. Now we just need to make sure the demand is there.
 
