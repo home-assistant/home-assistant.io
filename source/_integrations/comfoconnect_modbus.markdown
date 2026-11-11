@@ -1,9 +1,9 @@
 ---
 title: Zehnder ComfoConnect PRO
 description: Instructions on how to integrate a Zehnder ComfoAir Q or Flex ventilation unit with Home Assistant through the ComfoConnect PRO gateway over Modbus.
-ha_category:
-  - Sensor
-ha_release: 2026.12
+ha_categories:
+  - climate.fans_ventilation
+ha_release: "2026.12"
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@AlCalzone'
