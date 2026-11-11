@@ -19,7 +19,7 @@ A set of tools is a group of tools that an AI assistant can call. Home Assistant
 
 Integrations can add more sets. For example, [KNX](/integrations/knx/) adds a **KNX** set, and the [Model Context Protocol Client](/integrations/mcp/) adds a set for each server that you connect.
 
-You choose the sets in the **AI tools** option of each conversation agent, for example in [Anthropic](/integrations/anthropic/), [Google Gemini](/integrations/google_generative_ai_conversation/), [Ollama](/integrations/ollama/), or [OpenAI](/integrations/openai_conversation/). A new conversation agent starts with **Device control** only. In Ollama, it starts with no sets.
+You choose the sets in the **AI tools** option of each conversation agent. For example, in [Anthropic](/integrations/anthropic/), [Google Gemini](/integrations/google_generative_ai_conversation/), [Ollama](/integrations/ollama/), or [OpenAI](/integrations/openai_conversation/). A new conversation agent starts with **Device control** only. In Ollama, it starts with no sets.
 
 ## What the Home Assistant LLM tools can reach
 
@@ -32,14 +32,14 @@ Most of the Home Assistant LLM tools only read. Two tools can change things:
 
 ## Giving a conversation agent the Home Assistant LLM tools
 
-To let a conversation agent help you look into Home Assistant, give it the **Home Assistant** set of tools. You can then ask it, for example, why an integration isn't working, or which errors are in the logs.
+To let a conversation agent help you look into Home Assistant, give it the **Home Assistant** set of tools. You can then ask it about Home Assistant. For example, why an integration isn't working, or which errors are in the logs.
 
 Only administrators can use the Home Assistant LLM tools. Voice assistant devices don't sign in as a user, so they can't use them either. If you talk to your conversation agent through a voice assistant device, you can add a second conversation agent for this, and keep the first one on **Device control**.
 
 Prerequisites:
 
-- An administrator account in Home Assistant
-- A conversation agent from an AI integration, for example [OpenAI](/integrations/openai_conversation/)
+- An administrator account in Home Assistant.
+- A conversation agent from an AI integration. For example, [OpenAI](/integrations/openai_conversation/).
 
 To give a conversation agent the Home Assistant LLM tools, follow these steps:
 
