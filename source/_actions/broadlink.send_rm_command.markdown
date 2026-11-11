@@ -68,7 +68,8 @@ command:
 
 - The key names come from the family you imported from the Magic Home app. After you add or rename keys in the app, [reimport the family](/integrations/broadlink/#reimport-a-family).
 - The action fails if the device does not have the key. Home Assistant does not send anything in that case.
-- IR and RF devices do not report back. The action succeeds when the gateway sends the code, even if the device did not respond to it.
+- The action succeeds when Home Assistant has sent the command to an online gateway of the family. The gateway does not confirm that it transmitted the code, and IR and RF devices do not report back, so the action also succeeds if the device did not respond.
+- The action does not change the state of the device's entities. For example, after sending a power key, a media player still shows its previous state.
 
 {% include actions/try_it.md %}
 

@@ -458,7 +458,7 @@ Magic Home gateways, such as the `RM MAX` universal remote, control Bluetooth de
 
 Setting up a Magic Home family has two parts, and both are required:
 
-1. Import the family: scan the QR code shown by Home Assistant with the Magic Home app, then select **Submit** in Home Assistant.
+1. Import the family: scan the QR code shown by Home Assistant with the Magic Home app, then confirm the import in Home Assistant.
 2. Connect the gateway to Home Assistant: in the Magic Home app, set the gateway's third-party connection to **As client** with the Home Assistant IP address and port 12346.
 
 Some Magic Home app screenshots below show the Chinese interface. The menu labels in the steps are the English ones.
@@ -466,7 +466,7 @@ Some Magic Home app screenshots below show the Chinese interface. The menu label
 ### Prerequisites
 
 - BroadLink Magic Home app for iOS 5.3.2 (14) or newer. Earlier versions cannot upload a family to Home Assistant.
-- The phone is on the same local network as Home Assistant. After scanning, the app uploads the family directly to the local Home Assistant URL in the QR code, for example `http://192.168.1.10:8123`. The upload fails if the phone uses mobile data, a guest Wi-Fi, or a network that cannot reach Home Assistant.
+- The phone can reach the Home Assistant URL in the QR code. After scanning, the app uploads the family directly to this URL, for example `http://192.168.1.10:8123`. Home Assistant uses its local URL when one is available, and its external URL otherwise. The dialog shows the URL, so check it before scanning. To keep the upload on the local network, set a local URL under **Settings** > **System** > **Network** and connect the phone to the same local network.
 - UDP port 12346 is open on the Home Assistant host. The gateway connects to Home Assistant on this port. If the host or the network has a firewall, allow inbound UDP 12346. No other application may use this port.
 - The gateway can reach the Home Assistant host. If the gateway and Home Assistant are on different subnets or VLANs, make sure traffic is routed between them.
 - The gateway is added to the Magic Home app and shows as online.
@@ -500,11 +500,12 @@ The QR code contains a one-time identifier. It expires after three minutes and c
 
    ![Scanning the Home Assistant QR code](/images/integrations/broadlink/magic_home_03_scan_qr.jpg)
 
-5. After the app reports a successful upload, return to Home Assistant and select **Submit** in the QR code dialog. Home Assistant creates the family, or updates it if the family was imported before.
+5. After the app reports a successful upload, return to Home Assistant. The dialog moves on to **Confirm Magic Home family** by itself. If it still shows the QR code, select **Submit**.
+6. Check the family name and the number of gateways and devices, then select **Submit**. Home Assistant creates the family, or updates it if the family was imported before.
 
    ![Family imported](/images/integrations/broadlink/magic_home_ha_03_submitted.png)
 
-The family is not imported until you select **Submit** in Home Assistant. Scanning alone is not enough.
+The family is not imported until you submit the confirmation in Home Assistant. Scanning alone is not enough.
 
 ### Step 3: Connect the gateway to Home Assistant
 
@@ -547,7 +548,7 @@ After saving, the **As client** row shows the Home Assistant address and port, f
 
 ### Reimport a family
 
-Import the family again after adding, changing, or removing devices in the app. Scan the new QR code and select **Submit**. Home Assistant identifies the family by its family ID, updates the existing entry, and removes entities of devices that no longer exist. If you scan several times, the most recent scan is used.
+Import the family again after adding, changing, or removing devices in the app. Start a new import, scan its QR code, and confirm the import. Home Assistant identifies the family by its family ID, updates the existing entry, and removes entities of devices that no longer exist. Each QR code can be used only once. If several imports of the same family are open, the first one you confirm is used and Home Assistant closes the others.
 
 The gateway client settings are kept, so you usually do not need to configure the gateway again. If devices cannot be controlled after a reimport, refer to [Devices cannot be controlled after reimporting a family](#devices-cannot-be-controlled-after-reimporting-a-family).
 
@@ -572,7 +573,7 @@ On a Bluetooth curtain without travel limits, the cover shows the position from 
 
 RM child devices are infrared or RF devices controlled through an `RM MAX` gateway. The family import includes the key list of each device and the code of every key. Home Assistant sends these imported codes and only offers the functions the device actually has. For example, a drying rack that only has a raise key only offers an open action.
 
-IR and RF devices do not report their state. Their entities show the state from the last command sent from Home Assistant.
+IR and RF devices do not report their state. Their entities show the state from the last command sent with the entity's own controls. Keys sent with the [Send RM command](/actions/broadlink.send_rm_command/) action do not change this state.
 
 - **TV, set-top box, smart box**: a TV media player with power, volume, mute, playback, and channel up and down.
 - **Projector**: a projector media player.
