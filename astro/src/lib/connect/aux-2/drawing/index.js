@@ -652,6 +652,21 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
   // Parked: the game is closed and the drawing is back to the device as
   // the video ends on it. The column keeps its state for unpark().
   let parked = false, builtView = false;
+  // The camera's way home on park(): from where it is to the starting
+  // view in a set time, eased at both ends, landing exactly there.
+  let homing = null;
+  const homingTarget = new THREE.Vector3();
+  function homeStep(now) {
+    if (!homing) return false;
+    const t = Math.min(1, (now - homing.from) / homing.ms);
+    const e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    homingTarget.lerpVectors(homing.target, homeTarget, e);
+    const dist = homing.dist + (homeDist - homing.dist) * e;
+    placeCamera(homingTarget, dist, rig.quat.copy(homing.quat).slerp(homeQuat, e));
+    gfx.setDistance(dist / homeDist);
+    if (t === 1) { const done = homing.done; homing = null; done(); }
+    return true;
+  }
   function wake() {
     if (!raf && inView) { last = performance.now(); raf = requestAnimationFrame(frame); }
   }
@@ -677,9 +692,10 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
       gfx.setGridFront(t < 1 ? R.gridReach * t * t * (3 - 2 * t) : 1e4);
       dirty = keep = true;
     }
+    if (homeStep(now)) dirty = keep = true;
     if (rigStep(dt)) {
       dirty = keep = true;
-      gfx.depthCenter.copy(rig.target);
+      if (!parked) gfx.depthCenter.copy(rig.target);
       gfx.setDistance(rig.dist / homeDist);
     }
     if (marker.step(dt, reducedMotion)) dirty = keep = true;
@@ -815,35 +831,49 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
       freeCamera(false);
       controls.enabled = false;
       dragging = false;
+      if (rig.on) controls.target.copy(rig.target);
       rig.on = false;
       // First the pieces and the grid fade away where the camera is,
       // leaving the device; then the camera eases home.
+      // Everything back to how the drawing starts (as mount() sets it
+      // up), so it matches the video's last frame: the shading centre,
+      // the plain edge detection, no ground well, full resolution.
       const clear = () => {
         builtView = view.root.visible;
         if (builtView) { view.root.visible = false; homeModel.visible = true; }
         gfx.setGrid(0, homeTarget);
+        gfx.setGridFront(1e4);
+        gfx.setWell(false);
+        gfx.setSlopeAware(false);
+        gfx.depthCenter.copy(CENTER);
+        if (square !== R.matchSize) { square = R.matchSize; fit(); }
         gridT = 0;
       };
       const faded = reducedMotion ? (clear(), Promise.resolve()) : fadeFrom(clear);
-      return faded.then(() => {
-        rigFromCamera();
-        rig.toTarget.copy(homeTarget);
-        rig.toDist = homeDist;
-        rig.rate = CAM.followRate;
-        rig.returnLeft = reducedMotion ? 0 : PARK_TIME;
-        dirty = true;
-        wake();
-        return new Promise((resolve) => setTimeout(() => {
-          rig.on = false;
+      return faded.then(() => new Promise((resolve) => {
+        const arrive = () => {
           placeCamera(homeTarget, homeDist, homeQuat);
           controls.target.copy(homeTarget);
-          gfx.depthCenter.copy(homeTarget);
           gfx.setDistance(1);
           dirty = true;
           wake();
           resolve();
-        }, reducedMotion ? 0 : PARK_TIME * 1000));
-      });
+        };
+        if (reducedMotion) { arrive(); return; }
+        // Where the camera looks: the point on its line of sight level
+        // with the starting target, as the orbit controls keep it.
+        const target = controls.target.clone();
+        homing = {
+          from: performance.now(),
+          ms: PARK_TIME * 1000,
+          target,
+          dist: camera.position.distanceTo(target),
+          quat: camera.quaternion.clone(),
+          done: arrive,
+        };
+        dirty = true;
+        wake();
+      }));
     },
     // The game again, as it was left: its pieces return and the grid
     // draws back in.
@@ -851,6 +881,11 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
       if (!parked) return;
       parked = false;
       if (builtView) { homeModel.visible = false; view.root.visible = true; }
+      if (column) {
+        gfx.setSlopeAware(true);
+        gfx.depthCenter.copy(homeTarget);
+        runResolution();
+      }
       gridT = 0;
       controls.enabled = true;
       dirty = true;
