@@ -51,6 +51,8 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact II
 - Battery powered devices
 
+A room climate control also gets **Call for heat**, **Schedule override active**, **Heating break**, and **Sustainable ventilation** binary sensors.
+
 A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguard is the source of an active smoke alarm and turns off when the alarm ends.
 
 ### Buttons
