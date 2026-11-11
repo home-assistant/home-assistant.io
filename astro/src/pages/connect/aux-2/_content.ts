@@ -26,8 +26,9 @@ export const drawing = {
 // device spans the full width; it replaces the line-drawing layers and
 // the box takes the render's proportions. Its opening animation runs
 // 2 s at 60 fps, H.264 without sound (665 KB to play, 2.7 MB with every
-// frame a keyframe for scroll scrubbing). Shown below the line drawing
-// while we compare the two.
+// frame a keyframe for scroll scrubbing). Not shown at the moment: the
+// specs use the line drawing, mirrored. Kept so the page can switch
+// back by passing it to ConnectSpecs.
 export const renderDrawing = {
   ...drawing,
   render: explodedRender,

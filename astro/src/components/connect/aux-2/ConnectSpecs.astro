@@ -81,6 +81,9 @@ interface Props {
   // comes into view and rewinds it once it has left; "scroll" ties its
   // progress to how far the section has scrolled up.
   mode?: "view" | "scroll";
+  // Mirror the drawing, so the device faces the spec text. Only for a
+  // drawing without lettering, which would read backwards.
+  flip?: boolean;
 }
 
 const {
@@ -90,6 +93,7 @@ const {
   id = "specs",
   title = "Specifications",
   mode = "view",
+  flip = false,
 } = Astro.props;
 // Splits value lines into paragraphs at each empty line.
 const paragraphs = (lines: string[]) =>
@@ -152,7 +156,7 @@ const svgLayer = (layer: Layer) => ({
     }
   </div>
   <div
-    class="drawing"
+    class:list={["drawing", { flip }]}
     role="img"
     aria-label={drawingAlt}
     data-specs-drawing
@@ -362,6 +366,10 @@ const svgLayer = (layer: Layer) => ({
     max-width: 31.25rem;
     position: relative;
     width: 100%;
+
+    &.flip {
+      transform: scaleX(-1);
+    }
   }
 
   .layer {
