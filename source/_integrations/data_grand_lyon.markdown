@@ -76,7 +76,7 @@ Park & ride:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Data Grand Lyon** integration.
 2. Select **Add transit line**.
-3. Select the line you want to follow. You can enter a line code directly if it isn't in the list: a few lines have no pictogram and are therefore missing from it.
+3. Select the line you want to follow. If the line isn't in the list, enter its line code. A few lines have no pictogram, so they're missing from the list.
 
 {% configuration_basic %}
 Line:
@@ -181,37 +181,42 @@ For each transit line you add, one calendar entity is created:
 Alert text is published in French by the transport operator.
 
 {% note %}
-The integration reports the alert type exactly as TCL publishes it. TCL labels roughly three alerts in four as a disruption, including a single stop being moved for months, so the label alone doesn't tell you how badly your journey is affected. Read the alert to judge, or trigger your automations on the `cause` field.
+The integration reports the alert type exactly as TCL publishes it. TCL labels roughly three alerts in four as a disruption, including a single stop being moved for months, so the label alone doesn't tell you how badly your journey is affected. Read the alert to judge. To react only to some causes, check the `Cause:` line of the event description, for example, with a template condition on `trigger.calendar_event.description`.
 {% endnote %}
 
-## Examples
+## Automation examples
 
-### Refresh data more frequently during a time window
+### Automation: Refresh data more frequently during a time window
 
 Get fresher upcoming-departure data before your commute without raising the polling rate the rest of the day. This blueprint refreshes a transit stop's sensors at a configurable interval inside a time window — by default, every minute between 8:00 and 9:00.
 
 {% blueprint_example blueprint="data_grand_lyon/refresh_during_time_window.yaml" %}
 
-### Get notified when a traffic alert starts on your line
+### Automation: Get notified when a traffic alert starts on your line
 
-{% raw %}
+- **Trigger**: Calendar event started
+  - **Calendar**: Line C3 alerts
+- **Action**: Send a notification
+  - **Message**: The summary of the alert
 
-```yaml
-automation:
-  - alias: "Notify on TCL line alert"
-    mode: queued
-    triggers:
-      - trigger: calendar
-        event: start
-        entity_id: calendar.line_c3_alerts
-    actions:
-      - action: notify.notify
-        data:
-          title: "Alert on line C3"
-          message: "{{ trigger.calendar_event.summary }}"
-```
+{% details "YAML example for notifying when a traffic alert starts" %}
 
-{% endraw %}
+{% example %}
+automation: |
+  alias: "Notify on TCL line alert"
+  mode: queued
+  triggers:
+    - trigger: calendar
+      event: start
+      entity_id: calendar.line_c3_alerts
+  actions:
+    - action: notify.notify
+      data:
+        title: "Alert on line C3"
+        message: "{{ trigger.calendar_event.summary }}"
+{% endexample %}
+
+{% enddetails %}
 
 The example uses `mode: queued` because several alerts can start at the same time. As the calendar documentation recommends, avoid `single` for calendar triggers and use `queued` or `parallel` instead.
 
