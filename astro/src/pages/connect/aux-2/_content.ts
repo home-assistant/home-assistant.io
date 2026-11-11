@@ -165,10 +165,7 @@ export const specs = [
 
 // FAQ, word for word from the "AUX-2 FAQ" sheet, in its order. Answers
 // are HTML. Each item can take an optional `cta` ({ label, href }),
-// shown as a button under the answer. Two CTAs in the sheet have no
-// link yet: "Play your streaming services on your stereo" (stereo
-// question) and "Control your TV and AV receiver from Home Assistant"
-// (receiver question).
+// shown as a button under the answer.
 export const faq: FaqItem[] = [
   {
     question: "Does Connect AUX-2 require Home Assistant to work?",
@@ -255,6 +252,10 @@ export const faq: FaqItem[] = [
     question: "How do I connect AUX-2 with my existing stereo or speakers?",
     answer:
       "<p>With any stereo, AV receiver, or powered speakers that have an auxiliary input. It doesn’t amplify, so unpowered speakers need an audio amplifier.</p>",
+    cta: {
+      label: "Play your streaming services on your stereo",
+      href: "https://www.nabucasa.com/hardware/aux-2/audio/",
+    },
   },
   {
     question: "Can it play in sync with my other speakers?",
@@ -287,5 +288,9 @@ export const faq: FaqItem[] = [
     question: "Can Home Assistant turn on my receiver or change its volume?",
     answer:
       "<p>Yes, if the receiver has an RS-232 serial port and a Home Assistant integration.</p>",
+    cta: {
+      label: "Control your TV and AV receiver from Home Assistant",
+      href: "https://www.nabucasa.com/hardware/aux-2/tv/",
+    },
   },
 ];
