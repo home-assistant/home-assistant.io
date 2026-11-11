@@ -171,9 +171,9 @@ Currently, the integration does not support stacks or Edge computing.
 
 ## Troubleshooting
 
-### Sensors unavailable or integration times out
+{% details "Sensors are unavailable or the integration times out" %}
 
-#### Symptom
+### Symptom: Timeouts when the integration updates
 
 The integration fails to update, or you see timeout errors in the logs such as:
 
@@ -182,13 +182,14 @@ The integration fails to update, or you see timeout errors in the logs such as:
 
 #### Description
 
-Docker calculates the disk space sensors by adding up every file in every volume. On lower-end hardware with slower disks, such as a Raspberry Pi, this can take long enough to cause timeouts.
+Docker calculates the disk space sensors by adding up every file in every volume. On lower-end hardware with slower disks, such as a Raspberry Pi, this can take long enough to cause timeouts. If you set up the integration before these sensors were disabled by default, they are still enabled on your system.
 
 #### Resolution
 
-[Disable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the [disk space sensors](#disk-space-sensors) of the endpoint. Once none of them are enabled, the integration stops fetching disk space data for that endpoint.
+1. [Disable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the [disk space sensors](#disk-space-sensors) of the endpoint. Once none of them are enabled, the integration stops fetching disk space data for that endpoint.
+2. If timeouts persist, reduce the load by [setting a longer polling interval](#defining-a-custom-polling-interval).
 
-If timeouts persist, you can also reduce the load by [setting a longer polling interval](#defining-a-custom-polling-interval).
+{% enddetails %}
 
 ## Removing the integration
 
