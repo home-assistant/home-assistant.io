@@ -84,7 +84,7 @@ and in many cases, get a read-only sensor instead of an editable switch {% term 
 
 ## Configuration options
 
-All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure**.
+All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure** {% icon "mdi:cog-outline" %}.
 
 {% configuration_basic %}
 Track network clients:
@@ -196,7 +196,7 @@ Entities appear for each Zone-Based Firewall Policy. The switches can be identif
 
 ### Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable them, refer to the steps in the [configuration options](#configuration-options) and turn on the **Bandwidth usage sensors for network clients** option.
+Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable them, refer to the steps in the [configuration options](#configuration-options), expand **More options**, and enable **Bandwidth usage sensors for network clients**.
 
 ### Wired client link speed sensor
 
@@ -241,7 +241,7 @@ Get entities reporting the current memory utilization of a UniFi Network device.
 
 ### Port Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable them, refer to the steps in the [configuration options](#configuration-options) and turn on the **Bandwidth usage sensors for network clients** option.
+Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable them, refer to the steps in the [configuration options](#configuration-options), expand **More options**, and enable **Bandwidth usage sensors for network clients**.
 
 ### Port link speed sensor
 
