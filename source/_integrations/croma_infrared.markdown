@@ -44,6 +44,17 @@ Infrared emitter:
   description: The infrared emitter entity used to send commands to the TV. This must be an entity provided by a hardware integration, such as ESPHome, that has already been set up with an infrared emitter.
 {% endconfiguration_basic %}
 
+## Reconfiguring the integration
+
+If you replace your infrared emitter, you can switch the TV to the new one without removing and re-adding the integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Croma Infrared** integration and select it.
+3. Next to the TV, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+4. Select the infrared emitter you want to use, then select **Submit**.
+
+As during setup, an infrared emitter can only be used for one Croma TV.
+
 ## Supported functionality
 
 The **Croma Infrared** integration provides the following entity.
