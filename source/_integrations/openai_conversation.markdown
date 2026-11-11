@@ -1,5 +1,5 @@
 ---
-description: Instructions on how to integrate OpenAI as a conversation agent
+description: Use OpenAI models in Home Assistant as conversation agents, AI tasks, speech-to-text, and text-to-speech.
 ha_release: 2023.2
 ha_domain: openai_conversation
 related:
@@ -13,7 +13,7 @@ related:
     title: OpenAI
 ---
 
-The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
+The **OpenAI** {% term integration %} adds conversation agents, AI tasks, speech-to-text, and text-to-speech powered by [OpenAI](https://www.openai.com) to Home Assistant.
 
 Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
@@ -45,35 +45,36 @@ To change the API key after setup, go to {% my integrations title="**Settings** 
 
 {% include integrations/option_flow.md %}
 
-The integration provides the following types of subentries:
+The integration provides the following types of services. Each type has its own button on the integration page, for example, **Add conversation agent**.
 
-- [Conversation](/integrations/conversation/)
-- [AI Task](/integrations/ai_task/)
+- [Conversation agent](/integrations/conversation/)
+- [AI task](/integrations/ai_task/)
+- AI task evaluation
 - [Speech-to-text (STT)](/integrations/stt/)
 - [Text-to-speech (TTS)](/integrations/tts/)
 
-The Conversation and AI Task subentries have the following configuration options (some of them may be unavailable due to subentry type or model choice):
+Conversation agents and AI tasks have the following configuration options. Some options are only available for one of them, or for some models.
 
 {% configuration_basic %}
 Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/). Only available for conversation agents.
 AI tools:
-  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices."
-Recommended settings:
-  description: If enabled, the recommended model and settings are chosen.
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices. Only available for conversation agents."
+Recommended model settings:
+  description: If enabled, the recommended model and settings are chosen. Enabled by default.
 {% endconfiguration_basic %}
 
-If you choose to not use the recommended settings, you can configure the following options:
+If you turn off **Recommended model settings**, you can configure the following options:
 
 {% configuration_basic %}
 Model:
   description: The GPT language model is used for text generation. You can find more details on the available models in the [ChatGPT Documentation](https://platform.openai.com/docs/models). The default is "gpt-4o-mini".
-Maximum Tokens to Return in Response:
-  description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
+Maximum tokens to return in response:
+  description: The maximum number of tokens that the AI model can generate in its response. The default is 3000. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
 Temperature:
   description: A value that determines the level of creativity and risk-taking the model should use when generating text. A higher temperature means the model is more likely to generate unexpected results, while a lower temperature results in more deterministic results. See the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction) for more information.
 Top P:
-  description: An alternative to temperature, top_p determines the proportion of the most likely word choices the model should consider when generating text. A higher top_p means the model will only consider the most likely words, while a lower top_p means a wider range of words, including less likely ones, will be considered. For more information, see the [OpenAI Completion API Reference](https://platform.openai.com/docs/api-reference/completions/create#completions/create-top_p).
+  description: An alternative to temperature. Top P limits the model to the most likely words, whose probabilities add up to the Top P value. A lower Top P means the model only considers the most likely words. A higher Top P means it also considers less likely words. For more information, see the [OpenAI Completion API Reference](https://platform.openai.com/docs/api-reference/completions/create#completions/create-top_p).
 Store requests and responses in OpenAI:
   description: If enabled, OpenAI stores requests and responses and you can view them in your OpenAI dashboard logs. Disabled by default.
 Service tier:
@@ -109,11 +110,13 @@ Speed:
 
 ## Talking to Super Mario over the phone
 
-You can use an OpenAI Conversation integration to [talk to Super Mario and, if desired, have it control devices](/voice_control/assist_create_open_ai_personality/) in your home.
+You can use the OpenAI integration to [talk to Super Mario and, if desired, have it control devices](/voice_control/assist_create_open_ai_personality/) in your home.
 
-## Known Limitations
+## Known limitations
 
-Currently the integration does not have any known limitations.
+- Some older models are not supported, for example, `o1-mini`, `o1-preview`, and the realtime preview models. If you select one of them, Home Assistant shows **This model is not supported, please select a different model**.
+- Web search and the code interpreter don't work when **Reasoning effort** is set to **Minimal**.
+- Some models don't support web search, image generation, or the code interpreter. For these models, the related options aren't shown.
 
 ## Removing the integration
 
