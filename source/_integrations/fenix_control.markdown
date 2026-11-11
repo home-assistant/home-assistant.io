@@ -79,7 +79,7 @@ The range is the one the thermostat accepts for the current mode: 5 °C to 35 °
 
 ### Holidays
 
-Holidays are set in the FENIX Control app and apply to all thermostats of an installation. While a holiday is active, the thermostats can't be controlled from Home Assistant: the climate entity offers no controls and shows the **Auto** HVAC mode. The controls return when the holiday ends or is canceled in the app.
+Holidays are set in the FENIX Control app and apply to all thermostats of an installation. While a holiday is active, the thermostats can't be controlled from Home Assistant: the climate entity offers no controls and shows the **Auto** HVAC mode, or **Off** if the holiday turns the heating off. It still shows whether the thermostat is heating. The controls return when the holiday ends or is canceled in the app.
 
 ## Data updates
 
