@@ -2,6 +2,7 @@
 title: "Update a reward"
 action: habitica.update_reward
 domain: habitica
+response: optional
 description: "Updates an existing custom reward for your Habitica character."
 ---
 
@@ -104,6 +105,10 @@ alias:
   required: false
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

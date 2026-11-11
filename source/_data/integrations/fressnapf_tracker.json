@@ -11,6 +11,9 @@
   "categories": [
     "pets"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "device_tracker",

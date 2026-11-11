@@ -11,9 +11,13 @@
     "appliances_cleaning",
     "climate"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",
+    "diagnostics",
     "event",
     "fan",
     "humidifier",

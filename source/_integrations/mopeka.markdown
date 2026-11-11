@@ -32,6 +32,7 @@ When setting up or changing options for a device, a medium, the substance the se
 - [Pro Plus](https://www.mopekaiot.com/product/mopeka-pro-plus-sensor) (M1015)
 - [Pro Check](https://www.mopekaiot.com/product/mopeka-pro-check-sensor-aluminum-lpg-cylinders-w-collar) (M1017)
 - Pro-200
+- Pro-200B
 - [Pro H2O](https://www.mopekaiot.com/product/mopeka-pro-check-water-sensor-bottom-mount-w-collar)
 - [Lippert BottleCheck](https://store.lci1.com/lippert-propane-tank-sensor-2021130655)
 - [TD40](https://www.mopekaiot.com/product/mopeka-td40)

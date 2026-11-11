@@ -14,6 +14,9 @@
     "appliances_cleaning",
     "climate.water_heaters"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

@@ -10,6 +10,9 @@
   "categories": [
     "presence_location.trackers"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "device_tracker",

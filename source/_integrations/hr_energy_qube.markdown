@@ -139,7 +139,7 @@ Home Assistant checks that the new address belongs to a Qube heat pump and, when
 - **Source temperature out**
   - **Description**: Temperature of the source fluid leaving the heat pump.
 - **Room temperature**
-  - **Description**: Current room temperature as measured by the heat pump.
+  - **Description**: Current room temperature measured by a room sensor connected to the heat pump. Only created when the heat pump reports a room sensor.
 - **DHW temperature**
   - **Description**: Current domestic hot water temperature.
 - **Outside temperature**

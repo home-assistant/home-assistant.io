@@ -11,6 +11,10 @@
   "categories": [
     "computers_network"
   ],
+  "connectivity": [
+    "mqtt",
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

@@ -11,6 +11,9 @@
   "categories": [
     "finance"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "diagnostics",
     "sensor"

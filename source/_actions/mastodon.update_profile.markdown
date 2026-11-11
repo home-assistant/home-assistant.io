@@ -2,6 +2,7 @@
 title: "Update profile"
 action: mastodon.update_profile
 domain: mastodon
+response: optional
 description: "Updates your Mastodon profile information and pictures."
 related_actions:
   - mastodon.post
@@ -178,6 +179,10 @@ attribution_domains:
   required: false
   type: list
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

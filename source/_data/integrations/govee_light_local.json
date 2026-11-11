@@ -9,7 +9,11 @@
   "categories": [
     "lighting"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
+    "diagnostics",
     "light"
   ]
 }

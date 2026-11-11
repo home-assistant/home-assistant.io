@@ -2,6 +2,7 @@
 title: "Get queue"
 action: radarr.get_queue
 domain: radarr
+response: required
 description: "Gets all movies currently in the Radarr download queue with their progress and details."
 related_actions:
   - radarr.get_movies
@@ -9,7 +10,7 @@ related_actions:
 
 Use this action to get all movies currently in the Radarr download queue, including their progress and details.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to notify yourself when a download finishes.
+For example, you can use the result to notify yourself when a download finishes.
 
 {% include actions/ui_header.md %}
 
@@ -69,6 +70,8 @@ max_items:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `movies` mapping, keyed by download title. Each queue item includes the following fields:
 

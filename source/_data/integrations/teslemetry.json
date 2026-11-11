@@ -12,6 +12,11 @@
     "vehicles_transport.cars_evs",
     "energy.solar_batteries"
   ],
+  "connectivity": [
+    "bluetooth",
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

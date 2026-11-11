@@ -12,6 +12,9 @@
   "categories": [
     "security_safety.doorbells_intercoms"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "camera",

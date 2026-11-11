@@ -9,6 +9,9 @@
   "categories": [
     "vehicles_transport.public_transport"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

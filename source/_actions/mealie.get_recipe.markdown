@@ -2,6 +2,7 @@
 title: Get recipe
 action: mealie.get_recipe
 domain: mealie
+response: required
 description: "Get a Mealie recipe by its ID or slug."
 related_actions:
   - mealie.get_recipes
@@ -11,8 +12,6 @@ related_actions:
 ---
 
 Use this action to get a recipe from Mealie by its ID or slug. The response includes the full details and steps for the recipe.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -67,6 +66,8 @@ recipe_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the full details and steps of the requested recipe.
 
