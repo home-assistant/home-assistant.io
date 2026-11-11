@@ -138,11 +138,11 @@ You ask the assistant about the past values of an entity, and it can't answer. U
 
 #### Description
 
-**Get history** only reads {% term "long-term statistics" %}. Home Assistant only keeps long-term statistics for entities that measure something over time, such as a temperature sensor or an energy meter. Other entities have no long-term statistics. For example, a switch. For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
+**Get history** only reads statistics, not individual state changes. Home Assistant only keeps statistics for entities that measure something over time, such as a temperature sensor or an energy meter. Other entities have no statistics. For example, a switch. For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
 
 #### Resolution
 
 - To see the past states of the entity yourself, use the {% my history title="**History**" %} panel.
-- If the entity is a sensor that should have long-term statistics, check for an issue under {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}. For how to fix it, refer to [Fixing a statistics issue](/docs/tools/dev-tools/#fixing-a-statistics-issue).
+- If the entity is a sensor that should have statistics, check for an issue under {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}. For how to fix it, refer to [Fixing a statistics issue](/docs/tools/dev-tools/#fixing-a-statistics-issue).
 
 {% enddetails %}
