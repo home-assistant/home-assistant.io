@@ -34,27 +34,7 @@ If you have more than one iZone system on your local network, the iZone integrat
 
 Any other controllers found during the search will become available as discovered controllers.
 
-## Legacy YAML configuration
-
-YAML configuration is now deprecated, it will be removed in a future update. 
-
-For legacy setups, or if you need to exclude specific controllers from Home Assistant, you can configure the iZone integration via the {% term "`configuration.yaml`" %} file with the `exclude` option.
-
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry with excluded controllers
-izone:
-  exclude:
-    - "000013170"
-```
-
-{% configuration %}
-exclude:
-  description: Exclude specific units from Home Assistant. This option applies only to YAML-based configuration.
-  required: false
-  type: list
-{% endconfiguration %}
+To keep a controller out of Home Assistant, select **Ignore** on its discovered card.
 
 ## Network settings
 
