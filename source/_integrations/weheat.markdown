@@ -64,9 +64,9 @@ Depending on the model/installation, states for the Indoor Unit states are avail
 - **Indoor unit water pump**
 - **Indoor unit auxiliary water pump**
 - **Indoor unit DHW valve or water pump**
-- **Indoor unit gas boiler heating allowed** - Note: This may be True even when no gas boiler is installed or active.
+- **Indoor unit gas boiler heating allowed**: Note: This may be True even when no gas boiler is installed or active.
 - **Indoor unit electric heater**
-- **On/off thermostat** - On when a connected on/off thermostat requests heat.
+- **On/off thermostat**: On when a connected on/off thermostat requests heat.
 
 If the heat pump supports cooling, the following sensors are available:
 
