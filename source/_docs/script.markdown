@@ -144,7 +144,7 @@ For how to pass values in YAML, refer to [Passing values to a script in YAML](/i
 
 ### Waiting for a script to finish
 
-When you run the script itself, the automation or script that started it waits for it to finish. If an action in the script fails, the automation or script that started it stops too.
+When you run the script itself, the automation or script that started it waits for it to finish. If an action in the script fails, the automation or script that started it stops too. To continue anyway, turn on [**Continue on error**](/docs/automation/building-blocks/#continuing-on-error) for the failing action, or for the step that runs the script.
 
 In the following situations, only the script stops, and the automation or script that started it continues:
 
