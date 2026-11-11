@@ -246,17 +246,23 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
     }
   }
 
+  /* The menu's open state. Fixed to the corner of the screen: selecting
+     the button focuses it, and the browser scrolls a focused element
+     into view, which inside the sticky bar meant jumping up the page.
+     A fixed element is always in view, so nothing scrolls. */
   .menu-state {
     height: 0;
+    left: 0;
     opacity: 0;
-    position: absolute;
+    position: fixed;
+    top: 0;
     width: 0;
   }
 
   /* Left of the menu button on phones. It follows the menu in the
-     page so that from the desk width it sits after the links. */
-  /* "BUY NOW" in capitals, as on the Jekyll Connect pages' bars. Set in
-     CSS, so screen readers still read "Buy now". */
+     page so that from the desk width it sits after the links. "BUY NOW"
+     is in capitals, as on the Jekyll Connect pages' bars; set in CSS,
+     so screen readers still read "Buy now". */
   .bar :global(.buy) {
     flex: none;
     order: 1;

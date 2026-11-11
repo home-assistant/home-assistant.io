@@ -243,15 +243,26 @@ const versionTitle =
     --nav-color-active: var(--color-link);
     --nav-wash: var(--color-hover-wash);
 
-    backdrop-filter: blur(1.5rem);
-    background-color: var(--color-header-surface);
     color: var(--nav-color);
     font-family: var(--font-sans);
+    isolation: isolate;
     position: relative;
 
-    &.dark {
-      backdrop-filter: none;
-      background-color: transparent;
+    /* The frosted surface, on a layer of its own: a backdrop-filter on
+       the header itself would make it the box that position: fixed
+       resolves against, and the menu's checkbox (see .menu-state)
+       needs the window. */
+    &::before {
+      backdrop-filter: blur(1.5rem);
+      background-color: var(--color-header-surface);
+      content: "";
+      inset: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &.dark::before {
+      content: none;
     }
   }
 
@@ -310,10 +321,16 @@ const versionTitle =
     display: flex;
   }
 
+  /* The menu's open state. Fixed to the corner of the screen: selecting
+     the button focuses it, and the browser scrolls a focused element
+     into view, which inside the sticky bar meant jumping up the page.
+     A fixed element is always in view, so nothing scrolls. */
   .menu-state {
     height: 0;
+    left: 0;
     opacity: 0;
-    position: absolute;
+    position: fixed;
+    top: 0;
     width: 0;
   }
 
