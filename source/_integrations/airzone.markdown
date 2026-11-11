@@ -84,7 +84,7 @@ For each Airzone zone (thermostat), the following *sensors* are created:
 | Condition           | Description                              |
 | :------------------ | :--------------------------------------- |
 | battery             | Current zone thermostat battery.         |
-| eco_adapt           | Eco-Adapt mode: off, manual, A, A+ or A++. Diagnostic sensor. |
+| eco_adapt           | Eco-Adapt mode: off, manual, A, A+, or A++. Diagnostic sensor. |
 | humidity            | Current zone relative humidity.          |
 | temperature         | Current zone temperature.                |
 | signal_strength     | Current zone thermostat signal strength. |
