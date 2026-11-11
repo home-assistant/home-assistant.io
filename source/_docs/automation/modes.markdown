@@ -63,7 +63,7 @@ A run of an automation can stop before it reaches its last action, such as while
 - Cause: You turn off the automation, for example, with **Disable** in the automation editor.
   - Result: Running actions stop as well. The [**Turn off automation**](/actions/automation.turn_off/) action has a **Stop actions** option that lets running actions finish instead.
 - Cause: You change the entity ID of the automation.
-  - Result: Running actions continue. A trigger duration such as **For at least** that was in progress is lost.
+  - Result: Running actions continue. A trigger duration that was in progress, such as **For at least**, is lost.
 
 ## Replacing a long delay with a timer
 
