@@ -15,6 +15,7 @@
     "network"
   ],
   "platforms": [
+    "binary_sensor",
     "climate",
     "diagnostics",
     "number",
