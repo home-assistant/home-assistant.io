@@ -4,6 +4,7 @@
     "allowlist": {
       "allow": [
         "2fa:",
+        "Google Docs",
         "alexa:",
         "/:\\s*homeassistant(?=\\b|\\.)/",
         "homeassistant:",
