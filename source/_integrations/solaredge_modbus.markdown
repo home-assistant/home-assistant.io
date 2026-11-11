@@ -88,7 +88,7 @@ The following older models have been reported to use a different menu procedure 
 
 **SE4000-ER-01-NED** (firmware `0003.2537`):
 
-1. Hold the inverter's button to open the menu.
+1. Press and hold the inverter's button only until the menu opens, then release it immediately. Release it before four seconds; holding it for four seconds starts pairing mode instead.
 2. Press the button briefly to scroll, and hold it for 1–2 seconds to select.
 3. Go to **Communication** > **LAN Conf** > **Modbus TCP**, and select port `502`. The display shows the selected port when Modbus TCP is enabled. No menu password was required in the two reports for this model.
 
