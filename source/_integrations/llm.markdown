@@ -96,3 +96,53 @@ The **Home Assistant** set of tools contains the following tools. Each entry sta
 - **Get history** only returns {% term "long-term statistics" %}. Entities without long-term statistics have no history for this tool. For example, a switch or a sensor without a [state class](/integrations/sensor/#state-class). For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
 - In {% term "Home Assistant Container" %} installations, and in other installations without the Supervisor, **Get logs** needs the Home Assistant log file. If Home Assistant doesn't write a log file, this tool isn't available. For example, the `HA_DISABLE_LOG_FILE` environment variable turns off the log file.
 - **Get logs** masks values that look like credentials, such as tokens, passwords, and API keys. It can't recognize every credential, so other secrets in your logs can still reach the AI provider.
+
+## Troubleshooting
+
+{% details "The conversation agent answers “Error preparing LLM API”" %}
+
+### Symptom: "Error preparing LLM API"
+
+When you talk to a conversation agent, it doesn't do what you asked. Instead, it answers "Error preparing LLM API".
+
+#### Description
+
+The conversation agent couldn't prepare its sets of tools. This happens in the following situations:
+
+- The conversation agent has the Home Assistant LLM tools, and the request doesn't come from an administrator. For example, it comes from a voice assistant device, or from a user who isn't an administrator. In this case, **Device control** doesn't work on this conversation agent either.
+- A set of tools that the conversation agent uses no longer exists. For example, because you removed the integration that added it.
+
+#### Resolution
+
+The Home Assistant LLM tools only work for administrators. You can't make them available to other users or to voice assistant devices. If a voice assistant device or a user who isn't an administrator uses this conversation agent, remove the Home Assistant LLM tools from it:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration of your AI service.
+2. In the row of the conversation agent, select **Reconfigure conversation agent** {% icon "mdi:cog-outline" %}.
+   - In some integrations, this button is called **Configure**.
+3. Under **AI tools**, clear **Home Assistant**.
+   - To keep controlling your devices with this conversation agent, make sure **Device control** is selected.
+4. Select **Submit**. If the dialog shows more options, select **Submit** again.
+   - Result: The conversation agent controls your devices again, for everyone who uses it.
+
+To keep using the Home Assistant LLM tools yourself, add a second conversation agent, and give it the Home Assistant LLM tools. For the steps, refer to [Giving a conversation agent the Home Assistant LLM tools](#giving-a-conversation-agent-the-home-assistant-llm-tools). Use this second conversation agent in its own assistant, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}. Don't use that assistant on your voice assistant devices. Other users can also select it in the Assist dialog, but it only works for administrators.
+
+If you removed the integration that added a set of tools, open the settings of the conversation agent, as described in steps 1 and 2 above. Then, select **Submit**. If the dialog shows more options, select **Submit** again. The settings only show the sets of tools that still exist, so saving them removes the missing set.
+
+{% enddetails %}
+
+{% details "Get history: “No statistics are recorded for this entity”" %}
+
+### Symptom: The assistant can't tell you the past values of an entity
+
+You ask the assistant about the past values of an entity, and it can't answer. Under **Show details** in the Assist dialog, the result of `history__get_history` says "No statistics are recorded for this entity."
+
+#### Description
+
+**Get history** only reads {% term "long-term statistics" %}. Home Assistant only keeps long-term statistics for entities that measure something over time, such as a temperature sensor or an energy meter. Other entities have no long-term statistics. For example, a switch. For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
+
+#### Resolution
+
+- To see the past states of the entity yourself, use the {% my history title="**History**" %} panel.
+- If the entity is a sensor that should have long-term statistics, check for an issue under {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}. For how to fix it, refer to [Fixing a statistics issue](/docs/tools/dev-tools/#fixing-a-statistics-issue).
+
+{% enddetails %}
