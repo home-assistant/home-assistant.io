@@ -1,0 +1,228 @@
+@use '../../../astro/src/styles/breakpoints';
+
+// The "WTH" item in the main menu, promoting the Month of
+// "What the Heck?!". Temporary: remove this partial, its entry in
+// _homeassistant.scss and the `nav-wth` item in
+// source/_includes/site/header.html once the month is over.
+//
+// It is a second call to action: the header's "Get started" button
+// (`.nav-button`, in _header.scss) with its palette swapped for the
+// campaign's and a doodle drawn into it, the way a search page dresses up
+// its logo for a day. The doodle borrows the /wth/ hero: routing with a
+// pulse running along it, and a node where a run ends.
+
+// The campaign's mint and teal, from sass/homeassistant/pages/wth/_variables.scss,
+// inked with the header button's own navy so the two calls to action read as
+// a pair. The navy clears 9.9:1 on the mint end of the gradient and 6.5:1 on
+// the teal end, so the label reads anywhere along it.
+$nav-wth-ink: #002E3E;
+$nav-wth-blue: #18BCF2;
+$nav-wth-mint: #16F3BE;
+$nav-wth-teal: #29C0D5;
+$nav-wth-node: #F2F4F9;
+
+// Where the node sits, measured from the button's right edge to its centre:
+// the button's right padding plus half the 1.5rem icon. The routing is
+// anchored here, so the label's width never moves it.
+$nav-wth-node-inset: 1.25rem;
+
+.site-header .nav-wth__button {
+  --rest-surface: linear-gradient(100deg, #{$nav-wth-mint} 20%, #{$nav-wth-teal});
+  --rest-text: #{$nav-wth-ink};
+  // Hovering speeds the doodle up rather than changing the fill; see below.
+  --hover-surface: var(--rest-surface);
+  --hover-text: var(--rest-text);
+  --active-surface: #{$nav-wth-ink};
+  --active-text: #{$nav-wth-mint};
+  --focus-ring: #{$nav-wth-teal};
+  // The doodle's colours, which the dark header swaps.
+  --wth-run: rgb(255 255 255 / 55%);
+  --wth-pulse: #fff;
+
+  // The positioning context for the doodle.
+  isolation: isolate;
+  position: relative;
+
+  // On the page it promotes, it reads as the current item.
+  &.active {
+    --rest-surface: #{$nav-wth-ink};
+    --rest-text: #{$nav-wth-mint};
+    --wth-run: rgb(22 243 190 / 30%);
+    --wth-pulse: #{$nav-wth-mint};
+  }
+
+  .label {
+    position: relative;
+  }
+
+  // The icon's place holds the node instead of the header's arrow.
+  .icon {
+    background: none;
+    position: relative;
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+// The hero's routing, clipped to the pill, with a pulse running along it
+// and the dashed run marching. It sits under the label and never stops.
+.nav-wth__flow {
+  border-radius: inherit;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+
+  svg {
+    height: 100%;
+    position: absolute;
+    right: calc(#{$nav-wth-node-inset} - 2.5rem);
+    top: 0;
+  }
+}
+
+.nav-wth__run {
+  stroke: var(--wth-run);
+  stroke-width: 3;
+}
+
+// The flow's speed, as a multiple of its resting pace. Hovering, or
+// focusing from the keyboard, raises it and the transition eases it there
+// and back. CSS cannot apply a changing speed to a running animation
+// without making it jump, so source/javascripts/wth/nav-button.js reads
+// this value as it eases and hands it to the animations as their playback
+// rate. Without the script, the flow simply keeps its resting pace.
+@property --wth-speed {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}
+
+.site-header .nav-wth__button {
+  --wth-speed: 1;
+  transition: --wth-speed 0.6s ease;
+
+  &:is(:hover, :focus-visible) {
+    --wth-speed: 2.5;
+  }
+}
+
+.nav-wth__run--dashed {
+  stroke-dasharray: 3 3;
+  animation: nav-wth-march 0.9s linear infinite;
+}
+
+// One short dash on a path normalised to a length of 1, so it can run
+// the whole way along and off the end before it starts again.
+.nav-wth__pulse {
+  stroke: var(--wth-pulse);
+  stroke-dasharray: 0.18 1.18;
+  stroke-width: 3;
+  animation: nav-wth-pulse 3s linear infinite;
+}
+
+@keyframes nav-wth-pulse {
+  from {
+    stroke-dashoffset: 0.18;
+  }
+  to {
+    stroke-dashoffset: -1.18;
+  }
+}
+
+@keyframes nav-wth-march {
+  to {
+    stroke-dashoffset: -6;
+  }
+}
+
+// The node: the hero's, a pale disc with a mint ring, carrying "?!" for
+// the question the month asks. It never moves.
+.nav-wth__mark {
+  align-items: center;
+  background: $nav-wth-node;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px $nav-wth-mint;
+  color: $nav-wth-ink;
+  display: flex;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  inset: 0;
+  justify-content: center;
+  letter-spacing: -0.03em;
+  position: absolute;
+}
+
+// The light variant, for trying the two side by side: a white pill with a
+// mint rim, the routing drawn in mint with a brand-blue pulse. It needs no
+// scheme of its own over the homepage hero, where white reads on the cyan.
+// Its pulse runs half a lap behind the mint button's.
+//
+// Doubled up so it outranks the header's on-dark button, which would
+// otherwise repaint it over the hero.
+.site-header .nav-wth__button.nav-wth__button--light {
+  --rest-surface: linear-gradient(100deg, #fff 20%, #DDFBF3);
+  --rest-text: #{$nav-wth-ink};
+  --hover-surface: var(--rest-surface);
+  --hover-text: var(--rest-text);
+  --ring: #{$nav-wth-mint};
+  --ring-width: 1.5px;
+  --wth-run: rgb(22 243 190 / 55%);
+  --wth-pulse: #{$nav-wth-blue};
+
+  .nav-wth__pulse {
+    animation-delay: -1.5s;
+  }
+}
+
+// Over the homepage hero, whose cyan swallows the mint, the button turns
+// to ink, the way "Get started" turns to its on-dark scheme there. Only the
+// bar goes transparent over the hero; the panel is light on every page.
+@media only screen and (min-width: breakpoints.$desk) {
+  .site-header.dark .nav-wth__button:not(.nav-wth__button--light) {
+    --rest-surface: linear-gradient(100deg, #{$nav-wth-ink} 20%, #004E66);
+    --rest-text: #{$nav-wth-mint};
+    // The header's on-dark button sets its own hover fill; undo it here too.
+    --hover-surface: var(--rest-surface);
+    --hover-text: var(--rest-text);
+    --active-surface: #{$nav-wth-mint};
+    --active-text: #{$nav-wth-ink};
+    --focus-ring: #{$nav-wth-mint};
+    --wth-run: rgb(22 243 190 / 30%);
+    --wth-pulse: #{$nav-wth-mint};
+  }
+}
+
+// In the panel it leads the row of calls to action, ahead of
+// "Get started".
+@media only screen and (max-width: (breakpoints.$desk - 0.0625rem)) {
+  .site-header .menu > li.nav-wth {
+    margin: 0 0 var(--space-small) var(--layout-gutter);
+    order: -2;
+    width: auto;
+  }
+}
+
+// In the bar it follows the navigation, just ahead of search.
+@media only screen and (min-width: breakpoints.$desk) {
+  .site-header .menu > li.nav-wth {
+    margin-right: var(--space-small);
+    order: 0;
+  }
+}
+
+// The doodle runs for as long as the page is open, so opting out of motion
+// stops it and leaves the routing drawn.
+@media (prefers-reduced-motion: reduce) {
+  .nav-wth__run--dashed,
+  .nav-wth__pulse {
+    animation: none;
+  }
+
+  .nav-wth__pulse {
+    display: none;
+  }
+}
