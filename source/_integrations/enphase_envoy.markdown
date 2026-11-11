@@ -502,6 +502,33 @@ The names of entities and devices are derived from the load_name configured in t
   <figcaption>Envoy Enpower dry-contact entities.</figcaption>
 </figure>
 
+### Standby generator
+
+The Envoy supports a standby generator connected to an Enphase IQ System Controller (Enpower). A number of generator brands are supported. Based on actual brand and type installed, data for generator status, configuration, operation mode or schedules may be available. (See [references](#references) for a link to Enphase documentation.)
+
+{% note %}
+Generator support is a recent add to the integration. For some entities not all values are determined and may be missing from below descriptions.
+{% endnote %}
+
+#### Generator sensor entities
+
+- **Generator <abbr title="envoy serial number">SN</abbr> Admin state**: admin status `open`, `auto`, `standby` or `on`.
+- **Generator <abbr title="envoy serial number">SN</abbr> Operating state**: operating status `open`, `auto`, `standby` or `on`.
+- **Generator <abbr title="envoy serial number">SN</abbr> Start battery level**: state of charge for generator to start as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Stop battery level**: state of charge for generator to stop as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Nameplate rating**: Generator power rating in kW. This is a diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Maximum continuous current**:  maximum continuous current in A as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Start method**:  generator start method `manual`, `auto` as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Generator type**: Type of generator, typically `Standby` as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Warmup time**: time in minutes for generator warming up as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Cooldown time**: time in minutes for generator to cool down as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Requested mode**: `open`, `auto`, `standby` or `on`.
+
+#### Generator binary sensor entities
+
+- **Generator <abbr title="envoy serial number">SN</abbr> Present**: Generator is present as diagnostic entity.
+- **Generator <abbr title="envoy serial number">SN</abbr> Schedule Enabled**: Generator has an exercise schedule enabled.
+
 ### IQ Meter Collar data
 
 The IQ Meter Collar has the net-consumption CT integrated. The CT data is reported in the [net-consumption data](#current-transformers) and [grid sensors](#grid-sensor-entities). In addition the status of the collar is available in entities.
@@ -1004,6 +1031,10 @@ ___
 ### IQ Combiner reference
 
 [TEB-00269-2.0-EN, March 2025](https://enphase.com/it-it/media/26097)
+
+### Generator integration with Enphase system
+
+[TEB-00003-4.0, May 2023](https://enphase.com/download/generator-integration-tech-brief)
 
 ### Enphase token portal
 
