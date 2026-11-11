@@ -1,20 +1,7 @@
 ---
-title: openSenseMap
-description: Instructions on how to setup openSenseMap sensors in Home Assistant.
-ha_category:
-  - Health
-  - Sensor
+description: Instructions on how to set up openSenseMap sensors in Home Assistant.
 ha_release: 0.85
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: opensensemap
-ha_platforms:
-  - air_quality
-  - sensor
-ha_integration_type: service
-ha_quality_scale: legacy
-ha_codeowners:
-  - '@AlCalzone'
 ---
 
 The **openSenseMap** {% term integration %} queries the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor the measurements published by a sensor station.
@@ -43,3 +30,9 @@ A sensor entity is created for each of the following measurements that the stati
 - **Illuminance** (lx)
 - **Wind speed**
 - **Wind direction** (°)
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

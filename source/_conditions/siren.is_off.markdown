@@ -9,8 +9,6 @@ related_conditions:
 
 The **Siren is off** condition is useful when an automation should continue only when a siren is quiet. You can use it to confirm a reset is complete, avoid starting a test during a real alarm, or make sure another action runs only after the siren has stopped.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -48,8 +46,6 @@ This passes when `siren.entry` is currently off.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,9 +57,9 @@ behavior:
 for:
   description: >
     How long the siren must stay off before the condition passes.
-    Accepts a duration string like `00:05:00`.
+    Accepts a duration string like `00:05:00`. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -73,7 +69,7 @@ for:
 
 ## Good to know
 
-- Sirens in the `unavailable` or `unknown` state do not count as being off.
+{% include conditions/unavailable_targets.md entities="sirens" %}
 - With **All** behavior, the condition passes only if every targeted siren is off for the selected time.
 - To check whether a siren is sounding, use [Siren is on](/conditions/siren.is_on/).
 

@@ -1,17 +1,7 @@
 ---
-title: EnergyID
 description: Instructions on how to integrate EnergyID into Home Assistant to send your sensor data to the EnergyID platform.
-ha_category:
-  - Energy
-ha_iot_class: Cloud Push
 ha_domain: energyid
-ha_integration_type: service
-ha_config_flow: true
-ha_codeowners:
-  - '@JrtPec'
-  - '@Molier'
 ha_release: 2025.12
-ha_quality_scale: silver
 ---
 
 The **EnergyID** {% term integration %} connects your Home Assistant to [EnergyID](https://www.energyid.eu/)—a cloud platform for energy monitoring and optimization. This integration uploads your Home Assistant sensor data and provides advanced analytics and performance tracking for solar, battery, energy consumption, and more.
@@ -75,7 +65,7 @@ This is more efficient than traditional {% term polling %}, as it only sends dat
 ## Use cases
 
 1. Send anything in Home Assistant to EnergyID for long term storage/graphing and detailed analysis.
-2. Utilize EnergyID's features to compare your energy usage against anonymized data from similar households and generate detailed reports.
+2. Use EnergyID's features to compare your energy usage against anonymized data from similar households and generate detailed reports.
 3. Many more [advantages of EnergyID](https://help.energyid.eu/en/using-energyid/getting-started-with-energyid/) and a brief intro can be found.
 
 ## Troubleshooting

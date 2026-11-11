@@ -1,21 +1,7 @@
 ---
-title: Yardian
 description: Instructions on how to integrate Yardian device within Home Assistant.
-ha_category:
-  - Irrigation
-  - Sensor
-  - Switch
-ha_config_flow: true
 ha_release: 2023.9
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@aeon-matrix'
 ha_domain: yardian
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **Yardian** {% term integration %} allows you to control your [Yardian Smart Sprinkler Controller](https://yardian.com/products/yardian-pro-smart-sprinkler-controller/).
@@ -23,7 +9,7 @@ The **Yardian** {% term integration %} allows you to control your [Yardian Smart
 There is currently support for the following platforms within Home Assistant:
 
 - Switch - Allows you to view the status of zones and control them.
-- Binary sensor - Shows watering status along with standby and freeze prevent diagnostics. Per-zone enabled diagnostics are provided but disabled by default.
+- Binary sensor - Shows watering status along with standby and freeze prevent diagnostics. Per-zone enabled diagnostics are provided but [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 {% include integrations/config_flow.md %}
 
@@ -42,14 +28,10 @@ The **Yardian** integration provides the following entities.
 - **Freeze prevent**: Turns on when the controller enables freeze prevention.
 - **Zone enabled**: `On` if a zone is enabled. These entities are disabled by default and created per zone.
 
+### Button
 
+- **Stop all irrigation**: Enabled by default. Pressing this button entity will immediately stop any currently active zone.
+  
 ## Actions
 
-### yardian.start_irrigation
-
-Start a zone for a given number of minutes. This action accepts an Yardian Zone switch {% term entity %} and allows a given duration.
-
-| Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | yes      | The Yardian Zone switch to turn on.                   |
-| `duration`             | no       | Number of minutes for this zone to be turned on.      |
+{% include integrations/actions.md %}

@@ -1,24 +1,10 @@
 ---
-title: Ness Alarm
 description: Instructions on how to integrate a Ness D8x/D16x alarm system with Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
 ha_release: 0.85
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@nickw444'
-  - '@poshy163'
 ha_domain: ness_alarm
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
-ha_config_flow: true
 ---
 
 The **Ness Alarm** {% term integration %} allows Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through an IP232 module that must be connected to the alarm.
@@ -69,21 +55,4 @@ After setting up the integration, you can add zones through the UI:
 
 You can reconfigure a zone's device class at any time by selecting the zone's configure button.
 
-## Actions
-
-### Action `aux`
-
-Trigger an aux output.  This requires PCB version 7.8 or higher.
-
-| Data attribute | Optional | Description                                                                                                                                                         |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `output_id`            | No       | The aux output you wish to change.  A number from 1-8.                                                                                                              |
-| `state`                | Yes      | The On/Off State, represented as true/false. Default is true.  If P14xE 8E is enabled then a value of true will pulse output x for the time specified in P14(x+4)E. |
-
-### Action `panic`
-
-Trigger a panic
-
-| Data attribute | Optional | Description                                |
-| ---------------------- | -------- | ------------------------------------------ |
-| `code`                 | No       | The user code to use to trigger the panic. |
+{% include integrations/actions.md %}

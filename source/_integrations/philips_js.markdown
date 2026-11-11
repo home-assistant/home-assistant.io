@@ -1,26 +1,7 @@
 ---
-title: Philips TV
 description: Instructions on how to add Philips TVs to Home Assistant.
-ha_category:
-  - Binary sensor
-  - Light
-  - Media player
-  - Remote
-ha_iot_class: Local Polling
 ha_release: 0.34
-ha_codeowners:
-  - '@elupus'
 ha_domain: philips_js
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - light
-  - media_player
-  - remote
-  - switch
-ha_integration_type: device
-ha_zeroconf: true
 ---
 
 The **Philips TV** {% term integration %} allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
@@ -70,7 +51,7 @@ Before adding the integration, it is worth checking if this integration works fo
 
 ### Turn on device
 
-The Philips TV does not always support turning on via the API. You can either turn it on via an IR blaster or on some models using Wake On LAN (WOL). To trigger this command from the entities, the integration exposes a `device trigger` that can be setup to execute when the `media_player` is asked to turn on.
+The Philips TV does not always support turning on via the API. You can either turn it on via an IR blaster or on some models using Wake On LAN (WOL). To trigger this command from the entities, the integration exposes a `device trigger` that can be set up to execute when the `media_player` is asked to turn on.
 
 ### Remote
 

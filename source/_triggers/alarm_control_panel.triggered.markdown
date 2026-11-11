@@ -2,15 +2,13 @@
 title: "Alarm triggered"
 trigger: alarm_control_panel.triggered
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become triggered."
+description: "Triggers when one or more alarms become triggered."
 related_triggers:
   - alarm_control_panel.disarmed
   - alarm_control_panel.armed
 ---
 
 The **Alarm triggered** trigger fires the moment an alarm control panel {% term entity %} enters the triggered state. This is the state that means something set off the alarm, whether a door was opened, a window was broken, or motion was detected in a protected zone. Use this trigger to take immediate action: flash all the lights red, sound a siren, send an urgent notification to every household member, or start recording on your security cameras.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,6 +28,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel triggers, **First** to fire only when the first panel in a group triggers, or **All** to fire only after every targeted panel is triggered.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay triggered before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -49,8 +49,6 @@ This fires every time `alarm_control_panel.home_alarm` enters the triggered stat
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +58,9 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -88,7 +86,10 @@ The alarm just went off. Every light in the house flashes red and your phone get
   - **Target**: Home alarm panel
   - **Trigger when**: Each
   - **For at least**: 00:00:00
-- **Action**: Flash all lights red
+- **Action**: Turn on light
+  - **Target**: All lights (by label)
+  - **Color name**: Red
+  - **Flash**: Long
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -128,11 +129,13 @@ automation: |
 When the alarm triggers, activate the siren and start recording on all security cameras. The siren deters intruders and the camera footage gives you evidence of what happened.
 
 - **Trigger**: Alarm triggered
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn on the siren
-- **Action**: Start camera recording
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn on siren
+  - **Target**: Home alarm siren
+- **Action**: Turn on switch
+  - **Target**: Security cameras (by label)
 
 {% details "YAML example for siren and camera recording" %}
 

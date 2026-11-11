@@ -1,19 +1,7 @@
 ---
-title: Probe Plus
 description: Instructions on how to integrate Probe Plus food temperature probes into Home Assistant.
 ha_release: 2025.6
-ha_category:
-  - Sensor
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: probe_plus
-ha_platforms:
-  - sensor
-ha_bluetooth: true
-ha_codeowners:
-  - '@pantherale0'
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Probe Plus** {% term integration %} allows you to view food temperature probe details supported by [Probe Plus](https://play.google.com/store/apps/details?id=com.yscoco.thermoex) through Home Assistant.

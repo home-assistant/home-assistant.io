@@ -1,34 +1,7 @@
 ---
-title: BleBox devices
 description: Instructions on how to integrate BleBox devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Light
-  - Sensor
-  - Switch
-  - Update
 ha_release: '0.110'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bbx-a'
-  - '@swistakm'
-  - '@bkobus-bbx'
 ha_domain: blebox
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - light
-  - sensor
-  - switch
-  - update
-ha_integration_type: device
-ha_zeroconf: true
 ---
 
 [BleBox](https://blebox.eu/) produces compact, low-power, feature-rich Wi-Fi devices for home automation. You can find the full product range on the [BleBox products page](https://blebox.eu/en/products/) and in the [BleBox product catalog](https://blebox.eu/en/products/katalog/).
@@ -88,33 +61,37 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 ### gateBox
 
-This integration adds the Blebox device as a cover entity to Home Assistant.
+This integration adds the BleBox device as a cover entity to Home Assistant.
 
 #### Key supported features
 
 - Open (trigger primary output)
 - Close (trigger primary output)
-- Stop (trigger secondary output)
 - Gate state (open, close, unknown)
 
 #### Additional features
 
-- "stop" requires setting your device's secondary trigger as stop (via website or phone app).
+The secondary output is exposed differently depending on how you configure it in the wBox app or on the device's website:
+
+- If it is set to stop, the cover entity supports **Stop**.
+- If it is set to walk-in gate or another function, a button entity is added to trigger that output.
 
 ### gateBox Pro
 
-This integration adds the Blebox device as a cover entity to Home Assistant.
+This integration adds the BleBox device as a cover entity to Home Assistant.
 
 #### Key supported features
 
 - Open (trigger primary output)
 - Close (trigger primary output)
-- Stop (trigger secondary output)
 - Gate state (open, close, unknown)
 
 #### Additional features
 
-- "stop" requires setting your device's secondary trigger as stop (via website or phone app).
+The secondary output is exposed differently depending on how you configure it in the wBox app or on the device's website:
+
+- If it is set to stop, the cover entity supports **Stop**.
+- If it is set to walk-in gate or another function, a button entity is added to trigger that output.
 
 ### doorBox
 
@@ -147,7 +124,7 @@ This integration adds the Blebox device as a climate entity to Home Assistant.
 
 ### thermoBox
 
-This integration adds the Blebox device as a climate entity to Home Assistant.
+This integration adds the Blebox device as a climate entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -170,7 +147,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### shutterBoxDC
 
@@ -194,7 +171,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### switchBox
 
@@ -205,7 +182,7 @@ This integration adds the Blebox device as a switch entity and 3 sensor entities
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 - Voltage measurement
 
 ### switchBox DIN
@@ -217,7 +194,7 @@ This integration adds the Blebox device as a switch entity and 3 sensor entities
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 - Voltage measurement
 
 ### switchBoxD
@@ -229,7 +206,7 @@ This integration adds the Blebox device as 2 switch entities and 3 sensor entiti
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 - Voltage measurement
 
 ### switchBoxD DIN
@@ -241,7 +218,7 @@ This integration adds the Blebox device as 2 switch entities and 3 sensor entiti
 - On
 - Off
 - Active power measurement
-- Energy consumption measurement
+- Last hour energy consumption measurement
 - Voltage measurement
 
 ### switchBoxDC
@@ -483,7 +460,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
   - pm2.5
   - pm10
 
-### CO2Sensor
+### co2Sensor
 
 This integration adds the Blebox device as 2 sensor entities to Home Assistant.
 
@@ -521,6 +498,21 @@ This integration adds the Blebox device as a sensor entity and a binary sensor e
 
 - An option to change the detection mode is available in the wBox app.
 - After changing settings, the device needs to be reloaded.
+
+### tankSensor
+
+This integration adds the BleBox device as 4 sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of tank fill level
+- Periodic read of liquid height
+- Periodic read of gauge pressure
+- Periodic read of liquid volume
+
+{% note %}
+Depending on the device configuration, some of the readings may be unavailable. If the probe is not configured, Home Assistant shows a repair. For details, see [tankSensor probe is not configured](#tanksensor-probe-is-not-configured).
+{% endnote %}
 
 ### energyMeter DIN
 
@@ -595,7 +587,7 @@ this ID like a password.
 {% note %}
 In order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt, please refer to the
-general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
+general [documentation of automations with webhook triggers](/triggers/webhook/).
 {% endnote %}
 
 ### uRemote, sRemote, inBox via actionBox
@@ -653,7 +645,7 @@ This integration adds the Simon 24 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 24 GO SWITCHSHUTT
 
@@ -666,21 +658,25 @@ This integration adds the Simon 24 GO device ("blebox inside") as a switch entit
 
 ### Simon 24 GO SWITCH (NEW1W.01)
 
-This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 24 GO SWITCH D (NEW2W.01)
 
-This integration adds the Simon 24 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 24 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 24 GO SWITCH Q (NEW4W.01)
 
@@ -765,7 +761,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 54 GO SWITCHSHUTT
 
@@ -778,21 +774,25 @@ This integration adds the Simon 54 GO device ("blebox inside") as a switch entit
 
 ### Simon 54 GO SWITCH (DEW1WA.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 54 GO SWITCH D (DEW2W.01)
 
-This integration adds the Simon 54 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 54 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 54 GO SWITCH Q (DEW4W.01)
 
@@ -877,7 +877,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 55 GO SOCKET (TEGZ1W.02)
 
@@ -902,21 +902,25 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 
 ### Simon 55 GO SWITCH (TEW1W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 55 GO SWITCH D (TEW2W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
 - On
 - Off
+- Active power measurement
+- Last hour energy consumption measurement
 
 ### Simon 55 GO SWITCH Q (TEW4W.01)
 
@@ -974,7 +978,7 @@ This integration adds the Simon 55 GO device ("blebox inside") to Home Assistant
 
 ### Simon 55 GO THERMO (TETD2W.01)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a climate entity to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a climate entity and 2 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -1177,19 +1181,19 @@ This integration adds the Drutex device ("blebox inside") as a sensor entity and
 
 Leaving shutters open after dark can affect your privacy and home security. You can use this blueprint to automatically close your shutterBox blinds every day at sunset.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_shutters_at_sunset.yaml" %}
+{% blueprint_example blueprint="blebox/close_shutters_at_sunset.yaml" %}
 
 ### Close the gate when leaving home
 
 It is easy to forget to close the gate when leaving in a hurry. You can use this blueprint to automatically close your gateBox or rollerGate when the last person leaves home.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_gate_on_leave.yaml" %}
+{% blueprint_example blueprint="blebox/close_gate_on_leave.yaml" %}
 
 ### Close covers when wind speed is too high
 
 Strong winds can damage blinds and awnings left open outside. You can use this blueprint to automatically close your covers when the windSensor PRO detects wind speed above a safe threshold.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_covers_on_high_wind.yaml" %}
+{% blueprint_example blueprint="blebox/close_covers_on_high_wind.yaml" %}
 
 ## Troubleshooting
 
@@ -1224,6 +1228,23 @@ The device's IP address has likely changed due to a DHCP lease renewal.
 1. Check the current IP address of the device in your router's DHCP client list or in the wBox app.
 2. To prevent this from happening again, assign a static IP address or a DHCP reservation to the device in your router settings.
 3. If the IP address has changed, remove the existing integration entry and add it again with the new IP address.
+
+### tankSensor probe is not configured
+
+#### Symptom
+
+A tankSensor entity shows as unavailable, and a repair named **_Device_: _Sensor_ probe not configured** appears in {% my repairs title="**Settings** > **System** > **Repairs**" %}.
+
+#### Description
+
+The device reports that the probe for this sensor is not configured, so it cannot provide a reading. Home Assistant raises one repair for each affected sensor.
+
+#### Resolution
+
+1. Open the wBox app and go to the settings of your tankSensor.
+2. Configure the probe.
+
+When the probe is configured, the sensor starts reporting readings again and the repair disappears on its own. You don't need to change anything in Home Assistant.
 
 ## Known limitations
 

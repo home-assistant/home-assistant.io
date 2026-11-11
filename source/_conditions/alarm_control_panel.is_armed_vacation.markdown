@@ -10,8 +10,6 @@ related_conditions:
 
 The **Alarm is armed vacation** condition passes when one or more alarm control panel {% term entities %} are armed in vacation mode. Use it to skip daily routines that make no sense while you are away, like stopping the morning wake-up automation from turning on lights and heating in an empty house. You could also use it the other way around: only run vacation-specific automations (like randomly toggling lights to simulate occupancy) while the alarm is in vacation mode.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -49,8 +47,6 @@ This passes when the hallway alarm panel is currently armed in vacation mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +56,9 @@ behavior:
   default: any
 for:
   description: >
-    Duration the alarm must have been armed in vacation mode before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the alarm must have been armed in vacation mode before the condition passes. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -72,7 +68,7 @@ for:
 
 ## Good to know
 
-- Alarm panels that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as armed vacation. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted alarm is unavailable.
+{% include conditions/unavailable_targets.md entities="alarm panels" %}
 - If you want to check whether the alarm is armed in any mode (not just vacation), use [Alarm is armed](/conditions/alarm_control_panel.is_armed/).
 - To check the opposite state, use [Alarm is disarmed](/conditions/alarm_control_panel.is_disarmed/).
 
@@ -86,11 +82,11 @@ Every evening, toggle the living room lamp on or off to make the house look live
 
 Don't forget to pair it with an automation to turn the lamp off, or you'll come back from vacation to a high energy bill!
 
-- **Trigger**: Time: 20:30
+- **Trigger**: Time
+  - **At time**: 08:30:00 PM
 - **Condition**: Alarm is armed vacation
-- **Target**: Hallway alarm panel
-- **Condition passes if**: Any
-- **Action**: Light: Toggle
+  - **Target**: Hallway alarm panel
+- **Action**: Toggle light
 
 {% details "YAML example for an evening lamp toggle on vacation" %}
 
@@ -104,8 +100,6 @@ automation: |
     - condition: alarm_control_panel.is_armed_vacation
       target:
         entity_id: alarm_control_panel.hallway
-      options:
-        behavior: any
   actions:
     - action: light.toggle
       target:
@@ -119,7 +113,9 @@ automation: |
 Your morning routine turns on the lights, starts the coffee maker, and bumps the heating. None of that makes sense in an empty house. Add a "not armed vacation" check so the routine only runs when you are actually home.
 
 - **Trigger**: Time: 06:30 on weekdays
-- **Condition**: Alarm is _not_ armed vacation
+- **Condition**: Not
+  - **Condition**: Alarm is armed vacation
+    - **Target**: Home alarm
 - **Action**: Run the morning routine script
 
 {% details "YAML example for skipping the morning routine on vacation" %}

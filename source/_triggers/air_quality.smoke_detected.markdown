@@ -2,14 +2,12 @@
 title: "Smoke detected"
 trigger: air_quality.smoke_detected
 domain: air_quality
-description: "Triggers after one or more smoke sensors start detecting smoke."
+description: "Triggers when one or more smoke sensors start detecting smoke."
 related_triggers:
   - air_quality.smoke_cleared
 ---
 
 The **Smoke detected** trigger fires the moment a smoke sensor {% term entity %} starts detecting smoke, giving you the earliest possible warning of a potential fire. Whether you are deep asleep at 3 AM, away on vacation, or simply in another part of the house, this trigger makes sure Home Assistant reacts on your behalf. Flash the lights to wake sleeping children, unlock doors to speed up evacuation, or send an urgent alert to your phone so you always know what is happening at home.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -29,6 +27,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor detects smoke, **First** to fire only when the first sensor in a group detects smoke, or **All** to fire only after every targeted sensor detects smoke.
+  required: false
+  default: Each
 For at least:
   description: How long the sensor must stay in the detected state before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -48,24 +48,22 @@ This fires every time `binary_sensor.living_room_smoke` transitions to the detec
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
-  type: string
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="smoke detector" example="binary_sensor.hallway_smoke" %}
 
 {% include triggers/behavior.md %}
 
@@ -87,7 +85,7 @@ Picture this: it is the middle of the night and a smoke sensor activates in the 
   - **Target**: All smoke sensors (by label)
   - **Trigger when**: Each
   - **For at least**: 00:00:00
-- **Action**: Light: Turn on light (flash)
+- **Action**: Turn on light (flash)
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -127,7 +125,7 @@ In a fire, fumbling with a lock in the dark costs precious seconds. This automat
 - **Target**: All smoke sensors (by label)
 - **Trigger when**: Each
 - **For at least**: 00:00:30
-- **Action**: Lock: Unlock
+- **Action**: Unlock lock
 
 {% details "YAML example for unlocking the door on smoke detection" %}
 

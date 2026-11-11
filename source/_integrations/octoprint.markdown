@@ -1,27 +1,7 @@
 ---
-title: OctoPrint
 description: Integration between OctoPrint and Home Assistant.
-ha_category:
-  - 3D printing
-  - Binary sensor
-  - Button
-  - Number
-  - Sensor
-ha_config_flow: true
 ha_release: 0.19
-ha_codeowners:
-  - '@rfleming71'
-ha_iot_class: Local Polling
 ha_domain: octoprint
-ha_zeroconf: true
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - number
-  - sensor
-ha_integration_type: service
 ---
 
 [OctoPrint](https://octoprint.org/) is a web interface for your 3D printer. This is the main integration to integrate OctoPrint sensors.
@@ -96,11 +76,7 @@ The OctoPrint integration lets you set target bed and tool temperature. These wr
 - Set Target Bed Temperature
 - Set Target Tool (Nozzle) Temperature
 
-## Actions
-
-The OctoPrint integration provides the following actions, which may be invoked from automation, scripts, or as a button interaction.
-
-- Connect to printer
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 

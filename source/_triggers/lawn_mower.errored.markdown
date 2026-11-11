@@ -2,13 +2,11 @@
 title: "Lawn mower encountered an error"
 trigger: lawn_mower.errored
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers encounter an error."
+description: "Triggers when one or more lawn mowers encounter an error."
 ---
 
 The **Lawn mower encountered an error** trigger fires when a mower reports a problem while it is working.
 Use it to notify you quickly, pause related automations, or turn on a nearby light before you go outside to check what happened.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -28,6 +26,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower reports an error, **First** to fire only when the first targeted mower reports an error, or **All** to fire only after every targeted mower reports an error.
+  required: false
 For at least:
   description: How long the mower must stay in the error state before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}
@@ -47,8 +46,6 @@ This fires when `lawn_mower.backyard` enters the error state.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +57,9 @@ behavior:
 for:
   description: >
     How long the mower must stay in the error state before the trigger fires.
-    Accepts a duration like `00:01:00` for one minute.
+    Accepts a duration like `00:01:00` for one minute. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -117,7 +114,7 @@ If the mower reports an error after dark, turn on the porch light so you can see
 - **Trigger**: Lawn mower encountered an error
   - **Target**: Backyard mower
   - **For at least**: 00:00:15
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for lighting the yard on error" %}
@@ -132,8 +129,7 @@ automation: |
       options:
         for: "00:00:15"
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

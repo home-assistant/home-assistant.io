@@ -1,20 +1,10 @@
 ---
-title: Queensland Bushfire Alert
 description: Instructions on how to integrate the Queensland Bushfire Alert feed into Home Assistant.
-ha_category:
-  - Geolocation
-ha_iot_class: Cloud Polling
 ha_release: 0.95
-ha_codeowners:
-  - '@exxamalte'
 ha_domain: qld_bushfire
-ha_platforms:
-  - geo_location
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Queensland Bushfire Alert** {% term integration %} lets you integrate a 

@@ -2,13 +2,11 @@
 title: "Lawn mower started mowing"
 trigger: lawn_mower.started_mowing
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers start mowing."
+description: "Triggers when one or more lawn mowers start mowing."
 ---
 
 The **Lawn mower started mowing** trigger fires when a mower begins a mowing run.
 Use it to react when yard work starts, like muting another routine, sending a confirmation, or turning on a light along the first part of the route.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -28,6 +26,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower starts mowing, **First** to fire only when the first targeted mower starts mowing, or **All** to fire only after every targeted mower has started mowing.
+  required: false
 For at least:
   description: How long the mower must stay in the mowing state before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}
@@ -47,8 +46,6 @@ This fires when `lawn_mower.backyard` starts mowing.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +57,9 @@ behavior:
 for:
   description: >
     How long the mower must stay in the mowing state before the trigger fires.
-    Accepts a duration like `00:02:00` for two minutes.
+    Accepts a duration like `00:02:00` for two minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

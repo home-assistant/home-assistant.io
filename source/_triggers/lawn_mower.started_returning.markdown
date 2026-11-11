@@ -2,13 +2,11 @@
 title: "Lawn mower started returning to dock"
 trigger: lawn_mower.started_returning
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers start returning to dock."
+description: "Triggers when one or more lawn mowers start returning to dock."
 ---
 
 The **Lawn mower started returning to dock** trigger fires when a mower stops mowing and starts returning to its dock.
 Use it when you want to react before the mower arrives, like turning on a path light, delaying another task, or sending a message that mowing is almost done.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -28,6 +26,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower starts returning, **First** to fire only when the first targeted mower starts returning, or **All** to fire only after every targeted mower has started returning.
+  required: false
 For at least:
   description: How long the mower must stay in the returning state before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}
@@ -47,8 +46,6 @@ This fires when `lawn_mower.backyard` starts heading back to the dock.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +57,9 @@ behavior:
 for:
   description: >
     How long the mower must stay in the returning state before the trigger
-    fires. Accepts a duration like `00:01:00` for one minute.
+    fires. Accepts a duration like `00:01:00` for one minute. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -85,7 +82,7 @@ If the mower docks in a darker part of the yard, turn on a nearby light when it 
 
 - **Trigger**: Lawn mower started returning to dock
   - **Target**: Backyard mower
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for lighting the path to the dock" %}
@@ -98,8 +95,7 @@ automation: |
       target:
         entity_id: lawn_mower.backyard
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

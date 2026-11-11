@@ -1,5 +1,5 @@
 ---
-title: "Volume"
+title: "Media player volume"
 condition: media_player.is_volume
 domain: media_player
 description: "Tests the volume of one or more media players."
@@ -8,21 +8,19 @@ related_conditions:
   - media_player.is_playing
 ---
 
-The **Volume** condition passes when a media player's volume matches the threshold rule you define. Use it when an automation should continue only if volume is above, below, within, or outside a range.
+The **Media player volume** condition passes when a media player's volume matches the threshold rule you define. Use it when an automation should continue only if volume is above, below, within, or outside a range.
 
-Use **Volume** to protect quiet hours, to allow a routine only when the room is already loud enough, or to branch based on the current listening level.
-
-{% include integrations/labs_entity_triggers_note.md %}
+Use **Media player volume** to protect quiet hours, to allow a routine only when the room is already loud enough, or to branch based on the current listening level.
 
 {% include conditions/ui_header.md %}
 
-To use **Volume** in an automation:
+To use **Media player volume** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the media player you want to evaluate. You can also select an area, a floor, a device, or a label.
-5. From the conditions shown for that target, select **Volume**.
+5. From the conditions shown for that target, select **Media player volume**.
 6. Under **Threshold**, set the volume level or range the condition should check.
 7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), choose how multiple targeted media players should behave. The default is **Any**.
 8. Under **For at least**, enter how long the volume must meet the threshold before the condition passes. The default is `0`.
@@ -85,8 +83,8 @@ threshold:
 
     - `type: above` (exclusive): passes when the volume is strictly above `value`.
     - `type: below` (exclusive): passes when the volume is strictly below `value`.
-    - `type: between` (exclusive): passes when the volume is strictly between `value_min` and `value_max`.
-    - `type: outside` (inclusive): passes when the volume is at or beyond `value_min` or `value_max`.
+    - `type: between` (inclusive): passes when the volume is between `value_min` and `value_max`, or equal to one of them.
+    - `type: outside` (exclusive): passes when the volume is below `value_min` or above `value_max`.
 
     For a fixed threshold, use `number` with a percentage from 0 to 100. For a dynamic threshold, use `entity` with an `input_number`, `number`, or `sensor` entity that uses `%` as the unit.
   required: true
@@ -101,9 +99,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the volume must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the volume must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -114,7 +112,7 @@ for:
 ## Good to know
 
 - Threshold helper entities must use `%` as the unit. If you want to adjust the limit from the UI, create a {% term helper %} separately first.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you want to react to the moment volume crosses a limit, use [Media player volume crossed threshold](/triggers/media_player.volume_crossed_threshold/).
 
 {% include conditions/try_it.md %}
@@ -125,8 +123,10 @@ for:
 
 When the washer finishes, send a spoken announcement only if the receiver volume is below 35%.
 
-- **Trigger**: Washer finished
-- **Condition**: Volume
+- **Trigger**: State changed
+  - **Entity**: Washer finished sensor
+  - **To**: On
+- **Condition**: Media player volume
   - **Target**: Living room receiver
   - **Threshold**: Below 35%
 - **Action**: Play media
@@ -163,14 +163,16 @@ automation: |
 
 ### Automation: only start the cleaning robot when every player is below a volume limit
 
-When everyone leaves home, start the robot vacuum only if every targeted media player downstairs is below 20% volume.
+When Alex leaves home, start the robot vacuum only if every targeted media player downstairs is below 20% volume.
 
-- **Trigger**: Person leaves home
-- **Condition**: Volume
+- **Trigger**: Zone left
+  - **Target**: Alex
+  - **Zone**: Home
+- **Condition**: Media player volume
   - **Target**: Downstairs
   - **Threshold**: Below 20%
   - **Condition passes if**: All
-- **Action**: Start vacuuming
+- **Action**: Start vacuum cleaner
   - **Target**: Robot vacuum
 
 {% details "YAML example for checking room volume before starting the robot vacuum" %}
@@ -179,10 +181,11 @@ When everyone leaves home, start the robot vacuum only if every targeted media p
 automation: |
   alias: "Start the vacuum only when every player is quiet"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
   conditions:
     - condition: media_player.is_volume
       target:

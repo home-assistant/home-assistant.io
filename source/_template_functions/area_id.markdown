@@ -16,7 +16,7 @@ related_functions:
   - areas
 ---
 
-The `area_id` template function returns the unique area ID for a given area name, {% term entity %} ID, or {% term device %} ID. Every {% term area %} in Home Assistant has an internal ID that stays the same even if you rename the area, and this function lets you look it up.
+The `area_id` template function returns the unique area ID for a given area name or alias, {% term entity %} ID, or {% term device %} ID. Every {% term area %} in Home Assistant has an internal ID that stays the same even if you rename the area, and this function lets you look it up.
 
 This is useful when you need the area ID to pass to other area functions like [`area_entities`](/template-functions/area_entities/) or [`area_devices`](/template-functions/area_devices/), or when you want to find out which area a particular entity or device belongs to. For example, you could use it in an {% term automation %} to determine which room triggered a motion {% term sensor %} and then act on all devices in that room.
 
@@ -57,7 +57,8 @@ lookup_value:
 
 - Returns `None` when no matching area is found for the lookup value.
 - The area ID is stable and does not change when you rename the area, so it is safe to hard-code in templates.
-- When an entity or device has no area assigned, the result is `None` even if the entity itself exists.
+- An entity without an area of its own uses the area of its device. The result is `None` only if neither has an area.
+- Uppercase and lowercase letters and spaces in area names and aliases don't matter.
 
 {% include template_functions/try_it.md %}
 

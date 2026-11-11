@@ -10,8 +10,6 @@ related_actions:
 
 The **Increase fan speed** action is useful when you want more airflow without choosing an exact final value. Use it to nudge the fan up by one step or by a percentage you choose.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:
@@ -75,8 +73,8 @@ If the room gets warmer as the day goes on, you can raise the fan speed a little
 
 - **Trigger**: Time: 12:00
 - **Action**: Increase fan speed
-- **Target**: Office fan
-- **Increment**: 10
+  - **Target**: Office fan
+  - **Increment**: `10`%
 
 {% details "YAML example for a midday speed boost" %}
 
@@ -100,10 +98,10 @@ automation: |
 
 When cooking begins, you may want to push the fan up more quickly.
 
-- **Trigger**: State: Stove hood light changes to on
+- **Trigger**: State changed: Stove hood light changes to on
 - **Action**: Increase fan speed
-- **Target**: Kitchen fan
-- **Increment**: 20
+  - **Target**: Kitchen fan
+  - **Increment**: `20`%
 
 {% details "YAML example for a kitchen airflow boost" %}
 

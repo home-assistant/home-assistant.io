@@ -1,38 +1,14 @@
 ---
-title: Ecovacs
 description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
-ha_category:
-  - Hub
-  - Lawn mower
-  - Vacuum
-ha_iot_class: Cloud Push
 ha_release: 0.77
-ha_codeowners:
-  - '@mib1185'
-  - '@edenhaus'
-  - '@Augar'
-ha_config_flow: true
 ha_domain: ecovacs
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - image
-  - lawn_mower
-  - number
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_integration_type: hub
 ---
 
 The **Ecovacs** {% term integration %} integrates [Ecovacs](https://www.ecovacs.com) robotic vacuum cleaners and lawn mowers.
 
 This is for the "Deebot" series of robotic vacuum cleaners and the "GOAT" series of robotic lawn mowers from Ecovacs.
 
-Note that Ecovacs also has other types of cleaning robots that are not supported by this integration at this time.
+Note that Ecovacs also has other types of cleaning robots that are not supported by this integration.
 
 ## Prerequisites
 
@@ -53,51 +29,59 @@ Using the vacuum entity, you can monitor and control your Ecovacs Deebot vacuum.
 Additionally, **depending on your model**, the integration provides the following entities:
 
 - **Binary sensor**:
-  - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
+  - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
 - **Button**:
-  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
+  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   - `Relocate`: Button entity to trigger manual relocation.
-  - `Station actions`: For each supported station action, a button entity will be created.
+  - `Station actions`: For each supported station action, a button entity will be created: `Clean base`, `Dry mop`, `Empty dustbin`, and `Wash mop`.
 - **Event**:
   - `Last job`: Provides the stop reason as event_type
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
 - **Number**:
-  - `Clean count`: Set the number of times to clean the area.
-  - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees).
-  - `Volume`: Set the volume.
-  - `Water level`: Set a precise water level used during cleaning with the mop.
+  - `Clean count`: Set the number of times to clean the area. Disabled by default.
+  - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees). Disabled by default.
+  - `Mop wash interval`: Set after how many minutes of cleaning the station washes the mop. Disabled by default.
+  - `Volume`: Set the volume. Disabled by default.
+  - `Water flow level`: Set a precise water flow level used during cleaning with the mop.
 - **Select**:
   - `Active map`: Select the active map. The ID will be shown when the map has no name.
-  - `Water level`: Choose from predefined water levels used during cleaning with the mop.
-  - `Work mode`: Specify the mode, how the bot should clean.
+  - `Auto-empty frequency`: Set how often the station empties the dust bin of the bot.
+  - `Efficiency mode`: Choose between `Standard` and `Energy efficient` cleaning. Disabled by default.
+  - `Water flow level`: Choose from predefined water flow levels used during cleaning with the mop.
+  - `Work mode`: Specify the mode, how the bot should clean. Disabled by default.
 - **Sensor**:
-  - `Auto-empty frequency`: The frequency of emptying the bot dust bin during cleaning.
   - `Error`: The error code and a description of the error. `0` means no error. Disabled by default.
   - `Lifespan`: For each supported component, an entity with the remaining lifespan will be created.
   - `Network`: The following network related entities will be created. All disabled by default.
-    - `Ip address`
+    - `IP address`
     - `Wi-Fi RSSI`
     - `Wi-Fi SSID`
   - `Cleaning cycle`:
-    - `Area`: The cleaned area
-    - `Time`: The cleaned time
+    - `Area cleaned` (`Area mowed` for mowers): The area of the last cycle
+    - `Cleaning duration` (`Mowing duration` for mowers): The time of the last cycle
   - `Station state`: Station state enum sensor. See options to see all possible states
   - `Total statistics`: Updated after each cleaning cycle:
-    - `Area`: Total cleaned area
-    - `Cleanings`: The number of cleanings
-    - `Time`: The total cleaning time
+    - `Total area cleaned` (`Total area mowed` for mowers): Total cleaned area
+    - `Total cleanings` (`Total mowings` for mowers): The number of cleanings
+    - `Total cleaning duration` (`Total mowing duration` for mowers): The total cleaning time
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Auto-empty`: Enable the station to empty the dust bin of the bot automatically. Set how often with the `Auto-empty frequency` select.
   - `Border spin`: Enable border spin, which means the bot will tilt to reach corners during mopping. Present on bots without an extendable mop. Disabled by default.
   - `Border switch`: Enable border switch. Disabled by default.
-  - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.
+  - `Carpet auto-boost suction`: Enable maximum fan speed if a carpet is detected. Disabled by default.
   - `Child lock`: Enable child lock. Disabled by default.
+  - `Clean preference`: Use the cleaning settings you customized per room in the Ecovacs app. Disabled by default.
   - `Move up warning`: Enable device move up warning. Disabled by default.
   - `Cross map border warning`: Enable warning for crossing the map border. Disabled by default.
   - `Continuous cleaning`: Enable continuous cleaning, which means the bot resumes the cleaning job if he needs to charge in between. Disabled by default.
   - `Safe protect`: Enable "Safe protect" feature. Disabled by default.
   - `True detect`: Enable "True detect" feature. Disabled by default.
+
+## Lawn mower
+
+The `ecovacs` lawn mower platform allows you to start, pause, and stop mowing with your Ecovacs GOAT mower, and to send it back to its station.
 
 ## Vacuum
 
@@ -146,57 +130,12 @@ Alternatively, you can use the `ecovacs_error` event to watch for errors. This e
 
 Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
 
-### Getting device and chargers coordinates
-
-The integration has a `raw_get_positions` action to retrieve device and chargers coordinates.
-
-Example:
-
-```yaml
-action: ecovacs.raw_get_positions
-target:
-  entity_id: vacuum.deebot_n8_plus
-```
-
-{% details "Action response example" %}
-The action returns a raw response with a list of coordinates available in `resp -> body -> data` like this:
-
-```yaml
-vacuum.deebot_n8_plus:
-  ret: ok
-  resp:
-    header:
-      pri: 1
-      tzm: 480
-      ts: "1717748487712"
-      ver: 0.0.1
-      fwVer: 1.2.0
-      hwVer: 0.1.1
-    body:
-      code: 0
-      msg: ok
-      data:
-        deebotPos:
-          x: 1
-          y: 5
-          a: 85
-          invalid: 0
-        chargePos:
-          - x: 5
-            y: 9
-            a: 85
-            t: 1
-            invalid: 0
-        mid: "200465850"
-  id: 5o81
-  payloadType: j
-```
-
-{% enddetails %}
+{% include integrations/actions.md %}
 
 ## Self-hosted configuration
 
 Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
+
 - `Username`: Enter the email address configured in your instance. If authentication is disabled, you can enter any valid email address.
 - `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
 - `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007

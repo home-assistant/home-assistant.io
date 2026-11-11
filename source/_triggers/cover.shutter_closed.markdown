@@ -2,7 +2,7 @@
 title: "Shutter closed"
 trigger: cover.shutter_closed
 domain: cover
-description: "Triggers after one or more shutters close."
+description: "Triggers when one or more shutters close."
 related_triggers:
   - cover.shutter_opened
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Shutter closed** trigger fires when a targeted shutter changes to closed. Use it when you want Home Assistant to react as soon as a shutter closes.
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a shutter closes.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -52,34 +50,32 @@ This fires when `cover.kitchen_shutter` changes to closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple shutters are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the shutter must stay closed before the trigger fires.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="motorized shutter" example="cover.kitchen_shutter" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `shutter` device class.
-- If a shutter comes back from `unavailable` or `unknown`, that recovery does not count as the closing.
-- The `for` option fires the automation only if the shutter stays closed for the entire time you set.
+- Use a cover entity with the shutter device class.
+- If a shutter comes back from **Unavailable** or **Unknown**, that recovery does not count as the closing.
+- The **For at least** option fires the automation only if the shutter stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 

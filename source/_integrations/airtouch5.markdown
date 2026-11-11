@@ -1,18 +1,7 @@
 ---
-title: AirTouch 5
 description: Instructions on how to integrate the AirTouch 5 A/C controller into Home Assistant.
-ha_category:
-  - Climate
 ha_release: 2024.2
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@danzel'
 ha_domain: airtouch5
-ha_platforms:
-  - climate
-  - cover
-ha_integration_type: hub
 ---
 
 The **AirTouch 5** {% term integration %} allows you to control ducted air conditioning systems that are using the [AirTouch 5](https://www.airtouch.net.au/smart-air-conditioning/airtouch-5/) controller.

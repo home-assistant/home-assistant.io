@@ -2,7 +2,7 @@
 title: "Moisture detected"
 trigger: moisture.detected
 domain: moisture
-description: "Triggers after one or more moisture sensors start detecting moisture."
+description: "Triggers when one or more moisture sensors start detecting moisture."
 related_triggers:
   - moisture.cleared
   - moisture.changed
@@ -10,8 +10,6 @@ related_triggers:
 ---
 
 The **Moisture detected** trigger fires when one or more moisture binary sensors start detecting water. Use it with leak sensors under a sink, behind a dishwasher, next to a washing machine, or in a basement to react the moment water is present.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -69,13 +67,13 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the sensor or sensors must keep detecting moisture before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+  description: How long the sensor or sensors must keep detecting moisture before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="moisture detector" example="binary_sensor.kitchen_leak" %}
 
 {% include triggers/behavior.md %}
 

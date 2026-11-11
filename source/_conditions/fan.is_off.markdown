@@ -9,8 +9,6 @@ related_conditions:
 
 The **Fan is off** condition is useful when an automation should continue only if a fan is not running. Use it to avoid repeated stop commands, prevent unnecessary noise at night, or start a fan only when it is currently off.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -60,9 +58,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the fan must have been off for the condition to pass. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the fan must have been off for the condition to pass. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -72,8 +70,7 @@ for:
 
 ## Good to know
 
-- A fan in the `unknown` or `unavailable` state does not count as off.
-- With **All**, every targeted fan must match. With **Any**, one matching fan is enough.
+{% include conditions/unavailable_targets.md entities="fans" %}
 - To check for the opposite state, use [Fan is on](/conditions/fan.is_on/).
 
 {% include conditions/try_it.md %}

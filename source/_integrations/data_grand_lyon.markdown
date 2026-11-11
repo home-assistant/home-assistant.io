@@ -1,21 +1,7 @@
 ---
-title: Data Grand Lyon
 description: Instructions on how to integrate Grand Lyon open data into Home Assistant.
 ha_release: 2026.6
-ha_category:
-  - Sensor
-  - Transport
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@Crocmagnon'
 ha_domain: data_grand_lyon
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **Data Grand Lyon** {% term integration %} lets you monitor data from the [Grand Lyon open data platform](https://data.grandlyon.com/) (city of Lyon, France).
@@ -24,12 +10,18 @@ With this integration, you can:
 
 - Track upcoming departure times at transit stops.
 - Monitor real-time bike and dock availability at [Vélo'v](https://velov.grandlyon.com/) bike-sharing stations.
+- Monitor real-time parking space availability at TCL park & ride (P+R) facilities.
+- Follow traffic alerts on transit lines: disruptions, road work, and service information.
 
 ## Prerequisites
 
 This integration uses data from the [Grand Lyon open data platform](https://data.grandlyon.com/).
 
 You need an account on [data.grandlyon.com](https://data.grandlyon.com/). Sign up for a free account if you don't have one. You can find more information about how to properly create an account and set a password [in their documentation](https://rdata-grandlyon.readthedocs.io/fr/latest/authentification.html) (fr).
+
+{% note %}
+Some users have reported issues with passwords containing special characters. If you have issues authenticating, try changing your password to remove them.
+{% endnote %}
 
 If you want to monitor transit stops, you also need to request access to the [realtime next departures dataset](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info). This is not required for Vélo'v stations.
 
@@ -42,7 +34,7 @@ Password:
   description: "Your password on data.grandlyon.com."
 {% endconfiguration_basic %}
 
-After setting up the integration, you can add transit stops and Vélo'v bike-sharing stations as sub-entries from the integration's configuration page.
+After setting up the integration, you can add transit stops, Vélo'v bike-sharing stations, park & ride facilities, and transit lines as sub-entries from the integration's configuration page.
 
 ### Adding a transit stop
 
@@ -69,6 +61,28 @@ Station:
   description: "The Vélo'v station identifier. You can find station IDs on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/stations-velo-v-metropole-lyon/donnees). Zoom in on the map and select a station. The ID will be displayed at the top of the panel displayed on the right of the screen. The field is called **idstation**."
 {% endconfiguration_basic %}
 
+### Adding a park & ride
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Data Grand Lyon** integration.
+2. Select **Add park & ride**.
+3. Select the park & ride you want to monitor. You can search the list by name, or enter a park & ride ID directly.
+
+{% configuration_basic %}
+Park & ride:
+  description: "The park & ride identifier. You can find park & ride IDs on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/parcs-relais-reseau-transports-commun-lyonnais-disponibilites-temps-reel/donnees). Zoom in on the map and select a park & ride. The ID will be displayed in the panel on the right of the screen."
+{% endconfiguration_basic %}
+
+### Adding a transit line
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Data Grand Lyon** integration.
+2. Select **Add transit line**.
+3. Select the line you want to follow. If the line isn't in the list, enter its line code. A few lines have no pictogram, so they're missing from the list.
+
+{% configuration_basic %}
+Line:
+  description: "The transit line code, as displayed to passengers (for example, `C3`, `A`, or `T1`)."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 ### Entities
@@ -92,7 +106,7 @@ For each transit stop you add, the following sensor entities are created:
   - **Description**: The departure time of the second vehicle at this stop.
 
 - **Next departure 2 direction**
-  - **Description**: The direction (destination) of the second vehicle at this stop.  Disabled by default.
+  - **Description**: The direction (destination) of the second vehicle at this stop. Disabled by default.
 
 - **Next departure 2 type**
   - **Description**: Whether the departure time is _estimated_ or _theoretical_. Disabled by default.
@@ -130,7 +144,7 @@ For each Vélo'v station you add, the following sensor entities are created:
   - **Description**: The number of free docking stands available at the station.
 
 - **Capacity**
-  - **Description**: The total number of docking stands at the station. Disabled by default.
+  - **Description**: The total number of docking stands at the station. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **Electrical internal battery bikes**
   - **Description**: The number of electrical bikes with an internal battery available at the station. Disabled by default.
@@ -138,40 +152,86 @@ For each Vélo'v station you add, the following sensor entities are created:
 - **Electrical removable battery bikes**
   - **Description**: The number of electrical bikes with a removable battery available at the station. Disabled by default.
 
-## Examples
+#### Park & ride sensors
 
-### Refresh data more frequently during a time window
+For each park & ride you add, the following sensor entities are created:
+
+- **Available parking spaces**
+  - **Description**: The number of parking spaces currently available at the facility.
+
+- **Capacity**
+  - **Description**: The total number of parking spaces at the facility.
+
+- **Accessible parking spaces**
+  - **Description**: The number of parking spaces reserved for people with reduced mobility. Disabled by default.
+
+- **Opening hours**
+  - **Description**: The opening hours of the facility. Disabled by default.
+
+- **Name**
+  - **Description**: The name of the park & ride facility. Disabled by default.
+
+#### Transit line calendar
+
+For each transit line you add, one calendar entity is created:
+
+- **Alerts**
+  - **Description**: The traffic alerts published for this line. The entity is _on_ while an alert is in progress and _off_ otherwise. Each alert is an event whose summary is the title published by TCL, and whose description carries the full message along with the cause (for example, `travaux` or `accident voyageur`) and the alert type (`Perturbation`, `Information`, or `Information ligne`).
+
+Alert text is published in French by the transport operator.
+
+{% note %}
+The integration reports the alert type exactly as TCL publishes it. TCL labels roughly three alerts in four as a disruption, including a single stop being moved for months, so the label alone doesn't tell you how badly your journey is affected. Read the alert to judge. To react only to some causes, check the `Cause:` line of the event description, for example, with a template condition on `trigger.calendar_event.description`.
+{% endnote %}
+
+## Automation examples
+
+### Automation: Refresh data more frequently during a time window
 
 Get fresher upcoming-departure data before your commute without raising the polling rate the rest of the day. This blueprint refreshes a transit stop's sensors at a configurable interval inside a time window — by default, every minute between 8:00 and 9:00.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/data_grand_lyon_refresh_during_time_window.yaml" %}
+{% blueprint_example blueprint="data_grand_lyon/refresh_during_time_window.yaml" %}
 
-{% details "Example YAML" %}
+### Automation: Get notified when a traffic alert starts on your line
 
-```yaml
-triggers:
-  - trigger: time_pattern
-    minutes: "/1"
-conditions:
-  - condition: time
-    after: "08:00:00"
-    before: "09:00:00"
-actions:
-  - action: homeassistant.update_entity
-    target:
-      entity_id: sensor.my_stop_next_departure_1
-```
+- **Trigger**: Calendar event started
+  - **Calendar**: Line C3 alerts
+- **Action**: Send a notification
+  - **Message**: The summary of the alert
+
+{% details "YAML example for notifying when a traffic alert starts" %}
+
+{% example %}
+automation: |
+  alias: "Notify on TCL line alert"
+  mode: queued
+  triggers:
+    - trigger: calendar
+      event: start
+      entity_id: calendar.line_c3_alerts
+  actions:
+    - action: notify.notify
+      data:
+        title: "Alert on line C3"
+        message: "{{ trigger.calendar_event.summary }}"
+{% endexample %}
 
 {% enddetails %}
+
+The example uses `mode: queued` because several alerts can start at the same time. As the calendar documentation recommends, avoid `single` for calendar triggers and use `queued` or `parallel` instead.
 
 ## Data updates
 
 The integration polls data from the Data Grand Lyon API every 5 minutes by default.
 
+Calendars are read once every 15 minutes for calendar triggers, so an automation triggered by an alert can fire up to 15 minutes after the alert starts.
+
 ## Known limitations
 
 - The integration provides up to three upcoming departures per stop. If fewer departures are available, the remaining sensors show as unavailable.
 - There is no estimated data for subways, only theoretical.
+- Some TCL alerts have end dates that are years in the future. For instance, special fare information running to 2100. A line whose only alert is one of those has a permanently active calendar.
+- Alerts apply to a whole line, not to a specific stop. Adding a transit stop doesn't give you its line's alerts; add the line as well.
 
 ## Troubleshooting
 
@@ -195,11 +255,31 @@ To resolve this issue, try the following steps:
 
 ### Transit stop shows no data
 
-Make sure the line identifier and stop ID are correct. You can verify these on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info).
+First, make sure the line identifier and stop ID are correct. You can verify these on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info).
+
+If the identifiers are correct, the source itself may not have real-time data for that stop. Real-time departures are not available for every stop or at every time of day. You can check whether the source has live data using the official [TCL app](https://www.tcl.fr/decouvrir/les-applications-tcl/lapplication-tcl). Open your stop in the app and look at the next departures:
+
+- If the next departure shows a green real-time indicator, live data is available in the source and the integration should report departures.
+
+  ![Screenshot of the TCL app showing departures with a green real-time indicator](/images/integrations/data_grand_lyon/tcl_live_data.jpeg)
+
+- If the next departure is shown in gray (for example, as a fixed time or as **Terminus de la ligne**), there is very likely no live data available in the source.
+
+  ![Screenshot of the TCL app showing departures in gray without real-time data](/images/integrations/data_grand_lyon/tcl_no_live_data.jpeg)
+
+When the source has no live data, it often comes back later. Sometimes the data returns after a few hours, and sometimes it takes a few days.
 
 ### Vélo'v station shows no data
 
 Make sure the station ID is correct. You can verify it on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/stations-velo-v-metropole-lyon/donnees).
+
+### Park & ride shows no data
+
+Make sure the park & ride ID is correct. You can verify it on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/parcs-relais-reseau-transports-commun-lyonnais-disponibilites-temps-reel/donnees).
+
+### Transit line shows no alerts
+
+An empty calendar means the line currently has no published alert, which is the normal state for most lines. If you expect one, check that the line code matches the one TCL shows passengers. The code is case-sensitive and has no spaces.
 
 ## Removing the integration
 

@@ -13,8 +13,6 @@ The **Thermostat is on** condition passes when a thermostat {% term entity %} is
 
 When you target more than one thermostat, the condition's **behavior** option controls how the check combines results. You can require any targeted thermostat to be on, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -49,8 +47,6 @@ This passes when the living room thermostat is currently on in any active mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -67,9 +63,9 @@ behavior:
 ## Good to know
 
 - This condition passes when the thermostat is in any active HVAC mode: heat, cool, heat/cool, auto, dry, or fan only. It does not pass when the thermostat is off.
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped and do not count as on. With **Any** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition fails. With **All** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition passes.
+{% include conditions/unavailable_targets.md entities="thermostats" %}
 - To gate an automation on a thermostat being off instead, use [Thermostat is off](/conditions/climate.is_off/).
-- To check for a specific HVAC mode, use [Thermostat is in HVAC mode](/conditions/climate.is_hvac_mode/).
+- To check for a specific HVAC mode, use [Thermostat HVAC mode](/conditions/climate.is_hvac_mode/).
 
 {% include conditions/try_it.md %}
 
@@ -79,7 +75,7 @@ behavior:
 
 When the outdoor temperature drops below 18°C, increase the target temperature to help warm up faster, but only if the heating is already running. Prevents the automation from adjusting the thermostat if someone deliberately left it off.
 
-- **Trigger**: Numeric state: Temperature below 18°C
+- **Trigger**: Numeric state crossed threshold: Temperature below 18°C
 - **Condition**: Thermostat is on
   - **Target**: Living room thermostat
 - **Action**: Set thermostat target temperature

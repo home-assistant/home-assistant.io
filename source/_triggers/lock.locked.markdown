@@ -2,14 +2,12 @@
 title: "Lock locked"
 trigger: lock.locked
 domain: lock
-description: "Triggers after one or more locks lock."
+description: "Triggers when one or more locks lock."
 related_triggers:
   - lock.unlocked
 ---
 
 The **Lock locked** trigger helps you react when a lock reaches the locked state. Use it when you want Home Assistant to confirm that a door is secured before turning off lights, arming an alarm, or sending a status update.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -50,8 +48,6 @@ This fires when `lock.front_door` changes to the locked state.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -63,9 +59,9 @@ behavior:
 for:
   description: >
     How long the lock must stay locked before the trigger fires. Accepts a
-    duration like `00:05:00` for five minutes.
+    duration like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -91,7 +87,7 @@ When you lock the front door after coming in, you may not need the bright entry 
 - **Target**: Front door lock
 - **Trigger when**: Each
 - **For at least**: 00:00:30
-- **Action**: Turn off
+- **Action**: Turn off light
 
 {% details "YAML example for turning off the entry light" %}
 

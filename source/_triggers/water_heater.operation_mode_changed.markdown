@@ -2,7 +2,7 @@
 title: "Water heater operation mode changed"
 trigger: water_heater.operation_mode_changed
 domain: water_heater
-description: "Triggers after the operation mode of one or more water heaters changes to a specific mode."
+description: "Triggers when the operation mode of one or more water heaters changes to a specific mode."
 related_triggers:
   - water_heater.turned_on
   - water_heater.turned_off
@@ -11,8 +11,6 @@ related_triggers:
 The **Water heater operation mode changed** trigger fires when a water heater {% term entity %} changes to one of the operation modes you select. Use it when you want an automation to react to a specific mode, like switching related devices to an energy-saving setup when the water heater changes to **Eco** mode.
 
 When you target more than one water heater, the **Trigger when** option controls whether the automation runs for each matching change, only for the first one, or only after all targeted water heaters reach the selected mode.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -40,6 +38,7 @@ Trigger when:
     - **Each** (default): Fire every time any targeted water heater changes to one of the selected modes.
     - **First**: Fire only when the first targeted water heater changes to one of the selected modes.
     - **All**: Fire only after all targeted water heaters have changed to one of the selected modes.
+  required: false
 For at least:
   description: How long the water heater must stay in the selected mode before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -76,8 +75,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 operation_mode:
   description: >
@@ -88,17 +85,17 @@ behavior:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI): Fires every time any targeted water heater changes to one of the selected modes.
-    - `first` (**First** in the UI): Fires only when the first targeted water heater changes to one of the selected modes.
-    - `last` (**All** in the UI): Fires only after all targeted water heaters have changed to one of the selected modes.
+    - `each` (default): Fires every time any targeted water heater changes to one of the selected modes.
+    - `first`: Fires only when the first targeted water heater changes to one of the selected modes.
+    - `all`: Fires only after all targeted water heaters have changed to one of the selected modes.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
-    How long the water heater must stay in the selected mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes.
+    How long the water heater must stay in the selected mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -108,8 +105,8 @@ for:
 
 ## Good to know
 
-- The available operation modes depend on the water heater. Home Assistant only shows modes that the targeted entity supports.
-- This trigger fires when the mode changes _to_ one of the selected modes. It does not fire when the water heater leaves that mode.
+- The target water heater entity must support the operation mode you want to use.
+- The trigger only reacts when the operation mode changes to one of the selected modes, not when it changes from a selected mode to a mode that isn't selected. It also doesn't react when the water heater switches between two selected modes.
 - `unavailable` and `unknown` are not offered as selectable modes.
 - To react when the water heater simply turns on or off, use [Water heater turned on](/triggers/water_heater.turned_on/) or [Water heater turned off](/triggers/water_heater.turned_off/).
 

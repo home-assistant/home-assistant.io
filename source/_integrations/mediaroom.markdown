@@ -1,20 +1,10 @@
 ---
-title: Mediaroom
 description: Instructions on how to integrate Mediaroom Set-Top Boxes into Home Assistant.
-ha_category:
-  - Media player
-ha_iot_class: Local Polling
 ha_release: 0.63
-ha_codeowners:
-  - '@dgomes'
 ha_domain: mediaroom
-ha_platforms:
-  - media_player
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Mediaroom** {% term integration %} allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.
@@ -52,7 +42,7 @@ Notice that all parameters are optional, and discovery should configure everythi
 
 The integration has been developed for Portuguese TV operators currently using the Mediaroom platform, but should also work in other deployments in which the STB can be controlled remotely through a socket on port 8082.
 
-In most cases (single STB) you just need to setup the *platform* and discovery will do the rest.
+In most cases (single STB) you just need to set up the *platform* and discovery will do the rest.
 
 If the STB is on the same network segment as Home Assistant, it can determine whether the device is turned on or off. Without this, the integration will fail to determine the Set-top box status, and you are required to add the *optimistic* configuration variable.
 

@@ -249,14 +249,12 @@ template: |
   {% endif %}
   outside.
 output: |
-
-
   Warm
 
   outside.
 {% endexample %}
 
-The output has blank lines everywhere. Each `{% %}` tag occupies a line, and that line break stays in the output even though the tag itself produces nothing visible.
+The output has a blank line between "Warm" and "outside.". Each `{% %}` tag occupies a line, and that line break stays in the output even though the tag itself produces nothing visible. Home Assistant removes whitespace at the start and the end of every result, so only the blank lines in the middle stay.
 
 ### What trimming does
 

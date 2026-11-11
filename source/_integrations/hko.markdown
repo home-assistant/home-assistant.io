@@ -1,17 +1,7 @@
 ---
-title: Hong Kong Observatory
 description: Instructions on how to integrate the Hong Kong Observatory (HKO) Open Data API into Home Assistant.
-ha_category:
-  - Weather
 ha_release: 2024.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@MisterCommand'
 ha_domain: hko
-ha_platforms:
-  - weather
-ha_integration_type: service
 ---
 
 The **Hong Kong Observatory** {% term integration %} retrieves weather data from the [Hong Kong Observatory](https://www.hko.gov.hk/tc/index.html) [Open Data API](https://www.hko.gov.hk/en/abouthko/opendata_intro.htm) for meteorological data in HKSAR.

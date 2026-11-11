@@ -1,0 +1,24 @@
+{
+  "domain": "uptimerobot",
+  "name": "UptimeRobot",
+  "integration_type": "service",
+  "codeowners": [
+    "@ludeeus",
+    "@chemelli74"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "computers_network.monitoring"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor",
+    "switch"
+  ]
+}

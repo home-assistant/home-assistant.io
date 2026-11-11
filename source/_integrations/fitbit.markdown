@@ -1,17 +1,7 @@
 ---
-title: Fitbit
 description: Instructions on how to integrate Fitbit devices within Home Assistant.
-ha_category:
-  - Health
-ha_iot_class: Cloud Polling
 ha_release: 0.19
 ha_domain: fitbit
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@allenporter'
-ha_config_flow: true
 ---
 
 The **Fitbit** {% term integration %} allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.
@@ -25,7 +15,7 @@ You need to configure developer credentials to allow Home Assistant to access yo
 1. Your Fitbit account must be registered as a Developer account at the [Fitbit Developer Portal](https://dev.fitbit.com), and have a verified email address. 
 2. Visit [Register an application](https://dev.fitbit.com/apps/new).
 3. Enter an **Application Name** of your choosing, for example **Home Assistant**.
-4. Since we are creating a *Personal* registration, the details for **Description**, **Application Website URL**, **Organization**, etc. must be filled in. However, the contents do not matter and will only be shown to you on the authorization page later.
+4. Since we are creating a *Personal* registration, the details for **Description**, **Application Website URL**, and **Organization** must be filled in. However, the contents do not matter and will only be shown to you on the authorization page later.
 5. Set **OAuth 2.0 Application Type** to **Personal**.
 6. Under **Redirect URL**, add `https://my.home-assistant.io/redirect/oauth`.
 7. You can leave **Default Access Type** as **Read Only**.

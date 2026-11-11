@@ -1,18 +1,10 @@
 ---
-title: Anel NET-PwrCtrl
 description: Instructions on how to integrate ANEL PwrCtrl switches within Home Assistant.
-ha_category:
-  - Switch
-ha_iot_class: Local Polling
 ha_release: '0.30'
 ha_domain: anel_pwrctrl
-ha_platforms:
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Anel NET-PwrCtrl** {% term integration %} allows you to control [ANEL PwrCtrl](https://en.anel.eu/index.htm?src=/produkte/produkte.htm) devices on firmware 6.x and older. [ANEL PwrCtrl](https://en.anel.eu/index.htm?src=/produkte/produkte.htm) devices on firmware 7.x are not supported.

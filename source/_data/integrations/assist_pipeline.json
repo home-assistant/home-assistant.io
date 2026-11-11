@@ -1,0 +1,14 @@
+{
+  "domain": "assist_pipeline",
+  "name": "Assist pipeline",
+  "integration_type": "system",
+  "codeowners": [
+    "@synesthesiam",
+    "@arturpragacz"
+  ],
+  "iot_class": "local_push",
+  "quality_scale": "internal",
+  "platforms": [
+    "select"
+  ]
+}

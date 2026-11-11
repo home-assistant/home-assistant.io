@@ -2,14 +2,12 @@
 title: "Gas detected"
 trigger: air_quality.gas_detected
 domain: air_quality
-description: "Triggers after one or more gas sensors start detecting gas."
+description: "Triggers when one or more gas sensors start detecting gas."
 related_triggers:
   - air_quality.gas_cleared
 ---
 
 The **Gas detected** trigger fires the moment a gas sensor {% term entity %} starts detecting gas in your home, whether it is a natural gas leak near the stove or a combustible gas buildup in the basement. A gas leak is one of those situations where every second of early warning matters. With this trigger, Home Assistant alerts you instantly so you and your family have time to react, even in the middle of the night or while you are away from home.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -29,6 +27,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor detects gas, **First** to fire only when the first sensor in a group detects gas, or **All** to fire only after every targeted sensor detects gas.
+  required: false
+  default: Each
 For at least:
   description: How long the sensor must stay in the detected state before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -48,24 +48,22 @@ This fires every time `binary_sensor.kitchen_gas` transitions to the detected st
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
-  type: string
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="gas detector" example="binary_sensor.kitchen_gas" %}
 
 {% include triggers/behavior.md %}
 
@@ -121,7 +119,7 @@ When a gas leak happens while everyone is asleep or nobody is home, you want the
 - **Target**: All gas sensors (by label)
 - **Trigger when**: Each
 - **For at least**: 00:00:30
-- **Action**: Valve: Close
+- **Action**: Close valve
 
 {% details "YAML example for automatic gas shutoff" %}
 

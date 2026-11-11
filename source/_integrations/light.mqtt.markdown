@@ -1,8 +1,6 @@
 ---
 title: "MQTT Light"
-description: "Instructions on how to setup MQTT lights using default schema within Home Assistant."
-ha_category:
-  - Light
+description: "Instructions on how to set up MQTT lights using default schema within Home Assistant."
 ha_iot_class: Configurable
 ha_release: 0.8
 ha_domain: mqtt
@@ -34,7 +32,7 @@ The `mqtt` light platform with default schema lets you control your MQTT enabled
 
 ## Default schema - Configuration
 
-In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `unknown`. A MQTT device can reset the current state to `unknown` using a `None` payload.
+In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `unknown`. An MQTT device can reset the current state to `unknown` using a `None` payload.
 
 When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`). The initial state is set to `False` / `off` in optimistic mode.
 
@@ -43,8 +41,7 @@ Optimistic mode can be forced, even if the `state_topic` is available. Try to en
 Home Assistant internally assumes that a light's state corresponds to a defined `color_mode`.
 The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`.
 
-To use an MQTT basic light in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/mqtt_config_methods.md item="basic light" platform="light" subentry=true %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -52,8 +49,6 @@ mqtt:
   - light:
       command_topic: "office/rgb1/light/switch"
 ```
-
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -101,7 +96,7 @@ brightness_command_template:
   required: false
   type: template
 brightness_scale:
-  description: "Defines the maximum brightness value (i.e., 100%) of the MQTT device."
+  description: "Defines the maximum brightness value (that is, 100%) of the MQTT device."
   required: false
   type: integer
   default: 255
@@ -147,64 +142,12 @@ command_topic:
   required: true
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
-device:
-  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
-  required: false
-  type: map
-  keys:
-    configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
-      required: false
-      type: string
-    connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
-      required: false
-      type: list
-    hw_version:
-      description: The hardware version of the device.
-      required: false
-      type: string
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
-      required: false
-      type: [string, list]
-    manufacturer:
-      description: 'The manufacturer of the device.'
-      required: false
-      type: string
-    model:
-      description: 'The model of the device.'
-      required: false
-      type: string
-    model_id:
-      description: The model identifier of the device.
-      required: false
-      type: string
-    name:
-      description: 'The name of the device.'
-      required: false
-      type: string
-    serial_number:
-      description: "The serial number of the device."
-      required: false
-      type: string
-    suggested_area:
-      description: 'Suggest an area if the device isn’t in one yet.'
-      required: false
-      type: string
-    sw_version:
-      description: 'The firmware version of the device.'
-      required: false
-      type: string
-    via_device:
-      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
-      required: false
-      type: string
+{% include integrations/mqtt_device.md %}
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -214,7 +157,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:
@@ -265,7 +208,7 @@ hs_value_template:
   required: false
   type: template
 icon:
-  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  description: "[Icon](/integrations/homeassistant/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
@@ -438,7 +381,7 @@ white_command_topic:
   required: false
   type: string
 white_scale:
-  description: "Defines the maximum white level (i.e., 100%) of the MQTT device."
+  description: "Defines the maximum white level (that is, 100%) of the MQTT device."
   required: false
   type: integer
   default: 255
@@ -465,7 +408,7 @@ Make sure that your topics match exactly. `some-topic/` and `some-topic` are dif
 {% endimportant %}
 
 {% note %}
-XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
+XY and RGB cannot be used at the same time. If both are provided, XY overrides RGB.
 {% endnote %}
 
 ## Default schema - Examples
@@ -540,7 +483,7 @@ mqtt:
 
 ## JSON schema
 
-The `mqtt` light platform with JSON schema lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
+The `mqtt` light platform with JSON schema lets you control an MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
 
 This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions and short/long flashing. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed. The `color_mode` will not be present in messages sent to the light. It is optional in messages received from the light, but can be used to disambiguate the current mode in the light. In the example below, `color_mode` is set to `rgb` and `color_temp`, `color.c`, `color.w`, `color.x`, `color.y`, `color.h`, `color.s` will all be ignored by Home Assistant:
 
@@ -574,8 +517,7 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.
 
-To use an MQTT JSON light in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/mqtt_config_methods.md item="JSON light" platform="light" subentry=true %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -584,8 +526,6 @@ mqtt:
       schema: json
       command_topic: "home/rgb1/set"
 ```
-
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -630,7 +570,7 @@ brightness:
   type: boolean
   default: false
 brightness_scale:
-  description: "Defines the maximum brightness value (i.e., 100%) of the MQTT device."
+  description: "Defines the maximum brightness value (that is, 100%) of the MQTT device."
   required: false
   type: integer
   default: 255
@@ -644,48 +584,12 @@ command_topic:
   required: true
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
-device:
-  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
-  required: false
-  type: map
-  keys:
-    configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
-      required: false
-      type: string
-    connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
-      required: false
-      type: list
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
-      required: false
-      type: [string, list]
-    manufacturer:
-      description: 'The manufacturer of the device.'
-      required: false
-      type: string
-    model:
-      description: 'The model of the device.'
-      required: false
-      type: string
-    name:
-      description: 'The name of the device.'
-      required: false
-      type: string
-    serial_number:
-      description: "The serial number of the device."
-      required: false
-      type: string
-    sw_version:
-      description: 'The firmware version of the device.'
-      required: false
-      type: string
+{% include integrations/mqtt_device.md %}
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -695,7 +599,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 effect:
@@ -727,7 +631,7 @@ group:
   required: false
   type: list
 icon:
-  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  description: "[Icon](/integrations/homeassistant/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
@@ -839,7 +743,7 @@ visible_by_default:
   type: boolean
   default: true
 white_scale:
-  description: "Defines the maximum white level (i.e., 100%) of the MQTT device. This is used when setting the light to white mode."
+  description: "Defines the maximum white level (that is, 100%) of the MQTT device. This is used when setting the light to white mode."
   required: false
   type: integer
   default: 255
@@ -869,14 +773,14 @@ white_scale:
   - `c`: Cool white value
   - `w`: Warm white value
 
-More details about the different colors, color modes and range values [can be found here](https://www.home-assistant.io/integrations/light/).
+More details about the different colors, color modes and range values [can be found here](/integrations/light/).
 
 {% important %}
 Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
 {% endimportant %}
 
 {% note %}
-RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
+RGB, XY and HSV cannot be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
 {% endnote %}
 
 ## JSON schema - Examples
@@ -1002,8 +906,8 @@ mqtt:
 
 ## Template schema
 
-The `mqtt` light platform with template schema lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
-It is format-agnostic so you can use any data format you want (i.e., string, JSON), just configure it with templating.
+The `mqtt` light platform with template schema lets you control an MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
+It is format-agnostic so you can use any data format you want (such as string or JSON), just configure it with templating.
 
 This schema supports on/off, brightness, RGB colors, XY colors, HS Color, color temperature, transitions, short/long flashing and effects.
 
@@ -1015,8 +919,7 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.
 
-To use an MQTT template light in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/mqtt_config_methods.md item="template light" platform="light" subentry=true %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1027,8 +930,6 @@ mqtt:
       command_on_template: "on"
       command_off_template: "off"
 ```
-
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -1097,48 +998,12 @@ command_topic:
   required: true
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
-device:
-  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
-  required: false
-  type: map
-  keys:
-    configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
-      required: false
-      type: string
-    connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
-      required: false
-      type: list
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
-      required: false
-      type: [string, list]
-    manufacturer:
-      description: 'The manufacturer of the device.'
-      required: false
-      type: string
-    model:
-      description: 'The model of the device.'
-      required: false
-      type: string
-    name:
-      description: 'The name of the device.'
-      required: false
-      type: string
-    serial_number:
-      description: "The serial number of the device."
-      required: false
-      type: string
-    sw_version:
-      description: 'The firmware version of the device.'
-      required: false
-      type: string
+{% include integrations/mqtt_device.md %}
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -1148,7 +1013,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 effect_list:
@@ -1168,7 +1033,7 @@ group:
   required: false
   type: list
 icon:
-  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
+  description: "[Icon](/integrations/homeassistant/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:

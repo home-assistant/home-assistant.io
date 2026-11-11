@@ -1,32 +1,12 @@
 ---
-title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Hub
-  - Select
-  - Sensor
 ha_release: 0.81
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@mvn23'
 ha_domain: opentherm_gw
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **OpenTherm Gateway** {% term integration %} is used to control the [OpenTherm Gateway](https://otgw.tclcode.com/) from Home Assistant.
 
-This integration will add three devices to Home Assistant for each configured gateway. The main control of the integration is a single `climate` entity which can be found on the added `OpenTherm Thermostat` device. All added devices have a collection of `sensor` and `binary_sensor` entities, which are disabled by default. To enable them, follow the steps on [enabling entities](/common-tasks/general/#enabling-or-disabling-entities).
+This integration will add three devices to Home Assistant for each configured gateway. The main control of the integration is a single `climate` entity which can be found on the added `OpenTherm Thermostat` device. All added devices have a collection of `sensor` and `binary_sensor` entities, which are disabled by default. To enable them, follow the steps on [enabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 {% note %}
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
@@ -77,165 +57,39 @@ The integration adds the following buttons to your Home Assistant instance:
 
 Pressing this button, which can be found on the `OpenTherm Thermostat` device, cancels an active room setpoint override. Note that it does not change the target temperature, it only returns control to the thermostat.
 
+#### Heat hot water once
+
+Pressing this button, which can be found on the `OpenTherm Boiler` device, triggers a hot water `push` if this functionality is supported on your device (PIC16F1847 firmware only). The boiler will heat its hot water supply once.
+
 #### Restart
 
 The restart button on the `OpenTherm Gateway` device can be used to restart the OpenTherm Gateway.
+
+### Number
+
+#### Control setpoint 1 override - Control setpoint 2 override
+
+{% warning %}
+The use of these entities involves a level of risk and is not recommended. Possible consequences of using these entities are uncontrolled heating of the boiler, inefficient and inaccurate heating of your home and disturbing your thermostat's internal heating algorithm. This may have a long-term impact even after you stop using these entities.
+
+Read the [stand-alone operation notes](https://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using these entities.
+
+To reduce the risks involved as much as possible, use the following guidelines:
+
+- Update your OpenTherm Gateway to firmware version 5.8/6.5 or greater.
+- Send values of 8 °C (46.4 °F) or higher at intervals of at most 1 minute as long as there is a heating need.
+- Keep values as low as possible.
+
+{% endwarning %}
+
+These number entities, which can be found on the `OpenTherm Gateway` device, allow you to override the control setpoint for the respective central heating circuit. When active, the OpenTherm Gateway overrides the control setpoint determined by the thermostat. Set the entity to 0 °C (32 °F) to return control to the thermostat.
+These entities are disabled by default.
 
 ### Select
 
 Several `select` configuration entities can be found on the `OpenTherm Gateway` device. These can be used to configure the LEDs and GPIO pins of the OpenTherm Gateway. More information about the available modes can be found in the sections [LED modes](#led-modes) and [GPIO modes](#gpio-modes) or in the [commands documentation](https://otgw.tclcode.com/firmware.html#configuration) of the OpenTherm Gateway.
 
-## Actions
-
-### Action `opentherm_gw.reset_gateway`
-
-Reset the OpenTherm Gateway.
-
-| Data attribute | Optional | Description                                         |
-| ---------------------- | -------- | --------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration. |
-
-### Action `set_central_heating_ovrd`
-
-Set the central heating override option on the gateway.
-When overriding the control setpoint (via the [set_control_setpoint](#action-opentherm_gwset_control_setpoint) action with a temperature value other than `0`), the gateway automatically enables the central heating override to start heating. This action can then be used to control the central heating override status.
-To return control of the central heating to the thermostat, use the [set_control_setpoint](#action-opentherm_gwset_control_setpoint) action with temperature value `0`.
-**You will only need this if you are writing your own software thermostat.**
-
-| Data attribute | Optional | Description                                                                              |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                      |
-| `ch_override`          | no       | The desired value for the central heating override. Use `0` to disable or `1` to enable. |
-
-{% warning %}
-Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
-{% endwarning %}
-
-### Action `opentherm_gw.set_clock`
-
-Provide the time and day of week to the OpenTherm Gateway. The value provided here will be forwarded to the thermostat on the next date/time request from the thermostat. The OpenTherm Gateway does not have the ability to accurately keep track of time, so it will only retain the information provided here for a maximum of about 61 seconds.
-
-| Data attribute | Optional | Default      | Description                                                              |
-| ---------------------- | -------- | ------------ | ------------------------------------------------------------------------ |
-| `gateway_id`           | no       | N/A          | The `gateway_id` as specified during configuration.                      |
-| `date`                 | yes      | Today's date | Date from which the day of week will be extracted. Format: `YYYY-MM-DD`. |
-| `time`                 | yes      | Current time | Time in 24h format.                                                      |
-
-### Action `opentherm_gw.set_control_setpoint`
-
-{% caution %}
-Improper use of this action may continuously keep your central heating system active, resulting in an overheated house and a significant increase in gas and/or electricity consumption.
-{% endcaution %}
-
-Set the central heating control setpoint override on the OpenTherm Gateway.
-In a normal situation, the thermostat will calculate and control the central heating setpoint on the boiler. Setting this to any value other than 0 will enable the override and allow the OpenTherm Gateway to control this setting. While the override is active, the OpenTherm Gateway will also request your boiler to activate the central heating circuit. For your boiler's actual maximum and minimum supported setpoint value, please see the `slave_ch_max_setp` and `slave_ch_min_setp` [sensors](#sensors). Due to the potential consequences of leaving this setting enabled for prolonged periods, the override will be disabled when Home Assistant is shut down or restarted.
-**You will only need this if you are writing your own software thermostat.**
-
-| Data attribute | Optional | Description                                                                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                                                                             |
-| `temperature`          | no       | The central heating setpoint. Values between `0.0` and `90.0` are accepted, but your boiler may not support the full range. Set to `0` to disable the override. |
-
-{% warning %}
-Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
-{% endwarning %}
-
-### Action `opentherm_gw.set_hot_water_ovrd`
-
-Set the domestic hot water enable option on the OpenTherm Gateway.
-Control the domestic hot water enable option. If the boiler has
-been configured to let the room unit control when to keep a
-small amount of water preheated, this command can influence
-that.
-
-| Data attribute | Optional | Description                                                                                                                                    |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                                                            |
-| `dhw_override`         | no       | The domestic hot water override state. Value should be `0` or `1` to enable the override in off or on state, or `"A"` to disable the override. |
-
-### Action `opentherm_gw.set_hot_water_setpoint`
-
-Set the domestic hot water setpoint on the OpenTherm Gateway. Not all boilers support this feature.
-
-| Data attribute | Optional | Description                                                                                                                                                                                                                                                       |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                                                                                                                                                                               |
-| `temperature`          | no       | The domestic hot water setpoint to set on the gateway. Values between `0` and `90` are accepted, but not all boilers support this range. Check the values of the `slave_dhw_min_setp` and `slave_dhw_max_setp` sensors to see the supported range on your boiler. |
-
-### Action `opentherm_gw.set_gpio_mode`
-
-Configure the GPIO behavior on the OpenTherm Gateway.
-For an explanation of the possible modes, see [GPIO modes](#gpio-modes)
-
-| Data attribute | Optional | Description                                         |
-| ---------------------- | -------- | --------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration. |
-| `id`                   | no       | The GPIO ID; `A` or `B`.                            |
-| `mode`                 | no       | The GPIO mode to be set.                            |
-
-### Action `opentherm_gw.set_led_mode`
-
-Configure the function of the LEDs on the OpenTherm Gateway.
-For a list of possible modes with explanation, see [LED modes](#led-modes)
-
-| Data attribute | Optional | Description                                         |
-| ---------------------- | -------- | --------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration. |
-| `id`                   | no       | The LED ID, accepted values are `A` through `F`.    |
-| `mode`                 | no       | The LED mode to be set.                             |
-
-### Action `opentherm_gw.set_max_modulation`
-
-{% warning %}
-Improper use of this action may impair the performance of your central heating system.
-{% endwarning %}
-
-Set the maximum modulation level override on the OpenTherm Gateway.
-In a normal situation, the thermostat will control the maximum modulation level on the boiler. Setting this to any value other than `-1` will enable the override and allow the OpenTherm Gateway to control this setting. Due to the potential consequences of leaving this setting enabled, the override will be disabled when Home Assistant is shut down or restarted.
-**You will only need this if you are writing your own software thermostat.**
-
-| Data attribute | Optional | Description                                                                                                |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                        |
-| `level`                | no       | The maximum modulation level. Accepted values are `-1` through `100`. Set to `-1` to disable the override. |
-
-{% warning %}
-Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
-{% endwarning %}
-
-### Action `opentherm_gw.set_outside_temperature`
-
-Provide the outside temperature to the thermostat.
-If your thermostat is unable to display an outside temperature and does not support OTC (Outside Temperature Correction), this has no effect. Note that not all thermostats are able to display the full supported range.
-
-| Data attribute | Optional | Description                                                                                                                                                                           |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                                                                                                   |
-| `temperature`          | no       | The outside temperature to provide to the thermostat. Accepted values are `-40.0` through `64.0`. Any value above `64.0` will clear a previously configured value (suggestion: `99`). |
-
-### Action `opentherm_gw.set_setback_temperature`
-
-Configure the setback temperature on the OpenTherm Gateway.
-The value you provide here will be used with the GPIO `home` (5) and `away` (6) modes.
-
-| Data attribute | Optional | Description                                                        |
-| ---------------------- | -------- | ------------------------------------------------------------------ |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                |
-| `temperature`          | no       | The setback temperature. Accepted values are `0.0` through `30.0`. |
-
-### Action `opentherm_gw.send_transparent_command`
-
-<div class='note warning'>
-Improper use of this action may impair the performance of your central heating system.
-</div>
-
-Send a transparent [command](https://otgw.tclcode.com/firmware.html) to the OpenTherm Gateway.
-
-| Data attribute | Optional | Description                                                        |
-| ---------------------- | -------- | ------------------------------------------------------------------ |
-| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                |
-| `transp_cmd`           | no       | The serial command to be sent to the OpenTherm Gateway.            |
-| `transp_arg`           | no       | The serial command argument to be sent to the OpenTherm Gateway.   |
+{% include integrations/actions.md %}
 
 ## GPIO modes
 

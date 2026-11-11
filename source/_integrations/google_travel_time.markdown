@@ -1,17 +1,7 @@
 ---
-title: Google Maps Travel Time
 description: Instructions on how to add Google Maps travel time to Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: 0.19
-ha_config_flow: true
 ha_domain: google_travel_time
-ha_platforms:
-  - sensor
-ha_codeowners:
-  - '@eifinger'
-ha_integration_type: service
 ---
 
 The **Google Maps Travel Time** {% term integration %} provides travel time from the [Google Maps Routes API](https://developers.google.com/maps/documentation/routes/overview).
@@ -30,81 +20,11 @@ Notes:
 
 - Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity ID that provides this information in its state, an entity ID with latitude and longitude attributes, or zone friendly name (case sensitive).
 
-## Actions
-
-The integration provides the following actions.
-
-### Action: Get travel times
-
-The `google_travel_time.get_travel_times` action retrieves route alternatives and travel times between two locations. It populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The config entry to use for this action.
-  - **Optional**: No
-- **Data attribute**: `origin`
-  - **Description**: The origin of the route. You can use an address, GPS coordinates, or an entity ID.
-  - **Optional**: No
-- **Data attribute**: `destination`
-  - **Description**: The destination of the route. You can use an address, GPS coordinates, or an entity ID.
-  - **Optional**: No
-- **Data attribute**: `mode`
-  - **Description**: The mode of transportation. Available options: `driving`, `walking`, `bicycling`.
-  - **Optional**: Yes
-- **Data attribute**: `units`
-  - **Description**: Which unit system to use. Available options: `metric`, `imperial`.
-  - **Optional**: Yes
-- **Data attribute**: `language`
-  - **Description**: The language to use for the response.
-  - **Optional**: Yes
-- **Data attribute**: `avoid`
-  - **Description**: Features to avoid when calculating the route. Available options: `tolls`, `highways`, `ferries`, `indoor`.
-  - **Optional**: Yes
-- **Data attribute**: `traffic_model`
-  - **Description**: The traffic model to use when calculating driving routes. Available options: `best_guess`, `pessimistic`, `optimistic`.
-  - **Optional**: Yes
-- **Data attribute**: `departure_time`
-  - **Description**: The desired departure time as a time string, for example `08:00:00`.
-  - **Optional**: Yes
-
-### Action: Get transit times
-
-The `google_travel_time.get_transit_times` action retrieves route alternatives and travel times between two locations using public transit. It populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The config entry to use for this action.
-  - **Optional**: No
-- **Data attribute**: `origin`
-  - **Description**: The origin of the route. You can use an address, GPS coordinates, or an entity ID.
-  - **Optional**: No
-- **Data attribute**: `destination`
-  - **Description**: The destination of the route. You can use an address, GPS coordinates, or an entity ID.
-  - **Optional**: No
-- **Data attribute**: `units`
-  - **Description**: Which unit system to use. Available options: `metric`, `imperial`.
-  - **Optional**: Yes
-- **Data attribute**: `language`
-  - **Description**: The language to use for the response.
-  - **Optional**: Yes
-- **Data attribute**: `transit_mode`
-  - **Description**: The preferred transit mode. Available options: `bus`, `subway`, `train`, `tram`, `rail`.
-  - **Optional**: Yes
-- **Data attribute**: `transit_routing_preference`
-  - **Description**: The transit routing preference. Available options: `less_walking`, `fewer_transfers`.
-  - **Optional**: Yes
-- **Data attribute**: `departure_time`
-  - **Description**: The desired departure time as a time string, for example `08:00:00`.
-  - **Optional**: Yes
-- **Data attribute**: `arrival_time`
-  - **Description**: The desired arrival time as a time string, for example `08:00:00`.
-  - **Optional**: Yes
-
-{% important %}
-You can either use `departure_time` or `arrival_time`, not both.
-{% endimportant %}
+{% include integrations/actions.md %}
 
 ## Dynamic Configuration
 
-Tracking can be setup to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the Origin or Destination then every 5 minutes when the platform updates it will use the latest location of that entity.
+Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the Origin or Destination then every 5 minutes when the platform updates it will use the latest location of that entity.
 
 ### Examples
 

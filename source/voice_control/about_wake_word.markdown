@@ -26,7 +26,7 @@ To avoid being limited to specific hardware, the wake word detection is done ins
 This means any device that streams audio can be turned into a voice satellite, even if it isn't powerful enough to run wake word detection locally. It also allows our developer community to experiment with wake word models without having to shrink the model to run on a low-powered voice satellite device.
 
 {% note %}
-**Exception for mobile devices**: Mobile devices like Android phones use microWakeWord for on-device wake word detection through the [Home Assistant Companion App](https://companion.home-assistant.io/). This preserves battery life and ensures wake word detection works even when network connectivity is unreliable or unavailable. Only after the wake word is detected does the device send audio to Home Assistant. Learn more about [Assist on Android](/voice_control/android/#using-wake-word-detection-on-android).
+**Exception for mobile devices**: Mobile devices like Android phones use microWakeWord for on-device wake word detection through the [Home Assistant Companion App](https://companion.home-assistant.io/). This preserves battery life and ensures wake word detection works even when network connectivity is unreliable or unavailable. Only after the wake word is detected does the device send audio to Home Assistant. Learn more about [Assist on Android](/voice_control/android/#about-wake-word-detection-on-android).
 {% endnote %}
 
 <p class='img'>

@@ -1,0 +1,20 @@
+{
+  "domain": "open_meteo",
+  "name": "Open-Meteo",
+  "integration_type": "service",
+  "codeowners": [
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "diagnostics",
+    "weather"
+  ]
+}

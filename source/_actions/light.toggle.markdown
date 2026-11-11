@@ -1,5 +1,5 @@
 ---
-title: "Toggle a light"
+title: "Toggle light"
 action: light.toggle
 domain: light
 description: "Flip a light between on and off. If it's off, it turns on. If it's on, it turns off."
@@ -21,14 +21,16 @@ To toggle a light from an automation or a script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Light: Toggle light**.
+5. From the search box, search for and select **Toggle light**.
 6. Under **Targets**, choose what you want to toggle:
     - To toggle a specific light, select the entity.
     - To toggle every light in a room, select an area.
     - To toggle every light on a floor, select a floor.
     - To toggle lights sharing a tag, select a label.
-7. _Optional_: under **Advanced options**, set the brightness, color, color temperature, or transition that should apply when the light turns on.
-8. Select **Save**.
+7. _Optional_: set **Transition**, **Color**, **Color temperature**, **Brightness**, or **Effect**. These options apply when the light turns on.
+   - Some options only show up if the selected light supports them.
+8. _Optional_: for other color formats, an exact brightness value, white mode, a profile, or a flash, open **Additional options**.
+9. Select **Save**.
 
 ### Options in the UI
 
@@ -36,26 +38,44 @@ To toggle a light from an automation or a script:
 Transition:
   description: How long, in seconds, the light takes to reach the new state. Use this for a smooth fade instead of switching instantly.
   required: false
-Brightness:
-  description: How bright the light should be when the toggle turns it on, on a scale from 0 (off) to 255 (brightest).
-  required: false
-Brightness percentage:
-  description: How bright the light should be when the toggle turns it on, from 0% (off) to 100% (brightest).
-  required: false
 Color:
-  description: A color for the light when the toggle turns it on. You can pick a named color, a color from the color wheel, or a specific value in RGB, hue/sat, or XY format.
+  description: The color for the light when the toggle turns it on. Pick it from the color picker.
   required: false
 Color temperature:
   description: Warm or cool white, measured in Kelvin, for when the toggle turns the light on. Lower is warmer (more yellow), higher is cooler (more blue).
   required: false
+Brightness:
+  description: How bright the light should be when the toggle turns it on, from 0% (off) to 100% (brightest).
+  required: false
 Effect:
   description: A light effect to play when the toggle turns the light on, for example a color loop or a candle flicker. Available effects depend on the light.
   required: false
-Flash:
-  description: Ask the light to flash briefly, either short or long. Useful as a visual notification.
+RGBW-color:
+  description: Under **Additional options**. The color in RGBW format, with red, green, blue, and white values from 0 to 255.
+  required: false
+RGBWW-color:
+  description: Under **Additional options**. The color in RGBWW format, with red, green, blue, cold white, and warm white values from 0 to 255.
+  required: false
+Color name:
+  description: Under **Additional options**. A color by name, for example **Red** or **Turquoise**.
+  required: false
+Hue/Sat color:
+  description: Under **Additional options**. The color as hue (0 to 360) and saturation (0 to 100).
+  required: false
+XY-color:
+  description: Under **Additional options**. The color as X and Y coordinates, each a decimal number between 0 and 1.
+  required: false
+Brightness value:
+  description: Under **Additional options**. How bright the light should be when the toggle turns it on, on a scale from 0 (off) to 255 (brightest).
+  required: false
+White:
+  description: Under **Additional options**. Switches the light to white mode.
   required: false
 Profile:
-  description: The name of a light profile to apply when the toggle turns the light on.
+  description: Under **Additional options**. The name of a light profile to apply when the toggle turns the light on.
+  required: false
+Flash:
+  description: Under **Additional options**. Ask the light to flash briefly, either short or long. Useful as a visual notification.
   required: false
 {% endoptions_ui %}
 
@@ -73,8 +93,6 @@ action: |
 This flips `light.hallway` to the opposite state.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 transition:
@@ -141,7 +159,7 @@ profile:
 - The **Toggle light** action works on any light {% term entity %}, such as bulbs, groups, fixtures, or strips.
 - When **Toggle light** turns a light on, any brightness, color, or transition options you set are applied. When it turns a light off, those options are ignored.
 - If you use **Toggle light** on a group of lights, each light in the group flips its own state. Some lights may turn on while others turn off. To treat a group as one unit, create a dedicated [light group](/integrations/group/) first.
-- If you already know the state you want, use [Turn on a light](/actions/light.turn_on/) or [Turn off a light](/actions/light.turn_off/) instead. They make the intent clearer in the automation's name.
+- If you already know the state you want, use [Turn on light](/actions/light.turn_on/) or [Turn off light](/actions/light.turn_off/) instead. They make the intent clearer in the automation's name.
 
 {% include actions/try_it.md %}
 
@@ -151,8 +169,8 @@ profile:
 
 Wire a physical button or a dashboard tile to a single toggle action so it acts like a light switch.
 
-- **Action**: Light: Toggle light
-- **Target**: Hallway light
+- **Action**: Toggle light
+  - **Target**: Hallway light
 
 {% details "YAML example for a one-button hallway toggle" %}
 
@@ -169,10 +187,10 @@ action: |
 
 When the toggle turns the kitchen light on, have it come up dim and warm instead of at full blast.
 
-- **Action**: Light: Toggle light
-- **Target**: Kitchen light
-- **Brightness percentage**: 40
-- **Color**: warm_white
+- **Action**: Toggle light
+  - **Target**: Kitchen light
+  - **Brightness**: `40`%
+  - **Color name**: Warm white
 
 {% details "YAML example for a warm toggle" %}
 
@@ -193,8 +211,8 @@ action: |
 Keep a smart button on the wall and flip the hallway light whenever you press it. A great way to add a light switch where there isn't one.
 
 - **Trigger**: Device: Button pressed
-- **Action**: Light: Toggle light
-- **Target**: Hallway light
+- **Action**: Toggle light
+  - **Target**: Hallway light
 
 {% details "YAML example for a button-driven hallway toggle" %}
 
@@ -221,9 +239,11 @@ automation: |
 
 When the bathroom motion sensor fires, flip the light. The next motion event flips it back, so you can also use the same automation to cut the light when you leave.
 
-- **Trigger**: Motion sensor detects motion
-- **Action**: Light: Toggle light
-- **Target**: Bathroom light
+- **Trigger**: State changed
+  - **Entity**: Bathroom motion sensor
+  - **To**: Detected
+- **Action**: Toggle light
+  - **Target**: Bathroom light
 
 {% details "YAML example for toggling the bathroom light on motion" %}
 
@@ -246,9 +266,11 @@ automation: |
 
 When the pantry door opens, flip the light. Close the door and the same trigger flips it back off the next time around.
 
-- **Trigger**: Door sensor opens
-- **Action**: Light: Toggle light
-- **Target**: Pantry light
+- **Trigger**: State changed
+  - **Entity**: Pantry door sensor
+  - **To**: Open
+- **Action**: Toggle light
+  - **Target**: Pantry light
 
 {% details "YAML example for a pantry door toggle" %}
 

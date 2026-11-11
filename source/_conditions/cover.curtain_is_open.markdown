@@ -11,8 +11,6 @@ The **Curtain is open** condition passes when one or more targeted curtains are 
 
 This condition is useful for reminders, lighting checks, and routines that depend on whether a curtain is open.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -52,8 +50,6 @@ This passes when `cover.living_room_curtain` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -65,22 +61,20 @@ behavior:
 for:
   description: >
     How long the curtain must have stayed open before the condition
-    passes. Accepts a duration like `00:05:00` for five minutes.
+    passes. Accepts a duration like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="motorized curtain" example="cover.living_room_curtain" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- This condition works only with `cover` entities that use the `curtain` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted curtain is open.
-- With **All**, the condition passes only if every available targeted curtain is open. If every targeted curtain is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- The target must be a cover entity with the curtain device class.
+{% include conditions/unavailable_targets.md entities="curtains" %}
 
 {% include conditions/try_it.md %}
 
@@ -90,7 +84,7 @@ for:
 
 At sunset, this automation checks whether the curtain is still open. If it is, Home Assistant closes it for the night.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Curtain is open
   - **Target**: Living room curtain
 - **Action**: Close cover
@@ -101,8 +95,7 @@ At sunset, this automation checks whether the curtain is still open. If it is, H
 automation: |
   alias: "Close the curtain at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: cover.curtain_is_open
       target:
@@ -119,7 +112,9 @@ automation: |
 
 When you leave home, this automation checks whether the curtain is still open. If it is, Home Assistant sends a reminder so you can close it.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Morgan
+  - **Zone**: Home
 - **Condition**: Curtain is open
   - **Target**: Living room curtain
 - **Action**: Send a notification message
@@ -131,10 +126,11 @@ When you leave home, this automation checks whether the curtain is still open. I
 automation: |
   alias: "Warn me if the curtain is open when I leave home"
   triggers:
-    - trigger: zone
-      entity_id: person.morgan
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.morgan
+      options:
+        zone: zone.home
   conditions:
     - condition: cover.curtain_is_open
       target:

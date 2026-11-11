@@ -1,23 +1,7 @@
 ---
-title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Notifications
-  - Sensor
 ha_release: 0.8
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@danielhiversen'
 ha_domain: tibber
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - notify
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Tibber** {% term integration %} provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
@@ -78,7 +62,7 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 - net kWh produced since last hour shift
 - Current on L1, L2 and L3
 - Estimate of kWh consumption current hour
-- kWh consumed since since last hour shift
+- kWh consumed since last hour shift
 - Average consumption since midnight (Watt)
 - Last meter active import register state (kWh)
 - Last meter active export register state (kWh)
@@ -123,47 +107,9 @@ The Tibber integration provides binary sensors.
 
 ## Actions
 
-The hourly prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
+The energy prices are exposed using an action that returns [response data](/docs/automation/action/#action-response-data) with the price data.
 
-### Action: Get prices
-
-The `tibber.get_prices` action fetches hourly energy prices.
-
-| Data attribute | Optional | Description                                           | Example             |
-| -------------- | -------- | ----------------------------------------------------- | ------------------- |
-| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00  | 2024-01-01 00:00:00 |
-| `end`          | yes      | End time to get prices. Defaults to tomorrow 00:00:00 | 2024-01-01 00:00:00 |
-
-#### Response data
-
-The response data is a dictionary with the energy prices for each Home. `start_time` is returned in local time from the API.
-
-```json
-{
-  "prices": {
-    "Nickname_Home":[
-      {
-        "start_time": "2023-12-09 03:00:00+02:00",
-        "price": 0.46914,
-      },
-      {
-        "start_time": "2023-12-09 04:00:00+02:00",
-        "price": 0.46914,
-      }
-    ],
-    "Nickname_Home_2":[
-      {
-        "start_time": "2023-12-09 03:00:00+02:00",
-        "price": 0.46914,
-      },
-      {
-        "start_time": "2023-12-09 04:00:00+02:00",
-        "price": 0.46914,
-      }
-    ]
-  }
-}
-```
+{% include integrations/actions.md %}
 
 ## Examples
 

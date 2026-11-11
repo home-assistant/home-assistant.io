@@ -85,7 +85,7 @@ Sort a list of objects by a specific attribute. This is particularly powerful wi
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | sort(attribute="state")
     | map(attribute="entity_id")
     | list
@@ -114,7 +114,7 @@ Sort lights by brightness in descending order and get the first one.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | sort(attribute="attributes.brightness", reverse=true)
     | map(attribute="entity_id")
@@ -130,7 +130,7 @@ Sort a group of entities by their friendly name attribute for display.
 
 {% example %}
 template: |
-  {% for entity in expand("group.all_lights")
+  {% for entity in expand("light.home_lights")
     | sort(attribute="name") %}
     {{ entity.name }}: {{ entity.state }}
   {% endfor %}
@@ -147,7 +147,7 @@ Use `sort` with [`first`](/template-functions/first/) and [`last`](/template-fun
 
 {% example %}
 template: |
-  {% set sensors = expand("group.temperature_sensors")
+  {% set sensors = expand("sensor.temperature_sensors")
      | sort(attribute="state") %}
   Coldest: {{ sensors | first | attr("entity_id") }}
   Warmest: {{ sensors | last | attr("entity_id") }}

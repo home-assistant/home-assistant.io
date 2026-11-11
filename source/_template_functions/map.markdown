@@ -15,14 +15,14 @@ related_functions:
   - sort
 ---
 
-The `map` filter applies a transformation to each item in a list and returns the results. It can be used in two primary ways: extracting an attribute from each item using `attribute=`, or applying another filter to each item by passing the filter name as a string. This is a Home Assistant override of the standard `map` filter, extended to support additional Home Assistant-specific filters and type conversions.
+The `map` filter applies a transformation to each item in a list and returns the results. It can be used in two primary ways: extracting an attribute from each item using `attribute=`, or applying another filter to each item by passing the filter name as a string. This is the standard Jinja `map` filter. You can pass any filter by name, including filters that Home Assistant adds, such as `as_datetime`.
 
 This is one of the most heavily used filters in Home Assistant templates. You will find it in almost every template that works with a collection of {% term entities %}. The `attribute=` form extracts values like `.state`, `.entity_id`, or `.name` from entity state objects returned by [`expand`](/template-functions/expand/). The filter form lets you apply conversions like [`float`](/template-functions/float/), [`int`](/template-functions/int/), or [`round`](/template-functions/round/) to each item in a list, so you can build filter chains that transform raw entity data into useful results.
 
 {% include template_functions/usage.md %}
 
 {% template_function_usage %}
-filter: '{{ expand("group.temperature_sensors") | map(attribute="state") | list }}'
+filter: '{{ expand("sensor.temperature_sensors") | map(attribute="state") | list }}'
 type: list
 output: '["21.5", "19.8", "22.3"]'
 {% endtemplate_function_usage %}
@@ -33,7 +33,7 @@ output: '["21.5", "19.8", "22.3"]'
 map(
     value: list,
     *args: str,
-    attribute: str | None = None,
+    attribute: str | int | None = None,
     default: Any = None,
 ) -> iterable
 ```
@@ -55,12 +55,12 @@ args:
   type: string
 attribute:
   description: >
-    The name of the attribute to extract from each item. Supports dotted notation for nested attributes (for example, `attributes.brightness`).
+    The name of the attribute to extract from each item. Supports dotted notation for nested attributes (for example, `attributes.brightness`). You can also use a number as an index, such as `0` or `"items.0"`.
   required: false
   type: string
 default:
   description: >
-    A default value to use when an item does not have the specified attribute. Only used with `attribute=`.
+    A default value to use when an item does not have the specified attribute. It does not replace an attribute that exists but is set to `None`. Only used with `attribute=`.
   required: false
   type: any
 {% endfunction_parameters %}
@@ -72,7 +72,7 @@ Use `attribute=` to pull a specific property from each item in the list.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | map(attribute="entity_id")
     | list
   }}
@@ -104,7 +104,7 @@ Use dotted notation to access nested attributes.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | map(attribute="attributes.brightness")
     | list
@@ -118,7 +118,9 @@ output: "[255, 128, 64]"
 
 - Returns an iterable, not a list. Add [`| list`](/template-functions/list/) before using it with [`length`](/template-functions/length/), [`first`](/template-functions/first/), or looping twice.
 - `attribute=` extracts a property; a filter name as the first positional argument applies that filter to each item. You can use one or the other, not both.
-- Missing attributes default to `None` unless you pass `default=`.
+- Missing attributes are undefined unless you pass `default=`. Home Assistant logs a warning when this happens.
+- `default=` only replaces missing attributes. To also replace `None` values, add `| map("default", 0, true)`.
+- `map("float")` raises an error on states like `unavailable`. To avoid this, pass a default: `map("float", 0)`.
 
 {% include template_functions/try_it.md %}
 
@@ -131,7 +133,7 @@ Extract state values, convert to floats, and compute the average.
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | map(attribute="state")
     | map("float")
     | average
@@ -145,7 +147,7 @@ output: "21.2"
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | map(attribute="name")
     | list
   }}
@@ -160,7 +162,7 @@ Apply multiple transformations by chaining `map` calls.
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | map(attribute="state")
     | map("float")
     | map("round", 1)
@@ -185,18 +187,19 @@ type: list
 output: '["HELLO", "WORLD", "TEMPLATE"]'
 {% endexample %}
 
-### Default value for missing attributes
+### Default value for lights that are off
 
-Use `default=` to handle items that may not have the requested attribute.
+A light that is off has its `brightness` attribute set to `None`. Because the attribute exists, `default=` does not replace it. Instead, use the `default` filter with `true` as the second argument to replace `None` values.
 
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
-    | map(attribute="attributes.brightness", default=0)
+    expand("light.home_lights")
+    | map(attribute="attributes.brightness")
+    | map("default", 0, true)
     | list
   }}
-title: Brightness with 0 default for off lights
+title: Brightness with 0 for lights that are off
 type: list
 output: "[255, 0, 128]"
 {% endexample %}

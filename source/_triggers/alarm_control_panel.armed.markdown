@@ -2,7 +2,7 @@
 title: "Alarm armed"
 trigger: alarm_control_panel.armed
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed, regardless of the mode."
+description: "Triggers when one or more alarms become armed, regardless of the mode."
 related_triggers:
   - alarm_control_panel.armed_away
   - alarm_control_panel.armed_home
@@ -11,8 +11,6 @@ related_triggers:
 ---
 
 The **Alarm armed** trigger fires after an alarm control panel {% term entity %} becomes armed, regardless of the arming mode. It covers away, home, night, vacation, and any other armed state your alarm supports. Use it when you want a single automation to respond the moment the house is secured, like turning off all the lights, locking the front door, or sending a quick confirmation to your phone that the alarm is set.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -32,6 +30,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms, **First** to fire only when the first panel in a group arms, or **All** to fire only after every targeted panel is armed.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay armed before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -51,8 +51,6 @@ This fires every time `alarm_control_panel.home_alarm` transitions to any armed 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -62,9 +60,9 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -87,11 +85,13 @@ for:
 When someone arms the alarm in any mode, the house locks down. The front door locks, the living room lights turn off, and you get a quick confirmation that everything is secured.
 
 - **Trigger**: Alarm armed
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Lock the front door
-- **Action**: Turn off the living room lights
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Lock lock 
+  - **Target**: Front door
+- **Action**: Turn off light
+  - **Target**: Living room lights
 
 {% details "YAML example for locking down on arm" %}
 

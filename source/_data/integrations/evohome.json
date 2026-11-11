@@ -1,0 +1,20 @@
+{
+  "domain": "evohome",
+  "name": "Honeywell Total Connect Comfort (Europe)",
+  "codeowners": [
+    "@zxdavb"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "button",
+    "climate",
+    "water_heater"
+  ]
+}

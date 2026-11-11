@@ -8,8 +8,6 @@ description: "Tests if one or more lawn mowers are paused."
 The **Lawn mower is paused** condition passes when one or more targeted mowers are paused.
 Use it when an automation should continue only while the mower is stopped in the yard, like sending reminders, waiting before a restart, or holding back another task until you decide what to do next.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -47,8 +45,6 @@ This passes when `lawn_mower.backyard` is currently paused.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +56,9 @@ behavior:
 for:
   description: >
     How long the mower must stay paused before the condition passes. Accepts a
-    duration like `00:10:00` for 10 minutes.
+    duration like `00:10:00` for 10 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -72,7 +68,7 @@ for:
 
 ## Good to know
 
-- Mowers in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+{% include conditions/unavailable_targets.md entities="lawn mowers" %}
 - Use **For at least** if you want the condition to pass only after a longer pause.
 
 {% include conditions/try_it.md %}

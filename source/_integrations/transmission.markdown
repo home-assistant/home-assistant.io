@@ -1,24 +1,7 @@
 ---
-title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
-ha_category:
-  - Downloading
-  - Sensor
-  - Switch
 ha_release: 0.87
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@engrbm87'
-  - '@JPHutchins'
-  - '@andrew-codechimp'
 ha_domain: transmission
-ha_platforms:
-  - event
-  - sensor
-  - switch
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Transmission** {% term integration %} allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
@@ -45,8 +28,8 @@ Username:
   description: "Your Transmission username, if set."
 Password:
   description: "Your Transmission password, if set."
-Verify SSL certificate:
-  description: "Enable SSL certificate verification when connecting via HTTPS."
+Uses an SSL certificate:
+  description: "Connect to the Transmission RPC interface using HTTPS."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -69,6 +52,7 @@ The **Transmission** integration provides the following sensors and switches.
 - The total uploaded data [GB].
 - The current session upload/download ratio.
 - The total upload/download ratio.
+- The available disk space of the download directory [GB].
 
 ### Switches
 
@@ -159,95 +143,13 @@ actions:
           id: "{{trigger.event.data.id}}"
 ```
 
-## Actions
-
-All Transmission actions require integration `entry_id`. To find it, go to **Developer tools** > **Actions**. Choose the desired action and select your integration from dropdown. Then switch to YAML mode to see `entry_id`.
-
-### Action: Add torrent
-
-The `transmission.add_torrent` action is used to add a new torrent to download.
-
-- **Data attribute**: `entry_id`
-  - **Description**: The ID of the Transmission config entry.
-  - **Optional**: No
-
-- **Data attribute**: `torrent`
-  - **Description**:  The torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/integrations/homeassistant/#allowlist_external_dirs)).
-  - **Optional**: No
-
-- **Data attribute**: `download_path`
-  - **Description**: The absolute path to the download directory. If not specified, the Transmission's default directory will be used.
-  - **Optional**: Yes
-
-- **Data attribute**: `labels`
-  - **Description**: A comma-separated list of labels to assign to the torrent.
-  - **Optional**: Yes
-
-### Action: Remove torrent
-
-The `transmission.remove_torrent` action is used to remove a torrent from the client.
-
-- **Data attribute**: `entry_id`
-  - **Description**: The ID of the Transmission config entry.
-  - **Optional**: No
-
-- **Data attribute**: `id`
-  - **Description**:  The ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
-  - **Optional**: No
-
-- **Data attribute**: `delete_data`
-  - **Description**: Delete torrent data (Default: false).
-  - **Optional**: Yes
-
-### Action: Start torrent
-
-The `transmission.start_torrent` action is used to start a torrent downloading or seeding within the client.
-
-- **Data attribute**: `entry_id`
-  - **Description**: The ID of the Transmission config entry.
-  - **Optional**: No
-
-- **Data attribute**: `id`
-  - **Description**:  The ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
-  - **Optional**: No
-
-### Action: Stop torrent
-
-The `transmission.stop_torrent` action is used to stop a torrent downloading or seeding within the client.
-
-- **Data attribute**: `entry_id`
-  - **Description**: The ID of the Transmission config entry.
-  - **Optional**: No
-
-- **Data attribute**: `id`
-  - **Description**:  The ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
-  - **Optional**: No
-
-### Action: Get torrents
-
-The `transmission.get_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with a dictionary of torrents based on the provided filter.
-
-- **Data attribute**: `entry_id`
-  - **Description**: The ID of the Transmission config entry.
-  - **Optional**: No
-
-- **Data attribute**: `torrent_filter`
-  - **Description**:  The type of torrents you want in the response (all, active, started, paused, or completed).
-  - **Optional**: No
-
-```yaml
-action: transmission.get_torrents
-data:
-  entry_id: YOUR_TRANSMISSION_ENTRY_ID
-  torrent_filter: "all"
-response_variable: torrents
-```
+{% include integrations/actions.md %}
 
 ## Templating
 
 ### Attribute `torrent_info`
 
-All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my developer_states title="**Settings** > **Developer tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
+All `*_torrents` sensors, such as `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents`, have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my tools_states title="**Settings** > **Tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
 ```yaml
 content: >

@@ -2,15 +2,13 @@
 title: "To-do item added"
 trigger: todo.item_added
 domain: todo
-description: "Triggers when a to-do item is added to a list."
+description: "Triggers when one or more to-do items are added to a list."
 related_triggers:
   - todo.item_completed
   - todo.item_removed
 ---
 
 The **To-do item added** trigger is useful when you want Home Assistant to react as soon as a new task appears on a list. You can use it to send a reminder, start a follow-up script, or highlight that a shared list has changed.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -44,13 +42,23 @@ This fires every time a new item is added to `todo.shopping_list`.
 
 This trigger has no additional YAML options beyond the target.
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md custom_trigger_variables="true" %}
+
+### Trigger variables
+
+When the trigger reacts, the `trigger` variable contains the following data:
+
+- `trigger.entity_id`: Entity ID of the to-do list.
+- `trigger.item_ids`: List of the unique IDs (`uid`) of the to-do items that were added.
+
+This trigger doesn't include the previous or new state of the to-do list. To get the details of the items, such as their summary, use the [Get to-do list items](/actions/todo.get_items/) action and match the items by `uid`.
+
+For the data that all triggers include, refer to [Trigger data in templates](/docs/automation/trigger-data/#properties-of-all-triggers).
 
 ## Good to know
 
 - This trigger fires after Home Assistant adds a new item to the targeted to-do list.
 - Changes to `unavailable` or `unknown` do not count as items being added.
-- Trigger data includes the to-do list `entity_id` and the affected `item_ids`, which can help if you build a more advanced automation later.
 
 {% include triggers/try_it.md %}
 

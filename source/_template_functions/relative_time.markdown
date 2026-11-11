@@ -71,13 +71,17 @@ The advantage of [`time_since`](/template-functions/time_since/) is the optional
 template: '{{ time_since(states.binary_sensor.front_door.last_changed, 2) }}'
 title: time_since with precision
 type: string
-output: "2 hours and 30 minutes"
+output: "2 hours 30 minutes"
 {% endexample %}
 
 ## Good to know
 
 - Deprecated. Use [`time_since`](/template-functions/time_since/) for new templates, which supports a precision argument.
-- Only returns the largest time unit. `"2 hours"` is given, not `"2 hours 15 minutes"`.
+- Only returns the largest time unit, rounded to the nearest whole number. For example, 2 hours 15 minutes gives `"2 hours"`, and 2 hours 45 minutes gives `"3 hours"`.
+- Because of this rounding, the result doesn't carry over to the next unit. For example, 59 minutes 40 seconds gives `"60 minutes"`, not `"1 hour"`.
+- A datetime in the future is returned unchanged, without an error.
+- If the input isn't a datetime, it's returned unchanged.
+- Datetimes without a time zone are accepted. They're treated as your local time.
 
 {% include template_functions/try_it.md %}
 

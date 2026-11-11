@@ -1,37 +1,7 @@
 ---
-title: Miele
 description: Instructions on how to set up the Miele integration within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Hub
-  - Light
-  - Select
-  - Sensor
-  - Switch
-  - Vacuum
-ha_iot_class: Cloud Push
 ha_release: '2025.5'
 ha_domain: miele
-ha_codeowners:
-  - '@astrandb'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - light
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_integration_type: hub
-ha_zeroconf: true
-ha_quality_scale: platinum
 ---
 
 The **Miele** {% term integration %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
@@ -151,7 +121,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
-  - **Program**: Shows the currently active program. On coffee machines, the program sensor also provides an extra state attribute `profile` in order to distinguish which profile is in use on the machine.
+  - **Program**: Shows the currently active program. On coffee machines, the program sensor also provides an extra state attribute `profile` to distinguish which profile is in use on the machine.
   - **Program phase**: Shows the current phase in the running program.
   - **Program type**: Shows the current program type.
   - **Spin speed**: Shows the spin speed selected for the current washing machine program.
@@ -193,37 +163,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
 - **Robot vacuum cleaner**: Miele robot vacuum cleaners can be monitored and controlled to a limited extent. The device can be started, stopped, and paused. The fan speed can also be set.
 {% enddetails %}
 
-## Actions
-
-### Action `miele.set_program`
-
-Set and start a program for applicable appliances. Note that the device must be in a state where it will accept a new program, for example, most washing machines must be in state `on` and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device did not accept the action command.
-The action can be set up by UI in Automations editor. It can also be executed in Developer tools.
-
-| Data attribute | Optional |  Description                                                                                                      |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
-| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to use the `get_programs` action from developer tools. It can also be found by fetching a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
-
-### Action `miele.set_program_oven`
-
-Set and start a program for oven appliances. Note that the device must be in a state that will accept a new program. For example, most ovens must be in the state `on`, and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device does not accept the action command.
-The action can be set up by UI in the **Automations** editor. It can also be executed in the **Developer tools**.
-
-| Data attribute | Optional |  Description                                                                                                      |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
-| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to use the `get_programs` action from developer tools. It can also be found by fetching a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
-| `duration`     | yes      |  Set an optional duration for the oven program.|
-| `temperature`  | yes      |  Set an optional target temperature for the oven program.|
-
-### Action `miele.get_programs`
-
-Get the list of available programs and associated parameters for applicable appliances. The API will return an empty list if the device doesn't support programs (for example, freezers). Same requirements on device state as described for `set_program` action above.
-
-| Data attribute | Optional |  Description                                                                                                      |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       |  Select the device in GUI mode, then switch to YAML mode to see the device_id.                                        |
+{% include integrations/actions.md %}
 
 ## Automation examples
 
@@ -326,6 +266,6 @@ Unknown can also be displayed if the state is reported as unknown by the API, us
 
 ## Removing the integration
 
-This integration follows standard integration removal. If you have entered your own credentials, you will be asked if you want to keep them or delete them. If you want to delete them later you can do that from the tree-dot menu in {% my integrations title="**Settings** > **Devices & services**" %}.
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}

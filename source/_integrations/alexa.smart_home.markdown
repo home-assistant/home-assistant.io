@@ -1,8 +1,6 @@
 ---
 title: "Amazon Alexa Smart Home Skill"
 description: "Instructions on how to build Smart Home skill to connect Amazon Alexa with Home Assistant."
-ha_category:
-  - Voice
 ha_release: "0.54"
 ha_codeowners:
   - '@home-assistant/cloud'
@@ -53,6 +51,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Doorbell announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
     - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
   - [Camera](#camera)
+    - [WebRTC live view](#webrtc-live-view)
   - [Climate](#climate)
     - [Set Thermostat Temperature](#set-thermostat-temperature)
     - [Thermostat Mode](#thermostat-mode)
@@ -218,7 +217,7 @@ This test event is a `Discovery` directive, your Home Assistant instance will re
 
 Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN` set, or you haven't enabled `DEBUG` you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
 
-You can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
+You can log in to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
 
 This time, you will get a list of your devices in the response. 🎉
 
@@ -233,7 +232,7 @@ Now remove the long-lived access token (if you want), copy the ARN of your Lambd
 
 ## Account linking
 
-Alexa needs to link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet.
+Alexa needs to link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests can access your home's devices. To link the account, you have to make sure your Home Assistant can be accessed from Internet.
 
 - Return to the [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
 - Find the skill you just created, click `Edit` link in the `Actions` column.
@@ -426,7 +425,7 @@ See [List of Capability Interfaces and Supported Locales][alexa-supported-locale
 <!-- omit in toc -->
 ### Proactive events
 
-The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e., "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
+The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (that is, "Send Alexa Events" enabled). Note the following if you want to enable proactive mode:
 
 - There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events.html#endpoints>
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][alexa-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
@@ -493,8 +492,8 @@ The alarm control panel state must be in the `disarmed` state before arming. Ale
 The alarm control panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
 
 {% note %}
-Alexa does not support arming with voice PIN at this time. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
-The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [entity customization tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the alarm control panel during discovery.
+Alexa does not support arming with voice PIN. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
+The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. To expose the alarm control panel during discovery, set `code_arm_required` to `false` in YAML. For the steps, refer to [Manual customization](/integrations/homeassistant/#manual-customization).
 {% endnote %}
 
 #### Disarming
@@ -522,7 +521,7 @@ Turn on and off Alert, Automation, and Group entities as switches.
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
+Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presence` are supported.
 
 | `device_class` | Alexa Sensor Type |
 | :------------: | :---------------: |
@@ -531,7 +530,7 @@ Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class
 |   `opening`    |      Contact      |
 |    `window`    |      Contact      |
 |    `motion`    |      Motion       |
-|   `presense`   |      Motion       |
+|   `presence`   |      Motion       |
 
 Ask Alexa for the state of a contact sensor.
 
@@ -543,7 +542,7 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 Alexa Routines can be triggered with Binary Sensors exposed as contact or motion sensors.
 
-Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
+Use the [Entity Customization Tool](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
 ### Button, Input Button
 
@@ -558,7 +557,7 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 Alexa Routines can be triggered when Buttons and Input Buttons are pressed.
 
-In order to enable this, buttons will appear to have "presence detection" capability. This is what allows this functionality since Alexa does not support button type devices. To trigger a routine when a button is pressed, select the button in the when menu and then select the "Person" capability.
+To enable this, buttons will appear to have "presence detection" capability. This is what allows this functionality since Alexa does not support button type devices. To trigger a routine when a button is pressed, select the button in the when menu and then select the "Person" capability.
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_button_trigger.png' target='_blank'>
@@ -628,6 +627,18 @@ The Amazon echo device will request the camera stream from Home Assistant. The H
 
 Enable preload stream option for cameras used with echo devices to reduce response time, and prevent timing out before the 6 second limit.
 
+#### WebRTC live view
+
+Echo Show devices can also show your camera's live view using WebRTC. This works for cameras that support WebRTC, either directly or through the [go2rtc](/integrations/go2rtc/) integration. If your setup also meets the requirements for the stream above, that stream keeps working too.
+
+- The Echo Show only works with IPv4 addresses. If your camera stream is only available on an IPv6 address or a local network name (ending in `.local`), the live view won't work.
+- The video doesn't go straight over your local network. Instead, the Echo Show connects through your public internet address, or through a relay server (a TURN server). If you use Home Assistant Cloud, relay servers are set up for you. Without Home Assistant Cloud, your public internet address may work just fine with the default settings. If the live view doesn't start, add your own TURN server with the [WebRTC](/integrations/web_rtc/) integration.
+- If the live view doesn't work, turn on [debug logging](#debugging) for `homeassistant.components.alexa`. The log shows each live view session, the network addresses sent to the Echo Show, and how long Home Assistant took to respond.
+
+{% important %}
+Alexa only checks if a camera supports WebRTC when it discovers your devices. If WebRTC becomes available later, for example because go2rtc started after Alexa discovered your devices, the live view won't show up for that camera. To fix this, just say _"Alexa, discover devices"_, so Alexa picks up the change.
+{% endimportant %}
+
 ### Climate
 
 Single, double, and triple set-point thermostats are supported. The temperature value from the thermostat will also be exposed at a separate [temperature sensor](#sensor).
@@ -675,7 +686,7 @@ Covers with a `device_class` of `blind`, `shade`, `curtin` are shown as an Inter
 
 Covers with the `device_class` of `garage` are shown as a [Garage Door](#garage-doors) and support the Open by Voice PIN feature.
 
-Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to correctly expose a `cover` to Alexa.
+Use the [Entity Customization Tool](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity) to override the `device_class` attribute to correctly expose a `cover` to Alexa.
 
 #### Open/Close/Raise/Lower
 
@@ -979,14 +990,14 @@ Alexa does not allow the following words to be used as activity names:
 
 ### Scene
 
-Activate scenes with scene name, or _"turn on"_ utterance. Home Assistant does not support deactivate or _"turn off"_ for scenes at this time.
+Activate scenes with scene name, or _"turn on"_ utterance. Home Assistant does not support deactivate or _"turn off"_ for scenes.
 
 - _"Alexa, Party Time."_
 - _"Alexa, turn on Party Time."_
 
 ### Script
 
-Run script with script name, or _"turn on"_ utterance.  Deactivate a running script with _"turn off"_ utterance.
+Run script with script name, or _"turn on"_ utterance. Deactivate a running script with _"turn off"_ utterance.
 
 - _"Alexa, Party Time."_
 - _"Alexa, turn on Party Time."_
@@ -996,7 +1007,7 @@ Run script with script name, or _"turn on"_ utterance.  Deactivate a running scr
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-Only temperature sensors are configured at this time.
+Only temperature sensors are configured.
 
 - _"Alexa, what's the temperature in the kitchen?"_
 - _"Alexa, what's the upstairs temperature?"_
@@ -1014,7 +1025,7 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 Alexa Routines can be triggered when Switches and Input Booleans change state.
 
-In order to enable this, Switches and Input Booleans will appear as contact sensors in the when menu of Alexa Routines. This is because Alexa does not support triggering routines from switch-type devices, only from contact and motion sensors. In this menu when you select a switch, `Open` corresponds to `on` and `Close` corresponds to `off`.
+To enable this, Switches and Input Booleans will appear as contact sensors in the when menu of Alexa Routines. This is because Alexa does not support triggering routines from switch-type devices, only from contact and motion sensors. In this menu when you select a switch, `Open` corresponds to `on` and `Close` corresponds to `off`.
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_switch_trigger.png' target='_blank'>
@@ -1076,7 +1087,7 @@ Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
 #### Stop the valve
 
-Valves that support `stop` closing or opening will have an extra toggle control that allows to stop the valve closing or opening operation.
+Valves that support `stop` closing or opening will have an extra toggle control that allows you to stop the valve closing or opening operation.
 
 ### Water heater
 
@@ -1111,9 +1122,9 @@ If the water heater entity supports on/off, use _"turn on"_ and _"turn off"_ utt
 <!-- omit in toc -->
 ### Binary Sensor not available in Routine Trigger
 
-Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
+Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presence` are supported.
 
-Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
+Use the [Entity Customization Tool](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
 <!-- omit in toc -->
 ### Token Invalid and no Refresh Token Available
@@ -1145,6 +1156,6 @@ logger:
 
 [alexa-dev-console]: https://developer.amazon.com/alexa/console/ask
 [emulated-hue-integration]: /integrations/emulated_hue/
-[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token
+[generate-long-lived-access-token]: https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens
 [alexa-display-categories]: https://developer.amazon.com/docs/alexa/device-apis/alexa-discovery.html#display-categories
 [alexa-supported-locales]: https://developer.amazon.com/docs/alexa/device-apis/list-of-interfaces.html

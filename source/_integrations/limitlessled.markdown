@@ -1,18 +1,10 @@
 ---
-title: LimitlessLED
-description: Instructions on how to setup LimitlessLED within Home Assistant.
-ha_category:
-  - Light
-ha_iot_class: Assumed State
+description: Instructions on how to set up LimitlessLED within Home Assistant.
 ha_release: pre 0.7
 ha_domain: limitlessled
-ha_platforms:
-  - light
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **LimitlessLED** {% term integration %} can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
@@ -136,7 +128,7 @@ Refer to the [light](/integrations/light/) documentation for general property us
   - *Color*: There are 256 color possibilities along the LimitlessLED color spectrum. Color properties like saturation and lightness cannot be used - only Hue can. The only exception is white (which may be warm or cold depending on the type of RGBW bulb). If you select a color with saturation or lightness, Home Assistant will calculate the nearest valid LimitlessLED color.
   - *Brightness*: Wi-Fi bridge v6 supports 101 brightness steps; older versions only 25.
 - **White**
-  - When using a legacy Wi-Fi bridge (before v6), you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.
+  - When using a legacy Wi-Fi bridge (before v6), you can observe on the MiLight mobile application, you cannot select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.
   - *Temperature*: Wi-Fi bridge v6 supports 101 temperature steps; older versions only 10.
   - *Brightness*: Wi-Fi bridge v6 supports 101 brightness steps; older versions only 10.
 - **Dimmer** (Only supported on v6 bridges)
@@ -157,7 +149,7 @@ This lack of synchronization is due to a LimitlessLED limitation.
 <img src='/images/screenshots/limitlessled_assumed_state.png' />
 </p>
 
-Because LimitlessLED lights may have an obsolete state, Home Assistant shows the power switch as two buttons rather than a toggle. This ensures that the power can be set with a single click even if the assumed state is wrong. You can change to use the power toggle with [Customize](/docs/configuration/customizing-devices/):
+Because LimitlessLED lights may have an obsolete state, Home Assistant shows the power switch as two buttons rather than a toggle. This ensures that the power can be set with a single click even if the assumed state is wrong. You can change to use the power toggle with [Customize](/docs/configuration/customizing-entities/):
 
 ```yaml
 homeassistant:

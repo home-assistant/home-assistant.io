@@ -1,24 +1,7 @@
 ---
-title: Cookidoo
 description: Instructions on how to integrate the Cookidoo todo list with Home Assistant.
-ha_category:
-  - Calendar
-  - Calendar
-  - To-do list
-  - To-do list
-ha_iot_class: Cloud Polling
 ha_release: 2025.1
-ha_config_flow: true
-ha_codeowners:
-  - '@miaucl'
 ha_domain: cookidoo
-ha_integration_type: service
-ha_platforms:
-  - button
-  - calendar
-  - diagnostics
-  - sensor
-  - todo
 related:
   - docs: /integrations/calendar
     title: Calendar integration documentation
@@ -32,7 +15,6 @@ related:
     title: Cookidoo the official Thermomix recipe platform
   - url: https://www.vorwerk.com/
     title: Vorwerk GmbH
-ha_quality_scale: silver
 ---
 
 The **Cookidoo** {% term integration %} allows you to interact with your shopping lists of [Cookidoo the official Thermomix recipe platform](https://cookidoo.international/) within Home Assistant.

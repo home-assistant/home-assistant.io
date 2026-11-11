@@ -1,25 +1,7 @@
 ---
-title: SwitchBee
 description: Instructions for how to integrate SwitchBee accessories within Home Assistant.
-ha_category:
-  - Button
-  - Climate
-  - Cover
-  - Light
-  - Switch
 ha_release: '2022.10'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@jafar-atili'
 ha_domain: switchbee
-ha_platforms:
-  - button
-  - climate
-  - cover
-  - light
-  - switch
-ha_integration_type: hub
 ---
 
 [SwitchBee](https://www.switchbee.com), is an innovation company making smart homes more accessible and affordable to any household environment.

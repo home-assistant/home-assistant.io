@@ -1,18 +1,7 @@
 ---
-title: OpenAI
 description: Instructions on how to integrate OpenAI as a conversation agent
-ha_category:
-  - AI
-  - Voice
 ha_release: 2023.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: openai_conversation
-ha_integration_type: service
-ha_platforms:
-  - conversation
-  - stt
-  - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -22,16 +11,13 @@ related:
     title: OpenAI API key
   - url: https://www.openai.com
     title: OpenAI
-ha_quality_scale: bronze
-ha_codeowners:
-  - '@Shulyaka'
 ---
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 This integration requires an API key to use, [which you can generate here.](https://platform.openai.com/account/api-keys). This is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
 
@@ -55,6 +41,8 @@ API key:
   description: "API key from OpenAI for authentication."
 {% endconfiguration_basic %}
 
+To change the API key after setup, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the three dots {% icon "mdi:dots-vertical" %} menu on the OpenAI integration entry, then select **Reconfigure**.
+
 {% include integrations/option_flow.md %}
 
 The integration provides the following types of subentries:
@@ -69,8 +57,8 @@ The Conversation and AI Task subentries have the following configuration options
 {% configuration_basic %}
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
-Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+AI tools:
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices."
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
 {% endconfiguration_basic %}
@@ -90,8 +78,10 @@ Store requests and responses in OpenAI:
   description: If enabled, OpenAI stores requests and responses and you can view them in your OpenAI dashboard logs. Disabled by default.
 Service tier:
   description: The available service tiers are Auto, Standard, Flex, and Priority. Flex tier offers lower costs in exchange for slower response times, which can be useful for background automations. [Priority processing](https://openai.com/api-priority-processing/) delivers significantly lower and more consistent latency than the Standard tier at a higher price. Auto is the default value, which uses the [project settings](https://platform.openai.com/settings/organization/projects). See the [Pricing](https://developers.openai.com/api/docs/pricing) for details on the supported models. When the selected tier is unavailable due to capacity or ramp rate limits, the request is processed at the Standard tier, and you are charged the Standard tier price.
+Pro mode:
+  description: Perform more model work to improve reliability on difficult tasks and return a single final answer. Enable it when quality matters more than latency and token usage. Pro mode aggregates the model work performed to produce the final answer and bills those tokens at the selected model’s standard token rates. Pro mode performs more model work than standard mode, increasing token usage and cost. This parameter is only applicable to GPT-5.6 and above; existing Pro model IDs keep their current behavior and pricing.
 Enable web search:
-  description: Enable OpenAI-provided [Web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Note that it is only available for gpt-4o and newer models.
+  description: Enable the OpenAI-provided [web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Conversation and AI Task subentries offer this option for supported models. Web search and code interpreter can be enabled together for AI tasks, including tasks with structured output.
 Search context size:
   description: The search is performed with a separate fine-tuned model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#built-in-tools). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
 Include home location:
@@ -120,141 +110,6 @@ Speed:
 ## Talking to Super Mario over the phone
 
 You can use an OpenAI Conversation integration to [talk to Super Mario and, if desired, have it control devices](/voice_control/assist_create_open_ai_personality/) in your home.
-
-## Actions
-
-{% note %}
-
-The actions below are deprecated and will be removed in the future. Please use the corresponding [AI Task](/integrations/ai_task/) actions instead.
-
-{% endnote %}
-
-### Action `openai_conversation.generate_image`
-
-Allows you to ask OpenAI to generate an image based on a prompt. This action
-populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
-with the requested image.
-
-| Data attribute | Optional | Description                                            | Example          |
-| ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
-| `config_entry`         | no       | Integration entry ID to use.                           |                  |
-| `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
-| `size`                 | yes      | Size of the returned image in pixels. Must be one of `1024x1024`, `1792x1024`, or `1024x1792`, defaults to `1024x1024`. | 1024x1024        |
-| `quality`              | yes      | The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. | standard         |
-| `style`                | yes      | The style of the generated images. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. | vivid            |
-
-```yaml
-action: openai_conversation.generate_image
-data:
-  config_entry: abce6b8696a15e107b4bd843de722249
-  prompt: "Cute picture of a dog chasing a herd of cats"
-  size: 1024x1024
-  quality: standard
-  style: vivid
-response_variable: generated_image
-```
-
-The response data field `url` will contain a URL to the generated image and `revised_prompt` will contain the updated prompt used.
-
-#### Example using a generated image entity
-
-The following example shows an automation that generates an image and displays
-it in a image template entity. The prompt uses the state of the weather entity
-to generate a new image of New York in the current weather state.
-
-The resulting image entity can be used in, for example, a card on your dashboard.
-
-The *config_entry* is installation specific. To get the value, make sure the integration has been installed.
-Then, go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. Ensure you are in UI mode and enter the following below:
-
-![Open AI Conversation UI Mode](/images/integrations/openai_conversation/openai_developer_tools_ui.png)
-
-Select **YAML Mode** to reveal the *config_entry* value to be used in the below example automation.
-
-![Open AI Conversation YAML Mode](/images/integrations/openai_conversation/openai_developer_tools_yaml.png)
-
-```yaml
-automation:
-  - alias: "Update image when weather changes"
-    triggers:
-      - trigger: state
-        entity_id: weather.home
-    actions:
-      - alias: "Ask OpenAI to generate an image"
-        action: openai_conversation.generate_image
-        response_variable: generated_image
-        data:
-          config_entry: abce6b8696a15e107b4bd843de722249
-          size: "1024x1024"
-          prompt: >-
-            New York when the weather is {{ states("weather.home") }}
-
-      - alias: "Send out a manual event to update the image entity"
-        event: new_weather_image
-        event_data:
-          url: '{{ generated_image.url }}'
-
-template:
-  - trigger:
-      - alias: "Update image when a new weather image is generated"
-        trigger: event
-        event_type: new_weather_image
-    image:
-      - name: "AI generated image of New York"
-        url: "{{ trigger.event.data.url }}"
-```
-
-### Action: Generate content
-
-The `openai_conversation.generate_content` action allows you to ask OpenAI to generate a content based on a prompt. This action
-populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
-with the response from OpenAI.
-
-- **Data attribute**: `config_entry`
-  - **Description**: Integration entry ID to use.
-  - **Example**:
-  - **Optional**: no
-
-- **Data attribute**: `prompt`
-  - **Description**: The text to generate content from.
-  - **Example**: Describe the weather
-  - **Optional**: no
-
-- **Data attribute**: `image_filename`
-  - **Description**: List of file names for images to include in the prompt.
-  - **Example**: /tmp/image.jpg
-  - **Optional**: yes
-
-```yaml
-action: openai_conversation.generate_content
-data:
-  config_entry: abce6b8696a15e107b4bd843de722249
-  prompt: >-
-    Very briefly describe what you see in this image from my doorbell camera.
-    Your message needs to be short to fit in a phone notification. Don't
-    describe stationary objects or buildings.
-  image_filename:
-    - /tmp/doorbell_snapshot.jpg
-response_variable: generated_content
-```
-
-The response data field `text` will contain the generated content.
-
-Another example with multiple images:
-
-```yaml
-action: openai_conversation.generate_content
-data:
-  prompt: >-
-    Briefly describe what happened in the following sequence of images
-    from my driveway camera.
-  image_filename:
-    - /tmp/driveway_snapshot1.jpg
-    - /tmp/driveway_snapshot2.jpg
-    - /tmp/driveway_snapshot3.jpg
-    - /tmp/driveway_snapshot4.jpg
-response_variable: generated_content
-```
 
 ## Known Limitations
 
