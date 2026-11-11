@@ -41,6 +41,10 @@ Host:
 {% configuration_basic %}
 Keep Master Light:
   description: Keep the master light (the main light entity that controls the entire WLED device), even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to be added and removed dynamically.
+Warm white color temperature:
+  description: The color temperature of the warm white LEDs on a strip with separate warm and cold white (CCT), for example 3000 K. You can find it in the specifications of the LED strip. Set it together with the cold white color temperature, or leave both empty.
+Cold white color temperature:
+  description: The color temperature of the cold white LEDs on a CCT strip, for example 6500 K. When both are set, the light uses this range for its color temperature, so requested color temperatures match what the strip shows. Without them, the integration assumes a range of 2000 K to 6535 K.
 {% endconfiguration_basic %}
 
 ## Supported functionality
