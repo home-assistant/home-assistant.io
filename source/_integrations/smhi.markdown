@@ -196,9 +196,9 @@ automation: |
 
 ## Data updates
 
-The integration {% term polling polls %} SMHI for new weather forecasts and fire risk forecasts every 31 minutes.
+The integration {% term polling polls %} SMHI for new weather forecasts, fire risk forecasts and radar data every 31 minutes.
 
-The radar data is loaded when the integration starts. After that, the integration polls SMHI for new radar data every 5 minutes, which is how often SMHI publishes a new radar image. This only happens when at least one of the radar entities is enabled. The radar image itself is only downloaded when it is shown, and once for each new radar image.
+The radar data is loaded when the integration starts. After that, it is only polled when at least one of the radar entities is enabled. The radar image itself is only downloaded when it is shown, and once for each new radar image.
 
 The `weather.get_forecasts` action uses the forecast data that is already loaded, so it does not send extra requests to SMHI.
 
