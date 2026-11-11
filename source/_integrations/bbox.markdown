@@ -51,7 +51,7 @@ password:
 scan_interval:
   description: Time between device list scans.
   required: false
-  type: time_period
+  type: time
   default: 60 seconds
 {% endconfiguration %}
 
