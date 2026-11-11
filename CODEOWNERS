@@ -813,6 +813,7 @@ source/_integrations/number.mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/nut.markdown @bdraco @ollo69 @pestevez @tdfountain
 source/_integrations/nutrichef.markdown @bdraco
 source/_integrations/nws.markdown @MatthewFlamm @kamiyo
+source/_integrations/nx584.markdown @chrodriguez
 source/_integrations/nyt_games.markdown @joostlek
 source/_integrations/nzbget.markdown @chriscla
 source/_integrations/obihai.markdown @dshokouhi @ejpenney
@@ -1295,6 +1296,7 @@ source/_integrations/whisper.markdown @synesthesiam
 source/_integrations/whois.markdown @frenck
 source/_integrations/wiffi.markdown @mampfes
 source/_integrations/wiim.markdown @Linkplay2020
+source/_integrations/wij_vergelijken_energie.markdown @Miggets7
 source/_integrations/wilight.markdown @leofig-rj
 source/_integrations/willow.markdown @paxprz
 source/_integrations/window.markdown @home-assistant/core
@@ -1540,6 +1542,7 @@ source/_actions/flo.set_sleep_mode.markdown @dmulcahey
 source/_actions/flux_led.set_custom_effect.markdown @icemanch
 source/_actions/flux_led.set_music_mode.markdown @icemanch
 source/_actions/flux_led.set_zones.markdown @icemanch
+source/_actions/foreca.get_forecasts_extra.markdown @EetuPelkonen @hyvatti-foreca
 source/_actions/forecast_solar.get_forecast.markdown @klaasnicolaas @frenck
 source/_actions/foscam.ptz.markdown @Foscam-wangzhengyu
 source/_actions/foscam.ptz_preset.markdown @Foscam-wangzhengyu
@@ -1927,6 +1930,8 @@ source/_actions/nuki.lock_n_go.markdown @pschmitt @pvizeli @pree
 source/_actions/nuki.set_continuous_mode.markdown @pschmitt @pvizeli @pree
 source/_actions/number.set_value.markdown @home-assistant/core @Shulyaka
 source/_actions/nws.get_forecasts_extra.markdown @MatthewFlamm @kamiyo
+source/_actions/nx584.bypass_zone.markdown @chrodriguez
+source/_actions/nx584.unbypass_zone.markdown @chrodriguez
 source/_actions/nzbget.pause.markdown @chriscla
 source/_actions/nzbget.resume.markdown @chriscla
 source/_actions/nzbget.set_speed.markdown @chriscla
@@ -2110,6 +2115,7 @@ source/_actions/snapcast.snapshot.markdown @luar123
 source/_actions/snooz.transition_off.markdown @AustinBrunkhorst
 source/_actions/snooz.transition_on.markdown @AustinBrunkhorst
 source/_actions/sofar.set_active_power_limit.markdown @darkrain-nl
+source/_actions/sofar.set_battery_cutoffs.markdown @darkrain-nl
 source/_actions/sofar.set_feed_in_limit.markdown @darkrain-nl
 source/_actions/sofar.set_passive_mode_power.markdown @darkrain-nl
 source/_actions/sofar.set_passive_mode_timeout.markdown @darkrain-nl
@@ -2418,6 +2424,8 @@ source/_triggers/battery.level_crossed_threshold.markdown @home-assistant/core
 source/_triggers/battery.no_longer_low.markdown @home-assistant/core
 source/_triggers/battery.started_charging.markdown @home-assistant/core
 source/_triggers/battery.stopped_charging.markdown @home-assistant/core
+source/_triggers/button.held.markdown @home-assistant/core
+source/_triggers/button.hold_ended.markdown @home-assistant/core
 source/_triggers/button.pressed.markdown @home-assistant/core
 source/_triggers/calendar.event_ended.markdown @home-assistant/core
 source/_triggers/calendar.event_started.markdown @home-assistant/core
