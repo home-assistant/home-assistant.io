@@ -24,7 +24,7 @@ To apply a Mood from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **LIFX: Set mood**.
+5. From the search box, search for and select **Set mood**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX lights are in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 7. Pick a value in **Mood**.
 8. Select **Save**.
@@ -86,7 +86,7 @@ Every theme the integration knows can be applied as a Mood. The [Themes](/integr
 When the sun sets, apply the `warming` Mood to the living room lights, so the room shifts to an evening look at the brightness it already has.
 
 - **Trigger**: Sunset
-- **Action**: LIFX: Set mood
+- **Action**: Set mood
   - **Target**: Living room (`light.living_room`)
   - **Mood**: Moods > Warming
 
@@ -101,6 +101,30 @@ automation: |
         entity_id: light.living_room
       data:
         mood: warming
+{% endexample %}
+
+### Automation: wind the bedroom down at bedtime
+
+At 21:30, apply the `sleepy` Mood to every LIFX light in the bedroom. The bedside bulbs and the strip are treated as one group, so the bulbs share the Mood's colors out between them instead of each showing the same one.
+
+- **Trigger**: Time
+  - **At**: 21:30
+- **Action**: Set mood
+  - **Target**: Bedroom area
+  - **Mood**: Moods > Sleepy
+
+{% example %}
+automation: |
+  alias: "Apply a sleepy Mood in the bedroom at bedtime"
+  triggers:
+    - trigger: time
+      at: "21:30:00"
+  actions:
+    - action: lifx.set_mood
+      target:
+        area_id: bedroom
+      data:
+        mood: sleepy
 {% endexample %}
 
 {% include actions/stuck.md %}

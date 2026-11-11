@@ -118,11 +118,11 @@ Both buttons are configuration entities.
   - **Description**: Applies one of the LIFX app's Moods to the light, the way the app does.
   - **Options**: any of the [available themes](#themes), shown as category and name
   - **Available for**: multizone and matrix lights
-  - **Remarks**: Configuration entity. It shows the Mood Home Assistant applied, from this select or the [**Set mood**](/actions/lifx.set_mood/) action, for as long as the light still shows it. Any change to the light, including its brightness, sets it to unknown, and so does starting or stopping an effect. It is also unknown after Home Assistant restarts, and does not follow Moods picked in the LIFX app.
+  - **Remarks**: Configuration entity. It shows the Mood Home Assistant applied, from this select or the [**Set mood**](/actions/lifx.set_mood/) action, for as long as the light still shows it. Any change to the light, including its brightness, sets it to unknown, and so does starting or stopping an effect. It also stays unknown when a Mood is applied while the Move effect runs, even though Move carries on with that Mood. It is also unknown after Home Assistant restarts, and does not follow Moods picked in the LIFX app.
 
 - **Theme**
   - **Description**: Paints one of the built-in themes across the light.
-  - **Options**: any of the [available themes](#themes), shown as category and name
+  - **Options**: any of the [available themes](#themes), shown as category and name. The list also keeps the [renamed themes](#themes), which paint the theme they became.
   - **Available for**: multizone and matrix lights
   - **Remarks**: Configuration entity. It shows the theme Home Assistant painted, from this select, the [**Paint theme**](/actions/lifx.paint_theme/) action, or the Morph effect, for as long as the light still shows it. It goes unknown in the same cases as **Mood**, and while the Move effect runs, even when Move was started with a theme. Applying a Mood sets it to unknown, and painting a theme sets **Mood** to unknown.
 
