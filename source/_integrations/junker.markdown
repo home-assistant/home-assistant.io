@@ -35,17 +35,15 @@ Municipality:
     description: The municipality name as it appears in Junker.
 Area:
     description: The collection area. Only requested if Junker provides different schedules for separate areas of your municipality.
-Name:
-    description: The name of the device.
 Waste types to show:
     description: The waste types to include in the calendar and sensors.
-Waste type name:
+Name:
     description: A custom name for each selected waste type. You are asked for it once per selected waste type.
 {% endconfiguration_basic %}
 
 ## Configuration options
 
-The name, the waste types to show, and their custom names can be changed at any time:
+The waste types to show and their custom names can be changed at any time. The options are only available while the integration is loaded:
 
 {% include integrations/option_flow.md %}
 
@@ -57,16 +55,25 @@ The name, the waste types to show, and their custom names can be changed at any 
 
 ### Sensors
 
-- **Tomorrow's collection**: the waste types collected tomorrow. It is unavailable if nothing is collected tomorrow. The `waste_types` attribute contains the list of waste types.
+- **Tomorrow collection**: the waste types collected tomorrow. It is unavailable if nothing is collected tomorrow. The `waste_types` attribute contains the list of waste types.
 - **One sensor per selected waste type**: the number of days until the next collection of that waste type (1 means tomorrow). Today's collection is not counted. The sensor has no value if no future collection is scheduled.
 
 ## Data updates
 
 The integration polls Junker's public calendar pages once a day. The entities are recalculated every midnight, without a new request.
 
-## Examples
+## Junker automation examples
 
-### Notify the evening before a collection
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Notify the evening before a collection
+
+You can create this reminder in the [visual automation editor](/docs/automation/editor/):
+1. Add a time trigger for `20:00:00`.
+2. Add a **Not** condition containing two **State** conditions for your **Tomorrow collection** sensor: one for `unavailable` and one for `unknown`. This prevents notifications when the sensor has no usable value.
+3. Add your notification action. For its message, use `Tomorrow: {{ states('sensor.home_tomorrow_collection') }}`, replacing the entity ID with your sensor's entity ID.
+The optional YAML below is formatted for `configuration.yaml`. Before pasting it into the visual editor, remove the `automation:` line and the `- ` before `alias`, then unindent the automation so `alias`, `triggers`, `conditions`, and `actions` start at the left margin. Replace both occurrences of `sensor.home_tomorrow_collection` with your sensor's entity ID, and replace `notify.notify` with your notification action.
+
 
 ```yaml
 automation:
@@ -79,7 +86,9 @@ automation:
         conditions:
           - condition: state
             entity_id: sensor.home_tomorrow_collection
-            state: unavailable
+            state:
+              - "unavailable"
+              - "unknown"
     actions:
       - action: notify.notify
         data:
