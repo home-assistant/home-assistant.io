@@ -70,7 +70,7 @@ If you run Home Assistant in a container, you can run a Docker image of the [Mat
 
 ## Matter cameras
 
-Home Assistant supports cameras that use Matter 1.5 or later.
+Home Assistant supports cameras that use Matter 1.5 or later. Camera support requires the Matter Server app 9.3.0 or newer. If you run the Matter server in a container, use [Matter Server](https://github.com/matter-js/matterjs-server) 1.5.0 or newer.
 
 After you add a Matter camera, you can watch its live video, take snapshots, and use the camera in your dashboards and automations, like any other camera in Home Assistant. The live video is streamed with <abbr title="Web Real-Time Communication">WebRTC</abbr>, directly between your browser and the camera. When privacy mode is turned on in the camera, the camera entity shows as off.
 
