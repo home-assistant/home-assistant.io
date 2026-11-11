@@ -139,6 +139,48 @@ You can use the OpenAI integration to [talk to Super Mario and, if desired, have
 - Web search and the code interpreter don't work when **Reasoning effort** is set to **Minimal**.
 - Some models don't support web search, image generation, or the code interpreter. For these models, the related options aren't shown.
 
+## Troubleshooting
+
+{% details "OpenAI asks for the API key again" %}
+
+### Symptom: "Reauthentication required. Please enter your updated API key."
+
+In {% my integrations title="**Settings** > **Devices & services**" %}, OpenAI is listed under **Attention required**. When you select **Reconfigure**, the dialog shows the message "Reauthentication required. Please enter your updated API key."
+
+#### Description
+
+OpenAI rejected the API key when Home Assistant started the integration. For example, this happens when the key was deleted in the OpenAI portal.
+
+#### Resolution
+
+1. On the [API Keys page](https://platform.openai.com/account/api-keys), create a new API key.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. Under **Attention required**, on the OpenAI card, select **Reconfigure**.
+4. Enter the new API key, and select **Submit**.
+   - Result: The integration is set up again, and OpenAI is no longer listed under **Attention required**.
+
+{% enddetails %}
+
+{% details "Repair issue: Organization verification required" %}
+
+### Symptom: "Your organization must be verified to use this model."
+
+In {% my repairs title="**Settings** > **System** > **Repairs**" %}, the repair issue **Organization verification required** appears. It appears when a conversation agent or AI task uses a model that needs a verified organization.
+
+#### Description
+
+OpenAI only allows verified organizations to use some models. The model that you selected is one of them. For details, refer to the [OpenAI help article on organization verification](https://help.openai.com/en/articles/10910291-api-organization-verification).
+
+#### Resolution
+
+1. In the [OpenAI organization settings](https://platform.openai.com/settings/organization/general), select **Verify Organization**, and follow the steps.
+2. Wait up to 15 minutes. It can take that long until OpenAI gives you access to the model.
+3. Talk to the conversation agent again, or run the AI task again.
+   - Result: The model answers. The repair issue stays in the list until Home Assistant restarts.
+   - If you don't want to verify your organization, select another model instead. To do so, on the OpenAI integration page, in the row of the conversation agent or AI task, select **Reconfigure conversation agent** or **Reconfigure AI task** {% icon "mdi:cog-outline" %}.
+
+{% enddetails %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
