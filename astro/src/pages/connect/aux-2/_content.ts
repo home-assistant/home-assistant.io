@@ -199,7 +199,7 @@ export const faq: FaqItem[] = [
   {
     question: "Does Connect AUX-2 come with any audio or serial cables?",
     answer:
-      "<p>No. Because audio setups vary widely – from 3.5mm AUX and RCA to dedicated RS-232 serial connections – cables can be bought separately so you can choose the exact length and connector type that fits your existing equipment. See \"What's in the box\" for details.</p>",
+      "<p>No. Audio setups vary widely, from 3.5 mm AUX and RCA to dedicated RS-232 serial connections. Buying cables separately lets you choose the exact length and connector type that fits your equipment. See <a href=\"#specs\">In the box</a> for what’s included.</p>",
     cta: {
       label: "What's in the box",
       href: "https://support.nabucasa.com/hc/en-us/articles/40528614062621",
@@ -217,7 +217,7 @@ export const faq: FaqItem[] = [
   {
     question: "Can AUX-2 connect with Zigbee devices?",
     answer:
-      "<p>Yes, but we would recommend caution in using it. This setup hasn't been widely tested yet, and the setup guide is in the developer documentation. It only works with ZHA, and not Zigbee2MQTT, and requires Home Assistant 2026.11 and above.</p>",
+      "<p>Yes, but we recommend caution. This setup hasn’t been widely tested yet, and the setup guide is in the developer documentation. It works only with ZHA, not Zigbee2MQTT, and needs Home Assistant 2026.11 or later.</p>",
     cta: {
       label: "ZBT-2 setup guide (developer section)",
       href: "https://support.nabucasa.com/hc/en-us/articles/40529064396445",
@@ -244,7 +244,7 @@ export const faq: FaqItem[] = [
   {
     question: "Which streaming services are supported?",
     answer:
-      "<p>Yes, if Music Assistant supports it. Music Assistant plays from streaming services and from your own music files.</p>",
+      "<p>Any service that Music Assistant supports. Music Assistant plays from streaming services and from your own music files.</p>",
     cta: {
       label: "Music Assistant music sources",
       href: "https://music-assistant.io/music-providers/",
@@ -253,7 +253,7 @@ export const faq: FaqItem[] = [
   {
     question: "How do I connect AUX-2 with my existing stereo or speakers?",
     answer:
-      "<p>Yes, with any stereo, AV receiver, or powered speakers that have an auxiliary input. It doesn't amplify, so unpowered speakers need an audio amplifier.</p>",
+      "<p>With any stereo, AV receiver, or powered speakers that have an auxiliary input. It doesn’t amplify, so unpowered speakers need an audio amplifier.</p>",
   },
   {
     question: "Can it play in sync with my other speakers?",
@@ -285,6 +285,6 @@ export const faq: FaqItem[] = [
   {
     question: "Can Home Assistant turn on my receiver or change its volume?",
     answer:
-      "<p>Yes, if the receiver has a serial RS-232 port and a Home Assistant integration.</p>",
+      "<p>Yes, if the receiver has an RS-232 serial port and a Home Assistant integration.</p>",
   },
 ];
