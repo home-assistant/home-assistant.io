@@ -35,7 +35,11 @@ Until you accept the warning, Home Assistant cannot install or update Marketplac
 
 ## What you can install
 
-Marketplace projects are published in GitHub repositories. A repository is a project's source-code location on GitHub. The Marketplace includes the following content types.
+Marketplace projects are published in GitHub repositories. A repository is a project's source-code location on GitHub.
+
+The Marketplace doesn't install apps. Apps run next to Home Assistant as separate applications, and you install them from the app store on {% term "Home Assistant Operating System" %}. For the differences, refer to [Apps and integrations](/docs/apps-and-integrations/).
+
+The Marketplace includes the following content types.
 
 ### Integrations
 
@@ -235,10 +239,10 @@ By default, the Marketplace gets the catalog and everything you install from Git
 The following download sources are available:
 
 - **GitHub**: run by GitHub and the Open Home Foundation. This is the default.
-- **Chinese Community Relays**: run by the Home Assistant community in China ([hasscn.top](https://hasscn.top)). When a relay cannot be reached, downloads fall back to third-party relays.
+- **Unofficial China relays**: run by the Home Assistant China community ([hasscn.top](https://hasscn.top)), with third-party relays as a fallback.
 
 {% important %}
-With a relay as the download source, everything the Marketplace downloads goes through whoever runs that relay, including any third-party relays it falls back to: the catalog, and the content you install. Only choose a download source you trust.
+With a relay as the download source, everything the Marketplace downloads goes through whoever runs that relay, including any third-party relays it falls back to: the catalog and the content you install. Only choose a download source you trust.
 {% endimportant %}
 
 To change the download source:
@@ -263,7 +267,7 @@ During the migration:
 - Your custom repositories and update entities carry over with their names, areas, and labels.
 - The HACS integration is removed, together with its files.
 - Bookmarks to `/hacs` open the Marketplace.
-- If you used [HACS-China](https://github.com/hacs-china), the Marketplace switches to the [Chinese Community Relays](#download-source) as the download source. A GitHub token from its shared pool is removed. Your own GitHub connection is kept.
+- If you used [HACS-China](https://github.com/hacs-china), the Marketplace switches to the [Unofficial China relays](#download-source) as the download source. A GitHub token from its shared pool is removed. Your own GitHub connection is kept.
 
 The following HACS features and paths change in the Marketplace:
 
