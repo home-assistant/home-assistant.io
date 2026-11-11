@@ -13,7 +13,12 @@
   "categories": [
     "buttons_remotes"
   ],
+  "connectivity": [
+    "bluetooth",
+    "infrared"
+  ],
   "platforms": [
+    "diagnostics",
     "remote",
     "select"
   ],

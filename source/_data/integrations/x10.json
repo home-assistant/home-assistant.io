@@ -7,6 +7,9 @@
     "hubs_protocols",
     "lighting"
   ],
+  "connectivity": [
+    "x10"
+  ],
   "platforms": [
     "light"
   ]

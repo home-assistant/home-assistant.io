@@ -13,6 +13,9 @@
     "climate.heat_pumps_air_conditioning",
     "climate.fans_ventilation"
   ],
+  "connectivity": [
+    "modbus"
+  ],
   "platforms": [
     "climate",
     "diagnostics"

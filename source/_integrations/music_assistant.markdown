@@ -39,6 +39,7 @@ There is currently support for the following Home Assistant Platforms:
 - [Media player](#media-player-entities)
 - [Dashboard displays](#dashboards)
 - [Button](#favorite-current-song-button)
+- [Time](#sleep-timer)
 
 Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
 
@@ -96,6 +97,12 @@ This feature requires Music Assistant server version 2.10 or later.
 ### Favorite current song button
 
 The Music Assistant integration creates a button entity for each player to favorite the current song. Pressing this button (manually or by automation) adds the current song to your Music Assistant favorites. This works for songs stored locally as well as for tracks from streaming providers. It also works with remote content such as Spotify Connect, AirPlay, or a radio station, as long as the external source provides an artist and title combination (and optionally the album). 
+
+### Sleep timer
+
+The Music Assistant integration creates a **Sleep timer** time entity for each player. Set it to the time of day when you want playback on that player to stop. If the time you set has already passed today, the sleep timer ends at that time tomorrow. When a sleep timer is active, the entity shows when it ends.
+
+The **Sleep timer** entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first.
 
 ### Player options
 

@@ -2,6 +2,7 @@
 title: "Reject a quest invitation"
 action: habitica.reject_quest
 domain: habitica
+response: optional
 description: "Rejects a pending quest invitation for your Habitica character."
 ---
 
@@ -48,6 +49,10 @@ config_entry:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

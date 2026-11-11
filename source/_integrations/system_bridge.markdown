@@ -22,14 +22,14 @@ You will need your token. For instructions on finding your token, follow the ste
 
 This integration provides the following binary sensors:
 
-| Name                  | Description                          |
-| --------------------- | ------------------------------------ |
-| AC Power              | Whether the device is on AC power    |
-| Battery Is Charging   | Whether the battery is charging      |
-| Camera In Use         | Whether the camera/webcam is in use  |
-| Locked                | Whether the user's session is locked |
-| Pending Reboot        | Whether a reboot is pending          |
-| New Version Available | Whether a new version is available   |
+| Name                  | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| AC Power              | Whether the device is on AC power                |
+| Battery Is Charging   | Whether the battery is charging                  |
+| Camera In Use         | Whether the camera/webcam is in use              |
+| Session lock          | Whether the user's session is Locked or Unlocked |
+| Pending Reboot        | Whether a reboot is pending                      |
+| New Version Available | Whether a new version is available               |
 
 ## Sensors
 
@@ -130,9 +130,27 @@ Each entity is added once the device first reports it, so devices without power 
 
 ## Media player
 
-The integration also provides a media player. This allows you control the currently playing media on your device.
+The integration provides a media player for the media currently playing on your device. It shows the title, artist, album, position and other details System Bridge reports, and you can play, pause, stop and skip tracks.
 
-> This is currently only supported devices running System Bridge on Windows.
+What else you can control depends on the operating system:
+
+- **Linux**: With System Bridge 5.20.0 or later, you can also seek, set the volume, and turn shuffle and repeat on or off, when the player supports it.
+- **Windows**: Shuffle and repeat are shown, but can't be changed.
+- **macOS**: Only play, pause and stop are available.
+
+When more than one app is playing, the media player follows the one that's playing, or else the first one that's paused. With System Bridge 5.23.0 or later, its source list holds every player it can see: pick one to show and control that player, or pick `Automatic` to go back to following the playing one. The pick resets when Home Assistant restarts.
+
+### Audio devices
+
+The `Audio` media player sets the volume of whichever output is the system default and mutes it, so it's the system volume. It follows the default when you switch outputs, which makes it the one to use in automations. Its source list holds your outputs: pick one to make it the default. The volume on the main media player is the playing app's own volume, not the system volume.
+
+Each audio output, such as speakers or headphones, also gets a media player named after it, such as `Speakers output`, to set its volume and mute it.
+
+Each audio input, such as a microphone, gets a `Microphone input volume` number entity to set its volume from 0 to 100%, and a `Microphone input mute` switch entity to mute it. An input only gets these entities once System Bridge reports its volume or mute state. The `Audio input` select entity picks the default input.
+
+An audio device connected later, such as a USB headset, gets its entities when it first shows up, and they become unavailable while it's disconnected.
+
+Audio devices need System Bridge 5.16.0 or later, on Linux or Windows. On Linux, they also require `pactl` with JSON support (PulseAudio 16 or later), using PulseAudio or PipeWire with `pipewire-pulse`.
 
 ## Media source
 
@@ -213,6 +231,14 @@ Here is an example action that opens a URL in the device's browser:
 This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file, such as an MP3.
 
 {% include integrations/actions.md %}
+
+## Data updates
+
+System Bridge sends data to Home Assistant as it changes, over a WebSocket connection. If no data arrives for 30 seconds, Home Assistant checks the connection is still open and reconnects if it isn't.
+
+With System Bridge 5.24.0 and later, the computer tells Home Assistant just before it goes to sleep or shuts down, so its entities become unavailable straight away. Home Assistant logs once that the computer is unavailable, and once when it's back.
+
+While the computer can't be reached, Home Assistant tries to reconnect after 30 seconds, then waits twice as long after each failed attempt, up to 2 minutes. Once it reconnects, the entities update again.
 
 ## Known limitations
 

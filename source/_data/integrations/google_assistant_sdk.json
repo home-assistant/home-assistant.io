@@ -11,6 +11,9 @@
   "categories": [
     "ai_voice.voice_assistants"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "diagnostics",
     "notify"

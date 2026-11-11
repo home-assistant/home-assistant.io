@@ -16,6 +16,9 @@
     "lighting.bulbs_lamps",
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",
@@ -24,6 +27,7 @@
     "cover",
     "diagnostics",
     "event",
+    "fan",
     "infrared",
     "light",
     "media_player",

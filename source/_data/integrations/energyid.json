@@ -11,5 +11,8 @@
   "quality_scale": "silver",
   "categories": [
     "energy.meters_monitoring"
+  ],
+  "connectivity": [
+    "cloud"
   ]
 }

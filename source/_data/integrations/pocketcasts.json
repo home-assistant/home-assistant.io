@@ -6,6 +6,9 @@
   "categories": [
     "media_entertainment.music_radio_services"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

@@ -12,6 +12,9 @@
     "computers_network.nas_servers",
     "security_safety.cameras"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

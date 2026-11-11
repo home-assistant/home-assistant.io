@@ -2,6 +2,7 @@
 title: "Get lock users"
 action: matter.get_lock_users
 domain: matter
+response: required
 description: "Returns all users configured on a Matter lock."
 related_actions:
   - matter.set_lock_user
@@ -12,8 +13,6 @@ related_actions:
 Use this action to list all the users configured on a Matter lock. A common use is to review who has access, for example before you add or remove a user.
 
 For security, the lock never returns the actual credential secrets, such as PIN codes or RFID tag values. It only returns a reference to each credential.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -50,6 +49,8 @@ This action has no options.
 {% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the maximum number of users the lock supports and a list of the users that are configured. The response includes the following fields:
 

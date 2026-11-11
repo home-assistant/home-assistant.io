@@ -7,6 +7,9 @@
   "categories": [
     "productivity_information"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

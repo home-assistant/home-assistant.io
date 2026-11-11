@@ -9,6 +9,9 @@
   "categories": [
     "computers_network.cloud_developer_tools"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "switch"

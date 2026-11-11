@@ -6,6 +6,9 @@
   "categories": [
     "lighting.bulbs_lamps"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "scene"
   ]
