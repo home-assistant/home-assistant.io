@@ -4,6 +4,8 @@ trigger: button.pressed
 domain: button
 description: "Triggers when one or more buttons are pressed."
 related_triggers:
+  - button.held
+  - button.hold_ended
   - event.received
 ---
 
@@ -51,7 +53,8 @@ This trigger has no additional YAML options beyond the target.
   1. **Single press** (`single_press`)
   2. **Press end** (`press_end`), when the button is released
   3. **Press start** (`press_start`), when the button is pushed down
-- Other event types, such as **Long press start**, **Long press end**, or **Multi-press**, don't start the automation. To react to those, use the [Event received](/triggers/event.received/) trigger instead.
+- Other event types, such as **Long press start**, **Long press end**, or **Multi-press**, don't start the automation. To react to a button being held, use the [Button held](/triggers/button.held/) trigger. To react to its release after a hold, use the [Button hold ended](/triggers/button.hold_ended/) trigger. To react to other event types, use the [Event received](/triggers/event.received/) trigger instead.
+- If the button supports **Press start** but neither **Single press** nor **Press end**, this trigger also fires when you start holding the button. If you also use the [Button held](/triggers/button.held/) trigger for the same button, both triggers fire when you hold it.
 - Event entities with another device class are skipped, even if you select them directly.
 - A button event entity that supports none of the event types above never starts the automation. Each event it receives records a **Did not trigger** trace instead. For details, refer to [Testing automations](/docs/automation/testing/#how-many-traces-are-kept).
 - Changes to `unavailable` or `unknown` do not count as button presses.

@@ -2,6 +2,7 @@
 title: "Update a mealplan"
 action: mealie.update_mealplan
 domain: mealie
+response: optional
 description: "Update an existing meal plan in Mealie."
 related_actions:
   - mealie.set_mealplan
@@ -13,7 +14,7 @@ related_actions:
 
 Use this action to update an existing meal plan in Mealie. You can plan either a recipe or a meal note.
 
-This action can optionally return the updated meal plan in a response variable, which you can use in later steps of the same automation or script.
+The data it returns is the updated meal plan.
 
 {% include actions/ui_header.md %}
 
@@ -101,6 +102,10 @@ note_text:
   required: false
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 ## Good to know
 
