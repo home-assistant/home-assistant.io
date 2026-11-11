@@ -70,7 +70,7 @@ variables:
 
 - If the script is already running, what happens next depends on its [script mode](/docs/script/#script-modes). For example, a script in single mode logs a warning and does not start a second run.
 - Errors in the script do not stop the automation or script that started it, because the two run separately.
-- If you target several scripts at once, they are all started, in the order you list them.
+- If you target several scripts at once, they start one after the other. They start in the order Home Assistant loaded them, not in the order you list them. If the order matters, use a separate **Turn on script** action for each script.
 
 {% include actions/try_it.md %}
 
