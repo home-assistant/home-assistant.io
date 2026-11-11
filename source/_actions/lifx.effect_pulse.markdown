@@ -46,10 +46,10 @@ RGB color:
   description: The temporary color in RGB format, as a list of three numbers from 0 to 255. Use only one of the color options.
   required: false
 Hue/Sat color:
-  description: The temporary color as a list of two numbers, a hue from 0 to 360 and a saturation from 0 to 100. Use only one of the color options.
+  description: The temporary color as a list of two numbers, a hue from 0 to 360 and a saturation from 0 to 100, such as `[300, 70]`. Use only one of the color options.
   required: false
 XY-color:
-  description: The temporary color as a list of two CIE 1931 x and y coordinates, each from 0 to 1. Use only one of the color options.
+  description: The temporary color as a list of two CIE 1931 x and y coordinates, each from 0 to 1, such as `[0.52, 0.43]`. Use only one of the color options.
   required: false
 Color temperature:
   description: The temporary color as a white color temperature, from 1500 to 9000 Kelvin. Use only one of the color options.
