@@ -103,7 +103,7 @@ When you ask Assist "Is the garage door open?", this automation answers with the
 - **Trigger**: Sentence
   - **Sentence**: `Is the garage door open`
 - **Action**: Set conversation response
-  - **Set conversation response**: {% raw %}`The garage door is {{ states('cover.garage_door') }}.`{% endraw %}
+  - **Set conversation response**: `The garage door is {{ states('cover.garage_door') }}.`
 
 {% details "YAML example for answering whether the garage door is open" %}
 
@@ -128,9 +128,9 @@ When you say "play" followed by the name of an album, "by", and the name of an a
   - **Sentence**: `play {album} by {artist}`
 - **Action**: Play media (Music Assistant)
   - **Target**: Living room speaker (`media_player.living_room_speaker`)
-  - **Media ID(s)**: {% raw %}`{{ trigger.slots.album }}`{% endraw %}
+  - **Media ID(s)**: `{{ trigger.slots.album }}`
   - **Media type**: Album
-  - **Artist name**: {% raw %}`{{ trigger.slots.artist }}`{% endraw %}
+  - **Artist name**: `{{ trigger.slots.artist }}`
 
 {% details "YAML example for playing an album by an artist" %}
 

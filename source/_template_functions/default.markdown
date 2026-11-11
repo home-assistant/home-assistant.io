@@ -88,7 +88,7 @@ output: "42"
 
 - Without `boolean=true`, the default only kicks in for undefined variables. `None`, empty strings, and `0` pass through unchanged.
 - The default value for `default_value` is an empty string, not `None`.
-- `default` can't protect a chain of attributes on an undefined value. For example, if `trigger` is undefined, {% raw %}`{{ trigger.to_state.state | default("unknown") }}`{% endraw %} raises an error before `default` runs.
+- `default` can't protect a chain of attributes on an undefined value. For example, if `trigger` is undefined, `{{ trigger.to_state.state | default("unknown") }}` raises an error before `default` runs.
 - This does not catch `unavailable` or `unknown` entity states, since those are defined strings. Combine with [`has_value`](/template-functions/has_value/) or [`float`](/template-functions/float/) for those cases.
 
 {% include template_functions/try_it.md %}
