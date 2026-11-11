@@ -87,4 +87,4 @@ The **Home Assistant** set of tools contains the following tools. Each entry sta
   - On installations with the Supervisor, the ID is `hassio__get_logs`. It also reads the logs of the Supervisor, the operating system, the DNS, audio, and multicast plugins, and your apps.
   - On other installations, the ID is `system_log__get_logs`. It only reads the Home Assistant log, and it needs the log file.
   - To do this yourself: Under {% my logs title="**Settings** > **System** > **Logs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Show raw logs**.
-- **Get date and time** (`llm__GetDateTime`): Returns the current date and time. Every set of tools has this tool. Only reads.
+- **Get date and time** (`llm__GetDateTime`): Returns the current date and time. Both built-in sets of tools, **Device control** and **Home Assistant**, have this tool. Only reads.
