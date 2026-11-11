@@ -5,7 +5,7 @@ domain: foreca
 description: "Retrieves the Foreca forecast in 3-hour steps for the next 14 days."
 ---
 
-Use this action to get a forecast in 3-hour steps for the next 14 days, for example to plan a weekend trip two weeks ahead by time of day. The hourly forecast of [`weather.get_forecasts`](/actions/weather.get_forecasts/) covers 7 days, and its daily forecast has one entry per day, so this action returns the 3-hour forecast as [response data](/docs/automation/action/#action-response-data).
+The **Get 3-hour forecast** action returns the Foreca forecast in 3-hour steps for the next 14 days as [response data](/docs/automation/action/#action-response-data). The hourly forecast of [`weather.get_forecasts`](/actions/weather.get_forecasts/) covers 7 days, and its daily forecast has one entry per day. Use this action to plan by time of day further ahead, for example, a weekend trip two weeks away.
 
 {% include actions/ui_header.md %}
 
@@ -48,25 +48,27 @@ The action returns the forecast for each targeted weather entity, keyed by its e
 
 A trimmed example response looks like this:
 
-```yaml
-weather.home:
-  forecast:
-    - datetime: "2026-11-11T17:00:00+02:00"
-      condition: rainy
-      temperature: 5.7
-      apparent_temperature: 2.6
-      humidity: 87
-      precipitation: 1.61
-      precipitation_probability: 29
-      precipitation_type: rain
-      snow_accumulation: 0.0
-      thunderstorm_probability: 0
-      visibility: 25.25
-```
+{% example %}
+output: |
+  weather.home:
+    forecast:
+      - datetime: "2026-11-11T17:00:00+02:00"
+        condition: rainy
+        temperature: 5.7
+        apparent_temperature: 2.6
+        humidity: 87
+        precipitation: 1.61
+        precipitation_probability: 29
+        precipitation_type: rain
+        snow_accumulation: 0.0
+        thunderstorm_probability: 0
+        visibility: 25.25
+{% endexample %}
 
 ## Good to know
 
 - Each call requests fresh data from the Foreca Weather API: one request for every Foreca weather entity it targets, counted toward your plan's daily request limit.
+- If the request to Foreca fails, the action stops with the error "Error fetching the 3-hour forecast." Check your remaining requests on the **My API** page of your Foreca developer account.
 
 {% include actions/try_it.md %}
 
