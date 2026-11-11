@@ -107,6 +107,10 @@ export function youtubeThumbnailUrl(id: string): string {
 }
 
 function setThumbnail(thumb: HTMLImageElement, id: string): void {
+  // Already showing this video's thumbnail (the one the page was built
+  // with): leave it, so the image doesn't swap and jump.
+  if (thumb.dataset.videoId === id && thumb.getAttribute("src")) return;
+  thumb.dataset.videoId = id;
   thumb.src = youtubeThumbnailUrl(id);
   // maxres isn't guaranteed to exist; fall back to the always-present size.
   thumb.onerror = () => {
@@ -297,3 +301,17 @@ export function formatUtcStartTime(startTime: string | undefined): string {
 }
 
 export const EYEBROW_TEXT = EYEBROW;
+
+// The best thumbnail a video has, checked at build time: the 16:9
+// high-resolution one when YouTube has made it, otherwise the standard
+// one, which every video has (4:3, with black bars).
+export async function bestThumbnailAtBuild(id: string, timeoutMs = 5000): Promise<string> {
+  const best = youtubeThumbnailUrl(id);
+  try {
+    const res = await fetch(best, { method: "HEAD", signal: AbortSignal.timeout(timeoutMs) });
+    if (res.ok) return best;
+  } catch {
+    // Fall through to the one that always exists.
+  }
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+}

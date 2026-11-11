@@ -22,6 +22,7 @@
 // can make room for it.
 import {
   EYEBROW_TEXT,
+  bestThumbnailAtBuild,
   formatUtcStartTime,
   resolveDisplayState,
   youtubeIdFromUrl,
@@ -41,6 +42,8 @@ const { slug, info = null, class: className, ...rest } = Astro.props;
 const built = info ? resolveDisplayState(info) : "loading";
 const shown = built === "live" || built === "upcoming" || built === "past";
 const videoId = shown ? youtubeIdFromUrl(info?.url) : null;
+// The thumbnail the browser would end up with, so it doesn't swap it.
+const thumbnail = videoId ? await bestThumbnailAtBuild(videoId) : undefined;
 ---
 
 <a
@@ -61,7 +64,8 @@ const videoId = shown ? youtubeIdFromUrl(info?.url) : null;
       alt=""
       loading="lazy"
       decoding="async"
-      src={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : undefined}
+      src={thumbnail}
+      data-video-id={videoId ?? undefined}
     />
     <iframe
       class="livestream-card__player"
@@ -114,6 +118,9 @@ const videoId = shown ? youtubeIdFromUrl(info?.url) : null;
       position: absolute;
       inset: 0;
       display: grid;
+      // One cell the size of the card, so the thumbnail and player fill
+      // it whatever the image's own shape.
+      grid-template: 100% / 100%;
       place-items: center;
       overflow: hidden;
     }
