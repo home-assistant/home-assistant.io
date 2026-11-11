@@ -21,18 +21,18 @@ Integrations can add more sets. For example, [KNX](/integrations/knx/) adds a **
 
 You choose the sets in the **AI tools** option of each conversation agent, for example in [Anthropic](/integrations/anthropic/), [Google Gemini](/integrations/google_generative_ai_conversation/), [Ollama](/integrations/ollama/), or [OpenAI](/integrations/openai_conversation/). A new conversation agent starts with **Device control** only. In Ollama, it starts with no sets.
 
-## Giving a conversation agent the Home Assistant tools
+## Giving a conversation agent the Home Assistant LLM tools
 
 To let a conversation agent help you look into Home Assistant, give it the **Home Assistant** set of tools. You can then ask it, for example, why an integration isn't working, or which errors are in the logs.
 
-Only administrators can use the **Home Assistant** tools. Voice assistant devices don't sign in as a user, so they can't use them either. If you talk to your conversation agent through a voice assistant device, you can add a second conversation agent for this, and keep the first one on **Device control**.
+Only administrators can use the Home Assistant LLM tools. Voice assistant devices don't sign in as a user, so they can't use them either. If you talk to your conversation agent through a voice assistant device, you can add a second conversation agent for this, and keep the first one on **Device control**.
 
 Prerequisites:
 
 - An administrator account in Home Assistant
 - A conversation agent from an AI integration, for example [OpenAI](/integrations/openai_conversation/)
 
-To give a conversation agent the Home Assistant tools, follow these steps:
+To give a conversation agent the Home Assistant LLM tools, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration of your AI service.
    - For example, **OpenAI**.
@@ -43,4 +43,4 @@ To give a conversation agent the Home Assistant tools, follow these steps:
 3. Under **AI tools**, select **Home Assistant**.
    - To keep controlling your devices with this conversation agent, leave **Device control** selected too.
 4. Select **Submit**. If the dialog shows more options, select **Submit** again.
-   - Result: The conversation agent can use the **Home Assistant** tools the next time you talk to it.
+   - Result: The conversation agent can use the Home Assistant LLM tools the next time you talk to it.
