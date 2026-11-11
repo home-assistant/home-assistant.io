@@ -6,7 +6,9 @@ date: 2023-11-16 00:00:02
 date_formatted: "November 16, 2023"
 author: Guy Sie
 comments: true
-categories: Announcements
+categories:
+- Announcements
+- Hardware
 og_image: /images/blog/2023-11-green-release/green-image.jpg
 ---
 

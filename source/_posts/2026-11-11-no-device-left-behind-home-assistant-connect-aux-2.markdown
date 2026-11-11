@@ -8,6 +8,7 @@ author: Shay Redmond
 comments: true
 categories:
   - Announcements
+  - Hardware
 og_image: /images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/art.webp
 hero_image: /images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-audio.webp
 hero_image_alt: "Home Assistant Connect AUX-2 on a desk next to an amplifier, a speaker, and a vinyl record"
