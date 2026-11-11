@@ -125,7 +125,7 @@ Each electric vehicle on your account that has an active ENGIE Smart Charge sess
 
 ENGIE only accepts a departure time up to 7 days ahead. If you set a later time, Home Assistant shows an error and sends nothing to ENGIE.
 
-A vehicle without an active Smart Charge session has no **Departure time** entity. The entity is added when a session starts, and it becomes unavailable when the session ends.
+The **Departure time** entity of a vehicle is created once the vehicle has an active Smart Charge session. After that, the entity stays on the vehicle's device. It is unavailable while the vehicle has no active session, and it becomes available again when a new session starts.
 
 ## Multiple households
 
@@ -150,7 +150,7 @@ Your password is only used to sign in, and it is never stored. The integration k
 - Price sensors appear only while a price period covers the current day. During a gap between contract periods, they become unavailable until a new price period starts.
 - If Home Assistant restarts at the exact moment the sign-in tokens are being renewed, the integration can lose the session and its sensors stay unavailable until you sign in again.
 - The departure time can be set up to 7 days ahead.
-- Only vehicles with an active Smart Charge session have a **Departure time** entity.
+- The **Departure time** entity is created when a vehicle has an active Smart Charge session, and it is unavailable between sessions.
 - You can only change the departure time of the current session. To change the target battery level or the weekly charging schedule, use the ENGIE Smart App.
 
 ## Troubleshooting
@@ -173,7 +173,7 @@ Early in the month, ENGIE has not published a peak for the current month yet, so
 
 ### The Departure time entity is missing or unavailable
 
-ENGIE only provides the settings of a vehicle while it has an active Smart Charge session. Plug in the vehicle and start a Smart Charge session in the ENGIE Smart App. The entity appears, or becomes available again, within 15 minutes.
+ENGIE only provides the settings of a vehicle while it has an active Smart Charge session. The entity is created once a session is active, and it is unavailable whenever there is none. Plug in the vehicle and start a Smart Charge session in the ENGIE Smart App. The entity appears, or becomes available again, within 15 minutes.
 
 ### Changing the departure time fails
 
