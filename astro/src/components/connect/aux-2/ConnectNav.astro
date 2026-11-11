@@ -255,9 +255,12 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
 
   /* Left of the menu button on phones. It follows the menu in the
      page so that from the desk width it sits after the links. */
+  /* "BUY NOW" in capitals, as on the Jekyll Connect pages' bars. Set in
+     CSS, so screen readers still read "Buy now". */
   .bar :global(.buy) {
     flex: none;
     order: 1;
+    text-transform: uppercase;
   }
 
   .menu-button {
