@@ -48,6 +48,8 @@ This integration has been tested with, or reported to work on, the following inv
 - SE10000H
 - SE15K
 - SE17K
+- SE4000-ER-01-NED
+- SE3000H-RW000NNN2
 
 Both single-phase and three-phase inverters are covered by that list. Any SolarEdge inverter that offers Modbus TCP should work, whether or not it is listed.
 
@@ -80,7 +82,27 @@ The same setting is under **Site Communication** in the SetApp mobile app, if yo
 
 {% enddetails %}
 
-{% details "Inverters with a display" %}
+{% details "Older inverters with a display" %}
+
+The following older models have been reported to use a different menu procedure and Modbus TCP port.
+
+**SE4000-ER-01-NED** (firmware `0003.2537`):
+
+1. Hold the inverter's button to open the menu.
+2. Press the button briefly to scroll, and hold it for 1–2 seconds to select.
+3. Go to **Communication** > **LAN Conf** > **Modbus TCP**, and select port `502`. The display shows the selected port when Modbus TCP is enabled. No menu password was required in the two reports for this model.
+
+**SE3000H-RW000NNN2** (firmware `0003.2537`):
+
+1. Press and hold **OK**, the button on the far right, for about five seconds until the password prompt appears.
+2. Enter the password `123121312`.
+3. Go to **Communication** > **LAN Conf** > **Modbus TCP**, and select port `502`. The selected port is sufficient to enable Modbus TCP.
+
+{% enddetails %}
+
+{% details "Other inverters with a display" %}
+
+For other display-based models, use the following procedure:
 
 1. Press and hold **OK**, the button on the right, to open the menu.
 2. Enter the password `12312312` by pressing **Up**, **Down**, **OK**, **Up**, **Down**, **OK**, **Up**, **Down**.
@@ -88,7 +110,7 @@ The same setting is under **Site Communication** in the SetApp mobile app, if yo
 
 {% enddetails %}
 
-Enabling Modbus TCP sets the port to `1502`. The device ID of the inverter is `1`, unless you gave it another one yourself.
+For most SolarEdge inverters, enabling Modbus TCP sets the port to `1502`. The older SE4000-ER-01-NED and SE3000H-RW000NNN2 models above use port `502`. The device ID of the inverter is `1`, unless you gave it another one yourself.
 
 For a network connection, you also need the hostname or IP address of the inverter. Giving it a fixed address in your router keeps Home Assistant pointed at the right device.
 
@@ -108,7 +130,7 @@ For a network connection:
 Host:
   description: "The hostname or IP address of your SolarEdge inverter, or of the Modbus TCP bridge it is connected through. For example, `192.168.1.100`."
 Port:
-  description: "The port the inverter listens on for Modbus requests. The SolarEdge default is `1502`."
+  description: "The port the inverter listens on for Modbus requests. The default for most SolarEdge inverters is `1502`. The older SE4000-ER-01-NED and SE3000H-RW000NNN2 models reported here use `502`."
 Device ID:
   description: "The Modbus device ID of the inverter, as configured on the inverter itself. The SolarEdge default is `1`. You only need to change this if your inverter was given another ID, for example because several inverters share one connection."
 {% endconfiguration_basic %}
@@ -364,7 +386,7 @@ Nothing is answering on the address the integration polls. The inverter may be o
 
 1. Make sure the inverter is powered on and reachable on your network, for example by looking it up in your router.
 2. Check that Modbus TCP is still enabled on the inverter. An inverter firmware update or a visit from your installer can turn it off again.
-3. Check the port. SolarEdge uses `1502`, where Modbus devices in general often use `502`.
+3. Check the port. Most SolarEdge inverters use `1502`; the older SE4000-ER-01-NED and SE3000H-RW000NNN2 models reported here use `502`. Modbus devices in general often use `502`.
 4. Check whether another system is already polling the inverter, and stop it while you test.
 
 On an RS485 connection, check the baud rate and the device ID against what the inverter is set to, and that its RS485 port speaks SunSpec rather than talking to a SolarEdge logger.
