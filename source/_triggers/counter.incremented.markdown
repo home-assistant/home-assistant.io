@@ -50,7 +50,7 @@ This trigger has no additional YAML options.
 
 - For example, setting a counter from 2 to 10 with **Set counter value** triggers it once. The step size of the counter doesn't matter.
 - A counter in the `unknown` or `unavailable` state does not fire the trigger until it has a valid value again.
-- A reset that raises the value also triggers it, together with [Counter reset](/triggers/counter.reset/). To react to resets only, use **Counter reset**.
+- A reset that raises the value also triggers it. At the same time, [Counter reset](/triggers/counter.reset/) reacts, because it reacts whenever the counter returns to its initial value, whatever action caused it.
 - To react only when a counter reaches its configured maximum, use [Counter reached maximum](/triggers/counter.maximum_reached/).
 
 {% include triggers/try_it.md %}
