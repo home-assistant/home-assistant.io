@@ -30,18 +30,18 @@ Most of the **Home Assistant** tools only read. Two tools can change things:
 - **Call action** can perform any action in Home Assistant, on any entity, device, or area. This includes entities that you didn't expose. For example, it can turn off a light, run a script, or restart Home Assistant.
 - **Reload config entry** can reload an integration.
 
-## Giving a conversation agent the Home Assistant tools
+## Giving a conversation agent the Home Assistant LLM tools
 
 To let a conversation agent help you look into Home Assistant, give it the **Home Assistant** set of tools. You can then ask it, for example, why an integration isn't working, or which errors are in the logs.
 
-Only administrators can use the **Home Assistant** tools. Voice assistant devices don't sign in as a user, so they can't use them either. If you talk to your conversation agent through a voice assistant device, you can add a second conversation agent for this, and keep the first one on **Device control**.
+Only administrators can use the Home Assistant LLM tools. Voice assistant devices don't sign in as a user, so they can't use them either. If you talk to your conversation agent through a voice assistant device, you can add a second conversation agent for this, and keep the first one on **Device control**.
 
 Prerequisites:
 
 - An administrator account in Home Assistant
 - A conversation agent from an AI integration, for example [OpenAI](/integrations/openai_conversation/)
 
-To give a conversation agent the Home Assistant tools, follow these steps:
+To give a conversation agent the Home Assistant LLM tools, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration of your AI service.
    - For example, **OpenAI**.
@@ -52,7 +52,7 @@ To give a conversation agent the Home Assistant tools, follow these steps:
 3. Under **AI tools**, select **Home Assistant**.
    - To keep controlling your devices with this conversation agent, leave **Device control** selected too.
 4. Select **Submit**. If the dialog shows more options, select **Submit** again.
-   - Result: The conversation agent can use the **Home Assistant** tools the next time you talk to it.
+   - Result: The conversation agent can use the Home Assistant LLM tools the next time you talk to it.
 
 ## Supported functionality
 
