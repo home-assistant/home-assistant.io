@@ -69,10 +69,12 @@ The integration polls Junker's public calendar pages once a day. The entities ar
 ### Automation: Notify the evening before a collection
 
 You can create this reminder in the [visual automation editor](/docs/automation/editor/):
+
 1. Add a time trigger for `20:00:00`.
 2. Add a **Not** condition containing two **State** conditions for your **Tomorrow collection** sensor: one for `unavailable` and one for `unknown`. This prevents notifications when the sensor has no usable value.
 3. Add your notification action. For its message, use `Tomorrow: {{ states('sensor.home_tomorrow_collection') }}`, replacing the entity ID with your sensor's entity ID.
-The optional YAML below is formatted for `configuration.yaml`. Before pasting it into the visual editor, remove the `automation:` line and the `- ` before `alias`, then unindent the automation so `alias`, `triggers`, `conditions`, and `actions` start at the left margin. Replace both occurrences of `sensor.home_tomorrow_collection` with your sensor's entity ID, and replace `notify.notify` with your notification action.
+
+The optional YAML below is formatted for `configuration.yaml`, but you can also paste it directly into the visual automation editor without changing its structure. Replace both occurrences of `sensor.home_tomorrow_collection` with your sensor's entity ID, and replace `notify.notify` with your notification action.
 
 
 ```yaml
