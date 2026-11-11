@@ -9,8 +9,9 @@ import explodedRender from "../../../assets/connect/aux-2/exploded-render.png";
 import explodedOpen from "../../../assets/connect/aux-2/exploded-open.mp4";
 import explodedScrub from "../../../assets/connect/aux-2/exploded-scrub.mp4";
 import explodedPoster from "../../../assets/connect/aux-2/exploded-poster.webp";
+import explodedLines from "../../../assets/connect/aux-2/exploded-lines.png";
 
-// The exploded drawing beside the specs (node 2142:53785, 500 × 620.29)
+// The Figma file's exploded drawing (node 2142:53785, 500 × 620.29)
 // in three layers: the lid and base shell as SVG, the circuit board as
 // a 2x WebP (5,700 shapes, over 1 MB as SVG), at their Figma positions.
 export const drawing = {
@@ -27,13 +28,19 @@ export const drawing = {
 // the box takes the render's proportions. Its opening animation runs
 // 2 s at 60 fps, H.264 without sound (665 KB to play, 2.7 MB with every
 // frame a keyframe for scroll scrubbing). Not shown at the moment: the
-// specs use the line drawing, mirrored. Kept so the page can switch
-// back by passing it to ConnectSpecs.
+// specs use the exploded line drawing (linesDrawing below). Kept so
+// the page can switch back by passing it to ConnectSpecs.
 export const renderDrawing = {
   ...drawing,
   render: explodedRender,
   video: { open: explodedOpen, scrub: explodedScrub, poster: explodedPoster },
 };
+
+// The exploded line drawing beside the specs: lid, board, shell and
+// screws in one image (500 × 1052, white lines on black), the ports
+// already facing the spec text. It takes the render's place, without
+// the opening animation.
+export const linesDrawing = { ...drawing, render: explodedLines };
 
 export const specs = [
   {

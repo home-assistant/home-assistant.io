@@ -54,7 +54,7 @@ import ConnectCollaboration from "../../../components/connect/aux-2/ConnectColla
 import ConnectSpecs from "../../../components/connect/aux-2/ConnectSpecs.astro";
 import ConnectDrawing from "../../../components/connect/aux-2/ConnectDrawing.astro";
 import ConnectFaq from "../../../components/connect/aux-2/ConnectFaq.astro";
-import { specs, faq, drawing } from "./_content";
+import { specs, faq, linesDrawing } from "./_content";
 import heroImage from "../../../assets/connect/aux-2/hero.webp";
 import heroMobileImage from "../../../assets/connect/aux-2/hero-mobile.webp";
 import atHomeVideo from "../../../assets/connect/aux-2/at-home.mp4";
@@ -474,13 +474,11 @@ const diagram = [
     </div>
 
     <!-- Figma frame "Specs and illustration" (desktop node 2002:31254):
-         the line drawing, mirrored so the ports face the specs, its lid
-         lifting off as it comes into view. -->
+         the exploded line drawing, its ports facing the specs. -->
     <ConnectSpecs
       groups={specs}
-      drawing={drawing}
-      flip
-      drawingAlt="Line drawing of the Connect AUX-2 with its lid lifted off, showing the circuit board inside"
+      drawing={linesDrawing}
+      drawingAlt="Exploded line drawing of the Connect AUX-2: the lid, the circuit board, the case, and its screws"
     />
 
     <!-- Figma frame "FAQ" (desktop node 2002:36189). -->
