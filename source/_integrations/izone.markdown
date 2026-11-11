@@ -140,7 +140,7 @@ The iZone controller only reports these in coarse steps. The RF signal is 100%, 
 
 ### Zone faults
 
-Zones can have the following {% term "binary sensor" %} entities, which are created only when your iZone bridge reports the corresponding fault status. They show **Problem** when the iZone controller reports a fault:
+Zones can have the following {% term "binary sensor" %} entities, which are created only when your iZone bridge reports the corresponding fault status. They show **Problem** when the iZone controller reports a fault, and **OK** otherwise:
 
 - **Damper fault**: (diagnostic) The controller reports a fault with the zone damper motor.
 - **Sensor fault**: (diagnostic) The controller reports a fault with the zone temperature sensor.
