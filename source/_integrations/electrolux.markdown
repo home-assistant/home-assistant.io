@@ -122,6 +122,9 @@ Entity availability depends on the appliance type and model. Some entities may n
 - **UI lock mode**
   - **Description**: Reports if the user interface is locked.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher, Refrigerator, Hob.
+- **Food probe state**
+  - **Description**: Reports whether the food probe is inserted or not.
+  - **Available for appliance types**: Oven.
 
 {% enddetails %}
 
@@ -256,9 +259,6 @@ This entity is used to control the appliance with the following actions:
   - **Descriptions**: Reports when the appliance will stop running.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
   - **Remarks**: Disabled by default.
-- **Food probe state**
-  - **Description**: Reports the food probe state.
-  - **Available for appliance types**: Oven.
 - **Food probe temperature**
   - **Description**:  Reports food probe temperature.
   - **Available for appliance types**: Oven.
@@ -301,9 +301,6 @@ This entity is used to control the appliance with the following actions:
 - **Water filter state**
   - **Description**: Reports water filter status.
   - **Available for appliance types**: Refrigerator.
-- **Water hardness**
-  - **Description**: Reports water hardness.
-  - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
 - **Windows notification**
   - **Description**: Reports if a window needs to be opened.
   - **Available for appliance types**: Hob.
