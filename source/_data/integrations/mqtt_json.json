@@ -7,6 +7,9 @@
     "presence_location.trackers",
     "diy_makers"
   ],
+  "connectivity": [
+    "mqtt"
+  ],
   "platforms": [
     "device_tracker"
   ]

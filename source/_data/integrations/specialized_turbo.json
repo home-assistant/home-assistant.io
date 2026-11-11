@@ -11,6 +11,9 @@
   "categories": [
     "vehicles_transport.bikes_scooters"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "sensor"
   ],

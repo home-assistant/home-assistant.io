@@ -11,7 +11,11 @@
   "categories": [
     "energy.solar_batteries"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
+    "diagnostics",
     "sensor"
   ],
   "discovery": [

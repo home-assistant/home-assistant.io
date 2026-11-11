@@ -11,7 +11,11 @@
     "media_entertainment.tv_streaming",
     "media_entertainment.speakers_audio"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
+    "diagnostics",
     "media_player"
   ],
   "discovery": [

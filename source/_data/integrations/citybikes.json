@@ -7,6 +7,9 @@
     "vehicles_transport.public_transport",
     "vehicles_transport.bikes_scooters"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

@@ -6,6 +6,9 @@
   "categories": [
     "blinds_curtains"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "cover"
   ]

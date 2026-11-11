@@ -2,6 +2,7 @@
 title: "Select sound output"
 action: webostv.select_sound_output
 domain: webostv
+response: optional
 description: "Changes the active sound output of an LG webOS TV."
 related_actions:
   - webostv.button
@@ -58,7 +59,9 @@ In the UI, this action has an **Entity** field instead of targets. There, you ca
 
 ## Response data
 
-This action can return the raw response from the TV, confirming the change. The exact fields depend on your TV. To capture the response, set a `response_variable` and use it in a later step.
+{% include actions/response.md %}
+
+The response contains the raw response from the TV, confirming the change. The exact fields depend on your TV.
 
 ## Good to know
 

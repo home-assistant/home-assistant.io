@@ -2,6 +2,7 @@
 title: "Get travel times"
 action: waze_travel_time.get_travel_times
 domain: waze_travel_time
+response: required
 description: "Retrieves route alternatives and travel times between two locations."
 ---
 
@@ -170,6 +171,8 @@ base_coordinates:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `routes` list. Each route includes:
 

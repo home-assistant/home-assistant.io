@@ -13,6 +13,10 @@
     "security_safety.cameras",
     "weather_alerts"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

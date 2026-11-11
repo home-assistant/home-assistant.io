@@ -2,6 +2,7 @@
 title: "Get disk space"
 action: sonarr.get_diskspace
 domain: sonarr
+response: required
 description: "Retrieves the disk space information for all storage locations configured in Sonarr."
 related_actions:
   - sonarr.get_series
@@ -10,7 +11,7 @@ related_actions:
 
 Use this action to retrieve the disk space information for all storage locations configured in Sonarr.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to warn yourself when free space runs low.
+For example, you can use the result to warn yourself when free space runs low.
 
 {% include actions/ui_header.md %}
 
@@ -70,6 +71,8 @@ space_unit:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `disks` key with a mapping of disk information keyed by path. Each disk includes the following fields:
 

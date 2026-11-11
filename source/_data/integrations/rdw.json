@@ -11,6 +11,9 @@
   "categories": [
     "vehicles_transport.cars_evs"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",
