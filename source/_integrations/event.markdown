@@ -48,7 +48,7 @@ The integration that provides the event entity sets the device class. When you c
 
 ### Device classes in automations and templates
 
-- Automations: The button device class has its own [Button pressed](/triggers/button.pressed/) and [Button held](/triggers/button.held/) triggers, and the doorbell device class has the [Doorbell rang](/triggers/doorbell.rang/) trigger. Each trigger only reacts to event entities with its device class. The motion device class doesn't change how an event entity works in automations.
+- Automations: The button device class has its own [Button pressed](/triggers/button.pressed/), [Button held](/triggers/button.held/), and [Button hold ended](/triggers/button.hold_ended/) triggers, and the doorbell device class has the [Doorbell rang](/triggers/doorbell.rang/) trigger. Each trigger only reacts to event entities with its device class. The motion device class doesn't change how an event entity works in automations.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `doorbell`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
@@ -60,6 +60,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - {% icon "mdi:gesture-tap-button" %} **Button** (`button`): For buttons, such as the buttons of a remote control.
   - Trigger: [Button pressed](/triggers/button.pressed/)
   - Trigger: [Button held](/triggers/button.held/)
+  - Trigger: [Button hold ended](/triggers/button.hold_ended/)
 - {% icon "mdi:doorbell" %} **Doorbell** (`doorbell`): For buttons that are used as a doorbell.
   - Trigger: [Doorbell rang](/triggers/doorbell.rang/)
 - {% icon "mdi:motion-sensor" %} **Motion** (`motion`): For motion detected by a motion sensor.

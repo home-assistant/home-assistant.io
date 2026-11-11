@@ -15,6 +15,7 @@
     "cloud"
   ],
   "platforms": [
+    "device_tracker",
     "diagnostics",
     "sensor"
   ]
