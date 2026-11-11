@@ -35,17 +35,17 @@ The number platform gives you control over the supply air temperatures.
 The date platform allows you to set the filter change date.
 
 
-## Profile switching
+## Fan presets
 
-For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan {% term entity %} to get a drop-down menu to select from. Alternatively, the action `fan/set_preset_mode` can be used.
+The presets of the **Vallox** fan {% term entity %} are the ventilation modes of your unit. To switch them in the UI, select the fan and choose a preset. In automations and scripts, use the `fan.set_preset_mode` action with one of these values:
 
-The following Vallox profiles are supported. Availability depends on the connected unit and the presets it exposes, so some profiles may not appear on all devices:
+- **Home**: `home`
+- **Away**: `away`
+- **Boost**: `boost`
+- **Fireplace / Custom**: `fireplace`. This mode was renamed to **Custom** in firmware 2.0.20.
+- **Extra**: `extra`
+- **Auto**: `auto`. Requires firmware 3.1.4 or newer.
 
-- `Home`
-- `Away`
-- `Boost`
-- `Fireplace`
-- `Extra` (available on devices/firmware that expose this preset)
-- `Auto` (available on devices/firmware that expose this preset; requires firmware v3.1.4 or newer)
+The unit doesn't report which modes it supports, so the fan always lists all six presets.
 
 {% include integrations/actions.md %}
