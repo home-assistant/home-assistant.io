@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import poster from "../../../assets/connect/aux-2/drawing-start.jpg";
 import videoUrl from "../../../assets/connect/aux-2/drawing.mp4";
 import smallVideoUrl from "../../../assets/connect/aux-2/drawing-small.mp4";
+import reverseVideoUrl from "../../../assets/connect/aux-2/drawing-reverse.mp4";
+import smallReverseVideoUrl from "../../../assets/connect/aux-2/drawing-small-reverse.mp4";
 
 interface Props {
   alt: string;
@@ -18,6 +20,8 @@ const { alt, sizes, class: className } = Astro.props;
   data-connect-drawing
   data-video={videoUrl}
   data-video-small={smallVideoUrl}
+  data-video-reverse={reverseVideoUrl}
+  data-video-small-reverse={smallReverseVideoUrl}
 >
   <Image
     class="poster"
@@ -27,7 +31,7 @@ const { alt, sizes, class: className } = Astro.props;
     sizes={sizes}
     quality={85}
   />
-  <button class="x37ee" type="button" aria-label="See it in 3D">
+  <button class="x37ee" type="button" aria-label="See it in 3D" aria-pressed="false">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M5 5 L19 5 L19 19 L19 19 L5 19 L5 5 Z M19 5 L5 5 M19 5 L19 5 M19 5 L19 19">
         <animate
@@ -142,7 +146,11 @@ const { alt, sizes, class: className } = Astro.props;
   const layersOf = (box: HTMLElement) =>
     box.querySelectorAll<HTMLElement>(".backdrop, .video, .x3ac9, .x8c25");
 
-  function createStage(box: HTMLElement, getLive: () => Live | null) {
+  function createStage(
+    box: HTMLElement,
+    getLive: () => Live | null,
+    onClosed: (now: boolean) => void,
+  ) {
     let holder: HTMLElement | null = null;
     let scrim: HTMLElement | null = null;
     let exit: HTMLButtonElement | null = null;
@@ -243,7 +251,8 @@ const { alt, sizes, class: className } = Astro.props;
         live?.canvas.setAttribute("tabindex", "-1");
         for (const a of box.getAnimations({ subtree: true })) a.cancel();
         busy = false;
-        if (!now) box.querySelector<HTMLElement>(".x8189")?.focus({ preventScroll: true });
+        if (!now) box.querySelector<HTMLElement>(".x37ee")?.focus({ preventScroll: true });
+        onClosed(now);
       };
       if (now || reducedMotion.matches) { settle(); return; }
 
@@ -289,32 +298,54 @@ const { alt, sizes, class: className } = Astro.props;
     const turn = box.querySelector<HTMLButtonElement>(".x37ee")!;
     const go = box.querySelector<HTMLButtonElement>(".x8189")!;
     const poster = box.querySelector("img")!;
+    // The video plays forward to the device as the 3D drawing starts
+    // from, and a reversed copy plays it back; the 3D button switches
+    // between them from wherever the video is.
     let video: HTMLVideoElement | null = null;
+    let rev: HTMLVideoElement | null = null;
     let drawing: Promise<Drawing> | null = null;
-    let started = false;
     let live: Live | null = null;
     let stage: ReturnType<typeof createStage> | null = null;
+    // idle: the poster; fwd: playing forward; end: at the last frame,
+    // the stacker button showing; rev: playing back to the poster.
+    let state: "idle" | "fwd" | "end" | "rev" = "idle";
+    let turnId = 0;
+    let parking = false;
     if (reducedMotion.matches) for (const svg of box.querySelectorAll("svg")) svg.pauseAnimations();
 
+    const setState = (next: typeof state) => {
+      state = next;
+      turn.setAttribute("aria-pressed", String(next === "fwd" || next === "end"));
+    };
+
+    const makeVideo = (src: string, className: string) => {
+      const v = document.createElement("video");
+      Object.assign(v, {
+        src,
+        poster: poster.currentSrc,
+        muted: true,
+        playsInline: true,
+        preload: "auto",
+        disablePictureInPicture: true,
+      });
+      v.setAttribute("muted", "");
+      v.setAttribute("playsinline", "");
+      v.setAttribute("aria-hidden", "true");
+      v.className = className;
+      box.insertBefore(v, turn);
+      return v;
+    };
+
     const warm = () => {
-      if (!video && !reducedMotion.matches) {
-        video = document.createElement("video");
-        const small = box.clientWidth < 560;
-        Object.assign(video, {
-          src: (small && box.dataset.videoSmall) || box.dataset.video!,
-          poster: poster.currentSrc,
-          muted: true,
-          playsInline: true,
-          preload: "auto",
-          disablePictureInPicture: true,
-        });
-        video.setAttribute("muted", "");
-        video.setAttribute("playsinline", "");
-        video.setAttribute("aria-hidden", "true");
-        video.className = "video";
-        video.addEventListener("playing", () => box.classList.add("is-playing"), { once: true });
-        box.insertBefore(video, turn);
-      }
+      if (video || reducedMotion.matches) return;
+      const small = box.clientWidth < 560;
+      video = makeVideo((small && box.dataset.videoSmall) || box.dataset.video!, "video");
+      rev = makeVideo((small && box.dataset.videoSmallReverse) || box.dataset.videoReverse!, "video rev");
+      video.addEventListener("playing", () => box.classList.add("is-playing"));
+      video.addEventListener("ended", () => { if (state === "fwd") atEnd(); });
+      video.addEventListener("error", () => { if (state === "fwd") atEnd(); });
+      rev.addEventListener("ended", () => { if (state === "rev") atStart(); });
+      rev.addEventListener("error", () => { if (state === "rev") atStart(); });
     };
     box.addEventListener("pointerenter", warm, { once: true });
     box.addEventListener("focusin", warm, { once: true });
@@ -326,21 +357,79 @@ const { alt, sizes, class: className } = Astro.props;
     }, { rootMargin: "600px 0px" });
     near.observe(box);
 
-    const ready = () => {
+    const showGo = () => {
       box.classList.add("is-docked");
       go.hidden = false;
       void go.offsetWidth;
       go.classList.add("is-on");
     };
+    const hideGo = () => {
+      go.classList.remove("is-on");
+      go.hidden = true;
+    };
 
-    let played = false;
+    // Seeks a video and waits until the frame is there.
+    const seek = async (v: HTMLVideoElement, t: number) => {
+      if (Number.isNaN(v.duration)) {
+        await new Promise((r) => v.addEventListener("loadedmetadata", r, { once: true }));
+      }
+      const to = Math.min(Math.max(0, t), v.duration);
+      if (Math.abs(v.currentTime - to) < 0.01) return;
+      await new Promise((r) => {
+        v.addEventListener("seeked", r, { once: true });
+        v.currentTime = to;
+      });
+    };
+
+    const atEnd = () => {
+      setState("end");
+      showGo();
+    };
+    const atStart = () => {
+      setState("idle");
+      box.classList.remove("is-reversing", "is-playing");
+      if (video) video.currentTime = 0;
+    };
+
+    const forward = async () => {
+      const id = ++turnId;
+      warm();
+      if (!video || !rev) { atEnd(); return; }
+      if (state === "rev") {
+        await seek(video, rev.duration - rev.currentTime);
+        if (id !== turnId) return;
+        rev.pause();
+        box.classList.remove("is-reversing");
+      } else if (video.ended || video.currentTime > 0) {
+        await seek(video, 0);
+        if (id !== turnId) return;
+      }
+      setState("fwd");
+      const ok = await video.play().then(() => true, () => false);
+      if (!ok && id === turnId) atEnd();
+    };
+
+    const backward = async () => {
+      const id = ++turnId;
+      hideGo();
+      if (!video || !rev) { atStart(); return; }
+      const t = state === "end" ? video.duration : video.currentTime;
+      await seek(rev, rev.duration - t);
+      if (id !== turnId) return;
+      video.pause();
+      box.classList.add("is-reversing");
+      setState("rev");
+      const ok = await rev.play().then(() => true, () => false);
+      if (!ok && id === turnId) atStart();
+    };
+
     let loading: Promise<Live> | null = null;
     const load = () => {
       loading ||= (async () => {
         drawing ||= import("../../../lib/connect/aux-2/drawing/index.js");
         const { mount } = await drawing;
         live = await mount(box, {
-          video: played ? video : null,
+          video: null,
           reducedMotion: reducedMotion.matches,
           holdGrid: true,
         });
@@ -350,34 +439,44 @@ const { alt, sizes, class: className } = Astro.props;
       return loading;
     };
 
-    const start = async () => {
-      if (started) return;
-      started = true;
-      warm();
+    // Closing the game: the camera eases home and the pieces go, the
+    // drawing fades back to the video's last frame, and the video plays
+    // back to the poster. The game keeps its state for the next visit.
+    const onClosed = async () => {
+      if (!live) return;
+      parking = true;
+      hideGo();
+      await live.park();
+      box.classList.remove("is-live");
+      const fade = parseFloat(getComputedStyle(box).getPropertyValue("--drawing-crossfade")) || 0;
+      await new Promise((r) => setTimeout(r, reducedMotion.matches ? 0 : fade * 1000));
+      parking = false;
+      setState("end");
+      await backward();
+    };
+
+    turn.addEventListener("click", async () => {
+      if (parking || stage?.isOpen) return;
       box.classList.add("is-started");
-      const bench = new URLSearchParams(location.search).has(atob("Z2FtZWJlbmNo"));
-      played = video && !bench ? await video.play().then(() => true, () => false) : false;
-      stage = createStage(box, () => live);
-      if (bench) {
+      stage ||= createStage(box, () => live, onClosed);
+      if (new URLSearchParams(location.search).has(atob("Z2FtZWJlbmNo"))) {
         const l = await load();
         stage.open({ animate: false, done: () => l.drawGrid() });
         l.setFit("contain");
         return;
       }
-      if (!played || video!.ended) ready();
-      else {
-        video!.addEventListener("ended", ready, { once: true });
-        video!.addEventListener("error", ready, { once: true });
-      }
-    };
-    turn.addEventListener("click", start);
+      if (state === "idle" || state === "rev") forward();
+      else backward();
+    });
 
     go.addEventListener("click", async () => {
-      if (!stage || stage.isOpen || go.getAttribute("aria-busy") === "true") return;
+      if (!stage || stage.isOpen || parking || state !== "end" || go.getAttribute("aria-busy") === "true") return;
       go.setAttribute("aria-busy", "true");
       const l = await load().catch(() => null);
       go.removeAttribute("aria-busy");
-      if (!l || stage.isOpen) return;
+      if (!l || stage.isOpen || state !== "end") return;
+      l.unpark();
+      box.classList.add("is-live");
       if (GRID_WITH_OPEN) l.drawGrid();
       stage.open({
         done: () => {
@@ -487,19 +586,18 @@ const { alt, sizes, class: className } = Astro.props;
       width: 1.5rem;
     }
 
-    .is-started & {
-      opacity: 0;
-      pointer-events: none;
-      transition:
-        opacity 0.3s ease-out,
-        visibility 0s 0.3s;
-      visibility: hidden;
+    /* It stays, playing the video forward and back; only the open
+       game hides it. */
+    .is-expanded & {
+      display: none;
     }
   }
 
+  /* Left of the 3D button, once the video has reached its end. */
   .x8189 {
     height: 3rem;
     opacity: 0;
+    right: 4.75rem;
     width: 3rem;
 
     &.is-on {
@@ -581,6 +679,16 @@ const { alt, sizes, class: className } = Astro.props;
 
     &.is-playing .video {
       opacity: 1;
+    }
+
+    /* The reversed copy shows only while the video plays back. */
+    .video.rev,
+    &.is-reversing .video:not(.rev) {
+      visibility: hidden;
+    }
+
+    &.is-reversing .video.rev {
+      visibility: visible;
     }
 
     .x3ac9 {

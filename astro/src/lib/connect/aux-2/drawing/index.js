@@ -86,6 +86,12 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
   const gltf = await loadModel(modelUrl);
   gfx.scene.add(gltf.scene);
   gltf.scene.traverse((o) => { if (o.isMesh) o.material = gfx.fill; });
+  // The device as the video ends on it, kept aside for park(): starting
+  // a game turns the model's own geometry into the stackable unit.
+  const homeModel = gltf.scene.clone(true);
+  homeModel.traverse((o) => { if (o.isMesh) o.geometry = o.geometry.clone(); });
+  homeModel.visible = false;
+  gfx.scene.add(homeModel);
   const view = createColumnView(gfx, gltf);
   loadModel(LEVELS).then((levels) => view.levels(levels)).catch(() => {});
 
@@ -643,6 +649,9 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
   const statsTimer = bench && setInterval(() => { if (!raf && performance.now() - stats.seen > 1000) { overlay.benchStats("idle (nothing moving)"); stats.from = 0; } }, 1000);
 
   let raf = 0, last = 0, dirty = false, inView = true, dragging = false, settleUntil = 0, gridT = 0, gridOn = !holdGrid, handed = false, steady = false;
+  // Parked: the game is closed and the drawing is back to the device as
+  // the video ends on it. The column keeps its state for unpark().
+  let parked = false, builtView = false;
   function wake() {
     if (!raf && inView) { last = performance.now(); raf = requestAnimationFrame(frame); }
   }
@@ -653,7 +662,7 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
     const dt = Math.min((now - last) / 1000, C.maxFrame);
     last = now;
     let keep = false;
-    if (column) {
+    if (column && !parked) {
       if (autoMode) stackFor(column);
       const p0 = performance.now();
       if (column.update(dt)) dirty = true;
@@ -661,7 +670,7 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
       if (column.state !== IDLE && column.state !== DONE && column.state !== BLAST) aim(column);
       keep ||= column.busy;
     }
-    if (handed && gridOn && gridT < 1) {
+    if (handed && gridOn && gridT < 1 && !parked) {
       gridT = reducedMotion ? 1 : Math.min(1, gridT + dt / R.gridDraw);
       const t = Math.max(0, gridT);
       gfx.setGrid(R.gridStrength * Math.min(1, t * 6), homeTarget);
@@ -704,7 +713,7 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
 
   let down = null;
   function onPointerDown(e) {
-    if (!handed || e.button > 0) return;
+    if (!handed || parked || e.button > 0) return;
     if (column?.state === CARRY) { e.preventDefault(); act(); return; }
     down = { x: e.clientX, y: e.clientY, t: performance.now() };
   }
@@ -715,7 +724,7 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
     if (tap && (!column || column.state === IDLE)) act();
   }
   function onKey(e) {
-    if (e.code !== "Space" || !handed || !box.classList.contains("is-expanded")) return;
+    if (e.code !== "Space" || !handed || parked || !box.classList.contains("is-expanded")) return;
     if (e.target.closest?.("input, textarea, select, [contenteditable]")) return;
     e.preventDefault();
     if (!e.repeat) act();
@@ -774,8 +783,53 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
   });
   seen.observe(box);
 
+  const PARK_TIME = 0.9;
   const api = {
     canvas,
+    // Back to the drawing as the video ends on it: the game freezes, its
+    // pieces give way to the device, the grid goes, and the camera eases
+    // home. Resolves once the camera is exactly there, so the page can
+    // cross-fade to the video's last frame without a jump.
+    park() {
+      if (parked) return Promise.resolve();
+      parked = true;
+      clearTimeout(homeTimer);
+      freeCamera(false);
+      controls.enabled = false;
+      dragging = false;
+      builtView = view.root.visible;
+      if (builtView) { view.root.visible = false; homeModel.visible = true; }
+      gfx.setGrid(0, homeTarget);
+      gridT = 0;
+      rigFromCamera();
+      rig.toTarget.copy(homeTarget);
+      rig.toDist = homeDist;
+      rig.rate = CAM.followRate;
+      rig.returnLeft = reducedMotion ? 0 : PARK_TIME;
+      dirty = true;
+      wake();
+      return new Promise((resolve) => setTimeout(() => {
+        rig.on = false;
+        placeCamera(homeTarget, homeDist, homeQuat);
+        controls.target.copy(homeTarget);
+        gfx.depthCenter.copy(homeTarget);
+        gfx.setDistance(1);
+        dirty = true;
+        wake();
+        resolve();
+      }, reducedMotion ? 0 : PARK_TIME * 1000));
+    },
+    // The game again, as it was left: its pieces return and the grid
+    // draws back in.
+    unpark() {
+      if (!parked) return;
+      parked = false;
+      if (builtView) { homeModel.visible = false; view.root.visible = true; }
+      gridT = 0;
+      controls.enabled = true;
+      dirty = true;
+      wake();
+    },
     setFit(mode) { fitMode = mode; refit(); },
     drawGrid() { if (!gridOn) { gridOn = true; gridT = 0; wake(); } },
     get handedOff() { return handed; },
@@ -793,6 +847,7 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
       controls.dispose();
       column?.dispose();
       view.dispose();
+      homeModel.traverse((o) => { if (o.isMesh) o.geometry.dispose(); });
       for (const g of [ballGeo, tennisGeo, capGeo, bowlingGeo, arrowGeo, holeRingGeo, linkGeo]) g.dispose();
       overlay.dispose();
       map.dispose();
