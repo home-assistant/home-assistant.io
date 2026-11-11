@@ -439,9 +439,10 @@ const { alt, sizes, class: className } = Astro.props;
       return loading;
     };
 
-    // Closing the game: the camera eases home and the pieces go, the
-    // drawing fades back to the video's last frame, and the video plays
-    // back to the poster. The game keeps its state for the next visit.
+    // Closing the game: the pieces fade, the camera eases home and the
+    // drawing fades back to the video's last frame, where it stays with
+    // the stacker button showing; only the 3D button plays the video
+    // back. The game keeps its state for the next visit.
     const onClosed = async () => {
       if (!live) return;
       parking = true;
@@ -451,8 +452,7 @@ const { alt, sizes, class: className } = Astro.props;
       const fade = parseFloat(getComputedStyle(box).getPropertyValue("--drawing-crossfade")) || 0;
       await new Promise((r) => setTimeout(r, reducedMotion.matches ? 0 : fade * 1000));
       parking = false;
-      setState("end");
-      await backward();
+      atEnd();
     };
 
     turn.addEventListener("click", async () => {
