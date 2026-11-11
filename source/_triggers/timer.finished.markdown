@@ -69,7 +69,8 @@ for:
 
 - This trigger fires when the countdown completes or when you use [Finish timer](/actions/timer.finish/).
 - If you cancel a timer, use [Timer cancelled](/triggers/timer.cancelled/) instead.
-- The **For at least** option here adds extra delay after the timer finishes. If the timer starts again during this delay, the trigger doesn't react. With **Trigger when** set to **First**, the trigger still reacts if another of the timers is still finished. If you want the action to happen when the countdown ends, you usually do not need this option.
+- The **For at least** option adds extra delay after the timer finishes. If you want the action to happen when the countdown ends, you usually do not need this option.
+- If the timer starts again during the **For at least** delay, the trigger doesn't react. With **Trigger when** set to **First**, the trigger still reacts as long as at least one of the targeted timers is still finished.
 - If a timer finishes while Home Assistant is not running, this trigger does not run after startup.
 
 {% include triggers/try_it.md %}
