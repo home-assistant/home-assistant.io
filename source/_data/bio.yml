@@ -71,7 +71,8 @@ sections:
     # there's no stream it hides itself. Nothing to update per stream: it
     # reads the channel's current stream from the Open Home Foundation API.
     # Connect AUX-2 launch: at 21:00 GMT on November 11, comment out this
-    # line and uncomment the Connect AUX-2 pin in `sources.pinned` below.
+    # line so the Connect AUX-2 pin in `sources.pinned` below takes the
+    # large place.
     livestream: home-assistant
     # Add anything else to the list here, with `starts` and, if you like,
     # `ends` (see the top of this file).
@@ -162,16 +163,15 @@ sources:
   # it, or let its `ends` pass, and the list is back to newest first.
   pinned:
     type: pinned
-    items: []
-    # Connect AUX-2 launch: at 21:00 GMT on November 11, replace `items: []`
-    # above with `items:`, uncomment these four lines, and comment out
-    # `livestream` in the Latest section. It comes down by itself at 17:00
-    # GMT on November 12.
-    #  - title: "Home Assistant Connect AUX-2"
-    #    url: /connect/aux-2/
-    #    image: /images/connect/aux-2/og.webp
-    #    ends: 2026-11-12T17:00:00Z  # 17:00 GMT
-    #
+    items:
+      # Connect AUX-2 launch: at the top from 21:00 GMT on November 11, as
+      # a row under the livestream card until `livestream` is commented out
+      # in the Latest section, then as the large card.
+      - title: "Home Assistant Connect AUX-2"
+        url: /connect/aux-2/
+        image: /images/connect/aux-2/og.webp
+        starts: 2026-11-11T21:00:00Z  # 21:00 GMT
+        ends: 2026-11-12T17:00:00Z    # 17:00 GMT
     #  - title: "2026.11: An example"
     #    url: /blog/2026/11/05/release-202611/
     #    image: auto
