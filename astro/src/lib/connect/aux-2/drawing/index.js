@@ -783,7 +783,25 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
   });
   seen.observe(box);
 
-  const PARK_TIME = 0.9;
+  const PARK_TIME = 0.9, PARK_FADE = 0.5;
+  // Lays the frame on screen over the canvas as a still and fades it
+  // out, so a change to the scene underneath cross-fades instead of
+  // cutting.
+  function fadeFrom(change) {
+    gfx.draw();
+    const still = document.createElement("canvas");
+    still.className = canvas.className;
+    still.setAttribute("aria-hidden", "true");
+    still.style.pointerEvents = "none";
+    still.width = canvas.width;
+    still.height = canvas.height;
+    still.getContext("2d").drawImage(canvas, 0, 0);
+    canvas.after(still);
+    change();
+    gfx.draw();
+    return still.animate([{ opacity: 1 }, { opacity: 0 }], { duration: PARK_FADE * 1000, easing: "ease-in-out" })
+      .finished.then(() => still.remove(), () => still.remove());
+  }
   const api = {
     canvas,
     // Back to the drawing as the video ends on it: the game freezes, its
@@ -797,27 +815,35 @@ export async function mount(box, { video = null, model: modelUrl = MODEL, reduce
       freeCamera(false);
       controls.enabled = false;
       dragging = false;
-      builtView = view.root.visible;
-      if (builtView) { view.root.visible = false; homeModel.visible = true; }
-      gfx.setGrid(0, homeTarget);
-      gridT = 0;
-      rigFromCamera();
-      rig.toTarget.copy(homeTarget);
-      rig.toDist = homeDist;
-      rig.rate = CAM.followRate;
-      rig.returnLeft = reducedMotion ? 0 : PARK_TIME;
-      dirty = true;
-      wake();
-      return new Promise((resolve) => setTimeout(() => {
-        rig.on = false;
-        placeCamera(homeTarget, homeDist, homeQuat);
-        controls.target.copy(homeTarget);
-        gfx.depthCenter.copy(homeTarget);
-        gfx.setDistance(1);
+      rig.on = false;
+      // First the pieces and the grid fade away where the camera is,
+      // leaving the device; then the camera eases home.
+      const clear = () => {
+        builtView = view.root.visible;
+        if (builtView) { view.root.visible = false; homeModel.visible = true; }
+        gfx.setGrid(0, homeTarget);
+        gridT = 0;
+      };
+      const faded = reducedMotion ? (clear(), Promise.resolve()) : fadeFrom(clear);
+      return faded.then(() => {
+        rigFromCamera();
+        rig.toTarget.copy(homeTarget);
+        rig.toDist = homeDist;
+        rig.rate = CAM.followRate;
+        rig.returnLeft = reducedMotion ? 0 : PARK_TIME;
         dirty = true;
         wake();
-        resolve();
-      }, reducedMotion ? 0 : PARK_TIME * 1000));
+        return new Promise((resolve) => setTimeout(() => {
+          rig.on = false;
+          placeCamera(homeTarget, homeDist, homeQuat);
+          controls.target.copy(homeTarget);
+          gfx.depthCenter.copy(homeTarget);
+          gfx.setDistance(1);
+          dirty = true;
+          wake();
+          resolve();
+        }, reducedMotion ? 0 : PARK_TIME * 1000));
+      });
     },
     // The game again, as it was left: its pieces return and the grid
     // draws back in.
