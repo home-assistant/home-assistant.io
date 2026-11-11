@@ -103,7 +103,7 @@ trigger: |
 
 - Use a target that provides a current temperature. Climate, water heater, and weather entities must expose a current temperature attribute. Entities without a valid temperature value are excluded automatically.
 - You can also use a sensor with the temperature device class.
-- The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
+- The threshold type checks only the new value, not the direction of the change. With **Above**, the trigger reacts to every change where the new value is above the threshold, whether the value went up or down. For example, with **Above** 20°C, a change from 25°C to 22°C makes the trigger react. **Below**, **In range**, and **Outside range** work the same way.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when temperature first crosses a specific level, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) instead.
 - All temperature values are automatically converted to the unit you specify. For example, if your sensor reports in Fahrenheit but you configure the trigger in Celsius, the conversion happens automatically.

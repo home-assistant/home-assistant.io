@@ -25,8 +25,8 @@ In this tutorial, you create two automations: one that turns the lights on befor
 2. Define what starts the automation. This is the {% term trigger %}.
    1. In the **When** section, select **Add trigger**.
    2. From the search box, search for and select **Sunset**.
-   3. Under **Offset**, enter 30 minutes.
-   4. Under **Offset type**, select **Before**.
+   3. Under **Offset**, select **Before**.
+   4. Under **Duration**, enter 30 minutes.
    - Result: The automation starts 30 minutes before sunset.
 3. Define what the automation does. This is the {% term action %}.
    1. In the **Then do** section, select **Add action**.
@@ -55,7 +55,7 @@ This automation dims the light at a specific time on the evening before a workda
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
    - Result: An empty automation opens.
 2. Set the time when the automation starts.
-   1. In the **When** section, select **Add trigger** > **Time and sun** > **Time**.
+   1. In the **When** section, select **Add trigger** > **Time** > **Time**.
    2. Choose a fixed time, and enter the time.
       - For example, `21:45`.
 3. Add a {% term condition %}, so that the automation only continues if tomorrow is a workday.
@@ -71,7 +71,7 @@ This automation dims the light at a specific time on the evening before a workda
 5. Define how to dim the light.
    1. Under **Then**, select **Add action**, and then search for and select **Turn on light**.
    2. Under **Targets**, select **Add target**, and then select your light.
-   3. Under **Additional options**, set the brightness. Depending on your light, you can also set the color temperature or color.
+   3. Set the **Brightness**. Depending on your light, you can also set the **Color temperature** or **Color**.
 6. To save the automation, select **Save**. Enter a name, and optionally a description, and then select **Save** again.
    - For example, `Dim living room light the night before a workday`.
 7. [Test your automation](/docs/automation/testing/#testing-your-automation).
