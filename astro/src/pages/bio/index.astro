@@ -350,9 +350,10 @@ const name = setting("title");
   }
 
   // The livestream card, when it shows, sits above the list in the
-  // large first place.
+  // large first place, flat like the cards below it.
   .feed :global(.hero-livestream) {
     margin-bottom: var(--space-small);
+    box-shadow: none;
   }
 
   .list {
