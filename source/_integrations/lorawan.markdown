@@ -16,7 +16,7 @@ Set up a connection integration for each LoRaWAN network server you use. When a 
 
 ## Viewing your LoRaWAN connections and devices
 
-To open the **LoRaWan** panel, go to {% my config_lorawan title="**Settings** > **Connectivity** > **LoRaWAN**" %}. The **LoRaWAN** panel shows your LoRaWAN connections and every device in the applications that you selected for them, including devices that Home Assistant hasn't added. Use it to find devices with a weak signal or a low battery, and to see why a device isn't added. A connection that is disconnected doesn't appear in the panel, and neither do its devices, until it connects again.
+The **LoRaWAN** panel under {% my config_lorawan title="**Settings** > **Connectivity** > **LoRaWAN**" %} shows your LoRaWAN connections and every device in the applications that you selected for them, including devices that Home Assistant hasn't added. Use it to find devices with a weak signal or a low battery, and to see why a device isn't added. A connection that is disconnected doesn't appear in the panel, and neither do its devices, until it connects again.
 
 Prerequisites:
 
