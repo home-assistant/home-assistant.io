@@ -83,50 +83,76 @@ All entities belong to one device, named after the config entry.
 - **Boost time remaining**: the time left on a running boost, or 0.
 - **Active error 1** to **Active error 5** (diagnostic): the alarms the unit reports, by name. Only the first is enabled by default.
 
-## Examples
+## Zehnder ComfoConnect PRO automation examples
 
-### Notify when the filters are due
+Here are a few ideas to get you started.
 
-```yaml
-automation:
-  - alias: "Order ventilation filters"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.comfoair_filter_days_remaining
-        below: 14
-    actions:
-      - action: notify.notify
-        data:
-          message: "The ventilation filters are due in less than two weeks."
-```
+{% include docs/paste_yaml_tip.md %}
 
-### Notify about an alarm
+### Automation: Notify when the filters are due
 
-{% raw %}
+Get a reminder to order filters two weeks before the unit asks for a change.
 
-```yaml
-automation:
-  - alias: "Ventilation alarm"
-    triggers:
-      - trigger: state
-        entity_id: sensor.comfoair_active_error_1
-        not_to:
-          - "none"
-          - "unknown"
-          - "unavailable"
-    actions:
-      - action: notify.notify
-        data:
-          message: "The ventilation unit reports: {{ state_translated('sensor.comfoair_active_error_1') }}"
-```
+- **Trigger**: Entity: Numeric state
+  - **Entity**: **Filter days remaining**
+  - **Below**: 14
+- **Action**: Notifications: Send a notification
 
-{% endraw %}
+{% details "YAML example for the filter reminder" %}
+
+{% example %}
+automation: |
+  alias: "Order ventilation filters"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.comfoair_filter_days_remaining
+      below: 14
+  actions:
+    - action: notify.notify
+      data:
+        message: "The ventilation filters are due in less than two weeks."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify about an alarm
+
+Get a notification with the alarm's name when the unit reports one.
+
+- **Trigger**: Entity: State
+  - **Entity**: **Active error 1**
+  - **To**: Any state
+- **Condition**: Entity: State
+  - **Entity**: **Active error 1**
+  - **State**: is not None
+- **Action**: Notifications: Send a notification
+  - **Message**: {% raw %}`The ventilation unit reports: {{ state_translated('sensor.comfoair_active_error_1') }}`{% endraw %}
+
+{% details "YAML example for the alarm notification" %}
+
+{% example %}
+automation: |
+  alias: "Ventilation alarm"
+  triggers:
+    - trigger: state
+      entity_id: sensor.comfoair_active_error_1
+      not_to:
+        - "none"
+        - "unknown"
+        - "unavailable"
+  actions:
+    - action: notify.notify
+      data:
+        message: "The ventilation unit reports: {{ state_translated('sensor.comfoair_active_error_1') }}"
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
 The integration polls the gateway every 30 seconds. One poll makes five Modbus reads.
 
-If one block of registers fails to read, only the entities from that block become unavailable. If the gateway loses its ventilation unit, all entities become unavailable until it finds the unit again.
+The integration reads the data in three groups: the status with the alarms, the measurements, and the settings, which include the comfort temperature and the boost time remaining. If one group fails to read, only the entities from that group become unavailable. All entities become unavailable when every group fails, when the link to the gateway drops, or when the gateway loses its ventilation unit. They come back with the next poll that succeeds.
 
 ## Known limitations
 
