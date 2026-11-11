@@ -20,6 +20,7 @@ The following devices are supported:
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, `RM4 TV mate` and `RM5 plus`
 - Wi-Fi Controlled Switches: `BG1`, `SC1`
 - Smart Light Bulbs: `LB1`,`LB2`
+- Magic Home gateways: `RM MAX` (sold as Universal Remote). It is set up by importing a family from the BroadLink Magic Home app. Refer to [Magic Home families](#magic-home-families).
 
 {% include integrations/config_flow.md %}
 
@@ -450,6 +451,216 @@ switch:
 The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
 
 __IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, for example, Bedroom TV.
+
+## Magic Home families
+
+Magic Home gateways, such as the `RM MAX` universal remote, control Bluetooth devices and IR/RF devices of a BroadLink Magic Home family. Instead of adding devices one by one, you import the whole family from the BroadLink Magic Home app. The gateway then connects to Home Assistant on the local network, and all control and state updates stay local.
+
+Setting up a Magic Home family has two parts, and both are required:
+
+1. Import the family: scan the QR code shown by Home Assistant with the Magic Home app, then select **Submit** in Home Assistant.
+2. Connect the gateway to Home Assistant: in the Magic Home app, set the gateway's third-party connection to **As client** with the Home Assistant IP address and port 12346.
+
+Some Magic Home app screenshots below show the Chinese interface. The menu labels in the steps are the English ones.
+
+### Prerequisites
+
+- BroadLink Magic Home app for iOS 5.3.2 (14) or newer. Earlier versions cannot upload a family to Home Assistant.
+- The phone is on the same local network as Home Assistant. After scanning, the app uploads the family directly to the local Home Assistant URL in the QR code, for example `http://192.168.1.10:8123`. The upload fails if the phone uses mobile data, a guest Wi-Fi, or a network that cannot reach Home Assistant.
+- UDP port 12346 is open on the Home Assistant host. The gateway connects to Home Assistant on this port. If the host or the network has a firewall, allow inbound UDP 12346. No other application may use this port.
+- The gateway can reach the Home Assistant host. If the gateway and Home Assistant are on different subnets or VLANs, make sure traffic is routed between them.
+- The gateway is added to the Magic Home app and shows as online.
+- Gateway Wi-Fi firmware 62341 or newer, which is required for Bluetooth device state reports.
+
+### Step 1: Generate the QR code in Home Assistant
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Add integration**, and select **Broadlink**.
+2. Select **Magic Home family**.
+
+   ![Choosing the Magic Home family setup mode](/images/integrations/broadlink/magic_home_ha_01_setup_mode.png)
+
+3. Home Assistant shows the **Import a Magic Home family** dialog with a QR code. Keep this dialog open.
+
+   ![Import a Magic Home family dialog with QR code](/images/integrations/broadlink/magic_home_ha_02_qr_code.png)
+
+The QR code contains a one-time identifier. It expires after three minutes and cannot be reused after a successful upload. If it expires, close the dialog and start again to get a new code.
+
+### Step 2: Scan the QR code with the Magic Home app
+
+1. Make sure the phone is connected to a Wi-Fi network on the same local network as Home Assistant.
+2. In the Magic Home app, tap **+** in the upper-right corner of the home page.
+
+   ![Magic Home app home page](/images/integrations/broadlink/magic_home_01_home.png)
+
+3. Select **Scan**.
+
+   ![Scan menu entry](/images/integrations/broadlink/magic_home_02_scan_menu.png)
+
+4. Scan the QR code shown in the Home Assistant dialog.
+
+   ![Scanning the Home Assistant QR code](/images/integrations/broadlink/magic_home_03_scan_qr.jpg)
+
+5. After the app reports a successful upload, return to Home Assistant and select **Submit** in the QR code dialog. Home Assistant creates the family, or updates it if the family was imported before.
+
+   ![Family imported](/images/integrations/broadlink/magic_home_ha_03_submitted.png)
+
+The family is not imported until you select **Submit** in Home Assistant. Scanning alone is not enough.
+
+### Step 3: Connect the gateway to Home Assistant
+
+1. On the app home page, tap the gateway.
+2. Tap the menu button in the upper-right corner and select **Device details**.
+
+   ![Gateway menu](/images/integrations/broadlink/magic_home_04_gateway_menu.jpg)
+
+3. Select **Connect to 3rd-party**.
+
+   ![Device details](/images/integrations/broadlink/magic_home_05_device_details.jpg)
+
+4. Select **As client**. Leave **As server** not set.
+
+   ![Connect to 3rd-party](/images/integrations/broadlink/magic_home_06_connect_third_party.png)
+
+5. Enter the connection settings:
+   - **Port number**: `12346`
+   - **IP address**: the local IPv4 address of the Home Assistant host
+
+   ![As client settings](/images/integrations/broadlink/magic_home_07_client.png)
+
+6. Tap **Save** in the upper-right corner. The app sends the settings to the gateway, so keep the phone close to the gateway while saving.
+
+After saving, the **As client** row shows the Home Assistant address and port, for example `192.168.1.10:12346`. The gateway then connects to Home Assistant. Home Assistant matches the gateway to the imported family by its MAC address, creates areas for the rooms, and makes the devices available.
+
+### Verify the setup
+
+- The family appears under {% my integrations title="**Settings** > **Devices & services**" %} > **Broadlink**, with the gateway and its devices grouped under the family.
+
+  ![Broadlink devices of an imported family](/images/integrations/broadlink/magic_home_ha_04_integration.png)
+
+- Devices show their entities and controls. For example, a TV offers power and volume controls, and a learned IR device offers one button per learned key.
+
+  ![RM TV device page](/images/integrations/broadlink/magic_home_ha_06_tv_device.png)
+
+  ![RM learned IR device page](/images/integrations/broadlink/magic_home_ha_07_learned_device.png)
+
+- Controlling a light or air conditioner from Home Assistant works.
+
+### Reimport a family
+
+Import the family again after adding, changing, or removing devices in the app. Scan the new QR code and select **Submit**. Home Assistant identifies the family by its family ID, updates the existing entry, and removes entities of devices that no longer exist. If you scan several times, the most recent scan is used.
+
+The gateway client settings are kept, so you usually do not need to configure the gateway again. If devices cannot be controlled after a reimport, refer to [Devices cannot be controlled after reimporting a family](#devices-cannot-be-controlled-after-reimporting-a-family).
+
+### Supported Magic Home devices
+
+- **Gateway**: a device of the family. It is online while the gateway sends heartbeats.
+- **RGB/CW and white Bluetooth lights**: a light with on, off, and brightness, plus RGB color and color temperature when the light supports them. The state is reported by the light.
+- **Bluetooth air conditioners**: a climate entity with on and off, auto, cool, heat, fan, and dry modes, target temperature in 1 °C steps, and fan speed. The state is reported by the device.
+- **Three-in-one thermostat panels**: a climate entity for the air conditioner, a climate entity for the floor heating, and a fan for the fresh air. The state is reported by the panel.
+- **Switch panels and plugs**: one switch per channel. The state is reported by the device.
+- **Bluetooth curtains**: a cover with open, close, stop, and position. The position is reported by the curtain once its travel limits are set in the Magic Home app.
+- **Scenes**: a scene that you can activate.
+- **RM IR/RF child devices**: refer to [RM child devices](#rm-child-devices).
+
+A family may contain several gateways. Commands are sent to every online gateway of the family.
+
+Light groups are imported but not shown, because the gateway does not report a reliable group state.
+
+On a Bluetooth curtain without travel limits, the cover shows the position from the last command. After the travel limits are set in the Magic Home app, the cover shows the reported position and whether the curtain is opening or closing.
+
+#### RM child devices
+
+RM child devices are infrared or RF devices controlled through an `RM MAX` gateway. The family import includes the key list of each device and the code of every key. Home Assistant sends these imported codes and only offers the functions the device actually has. For example, a drying rack that only has a raise key only offers an open action.
+
+IR and RF devices do not report their state. Their entities show the state from the last command sent from Home Assistant.
+
+- **TV, set-top box, smart box**: a TV media player with power, volume, mute, playback, and channel up and down.
+- **Projector**: a projector media player.
+- **DVD player, amplifier**: a receiver media player.
+- **Speaker**: a speaker media player.
+- **Air conditioner**: a climate entity.
+- **Curtain**: a cover with open, close, and stop.
+- **Drying rack**: a cover, plus a light when the device has light keys.
+- **Fan, air purifier**: a fan with power.
+- **Light**: a light with on and off.
+- **Water heater, humidifier**: a switch.
+- **Robot vacuum**: a vacuum with start and return to base.
+- **Relay panel**: one switch per channel that has on and off keys.
+- **Learned IR or RF device**: one button per learned key, named after the key.
+
+To press keys that have no matching entity feature, such as number keys or a menu key, use the [Send RM command](/actions/broadlink.send_rm_command/) action.
+
+### Unsupported Magic Home devices
+
+- Radar sensors and radar configuration
+- Temperature and humidity sensors
+- Door sensors and RM door devices
+- Energy, runtime, and trigger-count sensors
+- The real power and playback state of TVs and set-top boxes
+
+### Network behavior
+
+The gateway connects to Home Assistant on UDP port 12346. Home Assistant never connects to the gateway, so you do not need to enter the gateway IP address or open any port on the gateway.
+
+- The gateway sends periodic heartbeats. Home Assistant identifies it by MAC address and follows changes of its IP address and source port.
+- A gateway is offline after 180 seconds without any message. Devices are unavailable while all gateways of the family are offline, and recover when a gateway sends a heartbeat again.
+- Commands are sent to every online gateway of the family. The gateway sends them to its devices over Bluetooth, or as IR or RF codes for RM child devices.
+- The gateway reports device state on the same connection. Home Assistant also queries the state after sending a command.
+- After Home Assistant restarts, the gateway reconnects with its next heartbeat.
+
+For routed networks, allow UDP traffic in both directions between the gateway network and Home Assistant.
+
+{% important %}
+Use Magic Home gateways only on a trusted local network. The gateway protocol does not authenticate the gateway, so a device on the same network that knows the gateway's MAC address could pretend to be the gateway. Do not expose UDP port 12346 to the internet or to untrusted networks such as a guest Wi-Fi.
+{% endimportant %}
+
+### Data and privacy
+
+The Magic Home app uploads the family data directly to Home Assistant. Home Assistant only stores the fields required for local control, and control and state updates stay on the local network. Diagnostics of a Magic Home family do not include MAC addresses, device IDs, tokens, or family and device names.
+
+### Troubleshooting Magic Home families
+
+#### The app shows "invalid or expired import session"
+
+The QR code expired after three minutes or was already used. Close the Home Assistant dialog, start the Magic Home family setup again, and scan the new QR code.
+
+#### The app reports an upload failure, or Home Assistant keeps waiting
+
+- Update the Magic Home app. iOS requires version 5.3.2 (14) or newer.
+- Connect the phone to a Wi-Fi network on the same local network as Home Assistant.
+- Make sure the phone can open the Home Assistant URL in the QR code.
+- Generate a new QR code if the previous one expired.
+- Check whether a reverse proxy blocks the family import request.
+
+#### The family is imported, but the gateway is unavailable
+
+- Make sure the gateway's client IP address is the local IPv4 address of the Home Assistant host, and that the port is `12346`.
+- Allow inbound UDP 12346 in the host and network firewall.
+- Check the routing if Home Assistant and the gateway are on different subnets.
+
+#### Saving the client settings on the gateway fails
+
+The phone is too far from the gateway. Move closer to the gateway and save again.
+
+#### Devices cannot be controlled after reimporting a family
+
+In the Magic Home app, open the gateway's **Device details** > **Connect to 3rd-party** > **As client** page and save the settings again, as in [Step 3: Connect the gateway to Home Assistant](#step-3-connect-the-gateway-to-home-assistant). Keep the same IP address and port, and keep the phone close to the gateway. The devices can be controlled again once the gateway reconnects.
+
+#### Control works, but the state does not update
+
+- Make sure the gateway Wi-Fi firmware is version 62341 or newer.
+- Wait for the status query or the next device report.
+- RM child devices, and curtains without travel limits, only show the state from the last command. Set the curtain travel limits in the Magic Home app to get position reports.
+
+#### Devices are missing after a change in the app
+
+Reimport the family. The import is a full snapshot of the family and updates the existing entry.
+
+#### Disconnect the gateway from Home Assistant
+
+On the **Connect to 3rd-party** page, tap **Clear**. The gateway stops connecting to Home Assistant.
+
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 
