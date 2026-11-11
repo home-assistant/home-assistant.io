@@ -2,6 +2,7 @@
 title: Fetch message part
 action: imap.fetch_part
 domain: imap
+response: required
 description: "Fetches a single part or attachment from an IMAP email message."
 related_actions:
   - imap.fetch
@@ -10,8 +11,6 @@ related_actions:
 ---
 
 The **IMAP: Fetch message part** action fetches a single part or attachment from an email message on your IMAP server. Use it to retrieve the content of a specific part, such as an attachment, that you found with the [Fetch message](/actions/imap.fetch/) action or in the `imap_content` event data.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -73,6 +72,8 @@ part:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains the following fields:
 

@@ -56,8 +56,10 @@ Devices configured with [OpenDisplay Flex](https://opendisplay.org/protocol/flex
 
 [OpenDisplay Flex](https://opendisplay.org/protocol/flex-standard.html) devices with configured physical inputs provide {% term event %} entities. Home Assistant creates one event entity for each physical button.
 
-- `button_down`: The button was pressed.
-- `button_up`: The button was released.
+- `press_start`: The button was pressed.
+- `press_end`: The button was released.
+
+To start an automation when you press a button, use the [Button pressed](/triggers/button.pressed/) trigger.
 
 {% note %}
 Home Assistant detects button events by comparing Bluetooth Low Energy advertisements, so it does not need an active Bluetooth connection. A press and release that happens between two advertisements might not be detected.
