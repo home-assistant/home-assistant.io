@@ -62,7 +62,7 @@ trigger: |
         number: 20
 {% endexample %}
 
-This fires whenever the front door sensor battery drops below 20%.
+The trigger reacts whenever the front door sensor battery level changes to a value below 20%.
 
 To fire only when the new reading falls within a healthy charge range after a recharge:
 
@@ -121,7 +121,7 @@ threshold:
 
 - Use a sensor with the battery device class.
 - If you use an entity as the threshold, it must use `%` as its unit. If it has a different unit, or no unit, the trigger doesn't react.
-- The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
+- The threshold type checks only the new value, not the direction of the change. With **Above**, the trigger reacts to every change where the new value is above the threshold, whether the value went up or down. For example, with **Above** 50%, a change from 80% to 70% makes the trigger react. **Below**, **In range**, and **Outside range** work the same way.
 - Use **Any change** to fire on every reading update regardless of direction or where the new value lands.
 - To react only when a battery level first crosses a specific value, use [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/) instead.
 - Pair this trigger with the Battery level condition to verify the reading meets a threshold before continuing the automation.
