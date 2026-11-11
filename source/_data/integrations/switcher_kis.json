@@ -14,6 +14,9 @@
     "climate.water_heaters",
     "blinds_curtains"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "climate",

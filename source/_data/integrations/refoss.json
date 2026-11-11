@@ -11,6 +11,9 @@
     "plugs_switches",
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor",
     "switch"

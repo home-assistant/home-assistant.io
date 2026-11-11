@@ -10,6 +10,9 @@
   "categories": [
     "lighting.led_strips_controllers"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "light"
   ],

@@ -2,6 +2,7 @@
 title: Get shopping list items
 action: mealie.get_shopping_list_items
 domain: mealie
+response: required
 description: "Get the items on a Mealie shopping list."
 related_actions:
   - mealie.get_recipes
@@ -9,8 +10,6 @@ related_actions:
 ---
 
 Use this action to get the items on a Mealie shopping list, including structured data for labels, units, and food. This is handy when you want to read the list out loud or send it in a notification.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -48,6 +47,8 @@ This gets the items on the targeted shopping list and stores them in the `shoppi
 This action has no additional options in YAML.
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the items on each shopping list you targeted, including structured data for labels, units, and food.
 

@@ -10,6 +10,10 @@
     "diy_makers.web_data_connectors",
     "weather_alerts.public_warnings"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "sensor"
   ]

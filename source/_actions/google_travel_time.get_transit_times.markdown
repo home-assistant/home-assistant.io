@@ -2,6 +2,7 @@
 title: "Get transit times"
 action: google_travel_time.get_transit_times
 domain: google_travel_time
+response: required
 description: "Retrieves route alternatives and travel times between two locations using public transit."
 related_actions:
   - google_travel_time.get_travel_times
@@ -132,6 +133,8 @@ You can set a departure time or an arrival time, but not both in the same action
 {% endnote %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response data is a mapping with a `routes` list. Each route has the following fields:
 

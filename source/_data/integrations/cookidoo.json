@@ -12,6 +12,9 @@
     "productivity_information.shopping_groceries",
     "appliances_cleaning.cooking"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "button",
     "calendar",

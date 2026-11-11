@@ -2,6 +2,7 @@
 title: "Get movies"
 action: radarr.get_movies
 domain: radarr
+response: required
 description: "Gets all movies in Radarr with their details and status."
 related_actions:
   - radarr.get_queue
@@ -9,7 +10,7 @@ related_actions:
 
 Use this action to get all movies in your Radarr library, including their details and status.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to build a notification listing your monitored movies.
+For example, you can use the result to build a notification listing your monitored movies.
 
 {% include actions/ui_header.md %}
 
@@ -59,6 +60,8 @@ entry_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `movies` mapping, keyed by movie title. Each movie includes the following fields:
 

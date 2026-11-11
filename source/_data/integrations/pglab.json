@@ -12,6 +12,9 @@
     "plugs_switches",
     "blinds_curtains"
   ],
+  "connectivity": [
+    "mqtt"
+  ],
   "platforms": [
     "cover",
     "sensor",

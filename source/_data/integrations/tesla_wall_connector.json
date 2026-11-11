@@ -11,8 +11,12 @@
   "categories": [
     "energy.ev_charging"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
+    "diagnostics",
     "sensor"
   ],
   "discovery": [

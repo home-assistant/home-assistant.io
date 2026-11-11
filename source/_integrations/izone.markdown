@@ -129,6 +129,15 @@ The damper position is best-effort, and some controllers don't report it correct
 
 Damper position isn't a percentage of airflow, because airflow doesn't change linearly with damper position.
 
+### Wireless zone sensors
+
+Zones with a wireless temperature sensor have the following {% term sensor %} entities:
+
+- **RF signal**: (diagnostic) The radio signal strength of the zone sensor, as a percentage.
+- **Battery**: (diagnostic) The battery level of the zone sensor, as a percentage.
+
+The iZone controller only reports these in coarse steps. The RF signal is 100%, 50%, 25%, or 0%, and the battery is 100%, 50%, or 0%. The RF signal and battery sensors are only created for zones with a wireless sensor, and only if your iZone bridge reports the values.
+
 ## Diagnostics
 
 The iZone {% term integration %} provides diagnostics to help with troubleshooting. The download includes:

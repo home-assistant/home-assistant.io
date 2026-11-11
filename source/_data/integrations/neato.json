@@ -7,6 +7,9 @@
   "categories": [
     "appliances_cleaning.cleaning"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "button",
     "camera",

@@ -10,6 +10,9 @@
     "plugs_switches",
     "lighting.led_strips_controllers"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "light",

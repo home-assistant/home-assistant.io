@@ -12,6 +12,9 @@
     "security_safety.doorbells_intercoms",
     "security_safety.cameras"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "button",
     "camera",

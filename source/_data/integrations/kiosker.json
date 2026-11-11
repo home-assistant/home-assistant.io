@@ -11,6 +11,9 @@
   "categories": [
     "presence_location.phones_companion_apps"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

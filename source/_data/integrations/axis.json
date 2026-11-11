@@ -11,6 +11,9 @@
     "security_safety.cameras",
     "security_safety.doorbells_intercoms"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "camera",

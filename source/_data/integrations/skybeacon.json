@@ -6,6 +6,9 @@
   "categories": [
     "sensors.temperature_humidity"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "sensor"
   ]

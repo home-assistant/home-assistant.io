@@ -11,6 +11,9 @@
   "categories": [
     "weather_alerts.forecasts"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "weather"
   ]

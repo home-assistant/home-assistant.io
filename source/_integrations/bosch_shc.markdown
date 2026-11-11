@@ -51,6 +51,8 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact II
 - Battery powered devices
 
+A room climate control also gets **Call for heat**, **Schedule override active**, **Heating break**, and **Sustainable ventilation** binary sensors.
+
 A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguard is the source of an active smoke alarm and turns off when the alarm ends.
 
 ### Buttons
@@ -83,7 +85,8 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 
 ### Light
 
-A Light Control micromodule dimmer gets a light entity that supports turning on and off and setting the brightness.
+- A Light Control micromodule dimmer gets a light entity that supports turning on and off and setting the brightness.
+- A Motion Detector II gets an **Orientation light** entity that supports turning on and off and setting the brightness.
 
 ### Number
 
@@ -95,6 +98,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Smart Plug or Smart Plug Compact gets an **Energy-saving enter duration** value (1 to 3600 seconds), controlling how long the plug stays below the power threshold before energy-saving mode is entered.
 - A Thermostat, Wall Thermostat, or Room Thermostat II that supports it gets a **Temperature offset** value, letting you correct the measured temperature within the range and step the device allows.
 - A Smart Plug or Smart Plug Compact that supports it gets an **LED brightness** value (0 to 100 %), controlling the brightness of the plug's status LED.
+- A Micromodule Dimmer that supports calibration gets a **Dimming speed** value (1 to 10), controlling how quickly the dimmer changes brightness.
 - A Thermostat II or Room Thermostat II that supports display configuration gets a **Display brightness** value (0 to 100 %) and a **Display on-time** value (0 to 3600 seconds), controlling how bright the display is and how long it stays on after a button press.
 
 ### Select
@@ -128,6 +132,8 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Light Switch
 - Micromodule Shutter Control
 - Micromodule Blinds
+
+Outdoor Sirens that support it also provide diagnostic **Siren battery**, **Siren power source** (**Battery**, **Solar**, **12 V**, **230 V**, or **Unknown**), and **Siren solar charging** (**Bad**, **Medium**, **Good**, or **Unknown**) sensors.
 
 Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because the valve entity provides the position directly.
 
