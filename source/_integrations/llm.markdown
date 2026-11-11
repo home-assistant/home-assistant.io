@@ -79,7 +79,7 @@ The **Home Assistant** set of tools contains the following tools. Each entry sta
   - To do this yourself: Use the [quick search](/docs/tools/quick-search/).
 - **Get system info** (`system_health__get_system_info`): Returns the installation type, the time zone, and the versions of Home Assistant Core, the frontend, Python, the operating system, and the Supervisor. For example, to fill in a bug report. Only reads.
   - To do this yourself: Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **System information**.
-- **Get history** (`history__get_history`): Returns the long-term statistics of entities. For example, the mean, minimum, and maximum temperature per hour. It only works for entities with long-term statistics, such as sensors with a state class. Only reads.
+- **Get history** (`history__get_history`): Returns statistics of entities, not their individual state changes. For example, the mean, minimum, and maximum temperature per 5 minutes or per hour. It only works for entities with statistics, such as sensors with a state class. Only reads.
   - To do this yourself: Use the {% my history title="**History**" %} panel.
 - **Get system log entries** (`system_log__get_entries`): Returns recent errors and warnings from the system log. It doesn't include info or debug messages. It can filter by level and by integration. Only reads.
   - To do this yourself: Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
@@ -93,7 +93,7 @@ The **Home Assistant** set of tools contains the following tools. Each entry sta
 
 - Only administrators can use the Home Assistant LLM tools. Requests without an administrator account fail. For example, requests from a voice assistant device, or from a user who isn't an administrator. This also stops **Device control** on that conversation agent, because the agent can't prepare any of its sets of tools.
 - The **Home Assistant Cloud** conversation agent of [Home Assistant Cloud](/integrations/cloud/) can't use the Home Assistant LLM tools. It always uses **Device control**.
-- **Get history** only returns {% term "long-term statistics" %}. Entities without long-term statistics have no history for this tool. For example, a switch or a sensor without a [state class](/integrations/sensor/#state-class). For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
+- **Get history** returns statistics, not individual state changes. Entities without statistics have no history for this tool. For example, a switch or a sensor without a [state class](/integrations/sensor/#state-class). For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
 - In {% term "Home Assistant Container" %} installations, and in other installations without the Supervisor, **Get logs** needs the Home Assistant log file. If Home Assistant doesn't write a log file, this tool isn't available. For example, the `HA_DISABLE_LOG_FILE` environment variable turns off the log file.
 - **Get logs** masks values that look like credentials, such as tokens, passwords, and API keys. It can't recognize every credential, so other secrets in your logs can still reach the AI provider.
 
