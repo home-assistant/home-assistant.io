@@ -10,33 +10,59 @@
 // src/components/Homepage/LivestreamCard.astro), which shares the API;
 // the logic is in src/lib/livestream.ts. Used by the bio page (/bio/).
 //
-// The shell below is state-agnostic; the client script drives it via
-// `applyLivestreamState`. When `slug` is set the card fetches and shows
-// itself automatically. It stays hidden while loading and when there is
-// nothing to show. Each time its state settles it sends a
+// `info`, the stream as fetched when the page is built (see
+// fetchLivestreamAtBuild), renders the card in that state, so it's in the
+// page before any JavaScript runs, and without it: the title, thumbnail
+// and start time in UTC. Without `info` the card starts hidden. Either
+// way the client script then fetches the stream again and drives the
+// card via `applyLivestreamState`: a live countdown, local times, the
+// embed, or hiding itself if the stream has gone. It stays hidden when
+// there is nothing to show. Each time its state settles it sends a
 // `livestream:state` event (detail: the state) that bubbles, so a page
 // can make room for it.
+import {
+  EYEBROW_TEXT,
+  formatUtcStartTime,
+  resolveDisplayState,
+  youtubeIdFromUrl,
+  type LivestreamInfo,
+} from "../lib/livestream";
+
 interface Props {
   slug?: string;
+  info?: LivestreamInfo | null;
   class?: string;
   [key: `data-${string}`]: string | undefined;
 }
 
-const { slug, class: className, ...rest } = Astro.props;
+const { slug, info = null, class: className, ...rest } = Astro.props;
+
+// The state at build time, when `info` is given.
+const built = info ? resolveDisplayState(info) : "loading";
+const shown = built === "live" || built === "upcoming" || built === "past";
+const videoId = shown ? youtubeIdFromUrl(info?.url) : null;
 ---
 
 <a
   class:list={["livestream-card", className]}
-  data-state="loading"
+  data-state={shown ? built : "loading"}
   data-slug={slug}
-  href="#"
+  data-player={built === "live" && videoId ? "pending" : undefined}
+  data-video-id={built === "live" && videoId ? videoId : undefined}
+  href={shown && info?.url ? info.url : "#"}
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Home Assistant livestream"
   {...rest}
 >
   <div class="livestream-card__media">
-    <img class="livestream-card__thumb" alt="" loading="lazy" decoding="async" />
+    <img
+      class="livestream-card__thumb"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      src={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : undefined}
+    />
     <iframe
       class="livestream-card__player"
       title="Home Assistant livestream"
@@ -51,11 +77,11 @@ const { slug, class: className, ...rest } = Astro.props;
   <div class="livestream-card__overlay">
     <span class="livestream-card__status">
       <span class="livestream-card__dot" aria-hidden="true"></span>
-      <span class="livestream-card__eyebrow"></span>
+      <span class="livestream-card__eyebrow">{shown && EYEBROW_TEXT[built as "live" | "upcoming" | "past"]}</span>
     </span>
     <span class="livestream-card__foot">
-      <span class="livestream-card__title"></span>
-      <span class="livestream-card__meta"></span>
+      <span class="livestream-card__title">{shown && (info?.title ?? info?.channelName)}</span>
+      <span class="livestream-card__meta">{built === "upcoming" && formatUtcStartTime(info?.startTime)}</span>
     </span>
   </div>
 </a>

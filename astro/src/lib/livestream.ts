@@ -11,6 +11,8 @@
 // https://web-api.openhomefoundation.org/livestream, avoiding CORS: the
 // site's source/_redirects on Netlify, and astro.config.mjs in development.
 export const LIVESTREAM_API_BASE = "/livestream-api";
+// The API itself, for fetching at build time (no browser, so no CORS).
+export const LIVESTREAM_API_ORIGIN = "https://web-api.openhomefoundation.org/livestream";
 
 export type LivestreamStatus = "live" | "upcoming" | "past" | "none";
 
@@ -267,3 +269,31 @@ export async function fetchLivestream(slug: string, signal?: AbortSignal): Promi
     return null;
   }
 }
+
+// The channel's stream as the page is built, so the card is in the page
+// before any JavaScript runs (and without it). A failure or a slow answer
+// means no card at build time; the browser still fetches its own.
+export async function fetchLivestreamAtBuild(slug: string, timeoutMs = 5000): Promise<LivestreamInfo | null> {
+  try {
+    const res = await fetch(`${LIVESTREAM_API_ORIGIN}/${encodeURIComponent(slug)}`, {
+      signal: AbortSignal.timeout(timeoutMs),
+    });
+    if (!res.ok) return null;
+    return (await res.json()) as LivestreamInfo;
+  } catch {
+    return null;
+  }
+}
+
+// The start time for a page built without the visitor's time zone, e.g.
+// "Wed, November 11, 20:00 UTC". The browser replaces it with local time.
+export function formatUtcStartTime(startTime: string | undefined): string {
+  if (!startTime) return "";
+  const start = Date.parse(startTime);
+  if (Number.isNaN(start)) return "";
+  const date = new Date(start).toLocaleDateString("en-US", { weekday: "short", month: "long", day: "numeric", timeZone: "UTC" });
+  const time = new Date(start).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "UTC" });
+  return `${date}, ${time} UTC`;
+}
+
+export const EYEBROW_TEXT = EYEBROW;

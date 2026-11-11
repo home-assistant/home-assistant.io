@@ -526,6 +526,21 @@ function feedEntries(items, section, sources, posts, siteUrl, now) {
   });
 }
 
+// A resolved feed section with its large first place given to something
+// else (a livestream card, known when the page is built): the item in that
+// place shows as its row version instead, as the page's script does once
+// the card appears.
+export function withHeroTaken(section) {
+  const hero = section.entries.find((entry) => entry.variant === "hero" && !entry.hidden);
+  if (!hero) return { ...section, heroTaken: true };
+  const entries = section.entries.map((entry) => {
+    if (entry === hero) return { ...entry, hidden: true };
+    if (entry.variant === "row" && entry.key === hero.key) return { ...entry, hidden: false };
+    return entry;
+  });
+  return { ...section, entries, tiles: entries.filter((entry) => !entry.hidden), heroTaken: true };
+}
+
 // Curated links, minus those that have ended. Links have no limit.
 function linkEntries(section, posts, siteUrl, now) {
   return section.items.flatMap((item, index) => {

@@ -28,7 +28,8 @@ import Card from "../../components/Card.astro";
 import Button from "../../components/Button.astro";
 import Icon from "../../components/Icon.astro";
 import LivestreamCard from "../../components/LivestreamCard.astro";
-import { loadPosts, resolve, socialLinks, validate } from "../../lib/bio.mjs";
+import { loadPosts, resolve, socialLinks, validate, withHeroTaken } from "../../lib/bio.mjs";
+import { fetchLivestreamAtBuild, resolveDisplayState } from "../../lib/livestream";
 import { setting } from "../../lib/site.mjs";
 import "../../styles/tokens.scss";
 
@@ -53,7 +54,17 @@ const data = Object.fromEntries(
     }),
 );
 
-const sections = resolve(config, posts, now, setting("url"), data);
+// A feed with a livestream card: the channel's stream as the page is
+// built. When there is one to show, the card is built in the large first
+// place, so the page looks the same before and without JavaScript.
+const streams = {};
+for (const slug of new Set(config.sections.map((section) => section.livestream).filter(Boolean))) {
+  streams[slug] = await fetchLivestreamAtBuild(slug);
+}
+const hasStream = (slug) => ["live", "upcoming", "past"].includes(resolveDisplayState(streams[slug], now.getTime()));
+const sections = resolve(config, posts, now, setting("url"), data).map((section) =>
+  section.livestream && hasStream(section.livestream) ? withHeroTaken(section) : section,
+);
 const iso = (date) => (date ? date.toISOString() : undefined);
 // What the script needs to show or hide an entry later.
 const schedule = (entry) => ({
@@ -93,8 +104,8 @@ const name = setting("title");
           section.type === "feed" ? (
             <section class="feed" hidden={section.hidden}>
               {section.title && <h2>{section.title}</h2>}
-              {section.livestream && <LivestreamCard slug={section.livestream} class="hero-livestream" />}
-              <ul class="list" data-schedule data-order={section.order} data-limit={section.limit} data-claims={section.claims || undefined}>
+              {section.livestream && <LivestreamCard slug={section.livestream} info={streams[section.livestream]} class="hero-livestream" />}
+              <ul class="list" data-schedule data-order={section.order} data-limit={section.limit} data-claims={section.claims || undefined} data-hero-taken={section.heroTaken ? "" : undefined}>
                 {section.entries.map((tile) => {
                   const video = tile.kind === "video";
                   const tileIndex = section.tiles.indexOf(tile);

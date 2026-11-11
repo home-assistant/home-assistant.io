@@ -5,7 +5,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { describe, it } from "node:test";
-import { BioConfigError, dataItems, imageFor, loadPosts, parseEnd, resolve, validate, youtubeId } from "./bio.mjs";
+import { BioConfigError, dataItems, imageFor, loadPosts, parseEnd, resolve, validate, withHeroTaken, youtubeId } from "./bio.mjs";
 import { isShowing, select } from "./bio-schedule.mjs";
 
 const NOW = new Date("2026-10-22T00:00:00Z");
@@ -447,6 +447,13 @@ describe("hero card", () => {
       assert.deepEqual(showing(false)[0], ["Voice", "hero"]);
       assert.deepEqual(showing(true)[0], ["Voice", "link"]);
       assert.equal(showing(true).filter(([label]) => label === "Voice").length, 1);
+    });
+
+    it("builds the first item as a row when the card is known at build time", () => {
+      const taken = withHeroTaken(latest());
+      assert.equal(taken.heroTaken, true);
+      assert.deepEqual(taken.tiles[0] && [taken.tiles[0].label, taken.tiles[0].kind], ["Voice", "link"]);
+      assert.equal(taken.tiles.filter((t) => t.label === "Voice").length, 1);
     });
 
     it("must name a channel", () =>
