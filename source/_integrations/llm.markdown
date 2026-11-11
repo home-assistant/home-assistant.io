@@ -21,11 +21,11 @@ Integrations can add more sets. For example, [KNX](/integrations/knx/) adds a **
 
 You choose the sets in the **AI tools** option of each conversation agent, for example in [Anthropic](/integrations/anthropic/), [Google Gemini](/integrations/google_generative_ai_conversation/), [Ollama](/integrations/ollama/), or [OpenAI](/integrations/openai_conversation/). A new conversation agent starts with **Device control** only. In Ollama, it starts with no sets.
 
-## What the Home Assistant tools can reach
+## What the Home Assistant LLM tools can reach
 
-The **Home Assistant** tools are not limited to the entities that you expose to voice assistants. They can read the state of every entity, the status of your integrations, your logs, and the history of your sensors. For the full list, refer to [List of Home Assistant tools](#list-of-home-assistant-tools).
+The Home Assistant LLM tools are not limited to the entities that you expose to voice assistants. They can read the state of every entity, the status of your integrations, your logs, and the history of your sensors. For the full list, refer to [List of Home Assistant LLM tools](#list-of-home-assistant-llm-tools).
 
-Most of the **Home Assistant** tools only read. Two tools can change things:
+Most of the Home Assistant LLM tools only read. Two tools can change things:
 
 - **Call action** can perform any action in Home Assistant, on any entity, device, or area. This includes entities that you didn't expose. For example, it can turn off a light, run a script, or restart Home Assistant.
 - **Reload config entry** can reload an integration.
@@ -56,9 +56,9 @@ To give a conversation agent the Home Assistant LLM tools, follow these steps:
 
 ## Supported functionality
 
-### List of Home Assistant tools
+### List of Home Assistant LLM tools
 
-You don't call these tools yourself. When you ask the AI assistant something, it decides which tools to call. You can't select single tools. You give the assistant the entire set, as described in [Giving a conversation agent the Home Assistant tools](#giving-a-conversation-agent-the-home-assistant-tools).
+You don't call these tools yourself. When you ask the AI assistant something, it decides which tools to call. You can't select single tools. You give the assistant the entire set, as described in [Giving a conversation agent the Home Assistant LLM tools](#giving-a-conversation-agent-the-home-assistant-llm-tools).
 
 The **Home Assistant** set of tools contains the following tools. Each entry starts with the title of the tool, followed by its ID. The Assist dialog shows the ID under **Show details**. Many tools do something that you can also do yourself in the UI, without an AI assistant. Where you can, the entry says how. For example, to check what the assistant tells you.
 
