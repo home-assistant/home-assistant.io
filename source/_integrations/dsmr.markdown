@@ -27,18 +27,6 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For EasyMeter Q3D, choose DSMR version `Q3D`
 - For E-ON Hungary meters (and for most of other Hungarian meters), choose DSMR version `5EONHU`
 
-### Options
-
-To configure options for DSMR integration go to {% my integrations title="**Settings** > **Devices & services**" %} and press **Options** on the DSMR card.
-
-#### Time between updates
-
-Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter.
-
-{% important %}
-Reducing the default time between updates will increase the amount of events generated and can potentially flood the system with events.
-{% endimportant %}
-
 ### Supported meters
 
 This integration is known to work for:
