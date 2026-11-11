@@ -72,7 +72,9 @@ If you run Home Assistant in a container, you can run a Docker image of the [Mat
 
 Home Assistant supports cameras that use Matter 1.5 or later.
 
-After you add a Matter camera, you can watch its live video, take snapshots, and use the camera in your dashboards and automations, like any other camera in Home Assistant. The live video is streamed with <abbr title="Web Real-Time Communication">WebRTC</abbr>, directly between your browser and the camera. The camera entity follows the camera's privacy mode. Refer to the steps on [talking through a Matter camera](#talking-through-a-matter-camera).
+After you add a Matter camera, you can watch its live video, take snapshots, and use the camera in your dashboards and automations, like any other camera in Home Assistant. The live video is streamed with <abbr title="Web Real-Time Communication">WebRTC</abbr>, directly between your browser and the camera. When privacy mode is turned on in the camera, the camera entity shows as off.
+
+If your camera supports two-way audio, you can also talk through it. For the steps, refer to [Talking through a Matter camera](#talking-through-a-matter-camera).
 
 ## Adding a Matter device to Home Assistant
 
@@ -312,16 +314,18 @@ This section provides a bit more information on some of the categories:
 
 ## Talking through a Matter camera
 
-Prerequisites: A Matter camera that supports two-way audio and a Matter server that supports cameras. Home Assistant only discovers cameras when the connected Matter server supports them. Update the Matter server app if your camera isn't found.
+Prerequisites:
+
+- A Matter camera that supports two-way audio.
+- The Matter Server app 9.3.0 or newer. If you run the Matter server in a container, use [Matter Server](https://github.com/matter-js/matterjs-server) 1.5.0 or newer.
+- Home Assistant opened over HTTPS. Browsers only allow microphone access over a secure connection.
 
 To talk through the camera:
 
 1. Go to {% my labs title="**Settings** > **System** > **Labs**" %} and turn on the **Two-way audio** preview feature.
-   - Result: A talk button appears in the live view.
-2. Open Home Assistant over HTTPS, since your browser only allows microphone access over a secure connection.
-3. Open the camera entity's live view and select the talk button.
-4. If your browser asks for microphone access, allow it. You can now talk through the camera.
-5. To stop transmitting audio, select the talk button again.
+2. Open the camera's live view and select **Start talking**.
+3. If your browser asks for microphone access, allow it.
+4. To stop, select **Stop talking**.
 
 ## Viewing your Matter network map
 
