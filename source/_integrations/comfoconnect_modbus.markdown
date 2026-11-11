@@ -64,7 +64,7 @@ Modbus unit ID:
 The integration checks that the gateway reaches a supported ventilation unit before it creates the entry.
 
 {% note %}
-Home Assistant can share a Modbus connection between integrations. Another integration that already talks to the same gateway or serial port shares the connection instead of opening a second one.
+Two ComfoConnect PRO gateways on the same RS-485 bus share one connection to the serial port. A Modbus hub set up in YAML with the [Modbus](/integrations/modbus/) integration opens its own connection. Don't point it at a serial port this integration uses.
 {% endnote %}
 
 ## Supported functionality
