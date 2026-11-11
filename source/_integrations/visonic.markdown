@@ -46,9 +46,11 @@ For a local connection using:
    - You will need a serial interface (wired) directly from the panel and attached to the Home Assistant host (USB-to-TTL UART adapter), or
    - An [ESPHome serial proxy](/integrations/esphome/#about-esphome-remote-adapters-proxies) configured for the panel via Ethernet. This is a popular choice, using an ESP32 device with ESPHome and a `serial_proxy` connection.
 
-For this you will need to buy additional hardware and be able to wire it to the connector inside your panel. If you do use ESPHome then you will also need to be able to set up the device with a stream server or `serial_proxy`. The wiring sounds complicated but it is not, please read on.
+Local connections require additional hardware and access to the connector inside your panel. For ESPHome, you also need to configure a TCP stream server or `serial_proxy`. Before connecting hardware, verify the connector pinout and electrical requirements for your panel model and board revision.
 
-For local connections this integration is not fully compatible with other hardware that directly interacts with your alarm control panel at the same time. For example, if you have a GSM module installed inside your panel then there are limitations of use that you need to be aware of. The GSM module periodically polls the panel, during this time the panel ignores any commands sent to it. This will affect your ability to arm or disarm the panel through Home Assistant and the commands may fail. Although it cannot be determined the opposite may also be true, that while this integration interacts with your panel, the GSM capability may be compromised.
+Local communication may conflict with other modules that communicate with the panel, including GSM modules. Arm and disarm commands from Home Assistant may fail when another module is communicating with the panel.
+
+The effect of local communication on GSM alarm reporting has not been verified. If you rely on GSM reporting, ask your alarm installer or monitoring provider to confirm compatibility and test alarm reporting after installation.
 
 This integration supports the following panel types:
 
@@ -106,7 +108,7 @@ When using ESPHome `serial_proxy`, enable ESPHome native API encryption to prote
 
 For all supported panel types, in all the local connections, the integration mimics a physical Visonic PowerLink hardware module to establish a direct connection with the panel's internal control interface.
 
-A PowerMaster 360/360R already has a USB connector inside the panel for you to use.
+The PowerMaster 360R example below uses the panel’s internal USB connector. Check your model’s installation documentation to identify the supported connection.
 
 <p class="img">
   <img src="/images/integrations/visonic/PowerMaster360R2.jpg"
@@ -121,14 +123,14 @@ For other supported panel types, connect a compatible USB-to-TTL adapter or netw
 
 There are two physical connection methods:
 
-- A serial interface wired directly from the panel and attached to the Home Assistant host. This has a USB connector at one end of the cable to the host, and three individual female jumper connectors at the other. You would need to connect these female connectors to the panel's motherboard connector. The communication at the panel's connector is low voltage TTL, but these cables usually have amplification and buffering.
+- A serial interface wired directly from the panel and attached to the Home Assistant host. This has a USB connector at one end of the cable to the host, and three individual female jumper connectors at the other. You would need to connect these female connectors to the panel's motherboard connector. Use an adapter with signal levels compatible with the panel’s UART interface.
 - An ESP32 or USRIOT USR-TCP232-T2 module. You would first need to determine how to power the device and then connect the I/O pins to the panel. That device would then connect to your LAN, either wired or wireless. Therefore there are two communication steps:
   - The host to the device via your LAN
-  - The device to the panel's motherboard connector. The communication between the device and the panel is low voltage TTL without any amplification or buffering and so the cable lengths need to be short, which is why it is suggested that the device is physically located inside the panel.
+  - The device to the panel's motherboard connector. Keep the UART wiring short and follow the interface manufacturer’s wiring guidance.
 
-This section specifically looks at connecting the wires to the panel's motherboard connector. To connect the serial wired connection or the ESP32 / USR-TCP232 device to the panel, the panel provides an internal 10-pin (or 14-pin on older PowerMax+ variants) male interface connector. This connector utilizes TTL-level UART serial signal levels. You do not need the official Visonic RS-232 board when you use a compatible TTL interface. The panel and the serial / ESP32 devices all use TTL voltage levels. Connect to the panel’s TTL UART connector labeled Control, PC, or IP. Do not connect the USB-to-TTL adapter or ESP32 directly to the panel’s RS-232 interface.
+The photographs below show UART connections on a PowerMax+ (Plus), PowerMax Express, and PowerMaster 10. They illustrate specific boards; connector positions, labels, and pinouts may differ on other board revisions. Use the installation documentation for your exact panel and interface hardware to identify the UART connector, signal pins, and electrical requirements. Do not connect a USB-to-TTL adapter or ESP32 directly to an RS-232 interface.
 
-Note: From what I understand, the voltage level of the logic signals on the panel's connector is 3.3 V, 3.75 V or 5 V, depending on panel type. The devices that have been used to connect to that connector are either 3.3 V or 5 V so a voltage level shifter may be needed. It sounds complicated but they can be bought from vendors such as Amazon and are relatively cheap, a few dollars. Verify compatible signal levels before connecting; [Espressif](https://docs.espressif.com/projects/esp-faq/en/latest/esp-faq-en-master.pdf) specifies a 3.6 V GPIO tolerance. A board’s 5 V power input does not make its GPIO 5 V tolerant. This is referred to as "compatible logic levels" in the remainder of this description.
+Verify that the panel’s UART output levels and input requirements are compatible with your adapter or ESP32 board in both directions. A board’s power input voltage does not establish the voltage its signal pins can tolerate. Use a suitable logic level shifter when required by the hardware specifications. This is referred to as "compatible logic levels" below. The photographs do not establish voltage compatibility for your hardware.
 
 For these connections:
 
@@ -136,9 +138,9 @@ For these connections:
 - **An ESPHome `serial_proxy`**: you will need to install an ESP32 device inside your panel and wire the ESP32’s UART to the panel using compatible logic levels.
 - **Directly attached USB**: use a USB-to-TTL UART wired adapter with compatible logic levels.
 
-In all three cases you will need to connect/wire it to the panel connector. To interface with the panel, connect the ground, RX, and TX lines according to the figures below. Leave the panel connector’s VCC pin disconnected for the wiring arrangements shown here.
+For these UART connections, identify GND, RX, and TX from the documentation for your hardware before wiring. Use the photographs as examples after verifying the pinout. Leave the panel connector’s VCC pin disconnected for the wiring arrangements shown here.
 
-A PowerMax+ panel has a 14-pin (J7) connector.
+The PowerMax+ (Plus) example shows a 14-pin connector labeled J7.
 
 <p class="img">
   <img src="/images/integrations/visonic/PowermaxPlus2.jpg"
@@ -147,7 +149,7 @@ A PowerMax+ panel has a 14-pin (J7) connector.
   A PowerMax+ (Plus) wired to an ESP32 (without power)
 </p>
 
-All other panels have a 10-pin (PC/IP/PRG/BBA) connector.
+The PowerMax Express and PowerMaster 10 examples below show 10-pin connectors.
 
 <p class="img">
   <img src="/images/integrations/visonic/PowermaxExpressA2.jpg"
@@ -173,22 +175,14 @@ All other panels have a 10-pin (PC/IP/PRG/BBA) connector.
 Notice in the above figures:
 
 - RX and TX are crossed over. For example, the yellow cable connects TX on the panel to RX on the ESP32.
-- The ground cable (blue) connects the two grounds together for a common voltage reference. Please read on to determine if you need the blue cable, depending on how you power the ESP32.
+- The ground cable (blue) provides a common voltage reference between the panel and ESP32. The power and signal wiring must provide this reference for a direct UART connection.
 - The figures show an ESP32 D1 Mini but other ESP32 boards can be used. You can also use a USR-TCP232 device for an **Ethernet** connection.
 
 #### Connection precautions
 
 1. **Data line crossover**: Ensure the panel's data transmitting pin (TX) is wired to the device's receiving pin (RX), and vice versa.
-2. **Voltage logic levels**: The alarm panel's serial lines may operate at different voltages (for example, 3.3 V or 5 V, depending on the board) than the device pins, which tolerate 3.3 V. A logic level shifter must be used if the panel logic exceeds 3.3 V to prevent permanent damage to the device.
-3. **Powering an ESP32 device (for Ethernet and serial_proxy)**: ESP32 devices usually need a 5 V DC power supply. It is recommended to either:
-    - Power the device from its own power supply, a USB power adapter for example, or
-    - Use a DC-DC converter powered by the panel’s main 12 V DC internal supply. Its output must match the voltage required by your ESP32 board, usually 3.3 V or 5 V.
-
-      With a non-isolated converter, the panel and ESP32 already share a common ground through the power wiring, so only RX and TX are needed between the ESP32 and the panel’s communication connector.
-
-      With an isolated converter, the output ground is separate from the panel ground. For a direct UART connection, also connect the ESP32’s GND to the panel’s communication GND. This connection bridges the ground isolation provided by the converter.
-
-      In either case, leave the panel communication connector’s VCC pin disconnected.
+2. Voltage logic levels: Check the UART electrical specifications for both devices. Use a suitable logic level shifter if needed. Incompatible signal levels can damage the hardware.
+3. Powering an ESP32 device (for Ethernet and `serial_proxy`): Use a power supply that meets your specific board’s requirements. If you want to power it from the panel, ask your alarm installer to verify the supply voltage, available current, and grounding arrangement. Leave the panel communication connector’s VCC pin disconnected for the arrangements shown here.
 4. **Serial using a cable**: Do not connect the VCC wire. Connect only GND, RX, and TX. The USB side provides the power supply.
 5. **Serial configuration and baud rate**: The interface configuration must be set to 8 data bits, no parity, and 1 stop bit (8N1). Ensure data flow control (CTS/RTS) is completely disabled. The baud rate is 9600 for PowerMax panels. The baud rate is either 9600 or 38400 for PowerMaster panels, this is automated using serial (and serial_proxy) connections. For TCP-to-serial bridges, configure the bridge’s baud rate manually to match the panel.
 
