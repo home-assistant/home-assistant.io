@@ -4,6 +4,7 @@ trigger: button.held
 domain: button
 description: "Triggers when one or more buttons are held, optionally repeating at a set interval for as long as they stay held."
 related_triggers:
+  - button.hold_ended
   - button.pressed
   - event.received
 ---
@@ -101,6 +102,7 @@ For the data that all triggers include, refer to [Trigger data in templates](/do
 - If you select several buttons, each held button repeats on its own interval.
 - Each repeat starts a new run of the automation. If the previous run is still going, the [automation mode](/docs/automation/modes/) decides what happens. With the default **Single** mode, the repeat is skipped and a warning is logged. Each repeat also records its own trace, so a long hold can replace the traces of earlier runs. For details, refer to [Why the trace you want is missing](/docs/automation/testing/#why-the-trace-you-want-is-missing).
 - Changes to **Unavailable** or **Unknown** don't count as holds. The first hold after Home Assistant starts also counts, even if the entity showed **Unknown** before. If the entity comes back from **Unavailable**, that recovery doesn't count as a hold.
+- To react to the release of the button after a hold, use the [Button hold ended](/triggers/button.hold_ended/) trigger.
 - To react to a press of the same button, use the [Button pressed](/triggers/button.pressed/) trigger. If the button reports **Press start** but neither **Single press** nor **Press end**, **Button pressed** also fires when you hold the button. To react to other event types, such as **Multi-press**, use the [Event received](/triggers/event.received/) trigger instead.
 
 {% include triggers/try_it.md %}

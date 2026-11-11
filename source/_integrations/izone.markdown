@@ -133,7 +133,7 @@ Damper position isn't a percentage of airflow, because airflow doesn't change li
 
 Zones with a wireless temperature sensor have the following {% term sensor %} entities:
 
-- **RF signal**: (diagnostic) The radio signal strength of the zone sensor, as a percentage.
+- **RF signal**: (diagnostic) The radio signal strength of the zone sensor, as a percentage. This entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 - **Battery**: (diagnostic) The battery level of the zone sensor, as a percentage.
 
 The iZone controller only reports these in coarse steps. The RF signal is 100%, 50%, 25%, or 0%, and the battery is 100%, 50%, or 0%. The RF signal and battery sensors are only created for zones with a wireless sensor, and only if your iZone bridge reports the values.
