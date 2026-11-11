@@ -196,7 +196,7 @@ Entities appear for each Zone-Based Firewall Policy. The switches can be identif
 
 ### Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable them, go to **Settings** > **Devices & services**, select **Configure** on the **UniFi Network** integration card, expand **More options**, and enable **Bandwidth usage sensors for network clients**.
+Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable them, refer to the steps in the [configuration options](#configuration-options) and turn on the **Bandwidth usage sensors for network clients** option.
 
 ### Wired client link speed sensor
 
@@ -241,7 +241,7 @@ Get entities reporting the current memory utilization of a UniFi Network device.
 
 ### Port Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable them, go to **Settings** > **Devices & services**, select **Configure** on the **UniFi Network** integration card, expand **More options**, and enable **Bandwidth usage sensors for network clients**.
+Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable them, refer to the steps in the [configuration options](#configuration-options) and turn on the **Bandwidth usage sensors for network clients** option.
 
 ### Port link speed sensor
 
