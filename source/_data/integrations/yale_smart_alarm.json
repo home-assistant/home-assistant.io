@@ -1,0 +1,27 @@
+{
+  "domain": "yale_smart_alarm",
+  "name": "Yale Smart Living",
+  "integration_type": "hub",
+  "codeowners": [
+    "@gjohansson-ST"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "security_safety.alarm_systems",
+    "security_safety.locks_access"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "lock",
+    "select",
+    "sensor",
+    "switch"
+  ]
+}

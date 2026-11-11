@@ -94,9 +94,9 @@ value_template:
   required: false
   type: string
 for:
-  description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. Default is `00:00:00` (fires immediately).
+  description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. Default is `00:00:00` (fires immediately). You can also use a template. For a list of all accepted formats and templates, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map, template]
   default: "00:00:00"
 {% endoptions_yaml %}
 

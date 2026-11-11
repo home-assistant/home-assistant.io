@@ -1,21 +1,7 @@
 ---
-title: Denon HEOS
 description: Instructions on how to integrate Denon HEOS into Home Assistant.
-ha_categories:
-  - media_entertainment.speakers_audio
 ha_release: 0.92
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@andrewsayre'
 ha_domain: heos
-ha_ssdp: true
-ha_platforms:
-  - diagnostics
-  - media_player
-ha_integration_type: hub
-ha_quality_scale: platinum
-ha_zeroconf: true
 ---
 
 The **Denon HEOS** {% term integration %} is used to connect a [HEOS](https://www.denon.com/en-gb/category/heos/) System to Home Assistant. HEOS is a wireless audio ecosystem

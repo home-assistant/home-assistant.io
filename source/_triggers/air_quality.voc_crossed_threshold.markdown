@@ -60,7 +60,7 @@ This fires when the office VOC sensor reading rises above 300 μg/m³.
    unit_example_entity="input_number.voc_alert_level"
    unit_example_value="500" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="volatile organic compounds sensor" example="sensor.living_room_voc" %}
 
 {% include triggers/behavior.md %}
 

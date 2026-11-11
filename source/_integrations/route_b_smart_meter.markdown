@@ -1,18 +1,7 @@
 ---
-title: Smart Meter B Route
 description: Integrate your Smart Meter using B Route.
-ha_categories:
-  - energy.meters_monitoring
 ha_release: '2025.10'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@SeraphicRav'
 ha_domain: route_b_smart_meter
-ha_platforms:
-  - sensor
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Smart Meter B Route** {% term integration %} allows you to access the data of your smart meter using the B Route protocol.

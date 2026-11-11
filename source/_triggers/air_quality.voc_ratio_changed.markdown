@@ -61,7 +61,7 @@ This fires whenever the living room VOC ratio changes to a value above 150 ppb. 
    unit_example_value="60"
    entity_unit_note="When using the `entity` key, Home Assistant converts the value from the entity's unit: `ppb`, `ppm`, or `%`. An entity without a unit is read as a plain ratio, so 150 ppb is `0.00000015`." %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="volatile organic compounds ratio sensor" example="sensor.living_room_voc_ratio" %}
 
 ## Good to know
 

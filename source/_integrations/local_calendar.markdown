@@ -1,18 +1,7 @@
 ---
-title: Local calendar
 description: Instructions on how to use local calendars in Home Assistant.
-ha_categories:
-  - productivity_information.calendars_todos
-ha_iot_class: Local Polling
 ha_release: 2022.12
-ha_config_flow: true
 ha_domain: local_calendar
-ha_platforms:
-  - calendar
-  - diagnostics
-ha_codeowners:
-  - '@allenporter'
-ha_integration_type: integration
 ---
 
 The **Local calendar** {% term integration %} allows you to create a calendar of events in Home Assistant for powering automations.

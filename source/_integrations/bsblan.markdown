@@ -1,24 +1,7 @@
 ---
-title: BSB-LAN
 description: Instructions on how to integrate BSBLan device into Home Assistant.
-ha_categories:
-  - climate.thermostats_heating
-  - diy_makers.boards_hardware
 ha_release: '0.110'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@liudger'
 ha_domain: bsblan
-ha_platforms:
-  - button
-  - climate
-  - diagnostics
-  - sensor
-  - water_heater
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: silver
 ---
 
 The **BSB-LAN** {% term integration %} integrates [BSB-LAN](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
@@ -31,7 +14,7 @@ It can interface with the heating system over Boiler-System-Bus, Local Process B
 
 For authentication, HTTP authentication using a username and password or using a passkey is supported. Use either one.
 
-If your heating system exposes more than one heating circuit, Home Assistant discovers the available circuits automatically during setup. The integration creates one main BSB-LAN device for shared entities, and adds each detected heating circuit as its own sub-device so you can control each zone independently.
+If your heating system exposes more than one heating circuit, Home Assistant discovers the available circuits automatically during setup. The integration creates one main BSB-LAN device for shared entities, and adds each detected heating circuit as its own device, connected through the main BSB-LAN device, so you can control each zone independently.
 
 If your heating system changes later, for example after you enable an extra circuit in the controller, run the integration's reconfigure flow to let Home Assistant discover the updated circuit list.
 
@@ -42,6 +25,7 @@ Depending on your system and the available heating circuits, the following entit
 - Button
 - Climate
 - Diagnostics
+- Number
 - Sensor
 - Water heater
 
@@ -49,9 +33,9 @@ Depending on your system and the available heating circuits, the following entit
 
 The integration groups entities by device in Home Assistant:
 
-- The main BSB-LAN device contains shared entities, like the **Sync time** button and temperature sensors.
-- Each detected heating circuit appears as a sub-device under the main BSB-LAN device.
-- If your system supports domestic hot water, it can also appear as its own sub-device.
+- The main BSB-LAN device contains shared entities, like the **Sync time** button and the outside temperature sensor.
+- Each detected heating circuit appears as its own device, connected through the main BSB-LAN device, with its climate entity and temperature sensor.
+- If your system supports domestic hot water, it can also appear as its own device, connected through the main BSB-LAN device.
 
 ### Buttons
 
@@ -62,23 +46,49 @@ The **Sync time** button appears under the **Configuration** section of the devi
 ### Climate
 
 - Home Assistant creates one climate entity for each detected heating circuit.
-- These appear in Home Assistant as **Heating circuit 1**, **Heating circuit 2**, and **Heating circuit 3**, depending on what your system exposes.
-- Each heating circuit is grouped under its own sub-device on the BSB-LAN device page.
+- These appear in Home Assistant as **Heating circuit 1** and **Heating circuit 2**, depending on what your system exposes.
+- Each heating circuit has its own device, connected through the main BSB-LAN device.
+
+The target temperature is the setpoint the controller uses right now. The mode and preset set which setpoint that is:
+
+- **Auto**: The heating circuit follows its time program. The preset shows whether the comfort or reduced level is in effect.
+- **Heat** with the **Comfort** preset: The heating circuit heats to the comfort setpoint until you change the mode or preset.
+- **Heat** with the **Eco** preset: The heating circuit heats to the reduced setpoint until you change the mode or preset.
+- **Off**: The heating circuit only heats to protect against frost. Selecting a preset switches it to **Heat**.
+
+In **Auto** mode, selecting a preset overrides the time program until its next switch point.
+
+In **Heat** mode, changing the target temperature changes the comfort setpoint, or the reduced setpoint when the **Eco** preset is active. In **Auto** and **Off** modes, the controller decides the setpoint, so changing the target temperature has no effect. To change the temperatures that **Auto** mode uses, change the [comfort and reduced temperatures](#numbers) of the heating circuit.
+
+Presets aren't available for controllers connected over PPS.
 
 ### Water heater
 
 - If your heating system exposes domestic hot water controls, Home Assistant creates a water heater entity for it.
-- The water heater entity is grouped under its own sub-device on the BSB-LAN device page.
+- The water heater entity has its own device, connected through the main BSB-LAN device.
+- The target temperature is the hot water setpoint the controller uses right now, the nominal or the reduced one depending on its release program. Changing it changes that setpoint.
+- When the water heater is off, the target temperature shows the frost protection setpoint, and changing it does nothing.
+
+### Numbers
+
+Home Assistant creates number entities for the setpoints of each heating circuit and of the domestic hot water. They appear under the **Configuration** section of the heating circuit or domestic hot water device page.
+
+- **Comfort temperature** and **Reduced temperature**: the setpoints a heating circuit uses during the comfort and reduced periods of its time program.
+- **Nominal temperature** and **Reduced temperature**: the setpoints of the domestic hot water.
+
+You can change a setpoint at any time, even when the controller is not using it right now. The reduced setpoint can't be higher than the comfort or nominal one, so Home Assistant refuses a change that would break this order.
+
+A number entity only appears if your controller exposes that setpoint.
 
 ### Sensors
 
 The following sensors are available, depending on your heating system:
 
-- Inside temperature
+- Temperature, one for each heating circuit
 - Outside temperature
 - Total Energy (disabled by default)
 
-To use the **Total Energy** sensor, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) in Home Assistant.
+To use the **Total Energy** sensor, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) in Home Assistant.
 
 {% note %}
 The **Total Energy** sensor is not real-time. It updates in 1 kWh steps, so the value changes only after another 1 kWh has been used.

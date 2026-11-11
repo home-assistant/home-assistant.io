@@ -2,6 +2,7 @@
 title: "Set lock credential"
 action: matter.set_lock_credential
 domain: matter
+response: required
 description: "Adds or updates a credential, such as a PIN, on a Matter lock."
 related_actions:
   - matter.clear_lock_credential
@@ -12,8 +13,6 @@ related_actions:
 Use this action to add or update a credential on a Matter lock. A credential is what a user presents to unlock the lock, such as a PIN code or an RFID tag. A common use is to give a houseguest their own PIN code.
 
 If you leave the credential index empty, the lock automatically assigns the next available slot. If you leave the user index empty, the lock creates a new user for the credential.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -115,9 +114,11 @@ user_type:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns where the credential was stored. The response includes the following fields:
 

@@ -1,12 +1,7 @@
 ---
-title: Home Assistant frontend
 description: Provides the official frontend for Home Assistant.
 ha_release: 0.7
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/frontend'
 ha_domain: frontend
-ha_integration_type: system
 ---
 
 The **Frontend** {% term integration %} provides the official frontend to control Home Assistant. It is enabled by default unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your {% term "`configuration.yaml`" %} file. If that is the case, enable it manually by adding the following to your configuration:

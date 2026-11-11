@@ -1,0 +1,18 @@
+{
+  "domain": "jewish_calendar",
+  "name": "Jewish Calendar",
+  "codeowners": [
+    "@tsvi"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "categories": [
+    "productivity_information.calendars_todos"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "calendar",
+    "diagnostics",
+    "sensor"
+  ]
+}

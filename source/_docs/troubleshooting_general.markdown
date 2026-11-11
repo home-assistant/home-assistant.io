@@ -49,7 +49,8 @@ Safe mode only lasts until the next restart. To leave safe mode, restart Home As
 You can restart in safe mode in several ways:
 
 - From the UI:
-  - Go to **Settings**, select the three dots {% icon "mdi:dots-vertical" %} menu in the top-right corner, and select **Restart Home Assistant**. Expand **More options** and select **Restart Home Assistant in safe mode**.
+  - Go to {% my system_dashboard title="**Settings** > **System**" %}, and in the top-right corner, select the power {% icon "mdi:power" %} icon. Select **More options**, select **Restart Home Assistant in safe mode**, and then select **Restart**.
+  - For the other restart options, refer to [Reloading, restarting, rebooting, and shutting down](/common-tasks/general/restarting/).
 
 - From the [command line](/common-tasks/os/#home-assistant-via-the-command-line):
   - Run:

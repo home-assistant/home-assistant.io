@@ -1,0 +1,16 @@
+{
+  "domain": "lg_soundbar",
+  "name": "LG Soundbars",
+  "integration_type": "device",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

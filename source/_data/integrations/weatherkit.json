@@ -1,0 +1,20 @@
+{
+  "domain": "weatherkit",
+  "name": "Apple WeatherKit",
+  "integration_type": "service",
+  "codeowners": [
+    "@tjhorner"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor",
+    "weather"
+  ]
+}

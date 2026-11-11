@@ -110,7 +110,7 @@ threshold:
     - `type: between` (inclusive): Defines a range. The reading must be between the two bounds, or equal to one of them, to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
     - `type: outside` (exclusive): Defines an outside-range. The reading must be beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
 
-    For the `number` key, use a value in lux. For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
+    For the `number` key, use a value in lux. For the `entity` key, use an `input_number`, `number`, or `sensor` entity. The entity must use `lx` as its unit. If it has a different unit, or no unit, the condition doesn't pass.
   required: true
   type: map
 behavior:
@@ -123,13 +123,13 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="illuminance sensor" example="sensor.living_room_illuminance" %}
 
 {% include conditions/behavior.md %}
 

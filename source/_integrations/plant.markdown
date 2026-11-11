@@ -1,13 +1,7 @@
 ---
-title: Plant Monitor
 description: Instructions on how to set up plant monitoring with Home Assistant.
-ha_categories:
-  - garden_plants
-  - helpers.calculate_value
 ha_release: 0.44
-ha_quality_scale: internal
 ha_domain: plant
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file

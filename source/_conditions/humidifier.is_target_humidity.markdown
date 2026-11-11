@@ -81,9 +81,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the humidifier must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the humidifier must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -103,10 +103,10 @@ for:
 
 ### Automation: turn on the ventilation fan when the humidifier is set high
 
-When the bedroom humidifier's target humidity is set to 70% or above, turn on the ventilation fan to reduce the risk of condensation. This keeps air circulating whenever the humidifier is running at a high setting.
+When the bedroom humidifier's target humidity is set above 70%, turn on the ventilation fan to reduce the risk of condensation. This keeps air circulating whenever the humidifier is running at a high setting.
 
 - **Trigger**: State changed, for the `humidity` attribute of the bedroom humidifier
-- **Condition**: Humidifier target humidity (70% or above)
+- **Condition**: Humidifier target humidity (above 70%)
   - **Target**: Bedroom humidifier
   - **Condition passes if**: Any
 - **Action**: Turn on switch

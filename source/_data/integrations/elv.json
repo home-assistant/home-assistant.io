@@ -1,0 +1,18 @@
+{
+  "domain": "elv",
+  "name": "ELV PCA",
+  "codeowners": [
+    "@majuss"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "plugs_switches"
+  ],
+  "connectivity": [
+    "serial"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}
