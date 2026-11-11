@@ -121,10 +121,7 @@ Get a notification with the alarm's name when the unit reports one.
 
 - **Trigger**: Entity: State
   - **Entity**: **Active error 1**
-  - **To**: Any state
-- **Condition**: Entity: State
-  - **Entity**: **Active error 1**
-  - **State**: is not None
+  - **To**: **Is not** **None**, **Unknown** and **Unavailable**
 - **Action**: Notifications: Send a notification
   - **Message**: {% raw %}`The ventilation unit reports: {{ state_translated('sensor.comfoair_active_error_1') }}`{% endraw %}
 
