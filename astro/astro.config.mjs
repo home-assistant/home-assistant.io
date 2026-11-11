@@ -15,6 +15,19 @@ export default defineConfig({
     format: "directory",
   },
   vite: {
+    // Same-origin proxy for the Open Home Foundation livestream API
+    // (src/lib/livestream.ts), so the browser isn't blocked by CORS during
+    // local development. The deployed site uses the matching rewrite in
+    // source/_redirects.
+    server: {
+      proxy: {
+        "/livestream-api": {
+          target: "https://web-api.openhomefoundation.org/livestream",
+          changeOrigin: true,
+          rewrite: (p) => p.replace(/^\/livestream-api/, ""),
+        },
+      },
+    },
     // The AUX-2 drawing loads these through a lazy import. Bundling them
     // up front keeps the dev server from discovering them late and
     // answering with "Outdated Optimize Dep" after files move.

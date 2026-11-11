@@ -430,6 +430,34 @@ describe("hero card", () => {
   });
 
   it("must be true or false", () => assertInvalid(mergedConfig({ hero: "yes" }), "sections[0].hero: must be true or false"));
+
+  describe("with a livestream card", () => {
+    const latest = () => {
+      const cfg = mergedConfig({ hero: true, livestream: "home-assistant" });
+      validate(cfg);
+      return resolve(cfg, POSTS, NOW, SITE, { newsletter: NEWSLETTER })[0];
+    };
+
+    it("passes the channel to the page", () => assert.equal(latest().livestream, "home-assistant"));
+
+    it("gives the first item a row version too, shown when the card takes the large place", () => {
+      const { entries } = latest();
+      const keys = entries.filter((e) => !e.hidden).map((e) => e.key);
+      const showing = (taken) => entries.filter((e) => isShowing(e, keys, taken)).map((e) => [e.label, e.kind]);
+      assert.deepEqual(showing(false)[0], ["Voice", "hero"]);
+      assert.deepEqual(showing(true)[0], ["Voice", "link"]);
+      assert.equal(showing(true).filter(([label]) => label === "Voice").length, 1);
+    });
+
+    it("must name a channel", () =>
+      assertInvalid(mergedConfig({ livestream: "Home Assistant" }), "sections[0].livestream: must be a livestream channel name"));
+
+    it("only works on a feed", () =>
+      assertInvalid(
+        config({ sections: [{ type: "links", livestream: "home-assistant", items: [] }] }),
+        "sections[0].livestream: only works on a feed section",
+      ));
+  });
 });
 
 describe("images", () => {

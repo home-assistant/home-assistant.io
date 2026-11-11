@@ -64,9 +64,22 @@ sections:
     limit: 5
     images: true
     hero: true
+    # A YouTube channel's livestream card on top, as on the homepage: while
+    # the channel has a stream live, starting within 48 hours, or ended in
+    # the last 12, it takes the large first place (with a countdown, or the
+    # stream playing muted) and the list's first item shows as a row. When
+    # there's no stream it hides itself. Nothing to update per stream: it
+    # reads the channel's current stream from the Open Home Foundation API.
+    livestream: home-assistant
     # Add anything else to the list here, with `starts` and, if you like,
     # `ends` (see the top of this file).
     insert:
+      - title: "The Open Home Foundation is a platinum sponsor of PyCon HK 2026"
+        url: https://pycon.hk/2026/en/
+        image: /images/bio/2026-11-pycon-hk.webp
+        label: Event
+        starts: 2026-11-11
+        ends: 2026-11-15T16:00:00Z  # end of November 15, Hong Kong time (UTC+8)
       - title: "The merch store is open!"
         url: https://store.openhomefoundation.org
         starts: 2026-10-21
@@ -147,11 +160,7 @@ sources:
   # it, or let its `ends` pass, and the list is back to newest first.
   pinned:
     type: pinned
-    items:
-      - title: "The Open Home Foundation is a platinum sponsor of PyCon HK 2026"
-        url: https://pycon.hk/2026/en/
-        image: /images/bio/2026-11-pycon-hk.webp
-        ends: 2026-11-15T16:00:00Z  # end of November 15, Hong Kong time (UTC+8)
+    items: []
     #  - title: "2026.11: An example"
     #    url: /blog/2026/11/05/release-202611/
     #    image: auto
