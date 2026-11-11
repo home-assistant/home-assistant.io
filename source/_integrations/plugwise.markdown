@@ -99,8 +99,20 @@ Many heaters share extra information over OpenTherm, such as usage counters and 
   - **Description**: The total number of burner starts or flame ignitions that failed.
 - **Burner operation time**, **Central heating pump operation time**, **DHW burner operation time**, and **DHW pump operation time**
   - **Description**: The total time, in hours, that the burner or pump has been running.
-- **OEM fault code**, **Application-specific fault code**, and **OEM diagnostic code**
-  - **Description**: The codes exactly as your heater reports them. The meaning of each code depends on the brand and model of your heater. To find out what a code means, check the manual of your heater.
+- **OEM fault code**
+  - **Description**: A fault code defined by the manufacturer of your heater, exactly as your heater reports it. To find out what a code means, check the manual of your heater. Many heaters report `255` when there is no fault code to report, so `255` does not always mean there is a fault.
+- **Application-specific fault code**
+  - **Description**: A set of standard OpenTherm fault flags, combined into one number. `0` means no flag is set. Each flag adds its own value to the number:
+    - `1`: Service required
+    - `2`: Lockout-reset enabled
+    - `4`: Low water pressure
+    - `8`: Gas or flame fault
+    - `16`: Air pressure fault
+    - `32`: Water over-temperature
+
+    For example, `12` means low water pressure (`4`) and a gas or flame fault (`8`).
+- **OEM diagnostic code**
+  - **Description**: A diagnostic or service code defined by the manufacturer of your heater. Depending on your heater, this code can also show normal operating states, so a value other than `0` does not always mean there is a problem. To find out what a code means, check the manual of your heater.
 - **Maximum modulation level**
   - **Description**: The maximum modulation level set on a connected OpenTherm thermostat. You can find this sensor on the thermostat device.
 
