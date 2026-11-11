@@ -65,6 +65,12 @@
     <a class="crosspost-image" href="{{ post.url }}">
       <img src="{{ post.og_image }}" alt="{{ post.title | escape }}">
     </a>
+    {% elsif post.hero_image and post.og_image %}
+    {% comment %}
+      A post with its own hero_image shows that image on the post page.
+      The blog index shows its og_image instead.
+    {% endcomment %}
+    <p><img src="{{ post.og_image }}" alt="{{ post.title | escape }}" style="border: 0;box-shadow: none;"></p>
     {% endif %}
     {% assign blog_post_link = 'href="' | append: post.url | append:"#" %}
     {{ post.excerpt | replace: 'href="#', blog_post_link }}
@@ -75,6 +81,9 @@
     {% endif %}
   </div>
 {% else %}
+  {% if post.hero_image %}
+  <p><img src="{{ post.hero_image }}" alt="{{ post.hero_image_alt | default: post.title | escape }}" style="border: 0;box-shadow: none;"></p>
+  {% endif %}
   {{ post.content | replace: site.excerpt_separator, '<a name="read-more"></a>' }}
   {% if post.categories contains 'Works-with-Home-Assistant' %}
     <div class="wwha-footer-mobile">

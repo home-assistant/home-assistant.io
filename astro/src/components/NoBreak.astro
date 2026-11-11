@@ -1,0 +1,22 @@
+---
+// Keeps names on one line wherever they appear in its content: the
+// spaces inside each phrase ("Home Assistant" by default) become
+// non-breaking spaces, so "Home" and "Assistant" never end up on
+// different lines. Wrap a whole page's content once instead of writing
+// `Home&nbsp;Assistant` in every heading and paragraph:
+//
+//   <main><NoBreak> … </NoBreak></main>
+//
+// Only the text between tags changes; attributes (alt text, links)
+// are left as they are.
+import { keepTogether } from "../lib/text";
+
+interface Props {
+  phrases?: string[];
+}
+
+const { phrases = ["Home Assistant"] } = Astro.props;
+const html = await Astro.slots.render("default");
+---
+
+<Fragment set:html={keepTogether(html, phrases)} />

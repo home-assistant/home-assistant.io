@@ -1,0 +1,193 @@
+---
+// A short silent video that plays by itself while it is on screen, in
+// a loop: muted and inline, so browsers allow it to autoplay, and
+// paused again when it scrolls away. Hovering it shows a round pause
+// button; a click (anywhere on the video) pauses it, another click
+// plays it again, and the button goes once the pointer leaves.
+//
+// Built for "Audio and so much more" on the Connect AUX-2 page.
+//
+// Accessibility: the button is a real <button> that keyboard users can
+// reach (it shows while focused), labelled "Pause video" or "Play
+// video". Visitors who prefer reduced motion see the poster with the
+// play button showing, and the video only plays when they ask. Without
+// hover (touch screens), a tap toggles it and the button shows while
+// it is paused. Without the script, the poster stays.
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  // The video file's URL: import it (`import video from "./x.mp4"`).
+  // Encode it small, H.264 in MP4, with no audio track.
+  src: string;
+  // A still of its first frame, shown until it plays.
+  poster: ImageMetadata;
+  // What the video shows, for screen readers.
+  label: string;
+  class?: string;
+}
+
+// Other attributes (and the parent's style scope) go on the wrapper.
+const { src, poster, label, class: className, ...attributes } = Astro.props;
+---
+
+<div
+  class:list={["autoplay-video", className]}
+  data-autoplay-video
+  {...attributes}
+>
+  <video
+    src={src}
+    poster={poster.src}
+    width={poster.width}
+    height={poster.height}
+    aria-label={label}
+    muted
+    loop
+    playsinline
+    preload="none"
+    disablepictureinpicture
+  ></video>
+  <button class="toggle" type="button" aria-label="Play video" data-paused>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path class="pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"></path>
+      <path class="play" d="M8 5.14v13.72L19 12z"></path>
+    </svg>
+  </button>
+</div>
+
+<script>
+  import { reducedMotion } from "../lib/motion";
+
+  for (const wrapper of document.querySelectorAll<HTMLElement>(
+    "[data-autoplay-video]",
+  )) {
+    const video = wrapper.querySelector("video")!;
+    const button = wrapper.querySelector<HTMLButtonElement>(".toggle")!;
+    // Set once the visitor pauses it: it then stays paused, on screen
+    // or not, until they play it again.
+    let pausedByVisitor = reducedMotion.matches;
+    let inView = false;
+
+    const show = () => {
+      button.toggleAttribute("data-paused", video.paused);
+      button.setAttribute("aria-label", video.paused ? "Play video" : "Pause video");
+    };
+    video.addEventListener("play", show);
+    video.addEventListener("pause", show);
+
+    const update = () => {
+      if (inView && !pausedByVisitor) {
+        // Browsers can refuse to autoplay (power saving); the play
+        // button stays then.
+        video.play().catch(show);
+      } else {
+        video.pause();
+      }
+    };
+
+    const toggle = () => {
+      pausedByVisitor = !video.paused;
+      if (pausedByVisitor) video.pause();
+      else video.play().catch(show);
+    };
+    button.addEventListener("click", toggle);
+    video.addEventListener("click", toggle);
+
+    new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        update();
+      },
+      { threshold: 0.4 },
+    ).observe(wrapper);
+  }
+</script>
+
+<style lang="scss">
+  .autoplay-video {
+    overflow: hidden;
+    position: relative;
+
+    video {
+      cursor: pointer;
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  /* A Connect-blue round button in the middle, shown on hover and
+     focus. */
+  .toggle {
+    align-items: center;
+    background: var(--color-connect-line);
+    border: 0;
+    border-radius: 50%;
+    color: var(--color-text-inverse);
+    cursor: pointer;
+    display: flex;
+    height: 3.5rem;
+    justify-content: center;
+    left: 50%;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition:
+      opacity 0.2s ease-out,
+      background-color 0.2s;
+    width: 3.5rem;
+
+    svg {
+      fill: currentColor;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    &:hover {
+      background: var(--color-connect-line-shade);
+    }
+
+    &:focus-visible {
+      opacity: 1;
+      outline: 2px solid var(--color-text-inverse);
+      outline-offset: 2px;
+    }
+
+    /* The icon says what a click does: pause while it plays, play
+       while it is paused. */
+    .play,
+    &[data-paused] .pause {
+      display: none;
+    }
+
+    &[data-paused] .play {
+      display: inline;
+    }
+  }
+
+  @media (hover: hover) {
+    .autoplay-video:hover .toggle {
+      opacity: 1;
+    }
+  }
+
+  /* Touch screens have no hover: the button shows while it is paused. */
+  @media (hover: none) {
+    .toggle[data-paused] {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .toggle {
+      transition: none;
+    }
+
+    .toggle[data-paused] {
+      opacity: 1;
+    }
+  }
+</style>
