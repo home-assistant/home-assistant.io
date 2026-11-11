@@ -51,6 +51,8 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact II
 - Battery powered devices
 
+A room climate control also gets **Call for heat**, **Schedule override active**, **Heating break**, and **Sustainable ventilation** binary sensors.
+
 A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguard is the source of an active smoke alarm and turns off when the alarm ends.
 
 ### Buttons
@@ -83,7 +85,8 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 
 ### Light
 
-A Light Control micromodule dimmer gets a light entity that supports turning on and off and setting the brightness.
+- A Light Control micromodule dimmer gets a light entity that supports turning on and off and setting the brightness.
+- A Motion Detector II gets an **Orientation light** entity that supports turning on and off and setting the brightness.
 
 ### Number
 
