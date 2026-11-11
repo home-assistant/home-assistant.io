@@ -88,7 +88,12 @@ For each Airzone zone (thermostat), the following *sensors* are created:
 
 ## Switch
 
-For each Airzone zone (thermostat), a *switch entity* is created.
+For each Airzone zone (thermostat), the following *switch entities* are created:
+
+| Condition           | Description                                                  |
+| :------------------ | :----------------------------------------------------------- |
+| power               | Turns the zone on or off.                                    |
+| anti_freeze         | Anti-freeze protection. Only created for zones that support it. |
 
 ## Water heater
 
