@@ -55,7 +55,7 @@ The integration can create these sensors as readings become available:
 
 ## Options
 
-You can change the battery chemistry and the sensor update rate limit in the integration's options. Sensor updates are triggered by Bluetooth advertisements. The rate limit sets the minimum number of seconds between updates when limiting is enabled; the default is 60 seconds. It can be applied while charging, while not charging, always, or never. The default is never.
+You can change the battery chemistry in the integration's options. Sensors are updated from the BM2's Bluetooth advertisements. When the advertisements don't include everything needed (the BM2's own status, or voltage on older BM2s), Home Assistant also connects to the BM2 to read it, at most once every 30 seconds. With a chosen battery chemistry, a newer BM2 is read entirely from its advertisements and is never connected to.
 
 For a custom battery, provide its name and voltage thresholds. The integration interpolates between the values when calculating the percentage from the observed voltage.
 
@@ -66,8 +66,6 @@ Custom battery name:
   description: A name for your custom battery type. Available when Custom is selected.
 Custom voltage thresholds:
   description: Enter increasing voltage values for 0%, 20%, 50%, and 100% charge, plus the floating and charging voltages. Available when Custom is selected.
-Sensor update rate limit type:
-  description: Allows you to limit how often sensor updates are applied, if desired.  
 {% endconfiguration_basic %}
 
 ## Removing the integration
