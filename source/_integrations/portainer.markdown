@@ -78,7 +78,7 @@ There is currently support for the following device types within Home Assistant:
 
 #### Disk space sensors
 
-These sensors are disabled by default, because calculating them can take a long time on slower hardware (see [Data updates](#data-updates)). [Enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the ones you need.
+These sensors are disabled by default, because calculating them can take a long time on slower hardware (see [Data updates](#data-updates)). This also applies to existing installations: when you upgrade, the integration disables these sensors. [Enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the ones you need. Enabled disk space sensors update every 30 minutes.
 
 - **Container disk usage total size**: Total disk space used by containers.
 - **Container disk usage reclaimable**: Disk space used by containers that are not running.
@@ -182,7 +182,7 @@ The integration fails to update, or you see timeout errors in the logs such as:
 
 #### Description
 
-Docker calculates the disk space sensors by adding up every file in every volume. On lower-end hardware with slower disks, such as a Raspberry Pi, this can take long enough to cause timeouts. If you set up the integration before these sensors were disabled by default, they are still enabled on your system.
+Docker calculates the disk space sensors by adding up every file in every volume. On lower-end hardware with slower disks, such as a Raspberry Pi, this can take long enough to cause timeouts.
 
 #### Resolution
 
