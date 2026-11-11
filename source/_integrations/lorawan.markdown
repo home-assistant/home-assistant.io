@@ -23,11 +23,11 @@ Prerequisites:
 - You have administrator rights.
 - You have set up a connection integration, such as [ChirpStack](/integrations/chirpstack/) or [The Things Network](/integrations/thethingsnetwork_lorawan/). Otherwise, **LoRaWAN** doesn't appear under **Connectivity**.
 
-At the top of the panel, a summary shows how many connections and devices you have. A connection that is disconnected doesn't appear in the panel, and neither do its devices, until it connects again.
+To open the **LoRaWan** panel, go to {% my config_lorawan title="**Settings** > **Connectivity** > **LoRaWAN**" %}. At the top of the panel, a summary shows how many connections and devices you have. A connection that is disconnected doesn't appear in the panel, and neither do its devices, until it connects again.
 
 ### Viewing your devices
 
-The device list shows every device on your connected LoRaWAN network servers, including devices that Home Assistant hasn't added. Use it to check when each device last sent a message, how strong its signal is, and how much battery it has left.
+The [device list](#device-list) shows information of every device on your connected LoRaWAN network servers, including devices that Home Assistant hasn't added. Use it to check when each device last sent a message, how strong its signal is, and how much battery it has left.
 
 1. Go to {% my config_lorawan title="**Settings** > **Connectivity** > **LoRaWAN**" %}.
 2. Under **My network**, select the number of devices, for example, **12 devices**.
