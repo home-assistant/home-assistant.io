@@ -316,8 +316,7 @@ This section provides a bit more information on some of the categories:
 
 Prerequisites:
 
-- A Matter camera that supports two-way audio.
-- The Matter Server app 9.3.0 or newer. If you run the Matter server in a container, use [Matter Server](https://github.com/matter-js/matterjs-server) 1.5.0 or newer.
+- A [Matter camera](#matter-cameras) that supports two-way audio.
 - Home Assistant opened over HTTPS. Browsers only allow microphone access over a secure connection.
 
 To talk through the camera:
