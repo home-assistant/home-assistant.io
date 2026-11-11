@@ -2,8 +2,8 @@
 layout: post
 title: "No device left behind: Home Assistant Connect AUX-2"
 description: "Make the gear you already own smart with the Connect AUX-2: a smart home multi-tool with audio streaming, serial control, Bluetooth, PoE, and plenty more."
-date: 2026-11-10 00:00:01
-date_formatted: "November 10, 2026"
+date: 2026-11-11 00:00:01
+date_formatted: "November 11, 2026"
 author: Shay Redmond
 comments: true
 categories:
