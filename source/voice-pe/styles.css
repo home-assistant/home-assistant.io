@@ -593,6 +593,7 @@ body.js-ready .hero-c-in {
 
 .vpe-nav .nav-logo img {
   grid-area: 1/1;
+  max-width: 100%;
   width: 200px;
 }
 
@@ -611,6 +612,25 @@ body.js-ready .hero-c-in {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 8px;
+  /* On phones the logo gives up width to the Buy button. */
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Phones: the Buy button sits in the bar, left of the menu button, as
+   on the Connect pages. From the desktop width it is in the links. */
+.vpe-nav .mobile-buy {
+  align-items: center;
+  background-color: var(--color-navy);
+  border-radius: 16px;
+  color: #ffffff;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 12px;
+  height: 32px;
+  margin: 0 12px;
+  padding: 0 12px;
+  text-transform: uppercase;
 }
 
 .vpe-nav .badge {
@@ -5627,8 +5647,13 @@ section#collaboration .collaboration-card .collaboration-card-inner p {
     width: unset;
   }
 
-  .vpe-nav .burger {
+  .vpe-nav .burger,
+  .vpe-nav .mobile-buy {
     display: none;
+  }
+
+  .vpe-nav .nav-logo-wrapper {
+    flex: none;
   }
 }
 
