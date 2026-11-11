@@ -1,15 +1,15 @@
 ---
 title: ENGIE Belgium
-description: Instructions on how to integrate ENGIE Belgium energy prices and capacity tariff peaks into Home Assistant.
+description: Instructions on how to integrate ENGIE Belgium energy prices, capacity tariff peaks, and Smart Charge into Home Assistant.
 ha_release: 2026.11
 ha_domain: engie_be
 ---
 
 The **ENGIE Belgium** {% term integration %} integrates the [ENGIE Belgium](https://www.engie.be) API with Home Assistant.
 
-The integration makes it possible to retrieve the electricity and gas prices from your ENGIE Belgium contracts, to gain insight into your rate and to adjust your consumption accordingly. It creates one set of price sensors per address (business agreement) on your account, plus sensors for the capacity tariff peaks of each address. An address on a dynamic tariff gets sensors for the Belgian EPEX day-ahead wholesale prices.
+The integration makes it possible to retrieve the electricity and gas prices from your ENGIE Belgium contracts, to gain insight into your rate and to adjust your consumption accordingly. It creates one set of price sensors per address (business agreement) on your account, plus sensors for the capacity tariff peaks of each address. An address on a dynamic tariff gets sensors for the Belgian EPEX day-ahead wholesale prices. For your electric vehicles that use ENGIE Smart Charge, it also lets you see and change the departure time of the current charging session.
 
-Use case: Follow the current electricity and gas prices for each meter on a dashboard and see them change whenever your tariff is revised. Use the price sensors in automations that estimate the cost of running appliances. On a dynamic tariff, run flexible appliances, such as a dishwasher or a tumble dryer, during the cheap hours of the EPEX day-ahead prices. Compare the offtake and injection prices to decide when it pays to use your solar production yourself instead of sending it back to the grid.
+Use case: Follow the current electricity and gas prices for each meter on a dashboard and see them change whenever your tariff is revised. Use the price sensors in automations that estimate the cost of running appliances. On a dynamic tariff, run flexible appliances, such as a dishwasher or a tumble dryer, during the cheap hours of the EPEX day-ahead prices. Compare the offtake and injection prices to decide when it pays to use your solar production yourself instead of sending it back to the grid. Change the departure time of your electric vehicle from a dashboard or an automation, for example to give it more time to charge when the prices are low.
 
 ## Prerequisites
 
@@ -119,6 +119,14 @@ ENGIE publishes peaks after the fact, so these sensors tell you that a peak has 
 
 Addresses on a dynamic tariff get the **EPEX tomorrow prices available** binary sensor. It turns on once the hourly and the quarter-hourly prices for tomorrow are both published.
 
+### Date and time
+
+Each electric vehicle on your account that has an active ENGIE Smart Charge session gets its own device with a **Departure time** entity. The entity shows the departure time of the current session. You can change it on a dashboard or in an automation, like you would in the ENGIE Smart App. The target battery level and the direct charging setting of the session stay as they are.
+
+ENGIE only accepts a departure time up to 7 days ahead. If you set a later time, Home Assistant shows an error and sends nothing to ENGIE.
+
+The **Departure time** entity of a vehicle is created once the vehicle has an active Smart Charge session. After that, the entity stays on the vehicle's device. It is unavailable while the vehicle has no active session, and it becomes available again when a new session starts.
+
 ## Multiple households
 
 A single ENGIE login can cover more than one address or meter. The integration adds every active business agreement on the account as its own device, named after the address, and groups that address's price sensors under it. An address that has an agreement but no priced meters still shows up as a device, so you can tell it was found.
@@ -131,6 +139,8 @@ For an address on a dynamic tariff, the integration also fetches the EPEX day-ah
 
 The capacity tariff peak sensors are polled once an hour as well, so they pick up a newly published peak on the next poll.
 
+The integration checks your vehicles and the settings of their current session every 15 minutes. When you change a departure time in Home Assistant, the entity updates right away.
+
 If the session is revoked, the integration can no longer reach the API and its sensors become unavailable. The usual cause is signing in to the same ENGIE account somewhere else, so a dedicated user (see [Prerequisites](#prerequisites)) avoids it. Home Assistant will ask you to sign in again.
 
 Your password is only used to sign in, and it is never stored. The integration keeps only the tokens ENGIE hands back, and refreshes them when needed.
@@ -139,6 +149,9 @@ Your password is only used to sign in, and it is never stored. The integration k
 
 - Price sensors appear only while a price period covers the current day. During a gap between contract periods, they become unavailable until a new price period starts.
 - If Home Assistant restarts at the exact moment the sign-in tokens are being renewed, the integration can lose the session and its sensors stay unavailable until you sign in again.
+- The departure time can be set up to 7 days ahead.
+- The **Departure time** entity is created when a vehicle has an active Smart Charge session, and it is unavailable between sessions.
+- You can only change the departure time of the current session. To change the target battery level or the weekly charging schedule, use the ENGIE Smart App.
 
 ## Troubleshooting
 
@@ -157,6 +170,14 @@ The integration could not look up your tariff while it was starting, for example
 ### The capacity tariff peak sensors show an old peak
 
 Early in the month, ENGIE has not published a peak for the current month yet, so the monthly sensors show the previous month's peak. The `peak_is_fallback` attribute of the **Capacity tariff monthly power peak** sensor is `true` while the shown peak belongs to the previous month.
+
+### The Departure time entity is missing or unavailable
+
+ENGIE only provides the settings of a vehicle while it has an active Smart Charge session. The entity is created once a session is active, and it is unavailable whenever there is none. Plug in the vehicle and start a Smart Charge session in the ENGIE Smart App. The entity appears, or becomes available again, within 15 minutes.
+
+### Changing the departure time fails
+
+Make sure the time is no more than 7 days from now. If it is, ENGIE might be unreachable, or the session might have ended. Check the Home Assistant logs, and sign in again when Home Assistant asks you to.
 
 ## Removing the integration
 
