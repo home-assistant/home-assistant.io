@@ -17,7 +17,7 @@ Today Nabu Casa is launching the [Home Assistant Connect AUX-2](/connect/aux-2/)
 
 Connect AUX-2 is all about making your old gear new again. For example, its audio streaming capabilities allow you to turn that great-sounding but forgotten hi-fi into something that plays in sync with modern smart speakers. And with serial control, you can bring that old (but still functioning) solar or climate equipment into your automation setup to lower your energy consumption.
 
-AUX-2 doesn’t just make older devices better, either. There’s also a lot of *new* equipment that can gain some new tricks. Kill that TV spyware, block it from the internet, and instead use your AUX-2 to control it, or get your Connect ZWA-2 in the best spot in your house while powering it with PoE.
+AUX-2 doesn’t just make older devices better, either. There’s also a lot of *new* equipment that can gain some new tricks. Skip that TV spyware, block it from the internet, and instead use your AUX-2 to control it, or get your Connect ZWA-2 in the best spot in your house while powering it with PoE.
 
 <p style="text-align: center;"><strong>Connect AUX-2 is available worldwide today for $69 / €59.</strong></p>
 
