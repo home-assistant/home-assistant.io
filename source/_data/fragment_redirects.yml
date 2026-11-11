@@ -40,6 +40,8 @@
   flashing-an-odroid-n2: /installation/odroid/#flashing-an-odroid-n2
   snapshots: /common-tasks/general/backups/
   backups: /common-tasks/general/backups/
+  installing-a-third-party-app-repository: /common-tasks/os/apps/#adding-an-app-repository
+  troubleshooting-repository-is-not-showing-up: /common-tasks/os/apps/#an-added-repository-doesnt-show-up
 "/conditions/":
   logical-conditions: /conditions/and/
   and-condition: /conditions/and/
@@ -236,11 +238,15 @@
   persistent-notification: /docs/automation/trigger-data/#persistent-notification-triggers
   webhook: /docs/automation/trigger-data/#webhook-triggers
   zone: /docs/automation/trigger-data/#zone-triggers
+"/docs/automation/trigger/":
+  webhook-data: /triggers/webhook/#sending-a-request-to-a-webhook
+  webhook-security: /triggers/webhook/#webhook-security
 # /docs/configuration/customizing-devices redirects here (see _redirects), and
 # the browser keeps the anchor.
 "/docs/configuration/customizing-entities/":
   device-class: /integrations/homeassistant/#device-class
   customizing-entities: /integrations/homeassistant/#editing-entity-settings-in-yaml
+  about-parent-devices-and-sub-devices: /docs/configuration/customizing-entities/#parent-and-child-devices
 "/more-info/local-media/add-media/":
   accessing-the-media-browser: /integrations/media_source/#browsing-your-media
   adding-media-using-the-media-browser-on-home-assistant-os: /more-info/local-media/add-media/#adding-media-using-the-media-browser
@@ -252,3 +258,5 @@
 "/docs/configuration/troubleshooting/":
   disable-debug-logging-and-download-logs: /docs/configuration/troubleshooting/#disabling-debug-logging-and-downloading-the-log
   download-diagnostics: /docs/configuration/troubleshooting/#downloading-diagnostics
+"/docs/energy/faq/":
+  troubleshooting-missing-entities: /docs/energy/faq/#symptom-the-sensor-doesnt-appear-in-the-selection-list

@@ -1,18 +1,7 @@
 ---
-title: SMHI
 description: Show SMHI weather forecasts, thunder probability, and fire risk for locations in Sweden in Home Assistant.
-ha_categories:
-  - weather_alerts.forecasts
 ha_release: 0.81
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: smhi
-ha_platforms:
-  - sensor
-  - weather
-ha_codeowners:
-  - '@gjohansson-ST'
-ha_integration_type: service
 ---
 
 The **SMHI** {% term integration %} brings weather forecasts and fire risk forecasts from [SMHI](https://www.smhi.se/), the Swedish Meteorological and Hydrological Institute, into Home Assistant. Use it to show the weather and forecasts for your home on your dashboard, or to get notified when thunder or a high fire risk is expected.

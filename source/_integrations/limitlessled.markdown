@@ -1,18 +1,10 @@
 ---
-title: LimitlessLED
 description: Instructions on how to set up LimitlessLED within Home Assistant.
-ha_categories:
-  - lighting.bulbs_lamps
-ha_iot_class: Assumed State
 ha_release: pre 0.7
 ha_domain: limitlessled
-ha_platforms:
-  - light
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **LimitlessLED** {% term integration %} can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.

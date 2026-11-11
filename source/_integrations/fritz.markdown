@@ -1,32 +1,10 @@
 ---
-title: FRITZ!Box Tools
 description: Instructions on how to integrate FRITZ!Box routers into Home Assistant.
-ha_categories:
-  - computers_network.routers_network
-  - presence_location.network_presence
 ha_release: '0.10'
 ha_domain: fritz
-ha_config_flow: true
-ha_codeowners:
-  - '@AaronDavidSchneider'
-  - '@chemelli74'
-  - '@mib1185'
-ha_iot_class: Local Polling
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - image
-  - sensor
-  - switch
-  - update
-ha_ssdp: true
-ha_integration_type: hub
 related:
   - docs: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
     title: Enabling or disabling entities
-ha_quality_scale: gold
 ---
 
 The **FRITZ!Box Tools** {% term integration %} allows you to control your [FRITZ!Box](https://en.fritz.com/products/fritzbox/) router (by FRITZ!, formerly AVM) and have presence detection for connected network devices.

@@ -22,21 +22,20 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. From the search box, search for and select **Polar night ended**.
 5. Optionally, set an offset to fire before or after the polar night ends:
-   - Under **Offset**, enter how far from the end of the polar night to fire, such as 1 day.
-   - Under **Offset type**, select **Before** or **After**.
+   - Under **Offset**, select **Before** or **After**.
+   - Under **Duration**, enter how far from the end of the polar night to fire, such as 1 day.
 6. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Offset:
-  description: The length of time from the end of the polar night when the trigger fires, in days, hours, minutes, and seconds. By default there is no offset, so the trigger fires exactly when the polar night ends.
-Offset type:
   description: |
-    Whether the offset applies before or after the polar night ends:
+    Whether to fire before or after the polar night ends:
 
-    - **Before**: fires the offset amount before the polar night ends. This is the default.
-    - **After**: fires the offset amount after the polar night ends.
+    - **No offset**: fires exactly when the polar night ends. This is the default.
+    - **Before**: fires the duration you enter before the polar night ends.
+    - **After**: fires the duration you enter after the polar night ends.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -48,7 +47,7 @@ trigger: |
   trigger: sun.polar_night_ended
 {% endexample %}
 
-This fires when the polar night period ends. To fire a fixed amount of time before or after it ends, add the `offset` and `offset_type` options:
+This fires when the polar night period ends. To fire a fixed amount of time before or after it ends, add the `offset` option. A negative offset fires before and a positive one after:
 
 {% example %}
 trigger: |
@@ -56,7 +55,6 @@ trigger: |
   options:
     offset:
       days: 1
-    offset_type: after
 {% endexample %}
 
 This fires one day after the polar night ends.
@@ -66,16 +64,10 @@ This fires one day after the polar night ends.
 {% options_yaml %}
 offset:
   description: >
-    The length of time from the end of the polar night when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. Combine it with `offset_type` to fire before or after the polar night ends.
+    The length of time from the end of the polar night when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. A negative value, such as `minutes: -30` or `"-00:30:00"`, fires before the polar night ends. A positive value fires after.
   required: false
   type: time
   default: "00:00:00"
-offset_type:
-  description: >
-    Whether the offset applies before or after the polar night ends. Accepts `before` or `after`.
-  required: false
-  type: string
-  default: before
 {% endoptions_yaml %}
 
 ## Good to know

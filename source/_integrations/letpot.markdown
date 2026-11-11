@@ -1,23 +1,7 @@
 ---
-title: LetPot
 description: Instructions on how to integrate LetPot hydroponic gardens into Home Assistant.
-ha_categories:
-  - garden_plants
 ha_release: 2025.2
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@jpelgrom'
 ha_domain: letpot
-ha_integration_type: hub
-ha_platforms:
-  - binary_sensor
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_quality_scale: silver
 ---
 
 The **LetPot** {% term integration %} allows you to integrate your [LetPot](https://letpot.com/) hydroponic gardens/systems into Home Assistant.

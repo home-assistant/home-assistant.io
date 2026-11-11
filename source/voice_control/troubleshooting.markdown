@@ -55,6 +55,14 @@ If the **Assist** section is missing entirely, you need to add the following to 
    assist_pipeline:
    ```
 
+## I do not see a text-to-speech or speech-to-text option
+
+If a text-to-speech or speech-to-text service is missing from the options of your assistant, its entity may be disabled. Home Assistant does not offer a disabled entity as an option. This can also happen with Home Assistant Cloud, for example with the entities `tts.home_assistant_cloud` and `stt.home_assistant_cloud`.
+
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+2. In **Filters**, under **Status**, select **Disabled**.
+3. Look for the `tts` or `stt` entity of the service. If it is there, [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+
 ## Assist does not understand my question about the weather forecast
 
 The example below shows common pitfalls when enquiring about the weather. While some steps are specific to the weather, the general mechanics apply to other entities as well.

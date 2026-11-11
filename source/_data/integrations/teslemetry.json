@@ -1,0 +1,36 @@
+{
+  "domain": "teslemetry",
+  "name": "Teslemetry",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Bre77"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "vehicles_transport.cars_evs",
+    "energy.solar_batteries"
+  ],
+  "connectivity": [
+    "bluetooth",
+    "cloud",
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "calendar",
+    "climate",
+    "cover",
+    "device_tracker",
+    "diagnostics",
+    "lock",
+    "media_player",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "update"
+  ]
+}

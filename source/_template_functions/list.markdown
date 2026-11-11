@@ -9,6 +9,7 @@ return_type: list
 limited: true
 since: "0.7"
 related_functions:
+  - list_test
   - set
   - tuple
   - flatten

@@ -1,25 +1,7 @@
 ---
-title: Casper Glow
 description: Instructions on how to integrate Casper Glow lights into Home Assistant.
-ha_categories:
-  - lighting.bulbs_lamps
-  - health_wellbeing
-ha_bluetooth: true
 ha_release: 2026.4
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@mikeodr'
 ha_domain: casper_glow
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - select
-  - sensor
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Casper Glow** {% term integration %} allows you to control your [Casper Glow](https://casper.com/products/glow) light from Home Assistant over Bluetooth. The Casper Glow is a portable dimmable light designed as a sleep aid, featuring a gentle dimming sequence that gradually lowers brightness to help you fall asleep. You can incorporate it into your bedtime automations to control brightness levels.

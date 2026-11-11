@@ -1,0 +1,48 @@
+{% comment %}
+  The "What the Heck?!" card on the homepage. The background is the animated
+  header of the WTH landing page: the 3D wordmark
+  (source/javascripts/wth/logo.js), which turns towards the pointer, over the
+  routing lines from the key visual, which move as the page scrolls
+  (source/javascripts/wth/hero-background.js).
+
+  Change the link, the title, and the subtitle to change what the card
+  promotes. Keep the aria-label in step with the title and subtitle.
+{% endcomment %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" />
+<link rel="stylesheet" href="/stylesheets/homeassistant/pages/wth-card/index.css" />
+{% include wth/3d-check.html %}
+<a href="/what-the-heck/" class="material-card picture-promo wth-card" aria-label="November is WTH?! month. Tell us what makes Home Assistant hard, confusing, or annoying for you, and the people you live with.">
+  <div class="wth-card__art" aria-hidden="true">
+    {% include wth/routing-lines.html %}
+    <div class="wth-card__mark">
+      <span class="wth-mark" data-wth-logo>
+        <span class="wth-mark__line">
+          <span class="wth-mark__word wth-mark__word--what" data-text="WHAT">WHAT</span>
+          <span class="wth-mark__word wth-mark__word--the" data-text="THE">THE</span>
+        </span>
+        <span class="wth-mark__line wth-mark__line--lg">
+          <span class="wth-mark__word wth-mark__word--heck" data-text="HECK?!">HECK?!</span>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div class="caption">
+    <div>
+      <div class="title">
+        November is WTH?! month
+      </div>
+      <div class="subtitle">
+        Tell us what makes Home Assistant hard, confusing, or annoying for you – and the people you live with.
+      </div>
+    </div>
+  </div>
+</a>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "/javascripts/wth/three.min.js"
+    }
+  }
+</script>
+<script src="/javascripts/wth/logo.js" type="module" onerror="document.documentElement.classList.remove('wth-3d')"></script>
+<script src="/javascripts/wth/hero-background.js" type="module"></script>

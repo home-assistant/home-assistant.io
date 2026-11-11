@@ -1,0 +1,77 @@
+{%- comment -%}
+  The pull requests that fix a WTH, as a sea of cards drifting along the same
+  pipes as the WTHs in "What is a WTH". The pull requests and the counts come
+  from `rake wth_stats_data`, which the build runs first. Without them (a local
+  build, or GitHub did not answer) nothing is rendered.
+
+  Four lanes on the four pipes in _sea-background.html, as in _what.html. Each
+  lane holds its run twice, so it loops without a seam. A run has at least four
+  cards, so it is wider than the sea even when there are only a few pull
+  requests; the cards that fill it up are copies, like the second run.
+
+  The first run of each lane is the list of pull requests that keyboards and
+  screen readers get, one link each. Everything else is aria-hidden and out of
+  the tab order. It is paused while the pointer or focus is inside it, as the
+  sea of WTHs is, and played by /javascripts/wth/wth-prs.js. With reduced
+  motion it is a plain grid of the newest pull requests instead.
+{%- endcomment -%}
+{%- assign wth_stats = site.data.wth_stats -%}
+{%- assign prs = wth_stats.prs -%}
+{%- if prs.size > 0 and wth_stats.open != nil and wth_stats.merged != nil and wth_stats.url != nil -%}
+{%- assign total = prs.size -%}
+<div class="wth-prs" data-wth-prs>
+  <div class="wth-prs-head">
+    <div class="wth-prs-intro">
+      <h3>Fixes people are shipping right now</h3>
+      <p>{{ wth_stats.open }} being worked on, {{ wth_stats.merged }} shipped since {{ wth_stats.since | date: "%B %Y" }}. <a href="{{ wth_stats.url }}" target="_blank" rel="noopener">See them all on GitHub</a></p>
+    </div>
+    <button type="button" class="wth-prs-toggle" data-wth-prs-toggle aria-label="Pause" hidden>
+      <span class="wth-prs-pause" aria-hidden="true">{% icon "mdi:pause" %}</span>
+      <span class="wth-prs-play" aria-hidden="true">{% icon "mdi:play" %}</span>
+    </button>
+  </div>
+
+  <div class="wth-prs-sea">
+    {% include_relative components/_sea-background.html id="wth-prs-sea" %}
+
+    <div class="wth-prs-lanes">
+      {% for lane in (0..3) %}
+      {%- comment -%} How many pull requests are in this lane, and how many copies it needs to be four. {%- endcomment -%}
+      {%- assign lane_size = total | minus: lane | plus: 3 | divided_by: 4 -%}
+      {%- assign filler = 4 | minus: lane_size -%}
+      {%- if filler < 0 -%}{%- assign filler = 0 -%}{%- endif -%}
+      {%- assign run_size = lane_size | plus: filler -%}
+      <div class="wth-prs-lane" style="--count: {{ run_size }}">
+        <div class="wth-prs-track">
+          {% for copy in (1..2) %}
+          {%- if copy == 2 -%}{%- assign decoy = true -%}{%- else -%}{%- assign decoy = false -%}{%- endif -%}
+          <div class="wth-prs-run"{% if decoy %} aria-hidden="true"{% endif %}>
+            {%- if lane_size > 0 -%}
+            <ul class="wth-prs-cards">
+              {%- for pr in prs -%}
+              {%- assign pr_lane = forloop.index0 | modulo: 4 -%}
+              {%- if pr_lane == lane -%}
+              {% include_relative components/_pr-card.html pr=pr order=forloop.index0 decoy=decoy %}
+              {%- endif -%}
+              {%- endfor -%}
+            </ul>
+            {%- endif -%}
+            {%- if filler > 0 -%}
+            <ul class="wth-prs-cards"{% unless decoy %} aria-hidden="true"{% endunless %}>
+              {%- for j in (1..filler) -%}
+              {%- assign position = lane_size | plus: j | minus: 1 | times: 4 | plus: lane | modulo: total -%}
+              {%- comment -%} An include parameter cannot be an expression like prs[position], so the pull request is picked first. {%- endcomment -%}
+              {%- assign filler_pr = prs[position] -%}
+              {% include_relative components/_pr-card.html pr=filler_pr order=position decoy=true %}
+              {%- endfor -%}
+            </ul>
+            {%- endif -%}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{%- endif -%}

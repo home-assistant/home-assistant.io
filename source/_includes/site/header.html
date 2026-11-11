@@ -53,6 +53,8 @@
       <li><a {% if root == 'integrations' %}class="active"{% endif %} href="/integrations/">Integrations</a></li>
       <li><a {% if root == 'blog' %}class="active"{% endif %} href="/blog/">Blog</a></li>
       <li><a {% if root == 'help' %}class="active"{% endif %} href="/help/">Need help?</a></li>
+      {%- comment -%} Temporary, for the Month of "What the Heck?!". Remove it here and in astro/src/components/SiteHeader.astro when the month is over. {%- endcomment %}
+      <li><a {% if root == 'what-the-heck' %}class="active"{% endif %} href="/what-the-heck/">What the Heck?!</a></li>
       <li class="nav-search">
         <div class="docsearch" id="docsearch"></div>
       </li>

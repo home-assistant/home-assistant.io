@@ -1,18 +1,7 @@
 ---
-title: Bluetooth
 description: Discover, connect, and monitor bluetooth devices.
-ha_categories:
-  - hubs_protocols.wireless_protocols
-ha_iot_class: Local Push
 ha_release: 2022.8
 ha_domain: bluetooth
-ha_quality_scale: internal
-ha_codeowners:
-  - '@bdraco'
-ha_integration_type: integration
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
 related:
   - docs: /docs/configuration/
     title: Configuration file

@@ -1,24 +1,12 @@
 ---
-title: Aqvify
 description: Instructions on how to set up Aqvify devices within Home Assistant.
-ha_categories:
-  - water
 ha_release: 2026.7
-ha_iot_class: Cloud Polling
 ha_domain: aqvify
-ha_codeowners:
-  - '@astrandb'
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_config_flow: true
-ha_integration_type: hub
 related:
   - url: https://www.aqvify.com/
     title: Aqvify web
   - url: https://app.aqvify.com/
     title: Aqvify user account
-ha_quality_scale: platinum
 ---
 
 The **Aqvify** {% term integration %} allows users to integrate their [Aqvify](https://www.aqvify.com) water well and tank sensors using the [official public API](https://public.aqvify.com/swagger/index.html).

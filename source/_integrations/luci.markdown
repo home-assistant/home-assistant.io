@@ -1,19 +1,7 @@
 ---
-title: OpenWrt (luci)
 description: Instructions on how to integrate OpenWrt routers into Home Assistant.
-ha_categories:
-  - presence_location.network_presence
-  - computers_network.routers_network
-ha_iot_class: Local Polling
 ha_release: pre 0.7
-ha_config_flow: true
-ha_codeowners:
-  - '@mzdrale'
 ha_domain: luci
-ha_platforms:
-  - device_tracker
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **OpenWrt (luci)** {% term integration %} tracks the devices connected to a router that runs [OpenWrt](https://openwrt.org/) with the [LuCI](https://openwrt.org/docs/techref/luci) web interface. Home Assistant polls the router locally, so you can use the presence of a phone or another device to tell who is home and trigger automations based on that.
@@ -54,20 +42,13 @@ Verify SSL certificate:
 
 If the credentials for your router change later, Home Assistant asks you to enter the new username and password so it can reconnect. You don't need to remove and add the integration again.
 
-## Configuration options
-
-To change the options, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **OpenWrt (luci)** integration, and select **Configure**.
-
-{% configuration_basic %}
-Seconds to consider a device at 'home':
-    description: "The time a device stays home after the router stops reporting it. The default is 180 seconds. You can set any value between 0 and 900 seconds. Increase this if devices that go to sleep, such as phones, switch between home and away too often. Set it to 0 to mark a device as away as soon as the router no longer reports it."
-{% endconfiguration_basic %}
-
 ## Supported functionality
 
 For each device it finds on the router, the integration creates a {% term "device tracker" %} entity that shows whether the device is home or away. Each entity also exposes the device's IP address, hostname, and MAC address.
 
-When the router stops reporting a device, the entity stays home until the time set in **Seconds to consider a device at 'home'** has passed. While the device is still considered home, it keeps its last known IP address and hostname. This keeps short dropouts, such as a phone that puts its Wi-Fi to sleep, from looking like someone left the house.
+The integration polls the router every 30 seconds. When the router stops reporting a device, the entity changes to away at the next poll. It keeps its last known IP address and hostname.
+
+To prevent a brief disconnection from starting an automation, use a [**State changed**](/triggers/state/) trigger with **To** set to **Away** and a **For at least** duration. The automation runs only if the device stays away for that duration. This delays only the automation, not the device tracker's state change.
 
 To choose which devices to track and how they are shown, see the [device tracker integration page](/integrations/device_tracker/).
 

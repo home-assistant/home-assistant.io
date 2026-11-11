@@ -119,7 +119,7 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 2. Under **Locations**, turn on all the backup locations you want to use.
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you want to back up to your NAS (such as [Synology](/integrations/synology_dsm/#backup-location)) or a cloud provider (such as [Google Drive](/integrations/google_drive/) or [Microsoft OneDrive](/integrations/onedrive/)), check their integration documentation for specific instructions on setting up a Home Assistant backup.
-   - If you don't see a network storage, you haven't added one. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
+   - If you don't see your network storage or local disk, you haven't added it with the **Backup** usage. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) or [adding a local disk](/common-tasks/os/#adding-a-local-disk), and select the **Backup** usage.
    ![Define the backup locations](/images/screenshots/network-storage/backup_locations_encryption.png)
 3. To change the encryption or the retention of a location, select the cog {% icon "mdi:cog" %} next to it.
    - Under **Encryption**, select **Turn off** or **Turn on**. Backups on Home Assistant Cloud are always encrypted.
@@ -149,6 +149,7 @@ This creates a backup instantly. You can create a manual backup at any time, irr
    - To learn more about the locations, refer to the section on [defining backup locations](#defining-backup-locations).
    - To store the backup on Home Assistant Cloud, include the Home Assistant settings in the backup data.
 6. To start the backup process, select **Create backup**.
+   - A bar at the top of the **Backup** page shows the progress, including the upload progress to some locations.
 
 ## Downloading your local backups
 
@@ -235,6 +236,8 @@ There are two ways to use a backup:
 ### Estimated duration
 
 The time it takes to restore a backup depends on the size of the backup and on your hardware. Home Assistant reinstalls Home Assistant Core and all apps. For a larger installation, a restore can take about 45 minutes.
+
+Home Assistant restores directly from the backup, without making a temporary copy of it first. This saves free space and time, especially for backups on network storage.
 
 Don't turn off or unplug the system while the restore runs. To check that the restore is still running, refer to [The restore seems stuck or shows "Not found"](#symptom-the-restore-seems-stuck-or-shows-not-found).
 

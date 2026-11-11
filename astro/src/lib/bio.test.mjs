@@ -5,7 +5,8 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { describe, it } from "node:test";
-import { BioConfigError, dataItems, imageFor, loadPosts, resolve, validate, youtubeId } from "./bio.mjs";
+import { BioConfigError, dataItems, imageFor, loadPosts, parseEnd, resolve, validate, youtubeId } from "./bio.mjs";
+import { isShowing, select } from "./bio-schedule.mjs";
 
 const NOW = new Date("2026-10-22T00:00:00Z");
 const SITE = "https://www.home-assistant.io";
@@ -40,6 +41,14 @@ const config = (overrides = {}) => ({
 
 const labels = (cfg, data = {}, posts = POSTS) =>
   resolve(cfg, posts, NOW, SITE, data).flatMap((section) => section.tiles.map((tile) => tile.label));
+
+// What the script on the page shows at `at`, from what the build rendered:
+// the labels showing in each section, by title.
+const showingAt = (sections, at) => {
+  const ordered = [...sections].sort((a, b) => a.order - b.order);
+  const picks = select(ordered, new Date(at));
+  return Object.fromEntries(ordered.map((s, i) => [s.title ?? "", s.entries.filter((e) => isShowing(e, picks[i])).map((e) => e.label)]));
+};
 
 const titled = (sections) => Object.fromEntries(sections.map((s) => [s.title, s.tiles.map((t) => t.label)]));
 
@@ -98,13 +107,13 @@ describe("pins", () => {
 
   it("wins while active", () => {
     const cfg = config();
-    cfg.sources.latest.items = [{ title: "Launch", url: "/launch/", expires: "2026-11-01" }];
+    cfg.sources.latest.items = [{ title: "Launch", url: "/launch/", ends: "2026-11-01" }];
     assert.deepEqual(labels(cfg), ["Launch"]);
   });
 
   it("hands back to the feed once expired", () => {
     const cfg = config();
-    cfg.sources.latest.items = [{ title: "Launch", url: "/launch/", expires: "2026-10-01" }];
+    cfg.sources.latest.items = [{ title: "Launch", url: "/launch/", ends: "2026-10-01" }];
     assert.deepEqual(labels(cfg), ["Voice"]);
   });
 });
@@ -273,7 +282,7 @@ describe("merged lists", () => {
 describe("inserted items", () => {
   it("take their place by date", () =>
     assert.deepEqual(
-      merged(mergedConfig({ limit: 10, insert: [{ title: "Community Day", url: "https://example.test/day/", date: "2026-10-10", label: "Event" }] })),
+      merged(mergedConfig({ limit: 10, insert: [{ title: "Community Day", url: "https://example.test/day/", starts: "2026-10-10", label: "Event" }] })),
       [
         ["Voice", "Blog · October 14, 2026"],
         ["Community Day", "Event · October 10, 2026"],
@@ -283,17 +292,32 @@ describe("inserted items", () => {
     ));
 
   it("become the hero when newest", () => {
-    const cfg = mergedConfig({ hero: true, insert: [{ title: "Launch", url: "https://example.test/launch/", date: "2026-10-20", image: "auto" }] });
+    const cfg = mergedConfig({ hero: true, insert: [{ title: "Launch", url: "https://example.test/launch/", starts: "2026-10-20", image: "auto" }] });
     const tile = resolve(cfg, POSTS, NOW, SITE, { newsletter: NEWSLETTER })[0].tiles[0];
     assert.equal(tile.label, "Launch");
     assert.equal(tile.kind, "hero");
     assert.ok(tile.image.includes("assets.openhomefoundation.org/opengraph"));
   });
 
-  it("need a date", () => assertInvalid(mergedConfig({ insert: [{ title: "Undated", url: "/x/" }] }), "sections[0].insert[0].date: is required"));
+  it("need starts", () => assertInvalid(mergedConfig({ insert: [{ title: "Undated", url: "/x/" }] }), "sections[0].insert[0].starts: is required"));
 
-  it("need a valid date", () =>
-    assertInvalid(mergedConfig({ insert: [{ title: "Bad", url: "/x/", date: "10/11/2026" }] }), 'sections[0].insert[0].date: "10/11/2026" is not a date'));
+  it("come in at the top when a future starts passes", () => {
+    const cfg = mergedConfig({ insert: [{ title: "Scheduled", url: "/s/", starts: "2026-10-30" }] });
+    validate(cfg);
+    const sections = resolve(cfg, POSTS, NOW, SITE, { newsletter: NEWSLETTER });
+    const { entries } = sections[0];
+    assert.equal(entries[0].label, "Scheduled");
+    assert.equal(entries[0].hidden, true);
+    assert.deepEqual(showingAt(sections, "2026-10-31T00:00:00Z").Latest, ["Scheduled", "Voice", "Latest issue"]);
+  });
+
+  it("need a valid starts", () =>
+    assertInvalid(mergedConfig({ insert: [{ title: "Bad", url: "/x/", starts: "10/11/2026" }] }), 'sections[0].insert[0].starts: "10/11/2026" is not a date'));
+
+  it("name the new key for a renamed one", () => {
+    assertInvalid(mergedConfig({ insert: [{ title: "Old", url: "/o/", date: "2026-10-01" }] }), "sections[0].insert[0].date: is now called starts");
+    assertInvalid(mergedConfig({ insert: [{ title: "Old", url: "/o/", start: "2026-10-01" }] }), "sections[0].insert[0].start: is now called starts");
+  });
 });
 
 describe("YouTube inserts", () => {
@@ -301,7 +325,7 @@ describe("YouTube inserts", () => {
     type: "youtube",
     video: "https://www.youtube.com/watch?v=XyAL1to3Lm4",
     title: "State of the Open Home",
-    start: "2026-11-15T18:00:00Z",
+    airs: "2026-11-15T18:00:00Z",
     label: "Livestream",
     ...overrides,
   });
@@ -333,10 +357,16 @@ describe("YouTube inserts", () => {
   });
 
   it("leaves the time out when only a day is given", () =>
-    assert.equal(tiles([video({ start: "2026-11-15" })])[0].note, "Livestream · Starts November 15"));
+    assert.equal(tiles([video({ airs: "2026-11-15" })])[0].note, "Livestream · Starts November 15"));
+
+  it("carries the note to show once it has started", () => {
+    const [entry] = resolve(mergedConfig({ hero: true, insert: [video()] }), POSTS, NOW, SITE, {})[0].entries;
+    assert.equal(entry.noteAfter, "Livestream · November 15, 2026");
+    assert.equal(entry.airs.toISOString(), "2026-11-15T18:00:00.000Z");
+  });
 
   it("shows the date once it has started, in date order", () => {
-    const list = tiles([video({ start: "2026-10-10T18:00:00Z" })]);
+    const list = tiles([video({ airs: "2026-10-10T18:00:00Z", ends: "2026-12-01" })]);
     assert.deepEqual(
       list.map((tile) => tile.label),
       ["Voice", "State of the Open Home", "Latest issue", "2026.10"],
@@ -348,8 +378,26 @@ describe("YouTube inserts", () => {
   it("needs a recognizable video", () =>
     assertInvalid(mergedConfig({ insert: [video({ video: "not a video" })] }), "sections[0].insert[0].video: must be a YouTube video ID or link"));
 
-  it("needs a start", () =>
-    assertInvalid(mergedConfig({ insert: [video({ start: undefined })] }), "sections[0].insert[0].start: is required"));
+  it("needs airs", () =>
+    assertInvalid(mergedConfig({ insert: [video({ airs: undefined })] }), "sections[0].insert[0].airs: is required"));
+
+  it("names airs for start or date", () => {
+    assertInvalid(mergedConfig({ insert: [video({ airs: undefined, start: "2026-11-15" })] }), "sections[0].insert[0].start: is now called airs");
+    assertInvalid(mergedConfig({ insert: [video({ date: "2026-11-15" })] }), "sections[0].insert[0].date: is now called airs");
+  });
+
+  it("can show before it airs", () => {
+    const [entry] = resolve(mergedConfig({ insert: [video({ starts: "2026-11-12" })] }), POSTS, NOW, SITE, {})[0].entries;
+    assert.equal(entry.label, "State of the Open Home");
+    assert.equal(entry.starts.toISOString(), "2026-11-12T00:00:00.000Z");
+  });
+
+  it("comes down at the end of the day after it airs", () => {
+    const [entry] = tiles([video({ airs: "2026-10-20T18:00:00Z" })], new Date("2026-10-21T23:00:00Z"));
+    assert.equal(entry.label, "State of the Open Home");
+    assert.equal(entry.ends.toISOString(), "2026-10-22T00:00:00.000Z");
+    assert.ok(!tiles([video({ airs: "2026-10-20T18:00:00Z" })]).some((t) => t.label === "State of the Open Home"));
+  });
 
   it("rejects an unknown insert type", () =>
     assertInvalid(mergedConfig({ insert: [video({ type: "vimeo" })] }), "sections[0].insert[0].type: must be youtube"));
@@ -426,4 +474,159 @@ describe("reading posts", () => {
 
   it("leaves out unpublished and future posts, as Jekyll does", () =>
     assert.deepEqual(Object.keys(byTitle).sort(), ['2026.10: You are "here"', "Open home", "Podcast #10"]));
+});
+
+describe("scheduled items", () => {
+  const insert = (overrides = {}) => ({ title: "AUX2 livestream", url: "https://example.test/live/", starts: "2026-10-21", ...overrides });
+  const section = (cfg) => {
+    validate(cfg);
+    return resolve(cfg, POSTS, NOW, SITE, { newsletter: NEWSLETTER })[0];
+  };
+
+  it("keeps a day-only ends up through that day", () => {
+    assert.equal(parseEnd("2026-11-15", "x").toISOString(), "2026-11-16T00:00:00.000Z");
+    assert.equal(parseEnd("2026-11-15T18:00:00Z", "x").toISOString(), "2026-11-15T18:00:00.000Z");
+  });
+
+  it("renders a future insert hidden, ready for the script", () => {
+    const { tiles, entries } = section(mergedConfig({ insert: [insert({ starts: "2026-10-23T18:00:00Z" })] }));
+    assert.deepEqual(tiles.map((t) => t.label), ["Voice", "Latest issue", "2026.10"]);
+    const live = entries.find((e) => e.label === "AUX2 livestream");
+    assert.equal(live.hidden, true);
+    assert.equal(live.starts.toISOString(), "2026-10-23T18:00:00.000Z");
+  });
+
+  it("shows an insert inside its window and leaves it out once ended", () => {
+    const running = section(mergedConfig({ insert: [insert({ starts: "2026-10-21", ends: "2026-10-22" })] }));
+    assert.equal(running.tiles[0].label, "AUX2 livestream");
+    const ended = section(mergedConfig({ insert: [insert({ starts: "2026-10-19", ends: "2026-10-20" })] }));
+    assert.ok(!ended.entries.some((e) => e.label === "AUX2 livestream"));
+  });
+
+  it("renders the item that moves up when a scheduled one ends", () => {
+    const latest = section(mergedConfig({ insert: [insert({ ends: "2026-10-23T12:00:00Z" })] }));
+    const { entries } = latest;
+    // limit 3: the insert and 3 items that always show.
+    assert.deepEqual(entries.map((e) => [e.label, e.hidden]), [
+      ["AUX2 livestream", false],
+      ["Voice", false],
+      ["Latest issue", false],
+      ["2026.10", true],
+    ]);
+    assert.deepEqual(showingAt([latest], "2026-10-23T13:00:00Z").Latest, ["Voice", "Latest issue", "2026.10"]);
+  });
+
+  it("gives an item that might come first a hero and a row version", () => {
+    const latest = section(mergedConfig({ hero: true, insert: [insert({ ends: "2026-10-23", image: "auto" })] }));
+    const { entries } = latest;
+    assert.deepEqual(entries.slice(0, 3).map((e) => [e.label, e.kind, e.variant ?? null, e.hidden]), [
+      ["AUX2 livestream", "hero", null, false],
+      ["Voice", "hero", "hero", true],
+      ["Voice", "link", "row", false],
+    ]);
+    const keys = select([latest], new Date("2026-10-25T00:00:00Z"))[0];
+    assert.deepEqual(entries.filter((e) => isShowing(e, keys)).map((e) => [e.label, e.kind]), [
+      ["Voice", "hero"],
+      ["Latest issue", "link"],
+      ["2026.10", "link"],
+    ]);
+  });
+
+  it("pins can start and end", () => {
+    const pin = (item) => mergedConfig({}, { pinned: { type: "pinned", items: [{ title: "Launch", url: "/launch/", ...item }] } });
+    assert.equal(section(pin({ starts: "2026-10-23" })).tiles[0].label, "Voice");
+    assert.equal(section(pin({ ends: "2026-10-23" })).tiles[0].label, "Launch");
+    assert.equal(section(pin({})).tiles[0].label, "Launch");
+  });
+
+  it("brings a section in hidden when its only link starts later", () => {
+    const cfg = config({ sections: [{ type: "links", title: "Soon", items: [{ label: "Tickets", url: "/t/", starts: "2026-11-01" }] }] });
+    const [soon] = resolve(cfg, POSTS, NOW, SITE);
+    assert.equal(soon.hidden, true);
+    assert.equal(soon.entries[0].hidden, true);
+  });
+
+  it("rejects ends before starts", () =>
+    assertInvalid(mergedConfig({ insert: [insert({ starts: "2026-11-02", ends: "2026-11-01" })] }), "sections[0].insert[0].ends: must be after starts"));
+
+  it("names ends for expires", () =>
+    assertInvalid(
+      mergedConfig({}, { pinned: { type: "pinned", items: [{ title: "x", url: "/x/", expires: "2026-11-01" }] } }),
+      "sources.pinned.items[0].expires: is now called ends",
+    ));
+});
+
+describe("items that depend on which others are up", () => {
+  const BUILD = "2026-10-22T00:00:00Z";
+  const P = (day, title, categories = []) => ({ url: `/blog/${day}/`, date: new Date(`${day}T00:00:00Z`), data: { title, categories } });
+  const posts = [P("2026-10-20", "Release", ["Release-Notes"]), P("2026-10-14", "Voice"), P("2026-10-01", "Older")];
+  const build = (cfg) => {
+    validate(cfg);
+    return resolve(cfg, posts, new Date(BUILD), SITE);
+  };
+  const latest = (pins, extra = {}) => ({
+    sections: [{ type: "feed", title: "Latest", sources: ["pinned", "blog"], limit: 3 }],
+    sources: { blog: { type: "posts" }, pinned: { type: "pinned", items: pins, ...extra } },
+  });
+
+  it("shows a post in its own place before and after a pin of it", () => {
+    const sections = build(latest([{ title: "Pinned voice", url: "/blog/2026-10-14/", starts: "2026-10-23", ends: "2026-10-25" }]));
+    assert.deepEqual(showingAt(sections, "2026-10-22T12:00:00Z").Latest, ["Release", "Voice", "Older"]);
+    assert.deepEqual(showingAt(sections, "2026-10-24T00:00:00Z").Latest, ["Pinned voice", "Release", "Older"]);
+    assert.deepEqual(showingAt(sections, "2026-10-26T00:00:00Z").Latest, ["Release", "Voice", "Older"]);
+  });
+
+  it("counts a source's limit against the items showing", () => {
+    const sections = build(
+      latest(
+        [
+          { title: "A", url: "/a/", ends: "2026-10-23T00:00:00Z" },
+          { title: "B", url: "/b/", starts: "2026-10-24" },
+        ],
+        { limit: 1 },
+      ),
+    );
+    assert.deepEqual(showingAt(sections, "2026-10-22T12:00:00Z").Latest, ["A", "Release", "Voice"]);
+    assert.deepEqual(showingAt(sections, "2026-10-23T12:00:00Z").Latest, ["Release", "Voice", "Older"]);
+    assert.deepEqual(showingAt(sections, "2026-10-24T12:00:00Z").Latest, ["B", "Release", "Voice"]);
+  });
+
+  it("brings the fallback back when the pin ends", () => {
+    const sections = build({
+      sections: [{ type: "feed", title: "Latest", source: "top", limit: 1 }],
+      sources: { blog: { type: "posts" }, top: { type: "pinned", fallback: "blog", items: [{ title: "Pin", url: "/p/", ends: "2026-10-23T00:00:00Z" }] } },
+    });
+    assert.deepEqual(showingAt(sections, "2026-10-22T12:00:00Z").Latest, ["Pin"]);
+    assert.deepEqual(showingAt(sections, "2026-10-23T12:00:00Z").Latest, ["Release"]);
+  });
+
+  it("leaves out the fallback behind a pin that is up for good", () => {
+    const [section] = build({
+      sections: [{ type: "feed", title: "Latest", source: "top", limit: 1 }],
+      sources: { blog: { type: "posts" }, top: { type: "pinned", fallback: "blog", items: [{ title: "Pin", url: "/p/" }] } },
+    });
+    assert.deepEqual(section.entries.map((e) => e.label), ["Pin"]);
+  });
+
+  it("lets another list have a link until a pin claims it", () => {
+    const sections = build({
+      sections: [
+        { type: "feed", title: "Latest", sources: ["pinned", "blog"], limit: 1 },
+        { type: "feed", title: "Releases", source: "releases", limit: 1 },
+      ],
+      sources: {
+        blog: { type: "posts" },
+        releases: { type: "posts", category: "Release-Notes" },
+        pinned: { type: "pinned", items: [{ title: "Pinned release", url: "/blog/2026-10-20/", starts: "2026-10-25" }] },
+      },
+    });
+    assert.deepEqual(showingAt(sections, "2026-10-22T12:00:00Z"), { Latest: ["Voice"], Releases: ["Release"] });
+    assert.deepEqual(showingAt(sections, "2026-10-26T00:00:00Z"), { Latest: ["Pinned release"], Releases: [] });
+  });
+
+  it("matches what the build shows", () => {
+    const sections = build(latest([{ title: "Pinned voice", url: "/blog/2026-10-14/", starts: "2026-10-23" }]));
+    const atBuild = showingAt(sections, BUILD);
+    assert.deepEqual(atBuild, titled(sections));
+  });
 });

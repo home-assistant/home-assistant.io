@@ -1,0 +1,53 @@
+{% comment %}
+  The animated "What the Heck?!" 2026 header for blog posts, borrowed from the
+  WTH landing page: the 3D wordmark (source/javascripts/wth/logo.js) over the
+  routing lines from the key visual, which move as the page scrolls
+  (source/javascripts/wth/hero-background.js).
+
+  The static header image is the fallback. The script below swaps in the
+  animated header from the template, so feed readers and browsers without
+  JavaScript keep the image. Everything is wrapped in one `div` so Markdown
+  leaves it alone; keep blank lines out of this file for the same reason.
+
+  Pass the static header image as `image` and its alt text as `alt`.
+{% endcomment %}
+<div class="wth-blog-hero-wrap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" />
+<link rel="stylesheet" href="/stylesheets/homeassistant/pages/wth-blog-header/index.css" />
+<img class="wth-blog-hero-fallback" src="{{ include.image }}" alt="{{ include.alt }}" width="1200" height="630" style="border: 0;box-shadow: none;height: auto;">
+<template id="wth-blog-hero">
+<div class="wth-blog-hero" role="img" aria-label="{{ include.alt }}">
+  {%- include wth/routing-lines.html -%}
+  <div class="wth-blog-hero__content">
+    <span class="wth-mark" data-wth-logo aria-hidden="true">
+      <span class="wth-mark__line">
+        <span class="wth-mark__word wth-mark__word--what" data-text="WHAT">WHAT</span>
+        <span class="wth-mark__word wth-mark__word--the" data-text="THE">THE</span>
+      </span>
+      <span class="wth-mark__line wth-mark__line--lg">
+        <span class="wth-mark__word wth-mark__word--heck" data-text="HECK?!">HECK?!</span>
+      </span>
+    </span>
+    <span class="wth-blog-hero__date" aria-hidden="true">November 2026</span>
+  </div>
+</div>
+</template>
+{%- include wth/3d-check.html -%}
+<script>
+  (function () {
+    var template = document.getElementById("wth-blog-hero");
+    var image = template && template.parentNode.querySelector(".wth-blog-hero-fallback");
+    if (!image || !("content" in template)) return;
+    image.replaceWith(template.content.cloneNode(true));
+  })();
+</script>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "/javascripts/wth/three.min.js"
+    }
+  }
+</script>
+<script src="/javascripts/wth/logo.js" type="module" onerror="document.documentElement.classList.remove('wth-3d')"></script>
+<script src="/javascripts/wth/hero-background.js" type="module"></script>
+</div>

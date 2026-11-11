@@ -5,14 +5,22 @@
 
   var TEMPLATE_LANGS = ['template', 'django', 'jinja2', 'yaml'];
 
-  // Link function and filter tokens to their documentation pages
+  // Keep functions, filters, and tests with the same name separate.
+  function tokenType(token) {
+    if (token.classList.contains('test')) return 'test';
+    if (token.classList.contains('filter')) return 'filter';
+    return 'function';
+  }
+
+  // Link function, filter, and test tokens to their documentation pages
   function linkFunctions(codeEl) {
     codeEl.querySelectorAll('.token.function, .token.filter').forEach(function(token) {
       if (token.classList.contains('tf-linked')) return;
       var name = token.textContent.trim();
-      if (funcs[name]) {
-        token.setAttribute('data-tf-url', funcs[name].u);
-        token.setAttribute('data-tf-desc', funcs[name].d);
+      var entry = funcs[name] && funcs[name][tokenType(token)];
+      if (entry) {
+        token.setAttribute('data-tf-url', entry.u);
+        token.setAttribute('data-tf-desc', entry.d);
         token.classList.add('tf-linked');
       }
     });
@@ -32,7 +40,7 @@
           if (depth === 0) {
             var prev = el.previousElementSibling;
             if (prev && (prev.classList.contains('function') || prev.classList.contains('filter'))) {
-              return prev.textContent.trim();
+              return prev;
             }
             return null;
           }
@@ -57,10 +65,11 @@
       if (!next || !next.classList.contains('operator') || next.textContent.trim() !== '=') return;
 
       var paramName = varToken.textContent.trim();
-      var funcName = findParentFunction(varToken);
-      if (!funcName || !funcs[funcName]) return;
-
-      var funcData = funcs[funcName];
+      var funcToken = findParentFunction(varToken);
+      if (!funcToken) return;
+      var funcName = funcToken.textContent.trim();
+      var funcData = funcs[funcName] && funcs[funcName][tokenType(funcToken)];
+      if (!funcData) return;
       var paramDesc = funcData.p && funcData.p[paramName];
       var url = funcData.u + '#' + paramName;
       var desc = paramDesc || ('Parameter of ' + funcName + '()');

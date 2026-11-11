@@ -1,18 +1,7 @@
 ---
-title: EnOcean
 description: Connect EnOcean devices to Home Assistant
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: 0.21
-ha_iot_class: Local Push
 ha_domain: enocean
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - light
-  - sensor
-  - switch
-ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -83,7 +72,7 @@ name:
   type: string
   default: EnOcean binary sensor
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: device_class
 {% endconfiguration %}

@@ -1,40 +1,8 @@
 ---
-title: Shelly
 description: Integrate Shelly devices
-ha_categories:
-  - plugs_switches
-  - lighting.bulbs_lamps
-  - energy.meters_monitoring
 ha_release: 0.115
-ha_codeowners:
-  - '@bieniu'
-  - '@thecode'
-  - '@chemelli74'
-  - '@bdraco'
-ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - light
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-  - text
-  - update
-  - valve
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.com) into Home Assistant.
@@ -205,6 +173,8 @@ Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, yo
 - Change the device profile to `Cover` (**Settings** > **Device profile**)
 - Calibrate the cover (**Home** > **Cover** > **Calibration** > **Start**)
 - Enable and configure **Slat control** (**Home** > **Cover** > **Slat control**)
+
+To move a cover and its tilt to target positions with a single command, use the [**Set cover position and tilt**](/actions/shelly.set_cover_position_and_tilt/) action.
 
 ## Binary input sensors
 

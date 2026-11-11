@@ -9,6 +9,7 @@ return_type: set
 limited: true
 since: "2023.1"
 related_functions:
+  - set_test
   - tuple
   - intersect
   - union

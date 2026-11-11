@@ -1,0 +1,31 @@
+{
+  "domain": "imou",
+  "name": "Imou",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Imou-OpenPlatform"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "gold",
+  "categories": [
+    "security_safety.cameras"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "camera",
+    "diagnostics",
+    "select",
+    "sensor",
+    "siren",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

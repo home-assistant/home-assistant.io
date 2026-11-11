@@ -1,32 +1,7 @@
 ---
-title: Home Connect
 description: Instructions on how to set up the Home Connect integration within Home Assistant.
-ha_categories:
-  - appliances_cleaning
-  - climate.heat_pumps_air_conditioning
-ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
-ha_quality_scale: platinum
-ha_codeowners:
-  - '@DavidMStraub'
-  - '@Diegorro98'
-  - '@MartinHjelmare'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_zeroconf: true
-ha_dhcp: true
 ---
 
 The **Home Connect** {% term integration %} allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).

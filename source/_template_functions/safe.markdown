@@ -20,8 +20,8 @@ Home Assistant doesn't escape template output. Characters like `<` and `>` stay 
 
 `safe` matters when something later in the template treats safe text differently. The following cases are the most common:
 
-- The [`escape`](/template-functions/escape/) filter leaves safe text unchanged. For example, {% raw %}`{{ '<b>x</b>' | escape }}`{% endraw %} escapes the tags, but {% raw %}`{{ '<b>x</b>' | safe | escape }}`{% endraw %} keeps them.
-- When you join safe text with other text using `+`, the other text is escaped. For example, {% raw %}`{{ ('<b>' | safe) + '<i>' }}`{% endraw %} gives `<b>&lt;i&gt;`.
+- The [`escape`](/template-functions/escape/) filter leaves safe text unchanged. For example, `{{ '<b>x</b>' | escape }}` escapes the tags, but `{{ '<b>x</b>' | safe | escape }}` keeps them.
+- When you join safe text with other text using `+`, the other text is escaped. For example, `{{ ('<b>' | safe) + '<i>' }}` gives `<b>&lt;i&gt;`.
 - The [`xmlattr`](/template-functions/xmlattr/) filter doesn't escape safe text in attribute values.
 
 {% include template_functions/usage.md %}
