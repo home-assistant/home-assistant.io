@@ -76,6 +76,11 @@ hide_section_headers:
   description: Hide the 'Active' and 'Completed' sections with the overflow menus.
   type: boolean
   default: "false"
+show_search:
+  required: false
+  description: Show a search button that lets you filter the items in the card. [See below](#searching-items).
+  type: boolean
+  default: "false"
 display_order:
   required: false
   description: "Optionally sorts the items in the to-do list for display. Options are: `none`: Show the list in its original order. `alpha_asc`: Sort the list in alphabetical order. `alpha_desc`: Sort the list in reverse alphabetical order. `duedate_asc`: Sort the list by due date (soonest first). `duedate_desc`: Sort the list by reverse due date (soonest last)."
@@ -141,6 +146,15 @@ due_date_period:
   calendar:
     period: day
     offset: 6
+```
+
+## Searching items
+
+When `show_search` is enabled, a search button appears next to the **Add item** field. Select it to open the search field, then type to filter the list. Items match if every word you type appears in their name or description. Upper and lower case and accents are ignored, so `cafe` also finds **Café**.
+
+To close the search, select the search button again or press <kbd>Esc</kbd>. While searching, the options to reorder items and to remove completed items are hidden, because they apply to the whole list.
+
+The search is always available on the **To-do lists** dashboard.
 
 ## Examples
 
@@ -150,4 +164,12 @@ Title example:
 type: todo-list
 entity: todo.todo_list
 title: Todo List
+```
+
+Search example:
+
+```yaml
+type: todo-list
+entity: todo.todo_list
+show_search: true
 ```
