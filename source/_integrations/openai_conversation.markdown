@@ -87,7 +87,19 @@ Search context size:
   description: The search is performed with a separate fine-tuned model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#built-in-tools). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
 Include home location:
   description: This parameter allows using the location of your Home Assistant instance during search to provide more relevant search results.
+Include links in web search results:
+  description: If enabled, answers can include links to the web pages that the search used. If disabled, the model is asked not to include source citations. Disabled by default.
+Enable code interpreter tool:
+  description: Allows the model to run Python code to answer questions. Disabled by default. Not available for some models, for example, `gpt-5-pro` and the Codex models.
+Reasoning effort:
+  description: How much the model reasons before it answers. More reasoning can improve answers to difficult questions, but takes longer and uses more tokens. Only available for reasoning models, such as the `o` series, `gpt-5`, and `gpt-6`, but not for `gpt-5-pro`. The choices depend on the model, and include **None**, **Minimal**, **Low**, **Medium**, **High**, **X-High**, and **Max**. The default is **Low**.
+Reasoning summary:
+  description: How long and detailed the summaries of the model's reasoning are. The choices are **Off**, **Auto**, **Concise**, and **Detailed**. **Concise** is not available for `o` series models. The default is **Auto**. Only available for reasoning models.
+Image generation model:
+  description: The model that the AI task uses to generate images. Only available for AI tasks, and only with models that support image generation. The default is `gpt-image-2.5-flare`.
 {% endconfiguration_basic %}
+
+Most of these options are in the second step of the dialog, **Model-specific options**. Which options appear depends on the model you selected.
 
 The Speech-to-text (STT) subentries have the following configuration options:
 
@@ -95,7 +107,7 @@ The Speech-to-text (STT) subentries have the following configuration options:
 Instructions:
   description: Instructions that can be used to improve the quality of the transcripts by giving the model additional context similarly to how you would prompt other LLMs. The model will try to match the style, language, and context of the prompt. You can also use it to pass a dictionary of the correct spellings of common misunderstood words. Check the [OpenAI guide on prompting STT models](https://developers.openai.com/api/docs/guides/speech-to-text#prompting) for additional hints. Templates are not supported here.
 Model:
-  description: The Speech-to-text model for audio transcription.
+  description: The Speech-to-text model for audio transcription. Select `gpt-4o-transcribe`, `gpt-4o-mini-transcribe`, or `whisper-1`, or enter the name of another model. The default is `gpt-4o-mini-transcribe`.
 {% endconfiguration_basic %}
 
 The Text-to-speech (TTS) subentries have the following configuration options:
@@ -106,6 +118,15 @@ Instructions:
 Speed:
   description: Additionally adjust the speed of the generated speech. Accepts values between 0.25 and 4.0, where 1.0 is the default speed.
 
+{% endconfiguration_basic %}
+
+Text-to-speech always uses the `gpt-4o-mini-tts` model.
+
+The AI task evaluation subentries have the following configuration options:
+
+{% configuration_basic %}
+Model:
+  description: The model that evaluates the AI task. The default is `gpt-6-luna`. You can also enter the name of another model.
 {% endconfiguration_basic %}
 
 ## Talking to Super Mario over the phone
