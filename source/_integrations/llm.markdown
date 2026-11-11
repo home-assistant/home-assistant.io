@@ -71,7 +71,7 @@ The **Home Assistant** set of tools contains the following tools. Each entry sta
   - To see which actions the assistant performed: Go to **Settings** > **Tools** > **Action history**.
 - **Get config entries** (`config__get_config_entries`): Lists the integrations and helpers that are set up, with their status, such as loaded or failed to set up, and the reason for an error. It can filter by integration and by status. Only reads.
   - To do this yourself: Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-- **Reload config entry** (`config__reload_config_entry`): Reloads an integration that is set up, for example, after a temporary connection error. Changes things.
+- **Reload config entry** (`config__reload_config_entry`): Reloads an integration that is set up. For example, after a temporary connection error. Changes things.
   - To do this yourself: On the integration page, under {% my integrations title="**Settings** > **Devices & services**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Reload** on the integration entry.
 - **Search available integrations** (`config__search_integrations`): Searches the integrations and helpers that you can set up from the UI, including ones that you haven't added yet. Only reads.
   - To do this yourself: Select **Add integration**, under {% my integrations title="**Settings** > **Devices & services**" %}.
@@ -79,7 +79,7 @@ The **Home Assistant** set of tools contains the following tools. Each entry sta
   - To do this yourself: Use the [quick search](/docs/tools/quick-search/).
 - **Get system info** (`system_health__get_system_info`): Returns the installation type, the time zone, and the versions of Home Assistant Core, the frontend, Python, the operating system, and the Supervisor. For example, to fill in a bug report. Only reads.
   - To do this yourself: Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **System information**.
-- **Get history** (`history__get_history`): Returns the long-term statistics of entities, for example, the mean, minimum, and maximum temperature per hour. It only works for entities with long-term statistics, such as sensors with a state class. Only reads.
+- **Get history** (`history__get_history`): Returns the long-term statistics of entities. For example, the mean, minimum, and maximum temperature per hour. It only works for entities with long-term statistics, such as sensors with a state class. Only reads.
   - To do this yourself: Use the {% my history title="**History**" %} panel.
 - **Get system log entries** (`system_log__get_entries`): Returns recent errors and warnings from the system log. It doesn't include info or debug messages. It can filter by level and by integration. Only reads.
   - To do this yourself: Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
