@@ -2,6 +2,7 @@
 title: "Get energy prices"
 action: green_planet_energy.get_prices
 domain: green_planet_energy
+response: required
 description: "Fetches upcoming 15-minute electricity price slots from Green Planet Energy."
 related_actions:
   - green_planet_energy.get_cheapest_duration
@@ -73,6 +74,8 @@ hours:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is a mapping with the number of hours requested and a list of price slots. Slots beyond the available data horizon (today and tomorrow) are omitted.
 
