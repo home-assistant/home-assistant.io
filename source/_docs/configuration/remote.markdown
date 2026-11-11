@@ -66,3 +66,16 @@ To set the URL under which your Home Assistant can be accessed from outside your
 2. Under **Home Assistant URL**, in the **Internet** field, enter the external URL that you previously set up for your instance.
     - If you use Home Assistant Cloud, you can turn on **Use Home Assistant Cloud** instead, and your Nabu Casa URL is used automatically.
 3. Select **Save**.
+
+## Sharing remote access with household members
+
+Each household member can use their own phone or browser to access the same Home Assistant instance. They do not need a separate Home Assistant installation or a separate remote URL.
+
+To give someone access:
+
+1. Create a [user account](/docs/configuration/user-configuration/) for them under **Settings** > **People**. You can create the account from the Users tab, or enable **Allow login** when adding a person.
+2. If they need to connect from outside your home network, make sure **Local access only** is turned off for their user account.
+3. Install the [Home Assistant Companion app](https://companion.home-assistant.io/docs/getting_started/) on their phone and connect it to your existing Home Assistant instance. Use the same external URL configured above, or select **Use Home Assistant Cloud** when applicable.
+4. Sign in with the username and password for their own Home Assistant account.
+
+Each person signs in separately. Their permissions depend on whether their account is an administrator or a non-administrator user. For details, see [People and user configuration](/docs/configuration/user-configuration/).
