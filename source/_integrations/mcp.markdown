@@ -118,7 +118,7 @@ When someone who isn't an administrator talks to the conversation agent, it repl
 
 ##### Resolution
 
-The conversation agent uses the tools of an MCP server from an app that only administrators can open, so it only works for administrators. To give everyone else an assistant, add another conversation agent that doesn't use this MCP server, and let them use that one.
+The conversation agent uses the tools of an MCP server from an app that only administrators can open. When someone else talks to it, Home Assistant refuses the whole agent, not only those tools. To give everyone else an assistant, add a second conversation agent without this MCP server, and select it in the assistant they use under {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
 
 ### General MCP troubleshooting
 
