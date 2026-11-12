@@ -19,7 +19,8 @@ To get a list of datapoints from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Search for the action **myuplink: Get datapoints** and select it.
 6. Select the appliance in the **Device** field and add one or more **Datapoint IDs**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `datapoints`.
+8. Select **Save**.
 
 ## Options in the UI
 
@@ -42,7 +43,7 @@ action: |
     datapoints:
       - datapoint_id: 80000
       - datapoint_id: 80001
-  response_variable: data_points
+  response_variable: datapoints
 {% endexample %}
 
 ### Options in YAML
@@ -55,7 +56,7 @@ device_id:
 datapoints:
   description: The list of the datapoints to get. To find the ID, fetch a diagnostics download and find the appropriate datapoint_id.
   required: true
-  type: integer
+  type: list
 {% endoptions_yaml %}
 
 This action does not support targets. Select the appliance through the **Device** field.
