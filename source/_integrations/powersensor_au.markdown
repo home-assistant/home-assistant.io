@@ -1,4 +1,5 @@
 ---
+title: Powersensor
 description: Instructions on how to integrate Powersensor plugs and sensors with Home Assistant.
 ha_release: 2026.12
 ha_domain: powersensor_au
