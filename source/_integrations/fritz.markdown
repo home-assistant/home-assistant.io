@@ -24,7 +24,9 @@ Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status informatio
 To use the [dial](/actions/fritz.dial/) action, the click to dial service of the FRITZ!Box must also be enabled under **Telephony** > **Calls** > **Click to Dial**.
 {% endimportant %}
 
-### Username
+### Credentials
+
+#### FRITZ!Box
 
 It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **FRITZ!Box Settings** permission.
 
@@ -34,6 +36,16 @@ If you still want to use the predefined user, as of FRITZ!OS 7.24, the FRITZ!Box
 FRITZ!Powerline devices do not validate the **Username** value. Only the **Password** value is checked, so you can enter any value in **Username**.
 {% endnote %}
 
+#### FRITZ!Repeater
+
+It is recommended to set a password for the FRITZ!Repeater. Go to **System** > **Password**, select **Login with the FRITZ!Repeater password**, and set a password. The FRITZ!Repeater does not use a username with this setting, so you can enter any value in **Username**.
+
+{% note %}
+Before FRITZ!OS 8.50, the FRITZ!Repeater accepted any credentials for API calls when **Login without password (not recommended, unprotected)** was selected under **System** > **Password**. This was true even when the FRITZ!Repeater's web interface was protected by the mesh master's credentials. Starting with FRITZ!OS 8.50, the FRITZ!Repeater blocks API access when this option is selected. We recommend using **Login with the FRITZ!Repeater password** instead.
+{% endnote %}
+
+If Home Assistant can't authenticate with a FRITZ!Repeater, see [Authentication fails for a FRITZ!Repeater](#authentication-fails-for-a-fritzrepeater).
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -42,9 +54,9 @@ Host:
 Port:
     description: The port used to connect to your FRITZ!Box router. Leave it empty to use the default port.
 Username:
-    description: Name of the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)
+    description: Username Home Assistant uses to connect to the FRITZ!Box (_see [credentials](#credentials)_)
 Password:
-    description: Password for the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)
+    description: Password for the user to connect Home Assistant to your FRITZ!Box (_see [credentials](#credentials)_)
 Uses an SSL certificate:
     description: Whether to use SSL encryption for connecting to your FRITZ!Box router.
 Enable network device tracking:
@@ -179,7 +191,7 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 Some FRITZ!Repeater models with newer FRITZ!OS versions use their own users for app access. If Home Assistant reports an authentication error after a repeater firmware update, sign in to the repeater web interface and go to **System** > **FRITZ!Box Users** > **Users**.
 
-Create a dedicated user for Home Assistant on the repeater, or use an existing local repeater user in the integration (_see [username](#username) section above for details_). In a mesh setup, do not assume that a user from the main FRITZ!Box is also available on the repeater.
+Create a dedicated user for Home Assistant on the repeater, or use an existing local repeater user in the integration (_see [credentials](#credentials) section above for details_). In a mesh setup, do not assume that a user from the main FRITZ!Box is also available on the repeater.
 
 ### Device presence detection is not working as expected
 
