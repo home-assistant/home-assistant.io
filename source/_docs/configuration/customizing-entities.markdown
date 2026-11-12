@@ -38,7 +38,7 @@ Follow these recommendations in your Home Assistant setup:
 - Give each area and floor a unique name. Unlike devices and entities, two areas cannot have the same name. For example, if you have a bathroom on each floor, name them `Bathroom` and `Guest bathroom`.
 - Use the device name to identify the physical device and the entity name to identify what the device reports or controls. For example, a device named `Thermostat` can have an entity named `Temperature`.
 - If an entity represents the main function of its device, such as the switch of a smart plug, rename the device instead of the entity. Then [turn on **Main entity of the device**](#changing-the-attributes-of-an-entity) for that entity. For example, rename a smart plug to `Coffee machine`, and its switch is shown as `Coffee machine` instead of `Smart plug Switch`.
-- Leave **Main entity of the device** turned off for devices with several functions of equal importance, such as a multi sensor or a 2-gang wall switch. Give each of their entities a short name for its function instead, such as `Temperature` and `Humidity`.
+- Leave **Main entity of the device** turned off for devices with several functions of equal importance, such as a multi sensor or a weather station. Give each of their entities a short name for its function instead, such as `Temperature` and `Humidity`.
 - If an entity measures or controls something in a different area than its device, [assign the entity its own area](/docs/organizing/areas/#to-assign-an-entity-to-a-different-area-than-its-device). Home Assistant then shows the entity name without the device name. For example, an outdoor temperature sensor connected to a heating controller in the boiler room can show as `Outdoor temperature`.
 - If a device gets its name from another system, such as Zigbee2MQTT or ESPHome, and that name already includes the area or the function, rename the device in Home Assistant. You can also change the name in the other system.
 - Give otherwise identical devices a distinguishing name that is meaningful to you. For example, use `Left window sensor` and `Right window sensor` if their position is how you tell them apart.
@@ -186,6 +186,8 @@ If your entity is not supported, or you could not customize what you need via th
 Some devices are made up of smaller parts that each act like a device of their own. For example, a power strip can show each of its outlets as a separate device. In Home Assistant, the power strip is the _parent device_, and each outlet is a _child device_ with its own entities, such as the power use of that outlet.
 
 Whether a device has child devices is decided by the integration that provides it. You can't add or change this yourself.
+Devices made up of several parts, such as a power strip or a 2-gang wall switch, are best shown as child devices.
+If the integration for your device doesn't support child devices yet, you can ask its maintainers to add it.
 
 You can see which devices belong together in several places, for example, on the page of a parent device, which lists its child devices, and on the page of a child device, which shows the device it is part of.
 
