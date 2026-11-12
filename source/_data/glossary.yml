@@ -65,14 +65,12 @@
     The voice assistant built into Home Assistant. 
     
     You can use Assist by talking or typing in the Home Assistant web interface and in the Home Assistant Companion app. You can also use it by talking through a voice satellite. You can set up several assistants, each with its own language and conversation agent.
-  excerpt: The voice assistant built into Home Assistant.
   link: /voice_control/
 - term: Assistant
   definition: >-
     A configuration of Assist with its own name, language, and conversation agent.
 
     An assistant can also use speech-to-text to understand spoken commands and text-to-speech to reply out loud.
-  excerpt: A configuration of Assist with its own name, language, and conversation agent.
   aliases:
     - assistants
 - term: Automation
@@ -717,7 +715,6 @@
     A standalone device with a microphone that you use to talk to Assist.
 
     Some voice satellites also have a speaker to play Assist's replies. Unlike a browser or the Home Assistant Companion app, a voice satellite isn't signed in to a user account. This means Home Assistant can't tell who is speaking. Each voice satellite uses at least one assistant.
-  excerpt: A standalone device with a microphone that you use to talk to Assist.
   aliases:
     - voice satellites
 - term: YAML
