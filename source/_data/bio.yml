@@ -70,10 +70,10 @@ sections:
     # stream playing muted) and the list's first item shows as a row. When
     # there's no stream it hides itself. Nothing to update per stream: it
     # reads the channel's current stream from the Open Home Foundation API.
-    # Connect AUX-2 launch: at 21:00 GMT on November 11, comment out this
-    # line so the Connect AUX-2 pin in `sources.pinned` below takes the
-    # large place.
-    livestream: home-assistant
+    # Off after the Connect AUX-2 launch stream, so the Connect AUX-2 pin in
+    # `sources.pinned` below takes the large place. Turn it back on once
+    # the pin has ended (17:00 GMT on November 12).
+    # livestream: home-assistant
     # Add anything else to the list here, with `starts` and, if you like,
     # `ends` (see the top of this file).
     insert:
