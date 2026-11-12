@@ -37,6 +37,10 @@ API key:
 - **frequency** in Hz
 - **pressure** in hPa
 
+## Devices
+
+Each feed tag in Emoncms becomes a device that holds the sensors for the feeds with that tag. Feeds without a tag go to a device named after your Emoncms server, like `emoncms@localhost:8080`. Sensor names start with the device name.
+
 ## Data updates
 
 This integration retrieves data from Emoncms every 60 seconds.
