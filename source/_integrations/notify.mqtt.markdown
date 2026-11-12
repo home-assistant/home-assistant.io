@@ -6,7 +6,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The **MQTT notify** {% term integration %} lets you send an MQTT message when the `send_message` action is called. This can be used to expose a action of a remote device that allows processing a message, such as showing it on a screen.
+The **MQTT notify** {% term integration %} lets you send an MQTT message when the `send_message` action is called. This can be used to expose an action of a remote device that allows processing a message, such as showing it on a screen.
 
 ## Configuration
 

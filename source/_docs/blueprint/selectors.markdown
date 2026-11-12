@@ -165,7 +165,7 @@ entity:
   description: >
     When entity options are provided, the list of areas is filtered by areas
     that at least provide one entity that matches the given conditions. Can be
-    either a object or a list of object.
+    either an object or a list of objects.
   type: list
   required: false
   keys:
@@ -406,7 +406,7 @@ The condition selector allows you to input one or more conditions.
 On the user interface, the condition part of the automation editor will be shown.
 The value of the input will contain a list of conditions.
 
-![Screenshot of an condition selector](/images/blueprints/selector-condition.png)
+![Screenshot of a condition selector](/images/blueprints/selector-condition.png)
 
 This selector does not have any other options; therefore, it only has its key.
 
@@ -1144,7 +1144,7 @@ energy_saving
 
 The language selector allows a user to pick a language from a list of languages.
 
-![Screenshot of an language selector](/images/blueprints/selector-language.png)
+![Screenshot of a language selector](/images/blueprints/selector-language.png)
 
 ```yaml
 language:
@@ -1652,7 +1652,7 @@ one or more can be selected.
 
 {% configuration state %}
 entity_id:
-  description: The entity ID of which an state can be selected from.
+  description: The entity ID of which a state can be selected from.
   type: string
   required: false
 hide_states:
@@ -1833,7 +1833,7 @@ target:
 
 The template selector can be used to input a Jinja2 template. This is useful when a fixed value is not enough and the input needs to reference entity states, respond to conditions, or perform calculations.
 
-![Screenshot of an template selector](/images/blueprints/selector-template.png)
+![Screenshot of a template selector](/images/blueprints/selector-template.png)
 
 This selector does not have any other options; therefore, it only has its key.
 
@@ -1939,7 +1939,7 @@ The triggers selector allows you to input one or more triggers.
 On the user interface, the trigger part of the automation editor is shown.
 The value of the input contains a list of triggers.
 
-![Screenshot of an trigger selector](/images/blueprints/selector-trigger.png)
+![Screenshot of a trigger selector](/images/blueprints/selector-trigger.png)
 
 This selector does not have any other options; therefore, it only has its key.
 

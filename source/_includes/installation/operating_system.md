@@ -98,7 +98,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
   **Method 1 (recommended)**: Boot Ubuntu from a USB flash drive and install the {% term "Home Assistant Operating System" %} from there. It also works on laptops and PCs with internal hard disks.
 
-  **Method 2**: With this method, you write the Home Assistant Operating disk image directly onto a boot medium from your regular computer. The steps are a bit more complex. If you have non-removable internal mediums (for example because you are using a laptop) or do not have the necessary adapter (for example an USB to S-ATA adapter) use method 1 instead.
+  **Method 2**: With this method, you write the Home Assistant Operating disk image directly onto a boot medium from your regular computer. The steps are a bit more complex. If you have non-removable internal mediums (for example because you are using a laptop) or do not have the necessary adapter (for example a USB to S-ATA adapter) use method 1 instead.
 
 ### Method 1: Installing HAOS via Ubuntu booting from a USB flash drive
 

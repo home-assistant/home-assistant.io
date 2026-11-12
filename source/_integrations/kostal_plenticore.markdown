@@ -34,7 +34,7 @@ For information about obtaining installer credentials, please consult your devic
 The integration disables most of the sensors per default. You can enable it in the *Entity* page. The sensors are split into two sets, one for the process data and one for the setting values.
 
 {% note %}
-The Plenticore inverter provides much more data endpoints, some of them are also dependent of the version of the firmware. If you are missing process data values, open an issue with the necessary information or make an pull request.
+The Plenticore inverter provides much more data endpoints, some of them are also dependent of the version of the firmware. If you are missing process data values, open an issue with the necessary information or make a pull request.
 {% endnote %}
 
 ### Process Data Sensors

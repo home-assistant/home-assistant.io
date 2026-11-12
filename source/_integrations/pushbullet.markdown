@@ -77,7 +77,7 @@ actions:
   - action: notify.NOTIFIER_NAME
     data:
       title: "Send URL"
-      message: "This is an url"
+      message: "This is a URL"
       data:
         url: "google.com"
 ```

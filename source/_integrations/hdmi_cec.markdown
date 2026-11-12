@@ -87,7 +87,7 @@ language:      ???
 
 ## Configuration Example
 
-In the following example, a Pi Zero running Home Assistant is on a TV's HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.
+In the following example, a Pi Zero running Home Assistant is on a TV's HDMI port 1. HDMI port 2 is attached to an AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.
 
 You can use either direct mapping name to physical address of device
 

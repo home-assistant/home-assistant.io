@@ -4037,7 +4037,7 @@ The `twice_daily` forecast should contain dictionaries, where each dictionary re
 
 ### Trigger based weather - Weather Forecast from response data
 
-This example demonstrates how to use an `action` to call a [action with response data](/docs/automation/action/#action-response-data)
+This example demonstrates how to use an `action` to call an [action with response data](/docs/automation/action/#action-response-data)
 and use the response in a template.
 
 ```yaml

@@ -1,5 +1,5 @@
 ---
-description: Instructions on how to integrate a OpenERZ API for Zurich city waste disposal with Home Assistant
+description: Instructions on how to integrate OpenERZ API for Zurich city waste disposal with Home Assistant
 ha_release: 0.109
 ha_domain: openerz
 related:

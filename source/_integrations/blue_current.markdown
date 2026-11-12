@@ -4,7 +4,7 @@ ha_release: 2024.1
 ha_domain: blue_current
 ---
 
-[Blue Current](https://www.bluecurrent.nl/) is an Dutch company that makes electric car chargers.
+[Blue Current](https://www.bluecurrent.nl/) is a Dutch company that makes electric car chargers.
 
 The Blue Current integration allows you to connect to your blue current account to Home Assistant and monitor your charge point(s).
 
