@@ -1,0 +1,1542 @@
+---
+import { Image } from "astro:assets";
+import poster from "../../../assets/connect/aux-2/drawing-start.jpg";
+import videoUrl from "../../../assets/connect/aux-2/drawing.mp4";
+import smallVideoUrl from "../../../assets/connect/aux-2/drawing-small.mp4";
+import reverseVideoUrl from "../../../assets/connect/aux-2/drawing-reverse.mp4";
+import smallReverseVideoUrl from "../../../assets/connect/aux-2/drawing-small-reverse.mp4";
+
+interface Props {
+  alt: string;
+  sizes: string;
+  class?: string;
+}
+
+const { alt, sizes, class: className } = Astro.props;
+---
+
+<div
+  class:list={["connect-drawing", className]}
+  data-connect-drawing
+  data-video={videoUrl}
+  data-video-small={smallVideoUrl}
+  data-video-reverse={reverseVideoUrl}
+  data-video-small-reverse={smallReverseVideoUrl}
+>
+  <Image
+    class="poster"
+    src={poster}
+    alt={alt}
+    widths={[650, 1300]}
+    sizes={sizes}
+    quality={85}
+  />
+  <button class="x37ee" type="button" aria-label="See it in 3D" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 5 L19 5 L19 19 L19 19 L5 19 L5 5 Z M19 5 L5 5 M19 5 L19 5 M19 5 L19 19">
+        <animate
+          attributeName="d"
+          values="M5 5 L19 5 L19 19 L19 19 L5 19 L5 5 Z M19 5 L5 5 M19 5 L19 5 M19 5 L19 19;M5 5 L19 5 L19 19 L19 19 L5 19 L5 5 Z M19 5 L5 5 M19 5 L19 5 M19 5 L19 19;M12 3 L20 7.5 L20 16.5 L12 21 L4 16.5 L4 7.5 Z M12 12 L4 7.5 M12 12 L20 7.5 M12 12 L12 21;M12 3 L20 7.5 L20 16.5 L12 21 L4 16.5 L4 7.5 Z M12 12 L4 7.5 M12 12 L20 7.5 M12 12 L12 21;M5 5 L19 5 L19 19 L19 19 L5 19 L5 5 Z M19 5 L5 5 M19 5 L19 5 M19 5 L19 19"
+          keyTimes="0;0.2;0.5;0.7;1"
+          calcMode="spline"
+          keySplines="0 0 1 1;0.45 0 0.15 1;0 0 1 1;0.45 0 0.15 1"
+          dur="3.2s"
+          repeatCount="indefinite"></animate>
+      </path>
+    </svg>
+  </button>
+  <button class="x8189" type="button" aria-label="Stack them" hidden>
+    <svg viewBox="3 6 26 21" aria-hidden="true">
+      <g class="placed">
+        <polygon class="r" points="24,22.2 18,25.2 18,23.2 24,20.2"></polygon>
+        <polygon class="l" points="8,20.2 18,25.2 18,23.2 8,18.2"></polygon>
+        <polygon class="t" points="14,15.2 24,20.2 18,23.2 8,18.2"></polygon>
+        <polygon class="r" points="24,19.6 18,22.6 18,20.6 24,17.6"></polygon>
+        <polygon class="l" points="8,17.6 18,22.6 18,20.6 8,15.6"></polygon>
+        <polygon class="t" points="14,12.6 24,17.6 18,20.6 8,15.6"></polygon>
+      </g>
+      <g class="slide">
+        <polygon class="r" points="24,17 18,20 18,18 24,15"></polygon>
+        <polygon class="l" points="8,15 18,20 18,18 8,13"></polygon>
+        <polygon class="t" points="14,10 24,15 18,18 8,13"></polygon>
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="-4 -2;4 2;-4 -2"
+          calcMode="spline"
+          keyTimes="0;0.5;1"
+          keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
+          dur="1.8s"
+          repeatCount="indefinite"></animateTransform>
+      </g>
+    </svg>
+  </button>
+</div>
+
+<script>
+  import { reducedMotion } from "../../../lib/motion";
+
+  type Drawing = typeof import("../../../lib/connect/aux-2/drawing/index.js");
+  type Live = Awaited<ReturnType<Drawing["mount"]>>;
+
+  const FADE_START = 3.28;
+  const GROW = 1.2;
+  const GROW_EASING = "cubic-bezier(0.45, 0, 0.15, 1)";
+  const UI_DELAY = 0.5;
+  const UI_FADE = 0.25;
+  const GRID_WITH_OPEN = true;
+
+  const CLOSE_ICON =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>';
+
+  function extendEdges(box: HTMLElement, video: HTMLVideoElement) {
+    const backdrop = document.createElement("canvas");
+    backdrop.className = "backdrop";
+    backdrop.setAttribute("aria-hidden", "true");
+    box.insertBefore(backdrop, video);
+    const ctx = backdrop.getContext("2d")!;
+    const vw = video.videoWidth, vh = video.videoHeight;
+
+    const paint = () => {
+      const W = Math.max(1, Math.round(backdrop.clientWidth / 4));
+      const H = Math.max(1, Math.round(backdrop.clientHeight / 4));
+      if (backdrop.width !== W || backdrop.height !== H) {
+        backdrop.width = W;
+        backdrop.height = H;
+      }
+      const s = Math.min(W, H), x = (W - s) / 2, y = (H - s) / 2;
+      const r = x + s, b = y + s;
+      const strip = (sx: number, sy: number, sw: number, sh: number,
+        dx: number, dy: number, dw: number, dh: number) => {
+        if (dw > 0 && dh > 0) ctx.drawImage(video, sx, sy, sw, sh, dx, dy, dw, dh);
+      };
+      strip(0, 0, vw, vh, x, y, s, s);
+      strip(0, 0, 1, vh, 0, y, x, s);
+      strip(vw - 1, 0, 1, vh, r, y, W - r, s);
+      strip(0, 0, vw, 1, x, 0, s, y);
+      strip(0, vh - 1, vw, 1, x, b, s, H - b);
+      strip(0, 0, 1, 1, 0, 0, x, y);
+      strip(vw - 1, 0, 1, 1, r, 0, W - r, y);
+      strip(0, vh - 1, 1, 1, 0, b, x, H - b);
+      strip(vw - 1, vh - 1, 1, 1, r, b, W - r, H - b);
+    };
+
+    let running = true;
+    if (video.requestVideoFrameCallback) {
+      const loop = () => { if (!running) return; paint(); video.requestVideoFrameCallback(loop); };
+      loop();
+    } else {
+      const loop = () => { if (!running) return; paint(); requestAnimationFrame(loop); };
+      loop();
+    }
+    return () => { running = false; backdrop.remove(); };
+  }
+
+  const center = (r: DOMRect) => [r.left + r.width / 2, r.top + r.height / 2];
+
+  function inlineLook(inline: DOMRect, full: DOMRect, radius: string) {
+    const [x0, y0] = center(inline), [x1, y1] = center(full);
+    const scale =
+      Math.max(inline.width, inline.height) / Math.min(full.width, full.height);
+    return {
+      transform: `translate(${x0 - x1}px, ${y0 - y1}px) scale(${scale})`,
+      clipPath: `inset(${inline.top - full.top}px ${full.right - inline.right}px ${full.bottom - inline.bottom}px ${inline.left - full.left}px round ${radius})`,
+    };
+  }
+  const layersOf = (box: HTMLElement) =>
+    box.querySelectorAll<HTMLElement>(".backdrop, .video, .x3ac9, .x8c25");
+
+  function createStage(
+    box: HTMLElement,
+    getLive: () => Live | null,
+    onClosed: (now: boolean) => void,
+  ) {
+    let holder: HTMLElement | null = null;
+    let scrim: HTMLElement | null = null;
+    let exit: HTMLButtonElement | null = null;
+    let busy = false, radius = "0px", openRadius = "0px", uiTimer = 0;
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !busy) { e.preventDefault(); close(); }
+    };
+    const onHash = () => close(true);
+
+    function open({ video = null as HTMLVideoElement | null, animate = true, done = () => {} } = {}) {
+      if (holder) return;
+      const before = box.getBoundingClientRect();
+      radius = getComputedStyle(box).borderTopLeftRadius;
+      holder = document.createElement("div");
+      holder.className = "x4cea";
+      holder.style.height = `${before.height}px`;
+      box.before(holder);
+      scrim = document.createElement("div");
+      scrim.className = "x2428";
+      scrim.addEventListener("click", () => close());
+      holder.before(scrim);
+
+      box.classList.add("is-expanded");
+      box.classList.remove("is-docked");
+      openRadius = getComputedStyle(box).borderTopLeftRadius;
+      box.setAttribute("role", "dialog");
+      box.setAttribute("aria-label", "Connect AUX-2 drawing");
+      document.documentElement.classList.add("has-drawing-open");
+      document.addEventListener("keydown", onKey);
+      addEventListener("hashchange", onHash);
+      const live = getLive();
+      live?.setFit("contain");
+      live?.canvas.setAttribute("tabindex", "0");
+
+      exit = document.createElement("button");
+      exit.type = "button";
+      exit.className = "x13e7";
+      exit.setAttribute("aria-label", "Close");
+      exit.innerHTML = CLOSE_ICON;
+      exit.addEventListener("click", () => close());
+      box.after(exit);
+
+      const ready = () => {
+        if (!reducedMotion.matches) exit?.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, easing: "ease-out" });
+        exit?.classList.add("is-on");
+        clearTimeout(uiTimer);
+        uiTimer = window.setTimeout(() => box.classList.add("is-ui"), UI_DELAY * 1000);
+        done();
+      };
+      if (!animate || reducedMotion.matches) { ready(); return; }
+      const after = box.getBoundingClientRect();
+      const from = inlineLook(before, after, radius);
+      const timing = { duration: GROW * 1000, easing: GROW_EASING };
+      const stopEdges = video ? extendEdges(box, video) : null;
+      busy = true;
+      for (const layer of layersOf(box)) {
+        layer.animate([{ transform: from.transform }, { transform: "none" }], timing);
+      }
+      scrim.animate([{ opacity: 0 }, { opacity: 1 }], { ...timing, easing: "ease-out" });
+      const end = () => { busy = false; stopEdges?.(); ready(); };
+      box.animate([{ clipPath: from.clipPath }, { clipPath: `inset(0 round ${openRadius})` }], timing)
+        .finished.then(end, end);
+    }
+
+    function close(now = false) {
+      if (!holder || (busy && !now)) return;
+      clearTimeout(uiTimer);
+      const shown = box.classList.contains("is-ui");
+      box.classList.remove("is-ui");
+      if (shown && !now && !reducedMotion.matches) {
+        busy = true;
+        uiTimer = window.setTimeout(() => { busy = false; shrink(); }, UI_FADE * 1000);
+        return;
+      }
+      shrink(now);
+    }
+
+    function shrink(now = false) {
+      if (!holder) return;
+      document.removeEventListener("keydown", onKey);
+      removeEventListener("hashchange", onHash);
+      document.documentElement.classList.remove("has-drawing-open");
+      box.classList.add("is-leaving");
+      const settle = () => {
+        exit?.remove();
+        exit = null;
+        scrim?.remove();
+        scrim = null;
+        box.classList.remove("is-expanded", "is-leaving");
+        box.classList.add("is-docked");
+        box.removeAttribute("role");
+        box.removeAttribute("aria-label");
+        holder?.remove();
+        holder = null;
+        const live = getLive();
+        live?.setFit("cover");
+        live?.canvas.setAttribute("tabindex", "-1");
+        for (const a of box.getAnimations({ subtree: true })) a.cancel();
+        busy = false;
+        if (!now) box.querySelector<HTMLElement>(".x37ee")?.focus({ preventScroll: true });
+        onClosed(now);
+      };
+      if (now || reducedMotion.matches) { settle(); return; }
+
+      const to = inlineLook(holder.getBoundingClientRect(), box.getBoundingClientRect(), radius);
+      const timing = { duration: GROW * 750, easing: GROW_EASING, fill: "forwards" as const };
+      busy = true;
+      for (const layer of layersOf(box)) {
+        layer.animate([{ transform: "none" }, { transform: to.transform }], timing);
+      }
+      exit?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 150, fill: "forwards" });
+      scrim?.animate([{ opacity: 1 }, { opacity: 0 }], { ...timing, easing: "ease-in" });
+      box.animate([{ clipPath: `inset(0 round ${openRadius})` }, { clipPath: to.clipPath }], timing)
+        .finished.then(settle, settle);
+    }
+
+    return { open, close, get isOpen() { return !!holder; } };
+  }
+
+  function at(video: HTMLVideoElement, time: number, fn: () => void) {
+    let done = false;
+    const fire = () => { if (!done) { done = true; fn(); } };
+    if (video.requestVideoFrameCallback) {
+      const watch = (_: number, meta: VideoFrameCallbackMetadata) => {
+        if (done) return;
+        if (meta.mediaTime >= time || video.ended) fire();
+        else video.requestVideoFrameCallback(watch);
+      };
+      video.requestVideoFrameCallback(watch);
+    } else {
+      const watch = () => {
+        if (video.currentTime >= time) { video.removeEventListener("timeupdate", watch); fire(); }
+      };
+      video.addEventListener("timeupdate", watch);
+    }
+    video.addEventListener("ended", fire, { once: true });
+  }
+
+  const CODE = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a", "Enter"];
+
+  for (const box of document.querySelectorAll<HTMLElement>(
+    "[data-connect-drawing]",
+  )) {
+    const turn = box.querySelector<HTMLButtonElement>(".x37ee")!;
+    const go = box.querySelector<HTMLButtonElement>(".x8189")!;
+    const poster = box.querySelector("img")!;
+    // The video plays forward to the device as the 3D drawing starts
+    // from, and a reversed copy plays it back; the 3D button switches
+    // between them from wherever the video is.
+    let video: HTMLVideoElement | null = null;
+    let rev: HTMLVideoElement | null = null;
+    let drawing: Promise<Drawing> | null = null;
+    let live: Live | null = null;
+    let stage: ReturnType<typeof createStage> | null = null;
+    // idle: the poster; fwd: playing forward; end: at the last frame,
+    // the stacker button showing; rev: playing back to the poster.
+    let state: "idle" | "fwd" | "end" | "rev" = "idle";
+    let turnId = 0;
+    let parking = false;
+    if (reducedMotion.matches) for (const svg of box.querySelectorAll("svg")) svg.pauseAnimations();
+
+    const setState = (next: typeof state) => {
+      state = next;
+      turn.setAttribute("aria-pressed", String(next === "fwd" || next === "end"));
+    };
+
+    const makeVideo = (src: string, className: string) => {
+      const v = document.createElement("video");
+      Object.assign(v, {
+        src,
+        poster: poster.currentSrc,
+        muted: true,
+        playsInline: true,
+        preload: "auto",
+        disablePictureInPicture: true,
+      });
+      v.setAttribute("muted", "");
+      v.setAttribute("playsinline", "");
+      v.setAttribute("aria-hidden", "true");
+      v.className = className;
+      box.insertBefore(v, turn);
+      return v;
+    };
+
+    const warm = () => {
+      if (video || reducedMotion.matches) return;
+      const small = box.clientWidth < 560;
+      video = makeVideo((small && box.dataset.videoSmall) || box.dataset.video!, "video");
+      rev = makeVideo((small && box.dataset.videoSmallReverse) || box.dataset.videoReverse!, "video rev");
+      video.addEventListener("playing", () => box.classList.add("is-playing"));
+      video.addEventListener("ended", () => { if (state === "fwd") atEnd(); });
+      video.addEventListener("error", () => { if (state === "fwd") atEnd(); });
+      rev.addEventListener("ended", () => { if (state === "rev") atStart(); });
+      rev.addEventListener("error", () => { if (state === "rev") atStart(); });
+    };
+    box.addEventListener("pointerenter", warm, { once: true });
+    box.addEventListener("focusin", warm, { once: true });
+    box.addEventListener("touchstart", warm, { once: true, passive: true });
+    const near = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      near.disconnect();
+      warm();
+    }, { rootMargin: "600px 0px" });
+    near.observe(box);
+
+    const showGo = () => {
+      box.classList.add("is-docked");
+      go.hidden = false;
+      void go.offsetWidth;
+      go.classList.add("is-on");
+    };
+    const hideGo = () => {
+      go.classList.remove("is-on");
+      go.hidden = true;
+    };
+
+    // Seeks a video and waits until the frame is there.
+    const seek = async (v: HTMLVideoElement, t: number) => {
+      if (Number.isNaN(v.duration)) {
+        await new Promise((r) => v.addEventListener("loadedmetadata", r, { once: true }));
+      }
+      const to = Math.min(Math.max(0, t), v.duration);
+      if (Math.abs(v.currentTime - to) < 0.01) return;
+      await new Promise((r) => {
+        v.addEventListener("seeked", r, { once: true });
+        v.currentTime = to;
+      });
+    };
+
+    const atEnd = () => {
+      setState("end");
+      showGo();
+    };
+    const atStart = () => {
+      setState("idle");
+      box.classList.remove("is-reversing", "is-playing");
+      if (video) video.currentTime = 0;
+    };
+
+    const forward = async () => {
+      const id = ++turnId;
+      warm();
+      if (!video || !rev) { atEnd(); return; }
+      if (state === "rev") {
+        await seek(video, rev.duration - rev.currentTime);
+        if (id !== turnId) return;
+        rev.pause();
+        box.classList.remove("is-reversing");
+      } else if (video.ended || video.currentTime > 0) {
+        await seek(video, 0);
+        if (id !== turnId) return;
+      }
+      setState("fwd");
+      const ok = await video.play().then(() => true, () => false);
+      if (!ok && id === turnId) atEnd();
+    };
+
+    const backward = async () => {
+      const id = ++turnId;
+      hideGo();
+      if (!video || !rev) { atStart(); return; }
+      const t = state === "end" ? video.duration : video.currentTime;
+      await seek(rev, rev.duration - t);
+      if (id !== turnId) return;
+      video.pause();
+      box.classList.add("is-reversing");
+      setState("rev");
+      const ok = await rev.play().then(() => true, () => false);
+      if (!ok && id === turnId) atStart();
+    };
+
+    let loading: Promise<Live> | null = null;
+    const load = () => {
+      loading ||= (async () => {
+        drawing ||= import("../../../lib/connect/aux-2/drawing/index.js");
+        const { mount } = await drawing;
+        live = await mount(box, {
+          video: null,
+          reducedMotion: reducedMotion.matches,
+          holdGrid: true,
+        });
+        return live;
+      })();
+      loading.catch(() => { loading = null; });
+      return loading;
+    };
+
+    // Closing the game: the pieces fade, the camera eases home and the
+    // drawing fades back to the video's last frame, where it stays with
+    // the stacker button showing; only the 3D button plays the video
+    // back. The game keeps its state for the next visit.
+    const onClosed = async () => {
+      if (!live) return;
+      parking = true;
+      hideGo();
+      await live.park();
+      box.classList.remove("is-live");
+      const fade = parseFloat(getComputedStyle(box).getPropertyValue("--drawing-crossfade")) || 0;
+      await new Promise((r) => setTimeout(r, reducedMotion.matches ? 0 : fade * 1000));
+      parking = false;
+      atEnd();
+    };
+
+    turn.addEventListener("click", async () => {
+      if (parking || stage?.isOpen) return;
+      box.classList.add("is-started");
+      stage ||= createStage(box, () => live, onClosed);
+      if (new URLSearchParams(location.search).has(atob("Z2FtZWJlbmNo"))) {
+        const l = await load();
+        stage.open({ animate: false, done: () => l.drawGrid() });
+        l.setFit("contain");
+        return;
+      }
+      if (state === "idle" || state === "rev") forward();
+      else backward();
+    });
+
+    go.addEventListener("click", async () => {
+      if (!stage || stage.isOpen || parking || state !== "end" || go.getAttribute("aria-busy") === "true") return;
+      go.setAttribute("aria-busy", "true");
+      const l = await load().catch(() => null);
+      go.removeAttribute("aria-busy");
+      if (!l || stage.isOpen || state !== "end") return;
+      l.unpark();
+      box.classList.add("is-live");
+      if (GRID_WITH_OPEN) l.drawGrid();
+      stage.open({
+        done: () => {
+          l.drawGrid();
+          l.canvas.focus({ preventScroll: true });
+        },
+      });
+    });
+
+    let typed = 0;
+    document.addEventListener("keydown", (e) => {
+      if ((e.target as HTMLElement).closest?.("input, textarea, select, [contenteditable]")) return;
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      typed = key === CODE[typed] ? typed + 1 : key === CODE[0] ? (typed === 2 ? 2 : 1) : 0;
+      if (typed < CODE.length) return;
+      typed = 0;
+      if (stage?.isOpen) return;
+      e.preventDefault();
+      box.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "center" });
+      const button = go.hidden ? turn : go;
+      button.focus({ preventScroll: true });
+      button.classList.remove("is-called");
+      void button.offsetWidth;
+      button.classList.add("is-called");
+    });
+  }
+</script>
+
+<style lang="scss">
+  .connect-drawing {
+    background: rgb(11, 11, 11);
+    border-radius: var(--radius-medium);
+    overflow: hidden;
+    position: relative;
+
+    &.is-expanded {
+      border-radius: var(--modal-r);
+      height: var(--modal-h);
+      left: 0;
+      margin: auto;
+      position: fixed;
+      right: 0;
+      top: calc((100dvh - var(--modal-h)) / 2);
+      width: var(--modal-w);
+      z-index: var(--drawing-layer, 1000);
+    }
+
+    .poster {
+      display: block;
+      height: 100%;
+      inset: 0;
+      object-fit: cover;
+      position: absolute;
+      width: 100%;
+    }
+
+    &.is-playing .poster,
+    &.is-live .poster {
+      visibility: hidden;
+    }
+  }
+
+  .x37ee,
+  .x8189 {
+    align-items: center;
+    background: var(--color-connect-line);
+    border: 0;
+    border-radius: 50%;
+    color: var(--color-text-inverse);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    transition:
+      opacity 0.4s ease-out,
+      visibility 0s,
+      background-color 0.2s;
+    z-index: 1;
+
+    &:hover {
+      background: var(--color-connect-line-shade);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-text-inverse);
+      outline-offset: 2px;
+    }
+
+    &.is-called {
+      animation: x3273 0.7s ease-in-out 3;
+    }
+  }
+
+  .x37ee {
+    height: 3rem;
+    width: 3rem;
+
+    svg {
+      fill: none;
+      height: 1.5rem;
+      stroke: currentColor;
+      stroke-linejoin: round;
+      stroke-width: 1.5;
+      width: 1.5rem;
+    }
+
+    /* It stays, playing the video forward and back; only the open
+       game hides it. */
+    .is-expanded & {
+      display: none;
+    }
+  }
+
+  /* Left of the 3D button, once the video has reached its end. */
+  .x8189 {
+    height: 3rem;
+    opacity: 0;
+    right: 4.75rem;
+    width: 3rem;
+
+    &.is-on {
+      opacity: 1;
+    }
+
+    svg {
+      height: 1.8rem;
+      width: 2.25rem;
+    }
+
+    svg {
+      fill: currentColor;
+    }
+
+    .placed {
+      opacity: 0.2;
+    }
+
+    .r {
+      opacity: 0.8;
+    }
+
+    .l {
+      opacity: 0.6;
+    }
+
+    .is-expanded & {
+      display: none;
+    }
+  }
+
+  @keyframes x3273 {
+    50% {
+      box-shadow: 0 0 0 0.5rem rgb(255 255 255 / 25%);
+      transform: scale(1.08);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .x37ee,
+    .x8189 {
+      transition: none;
+
+      &.is-called {
+        animation: none;
+      }
+    }
+  }
+</style>
+
+<style is:global lang="scss">
+  .connect-drawing {
+    .video,
+    .x3ac9 {
+      display: block;
+      height: calc(100% + 4px);
+      inset: -2px;
+      object-fit: cover;
+      position: absolute;
+      width: calc(100% + 4px);
+    }
+
+    .backdrop {
+      display: block;
+      height: calc(100% + 4px);
+      inset: -2px;
+      position: absolute;
+      width: calc(100% + 4px);
+    }
+
+    .video {
+      opacity: 0;
+    }
+
+    &.is-expanded .video {
+      object-fit: contain;
+    }
+
+    &.is-playing .video {
+      opacity: 1;
+    }
+
+    /* The reversed copy shows only while the video plays back. */
+    .video.rev,
+    &.is-reversing .video:not(.rev) {
+      visibility: hidden;
+    }
+
+    &.is-reversing .video.rev {
+      visibility: visible;
+    }
+
+    .x3ac9 {
+      cursor: grab;
+      opacity: 0;
+      outline: none;
+      pointer-events: none;
+      transition: opacity var(--drawing-crossfade, 0.5s) ease-in-out;
+    }
+
+    &.is-live {
+      .x3ac9 {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      &.is-docked .x3ac9 {
+        cursor: auto;
+        pointer-events: none;
+      }
+
+      .video {
+        transition: visibility 0s var(--drawing-crossfade, 0.5s);
+        visibility: hidden;
+      }
+    }
+
+    .x3acb {
+      color: #d6d6d6;
+      font-size: 0.875rem;
+      inset: 0;
+      pointer-events: none;
+      position: absolute;
+    }
+
+    .x90db {
+      font-size: 1.25rem;
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+      left: 1rem;
+      margin: 0;
+      position: absolute;
+      top: 0.875rem;
+    }
+
+    .x1044,
+    .x8c25,
+    .x4cb2,
+    .xc86c,
+    .xbf86,
+    .x2386,
+    .x5250 {
+      opacity: 1;
+      transition: opacity 0.4s ease-out;
+    }
+
+    &:not(.is-ui) {
+      .x1044,
+      .x8c25,
+      .x4cb2,
+      .xc86c,
+      .xbf86,
+      .x2386,
+      .x5250 {
+        opacity: 0;
+        transition-duration: 0.25s;
+      }
+
+      .xc86c button,
+      .xbf86 button,
+      .x5250 {
+        pointer-events: none;
+      }
+
+      .xa325 {
+        display: none;
+      }
+    }
+
+    &:has(.xc86c:not([hidden])) .x1044 {
+      opacity: 0;
+    }
+
+    .x1044 {
+      bottom: 2rem;
+      height: clamp(10rem, 100% - 14rem, 30rem);
+      left: 1rem;
+      pointer-events: none;
+      position: absolute;
+      width: 6rem;
+
+      @media (max-width: 39.99rem) {
+        height: clamp(6rem, 100% - 24rem, 12rem);
+        width: 3.5rem;
+      }
+    }
+
+    .x8c25 {
+      height: 100%;
+      inset: 0;
+      overflow: visible;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+    }
+
+    .x4433 {
+      stroke: #fff;
+      stroke-dasharray: 3 5;
+      stroke-opacity: 0.85;
+      stroke-width: 2;
+    }
+
+    .x65fd {
+      stroke: #fff;
+      stroke-width: 2;
+    }
+
+    .x54f8 {
+      stroke: #fff;
+      stroke-linecap: round;
+      stroke-width: 2;
+    }
+
+    .x2086 {
+      fill: #fff;
+      font-size: 0.875rem;
+
+      @media (max-width: 39.99rem) {
+        font-size: 0.6875rem;
+      }
+      font-weight: 500;
+      text-anchor: end;
+    }
+
+    .x9fb2 {
+      stroke: #f2c14e;
+      stroke-dasharray: 4 4;
+      stroke-opacity: 0.55;
+      stroke-width: 1.5;
+    }
+
+    .x84d0 {
+      stroke: #f2c14e;
+      stroke-linecap: round;
+      stroke-width: 2.5;
+    }
+
+    .xf772 {
+      fill: #f2c14e;
+      font-size: 0.8125rem;
+
+      @media (max-width: 39.99rem) {
+        font-size: 0.625rem;
+      }
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      text-anchor: end;
+    }
+
+    .x6ffa {
+      stroke: #fff;
+      stroke-linecap: round;
+      stroke-width: 2.5;
+    }
+
+    .x4f05 {
+      fill: #fff;
+      font-size: 1.125rem;
+
+      @media (max-width: 39.99rem) {
+        font-size: 0.875rem;
+      }
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      text-anchor: end;
+    }
+
+    .xe37f {
+      display: flex;
+      gap: 1.25rem;
+      left: 1rem;
+      margin: 0;
+      position: absolute;
+      top: 0.875rem;
+
+      div {
+        display: grid;
+        gap: 0.125rem;
+      }
+
+      dt {
+        color: #8a8a8a;
+        font-size: 0.75rem;
+      }
+
+      dd {
+        font-size: 1.25rem;
+        font-variant-numeric: tabular-nums;
+        font-weight: 500;
+        margin: 0;
+      }
+    }
+
+    .x1e4f {
+      color: var(--color-connect-line);
+      font-size: 1.125rem;
+      font-weight: 600;
+      position: absolute;
+      transform: translate(-50%, -100%);
+
+      &.is-on {
+        animation: x4e13 0.9s ease-out forwards;
+      }
+    }
+
+    .xdbc8 {
+      align-items: center;
+      bottom: 2rem;
+      display: flex;
+      gap: 0.75rem;
+      left: 1rem;
+      position: absolute;
+      right: 1rem;
+
+      p {
+        margin: 0;
+      }
+
+      &[hidden] {
+        display: none;
+      }
+    }
+
+    .xd172 {
+      background: rgb(0 0 0 / 70%);
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+    }
+
+    .xc86c {
+      align-items: center;
+      bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      left: 1rem;
+      pointer-events: none;
+      position: absolute;
+      right: 1rem;
+
+      &[hidden] {
+        display: none;
+      }
+
+      button {
+        border: 1px solid transparent;
+        border-radius: var(--radius-pill);
+        cursor: pointer;
+        font: inherit;
+        font-weight: 600;
+        pointer-events: auto;
+        transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+        &:focus-visible {
+          outline: 2px solid var(--color-text-inverse);
+          outline-offset: 2px;
+        }
+      }
+
+      .x5612 {
+        background: none;
+        border-color: rgb(255 255 255 / 35%);
+        color: #fff;
+        padding: 0.5rem 1.5rem;
+
+        &:hover {
+          border-color: #fff;
+        }
+      }
+
+      .xf7ca {
+        background: var(--color-connect-line);
+        color: var(--color-text-inverse);
+        min-width: 9rem;
+        padding: 0.625rem 2rem;
+
+        &:hover {
+          background: var(--color-connect-line-shade);
+        }
+      }
+    }
+
+    .x2386 {
+      animation: x2386 1.6s ease-in-out infinite;
+      bottom: 3rem;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      left: 0;
+      margin: 0;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      text-align: center;
+
+      &[hidden] {
+        display: none;
+      }
+    }
+
+    .x5250 {
+      align-items: center;
+      background: rgb(255 255 255 / 8%);
+      border: 1px solid rgb(255 255 255 / 14%);
+      border-radius: 50%;
+      bottom: 2rem;
+      color: rgb(255 255 255 / 75%);
+      cursor: pointer;
+      display: flex;
+      font: 600 0.8125rem/1 var(--font-heading);
+      height: 1.75rem;
+      justify-content: center;
+      padding: 0;
+      pointer-events: auto;
+      position: absolute;
+      right: 1rem;
+      transition: background-color 0.2s, color 0.2s, opacity 0.4s ease-out;
+      width: 1.75rem;
+
+      &:hover,
+      &[aria-expanded="true"] {
+        background: rgb(255 255 255 / 16%);
+        color: #fff;
+      }
+
+      &:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+      }
+    }
+
+    .xa325 {
+      backdrop-filter: blur(8px);
+      background: rgb(20 20 20 / 92%);
+      border: 1px solid rgb(255 255 255 / 12%);
+      border-radius: var(--radius-small, 0.75rem);
+      bottom: 4.25rem;
+      color: rgb(255 255 255 / 80%);
+      font-size: 0.8125rem;
+      max-width: calc(100% - 2rem);
+      padding: 0.875rem 1rem;
+      pointer-events: auto;
+      position: absolute;
+      right: 1rem;
+      width: 20rem;
+      z-index: 2;
+
+      &[hidden] {
+        display: none;
+      }
+
+      h2 {
+        color: #fff;
+        font-size: 0.875rem;
+        margin: 0 0 0.375rem;
+      }
+
+      p {
+        margin: 0 0 0.75rem;
+      }
+
+      ul {
+        border-top: 1px solid rgb(255 255 255 / 10%);
+        color: rgb(255 255 255 / 55%);
+        font-size: 0.75rem;
+        list-style: none;
+        margin: 0;
+        padding: 0.625rem 0 0;
+      }
+
+      li {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        padding: 0.125rem 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+
+    .xbf86 {
+      align-items: flex-end;
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+      position: absolute;
+      right: 1rem;
+      top: 4.25rem;
+      &[hidden] {
+        display: none;
+      }
+
+      p {
+        color: rgb(255 255 255 / 45%);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        margin: 0;
+        text-transform: uppercase;
+      }
+
+      .x5e93 {
+        color: #fff;
+      }
+
+      .x1126 {
+        color: #fff;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.02em;
+        text-transform: none;
+      }
+
+      button {
+        border: 1px solid transparent;
+        border-radius: var(--radius-pill);
+        cursor: pointer;
+        font: inherit;
+        font-weight: 600;
+        pointer-events: auto;
+      }
+
+      .x1da6 {
+        background: none;
+        border-color: rgb(255 255 255 / 35%);
+        color: #fff;
+        font-size: 0.875rem;
+        padding: 0.375rem 1rem;
+
+        &:hover {
+          border-color: #fff;
+        }
+      }
+    }
+
+    .x3438 {
+      background: rgb(255 255 255 / 8%);
+      border-radius: var(--radius-pill);
+      display: flex;
+      gap: 0.125rem;
+      padding: 0.25rem;
+      position: relative;
+
+      .x7a97 {
+        background: none;
+        color: rgb(255 255 255 / 65%);
+        font-size: 0.875rem;
+        padding: 0.375rem 1rem;
+        position: relative;
+        transition: color 0.25s;
+        z-index: 1;
+
+        &:hover {
+          color: #fff;
+        }
+
+        &.is-current {
+          color: #fff;
+        }
+      }
+
+      .x2958 {
+        background: rgb(255 255 255 / 16%);
+        border-radius: var(--radius-pill);
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        transition:
+          transform 0.35s cubic-bezier(0.3, 0.7, 0.2, 1),
+          width 0.35s cubic-bezier(0.3, 0.7, 0.2, 1),
+          height 0.35s cubic-bezier(0.3, 0.7, 0.2, 1),
+          opacity 0.2s;
+
+        @media (prefers-reduced-motion: reduce) {
+          transition: opacity 0.2s;
+        }
+      }
+
+      &.x66bf {
+        max-width: 100%;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        pointer-events: auto;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .x7a97 {
+          flex: none;
+          scroll-snap-align: center;
+          white-space: nowrap;
+        }
+
+        &.is-more-left {
+          mask-image: linear-gradient(to right, transparent, #000 2rem);
+        }
+
+        &.is-more-right {
+          mask-image: linear-gradient(to left, transparent, #000 2rem);
+        }
+
+        &.is-more-left.is-more-right {
+          mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+        }
+      }
+    }
+
+    .x4cb2 {
+      display: grid;
+      gap: 0.25rem;
+
+      .x148c {
+        color: rgb(255 255 255 / 45%);
+        font-size: 0.6875rem;
+
+        @media (max-width: 39.99rem) {
+          font-size: 0.625rem;
+        }
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        margin: 0 0 0.125rem;
+        text-transform: uppercase;
+      }
+      left: 1rem;
+      margin: 0;
+      position: absolute;
+      top: 0.875rem;
+
+      &[hidden] {
+        display: none;
+      }
+
+      div {
+        align-items: baseline;
+        color: rgb(255 255 255 / 45%);
+        display: flex;
+        font-size: 0.8125rem;
+
+        @media (max-width: 39.99rem) {
+          font-size: 0.6875rem;
+        }
+        gap: 0.5rem;
+        transition: color 0.3s;
+      }
+
+      dt {
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        min-width: 4.25rem;
+        text-transform: uppercase;
+      }
+
+      dd {
+        font-variant-numeric: tabular-nums;
+        margin: 0;
+      }
+
+      .is-current {
+        color: #fff;
+      }
+
+      .x6d9d dd {
+        animation: x4ba2 1.2s ease-out;
+        color: var(--color-connect-line);
+      }
+    }
+
+    .x5607 {
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      pointer-events: none;
+      position: absolute;
+      text-shadow:
+        0 0.125rem 0 rgb(0 0 0 / 70%),
+        0 0 1.25rem rgb(255 255 255 / 35%);
+      text-transform: uppercase;
+      white-space: nowrap;
+
+      &.xd38b {
+        animation: x974b 1s ease-out forwards;
+        font-size: 1.375rem;
+        transform: translate(-50%, -150%);
+      }
+
+      &.xd861.x7e9a {
+        top: 42%;
+        z-index: 1;
+      }
+
+      &.xd861 {
+        animation: x7d0f 2.4s ease-out forwards;
+        font-size: clamp(1.125rem, 3.5vw, 2.25rem);
+        left: 50%;
+        top: 30%;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    .xbdb7 {
+      align-items: center;
+      background: var(--color-connect-line);
+      border: 0;
+      border-radius: 50%;
+      color: var(--color-text-inverse);
+      cursor: pointer;
+      display: flex;
+      flex: none;
+      height: 2.5rem;
+      justify-content: center;
+      padding: 0;
+      pointer-events: auto;
+      width: 2.5rem;
+
+      svg {
+        fill: currentColor;
+        height: 1.125rem;
+        width: 1.125rem;
+      }
+
+      &:hover {
+        background: var(--color-connect-line-shade);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-text-inverse);
+        outline-offset: 2px;
+      }
+    }
+
+    [hidden] {
+      display: none;
+    }
+  }
+
+  .connect-drawing.is-expanded,
+  .x13e7 {
+    --exit-size: 2.5rem;
+    --exit-inset: 1rem;
+    --modal-w: 95vw;
+    --modal-h: 95dvh;
+    --modal-r: var(--radius-medium);
+
+    @media (max-width: 39.99rem) {
+      --modal-w: 100vw;
+      --modal-h: 100dvh;
+      --modal-r: 0px;
+    }
+  }
+
+  .x13e7 {
+    align-items: center;
+    background: var(--color-connect-line);
+    border: 0;
+    border-radius: 50%;
+    color: var(--color-text-inverse);
+    cursor: pointer;
+    display: flex;
+    height: var(--exit-size);
+    justify-content: center;
+    opacity: 0;
+    padding: 0;
+    pointer-events: none;
+    position: fixed;
+    right: calc((100vw - var(--modal-w)) / 2 + var(--exit-inset));
+    top: calc((100dvh - var(--modal-h)) / 2 + var(--exit-inset));
+    transition: background-color 0.2s;
+    width: var(--exit-size);
+    z-index: var(--drawing-layer, 1000);
+
+    &.is-on {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    svg {
+      fill: currentColor;
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+
+    &:hover {
+      background: var(--color-connect-line-shade);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-text-inverse);
+      outline-offset: 2px;
+    }
+  }
+
+  .x2428 {
+    backdrop-filter: blur(4px);
+    background: rgb(0 0 0 / 60%);
+    inset: 0;
+    position: fixed;
+    z-index: var(--drawing-layer, 1000);
+  }
+
+  html.has-drawing-open {
+    overflow: hidden;
+  }
+
+  @keyframes x974b {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -150%) scale(0.4);
+    }
+
+    18% {
+      opacity: 1;
+      transform: translate(-50%, -150%) scale(1.25);
+    }
+
+    30% {
+      transform: translate(-50%, -150%) scale(0.95);
+    }
+
+    40% {
+      transform: translate(-50%, -150%) scale(1);
+    }
+
+    70% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -280%) scale(1);
+    }
+  }
+
+  @keyframes x7d0f {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0) scale(0.4);
+    }
+
+    10% {
+      opacity: 1;
+      transform: translate(-50%, 0) scale(1.2);
+    }
+
+    18% {
+      transform: translate(-50%, 0) scale(0.95);
+    }
+
+    25% {
+      transform: translate(-50%, 0) scale(1);
+    }
+
+    80% {
+      opacity: 1;
+      transform: translate(-50%, 0) scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -0.75rem) scale(1);
+    }
+  }
+
+  @keyframes x2386 {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes x61a5 {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes x4ba2 {
+    from {
+      text-shadow: 0 0 0.75rem var(--color-connect-line);
+    }
+
+    to {
+      text-shadow: none;
+    }
+  }
+
+  @keyframes x4e13 {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -100%);
+    }
+
+    to {
+      opacity: 0;
+      transform: translate(-50%, -260%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .connect-drawing .x1e4f.is-on,
+    .connect-drawing .x2386,
+    .connect-drawing .x4cb2 .x6d9d dd {
+      animation: none;
+    }
+
+    .connect-drawing .x5607.xd38b,
+    .connect-drawing .x5607.xd861,
+    .connect-drawing .x5607.x7e9a {
+      animation-name: x61a5;
+    }
+
+    .connect-drawing .x3ac9,
+    .connect-drawing.is-live .video {
+      transition: none;
+    }
+  }
+</style>

@@ -1,0 +1,148 @@
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes icon-whole-home-audio-kf_Vector_1_transform_0 {
+  0% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(6px) translate(0px, 7px) scaleY(1) translate(0px, -7px);
+  }
+  25% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(6px) translate(0px, 7px) scaleY(0.4) translate(0px, -7px);
+  }
+  50% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(6px) translate(0px, 7px) scaleY(0.8) translate(0px, -7px);
+  }
+  75% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(6px) translate(0px, 7px) scaleY(0.5) translate(0px, -7px);
+  }
+  100% {
+    transform: translateX(6px) translate(0px, 7px) scaleY(1) translate(0px, -7px);
+  }
+}
+#icon-whole-home-audio-Vector_1 {
+  transform-origin: 0 0;
+  animation: icon-whole-home-audio-kf_Vector_1_transform_0 0.9s linear infinite;
+}
+@keyframes icon-whole-home-audio-kf_Vector_3_transform_0 {
+  0% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(3px) translateY(3px) translate(0px, 4px) scaleY(1) translate(0px, -4px);
+  }
+  25% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(3px) translateY(3px) translate(0px, 4px) scaleY(0.7) translate(0px, -4px);
+  }
+  50% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(3px) translateY(3px) translate(0px, 4px) scaleY(0.35) translate(0px, -4px);
+  }
+  75% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(3px) translateY(3px) translate(0px, 4px) scaleY(0.85) translate(0px, -4px);
+  }
+  100% {
+    transform: translateX(3px) translateY(3px) translate(0px, 4px) scaleY(1) translate(0px, -4px);
+  }
+}
+#icon-whole-home-audio-Vector_3 {
+  transform-origin: 0 0;
+  animation: icon-whole-home-audio-kf_Vector_3_transform_0 0.9s linear infinite;
+}
+@keyframes icon-whole-home-audio-kf_Vector_4_transform_0 {
+  0% {
+    animation-timing-function: ease-in-out;
+    transform: translateY(6px) translate(0px, 1.5px) scaleY(1) translate(0px, -1.5px);
+  }
+  25% {
+    animation-timing-function: ease-in-out;
+    transform: translateY(6px) translate(0px, 1.5px) scaleY(1.8) translate(0px, -1.5px);
+  }
+  50% {
+    animation-timing-function: ease-in-out;
+    transform: translateY(6px) translate(0px, 1.5px) scaleY(0.75) translate(0px, -1.5px);
+  }
+  75% {
+    animation-timing-function: ease-in-out;
+    transform: translateY(6px) translate(0px, 1.5px) scaleY(1.5) translate(0px, -1.5px);
+  }
+  100% {
+    transform: translateY(6px) translate(0px, 1.5px) scaleY(1) translate(0px, -1.5px);
+  }
+}
+#icon-whole-home-audio-Vector_4 {
+  transform-origin: 0 0;
+  animation: icon-whole-home-audio-kf_Vector_4_transform_0 0.9s linear infinite;
+}
+@keyframes icon-whole-home-audio-kf_Vector_2_transform_0 {
+  0% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(9px) translateY(3px) translate(0px, 4px) scaleY(1) translate(0px, -4px) rotate(3.142rad) scaleY(-1) skewX(0rad);
+  }
+  25% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(9px) translateY(3px) translate(0px, 4px) scaleY(0.45) translate(0px, -4px) rotate(3.142rad) scaleY(-1) skewX(0rad);
+  }
+  50% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(9px) translateY(3px) translate(0px, 4px) scaleY(0.9) translate(0px, -4px) rotate(3.142rad) scaleY(-1) skewX(0rad);
+  }
+  75% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(9px) translateY(3px) translate(0px, 4px) scaleY(0.65) translate(0px, -4px) rotate(3.142rad) scaleY(-1) skewX(0rad);
+  }
+  100% {
+    transform: translateX(9px) translateY(3px) translate(0px, 4px) scaleY(1) translate(0px, -4px) rotate(3.142rad) scaleY(-1) skewX(0rad);
+  }
+}
+#icon-whole-home-audio-Vector_2 {
+  transform-origin: 0 0;
+  animation: icon-whole-home-audio-kf_Vector_2_transform_0 0.9s linear infinite;
+}
+@keyframes icon-whole-home-audio-kf_Vector_5_transform_0 {
+  0% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(12px) translateY(6px) translate(0px, 1.5px) scaleY(1) translate(0px, -1.5px) rotate(3.142rad) scaleY(-1) skewX(0rad);
+  }
+  25% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(12px) translateY(6px) translate(0px, 1.5px) scaleY(1.4) translate(0px, -1.5px) rotate(3.142rad) scaleY(-1) skewX(0rad);
+  }
+  50% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(12px) translateY(6px) translate(0px, 1.5px) scaleY(0.7) translate(0px, -1.5px) rotate(3.142rad) scaleY(-1) skewX(0rad);
+  }
+  75% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(12px) translateY(6px) translate(0px, 1.5px) scaleY(1.9) translate(0px, -1.5px) rotate(3.142rad) scaleY(-1) skewX(0rad);
+  }
+  100% {
+    transform: translateX(12px) translateY(6px) translate(0px, 1.5px) scaleY(1) translate(0px, -1.5px) rotate(3.142rad) scaleY(-1) skewX(0rad);
+  }
+}
+#icon-whole-home-audio-Vector_5 {
+  transform-origin: 0 0;
+  animation: icon-whole-home-audio-kf_Vector_5_transform_0 0.9s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  #icon-whole-home-audio-Base * {
+    animation: none !important;
+  }
+}
+</style>
+<g id="icon-whole-home-audio-Base" clip-path="url(#icon-whole-home-audio-clip0_760_4219)">
+<g id="icon-whole-home-audio-sound_waves" transform="translate(1)">
+<path id="icon-whole-home-audio-Vector_1" transform="translate(6)" d="M0 0V14" stroke="white" stroke-width="1.5"/>
+<path id="icon-whole-home-audio-Vector_3" transform="translate(3 3)" d="M0 0V8" stroke="white" stroke-width="1.5"/>
+<path id="icon-whole-home-audio-Vector_4" transform="translate(0 6)" d="M0 0V3" stroke="white" stroke-width="1.5"/>
+<path id="icon-whole-home-audio-Vector_2" transform="matrix(-1 0 0 1 9 3)" d="M0 0V8" stroke="white" stroke-width="1.5"/>
+<path id="icon-whole-home-audio-Vector_5" transform="matrix(-1 0 0 1 12 6)" d="M0 0V3" stroke="white" stroke-width="1.5"/>
+</g>
+</g>
+<defs>
+<clipPath id="icon-whole-home-audio-clip0_760_4219">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg>

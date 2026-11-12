@@ -1,0 +1,178 @@
+---
+// "Every purchase supports the Open Home Foundation" banner of a
+// Connect product page: the Nabu Casa and Open Home Foundation logos,
+// a heading and a paragraph, beside a photo, on a light blue gradient.
+// The heading and text are the slot, as the product pages word them
+// slightly differently.
+//
+// Built from "Banner Big" in the Figma file "Connect AUX-2" (node
+// 2002:31185). It replaces the per-page `#collaboration` section of
+// the Jekyll Connect pages
+// (`source/connect/*/components/_collaboration.html`), with the same
+// structure. The photo stacks above the text on phones, and sits
+// beside it from the tablet width.
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import nabuCasa from "../../../assets/collaboration/nabu-casa-dark.svg";
+import openHomeFoundation from "../../../assets/brands/open-home-foundation-lockup-monochrome-light.svg";
+
+interface Props {
+  image: ImageMetadata;
+  imageAlt: string;
+}
+
+const { image, imageAlt } = Astro.props;
+---
+
+<section class="connect-collaboration">
+  <Image
+    quality={85}
+    src={image}
+    alt={imageAlt}
+    widths={[486, 972, 1440, image.width]}
+    sizes="(min-width: 62rem) 30.375rem, (min-width: 48rem) 40vw, 100vw"
+  />
+  <div class="text">
+    <p class="partner">
+      <img
+        src={nabuCasa.src}
+        width={nabuCasa.width}
+        height={nabuCasa.height}
+        alt="Nabu Casa"
+      />
+      <img
+        src={openHomeFoundation.src}
+        width={openHomeFoundation.width}
+        height={openHomeFoundation.height}
+        alt="Open Home Foundation"
+      />
+    </p>
+    <slot />
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints";
+
+  .connect-collaboration {
+    /* Figma's "Banner Big" fill (a gradient from #a0c4d8 to #a0c5d8,
+       flat to the eye), the pale blue of the photo's background. */
+    background: #a0c4d8;
+    border-radius: var(--radius-medium);
+    color: var(--color-ink);
+    display: grid;
+    font-family: var(--font-heading);
+    overflow: hidden;
+
+    > img {
+      height: 14rem;
+      object-fit: cover;
+      object-position: left top;
+      width: 100%;
+    }
+  }
+
+  .text {
+    padding: var(--space-xlarge);
+
+    :global(h2),
+    :global(h3) {
+      font-size: var(--font-size-xxlarge);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin: 0;
+      padding-block: var(--space-medium);
+    }
+
+    /* Navy, like the heading: the muted gray has too little contrast
+       on this blue (3.5:1, under the 4.5:1 that body text needs). */
+    :global(p) {
+      color: var(--color-ink);
+      font-size: var(--font-size-large);
+      line-height: 1.2;
+      margin: 0;
+      padding-block: var(--space-xsmall);
+    }
+
+    /* Links in the text, such as Nabu Casa's website: underlined, as
+       they share the text's navy. */
+    :global(a) {
+      color: var(--color-ink);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+
+      &:hover {
+        text-decoration-thickness: 2px;
+      }
+    }
+  }
+
+  /* The two logos side by side, as in Figma; on the narrowest phones
+     the Open Home Foundation's wraps below Nabu Casa's. */
+  .partner {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xsmall) var(--space-large);
+
+    .text & {
+      padding-block: var(--space-small);
+    }
+
+    img {
+      height: 1.25rem;
+      width: auto;
+    }
+  }
+
+  /* The photo on the left, 486px of the 1200px banner as in Figma,
+     the text beside it. On tablets the banner grows with its text and
+     the photo with it; from the desk width it is Figma's 330px. */
+  @media only screen and (min-width: breakpoints.$tab) {
+    .connect-collaboration {
+      grid-template-columns: minmax(0, 486fr) minmax(0, 714fr);
+
+      /* The narrow column crops the photo: keep the board's right edge
+         in view and lose the left instead. */
+      > img {
+        height: 100%;
+        object-position: right top;
+      }
+    }
+
+    .text {
+      padding: var(--space-xlarge);
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$connect-desk) {
+    .connect-collaboration {
+      align-items: center;
+      /* Figma's 486 × 330px photo at its own size, whatever the width:
+         the file is exactly that area, so nothing is cropped. The text
+         takes the rest. */
+      grid-template-columns: 30.375rem minmax(0, 1fr);
+      /* The row is the banner's height, not the photo's. */
+      grid-template-rows: minmax(0, 1fr);
+      height: 20.625rem;
+
+      > img {
+        height: 100%;
+        object-position: left top;
+      }
+    }
+
+    /* Figma's text starts 20px after the photo's column. */
+    .text {
+      max-width: 40.75rem;
+      padding: var(--space-xxlarge) var(--space-xxlarge) var(--space-xxlarge)
+        var(--space-xlarge);
+
+      :global(h2),
+      :global(h3) {
+        font-size: var(--font-size-heading);
+      }
+    }
+  }
+</style>

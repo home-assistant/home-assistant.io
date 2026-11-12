@@ -1,0 +1,113 @@
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes icon-standby-kf_Needle_pivot_transform_0 {
+  0% {
+    animation-timing-function: cubic-bezier(0.45, 0, 0.25, 1);
+    transform: translate(7px, 7px) rotate(0rad) translate(-7px, -7px);
+  }
+  80% {
+    transform: translate(7px, 7px) rotate(6.283rad) translate(-7px, -7px);
+  }
+  100% {
+    transform: translate(7px, 7px) rotate(6.283rad) translate(-7px, -7px);
+  }
+}
+#icon-standby-Needle_pivot {
+  transform-origin: 0 0;
+  animation: icon-standby-kf_Needle_pivot_transform_0 2s linear infinite;
+}
+@keyframes icon-standby-kf_Dot_right_opacity_0 {
+  0% {
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+  33% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  39.5% {
+    animation-timing-function: linear;
+    opacity: 0.25;
+  }
+  79% {
+    animation-timing-function: linear;
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.953;
+  }
+}
+#icon-standby-Dot_right {
+  animation: icon-standby-kf_Dot_right_opacity_0 2s linear infinite;
+}
+@keyframes icon-standby-kf_Dot_bottom_opacity_0 {
+  0% {
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+  44% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  50.5% {
+    animation-timing-function: linear;
+    opacity: 0.25;
+  }
+  79% {
+    animation-timing-function: linear;
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.953;
+  }
+}
+#icon-standby-Dot_bottom {
+  animation: icon-standby-kf_Dot_bottom_opacity_0 2s linear infinite;
+}
+@keyframes icon-standby-kf_Dot_left_opacity_0 {
+  0% {
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+  57% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  63.5% {
+    animation-timing-function: linear;
+    opacity: 0.25;
+  }
+  79% {
+    animation-timing-function: linear;
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0.953;
+  }
+}
+#icon-standby-Dot_left {
+  animation: icon-standby-kf_Dot_left_opacity_0 2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  #icon-standby-Base * {
+    animation: none !important;
+  }
+}
+</style>
+<g id="icon-standby-Base" clip-path="url(#icon-standby-clip0_761_14781)">
+<g id="icon-standby-Standby">
+<path id="icon-standby-Dial" d="M4.2875 13.4458C3.43843 13.0764 2.6963 12.5741 2.06111 11.9389C1.42593 11.3037 0.923611 10.5616 0.554167 9.7125C0.184722 8.86343 0 7.95926 0 7C0 6.42963 0.0648148 5.87546 0.194444 5.3375C0.324074 4.79954 0.512037 4.29398 0.758333 3.82083C1.00463 3.34769 1.29954 2.90694 1.64306 2.49861C1.98657 2.09028 2.37222 1.72407 2.8 1.4V3.57778C2.41111 4.04444 2.10648 4.5662 1.88611 5.14306C1.66574 5.71991 1.55556 6.33889 1.55556 7C1.55556 8.5037 2.08704 9.78704 3.15 10.85C4.21296 11.913 5.4963 12.4444 7 12.4444C8.5037 12.4444 9.78704 11.913 10.85 10.85C11.913 9.78704 12.4444 8.5037 12.4444 7C12.4444 5.61296 12.0005 4.41713 11.1125 3.4125C10.2245 2.40787 9.11296 1.81481 7.77778 1.63333V3.11111H6.22222V0H7C7.95926 0 8.86343 0.184722 9.7125 0.554167C10.5616 0.923611 11.3037 1.42593 11.9389 2.06111C12.5741 2.6963 13.0764 3.43843 13.4458 4.2875C13.8153 5.13657 14 6.04074 14 7C14 7.95926 13.8153 8.86343 13.4458 9.7125C13.0764 10.5616 12.5741 11.3037 11.9389 11.9389C11.3037 12.5741 10.5616 13.0764 9.7125 13.4458C8.86343 13.8153 7.95926 14 7 14C6.04074 14 5.13657 13.8153 4.2875 13.4458Z" fill="white"/>
+<g id="icon-standby-Needle_pivot">
+<path id="icon-standby-Needle" transform="translate(2.8 1.4)" d="M0 0L5.28889 5.28889L4.2 6.37778L0 2.17778V0Z" fill="white"/>
+</g>
+<circle id="icon-standby-Dot_right" transform="translate(10.1111 6.2222)" cx="0.7778" cy="0.7778" r="0.7778" fill="white"/>
+<circle id="icon-standby-Dot_bottom" transform="translate(6.2222 10.1111)" cx="0.7778" cy="0.7778" r="0.7778" fill="white"/>
+<circle id="icon-standby-Dot_left" transform="translate(2.3333 6.2222)" cx="0.7778" cy="0.7778" r="0.7778" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="icon-standby-clip0_761_14781">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg>

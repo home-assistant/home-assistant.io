@@ -31,16 +31,16 @@ The Home Assistant AI tools are not limited to the entities that you expose to v
 
 Most of the Home Assistant AI tools only read. Two tools can change things:
 
-- **Call action** can perform any action in Home Assistant, on any entity, device, or area. This includes entities that you didn't expose. For example, it can turn off a light, run a script, or restart Home Assistant.
+- **Call action** can perform any {% term action %} in Home Assistant, on any entity, device, or area. This includes entities that you didn't expose. For example, it can turn off a light, run a script, or restart Home Assistant.
 - **Reload config entry** can reload an integration.
 
 ## Adding the Home Assistant AI tools to your conversation agent
 
-Use this procedure if only administrators use your conversation agent. For example, they use it in Assist in Home Assistant or in the [Home Assistant Companion app](https://companion.home-assistant.io/). There, each request comes from the user account that is signed in.
+Use this procedure if only administrators use your conversation agent. For example, they use it in {% term Assist %} in Home Assistant or in the [Home Assistant Companion app](https://companion.home-assistant.io/). There, each request comes from the user account that is signed in.
 
 Afterwards, the conversation agent you already use can also look into Home Assistant itself. For example, you can ask it why an integration isn't working, or which errors are in the logs.
 
-The conversation agent then only works for administrators. Requests from a voice satellite, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user, so they fail. Requests from users who aren't administrators fail too. This also stops **Device control** on this conversation agent. If voice satellites or users who aren't administrators use your assistant, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, set up a separate assistant instead. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
+The conversation agent then only works for administrators. Requests from a {% term "voice satellite" %}, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user, so they fail. Requests from users who aren't administrators fail too. This also stops **Device control** on this conversation agent. If voice satellites or users who aren't administrators use your assistant, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, set up a separate assistant instead. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
 
 Prerequisites:
 
@@ -62,7 +62,7 @@ To add the Home Assistant AI tools to your conversation agent, follow these step
 
 ## Setting up a separate assistant for the Home Assistant AI tools
 
-Use this procedure if voice satellites or users who aren't administrators use your assistant. An assistant is what you talk to in Assist and on a voice satellite. You find your assistants under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, and each one uses a conversation agent.
+Use this procedure if voice satellites or users who aren't administrators use your {% term assistant %}. An assistant is what you talk to in Assist and on a voice satellite. You find your assistants under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, and each one uses a conversation agent.
 
 Requests from a voice satellite, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user. Requests from users who aren't administrators can't use the Home Assistant AI tools either. So you leave your current assistant as it is. Instead, you add a conversation agent with the Home Assistant AI tools, and a new assistant that uses it.
 
@@ -117,7 +117,7 @@ The **Home Assistant** set of AI tools contains the following tools. Each entry 
   - To do this yourself: Use the [quick search](/docs/tools/quick-search/).
 - **Get system info** (`system_health__get_system_info`): Returns the installation type, the time zone, and the versions of Home Assistant Core, the frontend, Python, the operating system, and the Supervisor. For example, you can use it to fill in a bug report. Only reads.
   - To do this yourself: Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **System information**.
-- **Get history** (`history__get_history`): Returns statistics of entities, not their individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It only works for entities with statistics, such as sensors with a state class. Only reads.
+- **Get history** (`history__get_history`): Returns {% term "long-term statistics" statistics %} of entities, not their individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It only works for entities with statistics, such as sensors with a state class. Only reads.
   - To do this yourself: Use the {% my history title="**History**" %} panel.
 - **Get system log entries** (`system_log__get_entries`): Returns recent errors and warnings from the system log. It doesn't include info or debug messages. It can filter by level and by integration. Only reads.
   - To do this yourself: Go to {% my logs title="**Settings** > **System** > **Logs**" %}.

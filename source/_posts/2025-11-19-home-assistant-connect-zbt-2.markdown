@@ -6,7 +6,10 @@ date: 2025-11-19 00:00:01
 date_formatted: "November 19, 2025"
 author: Paulus Schoutsen
 comments: true
-categories: Announcements Zigbee
+categories:
+- Announcements
+- Zigbee
+- Hardware
 og_image: /images/blog/2025-11-home-assistant-connect-zbt-2/art.webp
 ---
 

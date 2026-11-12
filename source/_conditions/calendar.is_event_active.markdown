@@ -70,8 +70,8 @@ for:
 Half an hour before sunset, if there is not an active event in the calendar, this automation sends a notification to the mobile phone with a reminder to go for a sunset run.
 
 - **Trigger**: Sunset
-  - **Offset**: `00:30:00`
-  - **Offset type**: Before
+  - **Offset**: Before
+  - **Duration**: `00:30:00`
 - **Condition**: Calendar event is active
   - **Blocks**: Not
 - **Action**: Send a notification message
