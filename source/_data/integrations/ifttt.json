@@ -1,0 +1,16 @@
+{
+  "domain": "ifttt",
+  "name": "IFTTT",
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "diy_makers.web_data_connectors",
+    "other_ecosystems"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "alarm_control_panel"
+  ]
+}

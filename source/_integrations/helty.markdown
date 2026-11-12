@@ -1,22 +1,7 @@
 ---
-title: Helty Flow
 description: Instructions on how to integrate Helty Flow ventilation units with Home Assistant.
-ha_category:
-  - Button
-  - Fan
-  - Sensor
 ha_release: 2026.7
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@ebaschiera'
 ha_domain: helty
-ha_platforms:
-  - button
-  - fan
-  - sensor
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **Helty Flow** {% term integration %} lets you control [Helty Flow](https://www.heltyair.com/) decentralized heat-recovery ventilation units (also known as <abbr title="Mechanical ventilation with heat recovery">MVHR</abbr> units) that have the smart Wi-Fi interface. The integration communicates with the unit directly on your local network, so it keeps working without an internet connection.
@@ -35,7 +20,9 @@ The integration was developed and verified against a FlowPLUS. The other models 
 
 ## Unsupported devices
 
-Units without the smart Wi-Fi module, such as models that only offer an RS-485 connection, are not supported, as they do not expose this network protocol.
+Units fitted with the recent control panel, the one managed through the Helty Home app, are not supported here. That panel does not answer on the local network and reports to the manufacturer's cloud instead, so use the [Helty Flow Cloud](/integrations/helty_cloud/) integration for those.
+
+Units without any smart interface, such as models that only offer an RS-485 connection, are not supported, as they do not expose this network protocol.
 
 {% include integrations/config_flow.md %}
 

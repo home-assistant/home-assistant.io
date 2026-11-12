@@ -1,22 +1,10 @@
 ---
-title: De Lijn
 description: Instructions on how to integrate De Lijn (Flemish public transport company) departure times into Home Assistant.
 ha_release: 0.97
-ha_category:
-  - Sensor
-  - Transport
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@bollewolle'
-  - '@Emilv2'
 ha_domain: delijn
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **De Lijn** {% term integration %} will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).

@@ -1,52 +1,8 @@
 ---
-title: Matter
 description: Instructions on how to integrate Matter with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Climate
-  - Cover
-  - Fan
-  - Light
-  - Lock
-  - Number
-  - Pump
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
-  - Vacuum
-  - Valve
-  - Water heater
 featured: true
 ha_release: '2022.12'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/matter'
 ha_domain: matter
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-  - vacuum
-  - valve
-  - water_heater
-ha_integration_type: hub
 related:
   - docs: /integrations/thread/
     title: Thread
@@ -56,7 +12,6 @@ related:
     title: Adding an Apple HomeKit device through Thread
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
-ha_zeroconf: true
 ---
 
 The **Matter** {% term integration %} allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
@@ -116,6 +71,12 @@ If you run Home Assistant in a container, you can run a Docker image of the [Mat
 ## Adding a Matter device to Home Assistant
 
 Each Matter network is called a fabric. Each home automation controller that controls Matter devices has its own "fabric". You can add devices directly to the fabric of your Home Assistant instance, or share them from another fabric (for example from Google or Apple) to Home Assistant's fabric. We're going to explore all these options below.
+
+The following diagram provides an overview of the steps involved in adding a Matter device, depending on whether your device is new or already in use on another platform, and whether it uses Wi-Fi or Thread.
+
+<object type="image/svg+xml" data="/images/integrations/matter/matter-add-device-overview.svg" width="800" style="max-width: 100%; height: auto;" aria-label="Workflow for adding a Matter device">
+  <img src="/images/integrations/matter/matter-add-device-overview.png" alt="Workflow for adding a Matter device: prepare Home Assistant, then either share a device that is already in use, or check the logos on the device, prepare your phone, and add the device with the Android or iOS Companion app. Thread devices need a Thread border router.">
+</object>
 
 Note: The section below mentions third-party Thread border routers such as the Nest Hub (2nd Gen) or the HomePod Mini. This doesn’t mean you have to add your devices to these ecosystems. Home Assistant only uses them to access the Thread radio network. The communication between the Home Assistant Matter controller and your Matter devices is encrypted. The Thread border router passes the data along. It cannot read its content.
 
@@ -298,6 +259,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
 3. Select **Share device**, then in the dialog, select **Share device** again.
    - There is no need to press a hardware button on the device to set it to commissioning mode.
 4. To join the device to the other platform, in their app, scan the QR code or enter the sharing code.
+   - In the Home Assistant Companion app, you can instead select **Add to Apple Home** (iOS) or **Share with app** (Android, `full` flavor only), if shown. This adds the device directly, with its Home Assistant name.
 5. Follow the instructions in their app. Once the process is complete, you can see that the device is shared in Home Assistant:
    - Next to the **Share device** button, select the three dots {% icon "mdi:dots-vertical" %} menu, then **Manage fabrics**.
    - In the list there, the new platform should be listed.

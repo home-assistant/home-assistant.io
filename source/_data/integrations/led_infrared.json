@@ -1,0 +1,23 @@
+{
+  "domain": "led_infrared",
+  "name": "LED Infrared",
+  "integration_type": "device",
+  "codeowners": [
+    "@tr4nt0r"
+  ],
+  "config_flow": true,
+  "iot_class": "assumed_state",
+  "quality_scale": "platinum",
+  "categories": [
+    "lighting"
+  ],
+  "connectivity": [
+    "infrared"
+  ],
+  "platforms": [
+    "button",
+    "diagnostics",
+    "event",
+    "light"
+  ]
+}

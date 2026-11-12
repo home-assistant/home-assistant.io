@@ -7,7 +7,7 @@ related_actions:
   - xiaomi_miio.light_eyecare_mode_on
 ---
 
-The **Light eyecare mode off** action turns off eyecare mode. This action only works with the Philips Eyecare Smart Lamp 2.
+The **Xiaomi Home: Light eyecare mode off** action turns off eyecare mode. This action only works with the Philips Eyecare Smart Lamp 2.
 
 {% include actions/ui_header.md %}
 

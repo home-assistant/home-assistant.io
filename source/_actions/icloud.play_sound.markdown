@@ -9,7 +9,7 @@ related_actions:
   - icloud.update
 ---
 
-The **Play sound** action plays the Lost device sound on one of your Apple devices.
+The **Apple iCloud: Play sound** action plays the Lost device sound on one of your Apple devices.
 
 This is useful for finding a misplaced device. The device rings even when it is set to **Mute** or **Do not disturb**.
 
@@ -75,7 +75,8 @@ device_name:
 
 Use a button helper to ring your phone whenever you misplace it around the house.
 
-- **Trigger**: A button helper is pressed
+- **Trigger**: State changed
+  - **Entity**: Find my phone helper
 - **Action**: Apple iCloud: Play sound
 
 {% details "YAML example for ringing a phone from a button" %}

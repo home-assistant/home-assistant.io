@@ -8,28 +8,22 @@ related_triggers:
   - light.turned_on
 ---
 
-The **Light brightness changed** trigger fires after the brightness of a light {% term entity %} changes by a meaningful amount. Use it to react to fine-grained dimming, like adjusting a fan speed as you brighten the room, or logging changes to a dashboard graph.
+The **Light brightness changed** trigger fires after the brightness of a light {% term entity %} changes. Use it to react to dimming, like adjusting a fan speed as you brighten the room, or logging changes to a dashboard graph. Brightness is measured as a percentage of full brightness, from 0 to 100.
 
-The **threshold** field tells Home Assistant how big a change counts. The trigger only fires when the light's brightness moves by at least that much, which keeps it from firing on every tiny tick from a smooth fade.
+The threshold type controls where the new brightness must land for the trigger to fire. You can require the new brightness to be above a level, below a level, within a range, or outside a range. You can also select **Any change** to fire on every change.
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light brightness changed**.
-5. Under **Targets**, select the light entity, an area, a floor, or a label.
-6. Under **Threshold type**, set how much the brightness has to change before the trigger fires.
-7. Select **Save**.
+{% include triggers/threshold_changed_steps.md
+   title="Light brightness changed"
+   sensor="light"
+   areas="living room or bedroom"
+   unit_phrase_ui="a fixed percentage (0–100%)" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: How much the brightness has to change before the trigger fires, as a percentage of full brightness. Can be a fixed number, or reference a helper entity that provides the value.
-{% endoptions_ui %}
+{% include triggers/threshold_changed_options_ui.md
+   unit_phrase_ui="a fixed percentage (0–100%)" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -41,30 +35,27 @@ trigger: |
   target:
     entity_id: light.living_room
   options:
-    threshold: 10
+    threshold:
+      type: above
+      value:
+        number: 10
 {% endexample %}
 
-This fires whenever the living room light's brightness changes by at least ten percent.
+This fires whenever the living room light's brightness changes to a value above 10%. To fire on any change, use `type: any` and leave out `value`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
-{% options_yaml %}
-threshold:
-  description: >
-    The minimum amount (in percent) the brightness must change before the trigger fires. Accepts a number, or a reference to an `input_number`, `number`, or `sensor` entity with a percent unit.
-  required: false
-  type: any
-{% endoptions_yaml %}
+{% include triggers/threshold_changed_options_yaml.md
+   unit_phrase_yaml="literal percentage 0–100" %}
 
 {% include triggers/targets.md %}
 
 ## Good to know
 
-- The trigger uses absolute percentage change, so a jump from 20% to 30% is the same size as a drop from 80% to 70%.
-- To react only when brightness crosses a fixed line in one direction, use [Light brightness crossed threshold](/triggers/light.brightness_crossed_threshold/) instead.
-- The trigger only fires when the light is on. It does not fire when the light transitions from off to on.
+- The threshold type controls which changes fire the trigger. Use **Above** or **Below** to fire only when the new brightness is above or below a value, **In range** to fire only when it's inside a range, and **Outside range** to fire only when it's outside a range. Use **Any change** to fire on every change.
+- To react only when brightness first crosses a specific level, use [Light brightness crossed threshold](/triggers/light.brightness_crossed_threshold/) instead.
+- A light that is off has no brightness value, so turning a light off does not fire the trigger. Turning a light on does fire the trigger if the new brightness matches the threshold.
+- If you use an entity as the threshold, it must report its value in percent (`%`). An entity with a different unit, or no unit, is ignored and the trigger does not fire.
 
 {% include triggers/try_it.md %}
 
@@ -72,11 +63,11 @@ threshold:
 
 ### Automation: sync a ceiling fan speed to the ceiling light
 
-When you dim the ceiling light down, slow the fan down too. A classic "scene mood" automation that keeps the room coordinated.
+When you dim the ceiling light below 10%, slow the fan down too. A classic "scene mood" automation that keeps the room coordinated.
 
 - **Trigger**: Light brightness changed
-- **Target**: Living room ceiling light
-- **Threshold type**: 10
+  - **Target**: Living room ceiling light
+  - **Threshold type**: Below 10%
 - **Action**: Set fan speed
   - **Target**: Living room fan
   - **Percentage**: `20`%
@@ -91,7 +82,10 @@ automation: |
       target:
         entity_id: light.living_room_ceiling
       options:
-        threshold: 10
+        threshold:
+          type: below
+          value:
+            number: 10
   actions:
     - action: fan.set_percentage
       target:

@@ -1,19 +1,7 @@
 ---
-title: Midea ccm15 AC Controller
 description: Instructions on how to integrate a Midea CCM15 module into Home Assistant.
-ha_category:
-  - Climate
-ha_iot_class: Local Polling
 ha_release: 2024.1
-ha_config_flow: true
-ha_codeowners:
-  - '@ocalvo'
 ha_domain: ccm15
-ha_platforms:
-  - climate
-  - diagnostics
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **CCM15** {% term integration %} allows you to integrate [Midea CCM15](https://mbt.midea.com/hvac-goods/midea-products-category/vrfs/vrf-controller/central-controller-ccm-15) devices in Home Assistant.

@@ -16,7 +16,7 @@ To play a pin from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the device you want to play the pin on.
-6. From the actions shown for that target, select **Play pin**.
+6. From the actions shown for that target, under **Linn / OpenHome**, select **Play pin**.
 7. Set the **Pin ID** of the content you want to play.
 8. Select **Save**.
 
@@ -66,8 +66,12 @@ pin:
 
 When you press a physical button, start your favorite radio pin on the kitchen device to ease into the morning.
 
-- **Trigger**: Button pressed
-- **Action**: Linn / OpenHome: Play pin on the kitchen device
+- **Trigger**: State changed
+  - **Entity**: Kitchen button sensor
+  - **To**: On
+- **Action**: Linn / OpenHome: Play pin
+  - **Target**: Linn kitchen media player
+  - **Pin ID**: `1`
 
 {% details "YAML example for a morning radio pin" %}
 

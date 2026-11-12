@@ -1,21 +1,12 @@
 ---
-title: The Things Network
-description: Instructions for how to integrate The Things Network within Home Assistant.
-ha_category:
-  - Hub
-  - Sensor
+description: Read stored device data from The Things Network in Home Assistant.
 ha_release: 0.55
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@angelnu'
 ha_domain: thethingsnetwork
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_config_flow: true
 ---
 
-The **The Things Network** {% term integration%} allows you to interact with the [The Things Network](https://www.thethingsnetwork.org) from within Home Assistant. This community-driven and open network supports [LoRaWAN](https://www.lora-alliance.org/) for long-range (~5 to 15 km) communication with low bandwidth (51 bytes/message). [Gateways](https://www.thethingsnetwork.org/docs/gateways/) transfer the received data from the sensors to The Things Network.
+The **The Things Network (Cloud Storage)** {% term integration %} creates sensors from decoded payload fields stored by [The Things Network](https://www.thethingsnetwork.org/).
+
+To connect live device traffic through LoRaWAN device integrations, use [The Things Network](/integrations/thethingsnetwork_lorawan/).
 
 The Things Network supports various integrations to make the data available:
 

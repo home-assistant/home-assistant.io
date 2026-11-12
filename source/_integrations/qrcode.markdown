@@ -1,16 +1,10 @@
 ---
-title: QR Code
 description: Instructions on how to integrate QR Code Recognition into Home Assistant.
-ha_category:
-  - Image processing
-ha_iot_class: Calculated
 ha_release: 0.87
 ha_domain: qrcode
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **QR Code** {% term integration %} enables QR code recognition from cameras.

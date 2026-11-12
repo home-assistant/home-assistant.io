@@ -1,20 +1,10 @@
 ---
-title: Azure Service Bus
 description: Setup for Azure Service Bus integration
-ha_category:
-  - Notifications
-ha_iot_class: Cloud Push
 ha_release: 0.102
-ha_codeowners:
-  - '@hfurubotten'
 ha_domain: azure_service_bus
-ha_platforms:
-  - notify
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Azure Service Bus** {% term integration %} allows you to send messages to [Azure Service Bus](https://azure.microsoft.com/products/service-bus/) from within Home Assistant.
@@ -83,8 +73,7 @@ See the example below for how an automation trigger translates to a message on t
 automation:
   - alias: "Sunset Service Bus message"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: notify.test_queue
         data:

@@ -11,7 +11,7 @@ related:
     title: Built-in sentence definitions
   - url: https://github.com/home-assistant/intents/tree/main/responses
     title: Built-in response definitions
-  - url: https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/
+  - url: https://contributors.home-assistant.io/translate/voice/template-syntax/
     title: Template sentence syntax documentation
   - url: https://github.com/home-assistant/intents/tree/main/sentences
     title: Sentence test cases
@@ -19,7 +19,7 @@ related:
     title: Best practices with Assist
 ---
 
-Home Assistant comes with [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) contributed by the community for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
+Home Assistant comes with [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) contributed by the community for [dozens of languages](https://contributors.home-assistant.io/translate/voice/languages/).
 
 ## Prerequisites
 
@@ -184,7 +184,7 @@ The list of supported sentences is constantly being updated for each language. T
         - () mean alternative elements.
         - [] mean optional elements.
         - &lt;&gt; mean an expansion rule. To view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
-        - The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/).
+        - The syntax is explained in detail in the [template sentence syntax documentation](https://contributors.home-assistant.io/translate/voice/template-syntax/).
 4. View the [sentence definition](https://github.com/home-assistant/intents/tree/main/sentences) for your language.
 5. View the [response definition](https://github.com/home-assistant/intents/tree/main/responses)
 6. If there are issues when asking for the weather forecast, check the [troubleshooting section](/voice_control/troubleshooting/) to see common errors.

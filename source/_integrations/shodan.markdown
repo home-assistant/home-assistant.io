@@ -1,20 +1,10 @@
 ---
-title: Shodan
 description: Instructions on how to integrate Shodan sensors into Home Assistant.
-ha_category:
-  - Sensor
-ha_iot_class: Cloud Polling
 ha_release: 0.51
-ha_codeowners:
-  - '@fabaff'
 ha_domain: shodan
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Shodan** {% term integration %} is displaying the total of result of a

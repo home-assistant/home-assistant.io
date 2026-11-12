@@ -59,7 +59,8 @@ This action has no additional YAML options beyond the target.
 
 Toggle a valve whenever you press a physical or dashboard button.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Garden water helper
 - **Action**: Toggle valve
   - **Target**: Garden water valve
 

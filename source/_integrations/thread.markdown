@@ -1,17 +1,6 @@
 ---
-title: Thread
-ha_category:
-  - Other
 ha_release: 2023.2
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: thread
-ha_iot_class: Local Polling
-ha_integration_type: service
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-ha_zeroconf: true
 related:
   - docs: /integrations/matter/
     title: Matter
@@ -188,7 +177,7 @@ Note: the steps and images here show the process with a Google Thread network. B
    - Select **Send credentials to Home Assistant**.
      - **Result**: On Android, you see the message **Imported credential**.
 3. Refresh the screen.
-   - You should now see the {% icon "mdi:information-outline" %} icon, indicating that Home Assistant now has the credentials of that network.
+   - The network's card should now show **Network information**, indicating that Home Assistant now has the credentials of that network.
 4. Select **Make preferred network**.
    - **Result**: The selected network now shows as the preferred network.
 
@@ -301,7 +290,7 @@ The Thread configuration page shows three vendor-specific Thread networks.
 
 These are all separate networks using different credentials. This means devices can't roam between the Thread networks.
 
-The {% icon "mdi:information-outline" %} icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the `home-assistant` network are known.
+A **Network information** row on a network's card indicates that Home Assistant has the credentials for that network. Select it to see the network's details, like its channel and PAN ID. In this case, only the credentials of the `home-assistant` network are known.
 
 Home Assistant discovers all Thread border routers in your network because they send mDNS/DNS-SD announcements. These local announcements don't contain the network credentials. That's why you see the network there, but not the credentials.
 

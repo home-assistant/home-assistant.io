@@ -9,7 +9,7 @@ related_actions:
   - netgear_lte.delete_sms
 ---
 
-The **Connect LTE** action asks your NETGEAR LTE modem to establish its LTE connection. This is useful when the modem does not connect on its own.
+The **NETGEAR LTE: Connect LTE** action asks your NETGEAR LTE modem to establish its LTE connection. This is useful when the modem does not connect on its own.
 
 This is handy when you want to bring the mobile connection online from an automation, for example as a failover when your wired internet connection goes down.
 
@@ -66,7 +66,9 @@ host:
 
 When a connectivity sensor reports that your wired internet is down, ask the modem to connect over LTE.
 
-- **Trigger**: A connectivity sensor turns off
+- **Trigger**: State changed
+  - **Entity**: Internet connection sensor
+  - **To**: Off
 - **Action**: NETGEAR LTE: Connect LTE
 
 {% details "YAML example for connecting LTE on internet loss" %}

@@ -2,6 +2,7 @@
 title: "Get precipitation forecast"
 action: environment_canada.get_precipitation_forecast
 domain: environment_canada
+response: required
 description: "Retrieves the precipitation forecast series for an Environment Canada location."
 related_actions:
   - environment_canada.get_alerts
@@ -10,8 +11,6 @@ related_actions:
 ---
 
 Use this action to retrieve the precipitation forecast series for one of your Environment Canada locations: a short-interval series covering the recent past and the next hour or so, and an hourly series covering up to the next two days. The result is intended for building your own precipitation chart, for example with a template sensor or a custom card.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -98,6 +97,8 @@ hourly_hours:
 
 ## Response data
 
+{% include actions/response.md %}
+
 The response has three keys:
 
 - `nowcast`: A short-interval precipitation rate series, combining recent observed radar with roughly the next hour of radar extrapolation.
@@ -139,7 +140,7 @@ metadata:
 This automation checks the short-interval series every 10 minutes and, if any of the next hour's rates are above zero, notifies you with the upcoming rates so you know rain is about to start without checking the app.
 
 - **Trigger**: Time pattern (every 10 minutes)
-- **Action**: Get precipitation forecast
+- **Action**: Environment Canada: Get precipitation forecast
   - **Precipitation type**: Rain
   - **Past minutes**: 0
   - **Future minutes**: 60
@@ -183,7 +184,8 @@ automation: |
 This automation runs every evening, retrieves the hourly series, and notifies you with the total expected amount, so you can plan for the next day.
 
 - **Trigger**: Time (21:00)
-- **Action**: Get precipitation forecast
+- **Action**: Environment Canada: Get precipitation forecast
+  - **Environment Canada service**: `YOUR_CONFIG_ENTRY_ID`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

@@ -2,6 +2,7 @@
 title: "Track a habit"
 action: habitica.score_habit
 domain: habitica
+response: optional
 description: "Increases the positive or negative streak of a Habitica habit to track its progress."
 ---
 
@@ -15,7 +16,7 @@ To score a habit from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Habitica: Score habit**.
+5. From the search box, search for and select **Habitica: Track a habit**.
 6. Select the **Config entry** of the character, the **Task** to score, and the **Direction**.
 7. Select **Save**.
 
@@ -67,6 +68,10 @@ direction:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

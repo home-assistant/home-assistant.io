@@ -57,7 +57,8 @@ This action has no additional YAML options beyond the target.
 
 Toggle a siren whenever you press a physical or dashboard button.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Entry siren helper
 - **Action**: Toggle siren
   - **Target**: Entry siren
 

@@ -1,0 +1,24 @@
+{
+  "domain": "vegehub",
+  "name": "Vegetronix VegeHub",
+  "integration_type": "hub",
+  "codeowners": [
+    "@thulrus"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "garden_plants"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

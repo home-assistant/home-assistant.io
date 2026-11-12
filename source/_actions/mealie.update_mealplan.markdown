@@ -1,7 +1,8 @@
 ---
-title: Update a meal plan
+title: "Update a mealplan"
 action: mealie.update_mealplan
 domain: mealie
+response: optional
 description: "Update an existing meal plan in Mealie."
 related_actions:
   - mealie.set_mealplan
@@ -13,7 +14,7 @@ related_actions:
 
 Use this action to update an existing meal plan in Mealie. You can plan either a recipe or a meal note.
 
-This action can optionally return the updated meal plan in a response variable, which you can use in later steps of the same automation or script.
+The data it returns is the updated meal plan.
 
 {% include actions/ui_header.md %}
 
@@ -23,7 +24,7 @@ To update a meal plan from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Mealie: Update a meal plan**.
+5. From the search box, search for and select **Mealie: Update a mealplan**.
 6. Select the **Mealie instance** you want to use, and fill in the options you want.
 7. Select **Save**.
 
@@ -101,6 +102,10 @@ note_text:
   required: false
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 ## Good to know
 

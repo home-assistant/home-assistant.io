@@ -1,21 +1,7 @@
 ---
-title: FireServiceRota
 description: Instructions on how to configure the FireServiceRota integration for Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
-  - Switch
-ha_iot_class: Cloud Polling
 ha_release: 2020.12
-ha_codeowners:
-  - '@cyberjunky'
-ha_config_flow: true
 ha_domain: fireservicerota
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - switch
-ha_integration_type: service
 ---
 
 FireServiceRota is a powerful and flexible availability, scheduling and dispatching system for firefighters.

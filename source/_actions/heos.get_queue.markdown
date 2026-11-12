@@ -2,6 +2,7 @@
 title: "Get queue"
 action: heos.get_queue
 domain: heos
+response: required
 description: "Retrieves the play queue of a HEOS media player."
 related_actions:
   - heos.move_queue_item
@@ -19,7 +20,7 @@ To get the queue from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the HEOS media player you want to read.
-6. From the actions shown for that target, select **Get queue**.
+6. From the actions shown for that target, under **Denon HEOS**, select **Get queue**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -43,6 +44,8 @@ This stores the play queue of `media_player.office` in `queue`.
 {% include actions/targets.md domain="media_player" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by the entity ID of each targeted player. For every player, a `queue` list holds the queued items, each with the following fields:
 

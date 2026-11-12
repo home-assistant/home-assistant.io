@@ -5,7 +5,7 @@ domain: immich
 description: "Uploads a file to your Immich instance."
 ---
 
-The **Upload file** action sends a media file, such as a photo or video, to your Immich instance. Optionally, you can place the uploaded file directly into one of your albums.
+The **Immich: Upload file** action sends a media file, such as a photo or video, to your Immich instance. Optionally, you can place the uploaded file directly into one of your albums.
 
 {% include actions/ui_header.md %}
 

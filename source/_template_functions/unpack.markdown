@@ -22,12 +22,12 @@ This function is primarily useful for IoT and low-level device communication. Ma
 {% include template_functions/usage.md %}
 
 {% template_function_usage %}
-function: '{{ unpack(b"\x04\xd2", ">H") }}'
+function: '{{ unpack("04d2" | from_hex, ">H") }}'
 type: integer
 output: "1234"
 
 ---
-filter: '{{ b"\x04\xd2" | unpack(">H") }}'
+filter: '{{ "04d2" | from_hex | unpack(">H") }}'
 type: integer
 output: "1234"
 {% endtemplate_function_usage %}
@@ -70,7 +70,7 @@ offset:
 When the value you need is embedded within a larger byte sequence, use the `offset` parameter to skip to the right position.
 
 {% example %}
-template: '{{ b"\x00\x00\x04\xd2" | unpack(">H", offset=2) }}'
+template: '{{ "000004d2" | from_hex | unpack(">H", offset=2) }}'
 type: integer
 output: "1234"
 {% endexample %}

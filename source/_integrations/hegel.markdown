@@ -1,19 +1,7 @@
 ---
-title: Hegel Amplifier
 description: Instructions on integrating Hegel amplifiers into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 2026.3
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@boazca'
 ha_domain: hegel
-ha_platforms:
-  - media_player
-ha_ssdp: true
-ha_quality_scale: silver
-ha_integration_type: device
 ---
 
 The **Hegel** {% term integration %} allows you to control your [Hegel Music Systems](https://www.hegel.com/) amplifiers from Home Assistant. It uses Hegel's official IP control protocol over TCP and supports real-time push updates for a responsive experience.

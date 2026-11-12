@@ -83,9 +83,11 @@ code:
 
 If you want a smoother arrival, Home Assistant can unlock the front door when you get home. This automation unlocks the door when your person entity changes to home.
 
-- **Trigger**: Person changes to home
+- **Trigger**: State changed
+  - **Entity**: Alex person
+  - **To**: Home
 - **Action**: Unlock lock
-- **Target**: Front door lock
+  - **Target**: Front door lock
 
 {% details "YAML example for unlocking the front door on arrival" %}
 
@@ -108,9 +110,11 @@ automation: |
 
 If you want to remove one step during an emergency, Home Assistant can unlock the front door when smoke is detected. This automation unlocks the door as soon as a smoke sensor reports smoke.
 
-- **Trigger**: Smoke detected
+- **Trigger**: State changed
+  - **Entity**: Hall smoke sensor
+  - **To**: Detected
 - **Action**: Unlock lock
-- **Target**: Front door lock
+  - **Target**: Front door lock
 
 {% details "YAML example for unlocking a door during a smoke alarm" %}
 

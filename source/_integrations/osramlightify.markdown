@@ -1,18 +1,10 @@
 ---
-title: Osramlightify
 description: Instructions on how to integrate Osram Lightify into Home Assistant.
-ha_category:
-  - Light
 ha_release: 0.21
-ha_iot_class: Local Polling
 ha_domain: osramlightify
-ha_platforms:
-  - light
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Osramlightify** {% term integration %} allows you to integrate your [Osram Lightify](https://www.osram.com/cb/lightify/index.jsp) into Home Assistant.

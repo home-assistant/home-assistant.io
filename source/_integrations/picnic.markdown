@@ -1,19 +1,7 @@
 ---
-title: Picnic
 description: How to set up and use the Picnic integration in Home Assistant.
-ha_category:
-  - Other
 ha_release: 2021.5
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@corneyl'
-  - '@codesalatdev'
 ha_domain: picnic
-ha_platforms:
-  - sensor
-  - todo
-ha_integration_type: service
 ---
 
 The **Picnic** {% term integration %} allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.
@@ -22,7 +10,7 @@ The **Picnic** {% term integration %} allows one to get information from [Picnic
 
 ## Sensors
 
-This integration provides the following sensors. Some sensors are disabled by default when adding the integration.
+This integration provides the following sensors. Some sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) when adding the integration.
 
 | Name                           | Description                                                                                                                                         |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
