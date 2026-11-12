@@ -607,7 +607,9 @@ Features:
 
 This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
 
-It exposes two light entities that you can control independently. You can turn on either one on its own or use both at the same time.
+It exposes a master light entity and two independently controlled sub-light entities. The master entity only provides an on/off control. Turning it off switches off both sub-lights. Turning it on restores the previous light combination instead of forcing both sub-lights on. The master entity is on whenever either sub-light is on, and off when both are off.
+
+You can turn on either sub-light on its own or use both at the same time. Changing one sub-light does not change the other.
 
 Main light (warm white) features:
 
