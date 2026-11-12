@@ -87,15 +87,15 @@ The binary sensor turns on when your region gets a warning, so you can use it to
 
 Get a notification on your phone when your region gets a weather warning, with its headline, description and timing.
 
-- **Trigger**: Entity: State
+- **Trigger**: State changed
   - **Entity**: Your MeteoAlarm binary sensor
   - **From**: Off
   - **To**: On
-- **Action**: Notifications: Send a notification message
+- **Action**: Send a notification message
   - **Target**: Your phone
   - **Title** and **Message**: Templates that read the sensor's `headline`, `description`, `onset` and `expires` attributes, as in the YAML example below.
 
-Using **From**: Off means you get one notification for each new warning, and none when the sensor comes back from unavailable while the same warning is still current.
+Using **From**: Off means you're notified when your region goes from no warnings to at least one. You aren't notified again for more warnings while the sensor is already on, or when the sensor comes back from unavailable while a warning is still current.
 
 {% details "YAML example for a new warning notification" %}
 
