@@ -43,7 +43,7 @@ Prerequisites:
 
 To talk through a camera:
 
-1. Open the live stream of the camera.
+1. Open the more-info dialog of the camera.
    For example, select the camera on your dashboard.
 2. Below the live stream, select **Start talking**.
    The first time you do this, your browser or app asks for permission to use the microphone.
