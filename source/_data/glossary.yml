@@ -31,6 +31,14 @@
     An entity that receives a control signal and performs an action in a system.
   aliases:
     - actors
+- term: AI tool
+  definition: >-
+    A function that conversation agents and AI apps can use to read information, control entities, or manage Home Assistant.
+
+    AI tools are grouped into sets. Each set provides different functionality. Some sets only work for administrators.
+  aliases:
+    - AI tools
+  link: /integrations/llm/
 - term: App
   definition: >-
     Apps, formerly known as add-ons, are additional standalone third-party software packages that can be
