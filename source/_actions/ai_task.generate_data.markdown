@@ -4,6 +4,7 @@ action: ai_task.generate_data
 domain: ai_task
 description: "Uses AI to run a task that generates data, such as text or structured output."
 related_actions:
+  - ai_task.evaluate
   - ai_task.generate_image
 ---
 

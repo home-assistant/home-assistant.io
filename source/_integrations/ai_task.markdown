@@ -4,7 +4,7 @@ ha_release: '2025.7'
 ha_domain: ai_task
 ---
 
-The **AI Task** {% term integration %} allows you to use AI to help you configure Home Assistant.
+The **AI Task** {% term integration %} allows you to use AI to generate text, structured data, and images, or to [evaluate questions](/actions/ai_task.evaluate/) about information you provide.
 
 {% include integrations/building_block_integration.md %}
 
