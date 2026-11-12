@@ -82,7 +82,7 @@ Service tier:
 Pro mode:
   description: Perform more model work to improve reliability on difficult tasks and return a single final answer. Enable it when quality matters more than latency and token usage. Pro mode aggregates the model work performed to produce the final answer and bills those tokens at the selected model’s standard token rates. Pro mode performs more model work than standard mode, increasing token usage and cost. This parameter is only applicable to GPT-5.6 and above; existing Pro model IDs keep their current behavior and pricing.
 Enable web search:
-  description: Enable the OpenAI-provided [web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Conversation and AI Task subentries offer this option for supported models. Web search and code interpreter can be enabled together for AI tasks, including tasks with structured output.
+  description: Enable the OpenAI-provided [web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Conversation and AI Task subentries offer this option for supported models. Web search and code interpreter can be enabled together for AI tasks, including tasks with structured output. Not available when the **Reasoning effort** option is set to **Minimal**.
 Search context size:
   description: The search is performed with a separate fine-tuned model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#built-in-tools). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
 Include home location:
@@ -90,7 +90,7 @@ Include home location:
 Include links in web search results:
   description: If enabled, answers can include links to the web pages that the search used. If disabled, the model is asked not to include source citations. Disabled by default.
 Enable code interpreter tool:
-  description: Allows the model to run Python code to answer questions. Disabled by default. Not available for some models, for example, `gpt-5-pro` and the Codex models.
+  description: Allows the model to run Python code to answer questions. Disabled by default. Not available for some models, for example, `gpt-5-pro` and the Codex models. Also not available when the **Reasoning effort** option is set to **Minimal**.
 Reasoning effort:
   description: How much the model reasons before it answers. More reasoning can improve answers to difficult questions, but takes longer and uses more tokens. Only available for reasoning models, such as the `o` series, `gpt-5`, and `gpt-6`, but not for `gpt-5-pro`. The choices depend on the model, and include **None**, **Minimal**, **Low**, **Medium**, **High**, **X-High**, and **Max**. The default is **Low**.
 Reasoning summary:
@@ -136,8 +136,6 @@ You can use the OpenAI integration to [talk to Super Mario and, if desired, have
 ## Known limitations
 
 - Some older models are not supported, for example, `o1-mini`, `o1-preview`, and the realtime preview models. If you select one of them, Home Assistant shows **This model is not supported, please select a different model**.
-- Web search and the code interpreter don't work when **Reasoning effort** is set to **Minimal**.
-- Some models don't support web search, image generation, or the code interpreter. For these models, the related options aren't shown.
 
 ## Troubleshooting
 
