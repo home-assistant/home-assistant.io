@@ -60,6 +60,19 @@
   aliases:
     - areas
   link: /docs/organizing/areas/
+- term: Assist
+  definition: >-
+    The voice assistant built into Home Assistant.
+
+    You can talk or type to Assist in Home Assistant and in the Home Assistant Companion app. You can also talk to it on a voice satellite. You can set up several assistants, each with its own language and conversation agent.
+  link: /voice_control/
+- term: Assistant
+  definition: >-
+    A configuration of Assist with its own name, language, and conversation agent.
+
+    An assistant can also use speech-to-text to understand spoken commands and text-to-speech to reply out loud.
+  aliases:
+    - assistants
 - term: Automation
   definition: >-
     Automations connect one or more triggers to one or more actions in a 'when
@@ -705,6 +718,13 @@
     Variables are used to store values in memory that can be processed for
     example, in a script.
   link: /building-blocks/variables/
+- term: Voice satellite
+  definition: >-
+    A standalone device with a microphone that you use to talk to Assist.
+
+    Some voice satellites also have a speaker to play Assist's replies. Unlike a browser or the Home Assistant Companion app, a voice satellite isn't signed in to a user account. This means Home Assistant can't tell who is speaking. Each voice satellite uses at least one assistant.
+  aliases:
+    - voice satellites
 - term: YAML
   definition: >-
     YAML is a human-readable data serialization language. It is used to store and transmit data in a structured format. In Home Assistant, YAML is used for configuration, for example in the `configuration.yaml` or `automations.yaml` files.
