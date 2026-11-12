@@ -164,7 +164,7 @@ The water sensor may be missing its water meter scale. To set it:
 
 1. In the Powersensor app, open the water sensor's device screen.
 2. Set the **Water meter scale**.
-
+{% enddetails %}
 ## Removing a device
 
 To remove a plug or sensor you no longer use from Home Assistant:
