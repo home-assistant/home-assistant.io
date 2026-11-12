@@ -27,11 +27,11 @@ You choose the sets in the **AI tools** option of each conversation agent. For e
 
 ## Adding the Home Assistant AI tools to your conversation agent
 
-Use this procedure if only administrators use your conversation agent. For example, they use it in Assist in Home Assistant or in the [Home Assistant Companion app](https://companion.home-assistant.io/). There, each request comes from the user account that is signed in.
+Use this procedure if only administrators use your conversation agent. For example, they use it in {% term Assist %} in Home Assistant or in the [Home Assistant Companion app](https://companion.home-assistant.io/). There, each request comes from the user account that is signed in.
 
 Afterwards, the conversation agent you already use can also look into Home Assistant itself. For example, you can ask it why an integration isn't working, or which errors are in the logs.
 
-The conversation agent then only works for administrators. Requests from a voice satellite, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user, so they fail. Requests from users who aren't administrators fail too. This also stops **Device control** on this conversation agent. If voice satellites or users who aren't administrators use your assistant, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, set up a separate assistant instead. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
+The conversation agent then only works for administrators. Requests from a {% term "voice satellite" %}, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user, so they fail. Requests from users who aren't administrators fail too. This also stops **Device control** on this conversation agent. If voice satellites or users who aren't administrators use your assistant, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, set up a separate assistant instead. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
 
 Prerequisites:
 
@@ -53,7 +53,7 @@ To add the Home Assistant AI tools to your conversation agent, follow these step
 
 ## Setting up a separate assistant for the Home Assistant AI tools
 
-Use this procedure if voice satellites or users who aren't administrators use your assistant. An assistant is what you talk to in Assist and on a voice satellite. You find your assistants under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, and each one uses a conversation agent.
+Use this procedure if voice satellites or users who aren't administrators use your {% term assistant %}. An assistant is what you talk to in Assist and on a voice satellite. You find your assistants under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, and each one uses a conversation agent.
 
 Requests from a voice satellite, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user. Requests from users who aren't administrators can't use the Home Assistant AI tools either. So you leave your current assistant as it is. Instead, you add a conversation agent with the Home Assistant AI tools, and a new assistant that uses it.
 
