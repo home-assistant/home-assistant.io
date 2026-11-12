@@ -92,7 +92,7 @@ Only compatible statistics are available for selection.
 
 The power sensor adds real-time and historical power views to the dashboard. The energy totals work without it.
 
-If your energy provider uses multiple tariffs, add one grid connection per tariff, each with its own energy consumed and energy returned statistics. Because a power sensor measures your whole meter, you only need to add it to one of the connections. The same power sensor can't be used on more than one grid connection.
+If your energy provider uses multiple tariffs, add one grid connection per tariff, each with its own energy consumed statistic and, if applicable, energy returned statistic. Because a power sensor measures your whole meter, you only need to add it to one of the connections. The same power sensor can't be used on more than one grid connection.
 
 ### Troubleshooting
 
