@@ -93,8 +93,8 @@ The **Home Assistant** set of tools contains the following tools. Each entry sta
 
 ## Known limitations
 
-- Only administrators can use the Home Assistant LLM tools. Requests without an administrator account fail. For example, requests from a voice assistant device, or from a user who isn't an administrator. This also stops **Device control** on that conversation agent, because the agent can't prepare any of its sets of tools.
-- The **Home Assistant Cloud** conversation agent of [Home Assistant Cloud](/integrations/cloud/) can't use the Home Assistant LLM tools. It always uses **Device control**.
+- Only administrators can use the Home Assistant AI tools. Requests without an administrator account fail. For example, requests from a voice assistant device, or from a user who isn't an administrator. This also stops **Device control** on that conversation agent, because the agent can't prepare any of its sets of tools.
+- The **Home Assistant Cloud** conversation agent of [Home Assistant Cloud](/integrations/cloud/) can't use the Home Assistant AI tools. It always uses **Device control**.
 - **Get history** returns statistics, not individual state changes. Entities without statistics have no history for this tool. For example, a switch or a sensor without a [state class](/integrations/sensor/#state-class). For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
 - In {% term "Home Assistant Container" %} installations, and in other installations without the Supervisor, **Get logs** needs the Home Assistant log file. If Home Assistant doesn't write a log file, this tool isn't available. For example, the `HA_DISABLE_LOG_FILE` environment variable turns off the log file.
 - **Get logs** masks values that look like credentials, such as tokens, passwords, and API keys. It can't recognize every credential, so other secrets in your logs can still reach the AI provider.
