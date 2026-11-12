@@ -19,7 +19,7 @@ There is currently support for the following device types within Home Assistant:
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
-It currently supports presenting the current temperature, the setting temperature, and the current operation mode. The operation mode can be set to manual, auto, and off. If no user is at home anymore, all Tado zones show the away-state (only with Tado Auto-Assist). For the steps on how to change the presence mode, refer to [Changing the presence mode](#changing-the-presence-mode).
+It currently supports presenting the current temperature, the setting temperature, and the current operation mode. The operation mode can be set to manual, auto, and off. If no user is at home anymore, all Tado zones show the away-state (only with Tado Auto-Assist). Refer to [Changing the presence mode](#changing-the-presence-mode) for the steps.
 
 {% include integrations/config_flow.md %}
 
@@ -51,7 +51,7 @@ New Tado X devices are not supported by this integration, they have to be used t
 You can change the presence mode for your entire Tado home from any Tado climate entity:
 
 1. Go to **Settings** > **Devices & services** > **Tado**, and select one of the Tado climate entities to open its dialog.
-2. Find the **Preset** control.
+2. Select the **Preset** control.
 3. Select **Home** or **Away**. If your Tado account supports automatic geofencing (Tado Auto-Assist), you can also select **Auto**.
 
 The selected presence mode applies to the entire Tado home, not only to the zone represented by the climate entity.
