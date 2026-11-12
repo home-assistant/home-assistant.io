@@ -411,7 +411,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
   content: |
 
     ```bash
-    virt-install --name haos --description "Home Assistant OS" --os-variant=generic --ram=4096 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=scsi --controller type=scsi,model=virtio-scsi --import --graphics none --boot uefi
+    virt-install --name haos --description "Home Assistant OS" --os-variant=generic --ram=4096 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=scsi --controller type=scsi,model=virtio-scsi --import --graphics none --boot uefi,firmware.feature0.name=secure-boot,firmware.feature0.enabled=no
     ```
 
     {% icon "mdi:alert-outline" %} If you have a USB
@@ -432,7 +432,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
     You can recognize the Sonoff dongle at `Bus 003 Device 003`. So the command to install the VM will become:
 
     ```bash
-    virt-install --name haos --description "Home Assistant OS" --os-variant=generic --ram=4096 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=scsi --controller type=scsi,model=virtio-scsi --import --graphics none --boot uefi --hostdev 003.003
+    virt-install --name haos --description "Home Assistant OS" --os-variant=generic --ram=4096 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=scsi --controller type=scsi,model=virtio-scsi --import --graphics none --boot uefi,firmware.feature0.name=secure-boot,firmware.feature0.enabled=no --hostdev 003.003
     ```
 
     Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID.
