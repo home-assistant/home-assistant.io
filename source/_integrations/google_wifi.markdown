@@ -16,7 +16,7 @@ The **Google Wifi** {% term integration %} lets you monitor the status of a [Goo
 
 ## Configuration
 
-This integration is configured using YAML. Add the following to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following lines to your {% term "configuration.yaml" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,11 +58,13 @@ monitored_conditions:
 
 ### Sensors
 
-- **Current version**: The firmware version installed on the router.
-- **New version**: The latest firmware version available. Reports `Latest` when the router is up to date.
-- **Last restart**: The date and time when the router last restarted.
-- **Local IP**: The IP address reported for the router's WAN connection.
-- **Status**: Whether the router is online or offline.
+The sensor names start with the value of `name` (default `google_wifi`), followed by the condition:
+
+- **google_wifi_current_version**: The firmware version installed on the router.
+- **google_wifi_new_version**: The latest firmware version available. Reports `Latest` when the router is up to date.
+- **google_wifi_last_restart**: The date and time when the router last restarted.
+- **google_wifi_local_ip**: The IP address of the router's WAN connection.
+- **google_wifi_status**: Whether the router is `Online` or `Offline`.
 
 ## Data updates
 
