@@ -24,8 +24,11 @@ Devices running firmware <8129 are not supported and should be upgraded, though 
 
 Before setting up this integration, make sure that the following criteria are met:
 
-- Your Powersensor devices are powered on and connected to the same Wi-Fi network as Home Assistant
-  - Please note: Installing Powersensor devices in your home requires the mobile app which provides step-by-step instructions on initial configuration. This is only required for initial set up. Once your devices are connected to Wi-Fi, the Home Assistant integration should work regardless of whether or not you subsequently delete the mobile app from your devices.
+- Your Powersensor plugs are powered on and connected to Wi-Fi, on the same network as Home Assistant
+- Your Powersensor sensors are within range of at least one plug
+  - Sensors don't send their data over your local network. They send it over Bluetooth to a nearby plug, which relays it to Home Assistant.
+- Your plugs and sensors are set up in the Powersensor mobile app
+  - The app guides you through installing your plugs and sensors. Home Assistant doesn't use the app, so the integration keeps working even if you delete it afterwards. You still need the app to make changes to your installation, such as adding a sensor or reinstalling one to measure something else.
 - Your devices are running firmware 8129 or later (check via the Powersensor mobile app)
 - UDP and multicast traffic are allowed between Home Assistant and your Powersensor plugs
   - Home Assistant finds your plugs using mDNS, which relies on multicast. If your network blocks multicast, for example between separate VLANs, Home Assistant can't discover your plugs.
@@ -43,7 +46,7 @@ Some older sensors (revision 6) can lose their role, for example when their batt
 3. Select the **Role** of the sensor shown, then select **Next** to move to the next sensor.
 4. For the last sensor, select **Submit**. Home Assistant reloads the integration to apply the new roles.
 
-A role that a sensor reports always takes priority. If a sensor reports a different role, it replaces the one you set here. To change the role of a sensor that reports its own, use the Powersensor app.
+A role that a sensor reports always takes priority. If a sensor reports a different role, it replaces the one you set here. To change the role of a sensor that reports its own, remove the sensor from your installation in the Powersensor app, then install it again with the new role.
 
 You can reconfigure the integration once it has found at least one sensor.
 
@@ -143,7 +146,7 @@ This integration does not provide any custom actions.
 - The household view only calculates figures while all of its sensors are reporting. If your mains or solar sensor stops reporting, the household view entities keep their last values and stop updating until it reports again. If your home no longer has solar, for example after you move, set up your plugs and sensors again in the Powersensor app, then remove the integration and add it again.
 - The integration supports one Powersensor installation per network. An installation has one mains sensor and at most one solar sensor, and Home Assistant can't tell which installation a plug or sensor belongs to. If your network has more than one mains or solar sensor, because it has more than one installation or an installation isn't set up correctly, the household view combines readings from the wrong sensors and shows incorrect figures. Each sensor's own entities still show correct values. To fix this, factory reset the installation and set it up again in the Powersensor app.
 - Changing a sensor's role doesn't remove the entities that belonged to its previous role. Role changes are often temporary, and removing those entities would also remove their recorded history. After Home Assistant restarts, entities that no longer match the sensor's role show as unavailable, and you can delete the ones you no longer need.
-- A role you set in Home Assistant is replaced as soon as the sensor reports a role itself. To change the role of a sensor that reports its own, use the Powersensor app.
+- A role you set in Home Assistant is replaced as soon as the sensor reports a role itself. To change the role of a sensor that reports its own, remove the sensor from your installation in the Powersensor app, then install it again with the new role.
 - Sensors aren't linked to a specific plug in Home Assistant. Any plug within range can relay a sensor's data, and a sensor moves to another plug when it can't reach its current one. If you remove a plug, its sensors can take a few hours to find another plug, and their entities are unavailable until they do.
 - The battery level is estimated from the battery's voltage, so it's approximate.
 
