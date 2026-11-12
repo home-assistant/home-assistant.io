@@ -111,12 +111,12 @@ When you talk to a conversation agent, it doesn't do what you asked. Instead, it
 
 The conversation agent couldn't prepare its sets of tools. This happens in the following situations:
 
-- The conversation agent has the Home Assistant LLM tools, and the request doesn't come from an administrator. For example, it comes from a voice assistant device, or from a user who isn't an administrator. In this case, **Device control** doesn't work on this conversation agent either.
+- The conversation agent has the Home Assistant AI tools, and the request doesn't come from an administrator. For example, it comes from a voice assistant device, or from a user who isn't an administrator. In this case, **Device control** doesn't work on this conversation agent either.
 - A set of tools that the conversation agent uses no longer exists. For example, because you removed the integration that added it.
 
 #### Resolution
 
-The Home Assistant LLM tools only work for administrators. You can't make them available to other users or to voice assistant devices. If a voice assistant device or a user who isn't an administrator uses this conversation agent, remove the Home Assistant LLM tools from it:
+The Home Assistant AI tools only work for administrators. You can't make them available to other users or to voice assistant devices. If a voice assistant device or a user who isn't an administrator uses this conversation agent, remove the Home Assistant AI tools from it:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration of your AI service.
 2. In the row of the conversation agent, select **Reconfigure conversation agent** {% icon "mdi:cog-outline" %}.
@@ -126,7 +126,7 @@ The Home Assistant LLM tools only work for administrators. You can't make them a
 4. Select **Submit**. If the dialog shows more options, select **Submit** again.
    - Result: The conversation agent controls your devices again, for everyone who uses it.
 
-To keep using the Home Assistant LLM tools yourself, add a second conversation agent, and give it the Home Assistant LLM tools. For the steps, refer to [Giving a conversation agent the Home Assistant LLM tools](#giving-a-conversation-agent-the-home-assistant-llm-tools). Use this second conversation agent in its own assistant, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}. Don't use that assistant on your voice assistant devices. Other users can also select it in the Assist dialog, but it only works for administrators.
+To keep using the Home Assistant AI tools yourself, add a second conversation agent, and give it the Home Assistant AI tools. For the steps, refer to [Giving a conversation agent the Home Assistant AI tools](#giving-a-conversation-agent-the-home-assistant-ai-tools). Use this second conversation agent in its own assistant, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}. Don't use that assistant on your voice assistant devices. Other users can also select it in the Assist dialog, but it only works for administrators.
 
 If you removed the integration that added a set of tools, open the settings of the conversation agent, as described in steps 1 and 2 above. Then, select **Submit**. If the dialog shows more options, select **Submit** again. The settings only show the sets of tools that still exist, so saving them removes the missing set.
 
@@ -134,9 +134,9 @@ If you removed the integration that added a set of tools, open the settings of t
 
 {% details "Get history: “No statistics are recorded for this entity”" %}
 
-### Symptom: The assistant can't tell you the past values of an entity
+### Symptom: The AI assistant can't tell you the past values of an entity
 
-You ask the assistant about the past values of an entity, and it can't answer. Under **Show details** in the Assist dialog, the result of `history__get_history` says "No statistics are recorded for this entity."
+You ask the AI assistant about the past values of an entity, and it can't answer. Under **Show details** in the Assist dialog, the result of `history__get_history` says "No statistics are recorded for this entity."
 
 #### Description
 
