@@ -1,0 +1,283 @@
+---
+// A feature of a Connect product: an icon in a Connect-blue ring, a
+// title and a short description, on a dark card whose background and
+// Connect-blue border fade out towards the bottom. A comet of light
+// sweeps around the border on hover (src/lib/shimmer.ts). The icon sits
+// above the text on phones and beside it from the desk width.
+//
+// Built from the "Card" frames in the Figma file "Connect AUX-2"
+// (desktop node 2234:16581, mobile node 2119:5260), not ported from
+// Jekyll.
+//
+// The fading border is the ZBT-2 page's (see
+// src/styles/_fade-border.scss), fading from the top. On hover the ring
+// around the icon turns white with the shimmer. The icon itself does
+// not move on hover (the bounce felt random); icons that animate do so
+// inside their own SVG files and play while the pointer is over the
+// card (`animated`: Clelia's, in "Audio and so much more" and "Deep
+// control with serial").
+//
+// `large` is the variant of "Incredible audio" (nodes 2022:8454 and
+// 2022:8461): a large blue line icon without a ring above a 28px title,
+// at every width. With `beside` (the "Incredible audio" cards, Figma's
+// "Mobile Grid", node 2955:1722) the icon sits beside the title and
+// text instead, at every width, 40px wide with a 20px gap, so the cards
+// take less height. The `media` slot adds an illustration below the
+// text (across the card, below the icon too, with `beside`).
+// With `href` the whole card is a link (to the section of the page that
+// tells more about the feature).
+//
+// Deliberate differences from the Figma file:
+//   - The "Audio and so much more" and "Deep control with serial"
+//     icons animate (Clelia's). TODO: the "Incredible audio" (`large`)
+//     icons animate in Figma too; when they arrive, prepare them like
+//     whole-home-audio.svg (white, every ID and keyframe name prefixed
+//     with `icon-<file name>-` as it is inlined, a reduced-motion
+//     rule) and make the hover rule below cover large cards, which
+//     have no ring around the icon.
+//   - Spacing snaps to the theme: 20px card padding on phones is 24px,
+//     the 6px gap on phones is 8px, and both sizes use the 16px radius
+//     (Figma: 12px on phones).
+import type { ImageMetadata } from "astro";
+import "../../../styles/shimmer.scss";
+
+interface Props {
+  // A 14px white line icon (src/assets/connect/icons/), or for `large`
+  // cards a 53px wide blue one.
+  icon: ImageMetadata;
+  title: string;
+  large?: boolean;
+  // For `large`: the icon beside the text.
+  beside?: boolean;
+  // The icon is an animated SVG (its animation is CSS inside the
+  // file): it is inlined, still at rest and plays from the start while
+  // the pointer is over the card.
+  animated?: boolean;
+  // Makes the card a link, such as "#serial".
+  href?: string;
+}
+
+const {
+  icon,
+  title,
+  large = false,
+  beside = false,
+  animated = false,
+  href,
+} = Astro.props;
+const Card = href ? "a" : "article";
+const Ring = large ? Fragment : "span";
+// An imported SVG is also a component that inlines it.
+const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
+---
+
+<Card
+  class:list={[
+    "connect-feature-card",
+    { large, beside: large && beside, "has-media": Astro.slots.has("media") },
+  ]}
+  href={href}
+  data-shimmer="hover"
+>
+  <Ring class={large ? undefined : "ring"}>
+    {
+      animated ? (
+        <Icon class="animated-icon" aria-hidden="true" />
+      ) : (
+        <img src={icon.src} width={icon.width} height={icon.height} alt="" />
+      )
+    }
+  </Ring>
+  <div class="text">
+    <h3>{title}</h3>
+    <p><slot /></p>
+  </div>
+  {Astro.slots.has("media") && <div class="media"><slot name="media" /></div>}
+</Card>
+
+<script>
+  import { initShimmer } from "../../../lib/shimmer";
+
+  initShimmer();
+</script>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/fade-border" as *;
+
+  .connect-feature-card {
+    background: linear-gradient(rgb(0 19 38 / 80%) 17%, rgb(0 0 0 / 80%));
+    border-radius: var(--radius-medium);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-heading);
+    gap: var(--space-small);
+    padding: var(--space-medium) var(--space-xlarge);
+    text-decoration: none;
+    @include fade-border(180deg);
+  }
+
+  .ring {
+    align-items: center;
+    border: 1px solid var(--color-connect-line);
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex: none;
+    height: 2rem;
+    justify-content: center;
+    transition: border-color 0.3s ease;
+    width: 2rem;
+
+    /* An animated icon holds still until the pointer is over the card
+       (or, on touch screens, the card scrolls through the middle of the
+       screen: .is-active), then plays from the start (the animations
+       are the SVG's own). */
+    .connect-feature-card:not(:hover, :global(.is-active)) > & :global(.animated-icon *) {
+      animation: none !important;
+    }
+
+    :global(.animated-icon) {
+      display: block;
+    }
+
+    /* White with the shimmer, while the pointer is over the card (or it
+       is .is-active on a touch screen). */
+    .connect-feature-card:is(:hover, :global(.is-active)) > & {
+      border-color: var(--color-text-inverse);
+    }
+
+  }
+
+  h3,
+  p {
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  h3 {
+    color: var(--color-text-inverse);
+    font-size: var(--font-size-large);
+    font-weight: 500;
+    padding-block: var(--space-small);
+  }
+
+  p {
+    color: var(--color-text-inverse-muted);
+    font-size: var(--font-size-small);
+    padding-block: var(--space-xsmall);
+  }
+
+  .large {
+    gap: 0;
+
+    > img {
+      height: auto;
+      margin-bottom: var(--space-small);
+      width: 2.5rem;
+    }
+
+    h3 {
+      font-size: var(--font-size-xxlarge);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      padding-block: var(--space-medium);
+    }
+
+    p {
+      font-size: var(--font-size-medium);
+    }
+  }
+
+  .media {
+    margin-top: var(--space-xlarge);
+  }
+
+  /* The icon in a 40px column beside the title and text, in a box as
+     tall as the title's line, centred on it whatever the icon's shape
+     (the Sendspin logo is squarer, the Music Assistant one square). The
+     media goes across both columns, in the middle of the space below
+     the text when the card is stretched taller than its content.
+     Figma's 24px × 20px padding. */
+  .beside {
+    column-gap: 1.25rem;
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    padding: var(--space-xlarge) 1.25rem;
+
+    > img {
+      height: calc(var(--font-size-xxlarge) + 2 * var(--space-medium));
+      margin-bottom: 0;
+      object-fit: contain;
+      width: 2.5rem;
+    }
+
+    /* Centred between the text and the card's bottom edge: the bottom
+       margin and the card's padding add up to the top margin. */
+    > .media {
+      align-self: center;
+      grid-column: 1 / -1;
+      margin-block: var(--space-xxlarge)
+        calc(var(--space-xxlarge) - var(--space-xlarge));
+    }
+  }
+
+  .beside.has-media {
+    grid-template-rows: auto 1fr;
+  }
+
+  @media only screen and (min-width: breakpoints.$connect-desk) {
+    .connect-feature-card {
+      flex-direction: row;
+      gap: var(--space-medium);
+      padding: var(--space-xlarge) var(--space-xxlarge);
+    }
+
+    .large {
+      flex-direction: column;
+      gap: 0;
+
+      > img {
+        width: 3.3125rem;
+      }
+
+      h3 {
+        font-size: var(--font-size-heading);
+      }
+
+      p {
+        font-size: var(--font-size-large);
+      }
+    }
+
+    /* Figma's 28px title over 16px text; the card with media keeps
+       Figma's 40px side padding. */
+    .beside {
+      column-gap: 1.25rem;
+      padding: var(--space-xlarge) 1.25rem;
+
+      > img {
+        height: calc(var(--font-size-heading) + 2 * var(--space-medium));
+        width: 2.5rem;
+      }
+    }
+
+    .beside.has-media {
+      padding-inline: var(--space-xxlarge);
+    }
+
+    .ring {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+
+    h3 {
+      font-size: var(--font-size-xlarge);
+    }
+
+    p {
+      font-size: var(--font-size-large);
+    }
+  }
+</style>

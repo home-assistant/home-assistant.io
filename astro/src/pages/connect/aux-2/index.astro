@@ -1,0 +1,1243 @@
+---
+// Product page for the Home Assistant Connect AUX-2, built from the
+// Figma file "Connect AUX-2" (page "V01", frame "Desktop", node
+// 2002:26211). Copy follows "Connect AUX-2 - Website copy.docx".
+//
+// Not served at /connect/aux-2/ yet: like every Astro page outside
+// served-routes.json, it is only published under /astro-preview/.
+//
+// TODO: the product photos are placeholders exported from the Figma
+// file (src/assets/connect/aux-2/), cropped to the area each Figma
+// frame shows. Replace them with the final photos before launch.
+import { Image } from "astro:assets";
+import ArtDirectedImage from "../../../components/ArtDirectedImage.astro";
+import Site from "../../../layouts/Site.astro";
+import BuyDialog from "../../../components/BuyDialog.astro";
+import AutoplayVideo from "../../../components/AutoplayVideo.astro";
+import NoBreak from "../../../components/NoBreak.astro";
+import ConnectNav from "../../../components/connect/aux-2/ConnectNav.astro";
+import ConnectHero from "../../../components/connect/aux-2/ConnectHero.astro";
+import ConnectSectionHeader from "../../../components/connect/aux-2/ConnectSectionHeader.astro";
+import ConnectFeatureCard from "../../../components/connect/aux-2/ConnectFeatureCard.astro";
+import ConnectLabel from "../../../components/connect/aux-2/ConnectLabel.astro";
+import ConnectHotspots from "../../../components/connect/aux-2/ConnectHotspots.astro";
+import { desk } from "../../../lib/breakpoints";
+import musicAssistantDesktop from "../../../assets/connect/aux-2/music-assistant-desktop.webp";
+import musicAssistantPhone from "../../../assets/connect/aux-2/music-assistant-phone.webp";
+import musicAssistantIcon from "../../../assets/connect/icons/music-assistant.svg";
+import sendspinIcon from "../../../assets/connect/icons/sendspin.svg";
+import syncIcon from "../../../assets/connect/icons/sync.svg";
+import losslessIcon from "../../../assets/connect/icons/lossless.svg";
+import seamlessControlIcon from "../../../assets/connect/icons/seamless-control.svg";
+import serialPortsIcon from "../../../assets/connect/icons/serial-ports.svg";
+import standbyIcon from "../../../assets/connect/icons/standby.svg";
+import privacyIcon from "../../../assets/connect/icons/privacy.svg";
+import beyondAvIcon from "../../../assets/connect/icons/beyond-av.svg";
+import serialTopRight from "../../../assets/connect/aux-2/serial/top-right.svg";
+import serialBottomRight from "../../../assets/connect/aux-2/serial/bottom-right.svg";
+import serialLink from "../../../assets/connect/aux-2/serial/link.svg";
+import serialAux from "../../../assets/connect/aux-2/serial/aux.svg";
+import serialGreen from "../../../assets/connect/aux-2/serial/green.svg";
+import serialReceiver from "../../../assets/connect/aux-2/serial/receiver.svg";
+import serialTv from "../../../assets/connect/aux-2/serial/tv.svg";
+import serialBottomRightShort from "../../../assets/connect/aux-2/serial/bottom-right-short.svg";
+import serialSolar from "../../../assets/connect/aux-2/serial/solar.svg";
+import serialBattery from "../../../assets/connect/aux-2/serial/battery.svg";
+import CoverageMap from "../../../assets/connect/aux-2/coverage.svg";
+import bestSpotImage from "../../../assets/connect/aux-2/best-spot.webp";
+import bestSpotMobileImage from "../../../assets/connect/aux-2/best-spot-mobile.webp";
+import boardImage from "../../../assets/connect/aux-2/board.webp";
+import boardMobileImage from "../../../assets/connect/aux-2/board-mobile.webp";
+import boardLogosImage from "../../../assets/connect/aux-2/board-logos.webp";
+import ConnectPrice from "../../../components/connect/aux-2/ConnectPrice.astro";
+import ConnectCollaboration from "../../../components/connect/aux-2/ConnectCollaboration.astro";
+import ConnectSpecs from "../../../components/connect/aux-2/ConnectSpecs.astro";
+import ConnectDrawing from "../../../components/connect/aux-2/ConnectDrawing.astro";
+import ConnectFaq from "../../../components/connect/aux-2/ConnectFaq.astro";
+import { specs, faq, linesDrawing } from "./_content";
+import heroImage from "../../../assets/connect/aux-2/hero.webp";
+import heroMobileImage from "../../../assets/connect/aux-2/hero-mobile.webp";
+import atHomeVideo from "../../../assets/connect/aux-2/at-home.mp4";
+import atHomePoster from "../../../assets/connect/aux-2/at-home-poster.webp";
+import wholeHomeAudio from "../../../assets/connect/icons/whole-home-audio.svg";
+import advancedControl from "../../../assets/connect/icons/advanced-control.svg";
+import connectAnywhere from "../../../assets/connect/icons/connect-anywhere.svg";
+import bluetooth from "../../../assets/connect/icons/bluetooth.svg";
+import arrowSplit from "../../../assets/connect/icons/arrow-split.svg";
+import extension from "../../../assets/connect/icons/extension.svg";
+// "Connect everything": a photo of each side of the AUX-2.
+import sideAudioPhoto from "../../../assets/connect/aux-2/aux-2-side-audio.webp";
+import sideBackPhoto from "../../../assets/connect/aux-2/aux-2-side-back.webp";
+
+const product = "Connect AUX-2";
+
+// The "Incredible audio" icons in white instead of their blue (the
+// Sendspin logo keeps its red); false turns them blue again.
+const whiteAudioIcons = false;
+
+// Section links as on the other Connect pages; the Figma file only has
+// placeholders. Their "Docs" link is left out until the AUX-2 has help
+// pages. "#buy" is the price section further down the page, where the
+// Buy buttons lead without the buy dialog's script.
+const links = [
+  { label: "Features", href: "#features" },
+  { label: "Specs", href: "#specs" },
+  { label: "FAQ", href: "#faq" },
+];
+
+// The ports in "Connect everything", on the photos: each point sits just
+// under its port (`spot`, as fractions of its side's photo's width and
+// height). The audio side is the first photo (`side` 0), the back the
+// second. Points and copy follow Figma ("Group 162", node 2935:8711,
+// and "Section 2 alt", node 2546:1233: the back has points on USB-C and
+// Ethernet only). The RS-232 point is between its two jacks (Figma has
+// it under Port 2). Each card has an icon from the page's other
+// sections.
+// TODO [copy]: the back's copy is not in Figma; check it with the
+// product team. "Analogue" and "3,5mm" are in the open copy issues.
+type Spot = [number, number];
+const ports = [
+  {
+    side: 0 as const,
+    label: "USB-A port",
+    spot: [0.35, 0.72] as Spot,
+    icon: beyondAvIcon,
+    title: "Extend your network",
+    text: "Connect your ZWA-2 and place it in the optimal location for better coverage.",
+  },
+  {
+    side: 0 as const,
+    label: "RS-232 ports",
+    spot: [0.4215, 0.69] as Spot,
+    icon: serialPortsIcon,
+    title: "Advanced control",
+    text: "Control devices that talk RS-232 with these two ports.",
+  },
+  {
+    side: 0 as const,
+    label: "Grove port",
+    spot: [0.485, 0.664] as Spot,
+    icon: advancedControl,
+    title: "Expand I/O",
+    text: "Add in- or output modules easily with the Grove port.",
+  },
+  {
+    side: 0 as const,
+    label: "Audio port",
+    spot: [0.5285, 0.652] as Spot,
+    icon: wholeHomeAudio,
+    title: "Stream audio",
+    text: "Analogue and digital via 3,5mm or SPDIF.",
+  },
+  {
+    side: 1 as const,
+    label: "USB-C port",
+    spot: [0.4512, 0.676] as Spot,
+    icon: standbyIcon,
+    title: "USB-C power",
+    text: "Power it from a 5 V USB-C power supply of 2 A or more.",
+  },
+  {
+    side: 1 as const,
+    label: "Ethernet port",
+    spot: [0.5008, 0.66] as Spot,
+    icon: connectAnywhere,
+    title: "Power over Ethernet",
+    text: "Power and connect it with one cable from a PoE switch.",
+  },
+];
+
+// The parts of the "Deep control with serial" diagram (Figma group
+// 2556:6345, 692 × 596), in Figma's layer order, each at its Figma
+// position and width in percent of the diagram. Exported separately
+// because the whole diagram exports as a 171 KB SVG.
+//
+// The diagram plays two scenes on a loop: `a` is Figma's "FRAME A"
+// (a TV and an AV receiver), `b` is "FRAME B" (node 2556:4664: a solar
+// panel and a battery, with a shorter bottom line). Parts without a
+// scene show in both; the AUX-2 sits at the same place in both frames,
+// so FRAME B's parts keep their Figma positions. The line files and
+// the link to the Green are inlined (`inline`) so their lines
+// (`.wire`, `.glow`, `.dot`, `.data`) can animate; the devices are
+// images, cached and loaded lazily.
+const diagram = [
+  { svg: serialTopRight, x: 59.97, y: 15.5, w: 39.16, inline: true },
+  { svg: serialBottomRight, x: 59.97, y: 52.35, w: 39.16, scene: "a", inline: true },
+  { svg: serialBottomRightShort, x: 59.97, y: 52.35, w: 39.16, scene: "b", inline: true },
+  { svg: serialLink, x: 37.3, y: 49.24, w: 7.51, inline: true },
+  { svg: serialAux, x: 44.51, y: 34.46, w: 32.23 },
+  { svg: serialGreen, x: 0, y: 34.89, w: 37.58, flip: true },
+  { svg: serialReceiver, x: 74.42, y: 77.68, w: 22.8, scene: "a" },
+  { svg: serialTv, x: 71.1, y: 7.55, w: 29.94, scene: "a" },
+  { svg: serialSolar, x: 74.13, y: 10.07, w: 23.57, scene: "b" },
+  { svg: serialBattery, x: 75.85, y: 73.16, w: 20.21, scene: "b" },
+];
+
+---
+
+<Site
+  title="Home Assistant Connect AUX-2"
+  description="Bring your classic audio equipment into your smart home with advanced control and Power over Ethernet."
+  image="/images/connect/aux-2/og.webp"
+  stickyHeader={false}
+>
+  <main class="connect">
+    <!-- "Home Assistant" never breaks across lines anywhere on the page. -->
+    <NoBreak>
+    <ConnectNav product={product} links={links} buyHref="#buy" />
+    <ConnectHero
+      image={heroImage}
+      mobileImage={heroMobileImage}
+      imageAlt="The Connect AUX-2 on a wooden sideboard between an amplifier, a speaker and a record"
+      imagePosition="50% 40%"
+      mobileImageLift="2.5rem"
+      product={product}
+      tagline={["Old speakers.", "New tricks."]}
+      badge={{ label: "Designed and manufactured by", foundation: false }}
+    >
+      Bring your classic audio equipment into your smart home with advanced
+      control and Power over Ethernet.
+    </ConnectHero>
+
+    <!-- Figma frame "Frame 15160" (desktop node 2116:3096, mobile node
+         2119:5254). -->
+    <section class="features" id="features">
+      <div class="content">
+        <ConnectSectionHeader title="Audio and so much more">
+          Any device can be smart with the right tools. With Connect AUX-2,
+          you can use your favorite devices longer and more efficiently.
+          Take that classic hi-fi and sync it
+          with your smart speakers, make your uninterruptible power supply or
+          pool heater smart, or use Connect adapters via Power over Ethernet.
+        </ConnectSectionHeader>
+
+        <div class="feature-grid">
+          <div class="cards">
+            <ConnectFeatureCard icon={wholeHomeAudio} title="Whole home audio" href="#audio" animated>
+              Plug AUX-2 into classic audio gear to sync with modern smart
+              speakers.
+            </ConnectFeatureCard>
+            <ConnectFeatureCard icon={advancedControl} title="Advanced control" href="#serial" animated>
+              Gain deep control of your gear through serial or Modbus
+              connectivity.
+            </ConnectFeatureCard>
+            <ConnectFeatureCard icon={connectAnywhere} title="Flexible connection" href="#coverage" animated>
+              Easily add Power over Ethernet or Wi-Fi to your ZWA-2.
+            </ConnectFeatureCard>
+            <ConnectFeatureCard icon={bluetooth} title="Rock-solid Bluetooth" href="#bluetooth" animated>
+              Connect smart home devices directly to Home Assistant.
+            </ConnectFeatureCard>
+          </div>
+
+          <!-- The video from the Figma file, 1280px wide H.264 without
+               sound (122 KB); the poster is its first frame. -->
+          <AutoplayVideo
+            class="at-home"
+            src={atHomeVideo}
+            poster={atHomePoster}
+            label="The Connect AUX-2 on a shelf beside an amplifier and a plant. Cables plug into it, and sensors and a lamp appear around it, then it is on its own again."
+          />
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Figma group "Group 162" (desktop node 2935:8711): the intro on
+         a photo of the AUX-2, a point on each port that opens its card in
+         the list on the right, and a button that turns to the back. -->
+    <section class="multi-tool">
+      <div class="content">
+        <ConnectHotspots
+          photos={[sideAudioPhoto, sideBackPhoto]}
+          label="The Connect AUX-2"
+          ports={ports}
+          open={ports.findIndex((port) => port.label === "Audio port")}
+        >
+          <ConnectLabel>The smart home multi-tool</ConnectLabel>
+          <h2 class="heading">Connect everything</h2>
+          <p class="lead multi-tool-lead">
+            Stream audio, control legacy devices over RS-232 serial, add
+            sensors, and extend your Z-Wave network, all from one small box.
+          </p>
+        </ConnectHotspots>
+      </div>
+    </section>
+    <!-- Figma frame "Mobile Grid" (node 2955:1722), under the section
+         header of "Frame 15155" (desktop node 2022:8447). -->
+    <section class="audio content" id="audio">
+      <ConnectSectionHeader title="Incredible audio" />
+      <div class="audio-grid" data-white-icons={whiteAudioIcons ? "" : undefined}>
+        <ConnectFeatureCard icon={syncIcon} title="Syncs old with new" large beside>
+          Classic gear and modern smart speakers play in harmony.
+        </ConnectFeatureCard>
+        <ConnectFeatureCard icon={losslessIcon} title="Lossless sound" large beside>
+          Choose a clean analog output, or CD-quality digital output.
+        </ConnectFeatureCard>
+        <ConnectFeatureCard icon={seamlessControlIcon} title="Increased control" large beside>
+          Get power and volume control by connecting an RS-232 serial cable.
+        </ConnectFeatureCard>
+        <ConnectFeatureCard icon={sendspinIcon} title="Whole home audio with Sendspin" large beside>
+          The open standard for a multi-room music experience.
+        </ConnectFeatureCard>
+        <ConnectFeatureCard icon={musicAssistantIcon} title="Music Assistant ready" large beside>
+          Seamlessly stream local files and streaming services.
+          <div class="devices" slot="media">
+            <div class="laptop">
+              <Image
+                quality={85}
+                src={musicAssistantDesktop}
+                alt="Music Assistant on a laptop, grouping the Connect AUX-2 with smart speakers"
+                widths={[640, 1280]}
+                sizes="(min-width: 62rem) 36rem, 80vw"
+              />
+            </div>
+            <div class="phone">
+              <Image
+                quality={85}
+                src={musicAssistantPhone}
+                alt="The same speaker group in Music Assistant on a phone"
+                widths={[musicAssistantPhone.width]}
+              />
+            </div>
+          </div>
+        </ConnectFeatureCard>
+      </div>
+    </section>
+
+    <!-- Figma frame "FRAME A" (desktop node 2556:5555, mobile node
+         2022:8778). -->
+    <section class="serial content" id="serial">
+      <ConnectSectionHeader title="Deep control with serial">
+        If your device has serial or Modbus, plug in AUX-2 for more powerful
+        control.
+      </ConnectSectionHeader>
+      <div class="serial-grid">
+        <div
+          class="diagram"
+          role="img"
+          aria-label="The Connect AUX-2 linked to a Home Assistant Green and wired over serial to a TV and an AV receiver, then to a solar panel and a battery"
+          data-serial-diagram
+          data-scene="a"
+          data-lines="on"
+        >
+          {
+            diagram.map(({ svg: Part, x, y, w, flip, scene, inline }) => {
+              const part = {
+                class: ["part", { flip }, scene && `scene-${scene}`],
+                style: `--x: ${x}%; --y: ${y}%; --w: ${w}%`,
+              };
+              return inline ? (
+                <Part class:list={part.class} style={part.style} aria-hidden="true" />
+              ) : (
+                <img
+                  class:list={part.class}
+                  style={part.style}
+                  src={Part.src}
+                  width={Part.width}
+                  height={Part.height}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              );
+            })
+          }
+        </div>
+        <div class="serial-cards">
+          <ConnectFeatureCard icon={serialPortsIcon} title="Two serial ports" animated>
+            Connect your receiver and TV with one device.
+          </ConnectFeatureCard>
+          <ConnectFeatureCard icon={standbyIcon} title="Use in low-power mode" animated>
+            Save energy and manage the device, even in standby.
+          </ConnectFeatureCard>
+          <ConnectFeatureCard icon={privacyIcon} title="Skip the spyware" animated>
+            Turn off your TV’s internet access so it can’t phone home, and instead control it with AUX-2.
+          </ConnectFeatureCard>
+          <ConnectFeatureCard icon={beyondAvIcon} title="Beyond AV" animated>
+            Speaks to other serial (RS-232) and Modbus (RS-485*) gear too,
+            from HVACs, UPSs, to solar inverters.
+            <small class="footnote">*RS-485 requires an additional USB adapter</small>
+          </ConnectFeatureCard>
+        </div>
+      </div>
+    </section>
+
+    <!-- Figma frame "Section 10" (desktop node 2310:3365, mobile node
+         2310:3424). -->
+    <section class="coverage content" id="coverage">
+      <div class="coverage-text">
+        <ConnectLabel>Connect anywhere</ConnectLabel>
+        <h2 class="heading">Best spot in the house</h2>
+        <p class="lead">
+          Move your Z-Wave network wherever the signal is strongest.*
+        </p>
+        <!-- TODO: the Figma note asks for a link to an FAQ entry saying
+             which adapters this applies to (ZBT-1, ZBT-2, ZWA-2); it
+             links to the FAQ section until that entry exists. -->
+        <p class="note">
+          *<a href="#faq">Check your antenna for compatibility</a>
+        </p>
+      </div>
+      <!-- The Figma illustration (node 2410:3513) as one SVG, its badges
+           in place. Inlined so its pulses (.pulse) can animate. -->
+      <CoverageMap
+        class="coverage-map"
+        data-coverage-map
+        role="img"
+        aria-label="Floor plan of a house: the Connect AUX-2 and a ZWA-2 in the middle of the house, a Home Assistant Green in a corner"
+      />
+      <!-- Figma zooms in on the desktop photo; phones show all of it. -->
+      <ArtDirectedImage
+        class="coverage-photo"
+        image={bestSpotImage}
+        mobileImage={bestSpotMobileImage}
+        alt="The Connect AUX-2 with a Connect ZWA-2 antenna plugged into its USB port"
+        widths={[960, bestSpotImage.width]}
+        sizes="40rem"
+        mobileWidths={[480, 960, 1440, bestSpotMobileImage.width]}
+        mobileSizes="100vw"
+      />
+    </section>
+
+    <!-- Figma frame "Section 6" (desktop node 2198:82433, mobile node
+         2201:82723). -->
+    <section class="options content">
+      <!-- Figma "Banner Big" from the marketing design system (desktop
+           node 2425:19401, mobile node 2608:2618). -->
+      <div class="bluetooth" id="bluetooth">
+        <!-- A wide photo from the site's desk width (1140px), where
+             there is room for the text beside the board; below it a
+             square one, with room for the text below the board. -->
+        <ArtDirectedImage
+          image={boardImage}
+          mobileImage={boardMobileImage}
+          media={desk}
+          alt="The Connect AUX-2's circuit board with its Bluetooth antenna"
+          widths={[1728, 2592, boardImage.width]}
+          sizes="min(100vw, 81.25rem)"
+          mobileWidths={[480, 960, 1440, boardMobileImage.width]}
+          mobileSizes="100vw"
+        />
+        <div class="bluetooth-text">
+          <h2 class="heading">Rock-solid Bluetooth</h2>
+          <p class="lead">
+            A dedicated antenna to add Bluetooth smart home devices into Home
+            Assistant.*
+          </p>
+          <p class="note">*not for Bluetooth audio</p>
+        </div>
+      </div>
+      <!-- Figma frame "Powerful options" (desktop node 2198:82299): the
+           heading over a card for each option, the photo beside them.
+           The mobile frame still has the older single card with a list;
+           phones stack the heading, cards and photo. -->
+      <div class="powerful">
+        <div class="powerful-text">
+          <h2 class="heading">Powerful options</h2>
+          <ConnectFeatureCard icon={arrowSplit} title="Power and connect your way">
+            Via Ethernet, USB-C, or Wi-Fi.
+          </ConnectFeatureCard>
+          <ConnectFeatureCard icon={extension} title="Yours to shape">
+            Ready out of the box, or customize using ESPHome and additional
+            Grove sensors.
+          </ConnectFeatureCard>
+        </div>
+        <ConnectDrawing
+          class="powerful-drawing"
+          alt="The back of the Connect AUX-2 with its reset button, USB-C power port and PoE Ethernet port"
+          sizes="(min-width: 62rem) 50rem, 100vw"
+        />
+      </div>
+    </section>
+
+    <!-- Figma frame "Price Section" (desktop node 2002:31233). The price
+         is not final (Figma note). -->
+    <ConnectPrice usd="$69" eur="€59" buyHref="#buy">
+      Make your old gear new today for just
+    </ConnectPrice>
+
+    <!-- Figma frame "Banner Big" (desktop node 2002:31185). -->
+    <div class="content">
+      <ConnectCollaboration
+        image={boardLogosImage}
+        imageAlt="The back of the Connect AUX-2's circuit board, printed with the Open Home Foundation, Home Assistant and Nabu Casa logos"
+      >
+        <h2>Every purchase supports the Open Home</h2>
+        <p>
+          As a commercial partner of
+          the <a href="https://www.openhomefoundation.org/">Open Home Foundation</a>, <a href="https://www.nabucasa.com/">Nabu Casa</a> contributes
+          the majority of net profits from licensed Home Assistant products to
+          supporting the foundation, and its projects like Home Assistant,
+          ESPHome, and Music Assistant.
+        </p>
+      </ConnectCollaboration>
+    </div>
+
+    <!-- Figma frame "Specs and illustration" (desktop node 2002:31254):
+         the exploded line drawing, its ports facing the specs. -->
+    <ConnectSpecs
+      groups={specs}
+      drawing={linesDrawing}
+      drawingAlt="Exploded line drawing of the Connect AUX-2: the lid, the circuit board, the case, and its screws"
+    />
+
+    <!-- Figma frame "FAQ" (desktop node 2002:36189). -->
+    <ConnectFaq items={faq} />
+    </NoBreak>
+  </main>
+
+  <!-- Where to buy: the distributors listed under "aux-2" in
+       source/_data/products.yml. -->
+  <BuyDialog product="aux-2" />
+</Site>
+
+<script>
+  import { reducedMotion } from "../../../lib/motion";
+
+  // Play the "Deep control with serial" diagram while it is on screen:
+  // the lines grow to the devices and pulse for a few seconds, retract,
+  // the devices cross-fade to the other scene, and so on (styles:
+  // data-lines, data-pulse and data-scene on .diagram). Without the
+  // script, or when the visitor prefers reduced motion, the first scene
+  // stays as a still with its lines drawn.
+  const diagram = document.querySelector<HTMLElement>("[data-serial-diagram]");
+  if (diagram && !reducedMotion.matches) {
+    const wait = (ms: number) => new Promise((done) => setTimeout(done, ms));
+    const retract = () => {
+      diagram.toggleAttribute("data-pulse", false);
+      diagram.dataset.lines = "off";
+    };
+    // Bumped to stop a running loop: each loop checks it after waiting.
+    let run = 0;
+
+    const play = async (id: number) => {
+      // Wait, then say whether this loop should go on.
+      const step = async (ms: number) => (await wait(ms), id === run);
+      while (id === run) {
+        diagram.dataset.lines = "on";
+        if (!(await step(900))) return;
+        diagram.toggleAttribute("data-pulse", true);
+        if (!(await step(3000))) return;
+        retract();
+        if (!(await step(900))) return;
+        diagram.dataset.scene = diagram.dataset.scene === "a" ? "b" : "a";
+        await wait(700);
+      }
+    };
+
+    // Runs while the diagram is on screen and the tab is visible.
+    let inView = false;
+    const update = () => {
+      run++;
+      if (inView && !document.hidden) play(run);
+      else retract();
+    };
+
+    // Start from the retracted lines, so they grow in on arrival.
+    retract();
+    new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        update();
+      },
+      { threshold: 0.4 },
+    ).observe(diagram);
+    document.addEventListener("visibilitychange", update);
+  }
+
+  // Pulse the devices on the "Best spot in the house" map only while
+  // it is on screen (styles: data-playing on .coverage-map).
+  const coverageMap = document.querySelector("[data-coverage-map]");
+  if (coverageMap) {
+    new IntersectionObserver(([entry]) => {
+      coverageMap.toggleAttribute("data-playing", entry.isIntersecting);
+    }).observe(coverageMap);
+  }
+
+</script>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/layout";
+
+  .connect {
+    --layout-max-width: var(--layout-product-width);
+    /* The opened drawing (ConnectDrawing) covers the whole page, the
+       stuck nav bar (z-index 10) included. */
+    --drawing-layer: 20;
+
+    background: #000;
+    color: var(--color-text-inverse);
+    font-family: var(--font-heading);
+    /* Decoration placed behind the content (z-index: -1) stays in
+       front of the page's black. */
+    isolation: isolate;
+  }
+
+  .content {
+    @include layout.container;
+    position: relative;
+  }
+
+  /* Audio and so much more */
+
+  .features > .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xlarge);
+    padding-top: var(--space-xxlarge);
+  }
+
+  .feature-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xlarge);
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xlarge);
+  }
+
+  /* The video's own shape (1280 × 946), so it is never cropped
+     below the desk width. */
+  .at-home {
+    aspect-ratio: 1280 / 946;
+    border-radius: var(--radius-medium);
+    width: 100%;
+  }
+
+  /* Left-aligned section headings with a lead and a footnote, after
+     Figma's "Header 2", "Body Large" and "Body Medium" styles. */
+
+  .heading {
+    font-size: var(--font-size-section);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin: 0;
+    padding-block: var(--space-small);
+
+    :global(.connect-label) + & {
+      margin-top: var(--space-large);
+    }
+  }
+
+  /* The RS-485 footnote in the Beyond AV card. */
+  .footnote {
+    display: block;
+    margin-top: var(--space-medium);
+  }
+
+  .lead,
+  .note {
+    color: var(--color-text-inverse-muted);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .lead {
+    font-size: var(--font-size-large);
+    padding-block: var(--space-xsmall);
+  }
+
+  .note {
+    font-size: var(--font-size-medium);
+    margin-top: var(--space-large);
+    padding-block: var(--space-xsmall);
+
+    a {
+      color: inherit;
+    }
+  }
+
+  /* Connect everything: the panel holds the intro (its colors are the
+     panel's). */
+
+  .multi-tool {
+    padding-block: calc(var(--space-xxlarge) * 2) var(--space-xxlarge);
+  }
+
+  /* Best spot in the house: text and coverage map, then the photo. */
+
+  .coverage {
+    display: grid;
+    gap: var(--space-xlarge);
+    padding-block: var(--space-xxlarge);
+  }
+
+  .coverage-map {
+    height: auto;
+    max-width: 100%;
+
+    :global(.pulse) {
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+  }
+
+  /* The ZWA-2's signal radiates out through the house without a break:
+     seven filled rings, a second apart, grow at a steady pace and fade,
+     so at any moment they sit evenly spaced like Figma's still rings. The Green and the AUX-2 each ping once
+     every 2 seconds, the Green half a beat after the AUX-2. They play
+     only while the map is on screen (data-playing); without motion or
+     the script, the pulses stay hidden. */
+  @media (prefers-reduced-motion: no-preference) {
+    .coverage-map[data-playing] {
+      :global(.pulse-zwa circle) {
+        animation: coverage-wave 7s linear infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      @for $i from 2 through 7 {
+        :global(.pulse-zwa circle:nth-child(#{$i})) {
+          animation-delay: -#{$i - 1}s;
+        }
+      }
+
+      :global(.pulse-zwa) {
+        opacity: 1;
+      }
+
+      :global(.pulse-aux),
+      :global(.pulse-green) {
+        animation: coverage-ping 2s ease-out infinite;
+      }
+
+      :global(.pulse-green) {
+        animation-delay: 1s;
+      }
+    }
+  }
+
+  @keyframes coverage-wave {
+    from {
+      opacity: 1;
+      transform: scale(0.06);
+    }
+
+    to {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes coverage-ping {
+    0% {
+      opacity: 0.9;
+      transform: scale(0.38);
+    }
+
+    60%,
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  /* Figma's 345 × 231 phone crop. */
+  .coverage-photo {
+    aspect-ratio: 345 / 231;
+    border-radius: var(--radius-medium);
+    display: block;
+    overflow: hidden;
+
+    :global(img) {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  /* Rock-solid Bluetooth: a photo panel. Powerful options: a heading
+     over two feature cards, and a photo, stacked on phones. */
+
+  .options {
+    display: grid;
+    gap: var(--space-xlarge);
+    padding-block: var(--space-xxlarge);
+  }
+
+  /* The photo fills the banner, the text over its pale blue at the
+     bottom. Navy text, after the marketing design system's
+     "Text/Text/Heading" and "Text/Text/Body". */
+  .bluetooth {
+    border-radius: var(--radius-medium);
+    color: var(--color-ink);
+    container-type: inline-size;
+    display: grid;
+    overflow: hidden;
+    position: relative;
+
+    :global(img) {
+      height: 100%;
+      inset: 0;
+      object-fit: cover;
+      object-position: top;
+      position: absolute;
+      width: 100%;
+    }
+
+    .lead,
+    .note {
+      color: var(--color-ink-muted);
+    }
+  }
+
+  /* Figma's 20px between the heading and the cards. */
+  .powerful-text {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  /* The board fills the top 40% of the square photo; the text starts
+     below it at any width. Figma leaves out the footnote on phones,
+     but the lead's asterisk needs it, so the card grows to fit. */
+  .bluetooth-text {
+    max-width: 28rem;
+    padding: 42cqi var(--space-xlarge) var(--space-xlarge);
+    position: relative;
+  }
+
+  .powerful {
+    display: grid;
+    gap: var(--space-xlarge);
+
+    /* Figma's 345 × 238 phone crop. The drawing covers any shape. */
+    :global(.powerful-drawing:not(.is-expanded)) {
+      aspect-ratio: 345 / 238;
+      width: 100%;
+    }
+  }
+
+  /* Incredible audio, Deep control with serial: a section header over
+     a grid of cards. */
+
+  .audio,
+  .serial {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xlarge);
+    padding-block: var(--space-xxlarge);
+  }
+
+  .audio-grid,
+  .serial-cards {
+    display: grid;
+    gap: var(--space-xlarge);
+  }
+
+  /* Figma's 10px between the cards and 20px between the columns. */
+  .audio-grid {
+    gap: var(--space-medium) var(--space-xlarge);
+  }
+
+  /* The blue icons drawn white (whiteAudioIcons), all but the Sendspin
+     and Music Assistant logos (the last two cards). The cards are
+     components, hence :global(). */
+  .audio-grid[data-white-icons] > :global(:nth-child(-n + 3) > img) {
+    filter: brightness(0) invert(1);
+  }
+
+  .serial-grid {
+    display: grid;
+    gap: var(--space-xxlarge);
+  }
+
+  /* Music Assistant on a laptop with a phone in front, placed as in
+     the Figma group (node 2599:1485, 712 × 417; on phones node
+     2602:1560 is the same group scaled down). Positions are percentages
+     of the group and sizes are in cqi (1cqi = 7.12px at Figma's width),
+     so the outlines, bezels and corners shrink with it. */
+  .devices {
+    aspect-ratio: 712 / 417;
+    container-type: inline-size;
+    position: relative;
+
+    > div {
+      border: max(1px, 0.21cqi) solid var(--color-text-inverse);
+      box-sizing: border-box;
+      position: absolute;
+    }
+
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  /* The white outline (591 × 415), then the screenshot (577 × 399)
+     inside it with a 6px dark bezel. */
+  .laptop {
+    border-radius: 2.81cqi;
+    height: 99.52%;
+    left: 15.87%;
+    top: 0.24%;
+    width: 83.01%;
+
+    img {
+      border: 0.84cqi solid #000b18;
+      border-radius: 1.83cqi;
+      box-sizing: border-box;
+      height: 96.14%;
+      left: 1.18%;
+      object-fit: cover;
+      object-position: top;
+      position: absolute;
+      top: 1.93%;
+      width: 97.64%;
+    }
+  }
+
+  /* The white outline (181 × 353) around the screenshot. Figma's
+     screenshot (node 2955:1744) has an even 6px dark bezel with rounded
+     screen corners; the exported one squares off the screen at the top,
+     so the bezel is drawn over it here, like the laptop's. */
+  .phone {
+    border-radius: 4.35cqi;
+    height: 84.65%;
+    left: 1.12%;
+    overflow: hidden;
+    top: 7.43%;
+    width: 25.42%;
+
+    &::after {
+      border: 0.84cqi solid #000b18;
+      border-radius: calc(4.35cqi - max(1px, 0.21cqi));
+      content: "";
+      inset: 0;
+      pointer-events: none;
+      position: absolute;
+    }
+  }
+
+  /* The serial diagram, scaling with its column. */
+  .diagram {
+    aspect-ratio: 692 / 596;
+    position: relative;
+
+    :global(.part) {
+      height: auto;
+      left: var(--x);
+      position: absolute;
+      top: var(--y);
+      width: var(--w);
+    }
+
+    :global(.flip) {
+      transform: scaleX(-1);
+    }
+
+    /* The two scenes cross-fade (data-scene). */
+    :global(.scene-a),
+    :global(.scene-b) {
+      transition: opacity 0.6s ease;
+    }
+
+    &[data-scene="a"] :global(.scene-b),
+    &[data-scene="b"] :global(.scene-a) {
+      opacity: 0;
+    }
+
+    /* The lines grow out of the AUX-2 to the devices and retract into
+       it again (data-lines). pathLength="1" in the files: a dash as
+       long as the line, shifted by its length to hide it. */
+    :global(.wire) {
+      stroke-dasharray: 1 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* The glow and the dot at the device end appear as a line arrives,
+       and go before it retracts. */
+    :global(.glow),
+    :global(.dot) {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &[data-lines="on"] {
+      :global(.wire) {
+        stroke-dashoffset: 0;
+      }
+
+      :global(.glow),
+      :global(.dot) {
+        opacity: 1;
+        transition-delay: 0.6s;
+      }
+
+      :global(.glow) {
+        opacity: 0.8;
+      }
+    }
+
+    /* The glows pulse while the lines are on (data-pulse). */
+    &[data-pulse] :global(.glow) {
+      animation: serial-pulse 1.5s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+  }
+
+  /* Data flows both ways along the dashed link between the Green and
+     the AUX-2: the dashes move by one dash and gap (12.25) per loop,
+     from the dash offset in the file (3.06). */
+  @media (prefers-reduced-motion: no-preference) {
+    .diagram :global(.data) {
+      animation: serial-data 0.8s linear infinite;
+    }
+
+    .diagram :global(.to-green) {
+      animation-direction: reverse;
+    }
+  }
+
+  @keyframes serial-data {
+    from {
+      stroke-dashoffset: 3.06;
+    }
+
+    to {
+      stroke-dashoffset: -9.19;
+    }
+  }
+
+  @keyframes serial-pulse {
+    0%,
+    100% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.35;
+      transform: scale(0.8);
+    }
+  }
+
+  /* Tablets, from 768px to the desk width: the sections still stack as
+     on phones, but cards sit two or three to a row, and the diagram,
+     map and photos are sized for the wider column. */
+  @media only screen and (min-width: breakpoints.$tab) {
+    /* Audio and so much more: the cards two by two above the video. */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Incredible audio: the four short cards two by two, the "Music
+       Assistant ready" card with the devices (the last) across the row
+       below them. The cards are components, hence :global(). */
+    .audio-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      > :global(:nth-child(5)) {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* Deep control with serial: the diagram no wider than 640px,
+       centered, and the cards two by two below it. */
+    .diagram {
+      justify-self: center;
+      max-width: 40rem;
+      width: 100%;
+    }
+
+    .serial-cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Best spot in the house: the map across the column. */
+    .coverage-map {
+      width: 100%;
+    }
+
+    /* Powerful options: the cards and the photo side by side, the photo
+       as tall as the heading and cards. */
+    .powerful {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      /* The heading and cards set the row's height; the drawing fills it. */
+      :global(.powerful-drawing:not(.is-expanded)) {
+        aspect-ratio: auto;
+        height: 100%;
+        min-height: 20rem;
+      }
+    }
+
+  }
+
+  @media only screen and (min-width: breakpoints.$connect-desk) {
+    /* Connect everything: room above it after the video. */
+    .multi-tool {
+      padding-top: calc(var(--space-xxxlarge) + var(--space-xlarge));
+    }
+
+    /* Connect everything: Figma's "Body Large" lead. */
+    .multi-tool-lead {
+      font-size: var(--font-size-xxlarge);
+    }
+
+    .audio,
+    .serial {
+      gap: var(--space-xxlarge);
+      padding-block: var(--space-xxxlarge);
+    }
+
+    /* Four cards in Figma's 396px column, the "Music Assistant ready"
+       card beside them across all four rows, at its own height: it
+       sticks below the product bar while the column scrolls past. */
+    .audio-grid {
+      grid-template-columns: 24.75rem minmax(0, 1fr);
+
+      /* The cards are components, so placing them needs :global(). */
+      > :global(*) {
+        grid-column: 1;
+      }
+
+      > :global(:nth-child(5)) {
+        align-self: start;
+        grid-column: 2;
+        grid-row: 1 / span 4;
+        position: sticky;
+        top: calc(5rem + var(--space-xlarge));
+      }
+    }
+
+    /* Figma's 692px diagram and 468px cards, in proportion; the cards
+       one under another again. */
+    .serial-grid {
+      align-items: start;
+      grid-template-columns: minmax(0, 692fr) minmax(0, 468fr);
+    }
+
+    .diagram {
+      max-width: none;
+    }
+
+    .serial-cards {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .heading {
+      padding-block: var(--space-large);
+    }
+
+    .lead {
+      font-size: var(--font-size-xxlarge);
+      padding-block: var(--space-small);
+    }
+
+    .note {
+      font-size: var(--font-size-large);
+    }
+
+    /* Two equal columns, 720px tall: text over the map on the left,
+       the photo on the right. The map sits at the bottom, level with
+       the bottom of the photo. */
+    .coverage {
+      gap: var(--space-xxlarge) var(--space-xlarge);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: auto 1fr;
+      height: 45rem;
+      padding-block: var(--space-xxxlarge);
+    }
+
+    .coverage-map {
+      align-self: end;
+      width: auto;
+    }
+
+    .coverage-photo {
+      aspect-ratio: auto;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      height: 100%;
+    }
+
+    .options {
+      padding-block: var(--space-xxxlarge);
+    }
+
+    /* Figma's 468px column and 712px photo, in proportion, 20px
+       apart. */
+    .powerful {
+      gap: 1.25rem;
+      grid-template-columns: minmax(0, 468fr) minmax(0, 712fr);
+
+      img {
+        object-position: 50% 33%;
+      }
+    }
+
+
+    .features > .content {
+      gap: var(--space-xxlarge);
+      padding-top: var(--space-xxxlarge);
+    }
+
+    /* The cards keep Figma's 387px column; the photo takes the rest
+       and is as tall as the cards. */
+    .feature-grid {
+      flex-direction: row;
+      gap: var(--space-xxlarge);
+    }
+
+    .cards {
+      flex: none;
+      grid-template-columns: minmax(0, 1fr);
+      width: 24rem;
+    }
+
+    /* As tall as the cards, cropping the video's sides. */
+    .at-home {
+      aspect-ratio: auto;
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  /* From 1280px the left column is about as tall as the "Music
+     Assistant ready" card on its own, as in Figma: the card stretches
+     to match it instead of sticking, its devices at the bottom (the
+     card's own layout). Relative, not static: the card's border rings
+     are positioned against it. */
+  @media only screen and (min-width: breakpoints.$desk-wide) {
+    .audio-grid > :global(:nth-child(5)) {
+      align-self: stretch;
+      position: relative;
+      top: auto;
+    }
+  }
+
+  /* Rock-solid Bluetooth waits for the site's desk width (1140px) for
+     its wide photo: below it, the board would sit behind the text. The
+     photo is 4.5 times as wide as it is tall, the board in its left
+     43%, so the board grows with the banner's height. The height scales
+     from 296px at 1140px (room for the text) to 384px at 1310px, which
+     keeps the board clear of the text; the photo's empty left edge is
+     cropped. */
+  @media only screen and (min-width: breakpoints.$desk) {
+    .bluetooth {
+      align-content: center;
+      height: clamp(18.5rem, 51.76vw - 18.375rem, 24rem);
+
+      :global(img) {
+        object-position: -2rem 50%;
+      }
+    }
+
+    .bluetooth-text {
+      justify-self: end;
+      padding: var(--space-xxlarge);
+      width: 28rem;
+    }
+  }
+</style>

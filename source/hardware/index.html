@@ -1,6 +1,6 @@
 ---
 title: "Home Assistant hardware"
-description: "Official Home Assistant hardware: a ready-to-use hub, Zigbee, Thread, and Z-Wave adapters, and a voice assistant, all made to work with Home Assistant."
+description: "Official Home Assistant hardware: a ready-to-use hub, Zigbee, Thread, and Z-Wave adapters, an audio and serial adapter, and a voice assistant, all made to work with Home Assistant."
 body_id: hardware
 show_title: true
 sidebar: false
@@ -53,9 +53,25 @@ feedback: false
   <section class="hardware-category" aria-labelledby="adapters">
     <div class="hardware-category-header">
       <h2 id="adapters">Adapters</h2>
-      <p>Plug into your hub over USB to control Zigbee, Thread, and Z-Wave devices from any brand.</p>
+      <p>Control devices from any brand: Zigbee, Thread, and Z-Wave devices through your hub, and audio and serial equipment over your network.</p>
     </div>
     <div class="hardware-grid">
+      <article class="hardware-tile">
+        <div class="hardware-tile-image">
+          <img src="/images/frontpage/aux-2-frontpage.webp" alt="Home Assistant Connect AUX-2 on a desk next to an amplifier, a speaker, and a vinyl record" loading="lazy" />
+        </div>
+        <div class="hardware-tile-body">
+          <ul class="hardware-tile-tags" aria-label="Supports">
+            <li>Audio</li>
+            <li>Serial</li>
+            <li>Bluetooth</li>
+          </ul>
+          <h3><a class="hardware-tile-link" href="/connect/aux-2/">Home Assistant Connect <span class="hardware-model">AUX-2</span></a></h3>
+          <p>Bring your classic audio equipment into your smart home with advanced control and Power over Ethernet.</p>
+          <span class="hardware-tile-cta" aria-hidden="true">Learn more {% icon "mdi:arrow-right" %}</span>
+        </div>
+      </article>
+
       <article class="hardware-tile">
         <div class="hardware-tile-image">
           <img src="/images/frontpage/zbt-2-frontpage.webp" alt="Home Assistant Connect ZBT-2 adapter" loading="lazy" />

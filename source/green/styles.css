@@ -2362,7 +2362,7 @@ article.page .card-flex h2 {
     padding-right: 10px;
   }
 
-  .menu-button {
+  .menu-button.w-nav-button {
     z-index: 5;
     min-height: 45px;
     flex-direction: column;
@@ -2924,7 +2924,7 @@ article.page .card-flex h2 {
     padding-right: 15px;
   }
 
-  .menu-button {
+  .menu-button.w-nav-button {
     padding-left: 0;
     padding-right: 0;
   }

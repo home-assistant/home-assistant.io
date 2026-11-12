@@ -10,7 +10,10 @@
 // site's head (social tags, fonts, Plausible).
 //
 // Built from the site's components: a Card for each item of a feed,
-// a Button for each curated link and an Icon for each social link.
+// a Button for each curated link and an Icon for each social link. A
+// feed with `livestream` also has a LivestreamCard on top: while the
+// channel has a stream to show, it takes the large first place and the
+// list's first item shows as a row.
 //
 // The page is static, so it is built showing what is live at build time.
 // Items with `starts` or `ends` are also rendered, hidden, with their
@@ -24,7 +27,9 @@ import SiteHead from "../../components/SiteHead.astro";
 import Card from "../../components/Card.astro";
 import Button from "../../components/Button.astro";
 import Icon from "../../components/Icon.astro";
-import { loadPosts, resolve, socialLinks, validate } from "../../lib/bio.mjs";
+import LivestreamCard from "../../components/LivestreamCard.astro";
+import { loadPosts, resolve, socialLinks, validate, withHeroTaken } from "../../lib/bio.mjs";
+import { fetchLivestreamAtBuild, resolveDisplayState } from "../../lib/livestream";
 import { setting } from "../../lib/site.mjs";
 import "../../styles/tokens.scss";
 
@@ -49,7 +54,17 @@ const data = Object.fromEntries(
     }),
 );
 
-const sections = resolve(config, posts, now, setting("url"), data);
+// A feed with a livestream card: the channel's stream as the page is
+// built. When there is one to show, the card is built in the large first
+// place, so the page looks the same before and without JavaScript.
+const streams = {};
+for (const slug of new Set(config.sections.map((section) => section.livestream).filter(Boolean))) {
+  streams[slug] = await fetchLivestreamAtBuild(slug);
+}
+const hasStream = (slug) => ["live", "upcoming", "past"].includes(resolveDisplayState(streams[slug], now.getTime()));
+const sections = resolve(config, posts, now, setting("url"), data).map((section) =>
+  section.livestream && hasStream(section.livestream) ? withHeroTaken(section) : section,
+);
 const iso = (date) => (date ? date.toISOString() : undefined);
 // What the script needs to show or hide an entry later.
 const schedule = (entry) => ({
@@ -89,7 +104,8 @@ const name = setting("title");
           section.type === "feed" ? (
             <section class="feed" hidden={section.hidden}>
               {section.title && <h2>{section.title}</h2>}
-              <ul class="list" data-schedule data-order={section.order} data-limit={section.limit} data-claims={section.claims || undefined}>
+              {section.livestream && <LivestreamCard slug={section.livestream} info={streams[section.livestream]} class="hero-livestream" />}
+              <ul class="list" data-schedule data-order={section.order} data-limit={section.limit} data-claims={section.claims || undefined} data-hero-taken={section.heroTaken ? "" : undefined}>
                 {section.entries.map((tile) => {
                   const video = tile.kind === "video";
                   const tileIndex = section.tiles.indexOf(tile);
@@ -241,8 +257,9 @@ const name = setting("title");
     const picks = select(lists, now);
     lists.forEach(({ list, items, entries }, listIndex) => {
       const keys = picks[listIndex];
+      const heroTaken = list.dataset.heroTaken !== undefined;
       items.forEach((item, index) => {
-        item.hidden = !isShowing(entries[index], keys);
+        item.hidden = !isShowing(entries[index], keys, heroTaken);
         // A video that has started says when it aired, not when it starts.
         const { airs, noteAfter } = item.dataset;
         const meta = item.querySelector(".meta");
@@ -253,15 +270,31 @@ const name = setting("title");
     });
   }
 
+  // The website's time once it's known; the visitor's clock until then,
+  // which only matters when something on the page is scheduled.
+  let now = () => Date.now();
+
   // Most of the time nothing is scheduled, and there is nothing to check.
   if (document.querySelector("[data-starts], [data-ends]")) {
     serverTime().then((server) => {
       if (server === null) return;
-      const now = () => server.time + (performance.now() - server.at);
+      now = () => server.time + (performance.now() - server.at);
       update(now());
       setInterval(() => update(now()), 60 * 1000);
     });
   }
+
+  // A livestream card with a stream to show takes the large first place:
+  // its list's first item then shows as a row.
+  document.addEventListener("livestream:state", (event) => {
+    const card = event.target as HTMLElement;
+    const list = card.closest("section")?.querySelector<HTMLElement>("[data-schedule]");
+    if (!list) return;
+    const showing = ["live", "upcoming", "past"].includes((event as CustomEvent<string>).detail);
+    if (showing) list.dataset.heroTaken = "";
+    else delete list.dataset.heroTaken;
+    update(now());
+  });
 </script>
 
 <style lang="scss" is:global>
@@ -325,6 +358,13 @@ const name = setting("title");
 
   .links {
     margin-top: var(--space-xlarge);
+  }
+
+  // The livestream card, when it shows, sits above the list in the
+  // large first place, flat like the cards below it.
+  .feed :global(.hero-livestream) {
+    margin-bottom: var(--space-small);
+    box-shadow: none;
   }
 
   .list {

@@ -6,7 +6,9 @@ date: 2023-09-17 00:00:02
 date_formatted: "September 17, 2023"
 author: Guy Sie
 comments: true
-categories: Announcements
+categories:
+- Announcements
+- Hardware
 og_image: /images/blog/2023-09-ha10/green-intro.png
 ---
 
