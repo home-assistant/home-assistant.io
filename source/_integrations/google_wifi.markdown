@@ -61,10 +61,10 @@ monitored_conditions:
 The sensor names start with the value of `name` (default `google_wifi`), followed by the condition:
 
 - **google_wifi_current_version**: The firmware version installed on the router.
-- **google_wifi_new_version**: The latest firmware version available. Reports `Latest` when the router is up to date.
+- **google_wifi_new_version**: The latest firmware version available. Reports **Latest** when the router is up to date.
 - **google_wifi_last_restart**: The date and time when the router last restarted.
 - **google_wifi_local_ip**: The IP address of the router's WAN connection.
-- **google_wifi_status**: Whether the router is `Online` or `Offline`.
+- **google_wifi_status**: Whether the router is **Online** or **Offline**.
 
 ## Data updates
 
