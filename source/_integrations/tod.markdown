@@ -16,7 +16,7 @@ Turn on based on:
 On time:
   description: The time when the sensor should turn on, applicable when `time` is chosen.
 On sun position:
-  description: The position of the sun when the sensor should turn on, applicable when `sun` is chosen.
+  description: The position of the sun when the sensor should turn on, applicable when `sun position` is chosen. Either `sunrise` or `sunset` must be selected.
 On offset:
   description: The offset you want to apply to the sun position when the sensor should turn on. Options are `before`, `after` or `no offset`. If an offset is selected then a duration is required.
 Turn off based on:
@@ -24,7 +24,7 @@ Turn off based on:
 Off time:
   description: The time when the sensor should turn off, applicable when `time` is chosen.
 Off sun position:
-  description: The position of the sun when the sensor should turn off, applicable when `sun` is chosen.  
+  description: The position of the sun when the sensor should turn off, applicable when `sun position` is chosen. Either `sunrise` or `sunset` must be selected.
 Off offset:
   description: The offset you want to apply to the sun position when the sensor should turn off. Options are `before`, `after` or `no offset`. If an offset is selected then a duration is required.
 {% endconfiguration_basic %}
