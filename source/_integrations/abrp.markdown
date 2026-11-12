@@ -252,5 +252,3 @@ If you removed all vehicles from your ABRP garage, Home Assistant does not remov
 If you set up more than one ABRP account and a vehicle is shared with several of them, the vehicle is only removed from the account whose garage it left.
 
 If the vehicle comes back to your garage, it is added again at the next garage check.
-
-You can also delete a vehicle yourself from its device page, but only after it has left your ABRP garage. A vehicle that is still in your garage cannot be deleted, because it would be added again at the next garage check.

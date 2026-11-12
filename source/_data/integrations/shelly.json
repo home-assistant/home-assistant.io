@@ -27,6 +27,7 @@
     "cover",
     "diagnostics",
     "event",
+    "fan",
     "infrared",
     "light",
     "media_player",
