@@ -34,7 +34,7 @@ In addition, the entity can have the following states. Each item shows the inter
 
 Besides the timestamp of the last event, the event entity also keeps track of the event type that was last emitted. This lets you trigger different automation actions based on the type of event.
 
-For example, you can trigger a different action when a remote control button is pressed once versus twice, if your remote control can emit those different event types.
+For example, you can trigger a different action when a remote control button is pressed once versus twice, if your remote control can emit those different event types. If the button uses the button device class and supports the standard **Multi-press** event type, you can also use the [Button pressed](/triggers/button.pressed/) trigger and set **Number of presses** to **Double press**.
 
 When creating automations in the UI, the event types are available as a dropdown list, depending on the event entity you are using. This means you don't have to remember or look up the different event types.
 
