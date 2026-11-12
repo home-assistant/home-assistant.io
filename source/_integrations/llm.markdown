@@ -115,13 +115,13 @@ The **Home Assistant** set of AI tools contains the following tools. Each entry 
   - To do this yourself: Select **Add integration**, under {% my integrations title="**Settings** > **Devices & services**" %}.
 - **Search Home Assistant** (`search__search`): Finds entities, devices, areas, labels, automations, scripts, and scenes by name. Only reads.
   - To do this yourself: Use the [quick search](/docs/tools/quick-search/).
-- **Get system info** (`system_health__get_system_info`): Returns the installation type, the time zone, and the versions of Home Assistant Core, the frontend, Python, the operating system, and the Supervisor. For example, you can use it to fill in a bug report. Only reads.
+- **Get system info** (`system_health__get_system_info`): Returns the installation type, the CPU architecture, the time zone, and the versions of Home Assistant Core, the frontend, Python, the operating system, and the Supervisor. For example, you can use it to fill in a bug report. Only reads.
   - To do this yourself: Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **System information**.
-- **Get history** (`history__get_history`): Returns {% term "long-term statistics" statistics %} of entities, not their individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It only works for entities with statistics, such as sensors with a state class. Only reads.
+- **Get history** (`history__get_history`): Returns statistics of entities, not their individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It only works for entities with statistics, such as sensors with a state class. Only reads.
   - To do this yourself: Use the {% my history title="**History**" %} panel.
 - **Get system log entries** (`system_log__get_entries`): Returns recent errors and warnings from the system log. It doesn't include info or debug messages. It can filter by level and by integration. Only reads.
   - To do this yourself: Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
-- **Get logs** (`system_log__get_logs` or `hassio__get_logs`): Reads the full logs in a time window, including info and debug messages. Values that look like credentials are masked. Only reads.
+- **Get logs** (`system_log__get_logs` or `hassio__get_logs`): Reads the full logs in a time window. This includes info and debug messages, if Home Assistant logs them. By default, it only logs warnings and errors. Values that look like credentials are masked. Only reads.
   - On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} installations, the ID is `hassio__get_logs`. It also reads the logs of the Supervisor, the operating system, the DNS, audio, and multicast plugins, and your apps.
   - On {% term "Home Assistant Container" %} installations, and on other installations without the Supervisor, the ID is `system_log__get_logs`. It only reads the Home Assistant log, and it needs the log file.
   - To do this yourself: Under {% my logs title="**Settings** > **System** > **Logs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Show raw logs**.
