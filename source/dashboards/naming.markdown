@@ -28,7 +28,9 @@ If the entity represents the main function of its device and you [turned on the 
 
 Some parts are left out when they would not help to identify the entity:
 
-- If the entity has its own area assigned, instead of using the area of its device, the device name is left out.
+- If you assign the entity to an area directly, instead of letting it use the area of its device, the device name is left out.
+  For example, the `Outdoor temperature` sensor of a device called `Heating controller` is shown as `Heating controller Outdoor temperature`.
+  If you assign the sensor to your outdoor area, it's shown as `Outdoor temperature`. 
 - If the entity belongs to a child device that has its own area assigned, the parent device name is left out. For example, the main entity of a socket (child device) called `Lamp` on a power strip (parent device) called `Power strip` is shown as `Lamp` instead of `Power strip Lamp`.
 
 To change the default name everywhere in Home Assistant, rename the entity or its device.
