@@ -149,8 +149,6 @@ To use the Bluetooth remote adapter, you need:
 - The SMLIGHT SLZB integration set up in Home Assistant.
 - The Bluetooth integration. The SMLIGHT integration loads it as a dependency.
 
-First, enable **BLE** and **Proxy advertisements** in the SLZB-OS web interface. These device-side settings are required, but they do not enable Bluetooth scanning in Home Assistant by themselves.
-
 You must also select a [scanning mode](/integrations/bluetooth/#scanning-modes) in the SMLIGHT integration options:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
