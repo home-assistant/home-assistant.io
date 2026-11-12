@@ -888,7 +888,7 @@ This sensor will be available only if the program is running
     </details>
 - **Door state**:
   - **Description**: Represents the current state of the door.
-  - **Availability**: Oven, Dishwasher, Dryer, Washer, Washer dryer, Freezer, Fridge freezer, Refrigerator, Wine cooler. Freezers, fridge freezers, refrigerators, and wine coolers that report their compartment doors don't have this sensor: use their door [binary sensors](#binary-sensor) instead.
+  - **Availability**: Oven, Dishwasher, Dryer, Washer, Washer dryer, Freezer, Fridge freezer, Refrigerator, Wine cooler. On freezers, fridge freezers, refrigerators, and wine coolers that report their compartment doors, this sensor is disabled by default because it may not follow the doors: use their door [binary sensors](#binary-sensor) instead.
   - <details>
     <summary><b>Options:</b> (click to view)</summary>
 
