@@ -29,6 +29,7 @@ Tasmota Buttons, Fans, Lights, Relays, Sensors, Shutters, Switches and Cameras a
 - The camera functionality in ESP32 Tasmota devices with [tasmota32-webcam](https://templates.blakadder.com/ai-thinker_ESP32-CAM.html) firmware will be added as Home Assistant `Camera` entities. Note that this functionality is supported only when the Tasmota device and the Home Assistant server are on the same network.
 - The integration will also create up to eight Status Sensors, each one with a different information. All the Status Sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   ![iot](/images/integrations/tasmota/tasmota_status_sensors.png)
+- The integration adds an `update` entity for each Tasmota device. The entity reports the Tasmota firmware version installed on the device and whether a newer Tasmota release is available. When an update is offered, you can review the release notes. New releases are checked daily. Firmware cannot be installed from Home Assistant; update the device through its Tasmota web interface.
 
 {% include integrations/config_flow.md %}
 
