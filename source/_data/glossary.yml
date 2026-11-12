@@ -62,7 +62,7 @@
   link: /docs/organizing/areas/
 - term: Assist
   definition: >-
-    The voice assistant built into Home Assistant. 
+    The voice assistant built into Home Assistant.
     
     You can use Assist by talking or typing in the Home Assistant web interface and in the Home Assistant Companion app. You can also use it by talking through a voice satellite. You can set up several assistants, each with its own language and conversation agent.
   link: /voice_control/
