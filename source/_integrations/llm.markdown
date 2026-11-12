@@ -96,9 +96,9 @@ To set up a separate assistant for the Home Assistant AI tools, follow these ste
 
 ### List of Home Assistant AI tools
 
-You don't call these tools yourself. When you ask the conversation agent something, it decides which tools to call. You can't select single tools. You give the conversation agent the entire set, as described in [Giving a conversation agent the Home Assistant AI tools](#giving-a-conversation-agent-the-home-assistant-ai-tools).
+You don't call these tools yourself. When you ask the conversation agent something, it decides which tools to call. You can't select single tools. You give the conversation agent the entire set, as described in [Adding the Home Assistant AI tools to your conversation agent](#adding-the-home-assistant-ai-tools-to-your-conversation-agent).
 
-The **Home Assistant** set of tools contains the following tools. Each entry starts with the title of the tool, followed by its ID. The Assist dialog shows the ID under **Show details**. Many tools do something that you can also do yourself in the UI, without a conversation agent. Where you can, the entry says how. For example, to check what the conversation agent tells you.
+The **Home Assistant** set of AI tools contains the following tools. Each entry starts with the title of the tool, followed by its ID. The Assist dialog shows the ID under **Show details**. Many tools do something that you can also do yourself in the UI, without a conversation agent. Where you can, the entry says how. For example, you can check what the conversation agent tells you.
 
 - **Render template** (`homeassistant__render_template`): Renders a [template](/docs/templating/) and returns the result. Templates can read the state and attributes of all entities. Only reads.
   - To do this yourself: Use the **Template** tab, under {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
@@ -109,15 +109,15 @@ The **Home Assistant** set of tools contains the following tools. Each entry sta
   - To see which actions the conversation agent performed: Go to **Settings** > **Tools** > **Action history**.
 - **Get config entries** (`config__get_config_entries`): Lists the integrations and helpers that are set up, with their status, such as loaded or failed to set up, and the reason for an error. It can filter by integration and by status. Only reads.
   - To do this yourself: Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-- **Reload config entry** (`config__reload_config_entry`): Reloads an integration that is set up. For example, after a temporary connection error. Changes things.
+- **Reload config entry** (`config__reload_config_entry`): Reloads an integration that is set up. For example, it helps after a temporary connection error. Changes things.
   - To do this yourself: On the integration page, under {% my integrations title="**Settings** > **Devices & services**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Reload** on the integration entry.
 - **Search available integrations** (`config__search_integrations`): Searches the integrations and helpers that you can set up from the UI, including ones that you haven't added yet. Only reads.
   - To do this yourself: Select **Add integration**, under {% my integrations title="**Settings** > **Devices & services**" %}.
 - **Search Home Assistant** (`search__search`): Finds entities, devices, areas, labels, automations, scripts, and scenes by name. Only reads.
   - To do this yourself: Use the [quick search](/docs/tools/quick-search/).
-- **Get system info** (`system_health__get_system_info`): Returns the installation type, the time zone, and the versions of Home Assistant Core, the frontend, Python, the operating system, and the Supervisor. For example, to fill in a bug report. Only reads.
+- **Get system info** (`system_health__get_system_info`): Returns the installation type, the time zone, and the versions of Home Assistant Core, the frontend, Python, the operating system, and the Supervisor. For example, you can use it to fill in a bug report. Only reads.
   - To do this yourself: Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **System information**.
-- **Get history** (`history__get_history`): Returns statistics of entities, not their individual state changes. For example, the mean, minimum, and maximum temperature per 5 minutes or per hour. It only works for entities with statistics, such as sensors with a state class. Only reads.
+- **Get history** (`history__get_history`): Returns statistics of entities, not their individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It only works for entities with statistics, such as sensors with a state class. Only reads.
   - To do this yourself: Use the {% my history title="**History**" %} panel.
 - **Get system log entries** (`system_log__get_entries`): Returns recent errors and warnings from the system log. It doesn't include info or debug messages. It can filter by level and by integration. Only reads.
   - To do this yourself: Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
@@ -125,4 +125,4 @@ The **Home Assistant** set of tools contains the following tools. Each entry sta
   - On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} installations, the ID is `hassio__get_logs`. It also reads the logs of the Supervisor, the operating system, the DNS, audio, and multicast plugins, and your apps.
   - On {% term "Home Assistant Container" %} installations, and on other installations without the Supervisor, the ID is `system_log__get_logs`. It only reads the Home Assistant log, and it needs the log file.
   - To do this yourself: Under {% my logs title="**Settings** > **System** > **Logs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Show raw logs**.
-- **Get date and time** (`llm__GetDateTime`): Returns the current date and time. Both built-in sets of tools, **Device control** and **Home Assistant**, have this tool. Only reads.
+- **Get date and time** (`llm__GetDateTime`): Returns the current date and time. Both built-in sets of AI tools, **Device control** and **Home Assistant**, have this tool. Only reads.
