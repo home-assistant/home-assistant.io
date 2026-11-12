@@ -1,0 +1,366 @@
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes icon-beyond-av-kf_Connector_left_path-trim_0 {
+  0% {
+    animation-timing-function: step-end;
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+  2% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    stroke-dasharray: 0 1;
+    visibility: hidden;
+  }
+  13.5% {
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+  100% {
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+}
+#icon-beyond-av-Connector_left {
+  stroke-dashoffset: 0;
+  animation: icon-beyond-av-kf_Connector_left_path-trim_0 2s linear infinite;
+}
+@keyframes icon-beyond-av-kf_Connector_horizontal_path-trim_0 {
+  0% {
+    animation-timing-function: step-end;
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+  2% {
+    stroke-dasharray: 0 1;
+    visibility: hidden;
+  }
+  14.5% {
+    animation-timing-function: linear;
+    stroke-dasharray: 0 1;
+    visibility: hidden;
+  }
+  36% {
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+  100% {
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+}
+#icon-beyond-av-Connector_horizontal {
+  stroke-dashoffset: 0;
+  animation: icon-beyond-av-kf_Connector_horizontal_path-trim_0 2s linear infinite;
+}
+@keyframes icon-beyond-av-kf_Connector_middle_up_path-trim_0 {
+  0% {
+    animation-timing-function: step-end;
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+  2% {
+    stroke-dasharray: 0 1;
+    visibility: hidden;
+  }
+  37% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    stroke-dasharray: 0 1;
+    visibility: hidden;
+  }
+  48% {
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+  100% {
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+}
+#icon-beyond-av-Connector_middle_up {
+  stroke-dashoffset: 0;
+  animation: icon-beyond-av-kf_Connector_middle_up_path-trim_0 2s linear infinite;
+}
+@keyframes icon-beyond-av-kf_Connector_middle_down_path-trim_0 {
+  0% {
+    animation-timing-function: step-end;
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+  2% {
+    stroke-dasharray: 0 1;
+    visibility: hidden;
+  }
+  37% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    stroke-dasharray: 0 1;
+    visibility: hidden;
+  }
+  48% {
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+  100% {
+    stroke-dasharray: 1 1;
+    visibility: visible;
+  }
+}
+#icon-beyond-av-Connector_middle_down {
+  stroke-dashoffset: 0;
+  animation: icon-beyond-av-kf_Connector_middle_down_path-trim_0 2s linear infinite;
+}
+@keyframes icon-beyond-av-kf_Dot_top_left_transform_0 {
+  0% {
+    transform: translateX(1.159px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(0.3) scaleY(0.3) translate(-0.75px, -0.75px);
+  }
+  2% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(1.159px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(0.3) scaleY(0.3) translate(-0.75px, -0.75px);
+  }
+  8.8% {
+    transform: translateX(1.159px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(1) scaleY(1) translate(-0.75px, -0.75px);
+  }
+  100% {
+    transform: translateX(1.159px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(1) scaleY(1) translate(-0.75px, -0.75px);
+  }
+}
+@keyframes icon-beyond-av-kf_Dot_top_left_opacity_0 {
+  0% {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+  2% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+  }
+  8.8% {
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+  57.6% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+  }
+  76% {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#icon-beyond-av-Dot_top_left {
+  transform-origin: 0 0;
+  animation:
+    icon-beyond-av-kf_Dot_top_left_transform_0 2s linear infinite,
+    icon-beyond-av-kf_Dot_top_left_opacity_0 2s linear infinite;
+}
+@keyframes icon-beyond-av-kf_Dot_bottom_left_transform_0 {
+  0% {
+    transform: translateX(1.159px) translateY(10.068px) translate(0.75px, 0.75px) scaleX(0.3) scaleY(0.3) translate(-0.75px, -0.75px);
+  }
+  12% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(1.159px) translateY(10.068px) translate(0.75px, 0.75px) scaleX(0.3) scaleY(0.3) translate(-0.75px, -0.75px);
+  }
+  19.2% {
+    transform: translateX(1.159px) translateY(10.068px) translate(0.75px, 0.75px) scaleX(1) scaleY(1) translate(-0.75px, -0.75px);
+  }
+  100% {
+    transform: translateX(1.159px) translateY(10.068px) translate(0.75px, 0.75px) scaleX(1) scaleY(1) translate(-0.75px, -0.75px);
+  }
+}
+@keyframes icon-beyond-av-kf_Dot_bottom_left_opacity_0 {
+  0% {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+  12% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+  }
+  19.2% {
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+  57.6% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+  }
+  76% {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#icon-beyond-av-Dot_bottom_left {
+  transform-origin: 0 0;
+  animation:
+    icon-beyond-av-kf_Dot_bottom_left_transform_0 2s linear infinite,
+    icon-beyond-av-kf_Dot_bottom_left_opacity_0 2s linear infinite;
+}
+@keyframes icon-beyond-av-kf_Dot_top_middle_transform_0 {
+  0% {
+    transform: translateX(6.25px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(0.3) scaleY(0.3) translate(-0.75px, -0.75px);
+  }
+  45.6% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(6.25px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(0.3) scaleY(0.3) translate(-0.75px, -0.75px);
+  }
+  52.8% {
+    transform: translateX(6.25px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(1) scaleY(1) translate(-0.75px, -0.75px);
+  }
+  100% {
+    transform: translateX(6.25px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(1) scaleY(1) translate(-0.75px, -0.75px);
+  }
+}
+@keyframes icon-beyond-av-kf_Dot_top_middle_opacity_0 {
+  0% {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+  45.6% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+  }
+  52.8% {
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+  57.6% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+  }
+  76% {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#icon-beyond-av-Dot_top_middle {
+  transform-origin: 0 0;
+  animation:
+    icon-beyond-av-kf_Dot_top_middle_transform_0 2s linear infinite,
+    icon-beyond-av-kf_Dot_top_middle_opacity_0 2s linear infinite;
+}
+@keyframes icon-beyond-av-kf_Dot_bottom_middle_transform_0 {
+  0% {
+    transform: translateX(6.25px) translateY(10.068px) translate(0.75px, 0.75px) scaleX(0.3) scaleY(0.3) translate(-0.75px, -0.75px);
+  }
+  45.6% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(6.25px) translateY(10.068px) translate(0.75px, 0.75px) scaleX(0.3) scaleY(0.3) translate(-0.75px, -0.75px);
+  }
+  52.8% {
+    transform: translateX(6.25px) translateY(10.068px) translate(0.75px, 0.75px) scaleX(1) scaleY(1) translate(-0.75px, -0.75px);
+  }
+  100% {
+    transform: translateX(6.25px) translateY(10.068px) translate(0.75px, 0.75px) scaleX(1) scaleY(1) translate(-0.75px, -0.75px);
+  }
+}
+@keyframes icon-beyond-av-kf_Dot_bottom_middle_opacity_0 {
+  0% {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+  45.6% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+  }
+  52.8% {
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+  57.6% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+  }
+  76% {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#icon-beyond-av-Dot_bottom_middle {
+  transform-origin: 0 0;
+  animation:
+    icon-beyond-av-kf_Dot_bottom_middle_transform_0 2s linear infinite,
+    icon-beyond-av-kf_Dot_bottom_middle_opacity_0 2s linear infinite;
+}
+@keyframes icon-beyond-av-kf_Dot_top_right_transform_0 {
+  0% {
+    transform: translateX(11.341px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(0.3) scaleY(0.3) translate(-0.75px, -0.75px);
+  }
+  34.4% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(11.341px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(0.3) scaleY(0.3) translate(-0.75px, -0.75px);
+  }
+  41.6% {
+    transform: translateX(11.341px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(1) scaleY(1) translate(-0.75px, -0.75px);
+  }
+  100% {
+    transform: translateX(11.341px) translateY(2.432px) translate(0.75px, 0.75px) scaleX(1) scaleY(1) translate(-0.75px, -0.75px);
+  }
+}
+@keyframes icon-beyond-av-kf_Dot_top_right_opacity_0 {
+  0% {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+  34.4% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+  }
+  41.6% {
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+  57.6% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+  }
+  76% {
+    animation-timing-function: linear;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#icon-beyond-av-Dot_top_right {
+  transform-origin: 0 0;
+  animation:
+    icon-beyond-av-kf_Dot_top_right_transform_0 2s linear infinite,
+    icon-beyond-av-kf_Dot_top_right_opacity_0 2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  #icon-beyond-av-Base * {
+    animation: none !important;
+  }
+}
+</style>
+<g id="icon-beyond-av-Base" clip-path="url(#icon-beyond-av-clip0_761_16161)">
+<g id="icon-beyond-av-Multi_connect">
+<path id="icon-beyond-av-Connector_left" transform="translate(1.90909 4.37273)" d="M0 0V5.25" pathLength="1" stroke="white" stroke-width="1.27273" stroke-dasharray="1 1"/>
+<path id="icon-beyond-av-Connector_horizontal" transform="translate(1.90909 4.37273)" d="M0 2.62727H8.90909C9.61191 2.62727 10.1818 2.057 10.1818 1.35454V0" pathLength="1" stroke="white" stroke-width="1.27273" stroke-dasharray="1 1"/>
+<path id="icon-beyond-av-Connector_middle_up" transform="translate(7 4.37273)" d="M0 2.62727V0" pathLength="1" stroke="white" stroke-width="1.27273" stroke-dasharray="1 1"/>
+<path id="icon-beyond-av-Connector_middle_down" transform="translate(7 7)" d="M0 0V2.62273" pathLength="1" stroke="white" stroke-width="1.27273" stroke-dasharray="1 1"/>
+<path id="icon-beyond-av-Rings" transform="translate(0 1.27273)" fill-rule="evenodd" clip-rule="evenodd" d="M3.81818 1.90909C3.81818 2.96348 2.96348 3.81818 1.90909 3.81818C0.8547 3.81818 0 2.96348 0 1.90909C0 0.8547 0.8547 0 1.90909 0C2.96348 0 3.81818 0.8547 3.81818 1.90909ZM2.54545 1.90909C2.54545 2.26055 2.26055 2.54545 1.90909 2.54545C1.55763 2.54545 1.27273 2.26055 1.27273 1.90909C1.27273 1.55763 1.55763 1.27273 1.90909 1.27273C2.26055 1.27273 2.54545 1.55763 2.54545 1.90909ZM8.90909 1.90909C8.90909 2.96348 8.05439 3.81818 7 3.81818C5.94561 3.81818 5.09091 2.96348 5.09091 1.90909C5.09091 0.8547 5.94561 0 7 0C8.05439 0 8.90909 0.8547 8.90909 1.90909ZM7.63636 1.90909C7.63636 2.26055 7.35146 2.54545 7 2.54545C6.64854 2.54545 6.36364 2.26055 6.36364 1.90909C6.36364 1.55763 6.64854 1.27273 7 1.27273C7.35146 1.27273 7.63636 1.55763 7.63636 1.90909ZM14 1.90909C14 2.96348 13.1453 3.81818 12.0909 3.81818C11.0365 3.81818 10.1818 2.96348 10.1818 1.90909C10.1818 0.8547 11.0365 0 12.0909 0C13.1453 0 14 0.8547 14 1.90909ZM12.7273 1.90909C12.7273 2.26055 12.4424 2.54545 12.0909 2.54545C11.7394 2.54545 11.4545 2.26055 11.4545 1.90909C11.4545 1.55763 11.7394 1.27273 12.0909 1.27273C12.4424 1.27273 12.7273 1.55763 12.7273 1.90909ZM3.81818 9.54545C3.81818 10.5998 2.96348 11.4545 1.90909 11.4545C0.8547 11.4545 0 10.5998 0 9.54545C0 8.49106 0.8547 7.63636 1.90909 7.63636C2.96348 7.63636 3.81818 8.49106 3.81818 9.54545ZM2.54545 9.54545C2.54545 9.89692 2.26055 10.1818 1.90909 10.1818C1.55763 10.1818 1.27273 9.89692 1.27273 9.54545C1.27273 9.19399 1.55763 8.90909 1.90909 8.90909C2.26055 8.90909 2.54545 9.19399 2.54545 9.54545ZM8.90909 9.54545C8.90909 10.5998 8.05439 11.4545 7 11.4545C5.94561 11.4545 5.09091 10.5998 5.09091 9.54545C5.09091 8.49106 5.94561 7.63636 7 7.63636C8.05439 7.63636 8.90909 8.49106 8.90909 9.54545ZM7.63636 9.54545C7.63636 9.89692 7.35146 10.1818 7 10.1818C6.64854 10.1818 6.36364 9.89692 6.36364 9.54545C6.36364 9.19399 6.64854 8.90909 7 8.90909C7.35146 8.90909 7.63636 9.19399 7.63636 9.54545Z" fill="white"/>
+<circle id="icon-beyond-av-Dot_top_left" opacity="0" transform="translate(1.15909 2.43182)" cx="0.75" cy="0.75" r="0.75" fill="white"/>
+<circle id="icon-beyond-av-Dot_bottom_left" opacity="0" transform="translate(1.15909 10.0682)" cx="0.75" cy="0.75" r="0.75" fill="white"/>
+<circle id="icon-beyond-av-Dot_top_middle" opacity="0" transform="translate(6.25 2.43182)" cx="0.75" cy="0.75" r="0.75" fill="white"/>
+<circle id="icon-beyond-av-Dot_bottom_middle" opacity="0" transform="translate(6.25 10.0682)" cx="0.75" cy="0.75" r="0.75" fill="white"/>
+<circle id="icon-beyond-av-Dot_top_right" opacity="0" transform="translate(11.3409 2.43182)" cx="0.75" cy="0.75" r="0.75" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="icon-beyond-av-clip0_761_16161">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg>

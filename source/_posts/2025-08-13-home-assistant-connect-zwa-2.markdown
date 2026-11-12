@@ -6,7 +6,10 @@ date: 2025-08-13 00:00:01
 date_formatted: "August 13, 2025"
 author: Paulus Schoutsen
 comments: true
-categories: Announcements Z-Wave
+categories:
+- Announcements
+- Z-Wave
+- Hardware
 og_image: /images/blog/2025-08-home-assistant-connect-zwa-2/art.webp
 ---
 

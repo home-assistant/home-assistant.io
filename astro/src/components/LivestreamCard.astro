@@ -1,0 +1,281 @@
+---
+// Livestream card: a YouTube channel's current stream (live, upcoming or
+// recently ended), from the Open Home Foundation Web API. Upcoming, it
+// counts down to the start and gives the time in the visitor's own time
+// zone; live, it plays a muted embed once the visitor interacts with the
+// page; afterwards, it shows the stream as "Our latest stream" for 12
+// hours. The whole card links to the stream on YouTube.
+//
+// Ported from the ESPHome website (esphome/esphome.io,
+// src/components/Homepage/LivestreamCard.astro), which shares the API;
+// the logic is in src/lib/livestream.ts. Used by the bio page (/bio/).
+//
+// `info`, the stream as fetched when the page is built (see
+// fetchLivestreamAtBuild), renders the card in that state, so it's in the
+// page before any JavaScript runs, and without it: the title, thumbnail
+// and start time in UTC. Without `info` the card starts hidden. Either
+// way the client script then fetches the stream again and drives the
+// card via `applyLivestreamState`: a live countdown, local times, the
+// embed, or hiding itself if the stream has gone. It stays hidden when
+// there is nothing to show. Each time its state settles it sends a
+// `livestream:state` event (detail: the state) that bubbles, so a page
+// can make room for it.
+import {
+  EYEBROW_TEXT,
+  bestThumbnailAtBuild,
+  formatUtcStartTime,
+  resolveDisplayState,
+  youtubeIdFromUrl,
+  type LivestreamInfo,
+} from "../lib/livestream";
+
+interface Props {
+  slug?: string;
+  info?: LivestreamInfo | null;
+  class?: string;
+  [key: `data-${string}`]: string | undefined;
+}
+
+const { slug, info = null, class: className, ...rest } = Astro.props;
+
+// The state at build time, when `info` is given.
+const built = info ? resolveDisplayState(info) : "loading";
+const shown = built === "live" || built === "upcoming" || built === "past";
+const videoId = shown ? youtubeIdFromUrl(info?.url) : null;
+// The thumbnail the browser would end up with, so it doesn't swap it.
+const thumbnail = videoId ? await bestThumbnailAtBuild(videoId) : undefined;
+---
+
+<a
+  class:list={["livestream-card", className]}
+  data-state={shown ? built : "loading"}
+  data-slug={slug}
+  data-player={built === "live" && videoId ? "pending" : undefined}
+  data-video-id={built === "live" && videoId ? videoId : undefined}
+  href={shown && info?.url ? info.url : "#"}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Home Assistant livestream"
+  {...rest}
+>
+  <div class="livestream-card__media">
+    <img
+      class="livestream-card__thumb"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      src={thumbnail}
+      data-video-id={videoId ?? undefined}
+    />
+    <iframe
+      class="livestream-card__player"
+      title="Home Assistant livestream"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      referrerpolicy="strict-origin-when-cross-origin"
+      tabindex="-1"
+      aria-hidden="true"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <div class="livestream-card__overlay">
+    <span class="livestream-card__status">
+      <span class="livestream-card__dot" aria-hidden="true"></span>
+      <span class="livestream-card__eyebrow">{shown && EYEBROW_TEXT[built as "live" | "upcoming" | "past"]}</span>
+    </span>
+    <span class="livestream-card__foot">
+      <span class="livestream-card__title">{shown && (info?.title ?? info?.channelName)}</span>
+      <span class="livestream-card__meta">{built === "upcoming" && formatUtcStartTime(info?.startTime)}</span>
+    </span>
+  </div>
+</a>
+
+<style lang="scss">
+  .livestream-card {
+    --ls-accent: #e00b2d;
+    --ls-upcoming: #f59e0b;
+
+    display: none; // hidden until a displayable state resolves
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-small);
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    font-family: var(--font-heading);
+    background-color: #000;
+    border: 1px solid #2d3748;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+    &[data-state="live"],
+    &[data-state="upcoming"],
+    &[data-state="past"] {
+      display: block;
+    }
+
+    &__media {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      // One cell the size of the card, so the thumbnail and player fill
+      // it whatever the image's own shape.
+      grid-template: 100% / 100%;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    // Reset any margins content styles give media elements, so the
+    // thumbnail and player sit flush inside the card.
+    img,
+    iframe {
+      margin: 0;
+    }
+
+    &__thumb,
+    &__player {
+      // Stack both in the same grid cell and oversize by 2px each side so grid
+      // centering hides any sub-pixel gap at the card edges (clipped by media).
+      grid-area: 1 / 1;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      border: 0;
+      object-fit: cover;
+      margin: 0;
+      display: none;
+    }
+
+    &__player {
+      // Overscan vertically so YouTube's viewport-anchored chrome (title bar,
+      // control bar) sits above/below the card and is cropped off. Width stays
+      // flush, so the 16:9 video fits to width and isn't zoomed. (The pause/end
+      // "more videos" grid is content-anchored and can't be cropped this way.)
+      height: 300%;
+      pointer-events: none; // clicks fall through to the anchor
+    }
+
+    &[data-state="upcoming"] .livestream-card__thumb,
+    &[data-state="past"] .livestream-card__thumb,
+    &[data-state="live"][data-player="pending"] .livestream-card__thumb {
+      display: block;
+    }
+
+    &[data-state="live"][data-player="ready"] .livestream-card__player {
+      display: block;
+    }
+
+    &__overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 0;
+      padding: 1rem;
+      pointer-events: none;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.6) 28%,
+        rgba(0, 0, 0, 0.08) 58%,
+        rgba(0, 0, 0, 0.4) 100%
+      );
+    }
+
+    &__status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      align-self: flex-end;
+      margin: -0.5rem -0.5rem 0 0; // pull tighter into the top-right corner
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    &__dot {
+      display: none;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: var(--ls-accent);
+    }
+
+    &[data-state="live"] .livestream-card__dot {
+      display: inline-block;
+      animation: livestream-pulse 1.4s infinite;
+    }
+
+    &[data-state="upcoming"] .livestream-card__dot {
+      display: inline-block;
+      background: var(--ls-upcoming); // solid orange, no pulse
+    }
+
+    &__foot {
+      display: flex;
+      flex-direction: column;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    &__title {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__meta {
+      margin-top: 0.25rem;
+      font-size: 0.8125rem;
+      color: #c1c3c9;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    &:hover .livestream-card__title,
+    &:focus-visible .livestream-card__title {
+      text-decoration: underline;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &[data-state="live"] .livestream-card__dot {
+        animation: none;
+      }
+    }
+  }
+
+  @keyframes livestream-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(224, 11, 45, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 0.5rem rgba(224, 11, 45, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(224, 11, 45, 0);
+    }
+  }
+</style>
+
+<script>
+  import { applyLivestreamState, fetchLivestream } from "../lib/livestream";
+
+  const cards = document.querySelectorAll<HTMLAnchorElement>(".livestream-card[data-slug]");
+  cards.forEach(async (card) => {
+    const slug = card.dataset.slug;
+    if (!slug) return;
+    const info = await fetchLivestream(slug);
+    const state = applyLivestreamState(card, info);
+    card.dispatchEvent(new CustomEvent("livestream:state", { detail: state, bubbles: true }));
+  });
+</script>
