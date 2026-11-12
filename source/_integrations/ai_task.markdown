@@ -23,6 +23,65 @@ In addition, the entity can have the following states. Each item shows the inter
 
 ## Examples
 
+### Automation: thank a delivery driver at the front door
+
+When someone rings the doorbell, use [Evaluate](/actions/ai_task.evaluate/) to check a camera snapshot for a delivery driver. If the estimated probability is at least 90%, use [Speak](/actions/tts.speak/) to play a thank-you message through the doorbell speaker.
+
+Prerequisites:
+
+- A doorbell with a camera and a doorbell event entity that supports the [Doorbell rang](/triggers/doorbell.rang/) trigger.
+- A doorbell speaker exposed as a media player that supports text-to-speech playback, such as a supported [UniFi Protect](/integrations/unifiprotect/) doorbell. Not every doorbell supports this.
+- A configured [text-to-speech](/integrations/tts/) entity and a preferred AI task evaluation entity that supports image attachments.
+
+In the automation editor, use this sequence:
+
+1. Add a **Doorbell rang** trigger and select your front door doorbell.
+2. Add an **Evaluate** action with a question named `delivery_driver`: "Is the person at the front door a delivery driver delivering a package?" Use the `noul` question type, attach the front door camera, and store the response in `delivery`.
+3. Add an **If-then** action with a template condition that checks whether `delivery.answers.delivery_driver.noul` is at least `0.9`.
+4. In the **Then** branch, add **Speak**, select your text-to-speech entity and doorbell media player, and enter "Thank you for delivering the package!".
+
+The example below includes the question format and condition. Replace the event, camera, media player, and text-to-speech entity IDs with your own. It uses your preferred evaluation entity; you can also set `entity_id` in the **Evaluate** action's data.
+
+{% details "YAML example for thanking a delivery driver" %}
+
+Paste this into the YAML editor of a new automation:
+
+{% example %}
+automation: |
+  alias: "Thank a delivery driver at the front door"
+  triggers:
+    - trigger: doorbell.rang
+      target:
+        entity_id: event.front_door_doorbell
+  actions:
+    - action: ai_task.evaluate
+      data:
+        task_name: "Check for a delivery driver"
+        questions:
+          delivery_driver:
+            type: noul
+            instructions: >
+              Is the person at the front door a delivery driver delivering
+              a package? Use visible evidence, such as a package being
+              carried or placed by the door.
+        attachments:
+          - media_content_id: media-source://camera/camera.front_door
+            media_content_type: image/jpeg
+      response_variable: delivery
+    - if: "{{ delivery.answers.delivery_driver.noul >= 0.9 }}"
+      then:
+        - action: tts.speak
+          target:
+            entity_id: tts.home_assistant_cloud
+          data:
+            media_player_entity_id: media_player.front_door_doorbell
+            message: "Thank you for delivering the package!"
+{% endexample %}
+
+{% enddetails %}
+
+The `noul` value is the model's estimated probability, not a guarantee. Adjust the `0.9` threshold to suit your camera view. Below that threshold, the automation does not play a message.
+
 ### Template entity counting items on a camera
 
 
