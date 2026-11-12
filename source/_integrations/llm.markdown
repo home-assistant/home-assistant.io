@@ -47,7 +47,7 @@ Prerequisites:
 - An administrator account in Home Assistant.
 - A conversation agent from an AI integration. For example, [OpenAI](/integrations/openai_conversation/) adds conversation agents.
 
-To add the Home Assistant AI tools to your conversation agent, follow these steps:
+To add the Home Assistant AI tools to your conversation agent:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your AI integration.
    - For example, select **OpenAI**.
@@ -76,7 +76,7 @@ Prerequisites:
 - An administrator account in Home Assistant.
 - An AI integration that adds conversation agents. For example, [OpenAI](/integrations/openai_conversation/) adds them.
 
-To set up a separate assistant for the Home Assistant AI tools, follow these steps:
+To set up a separate assistant for the Home Assistant AI tools:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your AI integration.
    - For example, select **OpenAI**.
