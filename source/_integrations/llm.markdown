@@ -134,9 +134,9 @@ If you removed the integration that added a set of tools, open the settings of t
 
 {% details "Get history: “No statistics are recorded for this entity”" %}
 
-### Symptom: The AI assistant can't tell you the past values of an entity
+### Symptom: The conversation agent can't tell you the past values of an entity
 
-You ask the AI assistant about the past values of an entity, and it can't answer. Under **Show details** in the Assist dialog, the result of `history__get_history` says "No statistics are recorded for this entity."
+You ask the conversation agent about the past values of an entity, and it can't answer. Under **Show details** in the Assist dialog, the result of `history__get_history` says "No statistics are recorded for this entity."
 
 #### Description
 
