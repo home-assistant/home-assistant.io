@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@baracudaz'
+  - '@otakar-chochola'
 ha_domain: fenix_control
 ha_platforms:
   - climate
