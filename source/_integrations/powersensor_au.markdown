@@ -152,9 +152,9 @@ This integration does not provide any custom actions.
 
 ## Troubleshooting
 
-### Water sensor entities stay unavailable
+{% details "Water sensor entities stay unavailable" %}
 
-#### Symptom: Volume flow rate and Water show as unavailable
+### Symptom: Volume flow rate and Water show as unavailable
 
 The **Volume flow rate** and **Water** entities of a water sensor show as unavailable and don't update.
 
