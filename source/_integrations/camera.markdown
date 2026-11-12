@@ -49,7 +49,7 @@ To talk through a camera:
    The first time you do this, your browser or app asks for permission to use the microphone.
    Allow access.
 
-   The button changes to **Stop talking** and shows the level of the sound your microphone picks up.
+   The button changes to **Stop talking**.
    People near the camera can now hear you.
 3. When you're done, select **Stop talking**.
    The microphone also turns off when you close the live stream.
