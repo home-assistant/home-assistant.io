@@ -99,7 +99,7 @@ To make the button appear:
    On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, the [go2rtc](/integrations/go2rtc/) integration provides WebRTC for your cameras.
    It's set up automatically if your configuration includes [`default_config`](/integrations/default_config/).
 
-When all of these are true, the **Start talking** button appears the next time you open the live stream.
+When all of these are true, the **Start talking** button appears the next time you open the more-info dialog of the camera.
 
 {% enddetails %}
 
