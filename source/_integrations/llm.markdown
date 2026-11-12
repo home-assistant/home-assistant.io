@@ -6,7 +6,7 @@ ha_domain: llm
 
 The **LLM** {% term integration %} provides the AI tools in Home Assistant. AI tools let an AI assistant do more than chat. With them, a conversation agent can turn on your lights, tell you the temperature in the living room, or find out why an integration isn't working. <abbr title="Large Language Model">LLM</abbr> is short for large language model, the type of AI behind these assistants.
 
-The tools are grouped into sets of tools. You choose which sets each conversation agent can use, in its **AI tools** option. AI apps outside Home Assistant can use the same sets through the [Model Context Protocol](/integrations/mcp_server/) integration.
+The tools are grouped into sets of tools. You choose which sets each conversation agent can use, in its **AI tools** option. AI apps outside Home Assistant can use the same sets through the [Model Context Protocol](/integrations/mcp_server/) integration. On this page, an AI assistant is either a conversation agent in Home Assistant or such an AI app.
 
 The **LLM** integration is an internal system integration. Home Assistant sets it up automatically, together with the [Conversation](/integrations/conversation/) integration. You can't add or remove it, and it has no options.
 
@@ -16,6 +16,8 @@ A set of tools is a group of tools that an AI assistant can call. Home Assistant
 
 - **Device control**: Controls and reads the {% term entities %} that you expose to voice assistants. For example, to turn off the kitchen light, or to read the temperature of a bedroom sensor. Any user can use it.
 - **Home Assistant**: Looks into and manages Home Assistant itself. For example, to read the logs, look up past sensor values, or reload an integration that failed to set up. It reaches everything in Home Assistant, not only exposed entities. Only administrators can use it.
+
+On this page, the tools in the **Home Assistant** set are called the Home Assistant AI tools.
 
 Integrations can add more sets. For example, [KNX](/integrations/knx/) adds a **KNX** set, and the [Model Context Protocol Client](/integrations/mcp/) adds a set for each server that you connect.
 
@@ -30,18 +32,18 @@ Most of the Home Assistant LLM tools only read. Two tools can change things:
 - **Call action** can perform any action in Home Assistant, on any entity, device, or area. This includes entities that you didn't expose. For example, it can turn off a light, run a script, or restart Home Assistant.
 - **Reload config entry** can reload an integration.
 
-## Giving a conversation agent the Home Assistant LLM tools
+## Giving a conversation agent the Home Assistant AI tools
 
 To let a conversation agent help you look into Home Assistant, give it the **Home Assistant** set of tools. You can then ask it about Home Assistant. For example, why an integration isn't working, or which errors are in the logs.
 
-Only administrators can use the Home Assistant LLM tools. Voice assistant devices don't sign in as a user, so they can't use them either. If you talk to your conversation agent through a voice assistant device, you can add a second conversation agent for this, and keep the first one on **Device control**.
+Only administrators can use the Home Assistant AI tools. Voice assistant devices don't sign in as a user, so they can't use them either. If you talk to your conversation agent through a voice assistant device, you can add a second conversation agent for this, and keep the first one on **Device control**.
 
 Prerequisites:
 
 - An administrator account in Home Assistant.
 - A conversation agent from an AI integration. For example, [OpenAI](/integrations/openai_conversation/).
 
-To give a conversation agent the Home Assistant LLM tools, follow these steps:
+To give a conversation agent the Home Assistant AI tools, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration of your AI service.
    - For example, **OpenAI**.
@@ -52,7 +54,7 @@ To give a conversation agent the Home Assistant LLM tools, follow these steps:
 3. Under **AI tools**, select **Home Assistant**.
    - To keep controlling your devices with this conversation agent, leave **Device control** selected too.
 4. Select **Submit**. If the dialog shows more options, select **Submit** again.
-   - Result: The conversation agent can use the Home Assistant LLM tools the next time you talk to it.
+   - Result: The conversation agent can use the Home Assistant AI tools the next time you talk to it.
 
 ## Supported functionality
 
