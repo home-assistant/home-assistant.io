@@ -1,18 +1,18 @@
 ---
-description: Provides the sets of tools that AI assistants use to control your devices and to look into Home Assistant itself.
+description: Provides the sets of tools that conversation agents and AI apps use to control your devices and to look into Home Assistant itself.
 ha_release: 2026.7
 ha_domain: llm
 ---
 
-The **LLM** {% term integration %} provides the AI tools in Home Assistant. AI tools let an AI assistant do more than chat. With them, a conversation agent can turn on your lights, tell you the temperature in the living room, or find out why an integration isn't working. <abbr title="Large Language Model">LLM</abbr> is short for large language model, the type of AI behind these assistants.
+The **LLM** {% term integration %} provides the AI tools in Home Assistant. AI tools let a conversation agent do more than chat. With them, it can turn on your lights, tell you the temperature in the living room, or find out why an integration isn't working. <abbr title="Large Language Model">LLM</abbr> is short for large language model, the type of AI behind conversation agents.
 
-The tools are grouped into sets of tools. You choose which sets each conversation agent can use, in its **AI tools** option. AI apps outside Home Assistant can use the same sets through the [Model Context Protocol](/integrations/mcp_server/) integration. On this page, an AI assistant is either a conversation agent in Home Assistant or such an AI app.
+The tools are grouped into sets of tools. You choose which sets each conversation agent can use, in its **AI tools** option. AI apps outside Home Assistant can use the same sets through the [Model Context Protocol](/integrations/mcp_server/) integration.
 
 The **LLM** integration is an internal system integration. Home Assistant sets it up automatically, together with the [Conversation](/integrations/conversation/) integration. You can't add or remove it, and it has no options.
 
 ## Sets of tools
 
-A set of tools is a group of tools that an AI assistant can call. Home Assistant has two built-in sets:
+A set of tools is a group of tools that a conversation agent or an AI app can call. Home Assistant has two built-in sets:
 
 - **Device control**: Controls and reads the {% term entities %} that you expose to voice assistants. For example, to turn off the kitchen light, or to read the temperature of a bedroom sensor. Any user can use it.
 - **Home Assistant**: Looks into and manages Home Assistant itself. For example, to read the logs, look up past sensor values, or reload an integration that failed to set up. It reaches everything in Home Assistant, not only exposed entities. Only administrators can use it.
@@ -60,9 +60,9 @@ To give a conversation agent the Home Assistant AI tools, follow these steps:
 
 ### List of Home Assistant AI tools
 
-You don't call these tools yourself. When you ask the AI assistant something, it decides which tools to call. You can't select single tools. You give the conversation agent the entire set, as described in [Giving a conversation agent the Home Assistant AI tools](#giving-a-conversation-agent-the-home-assistant-ai-tools).
+You don't call these tools yourself. When you ask the conversation agent something, it decides which tools to call. You can't select single tools. You give the conversation agent the entire set, as described in [Giving a conversation agent the Home Assistant AI tools](#giving-a-conversation-agent-the-home-assistant-ai-tools).
 
-The **Home Assistant** set of tools contains the following tools. Each entry starts with the title of the tool, followed by its ID. The Assist dialog shows the ID under **Show details**. Many tools do something that you can also do yourself in the UI, without an AI assistant. Where you can, the entry says how. For example, to check what the AI assistant tells you.
+The **Home Assistant** set of tools contains the following tools. Each entry starts with the title of the tool, followed by its ID. The Assist dialog shows the ID under **Show details**. Many tools do something that you can also do yourself in the UI, without a conversation agent. Where you can, the entry says how. For example, to check what the conversation agent tells you.
 
 - **Render template** (`homeassistant__render_template`): Renders a [template](/docs/templating/) and returns the result. Templates can read the state and attributes of all entities. Only reads.
   - To do this yourself: Use the **Template** tab, under {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
@@ -70,7 +70,7 @@ The **Home Assistant** set of tools contains the following tools. Each entry sta
   - To do this yourself: Use the **Actions** tab, under {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
 - **Call action** (`homeassistant__call_action`): Performs an action, and returns its response if it has one. Changes things.
   - To do this yourself: Use the **Actions** tab, under {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
-  - To see which actions the AI assistant performed: Go to **Settings** > **Tools** > **Action history**.
+  - To see which actions the conversation agent performed: Go to **Settings** > **Tools** > **Action history**.
 - **Get config entries** (`config__get_config_entries`): Lists the integrations and helpers that are set up, with their status, such as loaded or failed to set up, and the reason for an error. It can filter by integration and by status. Only reads.
   - To do this yourself: Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 - **Reload config entry** (`config__reload_config_entry`): Reloads an integration that is set up. For example, after a temporary connection error. Changes things.
