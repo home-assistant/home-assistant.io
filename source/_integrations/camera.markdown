@@ -96,7 +96,8 @@ To make the button appear:
 1. Make sure the **Two-way audio** preview feature is enabled in {% my labs title="**Settings** > **System** > **Labs**" %}.
 2. Check the documentation of the integration of your camera to see if it supports two-way audio.
 3. Make sure Home Assistant can stream the camera using WebRTC.
-   On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, the [go2rtc](/integrations/go2rtc/) integration provides WebRTC for your cameras automatically.
+   On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, the [go2rtc](/integrations/go2rtc/) integration provides WebRTC for your cameras.
+   It's set up automatically if your configuration includes [`default_config`](/integrations/default_config/).
 
 When all of these are true, the **Start talking** button appears the next time you open the live stream.
 
