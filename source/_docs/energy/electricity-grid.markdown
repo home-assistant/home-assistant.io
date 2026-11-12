@@ -90,7 +90,7 @@ Once your energy data is available in Home Assistant, add it to the Energy dashb
 
 Only compatible statistics are available for selection.
 
-The power sensor only adds real-time power to the dashboard. The energy totals work without it.
+The power sensor adds real-time and historical power views to the dashboard. The energy totals work without it.
 
 If your energy provider uses multiple tariffs, add one grid connection per tariff, each with its own energy consumed and energy returned statistics. Because a power sensor measures your whole meter, you only need to add it to one of the connections. The same power sensor can't be used on more than one grid connection.
 
