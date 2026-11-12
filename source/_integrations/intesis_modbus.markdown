@@ -49,8 +49,6 @@ Baud rate:
     description: "The speed set on the DIP switches of the gateway. The factory default is `9600`."
 Modbus unit ID:
     description: "The Modbus slave address set on the DIP switches of the gateway. The factory default is `1`."
-Temperature format:
-    description: "The temperature format set on the DIP switches of the gateway. You are only asked for it when the integration can't detect it, which happens while the gateway is still starting up."
 Unit has a swing vane:
     description: "Whether the indoor unit has a motorized vane. The gateway can't report this, so the option is prefilled based on the vane position the gateway last reported. Turn it off for a unit without a vane, and the climate entity won't offer swing modes."
 {% endconfiguration_basic %}
@@ -145,6 +143,18 @@ Another integration already uses the same serial port with a different baud rate
 #### Resolution
 
 Set the **Baud rate** to the one the other devices on that line use, and set the DIP switches of the gateway to match.
+
+### Symptom: "The gateway is still starting up"
+
+When trying to set up the integration, the form shows a message that the gateway is still starting up.
+
+#### Description
+
+After it powers up, the gateway needs about two minutes before it reports any values. Until then, the integration can't detect the temperature format the gateway uses.
+
+#### Resolution
+
+Wait a few minutes, then submit the form again.
 
 ### Symptom: "This is a ... gateway"
 
