@@ -599,6 +599,16 @@
     confusion, as it does not come with a piece of hardware.
   aliases:
     - services
+
+- term: Speech-to-text
+  definition: >-
+    Technology that turns spoken words into text.
+
+    Assist uses speech-to-text when you talk to it. Integrations provide speech-to-text. Some run locally, and others run in the cloud.
+  aliases:
+    - STT
+  link: /integrations/stt/
+
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
@@ -643,6 +653,15 @@
   aliases:
     - templates
 
+- term: Text-to-speech
+  definition: >-
+    Technology that turns text into spoken words.
+
+    Assist uses text-to-speech to reply out loud. Home Assistant can also use it to make announcements on media players and voice satellites. Integrations provide text-to-speech. Some run locally, and others run in the cloud.
+  aliases:
+    - TTS
+  link: /integrations/tts/
+
 - term: Thread
   definition: >-
     Thread is a low-power mesh networking standard that is specifically designed
@@ -680,11 +699,6 @@
   link: /docs/automation/trigger/
   aliases:
     - triggers
-
-- term: TTS
-  definition: >-
-    TTS (text-to-speech) allows Home Assistant to talk to you.
-  link: /integrations/tts/
 
 - term: Update
   definition: >-
