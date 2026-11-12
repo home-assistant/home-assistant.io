@@ -23,13 +23,13 @@ The default name is built from these parts, in this order:
 2. The name of the device
 3. The name of the entity
 
-For example, a `Power` entity of a smart plug called `Coffee machine` is shown as `Coffee machine Power`.
-If the entity is the [main entity of its device](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity), it has no name of its own and is shown as `Coffee machine`.
+For example, a `Power` entity of a smart plug device called `Coffee machine` is shown as `Coffee machine Power`.
+If the entity represents the main function of its device and you [turned on the attribute](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity) **Main entity of the device**, it has the device name and is shown as `Coffee machine`.
 
 Some parts are left out when they would not help to identify the entity:
 
 - If the entity has its own area assigned, instead of using the area of its device, the device name is left out.
-- If a child device has its own area assigned, the parent device name is left out. For example, a socket of a power strip called `Lamp` is shown as `Lamp` instead of `Power strip Lamp`.
+- If the entity belongs to a child device that has its own area assigned, the parent device name is left out. For example, the main entity of a socket (child device) called `Lamp` on a power strip (parent device) called `Power strip` is shown as `Lamp` instead of `Power strip Lamp`.
 
 To change the default name everywhere in Home Assistant, rename the entity or its device.
 To change the name only on one card or badge, set the name in the card or badge as described below.
