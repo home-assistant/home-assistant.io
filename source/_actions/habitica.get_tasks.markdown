@@ -2,12 +2,11 @@
 title: "Get tasks"
 action: habitica.get_tasks
 domain: habitica
+response: required
 description: "Retrieves tasks from your Habitica account, with optional filters."
 ---
 
 Use this action to fetch tasks from your Habitica account. Optional filters let you narrow the results down for more precise retrieval.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -97,6 +96,8 @@ keyword:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response variable contains a `tasks` list. Each entry describes a single Habitica task, including its title, notes, type, priority, checklist, and other task details.
 

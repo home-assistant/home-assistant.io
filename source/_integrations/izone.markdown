@@ -34,27 +34,7 @@ If you have more than one iZone system on your local network, the iZone integrat
 
 Any other controllers found during the search will become available as discovered controllers.
 
-## Legacy YAML configuration
-
-YAML configuration is now deprecated, it will be removed in a future update. 
-
-For legacy setups, or if you need to exclude specific controllers from Home Assistant, you can configure the iZone integration via the {% term "`configuration.yaml`" %} file with the `exclude` option.
-
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry with excluded controllers
-izone:
-  exclude:
-    - "000013170"
-```
-
-{% configuration %}
-exclude:
-  description: Exclude specific units from Home Assistant. This option applies only to YAML-based configuration.
-  required: false
-  type: list
-{% endconfiguration %}
+To keep a controller out of Home Assistant, select **Ignore** on its discovered card.
 
 ## Network settings
 
@@ -133,10 +113,19 @@ Damper position isn't a percentage of airflow, because airflow doesn't change li
 
 Zones with a wireless temperature sensor have the following {% term sensor %} entities:
 
-- **RF signal**: (diagnostic) The radio signal strength of the zone sensor, as a percentage.
+- **RF signal**: (diagnostic) The radio signal strength of the zone sensor, as a percentage. This entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 - **Battery**: (diagnostic) The battery level of the zone sensor, as a percentage.
 
 The iZone controller only reports these in coarse steps. The RF signal is 100%, 50%, 25%, or 0%, and the battery is 100%, 50%, or 0%. The RF signal and battery sensors are only created for zones with a wireless sensor, and only if your iZone bridge reports the values.
+
+### Zone faults
+
+Zones can have the following {% term "binary sensor" %} entities, which are created only when your iZone bridge reports the corresponding fault status. They show **Problem** when the iZone controller reports a fault, and **OK** otherwise:
+
+- **Damper fault**: (diagnostic) The controller reports a fault with the zone damper motor.
+- **Sensor fault**: (diagnostic) The controller reports a fault with the zone temperature sensor.
+
+**Sensor fault** is also only created for zones with a temperature sensor. Older bridges don't report sensor faults.
 
 ## Diagnostics
 
