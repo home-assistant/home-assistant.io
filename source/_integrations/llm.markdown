@@ -1,18 +1,18 @@
 ---
-description: Provides the sets of tools that AI assistants use to control your devices and to look into Home Assistant itself.
+description: Provides the sets of tools that conversation agents and AI apps use to control your devices and to look into Home Assistant itself.
 ha_release: 2026.7
 ha_domain: llm
 ---
 
-The **LLM** {% term integration %} provides the AI tools in Home Assistant. AI tools let an AI assistant do more than chat. With them, a conversation agent can turn on your lights, tell you the temperature in the living room, or find out why an integration isn't working. <abbr title="Large Language Model">LLM</abbr> is short for large language model, the type of AI behind these assistants.
+The **LLM** {% term integration %} provides the AI tools in Home Assistant. AI tools let a conversation agent do more than chat. With them, it can turn on your lights, tell you the temperature in the living room, or find out why an integration isn't working. <abbr title="Large Language Model">LLM</abbr> is short for large language model, the type of AI behind conversation agents.
 
-The tools are grouped into sets of tools. You choose which sets each conversation agent can use, in its **AI tools** option. AI apps outside Home Assistant can use the same sets through the [Model Context Protocol](/integrations/mcp_server/) integration. On this page, an AI assistant is either a conversation agent in Home Assistant or such an AI app.
+The tools are grouped into sets of tools. You choose which sets each conversation agent can use, in its **AI tools** option. AI apps outside Home Assistant can use the same sets through the [Model Context Protocol](/integrations/mcp_server/) integration.
 
 The **LLM** integration is an internal system integration. Home Assistant sets it up automatically, together with the [Conversation](/integrations/conversation/) integration. You can't add or remove it, and it has no options.
 
 ## Sets of tools
 
-A set of tools is a group of tools that an AI assistant can call. Home Assistant has two built-in sets:
+A set of tools is a group of tools that a conversation agent or an AI app can call. Home Assistant has two built-in sets:
 
 - **Device control**: Controls and reads the {% term entities %} that you expose to voice assistants. For example, to turn off the kitchen light, or to read the temperature of a bedroom sensor. Any user can use it.
 - **Home Assistant**: Looks into and manages Home Assistant itself. For example, to read the logs, look up past sensor values, or reload an integration that failed to set up. It reaches everything in Home Assistant, not only exposed entities. Only administrators can use it.
