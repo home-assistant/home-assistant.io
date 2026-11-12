@@ -148,9 +148,9 @@ When you run the script itself, the automation or script that started it waits f
 
 In the following situations, only the script stops, and the automation or script that started it continues:
 
-- A [**Stop**](/building-blocks/stop/) building block with **Stop because of an unexpected error** turned on
-- A wait that times out while **Continue on timeout** is turned off
-- A template that can't be rendered in a delay, in a timeout, or in the count or the list of items of a repeat
+- A [**Stop**](/building-blocks/stop/) building block with **Stop because of an unexpected error** turned on.
+- A wait that times out while **Continue on timeout** is turned off.
+- A template that can't be rendered in a delay, in a timeout, or in the count or the list of items of a repeat.
 
 With **Turn on script**, the automation or script that started it doesn't wait. It continues as soon as the script has started. Errors in the script don't affect the automation.
 
