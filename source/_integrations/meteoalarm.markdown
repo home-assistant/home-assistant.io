@@ -57,8 +57,12 @@ awareness_level: 3; orange; Severe
 awareness_type: 8; forest-fire
 event: Severe forest-fire warning
 headline: Orange forest-fire for Hedmark, Oppland
-description: High grass and heather fire hazard in areas without snow until significant amount of precipitation.
-instruction: Be very careful with open fire. Follow the instructions from the local authorities.
+description: >-
+  High grass and heather fire hazard in areas without snow until significant
+  amount of precipitation.
+instruction: >-
+  Be very careful with open fire. Follow the instructions from the local
+  authorities.
 onset: "2019-05-02T22:00:00+00:00"
 expires: "2019-05-03T21:59:00+00:00"
 severity: Severe
@@ -73,28 +77,51 @@ attribution: Information provided by MeteoAlarm
 
 The integration polls the country's MeteoAlarm feed every 5 minutes. If MeteoAlarm can't be reached, the sensor becomes unavailable until the next successful update.
 
-## Examples
+## MeteoAlarm automation examples
 
-### Get notified about a new warning
+The binary sensor turns on when your region gets a warning, so you can use it to be told about new weather warnings. Here is an idea to get you started.
 
-```yaml
-automation:
-  - alias: "Notify me about weather warnings"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.meteoalarm
-        to: "on"
-    actions:
-      - action: notify.notify
-        data:
-          title: "{{ state_attr('binary_sensor.meteoalarm', 'headline') }}"
-          message: >
-            {{ state_attr('binary_sensor.meteoalarm', 'description') }}
-            From {{ state_attr('binary_sensor.meteoalarm', 'onset') }}
-            until {{ state_attr('binary_sensor.meteoalarm', 'expires') }}.
-```
+{% include docs/paste_yaml_tip.md %}
 
-Replace `binary_sensor.meteoalarm` with your sensor's entity ID.
+### Automation: Get notified about a new warning
+
+Get a notification on your phone when your region gets a weather warning, with its headline, description and timing.
+
+- **Trigger**: Entity: State
+  - **Entity**: Your MeteoAlarm binary sensor
+  - **From**: Off
+  - **To**: On
+- **Action**: Notifications: Send a notification message
+  - **Target**: Your phone
+  - **Title** and **Message**: Templates that read the sensor's `headline`, `description`, `onset` and `expires` attributes, as in the YAML example below.
+
+Using **From**: Off means you get one notification for each new warning, and none when the sensor comes back from unavailable while the same warning is still current.
+
+{% details "YAML example for a new warning notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify me about weather warnings"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.meteoalarm
+      from: "off"
+      to: "on"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        title: "{{ state_attr('binary_sensor.meteoalarm', 'headline') }}"
+        message: >
+          {{ state_attr('binary_sensor.meteoalarm', 'description') }}
+          From {{ state_attr('binary_sensor.meteoalarm', 'onset') }}
+          until {{ state_attr('binary_sensor.meteoalarm', 'expires') }}.
+{% endexample %}
+
+{% enddetails %}
+
+Replace `binary_sensor.meteoalarm` with your sensor's entity ID, and `notify.my_phone` with your phone's notify entity.
 
 ## Known limitations
 
