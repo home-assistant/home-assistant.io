@@ -29,7 +29,8 @@ Home Assistant adds the device name where it is needed.
 An _entity ID_ identifies the entity in automations, scripts, and other configuration, such as `sensor.living_room_thermostat_temperature`.
 Changing an entity name does not change its entity ID.
 Renaming a floor, area, or device, or moving a device to another area, does not change entity IDs either.
-Names only change how items are shown, so your automations, scripts, and history keep working.
+Automations, scripts, and history refer to entities by their entity ID, so they keep working after you rename an item.
+If you use a [template](/docs/templating/) that finds an area, floor, or device by its name, such as `area_entities("Living room")`, update the name in the template after renaming the item.
 
 Follow these recommendations in your Home Assistant setup:
 
