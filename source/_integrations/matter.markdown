@@ -68,6 +68,14 @@ It is recommended to run the Matter app (formerly known as Matter add-on) on Hom
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/matter-js/matterjs-server). The requirements and instructions for your host setup are described on that GitHub page.
 
+## Matter cameras
+
+Home Assistant supports cameras that use Matter 1.5 or later. Camera support requires the Matter Server app 9.3.0 or newer. If you run the Matter server in a container, use [Matter Server](https://github.com/matter-js/matterjs-server) 1.5.0 or newer.
+
+After you add a Matter camera, you can watch its live video, take snapshots, and use the camera in your dashboards and automations, like any other camera in Home Assistant. The live video is streamed with <abbr title="Web Real-Time Communication">WebRTC</abbr>, directly between your browser and the camera. When privacy mode is turned on in the camera, the camera entity shows as off.
+
+If your camera supports two-way audio, you can also talk through it. For the steps, refer to [Talking through a Matter camera](#talking-through-a-matter-camera).
+
 ## Adding a Matter device to Home Assistant
 
 Each Matter network is called a fabric. Each home automation controller that controls Matter devices has its own "fabric". You can add devices directly to the fabric of your Home Assistant instance, or share them from another fabric (for example from Google or Apple) to Home Assistant's fabric. We're going to explore all these options below.
@@ -303,6 +311,20 @@ This section provides a bit more information on some of the categories:
 **Network name**: Name of the network the device joined when it was commissioned.
 
 **IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
+
+## Talking through a Matter camera
+
+Prerequisites:
+
+- A [Matter camera](#matter-cameras) that supports two-way audio.
+- Home Assistant opened over HTTPS. Browsers only allow microphone access over a secure connection.
+
+To talk through the camera:
+
+1. Go to {% my labs title="**Settings** > **System** > **Labs**" %} and turn on the **Two-way audio** preview feature.
+2. Open the camera's live view and select **Start talking**.
+3. If your browser asks for microphone access, allow it.
+4. To stop, select **Stop talking**.
 
 ## Viewing your Matter network map
 

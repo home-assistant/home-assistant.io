@@ -1,0 +1,80 @@
+---
+// The site's shell for pages the website serves from Astro: the
+// document head, the site header, the page's own content and the site
+// footer. Page.astro puts a reading column inside it; landing pages
+// (such as the Connect product pages) fill it with their own sections.
+//
+// Ports the frame of `source/_layouts/default.html`. Two things move
+// here from the page level on the live site: keeping the header on top
+// while the page scrolls (Jekyll makes it `position: fixed` and pads the
+// page; here it is sticky, so no padding is needed) and starting
+// DocSearch, which fills the header's search box. Unlike the preview
+// layout (Base.astro), pages are indexable: they are published at their
+// real URLs.
+import SiteHead from "../components/SiteHead.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import DocSearch from "../components/DocSearch.astro";
+import { release } from "../lib/site.mjs";
+import "../styles/tokens.scss";
+
+// `image` is the page's social sharing picture (Jekyll's `og_image`).
+// `stickyHeader` off lets the site header scroll away with the page,
+// for pages with their own bar pinned at the top (ConnectNav).
+const { title, description, image, noindex, stickyHeader = true } =
+  Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SiteHead
+      title={title}
+      description={description}
+      image={image}
+      noindex={noindex}
+    />
+  </head>
+  <body>
+    <div class:list={["masthead", { sticky: stickyHeader }]}>
+      <SiteHeader
+        pathname={Astro.url.pathname}
+        version={release.version}
+        versionUrl={release.url}
+        releasedOn={release.releasedOn}
+      />
+    </div>
+
+    <slot />
+
+    <SiteFooter />
+
+    <DocSearch />
+  </body>
+</html>
+
+<style is:global>
+  /* The document itself; everything inside is styled by components. */
+  html {
+    scroll-padding-top: calc(var(--header-height) + var(--space-large));
+  }
+
+  body {
+    background: var(--color-page);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    margin: 0;
+  }
+</style>
+
+<style>
+  .masthead {
+    position: relative;
+    z-index: 100;
+  }
+
+  .masthead.sticky {
+    position: sticky;
+    top: 0;
+  }
+</style>

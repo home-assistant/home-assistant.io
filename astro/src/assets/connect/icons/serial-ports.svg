@@ -1,0 +1,75 @@
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes icon-serial-ports-kf_Device_transform_0 {
+  0% {
+    animation-timing-function: ease-out;
+    transform: translateY(2.1px) translateY(0px) translate(7px, 4.9px) scaleY(1) translate(-7px, -4.9px);
+  }
+  11% {
+    animation-timing-function: ease-out;
+    transform: translateY(2.1px) translateY(0.3px) translate(7px, 4.9px) scaleY(0.96) translate(-7px, -4.9px);
+  }
+  25% {
+    animation-timing-function: ease-in-out;
+    transform: translateY(2.1px) translateY(-0.6px) translate(7px, 4.9px) scaleY(1.02) translate(-7px, -4.9px);
+  }
+  40% {
+    transform: translateY(2.1px) translateY(0px) translate(7px, 4.9px) scaleY(1) translate(-7px, -4.9px);
+  }
+  100% {
+    transform: translateY(2.1px) translateY(0px) translate(7px, 4.9px) scaleY(1) translate(-7px, -4.9px);
+  }
+}
+#icon-serial-ports-Device {
+  transform-origin: 0 0;
+  animation: icon-serial-ports-kf_Device_transform_0 2s linear infinite;
+}
+@keyframes icon-serial-ports-kf_Round_port_transform_0 {
+  0% {
+    transform: translateX(8.75px) translateY(2.8px) translate(1.4px, 1.4px) scaleX(1) scaleY(1) translate(-1.4px, -1.4px);
+  }
+  45% {
+    animation-timing-function: ease-in;
+    transform: translateX(8.75px) translateY(2.8px) translate(1.4px, 1.4px) scaleX(1) scaleY(1) translate(-1.4px, -1.4px);
+  }
+  57.5% {
+    animation-timing-function: ease-out;
+    transform: translateX(8.75px) translateY(2.8px) translate(1.4px, 1.4px) scaleX(0.7) scaleY(0.7) translate(-1.4px, -1.4px);
+  }
+  72.5% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(8.75px) translateY(2.8px) translate(1.4px, 1.4px) scaleX(1.12) scaleY(1.12) translate(-1.4px, -1.4px);
+  }
+  87.5% {
+    transform: translateX(8.75px) translateY(2.8px) translate(1.4px, 1.4px) scaleX(1) scaleY(1) translate(-1.4px, -1.4px);
+  }
+  100% {
+    transform: translateX(8.75px) translateY(2.8px) translate(1.4px, 1.4px) scaleX(1) scaleY(1) translate(-1.4px, -1.4px);
+  }
+}
+#icon-serial-ports-Round_port {
+  transform-origin: 0 0;
+  animation: icon-serial-ports-kf_Round_port_transform_0 2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  #icon-serial-ports-Base * {
+    animation: none !important;
+  }
+}
+</style>
+<g id="icon-serial-ports-Base" clip-path="url(#icon-serial-ports-clip0_761_13624)">
+<g id="icon-serial-ports-Device" transform="translate(0 2.1)">
+<path id="icon-serial-ports-Body" d="M1.4 7H12.6V1.4H1.4V7ZM2.1 9.8C1.90167 9.8 1.73542 9.73292 1.60125 9.59875C1.46708 9.46458 1.4 9.29833 1.4 9.1V8.4C1.015 8.4 0.685417 8.26292 0.41125 7.98875C0.137083 7.71458 0 7.385 0 7V1.4C0 1.015 0.137083 0.685417 0.41125 0.41125C0.685417 0.137083 1.015 0 1.4 0H12.6C12.985 0 13.3146 0.137083 13.5887 0.41125C13.8629 0.685417 14 1.015 14 1.4V7C14 7.385 13.8629 7.71458 13.5887 7.98875C13.3146 8.26292 12.985 8.4 12.6 8.4V9.1C12.6 9.29833 12.5329 9.46458 12.3987 9.59875C12.2646 9.73292 12.0983 9.8 11.9 9.8C11.7017 9.8 11.5354 9.73292 11.4012 9.59875C11.2671 9.46458 11.2 9.29833 11.2 9.1V8.4H2.8V9.1C2.8 9.29833 2.73292 9.46458 2.59875 9.59875C2.46458 9.73292 2.29833 9.8 2.1 9.8Z" fill="white"/>
+<rect id="icon-serial-ports-Slot_port" transform="translate(2.8 2.8)" width="4.9" height="2.8" fill="white">
+<animate attributeName="width" values="4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.9; 4.874; 4.8; 4.686; 4.538; 4.358; 4.15; 3.918; 3.663; 3.386; 3.09; 2.776; 2.444; 2.272; 2.095; 1.915; 1.731; 1.542; 1.35; 1.153; 0.952; 0.747; 0.537; 0.322; 0.1; 0.286; 0.467; 0.644; 0.817; 0.988; 1.155; 1.32; 1.482; 1.642; 1.799; 1.953; 2.104; 2.179; 2.253; 2.326; 2.399; 2.471; 2.542; 2.612; 2.682; 2.751; 2.82; 2.887; 2.954; 3.119; 3.278; 3.433; 3.582; 3.727; 3.866; 4; 4.127; 4.249; 4.365; 4.473; 4.575; 4.651; 4.722; 4.789; 4.849; 4.904; 4.953; 4.996; 5.032; 5.061; 5.082; 5.095; 5.1; 5.1; 5.098; 5.096; 5.093; 5.089; 5.084; 5.078; 5.071; 5.063; 5.054; 5.044; 5.034; 5.017; 5; 4.983; 4.966; 4.951; 4.937; 4.926; 4.916; 4.909; 4.904; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901; 4.901" keyTimes="0; 0.0092; 0.0183; 0.0275; 0.0367; 0.0458; 0.055; 0.0642; 0.0733; 0.0825; 0.0917; 0.1008; 0.11; 0.1133; 0.1167; 0.12; 0.1233; 0.1267; 0.13; 0.1333; 0.1367; 0.14; 0.1433; 0.1467; 0.15; 0.1583; 0.1667; 0.175; 0.1833; 0.1917; 0.2; 0.2083; 0.2167; 0.225; 0.2333; 0.2417; 0.25; 0.2542; 0.2583; 0.2625; 0.2667; 0.2708; 0.275; 0.2792; 0.2833; 0.2875; 0.2917; 0.2958; 0.3; 0.3083; 0.3167; 0.325; 0.3333; 0.3417; 0.35; 0.3583; 0.3667; 0.375; 0.3833; 0.3917; 0.4; 0.4042; 0.4083; 0.4125; 0.4167; 0.4208; 0.425; 0.4292; 0.4333; 0.4375; 0.4417; 0.4458; 0.45; 0.4604; 0.4708; 0.4813; 0.4917; 0.5021; 0.5125; 0.5229; 0.5333; 0.5438; 0.5542; 0.5646; 0.575; 0.5833; 0.5917; 0.6; 0.6083; 0.6167; 0.625; 0.6333; 0.6417; 0.65; 0.6583; 0.6667; 0.675; 0.6792; 0.6833; 0.6875; 0.6917; 0.6958; 0.7; 0.7042; 0.7083; 0.7125; 0.7167; 0.7208; 0.725; 0.7313; 0.7375; 0.7438; 0.75; 0.7563; 0.7625; 0.7688; 0.775; 0.7813; 0.7875; 0.7938; 0.8; 0.8063; 0.8125; 0.8188; 0.825; 0.8313; 0.8375; 0.8438; 0.85; 0.8563; 0.8625; 0.8688; 0.875; 0.8854; 0.8958; 0.9063; 0.9167; 0.9271; 0.9375; 0.9479; 0.9583; 0.9688; 0.9792; 0.9896; 1" dur="2s" calcMode="linear" repeatCount="indefinite" />
+
+</rect>
+<circle id="icon-serial-ports-Round_port" transform="translate(8.75 2.8)" cx="1.4" cy="1.4" r="1.4" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="icon-serial-ports-clip0_761_13624">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg>
