@@ -154,6 +154,128 @@ Zones can have the following {% term "binary sensor" %} entities, which are crea
 
 {% include integrations/actions.md %}
 
+## iZone automation examples
+
+Each zone has its own climate entity, so you can automate each room separately. Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Open all zones when Eco turns on
+
+When the **Eco** preset is on, the iSave system vents outside air into the house. To spread the outside air through every room, open all zones when **Eco** turns on.
+
+- **Trigger**: The controller preset changes to **Eco**
+- **Action**: Set all zones to **Fan only**, which opens them
+
+{% details "YAML example for opening all zones when Eco turns on" %}
+
+{% example %}
+automation: |
+  alias: "Open all zones when Eco turns on"
+  triggers:
+    - trigger: state
+      entity_id: climate.izone_controller
+      attribute: preset_mode
+      to: eco
+  actions:
+    - action: climate.set_hvac_mode
+      target:
+        entity_id:
+          - climate.bedroom
+          - climate.living_room
+          - climate.office
+      data:
+        hvac_mode: fan_only
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Get notified when a zone sensor needs attention
+
+Get a notification when the battery of a wireless zone sensor runs low, or when the iZone controller reports a fault with a zone sensor. That way, you can replace the battery or check the sensor before the zone stops reporting its temperature.
+
+- **Triggers**:
+  - A zone **Battery** sensor drops to 50% or below
+  - A zone **Sensor fault** entity changes to **Problem**
+- **Action**: Create a notification that names the entity
+
+{% details "YAML example for getting notified when a zone sensor needs attention" %}
+
+{% example %}
+automation: |
+  alias: "Notify when an iZone zone sensor needs attention"
+  triggers:
+    # The battery only reports 100%, 50%, or 0%, so warn at 50%
+    - trigger: numeric_state
+      entity_id:
+        - sensor.bedroom_battery
+        - sensor.office_battery
+      below: 51
+    - trigger: state
+      entity_id:
+        - binary_sensor.bedroom_sensor_fault
+        - binary_sensor.office_sensor_fault
+      to: "on"
+  actions:
+    - action: persistent_notification.create
+      data:
+        title: "iZone zone sensor needs attention"
+        message: "Check {{ trigger.to_state.name }}."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Run a zone on a schedule
+
+Use a [schedule](/integrations/schedule/) helper to set when a zone is in use, and change the times from the UI without editing the automation. When the schedule turns on, the zone switches to climate control with a comfortable target temperature. When it turns off, the zone closes.
+
+- **Triggers**: The schedule turns on or off
+- **Actions**:
+  - When the schedule turns on: set the bedroom zone to **Heat/Cool**, then set the target temperature to 20 °C
+  - When the schedule turns off: turn off the bedroom zone
+
+{% details "YAML example for running a zone on a schedule" %}
+
+{% example %}
+automation: |
+  alias: "Run the bedroom zone on a schedule"
+  triggers:
+    - trigger: state
+      entity_id: schedule.bedroom
+      to: "on"
+      id: "start"
+    - trigger: state
+      entity_id: schedule.bedroom
+      to: "off"
+      id: "stop"
+  actions:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: "start"
+          sequence:
+            # Set the mode first, a closed zone has no target temperature
+            - action: climate.set_hvac_mode
+              target:
+                entity_id: climate.bedroom
+              data:
+                hvac_mode: heat_cool
+            - action: climate.set_temperature
+              target:
+                entity_id: climate.bedroom
+              data:
+                temperature: 20
+        - conditions:
+            - condition: trigger
+              id: "stop"
+          sequence:
+            - action: climate.turn_off
+              target:
+                entity_id: climate.bedroom
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 The integration {% term polling polls %} each iZone controller every 25 seconds. When you change a setting from Home Assistant, the new state shows right away. Changes made with the iZone app or on the iZone touchscreen show up at the next update.
