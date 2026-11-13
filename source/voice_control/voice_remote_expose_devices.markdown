@@ -10,7 +10,7 @@ related:
     title: Best practices with Assist
 ---
 
-Assist can only see and control the {% term entities %} that you expose to it. This way, you decide which devices you can control by voice. Locks, alarm systems, and other sensitive devices can't be controlled by a voice command by accident.
+Assist can only see and control the {% term entities %} that you expose to it. This way, you decide which devices you can control by voice.
 
 ## Entities that are exposed automatically
 
@@ -21,6 +21,8 @@ When **Expose new entities** is turned on, Home Assistant exposes each new entit
 - Lights, switches, fans, covers, climate devices, humidifiers, water heaters, vacuums, media players, scenes, and to-do lists.
 - Binary sensors for doors, garage doors, windows, locks, and other openings, and binary sensors that detect motion or presence. These sensors only report a state. Assist can tell you if a door is open, but it can't open or unlock anything with them.
 - Sensors that measure temperature, humidity, carbon monoxide, carbon dioxide, PM2.5, PM10, volatile organic compounds, or the air quality index.
+
+Covers include garage doors and gates, so Home Assistant exposes them automatically too. If you don't want to open them by voice, stop exposing them. For the steps, refer to [Exposing your devices to Assist](#exposing-your-devices-to-assist).
 
 Home Assistant never exposes other entities automatically. For example, locks, alarm control panels, and scripts stay unexposed until you expose them yourself. Configuration entities, diagnostic entities, and hidden entities are never exposed automatically either.
 
