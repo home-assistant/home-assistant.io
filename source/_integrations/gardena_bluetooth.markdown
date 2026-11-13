@@ -10,6 +10,14 @@ See the device sections for support information: [water control](#water-control)
 
 {% include integrations/config_flow.md %}
 
+## Connection options
+
+Open **Settings** > **Devices & services**, select **Gardena Bluetooth**, and open the options for your device.
+
+**Use persistent connection** is off by default. Enable it to keep the Bluetooth connection open between updates instead of disconnecting after each update. It may help devices that lose connectivity after repeated connections, but it is not a guaranteed fix for connection loss.
+
+While enabled, the Gardena app may be unable to connect to the device. A persistent connection also occupies a Bluetooth proxy connection slot and may increase battery use. Turn the option off when you need access from the Gardena app.
+
 ## Pairing
 
 Gardena devices remember previously paired Bluetooth adapters, up to 10, and only allow connections from those adapters. If you replace your adapter or use multiple Bluetooth proxies, the device must be paired with that proxy or adapter before it will connect. Otherwise, the device silently ignores the connection attempt. In Home Assistant, this usually appears as timeout errors.
