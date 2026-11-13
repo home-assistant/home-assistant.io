@@ -77,11 +77,11 @@ It is now time to speak to your device.
 
 To talk to Assist, you can either use your phone or a custom device (and use their microphone and speaker). Check here how to do it on [Android](/voice_control/android/) or [Apple](/voice_control/apple/) devices.
 
-### Exposing scripts to LLMs
+### Let AI run your scripts
 
-You can use a conversation agent that uses AI. Examples are OpenAI, Google Gemini, and local models that support tools. With such a conversation agent, each script that you expose to Assist becomes an {% term "AI tool" %} that the conversation agent can call directly. Home Assistant never exposes scripts automatically, so expose the scripts that you want it to use. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the LLM will simply not know the script exists or when to use it.
+You can use a conversation agent that uses AI. To add one, set up an [AI integration](/integrations/category/ai_voice/ai_models/). Examples are OpenAI, Google Gemini, and Ollama for local models. Each script that you expose to Assist becomes an {% term "AI tool" %} in the **Device control** set. If **Device control** is selected in the **AI tools** option of the conversation agent, it can call the script directly. Home Assistant never exposes scripts automatically, so expose the scripts that you want it to use. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the conversation agent doesn't know the script exists or when to use it.
 
-Find out [how to write these descriptions](/voice_control/exposing_scripts_to_llms/) when you're ready to expose scripts to LLMs.
+Find out [how to write these descriptions](/voice_control/exposing_scripts_to_llms/) when you're ready to expose your scripts.
 
 
 ### Some examples to get you started
