@@ -23,7 +23,7 @@ Before you add the integration, prepare your router:
 
   On OpenWrt versions that use the older package manager, use `opkg update` and `opkg install luci-mod-rpc` instead.
 
-- Have the credentials of a user with administrative privileges ready. This is usually the `admin` account.
+- Have the password for your router's `root` account ready. The LuCI RPC package only works with the `root` account.
 
 {% include integrations/config_flow.md %}
 
@@ -31,7 +31,7 @@ Before you add the integration, prepare your router:
 Host:
     description: "The hostname or IP address of your router, for example `192.168.1.1`."
 Username:
-    description: "The username of a user with administrative privileges on the router, usually `admin`."
+    description: "The username to log in to the router. Use `root`, the only account that works with the LuCI RPC package."
 Password:
     description: "The password for that account."
 SSL:

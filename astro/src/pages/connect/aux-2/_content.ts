@@ -78,11 +78,11 @@ export const specs = [
           },
           {
             term: "Analogue audio capabilities",
-            value: ["16-bit/48kHz stereo"],
+            value: ["24-bit/48kHz stereo"],
           },
           {
             term: "Digital audio capabilities",
-            value: ["16-bit/48kHz stereo", "Stereo PCM lossless audio"],
+            value: ["24-bit/48kHz stereo", "Stereo PCM lossless audio"],
           },
           {
             term: "Synchronized whole home audio",
