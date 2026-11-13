@@ -59,7 +59,7 @@ In the list of integrations, **Broadlink Magic Home** is grouped under the **Bro
 
 The integration has no settings to enter. Adding it shows the **Import a Magic Home family** dialog with a QR code. Keep this dialog open.
 
-The QR code contains a one-time identifier. It expires after three minutes and cannot be reused after a successful upload. If it expires, select **Submit** to get a new code.
+The QR code contains a one-time identifier. It expires after three minutes and cannot be reused after a successful upload. If it expires, select **Submit**. Home Assistant shows **Import timed out**. Select **Submit** again to get a new code.
 
 ### Scan the QR code with the Magic Home app
 
