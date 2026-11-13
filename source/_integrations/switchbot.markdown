@@ -154,6 +154,7 @@ In addition to the certified devices, the following devices are also supported:
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
 - [Circulator Fan Pro](https://www.switch-bot.com/products/switchbot-battery-circulator-fan-2-pro)
+- Modern Ceiling Fan (W1071)
 
 ### Vacuums
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
@@ -792,6 +793,20 @@ The Circulator Fan Pro combines a fan with a built-in night light. It adds the f
 - A light for the two-level (high and low) night light.
 - A switch for vertical oscillation.
 - A sensor for the battery level.
+
+#### Modern Ceiling Fan
+
+This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+The Modern Ceiling Fan provides independent controls for its fan and two light channels:
+
+- A fan with on/off control, speed adjustment, normal, natural, sleep, hurricane, and reverse modes, and oscillation. Changing speed preserves reverse mode when it is active.
+- A white light with on/off control, brightness, and color temperature from 2700 K to 6500 K.
+- An RGB light with on/off control, brightness, and color.
+- A switch for vertical oscillation.
+- A sensor for battery level.
+
+Changing one light does not change the other light or switch the fan on or off. Custom wind curves, schedules, and RGB lighting effects are not exposed by this integration.
 
 ### Air Purifiers
 
