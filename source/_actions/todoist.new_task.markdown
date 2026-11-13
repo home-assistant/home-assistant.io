@@ -68,7 +68,7 @@ Reminder date:
   description: When you should be reminded of this task, in the format YYYY-MM-DD HH:MM, in the UTC time zone.
   required: false
 Reminder zone:
-  description: A zone that triggers a location reminder. The zone's radius must be from 1 to 5000 meters. The zone's name, location, and radius are shared with Todoist.
+  description: A zone that triggers a location reminder. The zone's radius must be at least 1 meter. Todoist limits location reminders to 255 meters, so a larger zone uses a 255-meter radius and a warning is logged. The zone's name, location, and radius are shared with Todoist.
   required: false
 Reminder location name:
   description: The name of the location for a location reminder. Use it with the latitude, longitude, and radius as an alternative to a zone.
@@ -80,7 +80,7 @@ Reminder longitude:
   description: The longitude of the location. This location is shared with Todoist.
   required: false
 Reminder radius:
-  description: The radius, in meters, around the location that triggers the reminder, up to 5000.
+  description: The radius, in meters, around the location that triggers the reminder, up to 255.
   required: false
 Reminder location direction:
   description: Whether the location reminder triggers when **Entering** or **Leaving** the location. Defaults to **Entering**.
@@ -206,8 +206,10 @@ reminder_date:
 reminder_zone:
   description: >
     The entity ID of a zone that triggers a location reminder, for example
-    `zone.home`. The zone's radius must be from 1 to 5000 meters. The
-    zone's name, location, and radius are shared with Todoist. Mutually
+    `zone.home`. The zone's radius must be at least 1 meter. Todoist limits
+    location reminders to 255 meters, so a larger zone uses a 255-meter
+    radius and a warning is logged. The zone's name, location, and radius
+    are shared with Todoist. Mutually
     exclusive with `reminder_location_name`, `reminder_latitude`,
     `reminder_longitude`, and `reminder_radius`.
   required: false
@@ -236,7 +238,7 @@ reminder_longitude:
 reminder_radius:
   description: >
     The radius, in meters, around the location that triggers the reminder,
-    from 1 to 5000. Must be used together with `reminder_location_name`,
+    from 1 to 255. Must be used together with `reminder_location_name`,
     `reminder_latitude`, and `reminder_longitude`.
   required: false
   type: integer
