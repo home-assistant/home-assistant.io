@@ -12,6 +12,9 @@
   "categories": [
     "plugs_switches"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "switch"
   ]

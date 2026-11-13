@@ -6,6 +6,10 @@
   "categories": [
     "diy_makers.web_data_connectors"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "notify",

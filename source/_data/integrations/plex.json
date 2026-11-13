@@ -10,8 +10,12 @@
   "categories": [
     "media_entertainment.tv_streaming"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
+    "diagnostics",
     "media_player",
     "sensor",
     "update"

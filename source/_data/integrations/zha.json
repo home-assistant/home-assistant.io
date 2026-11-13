@@ -13,6 +13,9 @@
   "categories": [
     "hubs_protocols.wireless_protocols"
   ],
+  "connectivity": [
+    "zigbee"
+  ],
   "platforms": [
     "alarm_control_panel",
     "binary_sensor",

@@ -10,6 +10,10 @@
   "categories": [
     "diy_makers.web_data_connectors"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "sensor"
   ]

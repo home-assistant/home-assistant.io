@@ -11,6 +11,10 @@
   "categories": [
     "messaging_notifications.email_sms_calls"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "diagnostics",
     "notify"

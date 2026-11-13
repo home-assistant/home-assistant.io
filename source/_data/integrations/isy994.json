@@ -11,6 +11,11 @@
   "categories": [
     "hubs_protocols.smart_home_hubs"
   ],
+  "connectivity": [
+    "insteon",
+    "x10",
+    "zwave"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

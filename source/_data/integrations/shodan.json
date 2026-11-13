@@ -9,6 +9,9 @@
   "categories": [
     "computers_network.monitoring"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

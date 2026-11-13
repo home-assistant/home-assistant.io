@@ -2,6 +2,7 @@
 title: "Read AC discharge times"
 action: growatt_server.read_ac_discharge_times
 domain: growatt_server
+response: required
 description: "Reads AC discharge periods from a supported SPH inverter."
 related_actions:
   - growatt_server.write_ac_discharge_times
@@ -54,6 +55,10 @@ device_id:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

@@ -7,6 +7,10 @@
   "categories": [
     "presence_location.phones_companion_apps"
   ],
+  "connectivity": [
+    "mqtt",
+    "network"
+  ],
   "platforms": [
     "device_tracker"
   ]

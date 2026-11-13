@@ -7,6 +7,7 @@ related_actions:
   - sofar.set_passive_mode_timeout
   - sofar.set_feed_in_limit
   - sofar.set_active_power_limit
+  - sofar.set_battery_cutoffs
 ---
 
 Use this action to directly command a Sofar inverter's battery and grid power in passive mode: how much power to draw from (or export to) the grid, and the battery power window the inverter is allowed to use to get there. All three values are signed and go out to the inverter as one write. Only available on inverters with battery storage.

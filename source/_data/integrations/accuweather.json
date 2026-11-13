@@ -7,9 +7,13 @@
   ],
   "config_flow": true,
   "iot_class": "cloud_polling",
+  "quality_scale": "silver",
   "categories": [
     "weather_alerts.forecasts",
     "weather_alerts.air_quality_pollen"
+  ],
+  "connectivity": [
+    "cloud"
   ],
   "platforms": [
     "diagnostics",

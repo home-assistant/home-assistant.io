@@ -11,6 +11,9 @@
   "categories": [
     "climate.thermostats_heating"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

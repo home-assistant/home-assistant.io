@@ -12,6 +12,9 @@
     "climate.fans_ventilation",
     "sensors.air_quality"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "diagnostics",
     "sensor"
