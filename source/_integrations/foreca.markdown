@@ -94,6 +94,8 @@ The `weather.get_forecasts` and `foreca.get_forecasts_extra` actions read the fo
 
 The `foreca.get_3_hour_forecast` action requests fresh data, so each call uses one request for every Foreca weather entity it targets.
 
+The `foreca.get_minute_forecast` action requests fresh data, so each call uses one request for every Foreca weather entity it targets.
+
 ## Known limitations
 
 - The API dates a daily forecast rather than timing it, so each daily entry is reported at the start of that day in your Home Assistant time zone.
