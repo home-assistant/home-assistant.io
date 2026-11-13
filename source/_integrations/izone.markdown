@@ -7,13 +7,13 @@ related:
     title: Configuration file
 ---
 
-The **iZone** {% term integration %} lets you monitor and control local [iZone](https://izone.com.au/) ducted reverse-cycle climate control systems. These systems are largely available in Australia.
+The **iZone** {% term integration %} lets you monitor and control local [iZone](https://izone.com.au/) ducted reverse-cycle climate control systems. iZone is an Australian brand, and its systems are sold in Australia and New Zealand.
 
-Use it to control your air conditioner and each of its zones from Home Assistant. For example, you can set the target temperature and airflow for each room on its own schedule, switch to outside air when it's cooler than inside, or get notified when a damper or sensor reports a fault.
+Use it to control your air conditioner and each of its zones from Home Assistant. For example, you can set the target temperature and airflow for each room on its own schedule, switch to outside air when it's cooler than inside, or get notified when a zone sensor needs attention.
 
 ## Supported devices
 
-Any current iZone unit with ducted reverse cycle air-conditioning and an iZone Smart Hub installed should work. The Smart Hub was formerly called the CB bridge, and comes in wired and wireless versions.
+Any current iZone unit with ducted reverse-cycle air conditioning and an iZone Smart Hub installed should work. The Smart Hub was formerly called the CB bridge, and comes in wired and wireless versions.
 
 ## Unsupported devices
 
@@ -27,14 +27,14 @@ The following iZone products are not supported by the integration:
 
 Before you set up the integration, make sure that:
 
-- Your iZone system has a Smart Hub installed, either wired or wireless, and the Smart Hub is paired with the iZone controller.
+- Your iZone system has a Smart Hub installed, either wired or wireless, and the Smart Hub is paired with your iZone system.
 - The Smart Hub is connected to your local network, and Home Assistant can reach it. To find the Smart Hub automatically, Home Assistant and the Smart Hub need to be on the same network segment. For details, see [Network settings](#network-settings).
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Setup method:
-  description: Choose **Search for devices** to look for controllers on your local network, or **Enter host** to type the controller IP address or hostname.
+  description: Choose **Search for devices** to look for controllers on your local network, or **Enter host** to type the Smart Hub IP address or hostname.
 Host:
   description: The address of your Smart Hub. Shown when you choose **Enter host**, or when **Search for devices** does not find a controller.
 {% endconfiguration_basic %}
@@ -57,7 +57,7 @@ To keep a controller out of Home Assistant, select **Ignore** on its discovered 
 
 Once set up, Home Assistant controls the Smart Hub over HTTP on TCP port `80`. Your Home Assistant host must be able to reach the Smart Hub by IP address or hostname on your local network.
 
-UDP broadcast discovery is used to find controllers on the LAN (for example **Search for devices**), to notice new Smart Hubs, and to pick up IP address changes. For discovery to work reliably, Home Assistant and the Smart Hub usually need to be on the same local network segment, like the same VLAN. If they are on different segments, standard routing is usually not enough. Your network must support a UDP broadcast relay, directed broadcast, or a similar feature to forward this traffic between segments.
+Home Assistant uses UDP broadcast discovery to find Smart Hubs, both for **Search for devices** and while running. For what discovery does while running, see [Data updates](#data-updates). For discovery to work reliably, Home Assistant and the Smart Hub usually need to be on the same local network segment, like the same VLAN. If they are on different segments, standard routing is usually not enough. Your network must support a UDP broadcast relay, directed broadcast, or a similar feature to forward this traffic between segments.
 
 Discovery uses outbound UDP packets to destination port `12107` and listens locally for inbound UDP iZone messages on port `7005`. The integration currently listens on `0.0.0.0` and sends discovery to local IPv4 broadcast addresses, which is not configurable.
 
@@ -254,7 +254,7 @@ automation: |
             - condition: trigger
               id: "start"
           sequence:
-            # Set the mode first, a closed zone has no target temperature
+            # Set the mode first, because a closed zone has no target temperature
             - action: climate.set_hvac_mode
               target:
                 entity_id: climate.bedroom
@@ -338,7 +338,7 @@ To keep the address from changing, reserve an IP address for the Smart Hub in yo
 
 ### Symptom: "This iZone Smart Hub is not paired with an air conditioner"
 
-When you set up the integration, the form shows the message "This iZone Smart Hub is not paired with an air conditioner". Or the integration entry shows the error "iZone Smart Hub is not paired with an air conditioner".
+When you set up the integration, the form shows the message "This iZone Smart Hub is not paired with an air conditioner", or the integration entry shows the error "iZone Smart Hub is not paired with an air conditioner".
 
 #### Description
 
@@ -389,20 +389,17 @@ To download diagnostics:
 
 Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
-### Debugging
+### Debug logging
 
-If you're trying to track down issues with the integration, set up logging for it:
+To collect more detail about an issue, turn on debug logging:
 
-```yaml
-# Example configuration.yaml with logging for iZone
-logger:
-  default: warning
-  logs:
-    homeassistant.components.izone: debug
-    pizone: debug
-```
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **iZone** integration.
+3. Open the three-dot {% icon "mdi:dots-vertical" %} menu and select **Enable debug logging**.
+4. Reproduce the issue.
+5. Open the three-dot {% icon "mdi:dots-vertical" %} menu again and select **Disable debug logging**. Your browser downloads the log file.
 
-This will help you to find network connection issues.
+Attach the log file when reporting an issue. For more information, see [Enabling debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
 
 ## Removing the integration
 
