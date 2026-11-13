@@ -298,11 +298,14 @@ Each source links to its devices. Child devices and devices that set `via_device
 
 ### Configuration of an item
 
-The configuration panel shows the configuration of the selected device, entity, device trigger, or tag for each source that sets it up.
+The configuration panel shows the configuration of the selected item for each source that sets it up. What it shows depends on the item:
 
-- A discovered item shows its discovery payload, the discovery topic, and the origin. You can show the discovery payload as YAML.
-- An item from YAML or a subentry shows its stored configuration.
-- For a device from [device discovery](#device-discovery-payload), the device discovery payload is built again from all its components.
+- An entity from [single component discovery](#single-component-discovery-payload) shows its discovery payload as JSON, with the discovery topic and the origin. You can switch it to YAML.
+- An entity from YAML, a subentry, or device discovery shows its configuration as YAML, under its platform key. An entity from YAML can only be matched to its configuration when it has a `unique_id`.
+- A discovered device trigger or tag shows its discovery payload, with the discovery topic and the origin.
+- A device from [device discovery](#device-discovery-payload) shows its device discovery payload with the discovery topic. The payload is built again from all its components.
+- A device that was discovered with its entities shows the device part of their configuration as YAML.
+- For a device from YAML, the panel refers to the YAML configuration of its entities. For a device from a subentry, it links to the reconfigure flow of the subentry.
 
 ### Messages of a topic
 
