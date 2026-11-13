@@ -35,7 +35,7 @@ Vehicle registration number:
 
 ## Supported functionality
 
-The integration creates sensors for supported DVLA vehicle fields. Some sensors may show as unknown if DVLA does not return that field for the configured vehicle.
+The available sensors depend on the vehicle. For example, a fully electric vehicle may not have an engine capacity sensor. Some sensors may show as unknown when DVLA does not return a value.
 
 Common sensor entities include:
 
@@ -52,14 +52,13 @@ Common sensor entities include:
 - Wheelplan
 - Revenue weight
 - Euro status
-- Real driving emissions
 - Date of last V5C issued
 - Month of first registration
 - Type approval
 
 ## Data updates
 
-Vehicle data is refreshed once per day for each configured vehicle.
+Home Assistant refreshes data for each configured vehicle once a week. To refresh it sooner, use the [Update entity](/actions/homeassistant.update_entity/) action and select any enabled DVLA sensor for that vehicle.
 
 ## Removing the integration
 
