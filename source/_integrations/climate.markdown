@@ -30,7 +30,7 @@ The climate entity has extra attributes to represent the state of the device, de
 | ---- | ----------- |
 | `hvac_action` | What the device is currently doing, such as `heating`, `cooling`, `fan`, `defrosting`, `drying`, `preheating`, `off`, or `idle`.
 | `hvac_modes` | The HVAC modes the device supports, such as `off`, `heat`, `cool`, or `heat_cool`.
-| `current_temperature` | The temperature the device is currently measuring.
+| `current_temperature` | The current temperature reported by the entity, which may come from the device or a separate sensor.
 | `temperature` | The target temperature, when the device uses a single setpoint.
 | `target_temp_low` | The lower target temperature, when the device uses a setpoint range.
 | `target_temp_high` | The upper target temperature, when the device uses a setpoint range.
