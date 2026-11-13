@@ -154,6 +154,24 @@ Zones can have the following {% term "binary sensor" %} entities, which are crea
 
 {% include integrations/actions.md %}
 
+## Data updates
+
+The integration {% term polling polls %} each iZone controller every 25 seconds. When you change a setting from Home Assistant, the new state shows right away. Changes made with the iZone app or on the iZone touchscreen show up at the next update.
+
+The integration listens for iZone UDP discovery messages. These let Home Assistant find new bridges, and follow a bridge that gets a new IP address. If a bridge stops responding, Home Assistant sends a discovery request to look for it at a new address. For what discovery needs from your network, see [Network settings](#network-settings).
+
+If your iZone installation changes, for example when your installer adds or removes zones, the integration reloads automatically to pick up the changes. Devices for zones that no longer exist are removed.
+
+## Known limitations
+
+The iZone system hardware has the following limitations:
+
+- The iZone system accepts target temperatures in 0.5 °C steps, and damper minimum and maximum in 5% steps.
+- The damper position is best-effort, and some iZone controllers don't report it correctly. For details, see [Zone dampers](#zone-dampers).
+- The iZone controller reports wireless sensor signal strength and battery levels in coarse steps.
+- iZone discovery uses UDP broadcasts, which don't cross network segments without a broadcast relay. A bridge on a different segment, like another VLAN, isn't discovered. You can still add it with **Enter host**, but Home Assistant won't follow IP address changes.
+- iZone bridges also advertise themselves for Apple HomeKit, so they show up as a HomeKit Device discovery as well. That path doesn't provide working climate control, so use the iZone integration instead.
+
 ## Troubleshooting
 
 ### Diagnostics
