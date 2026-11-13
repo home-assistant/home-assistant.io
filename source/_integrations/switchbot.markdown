@@ -689,6 +689,15 @@ Features:
 - calibration state
 - get battery level
 - half-lock
+- enable or disable the Quick Key button
+- set the Quick Key function (lock and unlock, lock only, unlock only)
+- set the Quick Key trigger (single press or double press)
+
+{% details "Quick Key settings" %}
+
+The Quick Key is the physical button on the lock. The integration adds a **Quick Key** switch, a **Quick Key function** select, and a **Quick Key trigger** select, plus a diagnostic **Quick Key config byte** sensor that shows the raw setting as the lock reports it. These settings can only be read over a Bluetooth connection, so the entities are disabled by default. After you enable them, they are read once after Home Assistant starts and then once a week, and again right after you change a setting. If the lock does not apply a change, Home Assistant shows an error.
+
+{% enddetails %}
 
 Options:
 
