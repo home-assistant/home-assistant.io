@@ -5,7 +5,7 @@ ha_domain: aquarite_neopool
 ha_integration_type: virtual
 ha_supporting_domain: neopool
 ha_supporting_integration: NeoPool
-ha_release: 2026.8
+ha_release: 2026.12
 ha_codeowners:
   - '@svasek'
 ha_config_flow: true
