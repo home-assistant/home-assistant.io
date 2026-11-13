@@ -71,6 +71,8 @@ Represents the domestic hot water controls of your device.
 It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore, the operation mode of that integration is just available as an attribute and cannot be modified.
 {% endnote %}
 
+If your device has a domestic hot water circulation pump, you can read its weekly schedule with the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action and change it with the [Set circulation schedule](/actions/vicare.set_circulation_schedule/) action.
+
 ### Binary sensor
 
 Binary sensors show on and off states of the device, such as a running burner or compressor. Each room of a ViCare room control also has a **Window** and a **Condensation risk** binary sensor.
@@ -129,6 +131,101 @@ The ViCare integration maps the Home Assistant HVAC modes to Viessmann operation
 ### Setting the preset mode
 
 The `climate.set_preset_mode` action supports the *eco* and *comfort* preset modes. These are identical to the respective Viessmann programs and are only active temporarily for 8 hours. Eco mode reduces the target temperature by 3°C, whereas Comfort mode sets the target temperature to a configurable value. Consult your heating device manual for more information.
+
+## Viessmann ViCare automation examples
+
+These examples show how to control the domestic hot water circulation pump from automations.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Pause circulation while nobody is home
+
+This automation saves the circulation schedule when everyone leaves, turns the pump off, and restores the saved schedule once someone comes back.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Home
+  - **Below**: `1`
+- **Action**: Viessmann ViCare: Get circulation schedule
+  - **Target**: Main water heater
+  - **Response variable**: `saved`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Monday** to **Sunday**: selected, with no slots
+- **Action**: Wait for a trigger
+  - **Trigger**: Numeric state crossed threshold
+    - **Entity**: Home
+    - **Above**: `0`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Data** (in YAML mode): the saved schedule of the water heater, as shown in the example YAML
+
+{% details "YAML example for pausing circulation while nobody is home" %}
+
+{% example %}
+automation: |
+  alias: "Pause circulation while nobody is home"
+  triggers:
+    - trigger: numeric_state
+      entity_id: zone.home
+      below: 1
+  actions:
+    - action: vicare.get_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      response_variable: saved
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data:
+        monday: []
+        tuesday: []
+        wednesday: []
+        thursday: []
+        friday: []
+        saturday: []
+        sunday: []
+    - wait_for_trigger:
+        - trigger: numeric_state
+          entity_id: zone.home
+          above: 0
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data: "{{ saved['water_heater.main_water_heater'] }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turn off circulation on weekends
+
+This automation turns off the circulation pump on Saturday and Sunday every Friday evening. The weekday schedule stays as it is.
+
+- **Trigger**: Time
+  - **At time**: `20:00:00`
+  - **Weekdays**: Friday
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Saturday** and **Sunday**: selected, with no slots
+
+{% details "YAML example for turning off circulation on weekends" %}
+
+{% example %}
+automation: |
+  alias: "Turn off circulation on weekends"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+      weekday: fri
+  actions:
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data:
+        saturday: []
+        sunday: []
+{% endexample %}
+
+{% enddetails %}
 
 ## Troubleshooting
 
