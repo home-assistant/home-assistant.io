@@ -174,6 +174,81 @@ The iZone system hardware has the following limitations:
 
 ## Troubleshooting
 
+{% details "Search for devices doesn't find the controller" %}
+
+### Symptom: "No devices found on the network"
+
+When you choose **Search for devices**, Home Assistant doesn't find your iZone controller, and asks for the bridge address instead.
+
+#### Description
+
+Home Assistant finds iZone bridges with UDP broadcasts. The broadcasts don't reach the bridge, or its reply doesn't reach Home Assistant. This usually happens when Home Assistant and the bridge are on different network segments, like different VLANs, or when a firewall blocks the UDP ports.
+
+#### Resolution
+
+1. Make sure the bridge is powered on and connected to your network.
+2. Enter the bridge IP address or hostname in the **Host** field. You can find the address in your router's list of connected devices.
+3. To use discovery, put Home Assistant and the bridge on the same network segment, or set up a UDP broadcast relay. For the ports discovery uses, see [Network settings](#network-settings).
+
+{% enddetails %}
+
+{% details "Home Assistant can't connect to the bridge address" %}
+
+### Symptom: "Failed to connect"
+
+When you enter the bridge address in the **Host** field, the form shows the message "Failed to connect".
+
+#### Description
+
+Home Assistant can't reach the bridge over HTTP on TCP port `80` at the address you entered.
+
+#### Resolution
+
+1. Check that the address is correct. The bridge address can change if your router assigns a new one.
+2. Make sure the bridge is powered on and connected to your network.
+3. Make sure no firewall blocks TCP port `80` between Home Assistant and the bridge.
+
+To keep the address from changing, reserve an IP address for the bridge in your router.
+
+{% enddetails %}
+
+{% details "The bridge isn't paired" %}
+
+### Symptom: "This iZone bridge is not paired with an air conditioner"
+
+When you set up the integration, the form shows the message "This iZone bridge is not paired with an air conditioner". Or the integration entry shows the error "iZone bridge is not paired with an air conditioner".
+
+#### Description
+
+The bridge is on your network, but it isn't connected to an iZone system.
+
+#### Resolution
+
+1. Pair the bridge with your iZone system. For instructions, see the manual for your iZone system, the [iZone FAQ](https://izone.com.au/faqs/), or ask your installer.
+2. Set up the integration again. If the integration entry shows the error, reload it from its three-dot {% icon "mdi:dots-vertical" %} menu.
+
+{% enddetails %}
+
+{% details "Entities are unavailable" %}
+
+### Symptom: The iZone entities are unavailable, or the integration keeps retrying setup
+
+All the entities of an iZone controller are unavailable, or the integration entry shows that it's retrying setup.
+
+#### Description
+
+Home Assistant can't get the state of the iZone system. Either the bridge doesn't respond, or the bridge responds but reports that the iZone system is offline. This can happen when the bridge or the air conditioning unit loses power, or when the bridge loses its network connection.
+
+#### Resolution
+
+1. Make sure the bridge is powered on and connected to your network.
+2. Make sure the air conditioning unit and the iZone touchscreen have power.
+3. Wait for the next update. Home Assistant keeps retrying, and the entities become available again when the system responds.
+
+If the bridge got a new IP address and UDP discovery can't reach it, Home Assistant can't find it again. Make sure discovery works, as described in [Network settings](#network-settings), or reserve an IP address for the bridge in your router.
+
+{% enddetails %}
+
 ### Diagnostics
 
 The iZone {% term integration %} provides diagnostics to help with troubleshooting. The download includes:
