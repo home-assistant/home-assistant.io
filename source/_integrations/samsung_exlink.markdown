@@ -1,9 +1,10 @@
 ---
-description: Instructions on how to integrate Samsung TVs via their ExLink (RS-232) serial port into Home Assistant.
+description: >-
+  Instructions on how to integrate Samsung TVs via their ExLink (RS-232) serial
+  port into Home Assistant.
 ha_release: 2026.9
 ha_domain: samsung_exlink
 ---
-
 The **Samsung TV via ExLink** {% term integration %} lets you control Samsung consumer TVs by connecting to their RS-232 serial port, which Samsung markets as **ExLink** (also written EX-Link or EXT Link). Because Home Assistant talks straight to the TV, control is local and fast, and it also works on TVs that lack smart features or a network connection.
 
 Controlling a TV over ExLink is more reliable and responsive than using the TV's network or IR interfaces. It also allows you to control TVs that do not have smart features or network connectivity.
@@ -56,6 +57,22 @@ For supported TVs, you can use Home Assistant to:
 - Change the volume and step it up or down.
 - Mute and unmute the TV.
 - Select the input source.
+
+### Remote
+
+The integration also creates a remote entity for the TV. You can use it to turn the TV on or off, or send one or more remote key commands with the `remote.send_command` action. Use Samsung ExLink key names, such as `KEY_HOME` or `KEY_VOLUP`. The available keys depend on the TV.
+
+The remote entity state follows the TV's reported power state. It becomes unavailable when the serial connection is lost.
+
+To send a key command, use the `remote.send_command` action:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.samsung_tv
+data:
+  command: KEY_HOME
+```
 
 ## Data updates
 
