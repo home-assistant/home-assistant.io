@@ -98,7 +98,7 @@ Nothing is sent until you pick at least one entity. After that, only the entitie
 
 ### When it is sent
 
-Home Assistant sends your home when it starts and when a picked entity changes. It sends at most once a minute, and skips a send when nothing changed.
+Home Assistant sends your home when it starts, when a picked entity changes, and when a picked entity or its device moves to another area or its area is renamed. It sends at most once every 90 seconds, and skips a send when nothing changed. If a send fails, Home Assistant tries again a little later.
 
 ## TRMNL automation examples
 
