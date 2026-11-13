@@ -10,11 +10,11 @@ related:
     title: Best practices with Assist
 ---
 
-Assist can only see and control the {% term entities %} that you expose to it. This way, you decide which devices you can control by voice. Sensitive devices, such as locks and alarm systems, can't be controlled by a voice command by accident.
+Assist can only see and control the {% term entities %} that you expose to it. This way, you decide which devices you can control by voice. Locks, alarm systems, and other sensitive devices can't be controlled by a voice command by accident.
 
 ## Entities that are exposed automatically
 
-To get you started, Home Assistant exposes common devices to Assist as you add them. This is the **Expose new entities** setting on the **Assist** card, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}. It's turned on by default.
+Home Assistant exposes common devices to Assist as you add them. This is the **Expose new entities** setting on the **Assist** card, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}. It's turned on by default.
 
 When **Expose new entities** is turned on, Home Assistant exposes each new entity of the following kinds to Assist:
 
