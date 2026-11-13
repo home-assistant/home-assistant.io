@@ -12,7 +12,6 @@ ha_config_flow: true
 ha_integration_type: hub
 ha_platforms:
   - climate
-  - diagnostics
 ha_quality_scale: bronze
 ---
 
@@ -147,7 +146,7 @@ Use Magic Home gateways only on a trusted local network. The gateway protocol do
 
 ## Data and privacy
 
-The Magic Home app uploads the family data directly to Home Assistant. Home Assistant only stores the fields required for local control, and control and state updates stay on the local network. Diagnostics of a family do not include MAC addresses, device IDs, tokens, or family and device names.
+The Magic Home app uploads the family data directly to Home Assistant. Home Assistant only stores the fields required for local control, and control and state updates stay on the local network.
 
 ## Troubleshooting
 
