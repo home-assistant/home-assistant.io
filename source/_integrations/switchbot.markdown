@@ -171,7 +171,7 @@ In addition to the certified devices, the following devices are also supported:
 ### Buttons
 
 - [Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
-- Art Frame Luma (W1176)
+- Art Frame 2 (W1176)
 
 ### Keypad Visions
 
@@ -895,11 +895,11 @@ Features:
 
 ### Buttons
 
-Art Frame and Art Frame Luma provide buttons to display the next, previous, or a random image.
+Art Frame and Art Frame 2 provide buttons to display the next, previous, or a random image.
 
 This is an encrypted device.
 
-Add images in the SwitchBot app before using the image buttons. For Art Frame Luma, the random image button selects from stored user images.
+Add images in the SwitchBot app before using the image buttons. For Art Frame 2, the random image button selects from stored user images.
 
 Features:
 - next image
