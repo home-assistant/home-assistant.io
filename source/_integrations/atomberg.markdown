@@ -24,14 +24,28 @@ The **Atomberg** {% term integration %} connects Home Assistant to your [Atomber
 
 ## Supported devices
 
-The integration supports Atomberg smart fans that work with the [Atomberg public API](https://developer.atomberg-iot.com/).
+The integration supports Atomberg smart fans that have Wi-Fi and work with the [Atomberg public API](https://developer.atomberg-iot.com/). According to Atomberg, the following fans are supported:
+
+| Fan | Series |
+| --- | ------ |
+| Renesa / Renesa+ / Studio+ | R1, R2, R3, R4, R6 |
+| Renesa Fusion | R5 |
+| Renesa Elite / Studio Nexus | S1, S2, S3 |
+| Aris | I2 |
+| Aris Gladius | I3, I4 |
+| Aris Contour | M1, M2, M3 |
+| Aris Starlight | I1, I5 |
+| Erica | K1 |
+| Emperion Magna | O1 |
+
+Fans that don't have Wi-Fi aren't supported. This includes fans that you can only control with a remote or an IR blaster.
 
 ## Prerequisites
 
 You need an API key and a refresh token from your Atomberg account.
 
-1. Install the **Atomberg Home** app and add your devices to it.
-2. In the app, enable developer mode.
+1. Install the **Atomberg Home** app and add your smart (Wi-Fi) fan to it.
+2. In the app, enable developer mode. This option is only available after you have added at least one smart fan to your account.
 3. Generate your API key and refresh token. See the [Atomberg developer portal](https://developer.atomberg-iot.com/) for the current steps.
 
 Keep your API key and refresh token private. Anyone who has them can control your devices.
@@ -67,6 +81,7 @@ Atomberg limits the public API to 100 requests per day for your account. The Ato
 
 ## Known limitations
 
+- The integration only works with Atomberg fans that have Wi-Fi. It can't control fans through an IR blaster or a remote.
 - The integration needs an internet connection. The Atomberg public API does not offer local control.
 - State changes made outside Home Assistant can take up to 30 minutes to appear. See [Data updates](#data-updates).
 
