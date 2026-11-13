@@ -1,0 +1,29 @@
+{
+  "domain": "tasmota",
+  "name": "Tasmota",
+  "codeowners": [
+    "@emontnemery"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "diy_makers",
+    "plugs_switches"
+  ],
+  "connectivity": [
+    "mqtt"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "camera",
+    "cover",
+    "diagnostics",
+    "fan",
+    "light",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "mqtt"
+  ]
+}

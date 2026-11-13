@@ -1,14 +1,7 @@
 ---
-title: Temperature
 description: This integration provides temperature automation triggers and conditions.
-ha_category:
-  - Automation
 ha_release: 2026.4
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: temperature
-ha_integration_type: system
 related:
   - docs: /integrations/climate/
     title: Climate integration

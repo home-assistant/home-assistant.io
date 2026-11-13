@@ -9,7 +9,7 @@ related_actions:
   - knx.exposure_register
 ---
 
-The **Send to KNX bus** action writes data directly to one or more KNX group addresses. You can send a raw payload or have Home Assistant encode a value using a KNX datapoint type (DPT).
+The **KNX: Send to KNX bus** action writes data directly to one or more KNX group addresses. You can send a raw payload or have Home Assistant encode a value using a KNX datapoint type (DPT).
 
 This is useful when you want to control a KNX device or update a value on the bus from an automation or script, without modeling that device as a separate {% term entity %} in Home Assistant.
 

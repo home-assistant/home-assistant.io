@@ -60,8 +60,6 @@ This fires 5 minutes after the closet light sensor starts detecting light.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -75,19 +73,20 @@ behavior:
   default: each
 for:
   description: |
-    How long the sensor or sensors must keep detecting light before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+    How long the sensor or sensors must keep detecting light before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="light sensor" example="binary_sensor.garden_light" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
-- This trigger works with binary sensors that have the **light** device class. The sensor's threshold for what counts as "light detected" is set on the device itself.
+- Use a binary sensor with the light device class.
+- The sensor's threshold for what counts as "light detected" is set on the device itself.
 - For numeric illuminance readings (in lux), use [Illuminance changed](/triggers/illuminance.changed/) or [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/) instead.
 - Combine **For at least** with a small duration to avoid false triggers from brief light flickers, such as headlights passing a window.
 

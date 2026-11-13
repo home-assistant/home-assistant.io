@@ -1,15 +1,7 @@
 ---
-title: Counter
 description: Instructions on how to integrate counters into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_release: 0.53
-ha_quality_scale: internal
-ha_codeowners:
-  - '@fabaff'
 ha_domain: counter
-ha_integration_type: helper
 ---
 
 The **Counter** {% term integration %} lets you track how many times something has happened in Home Assistant.
@@ -46,7 +38,7 @@ counter:
       required: false
       type: string
     initial:
-      description: Initial value (0 or positive integer) when Home Assistant starts or the counter is reset.
+      description: Initial value when Home Assistant starts or the counter is reset.
       required: false
       type: integer
       default: 0
@@ -105,7 +97,8 @@ If you have created a counter helper to track missed chores, you can send a remi
   - **Target**: Chore reminder counter
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-- **Action**: Reset counter
+- **Action**: Counter: Reset counter
+  - **Target**: Chore reminders counter
 
 {% details "YAML example for a maximum reminder counter" %}
 
@@ -133,11 +126,13 @@ automation: |
 
 If you use a counter helper to track short exercise breaks, you can stop incrementing it once the counter reaches your daily target.
 
-- **Trigger**: Input button pressed
+- **Trigger**: State changed
+  - **Entity**: Exercise break done helper
 - **Condition**: Counter value
   - **Target**: Exercise break counter
   - **Threshold type**: Below 5
-- **Action**: Increment counter
+- **Action**: Counter: Increment counter
+  - **Target**: Exercise breaks counter
 
 {% details "YAML example for capping a daily counter" %}
 

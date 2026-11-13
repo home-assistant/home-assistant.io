@@ -1,0 +1,17 @@
+{
+  "domain": "bbox",
+  "name": "Bbox",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.routers_network",
+    "presence_location.network_presence"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "device_tracker",
+    "sensor"
+  ]
+}

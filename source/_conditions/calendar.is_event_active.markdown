@@ -44,8 +44,6 @@ This passes when an event of `calendar.my_calendar` is active.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -55,9 +53,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the event must be active before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the event must be active before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -71,7 +69,9 @@ for:
 
 Half an hour before sunset, if there is not an active event in the calendar, this automation sends a notification to the mobile phone with a reminder to go for a sunset run.
 
-- **Trigger**: Sun
+- **Trigger**: Sunset
+  - **Offset**: `00:30:00`
+  - **Offset type**: Before
 - **Condition**: Calendar event is active
   - **Blocks**: Not
 - **Action**: Send a notification message
@@ -83,9 +83,11 @@ Half an hour before sunset, if there is not an active event in the calendar, thi
 automation: |
   alias: "Send reminder for a sunset run if no calendar event is active"
   triggers:
-    - trigger: sun
-      event: sunset
-      offset: "-00:30:00"
+    - trigger: sun.sunset
+      options:
+        offset:
+          minutes: 30
+        offset_type: before
   conditions:
     - condition: not
       conditions:

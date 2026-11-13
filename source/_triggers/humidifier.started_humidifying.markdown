@@ -35,6 +35,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted humidifier starts humidifying.
     - **First**: fires only on the first humidifier that starts humidifying.
     - **All**: fires only after every targeted humidifier starts humidifying.
+  required: false
 For at least:
   description: How long the humidifier must be actively humidifying before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -54,8 +55,6 @@ This fires every time `humidifier.bedroom` starts actively adding moisture to th
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -69,9 +68,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the humidifier must be actively humidifying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has been actively humidifying for 5 minutes.
+    How long the humidifier must be actively humidifying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has been actively humidifying for 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -132,9 +131,9 @@ When the bedroom humidifier starts humidifying, turn on a low-speed fan to distr
 
 - **Trigger**: Humidifier started humidifying
   - **Target**: Bedroom humidifier
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
-- **Action**: Fan: Turn on
+- **Action**: Turn on fan
+  - **Target**: Bedroom fan
+  - **Percentage**: `30`%
 
 {% details "YAML example for running a fan when humidifying starts" %}
 
@@ -145,9 +144,6 @@ automation: |
     - trigger: humidifier.started_humidifying
       target:
         entity_id: humidifier.bedroom
-      options:
-        behavior: each
-        for: "00:00:00"
   actions:
     - action: fan.turn_on
       target:

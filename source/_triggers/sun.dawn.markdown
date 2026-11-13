@@ -22,7 +22,10 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. From the search box, search for and select **Dawn**.
 5. Under **Twilight type**, select **Civil**, **Nautical**, or **Astronomical** to choose how dark the start of dawn is.
-6. Select **Save**.
+6. Optionally, set an offset to fire before or after dawn:
+   - Under **Offset**, select **Before** or **After**.
+   - Under **Duration**, enter how far from dawn to fire, such as 30 minutes.
+7. Select **Save**.
 
 ### Options in the UI
 
@@ -34,6 +37,13 @@ Twilight type:
     - **Civil**: the sun is 6° below the horizon. The brightest twilight, with enough light for most outdoor activities. This is the default.
     - **Nautical**: the sun is 12° below the horizon. The horizon is still faintly visible at sea.
     - **Astronomical**: the sun is 18° below the horizon. The sky is, for most purposes, fully dark.
+Offset:
+  description: |
+    Whether to fire before or after dawn:
+
+    - **No offset**: fires exactly at dawn. This is the default.
+    - **Before**: fires the duration you enter before dawn.
+    - **After**: fires the duration you enter after dawn.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -54,6 +64,18 @@ trigger: |
     type: astronomical
 {% endexample %}
 
+To fire a fixed amount of time before or after dawn, add the `offset` option. A negative offset fires before and a positive one after:
+
+{% example %}
+trigger: |
+  trigger: sun.dawn
+  options:
+    offset:
+      minutes: 30
+{% endexample %}
+
+This fires 30 minutes after civil dawn every day.
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -63,6 +85,12 @@ type:
   required: false
   type: string
   default: civil
+offset:
+  description: >
+    The length of time from dawn when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. A negative value, such as `minutes: -30` or `"-00:30:00"`, fires before dawn. A positive value fires after.
+  required: false
+  type: time
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 ## Good to know

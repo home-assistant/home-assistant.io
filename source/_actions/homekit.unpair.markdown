@@ -8,7 +8,7 @@ related_actions:
   - homekit.reset_accessory
 ---
 
-The **Unpair an accessory or bridge** action forcefully removes all pairings from an accessory so you can pair it again. Use it when an accessory is no longer responsive and you want to avoid deleting and re-adding the integration entry.
+The **HomeKit Bridge: Unpair an accessory or bridge** action forcefully removes all pairings from an accessory so you can pair it again. Use it when an accessory is no longer responsive and you want to avoid deleting and re-adding the integration entry.
 
 Occasionally, the public key for a paired device goes missing because of pairing failures, which can make one or more devices show the accessory as unavailable. Unpairing and re-pairing ensures the integration has the public key for each paired client.
 

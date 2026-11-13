@@ -2,6 +2,7 @@
 title: "Create a full backup"
 action: hassio.backup_full
 domain: hassio
+response: optional
 description: "Creates a full backup."
 related_actions:
   - hassio.backup_partial
@@ -18,7 +19,7 @@ To create a full backup from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Create a full backup**.
+5. Search for and select **Home Assistant Supervisor: Create a full backup**.
 6. Optionally, fill in the options described below.
 7. Select **Save**.
 
@@ -82,7 +83,9 @@ homeassistant_exclude_database:
 
 ## Response data
 
-This action returns the slug of the backup it created, so you can use it in later steps, for example to copy or to reference the backup.
+{% include actions/response.md %}
+
+The response contains the slug of the backup it created. For example, you can use the slug to copy or to reference the backup.
 
 {% example %}
 action: |
@@ -105,7 +108,8 @@ backup: 1f2e3d4c
 Create a full backup automatically every night, so you always have a recent one to fall back on.
 
 - **Trigger**: Time, at 03:00
-- **Action**: Create a full backup
+- **Action**: Home Assistant Supervisor: Create a full backup
+  - **Name**: `Nightly backup`
 
 {% details "Show example YAML" %}
 
@@ -127,8 +131,11 @@ automation: |
 
 Create a full backup whenever an update for Home Assistant Core becomes available, so you can roll back if the update causes trouble.
 
-- **Trigger**: Home Assistant Core update becomes available
-- **Action**: Create a full backup
+- **Trigger**: State changed
+  - **Entity**: Home Assistant core update
+  - **To**: Update available
+- **Action**: Home Assistant Supervisor: Create a full backup
+  - **Name**: `Before core update`
 
 {% details "Show example YAML" %}
 

@@ -10,7 +10,7 @@ related_actions:
   - mastodon.update_profile
 ---
 
-The **Mute account** action mutes an account you follow, so their posts no longer appear in your timeline.
+The **Mastodon: Mute account** action mutes an account you follow, so their posts no longer appear in your timeline.
 
 This is handy when you want to quiet down your timeline temporarily, for example muting a busy news account while you are on vacation and unmuting it again when you return. You can mute indefinitely or for a set duration.
 
@@ -57,7 +57,7 @@ action: |
     account_name: "@account@instance.online"
 {% endexample %}
 
-To find the `config_entry_id`, go to **Developer tools** > **Actions**, select this action, choose your Mastodon instance, and switch to YAML mode.
+To find the `config_entry_id`, go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}, select this action, choose your Mastodon instance, and switch to YAML mode.
 
 ### Options in YAML
 

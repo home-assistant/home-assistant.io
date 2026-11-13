@@ -1,5 +1,5 @@
 ---
-title: "Set a Zigbee cluster attribute"
+title: "Set Zigbee cluster attribute"
 action: zha.set_zigbee_cluster_attribute
 domain: zha
 description: "Writes a value to a Zigbee cluster attribute on a device."
@@ -20,7 +20,7 @@ To set a cluster attribute from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Set Zigbee cluster attribute**.
+5. Search for and select **Zigbee Home Automation: Set Zigbee cluster attribute**.
 6. Fill in the device, endpoint, cluster, attribute, and value.
 7. Select **Save**.
 

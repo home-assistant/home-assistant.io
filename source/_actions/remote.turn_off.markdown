@@ -85,7 +85,7 @@ automation: |
 
 When a person leaves home, turn off the media remote.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Paulus (`person.paulus`)
   - **To**: Not home
 - **Action**: Turn off via remote

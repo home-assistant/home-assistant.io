@@ -1,25 +1,7 @@
 ---
-title: Tesla Powerwall
 description: Instructions on how to integrate Tesla Power Walls into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
-  - Switch
 ha_release: 0.108
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-  - '@jrester'
-  - '@daniel-simpson'
 ha_domain: powerwall
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **Tesla Powerwall** {% term integration %} allows you to integrate your [Tesla Powerwall](https://www.tesla.com/powerwall) into Home Assistant.
@@ -34,6 +16,15 @@ The following devices are known to be supported by the integration:
 
 The following devices are not supported by the integration:
 - Tesla Powerwall 1
+
+## Prerequisites
+
+Before setting up the integration, make sure you have the following information:
+
+- IP address: The local IP address assigned to your Powerwall or Backup Gateway. Home Assistant may discover this automatically. If it does not, check your router or DHCP server for the address assigned to the device.
+- Password:
+  - If a password is printed inside the Backup Gateway, use the last 5 characters of that password.
+  - If there is no separate password, use the last 5 characters of the Backup Gateway serial number. You can find the serial number in the Tesla app.
 
 {% include integrations/config_flow.md %}
 

@@ -8,7 +8,7 @@ related_actions:
   - flux_led.set_music_mode
 ---
 
-The **Set custom effect** action plays a custom effect on a Magic Home light by cycling through a list of colors you provide. You control the colors, the effect speed, and how the light transitions from one color to the next.
+The **Magic Home: Set custom effect** action plays a custom effect on a Magic Home light by cycling through a list of colors you provide. You control the colors, the effect speed, and how the light transitions from one color to the next.
 
 This lets you build your own effects beyond the built-in ones, for example a slow fade through your favorite colors or a fast strobe for a party.
 

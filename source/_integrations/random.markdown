@@ -1,22 +1,7 @@
 ---
-title: Random
 description: Instructions on how to integrate random numbers into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Helper
-  - Sensor
-  - Utility
-ha_iot_class: Calculated
 ha_release: 0.32
-ha_quality_scale: internal
-ha_codeowners:
-  - '@fabaff'
 ha_domain: random
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: helper
-ha_config_flow: true
 ---
 
 The **Random (Helper)** {% term integration %} creates random values or a random state. This is useful when you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.

@@ -1,15 +1,7 @@
 ---
-title: Input button
 description: Instructions on how to use the input button helper with Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_release: 2022.2
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: input_button
-ha_integration_type: helper
 ---
 
 The **Input button** {% term integration %} lets you create a button {% term helper %}: an entity you can press, but that does not store an on or off {% term state %}. Because the button is not tied to a physical device, you can use it to start something from the user interface, such as running a script or triggering an {% term automation %}. For example, you can create a button helper to ring a doorbell chime, restart a routine, or send yourself a notification.
@@ -57,18 +49,21 @@ Every input button entity does keep track of the timestamp of when the last time
 the input button entity has been pressed in the Home Assistant UI or pressed via
 an action.
 
-Because the state of a input button entity in Home Assistant is a timestamp, it
-means we can use it in our automations. For example:
+To run an automation when you press a button helper, use the
+[Button pressed](/triggers/button.pressed/) trigger. For example:
 
 ```yaml
 triggers:
-  - trigger: state
-    entity_id: input_button.my_button
+  - trigger: button.pressed
+    target:
+      entity_id: input_button.my_button
 actions:
   - action: notify.frenck
     data:
       message: "My button has been pressed!"
 ```
+
+For more details and examples, see the [Button pressed](/triggers/button.pressed/) trigger.
 
 {% include integrations/actions.md %}
 

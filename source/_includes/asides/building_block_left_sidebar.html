@@ -1,0 +1,31 @@
+<section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h2 class="h1 title epsilon">{% icon "mdi:script-text" %} Building block: <code>{{ page.building_block }}</code></h2>
+  </div>
+</section>
+
+{%- if page.related_building_blocks -%}
+  {%- assign all_building_blocks = site.building_blocks -%}
+  {%- assign has_related = false -%}
+  {%- for block_name in page.related_building_blocks -%}
+    {%- assign blk = all_building_blocks | where: "building_block", block_name | first -%}
+    {%- if blk -%}{%- assign has_related = true -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if has_related -%}
+  <section class="aside-module grid__item one-whole lap-one-half">
+    <div class='section'>
+      <h2 class="h1 title epsilon">{% icon "mdi:link-variant" %} Related building blocks</h2>
+      <ul class='divided'>
+        {%- for block_name in page.related_building_blocks -%}
+          {%- assign blk = all_building_blocks | where: "building_block", block_name | first -%}
+          {%- if blk -%}
+          <li>
+            <a href="{{ blk.url }}">{{ blk.title }}</a>
+          </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+  {%- endif -%}
+{%- endif -%}

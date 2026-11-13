@@ -39,8 +39,8 @@ Threshold type:
 
     - **Any change**: Fires on any setpoint change.
     - **Above** or **Below** (exclusive): Fires only when the new setpoint is strictly above or below the threshold. A setpoint equal to the threshold does not fire the trigger.
-    - **In range** (exclusive): Fires only when the new setpoint is strictly between the two bounds. A setpoint equal to either bound does not fire the trigger.
-    - **Outside range** (inclusive): Fires when the new setpoint is at or below the lower bound, or at or above the upper bound. A setpoint equal to either bound fires the trigger.
+    - **In range** (inclusive): Fires when the new setpoint is between the two bounds. A setpoint equal to either bound fires the trigger.
+    - **Outside range** (exclusive): Fires when the new setpoint is below the lower bound or above the upper bound. A setpoint equal to either bound does not fire the trigger.
 
     You can use a fixed number or select a temperature sensor, a temperature number entity, or a [number helper](/integrations/input_number/) as the threshold.
 Unit:
@@ -84,8 +84,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |
@@ -94,12 +92,12 @@ threshold:
     - `type: any`: Fires on any target temperature change.
     - `type: above` (exclusive): Fires when the new setpoint lands strictly above `value`. A setpoint equal to `value` does not fire the trigger.
     - `type: below` (exclusive): Fires when the new setpoint lands strictly below `value`. A setpoint equal to `value` does not fire the trigger.
-    - `type: between` (exclusive): Fires when the new setpoint lands strictly between `value_min` and `value_max`. A setpoint equal to either bound does not fire the trigger.
-    - `type: outside` (inclusive): Fires when the new setpoint is at or below `value_min`, or at or above `value_max`. A setpoint equal to either bound fires the trigger.
+    - `type: between` (inclusive): Fires when the new setpoint lands between `value_min` and `value_max`. A setpoint equal to either bound fires the trigger.
+    - `type: outside` (exclusive): Fires when the new setpoint is below `value_min` or above `value_max`. A setpoint equal to either bound does not fire the trigger.
 
     For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`.
 
-    The `entity` value can reference an `input_number`, `sensor`, or `number` entity. When you use a helper, create the {% term helper %} separately before using it here.
+    The `entity` value can reference an input number, sensor, or number entity. When you use a helper, create the {% term helper %} separately before using it here.
   required: true
   type: map
 {% endoptions_yaml %}
@@ -108,10 +106,11 @@ threshold:
 
 ## Good to know
 
+- The target water heater entity must expose a target temperature attribute.
 - This trigger watches the target temperature setpoint, not the current measured water temperature.
 - To react only when the setpoint crosses a threshold boundary, use [Water heater target temperature crossed threshold](/triggers/water_heater.target_temperature_crossed_threshold/).
+- Threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and input number helpers.
 - When you use an entity as the threshold, Home Assistant uses that entity's current value when the setpoint changes.
-- The threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and `input_number` helpers.
 
 {% include triggers/try_it.md %}
 

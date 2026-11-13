@@ -1,22 +1,7 @@
 ---
-title: AdGuard Home
 description: Instructions on how to integrate AdGuard Home with Home Assistant.
-ha_category:
-  - Network
-  - Sensor
-  - Switch
-  - Update
 ha_release: 0.95
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: adguard
-ha_platforms:
-  - sensor
-  - switch
-  - update
-ha_integration_type: service
 ---
 
 The **AdGuard Home** {% term integration %} lets you monitor and control your [AdGuard Home](https://adguard.com/adguard-home/overview.html) instance from Home Assistant.

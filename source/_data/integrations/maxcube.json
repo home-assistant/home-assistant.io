@@ -1,0 +1,16 @@
+{
+  "domain": "maxcube",
+  "name": "eQ-3 MAX!",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate"
+  ]
+}

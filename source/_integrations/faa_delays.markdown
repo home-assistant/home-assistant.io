@@ -1,17 +1,7 @@
 ---
-title: FAA Delays
 description: Instructions on how to use FAA Delays data within Home Assistant
-ha_category:
-  - Transport
 ha_release: 2021.3
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@ntilley905'
 ha_domain: faa_delays
-ha_platforms:
-  - binary_sensor
-ha_integration_type: service
 ---
 
 The **FAA Delays** {% term integration %} collects and displays information about delays at US Airports based on the

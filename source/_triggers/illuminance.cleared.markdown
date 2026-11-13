@@ -60,8 +60,6 @@ This fires 2 minutes after the outdoor light sensor stops detecting light.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -75,19 +73,20 @@ behavior:
   default: each
 for:
   description: |
-    How long the sensor or sensors must remain dark before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+    How long the sensor or sensors must remain dark before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="light sensor" example="binary_sensor.garden_light" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
-- This trigger works with binary sensors that have the **light** device class. The sensor's threshold for what counts as "light cleared" is set on the device itself.
+- Use a binary sensor with the light device class.
+- The sensor's threshold for what counts as "light cleared" is set on the device itself.
 - For numeric illuminance readings (in lux), use [Illuminance changed](/triggers/illuminance.changed/) or [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/) instead.
 - Add a small **For at least** delay to avoid firing when a cloud briefly passes over an outdoor sensor.
 

@@ -1,20 +1,10 @@
 ---
-title: U.S. Geological Survey Earthquake Hazards (USGS)
 description: Instructions on how to integrate the U.S. Geological Survey Earthquake Hazards Program Feed feed into Home Assistant.
-ha_category:
-  - Geolocation
-ha_iot_class: Cloud Polling
 ha_release: 0.84
-ha_codeowners:
-  - '@exxamalte'
 ha_domain: usgs_earthquakes_feed
-ha_platforms:
-  - geo_location
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **U.S. Geological Survey Earthquake Hazards (USGS)** {% term integration %} lets you integrate a GeoJSON feed provided by the [U.S. Geological Survey](https://earthquake.usgs.gov/) with information about seismic events like earthquakes. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.

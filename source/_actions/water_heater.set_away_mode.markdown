@@ -71,7 +71,7 @@ away_mode:
 
 Turn on away mode for a water heater when the last person leaves home.
 
-- **Trigger**: State: Person changes to not_home
+- **Trigger**: State changed: Person changes to not_home
 - **Action**: Set water heater away mode
   - **Target**: Utility room water heater
   - **Away mode**: on

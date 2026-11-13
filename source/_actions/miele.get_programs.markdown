@@ -1,7 +1,8 @@
 ---
-title: "Get the programs of a Miele appliance"
+title: "Get programs"
 action: miele.get_programs
 domain: miele
+response: required
 description: "Returns the available programs of a Miele appliance."
 related_actions:
   - miele.set_program
@@ -12,7 +13,7 @@ Use this action to retrieve the available programs of a Miele appliance, along w
 
 The action returns an empty list if the appliance does not support programs, such as a freezer. The appliance must be in the same state required by the [Set program](/actions/miele.set_program/) action.
 
-This action returns its result as [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) and does not change anything on the appliance.
+This action returns its result as [response data](/docs/automation/action/#action-response-data) and does not change anything on the appliance.
 
 {% include actions/ui_header.md %}
 
@@ -59,6 +60,8 @@ device_id:
 This action does not support targets. Select the appliance through the **Device** field.
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `programs` list. Each entry has a `program_id`, a `program` name, and a `parameters` mapping. The parameters can include a `temperature` and a `duration` range, each with whether it is `mandatory`. Parameters that the program does not support are returned as empty.
 

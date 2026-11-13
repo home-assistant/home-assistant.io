@@ -9,7 +9,7 @@ related_actions:
   - icloud.lost_device
 ---
 
-The **Update** action requests a fresh location and state update for the devices linked to an Apple Account.
+The **Apple iCloud: Update** action requests a fresh location and state update for the devices linked to an Apple Account.
 
 To save battery, Home Assistant polls your devices on a dynamic interval. This action is useful when you need an up-to-date location right away, for example to check whether anyone is home when a door opens.
 
@@ -67,7 +67,9 @@ account:
 
 When the front door opens, request a location update so the presence detection reflects the latest position.
 
-- **Trigger**: The front door opens
+- **Trigger**: State changed
+  - **Entity**: Front door sensor
+  - **To**: Open
 - **Action**: Apple iCloud: Update
 
 {% details "YAML example for requesting an update on door open" %}

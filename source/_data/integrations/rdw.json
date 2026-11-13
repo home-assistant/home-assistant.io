@@ -1,0 +1,22 @@
+{
+  "domain": "rdw",
+  "name": "RDW",
+  "integration_type": "service",
+  "codeowners": [
+    "@frenck",
+    "@joostlek"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "vehicles_transport.cars_evs"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ]
+}

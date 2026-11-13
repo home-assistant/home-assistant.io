@@ -2,6 +2,7 @@
 title: "Set credential"
 action: zwave_js.set_credential
 domain: zwave_js
+response: required
 description: "Adds or updates a PIN code or password for an existing user on a Z-Wave lock."
 related_actions:
   - zwave_js.set_user
@@ -25,7 +26,7 @@ To set a credential from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the locks to set the credential on.
-6. From the actions shown for that target, select **Set credential**.
+6. From the actions shown for that target, under **Z-Wave**, select **Set credential**.
 7. Set the **User index**, **Credential type**, and **Credential data**.
 8. In the **Response variable** field, enter a name to store the result, for example, `result`.
 9. Select **Save**.
@@ -87,6 +88,8 @@ credential_slot:
 {% include actions/targets.md domain="lock" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by lock entity. Each entry includes the assigned credential slot and user index:
 

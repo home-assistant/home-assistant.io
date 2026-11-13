@@ -1,25 +1,7 @@
 ---
-title: DoorBird
 description: Instructions on how to integrate your DoorBird video doorbell with Home Assistant.
-ha_category:
-  - Button
-  - Camera
-  - Doorbell
-  - Event
 ha_release: 0.54
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@oblogic7'
-  - '@bdraco'
-  - '@flacjacket'
 ha_domain: doorbird
-ha_zeroconf: true
-ha_platforms:
-  - button
-  - camera
-  - event
-ha_integration_type: device
 ---
 
 The **DoorBird** {% term integration %} allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
@@ -27,6 +9,7 @@ The **DoorBird** {% term integration %} allows you to integrate your [DoorBird](
 There is currently support for the following device types within Home Assistant:
 
 - [Camera](#camera) - View live and historical event based images.
+- [Image](#image) - View the last doorbell ring and last motion images.
 - [Button](#button) - Enable control of relays and camera low-light/night vision (IR) and resetting favorites.
 - [Event](#event) - Monitor doorbell ring and motion events.
 
@@ -118,6 +101,19 @@ You can also create automation actions based on the DoorBird RFID scanner being 
 ## Camera
 
 The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
+
+Models that support it, such as the D11x series, also serve the live video in 1080p. This is available as a separate **Live 1080p** camera entity, which is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+
+The last doorbell ring and last motion still images are also available as [image](#image) entities.
+
+{% note %}
+The camera entities are kept for backwards compatibility and are planned to be deprecated in a future release, so prefer the image entities going forward.
+{% endnote %}
+
+## Image
+
+The `doorbird` image platform provides an entity for the last doorbell ring image and an entity for the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device.
+These entities use push-based updates driven by the device's events. Each image refreshes the moment a doorbell ring or motion event fires, rather than on a polling interval.
 
 ## Button
 

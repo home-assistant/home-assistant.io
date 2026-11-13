@@ -1,30 +1,7 @@
 ---
-title: Viessmann ViCare
 description: Instructions how to integrate Viessmann heating devices with Home Assistant
-ha_category:
-  - Climate
-  - Fan
-  - Select
-  - Water heater
 ha_release: 0.99
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: vicare
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - number
-  - select
-  - sensor
-  - water_heater
-ha_dhcp: true
-ha_integration_type: hub
-ha_codeowners:
-  - '@CFenner'
-  - '@lackas'
 ---
 
 The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann-climatesolutions.com) devices via the Viessmann ViCare (REST) API.
@@ -80,6 +57,8 @@ Represents the heating controls of your device.
 Viessmann devices with room temperature sensing will show the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
 {% endnote %}
 
+The holiday programs appear as **Holiday** and **Holiday at home** binary sensors, with sensors for their start and end dates.
+
 ### Fan
 
 Ventilation units are displayed as fans and enable the change of speed and use of presets.
@@ -94,9 +73,22 @@ It is not possible to turn on/off water heating via the water heater {% term int
 
 If your device has a domestic hot water circulation pump, you can read its weekly schedule with the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action and change it with the [Set circulation schedule](/actions/vicare.set_circulation_schedule/) action.
 
+### Binary sensor
+
+Binary sensors show on and off states of the device, such as a running burner or compressor. Each room of a ViCare room control also has a **Window** and a **Condensation risk** binary sensor.
+
 ### Sensor
 
 Additional data for a device is available as separate sensors. The sensors are automatically discovered based on the available API data points.
+
+The rooms of a ViCare room control appear as separate devices named **Room 0**, **Room 1**, and so on, each with a temperature and a humidity sensor. The Viessmann API does not provide the room names, so rename the devices and assign them to areas as needed.
+
+Vitoset Aqua water softeners have the following sensors:
+
+- **Salt supply**: the number of days the salt lasts
+- **Water consumption**: the total water consumption, in liters
+- **Water consumption today**: the water consumed today, in liters
+- **Water flow**: the current water flow, in liters per minute
 
 ### Button
 
@@ -109,6 +101,14 @@ Number entities are available to adjust values like the predefined temperature f
 ### Select
 
 Select entities allow configuring the domestic hot water (<abbr title="domestic hot water">DHW</abbr>) operating mode of your Viessmann device. Available options depend on the specific device model and may include `balanced`, `economical`, or `off` modes.
+
+Each heating circuit also has an **Operating mode** select that offers all operation modes the device reports, such as **DHW only**, **DHW and heating**, or **Standby**. The climate entity maps several of these modes to the same HVAC mode, the select sets each one directly.
+
+### Switch
+
+Ventilation devices expose their quickmodes as switches, such as **Intensive**, **Eco**, **Boost**, and **Silent**. Only the quickmodes reported by the device are created.
+
+Quickmodes are mutually exclusive. Turn the active one off before turning another on, otherwise activation fails with "Only one quickmode can be active at a time".
 
 {% include integrations/actions.md %}
 
@@ -238,6 +238,8 @@ When adding or re-authenticating the integration, you get this error in the brow
 ```
 
 Set the **Redirect URIs** on your API client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) to exactly `https://my.home-assistant.io/redirect/oauth`, save (it may take up to an hour to become active), and try again.
+
+This error can also happen if you use a **Client ID** from older guides, like the one used by the ViCare app. That client only allows the redirect URI `vicare://oauth-callback/everest`, which Home Assistant cannot use. Instead of trying to change the redirect URI, create your own API client (see [prerequisites](#prerequisites)) and use its **Client ID**.
 
 ### Client not registered
 

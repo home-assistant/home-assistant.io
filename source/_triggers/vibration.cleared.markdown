@@ -58,8 +58,6 @@ This fires 5 minutes after the sensor entity `binary_sensor.washing_machine_vibr
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -73,13 +71,13 @@ behavior:
   default: each
 for:
   description: |
-    How long the sensor or sensors must stay without detecting vibration before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+    How long the sensor or sensors must stay without detecting vibration before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="vibration sensor" example="binary_sensor.washing_machine_vibration" %}
 
 {% include triggers/behavior.md %}
 

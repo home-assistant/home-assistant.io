@@ -1,17 +1,7 @@
 ---
-title: International Space Station (ISS)
 description: Show the ISS location and how many people are in space
-ha_category:
-  - Sensor
-ha_iot_class: Cloud Polling
 ha_release: 0.36
 ha_domain: iss
-ha_platforms:
-  - sensor
-ha_codeowners:
-  - '@DurgNomis-drol'
-ha_config_flow: true
-ha_integration_type: service
 ---
 
 The **International Space Station (ISS)** {% term integration %} uses the

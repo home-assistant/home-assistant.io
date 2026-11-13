@@ -54,8 +54,6 @@ This passes when `assist_satellite.living_room` is currently idle.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -67,9 +65,9 @@ behavior:
 for:
   description: >
     Duration the satellite must have been idle before the condition passes.
-    Accepts a duration string like `00:00:05` for 5 seconds.
+    Accepts a duration string like `00:00:05` for 5 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -80,7 +78,7 @@ for:
 ## Good to know
 
 - A satellite without a configured wake word engine remains in the **Idle** state permanently until a pipeline is triggered externally. In that case, this condition will always pass.
-- Satellites that have the **Unavailable** or **Unknown** state are skipped from the condition evaluation.
+{% include conditions/unavailable_targets.md entities="satellites" %}
 - Use the **For at least** option to add a short delay, for example 5 seconds, before acting. This avoids race conditions where an action fires before the satellite has fully settled after a pipeline run.
 - To check another pipeline state, use [Satellite is listening](/conditions/assist_satellite.is_listening/), [Satellite is processing](/conditions/assist_satellite.is_processing/), or [Satellite is responding](/conditions/assist_satellite.is_responding/).
 

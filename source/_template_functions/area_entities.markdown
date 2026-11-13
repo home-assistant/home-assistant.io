@@ -71,7 +71,7 @@ area_name_or_id:
 
 - Returns an empty list when the area has no entities or when the name does not match. It does not raise an error.
 - Includes both entities assigned directly to the area and entities inherited from devices in that area.
-- The names used in the lookup are case-sensitive, so `"Living Room"` and `"living room"` are not the same.
+- Uppercase and lowercase letters and spaces in area names and aliases don't matter. `"Living Room"` and `"living room"` find the same area. Area IDs must match exactly.
 
 {% include template_functions/try_it.md %}
 

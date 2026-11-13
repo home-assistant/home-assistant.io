@@ -20,11 +20,10 @@ To set the system mode from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Honeywell Total Connect Comfort (Europe): Set system mode**.
-6. Choose the **Mode** you want. Select the controller **Entity**, and optionally set a **Period** or **Duration**.
-7. Select **Save**.
-
-This action does not support targets. In the UI, you choose the controller in the **Entity** field.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select your Evohome controller's climate entity.
+6. From the actions shown for that target, select **Set system mode**.
+7. Choose the **Mode** you want, and optionally set a **Period** or **Duration**.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -37,9 +36,6 @@ Period:
 Duration:
   description: A duration in hours, used only with AutoWithEco mode, up to 24 hours.
   required: false
-Entity:
-  description: The Evohome controller's climate entity to set the mode on.
-  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -49,8 +45,9 @@ In YAML, refer to this action as `evohome.set_system_mode`. A basic example look
 {% example %}
 action: |
   action: evohome.set_system_mode
-  data:
+  target:
     entity_id: climate.my_home
+  data:
     mode: AutoWithEco
     duration:
       hours: 1
@@ -64,8 +61,9 @@ To go away for a number of days, use `period` instead of `duration`:
 {% example %}
 action: |
   action: evohome.set_system_mode
-  data:
+  target:
     entity_id: climate.my_home
+  data:
     mode: Away
     period:
       days: 30
@@ -92,17 +90,14 @@ duration:
     A duration in hours, used only with `AutoWithEco` mode, up to 24 hours.
   required: false
   type: map
-entity_id:
-  description: >
-    The Evohome controller's climate entity to set the mode on.
-  required: true
-  type: string
 {% endoptions_yaml %}
+
+{% include actions/targets.md domain="climate" %}
 
 ## Good to know
 
 - The `period` and `duration` options can't be combined. Use `duration` with **AutoWithEco**, and `period` with **Away**, **DayOff**, or **Custom**. The **Auto** and **HeatingOff** modes don't take a time.
-- Specify the controller's climate entity with `entity_id` so the action knows which system to set.
+- Target the controller's climate entity. Only the controller has a system mode, so targeting a heating zone returns an error.
 - For everyday changes, the generic [climate actions](/integrations/climate/) also work. The native Evohome actions add access to the time-limited modes, which can be useful when integrating with third-party systems such as Amazon Alexa or Google Home.
 
 {% include actions/try_it.md %}
@@ -113,8 +108,11 @@ entity_id:
 
 When the last person leaves home, put the heating system into **Away** mode so it runs at a lower setpoint until someone returns.
 
-- **Trigger**: Everyone has left home
+- **Trigger**: State changed
+  - **Entity**: Home zone
+  - **To**: 0
 - **Action**: Honeywell Total Connect Comfort (Europe): Set system mode, with mode Away
+  - **Target**: My home (`climate.my_home`)
 
 {% details "YAML example for switching to Away mode" %}
 
@@ -127,8 +125,9 @@ automation: |
       to: "0"
   actions:
     - action: evohome.set_system_mode
-      data:
+      target:
         entity_id: climate.my_home
+      data:
         mode: Away
 {% endexample %}
 

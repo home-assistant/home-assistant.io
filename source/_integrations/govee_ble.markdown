@@ -1,22 +1,7 @@
 ---
-title: Govee Bluetooth
 description: Instructions on how to integrate Govee BLE devices into Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Event
-  - Sensor
-ha_bluetooth: true
 ha_release: 2022.8
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@bdraco'
 ha_domain: govee_ble
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - event
-  - sensor
-ha_integration_type: device
 ---
 
 Integrates [Govee](https://www.govee.com/) BLE devices into Home Assistant.

@@ -1,0 +1,54 @@
+blueprint:
+  name: Refresh OpenUV data during daylight
+  description: >-
+    Refresh selected OpenUV entities at a regular interval during daylight,
+    including one final refresh shortly after sunset.
+  domain: automation
+  input:
+    entities:
+      name: OpenUV entities
+      description: Select one or more OpenUV entities to refresh.
+      selector:
+        entity:
+          multiple: true
+          filter:
+            - integration: openuv
+              domain:
+                - sensor
+                - binary_sensor
+    refresh_interval:
+      name: Refresh interval
+      description: How often to refresh the selected entities.
+      default: "45"
+      selector:
+        select:
+          options:
+            - label: 15 minutes
+              value: "15"
+            - label: 30 minutes
+              value: "30"
+            - label: 45 minutes
+              value: "45"
+            - label: 60 minutes
+              value: "60"
+
+trigger_variables:
+  refresh_interval: !input refresh_interval
+
+triggers:
+  - trigger: time_pattern
+    minutes: "/15"
+
+conditions:
+  - condition: sun
+    after: sunrise
+    before: sunset
+    before_offset: "+00:45:00"
+  - condition: template
+    value_template: >-
+      {{ (((as_timestamp(now()) // 60) | int) % (refresh_interval | int)) == 0 }}
+
+actions:
+  - action: homeassistant.update_entity
+    target:
+      entity_id: !input entities
