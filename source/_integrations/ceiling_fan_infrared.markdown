@@ -1,7 +1,17 @@
 ---
+title: Ceiling Fan Infrared
 description: Integration to control a ceiling fan using an infrared emitter.
+ha_categories:
+  - climate.fans_ventilation
 ha_release: 2026.12
+ha_iot_class: Assumed State
+ha_codeowners:
+  - '@marcoacarvalho'
 ha_domain: ceiling_fan_infrared
+ha_config_flow: true
+ha_integration_type: device
+ha_platforms:
+  - fan
 ---
 
 The **Ceiling Fan Infrared** {% term integration %} lets you control a ceiling fan that comes with an infrared remote, using any infrared emitter that has been previously configured in Home Assistant.
@@ -42,7 +52,7 @@ The **Ceiling Fan Infrared** integration provides the following entity.
 - **Fan**
   - **Description**: Represents the ceiling fan and allows it to be controlled using infrared (IR) commands.
   - **Supported features**: Turn on, turn off, and set the fan speed.
-  - **Remarks**: The original remote has a single key to toggle the fan on and off. Turning the fan on therefore sends the toggle command, which turns the fan off if it was already on.
+  - **Remarks**: The original remote has a single key to toggle the fan on and off. Turning the fan on or off sends that toggle key, but only when Home Assistant considers the state to be changing.
 
 ## Ceiling Fan Infrared automation examples
 
@@ -53,8 +63,7 @@ The following example demonstrates how to automate a ceiling fan. For additional
 ### Automation: Turning on the ceiling fan when it gets warm
 
 - **Trigger**: The office temperature rises above 26 °C
-- **Condition**: Optional condition if needed
-- **Action**: Turn on the fan at medium speed
+- **Action**: Set the fan speed to 66 %
 
 {% details "YAML example for turning on the fan when it gets warm" %}
 
@@ -83,9 +92,37 @@ The light of the ceiling fan is not supported yet.
 
 ## Troubleshooting
 
-If your ceiling fan does not respond to the commands sent by Home Assistant, first make sure the infrared emitter entity is available in Home Assistant and that the IR LED is pointed at the fan and within range. Bright sunlight and obstructions between the emitter and the fan can reduce the range of the infrared signal.
+{% details "The fan does not respond to commands" %}
 
-Some remotes use overlapping infrared codes with other devices, which may cause the same code to be interpreted for different functions. If you notice unexpected behavior, try isolating the remote or checking whether another infrared device nearby is using similar codes.
+### Symptom: The ceiling fan does not react when Home Assistant sends a command
+
+#### Description
+
+The infrared signal does not reach the fan, or the emitter is not available to Home Assistant.
+
+#### Resolution
+
+1. Make sure the infrared emitter entity exists and is not shown as unavailable in Home Assistant.
+2. Make sure the IR LED is pointed at the fan and within range.
+3. Remove obstructions between the emitter and the fan, and avoid bright sunlight, as both reduce the range of the infrared signal.
+
+{% enddetails %}
+
+{% details "The fan reacts unexpectedly" %}
+
+### Symptom: The fan changes state on its own, or a command triggers a different function
+
+#### Description
+
+Some remotes use overlapping infrared codes with other devices, so the same code can be interpreted as different functions. Another infrared device nearby may also be sending commands to the same fan.
+
+#### Resolution
+
+1. Make sure no other infrared emitter or remote in the room is sending commands to the fan.
+2. Test the fan with its original remote to check which functions it actually supports.
+3. Point the emitter directly at the fan and keep other emitters out of its line of sight.
+
+{% enddetails %}
 
 For additional troubleshooting steps and guidance, see the [infrared troubleshooting](/integrations/infrared/#troubleshooting) section.
 
