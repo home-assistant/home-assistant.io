@@ -339,9 +339,7 @@
   link: /hassio/installation/
 - term: Home Assistant Companion app
   definition: >-
-    The official Home Assistant app for Android and Apple devices.
-
-    On phones, tablets, and Macs, it shows your Home Assistant interface, like a browser does. It can also share data from your device's sensors with Home Assistant and receive notifications. The Home Assistant Companion app also works on smartwatches and in cars, with Android Auto, Android Automotive OS, or Apple CarPlay.
+    The official Home Assistant app for Android and Apple devices. On phones, tablets, and Macs, it shows your Home Assistant interface, like a browser does. It can also share data from your device's sensors with Home Assistant and receive notifications. The Home Assistant Companion app also works on smartwatches and in cars, with Android Auto, Android Automotive OS, or Apple CarPlay.
   aliases:
     - Companion app
     - Companion apps
