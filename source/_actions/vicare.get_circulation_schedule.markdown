@@ -85,11 +85,22 @@ Not all devices have a circulation pump. If yours doesn't, the action fails with
 
 This automation saves the circulation schedule when everyone leaves, turns the pump off, and restores the saved schedule once someone comes back.
 
-- **Trigger**: nobody is in the home zone
-- **Action**: Get circulation schedule, stored in the response variable `saved`
-- **Action**: Set circulation schedule with no slots on any day
-- **Action**: Wait until someone is home again
-- **Action**: Set circulation schedule with the saved schedule
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Home
+  - **Below**: `1`
+- **Action**: Viessmann ViCare: Get circulation schedule
+  - **Target**: Main water heater
+  - **Response variable**: `saved`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Monday** to **Sunday**: selected, with no slots
+- **Action**: Wait for a trigger
+  - **Trigger**: Numeric state crossed threshold
+    - **Entity**: Home
+    - **Above**: `0`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Data** (in YAML mode): the saved schedule of the water heater, as shown in the example YAML
 
 {% details "Show example YAML" %}
 
@@ -132,8 +143,11 @@ automation: |
 
 This automation sends you a notification every morning with the times the circulation pump runs today.
 
-- **Trigger**: the time is 7:00 AM
-- **Action**: Get circulation schedule, stored in the response variable `circulation`
+- **Trigger**: Time
+  - **At time**: `07:00:00`
+- **Action**: Viessmann ViCare: Get circulation schedule
+  - **Target**: Main water heater
+  - **Response variable**: `circulation`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

@@ -142,11 +142,22 @@ These examples show how to control the domestic hot water circulation pump from 
 
 This automation saves the circulation schedule when everyone leaves, turns the pump off, and restores the saved schedule once someone comes back.
 
-- **Trigger**: nobody is in the home zone
-- **Action**: Get circulation schedule, stored in the response variable `saved`
-- **Action**: Set circulation schedule with no slots on any day
-- **Action**: Wait until someone is home again
-- **Action**: Set circulation schedule with the saved schedule
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Home
+  - **Below**: `1`
+- **Action**: Viessmann ViCare: Get circulation schedule
+  - **Target**: Main water heater
+  - **Response variable**: `saved`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Monday** to **Sunday**: selected, with no slots
+- **Action**: Wait for a trigger
+  - **Trigger**: Numeric state crossed threshold
+    - **Entity**: Home
+    - **Above**: `0`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Data** (in YAML mode): the saved schedule of the water heater, as shown in the example YAML
 
 {% details "YAML example for pausing circulation while nobody is home" %}
 
@@ -189,10 +200,12 @@ automation: |
 
 This automation turns off the circulation pump on Saturday and Sunday every Friday evening. The weekday schedule stays as it is.
 
-- **Trigger**: the time is 8:00 PM on Friday
-- **Action**: Set circulation schedule
-  - **Target**: the water heater
-  - **Saturday** and **Sunday**: no slots
+- **Trigger**: Time
+  - **At time**: `20:00:00`
+  - **Weekdays**: Friday
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Saturday** and **Sunday**: selected, with no slots
 
 {% details "YAML example for turning off circulation on weekends" %}
 

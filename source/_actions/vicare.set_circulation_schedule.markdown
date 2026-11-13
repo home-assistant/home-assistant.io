@@ -141,10 +141,12 @@ Not all devices have a circulation pump. If yours doesn't, the action fails with
 
 This automation turns off the circulation pump on Saturday and Sunday every Friday evening, for example if you're usually away on weekends. The weekday schedule stays as it is.
 
-- **Trigger**: the time is 8:00 PM on Friday
-- **Action**: Set circulation schedule
-  - **Target**: the water heater
-  - **Saturday** and **Sunday**: no slots
+- **Trigger**: Time
+  - **At time**: `20:00:00`
+  - **Weekdays**: Friday
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Saturday** and **Sunday**: selected, with no slots
 
 {% details "Show example YAML" %}
 
@@ -170,9 +172,11 @@ automation: |
 
 This automation puts the weekend circulation schedule back every Monday morning, so the pump runs again next weekend. Adjust the times to match the hours you want the pump to run.
 
-- **Trigger**: the time is 6:00 AM on Monday
-- **Action**: Set circulation schedule
-  - **Target**: the water heater
+- **Trigger**: Time
+  - **At time**: `06:00:00`
+  - **Weekdays**: Monday
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
   - **Saturday** and **Sunday**: one slot from 8:00 AM to 10:00 PM in mode `on`
 
 {% details "Show example YAML" %}
