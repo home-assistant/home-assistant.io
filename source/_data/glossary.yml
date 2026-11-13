@@ -602,9 +602,7 @@
 
 - term: Speech-to-text
   definition: >-
-    Technology that turns spoken words into text.
-
-    Assist uses speech-to-text when you talk to it. Integrations provide speech-to-text. Some run locally, and others run in the cloud.
+    Technology that turns spoken words into text. Assist uses speech-to-text when you talk to it. Integrations provide speech-to-text. Some run locally, and others run in the cloud.
   aliases:
     - STT
   link: /integrations/stt/
@@ -655,9 +653,7 @@
 
 - term: Text-to-speech
   definition: >-
-    Technology that turns text into spoken words.
-
-    Assist uses text-to-speech to reply out loud. Home Assistant can also use it to make announcements on media players and voice satellites. Integrations provide text-to-speech. Some run locally, and others run in the cloud.
+    Technology that turns text into spoken words. Assist uses text-to-speech to reply out loud. Home Assistant can also use it to make announcements on media players and voice satellites. Integrations provide text-to-speech. Some run locally, and others run in the cloud.
   aliases:
     - TTS
   link: /integrations/tts/
