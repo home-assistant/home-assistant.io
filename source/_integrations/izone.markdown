@@ -9,7 +9,7 @@ related:
 
 The **iZone** {% term integration %} lets you monitor and control local [iZone](https://izone.com.au/) ducted reverse-cycle climate control systems. These systems are largely available in Australia.
 
-## Supported hardware
+## Supported devices
 
 Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
 
@@ -46,13 +46,15 @@ Discovery uses outbound UDP packets to destination port `12107` and listens loca
 
 If UDP discovery traffic is blocked, you can still set up a controller by choosing **Enter host** and providing the bridge IP address or hostname, as long as HTTP on port `80` works. Without working UDP discovery, Home Assistant will not automatically find new controllers or follow IP address changes.
 
-## Master controller
+## Supported functionality
+
+### Controller
 
 Unit modes off, heat, cool, dry, and fan only are supported. For units fitted with the iSave system, which vents external air into the house, this is available as the **Eco** preset.
 
 The entity exposes a `supply_temperature` attribute. Use the **Supply temperature** sensor entity (below) instead.
 
-### Zone control mode
+#### Zone control mode
 
 In zone control mode, a zone drives the air conditioner instead of the unit's return air sensor. Each zone with a temperature sensor has its own target temperature. Depending on the system setting, iZone either picks the zone that is furthest from its target (zones mode), or always uses the zone selected as the control zone (master mode).
 
@@ -64,7 +66,7 @@ Home Assistant mirrors this on the controller climate entity:
 
 When iZone selects a different zone, the controller's current temperature can jump.
 
-### Return air sensor mode
+#### Return air sensor mode
 
 The controller uses the unit's return air sensor, and you set the target temperature on the controller, when:
 
@@ -76,11 +78,11 @@ In this mode, the controller's current temperature is the return air temperature
 
 When the **Eco** preset is on, the controller's current temperature is the supply air temperature in both modes.
 
-### Legacy attributes
+#### Legacy attributes
 
 The controller climate entity also has the attributes `control_zone`, `control_zone_name`, and `control_zone_setpoint`. For new automations and dashboards, use `control_zone_source` instead. To get the target temperature of the controlling zone, read the `temperature` attribute of the climate entity it names.
 
-### Sensors
+#### Sensors
 
 The integration creates the following {% term sensor %} entities for each controller:
 
@@ -89,11 +91,11 @@ The integration creates the following {% term sensor %} entities for each contro
 
 These sensors always report the unit duct temperatures. They do not change when a different zone is controlling the system.
 
-## Zones
+### Zones
 
 Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
 
-### Zone dampers
+#### Zone dampers
 
 Each zone has the following entities for its damper:
 
@@ -109,7 +111,7 @@ The damper position is best-effort, and some controllers don't report it correct
 
 Damper position isn't a percentage of airflow, because airflow doesn't change linearly with damper position.
 
-### Wireless zone sensors
+#### Wireless zone sensors
 
 Zones with a wireless temperature sensor have the following {% term sensor %} entities:
 
@@ -118,7 +120,7 @@ Zones with a wireless temperature sensor have the following {% term sensor %} en
 
 The iZone controller only reports these in coarse steps. The RF signal is 100%, 50%, 25%, or 0%, and the battery is 100%, 50%, or 0%. The RF signal and battery sensors are only created for zones with a wireless sensor, and only if your iZone bridge reports the values.
 
-### Zone faults
+#### Zone faults
 
 Zones can have the following {% term "binary sensor" %} entities, which are created only when your iZone bridge reports the corresponding fault status. They show **Problem** when the iZone controller reports a fault, and **OK** otherwise:
 
@@ -127,7 +129,11 @@ Zones can have the following {% term "binary sensor" %} entities, which are crea
 
 **Sensor fault** is also only created for zones with a temperature sensor. Older bridges don't report sensor faults.
 
-## Diagnostics
+{% include integrations/actions.md %}
+
+## Troubleshooting
+
+### Diagnostics
 
 The iZone {% term integration %} provides diagnostics to help with troubleshooting. The download includes:
 
@@ -145,7 +151,7 @@ To download diagnostics:
 
 Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
-## Debugging
+### Debugging
 
 If you're trying to track down issues with the integration, set up logging for it:
 
@@ -159,8 +165,6 @@ logger:
 ```
 
 This will help you to find network connection issues.
-
-{% include integrations/actions.md %}
 
 ## Removing the integration
 
