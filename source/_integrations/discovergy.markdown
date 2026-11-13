@@ -14,7 +14,7 @@ The integration supports the following meter types within Home Assistant:
 
 ## Prerequisites
 
-For this {% term integration %}, you need a inexogy smart meter, a [inexogy account](https://my.inexogy.com/) and your credentials.
+For this {% term integration %}, you need an inexogy smart meter, an [inexogy account](https://my.inexogy.com/) and your credentials.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}

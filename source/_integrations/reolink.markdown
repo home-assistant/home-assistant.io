@@ -192,7 +192,7 @@ When the camera is not moved and no person/pet/animal/vehicle is detected for th
 
 When a Reolink doorbell is pressed the quick reply message from the **Auto quick reply message** select entity will be played after **Auto quick reply time** seconds, unless the **Auto quick reply message** is set to off.
 
-If the **Auto tracking** switch entity is enabled, and a object disappears from view OR stops moving for the **Auto track disappear time**/**Auto track stop time**, the camera goes back to its original position.
+If the **Auto tracking** switch entity is enabled, and an object disappears from view OR stops moving for the **Auto track disappear time**/**Auto track stop time**, the camera goes back to its original position.
 
 **Day night switch threshold** determines at which light level the camera switches from **Color** to **Black & white**. This value only applies if the **Day night mode** select is on **Auto**.
 
@@ -846,7 +846,7 @@ The following steps do not apply to directly connected battery cameras because t
 
 The Reolink Home Assistant integration is supposed to wake battery cameras only once every 6 hours for a few seconds, or to perform a data update when the battery camera wakes up on its own (at most once per hour). This should not have a significant impact on battery life. You can check the correct operation using the **Sleep status** entity. However, several factors can have a significant impact on battery life:
 
-- Make sure the **Preload camera stream** option is turned off for all battery camera entities under {% my integrations title="**Settings** > **Devices & services**" %} > Reolink integration card > **x devices** > select the battery camera > select the camera stream (do this for all enabled streams) > Gear icon {% icon "mdi:cog-outline" %}. The Preload camera stream will keep a active stream open, keeping the camera awake. This will drain the battery.
+- Make sure the **Preload camera stream** option is turned off for all battery camera entities under {% my integrations title="**Settings** > **Devices & services**" %} > Reolink integration card > **x devices** > select the battery camera > select the camera stream (do this for all enabled streams) > Gear icon {% icon "mdi:cog-outline" %}. The Preload camera stream will keep an active stream open, keeping the camera awake. This will drain the battery.
 - Make sure the **Manual Record** switch is turned off. While this switch is on, the camera will be awake and recording. Excessive use of this entity will drain the battery.
 - **Automations** which use entities from a Reolink battery camera can wake up the camera. Changing settings or requesting a snapshot will wake the battery camera for 10-30 seconds. When automations trigger very often, this can cause excessive battery use.
 - Some **Custom cards** that can be used to view the camera in a dashboard are known to keep a battery camera constantly awake, draining its battery.

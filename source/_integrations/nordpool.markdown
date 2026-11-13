@@ -122,7 +122,7 @@ The template below takes the current price attributes, adds 0.1293 EUR as fixed 
 
 ### YAML Template
 
-A template sensor to add VAT and a fixed cost from an helper entity `input_number.add_fixed_cost`.
+A template sensor to add VAT and a fixed cost from a helper entity `input_number.add_fixed_cost`.
 
 ```yaml
 template:

@@ -60,7 +60,7 @@ Message to one device with formatted text and image from an external URL.
 actions:
   - action: notify.notify
     data:
-      title: "Test to 1 device with image from an url"
+      title: "Test to 1 device with image from a URL"
       message: "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]"
       data:
         icon: "14"

@@ -1,5 +1,5 @@
 ---
-description: Instructions on how to integrate a ONVIF camera within Home Assistant.
+description: Instructions on how to integrate an ONVIF camera within Home Assistant.
 ha_release: 0.47
 ha_domain: onvif
 ---

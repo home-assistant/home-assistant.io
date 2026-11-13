@@ -760,7 +760,7 @@ You can also keep track of the road map for the Z-Wave integration [here](https:
 
 ### Which Z-Wave adapter should I buy?
 
-Z-Wave supports all known 500, 700, and 800 series Z-Wave adapters. If you are just starting out, we recommend that you purchase a 800-series adapter (with firmware updated to >=7.23.2).
+Z-Wave supports all known 500, 700, and 800 series Z-Wave adapters. If you are just starting out, we recommend that you purchase an 800-series adapter (with firmware updated to >=7.23.2).
 
 For more information, see [Supported Z-Wave adapters](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
 
@@ -898,7 +898,7 @@ This sections lists functionality that is available in Z-Wave but that is not cu
 
 In Home Assistant, it is currently not possible to set the Z-Wave controller into learn mode to receive network information from another controller.
 
-### Including / excluding a adapter in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
+### Including / excluding an adapter in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
 
 A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave controller to join another network, because Home Assistant acts as the central hub.
 

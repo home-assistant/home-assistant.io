@@ -408,7 +408,7 @@ In this section you find some real-life examples of how to use the command_line 
 
 ### SickRage
 
-Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instance.
+Check the state of a [SickRage](https://github.com/sickragetv/sickrage) instance.
 
 ```yaml
 # Example configuration.yaml entry
