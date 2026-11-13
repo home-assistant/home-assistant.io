@@ -110,6 +110,7 @@ This automation sends a notification to your phone when the battery level of you
 
 - **Trigger**: Numeric state
   - **Target**: TRMNL Battery (`sensor.your_trmnl_battery`)
+  - **Below**: `20`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -141,6 +142,7 @@ This automation shows a message on your TRMNL display when your washing machine 
 
 - **Trigger**: State
   - **Target**: Washing machine status (`sensor.washing_machine_status`)
+  - **To**: `done`
 - **Action**: Send a notification message
   - **Target**: TRMNL Message (`notify.trmnl_message`)
 
@@ -198,6 +200,8 @@ The integration does not load after you update Home Assistant.
 Home Assistant tried to move your entry from the API key to the trmnl.com sign-in, but TRMNL refused the key. This happens when the key no longer works, for example after you reset it on trmnl.com.
 
 #### Resolution
+
+Removing the integration deletes its devices and entities. Before you remove it, note which automations, scripts and dashboards use them. If the entities get different IDs when you add the integration again, update those automations, scripts and dashboards to use the new IDs.
 
 Remove the TRMNL integration and add it again to sign in.
 
