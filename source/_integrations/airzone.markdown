@@ -25,7 +25,7 @@ ID:
 
 Airzone supports optional MQTT updates on compatible Airzone WebServers. To enable them, configure the Airzone WebServer to connect to an MQTT broker and set up the [MQTT integration](/integrations/mqtt/) in Home Assistant to use the same broker.
 
-To configure MQTT updates for an existing Airzone integration, go to **Settings > Devices & services**, select **Airzone**, and open the integration's options. Enter the **MQTT topic prefix** configured on the Airzone WebServer.
+To configure MQTT updates for an existing Airzone integration, go to **Settings** > **Devices & services**, select **Airzone**, and open the integration's options. Enter the **MQTT topic prefix** configured on the Airzone WebServer.
 
 Leave the MQTT topic prefix empty to disable MQTT updates. The integration continues to poll the Airzone HTTP API even when MQTT is enabled, since the MQTT API only provides updates for a subset of devices and attributes.
 
