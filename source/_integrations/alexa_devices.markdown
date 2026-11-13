@@ -160,14 +160,14 @@ template:
     - name: Alexa Devices Last Called
       unique_id: alexa_devices_last_called
       state: >
-        {{
+        {% set timestamps =
           integration_entities('alexa_devices')
             | select('match', '^event\.')
             | select('has_value')
             | map('states')
-            | sort
-            | last
-        }}
+            | list
+        %}
+        {{ (timestamps | sort | last) if timestamps else none }}
       attributes:
         event_entity: >
           {{
@@ -180,19 +180,35 @@ template:
           }}
       
         voice_command: >
-          {{ state_attr(this.attributes.event_entity, 'voice_command') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'voice_command')
+            if event_entity else none
+          }}
       
         voice_reply: >
-          {{ state_attr(this.attributes.event_entity, 'voice_reply') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'voice_reply')
+            if event_entity else none
+          }}
       
         person_first_name: >
-          {{ state_attr(this.attributes.event_entity, 'person_first_name') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'person_first_name')
+            if event_entity else none
+          }}
       
         person_type: >
-          {{ state_attr(this.attributes.event_entity, 'person_type') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'person_type')
+            if event_entity else none
+          }}
       
         notify_announce: >
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {{
             device_entities(dev)
@@ -203,7 +219,7 @@ template:
           }}
       
         notify_speak: >
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {{
             device_entities(dev)
@@ -214,7 +230,7 @@ template:
           }}
       
         media_player: >
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {{
             device_entities(dev)
@@ -225,7 +241,7 @@ template:
           }}
       
         serial_number: >-
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {% set identifiers = device_attr(dev, 'identifiers') if dev else none %}
           {{
@@ -234,7 +250,8 @@ template:
           }}
       
         device_id: >
-          {{ device_id(this.attributes.event_entity) if this.attributes.event_entity else none }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{ device_id(event_entity) if event_entity else none }}
 ```
 {% enddetails %}
 
