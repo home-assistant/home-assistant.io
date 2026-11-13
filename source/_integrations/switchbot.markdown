@@ -101,6 +101,7 @@ In addition to the certified devices, the following devices are also supported:
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini EU](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
+- Plug Mini IT (W1197)
 - [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 
 ### Cover
@@ -211,7 +212,7 @@ Features:
 - turn on or off
 - get power consumption readings
 
-#### Plug Mini EU
+#### Plug Mini EU and IT
 
 This is an encrypted device.
 
