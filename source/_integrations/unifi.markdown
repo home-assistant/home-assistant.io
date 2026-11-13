@@ -58,6 +58,7 @@ There is currently support for the following device types within Home Assistant:
 - [Actions](#actions)
 - [Switch](#switch)
 - [Sensor](#sensor)
+- [Firewall policy schedules](#firewall-policy-schedules)
 - [Firmware updates](#firmware-updates)
 - [IPS engine updates](#ips-engine-updates)
 
@@ -259,6 +260,27 @@ Get entities reporting whether a Zone-Based Firewall Policy is in effect right n
 
 The schedule is evaluated in the time zone of the UniFi Network application. If the application doesn't report a time zone that Home Assistant can use, Home Assistant's time zone is used instead. A turned-on policy with no schedule, or with a schedule Home Assistant doesn't recognize, reports an unknown state. These sensors are disabled by default.
 
+## Firewall policy schedules
+
+You can change the schedule of each Zone-Based Firewall Policy you created, for example to block a network from now until the next morning. The entities belong to the **UniFi Network** device. They are disabled by default and require admin privileges, so first [enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the ones you need. Changes are sent to the UniFi Network application right away.
+
+- **Schedule** (select): The schedule mode: **Always**, **Every day**, **Every week**, **One time**, or **Custom**. **Every week** and **Custom** can only be chosen in the UniFi Network application.
+- **Schedule start** and **Schedule end** (time): The time window the policy applies in each day.
+
+Each mode uses only some of these settings:
+
+- **Always**: none.
+- **Every day**: the start and end time.
+- **Every week**: the start and end time, unless it runs all day, which can only be changed in the UniFi Network application.
+- **One time**: the start and end time.
+- **Custom**: the start and end time, unless it runs all day, which can only be changed in the UniFi Network application.
+
+Settings the current mode doesn't use show an unknown state, and can't be changed until you choose a mode that uses them. Changing a setting never changes the mode.
+
+When you change the mode, the policy keeps its time window. If it didn't have one, it gets 09:00 to 12:00, like in the UniFi Network application. Choosing **One time** dates the schedule today, even when it's already selected. Today's date is taken from the UniFi Network application's time zone. If a schedule's end time is earlier than its start time, the window runs past midnight into the next day.
+
+If the UniFi Network application rejects a change, the error shows its reason.
+
 ## Light
 
 The Light entities will only be available for UniFi access points that support LED ring customization. Not all access points have this capability.
@@ -283,6 +305,43 @@ This entity is informational only: the engine upgrade cannot be installed from H
 
 ## Examples
 
+### Block a network until morning
+
+This script turns on a Zone-Based Firewall Policy from now until 08:00: the next morning when you run it in the evening, or the same morning when you run it after midnight. The policy stops applying on its own at 08:00. The example assumes a policy named **Block kids' Wi-Fi** with its schedule entities enabled, and that Home Assistant and the UniFi Network application use the same time zone, because the start time is taken from Home Assistant's clock.
+
+- **Action**: Select an option, **One time**, on the policy's **Schedule** entity. Choose the mode first: the time entities can't be changed while the mode has no time window.
+- **Action**: Set the **Schedule start** time to now.
+- **Action**: Set the **Schedule end** time to 08:00.
+- **Action**: Turn on the policy's switch.
+
+{% details "YAML example for blocking a network until morning" %}
+
+{% example %}
+script: |
+  alias: "Block kids' Wi-Fi until morning"
+  sequence:
+    - action: select.select_option
+      target:
+        entity_id: select.unifi_network_block_kids_wi_fi_schedule
+      data:
+        option: one_time
+    - action: time.set_value
+      target:
+        entity_id: time.unifi_network_block_kids_wi_fi_schedule_start
+      data:
+        time: "{{ now().strftime('%H:%M:00') }}"
+    - action: time.set_value
+      target:
+        entity_id: time.unifi_network_block_kids_wi_fi_schedule_end
+      data:
+        time: "08:00:00"
+    - action: switch.turn_on
+      target:
+        entity_id: switch.unifi_network_block_kids_wi_fi
+{% endexample %}
+
+{% enddetails %}
+
 ### Community blueprints
 
 The Home Assistant community has created blueprints that use the UniFi Network integration for common use cases like presence-based automations or Wi-Fi scheduling. You can browse them in the [blueprints exchange on the community forum](https://community.home-assistant.io/c/blueprints-exchange/53?tags=unifi).
@@ -301,7 +360,7 @@ If the WebSocket connection is lost, the integration automatically tries to reco
 - **The IPS engine entity needs a gateway that reports its engine version.** For example, a UniFi Cloud Gateway Fiber running UniFi Network 11 reports it.
 - **Changes to LED control** on access points may take over 5 seconds to apply because the device must adopt a new configuration first.
 - **Firewall policy schedule status can lag** a schedule's start or end by up to 10 seconds, because firewall policies are polled.
-- **The UniFi Network application's time zone is read when the integration starts and after it reconnects.** If you change it, reload the integration so firewall policy schedules are evaluated correctly.
+- **The UniFi Network application's time zone is read only when the integration starts.** If you change it, reload the integration so firewall policy schedules are evaluated correctly.
 - **Lingering entities**: In some edge cases, clients or devices removed from UniFi Network may remain in the Home Assistant device registry and need to be [removed manually](#removing-a-device-in-home-assistant).
 
 ## Removing a device in Home Assistant
