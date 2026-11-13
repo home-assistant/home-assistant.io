@@ -714,7 +714,7 @@ source/_integrations/met.markdown @danielhiversen
 source/_integrations/met_eireann.markdown @DylanGore
 source/_integrations/meteo_france.markdown @oncleben31 @Quentame
 source/_integrations/meteo_lt.markdown @xE1H
-source/_integrations/meteoalarm.markdown @rolfberkenbosch
+source/_integrations/meteoalarm.markdown @rolfberkenbosch @mastermc0 @jjprz
 source/_integrations/meteoclimatic.markdown @adrianmo
 source/_integrations/metoffice.markdown @MrHarcombe @avee87
 source/_integrations/microbees.markdown @microBeesTech
@@ -899,6 +899,7 @@ source/_integrations/portainer.markdown @erwindouna
 source/_integrations/power.markdown @home-assistant/core
 source/_integrations/powerfox.markdown @klaasnicolaas
 source/_integrations/powerfox_local.markdown @klaasnicolaas
+source/_integrations/powersensor_au.markdown @jasaw @alex-romanenko
 source/_integrations/powerwall.markdown @bdraco @jrester @daniel-simpson
 source/_integrations/prana.markdown @prana-dev-official
 source/_integrations/private_ble_device.markdown @Jc2k
@@ -1164,7 +1165,7 @@ source/_integrations/template.markdown @Petro31 @home-assistant/core
 source/_integrations/tesla_fleet.markdown @Bre77
 source/_integrations/tesla_wall_connector.markdown @einarhauks @sarabveer
 source/_integrations/teslemetry.markdown @Bre77
-source/_integrations/tessie.markdown @Bre77
+source/_integrations/tessie.markdown @Bre77 @stx
 source/_integrations/text.markdown @home-assistant/core
 source/_integrations/text.mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/theben_conexa.markdown @mdluhosch
@@ -1542,6 +1543,7 @@ source/_actions/flo.set_sleep_mode.markdown @dmulcahey
 source/_actions/flux_led.set_custom_effect.markdown @icemanch
 source/_actions/flux_led.set_music_mode.markdown @icemanch
 source/_actions/flux_led.set_zones.markdown @icemanch
+source/_actions/foreca.get_3_hour_forecast.markdown @EetuPelkonen @hyvatti-foreca
 source/_actions/foreca.get_forecasts_extra.markdown @EetuPelkonen @hyvatti-foreca
 source/_actions/forecast_solar.get_forecast.markdown @klaasnicolaas @frenck
 source/_actions/foscam.ptz.markdown @Foscam-wangzhengyu
