@@ -13,7 +13,7 @@ Use it to control your air conditioner and each of its zones from Home Assistant
 
 ## Supported devices
 
-Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wired or wireless bridge device installed should currently work.
+Any current iZone unit with ducted reverse cycle air-conditioning and an iZone Smart Hub installed should work. The Smart Hub was formerly called the CB bridge, and comes in wired and wireless versions.
 
 ## Unsupported devices
 
@@ -27,22 +27,22 @@ The following iZone products are not supported by the integration:
 
 Before you set up the integration, make sure that:
 
-- Your iZone system has a CB bridge installed, either wired or wireless, and the bridge is paired with the iZone controller.
-- The bridge is connected to your local network, and Home Assistant can reach it. To find the bridge automatically, Home Assistant and the bridge need to be on the same network segment. For details, see [Network settings](#network-settings).
+- Your iZone system has a Smart Hub installed, either wired or wireless, and the Smart Hub is paired with the iZone controller.
+- The Smart Hub is connected to your local network, and Home Assistant can reach it. To find the Smart Hub automatically, Home Assistant and the Smart Hub need to be on the same network segment. For details, see [Network settings](#network-settings).
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Setup method:
   description: Choose **Search for devices** to look for controllers on your local network, or **Enter host** to type the controller IP address or hostname.
-Controller IP address or hostname:
-  description: The address of your iZone bridge. Shown when you choose **Enter host**, or when **Search for devices** does not find a controller.
+Host:
+  description: The address of your Smart Hub. Shown when you choose **Enter host**, or when **Search for devices** does not find a controller.
 {% endconfiguration_basic %}
 
-If **Search for devices** does not find a controller, Home Assistant opens the **Enter host** form so you can type the address instead. Use **Enter host** when UDP discovery traffic is blocked between Home Assistant and the bridge.
+If **Search for devices** does not find a controller, Home Assistant asks for the address instead. Use **Enter host** when UDP discovery traffic is blocked between Home Assistant and the Smart Hub.
 
 {% tip %}
-iZone bridges also advertise themselves for Apple HomeKit. Home Assistant may therefore show a separate [HomeKit Device](/integrations/homekit_controller/) discovery for the same bridge. Set up the **iZone** discovery (or add iZone manually) and ignore the HomeKit Device discovery. The HomeKit Device path does not provide working climate control for these bridges.
+Smart Hubs also advertise themselves for Apple HomeKit. Home Assistant may therefore show a separate [HomeKit Device](/integrations/homekit_controller/) discovery for the same Smart Hub. Set up the **iZone** discovery (or add iZone manually) and ignore the HomeKit Device discovery. The HomeKit Device path does not provide working climate control for these Smart Hubs.
 {% endtip %}
 
 ## Multiple iZone systems
@@ -55,13 +55,13 @@ To keep a controller out of Home Assistant, select **Ignore** on its discovered 
 
 ## Network settings
 
-Once set up, Home Assistant controls the iZone bridge over HTTP on TCP port `80`. Your Home Assistant host must be able to reach the bridge by IP address or hostname on your local network.
+Once set up, Home Assistant controls the Smart Hub over HTTP on TCP port `80`. Your Home Assistant host must be able to reach the Smart Hub by IP address or hostname on your local network.
 
-UDP broadcast discovery is used to find controllers on the LAN (for example **Search for devices**), to notice new bridges, and to pick up IP address changes. For discovery to work reliably, Home Assistant and the bridge usually need to be on the same local network segment, like the same VLAN. If they are on different segments, standard routing is usually not enough. Your network must support a UDP broadcast relay, directed broadcast, or a similar feature to forward this traffic between segments.
+UDP broadcast discovery is used to find controllers on the LAN (for example **Search for devices**), to notice new Smart Hubs, and to pick up IP address changes. For discovery to work reliably, Home Assistant and the Smart Hub usually need to be on the same local network segment, like the same VLAN. If they are on different segments, standard routing is usually not enough. Your network must support a UDP broadcast relay, directed broadcast, or a similar feature to forward this traffic between segments.
 
 Discovery uses outbound UDP packets to destination port `12107` and listens locally for inbound UDP iZone messages on port `7005`. The integration currently listens on `0.0.0.0` and sends discovery to local IPv4 broadcast addresses, which is not configurable.
 
-If UDP discovery traffic is blocked, you can still set up a controller by choosing **Enter host** and providing the bridge IP address or hostname, as long as HTTP on port `80` works. Without working UDP discovery, Home Assistant will not automatically find new controllers or follow IP address changes.
+If UDP discovery traffic is blocked, you can still set up a controller by choosing **Enter host** and providing the Smart Hub IP address or hostname, as long as HTTP on port `80` works. Without working UDP discovery, Home Assistant will not automatically find new controllers or follow IP address changes.
 
 ## Supported functionality
 
@@ -141,16 +141,16 @@ Zones with a wireless temperature sensor have the following {% term sensor %} en
 - **RF signal**: (diagnostic) The radio signal strength of the zone sensor, as a percentage. This entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 - **Battery**: (diagnostic) The battery level of the zone sensor, as a percentage.
 
-The iZone controller only reports these in coarse steps. The RF signal is 100%, 50%, 25%, or 0%, and the battery is 100%, 50%, or 0%. The RF signal and battery sensors are only created for zones with a wireless sensor, and only if your iZone bridge reports the values.
+The iZone controller only reports these in coarse steps. The RF signal is 100%, 50%, 25%, or 0%, and the battery is 100%, 50%, or 0%. The RF signal and battery sensors are only created for zones with a wireless sensor, and only if your Smart Hub reports the values.
 
 #### Zone faults
 
-Zones can have the following {% term "binary sensor" %} entities, which are created only when your iZone bridge reports the corresponding fault status. They show **Problem** when the iZone controller reports a fault, and **OK** otherwise:
+Zones can have the following {% term "binary sensor" %} entities, which are created only when your Smart Hub reports the corresponding fault status. They show **Problem** when the iZone controller reports a fault, and **OK** otherwise:
 
 - **Damper fault**: (diagnostic) The controller reports a fault with the zone damper motor.
 - **Sensor fault**: (diagnostic) The controller reports a fault with the zone temperature sensor.
 
-**Sensor fault** is also only created for zones with a temperature sensor. Older bridges don't report sensor faults.
+**Sensor fault** is also only created for zones with a temperature sensor. Older Smart Hubs don't report sensor faults.
 
 {% include integrations/actions.md %}
 
@@ -280,7 +280,7 @@ automation: |
 
 The integration {% term polling polls %} each iZone controller every 25 seconds. When you change a setting from Home Assistant, the new state shows right away. Changes made with the iZone app or on the iZone touchscreen show up at the next update.
 
-The integration listens for iZone UDP discovery messages. These let Home Assistant find new bridges, and follow a bridge that gets a new IP address. If a bridge stops responding, Home Assistant sends a discovery request to look for it at a new address. For what discovery needs from your network, see [Network settings](#network-settings).
+The integration listens for iZone UDP discovery messages. These let Home Assistant find new Smart Hubs, and follow a Smart Hub that gets a new IP address. If a Smart Hub stops responding, Home Assistant sends a discovery request to look for it at a new address. For what discovery needs from your network, see [Network settings](#network-settings).
 
 If your iZone installation changes, for example when your installer adds or removes zones, the integration reloads automatically to pick up the changes. Devices for zones that no longer exist are removed.
 
@@ -291,8 +291,8 @@ The iZone system hardware has the following limitations:
 - The iZone system accepts target temperatures in 0.5 °C steps, and damper minimum and maximum in 5% steps.
 - The damper position is best-effort, and some iZone controllers don't report it correctly. For details, see [Zone dampers](#zone-dampers).
 - The iZone controller reports wireless sensor signal strength and battery levels in coarse steps.
-- iZone discovery uses UDP broadcasts, which don't cross network segments without a broadcast relay. A bridge on a different segment, like another VLAN, isn't discovered. You can still add it with **Enter host**, but Home Assistant won't follow IP address changes.
-- iZone bridges also advertise themselves for Apple HomeKit, so they show up as a HomeKit Device discovery as well. That path doesn't provide working climate control, so use the iZone integration instead.
+- iZone discovery uses UDP broadcasts, which don't cross network segments without a broadcast relay. A Smart Hub on a different segment, like another VLAN, isn't discovered. You can still add it with **Enter host**, but Home Assistant won't follow IP address changes.
+- Smart Hubs also advertise themselves for Apple HomeKit, so they show up as a HomeKit Device discovery as well. That path doesn't provide working climate control, so use the iZone integration instead.
 
 ## Troubleshooting
 
@@ -300,53 +300,53 @@ The iZone system hardware has the following limitations:
 
 ### Symptom: "No devices found on the network"
 
-When you choose **Search for devices**, Home Assistant doesn't find your iZone controller, and asks for the bridge address instead.
+When you choose **Search for devices**, Home Assistant doesn't find your iZone controller, and asks for the Smart Hub address instead.
 
 #### Description
 
-Home Assistant finds iZone bridges with UDP broadcasts. The broadcasts don't reach the bridge, or its reply doesn't reach Home Assistant. This usually happens when Home Assistant and the bridge are on different network segments, like different VLANs, or when a firewall blocks the UDP ports.
+Home Assistant finds Smart Hubs with UDP broadcasts. The broadcasts don't reach the Smart Hub, or its reply doesn't reach Home Assistant. This usually happens when Home Assistant and the Smart Hub are on different network segments, like different VLANs, or when a firewall blocks the UDP ports.
 
 #### Resolution
 
-1. Make sure the bridge is powered on and connected to your network.
-2. Enter the bridge IP address or hostname in the **Host** field. You can find the address in your router's list of connected devices.
-3. To use discovery, put Home Assistant and the bridge on the same network segment, or set up a UDP broadcast relay. For the ports discovery uses, see [Network settings](#network-settings).
+1. Make sure the Smart Hub is powered on and connected to your network.
+2. Enter the Smart Hub IP address or hostname in the **Host** field. You can find the address in your router's list of connected devices.
+3. To use discovery, put Home Assistant and the Smart Hub on the same network segment, or set up a UDP broadcast relay. For the ports discovery uses, see [Network settings](#network-settings).
 
 {% enddetails %}
 
-{% details "Home Assistant can't connect to the bridge address" %}
+{% details "Home Assistant can't connect to the Smart Hub address" %}
 
 ### Symptom: "Failed to connect"
 
-When you enter the bridge address in the **Host** field, the form shows the message "Failed to connect".
+When you enter the Smart Hub address in the **Host** field, the form shows the message "Failed to connect".
 
 #### Description
 
-Home Assistant can't reach the bridge over HTTP on TCP port `80` at the address you entered.
+Home Assistant can't reach the Smart Hub over HTTP on TCP port `80` at the address you entered.
 
 #### Resolution
 
-1. Check that the address is correct. The bridge address can change if your router assigns a new one.
-2. Make sure the bridge is powered on and connected to your network.
-3. Make sure no firewall blocks TCP port `80` between Home Assistant and the bridge.
+1. Check that the address is correct. The Smart Hub address can change if your router assigns a new one.
+2. Make sure the Smart Hub is powered on and connected to your network.
+3. Make sure no firewall blocks TCP port `80` between Home Assistant and the Smart Hub.
 
-To keep the address from changing, reserve an IP address for the bridge in your router.
+To keep the address from changing, reserve an IP address for the Smart Hub in your router.
 
 {% enddetails %}
 
-{% details "The bridge isn't paired" %}
+{% details "The Smart Hub isn't paired" %}
 
-### Symptom: "This iZone bridge is not paired with an air conditioner"
+### Symptom: "This iZone Smart Hub is not paired with an air conditioner"
 
-When you set up the integration, the form shows the message "This iZone bridge is not paired with an air conditioner". Or the integration entry shows the error "iZone bridge is not paired with an air conditioner".
+When you set up the integration, the form shows the message "This iZone Smart Hub is not paired with an air conditioner". Or the integration entry shows the error "iZone Smart Hub is not paired with an air conditioner".
 
 #### Description
 
-The bridge is on your network, but it isn't connected to an iZone system.
+The Smart Hub is on your network, but it isn't connected to an iZone system.
 
 #### Resolution
 
-1. Pair the bridge with your iZone system. For instructions, see the manual for your iZone system, the [iZone FAQ](https://izone.com.au/faqs/), or ask your installer.
+1. Pair the Smart Hub with your iZone system. For instructions, see the manual for your iZone system, the [iZone FAQ](https://izone.com.au/faqs/), or ask your installer.
 2. Set up the integration again. If the integration entry shows the error, reload it from its three-dot {% icon "mdi:dots-vertical" %} menu.
 
 {% enddetails %}
@@ -359,15 +359,15 @@ All the entities of an iZone controller are unavailable, or the integration entr
 
 #### Description
 
-Home Assistant can't get the state of the iZone system. Either the bridge doesn't respond, or the bridge responds but reports that the iZone system is offline. This can happen when the bridge or the air conditioning unit loses power, or when the bridge loses its network connection.
+Home Assistant can't get the state of the iZone system. Either the Smart Hub doesn't respond, or the Smart Hub responds but reports that the iZone system is offline. This can happen when the Smart Hub or the air conditioning unit loses power, or when the Smart Hub loses its network connection.
 
 #### Resolution
 
-1. Make sure the bridge is powered on and connected to your network.
+1. Make sure the Smart Hub is powered on and connected to your network.
 2. Make sure the air conditioning unit and the iZone touchscreen have power.
 3. Wait for the next update. Home Assistant keeps retrying, and the entities become available again when the system responds.
 
-If the bridge got a new IP address and UDP discovery can't reach it, Home Assistant can't find it again. Make sure discovery works, as described in [Network settings](#network-settings), or reserve an IP address for the bridge in your router.
+If the Smart Hub got a new IP address and UDP discovery can't reach it, Home Assistant can't find it again. Make sure discovery works, as described in [Network settings](#network-settings), or reserve an IP address for the Smart Hub in your router.
 
 {% enddetails %}
 
