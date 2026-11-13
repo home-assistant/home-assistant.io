@@ -9,9 +9,26 @@ related:
 
 The **iZone** {% term integration %} lets you monitor and control local [iZone](https://izone.com.au/) ducted reverse-cycle climate control systems. These systems are largely available in Australia.
 
+Use it to control your air conditioner and each of its zones from Home Assistant. For example, you can set the target temperature and airflow for each room on its own schedule, switch to outside air when it's cooler than inside, or get notified when a damper or sensor reports a fault.
+
 ## Supported devices
 
-Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
+Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wired or wireless bridge device installed should currently work.
+
+## Unsupported devices
+
+The following iZone products are not supported by the integration:
+
+- iZone lights
+- iZone reticulation
+- Other iZone devices that aren't part of the air conditioning system
+
+## Prerequisites
+
+Before you set up the integration, make sure that:
+
+- Your iZone system has a CB bridge installed, either wired or wireless, and the bridge is paired with the iZone controller.
+- The bridge is connected to your local network, and Home Assistant can reach it. To find the bridge automatically, Home Assistant and the bridge need to be on the same network segment. For details, see [Network settings](#network-settings).
 
 {% include integrations/config_flow.md %}
 
@@ -48,9 +65,15 @@ If UDP discovery traffic is blocked, you can still set up a controller by choosi
 
 ## Supported functionality
 
+The integration creates a device for each iZone controller, and a device for each of its zones.
+
 ### Controller
 
-Unit modes off, heat, cool, dry, and fan only are supported. For units fitted with the iSave system, which vents external air into the house, this is available as the **Eco** preset.
+The controller climate entity controls the air conditioning unit:
+
+- **Modes**: **Off**, **Heat**, **Cool**, **Heat/Cool**, **Dry**, and **Fan only**. **Heat/Cool** is the iZone auto mode, where the unit chooses between heating and cooling.
+- **Fan modes**: **Low**, **Medium**, **High**, **Top**, and **Auto**. Only the fan speeds your unit supports are available.
+- **Presets**: **Eco**, on units fitted with the iSave system, which vents external air into the house. While **Eco** is on, the controller shows **Fan only**, and only **Off** and **Fan only** are available.
 
 The entity exposes a `supply_temperature` attribute. Use the **Supply temperature** sensor entity (below) instead.
 
@@ -93,7 +116,7 @@ These sensors always report the unit duct temperatures. They do not change when 
 
 ### Zones
 
-Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
+Each zone has a climate entity. iZone zones have three modes: closed, open, and auto. These map to the Home Assistant modes **Off**, **Fan only**, and **Heat/Cool**. Only climate-controlled zones, which have a temperature sensor, have the auto mode, and you can only set the target temperature while the zone is in auto.
 
 #### Zone dampers
 
