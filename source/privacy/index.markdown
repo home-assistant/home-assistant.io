@@ -18,7 +18,7 @@ We, the Open Home Foundation, Grabenstrasse 25, 6340 Baar, Switzerland (“we”
 
 This privacy policy applies to the non-commercial Home Assistant websites and services operated by the Open Home Foundation, including “home-assistant.io”, the Home Assistant Community Forum, status pages, and the official Home Assistant Companion apps, unless and to the extent that a specific service is covered by a separate privacy notice. Until such a separate privacy notice applies, this policy governs the relevant processing.
 
-Commercial services associated with Home Assistant that are operated by separate legal entities, including Home Assistant Cloud operated by Nabu Casa, are governed by the respective provider’s privacy policy and are outside the scope of this policy.
+Commercial services associated with Home Assistant that are operated by separate legal entities, including Home Assistant Link operated by Nabu Casa, are governed by the respective provider’s privacy policy and are outside the scope of this policy.
 
 ## Visitor data and analytics
 
@@ -78,7 +78,7 @@ For users in the EEA, the legal basis for this processing is consent under Artic
 
 ## Information we collect from other sources
 
-Where a Home Assistant service allows you to sign in or connect through a third-party identity provider, we may receive the information that you authorize that provider to share with us. For example, the Home Assistant Community Forum supports sign-in using external identity providers, currently including GitHub and Home Assistant Cloud. Depending on the provider and permissions granted, we may receive information such as an account identifier, username, email address, or basic profile information.
+Where a Home Assistant service allows you to sign in or connect through a third-party identity provider, we may receive the information that you authorize that provider to share with us. For example, the Home Assistant Community Forum supports sign-in using external identity providers, currently including GitHub and Home Assistant Link. Depending on the provider and permissions granted, we may receive information such as an account identifier, username, email address, or basic profile information.
 
 ## How we share and protect personal data
 
