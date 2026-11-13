@@ -24,13 +24,19 @@ A climate entity can have the following states, depending on the specific climat
 
 ## Attributes
 
-The climate entity has extra attributes to represent the state of the thermostat.
+The climate entity has extra attributes to represent the state of the device, depending on the specific climate device and its capabilities. A climate entity may not support all the attributes.
 
 | Name | Description |
 | ---- | ----------- |
-| `hvac_action` | Current state: `heating` / `cooling` / `idle`.
-| `fan_mode` | If the fan is currently on or off: `on` / `off`.
-
-It depends on the thermostat you are using which states are available.
+| `hvac_action` | What the device is currently doing, such as `heating`, `cooling`, `fan`, `defrosting`, `drying`, `preheating`, `off`, or `idle`.
+| `hvac_modes` | The HVAC modes the device supports, such as `off`, `heat`, `cool`, or `heat_cool`.
+| `current_temperature` | The current temperature reported by the entity, which may come from the device or a separate sensor.
+| `temperature` | The target temperature, when the device uses a single setpoint.
+| `target_temp_low` | The lower target temperature, when the device uses a setpoint range.
+| `target_temp_high` | The upper target temperature, when the device uses a setpoint range.
+| `fan_mode` | The current fan setting, such as `on`, `off`, `auto`, `high`, or `low`.
+| `fan_modes` | The fan settings the device supports.
+| `preset_mode` | The active preset, such as `home`, `away`, `eco`, or `none`.
+| `preset_modes` | The presets the device supports.
 
 {% include integrations/triggers_conditions_actions.md %}
