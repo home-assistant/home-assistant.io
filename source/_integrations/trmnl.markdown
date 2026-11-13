@@ -24,7 +24,7 @@ You need a TRMNL account with at least one device.
 When you add the integration, Home Assistant sends you to trmnl.com to sign in. TRMNL then asks what Home Assistant may do with your account:
 
 - **Read your devices** and **Change your device settings** are required. Without them, setup stops and asks you to sign in again.
-- **Change your markup, plugin settings, playlists and mashups** is needed to show your home or messages on TRMNL. You can leave it unticked if you only want the device entities.
+- **Change your markup, plugin settings, playlists and mashups** is needed to show your home or messages on TRMNL. You do not need to enable it if you only want the device entities.
 - **See and change your name** is optional. With it, the integration uses your TRMNL name as the name of the entry.
 - **Delete plugin settings** is optional. With it, removing the integration also removes the plugins it created on your TRMNL account.
 
@@ -34,11 +34,11 @@ If you set up the integration with an API key in an earlier version of Home Assi
 
 ## Reconfiguration
 
-To grant access you left unticked when you signed in, such as **Change your markup, plugin settings, playlists and mashups**, sign in again without removing the integration:
+To grant access you did not enable when you signed in, such as **Change your markup, plugin settings, playlists and mashups**, sign in again without removing the integration:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. On the **TRMNL** integration, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
-3. Sign in to the same TRMNL account and tick the access you want to grant.
+3. Sign in to the same TRMNL account and select the access you want to grant.
 
 {% include integrations/option_flow.md %}
 
@@ -71,13 +71,13 @@ The **TRMNL** integration provides the following entities for each TRMNL device 
 
 The integration also provides one notify entity for your TRMNL account.
 
-- **Message**: Shows a message full screen on your TRMNL display. Use it with the **Send a notification message** (`notify.send_message`) action, with a title and a message. The first message creates a private plugin called "Home Assistant messages" on your TRMNL account. Add that plugin to a playlist on trmnl.com once to see your messages. This step is easy to miss: until the plugin is on a playlist, messages are saved but your display never shows them. If you delete the plugin on trmnl.com, the next message creates it again.
+- **Message**: Shows a message full screen on your TRMNL display. Use it with the **Send a notification message** (`notify.send_message`) action, with a title and a message. The first message creates a **Home Assistant** plugin called "Home Assistant messages" on your TRMNL account, set to its **Messages** view. Add that plugin to a playlist on trmnl.com once to see your messages. This step is easy to miss: until the plugin is on a playlist, messages are saved but your display never shows them. Your display shows a new message at its next refresh, or within seconds in live mode. If you delete the plugin on trmnl.com, the next message creates it again.
 
 Sending a message needs **Change your markup, plugin settings, playlists and mashups**. Without it, the action fails and Home Assistant asks you to sign in again.
 
 ## Show your home on TRMNL
 
-The integration can show the state of your home on your TRMNL display: your lights, switches, climate, covers, locks, sensors, and more. TRMNL draws it with its Homey plugin, so the Homey recipes on trmnl.com work with it too.
+The integration can show the state of your home on your TRMNL display: your lights, switches, climate, covers, locks, sensors, and more. TRMNL draws it with its **Home Assistant** plugin, grouped by area.
 
 To pick what to show:
 
@@ -86,19 +86,19 @@ To pick what to show:
 3. Under **Entities to show**, pick the entities you want on your display.
 4. Select **Submit**.
 
-The first time, Home Assistant creates a plugin on your TRMNL account, named after your home. Add it, or a Homey recipe, to a playlist on trmnl.com. Like messages, your home only shows once it is on a playlist.
+The first time, Home Assistant creates a **Home Assistant** plugin on your TRMNL account, named after your home. Add it to a playlist on trmnl.com. Like messages, your home only shows once it is on a playlist.
 
-Picking entities needs **Change your markup, plugin settings, playlists and mashups**. If you did not grant it, Home Assistant asks you to sign in again with it ticked.
+Picking entities needs **Change your markup, plugin settings, playlists and mashups**. If you did not grant it, Home Assistant asks you to sign in again with it enabled.
 
 To stop, remove all entities from **Entities to show**. Home Assistant then sends an empty home once, so your display no longer shows the old one.
 
 ### What is sent to TRMNL
 
-Nothing is sent until you pick at least one entity. After that, only the entities you pick leave Home Assistant, together with the names of their areas. For each one, Home Assistant sends its name or the name of its device, its area, and its current state. Entities on the same device show as one device on TRMNL.
+Nothing is sent until you pick at least one entity. After that, only the entities you pick leave Home Assistant, together with the names of their areas. For each one, Home Assistant sends its name, its area, its state and unit, its device class, and its brightness, current temperature, or position when it has one.
 
 ### When it is sent
 
-Home Assistant sends your home when it starts, every 5 minutes, and about a minute after a picked entity changes. It sends at most once a minute, and skips a send when nothing changed.
+Home Assistant sends your home when it starts and when a picked entity changes. It sends at most once a minute, and skips a send when nothing changed.
 
 ## TRMNL automation examples
 
@@ -173,9 +173,8 @@ When you show your home on TRMNL, Home Assistant also sends data to TRMNL. For d
 
 ## Known limitations
 
-- Your display shows a new message or home update when it next refreshes, not straight away. A display in sleep mode shows it when it wakes up.
-- Your home is drawn by TRMNL's Homey plugin, so its title bar says "Homey".
-- Entities without an area show as "Unzoned".
+- Your display shows a new message or home update when it next refreshes, or within seconds in live mode. A display in sleep mode shows it when it wakes up.
+- Entities without an area show under "No area".
 
 ## Troubleshooting
 
@@ -185,11 +184,11 @@ Setup stops after you sign in on trmnl.com.
 
 #### Description
 
-You unticked **Read your devices** or **Change your device settings** on the TRMNL sign-in page.
+You did not enable **Read your devices** or **Change your device settings** on the TRMNL sign-in page.
 
 #### Resolution
 
-Add the integration again and keep both ticked.
+Add the integration again and keep both enabled.
 
 ### Symptom: "TRMNL no longer accepts the API key this entry was set up with"
 
@@ -213,7 +212,7 @@ Showing your home or sending a message needs **Change your markup, plugin settin
 
 #### Resolution
 
-Finish the sign-in from the TRMNL integration and tick **Change your markup, plugin settings, playlists and mashups**.
+Finish the sign-in from the TRMNL integration and select **Change your markup, plugin settings, playlists and mashups**.
 
 ## Removing the integration
 
