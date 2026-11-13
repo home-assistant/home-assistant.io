@@ -4,7 +4,7 @@ ha_release: 2026.4
 ha_domain: trmnl
 ---
 
-The **TRMNL** {% term integration %} allows you to monitor your [TRMNL](https://usetrmnl.com/) e-paper (e-ink) displays in Home Assistant. TRMNL devices are low-power e-ink displays that show content such as calendars, weather, and custom dashboards at a glance.
+The **TRMNL** {% term integration %} allows you to monitor your [TRMNL](https://trmnl.com/) e-paper (e-ink) displays in Home Assistant. TRMNL devices are low-power e-ink displays that show content such as calendars, weather, and custom dashboards at a glance.
 
 With this integration, you can track the battery level of your TRMNL devices and automate your home around them. For example, you could get a notification when the battery is running low, or align the sleep schedule of your display with your own. You can also show the state of your home on your display, and send messages to it from your automations.
 
@@ -17,7 +17,7 @@ The following TRMNL hardware devices are supported:
 
 ## Prerequisites
 
-You need a TRMNL account with at least one device, and a TRMNL developer license.
+You need a TRMNL account with at least one device.
 
 {% include integrations/config_flow.md %}
 
@@ -71,7 +71,7 @@ The **TRMNL** integration provides the following entities for each TRMNL device 
 
 The integration also provides one notify entity for your TRMNL account.
 
-- **Message**: Shows a message full screen on your TRMNL display. Use it with the **Send a notification message** (`notify.send_message`) action, with a title and a message. The first message creates a private plugin called "Home Assistant messages" on your TRMNL account. Add that plugin to a playlist on trmnl.com once to see your messages. If you delete the plugin on trmnl.com, the next message creates it again.
+- **Message**: Shows a message full screen on your TRMNL display. Use it with the **Send a notification message** (`notify.send_message`) action, with a title and a message. The first message creates a private plugin called "Home Assistant messages" on your TRMNL account. Add that plugin to a playlist on trmnl.com once to see your messages. This step is easy to miss: until the plugin is on a playlist, messages are saved but your display never shows them. If you delete the plugin on trmnl.com, the next message creates it again.
 
 Sending a message needs **Change your markup, plugin settings, playlists and mashups**. Without it, the action fails and Home Assistant asks you to sign in again.
 
@@ -86,7 +86,7 @@ To pick what to show:
 3. Under **Entities to show**, pick the entities you want on your display.
 4. Select **Submit**.
 
-The first time, Home Assistant creates a plugin on your TRMNL account, named after your home. Add it, or a Homey recipe, to a playlist on trmnl.com.
+The first time, Home Assistant creates a plugin on your TRMNL account, named after your home. Add it, or a Homey recipe, to a playlist on trmnl.com. Like messages, your home only shows once it is on a playlist.
 
 Picking entities needs **Change your markup, plugin settings, playlists and mashups**. If you did not grant it, Home Assistant asks you to sign in again with it ticked.
 
@@ -171,6 +171,7 @@ When you show your home on TRMNL, Home Assistant also sends data to TRMNL. For d
 
 ## Known limitations
 
+- Your display shows a new message or home update when it next refreshes, not straight away. A display in sleep mode shows it when it wakes up.
 - Your home is drawn by TRMNL's Homey plugin, so its title bar says "Homey".
 - Entities without an area show as "Unzoned".
 
