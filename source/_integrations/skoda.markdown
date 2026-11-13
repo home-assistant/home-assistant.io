@@ -14,6 +14,7 @@ ha_categories:
   - vehicles_transport.cars_evs
 ha_platforms:
   - binary_sensor
+  - climate
   - device_tracker
   - number
   - sensor
@@ -38,11 +39,11 @@ Track the battery's state of charge, electric range, charging power, charging st
 
 Start or stop charging from Home Assistant, for example to charge only when electricity is cheap. You can also change the charge limit, for example to charge to 100 % only before a long trip. The integration cannot schedule charging.
 
-### Monitor climate control and auxiliary heating
+### Control climate and monitor auxiliary heating
 
 See the target cabin temperature and, while climate control is active, the estimated time when the target temperature will be reached. For supported vehicles, you can also monitor the auxiliary heating mode and its estimated completion time.
 
-The integration cannot start or stop climate control or auxiliary heating. For supported vehicles, you can start or stop active ventilation. The target temperature is not available for some combustion vehicles.
+Start or stop the air conditioning and change the target temperature, for example to heat or cool the car before you leave. For supported vehicles, you can also start or stop active ventilation. The integration cannot start or stop auxiliary heating. The target temperature is not available for some combustion vehicles.
 
 ## Supported vehicles
 
@@ -89,6 +90,12 @@ The **Škoda** integration provides the following entities. The available entiti
 - **Charging cable**: Whether the charging cable is plugged in, for vehicles that support charging.
 - **Air conditioning**: Whether the air conditioning is running.
 - **Auxiliary heating**: Whether the auxiliary heating is running, for equipped vehicles.
+
+### Climate
+
+- **Air conditioning**: Starts or stops the air conditioning and sets the target cabin temperature, from 16 to 30 °C in steps of 0.5 °C, for vehicles that support remote climate control. Shows whether the vehicle is heating, cooling, or ventilating.
+
+The air conditioning is allowed to run on the vehicle's battery when the vehicle is not plugged in. If you change the target temperature while the air conditioning is off, the new temperature is used the next time you start it. If no target temperature is known, the vehicle uses its own setting.
 
 ### Device tracker
 
@@ -158,7 +165,7 @@ The Škoda public API enforces a rate limit per Vehicle Identification Number (V
 
 ## Known limitations
 
-- The integration can start and stop charging and active ventilation, and change the charge limit. It cannot control climate or auxiliary heating, schedule charging, or lock or unlock the vehicle.
+- The integration can start and stop charging, active ventilation, and the air conditioning, and change the charge limit and the target cabin temperature. It cannot control auxiliary heating, schedule charging, or lock or unlock the vehicle.
 - Available sensors depend on the vehicle's model, powertrain, equipment, and the validity of Škoda Connect licenses.
 
 ## Troubleshooting
