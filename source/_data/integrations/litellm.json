@@ -1,0 +1,22 @@
+{
+  "domain": "litellm",
+  "name": "LiteLLM",
+  "integration_type": "service",
+  "codeowners": [
+    "@luismalves"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "ai_voice.ai_models"
+  ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
+  "platforms": [
+    "conversation",
+    "stt"
+  ]
+}

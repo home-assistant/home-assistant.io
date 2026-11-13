@@ -1,0 +1,22 @@
+{
+  "domain": "totalconnect",
+  "name": "Total Connect",
+  "integration_type": "hub",
+  "codeowners": [
+    "@austinmroczek"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "security_safety.alarm_systems"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "diagnostics"
+  ]
+}

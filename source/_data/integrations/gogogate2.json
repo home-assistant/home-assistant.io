@@ -1,0 +1,24 @@
+{
+  "domain": "gogogate2",
+  "name": "Gogogate2 and ismartgate",
+  "integration_type": "hub",
+  "codeowners": [
+    "@vangorra"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "cover",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp",
+    "homekit"
+  ]
+}

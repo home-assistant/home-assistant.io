@@ -1,18 +1,7 @@
 ---
-title: UpCloud
 description: Instructions on how to integrate UpCloud within Home Assistant.
-ha_categories:
-  - computers_network.cloud_developer_tools
 ha_release: 0.65
-ha_config_flow: true
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@scop'
 ha_domain: upcloud
-ha_platforms:
-  - binary_sensor
-  - switch
-ha_integration_type: service
 ---
 
 The **UpCloud** {% term integration %} allows you to access the information about your [UpCloud](https://upcloud.com/) servers from Home Assistant.

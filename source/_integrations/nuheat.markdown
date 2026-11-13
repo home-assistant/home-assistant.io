@@ -1,18 +1,7 @@
 ---
-title: NuHeat
 description: Connect your NuHeat floor-heating thermostats to Home Assistant and control schedules, temperature holds, and Standby.
-ha_categories:
-  - climate.thermostats_heating
 ha_release: 0.61
-ha_iot_class: Cloud Polling
 ha_domain: nuheat
-ha_config_flow: true
-ha_dhcp: true
-ha_platforms:
-  - climate
-ha_integration_type: hub
-ha_codeowners:
-  - '@tstabrawa'
 ---
 
 The **NuHeat** {% term integration %} connects your NuHeat account to Home Assistant. You can view thermostat temperatures, resume schedules, set temperature holds, and enter Standby.
@@ -84,11 +73,12 @@ The standard climate actions also let you [set the operating mode](/actions/clim
 To add thermostat control to an existing automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open your automation or script.
-3. In **Then do**, select **Add action**.
-4. Select what you want to control. Under **By target**, select your NuHeat climate entity.
-5. Select **Set thermostat target temperature**, **Set thermostat preset mode**, or **Set thermostat HVAC mode**, and enter the settings you want to apply.
-6. Select **Save**.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your NuHeat climate entity.
+6. From the actions shown for that target, select the thermostat action you want to use and set the required fields.
+7. Select **Save**.
 
 Use the preset values `Run Schedule`, `Temporary Hold`, and `Permanent Hold` when editing a climate preset action in YAML. Operating-mode values are `auto`, `heat`, and `off`.
 

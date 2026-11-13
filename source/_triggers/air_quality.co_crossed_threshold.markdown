@@ -60,7 +60,7 @@ This fires when the living room CO sensor reading rises above 35 ppm.
    unit_example_entity="input_number.co_alert_level"
    unit_example_value="9" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="carbon monoxide sensor" example="sensor.hallway_carbon_monoxide" %}
 
 {% include triggers/behavior.md %}
 

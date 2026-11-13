@@ -63,7 +63,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="vibration sensor" example="binary_sensor.washing_machine_vibration" %}
 
 {% include conditions/behavior.md %}
 

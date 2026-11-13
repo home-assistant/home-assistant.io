@@ -2,6 +2,7 @@
 title: "Read from KNX bus"
 action: knx.read
 domain: knx
+response: optional
 description: "Sends GroupValueRead requests to the KNX bus."
 related_actions:
   - knx.send
@@ -78,6 +79,8 @@ address:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 When you set a `response_variable`, the action waits up to 2 seconds for the GroupValueResponse or GroupValueWrite telegram that answers the read request and returns it. Response data is only available for a single group address. If you provide a list of group addresses, the action fails with a validation error. If no answer arrives within the timeout, the action fails with the error `No response received for {address}`.
 

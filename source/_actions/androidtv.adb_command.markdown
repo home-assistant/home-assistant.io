@@ -2,6 +2,7 @@
 title: "ADB command"
 action: androidtv.adb_command
 domain: androidtv
+response: optional
 description: "Sends a key command or ADB shell command to an Android or Fire TV device."
 related_actions:
   - androidtv.learn_sendevent
@@ -56,6 +57,10 @@ command:
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="media_player" %}
+
+## Response data
+
+{% include actions/response.md %}
 
 ## Good to know
 
