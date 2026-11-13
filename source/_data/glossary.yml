@@ -202,9 +202,7 @@
   link: /docs/configuration/
 - term: Conversation agent
   definition: >-
-    Software that Home Assistant uses to understand a request and decide what to do.
-
-    Home Assistant has a built-in conversation agent. Integrations can add others, including ones that use AI. Conversation agents that use AI can also use AI tools. Each assistant uses a conversation agent.
+    Software that Home Assistant uses to understand a request and decide what to do. Home Assistant has a built-in conversation agent. Integrations can add others, including ones that use AI. Conversation agents that use AI can also use AI tools. Each assistant uses a conversation agent.
   aliases:
     - conversation agents
   link: /integrations/conversation/
