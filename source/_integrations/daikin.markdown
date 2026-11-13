@@ -109,7 +109,7 @@ The integration displays the following parameters for the outdoor compressor:
 - Some models do not have humidity sensor.
 - Some models do not report the power/energy consumption.
 - Some models do not report the compressor frequency.
-- The demand control mode sensor is only available on devices that support demand control. It reports the active mode as `off`, `auto`, or `manual`. The `armed_mode` attribute shows the configured mode when demand control is off. In manual mode, the sensor also reports the configured maximum power as `max_pow`.
+- The demand control mode sensor is only available on devices that support demand control. It reports the active mode as `off`, `auto`, or `manual`. The `armed_mode` attribute shows the configured mode when demand control is off. In manual mode, the sensor also reports the configured maximum power as `max_pow`, a percentage of the unit's nominal power (40–100%).
 
 {% endnote %}
 
