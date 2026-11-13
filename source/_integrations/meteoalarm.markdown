@@ -15,7 +15,7 @@ You need the name of your region as MeteoAlarm uses it, or its EMMA_ID code:
 1. Open [MeteoAlarm](https://meteoalarm.org) and find your region on the map. Its name is shown when you select it.
 2. Alternatively, look up the region's EMMA_ID code, such as `ES098` for Sierra Sur de Sevilla, with the [MeteoAlarm EMMA_ID region explorer](https://saratoga-weather.org/meteoalarm-map/).
 
-A code is the safest choice: some names appear in more than one region, and the name is matched as a regular expression.
+A code is the safest choice: some names appear in more than one region, and the name is matched as a regular expression. In Spain, for example, land and coastal regions often have similar names, such as "Ceuta" and "Costa - Ceuta", so the name "Ceuta" also matches the coastal region.
 
 {% include integrations/config_flow.md %}
 
@@ -126,6 +126,7 @@ Replace `binary_sensor.meteoalarm` with your sensor's entity ID, and `notify.my_
 ## Known limitations
 
 - The sensor shows one warning, the most severe one. When several warnings are current at once, the others aren't shown.
+- The sensor is on from when a warning is published until it expires, which can be before the weather is expected. Some weather services, such as AEMET in Spain, publish warnings a day or two ahead. Use the `onset` attribute to see when the weather is expected to start.
 - Regions are matched by name or EMMA_ID code. Matching by location isn't supported yet.
 - Not every country uses the same region names or codes in its feed, and some feeds keep warnings for a while after they expire.
 
