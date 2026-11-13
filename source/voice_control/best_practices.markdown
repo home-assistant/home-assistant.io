@@ -17,13 +17,15 @@ related:
 ---
 Voice control feels effortless when it is set up well, and frustrating when it is not. The good news is that getting Assist to feel natural mostly comes down to a few simple choices: which devices it can see, how things are named, and how your home is organized into areas. This page collects the small habits that make a big difference.
 
-In Home Assistant, you decide what Assist has access to. Every entity is opt-in: nothing is exposed to your voice assistant until you say so. That means you can give Assist exactly the devices and information you want it to handle, and nothing else.
+In Home Assistant, you decide what Assist has access to. Assist can only see and control the entities that you expose to it. To get you started, Home Assistant exposes common devices, such as lights and switches, as you add them. Sensitive devices, such as locks, stay unexposed until you expose them yourself. You can change this for every entity, so Assist only handles the devices and information you want. For details, refer to [what Home Assistant exposes automatically](/voice_control/voice_remote_expose_devices/#entities-that-are-exposed-automatically).
 
 Some best practices we recommend to have an efficient setup are:
 
 ### Expose (the minimum) entities
 
 Learn how in [Exposing your entities to Assist](/voice_control/voice_remote_expose_devices/).
+
+Home Assistant exposes some new entities to Assist automatically. If you want to decide on every entity yourself, [turn off **Expose new entities**](/voice_control/voice_remote_expose_devices/#turning-off-expose-new-entities).
 
 It might be tempting to expose all entities to Assist, but doing so will come with a performance penalty. The more entity names and aliases the parser will have to go through, the more time it will spend matching. And if you’re using a LLM-based conversation agent, it will incur a higher cost per request, due to the larger context size. Only expose the bare minimum you know you are going to use with voice assistants.
 
@@ -77,7 +79,7 @@ To talk to Assist, you can either use your phone or a custom device (and use the
 
 ### Exposing scripts to LLMs
 
-When using an LLM-based conversation agent (such as OpenAI, Google Generative AI, or a local model capable to using tools), Home Assistant scripts are not exposed as entities — they are converted into tools that the LLM can call directly. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the LLM will simply not know the script exists or when to use it.
+When you use a conversation agent that uses AI, such as OpenAI, Google Gemini, or a local model that supports tools, each script that you expose to Assist becomes an {% term "AI tool" %} that the conversation agent can call directly. Home Assistant never exposes scripts automatically, so expose the scripts that you want it to use. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the LLM will simply not know the script exists or when to use it.
 
 Find out [how to write these descriptions](/voice_control/exposing_scripts_to_llms/) when you're ready to expose scripts to LLMs.
 
