@@ -149,6 +149,17 @@ In addition to the certified devices, the following devices are also supported:
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 - [Hub Mini Matter Enabled](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
 - [Hub 3 (WoHub3)](https://www.switch-bot.com/products/switchbot-hub-3)(currently only supports retrieving sensor data, does not yet support device control)
+- Hub 4 (W1213), sensor data only
+
+#### Hub4
+
+Features:
+
+- Monitor temperature and humidity
+- Monitor light level (1–20)
+- Detect motion
+
+Hub 4 supports sensor readings only. Illuminance in lux and device control are not supported.
 
 ### Fans
 
