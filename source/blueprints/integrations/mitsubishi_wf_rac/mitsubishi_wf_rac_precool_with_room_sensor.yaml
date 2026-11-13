@@ -1,0 +1,110 @@
+blueprint:
+  name: Pre-cool a room with a Mitsubishi WF-RAC airco, using your own sensor
+  description: >
+    The unit measures at its own return air grille and knows nothing about the
+    room it sits in, so starting it by the clock alone runs it on days that do
+    not need it. This starts it at a time you choose, but only when a sensor in
+    the room says it is actually too warm.
+
+    It works the same way for heating: pick heat as the mode and set the
+    threshold to the temperature the room should not fall below.
+  domain: automation
+  author: blues-sechseck
+  homeassistant:
+    min_version: 2024.10.0
+
+  input:
+    airco:
+      name: Airco
+      description: The Mitsubishi WF-RAC unit to start.
+      selector:
+        entity:
+          filter:
+            - integration: mitsubishi_wf_rac
+              domain: climate
+
+    room_sensor:
+      name: Room sensor
+      description: >
+        A temperature sensor in the room itself. This is what decides whether
+        the unit is needed, rather than the unit's own reading.
+      selector:
+        entity:
+          filter:
+            - domain: sensor
+              device_class: temperature
+
+    start_time:
+      name: Start time
+      description: When to check the room and start the unit if it is needed.
+      selector:
+        time:
+
+    mode:
+      name: Mode
+      description: >
+        Cool starts the unit when the room is above the threshold, heat when it
+        is below.
+      default: cool
+      selector:
+        select:
+          options:
+            - label: Cool
+              value: cool
+            - label: Heat
+              value: heat
+
+    threshold:
+      name: Threshold
+      description: >
+        The room temperature that decides whether the unit is needed at all,
+        in the temperature unit your Home Assistant is set to.
+      default: 23
+      selector:
+        number:
+          min: 5
+          max: 35
+          step: 0.5
+          mode: box
+
+    target_temperature:
+      name: Target temperature
+      description: >
+        The setpoint to send once the unit starts, in the temperature unit
+        your Home Assistant is set to. Each mode has its own range on the
+        unit, so a value at either extreme may be refused.
+      default: 22
+      selector:
+        number:
+          min: 16
+          max: 30
+          step: 0.5
+          mode: box
+
+variables:
+  mode: !input mode
+  room_sensor: !input room_sensor
+  threshold: !input threshold
+
+triggers:
+  - trigger: time
+    at: !input start_time
+
+conditions:
+  # Cooling wants the room above the threshold, heating below it. A sensor
+  # that cannot be read falls back to the threshold itself, which makes both
+  # tests false - the usual 0 would be below every sensible heating threshold
+  # and would start the unit on a dead battery.
+  - >-
+    {{
+      (mode == 'cool' and states(room_sensor) | float(threshold) > threshold)
+      or (mode == 'heat' and states(room_sensor) | float(threshold) < threshold)
+    }}
+
+actions:
+  - action: climate.set_temperature
+    target:
+      entity_id: !input airco
+    data:
+      temperature: !input target_temperature
+      hvac_mode: !input mode
