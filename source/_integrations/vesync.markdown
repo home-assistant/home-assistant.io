@@ -64,7 +64,12 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 
 ### Air Fryers
 
-- Cosori 3.7 and 5.8 Quart Air Fryer
+- 3.7qt Air Fryer
+- 5.8qt Air Fryer
+- TurboBlaze 6qt Air Fryer
+- Dual Blaze 6.8qt Air Fryer
+- Dual Air Fryer
+- Turbo Tower Pro Smart Air Fryer
 
 ## Prerequisite
 
@@ -177,6 +182,10 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
 | `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
+
+The preheating set time sensor is only available on air fryers that support preheating.
+
+On dual-basket air fryers, you get a separate set of these sensors for each basket. The sensor names include the basket number, such as **Basket 1 cooking status** and **Basket 2 cooking status**. This way, you can follow each basket on its own. On single-basket air fryers, the sensor names do not include a basket number.
 
 
 ## Extracting attribute data
