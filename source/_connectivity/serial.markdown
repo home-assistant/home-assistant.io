@@ -3,8 +3,6 @@ title: "Serial"
 connectivity: serial
 description: "Connect devices with a serial port, like AV receivers, projectors, and smart meters, to Home Assistant."
 related:
-  - docs: /integrations/serial/
-    title: Raw Serial integration
   - docs: /integrations/esphome/#about-esphome-remote-adapters-proxies
     title: ESPHome remote adapters (proxies)
   - url: https://esphome.io/projects/?type=serial
@@ -35,6 +33,7 @@ Whichever way you choose, the port type must match the port of your device: TTL,
 
 Any ESPHome device with a free serial port of the right type can be a serial proxy.
 
+- [Home Assistant Connect AUX-2](/connect/aux-2/) is a serial proxy with two <abbr title="Recommended Standard 232">RS-232</abbr> ports. Each port is shared with Home Assistant as its own serial proxy port. To connect an <abbr title="Recommended Standard 485">RS-485</abbr> device, such as a Modbus device, plug a supported USB-to-RS-485 adapter into its USB port. The adapter is shared as one more serial proxy port.
 - For some devices, there is a ready-made serial proxy project that you can install from your browser. To see what is available, refer to the [ESPHome serial proxy projects](https://esphome.io/projects/?type=serial).
 - To find other devices that run ESPHome, refer to the [ESPHome device database](https://devices.esphome.io/).
 
@@ -48,9 +47,7 @@ USB-to-serial adapters are sold by the type of serial port they add, for example
 
 The following integrations can connect to a device over a serial port:
 
-{% include connectivity/integrations.html slug="serial" %}
-
-If no integration supports your device, you can read the raw data from its serial port with the [Raw Serial](/integrations/serial/) integration instead.
+{% include connectivity/integrations.html slug="serial" exclude="serial" %}
 
 ## Setting up a serial connection in Home Assistant
 
@@ -60,7 +57,6 @@ Prerequisites:
 
 - A device with a serial port, such as an AV receiver, a projector, or a smart meter with a P1 port.
 - An {% term integration %} for that device. In the documentation, search the [integrations](/integrations/) for your device or its brand.
-  - If no integration is available for your device, you can read the raw data from the port with the [Raw Serial](/integrations/serial/) integration instead.
 - A way for Home Assistant to reach the serial port of that device: a [serial proxy](#serial-proxy), a [USB-to-serial adapter](#usb-to-serial-adapter), or a [serial device server](#serial-device-server). For help choosing, refer to [Ways to connect a serial device](#ways-to-connect-a-serial-device).
   - If you use a serial proxy, first set it up. Refer to [Setting up an ESPHome serial proxy](#setting-up-an-esphome-serial-proxy).
 - The connection settings that your device expects, such as the [baud rate](#baud-rate). Check the documentation of your device.
@@ -108,7 +104,7 @@ You can see the serial ports that Home Assistant detects in one place, in the **
    - To look for ports again, for example after plugging in a USB-to-serial adapter, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
 
    {% tip %}
-   Serial ports used only by YAML-only integrations, such as the [Raw Serial](/integrations/serial/) sensor, or only by Modbus, are not tracked as having a consumer. If Home Assistant detects such a local port, it appears in the **Available** section rather than the **Connected** section. A network port that Home Assistant cannot discover, such as a `socket://` port, used only by such an integration does not appear in the panel at all.
+   Serial ports used only by integrations that you set up in YAML, or only by Modbus, are not tracked as having a consumer. If Home Assistant detects such a local port, it appears in the **Available** section rather than the **Connected** section. A network port that Home Assistant cannot discover, such as a `socket://` port, used only by such an integration does not appear in the panel at all.
    {% endtip %}
 2. Under each port, you see what it is used for:
    - Every {% term app %} and every integration set up in the UI that uses the port is listed below it. Select one to go to its settings. An integration or app that is not running at the moment is marked as **not running**.
@@ -116,7 +112,7 @@ You can see the serial ports that Home Assistant detects in one place, in the **
    - **Used by Modbus**: appears when a Modbus connection uses this port. Select this line to open the **Modbus** page, where you can see the connection and the units on it.
    - **Can be used with**: lists the integrations that support the device on this port. This appears only for a port that is not in use yet.
 3. To view more details about a port, select **Port information** {% icon "mdi:information-outline" %} next to it. The **Port information** dialog shows the device path, together with details such as the description, manufacturer, and serial number of the device. This option is available for ports that are currently connected.
-   - To use the port with an integration that asks for a device path, such as [Zigbee Home Automation](/integrations/zha/) or the [Raw Serial](/integrations/serial/) sensor, copy the value of the **Device** field. For example, `/dev/ttyAMA0`.
+   - To use the port with an integration that asks for a device path, such as [Zigbee Home Automation](/integrations/zha/), copy the value of the **Device** field. For example, `/dev/ttyAMA0`.
 
 ### Port types in the Serial panel
 
@@ -164,7 +160,7 @@ Another way to put a serial port on your network, without using a serial proxy. 
 
 Home Assistant uses such a port differently from a serial proxy:
 
-- Home Assistant does not find the port by itself. The port is listed in the **Serial** panel only after an integration that you added in the UI uses it. It is then listed under **Connected**, even while the device server is offline, because Home Assistant cannot check it. A port that is only used by a [Raw Serial](/integrations/serial/) sensor in your {% term "`configuration.yaml`" %}, or only by Modbus, is not listed.
+- Home Assistant does not find the port by itself. The port is listed in the **Serial** panel only after an integration that you added in the UI uses it. It is then listed under **Connected**, even while the device server is offline, because Home Assistant cannot check it. A port that is only used by an integration that you set up in YAML, or only by Modbus, is not listed.
 - With a `socket://` URL, Home Assistant sends and receives only data. The [baud rate](#baud-rate) and the other connection settings of the integration are not passed on, so set them on the device server itself. If your device server supports <abbr title="Request for Comments">RFC</abbr> 2217, you can use an `rfc2217://` URL instead. Home Assistant then passes these settings on to the device server.
 
 To use the port with an integration, select **Enter manually** during integration setup and enter its URL, such as `socket://192.168.1.10:4001`. For more details, refer to [Device path](#device-path).
@@ -195,7 +191,7 @@ Home Assistant lists a port only while it can find it. A port that no {% term in
 
 - A port on a [USB-to-serial adapter](#usb-to-serial-adapter) is found when the adapter is plugged in.
 - A port that a [serial proxy](#serial-proxy) shares is found only while the ESPHome device is online.
-- A port on a [serial device server](#serial-device-server) is never found automatically. When you set up an integration, it is never in the list of ports. In the **Serial** panel, it is listed only after an integration that you added in the UI uses it. If such a port is only used by a [Raw Serial](/integrations/serial/) sensor in your {% term "`configuration.yaml`" %}, or only by Modbus, it is not listed at all. This is different from a local port, which is listed under **Available** in that case.
+- A port on a [serial device server](#serial-device-server) is never found automatically. When you set up an integration, it is never in the list of ports. In the **Serial** panel, it is listed only after an integration that you added in the UI uses it. If such a port is only used by an integration that you set up in YAML, or only by Modbus, it is not listed at all. This is different from a local port, which is listed under **Available** in that case.
 
 #### Resolution
 
@@ -236,7 +232,7 @@ Home Assistant cannot check whether a serial device server is reachable. As long
 The serial device server is reachable, but your device does not seem to respond. What you see depends on the integration. For example:
 
 - Setting up the integration fails with an error, such as **Failed to connect**, or a message that your device did not respond.
-- The state of a [Raw Serial](/integrations/serial/) sensor stays empty, or shows unreadable characters.
+- The entities of the integration stay unavailable, or show unreadable values.
 
 #### Description
 

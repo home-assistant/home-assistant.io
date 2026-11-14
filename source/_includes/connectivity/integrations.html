@@ -1,11 +1,15 @@
 {%- comment -%}
   Lists the integrations that use a type of connectivity, from the
-  `connectivity` key in their manifest. Usage:
-  {% include connectivity/integrations.html slug="serial" %}
+  `connectivity` key in their manifest. To leave integrations out, pass their
+  domains, separated by commas, in `exclude`. Usage:
+  {% include connectivity/integrations.html slug="serial" exclude="serial" %}
 {%- endcomment -%}
+{%- assign excluded_domains = include.exclude | default: "" | split: "," -%}
 {%- assign connectivity_integrations = site.integrations | where_exp: "doc", "doc.ha_connectivity contains include.slug" | sort_natural: 'title' -%}
 <ul>
 {%- for integration in connectivity_integrations %}
+  {%- unless excluded_domains contains integration.ha_domain %}
   <li><a href="{{ integration.url }}">{{ integration.title }}</a></li>
+  {%- endunless %}
 {%- endfor %}
 </ul>
