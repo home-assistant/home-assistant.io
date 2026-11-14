@@ -108,6 +108,7 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
+| `light_detection`       | Light detection On or Off. When on, the purifier responds to the light level in the room. (Vital 200S, EverestAir) | On        |
 
 | Button                  | Description                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------- |
