@@ -10,7 +10,7 @@ The **Teslemetry** {% term integration %} exposes various commands and sensors f
 
 You must have a [Teslemetry](https://teslemetry.com) account with active subscription.
 
-The [virtual key](https://teslemetry.com/docs/topics/virtualkey) is Teslemetry's public key, installed in your vehicle through the Tesla app. It is required for fleet telemetry (live streaming) and signed vehicle commands. Since nearly all vehicles support both, nearly all customers need it: if your vehicle supports the virtual key, install it as a standard setup step. Vehicles without virtual-key support are the exception. They still work with Teslemetry at reduced capability—data by polling instead of streaming, and commands unsigned where Tesla permits.
+The [virtual key](https://teslemetry.com/docs/topics/virtualkey) is Teslemetry's public key, installed in your vehicle through the Tesla app. It is required for fleet telemetry (live streaming) and signed vehicle commands. Since nearly all vehicles support both, nearly all customers need it: if your vehicle supports the virtual key, install it as a standard setup step. Until the key is installed on such a vehicle, Home Assistant shows a repair issue, the vehicle's data does not update, and its commands fail. Once the key is installed, streaming starts without reloading the integration. Vehicles without virtual-key support are the exception. They still work with Teslemetry at reduced capability—data by polling instead of streaming, and commands unsigned where Tesla permits.
 
 {% include integrations/config_flow.md %}
 
