@@ -18,7 +18,12 @@ This page explains which remote adapters you can use, how to set up infrared con
 An infrared remote adapter is a small device that sends and receives infrared signals on behalf of Home Assistant. It connects to Home Assistant over Wi-Fi, Ethernet, or other technology. An infrared remote adapter is also known as an infrared proxy.
 
 - For some devices, there is a ready-made infrared proxy project that you can install from your browser. To see what is available, refer to the [ESPHome infrared proxy projects](https://esphome.io/projects/?type=irrf).
-- Other remote adapters have an integration that provides infrared entities, such as [SMLIGHT SLZB](/integrations/smlight/). To find them, browse the [Infrared category](/integrations/#infrared).
+- These integrations also provide infrared remote adapters:
+  - [Broadlink](/integrations/broadlink/#infrared): Broadlink universal remotes with infrared, such as the RM mini and RM4 pro.
+  - [MQTT](/integrations/infrared.mqtt/): infrared emitters and receivers that you connect through MQTT.
+  - [Shelly](/integrations/shelly/): Shelly devices with built-in infrared.
+  - [SMLIGHT](/integrations/smlight/#infrared): SLZB-Ultima devices.
+  - [Zigbee Home Automation](/integrations/zha/): Zigbee infrared emitters and receivers.
 
 ## Setting up infrared control in Home Assistant
 

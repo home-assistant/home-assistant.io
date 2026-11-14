@@ -5,8 +5,8 @@ ha_domain: infrared
 related:
   - docs: /connectivity/infrared/
     title: Infrared control in Home Assistant
-  - docs: /integrations/#infrared
-    title: Integrations that provide infrared entities
+  - docs: /connectivity/infrared/#infrared-remote-adapters
+    title: Infrared remote adapters
   - docs: /integrations/#infrared-controlled
     title: Integrations for infrared-controlled devices
   - url: https://esphome.io/projects/?type=irrf
