@@ -141,14 +141,14 @@ The **Home Assistant** set of {% term "AI tools" %} contains the following tools
 
 ### Symptom: "Error preparing LLM API"
 
-When you talk to a conversation agent, it doesn't do what you asked. Instead, it answers "Error preparing LLM API".
+When you talk to a {% term "conversation agent" %}, it doesn't do what you asked. Instead, it answers "Error preparing LLM API".
 
 #### Description
 
-The conversation agent couldn't prepare its sets of AI tools. This happens in the following situations:
+The conversation agent couldn't prepare its sets of {% term "AI tools" %}. This happens in the following situations:
 
-- The conversation agent has the Home Assistant AI tools, and the request doesn't come from an administrator. For example, it comes from a voice satellite, or from a user who isn't an administrator. In this case, **Device control** doesn't work on this conversation agent either.
-- A set of AI tools that the conversation agent uses no longer exists. For example, you removed the integration that added it.
+- The conversation agent has the Home Assistant AI tools, and the request doesn't come from an administrator. For example, it comes from a {% term "voice satellite" %}, or from a user who isn't an administrator. In this case, **Device control** doesn't work on this conversation agent either.
+- A set of AI tools that the conversation agent uses no longer exists. For example, you removed the {% term integration %} that added it.
 
 #### Resolution
 
@@ -172,7 +172,7 @@ If you removed the integration that added a set of AI tools, open the settings o
 
 ### Symptom: The conversation agent can't tell you the past values of an entity
 
-You ask the conversation agent about the past values of an entity, and it can't answer. Under **Show details** in the Assist dialog, the result of `history__get_history` says "No statistics are recorded for this entity."
+You ask the {% term "conversation agent" %} about the past values of an {% term entity %}, and it can't answer. Under **Show details** in the {% term Assist %} dialog, the result of `history__get_history` says "No statistics are recorded for this entity."
 
 #### Description
 
