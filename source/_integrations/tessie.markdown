@@ -167,6 +167,8 @@ The integration will create a select entity to control each of the seat heaters.
 
 For vehicles equipped with cooled (ventilated) seats, a select entity will also be added to control each cooled seat.
 
+For vehicles that report a steering wheel heat level, a select entity will also be added to set the steering wheel heater to Off, Low, or High. Choosing Low or High turns on climate first if it is off, because the vehicle only heats the steering wheel while climate is on.
+
 Heated seats:
 
 - Front left
