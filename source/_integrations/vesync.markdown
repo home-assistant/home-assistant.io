@@ -108,6 +108,7 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
+| `mute`                  | Mutes the sounds the device makes. Only available on fans that support muting.     | On        |
 
 | Button                  | Description                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------- |
