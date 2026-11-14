@@ -130,7 +130,7 @@ tags:
   default: 0
 tags_attributes:
   type: [string, list]
-  description: The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
+  description: The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `device_class`, you can group or filter by device class, such as all temperature sensors, in addition to entity IDs.
   required: false
   default: 0
 ignore_attributes:
@@ -228,7 +228,7 @@ influxdb:
   tags:
     source: HA
   tags_attributes:
-    - friendly_name
+    - device_class
   default_measurement: units
   exclude:
     entities:
