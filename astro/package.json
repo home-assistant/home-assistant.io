@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@dimforge/rapier3d-compat": "0.21.0",
-    "astro": "7.4.8",
+    "astro": "7.4.10",
     "gsap": "3.15.1",
     "three": "0.187.0"
   },
