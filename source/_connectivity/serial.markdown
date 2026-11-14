@@ -23,7 +23,7 @@ Home Assistant can reach the serial port of your device in three ways: with a se
 
 ### Serial proxies
 
-A serial proxy is an [ESPHome](/integrations/esphome/) device that you place next to your device. It shares its serial port with Home Assistant over your network. This is the recommended way when your device is not next to the system that runs Home Assistant. A direct serial cable only reaches so far, and it ties your device to the place where your system is. With a serial proxy, your network covers the rest of the distance. Prefer a wired network connection to the proxy.
+A serial proxy is a small device that you place next to your device. It shares its serial port with Home Assistant over your network. This is the recommended way when your device is not next to the system that runs Home Assistant. A direct serial cable only reaches so far, and it ties your device to the place where your system is. With a serial proxy, your network covers the rest of the distance. Prefer a wired network connection to the proxy.
 
 - [Home Assistant Connect AUX-2](/connect/aux-2/) is a serial proxy with two <abbr title="Recommended Standard 232">RS-232</abbr> ports. Each port is shared with Home Assistant as its own serial proxy port. To connect an <abbr title="Recommended Standard 485">RS-485</abbr> device, such as a Modbus device, plug a supported USB-to-RS-485 adapter into its USB port. The adapter is shared as one more serial proxy port.
 - Any other ESPHome device with a free serial port of the right type can be a serial proxy. For some devices, there is a ready-made serial proxy project that you can install from your browser. To see what is available, refer to the [ESPHome serial proxy projects](https://esphome.io/projects/?type=serial).
