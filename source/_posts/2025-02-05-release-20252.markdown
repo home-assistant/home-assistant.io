@@ -463,7 +463,7 @@ which [Bluetooth proxy] it connects through!
 <img class="no-shadow" alt="Screenshot of the new advertisement panel" src="/images/blog/2025-02/bluetooth-panel.png" />
 
 [Bluetooth integration]: /integrations/bluetooth
-[Bluetooth proxy]: /integrations/bluetooth/#remote-adapters-bluetooth-proxies
+[Bluetooth proxy]: /connectivity/bluetooth/#remote-adapters-bluetooth-proxies
 
 ## Preparing our graphs for the future
 

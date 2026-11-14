@@ -171,7 +171,7 @@ As the data is refreshed using an active Bluetooth connection, {% term polling %
 If you see repeated connection issues, try the following:
 
 1. Move your Home Assistant host closer to the thermostat.
-2. Add [ESPHome Bluetooth proxies](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) closer to the thermostat.
+2. Add [ESPHome Bluetooth proxies](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies) closer to the thermostat.
 
 ### Viewing device diagnostics
 

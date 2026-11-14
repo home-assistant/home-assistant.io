@@ -942,7 +942,7 @@ The integration connects locally to the devices without going via the SwitchBot 
 
 ### Slow connection times
 
-Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/integrations/bluetooth/#improving-connection-times) for more information.
+Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/connectivity/bluetooth/#improving-connection-times) for more information.
 
 ### Device names not synced
 

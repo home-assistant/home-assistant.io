@@ -38,5 +38,5 @@ The integration can discover most Bluetooth-enabled Oral-B toothbrushes. Brushes
 - Battery - toothbrush battery percentage.
 
 {% important %}
-Updates of the battery sensor require an active Bluetooth connection and relatively close proximity. If you use a <a href="/integrations/bluetooth/#remote-adapters-bluetooth-proxies/" target="_blank">Bluetooth proxy</a>, please ensure it supports active connections. All the other sensors update with active or passive connections.
+Updates of the battery sensor require an active Bluetooth connection and relatively close proximity. If you use a <a href="/connectivity/bluetooth/#remote-adapters-bluetooth-proxies" target="_blank">Bluetooth proxy</a>, please ensure it supports active connections. All the other sensors update with active or passive connections.
 {% endimportant %}

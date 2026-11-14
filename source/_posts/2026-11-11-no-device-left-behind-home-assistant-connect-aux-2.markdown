@@ -82,7 +82,7 @@ One thing we haven’t been able to get working is Thread connectivity; it’s j
 
 ## Replace your Bluetooth hub
 
-Bluetooth is used by all sorts of smart home devices; some even make it seem like their cloud-connected hub is the only way to connect them. The truth is, Bluetooth devices often work better when directly connected to Home Assistant. Connect AUX-2 is our first purpose-built device to connect Bluetooth devices (called a [Bluetooth proxy](/integrations/bluetooth/#bluetooth-proxy-remote-adapter) in Home Assistant).
+Bluetooth is used by all sorts of smart home devices; some even make it seem like their cloud-connected hub is the only way to connect them. The truth is, Bluetooth devices often work better when directly connected to Home Assistant. Connect AUX-2 is our first purpose-built device to connect Bluetooth devices (called a [Bluetooth proxy](/connectivity/bluetooth/#bluetooth-proxy-remote-adapter) in Home Assistant).
 
 <p class="img"><img src="/images/blog/2026-11-no-device-left-behind-home-assistant-connect-aux-2/aux-2-bluetooth.webp" alt="Close-up of the Connect AUX-2 circuit board with its metal Bluetooth antenna on the right"/>That piece of metal on the right is a very capable antenna.</p>
 

@@ -141,7 +141,7 @@ Bluetooth integration. Lastly, a shout out to [@Jc2k] for implementing the
 [INKBIRD]: /integrations/inkbird
 [Moat]: /integrations/moat
 [SensorPush]: /integrations/sensorpush
-[supported Bluetooth adapter]: /integrations/bluetooth#installing-a-usb-bluetooth-adapter
+[supported Bluetooth adapter]: /connectivity/bluetooth/#installing-a-usb-bluetooth-adapter
 [SwitchBot]: /integrations/switchbot
 [Xiaomi BLE]: /integrations/xiaomi_ble
 
