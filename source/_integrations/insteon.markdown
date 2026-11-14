@@ -64,7 +64,77 @@ In order for any two Insteon devices to talk with one another, they must be link
 
 ### Managing Insteon scenes
 
-Insteon scenes can be created, changed, or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To control an Insteon scene, see [Controlling Insteon scenes](#controlling-insteon-scenes) below.
+An Insteon scene controls several Insteon devices together, with settings you choose for each device. For example, a scene can dim some lights and turn others off.
+
+Use the **Insteon Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel) to create and manage scenes. You can choose between two scene types:
+
+- **Home Assistant Only**: Control the scene from Home Assistant.
+- **Device + Home Assistant**: Also control the scene directly from Insteon switches, keypad buttons, or remotes. These physical controls continue to work when Home Assistant is not running.
+
+<p class='img'>
+<img src='/images/integrations/insteon/scene-controllers.png' alt='Scene editor with the Evening scene assigned to the Living room area and controlled by keypad button A.'>
+Choose an area and add physical controllers for a scene.
+</p>
+
+#### Creating or editing a scene
+
+1. Open the **Insteon Scenes** tab and select **Add scene**, or select an existing scene to edit it.
+2. Enter a **Scene name**. Optionally, select an **Area** to place the scene's automatically created switch in that area. Use this switch to [control the scene from Home Assistant](#controlling-insteon-scenes).
+3. Under **Scene controllers**, choose a **Scene type**. For **Device + Home Assistant**, select a **Controller device** and **Controller button**, then select **Add controller**. Repeat to add more physical controls for the same scene.
+4. Under **Devices**, select **Add device**. The device picker lets you search for devices and shows them grouped by area.
+5. Set what each device should do when the scene turns on, directly on its card:
+   - For dimmable lights, set **On level** (brightness) and **Ramp rate** (how quickly the light reaches that brightness).
+   - For on/off devices, choose **On** or **Off**.
+   - For fans, choose a speed.
+   - For locks, choose **Locked** or **Unlocked**.
+   - For devices with several outputs, such as keypads, select the outputs or buttons to include.
+6. Select **Save scene**. Writing the settings to the modem and devices can take a minute or two.
+
+<p class='img'>
+<img src='/images/integrations/insteon/scene-devices.png' alt='Scene device cards showing a reading lamp at 40 percent brightness, a table lamp set to off, and a ceiling fan set to low.'>
+Set each device's brightness, ramp rate, on/off state, or fan speed directly in the editor.
+</p>
+
+To remove a device or controller from the scene, select the trash {% icon "mdi:delete" %} icon next to it, then save. To delete the whole scene, open its three dots {% icon "mdi:dots-vertical" %} menu and select **Delete scene**. Deleting a scene also removes its scene links from the modem and devices.
+
+{% note %}
+Before saving or deleting a scene with battery-powered controllers, wake those devices and read their complete [All-Link Databases](#device-all-link-database). If the editor reports that a scene was not fully written, some devices may already have changed. Follow the message in the editor, then save again or retry deletion.
+{% endnote %}
+
+#### Physical controller behavior
+
+Controller buttons also respond when Home Assistant or another controller turns the scene on or off. For example, a keypad button's light follows the scene.
+
+When you press a controller button, the light wired to that controller uses the controller's local brightness and ramp rate settings. The scene editor does not change those local settings. When Home Assistant or another controller activates the scene, that light uses its scene settings if you included it under **Devices**; otherwise, it uses its local settings.
+
+#### Importing existing device scenes
+
+If you already linked devices using their physical buttons or by editing their All-Link Databases, you can import those scenes into the editor.
+
+1. Read the participating devices' complete [All-Link Databases](#device-all-link-database).
+2. In the [Insteon configuration panel](#insteon-configuration-panel), select **Utilities** > **Import device scenes**.
+3. Select **Import** next to a scene marked **Ready to import**.
+4. Enter a **Scene name** and select **Import**.
+
+Existing device links are kept, and Home Assistant control is added. The imported scene opens in the editor, where you can adjust its settings and assign an area.
+
+### Controlling Insteon scenes
+
+For manual control from Home Assistant, use the scene's switch. Home Assistant automatically creates a switch for each Insteon scene. Assign an **Area** in the scene editor to organize that switch with the room's other controls. You can also add the switch to a dashboard. Turning it on applies the scene's saved device settings; turning it off turns the scene off.
+
+#### Scene switch state
+
+The switch shows the scene's last on/off activity, not whether every device currently matches the scene's settings:
+
+- When you turn the scene on or off from Home Assistant, the switch updates accordingly.
+- For device-controlled scenes, pressing any controller button also updates the switch. Controllers that report their current state, such as keypad buttons, keep the switch in sync with that state.
+- For scenes without a controller that reports its state, including scenes controlled only by battery-powered remotes, the switch remembers the last scene command or button press. Home Assistant restores its last known state after a restart. Until a state is known, it can show as unknown.
+
+Changing an individual light does not necessarily change the scene switch. For example, the switch can stay on after you adjust a light's brightness separately.
+
+#### Automating scene control
+
+For automated control in automations and scripts, use the [**Scene on**](/actions/insteon.scene_on/) action to turn a scene on and the [**Scene off**](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon scene number, shown in the **Scene** column of the **Insteon Scenes** tab. These actions remain available for existing automations; you do not need to replace them with switch actions.
 
 ### Device overview
 
@@ -117,10 +187,7 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 - **Configure device overrides**: Add or remove device overrides. See [Device overrides](#device-overrides) below.
 - **Delete device**: Delete an Insteon device from the network using the device's Insteon address.
 - **Missing modem links**: Read every device's link database and list the devices Home Assistant cannot control, and the buttons whose use is not reported to Home Assistant.
-
-## Controlling Insteon scenes
-
-Insteon scenes are controlled through automations and scripts. Use the [Scene on](/actions/insteon.scene_on/) action to turn a scene on and the [Scene off](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon group or scene number.
+- **Import device scenes**: Find scenes created outside Home Assistant and [import them into the scene editor](#importing-existing-device-scenes).
 
 ## Events and Mini-Remotes
 
