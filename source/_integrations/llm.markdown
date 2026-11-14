@@ -6,7 +6,7 @@ ha_release: 2026.7
 ha_domain: llm
 ---
 
-The **LLM** {% term integration %} provides the {% term "AI tools" %} in Home Assistant. An AI tool is a function that conversation agents and {% term "AI apps" %} can use to read information, control entities, or manage Home Assistant. For example, with AI tools, a conversation agent can tell you the temperature in the living room, turn on your lights, or reload an integration that failed to set up. <abbr title="Large Language Model">LLM</abbr> is short for large language model. It's the type of AI that AI conversation agents use.
+The **LLM** {% term integration %} provides the {% term "AI tools" %} in Home Assistant. An AI tool is a function that {% term "conversation agents" %} and {% term "AI apps" %} can use to read information, control {% term entities %}, or manage Home Assistant. For example, with AI tools, a conversation agent can tell you the temperature in the living room, turn on your lights, or reload an integration that failed to set up. <abbr title="Large Language Model">LLM</abbr> is short for large language model. It's the type of AI that AI conversation agents use.
 
 The AI tools are grouped into [sets](#sets-of-ai-tools). You choose which sets each conversation agent can use, in its **AI tools** option. AI apps outside Home Assistant can use the same sets through the [Model Context Protocol](/integrations/mcp_server/) integration.
 
@@ -14,16 +14,16 @@ The **LLM** integration is an internal system integration. It loads as part of t
 
 ## Sets of AI tools
 
-Each set contains related AI tools. Home Assistant has two built-in sets:
+Each set contains related {% term "AI tools" %}. Home Assistant has two built-in sets:
 
 - **Device control**: Reads and controls the {% term entities %} you expose to voice assistants. For example, it can check the bedroom temperature or turn off the kitchen light. Any user can use it.
-- **Home Assistant**: Looks into and manages Home Assistant itself. For example, it can read the logs, look up past sensor values, or reload an integration that failed to set up. It can reach all of Home Assistant, not only exposed entities. Only administrators can use it.
+- **Home Assistant**: Looks into and manages Home Assistant itself. For example, it can read the logs, look up past sensor values, or reload an {% term integration %} that failed to set up. It can reach all of Home Assistant, not only exposed entities. Only administrators can use it.
 
 On this page, the tools in the **Home Assistant** set are called the Home Assistant AI tools.
 
 Integrations can add more sets. For example, [KNX](/integrations/knx/) adds a **KNX** set, and the [Model Context Protocol Client](/integrations/mcp/) adds a set for each server that you connect.
 
-You choose the sets in the **AI tools** option of each conversation agent. For example, [Anthropic](/integrations/anthropic/), [Google Gemini](/integrations/google_generative_ai_conversation/), [Ollama](/integrations/ollama/), and [OpenAI](/integrations/openai_conversation/) have this option. A new conversation agent starts with **Device control** only. In Ollama, it starts with no sets.
+You choose the sets in the **AI tools** option of each {% term "conversation agent" %}. For example, [Anthropic](/integrations/anthropic/), [Google Gemini](/integrations/google_generative_ai_conversation/), [Ollama](/integrations/ollama/), and [OpenAI](/integrations/openai_conversation/) have this option. A new conversation agent starts with **Device control** only. In Ollama, it starts with no sets.
 
 ## What the Home Assistant AI tools can reach
 
@@ -36,18 +36,18 @@ Most of the Home Assistant AI tools only read. Two tools can change things:
 
 ## Adding the Home Assistant AI tools to your conversation agent
 
-Use this procedure if only administrators use your conversation agent. For example, they use it in {% term Assist %} in Home Assistant or in the [Home Assistant Companion app](https://companion.home-assistant.io/). There, each request comes from the user account that is signed in.
+Use this procedure if only administrators use your {% term "conversation agent" %}. For example, they use it in {% term Assist %} in Home Assistant or in the {% term "Home Assistant Companion app" %}. There, each request comes from the user account that is signed in.
 
-Afterwards, the conversation agent you already use can also look into Home Assistant itself. For example, you can ask it why an integration isn't working, or which errors are in the logs.
+Afterwards, the conversation agent you already use can also look into Home Assistant itself. For example, you can ask it why an {% term integration %} isn't working, or which errors are in the logs.
 
-The conversation agent then only works for administrators. Requests from a {% term "voice satellite" %}, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user, so they fail. Requests from users who aren't administrators fail too. This also stops **Device control** on this conversation agent. If voice satellites or users who aren't administrators use your assistant, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, set up a separate assistant instead. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
+The conversation agent then only works for administrators. Requests from a {% term "voice satellite" %}, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user, so they fail. Requests from users who aren't administrators fail too. This also stops **Device control** on this conversation agent. If voice satellites or users who aren't administrators use your {% term assistant %}, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, set up a separate assistant instead. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
 
 Prerequisites:
 
 - An administrator account in Home Assistant.
 - A conversation agent from an AI integration. For example, [OpenAI](/integrations/openai_conversation/) adds conversation agents.
 
-To add the Home Assistant AI tools to your conversation agent:
+To add the Home Assistant {% term "AI tools" %} to your conversation agent:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your AI integration.
    - For example, select **OpenAI**.
@@ -62,14 +62,14 @@ To add the Home Assistant AI tools to your conversation agent:
 
 ## Setting up a separate assistant for the Home Assistant AI tools
 
-Use this procedure if voice satellites or users who aren't administrators use your {% term assistant %}. An assistant is what you talk to in Assist and on a voice satellite. You find your assistants under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, and each one uses a conversation agent.
+Use this procedure if {% term "voice satellites" %} or users who aren't administrators use your {% term assistant %}. An assistant is what you talk to in {% term Assist %} and on a voice satellite. You find your assistants under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, and each one uses a {% term "conversation agent" %}.
 
-Requests from a voice satellite, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user. Requests from users who aren't administrators can't use the Home Assistant AI tools either. So you leave your current assistant as it is. Instead, you add a conversation agent with the Home Assistant AI tools, and a new assistant that uses it.
+Requests from a voice satellite, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user. Requests from users who aren't administrators can't use the Home Assistant {% term "AI tools" %} either. So you leave your current assistant as it is. Instead, you add a conversation agent with the Home Assistant AI tools, and a new assistant that uses it.
 
 Afterwards, you have two assistants:
 
 - Your current assistant stays as it is, for voice satellites and users who aren't administrators.
-- The new assistant can also look into Home Assistant itself. You select it in Assist when you want to ask about Home Assistant. For example, you can ask why an integration isn't working.
+- The new assistant can also look into Home Assistant itself. You select it in Assist when you want to ask about Home Assistant. For example, you can ask why an {% term integration %} isn't working.
 
 Prerequisites:
 
@@ -90,7 +90,7 @@ To set up a separate assistant for the Home Assistant AI tools:
 7. Enter a name for the assistant. Under **Conversation agent**, select the conversation agent that you just added.
 8. Select **Create**.
 9. To use the new assistant, open the Assist dialog. At the top, select the name of the current assistant, and then select the new assistant.
-   - Result: The new assistant can use the Home Assistant AI tools in the Assist dialog of Home Assistant and of the [Home Assistant Companion app](https://companion.home-assistant.io/). This works when you're signed in with an administrator account.
+   - Result: The new assistant can use the Home Assistant AI tools in the Assist dialog of Home Assistant and of the {% term "Home Assistant Companion app" %}. This works when you're signed in with an administrator account.
 
 ## Supported functionality
 
