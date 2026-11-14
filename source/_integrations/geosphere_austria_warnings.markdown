@@ -66,6 +66,10 @@ Both sensors provide the following attributes:
 
 When there is no warning, the sensor state is **No warning** and these attributes are not set.
 
+To get every warning with its full text, impacts, and recommendations, use the [Get warnings](/actions/geosphere_austria_warnings.get_warnings/) action.
+
+{% include integrations/actions.md %}
+
 ## Automation examples
 
 The real power of this integration is to allow the creation of automations based on official weather warnings.
