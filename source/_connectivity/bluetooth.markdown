@@ -27,7 +27,7 @@ In many cases, a Bluetooth proxy is a better approach than a directly connected 
 
 - [Home Assistant Connect AUX-2](/connect/aux-2/) works as a Bluetooth proxy without flashing or configuration. When you add it to Home Assistant, it starts discovering Bluetooth devices around your home.
 - An ESP32 device that runs ESPHome can be a Bluetooth proxy. For some devices, there is a ready-made Bluetooth proxy project that you can install from your browser. To see what is available, refer to the [ESPHome Bluetooth proxy projects](https://esphome.io/projects/?type=bluetooth).
-- Some Shelly and SMLIGHT devices can also work as a Bluetooth proxy.
+- Some Shelly and SMLIGHT devices can also work as a Bluetooth proxy. They can only listen for [advertisements](#advertisement), and cannot make [connections](#connection) to devices. For this reason, they are not recommended.
 
 For what each type of proxy supports, refer to [Remote adapters (Bluetooth proxies)](#remote-adapters-bluetooth-proxies).
 
