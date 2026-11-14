@@ -41,6 +41,7 @@ To communicate with the pump there are a few different connection methods availa
     - [ESPHome](#esphome)
     - [Arduino](#arduino)
     - [Raspberry Pi / Linux](#raspberry-pi--linux)
+    - [Registers sent by the pump](#registers-sent-by-the-pump)
   - [Modbus Connection](#modbus-connection)
     - [TCP/IP](#tcpip)
     - [RCU](#rcu)
@@ -72,6 +73,16 @@ A standard Linux application for running the Nibe Gateway software is also avail
 
 - [Documentation from OpenHAB](https://www.openhab.org/addons/bindings/nibeheatpump/#raspberry-pi-or-other-linux-unix-based-boards)
 - [Source code in OpenHAB Contrib](https://github.com/openhab/openhab-addons/tree/main/bundles/org.openhab.binding.nibeheatpump/contrib/NibeGW/RasPi)
+
+#### Registers sent by the pump
+
+When connected through NibeGw, the pump sends the registers listed in a `LOG.SET` file without being asked, and Home Assistant polls the rest. To create a `LOG.SET` for the entities you have enabled:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Nibe Heat Pump**.
+2. Select **Configure** and download `LOG.SET`.
+3. Copy the file to a USB stick and load it from the USB menu on the pump.
+
+The pump only sends the first 20 registers, where 32-bit registers count as two, so read-only registers are placed first.
 
 ### Modbus Connection
 
