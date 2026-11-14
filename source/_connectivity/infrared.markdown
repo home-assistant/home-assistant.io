@@ -11,7 +11,7 @@ related:
     title: ESPHome infrared and radio frequency proxy component
 ---
 
-You can control infrared-controlled devices, such as a TV, air conditioner, amplifier, or soundbar, from Home Assistant without touching the handheld remote control. You can also send signals from the handheld remote control to Home Assistant. Home Assistant does this through an [infrared remote adapter](#infrared-remote-adapter-proxy). To learn how the integrations work together, refer to the [Infrared](/integrations/infrared/) {% term integration %}.
+You can control infrared-controlled devices, such as a TV, air conditioner, amplifier, or soundbar, from Home Assistant without touching the handheld remote control. You can also send signals from the handheld remote control to Home Assistant. Home Assistant does this through an [infrared remote adapter](#infrared-remote-adapters). To learn how the integrations work together, refer to the [Infrared](/integrations/infrared/) {% term integration %}.
 
 This page explains which remote adapters you can use, how to set up infrared control, and where to place your remote adapters.
 
@@ -73,7 +73,7 @@ This section explains the key terms that the Home Assistant documentation uses t
 
 ### Infrared remote adapter (proxy)
 
-A device that relays <abbr title="Infrared">IR</abbr> commands on behalf of Home Assistant. It can connect to Home Assistant over Wi-Fi, Ethernet, or other technology. An infrared remote adapter is also known as an infrared proxy.
+A device that relays <abbr title="Infrared">IR</abbr> commands on behalf of Home Assistant. An infrared remote adapter is also known as an infrared proxy.
 
 It has the following characteristics:
 
