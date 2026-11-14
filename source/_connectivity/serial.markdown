@@ -149,9 +149,10 @@ Home Assistant uses such a port differently from a serial proxy:
 
 - Home Assistant does not find the port by itself. The port is listed in the **Serial** panel only after an integration that you added in the UI uses it. It is then listed under **Connected**, even while the device server is offline, because Home Assistant cannot check it. A port that is only used by Modbus is not listed.
 - With a `socket://` URL, Home Assistant sends and receives only data. The [baud rate](#baud-rate) and the other connection settings of the integration are not passed on, so set them on the device server itself. If your device server supports <abbr title="Request for Comments">RFC</abbr> 2217, you can use an `rfc2217://` URL instead. Home Assistant then passes these settings on to the device server.
-- The connection between Home Assistant and the device server is not encrypted. Anyone on your network can intercept the data that is sent over it.
 
-To use the port with an integration, select **Enter manually** during integration setup and enter its URL, such as `socket://192.168.1.10:4001`. For more details, refer to [Device path](#device-path).
+The connection between Home Assistant and the device server is not encrypted. Anyone on your network can intercept the data that is sent over it. For this reason, a serial device server is not recommended. To connect a device over your network, use a [serial proxy](#serial-proxies) instead.
+
+If you still want to use a serial device server, select **Enter manually** during integration setup and enter the URL of its port, such as `socket://192.168.1.10:4001`. For more details, refer to [Device path](#device-path).
 
 ### Device connected via serial
 
