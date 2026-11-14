@@ -21,9 +21,9 @@ This page explains the ways to connect Bluetooth devices, and how to check and i
 
 ### Bluetooth proxies
 
-A Bluetooth proxy is a small device that you place elsewhere in your home. It receives Bluetooth signals from nearby devices and relays them to Home Assistant over Wi-Fi or Ethernet. Because Bluetooth itself is short-range, you can add several proxies to extend Bluetooth coverage across rooms and floors.
+A Bluetooth proxy is a small device that you place elsewhere in your home. It receives Bluetooth signals from nearby devices and relays them to Home Assistant over Wi-Fi or Ethernet. Because Bluetooth itself is short-range, you can add several proxies to extend Bluetooth coverage across rooms and floors. When Home Assistant connects to a device, it automatically picks the proxy with the best signal.
 
-In many cases, a Bluetooth proxy is a better approach than a directly connected adapter or card, since Linux kernel updates have previously broken Bluetooth functionality, and Bluetooth driver support on Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems.
+A Bluetooth proxy is recommended over an adapter that is connected directly to your system, because you can place the proxy close to the devices that you want to control.
 
 - [Home Assistant Connect AUX-2](/connect/aux-2/) works as a Bluetooth proxy without flashing or configuration. When you add it to Home Assistant, it starts discovering Bluetooth devices around your home.
 - An ESP32 device that runs ESPHome can be a Bluetooth proxy. For some devices, there is a ready-made Bluetooth proxy project that you can install from your browser. To see what is available, refer to the [ESPHome Bluetooth proxy projects](https://esphome.io/projects/?type=bluetooth).
@@ -242,6 +242,8 @@ Auto and Passive both require an adapter that supports passive scanning. On Linu
 ## Remote adapters (Bluetooth proxies)
 
 The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection, as well as establishing active connections. The number of remote scanners is limited only by the performance of the host system.
+
+In many cases, a Bluetooth proxy is a better approach than a directly connected adapter or card, since Linux kernel updates have previously broken Bluetooth functionality, and Bluetooth driver support on Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems.
 
 When adding multiple remote adapters to increase range or available connection slots, separate them enough to avoid interference with each other.
 
