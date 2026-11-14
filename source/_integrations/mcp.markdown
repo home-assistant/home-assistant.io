@@ -33,6 +33,8 @@ If you want to talk to Claude or ChatGPT and have it turn on your lights, you ne
 
 If an app you installed in Home Assistant provides an MCP server, Home Assistant can discover it automatically. The MCP server then shows up under **Discovered** in {% my integrations title="**Settings** > **Devices & services**" %}, and you only need to confirm it.
 
+The tools of an MCP server from an app are available to the same people as the app. If only administrators can open the app's panel, which is the default for apps, only administrators can use the tools. MCP servers that you add yourself are available to everyone.
+
 ## Configuration options
 
 The integration provides the following configuration options:
@@ -107,6 +109,16 @@ When you add the integration, setup stops with this message.
 ##### Resolution
 
 Home Assistant only works with MCP servers that provide tools. Check the documentation of the MCP server to make sure it offers tools, and that the URL points to the MCP endpoint of the server.
+
+### A conversation agent doesn't work for some users
+
+#### Symptom: "Error preparing LLM API"
+
+When someone who isn't an administrator talks to the conversation agent, it replies with this message.
+
+##### Resolution
+
+The conversation agent uses the tools of an MCP server from an app that only administrators can open. When someone else talks to it, Home Assistant refuses the whole agent, not only those tools. To give everyone else an assistant, add a second conversation agent without this MCP server, and select it in the assistant they use under {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
 
 ### General MCP troubleshooting
 
