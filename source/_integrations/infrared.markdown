@@ -29,7 +29,7 @@ How the Infrared integration connects device integrations to an infrared remote 
 
 An infrared {% term entity %} represents either an [infrared emitter](/connectivity/infrared/#infrared-emitter) or an [infrared receiver](/connectivity/infrared/#infrared-receiver).
 
-To learn which hardware you can use, how to set up infrared control, and where to place your remote adapters, refer to [Infrared](/connectivity/infrared/).
+To learn which remote adapters you can use, how to set up infrared control, and where to place your remote adapters, refer to [Infrared](/connectivity/infrared/).
 
 {% include integrations/building_block_integration.md %}
 
