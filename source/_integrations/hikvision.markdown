@@ -66,6 +66,21 @@ This platform has also been confirmed to work with the following Hikvision-based
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Hikvision camera or NVR. For example: `192.168.1.100`."
+Port:
+  description: "The port of the device's web interface. This is usually `80`, or `443` when **Use SSL** is selected."
+Username:
+  description: "The username of a user on the device. This user needs the permission described in the note at the top of this page."
+Password:
+  description: "The password of that user."
+Use SSL:
+  description: "Connect to the device over HTTPS instead of HTTP."
+Verify SSL certificate:
+  description: "Check that the SSL certificate of the device is valid. Hikvision devices ship with a self-signed certificate, so turn this option off unless you installed a trusted certificate on the device. It only applies when **Use SSL** is selected and is on by default."
+{% endconfiguration_basic %}
+
 ## Camera
 
 The integration creates camera entities for each video channel on your Hikvision device. These camera entities support:
