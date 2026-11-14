@@ -11,12 +11,13 @@ ha_codeowners:
   - '@kayloehmann'
 ha_domain: aerosmart
 ha_platforms:
+  - number
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **aerosmart** {% term integration %} lets you monitor a combined aerosmart ventilation and heat-pump installation. Home Assistant connects locally through a Modbus TCP gateway or a directly connected serial Modbus RTU port, without a cloud service.
+The **aerosmart** {% term integration %} lets you monitor and control a combined aerosmart ventilation and heat-pump installation. Home Assistant connects locally through a Modbus TCP gateway or a directly connected serial Modbus RTU port, without a cloud service.
 
 The integration represents the ventilation controller and heat-pump controller as one device. It provides operating values, filter information, and controller status.
 
@@ -56,7 +57,16 @@ Heat pump unit:
 
 ## Supported functionality
 
-The integration provides sensor entities for the complete installation.
+The integration provides controls and sensor entities for the complete installation.
+
+### Controls
+
+You can control the following settings from the aerosmart device page, dashboards, scripts, and automations:
+
+- Room temperature setpoint from 14 to 26 °C.
+- Domestic hot water temperature setpoint from 20 to 55 °C.
+
+Home Assistant reads the value back from the controller after each change. If the controller does not confirm the requested value, Home Assistant reports an error and does not show the change as accepted.
 
 ### Sensors
 
