@@ -48,6 +48,14 @@ After adding new devices to your Tuya account through the Smart Life or Tuya Sma
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
+## Infrared air conditioners
+
+Air conditioners that you added in the Smart Life or Tuya Smart app as a remote of a Tuya infrared hub are shown as a climate {% term entity %}.
+
+- The entity shows the state the remote was last used with, including changes made in the app. Changes made with the original remote of the air conditioner are not shown, because the hub does not receive them.
+- Every command sends the full state of the remote, so the air conditioner beeps once for every command. Most changes need one command, but some mode changes need more than one, so you may hear several beeps. Changing the temperature or the fan speed while the air conditioner is off sends no command and does not beep.
+- The fan speeds and target temperature offered in each mode are the ones the infrared code library of the remote has. For example, in dry mode often only the low fan speed is available, and in auto, fan only, and dry the temperature can be fixed.
+
 {% include integrations/actions.md %}
 
 ## Troubleshooting
