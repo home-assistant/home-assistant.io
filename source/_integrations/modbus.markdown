@@ -40,7 +40,7 @@ Prerequisites:
   - Over the network (Modbus TCP): the device, or a Modbus gateway that translates to Modbus TCP, is on your network.
   - Over a serial connection (Modbus RTU): the RS-485 wires of the device are connected to one of these:
     - A [USB-to-RS-485 adapter](/connectivity/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
-    - An [ESPHome serial proxy](/connectivity/serial/#setting-up-an-esphome-serial-proxy) with an RS-485 port.
+    - An [ESPHome serial proxy](/connectivity/serial/#serial-proxies) with an RS-485 port.
     - A [serial device server](/connectivity/serial/#serial-device-server) on your network.
 
 1. If needed, turn on the Modbus interface of your device.
@@ -154,7 +154,7 @@ An adapter that connects an RS-485 bus to a USB port of your Home Assistant syst
 
 #### ESPHome serial proxy
 
-An ESPHome device with an RS-485 port. It makes the bus available to Home Assistant over your network. To set one up, refer to [Setting up an ESPHome serial proxy](/connectivity/serial/#setting-up-an-esphome-serial-proxy) on the Serial page.
+An ESPHome device with an RS-485 port. It makes the bus available to Home Assistant over your network. For details, refer to [Serial proxies](/connectivity/serial/#serial-proxies) on the Serial page.
 
 ### Devices on a connection
 
