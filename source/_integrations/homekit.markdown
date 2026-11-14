@@ -393,6 +393,22 @@ To add a single entity in accessory mode:
 5. Complete the options flow
 6. [Pair the accessory](#setup).
 
+### HomeKit Secure Video
+
+A camera can record to HomeKit Secure Video when motion is detected. This requires:
+
+- A home hub and an iCloud+ plan.
+- The camera in [accessory mode](#accessory-mode).
+- A motion sensor for the camera. It is linked automatically when it belongs to the same device, or via `linked_motion_sensor`.
+
+To turn it on, go to **Settings** > **Devices & services**, select **Configure** on the HomeKit entry of the camera, and set **Camera mode** to **HomeKit Secure Video (H.264 recording)**. Then turn on recording for the camera in the Home app.
+
+Each recording runs FFmpeg, which encodes the video to the format the home hub selects. This needs a capable CPU. If the camera is set to native H.264 (`video_codec: copy`), the stream is recorded as is. The camera must then send H.264 with a keyframe interval of 4 seconds or less. Every recording opens its own connection to the camera. Without a prebuffer, the first part of a recording waits for the camera's next keyframe. With transcoding this can take longer than the home hub waits, so use native H.264 where possible.
+
+There is no prebuffer, so the first seconds of a motion event are missing from the recording. Turning the camera off in the Home app also stops live video and snapshots.
+
+Recordings are sent to the home hub over a random TCP port, which changes on every start. Docker port mapping cannot forward it, so use host networking. See also [Firewall](#firewall).
+
 ## Configure Filter
 
 By default, all entities except [hidden entities](/docs/configuration/customizing-entities/#hidden-entities) and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
@@ -435,6 +451,7 @@ If you have a firewall configured on your Home Assistant system, make sure you o
 
 - UDP: 5353
 - TCP: 21063 (or the configured/used `port` in the integration settings).
+- TCP: a random port per camera when [HomeKit Secure Video](#homekit-secure-video) is enabled. It changes on every start, so allow all TCP ports from your home hubs.
 
 ## Supported integrations
 
@@ -446,7 +463,7 @@ The following integrations are currently supported:
 | automation / button / input_boolean / input_button / lawn_mower / remote / scene / script / vacuum | Switch                 | All represented as switches.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | input_select / select                                         | Switch                 | Represented as a power strip with buttons for each option.                                                                                                                                                                                                                                                                                                                                                                                   |
 | binary_sensor                                                 | Sensor                 | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else.                                                                                                                                                                                                                                            |
-| camera                                                        | Camera                 | All camera devices. **HomeKit Secure Video is not supported.**                                                                                                                                                                                                                                                                                                                                                                  |
+| camera                                                        | Camera                 | All camera devices. Cameras in accessory mode can record to [HomeKit Secure Video](#homekit-secure-video).                                                                                                                                                                                                                                                                                                                     |
 | climate                                                       | Thermostat             | All climate devices.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | cover                                                         | GarageDoorOpener       | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`.                                                                                                                                                                                                                                                                                                                                              |
 | cover                                                         | WindowCovering         | All covers that support `set_cover_position`.                                                                                                                                                                                                                                                                                                                                                                                                |
