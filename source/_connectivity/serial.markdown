@@ -28,7 +28,7 @@ A serial proxy is a small device that you place next to your device. It shares i
 - [Home Assistant Connect AUX-2](/connect/aux-2/) is a serial proxy with two <abbr title="Recommended Standard 232">RS-232</abbr> ports. Each port is shared with Home Assistant as its own serial proxy port. To connect an <abbr title="Recommended Standard 485">RS-485</abbr> device, such as a Modbus device, plug a supported USB-to-RS-485 adapter into its USB port. The adapter is shared as one more serial proxy port.
 - Any other ESPHome device with a free serial port of the right type can be a serial proxy. For some devices, there is a ready-made serial proxy project that you can install from your browser. To see what is available, refer to the [ESPHome serial proxy projects](https://esphome.io/projects/?type=serial).
 
-To set up a serial proxy, refer to [Setting up an ESPHome serial proxy](#setting-up-an-esphome-serial-proxy). An ESPHome device can proxy more than serial, for example Bluetooth. For an overview, refer to [ESPHome remote adapters (proxies)](/integrations/esphome/#about-esphome-remote-adapters-proxies).
+An ESPHome device can proxy more than serial, for example Bluetooth. For an overview, refer to [ESPHome remote adapters (proxies)](/integrations/esphome/#about-esphome-remote-adapters-proxies).
 
 ### USB-to-serial adapters
 
@@ -47,7 +47,6 @@ Prerequisites:
 - A device with a serial port, such as an AV receiver, a projector, or a smart meter with a P1 port.
 - An {% term integration %} for that device. In the documentation, search the [integrations](/integrations/) for your device or its brand.
 - A way for Home Assistant to reach the serial port of that device: a [serial proxy](#serial-proxy), a [USB-to-serial adapter](#usb-to-serial-adapter), or a [serial device server](#serial-device-server). For help choosing, refer to [Ways to connect a serial device](#ways-to-connect-a-serial-device).
-  - If you use a serial proxy, first set it up. Refer to [Setting up an ESPHome serial proxy](#setting-up-an-esphome-serial-proxy).
 - The connection settings that your device expects, such as the [baud rate](#baud-rate). Check the documentation of your device.
 
 1. Connect your device to a serial port that Home Assistant can reach.
@@ -65,19 +64,6 @@ Prerequisites:
    - A port that is shared by a serial proxy is listed under **Serial proxies**, together with the name of the ESPHome device that shares it.
    - If you enter a local device path yourself, use the `/dev/serial/by-id/...` link rather than a path like `/dev/ttyUSB0` or `/dev/ttyACM0`, because these paths can change. To look up the link, select **Port information** for that port in the **Serial** panel, and copy the **Device** field.
    - The list shows the ports that Home Assistant found on your system and on your serial proxies. A port on a serial device server is not found automatically. To use such a port, select **Enter manually** and enter its URL, such as `socket://192.168.1.10:4001`. For more details, refer to [Device path](#device-path).
-
-## Setting up an ESPHome serial proxy
-
-A [serial proxy](#serial-proxy) shares one of its serial ports with Home Assistant over your network. [ESPHome](/integrations/esphome/) is currently the only {% term integration %} that provides serial proxy ports.
-
-1. Choose a device that runs ESPHome and has a free serial port.
-   - Make sure the port type matches the device you want to connect: TTL, <abbr title="Recommended Standard 232">RS-232</abbr>, or <abbr title="Recommended Standard 485">RS-485</abbr>.
-   - For devices to choose from, refer to [Serial proxies](#serial-proxies).
-2. Install the serial proxy configuration on the ESPHome device.
-   - For some devices, there is a ready-made project that you can install from your browser. To see what is available, refer to the [ESPHome serial proxy projects](https://esphome.io/projects/?type=serial).
-   - If no ready-made project fits your device, add the [serial proxy](https://esphome.io/components/serial_proxy/) component to the configuration of your ESPHome device yourself.
-   - The {% term integration %} that uses a port sets the [baud rate](#baud-rate) and the other connection settings when it connects. This means you do not need to change the ESPHome configuration when a device needs a different baud rate.
-3. Continue with [Setting up a serial connection in Home Assistant](#setting-up-a-serial-connection-in-home-assistant). There, you connect your device to the proxy, add the [ESPHome](/integrations/esphome/) {% term integration %}, and select the shared port.
 
 ## Viewing your serial ports
 
