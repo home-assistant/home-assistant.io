@@ -8,7 +8,7 @@ related_triggers:
   - weather.condition_changed
 ---
 
-The **Stopped raining** trigger fires after a weather {% term entity %} changes from a rainy condition (**Hail**, **Rainy**, **Pouring**, or **Lightning, rainy**) to any non-rainy condition. Use this trigger to react once rain has cleared, for example to resume outdoor irrigation or open windows again.
+The **Stopped raining** trigger fires after a weather {% term entity %} changes from a rainy condition (**Hail**, **Rainy**, **Pouring**, **Lightning, rainy**, or **Snowy, rainy**) to a condition without rain. Use this trigger to react once rain has cleared, for example to resume outdoor irrigation or open windows again.
 
 {% include triggers/ui_header.md %}
 
@@ -49,7 +49,7 @@ trigger: |
     entity_id: weather.home
 {% endexample %}
 
-This fires every time `weather.home` changes from rain to a dry condition.
+This fires every time `weather.home` changes from a rainy condition to one without rain.
 
 ### Options in YAML
 
@@ -66,7 +66,7 @@ behavior:
   default: each
 for:
   description: |
-    How long the condition must stay non-rainy before the trigger fires. For example, `00:15:00` fires only after it has stayed dry for 15 minutes, which helps avoid reacting to a short break between showers. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+    How long the condition must stay without rain before the trigger fires. For example, `00:15:00` fires only after it has stayed clear of rain for 15 minutes, which helps avoid reacting to a short break between showers. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
   type: [string, integer, map]
   default: "00:00:00"
@@ -78,8 +78,10 @@ for:
 
 ## Good to know
 
-- This trigger only fires on a transition from a rainy condition (**Hail**, **Rainy**, **Pouring**, or **Lightning, rainy**) to a non-rainy one. It does not fire on startup, even if the weather entity's initial state is already dry.
+- This trigger only fires on a transition from a rainy condition (**Hail**, **Rainy**, **Pouring**, **Lightning, rainy**, or **Snowy, rainy**) to a condition without rain. It does not fire on startup, even if the weather entity's initial condition is already dry.
+- A change between two rainy conditions, such as from **Rainy** to **Snowy, rainy**, does not fire this trigger, because rain hasn't stopped.
 - This trigger does not fire while the weather entity is **Unavailable** or **Unknown**.
+- This trigger reflects the weather entity's reported condition, which can differ from what's actually happening at your location. Don't rely on it alone to decide whether it's safe to go outside.
 - To react when rain begins instead, use **Started raining**.
 - To trigger on a specific condition other than rain, such as **Sunny** or **Cloudy**, use **Weather condition changed**.
 
@@ -89,7 +91,7 @@ for:
 
 ### Automation: resume irrigation 15 minutes after rain stops
 
-When the garden's weather entity has stayed dry for 15 minutes after rain, resume the irrigation {% term script %}. The delay avoids restarting irrigation during a brief lull between showers.
+When the garden's weather entity has reported no rain for 15 minutes, resume the irrigation {% term script %}. The delay avoids restarting irrigation during a brief lull between showers.
 
 - **Trigger**: Stopped raining
   - **Target**: `weather.garden`
@@ -115,7 +117,7 @@ automation: |
 
 ### Automation: notify when the rain clears
 
-When the weather entity for your home stops reporting rain, send a notification so you know it's safe to go outside again.
+When the weather entity for your home stops reporting rain, send a notification to let you know.
 
 - **Trigger**: Stopped raining
   - **Target**: `weather.home`

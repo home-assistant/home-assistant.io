@@ -8,7 +8,7 @@ related_triggers:
   - weather.condition_changed
 ---
 
-The **Started raining** trigger fires after a weather {% term entity %} starts reporting a rainy condition: **Hail**, **Rainy**, **Pouring**, or **Lightning, rainy**. Use this trigger to react as soon as rain begins, for example to close windows, bring in laundry, or pause outdoor irrigation.
+The **Started raining** trigger fires after a weather {% term entity %} starts reporting a rainy condition: **Hail**, **Rainy**, **Pouring**, **Lightning, rainy**, or **Snowy, rainy**. Use this trigger to react as soon as rain begins, for example to close windows, bring in laundry, or pause outdoor irrigation.
 
 {% include triggers/ui_header.md %}
 
@@ -78,7 +78,8 @@ for:
 
 ## Good to know
 
-- This trigger fires when the condition changes to **Hail**, **Rainy**, **Pouring**, or **Lightning, rainy**. **Snowy, rainy** is not included, because it is primarily a snow condition.
+- This trigger fires when the condition changes to **Hail**, **Rainy**, **Pouring**, **Lightning, rainy**, or **Snowy, rainy**. Rain mixed with snow still counts as rain here.
+- A change between two rainy conditions, such as from **Rainy** to **Snowy, rainy**, does not fire this trigger, because it was already raining.
 - This trigger does not fire while the weather entity is **Unavailable** or **Unknown**.
 - To react when rain stops instead, use **Stopped raining**.
 - To trigger on a specific condition other than rain, such as **Snowy** or **Windy**, use **Weather condition changed**.

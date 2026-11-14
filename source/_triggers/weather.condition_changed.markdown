@@ -66,7 +66,7 @@ condition:
   description: >
     The condition or conditions the weather entity must switch to for the trigger to fire. Accepts a single condition string or a list of conditions, such as `clear-night`, `cloudy`, `exceptional`, `fog`, `hail`, `lightning`, `lightning-rainy`, `partlycloudy`, `pouring`, `rainy`, `snowy`, `snowy-rainy`, `sunny`, `windy`, or `windy-variant`.
   required: true
-  type: string
+  type: [string, list]
 behavior:
   description: |
     When multiple weather entities are targeted, controls when the trigger fires:
@@ -92,6 +92,7 @@ for:
 ## Good to know
 
 - This trigger fires only when the condition changes to one of the selected values. It does not fire on startup if the weather entity's initial state already matches.
+- If you select more than one condition, this trigger also fires when the weather entity switches directly from one selected condition to another, such as from **Snowy** to **Hail** when both are selected.
 - This trigger does not fire while the weather entity is **Unavailable** or **Unknown**.
 - To react specifically to rain starting or stopping, use **Started raining** or **Stopped raining** instead, which already cover the rain-related conditions.
 
