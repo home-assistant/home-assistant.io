@@ -164,6 +164,7 @@ The OasisMist 4.5L has a minimum light brightness of 40%, so its night light can
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
 | `water_tank_lifted`     | Water tank is lifted                                                               | false     |
+| `sync_chambers`         | On dual-basket air fryers, indicates whether the two baskets are synced            | true      |
 
 ## Air Fryers
 
