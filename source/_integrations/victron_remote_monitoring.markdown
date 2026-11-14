@@ -68,6 +68,26 @@ The <abbr title="Victron Remote Monitoring">VRM</abbr> integration fetches fresh
 - Peak consumption time — Today
 - Peak consumption time — Tomorrow
 
+## Actions
+
+The integration provides the following actions.
+
+### Action: Get forecast
+
+The `victron_remote_monitoring.get_forecast` action returns the cached hourly solar production and consumption forecast for a Victron Remote Monitoring entry. Values are watt-hours. The action reads the cached forecast and does not request new data from VRM.
+
+- **Data attribute**: `config_entry`
+  - **Description**: The Victron Remote Monitoring configuration entry to query.
+  - **Optional**: No
+- **Data attribute**: `start`
+  - **Description**: Earliest hour to return (inclusive). A value without a timezone is interpreted in the Home Assistant timezone. If omitted, the response begins at the start of the cached forecast.
+  - **Optional**: Yes
+- **Data attribute**: `end`
+  - **Description**: Latest hour to return (exclusive). If omitted, the response includes the rest of the cached forecast. The end must be after the start.
+  - **Optional**: Yes
+
+The response contains forecast, a list of hours ordered from earliest to latest. Each hour has datetime as a local ISO timestamp, plus solar and consumption in watt-hours. A series with no value for an hour omits that field. An empty range returns an empty list.
+
 ## Adding Victron Remote Monitoring to the Energy dashboard
 
 Solar production forecasts can be added to the built-in [Energy dashboard](/docs/energy/) to visualize expected solar production alongside your actual energy data.
