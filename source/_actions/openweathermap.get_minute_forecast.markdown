@@ -2,6 +2,7 @@
 title: "Get minute forecast"
 action: openweathermap.get_minute_forecast
 domain: openweathermap
+response: required
 description: "Retrieves a minute-by-minute precipitation forecast for the next hour from OpenWeatherMap."
 ---
 
@@ -47,6 +48,8 @@ This action has no options beyond the target.
 {% include actions/targets.md domain="weather" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the forecast for each targeted weather entity, keyed by its entity ID. For each entity, the response contains a `forecast` field with a list of 60 entries, one for each minute of the next hour. Each entry has the following fields:
 

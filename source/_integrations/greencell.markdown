@@ -4,7 +4,7 @@ ha_release: 2026.7
 ha_domain: greencell
 ---
 
-The **Greencell** {% term integration %} lets you connect Greencell EV charging devices to Home Assistant via MQTT. It monitors device status and measures electrical parameters such as voltage, current, and power, exposing real-time telemetry and charging-session data for use in dashboards and automations.
+The **Greencell** {% term integration %} lets you connect Greencell EV charging devices to Home Assistant via MQTT. It monitors device status and measures electrical parameters such as voltage, current, and power, exposing real-time telemetry and charging-session data for use in dashboards and automations. You can also start and stop charging from Home Assistant.
 
 ## Supported devices
 
@@ -78,7 +78,7 @@ Instructions on adding the device are available in the [official installation gu
 Greencell offers three levels of integration with Home Assistant to suit different user needs. To change the integration mode, in the Greencell GC App, open the Home Assistant settings. See the [configuration chapter](#to-configure-a-device-using-the-greencell-gc-app) for how to find this setting in the app.
 
 - **DISABLE**: Integration disabled – the device does not connect to the MQTT broker, and all entities are disabled.
-- **READ**:  Read only – the device sends measurement data (voltage, current, power), states and ignores commands received on the relevant topic except for the `QUERY` command. Buttons and Number entities are disabled.
+- **READ**:  Read only – the device sends measurement data (voltage, current, power), states and ignores commands received on the relevant topic except for the `QUERY` command. The **Charging** switch shows the charging state, but you cannot use it to start or stop charging.
 - **EXECUTE**: Full access – the device sends measurement data and responds to commands (`START`, `STOP`, `SET_CURRENT`, `QUERY`) received on the relevant topic. All supported entities are enabled.
 
 ## Supported functionality
@@ -104,6 +104,10 @@ The **Greencell** {% term integration %} provides the following entities.
   - `ERROR_CAR`
   - `ERROR_EVSE`
 
+### Switches
+
+- **Charging**: Starts or stops charging. The switch is on while the device is charging or waiting for the car to start charging. Controlling charging requires the device to run in the **EXECUTE** [integration mode](#integration-modes).
+
 ## Adding a new device to Home Assistant
 
 To add a new device to Home Assistant, follow these steps:
@@ -114,7 +118,7 @@ To add a new device to Home Assistant, follow these steps:
 
 ## Known limitations
 
-In the initial release, the integration does **not** support device control (START/STOP and current setting). This is due to the initial submission including a single platform. Control options will be added in subsequent releases.
+The integration does not yet support setting the charging current.
 
 ## Troubleshooting
 
@@ -155,6 +159,20 @@ To resolve this issue, try the following steps:
 3. Verify in the GC App that the device shows **Connected** and HA integration is enabled.
 4. Inspect MQTT broker logs for disconnects/auth failures and confirm the device is publishing topics.
 5. If the above does not help, contact Greencell Support.
+
+### Can't start or stop charging
+
+#### Symptom: "The device does not allow Home Assistant to execute commands"
+
+When you turn the **Charging** switch on or off, Home Assistant shows the message "The device does not allow Home Assistant to execute commands. Enable it in the device settings."
+
+#### Description
+
+The device runs in the **READ** [integration mode](#integration-modes), so it ignores start and stop commands from Home Assistant.
+
+#### Resolution
+
+In the Greencell GC App, open the Home Assistant settings and change the integration mode to **EXECUTE**. See the [configuration chapter](#to-configure-a-device-using-the-greencell-gc-app) for how to find this setting in the app.
 
 ### My device shows "car error" or "EVSE error" state
 

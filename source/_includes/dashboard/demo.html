@@ -1,0 +1,44 @@
+{%- comment -%}
+  A live demo of dashboard cards, running against the mocked backend of the
+  Home Assistant demo. The cards come from `demos` in
+  source/_data/dashboard_demos.yml, with the entities their `entity` names,
+  or that are in their `area`, from `entities` there.
+
+  The page keeps the height from `heights` there for the demo, with a
+  placeholder, so nothing below it moves when the cards load.
+  source/javascripts/dashboard-demo.js adds the cards from the template once
+  they are in view, so their animations play where they can be seen.
+
+  {% include dashboard/demo.html demo="feature_toggle" caption="Toggle." %}
+{%- endcomment -%}
+{%- assign demo_data = site.data.dashboard_demos -%}
+{%- assign demo_cards = demo_data.demos[include.demo] -%}
+{%- assign demo_height = demo_data.heights[include.demo] | default: 56 -%}
+{%- comment -%}
+  Only the entities the cards show, by their `entity` or the `area` they are
+  in, to keep the page small.
+{%- endcomment -%}
+{%- assign demo_entity_ids = demo_cards | map: "entity" -%}
+{%- assign demo_area_ids = demo_cards | map: "area" | compact -%}
+{%- assign demo_entities = demo_data.entities | where_exp: "item", "demo_entity_ids contains item.entity_id or demo_area_ids contains item.area_id" -%}
+{%- assign demo_areas = demo_data.areas | where_exp: "item", "demo_area_ids contains item.area_id" -%}
+{%- capture demo_home -%}
+  {"entities": {{ demo_entities | jsonify }}, "areas": {{ demo_areas | jsonify }}}
+{%- endcapture -%}
+<figure class="dashboard-demo pending">
+  <div class="dashboard-demo-stage" style="--demo-height: {{ demo_height }}px">
+    <template class="dashboard-demo-template">
+      <ha-embed-provider class="dashboard-demo-section" color-scheme="light">
+        <script type="application/json">{{ demo_home | strip | replace: "<", "\u003c" }}</script>
+        {%- for card in demo_cards %}
+        <ha-embed-card>
+          <script type="application/json">{{ card | jsonify | replace: "<", "\u003c" }}</script>
+        </ha-embed-card>
+        {%- endfor %}
+      </ha-embed-provider>
+    </template>
+  </div>
+  {%- if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>

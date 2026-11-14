@@ -13,6 +13,9 @@
   "categories": [
     "diy_makers"
   ],
+  "connectivity": [
+    "mqtt"
+  ],
   "platforms": [
     "alarm_control_panel",
     "binary_sensor",

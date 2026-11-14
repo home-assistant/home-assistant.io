@@ -2,6 +2,7 @@
 title: "Get current position"
 action: roborock.get_vacuum_current_position
 domain: roborock
+response: required
 description: "Retrieves the current position of a Roborock vacuum."
 related_actions:
   - roborock.set_vacuum_goto_position
@@ -11,7 +12,7 @@ related_actions:
 
 Use this action to retrieve the current position of a Roborock vacuum as X and Y coordinates.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script. It does not move the vacuum.
+This action does not move the vacuum.
 
 {% include actions/ui_header.md %}
 
@@ -44,6 +45,8 @@ This action has no additional options in YAML.
 {% include actions/targets.md domain="vacuum" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the X and Y coordinates of the vacuum, keyed by entity ID:
 

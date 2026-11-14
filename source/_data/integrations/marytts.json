@@ -6,6 +6,9 @@
   "categories": [
     "ai_voice.speech"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "tts"
   ]

@@ -7,7 +7,11 @@
   "categories": [
     "media_entertainment.tv_streaming"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
+    "diagnostics",
     "media_player",
     "remote"
   ]

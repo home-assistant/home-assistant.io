@@ -7,9 +7,14 @@
   ],
   "config_flow": true,
   "iot_class": "cloud_polling",
-  "quality_scale": "silver",
+  "quality_scale": "gold",
   "categories": [
-    "security_safety.cameras"
+    "security_safety.cameras",
+    "security_safety.alarm_systems",
+    "plugs_switches"
+  ],
+  "connectivity": [
+    "cloud"
   ],
   "platforms": [
     "alarm_control_panel",

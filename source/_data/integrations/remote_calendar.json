@@ -12,6 +12,10 @@
   "categories": [
     "productivity_information.calendars_todos"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "calendar",
     "diagnostics"

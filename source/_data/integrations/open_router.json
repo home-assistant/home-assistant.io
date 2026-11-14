@@ -12,6 +12,9 @@
   "categories": [
     "ai_voice.ai_models"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "ai_task",
     "conversation",
