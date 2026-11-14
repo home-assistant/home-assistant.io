@@ -10,9 +10,47 @@ related:
     title: Entities card
 ---
 
-All dashboard cards and badges that use an entity support flexible name configuration. This allows you to display custom text, show contextual information like area or device names, or use the entity name instead of its friendly name.
+All dashboard cards and badges that use an entity support flexible name configuration. This allows you to display custom text, show contextual information like area or device names, or show only the entity name.
 
 The name configuration helps you avoid redundant information (like repeating device names on every card) and create more contextual, easier-to-understand dashboards.
+
+## Default name
+
+If you don't set a name on a card or badge, it shows the default name of the entity.
+The default name is built from these parts, in this order:
+
+1. The name of the parent device, if the entity belongs to a [child device](/docs/configuration/customizing-entities/#parent-and-child-devices)
+2. The name of the device
+3. The name of the entity
+
+For example, a `Power` entity of a smart plug device called `Coffee machine` is shown as `Coffee machine Power`.
+If the entity represents the main function of its device and you [turned on the attribute](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity) **Main entity of the device**, it has the device name and is shown as `Coffee machine`.
+
+Some parts are left out when they would not help to identify the entity:
+
+- If you assign the entity to an area directly, instead of letting it use the area of its device, the device name is left out.
+  For example, the `Outdoor temperature` sensor of a device called `Heating controller` is shown as `Heating controller Outdoor temperature`.
+  If you assign the sensor to your outdoor area, it's shown as `Outdoor temperature`. 
+- If the entity belongs to a child device that has its own area assigned, the parent device name is left out. For example, the main entity of a socket (child device) called `Lamp` on a power strip (parent device) called `Power strip` is shown as `Lamp` instead of `Power strip Lamp`.
+
+To change the default name everywhere in Home Assistant, rename the entity or its device.
+To change the name only on one card or badge, set the name in the card or badge as described below.
+
+## Changing the name in the dashboard editor
+
+1. In the top-right corner of your dashboard, select **Edit dashboard** ({% icon "mdi:pencil" %}), then select **Edit** on the card or badge you want to change.
+2. If the editor has a **Content** section, expand it.
+3. In the **Name** field, choose how to build the name:
+   - To combine parts of the name, select **Composed**.
+     - To add a part, select **Add**, then select **Entity**, **Device**, **Parent device**, **Area**, or **Floor**.
+       To add your own text, enter it in the search field and select it.
+     - To change the order, drag the parts.
+     - To remove a part, select its {% icon "mdi:close" %} icon.
+   - To enter your own name, select **Custom** and enter the name.
+4. To go back to the default name, select **Restore default name** ({% icon "mdi:restore" %}).
+5. Select **Save**.
+
+You can also set the name in YAML, as described in the following sections.
 
 ## Simple string name
 
@@ -35,14 +73,15 @@ The name can also be configured as an object with a `type` property to display c
 
 ### Entity name
 
-Displays the entity name instead of the friendly name. The entity name is the specific function or data point the entity represents, without the device or area prefix.
+Displays only the entity name. The entity name is the specific function or data point the entity represents, without the device or area name.
+If the entity is the main entity of its device and has no name of its own, the device name is shown instead.
 
 ```yaml
 name:
   type: entity
 ```
 
-This is useful when you want to avoid repeating device or area names that are already included in the friendly name.
+This is useful when you want to avoid repeating the device name, for example, when the card is already grouped with other cards of the same device.
 
 {% configuration name-entity %}
 name:
@@ -74,6 +113,28 @@ name:
     type:
       required: true
       description: "Type of name to display. Use `device` to show the device name."
+      type: string
+{% endconfiguration %}
+
+### Parent device name
+
+Displays the name of the parent device, if the entity belongs to a [child device](/docs/configuration/customizing-entities/#parent-and-child-devices).
+For example, for a socket of a power strip, it shows the name of the power strip.
+
+```yaml
+name:
+  type: parent_device
+```
+
+{% configuration name-parent-device %}
+name:
+  required: false
+  description: Name configuration object.
+  type: map
+  keys:
+    type:
+      required: true
+      description: "Type of name to display. Use `parent_device` to show the parent device name."
       type: string
 {% endconfiguration %}
 
@@ -186,7 +247,7 @@ name:
   type: entity
 ```
 
-This displays the entity name "Temperature" instead of the full friendly name "Living room sensor Temperature", avoiding repetition when the card is already grouped by area.
+This displays the entity name "Temperature" instead of the default name "Living room sensor Temperature", avoiding repetition when the card is already grouped by area.
 
 ### Combining device and area
 
