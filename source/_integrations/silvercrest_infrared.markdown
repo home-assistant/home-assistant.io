@@ -162,7 +162,7 @@ You press a button in Home Assistant, but the device does not respond.
    Home Assistant.
 2. Make sure the emitter is pointed at the device's infrared receiver and has
    a clear line of sight. For more details, see [About device placement and
-   coverage](/integrations/infrared/#about-device-placement-and-coverage).
+   coverage](/connectivity/infrared/#about-device-placement-and-coverage).
 
 {% enddetails %}
 
@@ -182,7 +182,7 @@ more information, see [Multiple fans](#multiple-fans).
 
 {% enddetails %}
 
-For additional troubleshooting steps and guidance, see the [infrared troubleshooting](/integrations/infrared/#troubleshooting) section.
+For additional troubleshooting steps and guidance, see the [infrared troubleshooting](/connectivity/infrared/#troubleshooting) section.
 
 If you need to report an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), then reload the integration. Reproduce the issue, disable debug logging, and attach the automatically downloaded debug log to your report.
 
