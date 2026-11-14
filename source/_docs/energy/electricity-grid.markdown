@@ -85,9 +85,14 @@ Once your energy data is available in Home Assistant, add it to the Energy dashb
 2. Under **Electricity grid**, select **Add grid connection**.
 3. Select the statistic that represents the energy consumed from the grid.
 4. If applicable, also select the statistic for energy returned to the grid.
-5. Save the grid connection.
+5. Optional: to show real-time power on the dashboard, set **Type of power measurement** and select your power sensor or sensors. If you select **Two sensors**, select one sensor for **Power imported from grid** and one for **Power exported to grid**.
+6. Save the grid connection.
 
 Only compatible statistics are available for selection.
+
+The power sensor adds real-time and historical power views to the dashboard. The energy totals work without it.
+
+If your energy provider uses multiple tariffs, add one grid connection per tariff, each with its own energy consumed statistic and, if applicable, energy returned statistic. Because a power sensor measures your whole meter, you only need to add it to one of the connections. The same power sensor can't be used on more than one grid connection.
 
 ### Troubleshooting
 
