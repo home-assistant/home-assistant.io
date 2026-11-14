@@ -9,7 +9,6 @@ The **Hot Spring** {% term integration %} allows you to monitor and control your
 ## Supported devices
 
 - Hot Spring spas equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) local network module.
-- Hot Spring spas with the FreshWater IQ water quality system, as an addition to the HotSpring Connected Spa Kit 2 module above.
 
 ## Prerequisites
 
@@ -70,8 +69,6 @@ The **Hot Spring** integration provides the following entities:
 
 ### Sensor
 
-The **Chlorine**, **Oxidation reduction potential**, **pH**, and **Sensor life** entities are available when the spa reports a FreshWater IQ system as installed. If FreshWater IQ data only becomes available later, these entities are created automatically without reconfiguring the integration.
-
 - **Current temperature**
   - **Description**: Current water temperature of the spa.
 - **Salt 10-day check timer**
@@ -85,12 +82,16 @@ The **Chlorine**, **Oxidation reduction potential**, **pH**, and **Sensor life**
   - **Availability**: Available when a FreshWater Salt System cartridge is installed.
 - **Chlorine**
   - **Description**: Chlorine reading from the FreshWater IQ system, in parts per million (ppm).
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
 - **Oxidation reduction potential**
   - **Description**: Oxidation reduction potential reading from the FreshWater IQ system, in millivolts (mV).
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
 - **pH**
   - **Description**: pH reading from the FreshWater IQ system.
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
 - **Sensor life**
   - **Description**: Remaining FreshWater IQ sensor life, as a percentage reported by the spa.
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
 - **Control box version**
   - **Description**: Firmware version of the spa control box.
   - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
@@ -100,10 +101,6 @@ The **Chlorine**, **Oxidation reduction potential**, **pH**, and **Sensor life**
 - **Wi-Fi dongle version**
   - **Description**: Firmware version of the Wi-Fi dongle.
   - **Remarks**: Disabled by default.
-
-{% note %}
-FreshWater IQ readings refresh with the regular integration polling. Invalid readings are shown as `unknown` rather than `unavailable`. A value of `0` can be a genuine reading. If the spa omits a reading, the integration keeps the previously reported value. A reading the spa has not reported yet can appear as `0` until the spa first reports it.
-{% endnote %}
 
 ## Hot Spring automation examples
 
