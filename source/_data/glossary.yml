@@ -216,6 +216,12 @@
   definition: >-
     The configuration.yaml file is the main configuration file for Home Assistant. It lists the integrations to be loaded and their specific configurations. In some cases, the configuration needs to be edited manually directly in the configuration.yaml file. Most integrations can be configured in the UI.
   link: /docs/configuration/
+- term: Conversation agent
+  definition: >-
+    Software that Home Assistant uses to understand a request and decide what to do. Home Assistant has a built-in conversation agent. Integrations can add others, including ones that use AI. Conversation agents that use AI can also use AI tools. Each assistant uses a conversation agent.
+  aliases:
+    - conversation agents
+  link: /integrations/conversation/
 - term: Cover
   definition: >-
     Covers are devices such as blinds, garage doors, etc that can be opened and
@@ -366,6 +372,13 @@
   definition: >-
     Another name for Home Assistant Operating System
   link: /hassio/installation/
+- term: Home Assistant Companion app
+  definition: >-
+    The official Home Assistant app for Android and Apple devices. On phones, tablets, and Macs, it shows your Home Assistant interface, like a browser does. It can also share data from your device's sensors with Home Assistant and receive notifications. The Home Assistant Companion app also works on smartwatches and in cars, with Android Auto, Android Automotive OS, or Apple CarPlay.
+  aliases:
+    - Companion app
+    - Companion apps
+  link: https://companion.home-assistant.io/
 - term: Home Assistant Container
   definition: >-
     Home Assistant Container is a standalone container-based installation of
@@ -615,6 +628,14 @@
     confusion, as it does not come with a piece of hardware.
   aliases:
     - services
+
+- term: Speech-to-text
+  definition: >-
+    Technology that turns spoken words into text. Assist uses speech-to-text when you talk to it. Integrations provide speech-to-text. Some run locally, and others run in the cloud.
+  aliases:
+    - STT
+  link: /integrations/stt/
+
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
@@ -659,6 +680,13 @@
   aliases:
     - templates
 
+- term: Text-to-speech
+  definition: >-
+    Technology that turns text into spoken words. Assist uses text-to-speech to reply out loud. Home Assistant can also use it to make announcements on media players and voice satellites. Integrations provide text-to-speech. Some run locally, and others run in the cloud.
+  aliases:
+    - TTS
+  link: /integrations/tts/
+
 - term: Thread
   definition: >-
     Thread is a low-power mesh networking standard that is specifically designed
@@ -696,11 +724,6 @@
   link: /docs/automation/trigger/
   aliases:
     - triggers
-
-- term: TTS
-  definition: >-
-    TTS (text-to-speech) allows Home Assistant to talk to you.
-  link: /integrations/tts/
 
 - term: Update
   definition: >-
