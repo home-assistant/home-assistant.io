@@ -6,9 +6,7 @@ related:
   - docs: /integrations/infrared/
     title: Infrared integration
   - url: https://esphome.io/projects/?type=irrf
-    title: ESPHome infrared and radio frequency proxy projects
-  - url: https://esphome.io/components/ir_rf_proxy/
-    title: ESPHome infrared and radio frequency proxy component
+    title: ESPHome infrared proxy projects
 ---
 
 You can control infrared-controlled devices, such as a TV, air conditioner, amplifier, or soundbar, from Home Assistant without touching the handheld remote control. You can also send signals from the handheld remote control to Home Assistant. Home Assistant does this through an [infrared remote adapter](#infrared-remote-adapters). To learn how the integrations work together, refer to the [Infrared](/integrations/infrared/) {% term integration %}.
@@ -19,7 +17,7 @@ This page explains which remote adapters you can use, how to set up infrared con
 
 An infrared remote adapter is a small device that sends and receives infrared signals on behalf of Home Assistant. It connects to Home Assistant over Wi-Fi, Ethernet, or other technology. An infrared remote adapter is also known as an infrared proxy.
 
-- For some devices, there is a ready-made infrared and radio frequency proxy project that you can install from your browser. To see what is available, refer to the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
+- For some devices, there is a ready-made infrared proxy project that you can install from your browser. To see what is available, refer to the [ESPHome infrared proxy projects](https://esphome.io/projects/?type=irrf).
 - Other remote adapters have an integration that provides infrared entities, such as [SMLIGHT SLZB](/integrations/smlight/). To find them, browse the [Infrared category](/integrations/#infrared).
 
 ## Setting up infrared control in Home Assistant
