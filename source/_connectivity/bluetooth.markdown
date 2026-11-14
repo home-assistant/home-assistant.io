@@ -13,13 +13,11 @@ related:
 
 Home Assistant supports Bluetooth Low Energy devices. Bluetooth Classic devices are not supported. This includes playing music on Bluetooth speakers or headphones.
 
-Home Assistant receives Bluetooth signals through a [Bluetooth adapter](#bluetooth-adapter) that is connected to the system that runs Home Assistant, or through a [Bluetooth proxy](#bluetooth-proxy-remote-adapter) on your network. The [Bluetooth](/integrations/bluetooth/) {% term integration %} manages them. Compatible devices discovered nearby appear on {% my integrations title="**Settings** > **Devices & services**" %}.
+Home Assistant receives Bluetooth signals through a [Bluetooth adapter](#bluetooth-adapters) that is connected to the system that runs Home Assistant, or through a [Bluetooth proxy](#bluetooth-proxies) on your network. The [Bluetooth](/integrations/bluetooth/) {% term integration %} manages them. Compatible devices discovered nearby appear on {% my integrations title="**Settings** > **Devices & services**" %}.
 
 This page explains the ways to connect Bluetooth devices, and how to check and improve your Bluetooth connections.
 
 ## Ways to connect Bluetooth devices
-
-Home Assistant can receive Bluetooth signals in two ways: with a Bluetooth proxy on your network, or with a Bluetooth adapter that is connected to the system that runs Home Assistant.
 
 ### Bluetooth proxies
 
