@@ -6,6 +6,17 @@ ha_domain: system_bridge
 
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
 
+## Use cases
+
+- **Keep an eye on your computers**: See CPU, memory, disk, GPU, network and battery use on a dashboard, and get notified when a disk fills up or a battery runs low.
+- **Automate around your computer**: Turn the lights down when your computer locks, or react to the camera being in use.
+- **Control your computer from Home Assistant**: Lock, sleep or shut down the computer, turn its displays off, control its media, or open a URL on it.
+- **Send notifications to your desktop**: Show a notification with buttons and a sound on the computer, such as when someone rings the doorbell.
+
+## Supported devices
+
+The integration works with any computer running [System Bridge](https://system-bridge.timmo.dev) 5.0.0 or later. System Bridge has packages for Linux and Windows. macOS isn't officially supported, but you can build System Bridge from source to run it there. Some features depend on the operating system; see [Known limitations](#known-limitations).
+
 ## Prerequisites
 
 ### Version
@@ -14,9 +25,20 @@ This integration requires System Bridge 5.0.0 and above. Any older version will 
 
 ### Token
 
-You will need your token. For instructions on finding your token, follow the steps in the [System Bridge documentation](https://system-bridge.timmo.dev/docs/running).
+You will need your token. For instructions on finding your token, follow the steps in the [System Bridge documentation](https://system-bridge.timmo.dev/running/#token).
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the computer running System Bridge.
+Port:
+  description: The port System Bridge listens on. The default is `9170`, and you can change it on the computer with the `SYSTEM_BRIDGE_PORT` environment variable.
+Token:
+  description: The token from the System Bridge settings. To find it, run `system-bridge client token` on the computer, as the same user that runs System Bridge. On Windows, run `.\system-bridge.exe client token` in PowerShell from the `C:\Program Files\System Bridge` folder.
+{% endconfiguration_basic %}
+
+Home Assistant discovers computers running System Bridge on your network. A discovered computer shows up under {% my integrations title="**Settings** > **Devices & services**" %}, and you only need to enter its token.
 
 ## Binary sensors
 
@@ -245,6 +267,106 @@ While the computer can't be reached, Home Assistant tries to reconnect after 30 
 - Display brightness and power controls aren't available on macOS.
 - A display can report its brightness or power state without supporting changes to it. In that case, the action fails and shows the error message from System Bridge.
 - Some monitors stop responding to DDC/CI when they're off, so they can't be turned back on from Home Assistant.
+
+## System Bridge automation examples
+
+### Automation: Lock your computer when you leave home
+
+This automation locks the computer when everyone has left home. Replace `button.my_computer_lock` with your computer's **Lock** button.
+
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
+- **Action**: Press button
+  - **Target**: Computer lock (`button.my_computer_lock`)
+
+{% example %}
+automation: |
+  alias: "Lock the computer when leaving home"
+  triggers:
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.my_computer_lock
+{% endexample %}
+
+### Automation: Notify when a disk is nearly full
+
+This automation sends a notification to your phone when a disk on the computer is more than 90% full. Replace `sensor.my_computer_c_space_used` with the space used sensor of the disk.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: C: drive space used (`sensor.my_computer_c_space_used`)
+  - **Above**: `90`
+- **Action**: Send a notification message
+  - **Target**: My phone (`notify.my_phone`)
+  - **Title**: `Disk nearly full`
+  - **Message**: The C: drive on your computer is more than 90% full.
+
+{% example %}
+automation: |
+  alias: "Computer disk nearly full"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.my_computer_c_space_used
+      above: 90
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        title: "Disk nearly full"
+        message: "The C: drive on your computer is more than 90% full."
+{% endexample %}
+
+### Automation: Show a notification on the computer when the doorbell rings
+
+This automation shows a notification on the computer when someone rings the doorbell. Replace `event.front_door_doorbell` with your doorbell's event entity, and `notify.my_computer` with your computer's notify entity.
+
+- **Trigger**: Doorbell rang
+  - **Target**: Front door doorbell (`event.front_door_doorbell`)
+- **Action**: Send a notification message
+  - **Target**: My computer (`notify.my_computer`)
+  - **Title**: `Doorbell`
+  - **Message**: Someone is at the door.
+
+{% example %}
+automation: |
+  alias: "Doorbell notification on the computer"
+  triggers:
+    - trigger: doorbell.rang
+      target:
+        entity_id: event.front_door_doorbell
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_computer
+      data:
+        title: "Doorbell"
+        message: "Someone is at the door."
+{% endexample %}
+
+## Troubleshooting
+
+### Can't connect to System Bridge
+
+If Home Assistant can't connect when you set up the integration, or the computer's entities stay unavailable:
+
+1. Check System Bridge is running on the computer, for example by opening its [web client](https://system-bridge.timmo.dev/using/web-client/).
+2. Check the host and port. From another device on your network, open `http://YOUR_COMPUTER:9170` in a browser, using your port if you changed it. If the System Bridge web client loads, that device can reach the computer. Also check that routing and firewall rules allow Home Assistant to reach the same host and port.
+3. Check the computer's firewall allows incoming connections on the System Bridge port.
+4. If the computer gets its IP address from DHCP, give it a fixed address, or use its hostname. A computer that Home Assistant discovered gets its address updated when it changes.
+
+The computer's entities are unavailable while it sleeps or is turned off. This is expected, and they update again once it's back.
+
+### Authentication failed
+
+If the token changes, for example after reinstalling System Bridge, Home Assistant asks you to reauthenticate. Select **Reconfigure** on the notification under {% my integrations title="**Settings** > **Devices & services**" %} and enter the new token.
+
+### System Bridge upgrade required
+
+If the computer runs a System Bridge version older than 5.0.0, Home Assistant creates a repair issue and doesn't set up the integration. Update System Bridge on the computer. Home Assistant keeps retrying, and sets the integration up once the update is done.
 
 ## Removing the integration
 
