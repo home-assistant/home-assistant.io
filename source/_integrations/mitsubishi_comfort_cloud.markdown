@@ -35,9 +35,9 @@ Local-control credentials, local IP addresses, and DHCP discovery are not requir
 
 {% configuration_basic %}
 Username:
-  description: The email address for your Kumo Cloud account.
+  description: The email address for your Mitsubishi Comfort account.
 Password:
-  description: The password for your Kumo Cloud account.
+  description: The password for your Mitsubishi Comfort account.
 {% endconfiguration_basic %}
 
 ## Supported functionality

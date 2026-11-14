@@ -40,15 +40,15 @@ Existing installations can continue to use local control if Home Assistant has c
 - A [Mitsubishi Comfort (Kumo Cloud)](https://app.kumocloud.com) account with your Mitsubishi devices registered.
 - Devices must be reachable on your local network through their Wi-Fi adapters.
 - Home Assistant must be able to reach Mitsubishi's service when the integration starts or reloads, even if your devices use local control afterward.
-- During setup you will be asked to enter the **username** and **password** for your Kumo Cloud account. The integration uses these credentials to discover your devices, retrieve available local-control credentials, and enable direct communication with your devices.
+- During setup you will be asked to enter the **username** and **password** for your Mitsubishi Comfort account. The integration uses these credentials to discover your devices, retrieve available local-control credentials, and enable direct communication with your devices.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Username:
-  description: The email address for your Kumo Cloud account.
+  description: The email address for your Mitsubishi Comfort account.
 Password:
-  description: The password for your Kumo Cloud account.
+  description: The password for your Mitsubishi Comfort account.
 {% endconfiguration_basic %}
 
 ## Configuration options
