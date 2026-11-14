@@ -39,9 +39,9 @@ Prerequisites:
 - Home Assistant can reach the Modbus interface of the device in one of these ways:
   - Over the network (Modbus TCP): the device, or a Modbus gateway that translates to Modbus TCP, is on your network.
   - Over a serial connection (Modbus RTU): the RS-485 wires of the device are connected to one of these:
-    - A [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
-    - An [ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy) with an RS-485 port.
-    - A [serial device server](/integrations/serial/#serial-device-server) on your network.
+    - A [USB-to-RS-485 adapter](/connectivity/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
+    - An [ESPHome serial proxy](/connectivity/serial/#setting-up-an-esphome-serial-proxy) with an RS-485 port.
+    - A [serial device server](/connectivity/serial/#serial-device-server) on your network.
 
 1. If needed, turn on the Modbus interface of your device.
    - Many devices have Modbus TCP turned off by default. The documentation or the app of your device describes how to turn Modbus TCP on. Some integration pages describe the steps too, for example, [Fronius](/integrations/fronius/#modbus-tcp).
@@ -49,7 +49,7 @@ Prerequisites:
    - To add the integration, follow the steps in the integration documentation.
    - During setup, enter how Home Assistant reaches the device:
      - For a network connection, enter the host and the port. Use the port from the integration documentation. Many devices use `502`, but some use another port.
-     - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate).
+     - For a serial connection, select the [serial port](/connectivity/serial/#serial-port), and enter the [baud rate](/connectivity/serial/#baud-rate).
        - The port that an ESPHome serial proxy shares is listed with the serial ports.
        - For a serial device server, select **Enter manually** and enter its URL. With a `socket://` URL, the baud rate isn't passed on, so set it on the serial device server itself.
    - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**, and device manuals often use the older term slave ID. Most devices use `1`. Unless several devices share the connection, you can usually keep `1`. In YAML, it's `device_address`.
@@ -70,8 +70,8 @@ Prerequisites:
 - Home Assistant can reach the Modbus interface of the device in one of these ways:
   - Over the network (Modbus TCP or Modbus UDP): the device, or a Modbus gateway that translates to Modbus TCP or UDP, is on your network.
   - Over a serial connection (Modbus RTU): the RS-485 wires of the device are connected to one of these, but not to an ESPHome serial proxy:
-    - A [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
-    - A [serial device server](/integrations/serial/#serial-device-server) on your network.
+    - A [USB-to-RS-485 adapter](/connectivity/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
+    - A [serial device server](/connectivity/serial/#serial-device-server) on your network.
 
 1. If needed, turn on the Modbus interface of your device.
 2. In your {% term "`configuration.yaml`" %} file, add a Modbus hub for the connection to your device.
@@ -99,7 +99,7 @@ Prerequisites:
    - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
 2. Under **Connections**, you can see one item for each connection. A connection is the network address of a device or of a Modbus gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
 3. Still under **Connections**, for each connection item, you can see:
-   - The network address, or the [device path](/integrations/serial/#device-path) of the serial port.
+   - The network address, or the [device path](/connectivity/serial/#device-path) of the serial port.
    - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
    - Whether the connection is open right now:
      - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
@@ -146,15 +146,15 @@ A device with its own network interface, such as an inverter that offers Modbus 
 
 #### Serial device server
 
-A device, or software such as `ser2net` or `socat`, that makes a serial port available over your network and passes the data on unchanged. For Modbus, it works like a gateway that forwards the data unchanged, with the same limit: integrations can only use it if they offer a serial connection. For details, refer to [Serial device server](/integrations/serial/#serial-device-server) on the Serial page.
+A device, or software such as `ser2net` or `socat`, that makes a serial port available over your network and passes the data on unchanged. For Modbus, it works like a gateway that forwards the data unchanged, with the same limit: integrations can only use it if they offer a serial connection. For details, refer to [Serial device server](/connectivity/serial/#serial-device-server) on the Serial page.
 
 #### USB-to-RS-485 adapter
 
-An adapter that connects an RS-485 bus to a USB port of your Home Assistant system. For details, refer to [USB-to-serial adapter](/integrations/serial/#usb-to-serial-adapter) on the Serial page.
+An adapter that connects an RS-485 bus to a USB port of your Home Assistant system. For details, refer to [USB-to-serial adapter](/connectivity/serial/#usb-to-serial-adapter) on the Serial page.
 
 #### ESPHome serial proxy
 
-An ESPHome device with an RS-485 port. It makes the bus available to Home Assistant over your network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy) on the Serial page.
+An ESPHome device with an RS-485 port. It makes the bus available to Home Assistant over your network. To set one up, refer to [Setting up an ESPHome serial proxy](/connectivity/serial/#setting-up-an-esphome-serial-proxy) on the Serial page.
 
 ### Devices on a connection
 

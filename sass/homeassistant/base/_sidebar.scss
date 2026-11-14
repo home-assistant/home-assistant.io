@@ -71,8 +71,10 @@
 }
 
 // The categories of an integration: each category with its subcategories
-// indented underneath, joined by a line like a tree.
-#category-module {
+// indented underneath, joined by a line like a tree. The connectivity of an
+// integration uses the same list, without subcategories.
+#category-module,
+#connectivity-module {
   .integration-categories-intro {
     margin: 0 0 8px;
     color: $gray;
@@ -150,7 +152,8 @@
 }
 
 // The integration sidebar indents every list; this one draws its own tree.
-#integration-sidebar #category-module {
+#integration-sidebar #category-module,
+#integration-sidebar #connectivity-module {
   .integration-categories {
     margin-left: 0;
   }

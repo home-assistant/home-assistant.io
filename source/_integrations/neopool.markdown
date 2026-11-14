@@ -58,7 +58,7 @@ For a **network** connection, make sure:
 
 For a **serial** connection, make sure:
 
-- The controller's RS-485 bus is wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS-485 interface can share the port with Home Assistant over the network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy).
+- The controller's RS-485 bus is wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS-485 interface can share the port with Home Assistant over the network. To set one up, refer to [Setting up an ESPHome serial proxy](/connectivity/serial/#setting-up-an-esphome-serial-proxy).
 - You know which serial port the bus is wired to. Use the stable `/dev/serial/by-id/...` path rather than `/dev/ttyUSB0`, whose mapping can change when USB devices are reordered or the host restarts.
 
 {% note %}
