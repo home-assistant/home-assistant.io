@@ -101,6 +101,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Smart Plug or Smart Plug Compact that supports it gets an **LED brightness** value (0 to 100 %), controlling the brightness of the plug's status LED.
 - A Micromodule Dimmer that supports calibration gets a **Dimming speed** value (1 to 10), controlling how quickly the dimmer changes brightness.
 - A Thermostat II or Room Thermostat II that supports display configuration gets a **Display brightness** value (0 to 100 %) and a **Display on-time** value (0 to 3600 seconds), controlling how bright the display is and how long it stays on after a button press.
+- A Heating circuit gets an **Eco temperature** and a **Comfort temperature** value, setting the temperatures used by the eco and comfort levels within the range the controller allows.
 
 ### Select
 
