@@ -15,25 +15,29 @@ Home Assistant supports Bluetooth Low Energy devices. Bluetooth Classic devices 
 
 Home Assistant receives Bluetooth signals through a [Bluetooth adapter](#bluetooth-adapter) that is connected to the system that runs Home Assistant, or through a [Bluetooth proxy](#bluetooth-proxy-remote-adapter) on your network. The [Bluetooth](/integrations/bluetooth/) {% term integration %} manages them. Compatible devices discovered nearby appear on {% my integrations title="**Settings** > **Devices & services**" %}.
 
-This page explains the ways to connect Bluetooth devices, which hardware you can use, and how to check and improve your Bluetooth connections.
+This page explains the ways to connect Bluetooth devices, and how to check and improve your Bluetooth connections.
 
 ## Ways to connect Bluetooth devices
 
-In many cases, a better approach than a directly connected adapter or card is to use a Bluetooth proxy using an ESP32, since Linux kernel updates have previously broken Bluetooth functionality, and Bluetooth driver support on Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems. For more information, refer to [Remote adapters (Bluetooth proxies)](#remote-adapters-bluetooth-proxies).
-
-If a Bluetooth proxy is not a good fit for your use case, consider using the Home Assistant Operating System when using a local adapter, because it includes Bluetooth patches for issues unsolved in other operating systems. For the requirements, refer to [Requirements for Linux systems](/integrations/bluetooth/#requirements-for-linux-systems).
-
-## Hardware for Bluetooth connections
+Home Assistant can receive Bluetooth signals in two ways: with a Bluetooth proxy on your network, or with a Bluetooth adapter that is connected to the system that runs Home Assistant.
 
 ### Bluetooth proxies
 
+A Bluetooth proxy is a small device that you place elsewhere in your home. It receives Bluetooth signals from nearby devices and relays them to Home Assistant over Wi-Fi or Ethernet. Because Bluetooth itself is short-range, you can add several proxies to extend Bluetooth coverage across rooms and floors.
+
+In many cases, a Bluetooth proxy is a better approach than a directly connected adapter or card, since Linux kernel updates have previously broken Bluetooth functionality, and Bluetooth driver support on Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems.
+
 - [Home Assistant Connect AUX-2](/connect/aux-2/) works as a Bluetooth proxy without flashing or configuration. When you add it to Home Assistant, it starts discovering Bluetooth devices around your home.
-- For some devices, there is a ready-made Bluetooth proxy project that you can install from your browser. To see what is available, refer to the [ESPHome Bluetooth proxy projects](https://esphome.io/projects/?type=bluetooth).
-- Some Shelly and SMLIGHT devices can also work as a Bluetooth proxy. For what each type of proxy supports, refer to [Remote adapters (Bluetooth proxies)](#remote-adapters-bluetooth-proxies).
+- An ESP32 device that runs ESPHome can be a Bluetooth proxy. For some devices, there is a ready-made Bluetooth proxy project that you can install from your browser. To see what is available, refer to the [ESPHome Bluetooth proxy projects](https://esphome.io/projects/?type=bluetooth).
+- Some Shelly and SMLIGHT devices can also work as a Bluetooth proxy.
 
-### USB Bluetooth adapters
+For what each type of proxy supports, refer to [Remote adapters (Bluetooth proxies)](#remote-adapters-bluetooth-proxies).
 
-For the adapters that are known to work, and the ones that are not supported, refer to [Installing a USB Bluetooth adapter](#installing-a-usb-bluetooth-adapter).
+### Bluetooth adapters
+
+A Bluetooth adapter is Bluetooth hardware that is directly connected to the system that runs Home Assistant, such as a built-in radio, a USB dongle, or a Bluetooth card.
+
+If you use a local adapter, consider using the Home Assistant Operating System, because it includes Bluetooth patches for issues unsolved in other operating systems. For the requirements, refer to [Requirements for Linux systems](/integrations/bluetooth/#requirements-for-linux-systems). For the adapters that are known to work, and the ones that are not supported, refer to [Installing a USB Bluetooth adapter](#installing-a-usb-bluetooth-adapter).
 
 ## Viewing your Bluetooth adapters and proxies
 
@@ -352,11 +356,11 @@ This section explains the key terms that the Home Assistant documentation uses t
 
 ### Bluetooth adapter
 
-A Bluetooth adapter is Bluetooth hardware that is directly connected to the system running Home Assistant, such as a built-in radio, a USB dongle, or a Bluetooth card. Home Assistant talks to it through the operating system. On Linux, Home Assistant uses [BlueZ](http://www.bluez.org/) via [D-Bus](https://en.wikipedia.org/wiki/D-Bus).
+Bluetooth hardware that is directly connected to the system running Home Assistant. Home Assistant talks to it through the operating system. On Linux, Home Assistant uses [BlueZ](http://www.bluez.org/) via [D-Bus](https://en.wikipedia.org/wiki/D-Bus). To choose one, refer to [Bluetooth adapters](#bluetooth-adapters).
 
 ### Bluetooth proxy (remote adapter)
 
-A separate networked device, typically an ESP32 running ESPHome, that you place elsewhere in your home. It receives Bluetooth signals from nearby devices and relays them to Home Assistant over Wi-Fi or Ethernet. You can add several proxies to extend Bluetooth coverage across rooms and floors, because Bluetooth itself is short-range. A Bluetooth proxy is also known as a remote adapter.
+A separate networked device that receives Bluetooth signals from nearby devices and relays them to Home Assistant. A Bluetooth proxy is also known as a remote adapter. To choose one, refer to [Bluetooth proxies](#bluetooth-proxies).
 
 ### Scanner
 
