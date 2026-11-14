@@ -120,6 +120,14 @@ The integration provides a button for each power command: **Sleep**, **Hibernate
 
 The buttons do the same as the [`system_bridge.power_command`](/actions/system_bridge.power_command/) action, and are easier to add to a dashboard or an automation.
 
+## Command buttons
+
+Each command in the device's [command allowlist](https://system-bridge.timmo.dev/features/commands/) gets a button named after it. Adding, renaming, or removing a command in System Bridge adds, renames, or removes its button straight away.
+
+Pressing a button runs the command on the device and waits for it to finish. Pressing it shows an error if the command can't run, exits with a code other than `0`, or doesn't finish within a few seconds. A command that takes longer keeps running on the device.
+
+Anyone who can press the button in Home Assistant can run the command, so only add commands to the allowlist that you're happy to run from Home Assistant.
+
 ## Power controls
 
 On Linux with power-profiles-daemon, the **Power profile** select entity shows the active power profile, such as **Balanced**, **Performance**, or **Power saver**, and switches to another. Only the profiles the device supports are listed.
