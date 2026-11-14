@@ -180,9 +180,9 @@ Sensors and settings exposed by VeSync Air Fryers.
 
 | Button                  | Description                                                                            |
 | ----------------------- | -------------------------------------------------------------------------------------- |
-| `stop_cooking`          | Stops the current cooking or preheating                                                |
-| `pause_cooking`         | Pauses the current cooking. Only on air fryers that support pausing (CS137, CS158, Turbo Tower Pro) |
-| `resume_cooking`        | Resumes a paused cooking with the remaining time. Same air fryers as pause            |
+| `stop_cooking`          | Stops cooking or preheating                                                            |
+| `pause_cooking`         | Pauses cooking. Only on air fryers that support pausing (CS137, CS158, Turbo Tower Pro) |
+| `resume_cooking`        | Resumes paused cooking with the remaining time. Same air fryers as pause               |
 
 On dual-basket air fryers, each button is available once per basket, such as **Basket 1 pause cooking**. It only acts on that basket.
 
