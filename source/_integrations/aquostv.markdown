@@ -9,56 +9,58 @@ related:
 
 The **Sharp Aquos TV** {% term integration %} allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/index.html).
 
-When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
+## Prerequisites
 
-## Configuration
+Before you add the TV, make sure IP control is set up on it. You need the username and password configured for IP control on the TV, and the TV must be reachable from Home Assistant on your network.
 
-To add a TV to your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: aquostv
-    host: 192.168.0.10
-```
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of your Sharp Aquos TV, for example `192.168.0.10`."
+Port:
+    description: "The port used for IP control. The default is `10002`."
+Username:
+    description: "The username configured for IP control on the TV."
+Password:
+    description: "The password configured for IP control on the TV."
+{% endconfiguration_basic %}
 
-{% configuration %}
-host:
-  description: The IP/Hostname of the Sharp Aquos TV, e.g., `192.168.0.10`.
-  required: true
-  type: string
-port:
-  description: The port of the Sharp Aquos TV.
-  required: false
-  default: 10002
-  type: integer
-username:
-  description: The username of the Sharp Aquos TV.
-  required: false
-  default: admin
-  type: string
-password:
-  description: The password of the Sharp Aquos TV.
-  required: false
-  default: password
-  type: string
-name:
-  description: The name you would like to give to the Sharp Aquos TV.
-  required: false
-  type: string
-power_on_enabled:
-  description: If you want to be able to turn on your TV.
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
+## Reconfiguring the TV connection
 
-{% important %}
-When you set **power_on_enabled** as True, you have to turn on your TV on the first time with the remote.
-Then you will be able to turn on with Home Assistant.
-Also, with **power_on_enabled** as True, the Aquos logo on your TV will stay on when you turn off the TV and your TV could consume more power.
-{% endimportant %}
+If the port, username, or password of your TV changes, you can update them without removing the TV.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Sharp Aquos TV**.
+2. Select the three dots {% icon "mdi:dots-vertical" %} menu next to the TV, then select **Reconfigure**.
+3. Update the port, username, or password, and select **Submit**.
+
+## Supported functionality
+
+The **Sharp Aquos TV** integration adds the TV as a device with the following entity.
+
+### Media player
+
+The media player entity lets you control the TV. It supports the following:
+
+- Turning the TV on and off
+- Setting the volume, changing it in steps, and muting
+- Selecting the input source
+- Play, pause, next, and previous
+- Reading the current power state, input source, and volume level
+
+The volume uses the 0-100 range of the TV.
+
+Home Assistant gets the state of the TV by polling it. If the TV is off, an update can take a while to finish.
+
+## Turning on the TV
+
+Home Assistant can turn on the TV remotely. The first time, turn on the TV with its remote. After that, you can turn it on from Home Assistant.
+
+To allow this, the TV keeps the Aquos logo on when it is turned off, and it can use more power while off.
+
+## YAML configuration
+
+If you set up your TV in your {% term "`configuration.yaml`" %} file, Home Assistant imports it as a TV in the UI the next time it starts. After that, you can remove the YAML entry. The `power_on_enabled` option from your YAML entry is kept during the import.
 
 ## Currently known supported models
 
