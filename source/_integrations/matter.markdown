@@ -384,7 +384,7 @@ A connection without any recent signal is not drawn. A device that has no known 
 
 The Matter protocol supports OTA (Over-the-Air) software updates. But the OTA software update is an optional feature for Matter devices, so not all Matter devices implement it. Home Assistant creates an update entity for every Matter device which does support Matter updates.
 
-The CSA operates a Distributed Compliance Ledger (DCL) which provides metadata for firmware updates. By default, the Matter update entities check the DCL every 12 hours for updates. If you want to force an update check, use the `homeassistant.update_entity` [action](/integrations/homeassistant/), with the update entity as the target. Currently, Eve and Nanoleaf are using the DCL to provide updates. It is expected that in future, more and more firmware updates become available through the DCL.
+The CSA operates a Distributed Compliance Ledger (DCL) which provides metadata for firmware updates. By default, the Matter update entities check the DCL every 12 hours for updates. If you want to force an update check, use the `homeassistant.update_entity` [action](/integrations/homeassistant/), with the update entity as the target. For example, Eve, Heiman, IKEA, insta, and Nanoleaf are using the DCL to provide updates. It is expected that in future, more and more firmware updates become available through the DCL.
 
 <p class='img'>
 <img src='/images/integrations/matter/matter_ota_message.png' alt='Matter device OTA update message'>
