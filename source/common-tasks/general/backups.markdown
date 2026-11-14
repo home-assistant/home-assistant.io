@@ -120,7 +120,6 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you want to back up to your NAS (such as [Synology](/integrations/synology_dsm/#backup-location)) or a cloud provider (such as [Google Drive](/integrations/google_drive/) or [Microsoft OneDrive](/integrations/onedrive/)), check their integration documentation for specific instructions on setting up a Home Assistant backup.
    - If you don't see your network storage or local disk, you haven't added it with the **Backup** usage. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) or [adding a local disk](/common-tasks/os/#adding-a-local-disk), and select the **Backup** usage.
-   ![Define the backup locations](/images/screenshots/network-storage/backup_locations_encryption.png)
 3. To change the encryption or the retention of a location, select the cog {% icon "mdi:cog" %} next to it.
    - Under **Encryption**, select **Turn off** or **Turn on**. Backups on Home Assistant Cloud are always encrypted.
    - Under **Retention for this system**, or the retention for another location, select **Use global settings**, or set a retention for this location only. Home Assistant Cloud always keeps only one backup.
