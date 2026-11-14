@@ -29,6 +29,12 @@ For each Airzone system (HVAC machine), the following *binary sensors* are creat
 | :------------------ | :--------------------------------- |
 | problems            | System has errors or warnings.     |
 
+For the Airzone WebServer, the following *binary sensors* are created:
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| cloud_connected     | WebServer is connected to Airzone Cloud. Diagnostic sensor. |
+
 For each Airzone zone (thermostat), the following *binary sensors* are created:
 
 | Condition           | Description                        |
@@ -75,6 +81,7 @@ For the Airzone WebServer, the following *sensors* are created:
 
 | Condition           | Description                        |
 | :------------------ | :--------------------------------- |
+| interface           | Network interface in use: Ethernet or Wi-Fi. Diagnostic sensor. |
 | rssi                | WiFi RSSI.                         |
 
 For each Airzone zone (thermostat), the following *sensors* are created:
