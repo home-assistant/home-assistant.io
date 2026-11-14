@@ -33,7 +33,7 @@ Official Home Assistant hardware is the recommended choice for ZHA. It is design
 Home Assistant Green does not have a built-in Zigbee radio. To use ZHA with Green, or with any other computer running Home Assistant, add a Zigbee adapter such as the [Home Assistant Connect ZBT-2](/connect/zbt-2/).
 {% endtip %}
 
-To place your Connect ZBT-2 somewhere else in your home, away from the system that runs Home Assistant, you can plug it into a [Home Assistant Connect AUX-2](/connect/aux-2/). The Connect AUX-2 then connects the Connect ZBT-2 to Home Assistant over your network. This is experimental. Use a wired Ethernet connection for the Connect AUX-2.
+To place your Connect ZBT-2 somewhere else in your home, away from the system that runs Home Assistant, you can plug it into a [Home Assistant Connect AUX-2](/connect/aux-2/). The Connect AUX-2 then connects the Connect ZBT-2 to Home Assistant over your network. Use a wired Ethernet connection for the Connect AUX-2.
 
 ### Other tested and compatible Zigbee adapters
 
