@@ -162,73 +162,48 @@ The integration provides an update component, which will notify you when a new v
 
 ## Notifiers
 
-The **System Bridge** {% term integration %} adds a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [notify platform](#notifications-notifysystem_bridge_hostname) instead. For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
+The **System Bridge** {% term integration %} adds a notify {% term entity %} for each computer. To send a plain notification, use the `notify.send_message` {% term action %}. For more notification options, see [Send message](/actions/system_bridge.send_message/). To close a notification, see [Dismiss message](/actions/system_bridge.dismiss_message/). For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
 
 {% example %}
 action: |
   action: notify.send_message
   target:
-    entity_id: notify.my_device
+    entity_id: notify.my_computer
   data:
     title: "Reminder"
     message: "Have you considered frogs?"
 {% endexample %}
 
-## Notifications
+### Notification events
 
-You can send notifications to the device using the `notify.system_bridge_hostname` notify entity.
+With System Bridge 5.20.0 or later, each computer has a notification {% term event %} {% term entity %}, such as `event.my_computer_notification`. It fires when a notification sent by Home Assistant is clicked or closed on the computer, and, with System Bridge 5.27.0 or later, when System Bridge sends a notification from anywhere.
 
-```yaml
-action: notify.system_bridge_hostname
-data:
-  data:
-    image: "https://brands.home-assistant.io/system_bridge/logo@2x.png"
-    timeout: 30
-    actions:
-      - command: api
-        data:
-          endpoint: open
-          method: POST
-          body:
-            url: "http://homeassistant.local:8123/lovelace/cameras"
-        label: "Open Cameras"
-    audio:
-      source: "https://d3qhmae9zx9eb.cloudfront.net/home/amzn_sfx_doorbell_chime_02.mp3"
-      volume: 80
-  title: "Test Title"
-  message: "This is a message"
-```
+| Event type | Attributes | When |
+| ---------- | ---------- | ---- |
+| `sent` | `notification_id`, `title`, `message`, `buttons` | System Bridge sent a notification, from Home Assistant or another app. `buttons` lists each button's `id` and `label`. |
+| `clicked` | `notification_id`, `action` | The notification or one of its buttons was clicked. `action` is the button's `id`, or `default` for the notification itself. |
+| `closed` | `notification_id`, `reason` | The notification closed without a click. `reason` is `expired`, `dismissed` or `closed`. |
 
-### Parameters
+`notification_id` is the same for every event about one notification, and matches the `id` that `system_bridge.send_message` returned, so you can follow a notification from `sent` to its click or close. Linux reports clicks and closes, Windows only clicks, and macOS neither.
 
-- **target**: The target to send the notification to. This can be ignored.
-- **title**: The title of the notification.
-- **message**: The message of the notification.
-- **data**: The data to send to the device. See below for more information.
-
-#### Actions (`data` parameter)
-
-This is a list of actions that can be sent to the device. These are buttons that show below the title, message, and image.
-
-- **command**: The command to send to the device. For example, `api` sends a request to the System Bridge API.
-- **label**: The label of the button.
-- **data**: The data to send to the device. The available parameters for the `api` command are `endpoint`, `method`, `body`, and `params`.
-
-Here is an example action that opens a URL in the device's browser:
-
-```yaml
-- command: api
-  label: "Open Cameras"
-  data:
-    endpoint: open
-    method: POST
-    body:
-      url: "http://homeassistant.local:8123/lovelace/cameras"
-```
-
-#### Audio (`data` parameter)
-
-This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file, such as an MP3.
+{% example %}
+automation: |
+  triggers:
+    - trigger: state
+      entity_id: event.my_computer_notification
+      not_from: unavailable
+  conditions:
+    - condition: state
+      entity_id: event.my_computer_notification
+      attribute: event_type
+      state: clicked
+    - condition: template
+      value_template: "{{ trigger.to_state.attributes.action == 'unlock' }}"
+  actions:
+    - action: lock.unlock
+      target:
+        entity_id: lock.front_door
+{% endexample %}
 
 {% include integrations/actions.md %}
 
