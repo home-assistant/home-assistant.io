@@ -76,6 +76,11 @@ hide_legend:
   description:  If true, the legend will be hidden.
   type: boolean  
   default: false
+hide_single_stat_type:
+  required: false
+  description: If true, the statistic type (for example, "(change)" or "(sum)") is not added to the name of a series when only one statistic type is shown for an entity. If an entity shows multiple statistic types, the type is always shown so the series can be told apart.
+  type: boolean
+  default: false
 logarithmic_scale:
   required: false
   description: If true, numerical values on the Y-axis will be displayed with a logarithmic scale.
