@@ -52,10 +52,6 @@ To prevent a brief disconnection from starting an automation, use a [**State cha
 
 To choose which devices to track and how they are shown, see the [device tracker integration page](/integrations/device_tracker/).
 
-## Known limitations
-
-Some OpenWrt installations are affected by [a small bug](https://github.com/openwrt/luci/issues/576) where the timeout for LuCI RPC calls is not set, which makes the calls fail. To fix this on your router, you can apply the change manually to the `/usr/lib/lua/luci/controller/rpc.lua` file, or set a fixed timeout. The default is 3600.
-
 ## Troubleshooting
 
 ### Some device trackers are missing or no longer updating
