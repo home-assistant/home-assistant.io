@@ -1,0 +1,21 @@
+---
+title: "Connectivity"
+description: "How Home Assistant connects to your devices, like over a serial cable or with Bluetooth, and what you need for each type of connection."
+feedback: false
+regenerate: false
+---
+
+{%- assign connectivity_pages = site.connectivity | sort_natural: 'title' -%}
+
+<p>
+  Home Assistant reaches your devices in different ways. Some devices are on your network, some use a radio like Bluetooth, and some are connected with a cable. These pages explain each type of connection: what it is, what you need for it, and which integrations use it.
+</p>
+
+<ul>
+  {%- for connectivity_page in connectivity_pages -%}
+    {%- assign connectivity = site.data.integration_connectivity | where: 'slug', connectivity_page.connectivity | first %}
+  <li>
+    <a href="{{ connectivity_page.url }}">{% if connectivity %}<iconify-icon icon="{{ connectivity.icon }}"></iconify-icon> {% endif %}{{ connectivity_page.title }}</a>: {{ connectivity_page.description }}
+  </li>
+  {%- endfor %}
+</ul>

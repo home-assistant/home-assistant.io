@@ -26,15 +26,15 @@ module Jekyll
 
     # A virtual integration has no code of its own. It shows the metadata
     # of the integration that supports it, the same way core does.
-    INHERITED_KEYS = %w[codeowners config_flow iot_class platforms discovery categories].freeze
+    INHERITED_KEYS = %w[codeowners config_flow iot_class platforms discovery categories connectivity].freeze
 
     # Front matter keys this plugin always sets or removes, so they have no
     # effect on a page that has core metadata. `ha_domain` stays, the extra
     # pages of an integration need it. The last few are old misspellings.
     SYNCED_KEYS = (
       %w[title ha_integration_type ha_codeowners ha_config_flow ha_iot_class
-         ha_quality_scale ha_platforms ha_iot_standard ha_supporting_domain
-         ha_supporting_integration] +
+         ha_quality_scale ha_platforms ha_iot_standard ha_connectivity
+         ha_supporting_domain ha_supporting_integration] +
       DISCOVERY_METHODS.map { |method| "ha_#{method}" } +
       %w[ha_code_owners ha_qa_scale quality_scale integration_type]
     ).freeze
@@ -75,6 +75,7 @@ module Jekyll
       set(data, 'ha_quality_scale', integration['quality_scale'])
       set(data, 'ha_platforms', integration['platforms'])
       set(data, 'ha_iot_standard', integration['iot_standards']&.first)
+      set(data, 'ha_connectivity', integration['connectivity'])
 
       discovery = integration['discovery'] || []
       DISCOVERY_METHODS.each do |method|

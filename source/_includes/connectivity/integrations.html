@@ -1,0 +1,11 @@
+{%- comment -%}
+  Lists the integrations that use a type of connectivity, from the
+  `connectivity` key in their manifest. Usage:
+  {% include connectivity/integrations.html slug="serial" %}
+{%- endcomment -%}
+{%- assign connectivity_integrations = site.integrations | where_exp: "doc", "doc.ha_connectivity contains include.slug" | sort_natural: 'title' -%}
+<ul>
+{%- for integration in connectivity_integrations %}
+  <li><a href="{{ integration.url }}">{{ integration.title }}</a></li>
+{%- endfor %}
+</ul>
