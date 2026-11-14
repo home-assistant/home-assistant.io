@@ -287,7 +287,7 @@ Each UniFi Protect Alarm Hub is added as a separate device in Home Assistant, li
 
 UniFi Protect reports what happens at an Alarm Hub as events. The Alarm Hub therefore has event entities, which report that something happened, instead of entities with a state.
 
-- **Inputs**: An event entity for each enabled input. Its name uses the input name configured in UniFi Protect, or _Input_ followed by the number of its terminal. See [Alarm Hub Input Event](#alarm-hub-input-event).
+- **Inputs**: An event entity for each enabled input. Its name uses the input name configured in UniFi Protect, or _Input_ followed by the number of its terminal. The emergency input has no entity of its own. Its events arrive on the Alarm Hub entity. See [Alarm Hub Input Event](#alarm-hub-input-event).
 - **Alarm Hub**: An event entity named after the Alarm Hub, for events of the hub itself, such as an opened cover, a low backup battery, or a switched relay. See [Alarm Hub Event](#alarm-hub-event).
 
 ### NVR
@@ -773,7 +773,7 @@ The `not_from` option keeps the automation from running during startup or power-
 - **Event Attributes**:
   - **event_type**: One of `motion`, `entry_opened`, `entry_closed`, `smoke`, `glass_break`, `button_press`, or `tamper`.
   - **event_id**: A unique ID that identifies the event.
-  - **status**: The status UniFi Protect reports with the event, such as `alarm`.
+  - **status**: The status UniFi Protect reports with the event, such as `alarm`, `normal` for a closed entry input, or `short` and `cut` for a tampered wire.
 - **Description**: This event is triggered when an input of a UniFi Protect Alarm Hub reports something. The event type follows the input type set in UniFi Protect. An input without a type reports `motion`.
 
 Each event is a one-time notification, not a state. An entry input reports both opening and closing. For the other input types, the event fires when the input triggers. There is no event when it returns to normal.
@@ -805,7 +805,7 @@ actions:
 
 #### Example Alarm Hub Motion Light Automation
 
-A motion input reports motion, but not when the motion ends. With `mode: restart`, each motion event starts the delay again, so the light turns off 2 minutes after the last motion.
+A motion input reports motion, but not when the motion ends. With `mode: restart`, each motion event starts the delay again, so the light turns off 2 minutes after the last motion event.
 
 ```yaml
 alias: "Alarm Hub hallway light"
