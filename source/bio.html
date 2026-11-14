@@ -1,0 +1,34 @@
+---
+title: Home Assistant
+description: Open source home automation that puts local control and privacy first.
+layout: null
+permalink: /bio/
+sitemap: false
+---
+{%- comment -%}
+  The link-in-bio page is built by Astro (astro/src/pages/bio/index.astro)
+  and published over this file by `rake generate` (astro/served-routes.json).
+  This minimal page is only what visitors get if the Astro build fails on a
+  production deploy, so /bio/ never turns into a missing page.
+{%- endcomment -%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <style>
+      body { margin: 0; padding: 3rem 1rem; background: #18bcf2; color: #04202b; font: 1rem/1.5 system-ui, sans-serif; text-align: center; }
+      a { display: block; max-width: 20rem; margin: .5rem auto; padding: .75rem 1rem; background: #fff; border-radius: .5rem; color: inherit; font-weight: 600; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <h1>Home Assistant</h1>
+    <p>{{ page.description }}</p>
+    <a href="/">home-assistant.io</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://store.openhomefoundation.org">Merch store</a>
+  </body>
+</html>

@@ -65,7 +65,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="low battery sensor" example="binary_sensor.phone_battery_low" %}
 
 {% include conditions/behavior.md %}
 

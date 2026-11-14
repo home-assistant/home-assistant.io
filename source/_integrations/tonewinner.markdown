@@ -1,18 +1,7 @@
 ---
-title: Tonewinner
 description: Instructions on how to integrate Tonewinner processors and receivers into Home Assistant.
-ha_categories:
-  - media_entertainment.speakers_audio
-ha_codeowners:
-  - '@emma-sg'
-ha_config_flow: true
 ha_domain: tonewinner
-ha_integration_type: device
-ha_iot_class: Local Push
-ha_platforms:
-  - media_player
 ha_release: '2026.9'
-ha_quality_scale: silver
 ---
 
 The **Tonewinner** {% term integration %} allows you to control [Tonewinner](https://en.tonewinner.com/) AV processors, receivers, and amps from Home Assistant over an RS-232 serial connection.

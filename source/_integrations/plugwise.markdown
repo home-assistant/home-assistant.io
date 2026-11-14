@@ -1,29 +1,7 @@
 ---
-title: Plugwise
 description: Plugwise Gateway platform integration.
-ha_categories:
-  - climate.thermostats_heating
-  - energy.meters_monitoring
-ha_iot_class: Local Polling
 ha_release: 0.98
-ha_codeowners:
-  - '@CoMPaTech'
-  - '@bouwew'
-ha_config_flow: true
 ha_domain: plugwise
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 [Plugwise](https://www.plugwise.com) provides smart home devices that allow you to monitor and control your climate, energy (including gas) consumption, and energy production. The energy information can be used for the [energy dashboard](/home-energy-management).

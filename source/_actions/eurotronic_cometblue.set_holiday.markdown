@@ -81,7 +81,7 @@ temperature:
   type: float
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Eurotronic Comet Blue thermostat" example="climate.living_room_radiator" %}
 
 ## Good to know
 

@@ -74,7 +74,7 @@ trigger: |
    unit_example_entity="input_number.radon_reference_level"
    unit_example_value="300" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="radon sensor" example="sensor.basement_radon" %}
 
 ## Good to know
 

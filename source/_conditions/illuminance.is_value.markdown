@@ -129,7 +129,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="illuminance sensor" example="sensor.living_room_illuminance" %}
 
 {% include conditions/behavior.md %}
 

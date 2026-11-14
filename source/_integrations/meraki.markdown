@@ -1,24 +1,12 @@
 ---
-title: Meraki
 description: Instructions on how to use Cisco Meraki networks for presence detection in Home Assistant.
-ha_categories:
-  - presence_location.network_presence
-  - computers_network.routers_network
-ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: meraki
-ha_codeowners:
-  - '@felixblang'
-ha_config_flow: true
-ha_platforms:
-  - device_tracker
-ha_integration_type: hub
 related:
   - url: https://dashboard.meraki.com/
     title: Meraki Dashboard
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Meraki** {% term integration %} connects Home Assistant to [Cisco Meraki](https://meraki.cisco.com/) networks through the [Meraki Dashboard API](https://developer.cisco.com/meraki/api-v1/). It tracks whether the clients of your networks, such as phones and laptops on Wi-Fi or computers on a Meraki switch, are connected.

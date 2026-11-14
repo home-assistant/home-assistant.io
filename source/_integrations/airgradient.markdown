@@ -1,28 +1,9 @@
 ---
-title: AirGradient
 description: Instructions on how to set up AirGradient devices in Home Assistant.
-ha_categories:
-  - sensors.air_quality
-ha_config_flow: true
 ha_release: 2024.6
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@airgradienthq'
-  - '@joostlek'
 ha_domain: airgradient
-ha_platforms:
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: device
-ha_zeroconf: true
 works_with:
   - local
-ha_quality_scale: platinum
 ---
 
 The **AirGradient** {% term integration %} will fetch data from your [AirGradient devices](https://www.airgradient.com/).
@@ -71,7 +52,7 @@ The integration will fetch data from each device. The following sensors are supp
 - Temperature
 - Total volatile organic compounds index
 - Battery percentage
-- Battery voltage ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
+- Battery voltage ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - Input voltage (disabled by default)
 - PM0.5 particle count (disabled by default)
 - PM1 particle count (disabled by default)
@@ -107,6 +88,7 @@ The following entities are supported:
 - Configuration source
 - Data used for the LED bar
 - Display PM standard
+- Altitude unit
 - Measurement interval
 - CO2 automatic baseline calibration days
 - NOx learning offset

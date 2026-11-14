@@ -205,6 +205,7 @@
   <ul>
     <li>{% active_link /docs/energy/electricity-grid/ Electricity grid %}</li>
     <li>{% active_link /docs/energy/solar-panels/ Solar panels %}</li>
+    <li>{% active_link /docs/energy/home-consumption/ Home consumption %}</li>
     <li>{% active_link /docs/energy/battery/ Home batteries %}</li>
     <li>{% active_link /docs/energy/gas/ Gas usage %}</li>
     <li>{% active_link /docs/energy/water/ Water usage %}</li>
@@ -243,35 +244,71 @@
   {% icon "mdi:update" %} {% active_link /common-tasks/general/ Common tasks %}
   {% if root == 'common-tasks' or include.docs_index %}
   <ul>
-    <li>{% active_link /common-tasks/general/ Installation independent %}</li>
-    <li>{% active_link /common-tasks/os/ Home Assistant Operating System %}</li>
+    <li>
+      {% active_link /common-tasks/general/ Installation independent %}
+      <ul>
+        <li>{% active_link /common-tasks/general/backups/ Backups %}</li>
+        <li>{% active_link /common-tasks/general/logs/ Logs %}</li>
+        <li>{% active_link /common-tasks/general/restarting/ Reload, restart, reboot, shut down %}</li>
+        <li>{% active_link /common-tasks/general/updating/ Updates %}</li>
+      </ul>
+    </li>
+    <li>
+      {% active_link /common-tasks/os/ Home Assistant Operating System %}
+      <ul>
+        <li>{% active_link /common-tasks/os/apps/ Installing and managing apps %}</li>
+        <li>{% active_link /common-tasks/os/logs/ Logs %}</li>
+      </ul>
+    </li>
     <li>{% active_link /common-tasks/container/ Home Assistant Container %}</li>
     <li>{% active_link /docs/troubleshooting_general/ General troubleshooting %}</li>
   </ul>
   {% endif %}
 </li>
 
+{%- assign concept_urls = "/docs/apps-and-integrations/,/docs/configuration/entities_domains/,/docs/configuration/state_object/,/docs/configuration/events/,/docs/configuration/long-term-statistics/" | split: "," -%}
 <li>
-  {% icon "mdi:cogs" %} {% active_link /docs/configuration/basic Configuration %}
+  {% icon "mdi:lightbulb-on-outline" %} {% active_link /docs/configuration/entities_domains/ Home Assistant concepts %}
+  {% if concept_urls contains page.url or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/apps-and-integrations/ Apps and integrations %}</li>
+    <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
+    <li>{% active_link /docs/configuration/events/ Events %}</li>
+    <li>{% active_link /docs/configuration/long-term-statistics/ Long-term statistics %}</li>
+    <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:cogs" %} {% active_link /docs/configuration/overview/ Configuration %}
   {% if doc == 'configuration' or include.docs_index %}
   <ul>
+    <li>{% active_link /docs/configuration/overview/ Overview %}</li>
     <li>{% active_link /docs/configuration/basic/ Home information %}</li>
+    <li>{% active_link /docs/configuration/network/ Network %}</li>
     <li>{% active_link /docs/configuration/user-configuration/ People and user configuration %}</li>
-    <li>{% active_link /docs/configuration/customizing-devices/ Customizing entities %}</li>
-    <li>{% active_link /docs/configuration/remote/ Remote access to Home Assistant %}</li>
-    <li>{% active_link /docs/configuration/securing/ Securing your Home Assistant %}</li>
-    <li>{% active_link /docs/configuration/secrets/ Storing secrets in YAML %}</li>
-    <li>{% active_link /docs/configuration/yaml/ YAML syntax %}</li>
-    <li>{% active_link /docs/configuration/ The configuration.yaml file %}</li>
-    <li>{% active_link /docs/configuration/troubleshooting/ Troubleshooting configuration %}</li>
-    <li>{% active_link /docs/configuration/splitting_configuration/ Splitting up the configuration %}</li>
-    <li>{% active_link /docs/configuration/packages/ Packages %}</li>
-    <li>{% active_link /docs/configuration/events/ Events %}</li>
-    <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
-    <li>{% active_link /docs/configuration/long-term-statistics/ Long-term statistics %}</li>
-    <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
+    <li>{% active_link /docs/configuration/customizing-entities/ Customizing entities %}</li>
     <li>{% active_link /docs/configuration/helpers/ Helpers %}</li>
-    <li>{% active_link /docs/configuration/platform_options/ Entity component platform options %}</li>
+    <li>
+      Remote access and security
+      <ul>
+        <li>{% active_link /docs/configuration/remote/ Remote access to Home Assistant %}</li>
+        <li>{% active_link /docs/configuration/securing/ Securing your Home Assistant %}</li>
+      </ul>
+    </li>
+    <li>
+      YAML configuration
+      <ul>
+        <li>{% active_link /docs/configuration/ The configuration.yaml file %}</li>
+        <li>{% active_link /docs/configuration/yaml/ YAML syntax %}</li>
+        <li>{% active_link /docs/configuration/secrets/ Storing secrets in YAML %}</li>
+        <li>{% active_link /docs/configuration/splitting_configuration/ Splitting up the configuration %}</li>
+        <li>{% active_link /docs/configuration/packages/ Packages %}</li>
+        <li>{% active_link /docs/configuration/platform_options/ Entity component platform options %}</li>
+      </ul>
+    </li>
+    <li>{% active_link /docs/configuration/troubleshooting/ Troubleshooting configuration %}</li>
   </ul>
   {% endif %}
 </li>

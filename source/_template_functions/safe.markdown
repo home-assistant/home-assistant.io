@@ -1,7 +1,7 @@
 ---
 title: "Mark as safe HTML: safe"
 function_name: "safe"
-description: "Marks a string as safe HTML so it will not be escaped when rendered."
+description: "Marks a string as safe HTML, so a later escape filter leaves it unchanged."
 available_as:
   - filter
 category: strings
@@ -14,8 +14,15 @@ related_functions:
   - striptags
 ---
 
-The `safe` filter marks a string as safe HTML, which means it will not be automatically escaped when rendered in an HTML context. Without this filter, HTML characters like `<` and `>` would be converted to their entity equivalents to prevent accidental HTML injection.
-This is useful when you intentionally want to include HTML markup in your output. For example, you might want to include bold text, links, or line breaks in a Markdown card or an HTML notification message. Use this filter with care and only on content you trust, since it bypasses the automatic escaping that protects against malformed or unexpected HTML.
+The `safe` filter marks a string as safe HTML. Some template engines escape HTML characters automatically, and safe text is skipped.
+
+Home Assistant doesn't escape template output. Characters like `<` and `>` stay as they are, with or without `safe`. So when you output text directly, `safe` doesn't change it. You can include HTML markup, such as bold text or line breaks, without it.
+
+`safe` matters when something later in the template treats safe text differently. The following cases are the most common:
+
+- The [`escape`](/template-functions/escape/) filter leaves safe text unchanged. For example, {% raw %}`{{ '<b>x</b>' | escape }}`{% endraw %} escapes the tags, but {% raw %}`{{ '<b>x</b>' | safe | escape }}`{% endraw %} keeps them.
+- When you join safe text with other text using `+`, the other text is escaped. For example, {% raw %}`{{ ('<b>' | safe) + '<i>' }}`{% endraw %} gives `<b>&lt;i&gt;`.
+- The [`xmlattr`](/template-functions/xmlattr/) filter doesn't escape safe text in attribute values.
 
 {% include template_functions/usage.md %}
 
@@ -40,14 +47,14 @@ The following parameters can be provided to this function.
 {% function_parameters %}
 value:
   description: >
-    The string to mark as safe. It will not be escaped when rendered in an HTML context.
+    The string to mark as safe.
   required: true
   type: string
 {% endfunction_parameters %}
 
 ## Good to know
 
-- Only apply this to content you trust. Untrusted input marked safe can inject HTML.
+- Home Assistant doesn't escape template output. When you output text directly, the result is the same with or without `safe`. Later filters and operations, such as `escape`, `xmlattr`, or joining text with `+`, can treat safe text differently.
 - Use [`forceescape`](/template-functions/forceescape/) downstream to re-escape a value that was marked safe.
 
 {% include template_functions/try_it.md %}
@@ -56,7 +63,7 @@ value:
 
 ### Include HTML formatting in a notification
 
-Mark a string as safe to include bold text in an HTML notification.
+Mark a string as safe to include bold text in an HTML notification. The output is the same without `safe`.
 
 {% example %}
 template: |
@@ -70,7 +77,7 @@ output: "<b>Alert:</b> Motion detected in the living room"
 
 ### Add a line break in output
 
-Include an HTML line break in your template output.
+Include an HTML line break in your template output. The output is the same without `safe`.
 
 {% example %}
 template: '{{ ("Temperature: 22°C<br>Humidity: 65%") | safe }}'

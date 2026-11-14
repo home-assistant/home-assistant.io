@@ -1,19 +1,7 @@
 ---
-title: Alpha Bidet Infrared
 description: Integration to control Alpha Bidet bidet seats using an infrared transmitter.
-ha_categories:
-  - health_wellbeing
 ha_release: '2026.11'
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@eseverson'
 ha_domain: alpha_bidet_infrared
-ha_config_flow: true
-ha_platforms:
-  - button
-  - select
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Alpha Bidet Infrared** {% term integration %} lets you control an Alpha Bidet bidet seat using any infrared transmitter previously configured in Home Assistant. It sends the same infrared commands as the bidet's wireless remote.
@@ -47,6 +35,17 @@ Infrared transmitter:
 Bidet model:
   description: The Alpha Bidet model to control, which determines the IR command set the integration uses.
 {% endconfiguration_basic %}
+
+## Reconfiguring the integration
+
+If you replace your infrared transmitter, or want the bidet controlled by a different one, you can update the device without removing and re-adding the integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Alpha Bidet Infrared** integration and select it.
+3. Next to the bidet you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+4. Select the new infrared transmitter and select **Submit**.
+
+The same rules as during setup apply: each infrared transmitter can control one bidet. Changing the transmitter keeps the bidet's entities and their entity IDs, so your dashboards and automations keep working. The bidet model cannot be changed. To switch models, [remove the integration](#removing-the-integration) and add it again.
 
 ## Supported functionality
 

@@ -1,19 +1,7 @@
 ---
-title: Weheat
 description: Instructions on setting up Weheat within Home Assistant.
-ha_categories:
-  - climate.heat_pumps_air_conditioning
-ha_iot_class: Cloud Polling
 ha_release: '2024.10'
-ha_config_flow: true
-ha_codeowners:
-  - '@barryvdh'
 ha_domain: weheat
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Weheat** {% term integration %} allows you to display your [Weheat](https://www.weheat.nl/) devices through Home Assistant.
@@ -45,7 +33,7 @@ The Weheat integration provides the following sensors:
 - **Water outlet temperature**: The heat pump water outlet temperature in °C
 - **Water target temperature**: Target for the water temperature in °C
 - **Central heating inlet temperature**: The central heating inlet temperature in °C
-- **Central heating flow** The flow volume of the central heating pump
+- **Central heating pump flow**: The flow volume of the central heating pump
 - **Outside temperature**: Outside temperature in °C
 - **Current room temperature**: Current room temperature in °C
 - **Room temperature setpoint**: Setpoint for the room temperature in °C
@@ -60,24 +48,25 @@ The Weheat integration provides the following sensors:
 - **Energy output DHW**: Total output generated in kWh during DHW mode (optional)
 - **Energy output cooling**: Total output generated in kWh during cooling mode. Note that this energy number is negative and decreasing as energy is removed from the house.
 - **Energy output defrost**: Total output generated in kWh during defrost mode. Note that this energy number is negative and decreasing as energy is removed from the house.
-- **Energy output**: Total output generated in kWh
+- **Total energy output**: Total output generated in kWh
 - **State**: The current heat pump state
 - **DHW top temperature**: The domestic hot water temperature in the top of the vessel in °C (optional)
-- **DHW bottom temperature"**: The domestic hot water temperature in the bottom of the vessel in °C (optional)
+- **DHW bottom temperature**: The domestic hot water temperature in the bottom of the vessel in °C (optional)
 - **DHW pump flow**: The flow volume of the DHW pump (optional)
 - **DHW control method**: The DHW control method that is currently used
 - **DHW target temperature**: The DHW target temperature
 - **Air outlet temperature**: The air outlet temperature
-- **Compressor RPM**: The rpm of the compressor fan.
-- **Compressor percentage**: The percentage of the compressor fan. Can exceed 100% for some models.
+- **Compressor speed**: The rpm of the compressor fan.
+- **Compressor usage**: The percentage of the compressor fan. Can exceed 100% for some models.
 
 Depending on the model/installation, states for the Indoor Unit states are available:
 
 - **Indoor unit water pump**
 - **Indoor unit auxiliary water pump**
 - **Indoor unit DHW valve or water pump**
-- **Indoor unit gas boiler heating allowed** - Note: This may be True even when no gas boiler is installed or active.
+- **Indoor unit gas boiler heating allowed**: Note: This may be True even when no gas boiler is installed or active.
 - **Indoor unit electric heater**
+- **On/off thermostat**: On when a connected on/off thermostat requests heat.
 
 If the heat pump supports cooling, the following sensors are available:
 
@@ -89,7 +78,7 @@ If the heat pump supports cooling, the following sensors are available:
 - **Cooling pause reason**: Why the last cooling cycle paused, such as **Water temperature colder than setpoint**.
 - **Cooling stop reason**: Why the last cooling cycle stopped, such as **Stopped by control method**.
 
-The heat pump checks a set of conditions before it starts cooling, and each one is available as a diagnostic binary sensor. These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). You can [enable them in the entity settings](/docs/configuration/customizing-devices/).
+The heat pump checks a set of conditions before it starts cooling, and each one is available as a diagnostic binary sensor. These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). You can [enable them in the entity settings](/docs/configuration/customizing-entities/).
 
 - **Cooling allowed by control method**
 - **No cooling-related faults**

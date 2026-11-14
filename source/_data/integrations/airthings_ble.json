@@ -1,0 +1,23 @@
+{
+  "domain": "airthings_ble",
+  "name": "Airthings BLE",
+  "integration_type": "device",
+  "codeowners": [
+    "@vincegio",
+    "@LaStrada"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "connectivity": [
+    "bluetooth"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

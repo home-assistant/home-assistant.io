@@ -1,28 +1,7 @@
 ---
-title: Whirlpool Appliances
 description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
-ha_categories:
-  - appliances_cleaning.laundry
-  - appliances_cleaning.cooking
-  - climate.heat_pumps_air_conditioning
 ha_release: '2022.10'
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@abmantis'
-  - '@mkmer'
 ha_domain: whirlpool
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Whirlpool Appliances** {% term integration %} allows you to connect Whirlpool, Maytag, KitchenAid, and Consul appliances to Home Assistant.

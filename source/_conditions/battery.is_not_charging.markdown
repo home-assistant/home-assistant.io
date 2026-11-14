@@ -63,7 +63,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="battery charging sensor" example="binary_sensor.phone_charging" %}
 
 {% include conditions/behavior.md %}
 

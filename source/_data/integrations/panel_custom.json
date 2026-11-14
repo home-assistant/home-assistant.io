@@ -1,0 +1,9 @@
+{
+  "domain": "panel_custom",
+  "name": "Custom panel",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/frontend"
+  ],
+  "quality_scale": "internal"
+}

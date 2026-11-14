@@ -49,7 +49,7 @@ This passes when the office CO2 sensor reads above 1000 ppm.
    threshold_required="true"
    entity_unit="`ppm`" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="carbon dioxide sensor" example="sensor.living_room_co2" %}
 
 {% include conditions/behavior.md %}
 

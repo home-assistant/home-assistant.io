@@ -53,7 +53,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md domain="binary_sensor" %}
+{% include conditions/targets.md entity_type="carbon monoxide detector" example="binary_sensor.hallway_carbon_monoxide" %}
 
 {% include conditions/behavior.md %}
 

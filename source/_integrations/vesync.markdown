@@ -1,35 +1,7 @@
 ---
-title: VeSync
 description: Instructions on how to set up VeSync devices with Home Assistant.
-ha_categories:
-  - climate.air_purifiers_humidifiers
-  - plugs_switches
-  - appliances_cleaning.cooking
 ha_release: 0.66
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@markperdue'
-  - '@webdjoe'
-  - '@thegardenmonkey'
-  - '@cdnninja'
-  - '@iprak'
-  - '@sapuseven'
 ha_domain: vesync
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - fan
-  - humidifier
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: hub
-ha_quality_scale: bronze
-ha_dhcp: true
 ---
 
 The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets, humidifers and select air fryers.
@@ -39,6 +11,7 @@ The devices must be added to the VeSync App before this {% term integration %} c
 The following platforms are supported:
 
 - **binary sensor**
+- **button**
 - **fan**
 - **humidifier**
 - **light**
@@ -85,6 +58,7 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- OasisMist 4.5L Smart Humidifier (LUH-O451S-WEU)
 - OasisMist 1000S Smart Ultrasonic Cool Mist Tower Humidifier (LUH-M101S-WUS)
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
@@ -135,6 +109,10 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
 
+| Button                  | Description                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| `reset_filter`          | Resets the filter life to 100%. Press it after replacing the filter. (Core 200S)   |
+
 ## Fan exposed attributes
 
 VeSync air purifiers will expose the following details depending on the features supported by the model:
@@ -157,6 +135,10 @@ VeSync air purifiers will expose the following details depending on the features
 ## Humidifier
 
 Sensors and settings exposed by VeSync humidifiers.
+
+On humidifiers with a color night light, the **Night light** entity provides on/off, brightness, and color controls. You can control the night light while mist output is off.
+
+The OasisMist 4.5L has a minimum light brightness of 40%, so its night light cannot dim below that level.
 
 | Sensor                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |

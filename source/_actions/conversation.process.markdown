@@ -2,6 +2,7 @@
 title: "Process conversation"
 action: conversation.process
 domain: conversation
+response: optional
 description: "Sends text to a conversation agent for processing."
 related_actions:
   - conversation.reload
@@ -84,6 +85,8 @@ conversation_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 When you store the result in a response variable, this action returns the conversation agent's response, including the spoken reply and the result of the intent. The response has the same structure as the [`/api/conversation/process` API](https://contributors.home-assistant.io/core/internals/conversation-api/#the-response).
 
