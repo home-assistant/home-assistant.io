@@ -36,7 +36,7 @@ A USB-to-serial adapter is an adapter that you plug into the system that runs Ho
 
 ### Serial device servers
 
-A serial device server is a device or computer that already shares a serial port on your network. Home Assistant uses such a port a bit differently from a serial proxy. For the details, refer to [Serial device server](#serial-device-server).
+A serial device server is a device or computer that already shares a serial port on your network. Because the connection to a serial device server is not encrypted, a serial device server is not recommended. To connect a device over your network, use an [ESPHome serial proxy](#serial-proxies) instead. Home Assistant also uses a port on a serial device server a bit differently from a serial proxy. For the details, refer to [Serial device server](#serial-device-server).
 
 ## Setting up a serial connection in Home Assistant
 
