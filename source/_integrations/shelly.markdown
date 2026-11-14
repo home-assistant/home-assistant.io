@@ -96,7 +96,7 @@ Shelly Gen 2 and newer devices (excluding battery-powered models) can act as Blu
 Shelly devices do **not** support proxying active (GATT) connections.
 {% endtip %}
 
-For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
+For more details, see [Remote Adapters](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
 
 ## Range Extender Support
 

@@ -10,7 +10,7 @@ Integrates Airthings BLE {% term sensors %} into Home Assistant.
 
 ## Prerequisites
 
-- A supported Airthings device (see [Supported devices](#supported-devices)) within Bluetooth range of your Home Assistant host, or of a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) that supports active connections.
+- A supported Airthings device (see [Supported devices](#supported-devices)) within Bluetooth range of your Home Assistant host, or of a [Bluetooth proxy](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies) that supports active connections.
 - A working [Bluetooth](/integrations/bluetooth) integration.
 - The device must use Bluetooth connectivity. All supported devices except Wave Gen. 1 can connect through SmartLink instead, using a nearby Airthings device as a hub.
   - Bluetooth is then turned on only briefly after you wave at the device or press its button, and Home Assistant can't read it.
