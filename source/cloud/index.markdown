@@ -1,6 +1,6 @@
 ---
-title: "Home Assistant Cloud"
-description: "Home Assistant Cloud is an optional subscription from Nabu Casa that adds secure remote access, voice assistant integrations with Google and Alexa, and helps fund the project."
+title: "Home Assistant Link"
+description: "Home Assistant Link is an optional subscription from Nabu Casa that adds secure remote access, voice assistant integrations with Google and Alexa, and helps fund the project."
 sidebar: false
 ha_release: "0.60"
 ha_iot_class: Cloud Push
@@ -11,9 +11,9 @@ ha_domain: cloud
 This service is planned to be renamed to Home Assistant Link on December 2nd, 2026. [Learn more here](https://www.home-assistant.io/blog/2026/10/02/big-tech-ruined-the-cloud-so-were-renaming-ours/).
 {% endnote %}
 
-Home Assistant Cloud is an optional subscription service provided by our partner [Nabu Casa](https://www.nabucasa.com). It adds secure remote access to your Home Assistant from anywhere, integrations with Google Assistant and Amazon Alexa, and the text-to-speech and speech-to-text engines used by [Assist](/voice_control/). Subscriptions also help fund the development of Home Assistant itself.
+Home Assistant Link is an optional subscription service provided by our partner [Nabu Casa](https://www.nabucasa.com). It adds secure remote access to your Home Assistant from anywhere, integrations with Google Assistant and Amazon Alexa, and the text-to-speech and speech-to-text engines used by [Assist](/voice_control/). Subscriptions also help fund the development of Home Assistant itself.
 
-Home Assistant works fully without it. Home Assistant Cloud is there for the things that genuinely benefit from a cloud connection, such as remote access and the voice assistant integrations, while everything else continues to run locally on your own hardware.
+Home Assistant works fully without it. Home Assistant Link is there for the things that genuinely benefit from a cloud connection, such as remote access and the voice assistant integrations, while everything else continues to run locally on your own hardware.
 
 For full details on features, pricing, and setup instructions, see the [Nabu Casa website](https://www.nabucasa.com/link/).
 

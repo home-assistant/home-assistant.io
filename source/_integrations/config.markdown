@@ -15,7 +15,7 @@ The **Settings** menu provides access to the following panels:
 
 ### Home Assistant Cloud
 
-Enables you to connect to [Home Assistant Cloud](https://support.nabucasa.com/hc/articles/26260474250269) to use features such as secure remote access, voice assistants, or cloud storage for backups.
+Enables you to connect to [Home Assistant Link](https://support.nabucasa.com/hc/articles/26260474250269) to use features such as secure remote access, voice assistants, or cloud storage for backups.
 
 ### Devices & services
 

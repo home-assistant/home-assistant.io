@@ -8,12 +8,12 @@
   preparing-for-a-backup: /common-tasks/general/backups/#preparing-for-a-backup
   setting-up-an-automatic-backup-process: /common-tasks/general/backups/#setting-up-an-automatic-backup-process
   defining-backup-locations: /common-tasks/general/backups/#defining-backup-locations
-  about-the-backup-storage-on-home-assistant-cloud: /common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-cloud
+  about-the-backup-storage-on-home-assistant-cloud: /common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-link
   to-define-the-backup-location-for-automatic-backups: /common-tasks/general/backups/#to-define-the-backup-location-for-automatic-backups
   creating-a-backup-automation-using-the-backup-action: /common-tasks/general/backups/#creating-a-backup-automation-using-the-backup-action
   creating-a-manual-backup: /common-tasks/general/backups/#creating-a-manual-backup
   downloading-your-local-backups: /common-tasks/general/backups/#downloading-your-local-backups
-  downloading-a-backup-from-home-assistant-cloud: /common-tasks/general/backups/#downloading-a-backup-from-home-assistant-cloud
+  downloading-a-backup-from-home-assistant-cloud: /common-tasks/general/backups/#downloading-a-backup-from-home-assistant-link
   app-update-backups: /common-tasks/general/backups/#app-update-backups
   changing-app-update-backup-settings: /common-tasks/general/backups/#changing-app-update-backup-settings
   deleting-obsolete-backups: /common-tasks/general/backups/#deleting-obsolete-backups
