@@ -27,7 +27,7 @@ You choose the sets in the **AI tools** option of each {% term "conversation age
 
 ## What the Home Assistant AI tools can reach
 
-The Home Assistant AI tools are not limited to the entities that you expose to voice assistants. They can read the state of every entity, the status of your integrations, your logs, and the history of your sensors. For the full list, refer to [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools).
+The Home Assistant {% term "AI tools" %} are not limited to the {% term entities %} that you expose to voice assistants. They can read the state of every entity, the status of your {% term integrations %}, your logs, and the history of your sensors. For the full list, refer to [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools).
 
 Most of the Home Assistant AI tools only read. Two tools can change things:
 
@@ -96,18 +96,18 @@ To set up a separate assistant for the Home Assistant AI tools:
 
 ### List of Home Assistant AI tools
 
-You don't call these tools yourself. When you ask the conversation agent something, it decides which tools to call. You can't select single tools. You give the conversation agent the entire set, as described in [Adding the Home Assistant AI tools to your conversation agent](#adding-the-home-assistant-ai-tools-to-your-conversation-agent).
+You don't call these tools yourself. When you ask the {% term "conversation agent" %} something, it decides which tools to call. You can't select single tools. You give the conversation agent the entire set, as described in [Adding the Home Assistant AI tools to your conversation agent](#adding-the-home-assistant-ai-tools-to-your-conversation-agent).
 
-The **Home Assistant** set of AI tools contains the following tools. Each entry starts with the title of the tool, followed by its ID. The Assist dialog shows the ID under **Show details**. Many tools do something that you can also do yourself in the UI, without a conversation agent. Where you can, the entry says how. For example, you can check what the conversation agent tells you.
+The **Home Assistant** set of {% term "AI tools" %} contains the following tools. Each entry starts with the title of the tool, followed by its ID. The {% term Assist %} dialog shows the ID under **Show details**. Many tools do something that you can also do yourself in the UI, without a conversation agent. Where you can, the entry says how. For example, you can check what the conversation agent tells you.
 
-- **Render template** (`homeassistant__render_template`): Renders a [template](/docs/templating/) and returns the result. Templates can read the state and attributes of all entities. Only reads.
+- **Render template** (`homeassistant__render_template`): Renders a [template](/docs/templating/) and returns the result. Templates can read the state and attributes of all {% term entities %}. Only reads.
   - To do this yourself: Use the **Template** tab, under {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
-- **Search actions** (`homeassistant__search_actions`): Finds the actions that Home Assistant can perform, with their targets and fields. Only reads.
+- **Search actions** (`homeassistant__search_actions`): Finds the {% term actions %} that Home Assistant can perform, with their targets and fields. Only reads.
   - To do this yourself: Use the **Actions** tab, under {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
 - **Call action** (`homeassistant__call_action`): Performs an action, and returns its response if it has one. Changes things.
   - To do this yourself: Use the **Actions** tab, under {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
   - To see which actions the conversation agent performed: Go to **Settings** > **Tools** > **Action history**.
-- **Get config entries** (`config__get_config_entries`): Lists the integrations and helpers that are set up, with their status, such as loaded or failed to set up, and the reason for an error. It can filter by integration and by status. Only reads.
+- **Get config entries** (`config__get_config_entries`): Lists the {% term integrations %} and helpers that are set up, with their status, such as loaded or failed to set up, and the reason for an error. It can filter by integration and by status. Only reads.
   - To do this yourself: Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 - **Reload config entry** (`config__reload_config_entry`): Reloads an integration that is set up. For example, it helps after a temporary connection error. Changes things.
   - To do this yourself: On the integration page, under {% my integrations title="**Settings** > **Devices & services**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Reload** on the integration entry.
