@@ -37,7 +37,7 @@ Each entry adds one service {% term device %} named after the monitored municipa
 
 GeoSphere Austria publishes each warning with a start and an end time. A warning that has already started counts as *active*. A warning that GeoSphere Austria has issued but that starts later counts as an *advance* warning, so you can prepare before it takes effect.
 
-- **Warning level**
+- **Active warning level**
   - **Description**: The highest severity level of all currently active warnings.
   - **Possible states**: No warning, Yellow, Orange, Red.
 - **Active warnings**
@@ -50,9 +50,11 @@ GeoSphere Austria publishes each warning with a start and an end time. A warning
   - **Description**: The number of warnings that start later.
   - **Unit**: warnings
 
+If you added a location before Home Assistant 2026.11, its **Active warning level** sensor keeps its previous entity ID, for example `sensor.innsbruck_warning_level`.
+
 #### Warning details
 
-**Warning level** and **Advance warning level** add attributes describing one selected warning out of the warnings behind their state.
+**Active warning level** and **Advance warning level** add attributes describing one selected warning out of the warnings behind their state.
 
 The selection prefers warnings you can act on right now: heat and cold warnings rank one severity tier below storm, rain, snow, black ice, and thunderstorm warnings, because they describe an ambient condition rather than a sudden event. Among equally ranked warnings, the one that ends first is selected. The sensor state itself always reports the true highest severity and is never lowered by this ranking.
 
@@ -76,16 +78,16 @@ The real power of this integration is to allow the creation of automations based
 
 Get a notification when a weather warning becomes active.
 
-Entities are named after the monitored municipality, for example `sensor.innsbruck_warning_level`.
+Entities are named after the monitored municipality, for example `sensor.innsbruck_active_warning_level`.
 
 - **Trigger**: State changed
-  - **Entity**: Innsbruck warning level (`sensor.innsbruck_warning_level`)
+  - **Entity**: Innsbruck active warning level (`sensor.innsbruck_active_warning_level`)
   - **To**: Yellow
   - **To**: Orange
   - **To**: Red
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-  - **Message**: `Warning level {{ states('sensor.innsbruck_warning_level') }} with {{ states('sensor.innsbruck_active_warnings') }} active warning(s) for Innsbruck.`
+  - **Message**: `Warning level {{ states('sensor.innsbruck_active_warning_level') }} with {{ states('sensor.innsbruck_active_warnings') }} active warning(s) for Innsbruck.`
   - **Title**: `Weather warning`
 
 {% details "YAML example for notifying on weather warning" %}
@@ -95,7 +97,7 @@ automation: |
   alias: "Notify on weather warning"
   triggers:
     - trigger: state
-      entity_id: sensor.innsbruck_warning_level
+      entity_id: sensor.innsbruck_active_warning_level
       to:
         - yellow
         - orange
@@ -107,7 +109,7 @@ automation: |
       data:
         title: "Weather warning"
         message: >-
-          Warning level {{ states('sensor.innsbruck_warning_level') }}
+          Warning level {{ states('sensor.innsbruck_active_warning_level') }}
           with {{ states('sensor.innsbruck_active_warnings') }}
           active warning(s) for Innsbruck.
 {% endexample %}
