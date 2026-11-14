@@ -126,3 +126,11 @@ The **Home Assistant** set of {% term "AI tools" %} contains the following tools
   - On {% term "Home Assistant Container" %} installations, and on other installations without the Supervisor, the ID is `system_log__get_logs`. It only reads the Home Assistant log, and it needs the log file.
   - To do this yourself: Under {% my logs title="**Settings** > **System** > **Logs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Show raw logs**.
 - **Get date and time** (`llm__GetDateTime`): Returns the current date and time. Both built-in sets of AI tools, **Device control** and **Home Assistant**, have this tool. Only reads.
+
+## Known limitations
+
+- Only administrators can use the Home Assistant {% term "AI tools" %}. Requests without an administrator account fail. For example, requests from a {% term "voice satellite" %} fail, and so do requests from users who aren't administrators. This also stops **Device control** on that {% term "conversation agent" %}, because the agent can't prepare any of its sets of AI tools.
+- The **Home Assistant Cloud** conversation agent of [Home Assistant Cloud](/integrations/cloud/) can't use the Home Assistant AI tools. It always uses **Device control**.
+- **Get history** returns statistics, not individual state changes. {% term Entities %} without statistics have no history for this tool. For example, a switch has no statistics, and neither does a sensor without a [state class](/integrations/sensor/#state-class). For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
+- In {% term "Home Assistant Container" %} installations, and in other installations without the Supervisor, **Get logs** needs the Home Assistant log file. If Home Assistant doesn't write a log file, this tool isn't available. For example, the `HA_DISABLE_LOG_FILE` environment variable turns off the log file.
+- **Get logs** masks values that look like credentials, such as tokens, passwords, and API keys. It can't recognize every credential, so other secrets in your logs can still reach the AI provider.
