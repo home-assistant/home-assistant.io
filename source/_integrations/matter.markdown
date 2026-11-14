@@ -563,3 +563,18 @@ The initial {% term commissioning %} keeps failing, you experience issues with d
 3. Investigate your network topology.
    - For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices.
    - To avoid issues, try to keep your network topology as simple and flat as possible.
+
+### Commissioning times out on a host with more than one network interface
+
+#### Symptom
+
+Your Home Assistant host is connected to the same LAN through more than one network interface, for example Ethernet and Wi-Fi. Commissioning a Matter device fails after a long wait, or devices that were added successfully become unavailable because their (CASE) sessions time out.
+
+#### Cause
+
+The Matter Server sends its mDNS and Matter traffic over one primary network interface. When several interfaces are connected to the same network, the server can pick a different interface than the one your Matter devices and Thread border routers reach. The replies then never arrive. The Matter Server app logs the interface it uses at startup: `Using '<interface>' as primary network interface.`
+
+#### Remedy
+
+- **Home Assistant OS with the Matter Server app**: Connect the host to the network through a single interface. Disconnect or disable the other interface under **{% my network title="Settings > System > Network" %}**. Then restart the Matter Server app and check its log to confirm it uses the interface you expect.
+- **Matter Server running in a container**: Set the primary interface explicitly with the `--primary-interface <interface>` command line option or the `PRIMARY_INTERFACE` environment variable (for example, `eth0`). For details, refer to the [Matter server Docker documentation](https://github.com/matter-js/matterjs-server/blob/main/docs/docker.md).
