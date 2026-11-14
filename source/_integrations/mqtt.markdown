@@ -273,6 +273,50 @@ For reading all messages sent on the topic `homeassistant` to a broker running o
 mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 ```
 
+## MQTT map
+
+The MQTT map shows how your MQTT devices and entities are set up, where their configuration comes from, and which topics they use. It helps to find out why an MQTT item does not work as expected, for example, when an entity listens to the wrong topic or was set up by an unexpected source.
+
+To open the map, go to {% my config_mqtt title="**Settings** > **Devices & services** > **MQTT** > **Configure**" %} and select **Show map** in the **My network** card.
+
+The broker is at the root of the map. Below the broker are the sources that set up MQTT items:
+
+- **YAML**: items from your YAML configuration.
+- **Subentries**: devices added as an MQTT subentry in the UI.
+- **Discovery (no origin)**: discovered items without [origin](#discovery-messages) information.
+- One node for each discovery origin, for example, a bridge that sends the discovery messages for its devices.
+
+Each source links to its devices. Child devices and devices that set `via_device` are shown below their parent device. A device links to its entities, device triggers, and tags, and these link to the topics they subscribe or publish to. Entities and tag scanners without a device are grouped under **No linked device**.
+
+### Using the map
+
+- Select a node to focus on it. Everything that is not linked to it fades.
+- Entities, device triggers, and tags are hidden in the legend by default. When you focus on a device, its entities, device triggers, and tags are shown. When you focus on an entity, device trigger, or tag, only that item is shown with its topics.
+- Use the bar under the focused node to show its configuration, or to open its device page or more-info dialog.
+- Use the search field to find nodes, **Filter sources** to show only some sources, and the legend to show or hide types of nodes.
+- Use **Toggle tree view** to switch between the graph and a tree from left to right.
+
+### Configuration of an item
+
+The configuration panel shows the configuration of the selected item for each source that sets it up. What it shows depends on the item:
+
+- An entity from [single component discovery](#single-component-discovery-payload) shows its discovery payload as JSON, with the discovery topic and the origin. You can switch it to YAML.
+- An entity from YAML, a subentry, or device discovery shows its configuration as YAML, under its platform key. An entity from YAML can only be matched to its configuration when it has a `unique_id`.
+- A discovered device trigger or tag shows its discovery payload, with the discovery topic and the origin.
+- A device from [device discovery](#device-discovery-payload) shows its device discovery payload with the discovery topic. The payload is built again from all its components.
+- A device that was discovered with its entities shows the device part of their configuration as YAML.
+- For a device from YAML, the panel refers to the YAML configuration of its entities. For a device from a subentry, it links to the reconfigure flow of the subentry.
+
+### Messages of a topic
+
+Select a topic to see its messages. First, the last 10 messages that Home Assistant kept for the topic are shown, followed by new messages while the panel is open. You can format a JSON payload and see which values changed since the previous message.
+
+A device trigger only receives messages while an automation uses it.
+
+{% important %}
+The configuration and payloads are shown as they are, without redaction. They can contain sensitive information, such as passwords or tokens. Be careful when you share a screenshot.
+{% endimportant %}
+
 ## Naming of MQTT Entities
 
 For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
