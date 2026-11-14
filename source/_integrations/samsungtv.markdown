@@ -29,6 +29,10 @@ For specific model compatibility, check your TV's specifications to ensure it ha
 
 The Samsung Smart TV integration provides the following entities and functionality:
 
+### Binary sensor
+
+- **Art mode**: Shows whether a Frame TV is currently displaying art instead of TV content. This entity is only created for Frame TVs. It turns on while the Frame TV shows art, and off when the TV is on but showing regular content, or when the TV is off.
+
 ### Media player
 
 - **Power control**: Turn the TV on and off
@@ -54,6 +58,7 @@ The Samsung Smart TV integration provides the following entities and functionali
 
 The **SamsungTV** integration uses a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume level, and other state information.
 For older TV models that still use the legacy bridge implementation (internally called `SamsungTvBridge`), the integration polls the TV every 10 seconds to retrieve the latest state information.
+Separately from that, the **Art mode** binary sensor is updated every 10 seconds on all supported Frame TVs, not only on the older models above.
 
 ### Turn on action
 
