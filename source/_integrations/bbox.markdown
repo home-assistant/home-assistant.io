@@ -15,7 +15,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 
 {% note %}
-Due to third party limitation, the sensors will only be available if Home Assistant and the Bbox are on the same local area network. You can check this by going to 192.168.1.254 with your web browser.
+Due to third party limitation, the sensors will only be available if Home Assistant and the Bbox are on the same local area network. You can check this by going to [mabbox.bytel.fr](https://mabbox.bytel.fr) with your web browser.
 {% endnote %}
 
 ## Presence detection
@@ -24,25 +24,35 @@ The `bbox` {% term integration %} offers presence detection by looking at connec
 
 Bbox is a generic name for different hardware routers. The {% term integration %} has been tested with the following devices:
 
-- Sagem F@st 5330b
+- Sagemcom F@st5688b
 
 ### Configuration
 
-To use an Bbox router in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use a Bbox router in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
   - platform: bbox
+    password: YOUR_BBOX_PASSWORD
 ```
 
 {% configuration %}
 host:
-  description: IP address of your Bbox device.
+  description: The domain name or IP address of your Bbox device. The `mabbox.bytel.fr` domain name resolves to the router on your local network.
   required: false
   type: string
-  default: 192.168.1.254
+  default: mabbox.bytel.fr
+password:
+  description: The password of your Bbox router (the same one used for the Bbox web interface). Recent firmwares require an authenticated session to list the connected devices.
+  required: true
+  type: string
+scan_interval:
+  description: Time between device list scans.
+  required: false
+  type: time
+  default: 60 seconds
 {% endconfiguration %}
 
 {% important %}
@@ -53,7 +63,7 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 ## Sensor
 
-To add Bbox sensors to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To add Bbox sensors to your installation, add the following to your {% term "`configuration.yaml`" %} file. The sensors only need access to the Bbox, no password is required.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -70,6 +80,16 @@ sensor:
 ```
 
 {% configuration %}
+host:
+  description: The domain name or IP address of your Bbox device. The `mabbox.bytel.fr` domain name resolves to the router on your local network.
+  required: false
+  type: string
+  default: mabbox.bytel.fr
+password:
+  description: The password of your Bbox router. It is only required for endpoints needing an authenticated session, such as the connected devices list used by the presence detection.
+  required: false
+  type: string
+  default: ""
 name:
   description: Name to display in the frontend.
   required: false
