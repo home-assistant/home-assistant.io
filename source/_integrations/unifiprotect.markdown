@@ -779,8 +779,10 @@ The `not_from` option keeps the automation from running during startup or power-
 Each event is a one-time notification, not a state. An entry input reports both opening and closing. For the other input types, the event fires when the input triggers. There is no event when it returns to normal.
 
 {% note %}
-The type of an input can change in UniFi Protect, so every input exposes the full list of event types above. Reload the integration after you enable or rename an input in UniFi Protect.
+The type of an input can change in UniFi Protect, so every input exposes the full list of event types above. Reload the integration after you enable, disable, or rename an input in UniFi Protect.
 {% endnote %}
+
+To react to an Alarm Hub event in an automation, use the [**Event received**](/triggers/event.received/) trigger and select the event types you want.
 
 #### Example Alarm Hub Entry Automation
 
@@ -788,17 +790,12 @@ The type of an input can change in UniFi Protect, so every input exposes the ful
 alias: "Alarm Hub front door opened"
 description: "Send a notification when the front door contact opens"
 triggers:
-  - trigger: state
-    # Replace with your Alarm Hub input entity
-    entity_id: event.alarm_hub_front_door
-    not_from:
-      - unavailable
-conditions:
-  - condition: state
-    # Replace with your Alarm Hub input entity
-    entity_id: event.alarm_hub_front_door
-    attribute: event_type
-    state: entry_opened
+  - trigger: event.received
+    target:
+      # Replace with your Alarm Hub input entity
+      entity_id: event.alarm_hub_front_door
+    options:
+      event_type: entry_opened
 actions:
   # Replace with your notification target
   - action: notify.mobile_app_your_device
@@ -806,15 +803,69 @@ actions:
       message: "The front door was opened."
 ```
 
+#### Example Alarm Hub Motion Light Automation
+
+A motion input reports motion, but not when the motion ends. With `mode: restart`, each motion event starts the delay again, so the light turns off 2 minutes after the last motion.
+
+```yaml
+alias: "Alarm Hub hallway light"
+description: "Turn on the hallway light when the motion detector triggers"
+triggers:
+  - trigger: event.received
+    target:
+      # Replace with your Alarm Hub input entity
+      entity_id: event.alarm_hub_hallway
+    options:
+      event_type: motion
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.hallway
+  - delay:
+      minutes: 2
+  - action: light.turn_off
+    target:
+      entity_id: light.hallway
+mode: restart
+```
+
+#### Example Alarm Hub Door State
+
+To see whether a door is open or closed, you can create a binary sensor from the entry events. Add this to your {% term "`configuration.yaml`" %} file. The binary sensor keeps its state when Home Assistant restarts and updates with the next entry event.
+
+{% raw %}
+
+```yaml
+template:
+  - triggers:
+      - trigger: event.received
+        target:
+          # Replace with your Alarm Hub input entity
+          entity_id: event.alarm_hub_front_door
+        options:
+          event_type:
+            - entry_opened
+            - entry_closed
+    binary_sensor:
+      - name: "Front door"
+        device_class: door
+        state: >
+          {{ trigger.to_state.attributes.event_type == 'entry_opened' }}
+```
+
+{% endraw %}
+
 ### Alarm Hub Event
 
 - **Event Name**: The name of the Alarm Hub.
 - **Event Attributes**:
-  - **event_type**: One of `device_tamper` (the cover was opened), `battery_low`, `battery_connected`, or `relay_switched`. Events of an input without an entity of its own, such as the emergency input, use the input event types listed above.
+  - **event_type**: One of `device_tamper` (the cover was opened), `battery_low`, `battery_connected` (the backup battery was connected or disconnected), or `relay_switched`. Events of an input without an entity of its own, such as the emergency input, use the input event types listed above.
   - **event_id**: A unique ID that identifies the event.
   - **status**: The status UniFi Protect reports with the event, if any.
   - **input**: The terminal number of the input the event belongs to, if any.
 - **Description**: This event is triggered when the Alarm Hub itself reports something, or when an input without an entity of its own triggers.
+
+There is no event when the cover is closed again. UniFi Protect keeps the tamper alert until it is cleared in UniFi Protect.
 
 ### Smoke Detector Alarm Event
 
