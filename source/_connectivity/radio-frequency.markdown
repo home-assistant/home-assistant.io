@@ -7,11 +7,9 @@ related:
     title: Radio Frequency integration
   - url: https://esphome.io/projects/?type=irrf
     title: ESPHome radio frequency proxy projects
-  - url: https://esphome.io/components/ir_rf_proxy/
-    title: ESPHome radio frequency proxy component
 ---
 
-You can control radio frequency-controlled devices, such as a remote outlet, garage door, or string lights, from Home Assistant without touching the handheld remote control. Home Assistant can also receive signals from a handheld <abbr title="Radio frequency">RF</abbr> remote. Home Assistant does this through a [radio frequency remote adapter](#radio-frequency-remote-adapter-proxy). To learn how the integrations work together, refer to the [Radio Frequency](/integrations/radio_frequency/) {% term integration %}.
+You can control radio frequency-controlled devices, such as a remote outlet, garage door, or string lights, from Home Assistant without touching the handheld remote control. Home Assistant can also receive signals from a handheld <abbr title="Radio frequency">RF</abbr> remote. Home Assistant does this through a [radio frequency remote adapter](#radio-frequency-remote-adapters). To learn how the integrations work together, refer to the [Radio Frequency](/integrations/radio_frequency/) {% term integration %}.
 
 This page explains which remote adapters you can use, how to set up radio frequency control, and where to place your remote adapters.
 
@@ -20,7 +18,7 @@ This page explains which remote adapters you can use, how to set up radio freque
 A radio frequency remote adapter is a small device that sends and receives RF signals on behalf of Home Assistant. It connects to Home Assistant over Wi-Fi, Ethernet, or other technology. A radio frequency remote adapter is also known as a radio frequency proxy.
 
 - For some devices, there is a ready-made radio frequency proxy project that you can install from your browser. To see what is available, refer to the [ESPHome radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
-- Other remote adapters have an integration that provides radio frequency entities, such as [Broadlink](/integrations/broadlink/). To find them, browse the [Radio Frequency category](/integrations/#radio-frequency).
+- The [Broadlink](/integrations/broadlink/#radio-frequency) integration also provides radio frequency remote adapters: Broadlink RM pro and RM4 pro devices, for 433&nbsp;MHz and 315&nbsp;MHz.
 
 Make sure the remote adapter supports the frequency and modulation that your device uses, such as 433.92&nbsp;MHz <abbr title="On-Off Keying">OOK</abbr>.
 
@@ -73,7 +71,7 @@ This section explains the key terms that the Home Assistant documentation uses t
 
 ### Radio frequency remote adapter (proxy)
 
-A device that relays <abbr title="Radio frequency">RF</abbr> commands on behalf of Home Assistant. It can connect to Home Assistant over Wi-Fi, Ethernet, or other technology. A radio frequency remote adapter is also known as a radio frequency proxy.
+A device that relays <abbr title="Radio frequency">RF</abbr> commands on behalf of Home Assistant. A radio frequency remote adapter is also known as a radio frequency proxy.
 
 It has the following characteristics:
 

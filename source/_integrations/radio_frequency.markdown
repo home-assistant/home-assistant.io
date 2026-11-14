@@ -5,8 +5,8 @@ ha_domain: radio_frequency
 related:
   - docs: /connectivity/radio-frequency/
     title: Radio frequency control in Home Assistant
-  - docs: /integrations/#radio-frequency
-    title: Integrations that provide radio frequency entities
+  - docs: /connectivity/radio-frequency/#radio-frequency-remote-adapters
+    title: Radio frequency remote adapters
   - docs: /integrations/#radio-frequency-controlled
     title: Integrations for radio frequency-controlled devices
   - url: https://esphome.io/projects/?type=irrf
