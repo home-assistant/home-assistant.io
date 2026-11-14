@@ -118,12 +118,12 @@ advance_warnings: []
 
 ### Automation: Explain what to do when a severe warning starts
 
-The warning level sensor tells you that a severe warning is active. Send a notification with what GeoSphere Austria expects and recommends.
+The active warning level sensor tells you that a severe warning is active. Send a notification with what GeoSphere Austria expects and recommends.
 
 The first item in the list is not always the most severe warning, because heat and cold warnings rank lower. So this example picks the first orange or red warning.
 
 - **Trigger**: State changed
-  - **Entity**: Innsbruck warning level (`sensor.innsbruck_warning_level`)
+  - **Entity**: Innsbruck active warning level (`sensor.innsbruck_active_warning_level`)
   - **To**: Orange, Red
 - **Action**: GeoSphere Austria Warnings: Get warnings
   - **Location**: Innsbruck
@@ -142,7 +142,7 @@ automation: |
   alias: "Explain severe weather warning"
   triggers:
     - trigger: state
-      entity_id: sensor.innsbruck_warning_level
+      entity_id: sensor.innsbruck_active_warning_level
       to:
         - orange
         - red
