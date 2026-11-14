@@ -13,6 +13,9 @@
     "buttons_remotes",
     "vehicles_transport.cars_evs"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "event"
   ]

@@ -2,6 +2,7 @@
 title: "Get device mode capabilities"
 action: sensibo.get_device_capabilities
 domain: sensibo
+response: required
 description: "Returns the supported settings of a Sensibo climate device for a chosen HVAC mode."
 related_actions:
   - sensibo.full_state
@@ -60,6 +61,8 @@ hvac_mode:
 {% include actions/targets.md domain="climate" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a mapping of the settings the device supports in the chosen HVAC mode, with the allowed values for each. Depending on the device, this can include settings such as fan levels, swing modes, horizontal swing modes, target temperatures, and light options. The values are case-sensitive, so copy them exactly as returned.
 

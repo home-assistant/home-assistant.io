@@ -58,6 +58,7 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- OasisMist 4.5L Smart Humidifier (LUH-O451S-WEU)
 - OasisMist 1000S Smart Ultrasonic Cool Mist Tower Humidifier (LUH-M101S-WUS)
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
@@ -134,6 +135,10 @@ VeSync air purifiers will expose the following details depending on the features
 ## Humidifier
 
 Sensors and settings exposed by VeSync humidifiers.
+
+On humidifiers with a color night light, the **Night light** entity provides on/off, brightness, and color controls. You can control the night light while mist output is off.
+
+The OasisMist 4.5L has a minimum light brightness of 40%, so its night light cannot dim below that level.
 
 | Sensor                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |

@@ -10,6 +10,9 @@
   "categories": [
     "garden_plants"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "lawn_mower",
     "sensor"

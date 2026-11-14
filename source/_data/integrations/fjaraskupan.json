@@ -11,6 +11,9 @@
     "appliances_cleaning.cooking",
     "climate.fans_ventilation"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

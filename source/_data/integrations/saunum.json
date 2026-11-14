@@ -12,6 +12,9 @@
     "water.pools_spas",
     "climate.thermostats_heating"
   ],
+  "connectivity": [
+    "modbus"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

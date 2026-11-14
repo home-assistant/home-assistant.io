@@ -12,6 +12,9 @@
   "categories": [
     "climate.fans_ventilation"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

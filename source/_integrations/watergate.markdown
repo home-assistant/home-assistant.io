@@ -50,6 +50,10 @@ The Watergate integration provides the following entities.
   - **Description**: Whether the device is connected to Wi-Fi.
   - **Remarks**: This is a diagnostic entity and is disabled by default.
 
+- **External power**
+  - **Description**: Whether the device is powered by an external (mains) power supply. It stays on while the device also runs on batteries.
+  - **Remarks**: This is a diagnostic entity. It is updated as soon as the device reports a change of its power source.
+
 #### Sensors
 
 
@@ -79,6 +83,10 @@ The Watergate integration provides the following entities.
 - **Water temperature**
   - **Description**: The current temperature of the water.
   - **Remarks**: Useful for monitoring and ensuring safe water temperatures.
+
+- **Battery voltage**
+  - **Description**: The voltage of the device's batteries.
+  - **Remarks**: This is a diagnostic entity. It is only available while the device has batteries inserted, and is unavailable on a device powered only by an external power supply.
 
 #### Valves
 

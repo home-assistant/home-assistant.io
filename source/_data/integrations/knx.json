@@ -13,6 +13,9 @@
   "categories": [
     "hubs_protocols.building_automation"
   ],
+  "connectivity": [
+    "knx"
+  ],
   "platforms": [
     "binary_sensor",
     "button",
