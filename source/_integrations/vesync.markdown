@@ -65,7 +65,7 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 ### Air Fryers
 
 - Cosori 3.7 and 5.8 Quart Air Fryer
-- Cosori dual-basket air fryer (CAF-TF101S)
+- Cosori Dual Blaze TwinFry (CAF-TF101S)
 
 ## Prerequisite
 
