@@ -14,13 +14,17 @@ The refresh interval defaults to a time period that is compatible with an accoun
 
 When using a free account, the information provided by Tomorrow.io is limited to the [Core layer](https://docs.tomorrow.io/reference/data-layers-core). It does not include the Air Quality layer or other layers. A paid Tomorrow.io account is required to retrieve those layers.
 
-## Supported Forecast Types
+## Forecasts
 
-| Forecast Type | Description                                                                                                      |
-|---------------|------------------------------------------------------------------------------------------------------------------|
-| `nowcast`     | Up to the 1 minute predictions. Supports 300 minutes or a max of 30 forecasts depending on the chosen `timestep` |
-| `hourly`      | Hourly forecasts for the next 24 hours                                                                           |
-| `daily`       | Daily  forecasts for the next 14 days                                                                            |
+Each location has a weather {% term entity %} that provides these forecasts:
+
+| Forecast | Coverage                                                                   | How to get it                                                                           |
+|----------|----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| Daily    | The next 14 days                                                           | The `weather.get_forecasts` action with type `daily`                                    |
+| Hourly   | The next 24 hours                                                          | The `weather.get_forecasts` action with type `hourly`                                   |
+| Nowcast  | Up to 30 intervals of 1 to 60 minutes, depending on the location's setting | The [`tomorrowio.get_minute_forecast`](/actions/tomorrowio.get_minute_forecast/) action |
+
+Locations set up before Home Assistant 2023.9 can also have separate Hourly and Nowcast weather entities. They provide the same forecasts as the main entity.
 
 {% include integrations/config_flow.md %}
 
@@ -40,7 +44,7 @@ If you set up Tomorrow.io before this version, your existing entries are migrate
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Tomorrow.io** integration.
 2. Select **Add location**.
 3. Enter a name and pick the location on the map.
-4. Optionally adjust **Minutes between NowCast forecasts** (1, 5, 15, 30, or 60), which controls the granularity of the `nowcast` forecast.
+4. Optionally adjust **Minutes between NowCast forecasts** (1, 5, 15, 30, or 60), which sets the interval length of the forecasts returned by the [`tomorrowio.get_minute_forecast`](/actions/tomorrowio.get_minute_forecast/) action.
 
 ### Changing a location
 
@@ -49,3 +53,5 @@ To change a location's name, coordinates, or NowCast timestep, select the three-
 ## Data updates
 
 All of an API key's locations are {% term polling polled %} together in one cycle. The polling interval is calculated from your account's daily request limit and the number of configured locations, keeping usage at about 90% of the available daily requests.
+
+The `weather.get_forecasts` and `tomorrowio.get_minute_forecast` actions return data from the latest update and don't use any API requests.
