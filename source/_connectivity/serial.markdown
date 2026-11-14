@@ -42,14 +42,6 @@ An ESPHome device can proxy more than serial, for example Bluetooth. For an over
 
 USB-to-serial adapters are sold by the type of serial port they add, for example as a USB-to-RS-232 or a USB-to-RS-485 adapter. Choose one that matches the port of your device.
 
-## Integrations that use serial
-
-The following integrations can connect to a device over a serial port:
-
-{% include connectivity/integrations.html slug="serial" exclude="serial" %}
-
-Many devices that use Modbus, such as solar inverters and heat pumps, also connect to a serial port, usually <abbr title="Recommended Standard 485">RS-485</abbr>. Their integrations are not in this list, because they are listed by the protocol they use. To find them, refer to [Modbus](/integrations/modbus/#supported-devices).
-
 ## Setting up a serial connection in Home Assistant
 
 To use a device with a serial port, connect it to a serial port that Home Assistant can reach. Then, add the integration for your device and select that port.
