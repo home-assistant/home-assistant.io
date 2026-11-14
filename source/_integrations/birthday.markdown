@@ -64,10 +64,16 @@ The integration has no settings of its own. Every birthday is a sub-entry of the
 ### Notify on a birthday
 
 This automation sends a notification at 08:00 when a birthday starts.
+1. Under **When**, select **Add trigger**, then **Calendar**.
+2. Set **Calendar** to **Birthdays** and **Event** to **Start**.
+3. Set **Offset** to `8:00:00`. Birthdays are all-day events starting at midnight, so the notification is sent 8 hours later.
+4. Under **Then do**, select **Add action**, then **Notifications** > **Send a notification via notify.notify**.
+5. Set **Title** to `Birthday` and **Message** to `{{ trigger.calendar_event.summary }}`.
 
 ```yaml
 automation:
   - alias: "Birthday notification"
+    mode: parallel
     triggers:
       - trigger: calendar
         event: start
