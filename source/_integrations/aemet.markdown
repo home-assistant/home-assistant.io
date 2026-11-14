@@ -22,7 +22,7 @@ To add AEMET OpenData integration go to {% my integrations title="**Settings** >
 {% configuration_basic %}
 API Key:
   description: "API Key from the website"
-Remind me before the API key expires:
+Remind me before the estimated API key expiry date:
   description: "Show a persistent notification three days before the estimated API key expiry date."
 API key generation date:
   description: "Date the API key was generated. Used to estimate the expiry date and schedule reminders."
