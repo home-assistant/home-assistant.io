@@ -23,9 +23,9 @@ To add AEMET OpenData integration go to {% my integrations title="**Settings** >
 API Key:
   description: "API Key from the website"
 Remind me before the API key expires:
-  description: "Show a persistent notification three days before the API key expires."
+  description: "Show a persistent notification three days before the estimated API key expiry date."
 API key generation date:
-  description: "Date the API key was generated. Used to calculate the expiry date."
+  description: "Date the API key was generated. Used to estimate the expiry date and schedule reminders."
 Name:
   description: "Name of the integration"
 Location:
@@ -34,9 +34,9 @@ Location:
 
 ### API key expiry
 
-AEMET API keys expire every three months. Enter the date the key was generated when adding the integration or replacing its API key. If you leave the date empty during setup or when replacing the key, including reauthentication, the current date is used. When editing the options without replacing the key, leaving the date empty keeps the stored generation date. If no date is stored, enter one before you enable reminders. Home Assistant uses the generation date only to calculate the expiry date.
+AEMET API keys are expected to expire every three months. Enter the date the key was generated when adding the integration or replacing its API key. If you leave the date empty during setup or when replacing the key, including reauthentication, the current date is used. When editing the options without replacing the key, leaving the date empty keeps the stored generation date. If no date is stored, enter one before you enable reminders. Home Assistant uses the generation date only to estimate the expiry date and schedule reminders. AEMET may continue to accept the key after that date.
 
-When the API key expiry reminder is enabled, Home Assistant creates a persistent notification three days before the key expires, at 09:00 local time. When the key expires or AEMET rejects it, Home Assistant starts a reauthentication flow where you can enter a new API key and its generation date.
+When the API key expiry reminder is enabled, Home Assistant creates a persistent notification three days before the estimated expiry date, at 09:00 local time. When the estimated date passes, the notification changes to explain that the date has passed and that AEMET may still accept the key. Home Assistant starts a reauthentication flow only when AEMET rejects the key, where you can enter a new API key and its generation date.
 
 You can also update the API key and generation date from the integration options at any time.
 
