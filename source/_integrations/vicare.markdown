@@ -88,6 +88,12 @@ Vitoset Aqua water softeners have the following sensors:
 - **Water consumption today**: the water consumed today, in liters
 - **Water flow**: the current water flow, in liters per minute
 
+Heat pumps that report the heat they produce have the following sensors:
+
+- **Heat production**: the current heat output
+- **Heating heat production today**: the heat produced for heating today
+- **DHW heat production today**: the heat produced for domestic hot water today
+
 ### Button
 
 Button entities are available to trigger actions like a one-time charge of the water heater.
