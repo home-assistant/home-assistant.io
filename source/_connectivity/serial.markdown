@@ -35,7 +35,6 @@ Any ESPHome device with a free serial port of the right type can be a serial pro
 
 - [Home Assistant Connect AUX-2](/connect/aux-2/) is a serial proxy with two <abbr title="Recommended Standard 232">RS-232</abbr> ports. Each port is shared with Home Assistant as its own serial proxy port. To connect an <abbr title="Recommended Standard 485">RS-485</abbr> device, such as a Modbus device, plug a supported USB-to-RS-485 adapter into its USB port. The adapter is shared as one more serial proxy port.
 - For some devices, there is a ready-made serial proxy project that you can install from your browser. To see what is available, refer to the [ESPHome serial proxy projects](https://esphome.io/projects/?type=serial).
-- To find other devices that run ESPHome, refer to the [ESPHome device database](https://devices.esphome.io/).
 
 An ESPHome device can proxy more than serial, for example Bluetooth. For an overview, refer to [ESPHome remote adapters (proxies)](/integrations/esphome/#about-esphome-remote-adapters-proxies).
 
