@@ -67,7 +67,7 @@ The `google_weather.get_minute_forecast` action works differently: it is not cac
 
 ## Known limitations
 
-- Weather forecast information isn't currently available in South Korea and Japan. Refer to the [Google Help Center](https://support.google.com/websearch/answer/13687874).
+- In Japan and South Korea, Google Weather provides daily and hourly forecasts only (twice-daily forecasts and the `google_weather.get_minute_forecast` action are not available), and wind gust speed, cloud coverage, visibility, heat index, wind chill, thunderstorm probability, and daily apparent temperature are not reported.
 - Google offers the precipitation nowcast used by the `google_weather.get_minute_forecast` action as an experimental, pre-general-availability feature. Its segments are 2 or 15 minutes long depending on the location, and its availability in your area can change.
 
 
