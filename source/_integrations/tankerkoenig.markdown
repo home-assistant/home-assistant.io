@@ -63,6 +63,8 @@ This integrations provides a set of {% term "Binary sensor" %} and {% term Senso
 As the data of [tankerkoenig.de](https://www.tankerkoenig.de/) is based on data from the German market transparency office for fuels (_[Markttransparenzstelle für Kraftstoffe](https://www.bundeskartellamt.de/DE/Aufgaben/MarkttransparenzstelleFuerKraftstoffe/MTS-K_Infotext/mts-k_node.html) MTS-K_), only the three base fuel types `Diesel`, `Super`, and `Super E10` are available.
 {% endnote %}
 
+{% include integrations/actions.md %}
+
 ## Usage examples
 
 ### Show current fuel price only when station is opened
