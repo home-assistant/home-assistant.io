@@ -178,6 +178,14 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
 
+| Button                  | Description                                                                            |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| `stop_cooking`          | Stops cooking or preheating                                                            |
+| `pause_cooking`         | Pauses cooking. Only on air fryers that support pausing (CS137, CS158, Turbo Tower Pro) |
+| `resume_cooking`        | Resumes paused cooking with the remaining time. Same air fryers as pause               |
+
+On dual-basket air fryers, each button is available once per basket, such as **Basket 1 pause cooking**. It only acts on that basket.
+
 
 ## Extracting attribute data
 
