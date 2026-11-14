@@ -69,7 +69,7 @@ The device page links to the power station's own web interface. The serial numbe
 
 ### Controls
 
-- **Charge limit**, **Discharge limit**: The battery levels the power station stops charging at, and stops discharging at. The discharge limit accepts 5 to 90 %.
+- **Charge limit**, **Discharge limit**: The battery levels the power station stops charging at, and stops discharging at. Both accept 5 to 100 %.
 
 Both limits are configuration entities. They are read every 60 seconds, so a change made in the BLUETTI app shows up within a minute. They are unavailable while the power station cannot be read.
 
