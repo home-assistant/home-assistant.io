@@ -98,6 +98,7 @@ The [Themes](/integrations/lifx/#themes) section of the LIFX integration page li
 - Each palette color is a list of four numbers in the order hue, saturation, brightness, Kelvin. A palette needs at least 2 and at most 16 colors. A saturation or brightness of 1 or less is read as a fraction, so `0.5` and `50` both mean 50%, and `1` means 100%, not 1%.
 - **Power on** is on by default, so a light that is off is turned on before the effect starts.
 - To stop the animation, use [Stop effect](/actions/lifx.effect_stop/).
+- While Morph runs with a theme, the light's **Theme** select shows that theme. It goes unknown when Morph stops.
 - You can also start this effect with default options by calling [Turn on light](/actions/light.turn_on/) with the effect set to `effect_morph`.
 
 {% include actions/try_it.md %}
