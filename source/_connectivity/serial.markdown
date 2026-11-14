@@ -15,32 +15,28 @@ Many devices have a serial port that you can use to control them or read their d
 
 You do not set up serial by itself. Instead, you connect your device to a [serial port](#serial-port) that Home Assistant can reach, and then add the {% term integration %} for your device. When the integration asks which serial port to use, you select that port.
 
-This page explains the ways to connect a serial device, which hardware you can use, and how to set up and check the connection.
+This page explains the ways to connect a serial device, and how to set up and check the connection.
 
 ## Ways to connect a serial device
 
-Home Assistant can reach the serial port of your device in three ways:
-
-- **Serial proxy**: an [ESPHome](/integrations/esphome/) device that you place next to your device. It shares its serial port with Home Assistant over your network. This is the recommended way when your device is not next to the system that runs Home Assistant. For details, refer to [serial proxy](#serial-proxy).
-- **USB-to-serial adapter**: an adapter that you plug into the system that runs Home Assistant. Use it when your device is close enough to cable it to that system. For details, refer to [USB-to-serial adapter](#usb-to-serial-adapter).
-- **Serial device server**: a device or computer that already shares a serial port on your network. For details, refer to [serial device server](#serial-device-server).
-
-Whichever way you choose, the port type must match the port of your device: TTL, <abbr title="Recommended Standard 232">RS-232</abbr>, or <abbr title="Recommended Standard 485">RS-485</abbr>. Check the documentation of your device.
-
-## Hardware for serial connections
+Home Assistant can reach the serial port of your device in three ways: with a serial proxy, a USB-to-serial adapter, or a serial device server. Whichever way you choose, the port type must match the port of your device: TTL, <abbr title="Recommended Standard 232">RS-232</abbr>, or <abbr title="Recommended Standard 485">RS-485</abbr>. Check the documentation of your device.
 
 ### Serial proxies
 
-Any ESPHome device with a free serial port of the right type can be a serial proxy.
+A serial proxy is an [ESPHome](/integrations/esphome/) device that you place next to your device. It shares its serial port with Home Assistant over your network. This is the recommended way when your device is not next to the system that runs Home Assistant. A direct serial cable only reaches so far, and it ties your device to the place where your system is. With a serial proxy, your network covers the rest of the distance. Prefer a wired network connection to the proxy.
 
 - [Home Assistant Connect AUX-2](/connect/aux-2/) is a serial proxy with two <abbr title="Recommended Standard 232">RS-232</abbr> ports. Each port is shared with Home Assistant as its own serial proxy port. To connect an <abbr title="Recommended Standard 485">RS-485</abbr> device, such as a Modbus device, plug a supported USB-to-RS-485 adapter into its USB port. The adapter is shared as one more serial proxy port.
-- For some devices, there is a ready-made serial proxy project that you can install from your browser. To see what is available, refer to the [ESPHome serial proxy projects](https://esphome.io/projects/?type=serial).
+- Any other ESPHome device with a free serial port of the right type can be a serial proxy. For some devices, there is a ready-made serial proxy project that you can install from your browser. To see what is available, refer to the [ESPHome serial proxy projects](https://esphome.io/projects/?type=serial).
 
-An ESPHome device can proxy more than serial, for example Bluetooth. For an overview, refer to [ESPHome remote adapters (proxies)](/integrations/esphome/#about-esphome-remote-adapters-proxies).
+To set up a serial proxy, refer to [Setting up an ESPHome serial proxy](#setting-up-an-esphome-serial-proxy). An ESPHome device can proxy more than serial, for example Bluetooth. For an overview, refer to [ESPHome remote adapters (proxies)](/integrations/esphome/#about-esphome-remote-adapters-proxies).
 
 ### USB-to-serial adapters
 
-USB-to-serial adapters are sold by the type of serial port they add, for example as a USB-to-RS-232 or a USB-to-RS-485 adapter. Choose one that matches the port of your device.
+A USB-to-serial adapter is an adapter that you plug into the system that runs Home Assistant. Use it when your device is close enough to cable it to that system. USB-to-serial adapters are sold by the type of serial port they add, for example as a USB-to-RS-232 or a USB-to-RS-485 adapter. Choose one that matches the port of your device.
+
+### Serial device servers
+
+A serial device server is a device or computer that already shares a serial port on your network. Home Assistant uses such a port a bit differently from a serial proxy. For the details, refer to [Serial device server](#serial-device-server).
 
 ## Setting up a serial connection in Home Assistant
 
@@ -139,13 +135,11 @@ A serial port connected over the network is identified by a URL instead, such as
 
 A remote adapter that shares a serial port with Home Assistant over your network. A serial proxy is an [ESPHome](/integrations/esphome/) device that uses the [serial proxy](https://esphome.io/components/serial_proxy/) component to share one or more of its serial ports, so that Home Assistant can use them as if they were connected to your system. When an {% term integration %} asks you to select a serial port, the shared ports are listed next to the ports of your own system.
 
-A serial proxy is the recommended way to connect a [device connected via serial](#device-connected-via-serial) that is not next to the system running Home Assistant. A direct serial cable only reaches so far, and it ties your device to the place where your system is. With a serial proxy, you place the ESPHome device next to your device instead, and your network covers the rest of the distance. Prefer a wired network connection to the proxy.
-
-To choose and prepare a serial proxy, refer to [Setting up an ESPHome serial proxy](#setting-up-an-esphome-serial-proxy).
+To choose a serial proxy, refer to [Serial proxies](#serial-proxies).
 
 ### USB-to-serial adapter
 
-A device that adds a serial port to your system over USB. Use a USB-to-serial adapter when the [device connected via serial](#device-connected-via-serial) is close enough to cable directly to the system that runs Home Assistant. If it isn't, use a serial proxy instead.
+A device that adds a serial port to your system over USB. To choose one, refer to [USB-to-serial adapters](#usb-to-serial-adapters).
 
 ### Serial device server
 
