@@ -18,7 +18,7 @@ related:
     title: Bambu Lab
 ---
 
-The **Bambu Lab** {% term integration %} lets you follow your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. It connects to the printer over your local network and does not use the Bambu Lab cloud.
+The **Bambu Lab** {% term integration %} lets you monitor your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. It connects to the printer over your local network and does not use the Bambu Lab cloud.
 
 Use it to see how far along a print is from your dashboard, or to get a notification when a print finishes, pauses, or fails.
 
@@ -35,33 +35,33 @@ The integration recognizes the following Bambu Lab printers:
 - X1 Carbon and X1E
 - X2D
 
-Other Bambu Lab printers that have an access code for local connections may work as well. Home Assistant then shows them with the model name the printer reports.
+Other Bambu Lab printers that have an access code for local connections may work as well. Home Assistant then names them after the model name the printer reports, or after the serial number if the printer reports no model name.
 
 {% note %}
-The integration is built from the community documentation of how the printers communicate. If your printer does not work as described on this page, [report an issue](https://github.com/home-assistant/core/issues).
+The integration is built from the community documentation of how the printers communicate, and not every model in this list has been verified by an owner. If your printer does not work as described on this page, [report an issue](https://github.com/home-assistant/core/issues).
 {% endnote %}
 
 ## Prerequisites
 
 Before you start, you need the following from your printer:
 
-- The IP address of the printer. Give the printer a fixed IP address in your router, so Home Assistant can still find it after your network restarts.
+- The IP address of the printer. Give the printer a fixed IP address in your router, so its address does not change.
 - The serial number of the printer. This is not the name of the printer.
 - The access code of the printer.
 
 You can find all three on the screen of your printer.
 
-Your printer does not have to be in LAN only mode. Home Assistant can follow the printer while it stays connected to the Bambu Lab cloud and the Bambu Handy app.
+Your printer does not have to be in LAN only mode. It can stay connected to the Bambu Lab cloud.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Host:
-    description: "The IP address or hostname of your printer. For example, `192.168.1.50`."
+  description: "The IP address or hostname of your printer. For example, `192.168.1.50`. The printer shows its IP address on its screen."
 Serial number:
-    description: "The serial number of your printer. Home Assistant uses it to make sure that it connects to the right printer."
+  description: "The serial number of your printer, which it shows on its screen. Home Assistant uses it to make sure that it connects to the right printer."
 Access code:
-    description: "The access code of your printer, which it shows on its screen."
+  description: "The access code of your printer, which it shows on its screen."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -119,13 +119,13 @@ When you try to set up the integration, the form shows the message "Failed to co
 
 #### Description
 
-Home Assistant cannot reach the printer at the address you entered, or the printer did not answer in time.
+Home Assistant cannot reach the printer at the address you entered, the printer did not answer in time, or the device at that address is not a Bambu Lab printer.
 
 #### Resolution
 
 1. Make sure the printer is turned on and connected to your network.
 2. Check that the **Host** you entered is the IP address the printer shows on its screen.
-3. Make sure Home Assistant can reach the printer on TCP port 8883. If the printer is in a different network or VLAN than Home Assistant, allow this port in your firewall.
+3. Make sure Home Assistant can reach the printer on TCP port 8883. If the printer is in a different network than Home Assistant, allow this port in your firewall.
 
 {% enddetails %}
 
@@ -146,7 +146,7 @@ The printer rejected the access code.
 
 {% enddetails %}
 
-{% details "Can't set up the printer: The printer has a different serial number" %}
+{% details "Can't set up the printer: The printer at this address has a different serial number" %}
 
 ### Symptom: "The printer at this address has a different serial number"
 
@@ -176,9 +176,11 @@ The IP address of the printer changed, or the access code that Home Assistant st
 #### Resolution
 
 1. Check the IP address and the access code on the screen of your printer.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Bambu Lab** integration.
-3. Remove the printer, as described in [Removing the integration](#removing-the-integration).
-4. Add the printer again with the current IP address and access code.
+2. If only the IP address changed, give the printer its previous IP address back in your router. Home Assistant connects again by itself, and the sensors show values again.
+3. If the access code changed, go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Bambu Lab** integration.
+4. Remove the printer, as described in [Removing the integration](#removing-the-integration).
+5. Add the printer again with the current IP address and access code.
+   - Result: The sensors show values again.
 
 {% enddetails %}
 
