@@ -1,5 +1,5 @@
 ---
-description: Instructions on how to set up a WebDAV location to be used with backups.
+description: Instructions on how to set up a WebDAV location for backups and file uploads.
 ha_release: 2025.3
 ha_domain: webdav
 related:
@@ -7,7 +7,7 @@ related:
     title: Backups
 ---
 
-This {% term integration %} allows you to use a [WebDAV](https://en.wikipedia.org/wiki/WebDAV) compatible location for [Home Assistant Backups](/common-tasks/general/backups/).
+This {% term integration %} lets you use a [WebDAV](https://en.wikipedia.org/wiki/WebDAV)-compatible server as a storage location for [Home Assistant backups](/common-tasks/general/backups/). You can also upload files from Home Assistant to your WebDAV server, such as camera snapshots, with the [Upload files](/actions/webdav.upload/) action.
 
 ## Installation
 
@@ -20,7 +20,7 @@ Username:
 Password:
   description: "Password for the WebDAV server."
 Backup path:
-  description: "Path to the folder where the backups should be stored. The path is relative to the root of the WebDAV server."
+  description: "Path to the folder where the backups should be stored. The path is relative to the root of the WebDAV server. This path is only used for backups. Files you upload with the **Upload files** action go to the destination folder you choose in the action."
 Verify SSL:
   description: "Verify the SSL certificate of the WebDAV server."
 {% endconfiguration_basic %}
@@ -36,6 +36,7 @@ Verify SSL:
 - [Beeline Cloud](https://cloudbeeline.ru/): `https://webdav.cloudbeeline.ru` – free 10GB (forever), to enable WebDAV – navigate to Profile → Security and toggle the setting (screenshots and [detailed explanation here](https://t.me/another_mvp/49)).
 - [Mail.ru Cloud](https://cloud.mail.ru/): `https://webdav.cloud.mail.ru/` – free 8GB (forever).
 
+{% include integrations/actions.md %}
 
 ## Removing the integration
 
