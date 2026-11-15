@@ -3,23 +3,19 @@ description: Discover, connect, and monitor bluetooth devices.
 ha_release: 2022.8
 ha_domain: bluetooth
 related:
+  - docs: /connectivity/bluetooth/
+    title: Bluetooth connections in Home Assistant
   - docs: /docs/configuration/
     title: Configuration file
   - docs: /integrations/default_config/
     title: Default config
-  - url: https://esphome.io/projects/?type=bluetooth
-    title: Bluetooth proxy page
 ---
 
 The **Bluetooth** {% term integration %} supports Bluetooth Low Energy devices. Bluetooth Classic devices are not supported. Compatible devices discovered nearby appear on {% my integrations title="**Settings** > **Devices & services**" %}.
 
+To learn how to connect Bluetooth devices, which adapters and proxies you can use, and how to improve your Bluetooth connections, refer to [Bluetooth](/connectivity/bluetooth/).
+
 {% include integrations/config_flow.md %}
-
-## Before you begin
-
-In many cases, a better approach than a directly connected adapter or card is to use a Bluetooth proxy using an ESP32 since Linux kernel updates have previously broken Bluetooth functionality and Bluetooth driver support Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems. More information is available in the Remote Adapters section below or by visiting ESPhome's [Bluetooth proxy page](https://esphome.io/projects/?type=bluetooth).
-
-Suppose a Bluetooth proxy is not a good fit for your use case. Consider using the Home Assistant Operating System when using a local adapter because it includes Bluetooth patches for issues unsolved in other operating systems.
 
 ## Configuration
 
@@ -30,18 +26,6 @@ While this integration is part of [`default_config:`](/integrations/default_conf
 # Example configuration.yaml entry
 bluetooth:
 ```
-
-## Viewing your Bluetooth adapters and proxies
-
-You can see all your Bluetooth adapters and proxies in one place from the **Bluetooth** configuration panel. Together, local adapters and proxies are known as scanners, because both receive Bluetooth signals for Home Assistant.
-
-1. Go to {% my config_bluetooth title="**Settings** > **Connectivity** > **Bluetooth**" %}.
-   - At the top, a status summary shows how many Bluetooth connections are currently active.
-2. Under **My network**, you can see an overview of your Bluetooth setup, split into adapters, connections, and advertisements.
-   - To open the network map, select **Show map**. The map shows how your Bluetooth devices connect to Home Assistant through your scanners. A legend distinguishes between Home Assistant, scanners, known devices, and unknown devices. Select a device to highlight its connections, or use the search box to find a specific device.
-3. To view your scanners, select **Adapters**. For each one, you can see its name, area, state, and capabilities.
-   - To change the settings of a specific scanner, select the {% icon "mdi:cog-outline" %} cogwheel icon next to it.
-   - To view more details, select a scanner to open its device page.
 
 ## Requirements for Linux systems
 
@@ -115,239 +99,13 @@ On Debian based host systems, the `sudo apt-get -y install bluez` command will i
 
 {% enddetails %}
 
-## Installing a USB Bluetooth adapter
-
-Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
-
-If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
-
-For development and testing, the developers of this Bluetooth integration primarily use a [Feasycom FSC-BP119](https://www.feasycom.com/datasheet/fsc-bp119.pdf) (CSR8510A10) 📶.
-
-### Known working high-performance adapters
-
-#### Cambridge Silicon Radio (CSR) -based adapters
-
-- ANNE PRO CSR 4.0 (CSR8510A10)
-- Avantree BTDG-40S (CSR8510A10)
-- DIGITUS DN-30210-1 (CSR8510A10)
-- Enbiawit BT403 (CSR8510A10)
-- Feasycom FSC-BP119 (CSR8510A10) 📶
-- Gold Touch E-USB-BT4 (CSR8510A10)
-- HIDEEZ BT0015-01 (CSR8510A10)
-- Maxesla CSR 4.0 (CSR8510A10)
-- Nuu You BT40 (CSR8510A10)
-- ORICO BTA-403 (CSR8510A10)
-- ORICO BTA-409 (CSR8510A10)
-- Panda Wireless PBU40 (CSR8510A10)
-- PlanexCOMM BT-Micro4 (CSR8510A10)
-- QGOO BT-06A (CSR8510A10)
-- ROCKETEK BT4Y (CSR8510A10)
-- SABRENT BT-UB40 (CSR8510A10)
-- Sena UD100-G03 (CSR8510A10) 📶
-- StarTech USBBT1EDR4 (CSR8510A10)
-- Techkey PBT06H (CSR8510A10)
-- TRENDnet TBW-106UB (CSR8510A10)
-- TRENDnet TBW-107UB (CSR8510A10)
-- UGREEN CM109 (CSR8510A10)
-- Warmstor WBT-AD01 (CSR8510A10)
-- WAVLINK WL-BT4001 (CSR8510A10)
-
-📶 Denotes external antenna
-
-Most of these adapters can hold five (5) connections at the same time.
-
-These adapters generally offer the fastest connect times and do not require additional drivers or patch files.
-
-#### Broadcom (BCM) based adapters
-
-{% warning %}
-These adapters may require additional patch files available at <a href="https://github.com/winterheart/broadcom-bt-firmware">https://github.com/winterheart/broadcom-bt-firmware</a> for stable operation.
-
-There is currently no supported method to install these patch files when using Home Assistant Operating System.
-{% endwarning %}
-
-{% details "Broadcom (BCM) based adapters" %}
-
-- ASUS USB-BT400 (BCM20702A0)
-- Cable Matters 604002-BLK (BCM20702A0)
-- GMYLE 3340 (BCM20702A0)
-- IOGEAR GBU521W6 (BCM20702A0)
-- INSIGNIA NS-PCY5BMA (BCM20702A0)
-- Kinivo BTD-400 (BCM20702A0)
-- LM Technologies LM506 (BCM20702A1)
-- LM Technologies LM1010 (BCM20702A0) 📶
-- Plugable USB-BT4LE (BCM20702A0)
-- SoundBot SB342 (BCM20702A0)
-- StarTech USBBT2EDR4 (BCM20702A0)
-- Targus ACB10US1 (BCM20702A0)
-
-{% enddetails %}
-
-📶 Denotes external antenna
-
-Most of these adapters can hold seven (7) connections at the same time.
-
-#### Cypress based adapters
-
-- Raspberry Pi 3B+ (CYW43455)
-- Raspberry Pi 4B (CYW43455)
-
-These adapters are connected via the UART bus which may limit their performance.
-
-#### High-performance determination methodology
-
-Performance is primarily determined by a combination of the chip and the Linux drivers for the adapter. Some vendors using the same chip had an unacceptable performance and are listed as unsupported.
-
-The following requirements must be met for an adapter to be labeled as High Performance:
-
-- Establish a connection in about 1s or less
-- Process at least one advertisement per second from a device without dropping data
-- 95% of connection attempts are successful within two tries
-- Meets the above requirements with Home Assistant 2022.11.1 or later and Home Assistant Operating System 9.3 or later
-- Must be able to hold five (5) connections at the same time
-
-Performance testing used the following hardware:
-
-- Active connection to Nanoleaf A19 Bulb NL45-0800 after GATT services were cached by BlueZ
-- Advertisements from an Oral-B iO Series 8
-- External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
-
-### Known working adapters
-
-{% note %}
-Known working adapters list adapters that do not meet high-performance requirements but will generally work. These adapters vary widely in performance and may take as long as thirty seconds or more to establish a connection. These adapters may also miss advertisements such as button presses or temperature updates.
-{% endnote %}
-
-#### Realtek RTL8761BU adapters
-
-{% warning %}
-These adapters do not have a reset pin. When they stop responding, there is currently no way for the kernel to reset them automatically, and they may have to be physically unplugged and replugged to restore operation.
-{% endwarning %}
-
-{% details "Realtek RTL8761BU adapters" %}
-
-- ASUS USB-BT500 (RTL8761BU)
-- Avantree DG45 (RTL8761BU)
-- COMCAST CF-B03 (RTL8761BU)
-- COMCAST CF-B05 (RTL8761BU) 📶
-- EDUP LOVE EP-B3536 (RTL8761BU) 📶
-- ISEKIE KW-B3519 (RTL8761BU)
-- Maxuni BT-501 (RTL8761BU)
-- MPOW BH45A (RTL8761BU)
-- Plugable USB-BT5 (RTL8761BU)
-- StarTech USBA-BLUETOOTH-V5-C2 (RTL8761BU)
-- SUMEE BT501 (RTL8761BU)
-- UGREEN CM390 (RTL8761BU)
-- XDO BT802 (RTL8761BU) 📶
-- ZEXMTE BT-505 (RTL8761BU) 📶
-- ZEXMTE BT-DG54 (RTL8761BU) 📶
-- ZEXMTE Z01 (RTL8761BU) 📶
-- ZETSAGE BH451A (RTL8761BU) 📶
-
-{% enddetails %}
-
-📶 Denotes external antenna
-
-#### Other adapters
-
-- UGREEN CM749 (Barrot chipset, USB ID `33fa:0010`) 📶
-
-📶 Denotes external antenna
-
-### Unsupported adapters
-
-{% details "Unsupported adapters" %}
-
-- Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
-- BASEUS BR8651A01 BA04 - Advertisement drops out
-- Belkin F8T003 ver 2. - Fails to set up and add successfully
-- Bluegiga BLED112 - No driver available yet for USB ID `2458:0001`
-- EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
-- EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
-- eppfun AK3040G (ATS2851) - No driver available yet for USB ID `10d7:b012`
-- eppfun AK3040A (ATS2851) - No driver available yet for USB ID `10d7:b012`
-- KOAMTAC KBD 401G (CSR8510A10) - Adapter is unstable and drops out
-- TRIPP-LITE CU885A/U261-001-BT4 (CSR8510A10) - Adapter is unstable and drops out
-- QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
-- UGREEEN CM591 (ATS2851) - No driver available yet for USB ID `10d7:b012`
-- tp-link UB400 (CSR4) - Frequent connection failures with active connections
-- tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
-- CSR 4.0 clones with USB ID `0a12:0001` - Unrecoverable driver failure: These clones will usually show a message like `CSR: Unbranded CSR clone detected; adding workarounds and force-suspending once...` in the system log when they are plugged in.
-  - Multiple unbranded adapters labeled with CSR 4.0
-  - 5 CORE CSR 4.0
-
-{% enddetails %}
-
-📶 Denotes external antenna
-
-## Multiple adapters
-
-The Bluetooth integration employs automatic failover and connection path logic to achieve high availability.
-
-Support for multiple local Bluetooth adapters is available on Linux systems only. Place adapters far enough away from each other to reduce interference.
-
-The following methods are known to work to add multiple adapters:
-
-- [Remote Adapters (Bluetooth proxies)](#remote-adapters-bluetooth-proxies)
-- Long USB Extension cables
-- USB-Ethernet extenders
-- [USB/IP](https://usbip.sourceforge.net/)
-
-Integrations that have followed the [Best practices for library authors](https://contributors.home-assistant.io/core/integrations/bluetooth/#best-practices) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
-
-## Scanning modes
-
-Each Bluetooth adapter can be configured to use one of three scanning modes. **Auto** is recommended for most setups. To change it, follow the steps in the [Configuration options](#configuration-options) section below.
-
-- **Auto**: Listens passively most of the time and only briefly switches to active scanning when a device or integration needs more details. Compared to running continuously active, this saves around 95 to 96 percent of the scan-related battery drain on your Bluetooth devices while still discovering devices and updates quickly.
-- **Active**: Continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you.
-- **Passive**: Only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work.
-
-Auto and Passive both require an adapter that supports passive scanning. On Linux, this needs BlueZ 5.63 or later with experimental features enabled (available with Home Assistant Operating System 9.4 and later). On adapters that do not support passive scanning, Auto falls back to Active automatically.
-
 ## Configuration options
 
 1. In Home Assistant, go to {% my config_bluetooth title="**Settings** > **Connectivity** > **Bluetooth**" %}.
 2. Select **Adapters**.
 3. On the adapter of interest, select the {% icon "mdi:cog-outline" %} cogwheel icon, then select your options.
    - Not all adapters have configuration options. If you don't see a cogwheel icon, your adapter does not support configuration options.
-   - Under **Scanning mode**, pick **Auto**, **Active**, or **Passive**.
-
-## Remote adapters (Bluetooth proxies)
-
-The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection, as well as establishing active connections. The number of remote scanners is limited only by the performance of the host system.
-
-When adding multiple remote adapters to increase range or available connection slots, separate them enough to avoid interference with each other.
-
-For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/).
-
-{% tip %}
-- The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.
-- If the `ESP32-POE-ISO-EA` is out of stock, the `ESP32-POE-ISO-EA-IND` is a good alternative.
-- The `ESP32-POE-ISO-WROVER-EA` model is **not recommended**, as it uses a different pin configuration and is not compatible with ESPHome ready-made projects.
-{% endtip %}
-
-The following remote adapters are supported:
-
-- [ESPHome](https://esphome.io/projects/?type=bluetooth)
-  - Bluetooth advertisement listening: ESPHome ESP32 device with firmware 2022.8.2 or later
-  - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2023.6.0 or later
-  - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
-  - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
-- [Shelly](/integrations/shelly/)
-  - Bluetooth advertisement listening: Shelly Gen2+ device
-  - Bluetooth advertisement bundling: Shelly Gen2+ device
-  - Single active connection: not supported
-  - Multiple active connections: not supported
-- [SMLIGHT](/integrations/smlight/)
-  - Bluetooth advertisement listening: SMLIGHT SLZB-U device
-  - Bluetooth advertisement bundling: SMLIGHT SLZB-U device
-  - Single active connection: not supported
-  - Multiple active connections: not supported
-
-Bluetooth advertisement bundling reduces traffic between Home Assistant and the proxy, significantly improving performance and reducing the time that Bluetooth and WiFi compete for air time for devices that share a radio.
-
-On ESPHome ESP32 devices, [active connections](#connection) are turned on by default. To turn them off, use the `active` option of the [Bluetooth proxy component](https://esphome.io/components/bluetooth_proxy/#configuration).
+   - Under **Scanning mode**, pick **Auto**, **Active**, or **Passive**. For what each mode does, refer to [Scanning modes](/connectivity/bluetooth/#scanning-modes).
 
 ## Troubleshooting
 
@@ -369,82 +127,13 @@ Home Assistant can use your Bluetooth adapter, but only with limited functions. 
 
 {% enddetails %}
 
-### Advertisement monitor
-
-Once Bluetooth is configured, the {% my bluetooth_advertisement_monitor %} will allow you to view devices in range that are advertising.
-
-### Connection monitor
-
-Once Bluetooth is configured, the {% my bluetooth_connection_monitor %} will allow you to view currently connected devices.
-
-### Improving connection times
-
-Connection time and performance vary greatly depending on the Bluetooth adapter and interference.
-
-{% warning %}
-When switching to an adapter with better performance, disable the old, less performant adapters. The best signal and available connection slots are considered when making connections, and performance will be limited to the worst-performing adapter with the best signal to reach the remote device.
-{% endwarning %}
-
-The below adapters are listed from best-performing to worst-performing:
-
-- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
-- [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#scanning-modes)
-- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
-- [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
-- [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
-- [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
-- [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#scanning-modes)
-- [Onboard high performance adapter](#cypress-based-adapters) with active scanning
-- [Known working adapters](#known-working-adapters) with [passive scanning](#scanning-modes)
-- [Known working adapters](#known-working-adapters) with active scanning
+For problems with your Bluetooth connections, such as slow connections or interference, refer to [Troubleshooting Bluetooth connections](/connectivity/bluetooth/#troubleshooting).
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
 
 While newer integrations can share the Bluetooth Adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
 
 Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your {% term "`configuration.yaml`" %}, you must also remove it to prevent the configuration from being recreated. Consider adding a second Bluetooth adapter on Linux systems if you need to continue using legacy integrations, as more integrations will move to use the Bluetooth integration in the future.
-
-### Bluetooth interference with other devices
-
-Sources of interference for radios can lead to transmission/reception loss or connection problems and show symptoms such as errors/failures when sending and receiving Bluetooth messages that can cause significant degradation in performance. Below are some basic but essential tips for getting a good setup starting point to achieve better signal quality, coverage, and extended range.
-
-Following all these optimization tips below should significantly improve the reception of your Bluetooth radio adapter. The below insights describe working around the well-known limitations of low-power 2.4 GHz digital radio. It can resolve or avoid many known issues caused by interference or poor placement of your Bluetooth radio adapter or devices.
-
-Computers, peripherals, and devices generate [electromagnetic interference (also known as EMI/EMI/RMI)](https://en.wikipedia.org/wiki/Electromagnetic_interference), which can interfere with signals transmissions on the 2.4 GHz radio band frequency, and degrade the wireless communication with your Bluetooth adapter/devices.
-
-For example, unshielded USB 3 port and their cables are especially infamously known to affect 2.4 GHz radio reception. Place your Bluetooth adapter far away as possible from any potential sources of EMI/EMI/RMI by using a long, adequately shielded USB extension cable.
-
-#### Simple actions that should improve most Bluetooth setups and common root causes of interference
-
-- Bluetooth adapter hardware:
-  - Bad performance from old/outdated Bluetooth adapter hardware or poor Bluetooth adapter antenna:
-    - Buy and use a supported Bluetooth USB adapter based on newer/modern chip hardware.
-      - Consider a Bluetooth adapter that has an external antenna.
-      - While older adapters might work, they could have obsolete hardware or old firmware, which prevents reliable operation.
-  - Poor or outdated Bluetooth adapter firmware on the Bluetooth adapter:
-    - Update to the latest Bluetooth chip firmware on the Bluetooth adapter. Updating firmware is usually straightforward if the manufacturer or the chip maker provides one.
-- Bluetooth adapters are RFI sensitive and can be very susceptible to all types of EMI/EMF interference:
-  - Poor placement of the Bluetooth adapter or wrong orientation of Bluetooth adapter antenna:
-    - Use a long USB extension cable to place the Bluetooth adapter away from interference and obstacles.
-      - Ensure the USB extension cable is adequately shielded (thick cables usually have this).
-        - A USB extension cable makes orienting the Bluetooth adapter/antenna easier.
-    - Try different physical placement and orientations of the Bluetooth adapter or its antenna:
-      - The optimal placement of the Bluetooth adapter is close to the middle of the house as possible.
-      - Try to place the Bluetooth adapter at some distance away from walls, ceilings, and floors.
-      - Try different orientations of the adapter's external antenna (or whole Bluetooth adapter).
-  - USB 3.0 ports/computers/peripherals are known culprits of RFI/EMI/EMF disruption. (See Ref. [1](https://www.usb.org/sites/default/files/327216.pdf) and [2](https://www.unit3compliance.co.uk/2-4ghz-intra-system-or-self-platform-interference-demonstration/)).
-    - Make sure to only connect the Bluetooth USB adapter to a USB 2.0 port (and not to a USB 3.x port).
-      - If your computer only has a USB 3.x port then connect the adapter via a powered USB 2.0 hub:
-        - A USB 2.0 hub will convert USB 3.0 to a USB 2.0 port and avoid USB 3.0 EMF.
-          - A USB 2.0 hub that uses an external power supply will ensure power requirements are fulfilled.
-    - Shield any unshielded computers/peripherals/devices by adding all-metal enclosures/chassis/casings.
-      - Single-board-computers and USB 3.x hard drives are especially known as source of EMF/EMI/RFI.
-        - Be aware metal casings can decrease the performance of internal/built-in Bluetooth adapters.
-      - Also, be sure to use adequately shielded USB cables for any such peripherals/devices too.
-  - 2.4 GHz RF Interference (RFI) from Wi-Fi Routers and Wi-Fi Access Points or other devices:
-    - While Bluetooth is designed to coexist with Wi-Fi, its stronger signal can interfere.
-      - To play it safe, try to place your Bluetooth adapter away from Wi-Fi access points.
-    - Place Bluetooth adapters far away from electrical/power wires/cables, power supplies, and household appliances.
 
 ## Discovered integrations
 
@@ -494,31 +183,3 @@ The following integrations are automatically discovered by the Bluetooth integra
 - [Tilt Hydrometer BLE](/integrations/tilt_ble/)
 - [Xiaomi BLE](/integrations/xiaomi_ble/)
 - [Yale Access Bluetooth](/integrations/yalexs_ble/)
-
-## About Bluetooth terminology
-
-This section explains some of the key terms on this page and how they are used in the Home Assistant documentation.
-
-### Bluetooth adapter
-
-A Bluetooth adapter is Bluetooth hardware that is directly connected to the system running Home Assistant, such as a built-in radio, a USB dongle, or a Bluetooth card. Home Assistant talks to it through the operating system. On Linux, Home Assistant uses [BlueZ](http://www.bluez.org/) via [D-Bus](https://en.wikipedia.org/wiki/D-Bus).
-
-### Bluetooth proxy (remote adapter)
-
-A separate networked device, typically an ESP32 running ESPHome, that you place elsewhere in your home. It receives Bluetooth signals from nearby devices and relays them to Home Assistant over Wi-Fi or Ethernet. You can add several proxies to extend Bluetooth coverage across rooms and floors, because Bluetooth itself is short-range. A Bluetooth proxy is also known as a remote adapter.
-
-### Scanner
-
-The general term for anything that receives Bluetooth signals for Home Assistant. Both local Bluetooth adapters and Bluetooth proxies are scanners. In Home Assistant, all of these show up as scanners.
-
-### Advertisement
-
-A small message that a Bluetooth device broadcasts to announce itself and share basic information, such as sensor readings. Reading advertisements does not require a connection, so any scanner in range can pick them up.
-
-### Connection
-
-An active, two-way link between Home Assistant and a Bluetooth device, also called an active connection. Some devices only broadcast advertisements, while others need a connection so Home Assistant can read from them or send commands. To make a connection, Home Assistant needs an adapter or proxy that can connect to devices. Some proxies can only listen for advertisements and cannot connect to devices.
-
-### Scanning mode
-
-How a scanner looks for Bluetooth devices. In **Active** mode, the scanner asks devices for extra details, which uses more battery on those devices. In **Passive** mode, the scanner only listens, which uses the least battery but may leave out some details. **Auto** uses passive scanning where supported and falls back to active scanning when it is not. For details, see [Scanning modes](#scanning-modes).
