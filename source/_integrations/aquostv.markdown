@@ -54,9 +54,9 @@ Home Assistant gets the state of the TV by polling it. If the TV is off, an upda
 
 ## Turning on the TV
 
-Home Assistant can turn on the TV remotely. The first time, turn on the TV with its remote. After that, you can turn it on from Home Assistant.
+Remote power on is enabled by default for TVs added from the UI. If an imported YAML configuration has `power_on_enabled: false`, Home Assistant cannot turn on that TV remotely. When remote power on is enabled, turn on the TV with its remote the first time. After that, you can turn it on from Home Assistant.
 
-To allow this, the TV keeps the Aquos logo on when it is turned off, and it can use more power while off.
+With remote power on enabled, the TV keeps the Aquos logo on when it is turned off, and it can use more power while off.
 
 ## YAML configuration
 
