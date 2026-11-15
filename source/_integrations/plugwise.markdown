@@ -93,11 +93,11 @@ Many heaters share extra information over OpenTherm, such as usage counters and 
 
 - **DHW flow rate**
   - **Description**: The current flow of domestic hot water, in liters per minute.
-- **Burner starts**, **Central heating pump starts**, **DHW burner starts**, and **DHW pump starts**
-  - **Description**: The total number of times the burner or pump has started.
+- **Burner starts**, **Heating pump starts**, **DHW burner starts**, and **DHW pump starts**
+  - **Description**: The total number of times the burner or pump has started. The heating pump is the pump that circulates water through the heating circuit, not the compressor of a heat pump.
 - **Failed burner starts** and **Failed burner flame ignitions**
   - **Description**: The total number of burner starts or flame ignitions that failed.
-- **Burner operation time**, **Central heating pump operation time**, **DHW burner operation time**, and **DHW pump operation time**
+- **Burner operation time**, **Heating pump operation time**, **DHW burner operation time**, and **DHW pump operation time**
   - **Description**: The total time, in hours, that the burner or pump has been running.
 - **OEM fault code**
   - **Description**: A fault code defined by the manufacturer of your heater, exactly as your heater reports it. To find out what a code means, check the manual of your heater. Many heaters report `255` when there is no fault code to report, so `255` does not always mean there is a fault.
