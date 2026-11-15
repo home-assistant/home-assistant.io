@@ -104,6 +104,8 @@ action: |
 
 This creates the task "Pick up the mail" in the Errands project.
 
+Location reminders need a Todoist Pro or Business plan. On a free plan, the action fails and the task isn't created.
+
 To be reminded of a task when you arrive somewhere, add a location reminder from a zone:
 
 {% example %}
