@@ -82,6 +82,9 @@ collections:
   building_blocks:
     output: true
     permalink: /building-blocks/:path/
+  connectivity:
+    output: true
+    permalink: /connectivity/:path/
   docs:
     output: true
   apps:
@@ -194,6 +197,11 @@ defaults:
   - scope:
       path: ""
       type: building_blocks
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: connectivity
     values:
       toc: true
   - scope:
