@@ -102,6 +102,8 @@ frontend:
 
 The example above defines red color for open garage doors and brown color for inactive media players.
 
+Entities of other domains, like text sensors, have no default state colors. In history timelines, their states get colors from the graph palette, which can differ between visits. To give one of these states a fixed color, use the first or second variable from the list above. Write the state in lowercase, with spaces replaced by underscores. For example, `state-sensor-heating-color` sets the color of the `Heating` state of a sensor.
+
 ### Panel, toolbar and table backgrounds
 
 The following variables are not set by default. If you leave them unset, the existing backgrounds remain unchanged.
