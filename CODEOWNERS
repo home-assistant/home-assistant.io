@@ -124,6 +124,7 @@ source/_integrations/backup.markdown @home-assistant/core
 source/_integrations/baf.markdown @bdraco @jfroy
 source/_integrations/balay.markdown @DavidMStraub @Diegorro98 @MartinHjelmare
 source/_integrations/balboa.markdown @garbled1 @natekspencer
+source/_integrations/bambu_lab.markdown @joostlek
 source/_integrations/bang_olufsen.markdown @mj23000
 source/_integrations/battery.markdown @home-assistant/core
 source/_integrations/bauknecht.markdown @abmantis @mkmer
