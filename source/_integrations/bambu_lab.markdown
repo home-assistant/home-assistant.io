@@ -71,7 +71,7 @@ The **Bambu Lab** integration provides the following entities.
 ### Sensors
 
 - **Print status**
-  - **Description**: What the printer is doing with its print job: Idle, Initializing, Slicing, Preparing, Printing, Paused, Finished, Failed, or Offline.
+  - **Description**: What the printer is doing with its print job: Idle, Initializing, Slicing, Preparing, Printing, Paused, Finished, or Failed.
   - **Available for printers**: all
 - **Print progress**
   - **Description**: How far along the print job is, as a percentage.
@@ -86,7 +86,7 @@ The **Bambu Lab** integration provides the following entities.
   - **Description**: The number of layers in the print job.
   - **Available for printers**: all
 - **Nozzle temperature**
-  - **Description**: The current temperature of the nozzle.
+  - **Description**: The current temperature of the nozzle, in whole degrees.
   - **Available for printers**: all
   - **Remarks**: On a printer with two nozzles, this is the temperature of the nozzle that is in use.
 - **Bed temperature**
@@ -119,13 +119,30 @@ When you try to set up the integration, the form shows the message "Failed to co
 
 #### Description
 
-Home Assistant cannot reach the printer at the address you entered, the printer did not answer in time, or the device at that address is not a Bambu Lab printer.
+Home Assistant cannot reach the printer at the address you entered, or the printer did not answer in time.
 
 #### Resolution
 
 1. Make sure the printer is turned on and connected to your network.
 2. Check that the **Host** you entered is the IP address the printer shows on its screen.
 3. Make sure Home Assistant can reach the printer on TCP port 8883. If the printer is in a different network than Home Assistant, allow this port in your firewall.
+
+{% enddetails %}
+
+{% details "Can't set up the printer: The device did not identify itself as a Bambu Lab printer" %}
+
+### Symptom: "The device at this address did not identify itself as a Bambu Lab printer"
+
+When you try to set up the integration, the form shows the message "The device at this address did not identify itself as a Bambu Lab printer. Check the host."
+
+#### Description
+
+Home Assistant reached a device at the address you entered, but could not verify that it is a Bambu Lab printer. Home Assistant does not send the access code to a device it cannot verify.
+
+#### Resolution
+
+1. Check that the **Host** you entered is the IP address the printer shows on its screen.
+2. If the address is right, your printer may be a model that the integration does not know yet. [Report an issue](https://github.com/home-assistant/core/issues), and mention the model of your printer.
 
 {% enddetails %}
 
