@@ -123,6 +123,16 @@ password:
   description: The password for the user above.
   required: true
   type: string
+ssl:
+  description: Whether to connect to the device over HTTPS instead of HTTP.
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Whether to verify the SSL certificate. OpenWrt uses a self-signed certificate by default, so verification is disabled out of the box.
+  required: false
+  default: false
+  type: boolean
 dhcp_software:
   description: "The DHCP software used in your OpenWrt device: `dnsmasq`, `odhcpd`, or `none`. Use `none` if neither service is used on the device, for example, if it's a bridged access point."
   required: false
