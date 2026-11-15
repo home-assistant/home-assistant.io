@@ -23,9 +23,11 @@ The integration works with any computer running [System Bridge](https://system-b
 
 This integration requires System Bridge 5.0.0 and above. Any older version will not work.
 
-### Token
+### Key or pairing code
 
-You will need your token. For instructions on finding your token, follow the steps in the [System Bridge documentation](https://system-bridge.timmo.dev/running/#token).
+Home Assistant signs in to System Bridge with a key of its own. To set it up, you need a key or a pairing code from the computer. Open the System Bridge [web client](https://system-bridge.timmo.dev/using/web-client/) on the computer and go to **Settings** > **Devices**, or run `system-bridge client key create "Home Assistant"` there. A pairing code works once, for 5 minutes, and Home Assistant trades it for its key.
+
+If you set up the integration with the System Bridge token before keys, Home Assistant trades the token for a key of its own the next time it connects. There's nothing you need to do.
 
 {% include integrations/config_flow.md %}
 
@@ -34,11 +36,11 @@ Host:
   description: The hostname or IP address of the computer running System Bridge.
 Port:
   description: The port System Bridge listens on. The default is `9170`, and you can change it on the computer with the `SYSTEM_BRIDGE_PORT` environment variable.
-Token:
-  description: The token from the System Bridge settings. To find it, run `system-bridge client token` on the computer, as the same user that runs System Bridge. On Windows, run `.\system-bridge.exe client token` in PowerShell from the `C:\Program Files\System Bridge` folder.
+Key or pairing code:
+  description: A key or a pairing code from **Settings** > **Devices** in the System Bridge web client. You can also paste the link a pairing code comes with. Pairing again replaces Home Assistant's key, rather than adding another.
 {% endconfiguration_basic %}
 
-Home Assistant discovers computers running System Bridge on your network. A discovered computer shows up under {% my integrations title="**Settings** > **Devices & services**" %}, and you only need to enter its token.
+Home Assistant discovers computers running System Bridge on your network. A discovered computer shows up under {% my integrations title="**Settings** > **Devices & services**" %}, and you only need to enter a key or a pairing code.
 
 ## Binary sensors
 
@@ -334,7 +336,7 @@ The computer's entities are unavailable while it sleeps or is turned off. This i
 
 ### Authentication failed
 
-If the token changes, for example after reinstalling System Bridge, Home Assistant asks you to reauthenticate. Select **Reconfigure** on the notification under {% my integrations title="**Settings** > **Devices & services**" %} and enter the new token.
+If System Bridge no longer accepts Home Assistant's key, for example after it was removed under **Settings** > **Devices** in the web client or System Bridge was reinstalled, Home Assistant asks you to reauthenticate. Select **Reconfigure** on the notification under {% my integrations title="**Settings** > **Devices & services**" %} and enter a new key or pairing code.
 
 ### System Bridge upgrade required
 
