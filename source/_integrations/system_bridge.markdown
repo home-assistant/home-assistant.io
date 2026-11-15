@@ -61,7 +61,9 @@ This integration provides the following sensors:
 | ------------------------- | ----------------------------------------------------------------- |
 | Battery                   | Battery level of the device                                       |
 | Battery State             | Charging state of the battery                                     |
+| Battery Time Remaining    | When the battery is expected to run out                           |
 | Boot Time                 | Time the device was turned on                                     |
+| CPU Package Power         | Power draw of the whole CPU package in watts                      |
 | CPU Speed                 | The current CPU speed                                             |
 | Disk Read Rate            | Total read rate across all disks                                  |
 | Disk Write Rate           | Total write rate across all disks                                 |
@@ -96,6 +98,7 @@ These sensors are also available, but are not enabled by default:
 | ------------------------ | ----------------------------------------------- |
 | Battery Power            | Battery power draw in watts                     |
 | Battery Voltage          | Battery voltage in volts                        |
+| CPU Core Power           | Power draw of each CPU core in watts            |
 | CPU Temperature          | The current temperature of the CPU              |
 | CPU Voltage              | The current voltage of the CPU                  |
 | Per-disk Read Rate       | Read rate of each disk                          |
@@ -116,11 +119,14 @@ These sensors are also available, but are not enabled by default:
 | Interface Download Rate  | Download rate of each network interface         |
 | Interface Upload Rate    | Upload rate of each network interface           |
 | Interface Link Rate      | Wi-Fi link rate of a wireless interface in Mbps |
+| Load CPU                 | Load percentage of each CPU core                |
 | Load Average (5 min)     | Load average over 5 minutes                     |
 | Load Average (15 min)    | Load average over 15 minutes                    |
 | Swap Used                | Swap used in GB                                 |
 
 Load average sensors are only added on devices that report a load average.
+
+Per-core CPU sensors are named after the core, such as `Load CPU 0` and `CPU core 0 power`. The CPU power sensors show as unknown on devices that don't report CPU power.
 
 Not every GPU reports every value. GPU sensors System Bridge can't read for a GPU, such as encoder and decoder usage on some integrated GPUs, show as unknown.
 
