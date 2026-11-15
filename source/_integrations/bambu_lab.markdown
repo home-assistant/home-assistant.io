@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: bambu_lab
 ha_integration_type: device
 ha_platforms:
+  - button
   - light
   - sensor
 ha_quality_scale: bronze
@@ -21,7 +22,7 @@ related:
 
 The **Bambu Lab** {% term integration %} lets you monitor your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. It connects to the printer over your local network and does not use the Bambu Lab cloud.
 
-Use it to see how far along a print is from your dashboard, to get a notification when a print finishes, pauses, or fails, or to turn off the light of the printer when you leave.
+Use it to see how far along a print is from your dashboard, to get a notification when a print finishes, pauses, or fails, or to pause a print from an automation.
 
 ## Supported devices
 
@@ -54,6 +55,8 @@ You can find all three on the screen of your printer.
 
 Your printer does not have to be in LAN only mode. It can stay connected to the Bambu Lab cloud.
 
+To control a print from Home Assistant, for example to pause it, a printer with recent firmware has to be in developer mode. Developer mode needs LAN only mode, which disconnects the printer from the Bambu Lab cloud. Without developer mode, Home Assistant can still monitor the printer and control its light. Bambu Lab explains [how to turn on developer mode](https://wiki.bambulab.com/en/knowledge-sharing/enable-lan-mode).
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -68,6 +71,23 @@ Access code:
 ## Supported functionality
 
 The **Bambu Lab** integration provides the following entities.
+
+### Buttons
+
+- **Pause print**
+  - **Description**: Pauses the print job.
+  - **Available for printers**: all
+  - **Remarks**: Only available while the printer is printing.
+- **Resume print**
+  - **Description**: Resumes a paused print job.
+  - **Available for printers**: all
+  - **Remarks**: Only available while the print job is paused.
+- **Stop print**
+  - **Description**: Stops the print job. A stopped print job cannot be resumed.
+  - **Available for printers**: all
+  - **Remarks**: Only available while the printer is printing, or while the print job is paused.
+
+The buttons are unavailable when the printer only accepts commands in developer mode, and developer mode is off.
 
 ### Lights
 
@@ -111,7 +131,8 @@ When the connection to the printer is lost, for example because the printer is t
 
 ## Known limitations
 
-- Apart from the light, the integration only reads from the printer. You cannot start, pause, or stop a print, and you cannot control the fans or the temperatures.
+- You cannot start a print, and you cannot control the fans or the temperatures.
+- A printer with recent firmware only lets Home Assistant pause, resume, or stop a print while it is in developer mode.
 - The integration has no entities for the camera or for the Automatic Material System (AMS).
 - Home Assistant does not discover printers on your network. You add each printer yourself.
 - When you change the IP address or the access code of the printer, remove the printer from Home Assistant and add it again.
@@ -184,6 +205,23 @@ Home Assistant reached a Bambu Lab printer at the address you entered, but it is
 
 1. Check the serial number on the screen of your printer. The serial number is not the name of the printer.
 2. If you have more than one printer, check that the **Host** you entered is the IP address of the printer you want to add.
+
+{% enddetails %}
+
+{% details "The buttons are unavailable" %}
+
+### Symptom: The buttons are unavailable, while the sensors work
+
+The sensors of the printer show values, but **Pause print**, **Resume print**, and **Stop print** are unavailable.
+
+#### Description
+
+A button is only available when the printer can do what it asks: you cannot pause a print when the printer is not printing. When the buttons stay unavailable during a print, the printer only accepts commands in developer mode.
+
+#### Resolution
+
+1. Check the **Print status** sensor. **Pause print** needs it to be **Printing**, and **Resume print** needs it to be **Paused**.
+2. If the buttons stay unavailable during a print, turn on developer mode on your printer, as described in the [prerequisites](#prerequisites).
 
 {% enddetails %}
 
