@@ -1,0 +1,43 @@
+.collaboration-badge {
+    align-items: center;
+    backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 12px;
+
+    @media (min-width: 768px) {
+        padding: 8px 24px;
+    }
+
+    .collaborators {
+        display: flex;
+        gap: 20px;
+
+        .collaborator {
+            display: flex;
+            
+            img {
+                height: 18px;
+
+                @media (min-width: 768px) {
+                    height: 20px;
+                }
+            }
+        }
+    }
+
+    span {
+        color: #F2F4F9;
+        font-size: 12px;
+        font-weight: 300;
+        padding: 4px 0;
+
+        @media (min-width: 768px) {
+            font-size: 16px;
+        }
+    }
+}

@@ -1,33 +1,10 @@
 ---
-title: Yale
 description: Instructions on how to integrate your Yale devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Lock
-  - Sensor
 ha_release: 2024.9
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
 ha_domain: yale
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - event
-  - lock
-  - sensor
-ha_integration_type: integration
 ---
 
-The **Yale** integration allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) devices in Home Assistant.
+The **Yale** {% term integration %} allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) devices in Home Assistant.
 
 The login credentials used to authenticate the integration are the same as the ones used in the Yale Home app.
 
@@ -135,8 +112,6 @@ For locks that support the Yale Access system, the Yale integration can keep you
 
 Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below automation example (added to `automations.yaml`) will trigger when the user named “John Doe” in Yale locks or unlocks the door either from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by Yale.
 
-{% raw %}
-
 ```yaml
 - alias: "John Doe locks or unlocks the Front Door"
   triggers:
@@ -150,5 +125,3 @@ Using the lock operation sensors, you can detect when a user operates a lock and
     - action: camera.turn_off
       entity_id: camera.inside
 ```
-
-{% endraw %}

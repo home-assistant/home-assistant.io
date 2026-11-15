@@ -1,0 +1,9 @@
+{
+  "domain": "power",
+  "name": "Power",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

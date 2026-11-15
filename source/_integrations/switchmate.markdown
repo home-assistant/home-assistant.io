@@ -1,21 +1,10 @@
 ---
-title: Switchmate SimplySmart Home
 description: Instructions on how to set up Switchmate switches.
-ha_category:
-  - Switch
 ha_release: 0.78
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@danielhiversen'
-  - '@qiz-li'
 ha_domain: switchmate
-ha_platforms:
-  - switch
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
-This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).
+The **Switchmate SimplySmart Home** {% term integration %} allows you to control Switchmate [devices](https://www.mysimplysmarthome.com/products/switchmate-switches/).
 
 ## Configuration
 

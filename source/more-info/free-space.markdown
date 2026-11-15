@@ -8,7 +8,7 @@ related:
     title: Add network storage
   - docs: /common-tasks/os/#using-external-data-disk
     title: Using an external data disk
-  - URL: https://support.nabucasa.com/hc/en-us/articles/25549332241949
+  - URL: https://support.nabucasa.com/hc/articles/25549332241949
     title: Adding an SSD to Home Assistant Yellow
 ---
 
@@ -18,16 +18,16 @@ There are several things you can do to free up some space:
 
 - [Clean the database](#cleaning-the-database)
 - [Reduce space used for backups](#reducing-space-used-for-backups)
-- [Uninstall unused add-ons](#uninstalling-unused-add-ons)
+- [Uninstall unused apps](#uninstalling-unused-apps)
 - [Expand storage](#expanding-storage)
 
 ## Viewing the available disk space
 
 Follow these steps to check the available free disk space.
 
-1. Go to **{% my storage title="Settings > System > Storage" %}**.
+1. Go to {% my storage title="**Settings** > **System** > **Storage**" %}.
 2. Under disk metrics, hover over the status bar to view the details.
-   - {% icon "mdi:information-outline" %} The **Network storage** section only shows if you have [added network storage](/common-tasks/os/#network-storage).
+   - {% icon "mdi:information-outline" %} [Network storage](/common-tasks/os/#network-storage) and [local disks](/common-tasks/os/#local-disk-storage) that you have added are listed under **Additional storage**.
 
    ![Screenshot of the "Move datadisk" feature](/images/screenshots/storage_view_free-diskspace.png)
 
@@ -49,21 +49,21 @@ the database.
 
 Previous backups are not included when you create a new one. But they do take up space.
 
-1. To delete old backups, follow the steps on [deleting obsolete backups](/common-tasks/general/#deleting-obsolete-backups).
+1. To delete old backups, follow the steps on [deleting obsolete backups](/common-tasks/general/backups/#deleting-obsolete-backups).
 2. Ideally, backups don't pile up on the system to begin with.
-   - To define how long automatic backups should be kept on the system, follow the steps on [setting up an automatic backup process](/common-tasks/os/#setting-up-an-automatic-backup-process).
+   - To define how long automatic backups should be kept on the system, follow the steps on [setting up an automatic backup process](/common-tasks/general/backups/#setting-up-an-automatic-backup-process).
 
 ### Storing backups outside of Home Assistant
 
-Storing backups outside of Home Assistant makes sure they don't use space on Home Assistant to begin with. It also makes sure you can [restore Home Assistant from backup](/common-tasks/general/#restoring-a-backup) in case you have an issue with your current installation. Follow the steps on [defining backup locations](/common-tasks/general/#defining-backup-locations).
+Storing backups outside of Home Assistant makes sure they don't use space on Home Assistant to begin with. It also makes sure you can [restore Home Assistant from backup](/common-tasks/general/backups/#restoring-a-backup) in case you have an issue with your current installation. Follow the steps on [defining backup locations](/common-tasks/general/backups/#defining-backup-locations).
 
-## Uninstalling unused add-ons
+## Uninstalling unused apps
 
-Add-ons can take a lot of space, not just the add-on itself but also their data.
+Apps can take a lot of space, not just the app itself but also their data.
 
-1. Go to {% my supervisor title="**Settings** > **Add-ons**" %}.
-2. Look at your installed add-ons and identify the ones you no longer use.
-3. To remove the add-on, select the add-on and select **Uninstall**.
+1. Go to {% my supervisor title="**Settings** > **Apps**" %}.
+2. Look at your installed apps and identify the ones you no longer use.
+3. To remove the app, select the app and select **Uninstall**.
 
 ## Expanding storage
 
@@ -73,7 +73,7 @@ If the above steps to free up space did not help, you need to expand your storag
 
 When you are running {% term "Home Assistant Operating System" %}, you can use the following options to expand your storage:
 
-- Replace your current storage medium, for example, the SD card, with a bigger one. Use a backup to [restore Home Assistant from backup](/common-tasks/general/#restoring-a-backup) on the new SD card.
+- Replace your current storage medium, for example, the SD card, with a bigger one. Use a backup to [restore Home Assistant from backup](/common-tasks/general/backups/#restoring-a-backup) on the new SD card.
 - [Use an external data disk](/common-tasks/os/#using-external-data-disk)
 
 ### Expanding storage on VM

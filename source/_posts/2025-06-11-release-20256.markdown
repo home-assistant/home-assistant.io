@@ -125,6 +125,8 @@ We welcome the following new integrations in this release:
   Connect to your [Paperless-ngx system] to track and manage your digital documents from Home Assistant.
 - **[Probe Plus]**, added by [@pantherale0]  
   Integrate wireless Bluetooth meat thermometers compatible with the PROBE PLUS app, bringing real-time temperature monitoring during cooking into Home Assistant.
+- **[Swing2Sleep Smarla]**, added by [@rlint-explicatis]  
+  Integrates the [Swing2Sleep] Smarla, a smart motorized cradle designed to assist parents in their daily routines.
 - **[Zimi Cloud Connect]**, added by [@mhannon11]  
   Connect to [Zimi Cloud] devices to monitor and control your Zimi smart home products.
 
@@ -133,6 +135,7 @@ We welcome the following new integrations in this release:
 [@mhannon11]: https://github.com/mhannon11
 [@mib1185]: https://github.com/mib1185
 [@pantherale0]: https://github.com/pantherale0
+[@rlint-explicatis]: https://github.com/rlint-explicatis
 [@starkillerOG]: https://github.com/starkillerOG
 [Alexa Devices]: /integrations/alexa_devices
 [Immich App]: https://immich.app/
@@ -140,6 +143,8 @@ We welcome the following new integrations in this release:
 [Paperless-ngx system]: https://docs.paperless-ngx.com/
 [Paperless-ngx]: /integrations/paperless_ngx
 [Probe Plus]: /integrations/probe_plus
+[Swing2Sleep Smarla]: /integrations/smarla
+[Swing2Sleep]: https://swing2sleep.de/
 [Zimi Cloud Connect]: /integrations/zimi
 [Zimi Cloud]: https://www.zimi.com.au/
 

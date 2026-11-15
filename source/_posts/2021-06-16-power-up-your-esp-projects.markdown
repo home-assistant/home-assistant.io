@@ -249,7 +249,7 @@ If you want to help fund our work, subscribe to [Home Assistant Cloud][nabucasa]
 [adafruit]: https://www.adafruit.com
 [add-esp-web-tools]: https://esphome.github.io/esp-web-tools/#add-website
 [aliexpress]: https://www.aliexpress.com/item/1005002354577296.html
-[amazon]: https://amzn.to/35cUvGj
+[amazon]: https://www.amazon.com/dp/B07QCP2451
 [esp-web-tools]: https://esphome.github.io/esp-web-tools/
 [espeasy]: https://github.com/letscontrolit/ESPEasy
 [esphome-project]: https://www.esphome.io/components/esphome.html#project-information

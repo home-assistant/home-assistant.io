@@ -1,0 +1,39 @@
+<section id="faq" class="light">
+    <div class="section-inner">
+        <div class="section-inner-content">
+            <div class="container">
+                <h2>Got some questions?</h2>
+                <div class="accordion">
+                    <div class="accordion-items">
+                        {% for item in site.data.product.connect["zwa-2"].faq.items %}
+                        <div class="accordion-item">
+                            <input type="checkbox" class="accordion-item-checkbox" id="{{ item.question | slugify }}" />
+                            <div class="accordion-item-heading">
+                                <label for="{{ item.question | slugify }}" class="accordion-item-heading-label">
+                                    <div class="accordion-item-heading-title">
+                                        {{ item.question }}
+                                    </div>
+                                    <div class="accordion-item-heading-icon">
+                                        <div class="button-more">
+                                            <div class="plus"></div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="accordion-item-content-animation-wrapper">
+                                <div class="accordion-item-content-animation">
+                                    <div class="accordion-item-content-transform-wrapper">
+                                        <div class="accordion-item-content">
+                                            {{ item.answer }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

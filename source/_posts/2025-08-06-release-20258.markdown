@@ -51,6 +51,10 @@ Enjoy the release!
   - [Control individual members of a group](#control-individual-members-of-a-group)
   - [Weekdays in time trigger](#weekdays-in-time-trigger)
   - [Energy flow on your energy dashboard](#energy-flow-on-your-energy-dashboard)
+- [Patch releases](#patch-releases)
+  - [2025.8.1 - August 11](#202581---august-11)
+  - [2025.8.2 - August 15](#202582---august-15)
+  - [2025.8.3 - August 21](#202583---august-21)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -322,6 +326,7 @@ The following integration is now available via the Home Assistant UI:
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
+- Home Assistant's interface has received a refresh for better accessibility! The primary color and button colors have been updated to meet [WCAG AA accessibility standards](https://www.w3.org/WAI/WCAG2AA-Conformance), improving contrast and readability throughout the interface. All buttons have been redesigned with distinct styles, sizes, and visual priority variants, making it much easier to distinguish between primary, secondary, and less prominent actions. This marks the beginning of a broader effort to update other UI components for improved accessibility and consistency across Home Assistant.
 - [@mib1185] added a new device class for **absolute humidity** with support for both sensor and number {% term entities %}. Nice!
 - Group management was improved by [@piitaya], who added the ability to reorder members within a group, making it easier to organize your device groups exactly how you want them. Thanks!
 - System diagnostics was extended by [@balloob] with the addition of a device analytics dump download feature. Awesome!
@@ -385,6 +390,331 @@ Really cool addition to the energy dashboard [@MindFreeze]!
 
 [@MindFreeze]: https://github.com/MindFreeze
 [Sankey Chart custom card]: https://github.com/MindFreeze/ha-sankey-chart
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2025.8 in August.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release once a week, aiming for Friday.
+
+### 2025.8.1 - August 11
+
+- Make Tuya complex type handling explicit ([@epenet] - [#149677])
+- Fix Enigma2 startup hang ([@BlackBadPinguin] - [#149756])
+- Fix dialog enhancement switch for Sonos Arc Ultra ([@PeteRager] - [#150116])
+- Bump ZHA to 0.0.67 ([@puddly] - [#150132])
+- Bump airOS to 0.2.6 improving device class matching more devices ([@CoMPaTech] - [#150134])
+- Handle HusqvarnaWSClientError ([@Thomas55555] - [#150145])
+- Fix Progettihwsw config flow ([@gaspa85] - [#150149])
+- Bump imgw_pib to version 1.5.3 ([@bieniu] - [#150178])
+- Fix description of `button.press` action ([@NoRi2909] - [#150181])
+- Migrate unique_id only if monitor_id is present in Uptime Kuma ([@tr4nt0r] - [#150197])
+- Silence vacuum battery deprecation for built in integrations ([@MartinHjelmare] - [#150204])
+- Bump ZHA to 0.0.68 ([@puddly] - [#150208])
+- Bump hass-nabucasa from 0.111.1 to 0.111.2 ([@ludeeus] - [#150209])
+- Fix JSON serialization for ZHA diagnostics download ([@puddly] - [#150210])
+- Ignore MQTT vacuum battery warning ([@MartinHjelmare] - [#150211])
+- Handle Unifi Protect BadRequest exception during API key creation ([@RaHehl] - [#150223])
+- Fix Tibber coordinator ContextVar warning ([@MartinHjelmare] - [#150229])
+- Fix handing for zero volume error in Squeezebox ([@peteS-UK] - [#150265])
+- Fix error on startup when no Apps or Radio plugins are installed for Squeezebox ([@peteS-UK] - [#150267])
+- Volvo: fix missing charging power options ([@thomasddn] - [#150272])
+- Constraint num2words to 0.5.14 ([@edenhaus] - [#150276])
+- Volvo: fix distance to empty battery ([@thomasddn] - [#150278])
+- Add GPT-5 support ([@Shulyaka] - [#150281])
+- Volvo: Skip unsupported API fields ([@thomasddn] - [#150285])
+- Remove misleading "the" from Launch Library configuration ([@NoRi2909] - [#150288])
+- Set suggested display precision on Volvo energy/fuel consumption sensors ([@steinmn] - [#150296])
+- Bump airOS to 0.2.7 supporting firmware 8.7.11 ([@CoMPaTech] - [#150298])
+- Update knx-frontend to 2025.8.9.63154 ([@philippwaller] - [#150323])
+- Update frontend to 20250811.0 ([@bramkragten] - [#150404])
+- Handle empty electricity RAW sensors in Tuya ([@epenet] - [#150406])
+- Lower Z-Wave firmware check delay ([@MartinHjelmare] - [#150411])
+- Fix issue with Tuya suggested unit ([@epenet] - [#150414])
+
+[#149677]: https://github.com/home-assistant/core/pull/149677
+[#149756]: https://github.com/home-assistant/core/pull/149756
+[#150115]: https://github.com/home-assistant/core/pull/150115
+[#150116]: https://github.com/home-assistant/core/pull/150116
+[#150132]: https://github.com/home-assistant/core/pull/150132
+[#150134]: https://github.com/home-assistant/core/pull/150134
+[#150145]: https://github.com/home-assistant/core/pull/150145
+[#150149]: https://github.com/home-assistant/core/pull/150149
+[#150178]: https://github.com/home-assistant/core/pull/150178
+[#150181]: https://github.com/home-assistant/core/pull/150181
+[#150197]: https://github.com/home-assistant/core/pull/150197
+[#150204]: https://github.com/home-assistant/core/pull/150204
+[#150208]: https://github.com/home-assistant/core/pull/150208
+[#150209]: https://github.com/home-assistant/core/pull/150209
+[#150210]: https://github.com/home-assistant/core/pull/150210
+[#150211]: https://github.com/home-assistant/core/pull/150211
+[#150223]: https://github.com/home-assistant/core/pull/150223
+[#150229]: https://github.com/home-assistant/core/pull/150229
+[#150265]: https://github.com/home-assistant/core/pull/150265
+[#150267]: https://github.com/home-assistant/core/pull/150267
+[#150272]: https://github.com/home-assistant/core/pull/150272
+[#150276]: https://github.com/home-assistant/core/pull/150276
+[#150278]: https://github.com/home-assistant/core/pull/150278
+[#150281]: https://github.com/home-assistant/core/pull/150281
+[#150285]: https://github.com/home-assistant/core/pull/150285
+[#150288]: https://github.com/home-assistant/core/pull/150288
+[#150296]: https://github.com/home-assistant/core/pull/150296
+[#150298]: https://github.com/home-assistant/core/pull/150298
+[#150323]: https://github.com/home-assistant/core/pull/150323
+[#150339]: https://github.com/home-assistant/core/pull/150339
+[#150404]: https://github.com/home-assistant/core/pull/150404
+[#150406]: https://github.com/home-assistant/core/pull/150406
+[#150411]: https://github.com/home-assistant/core/pull/150411
+[#150414]: https://github.com/home-assistant/core/pull/150414
+[@BlackBadPinguin]: https://github.com/BlackBadPinguin
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@NoRi2909]: https://github.com/NoRi2909
+[@PeteRager]: https://github.com/PeteRager
+[@RaHehl]: https://github.com/RaHehl
+[@Shulyaka]: https://github.com/Shulyaka
+[@Thomas55555]: https://github.com/Thomas55555
+[@ThyMYthOS]: https://github.com/ThyMYthOS
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@edenhaus]: https://github.com/edenhaus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gaspa85]: https://github.com/gaspa85
+[@ludeeus]: https://github.com/ludeeus
+[@peteS-UK]: https://github.com/peteS-UK
+[@philippwaller]: https://github.com/philippwaller
+[@puddly]: https://github.com/puddly
+[@steinmn]: https://github.com/steinmn
+[@thomasddn]: https://github.com/thomasddn
+[@tr4nt0r]: https://github.com/tr4nt0r
+
+### 2025.8.2 - August 15
+
+- Add pymodbus to package constraints ([@epenet] - [#150420])
+- Fix enphase_envoy non existing via device warning at first config. ([@catsmanac] - [#149010])
+- Handle non-streaming TTS case correctly ([@synesthesiam] - [#150218])
+- Pi_hole - Account for auth succeeding when it shouldn't ([@HarvsG] - [#150413])
+- Bump habiticalib to version 0.4.2 ([@tr4nt0r] - [#150417])
+- Fix optimistic set to false for template entities ([@Petro31] - [#150421])
+- Fix error of the Powerfox integration in combination with the new Powerfox FLOW adapter ([@DavidCraftDev] - [#150429])
+- Bump python-snoo to 0.7.0 ([@kevin-david] - [#150434])
+- Fix brightness command not sent when in white color mode ([@wedsa5] - [#150439])
+- Bump cookidoo-api to 0.14.0 ([@miaucl] - [#150450])
+- Fix YoLink valve state when device running in class A mode ([@matrixd2] - [#150456])
+- Additional Fix error on startup when no Apps or Radio plugins are installed for Squeezebox ([@peteS-UK] - [#150475])
+- Fix re-auth flow for Volvo integration ([@thomasddn] - [#150478])
+- Improve Z-Wave manual config flow step description ([@MartinHjelmare] - [#150479])
+- Add missing boost2 code for Miele hobs ([@astrandb] - [#150481])
+- Bump airOS to 0.2.8 ([@CoMPaTech] - [#150504])
+- Bump aiowebostv to 0.7.5 ([@thecode] - [#150514])
+- Bump bleak-retry-connector to 4.0.1 ([@bdraco] - [#150515])
+- Bump aiodhcpwatcher to 1.2.1 ([@bdraco] - [#150519])
+- Bump python-snoo to 0.8.1 ([@Lash-L] - [#150530])
+- Bump uv to 0.8.9 ([@edenhaus] - [#150542])
+- Bump python-snoo to 0.8.2 ([@Lash-L] - [#150569])
+- Change Snoo to use MQTT instead of PubNub ([@Lash-L] - [#150570])
+- Make sure we update the api version in philips_js discovery ([@elupus] - [#150604])
+- Bump pymiele to 0.5.3 ([@astrandb] - [#150216])
+- Bump pymiele to 0.5.4 ([@astrandb] - [#150605])
+- Bump airOS to 0.2.11 ([@CoMPaTech] - [#150627])
+- Bump uiprotect to 7.21.1 ([@bdraco] - [#150657])
+- Bump onvif-zeep-async to 4.0.3 ([@bdraco] - [#150663])
+- Bump python-snoo to 0.8.3 ([@Lash-L] - [#150670])
+- Fix missing labels for subdiv in workday ([@gjohansson-ST] - [#150684])
+- Improve handling decode errors in rest ([@gjohansson-ST] - [#150699])
+
+[#149010]: https://github.com/home-assistant/core/pull/149010
+[#150115]: https://github.com/home-assistant/core/pull/150115
+[#150216]: https://github.com/home-assistant/core/pull/150216
+[#150218]: https://github.com/home-assistant/core/pull/150218
+[#150412]: https://github.com/home-assistant/core/pull/150412
+[#150413]: https://github.com/home-assistant/core/pull/150413
+[#150417]: https://github.com/home-assistant/core/pull/150417
+[#150420]: https://github.com/home-assistant/core/pull/150420
+[#150421]: https://github.com/home-assistant/core/pull/150421
+[#150429]: https://github.com/home-assistant/core/pull/150429
+[#150434]: https://github.com/home-assistant/core/pull/150434
+[#150439]: https://github.com/home-assistant/core/pull/150439
+[#150450]: https://github.com/home-assistant/core/pull/150450
+[#150456]: https://github.com/home-assistant/core/pull/150456
+[#150475]: https://github.com/home-assistant/core/pull/150475
+[#150478]: https://github.com/home-assistant/core/pull/150478
+[#150479]: https://github.com/home-assistant/core/pull/150479
+[#150481]: https://github.com/home-assistant/core/pull/150481
+[#150504]: https://github.com/home-assistant/core/pull/150504
+[#150514]: https://github.com/home-assistant/core/pull/150514
+[#150515]: https://github.com/home-assistant/core/pull/150515
+[#150519]: https://github.com/home-assistant/core/pull/150519
+[#150530]: https://github.com/home-assistant/core/pull/150530
+[#150542]: https://github.com/home-assistant/core/pull/150542
+[#150569]: https://github.com/home-assistant/core/pull/150569
+[#150570]: https://github.com/home-assistant/core/pull/150570
+[#150604]: https://github.com/home-assistant/core/pull/150604
+[#150605]: https://github.com/home-assistant/core/pull/150605
+[#150627]: https://github.com/home-assistant/core/pull/150627
+[#150657]: https://github.com/home-assistant/core/pull/150657
+[#150663]: https://github.com/home-assistant/core/pull/150663
+[#150670]: https://github.com/home-assistant/core/pull/150670
+[#150684]: https://github.com/home-assistant/core/pull/150684
+[#150699]: https://github.com/home-assistant/core/pull/150699
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@DavidCraftDev]: https://github.com/DavidCraftDev
+[@HarvsG]: https://github.com/HarvsG
+[@Lash-L]: https://github.com/Lash-L
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Petro31]: https://github.com/Petro31
+[@astrandb]: https://github.com/astrandb
+[@bdraco]: https://github.com/bdraco
+[@catsmanac]: https://github.com/catsmanac
+[@edenhaus]: https://github.com/edenhaus
+[@elupus]: https://github.com/elupus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@kevin-david]: https://github.com/kevin-david
+[@matrixd2]: https://github.com/matrixd2
+[@miaucl]: https://github.com/miaucl
+[@peteS-UK]: https://github.com/peteS-UK
+[@synesthesiam]: https://github.com/synesthesiam
+[@thecode]: https://github.com/thecode
+[@thomasddn]: https://github.com/thomasddn
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@wedsa5]: https://github.com/wedsa5
+
+### 2025.8.3 - August 21
+
+- Bump to zcc-helper==3.6 ([@markhannon] - [#150608]) ([zimi docs])
+- fix(amberelectric): add request timeouts ([@JP-Ellis] - [#150613]) ([amberelectric docs])
+- Bump renault-api to 0.4.0 ([@epenet] - [#150624]) ([renault docs])
+- Update hassfest package exceptions ([@cdce8p] - [#150744])
+- Bump boschshcpy to 0.2.107 ([@tschamm] - [#150754]) ([bosch_shc docs])
+- Fix for bosch_shc: 'device_registry.async_get_or_create' referencing a non existing 'via_device' ([@tschamm] - [#150756]) ([bosch_shc docs])
+- Fix volume step error in Squeezebox media player ([@peteS-UK] - [#150760]) ([squeezebox docs])
+- Show charging power as 0 when not charging for the Volvo integration ([@thomasddn] - [#150797]) ([volvo docs])
+- Pin gql to 3.5.3 ([@joostlek] - [#150800])
+- Bump opower to 0.15.2 ([@tronikos] - [#150809]) ([opower docs])
+- Include device data in Withings diagnostics ([@joostlek] - [#150816]) ([withings docs])
+- Abort Nanoleaf discovery flows with user flow ([@joostlek] - [#150818]) ([nanoleaf docs])
+- Bump yt-dlp to 2025.08.11 ([@joostlek] - [#150821]) ([media_extractor docs])
+- Initialize the coordinator's data to include data.options. ([@LG-ThinQ-Integration] - [#150839]) ([lg_thinq docs])
+- Handle Z-Wave RssiErrorReceived ([@MartinHjelmare] - [#150846]) ([zwave_js docs])
+- Use correct unit and class for the Imeon inverter sensors ([@Imeon-Energy] - [#150847]) ([imeon_inverter docs])
+- Bump holidays to 0.79 ([@gjohansson-ST] - [#150857]) ([workday docs]) ([holiday docs])
+- Bump aiorussound to 4.8.1 ([@noahhusby] - [#150858]) ([russound_rio docs])
+- Add missing unsupported reasons to list ([@agners] - [#150866]) ([hassio docs])
+- Fix icloud service calls ([@epenet] - [#150881]) ([icloud docs])
+- Bump pysmartthings to 3.2.9 ([@joostlek] - [#150892]) ([smartthings docs])
+- Fix PWA theme color to match darker blue color scheme in 2025.8 ([@balloob] - [#150896]) ([frontend docs])
+- Bump bleak-retry-connector to 4.0.2 ([@bdraco] - [#150899]) ([bluetooth docs])
+- update pyatmo to v9.2.3 ([@cgtobi] - [#150900]) ([netatmo docs])
+- Fix structured output object selector conversion for OpenAI ([@balloob] - [#150916]) ([openai_conversation docs])
+- Matter valve Open command doesn't support TargetLevel=0 ([@kepstin] - [#150922]) ([matter docs])
+- Bump ESPHome minimum stable BLE version to 2025.8.0 ([@bdraco] - [#150924]) ([esphome docs])
+- Bump imgw-pib to version 1.5.4 ([@bieniu] - [#150930]) ([imgw_pib docs])
+- Fix update retry for Imeon inverter integration ([@Imeon-Energy] - [#150936]) ([imeon_inverter docs])
+- Bump python-mystrom to 2.5.0 ([@elsi06] - [#150947]) ([mystrom docs])
+- Ask user for Z-Wave RF region if country is missing ([@MartinHjelmare] - [#150959]) ([zwave_js docs])
+- Bump onvif-zeep-async to 4.0.4 ([@bdraco] - [#150969]) ([onvif docs])
+- Except ujson from license check ([@emontnemery] - [#150980])
+- Enable country site autodetection in Alexa Devices ([@chemelli74] - [#150989]) ([alexa_devices docs])
+- Update frontend to 20250811.1 ([@bramkragten] - [#151005]) ([frontend docs])
+
+[#150115]: https://github.com/home-assistant/core/pull/150115
+[#150412]: https://github.com/home-assistant/core/pull/150412
+[#150608]: https://github.com/home-assistant/core/pull/150608
+[#150613]: https://github.com/home-assistant/core/pull/150613
+[#150624]: https://github.com/home-assistant/core/pull/150624
+[#150718]: https://github.com/home-assistant/core/pull/150718
+[#150744]: https://github.com/home-assistant/core/pull/150744
+[#150754]: https://github.com/home-assistant/core/pull/150754
+[#150756]: https://github.com/home-assistant/core/pull/150756
+[#150760]: https://github.com/home-assistant/core/pull/150760
+[#150797]: https://github.com/home-assistant/core/pull/150797
+[#150800]: https://github.com/home-assistant/core/pull/150800
+[#150809]: https://github.com/home-assistant/core/pull/150809
+[#150816]: https://github.com/home-assistant/core/pull/150816
+[#150818]: https://github.com/home-assistant/core/pull/150818
+[#150821]: https://github.com/home-assistant/core/pull/150821
+[#150839]: https://github.com/home-assistant/core/pull/150839
+[#150846]: https://github.com/home-assistant/core/pull/150846
+[#150847]: https://github.com/home-assistant/core/pull/150847
+[#150857]: https://github.com/home-assistant/core/pull/150857
+[#150858]: https://github.com/home-assistant/core/pull/150858
+[#150866]: https://github.com/home-assistant/core/pull/150866
+[#150881]: https://github.com/home-assistant/core/pull/150881
+[#150892]: https://github.com/home-assistant/core/pull/150892
+[#150896]: https://github.com/home-assistant/core/pull/150896
+[#150899]: https://github.com/home-assistant/core/pull/150899
+[#150900]: https://github.com/home-assistant/core/pull/150900
+[#150916]: https://github.com/home-assistant/core/pull/150916
+[#150922]: https://github.com/home-assistant/core/pull/150922
+[#150924]: https://github.com/home-assistant/core/pull/150924
+[#150930]: https://github.com/home-assistant/core/pull/150930
+[#150936]: https://github.com/home-assistant/core/pull/150936
+[#150947]: https://github.com/home-assistant/core/pull/150947
+[#150959]: https://github.com/home-assistant/core/pull/150959
+[#150969]: https://github.com/home-assistant/core/pull/150969
+[#150980]: https://github.com/home-assistant/core/pull/150980
+[#150989]: https://github.com/home-assistant/core/pull/150989
+[#151005]: https://github.com/home-assistant/core/pull/151005
+[@Imeon-Energy]: https://github.com/Imeon-Energy
+[@JP-Ellis]: https://github.com/JP-Ellis
+[@LG-ThinQ-Integration]: https://github.com/LG-ThinQ-Integration
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@agners]: https://github.com/agners
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@cgtobi]: https://github.com/cgtobi
+[@chemelli74]: https://github.com/chemelli74
+[@elsi06]: https://github.com/elsi06
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@kepstin]: https://github.com/kepstin
+[@markhannon]: https://github.com/markhannon
+[@noahhusby]: https://github.com/noahhusby
+[@peteS-UK]: https://github.com/peteS-UK
+[@thomasddn]: https://github.com/thomasddn
+[@tronikos]: https://github.com/tronikos
+[@tschamm]: https://github.com/tschamm
+[ai_task docs]: /integrations/ai_task/
+[airgradient docs]: /integrations/airgradient/
+[airnow docs]: /integrations/airnow/
+[alexa_devices docs]: /integrations/alexa_devices/
+[amberelectric docs]: /integrations/amberelectric/
+[bluetooth docs]: /integrations/bluetooth/
+[bosch_shc docs]: /integrations/bosch_shc/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[holiday docs]: /integrations/holiday/
+[icloud docs]: /integrations/icloud/
+[imeon_inverter docs]: /integrations/imeon_inverter/
+[imgw_pib docs]: /integrations/imgw_pib/
+[lg_thinq docs]: /integrations/lg_thinq/
+[matter docs]: /integrations/matter/
+[media_extractor docs]: /integrations/media_extractor/
+[mystrom docs]: /integrations/mystrom/
+[nanoleaf docs]: /integrations/nanoleaf/
+[netatmo docs]: /integrations/netatmo/
+[onvif docs]: /integrations/onvif/
+[openai_conversation docs]: /integrations/openai_conversation/
+[opower docs]: /integrations/opower/
+[renault docs]: /integrations/renault/
+[russound_rio docs]: /integrations/russound_rio/
+[smartthings docs]: /integrations/smartthings/
+[squeezebox docs]: /integrations/squeezebox/
+[volvo docs]: /integrations/volvo/
+[withings docs]: /integrations/withings/
+[workday docs]: /integrations/workday/
+[zimi docs]: /integrations/zimi/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
 

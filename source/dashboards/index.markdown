@@ -1,6 +1,6 @@
 ---
 title: "Dashboards"
-description: "Powerful and configurable dashboards for Home Assistant."
+description: "Build customizable dashboards for your smart home with drag and drop, no coding required."
 related:
   - docs: /integrations/entity/
     title: Dashboard themes
@@ -16,7 +16,9 @@ related:
     title: Community custom cards
 ---
 
-Home Assistant dashboards allow you to display information about your smart home. Dashboards are customizable and provide a powerful way to manage your home from your mobile or desktop.
+Your dashboard is what you and your family see when you open the Home Assistant app or website. It is the at-a-glance view of your home: which lights are on, what the temperature is in each room, who is home, and what is happening right now. From the same dashboard, a single tap dims the lights, starts your robot vacuum, or arms the alarm.
+
+Home Assistant comes with a dashboard out of the box, automatically generated from the devices you add. From there, you can build your own dashboards visually, with drag and drop, no coding required. Make a focused dashboard for the kitchen tablet, a simple one for guests, and a detailed one for yourself.
 
 You can customize your dashboard using various options:
 
@@ -41,4 +43,4 @@ To create your own dashboard, follow the steps on [creating a new dashboard](/da
 ## Discuss dashboard
 
 - Suggestions are welcome in the [frontend repository](https://github.com/home-assistant/frontend/)
-- For help with dashboards, join the `#frontend` channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/projects/frontend)
+- For help with dashboards, join the `#frontend` channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/34)

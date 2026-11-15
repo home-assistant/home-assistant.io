@@ -1,18 +1,7 @@
 ---
-title: DSMR Smart Meter
 description: Instructions on how to integrate DSMR smart meter within Home Assistant.
-ha_category:
-  - Energy
 ha_release: 0.34
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: dsmr
-ha_codeowners:
-  - '@Robbie1221'
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: hub
 ---
 
 A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'. Swedish meters with a 'HAN port' are not supported by this integration.
@@ -23,7 +12,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 - For official information about the Swedish variant refer to: [Swedish specification](https://www.energiforetagen.se/globalassets/energiforetagen/det-erbjuder-vi/kurser-och-konferenser/elnat/branschrekommendation-lokalt-granssnitt-v2_0-201912.pdf).
 - For official information about the E.ON Hungary variant refer to: [E.ON Hungary P1 port specification](https://www.eon.hu/content/dam/eon/eon-hungary/documents/Lakossagi/aram/muszaki-ugyek/P1_port_felhasznaloi_interfesz_felhasznaloi_tajekoztato_%2020240702.pdf)
-- Supports [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602) integrated in a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103).
+- For RFXCOM hardware, see [chapter 19 of the RFXtrx User Guide](https://rfxcom.com/download/RFXtrx_User_Guide.pdf) for supported P1 smart meter connection options.
 
 <p class='img'>
 <img src='/images/screenshots/dsmr.png' />
@@ -40,7 +29,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 ### Options
 
-To configure options for DSMR integration go to **Settings** -> **Devices & services** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to {% my integrations title="**Settings** > **Devices & services**" %} and press **Options** on the DSMR card.
 
 #### Time between updates
 
@@ -79,7 +68,7 @@ While previously only 1 gas meter was supported, there is now support for multip
 ### Connecting to the meter
 
 Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy.
-It is also possible to connect to a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103) with an integrated [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602).
+For details about connecting an RFXtrx433XL or RFX433 to a P1 smart meter, see [chapter 19 of the RFXtrx User Guide](https://rfxcom.com/download/RFXtrx_User_Guide.pdf).
 
 #### USB serial converters:
 
@@ -156,4 +145,4 @@ Smart meters in Belgium, Luxembourg and Sweden provided telegrams with largely t
 
 This module sets up an asynchronous reading loop using the `dsmr_parser` module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of `obis`/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the `obis` are know for each DSMR version the Entities for this integration are create during bootstrap.
 
-Another loop (DSMR class) is setup which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.
+Another loop (DSMR class) is set up which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.

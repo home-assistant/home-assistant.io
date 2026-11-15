@@ -1,17 +1,9 @@
 ---
-title: Azure Data Explorer
 description: Setup for Azure Data Explorer integration
-ha_category:
-  - History
 ha_release: 2024.6
-ha_config_flow: true
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@kaareseras'
 ha_domain: azure_data_explorer
 related:
   - docs: /docs/configuration/
-ha_integration_type: integration
 ---
 
 [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/) is a high-performance time-series database, query engine, and dashboarding tool. The Home Assistant **Azure Data Explorer** {% term integration %} allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding. From here, data can be viewed in building dashboards, PowerBi, and Grafana, among others.
@@ -62,10 +54,10 @@ There are a few differences between the **PAYG** and **Free** versions:
 3. Write and perform the following statements one by one, replacing the placeholder content between the <> with the copied values (including the brackets).
 
 ```KQL
-// Give the Service Pricipal write access to the database
+// Give the Service Principal write access to the database
 .add database ['<databasename>'] ingestors ('aadapp=<ApplicationID>;<DirectoryID>');
 
-// Give the Service Pricipal read access to database (used for connectivity checks) 
+// Give the Service Principal read access to the database (used for connectivity checks)
 .add database ['<databasename>'] viewers ('aadapp=<ApplicationID>;<DirectoryID>');
 
 // Create a table for the data to be ingested into (replace the name and copy inserted *name* for later use)

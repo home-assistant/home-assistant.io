@@ -404,4 +404,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7137]: https://github.com/home-assistant/home-assistant/pull/7137
 [#7141]: https://github.com/home-assistant/home-assistant/pull/7141
 [@robbiet480]: https://github.com/robbiet480
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

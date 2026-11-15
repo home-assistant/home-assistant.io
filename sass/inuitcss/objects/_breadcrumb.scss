@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@use '../defaults' as *;
 @if $use-breadcrumb == true{
 
 /*------------------------------------*\
@@ -58,7 +58,7 @@
  * Denote the root of the tree.
  */
 .breadcrumb__root{
-    font-weight:bold;
+    font-weight: 600;
 }
 
 }//endif

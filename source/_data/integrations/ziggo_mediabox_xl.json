@@ -1,0 +1,15 @@
+{
+  "domain": "ziggo_mediabox_xl",
+  "name": "Ziggo Mediabox XL",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

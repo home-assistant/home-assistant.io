@@ -1,40 +1,23 @@
 ---
-title: DoorBird
 description: Instructions on how to integrate your DoorBird video doorbell with Home Assistant.
-ha_category:
-  - Button
-  - Camera
-  - Doorbell
-  - Event
 ha_release: 0.54
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@oblogic7'
-  - '@bdraco'
-  - '@flacjacket'
 ha_domain: doorbird
-ha_zeroconf: true
-ha_platforms:
-  - button
-  - camera
-  - event
-ha_integration_type: integration
 ---
 
 The **DoorBird** {% term integration %} allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Camera](#camera) - View live and historical event based images.
-- [Button](#button) - Enable control of relays and camera low-light/night vision (IR) and resetting favorites.
+- [Camera](#camera) - View the live video.
+- [Image](#image) - View the last doorbell ring and last motion images.
+- [Button](#button) - Control relays and the low-light/night vision (IR) array, and reset favorites.
 - [Event](#event) - Monitor doorbell ring and motion events.
 
 ## Setup
 
 It is recommended to set up a new & dedicated account on your DoorBird App/web portal for use with Home Assistant. The instructions in this document refer specifically to the DoorBird iOS/Android app. Still, most actions can also be performed using the web-based [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal and logging in on your DoorBird admin account.
 
-To setup a new account for Home Assistant, open the DoorBird App by selecting **Settings** (cog icon) > **Administration** > **LOGIN** (using your DoorBird App Administration details). Under the **USER** section, choose **Add**. This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under **Permissions**. The following permissions are recommended (or amend depending on your requirements:
+To set up a new account for Home Assistant, open the DoorBird App by selecting **Settings** (cog icon) > **Administration** > **LOGIN** (using your DoorBird App Administration details). Under the **USER** section, choose **Add**. This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under **Permissions**. The following permissions are recommended (or amend depending on your requirements:
 
 - "Watch Always" (live view)
 - "History" (last motion)
@@ -62,7 +45,7 @@ Events other than `doorbell` and `motion` will not be received in Home Assistant
 
 Events can be cleared from DoorBird devices by pressing the `Reset favorites` button.
 
-Please note that clearing device events will require configuration steps above to be taken again. It could also affect other third-party applications you may use with your DoorBird device. It will not break the official mobile app in any way, so mobile push notifications will still work.
+Clearing device events will require configuration steps above to be taken again. It could also affect other third-party applications you may use with your DoorBird device. It will not break the official mobile app in any way, so mobile push notifications will still work.
 
 ### Event data
 
@@ -96,7 +79,7 @@ Click on the dropdown button in the top left and choose your specific "Schedule 
 
 On the desired event, you should be able to specify blocks of time for when you would like the event to be sent to Home Assistant. If you want the event to always send, the square in the upper right can be used to populate the entire schedule. Events will be fired to Home Assistant for blocks of time that are blue.
 
-Note: Remember to complete the schedule assignment steps above for each event type you registered. If you are configuring HTTP Call(s) schedules for registered RFID tags, please note that you will have to enable/configure the schedule for each RFID tag.
+Note: Remember to complete the schedule assignment steps above for each event type you registered. If you are configuring HTTP Call(s) schedules for registered RFID tags, you will have to enable/configure the schedule for each RFID tag.
 
 ## Automation example
 
@@ -105,8 +88,8 @@ The example automation below shows how to turn on a light when somebody presses 
 ```yaml
 - alias: "Doorbird Ring"
   triggers:
-    - trigger: event
-      event_type: doorbird_driveway_gate_somebody_pressed_the_button
+    - trigger: state
+      entity_id: event.doorbird_driveway_gate_somebody_pressed_the_button
   actions:
     - action: light.turn_on
       target:
@@ -117,12 +100,21 @@ You can also create automation actions based on the DoorBird RFID scanner being 
 
 ## Camera
 
-The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
+The `doorbird` camera platform provides an entity for the live video from your DoorBird device.
+
+## Image
+
+The `doorbird` image platform provides an entity for the last doorbell ring image and an entity for the last motion image from your DoorBird device.
+Each image refreshes the moment a doorbell ring or motion event fires.
+
+{% important %}
+The image entities only update when your DoorBird device sends doorbell ring and motion events to Home Assistant. Make sure these [events](#events) are set up, or the images will not refresh.
+{% endimportant %}
 
 ## Button
 
-The `doorbird` button platform allows you to power connected relays and trigger the low-light/dark Infra-Red (IR) array on your [DoorBird](https://www.doorbird.com/) video doorbell device.
+The `doorbird` button platform provides an entity for each connected relay, an entity for the low-light/night vision (IR) array, and an entity for resetting the favorites on your DoorBird device.
 
 ## Event
 
-An event entity will be created for each doorbell or motion event with a configured HTTP(s) call in the [schedule](#schedules).
+The `doorbird` event platform provides an entity for each doorbell or motion event with a configured HTTP(S) call in the [schedule](#schedules).

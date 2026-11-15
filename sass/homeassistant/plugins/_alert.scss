@@ -11,7 +11,7 @@ div.alert {
 
   p {
     &.alert-title {
-      font-weight: bold;
+      font-weight: 600;
       line-height: 1.5em;
     }
 
@@ -57,6 +57,14 @@ div.alert {
 
     p.alert-title {
       color: #d32f2f;
+    }
+  }
+
+  &.alert-labs {
+    background-color: #e0f2f1;
+
+    p.alert-title {
+      color: #00897b;
     }
   }
 }

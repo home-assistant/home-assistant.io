@@ -136,7 +136,7 @@ We’ve been focusing on the [M5STACK ATOM Echo][atom-echo] for testing and deve
 [ESPHome Voice Assistant documentation.](https://esphome.io/components/voice_assistant.html)
 
 [ESPHome]: https://esphome.io
-[atom-echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa
+[atom-echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit
 
 ## World’s Most Private Voice Assistant
 
@@ -161,6 +161,6 @@ Give your voice assistant personality using the OpenAI integration.
 </p>
 
 [voip]: https://www.home-assistant.io/integrations/voip/
-[ht801]: https://amzn.to/40k7mRa
+[ht801]: https://www.amazon.com/dp/B06XW1BQHC
 
 _Some links on this page are affiliate links and purchases using these links support the Home Assistant project._

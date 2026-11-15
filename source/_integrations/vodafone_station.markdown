@@ -1,24 +1,7 @@
 ---
-title: Vodafone Station
 description: Instructions on how to integrate Vodafone Station routers into Home Assistant.
-ha_category:
-  - Button
-  - Presence detection
-  - Sensor
 ha_release: 2023.9
 ha_domain: vodafone_station
-ha_config_flow: true
-ha_codeowners:
-  - '@paoloantinori'
-  - '@chemelli74'
-ha_iot_class: Local Polling
-ha_platforms:
-  - button
-  - device_tracker
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Vodafone Station** {% term integration %} allows you to control your [Vodafone Station](https://www.vodafone.it/privati/area-supporto/assistenza-dispositivi/vodafone-station.html) based router.
@@ -27,17 +10,33 @@ The integration provides information about your internet connection and the conn
 
 ## Supported devices
 
-The integration supports only Sercomm models so far.
+The integration supports models from the following brands: Sercomm, Technicolor, UltraHub.
 
 ### Tested models
 
-This {% term integration %} was tested against the following models from Sercomm:
+This {% term integration %} was tested against the following models:
 
-- Vodafone Power Station (SHG3000)
-- Vodafone Power Station WiFi 6 (SHG3060)
-- Vodafone WiFi 6 Station (RHG3006)
-- Vodafone Gigabox (SHG3000) - supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/)
-- Vodafone H300S
+Homeware (custom OpenWrt):
+
+- Vodafone Ultra Hub Pro II (DGM4980VDF) - United Kingdom
+- Vodafone Vox30 WiFi Hub (THG3000) - United Kingdom
+
+Sercomm:
+
+- Vodafone Power Station (SHG3000) - Italy
+- Vodafone Power Station WiFi 6 (SHG3060) - Italy
+- Vodafone WiFi 6 Station (RHG3006) - Italy
+- Vodafone Gigabox (SHG3000) - Ireland (supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/))
+- Vodafone H300S - Greece
+
+Technicolor:
+
+- Vodafone Power Station (THG3000) - Germany
+- Vodafone WiFi 6 Station (CGA6444VF) - Germany
+
+UltraHub:
+
+- Vodafone Ultra Hub 7 Fibre - FG4278VF
 
 {% include integrations/config_flow.md %}
 
@@ -61,9 +60,11 @@ This {% term integration %} was tested against the following models from Sercomm
 
 There is support for the following platform types within Home Assistant:
 
-- **Device tracker** - presence detection by looking at connected devices.
-- **Sensor** - external IP address, uptime, firmware, resources and network monitors.
 - **Button** - restart router, dsl/fiber/internet key connections.
+- **Device tracker** - presence detection by looking at connected devices.
+- **Image** - generate QR code for Guest Wi-Fi.
+- **Sensor** - external IP address, uptime, firmware, resources and network monitors.
+- **Switch** - enable/disable main and guest Wi-Fi.
 
 ## Examples
 
@@ -87,13 +88,15 @@ automation:
 automation:
 - alias: "Apple TV disconnect"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: device_tracker.appletv
       to: "not_home"
   actions:
-    -  action: notify.mobile_app_phone
-       data:
-         message: "TV lost network connection"
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "TV lost network connection"
 ```
 
 ### Automation: notify router CPU usage too high
@@ -102,13 +105,15 @@ automation:
 automation:
 - alias: "Vodafone Station CPU high cpu usage"
   triggers:
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.vodafone_station_xxxx_cpu_usage
       above: 80
   actions:
-    - action: notify.mobile_app_phone
-       data:
-         message: "Router CPU above 80%."
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Router CPU above 80%."
 ```
 
 ## Data updates

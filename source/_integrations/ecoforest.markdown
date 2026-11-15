@@ -1,22 +1,10 @@
 ---
-title: Ecoforest
 description: Instructions on how to integrate Ecoforest fireplaces with Home Assistant.
-ha_category:
-  - Climate
 ha_release: '2023.10'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@pjanuario'
 ha_domain: ecoforest
-ha_platforms:
-  - number
-  - sensor
-  - switch
-ha_integration_type: integration
 ---
 
-The Ecoforest integration allows monitoring and control of local [Ecoforest](https://ecoforest.com) fireplaces in Home Assistant.
+The **Ecoforest** {% term integration %} allows monitoring and control of local [Ecoforest](https://ecoforest.com) fireplaces in Home Assistant.
 
 There is currently support for the following device platforms within Home Assistant:
 

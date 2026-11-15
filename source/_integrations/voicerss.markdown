@@ -1,21 +1,13 @@
 ---
-title: VoiceRSS
-description: Instructions on how to setup VoiceRSS TTS with Home Assistant.
-ha_category:
-  - Text-to-speech
-ha_iot_class: Cloud Push
+description: Instructions on how to set up VoiceRSS TTS with Home Assistant.
 ha_release: 0.35
 ha_domain: voicerss
-ha_platforms:
-  - tts
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
-The **VoiceRSS** text-to-speech {% term integration %} uses [VoiceRSS](http://www.voicerss.org/) text-to-speech engine to read a text with natural sounding voices.
+The **VoiceRSS** {% term integration %} uses [VoiceRSS](http://www.voicerss.org/) text-to-speech engine to read a text with natural sounding voices.
 
 ## Configuration
 
@@ -67,4 +59,4 @@ tts:
     format: "8khz_8bit_mono"
 ```
 
-Please note, some media_players require a certain format. For example the Sonos requires a format of '44khz_16bit_stereo'
+Some media_players require a certain format. For example the Sonos requires a format of '44khz_16bit_stereo'

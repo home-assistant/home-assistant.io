@@ -1,31 +1,13 @@
 ---
-title: ZoneMinder
 description: How to integrate ZoneMinder into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Hub
-  - Sensor
-  - Switch
 ha_release: 0.31
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@rohankapoorcom'
-  - '@nabbi'
 ha_domain: zoneminder
-ha_platforms:
-  - binary_sensor
-  - camera
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
-The `zoneminder` integration sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.
+The **ZoneMinder** {% term integration %} sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -94,24 +76,7 @@ zoneminder:
     password: YOUR_PASSWORD
 ```
 
-### Action
-
-Once loaded, the `zoneminder` platform will expose an action (`set_run_state`) that can be used to change the current run state of ZoneMinder.
-
-| Data attribute | Optional | Description                       |
-| :--------------------- | :------- | :-------------------------------- |
-| `id`                   | no       | Host of the ZoneMinder instance.  |
-| `name`                 | no       | Name of the new run state to set. |
-
-For example, if your ZoneMinder instance was configured with a run state called "Home", you could write an [automation](/getting-started/automation/) that changes ZoneMinder to the "Home" run state by including the following [action](/getting-started/automation-action/):
-
- ```yaml
-actions:
-  action: zoneminder.set_run_state
-  data:
-    id: ZM_HOST
-    name: Home
-```
+{% include integrations/actions.md %}
 
 ## Binary sensor
 

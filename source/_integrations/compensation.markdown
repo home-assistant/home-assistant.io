@@ -1,18 +1,7 @@
 ---
-title: Compensation
 description: Instructions on how to integrate compensation sensors into Home Assistant.
-ha_category:
-  - Sensor
-  - Utility
-ha_iot_class: Calculated
 ha_release: '2021.5'
-ha_codeowners:
-  - '@Petro31'
 ha_domain: compensation
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **Compensation** {% term integration %} consumes the {% term state %} from other {% term sensors %}. It exports the compensated value as state in a separate {% term entity %} and the following values as attributes: `entity_id` and `coefficients`. A single polynomial, linear by default, is fit to all data points provided.
@@ -54,11 +43,11 @@ attribute:
   required: false
   type: string
 data_points:
-  description: "The collection of data point conversions with the format `[uncompensated_value, compensated_value]`.  e.g., `[1.0, 2.1]`. The number of required data points is equal to the polynomial `degree` + 1. For example, a linear compensation (with `degree: 1`) requires at least 2 data points."
+  description: "The collection of data point conversions with the format `[uncompensated_value, compensated_value]`, for example, `[1.0, 2.1]`. The number of required data points is equal to the polynomial `degree` + 1. For example, a linear compensation (with `degree: 1`) requires at least 2 data points."
   required: true
   type: list
 degree:
-  description: "The degree of a polynomial. e.g., Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, etc."
+  description: "The degree of a polynomial. For example, a linear compensation (y = x + 3) has 1 degree and a quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees."
   required: false
   default: 1
   type: integer
@@ -85,7 +74,7 @@ source:
   required: true
   type: string
 state_class:
-  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  description: The [state_class](/integrations/sensor/#state-class) of the sensor.
   required: false
   type: string
 unique_id:
@@ -93,7 +82,7 @@ unique_id:
   required: false
   type: string
 unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
+  description: Defines the units of measurement of the sensor, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes).
   required: false
   type: string
 upper_limit:

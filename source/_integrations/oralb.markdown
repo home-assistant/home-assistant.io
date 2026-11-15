@@ -1,19 +1,7 @@
 ---
-title: Oral-B
 description: Instructions on how to integrate Oral-B devices into Home Assistant.
-ha_category:
-  - Sensor
-ha_bluetooth: true
 ha_release: 2022.11
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@bdraco'
-  - '@Lash-L'
 ha_domain: oralb
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 ---
 
 Integrates [Oral-B](https://oralb.com/) devices into Home Assistant.
@@ -44,11 +32,11 @@ The integration can discover most Bluetooth-enabled Oral-B toothbrushes. Brushes
 
 - Mode - selected cleaning mode e.g. daily clean.
 - Number of sectors - brushing areas set in the **Set Pacer Visualisation** in the brushing preferences in the mobile app.
-- Sector - the current sector of brush goal you are in (i.e. if brush goal is 2:00 minutes, and you are at 0:37, you are in sector 2)
+- Sector - the current sector of brush goal you are in (that is, if brush goal is 2:00 minutes, and you are at 0:37, you are in sector 2)
 - Time - total brushing time in seconds.
 - Toothbrush state - whether the toothbrush is running, idle.
 - Battery - toothbrush battery percentage.
 
 {% important %}
-Updates of the battery sensor require an active Bluetooth connection and relatively close proximity. If you use a <a href="/integrations/bluetooth/#remote-adapters-bluetooth-proxies/" target="_blank">Bluetooth proxy</a>, please ensure it supports active connections. All the other sensors update with active or passive connections.
+Updates of the battery sensor require an active Bluetooth connection and relatively close proximity. If you use a <a href="/connectivity/bluetooth/#remote-adapters-bluetooth-proxies" target="_blank">Bluetooth proxy</a>, please ensure it supports active connections. All the other sensors update with active or passive connections.
 {% endimportant %}

@@ -1,0 +1,17 @@
+// The three widths the site has always used
+// (sass/inuitcss/_defaults.scss: 481px, 1140px, 1280px), in rem and
+// rounded to whole values, plus a tablet width (768px) between the
+// phone and desk layouts, for pages that need an in-between layout.
+// Media queries cannot read custom properties, so breakpoints are
+// SCSS variables rather than tokens.
+//
+// The Connect product pages (src/components/connect/, the badge and
+// src/pages/connect/) switch to their desktop layout earlier, at
+// $connect-desk (992px): between the tablet layout and $desk, some
+// blocks ran too wide. $desk (1140px) was their desktop width before;
+// blocks that need more room can still wait for it.
+$lap: 30rem;
+$tab: 48rem;
+$connect-desk: 62rem;
+$desk: 71.25rem;
+$desk-wide: 80rem;

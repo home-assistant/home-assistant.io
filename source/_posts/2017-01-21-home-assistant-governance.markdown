@@ -100,4 +100,4 @@ We hope you understand that our desire with these changes is only to help protec
 [gh-cla]: https://cla.github.com/
 [license]: /developers/license/
 [twitter]: https://twitter.com/home_assistant
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

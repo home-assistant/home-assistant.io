@@ -1,21 +1,10 @@
 ---
-title: Global Caché GC-100
 description: Instructions on how to integrate gc100 with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Hub
-  - Switch
 ha_release: 0.57
-ha_iot_class: Local Polling
 ha_domain: gc100
-ha_platforms:
-  - binary_sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The Global Caché GC-100 can be integrated into Home Assistant. GC-100 is a TCP-controllable

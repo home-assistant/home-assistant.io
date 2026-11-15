@@ -1,0 +1,5 @@
+{%- if include.type == "function" -%}{% icon "mdi:function" %} {% term function %}
+{%- elsif include.type == "filter" -%}{% icon "mdi:filter-outline" %} {% term filter %}
+{%- elsif include.type == "test" -%}{% icon "mdi:test-tube" %} {% term test %}
+{%- else -%}{{ include.type }}
+{%- endif -%}

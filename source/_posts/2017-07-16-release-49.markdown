@@ -474,7 +474,7 @@ amcrest:
 [zha.const docs]: /integrations/zha.const/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
 [#8497]: https://github.com/home-assistant/home-assistant/pull/8497
 [#8511]: https://github.com/home-assistant/home-assistant/pull/8511
 [#8516]: https://github.com/home-assistant/home-assistant/pull/8516

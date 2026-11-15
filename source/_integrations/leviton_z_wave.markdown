@@ -1,27 +1,13 @@
 ---
 title: Leviton Z-Wave
 description: Connect and control your Leviton Z-Wave devices using the Z-Wave integration
-featured: true
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/z-wave'
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
+ha_categories:
+  - plugs_switches
+  - lighting
 ha_domain: leviton_z_wave
 ha_integration_type: integration
 works_with:
@@ -53,6 +39,10 @@ Leviton Z-Wave devices work locally and integrate seamlessly with the Z-Wave int
 <br><br>
 To find more information, please use the [Z-Wave integration](/integrations/zwave_js) page.
 
-### Firmware updates
+## Firmware updates
 
-Leviton is working on adding firmware updates that are publicly available to download. In Home Assistant, you can navigate to your device page and use the Update Device Firmware option to upload the firmware from Leviton for your device.
+Leviton provides firmware updates that are publicly available to download. In Home Assistant, you can navigate to your device page and use the Update Device Firmware option to upload the firmware from Leviton for your device.
+
+## Works with Home Assistant certified devices
+
+{% include integrations/device_list.html brand="leviton" %}

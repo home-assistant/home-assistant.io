@@ -99,7 +99,7 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 - Custom components extending `BaseNotificationService` need to be aware that `kwargs.get(ATTR_TITLE)` will now return `None` if a title has not been set, and will need to specify `kwargs.get(ATTR_TITLE, ATTR_TITLE_DEFAULT)` if they always require a title.
 
 ### If you need help...
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant).
 
 
 [@DavidLP]: https://github.com/DavidLP

@@ -6,12 +6,19 @@
   {% assign author = site.author %}
 {% endif %}
 {% if author %}
-  {% assign person = site.data.people[author] %}
-  {% if person %}
-    <span class="byline author vcard">
-      <a href="https://github.com/{{ person.github }}" target="_blank"><img class="author-avatar" src="https://avatars.githubusercontent.com/{{ person.github }}?size=64" alt="{{ person.name }}"/> {{ person.name }}</a>
-    </span>
+  {% if author.first %}
+    {% assign authors = author %}
   {% else %}
-    <span class="byline author vcard">{% icon "mdi:person" %} {{ author }}</span>
+    {% assign authors = author | split: "<<<NOSPLIT>>>" %}
   {% endif %}
+  {% for a in authors %}
+    {% assign person = site.data.people[a] %}
+    {% if person %}
+      <span class="byline author vcard">
+        <a href="https://github.com/{{ person.github }}" target="_blank"><img class="author-avatar" src="https://avatars.githubusercontent.com/{{ person.github }}?size=64" alt="{{ person.name }}"/>{{ person.name }}</a>
+      </span>
+    {% else %}
+      <span class="byline author vcard">{% icon "mdi:person" %} {{ a }}</span>
+    {% endif %}
+  {% endfor %}
 {% endif %}

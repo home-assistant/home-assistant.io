@@ -1,31 +1,16 @@
 ---
-title: Airzone Cloud
 description: Instructions on how to integrate Airzone Cloud within Home Assistant.
 ha_release: 2023.6
-ha_category:
-  - Binary sensor
-  - Climate
-  - Select
-  - Sensor
-  - Switch
-  - Water heater
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_domain: airzone_cloud
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_codeowners:
-  - '@Noltari'
-ha_integration_type: integration
 ---
 
-This integration interacts with the Cloud API of [Airzone devices](https://www.airzone.es/en/).
+This {% term integration %} interacts with the Cloud API of [Airzone devices](https://www.airzone.es/en/).
+
+{% important %}
+Airzone charges a subscription to control some devices from outside your home. Local control stays free. When Home Assistant is on the same network as your Airzone device, this integration works without a subscription. Which devices need a subscription depends on your device. For details, refer to [Airzone support](https://support.airzonecontrol.com/aa/en/faqs/wird-sich-die-integration-mit-drittanbietersystemen-alexa-google-home-knx-bacnet-modbus-usw-mit-dem-neuen-modell-andern/).
+
+If your device supports the local API, you can also use the [Airzone](/integrations/airzone/) integration, which doesn't use the cloud.
+{% endimportant %}
 
 There are two main types of Airzone devices:
 - [Aidoo](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/wi-fi/) / [Aidoo Pro](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/pro/)
@@ -39,7 +24,7 @@ These devices are Wi-Fi controllers that are normally connected to a single air 
 
 These devices are connected to ducted air conditioners, motorized grilles, and individual thermostats for every room (zone). Therefore, with a single ducted air conditioning system, the user can turn on and off the air conditioner and set different desired temperatures in each room.
 
-A typical Airzone HVAC system consists of a parent device (called *master zone* in Airzone terminology) and child devices (called *slave zones* in Airzone terminology). The [HVAC mode](https://www.home-assistant.io/integrations/climate/#action-climateset_hvac_mode) can only be changed on the parent device. On child devices, you can only enable or disable the HVAC and adjust the desired temperature for that specific device.
+A typical Airzone HVAC system consists of a parent device and child devices. The [HVAC mode](/integrations/climate/#action-set-hvac-mode) can only be changed on the parent device. On child devices, you can only enable or disable the HVAC and adjust the desired temperature for that specific device.
 
 Note that multiple HVAC systems can be connected to the same Airzone web server. In this case, there will be one *parent zone* per HVAC system and there may also be *child zones* for each HVAC system.
 
@@ -117,6 +102,27 @@ For each Airzone zone (thermostat), a switch entity is created to turn the therm
 ## Water heater
 
 For each Airzone device, a *water heater entity* is created if supported.
+
+## Troubleshooting
+
+{% details "Setup fails with a 402 Payment Required error" %}
+
+### Symptom: "402 Payment Required"
+
+The integration can't connect to the Airzone Cloud API and reports an HTTP `402 Payment Required` error.
+
+### Description
+
+Without a subscription, Airzone only allows this integration when Home Assistant and the Airzone device are on the same network. If your network uses IPv6, the Airzone Cloud API might not recognize that they're on the same network, and it returns this error.
+
+### Resolution
+
+- Make sure Home Assistant and the Airzone device are on the same network.
+- If your network uses IPv6, make Home Assistant connect to `m.airzonecloud.com` over IPv4, for example with a DNS rule in your router that doesn't return IPv6 addresses for that host. Don't turn off IPv6 on the Home Assistant host, because other integrations, such as Matter, need it.
+- If your device supports the local API, use the [Airzone](/integrations/airzone/) integration instead.
+- If the error continues, contact Airzone support to check your subscription.
+
+{% enddetails %}
 
 ## Removing the integration
 

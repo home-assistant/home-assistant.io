@@ -19,7 +19,7 @@ But there is more you can do! You can not only host images for customization the
 
 <!--more-->
 
-In the past the buzz word "Smart mirror" was used a couple of times in our [chatroom](https://discord.gg/c5DvZ4e) and even made it into the [issue tracker](https://github.com/home-assistant/home-assistant/issues/1392). The existing solutions ([Smart mirror](https://docs.smart-mirror.io/), [MagicMirror](https://michaelteeuw.nl/tagged/magicmirror), and [HomeMirror](https://github.com/HannahMitt/HomeMirror)) seems to be overkill if you already have Home Assistant running somewhere in your house or apartment. Why not simple display a web page served by Home Assistant on the tablet? No app and no Raspberry Pi running in the background.
+In the past the buzz word "Smart mirror" was used a couple of times in our [chatroom](https://discord.gg/home-assistant) and even made it into the [issue tracker](https://github.com/home-assistant/home-assistant/issues/1392). The existing solutions ([Smart mirror](https://docs.smart-mirror.io/), [MagicMirror](https://michaelteeuw.nl/tagged/magicmirror), and [HomeMirror](https://github.com/HannahMitt/HomeMirror)) seems to be overkill if you already have Home Assistant running somewhere in your house or apartment. Why not simple display a web page served by Home Assistant on the tablet? No app and no Raspberry Pi running in the background.
 
 There are plenty of ways to achieve this...[RESTful API](/developers/rest_api/), ~~Python API~~, or one of the [history components](/integrations/#history). If it is to be a web page I'm using the [MQTT Eventstream component](/integrations/mqtt_eventstream/) and [Eclipse Paho JavaScript Client](https://www.eclipse.org/paho/clients/js/).
 

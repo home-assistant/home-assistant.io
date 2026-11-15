@@ -1,21 +1,7 @@
 ---
-title: APsystems
 description: Control and monitor your APsystems EZ1 microinverters locally without the cloud
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: 2024.6
-ha_category:
-  - Energy
 ha_domain: apsystems
-ha_platforms:
-  - binary_sensor
-  - number
-  - sensor
-  - switch
-ha_integration_type: device
-ha_codeowners:
-  - '@mawoka-myblock'
-  - '@SonnenladenGmbH'
 ---
 
 The **APsystems** {% term integration %} allows you to read the data from your [APsystems EZ1](https://emea.apsystems.com/diy/ez1/) microinverter. It also allows you to set the output limit to anything above 30 watts.
@@ -60,6 +46,19 @@ There has been a discussion about the inverter's lifetime being shortened when u
 
 ## Prerequisites
 
-Make sure the local API is activated and set to **Continuously**. For that, connect to the inverter via Bluetooth using the app and go to **Settings** > **Local Mode**, set the switch **Enable Local Mode** to on and make sure to set this to **Continuously**.
+Make sure the local API is activated and set to **Continuously**. For that, connect to the inverter via Bluetooth using the app and go to **Settings** > **Local Mode**, set the switch **Enable Local Mode** to on, and make sure to set this to **Continuously**.
+
+{% note %}
+If **Settings** > **Local Mode** is not visible in the APsystems app, the device is probably still connected to the APsystems cloud.
+
+To make **Settings** > **Local Mode** available:
+
+1. Open the APsystems app on your mobile device.
+2. Sign out of your APsystems cloud account in the app.
+3. If the app specifically asks you to remove the device from the cloud so that you can use it locally, follow the on-screen steps.
+4. After you are signed out, reconnect to the inverter directly via Bluetooth.
+
+When you are connected via Bluetooth only, **Settings** > **Local Mode** should be visible in the app.
+{% endnote %}
 
 {% include integrations/config_flow.md %}

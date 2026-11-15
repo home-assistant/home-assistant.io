@@ -1,0 +1,13 @@
+{
+  "domain": "google_assistant",
+  "name": "Google Assistant",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/cloud"
+  ],
+  "iot_class": "cloud_push",
+  "platforms": [
+    "button",
+    "diagnostics"
+  ]
+}

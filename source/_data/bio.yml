@@ -1,0 +1,179 @@
+# The link-in-bio page at https://www.home-assistant.io/bio/
+#
+# The page is this list, top to bottom. Move a block to move it; delete a
+# block to remove it. A mistake here fails the build and names the line, so
+# nothing broken can reach the live page. The page itself is built by Astro:
+# astro/src/pages/bio/index.astro, with the rules in astro/src/lib/bio.mjs.
+#
+# What fills the page by itself
+#   Blog posts, release notes and newsletter issues appear on their own when
+#   they're published. The Latest list keeps the newest few (its `limit`),
+#   so older ones drop off by themselves. They never need dates added here.
+#
+# What you add by hand: `starts` and `ends`
+#   Anything you add by hand (an item in Latest, a link, a pin) uses the
+#   same two keys:
+#     - `starts`: when it appears. In the Latest list it's required, and it
+#       also sets the item's place and the date shown on it, just like a
+#       blog post's publish date. A date in the past shows it right away;
+#       a future one makes it wait, then come in at the top of the list.
+#       Elsewhere it's optional: without it, an item shows as soon as the
+#       change is live.
+#     - `ends`: when it goes. Optional: without it, the item stays until
+#       you delete it.
+#   A YouTube video or livestream also has `airs`: when it goes out, which
+#   sets its place and date. Without `ends` it comes down at the end of the
+#   day after it airs.
+#
+#   Write dates and times like this. Times are UTC unless you add an offset:
+#     starts: 2026-11-15                  # from midnight UTC, Nov 15
+#     starts: 2026-11-15T17:30:00Z        # from 17:30 UTC
+#     starts: 2026-11-15T18:30:00+01:00   # the same moment, in CET
+#     ends: 2026-11-15                    # up through the whole of Nov 15
+#     ends: 2026-11-15T20:00:00Z          # down at 20:00 UTC
+#
+#   You don't need to merge anything when `starts` or `ends` passes: the
+#   page checks the time with the website (not the visitor's own clock) and
+#   shows or hides items itself. Delete ended items whenever it suits you.
+#
+#   Scheduled items are in the page before they show, so anyone who reads
+#   the page's source can see them early. Don't schedule anything that must
+#   stay secret until it starts: merge it at the time instead.
+#
+# Images
+#   Optional. YouTube items use the video's thumbnail by themselves. For
+#   anything else, set `image:` to one of these:
+#     image: auto                              # the link's social preview image
+#     image: https://example.com/banner.webp   # an image the linked site hosts
+#     image: /images/bio/2026-11-community-day.webp
+#   For a new image, save it in source/images/bio/ with the date in its
+#   name. Make it 1200 × 630 pixels, WebP or JPEG, under about 200 KB, and
+#   keep text and faces away from the edges: the cards crop to fit. One
+#   image is enough: the small cards get a resized copy automatically.
+
+avatar: /images/favicon-192x192-full.png
+tagline: Open source home automation that puts local control and privacy first.
+
+sections:
+  # Blog posts, newsletter issues and releases in one list, newest first. A pinned
+  # post always comes first. Add or remove feeds in `sources`.
+  # hero: true shows the first item as a large card with its image on top.
+  - type: feed
+    title: Latest
+    sources: [pinned, blog, newsletter, releases]
+    limit: 5
+    images: true
+    hero: true
+    # A YouTube channel's livestream card on top, as on the homepage: while
+    # the channel has a stream live, starting within 48 hours, or ended in
+    # the last 12, it takes the large first place (with a countdown, or the
+    # stream playing muted) and the list's first item shows as a row. When
+    # there's no stream it hides itself. Nothing to update per stream: it
+    # reads the channel's current stream from the Open Home Foundation API.
+    # Off after the Connect AUX-2 launch stream, so the Connect AUX-2 pin in
+    # `sources.pinned` below takes the large place. Turn it back on once
+    # the pin has ended (17:00 GMT on November 12).
+    # livestream: home-assistant
+    # Add anything else to the list here, with `starts` and, if you like,
+    # `ends` (see the top of this file).
+    insert:
+      - title: "The Open Home Foundation is a platinum sponsor of PyCon HK 2026"
+        url: https://pycon.hk/2026/en/
+        image: /images/bio/2026-11-pycon-hk.webp
+        label: Event
+        starts: 2026-11-11
+        ends: 2026-11-15T16:00:00Z  # end of November 15, Hong Kong time (UTC+8)
+      - title: "The merch store is open!"
+        url: https://store.openhomefoundation.org
+        starts: 2026-10-21
+        label: Announcement        # optional, shown before the date
+        image: "https://store.openhomefoundation.org/cdn/shop/files/store-hero-bg.webp"  # optional
+    # A scheduled item: it comes in at the top when `starts` passes.
+    #  - title: "Community Day is this Saturday"
+    #    url: https://example.com/community-day/
+    #    label: Event
+    #    starts: 2026-11-20T09:00:00Z
+    #    ends: 2026-11-22
+    # A YouTube video or livestream shows like a video player and opens
+    # YouTube. Before it airs it reads "Starts November 15 · 18:00 UTC";
+    # after, it shows the date it aired.
+    #  - type: youtube
+    #    video: https://www.youtube.com/watch?v=XyAL1to3Lm4   # or just the ID
+    #    title: "State of the Open Home 2026"
+    #    airs: 2026-11-15T18:00:00Z                           # or just a date
+    #    label: Livestream                                    # optional
+    #    starts: 2026-11-08                                   # optional: show it from a week before
+    #    ends: 2026-11-22                                     # optional: keep the replay up longer
+
+  # Links that always sit under the Latest list. Add a campaign here, and
+  # give it `starts` and `ends` to show it only for a while.
+  - type: links
+    title: Featured
+    items:
+      - label: Merch store
+        url: https://store.openhomefoundation.org
+
+  - type: links
+    title: Get started
+    items:
+      - label: Install Home Assistant
+        url: /installation/
+        featured: true
+      - label: Documentation
+        url: /docs/
+      - label: Community forum
+        url: https://community.home-assistant.io/
+
+socials:
+  - { platform: mastodon, url: "https://fosstodon.org/@homeassistant" }
+  - { platform: youtube, url: "https://www.youtube.com/@home_assistant" }
+  - { platform: github, url: "https://github.com/home-assistant" }
+  - { platform: discord, url: "https://www.home-assistant.io/join-chat/" }
+
+sources:
+  # Every source can set:
+  #   label: shown on each item, e.g. "Blog · October 1, 2026"
+  #   limit: the most items it can add to any one list
+  # Blog sources can also set category or exclude_category to filter posts.
+
+  # Blog posts, including crossposts. Release notes come from `releases`
+  # below, so they are labeled "Release" rather than "Blog".
+  blog:
+    type: posts
+    label: Blog
+    exclude_category: Release-Notes
+
+  # Monthly release notes.
+  releases:
+    type: posts
+    category: Release-Notes
+    label: Release
+    limit: 1
+
+  # The Open Home Foundation newsletter, downloaded before each build by the
+  # newsletter_data task in the Rakefile. If the download fails, the newest
+  # editions already on file are used, or the section is left out.
+  newsletter:
+    type: data
+    file: newsletter_data
+    label: Newsletter
+    limit: 1
+
+  # Pin something to the top of the Latest list, such as a launch. Remove
+  # it, or let its `ends` pass, and the list is back to newest first.
+  pinned:
+    type: pinned
+    items:
+      # Connect AUX-2 launch: at the top from 21:00 GMT on November 11, as
+      # a row under the livestream card until `livestream` is commented out
+      # in the Latest section, then as the large card.
+      - title: "Home Assistant Connect AUX-2"
+        url: /connect/aux-2/
+        image: /images/connect/aux-2/og.webp
+        starts: 2026-11-11T21:00:00Z  # 21:00 GMT
+        ends: 2026-11-12T17:00:00Z    # 17:00 GMT
+    #  - title: "2026.11: An example"
+    #    url: /blog/2026/11/05/release-202611/
+    #    image: auto
+    #    starts: 2026-11-05T17:00:00Z   # optional
+    #    ends: 2026-11-12               # optional

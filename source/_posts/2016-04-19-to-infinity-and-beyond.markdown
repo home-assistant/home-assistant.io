@@ -35,5 +35,5 @@ Paulus
 
 [gh-ha]: https://github.com/home-assistant/
 [filling in the blanks]: /developers/platform_example_sensor/#code
-[chat room]: https://discord.gg/c5DvZ4e
+[chat room]: https://discord.gg/home-assistant
 [forums]: https://community.home-assistant.io/

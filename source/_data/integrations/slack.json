@@ -1,0 +1,21 @@
+{
+  "domain": "slack",
+  "name": "Slack",
+  "integration_type": "service",
+  "codeowners": [
+    "@tkdrob",
+    "@fletcherau"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "messaging_notifications.chat_apps"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "notify",
+    "sensor"
+  ]
+}

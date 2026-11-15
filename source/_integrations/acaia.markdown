@@ -1,29 +1,12 @@
 ---
-title: Acaia
 description: Instructions on how to integrate your Acaia smart coffee scale with Home Assistant.
 ha_release: 2024.12
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: acaia
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - sensor
-ha_bluetooth: true
-ha_codeowners:
-  - '@zweckj'
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Acaia** {% term integration %} allows you to control [Acaia](https://acaia.co/) scales through Home Assistant.
 
-If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring the device manually, your scale needs to be turned on during setup. 
+If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring the device manually, your scale needs to be turned on during setup.
 
 Once the integration is set up, Home Assistant will try to connect to your scale every 15 seconds. This means there is sometimes a small delay between you turning the scale on and Home Assistant connecting to it.
 
@@ -65,7 +48,7 @@ If you have successfully tested this integration with another Acaia model, pleas
 
 ## Possible use-cases
 
-This integration can be used in combination with integrations for smart coffee machines, such as the [La Marzocco integration](https://www.home-assistant.io/integrations/lamarzocco/) integration.
+This integration can be used in combination with integrations for smart coffee machines, such as the [La Marzocco integration](/integrations/lamarzocco/) integration.
 It could also be used to display the weight on secondary displays when brewing on a Pyxis or Lunar where you cannot see the display.
 
 ## Automations
@@ -76,7 +59,6 @@ Get started with these automation examples.
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
 
 ```yaml
 alias: "Start timer on scale"
@@ -101,7 +83,6 @@ actions:
         - button.lunar_start_stop_timer
 ```
 
-{% endraw %}
 {% enddetails %}
 
 ## Known limitations
@@ -118,5 +99,5 @@ This integration follows standard integration removal, no extra steps are requir
 
 {% details "Device not discovered or found" %}
 
-Make sure your scale is turned on and in Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html) are a great way to increase the range if your instance is too far away. Turn on debug settings in the acaia integration and check your logs.
+Make sure your scale is turned on and in Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy/) are a great way to increase the range if your instance is too far away. Turn on debug settings in the acaia integration and check your logs.
 {% enddetails %}

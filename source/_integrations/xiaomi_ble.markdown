@@ -1,23 +1,7 @@
 ---
-title: Xiaomi BLE
 description: Instructions on how to integrate Xiaomi BLE devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Event
-  - Sensor
-ha_bluetooth: true
 ha_release: 2022.8
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Jc2k'
-  - '@Ernst79'
 ha_domain: xiaomi_ble
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - event
-  - sensor
-ha_integration_type: integration
 ---
 
 Integrates devices that use the Xiaomi Mijia BLE MiBeacon protocol and the BLE protocols implemented in the MiScales and the MiFora plant sensor. This integration does not support Xiaomi BLE Mesh devices. The integration listens to Bluetooth broadcasts that the device makes by itself, allowing it to track the latest sensor values or events without waking the device up for polling (except HHCCJCY01, see note below). This method conserves battery lifetime.
@@ -53,7 +37,7 @@ Flower Care firmware update steps:
 
 - Install the official "Flower Care" app by HHCC:
   - [Google Play](https://play.google.com/store/apps/details?id=com.huahuacaocao.flowercare) (requires location and storage permission)
-  - [Apple App Store](https://apps.apple.com/app/flower-care/id1095274672)
+  - [Apple App Store](https://apps.apple.com/app/id1095274672)
 - Place the device with the app within 10cm of the plant sensor
 - Press the "+" button on the top right in the devices tab of the app
 - Add the plant sensor to the app and select an arbitrary plant

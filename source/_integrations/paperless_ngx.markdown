@@ -1,24 +1,10 @@
 ---
-title: Paperless-ngx
 description: Instructions on how to integrate Paperless-ngx into Home Assistant
 ha_release: 2025.6
-ha_category:
-  - Sensor
-  - Update
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: paperless_ngx
-ha_codeowners:
-  - '@fvgarrel'
-ha_integration_type: service
-ha_quality_scale: silver
 related:
   - url: https://docs.paperless-ngx.com/
     title: Paperless-ngx
-ha_platforms:
-  - diagnostics
-  - sensor
-  - update
 ---
 
 The **Paperless-ngx** {% term integration %} allows you to connect your [Paperless-ngx](https://docs.paperless-ngx.com/) instance to Home Assistant and monitor its status and activity.
@@ -26,7 +12,7 @@ The **Paperless-ngx** {% term integration %} allows you to connect your [Paperle
 ## Prerequisites
 
 {% important %}
-This integration is only fully supported with **Paperless-ngx version 2.15 or later**. Earlier versions are not supported.
+This integration is only fully supported with **Paperless-ngx version 2.19 or later**. Earlier versions are not supported.
 {% endimportant %}
 
 To ensure full functionality of this integration, you must have **read permissions** for all document-related resources, including documents, tags, document types, and correspondents.
@@ -89,7 +75,6 @@ This integration provides {% term sensors %} for the following information from 
 ## Example automations
 
 {% details "Send a push notification if a new document is available" %}
-{% raw %}
 
 ```yaml
 alias: New document push notification
@@ -107,13 +92,13 @@ conditions:
         false
       {% endif %}
 actions:
-  - action: notify.mobile_app_iphone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     metadata: {}
     data:
       message: A new document is available.
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ## Data updates
@@ -128,20 +113,15 @@ This integration retrieves data using a pull-based mechanism.
 
 There are a few known limitations for using the integration:
 
-- This integration is only fully supported with **Paperless-ngx version 2.15 or later**. Earlier versions are not supported.
+- This integration is only fully supported with **Paperless-ngx version 2.19 or later**. Earlier versions are not supported.
 - To enable monitoring of diagnostic sensors, you must have **administrator permissions**. Without administrator rights, specific API endpoints cannot be accessed, and the sensor states will not be available.
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
 
 {% details "Message: 'Invalid hostname or IP address'" %}
 
 If you get the message **Invalid hostname or IP address**, try the following steps:
+
 1. Make sure you enter a complete URL, such as `https://paperless.example.com` or `https://192.168.178.11:8011`.
 
 2. SSL is enabled by default. If you're using an unencrypted connection, you must explicitly use `http://` instead of `https://` in the URL.
@@ -153,6 +133,7 @@ If you get the message **Invalid hostname or IP address**, try the following ste
 {% details "Message: 'The token does not have permission to access the API'" %}
 
 If you get the message **The token does not have permission to access the API**, try the following steps:
+
 1. Verify whether the token is still valid and correctly assigned to the user.
 
 2. Test the token using the Swagger interface available at
@@ -163,9 +144,3 @@ If you get the message **The token does not have permission to access the API**,
 3. If everything works correctly in Swagger but the integration still fails, check whether a reverse proxy (e.g., NGINX) is returning an **HTTP 403 error**. If so, the integration may also report this as a permission issue.
 
 {% enddetails %}
-
-## Removing the integration
-
-This integration follows standard integration removal, no extra steps are required.
-
-{% include integrations/remove_device_service.md %}

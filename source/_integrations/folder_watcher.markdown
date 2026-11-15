@@ -1,16 +1,7 @@
 ---
-title: Folder watcher
 description: Integration for monitoring changes within the filesystem.
-ha_category:
-  - System monitor
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: 0.67
-ha_quality_scale: internal
-ha_platforms:
-  - event
 ha_domain: folder_watcher
-ha_integration_type: integration
 ---
 
 The **Folder watcher** {% term integration %} adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring.
@@ -47,8 +38,6 @@ When the `event_type` is `moved`, the file details are for the source file and d
 
 Automations can be triggered on file system events data using a template. The following automation will send a notification with the name and folder of new files added to that folder:
 
-{% raw %}
-
 ```yaml
 #Send notification for new image (including the image itself)
 automation:
@@ -64,5 +53,3 @@ automation:
         data:
           file: "{{ trigger.to_state.attributes.file }}"
 ```
-
-{% endraw %}

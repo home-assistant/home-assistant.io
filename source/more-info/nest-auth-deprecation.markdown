@@ -10,19 +10,19 @@ for announcement details.
 
 ## New Users
 
-New users may sign up using *Web Auth* without issue. Follow the [documentation](https://www.home-assistant.io/integrations/nest/) which has been updated to use *Web Auth* and a *My Home Assistant* redirect URL using Home Assistant `2022.6` or newer.
+New users may sign up using *Web Auth* without issue. Follow the [documentation](/integrations/nest/) which has been updated to use *Web Auth* and a *My Home Assistant* redirect URL using Home Assistant `2022.6` or newer.
 
 ## Existing Users: App Auth
 
-If you previously successfully configured Nest and Home Assistant with *App Auth* then follow the instructions for [Deprecated App Auth Credentials](https://www.home-assistant.io/integrations/nest/#deprecated-app-auth-credentials).
+If you previously successfully configured Nest and Home Assistant with *App Auth* then follow the instructions for [Deprecated App Auth Credentials](/integrations/nest/#deprecated-app-auth-credentials).
 
-Nest is now configured entirely from the UI using [Application Credentials](https://www.home-assistant.io/integrations/application_credentials/) and the configuration flow will walk you through the steps of creating new credentials the right way.
+Nest is now configured entirely from the UI using [Application Credentials](/integrations/application_credentials/) and the configuration flow will walk you through the steps of creating new credentials the right way.
 
 You will need to upgrade to *Web Auth* before October to avoid interruption.
 
 ## Existing Users: Web Auth
 
-Users who signed up using *Web Auth* are not affected by the App Auth deprecation. However, as of `2022.6` the *My Home Assistant* URL is now the default redirect URL and may need to be updated in the Google Cloud Console to avoid a `redirect_uri_mismatch` ([more info](https://www.home-assistant.io/integrations/nest/#troubleshooting)).
+Users who signed up using *Web Auth* are not affected by the App Auth deprecation. However, as of `2022.6` the *My Home Assistant* URL is now the default redirect URL and may need to be updated in the Google Cloud Console to avoid a `redirect_uri_mismatch` ([more info](/integrations/nest/#troubleshooting)).
 
 # Background
 

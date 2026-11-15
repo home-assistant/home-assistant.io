@@ -1,24 +1,10 @@
 ---
-title: Kostal Plenticore Solar Inverter
 description: Instructions on how to integrate Kostal Plenticore solar inverter within Home Assistant.
-ha_category:
-  - Energy
 ha_release: 2021.5
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@stegm'
 ha_domain: kostal_plenticore
-ha_platforms:
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: integration
 ---
 
-The Kostal Plenticore integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.
+The **Kostal Plenticore** {% term integration %} allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.
 
 The integration uses the REST-API interface which is also used by the integrated Web-UI and therefore uses the same password.
 
@@ -115,10 +101,10 @@ The following sensors are available in the library:
 | Energy PV3 Month        | kWh  | Energy of PV string 3 of the current month. |
 | Energy PV3 Year         | kWh  | Energy of PV string 3 of the current year. |
 | Energy PV3 Total        | kWh  | Energy of PV string 3 total. |
-| Energy Yield Day        | kWh  | Energy yield of the current day. |
-| Energy Yield Month      | kWh  | Energy yield of the current month. |
-| Energy Yield Year       | kWh  | Energy yield of the current year. |
-| Energy Yield Total      | kWh  | Energy yield total. |
+| Energy Yield Day       | kWh  | [Energy yield](##energy-yield) of the current day. |
+| Energy Yield Month      | kWh  | [Energy yield](##energy-yield) of the current month. |
+| Energy Yield Year       | kWh  | [Energy yield](##energy-yield) of the current year. |
+| Energy Yield Total      | kWh  | [Energy yield](##energy-yield) total. |
 | Energy Discharge to Grid Day    | kWh  | Energy discharged from battery to the Grid of the current day. |
 | Energy Discharge to Grid Month  | kWh  | Energy discharged from battery to the Grid of the current month. |
 | Energy Discharge to Grid Year   | kWh  | Energy discharged from battery to the Grid of the current year. |
@@ -159,22 +145,24 @@ The following sensors can be used in the [energy dashboard](/docs/energy/):
 Some of the energy is measured on the DC side and some on the AC side, so the values may differ slightly due to losses between DC and AC.
 {% endnote %}
 
-### Settings Sensors
+### Configuration entities
 
-The following sensors are available in the library:
+The following entities are available for device configuration:
 
-| Name                    | Unit | RW | Description   |
-|-------------------------|------|----|:--------------|
-| Battery Dynamic SoC     |      | RW | Dynamic SoC. |
-| Battery Smart Control   |      | RW | Enable smart battery control |
-| Battery Strategy        |      | RW | Battery strategy. |
-| Shadow Management       |      | RW | PV string shadow management. |
+| Name                         | Unit | Domain | Description   |
+|------------------------------|------|--------|:--------------|
+| Battery min home consumption | W    | Number | Min. home consumption power for battery |
+| Battery min Soc              | %    | Number | Min. SoC of battery |
+| Battery dynamic SoC          |      | Select | Dynamic SoC |
+| Battery smart control        |      | Switch | Enable smart battery control |
+| Battery strategy             |      | Switch | Battery strategy |
+| Shadow management            |      | Switch | PV string shadow management |
 
 If you use installer access to connect, you also have access to the following sensors:
 
-| Name                    | Unit | RW | Description   |
-|-------------------------|------|----|:--------------|
-| Battery Manual Charge   |      | RW | Force the battery to charge. |
+| Name                    | Unit | Domain | Description   |
+|-------------------------|------|--------|:--------------|
+| Battery manual charge   |      | Switch | Force the battery to charge from AC |
 
 {% note %}
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
@@ -186,19 +174,23 @@ This sensor is on by default, which maps to the "Automatically" mode in the Kost
 
 Turning this sensor off maps to the "Automatically economical" mode. Consequently, the inverter controls the battery charging automatically but switches the battery off when there is insufficient PV energy to charge the battery for longer periods. This mode is recommended for regions with a lot of snowfall.
 
-#### Battery Smart Control
+#### Battery smart control
 
-The Battery Smart Control sensor appears as a select field labeled "Battery Charging / Usage Mode" with three options:
+The battery smart control sensor appears as a select field labeled "battery charging / usage mode" with three options:
 
 - **None**: the battery is loaded immediately when there is PV energy spare.
 - **Battery:SmartBatteryControl:Enable**: the battery loading optimizes grid feed-in and battery loading. This setting is recommended when the grid feed-in is limited to, for example, 70% of the Plenticore Plus peak power.
 - **Battery:TimeControl:Enable**: battery charging/discharging can be configured flexibly at different times (tariff periods). Detailed settings must be done on the web frontend of the Kostal Plenticore Plus inverter. This option activates the time-controlled battery usage mode.
 
-#### Battery Manual Charge
+#### Battery manual charge
 
-The Battery Manual Charge sensor allows you to force charge the battery to 100%, regardless of PV generation or home usage.
+The battery manual charge sensor allows you to force charge the battery to 100%, regardless of PV generation or home usage.
 This setting is available when using installer access and should therefore only be used with the same caution as using installer access.
 More on [Installer Access](#installer-access)
+
+#### Shadow management
+
+The shadow management switches are created automatically based on which DC strings are supported.
 
 ## Number
 
@@ -206,7 +198,7 @@ The following Number entities are available. The values could also be change fro
 
 | Name                    | Unit | RW | Description   |
 |-------------------------|------|----|:--------------|
-| Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
+| Battery min home Ccnsumption | W    | RW | Min. home consumption power for battery. |
 | Battery min SoC         | %    | RW | Min. SoC of battery. |
 
 ## Diagnostics
@@ -215,4 +207,20 @@ The following diagnostic sensors are available.
 
 | Name                    | Data Type | Description   |
 |-------------------------|-----------|:-------------------------------------------|
-| Active Errors           | Integer   | Count of currently active errors. |
+| Active errors           | Integer   | Count of currently active errors. |
+
+## Kostal Terminology
+
+Some sensor names use terms from the Kostal inverter:
+
+### Autarky
+
+The share of your home consumption that your own system covered, in percent. Kostal also calls this the degree of self-sufficiency. The higher the value, the less energy you bought from the grid.
+
+### Energy yield
+
+The energy the inverter delivers to your home and to the grid, from both the solar panels (PV) and the battery. Energy yield isn't the same as solar production, because it doesn't include the PV energy used to charge the battery. To track solar production, use the sensors listed under [Configuration of the energy dashboard](#configuration-of-the-energy-dashboard).
+
+### Own consumption rate
+
+The share of the solar energy you produced that you used yourself, as a percentage. Kostal also calls this the self-consumption rate.

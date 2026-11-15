@@ -1,28 +1,7 @@
 ---
-title: Axis
 description: Integration between network devices from Axis Communications with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Light
-  - Switch
-ha_config_flow: true
 ha_release: 0.45
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Kane610'
 ha_domain: axis
-ha_qa_scale: platinum
-ha_zeroconf: true
-ha_ssdp: true
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - camera
-  - diagnostics
-  - light
-  - switch
-ha_integration_type: device
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.
@@ -51,7 +30,7 @@ If you are having issues and want to report a problem, always start with making 
 
 ### Troubleshooting discovery
 
-If your device is not discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Configuration**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
+If your device is not discovered. On your camera, go to **System Options** > **Advanced** > **Plain Configuration**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
 
 ### Internet access required for full integration
 
@@ -84,6 +63,10 @@ If this setting is disabled (default) it will use camera default stream settings
 
 A Video source (view area) defines a subsection of the camera's sensor typically a more focused area of interest. Additional view areas can be configured on the device.
 If this setting is disabled (default) it will use the camera default source.
+
+## Event
+
+The Axis I8116-E Intercom is supported with a **Doorbell** event entity. This event entity is triggered when the doorbell button is pressed, allowing you to create automations or notifications in response to doorbell activity.
 
 ## Light
 

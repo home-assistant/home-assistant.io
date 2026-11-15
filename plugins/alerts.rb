@@ -9,7 +9,7 @@ module Jekyll
           #{args}
 
           Valid syntax:
-            {% <note|tip|important|warning|caution> [title="Extra title"] [icon="mdi:alert"] %}
+            {% <note|tip|important|warning|caution> [title="Custom title"] [icon="mdi:alert"] %}
         MSG
 
         @type = tag_name
@@ -21,10 +21,8 @@ module Jekyll
         options = parse_options(@options, context)
         contents = super(context)
 
-        title = @type.capitalize
-        if options.include? :title
-          title += ": #{options[:title]}"
-        end
+        # A custom title replaces the type's name, such as "Note".
+        title = options[:title] || @type.capitalize
 
         if options.include? :icon
           icon = options[:icon]
@@ -36,6 +34,8 @@ module Jekyll
           icon = "mdi:alert-outline"
         elsif @type == 'caution'
           icon = "mdi:alert-circle-outline"
+        elsif @type == 'labs'
+          icon = "mdi:flask-outline"
         else
           icon = "mdi:information-outline"
         end
@@ -52,7 +52,7 @@ module Jekyll
 
       private
 
-      SYNTAX = /^((\s+\w+(=([\w.]+?|".+?"))?)*)$/
+      SYNTAX = /^((\s*\w+(=([\w.]+?|".+?"))?)*)$/
       OPTIONS_REGEX = /(?:\w="[^"]*"|\w=[\w.]+|\w)+/
 
       def parse_options(input, context)
@@ -61,7 +61,7 @@ module Jekyll
 
         # Split along 3 possible forms: key="value", key=value, or just key
         input.scan(OPTIONS_REGEX) do |opt|
-          key, value = opt.split('=')
+          key, value = opt.split('=', 2)
           unless value.nil?
             if value&.include?('"')
               value.delete!('"')
@@ -81,3 +81,4 @@ Liquid::Template.register_tag('tip', Jekyll::HomeAssistant::AlertBlock)
 Liquid::Template.register_tag('important', Jekyll::HomeAssistant::AlertBlock)
 Liquid::Template.register_tag('warning', Jekyll::HomeAssistant::AlertBlock)
 Liquid::Template.register_tag('caution', Jekyll::HomeAssistant::AlertBlock)
+Liquid::Template.register_tag('labs', Jekyll::HomeAssistant::AlertBlock)

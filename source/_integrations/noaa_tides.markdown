@@ -1,20 +1,10 @@
 ---
-title: NOAA Tides
 description: Instructions to add NOAA Tide information to Home Assistant.
-ha_category:
-  - Environment
 ha_release: 0.75
-ha_iot_class: Cloud Polling
 ha_domain: noaa_tides
-ha_codeowners:
-  - '@jdelaney72'
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
-The `noaa_tides` sensor {% term integration %} uses details from [NOAA Tides and Currents](https://tidesandcurrents.noaa.gov/api/) to provide information about the prediction for the tides for any location in the United States.
+The **NOAA Tides** {% term integration %} uses details from [NOAA Tides and Currents](https://tidesandcurrents.noaa.gov/api/) to provide information about the prediction for the tides for any location in the United States.
 
 ## Setup
 

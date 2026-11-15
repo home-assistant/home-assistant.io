@@ -1,21 +1,10 @@
 ---
-title: Vanderbilt SPC
-description: Instructions on how to setup Vanderbilt SPC devices within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Hub
+description: Instructions on how to set up Vanderbilt SPC devices within Home Assistant.
 ha_release: 0.47
-ha_iot_class: Local Push
 ha_domain: spc
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 Home Assistant has support to integrate your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarm panel and any connected motion, door, smoke and technical sensors.
@@ -55,8 +44,6 @@ The `spc` alarm control panel platform allows you to control your [Vanderbilt SP
 
 The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Alarm status changed"
@@ -71,8 +58,6 @@ automation:
             to {{ trigger.to_state.state }}
             by {{ trigger.to_state.attributes.changed_by }}
 ```
-
-{% endraw %}
 
 ## Binary sensor
 

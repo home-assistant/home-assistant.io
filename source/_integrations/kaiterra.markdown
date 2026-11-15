@@ -1,24 +1,13 @@
 ---
-title: Kaiterra
 description: Instructions on how to integrate your Kaiterra device into Home Assistant.
-ha_iot_class: Cloud Polling
-ha_category:
-  - Health
 ha_release: '0.100'
-ha_codeowners:
-  - '@Michsior14'
 ha_domain: kaiterra
-ha_platforms:
-  - air_quality
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
-The `kaiterra` {% term integration %} allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://dev.kaiterra.com/).
+The **Kaiterra** {% term integration %} allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://dev.kaiterra.com/).
 
 To use the {% term integration %}, you need to get the API key by signing up at [Kaiterra dashboard](https://dashboard.kaiterra.cn/), registering the device and create the key under `Settings -> Profile -> Developer`.
 

@@ -1,0 +1,75 @@
+---
+// "Comfortable with code? Fix someone else’s WTH!": the contributor path, on the page.
+//
+// Replaces source/what-the-heck/components/_fix.html and the `#fix` rules in
+// sass/homeassistant/pages/wth/_sections.scss.
+//
+// Fidelity: revamp. Same steps and copy, with the radii and type from the
+// theme. It paints no surface of its own: the shared section's `inherit` tone.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import WthSection from "./WthSection.astro";
+import WthSteps from "./WthSteps.astro";
+import WthPullRequests from "./WthPullRequests.astro";
+import Button from "../Button.astro";
+import { forumUrl } from "../../lib/wth.mjs";
+import { loadWthStats } from "../../lib/wth-stats.mjs";
+
+const steps = [
+  { title: "Pick it", text: "Browse the WTHs and find one you can take on." },
+  { title: "Claim it", text: "Reply so nobody builds the same thing twice." },
+  {
+    title: "Ship it",
+    text: "Open a pull request and link it back to the WTH.",
+  },
+];
+
+// Fetched before the build; nothing is shown when there are none.
+const stats = loadWthStats();
+---
+
+<WthSection
+  id="fix"
+  tone="inherit"
+  heading="Comfortable with code? Fix someone else’s WTH!"
+>
+  <WthSteps steps={steps} columnWidth="13rem" />
+
+  <WthPullRequests stats={stats} />
+
+  <p class="note">
+    New to contributing? Our <a
+      href="https://contributors.home-assistant.io/"
+      target="_blank"
+      rel="noopener">developer documentation</a
+    > walks you through it.
+  </p>
+
+  <div class="actions">
+    <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener">
+      Browse open WTHs
+    </Button>
+  </div>
+</WthSection>
+
+<style lang="scss">
+  .note {
+    color: var(--wth-ink-soft);
+    font-size: var(--font-size-large);
+    line-height: 1.55;
+    margin: var(--space-xlarge) 0 0;
+
+    a {
+      color: var(--wth-link);
+      text-decoration: underline;
+
+      &:hover {
+        color: var(--wth-ink);
+      }
+    }
+  }
+
+  .actions {
+    margin-top: var(--space-xxlarge);
+  }
+</style>

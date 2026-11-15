@@ -1,20 +1,10 @@
 ---
-title: Glances
 description: Instructions on how to integrate Glances sensors into Home Assistant.
-ha_category:
-  - System monitor
-ha_iot_class: Local Polling
 ha_release: 0.7.3
-ha_config_flow: true
-ha_codeowners:
-  - '@engrbm87'
 ha_domain: glances
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 ---
 
-The `glances` integration allows you to monitor the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
+The **Glances** {% term integration %} allows you to monitor the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
 
 ## Setup
 
@@ -37,6 +27,7 @@ Glances integration will add the following sensors if available in the platform:
   - disk_use_percent: The used disk space in percent.
   - disk_use: The used disk space.
   - disk_free: The free disk space.
+  - disk_size: The total size of the disk.
 - For each detected physical disk, the following sensors will be created:
   - diskio_read: Average rate of data read from the device in megabytes per second.
   - diskio_write: Average rate of data written to the device in megabytes per second.
@@ -69,4 +60,4 @@ Glances integration will add the following sensors if available in the platform:
   - fan_speed: The speed of the GPU fan, in percent.
 - uptime: The server uptime.
 
-Not all platforms are able to provide all metrics. For instance the GPU sensors require installing the py3nvml Python package, and the cpu temp sensor requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.
+Not all platforms can provide all metrics. For instance the GPU sensors require installing the py3nvml Python package, and the cpu temp sensor requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.

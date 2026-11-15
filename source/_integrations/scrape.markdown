@@ -1,18 +1,7 @@
 ---
-title: Scrape
 description: Instructions on how to integrate Web scrape sensors into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 0.31
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fabaff'
-  - '@gjohansson-ST'
 ha_domain: scrape
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_config_flow: true
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -28,7 +17,7 @@ Both UI and [YAML setup](#yaml-configuration) is supported while YAML provides a
 
 Scrape uses configuration subentries for configuring the sensors.
 
-1. Setup the resource configuration once per resource you want to scrape information from.
+1. Set up the resource configuration once per resource you want to scrape information from.
 2. Create one or multiple configuration subentries per sensor you want to create by scraping the website.
 
 {% endnote %}
@@ -49,11 +38,11 @@ scrape:
 
 {% configuration %}
 resource:
-  description: The resource or endpoint that contains the value.
+  description: The resource or endpoint that contains the value. One of `resource` and `resource_template` must be used.
   required: true
   type: string
 resource_template:
-  description: The resource or endpoint that contains the value with template support.
+  description: The resource or endpoint that contains the value with template support. One of `resource` and `resource_template` must be used.
   required: true
   type: template
 method:
@@ -73,7 +62,7 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
@@ -84,11 +73,11 @@ authentication:
   required: false
   type: string
 username:
-  description: The username for accessing the REST endpoint.
+  description: The username for accessing the resource.
   required: false
   type: string
 password:
-  description: The password for accessing the REST endpoint.
+  description: The password for accessing the resource.
   required: false
   type: string
 headers:
@@ -100,7 +89,7 @@ params:
   required: false
   type: [list, template]
 scan_interval:
-  description: Define the refrequency to call the REST endpoint in seconds.
+  description: Define the frequency to call the resource in seconds.
   required: false
   type: integer
   default: 600
@@ -110,7 +99,7 @@ encoding:
   type: string
   default: UTF-8
 sensor:
-  description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
+  description: A list of sensors to create from the shared data.
   required: true
   type: map
   keys:
@@ -149,12 +138,12 @@ sensor:
       type: template
       default: true
     unit_of_measurement:
-      description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      description: "Defines the units of measurement of the sensor, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes). This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      description: "The [state_class](/integrations/sensor/#state-class) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None
@@ -163,7 +152,7 @@ sensor:
       required: false
       type: template
     device_class:
-      description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+      description: Sets the [device class](/integrations/sensor/#device-class), changing the device state and icon that is displayed on the UI. It does not set the `unit_of_measurement`.
       required: false
       type: device_class
       default: None
@@ -179,8 +168,6 @@ In this section you find some real-life examples of how to use this sensor. Ther
 
 The current release Home Assistant is published on [homepage](/)
 
-{% raw %}
-
 ```yaml
 scrape:
 # Example configuration.yaml entry
@@ -190,13 +177,9 @@ scrape:
         select: ".release-date"
 ```
 
-{% endraw %}
-
 ### Available implementations
 
 Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & services**" %}.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -207,8 +190,6 @@ scrape:
         select: 'a[href="#all"]'
         value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
-
-{% endraw %}
 
 ### Get a value out of a tag
 
@@ -257,8 +238,6 @@ scrape:
 
 This example tries to retrieve the price for electricity.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 scrape:
@@ -269,30 +248,4 @@ scrape:
         index: 1
         value_template: '{{ value | replace (",", ".") | float }}'
         unit_of_measurement: "öre/kWh"
-```
-
-{% endraw %}
-
-### Container cleaning by CleanProfs in The Netherlands
-
-This example gets the container type and container cleaning date for the next two cleanings.
-
-```yaml
-# Example configuration.yaml entry. Change postal code and house number to your own address.
-scrape:
-  - resource: https://crm.cleanprofs.nl/search/planning
-    method: POST
-    payload: zipcode=5624JW&street_number=17
-    headers:
-      Content-Type: application/x-www-form-urlencoded
-    sensor:
-      - name: "Type container 1"
-        select: "div.nk-tb-item:nth-child(2) > div:nth-child(1) > span:nth-child(1)"
-      - name: "Date container 1"
-        select: "div.nk-tb-item:nth-child(2) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
-      - name: "Type container 2"
-        select: "div.nk-tb-item:nth-child(3) > div:nth-child(1) > span:nth-child(1)"
-      - name: "Date container 2"
-        select: "div.nk-tb-item:nth-child(3) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
-
 ```

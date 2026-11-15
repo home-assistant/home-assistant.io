@@ -1,33 +1,10 @@
 ---
-title: Change device type of a switch
 description: Instructions on how to convert any Home Assistant switch into something else.
-ha_category:
-  - Cover
-  - Fan
-  - Helper
-  - Light
-  - Lock
-  - Siren
-  - Switch
-  - Valve
 ha_release: 2022.4
-ha_iot_class: Calculated
-ha_quality_scale: internal
 ha_domain: switch_as_x
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/core'
-ha_platforms:
-  - cover
-  - fan
-  - light
-  - lock
-  - siren
-  - valve
-ha_integration_type: helper
 ---
 
-The **Change device type of a switch** helper integrations lets you convert any Home Assistant switch into
+The **Change device type of a switch** helper {% term integration %} lets you convert any Home Assistant switch into
 a Home Assistant Light, Cover, Fan, Lock, Siren, or Valve.
 
 In Home Assistant's world, a wall plug is a switch. And while that is correct
