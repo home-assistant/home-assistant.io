@@ -47,19 +47,27 @@ The integration is built from the community documentation of how the printers co
 
 ## Prerequisites
 
-Before you start, you need the following from your printer:
+Before you start, you need the access code of your printer. You can find it on the screen of your printer.
 
-- The IP address of the printer. Give the printer a fixed IP address in your router, so its address does not change.
+Home Assistant can search for the printers on your network. If it does not find yours, you also need the following from your printer:
+
+- The IP address of the printer.
 - The serial number of the printer. This is not the name of the printer.
-- The access code of the printer.
 
-You can find all three on the screen of your printer.
+You can find both on the screen of your printer.
+
+Give the printer a fixed IP address in your router, so its address does not change.
 
 Your printer does not have to be in LAN only mode. It can stay connected to the Bambu Lab cloud.
 
 To control a print from Home Assistant, for example to pause it or to change its speed, a printer with recent firmware has to be in developer mode. Developer mode needs LAN only mode, which disconnects the printer from the Bambu Lab cloud. Without developer mode, Home Assistant can still monitor the printer and control its light. Bambu Lab explains [how to turn on developer mode](https://wiki.bambulab.com/en/knowledge-sharing/enable-lan-mode).
 
 {% include integrations/config_flow.md %}
+
+When you add the integration, you choose how to find your printer:
+
+- **Search for printers on the network**: Home Assistant listens for the printers that announce themselves on your network, which takes a few seconds. You then only enter the access code. If the search finds more than one printer, you first select the one to set up.
+- **Enter the details of the printer**: You enter the address, the serial number, and the access code yourself.
 
 {% configuration_basic %}
 Host:
@@ -144,10 +152,28 @@ When the connection to the printer is lost, for example because the printer is t
 - You cannot start a print, and you cannot control the fans or the temperatures.
 - A printer with recent firmware only lets Home Assistant pause, resume, or stop a print, or change its speed, while it is in developer mode.
 - The integration has no entities for the camera or for the Automatic Material System (AMS).
-- Home Assistant does not discover printers on your network. You add each printer yourself.
+- Home Assistant does not tell you when it sees a new printer. You start the search yourself when you add the integration.
+- The search only finds printers on the same network as Home Assistant.
 - When you change the IP address or the access code of the printer, remove the printer from Home Assistant and add it again.
 
 ## Troubleshooting
+
+{% details "The search does not find the printer" %}
+
+### Symptom: "No printers were found on your network"
+
+When you search for printers, the form shows the message "No printers were found on your network. Enter the details of your printer."
+
+#### Description
+
+A printer announces itself to the devices on its own network. Home Assistant cannot hear it when the printer is on another network or VLAN, or when Home Assistant runs in a container without access to the network of its host. The search also leaves out the printers that are already set up.
+
+#### Resolution
+
+1. Make sure the printer is turned on and connected to your network.
+2. Enter the IP address, the serial number, and the access code of the printer in the form. Setting up a printer this way works across networks.
+
+{% enddetails %}
 
 {% details "Can't set up the printer: Failed to connect" %}
 
