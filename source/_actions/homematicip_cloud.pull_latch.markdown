@@ -5,7 +5,6 @@ domain: homematicip_cloud
 description: "Pulls the latch of a Homematic IP door opener, optionally with the PIN of its access authorization."
 related_actions:
   - button.press
-  - homematicip_cloud.arm_anyway
 ---
 
 The **HomematicIP Cloud: Pull latch** action pulls the latch of a Homematic IP door opener (`HmIP-FLC`, `HmIP-FDC`), so the door can be opened. Unlike the door opener button, it can pass the PIN of the access authorization.
