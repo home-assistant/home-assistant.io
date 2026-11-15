@@ -24,9 +24,15 @@ After setup, you can control the fan from Home Assistant with the created fan en
 
 ## Supported devices
 
-This integration supports unbranded ceiling fans that are sold with a generic infrared remote control. The remote has a key to toggle the fan on and off and dedicated keys for the three fan speeds. Many ceiling fans sold under various brand names use this same remote.
+These are the screw-in fan lights (E27 fan lights) and similar ceiling fans that ship with the widespread 9-key generic infrared remote. They are sold as unbranded products and under many different brand names, mostly through marketplaces such as AliExpress, Amazon and eBay, and they all share the same remote, so the same codes work across them.
 
-If your remote does not work with this integration, the fan may use a different code set. Feel free to request support for it.
+### Identifying a supported remote
+
+The remote has 9 keys: a fan toggle, three fan speeds, a light toggle, brightness up and down, and color warmer and cooler.
+
+The light must be a cold/warm white light. Remotes for the models with an RGB light use a different code set and are not supported.
+
+If your remote has this key layout, the integration works as-is. If your remote has different keys, the fan uses a different code set, which this integration does not support yet.
 
 ## Prerequisites
 
