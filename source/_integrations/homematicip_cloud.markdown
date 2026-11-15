@@ -193,7 +193,7 @@ To arm the alarm system anyway, use the [`homematicip_cloud.arm_anyway`](/action
 
 To control the `HmIP-DLD` door lock drive or the door openers of the `HmIP-FLC` and `HmIP-FDC`, allow Home Assistant to do so under **Access Control** in the Homematic IP app.
 
-The door opener is a button entity. If the access authorization has a PIN, use the [`homematicip_cloud.pull_latch`](/actions/homematicip_cloud.pull_latch/) action with its `pin` field instead, because the button cannot pass a PIN.
+The door opener is a button entity. If the access authorization has a PIN, use the `homematicip_cloud.pull_latch` action with its `pin` field instead, because the button cannot pass a PIN.
 
 ### Button events
 
@@ -219,10 +219,9 @@ The buttons, sensors, and actuators of your Homematic IP installation can contro
 
 Toggle a light when you briefly press a button.
 
-- **Trigger**: State
-  - **Entity**: The event entity of your button
-  - **Attribute**: **Event type**
-  - **To**: `short_release`
+- **Trigger**: Event received
+  - **Target**: The event entity of your button
+  - **Event type**: **Short release**
 - **Action**: Toggle light
   - **Target**: Your light
 
@@ -232,10 +231,12 @@ Toggle a light when you briefly press a button.
 automation: |
   alias: "Toggle the living room light with button 3"
   triggers:
-    - trigger: state
-      entity_id: event.wall_switch_button_3
-      attribute: event_type
-      to: short_release
+    - trigger: event.received
+      target:
+        entity_id: event.wall_switch_button_3
+      options:
+        event_type:
+          - short_release
   actions:
     - action: light.toggle
       target:
@@ -254,16 +255,20 @@ The cloud delivers a double press as two `short_release` events. After the first
 automation: |
   alias: "Movie scene on a double press of button 3"
   triggers:
-    - trigger: state
-      entity_id: event.wall_switch_button_3
-      attribute: event_type
-      to: short_release
+    - trigger: event.received
+      target:
+        entity_id: event.wall_switch_button_3
+      options:
+        event_type:
+          - short_release
   actions:
     - wait_for_trigger:
-        - trigger: state
-          entity_id: event.wall_switch_button_3
-          attribute: event_type
-          to: short_release
+        - trigger: event.received
+          target:
+            entity_id: event.wall_switch_button_3
+          options:
+            event_type:
+              - short_release
       timeout: "00:00:00.500"
       continue_on_timeout: false
     - action: scene.turn_on
@@ -283,10 +288,12 @@ The button reports `long_press` while you hold it and `long_release` when you le
 automation: |
   alias: "Dim the living room light while holding button 3"
   triggers:
-    - trigger: state
-      entity_id: event.wall_switch_button_3
-      attribute: event_type
-      to: long_press
+    - trigger: event.received
+      target:
+        entity_id: event.wall_switch_button_3
+      options:
+        event_type:
+          - long_press
   actions:
     - repeat:
         sequence:
