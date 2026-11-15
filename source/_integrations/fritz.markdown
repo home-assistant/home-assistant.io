@@ -96,7 +96,13 @@ Parental control {% term switches %} can be used to enable and disable internet 
 
 ### Link sensors
 
-All of these are diagnostic sensors on each connected device, disabled by default, and are only created when the FRITZ!Box provides mesh topology data (_neither when mesh is not supported or the [old discovery method](#enable-old-discovery-method) is used_).
+For each connected device, the integration can create {% term sensors %} that show how the device is connected to your network:
+
+- **Signal strength**: The Wi-Fi signal strength in dBm. Only for Wi-Fi devices.
+- **Download link rate** and **Upload link rate**: The current link speed. Only for Wi-Fi devices.
+- **Max download link rate** and **Max upload link rate**: The highest link speed the connection supports. For Wi-Fi and LAN devices.
+
+These are diagnostic sensors and are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). They are only created when your FRITZ!Box provides mesh information. If your FRITZ!Box doesn't support mesh, or if you use the [old discovery method](#enable-old-discovery-method), these sensors are not created. When a device is disconnected, its link sensors show as unknown.
 
 ### Port forward switches
 
