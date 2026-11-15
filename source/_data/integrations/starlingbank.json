@@ -6,6 +6,9 @@
   "categories": [
     "finance"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

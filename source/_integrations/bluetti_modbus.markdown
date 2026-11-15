@@ -27,7 +27,7 @@ Modbus TCP support is only available on some device models and firmware versions
 1. Make sure the computer you are using is on the same network as the device.
 2. Find the device's IP address on the network configuration page of the BLUETTI app.
 3. Open that IP address in a browser to reach the device's local web page.
-4. Sign in. The username is `admin`; the password is your BLUETTI app password, or blank if you never set one.
+4. Sign in. The username is `admin`; the password is the device's Bluetooth password set in the BLUETTI app, or blank if you never set one. It is not your BLUETTI account password.
 5. Go to **Settings** > **Modbus TCP**, turn on **Enable**, set **Port** to `502`, and select **Settings** to save.
 
 You also need the hostname or IP address of the device on your network. Giving the device a fixed address in your router keeps Home Assistant pointed at the right one.
@@ -40,7 +40,7 @@ Host:
 Port:
   description: "The port the device listens on for Modbus requests. The BLUETTI default is `502`."
 Device ID:
-  description: "The Modbus device ID of the power station, as configured on the device itself. The default is `1`. You only need to change this if your device was given another ID."
+  description: "The Modbus device ID of the power station. The BLUETTI default is `1`, and the device's web page has no setting to change it. Keep `1` unless you know your device uses another ID."
 {% endconfiguration_basic %}
 
 You change the host, port, or device ID later, for example after your power station gets a new IP address. Go to {% my integrations title="**Settings** > **Devices & services**" %}. From the listed integrations, select **BLUETTI Modbus**, select **Menu** {% icon "mdi:dots-vertical" %} and then **Reconfigure**.

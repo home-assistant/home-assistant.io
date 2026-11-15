@@ -10,5 +10,8 @@
   "quality_scale": "platinum",
   "categories": [
     "computers_network.routers_network"
+  ],
+  "connectivity": [
+    "cloud"
   ]
 }

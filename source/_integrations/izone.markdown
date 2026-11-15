@@ -34,27 +34,7 @@ If you have more than one iZone system on your local network, the iZone integrat
 
 Any other controllers found during the search will become available as discovered controllers.
 
-## Legacy YAML configuration
-
-YAML configuration is now deprecated, it will be removed in a future update. 
-
-For legacy setups, or if you need to exclude specific controllers from Home Assistant, you can configure the iZone integration via the {% term "`configuration.yaml`" %} file with the `exclude` option.
-
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry with excluded controllers
-izone:
-  exclude:
-    - "000013170"
-```
-
-{% configuration %}
-exclude:
-  description: Exclude specific units from Home Assistant. This option applies only to YAML-based configuration.
-  required: false
-  type: list
-{% endconfiguration %}
+To keep a controller out of Home Assistant, select **Ignore** on its discovered card.
 
 ## Network settings
 
@@ -112,6 +92,40 @@ These sensors always report the unit duct temperatures. They do not change when 
 ## Zones
 
 Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
+
+### Zone dampers
+
+Each zone has the following entities for its damper:
+
+- **Damper minimum**: (configuration) How far the damper stays open at its most closed, as a percentage. You can set it in steps of 5%.
+- **Damper maximum**: (configuration) How far the damper opens at its most open, as a percentage. You can set it in steps of 5%.
+- **Damper position**: The position the controller is driving the damper to, as a percentage.
+
+If your installer has locked airflow adjustment on the iZone controller, **Damper minimum** and **Damper maximum** are unavailable. If only the minimum airflow is locked, only **Damper minimum** is unavailable.
+
+**Damper position** is only created for zones that report a damper position. Some systems don't report it and show a constant 50%, so the entity is disabled by default unless at least one zone reports a different value. To use it anyway, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+
+The damper position is best-effort, and some controllers don't report it correctly. The value can differ from the zone's mode. For example, the controller may briefly open a closed zone used as a constant or bypass, and positions drop to 0 a few minutes after the system turns off. Your installer's balance settings can also limit the damper beyond the minimum and maximum set here.
+
+Damper position isn't a percentage of airflow, because airflow doesn't change linearly with damper position.
+
+### Wireless zone sensors
+
+Zones with a wireless temperature sensor have the following {% term sensor %} entities:
+
+- **RF signal**: (diagnostic) The radio signal strength of the zone sensor, as a percentage. This entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+- **Battery**: (diagnostic) The battery level of the zone sensor, as a percentage.
+
+The iZone controller only reports these in coarse steps. The RF signal is 100%, 50%, 25%, or 0%, and the battery is 100%, 50%, or 0%. The RF signal and battery sensors are only created for zones with a wireless sensor, and only if your iZone bridge reports the values.
+
+### Zone faults
+
+Zones can have the following {% term "binary sensor" %} entities, which are created only when your iZone bridge reports the corresponding fault status. They show **Problem** when the iZone controller reports a fault, and **OK** otherwise:
+
+- **Damper fault**: (diagnostic) The controller reports a fault with the zone damper motor.
+- **Sensor fault**: (diagnostic) The controller reports a fault with the zone temperature sensor.
+
+**Sensor fault** is also only created for zones with a temperature sensor. Older bridges don't report sensor faults.
 
 ## Diagnostics
 

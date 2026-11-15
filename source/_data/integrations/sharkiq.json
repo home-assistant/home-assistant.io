@@ -11,6 +11,9 @@
   "categories": [
     "appliances_cleaning.cleaning"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "vacuum"
   ]

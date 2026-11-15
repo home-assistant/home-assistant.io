@@ -9,6 +9,9 @@
   "categories": [
     "computers_network.printers"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor"
   ]

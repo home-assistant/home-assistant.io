@@ -16,7 +16,16 @@ Currency:
   description: "The currency the Bitcoin exchange rate is shown in. The list only offers currencies that blockchain.com quotes, and defaults to `USD`."
 {% endconfiguration_basic %}
 
-To change the currency later, remove the integration and add it again with the new currency.
+## Reconfiguration
+
+To change the currency later, you can reconfigure the integration without removing and adding it again:
+
+1. Go to {% my integration domain="bitcoin" title="**Settings** > **Devices & services** > **Bitcoin**" %}.
+2. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Select the new currency.
+4. Select **Submit**.
+
+The **Exchange rate** sensor then shows the price in the new currency. The other sensors stay the same.
 
 ## Supported functionality
 
@@ -41,7 +50,7 @@ The **Bitcoin** integration provides the following entities. All of them are cre
 - **Mined blocks**
   - **Description**: Number of blocks mined in the last 24 hours.
 - **Blocks size**
-  - **Description**: Combined size of the blocks mined in the last 24 hours, in bytes.
+  - **Description**: Combined size of the blocks mined in the last 24 hours. New setups show it in megabytes, while setups that already existed keep showing it in bytes.
 - **Difficulty**
   - **Description**: How hard it currently is to mine a block.
 - **Time between blocks**
@@ -65,13 +74,15 @@ The **Bitcoin** integration provides the following entities. All of them are cre
 - **Estimated transaction volume**
   - **Description**: Estimated value moved in the last 24 hours, in USD.
 - **Statistics timestamp**
-  - **Description**: When blockchain.com produced these numbers.
+  - **Description**: The date and time when blockchain.com produced these numbers.
 
 The entity IDs come from these names, for example `sensor.bitcoin_trade_volume_in_usd`. Sensors that already existed in Home Assistant keep the entity IDs they had, so an older setup can have two trade volume sensors or two miners revenue sensors told apart by a `_2` suffix, for example `sensor.trade_volume` and `sensor.trade_volume_2`.
 
 ## Data updates
 
 The **Bitcoin** integration {% term polling polls %} blockchain.com every 5 minutes. One poll refreshes every entity. This interval is not configurable.
+
+Most sensors keep long-term statistics, so you can see how they change over months in the history graphs. **Exchange rate** does not, because its unit is the currency you selected. For long-term statistics of the price, use **Market price**, which is always in USD.
 
 ## Known limitations
 
@@ -120,7 +131,7 @@ To resolve this issue, try the following steps:
 3. If a second issue says the import did not succeed, it also says why:
    - Home Assistant could not reach blockchain.com. Restart Home Assistant later to try again.
    - The currency in your YAML file is not one that blockchain.com quotes. Correct it and restart, or remove the YAML and add the integration from the UI.
-   - You had the `bitcoin` sensor platform listed more than once with different currencies. Bitcoin can only be set up once, so only the first currency was imported. Remove the YAML, then remove the integration and add it again with the currency you want.
+   - You had the `bitcoin` sensor platform listed more than once with different currencies. Bitcoin can only be set up once, so only the first currency was imported. Remove the YAML, then reconfigure the integration to the currency you want.
 
 The imported sensors get new entity IDs from the new names, for example `sensor.exchange_rate_1_btc` becomes `sensor.bitcoin_exchange_rate`. Update the dashboards and automations that use them. You also get extra sensors: the YAML `display_options` setting is gone, because a config flow should not ask you to pick entities, so all 21 sensors are now created.
 

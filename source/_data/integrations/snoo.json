@@ -11,6 +11,9 @@
   "categories": [
     "health_wellbeing"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

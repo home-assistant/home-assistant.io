@@ -1,12 +1,13 @@
 ---
-description: Instructions on how to integrate ENGIE Belgium energy prices into Home Assistant.
+title: ENGIE Belgium
+description: Instructions on how to integrate ENGIE Belgium energy prices and capacity tariff peaks into Home Assistant.
 ha_release: 2026.11
 ha_domain: engie_be
 ---
 
 The **ENGIE Belgium** {% term integration %} integrates the [ENGIE Belgium](https://www.engie.be) API with Home Assistant.
 
-The integration makes it possible to retrieve the electricity and gas prices from your ENGIE Belgium contracts, to gain insight into your rate and to adjust your consumption accordingly. It creates one set of price sensors per address (business agreement) on your account. An address on a dynamic tariff gets sensors for the Belgian EPEX day-ahead wholesale prices.
+The integration makes it possible to retrieve the electricity and gas prices from your ENGIE Belgium contracts, to gain insight into your rate and to adjust your consumption accordingly. It creates one set of price sensors per address (business agreement) on your account, plus sensors for the capacity tariff peaks of each address. An address on a dynamic tariff gets sensors for the Belgian EPEX day-ahead wholesale prices.
 
 Use case: Follow the current electricity and gas prices for each meter on a dashboard and see them change whenever your tariff is revised. Use the price sensors in automations that estimate the cost of running appliances. On a dynamic tariff, run flexible appliances, such as a dishwasher or a tumble dryer, during the cheap hours of the EPEX day-ahead prices. Compare the offtake and injection prices to decide when it pays to use your solar production yourself instead of sending it back to the grid.
 
@@ -40,7 +41,7 @@ The **ENGIE Belgium** integration provides the following entities.
 
 ### Sensors
 
-The integration looks at the contract on each meter and creates the price sensors that fit it.
+The integration looks at the contract on each meter and creates the price sensors that fit it. Every address also gets sensors for the capacity tariff peaks.
 
 #### Fixed and variable tariff prices
 
@@ -94,6 +95,26 @@ Tomorrow's prices are published in the early afternoon, Brussels time. Until the
 
 To follow the cost of your consumption, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and set up grid consumption with the **Use an entity with current price** option. Select **EPEX current hour price** when your contract bills you per hour, or **EPEX current quarter-hourly price** when it bills you per quarter hour. The Energy dashboard then shows a wholesale-only estimate, which is lower than your actual ENGIE bill.
 
+#### Capacity tariff peak sensors
+
+In Flanders, part of your electricity network costs is billed as a [capacity tariff](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief) based on your monthly peak. With a digital meter, the network operator measures your consumption every 15 minutes, and the tariff uses the highest 15-minute average of the month, expressed in kilowatts (kW). Unless you have the social tariff, you pay at least a minimum contribution, so spreading heavy appliances, such as an electric car or a heat pump, over time lowers what you pay. See the [Vlaamse Nutsregulator](https://www.vlaamsenutsregulator.be/elektriciteit-en-aardgas/nettarieven/capaciteitstarief) for how the tariff is calculated and the current rates.
+
+Every address gets the following peak sensors:
+
+- **Capacity tariff monthly power peak**: highest 15-minute average power of the month, in kW
+- **Capacity tariff monthly energy peak**: energy you consumed during that 15-minute peak window, in kWh
+- **Capacity tariff monthly peak start**: when the monthly peak window started
+- **Capacity tariff monthly peak end**: when the monthly peak window ended
+- **Capacity tariff daily power peak**: power of the most recent daily peak, in kW
+
+The peak start and peak end sensors are diagnostic sensors. Power and energy values are shown with two decimals.
+
+Early in the month, ENGIE has not published a peak for the current month yet. The monthly sensors then show the peak of the previous month instead. The **Capacity tariff monthly power peak** sensor makes this visible with two attributes: `peak_month` shows which month the displayed peak belongs to, like `2026-10`, and `peak_is_fallback` is `true` while the previous month's peak is shown. When neither month has a peak, for example on a new address, the monthly sensors have no value yet. If a new peak during the month is higher than the current one, the replaced peak stays available in the `previous_peak` attribute.
+
+The **Capacity tariff daily power peak** sensor lists all daily peaks of the month in its `daily_peaks` attribute. It does not fall back to the previous month, so it has no value until the first daily peak of the month is published.
+
+ENGIE publishes peaks after the fact, so these sensors tell you that a peak has been set rather than warning you while one is forming.
+
 ### Binary sensors
 
 Addresses on a dynamic tariff get the **EPEX tomorrow prices available** binary sensor. It turns on once the hourly and the quarter-hourly prices for tomorrow are both published.
@@ -107,6 +128,8 @@ A single ENGIE login can cover more than one address or meter. The integration a
 The integration polls the ENGIE API once an hour. Contracted prices only change when your tariff is revised, so there is nothing to gain from polling more often. The sign-in tokens it uses are refreshed on their own, so it keeps working without you signing in again.
 
 For an address on a dynamic tariff, the integration also fetches the EPEX day-ahead prices once an hour. The EPEX sensors refresh on every quarter-hour boundary, so the current and next prices switch on time. If the prices cannot be fetched during startup, the sensors stay unavailable and come back once a retry succeeds.
+
+The capacity tariff peak sensors are polled once an hour as well, so they pick up a newly published peak on the next poll.
 
 If the session is revoked, the integration can no longer reach the API and its sensors become unavailable. The usual cause is signing in to the same ENGIE account somewhere else, so a dedicated user (see [Prerequisites](#prerequisites)) avoids it. Home Assistant will ask you to sign in again.
 
@@ -130,6 +153,10 @@ The integration could not fetch the EPEX day-ahead prices, for example because t
 ### The EPEX price sensors did not appear
 
 The integration could not look up your tariff while it was starting, for example because the ENGIE API was unreachable. It retries the lookup in the background, so the sensors of a dynamic address appear once it succeeds.
+
+### The capacity tariff peak sensors show an old peak
+
+Early in the month, ENGIE has not published a peak for the current month yet, so the monthly sensors show the previous month's peak. The `peak_is_fallback` attribute of the **Capacity tariff monthly power peak** sensor is `true` while the shown peak belongs to the previous month.
 
 ## Removing the integration
 

@@ -7,11 +7,12 @@
   ],
   "config_flow": true,
   "iot_class": "local_polling",
-  "quality_scale": "bronze",
+  "quality_scale": "silver",
   "categories": [
     "productivity_information.calendars_todos"
   ],
   "platforms": [
-    "calendar"
+    "calendar",
+    "diagnostics"
   ]
 }

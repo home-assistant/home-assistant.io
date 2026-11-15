@@ -10,6 +10,9 @@
   "categories": [
     "climate.air_purifiers_humidifiers"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "fan",
     "sensor"

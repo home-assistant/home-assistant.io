@@ -1,9 +1,11 @@
 {
   "domain": "compensation",
   "name": "Compensation",
+  "integration_type": "helper",
   "codeowners": [
     "@Petro31"
   ],
+  "config_flow": true,
   "iot_class": "calculated",
   "quality_scale": "legacy",
   "categories": [

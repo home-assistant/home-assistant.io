@@ -11,6 +11,9 @@
   "categories": [
     "messaging_notifications.push_notifications"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "event",
     "notify"

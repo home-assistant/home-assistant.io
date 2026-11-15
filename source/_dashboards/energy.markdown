@@ -29,6 +29,7 @@ To show or hide cards on the built-in Energy dashboard, see [customizing the Ene
 
 This card allows you to pick what data to show. Changing it in this card will influence the data in all other cards.
 Specific dates and ranges can be selected by opening the date range picker. The current period can be compared to the previous one using the compare data option within the menu.
+With `show_combine_sources`, the menu also has a **Combine sources** option for the energy cards linked to this date picker. The Energy dashboard turns it on for its **Electricity**, **Gas**, and **Water** tabs when they have two or more sources of the same type. For more information, see [combining sources of the same type](/docs/energy/#combining-sources-of-the-same-type).
 
 ### YAML configuration
 
@@ -56,6 +57,11 @@ opening_direction:
 disable_compare:
   required: false
   description: When true, will disable the option to compare data periods.
+  type: boolean
+  default: false
+show_combine_sources:
+  required: false
+  description: "When true, the menu has a **Combine sources** option for the linked energy cards. It is shown when at least one source type has two or more sources."
   type: boolean
   default: false
 {% endconfiguration %}
@@ -136,6 +142,11 @@ expand_legend:
   description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items.
   type: boolean
   default: false
+combine_sources:
+  required: false
+  description: "When true, shows all grid sources and all batteries as one entry per direction, for example one **Grid consumed** series instead of one per grid tariff. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
@@ -170,6 +181,11 @@ title:
   required: false
   description: When defined, shows a card header with the title string and total solar produced chip.
   type: string
+combine_sources:
+  required: false
+  description: "When true, shows all solar panels as one production series and one forecast line. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
@@ -204,12 +220,155 @@ title:
   required: false
   description: When defined, shows a card header with the title string and total gas consumed chip.
   type: string
+combine_sources:
+  required: false
+  description: "When true, shows all gas sources as one series. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
 
 ```yaml
 type: energy-gas-graph
+```
+
+## Gas Sankey graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/gas-sankey.png' alt='Screenshot of the gas Sankey graph card'>
+  Screenshot of the gas Sankey graph card.
+</p>
+
+The gas Sankey graph shows the flow of gas consumption in your home. It visualizes how gas flows from sources to the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
+
+This card displays historical gas data based on the selected date range from the energy date picker.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`gas-sankey`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+max_devices:
+  required: false
+  description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
+  type: integer
+  default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: gas-sankey
+```
+
+The following example orients the flow from left to right:
+
+```yaml
+type: gas-sankey
+layout: horizontal
+```
+
+## Gas flow Sankey graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/gas-sankey.png' alt='Screenshot of the gas flow Sankey graph card'>
+  Screenshot of the gas flow Sankey graph card.
+</p>
+
+The gas flow Sankey graph shows the real-time flow of gas in your home. Unlike the gas Sankey card, which shows historical gas data based on the selected date range, this card displays current flow values and is not affected by the date picker selection.
+
+To use this card, configure a gas flow rate sensor for each source or individual device you want to display on the {% my config_energy title="energy configuration page" %}. Cumulative gas consumption sensors alone cannot supply data to this card.
+
+It visualizes the instantaneous gas flow from sources to the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`gas-flow-sankey`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+max_devices:
+  required: false
+  description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
+  type: integer
+  default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: gas-flow-sankey
+```
+
+The following example orients the flow from left to right:
+
+```yaml
+type: gas-flow-sankey
+layout: horizontal
 ```
 
 ## Water consumption graph
@@ -238,6 +397,11 @@ title:
   required: false
   description: When defined, shows a card header with the title string and total water consumed chip.
   type: string
+combine_sources:
+  required: false
+  description: "When true, shows all water sources as one series. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
@@ -297,6 +461,11 @@ max_devices:
 show_values:
   required: false
   description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
+combine_sources:
+  required: false
+  description: "When true, shows all water sources as one **Water** node. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
   type: boolean
   default: false
 {% endconfiguration %}
@@ -367,6 +536,11 @@ show_values:
   description: Whether to show the numeric values on each node.
   type: boolean
   default: false
+combine_sources:
+  required: false
+  description: "When true, shows all water sources as one **Water** node. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
@@ -392,6 +566,13 @@ layout: horizontal
 The energy distribution card shows how the energy flowed, from the grid to your house, from your solar panels to your house and/or back to the grid.
 
 If setup, it will also tell you how many kWh of the energy you got from the grid was produced without using fossil fuels.
+
+If you have a home battery, the card also shows where its energy comes from and where it goes. If your battery has [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction), these flows are measured. Otherwise, the card estimates them from your battery's totals.
+
+The card has no flow from one battery to another. If one battery charges another, what the card shows depends on your batteries:
+
+- With sensors for each direction, the card shows what those sensors measure. For example, energy from the first battery to your home, and energy from the grid or solar into the second battery.
+- With only total in and out, the charging and the discharging can cancel each other out. The card might then not show the transfer at all.
 
 ### YAML configuration
 
@@ -450,6 +631,11 @@ types:
 show_only_totals:
   required: false
   description: "Display table as a summarized version with only the resource totals listed."
+  type: boolean
+  default: false
+combine_sources:
+  required: false
+  description: "When true, shows one row per type and direction instead of one row per source. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
   type: boolean
   default: false
 {% endconfiguration %}
@@ -648,6 +834,13 @@ max_devices: 5
 
 The sankey energy graph shows the flow of energy in your home. It starts with sources and flows into the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
 
+If your battery has [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction), the energy flowing into and out of the battery is measured. Otherwise, the card estimates these flows from your battery's totals.
+
+The graph has no flow from one battery to another. If one battery charges another, what the graph shows depends on your batteries:
+
+- With sensors for each direction, the graph shows what those sensors measure. For example, energy from the first battery to your home, and energy from the grid or solar into the second battery.
+- With only total in and out, the charging and the discharging can cancel each other out. The graph might then not show the transfer at all.
+
 ### YAML configuration
 
 The following YAML options are available:
@@ -686,6 +879,11 @@ show_values:
   description: Whether to show the numeric values on each node.
   type: boolean
   default: false
+combine_sources:
+  required: false
+  description: "When true, shows one node per source type, like one **Solar** node for all your solar panels. When false, each source gets its own node. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ### Examples
@@ -711,6 +909,13 @@ layout: vertical
 The power Sankey graph shows the real-time flow of power in your home. Unlike the energy Sankey card, which shows historical energy data based on the selected date range, this card displays current power values and is not affected by the date picker selection.
 
 It visualizes the instantaneous power flow from sources (like the grid, solar panels, and battery) to consumers in your home. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
+
+For a battery with [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction), the card shows the power that the battery's [power sensors](/docs/energy/battery/#power-sensors-for-each-direction) measure. A direction without a power sensor counts as 0 W. For a battery with only total in and out, the card estimates these flows from the battery's net power.
+
+The graph has no flow from one battery to another. If one battery charges another, what the graph shows depends on your batteries:
+
+- With power sensors for each direction, the graph shows what those sensors measure. For example, power from the first battery to your home, and power from the grid or solar into the second battery.
+- With only total in and out, the charging and the discharging power cancel each other out. The graph might then not show the transfer at all.
 
 ### YAML configuration
 
@@ -754,6 +959,11 @@ show_values:
   description: Whether to show the numeric values on each node.
   type: boolean
   default: false
+combine_sources:
+  required: false
+  description: "When true, shows one node per source type, like one **Solar** node for all your solar panels. When false, each source gets its own node. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ### Examples
@@ -805,6 +1015,11 @@ expand_legend:
   description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items.
   type: boolean
   default: false
+combine_sources:
+  required: false
+  description: "When true, shows one area per source type, like one **Solar** area for all your solar panels. When false, each source gets its own area. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ### Examples
