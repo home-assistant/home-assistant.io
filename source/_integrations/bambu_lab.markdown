@@ -12,6 +12,7 @@ ha_domain: bambu_lab
 ha_integration_type: device
 ha_platforms:
   - button
+  - camera
   - diagnostics
   - light
   - select
@@ -62,6 +63,8 @@ Your printer does not have to be in LAN only mode. It can stay connected to the 
 
 To control a print from Home Assistant, for example to pause it or to change its speed, a printer with recent firmware has to be in developer mode. Developer mode needs LAN only mode, which disconnects the printer from the Bambu Lab cloud. Without developer mode, Home Assistant can still monitor the printer and control its light. Bambu Lab explains [how to turn on developer mode](https://wiki.bambulab.com/en/knowledge-sharing/enable-lan-mode).
 
+To see the camera of a printer that has a video stream, turn on the setting that lets the printer serve the stream on your network. On the screen of the printer, this setting is called LAN only liveview or similar, depending on the model. The A1 and P1 series and the A2L do not need this.
+
 {% include integrations/config_flow.md %}
 
 When you add the integration, you choose how to find your printer:
@@ -98,6 +101,13 @@ The **Bambu Lab** integration provides the following entities.
   - **Remarks**: Only available while the printer is printing, or while the print job is paused.
 
 The buttons are unavailable when the printer only accepts commands in developer mode, and developer mode is off.
+
+### Cameras
+
+- **Camera**
+  - **Description**: The camera inside the printer.
+  - **Available for printers**: all printers with a camera
+  - **Remarks**: The A1 and P1 series and the A2L send a new image every second or two, so the camera shows images, not video. The other printers serve a video stream, which you have to turn on on the printer, as described in the [prerequisites](#prerequisites).
 
 ### Lights
 
@@ -151,7 +161,7 @@ When the connection to the printer is lost, for example because the printer is t
 
 - You cannot start a print, and you cannot control the fans or the temperatures.
 - A printer with recent firmware only lets Home Assistant pause, resume, or stop a print, or change its speed, while it is in developer mode.
-- The integration has no entities for the camera or for the Automatic Material System (AMS).
+- The integration has no entities for the Automatic Material System (AMS).
 - Home Assistant does not tell you when it sees a new printer. You start the search yourself when you add the integration.
 - The search only finds printers on the same network as Home Assistant.
 - When you change the IP address or the access code of the printer, remove the printer from Home Assistant and add it again.
@@ -258,6 +268,23 @@ A button is only available when the printer can do what it asks: you cannot paus
 
 1. Check the **Print status** sensor. **Pause print** needs it to be **Printing**, and **Resume print** needs it to be **Paused**.
 2. If they stay unavailable during a print, turn on developer mode on your printer, as described in the [prerequisites](#prerequisites).
+
+{% enddetails %}
+
+{% details "The camera is unavailable or shows no image" %}
+
+### Symptom: The camera is unavailable, or shows no image, while the sensors work
+
+The sensors of the printer show values, but the **Camera** is unavailable or does not show an image.
+
+#### Description
+
+A printer with a video stream only serves it on your network when that is turned on on the printer. The other printers send images over a separate connection, on TCP port 6000.
+
+#### Resolution
+
+1. If your printer has a video stream, turn on the setting for it on the printer, as described in the [prerequisites](#prerequisites). The camera becomes available right away.
+2. Make sure Home Assistant can reach the printer on TCP port 322 for a video stream, or on TCP port 6000 for images. If the printer is in a different network than Home Assistant, allow this port in your firewall.
 
 {% enddetails %}
 
