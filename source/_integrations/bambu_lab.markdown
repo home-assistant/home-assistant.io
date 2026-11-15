@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: bambu_lab
 ha_integration_type: device
 ha_platforms:
+  - light
   - sensor
 ha_quality_scale: bronze
 related:
@@ -20,7 +21,7 @@ related:
 
 The **Bambu Lab** {% term integration %} lets you monitor your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. It connects to the printer over your local network and does not use the Bambu Lab cloud.
 
-Use it to see how far along a print is from your dashboard, or to get a notification when a print finishes, pauses, or fails.
+Use it to see how far along a print is from your dashboard, to get a notification when a print finishes, pauses, or fails, or to turn off the light of the printer when you leave.
 
 ## Supported devices
 
@@ -68,6 +69,12 @@ Access code:
 
 The **Bambu Lab** integration provides the following entities.
 
+### Lights
+
+- **Chamber light**
+  - **Description**: The light inside the printer. You can turn it on and off.
+  - **Available for printers**: Printers that report a chamber light.
+
 ### Sensors
 
 - **Print status**
@@ -104,7 +111,7 @@ When the connection to the printer is lost, for example because the printer is t
 
 ## Known limitations
 
-- The integration only reads from the printer. You cannot start, pause, or stop a print, and you cannot control the light, the fans, or the temperatures.
+- Apart from the light, the integration only reads from the printer. You cannot start, pause, or stop a print, and you cannot control the fans or the temperatures.
 - The integration has no entities for the camera or for the Automatic Material System (AMS).
 - Home Assistant does not discover printers on your network. You add each printer yourself.
 - When you change the IP address or the access code of the printer, remove the printer from Home Assistant and add it again.
