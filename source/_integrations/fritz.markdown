@@ -70,7 +70,7 @@ The FRITZ!Box Tools integration provides the following main features:
 - **{% term "Binary sensor" %}** - connectivity status.
 - **{% term Image %}** - QR code for Guest Wi-Fi.
 - **{% term Button %}** - reboot, reconnect, firmware update.
-- **{% term Sensor %}** - external IP address, uptime, CPU temperature, and network monitors.
+- **{% term Sensor %}** - external IP address, uptime, CPU temperature, network monitors, and link sensors.
 - **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
 - **{% term Update %}** - firmware status of the device.
 
@@ -93,6 +93,10 @@ Parental control {% term switches %} can be used to enable and disable internet 
 ### Device tracker
 
 **Note**: If you don't want to automatically track newly detected devices, disable the {% term integration %} system option `Enable new added entities`.
+
+### Link sensors
+
+All of these are diagnostic sensors on each connected device, disabled by default, and are only created when the FRITZ!Box provides mesh topology data (_neither when mesh is not supported or the [old discovery method](#enable-old-discovery-method) is used_).
 
 ### Port forward switches
 
