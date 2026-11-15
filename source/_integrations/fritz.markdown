@@ -44,8 +44,6 @@ It is recommended to set a password for the FRITZ!Repeater. Go to **System** > *
 Before FRITZ!OS 8.50, the FRITZ!Repeater accepted any credentials for API calls when **Login without password (not recommended, unprotected)** was selected under **System** > **Password**. This was true even when the FRITZ!Repeater's web interface was protected by the mesh master's credentials. Starting with FRITZ!OS 8.50, the FRITZ!Repeater blocks API access when this option is selected. We recommend using **Login with the FRITZ!Repeater password** instead.
 {% endnote %}
 
-If Home Assistant can't authenticate with a FRITZ!Repeater, see [Authentication fails for a FRITZ!Repeater](#authentication-fails-for-a-fritzrepeater).
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
