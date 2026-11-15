@@ -38,6 +38,80 @@ Verify SSL:
 
 {% include integrations/actions.md %}
 
+## WebDAV automation examples
+
+Besides storing backups, you can use WebDAV to keep copies of files from Home Assistant on your own server, such as camera snapshots. Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: upload a snapshot when motion is detected
+
+When motion is detected at the front door, take a snapshot and upload it to your WebDAV server, so you have a copy even if Home Assistant is offline. The snapshot uses the same filename each time, so each upload replaces the previous one on the server.
+
+- **Trigger**: State changed
+  - **Entity**: Front door motion sensor
+  - **To**: Detected
+- **Action**: Take camera snapshot
+  - **Target**: Front door camera
+  - **Filename**: `/config/www/snapshots/front_door.jpg`
+- **Action**: Upload files
+  - **Config entry**: Your WebDAV server
+  - **Filenames**: `/config/www/snapshots/front_door.jpg`
+  - **Destination folder**: `Snapshots`
+
+{% details "YAML example for uploading a snapshot on motion" %}
+
+{% example %}
+automation: |
+  alias: "Upload a snapshot when motion is detected"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door_motion
+      to: "on"
+  actions:
+    - action: camera.snapshot
+      target:
+        entity_id: camera.front_door
+      data:
+        filename: /config/www/snapshots/front_door.jpg
+    - action: webdav.upload
+      data:
+        config_entry_id: a1bee602deade2b09bc522749bbce48e
+        filename: /config/www/snapshots/front_door.jpg
+        destination_folder: Snapshots
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: upload all snapshots every night
+
+Every night, upload all snapshots from the `snapshots` folder to your WebDAV server. The wildcard picks up every JPG file in the folder, so you don't need to list each file.
+
+- **Trigger**: Time
+  - **At time**: `23:00`
+- **Action**: Upload files
+  - **Config entry**: Your WebDAV server
+  - **Filenames**: `/config/www/snapshots/*.jpg`
+  - **Destination folder**: `Snapshots/Archive`
+
+{% details "YAML example for uploading all snapshots every night" %}
+
+{% example %}
+automation: |
+  alias: "Upload all snapshots every night"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: webdav.upload
+      data:
+        config_entry_id: a1bee602deade2b09bc522749bbce48e
+        filename: /config/www/snapshots/*.jpg
+        destination_folder: Snapshots/Archive
+{% endexample %}
+
+{% enddetails %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
