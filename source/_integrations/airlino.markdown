@@ -1,7 +1,7 @@
 ---
 title: AirLino
 description: Instructions on how to integrate AirLino devices with Home Assistant.
-ha_release: 2026.11
+ha_release: 2026.12
 ha_iot_class: Local Polling
 ha_zeroconf: true
 ha_codeowners:
@@ -63,8 +63,6 @@ The **AirLino** integration provides the following entities.
   - Radio stations, TTS command (See limitation), or other streams
 - **Next/Previous**
   - Plays the next item from the playlist (For example radio station)
-- **Group devices**
-  - When devices are grouped the multiroom receiver follows automatically the sender. Therefore, all commands except volume control are explicitly disabled for those devices
 
 AirLino entities support standard [media player triggers, conditions, and actions](/integrations/media_player/).
 
@@ -95,7 +93,6 @@ The following conditions are supported:
 The following actions will work:
 
 - Browse media (Consider HTTPS and TTS limitation)
-- Join media players
 - Next track
 - Pause media
 - Play media
@@ -106,34 +103,26 @@ The following actions will work:
 - Stop media
 - Turn down media player volume
 - Turn up media player volume
-- Unjoin media player
 
 Here are a few ideas to get you started.
 
 {% include docs/paste_yaml_tip.md %}
 
-### Automation: Create speaker group and start playing media
+### Automation: Start playback every morning
 
-- **Trigger**: Input boolean which can be triggered in different ways
+- **Trigger**: Time when media player should start playing
 - **Condition**: Optional condition if needed
-- **Action**: Create group with player in Living Room as sender and other player as receiver.
+- **Action**: Start playing last radio stream again
 
-{% details "YAML example for grouping speakers and playing media" %}
+{% details "YAML example for start playing radio stream in the morning" %}
 
 {% example %}
  automation: |
-   alias: "Start party playback"
+   alias: "Play radio stream in the morning"
    triggers:
-     - trigger: state
-       entity_id: input_boolean.party_mode
-       to: "on"
+     - trigger: time
+       at: "07:30:00"
    actions:
-     - action: media_player.join
-       target:
-         entity_id: media_player.living_room
-       data:
-         group_members:
-           - media_player.kitchen
      - action: media_player.media_play
        target:
          entity_id: media_player.living_room
@@ -173,44 +162,24 @@ Here are a few ideas to get you started.
 
 ## Data updates
 
-The **AirLino** integration {% term polling polls %} data from the device every 10 seconds by default.
+The **AirLino** integration {% term polling polls %} data from the device every 30 seconds by default.
 
 ## Known limitations
 
 - The current version of the Integration supports the basic media player functionalities. TIDAL and Qobuz are currently not supported. Source selection is currently not supported
-- HTTPS radio streams are not supported by the AirLino devices
-- Since the API doesn't provide authoritative membership data for multiroom groups, Home Assistant is not able to determine if unconfigured or unloaded receivers are still part of a group. In order to delete a group finally, the unjoin action needs to be explicitly triggered for the sender device.
+- Multiroom joining and unjoining is not yet supported
+- HTTPS radio streams and mp3 streams are not supported by the AirLino devices. To play media from Home Assistant (local media, text-to-speech), the internal URL needs to use HTTP.
 - AirLino devices still report themselves as idle when used through Spotify Connect or Bluetooth. As a workaround, check the state of the Spotify integration.
 - When using the AirLino device for TTS output, the mp3 stream will run in repeat mode when not being stopped manually
 - Starting Internet Radio from Home Assistant will be reported by the AirLino device as source `other`
 - Image URL of the current Radio stations are not provided by the device
+- The AirLino devices do not provide a unique ID, so the MAC address of the currently used interface is used to identify the device. Therefore, when connecting through a different interface (For example using WIFI instead of Ethernet) it will be detected as a new device.
 
 ## Removing the integration
 
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-
-## Troubleshooting
-
-{% details "AirLino failed to be added to multiroom group" %}
-
-### Symptom: "Error: `Devicename` not a media renderer"
-
-When trying to set up a multiroom group and adding a specific device, the error message "`Devicename` not a media renderer" is shown.
-
-#### Description
-
-The device is accessible and usable, but the multiroom functionality which seem to require UPnP is not detecting or accepting the device.
-
-#### Resolution
-
-1. Make sure UPnP is enabled:
-   - Open the AirLino App and select the device.
-   - Open the `settings` of the device.
-   - Enable UPnP in the `Source Selection`.
-
-{% enddetails %}
 
 ## Disclaimer
 
