@@ -131,8 +131,8 @@ The buttons are unavailable when the printer only accepts commands in developer 
 - **Print progress**
   - **Description**: How far along the print job is, as a percentage.
   - **Available for printers**: all
-- **Remaining time**
-  - **Description**: The time the printer expects to need to finish the print job.
+- **Print finish**
+  - **Description**: The date and time the printer expects to finish the print job. The value is only known while a print job is in progress.
   - **Available for printers**: all
 - **Current layer**
   - **Description**: The layer the printer is printing.
