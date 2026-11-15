@@ -68,7 +68,7 @@ The holiday programs appear as **Holiday** and **Holiday at home** binary sensor
 
 The **Domestic hot water** water heater entity shows the hot water temperature and sets its target. It cannot switch hot water on or off. Use the **DHW operating mode** select if your device has one, or the **Operating mode** select of the heating circuit.
 
-The **Activate one-time charge** button heats the hot water once to the target temperature, outside of the schedule.
+The **Activate one-time charge** button heats the hot water once, also outside of the schedule. Depending on the device, it heats to the normal or to the **DHW secondary temperature**.
 
 ### Ventilation
 
@@ -103,13 +103,13 @@ With your heating in Home Assistant, you can combine it with your other devices,
 
 ### Automation: Heat the hot water with surplus solar power
 
-Raise the hot water target to 60 °C when you feed more than 2 kW of solar power into the grid for 10 minutes. In this example, the grid power sensor reports export as a negative value. Lower the target again with a second automation, for example in the evening.
+Raise the hot water target to 60 °C when you feed more than 2 kW of solar power into the grid for 10 minutes. The device heats the hot water only within the times of its hot water schedule, so make sure the schedule covers the sunny hours. In this example, the grid power sensor reports export as a negative value. Lower the target again with a second automation, for example in the evening.
 
 - **Trigger**: Numeric state crossed threshold
   - **Entity**: Your grid power sensor
   - **Below**: `-2000`
   - **For**: 10 minutes
-- **Action**: Water heater: Set temperature
+- **Action**: Set water heater target temperature
   - **Target**: The **Domestic hot water** entity of your device
   - **Temperature**: `60`
 
@@ -141,7 +141,7 @@ Stop heating once it stays warm outside for a day, and keep the hot water runnin
   - **Entity**: The **Outside temperature** sensor of your device
   - **Above**: `18`
   - **For**: 24 hours
-- **Action**: Select: Select option
+- **Action**: Select option
   - **Target**: The **Operating mode** select of your heating circuit
   - **Option**: **DHW only**
 
