@@ -6,7 +6,7 @@ related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
   - docs: /integrations/llm/
-    title: AI tools in Home Assistant
+    title: LLM
 ---
 
 A {% term "conversation agent" %} that uses AI can run your scripts. When you expose a script to Assist, the script becomes an {% term "AI tool" %} in the [**Device control** set](/integrations/llm/#sets-of-ai-tools). The conversation agent can then run the script directly, if **Device control** is selected in its **AI tools** option. {% term "AI apps" %} that use the **Device control** set through the [Model Context Protocol Server](/integrations/mcp_server/) can run it too. If you turn on **Read-only** in the options of that server, its main URL leaves scripts out.
@@ -34,7 +34,7 @@ Some AI services limit how many AI tools a conversation agent can use at once. T
 
 ## Adding a description to your script
 
-The description is the most important part of an exposed script. Without a description, the conversation agent only gets the name and the aliases of the script. That's often not enough to know what the script does or when to use it.
+The description is the most important part of an exposed script. Without a description, the conversation agent only gets the name of the AI tool, which is based on the entity ID, and the aliases of the script. By default, the aliases include the name of the script. That's often not enough to know what the script does or when to use it.
 
 To add or change the description of your script:
 
@@ -62,7 +62,7 @@ For example, the [Music Assistant voice support project](https://github.com/musi
 
 ## Adding descriptions to script fields
 
-If your script has [fields](/docs/script/#adding-fields-to-a-script), give each field its own description. The conversation agent uses these descriptions to decide which value to pass. If a field has no description, the conversation agent only gets the name of the field.
+If your script has [fields](/docs/script/#adding-fields-to-a-script), give each field its own description. The conversation agent uses these descriptions to decide which value to pass. If a field has no description, the conversation agent only gets the field key and the name of the field.
 
 In the script editor, the description of a field is called a note.
 
@@ -84,7 +84,7 @@ To return a result from your script:
 
 1. Before the end of the script, store the result in a variable. Do one of the following:
    - If an action in the script returns data, enter a name in the **Response variable** of that action.
-   - Otherwise, add a [**Define variables**](/building-blocks/variables/) action. It opens in YAML. Under `variables`, enter a variable with keys and values. For example:
+   - Otherwise, add a [**Define variables**](/building-blocks/variables/) action. It opens in YAML. Under `variables`, enter a variable with keys and values. A variable with only text doesn't work. For example, with `result: "done"`, the conversation agent gets an error instead of the result. This example works:
 
      ```yaml
      variables:
@@ -110,6 +110,7 @@ Prerequisites:
 - An [assistant](/voice_control/#assistants) that uses this conversation agent.
 - **Device control** is selected in the **AI tools** option of the conversation agent.
 - The script is [exposed to Assist](#exposing-a-script-to-assist).
+- **Prefer handling commands locally** is turned off in the assistant, at least while you test. Otherwise, the built-in conversation agent might run the script itself, without AI tools.
 
 To check that the conversation agent uses your script:
 
@@ -117,7 +118,7 @@ To check that the conversation agent uses your script:
    - On a narrow screen, it's under **Menu** {% icon "mdi:dots-vertical" %}. On a computer, you can also press <kbd>A</kbd>.
 2. At the top of the dialog, select the name of the assistant, and choose the assistant that uses your conversation agent.
 3. Ask for something that the script should do.
-4. Below the answer, select **Show details**.
-   - Result: The details list the AI tools that the conversation agent used, with the values it passed. Your script appears as `script__` followed by the part of its entity ID after `script.`.
+4. Above the answer, select **Show details**.
+   - Result: The details list the AI tools that the conversation agent used, with the values it passed and the result it got back. Your script appears as `script__` followed by the part of its entity ID after `script.`. Its result contains the content of the response variable of the script.
    - For example, `script.play_music` appears as `script__play_music`.
    - If **Show details** is missing, the conversation agent didn't use any AI tools, so it didn't run your script. In that case, [check the description of the script](#adding-a-description-to-your-script).
