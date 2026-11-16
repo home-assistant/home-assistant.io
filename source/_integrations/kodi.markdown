@@ -248,90 +248,17 @@ script:
 
 ## Notifications
 
-The `kodi` notifications platform allows you to send messages to your [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
+The **Kodi** integration adds a notify {% term entity %} for each Kodi device. To show a notification on Kodi, use the [**Send a notification message**](/actions/notify.send_message/) (`notify.send_message`) {% term action %} and select the Kodi notify entity as the target. To choose the icon or how long the notification is shown, use the [**Kodi: Send message**](/actions/kodi.send_message/) (`kodi.send_message`) action instead.
 
-To add Kodi to your installation, add the following to your {% term "`configuration.yaml`" %} file:
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - platform: kodi
-    name: NOTIFIER_NAME
-    host: IP_ADDRESS
-```
-
-{% configuration %}
-name:
-  description: Name displayed in the frontend. The notifier will bind to the `notify.NOTIFIER_NAME` action.
-  required: false
-  type: string
-host:
-  description: The host name or address of the device that is running Kodi.
-  required: true
-  type: string
-port:
-  description: The HTTP port number.
-  required: false
-  default: 8080
-  type: integer
-proxy_ssl:
-  description: Connect to Kodi with HTTPS. Useful if Kodi is behind an SSL proxy.
-  required: false
-  default: "`false`"
-  type: boolean
-username:
-  description: The XBMC/Kodi HTTP username.
-  required: false
-  type: string
-password:
-  description: The XBMC/Kodi HTTP password.
-  required: false
-  type: string
-{% endconfiguration %}
-
-### Script example
-
-```yaml
-kodi_notification:
-  sequence:
-  - action: notify.NOTIFIER_NAME
-    data:
-      title: "Home Assistant"
-      message: "Message to KODI from Home Assistant!"
-      data:
-        displaytime: 20000
-        icon: "warning"
-```
-
-#### Message variables
-
-{% configuration %}
-title:
-  description: Title that is displayed on the message.
-  required: false
-  type: string
-message:
-  description: Message to be displayed.
-  required: true
-  type: string
-data:
-  description: Configure message properties
-  required: false
-  type: map
-  keys:
-    icon:
-      description: "Kodi comes with 3 default icons: `info`, `warning` and `error`, a URL to an image is also valid."
-      required: false
-      default: "`info`"
-      type: string
-    displaytime:
-      description: Length in milliseconds the message stays on screen.
-      required: false
-      default: "`10000` ms"
-      type: integer
-{% endconfiguration %}
-
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+{% example %}
+action: |
+  action: notify.send_message
+  target:
+    entity_id: notify.kodi
+  data:
+    title: "Home Assistant"
+    message: "Message to Kodi from Home Assistant!"
+{% endexample %}
 
 ## Keypress events
 
