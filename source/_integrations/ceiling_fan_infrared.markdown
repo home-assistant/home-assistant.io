@@ -49,6 +49,17 @@ Infrared emitter:
   description: The infrared emitter entity to use for sending commands to your ceiling fan. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
 {% endconfiguration_basic %}
 
+## Reconfiguring the integration
+
+If you replace your infrared emitter, or want the fan controlled by a different one, you can update the integration without removing and re-adding it.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Ceiling Fan Infrared** integration and select it.
+3. Next to the fan, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+4. Select the new infrared emitter and select **Submit**.
+
+The fan entity and its entity ID stay the same, so your dashboards and automations keep working.
+
 ## Supported functionality
 
 The **Ceiling Fan Infrared** integration provides the following entity.
@@ -127,6 +138,20 @@ Some remotes use overlapping infrared codes with other devices, so the same code
 1. Make sure no other infrared emitter or remote in the room is sending commands to the fan.
 2. Test the fan with its original remote to check which functions it actually supports.
 3. Point the emitter directly at the fan and keep other emitters out of its line of sight.
+
+{% enddetails %}
+
+{% details "The fan is unavailable after the infrared emitter changed" %}
+
+### Symptom: The fan is unavailable, or sending commands fails, after the infrared emitter was renamed or removed
+
+#### Description
+
+The integration remembers the infrared emitter by its entity ID. If the emitter entity is renamed, its entity ID changes and the integration can no longer find it. The same happens if the emitter is deleted, or if the integration that provides it is removed and added again.
+
+#### Resolution
+
+[Reconfigure the integration](#reconfiguring-the-integration) and select the current infrared emitter. If the old emitter no longer exists, set up the new emitter first.
 
 {% enddetails %}
 
