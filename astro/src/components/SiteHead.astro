@@ -13,7 +13,7 @@
 // stays, for the search box in the header.
 import { setting } from "../lib/site.mjs";
 
-const { title, description } = Astro.props;
+const { title, description, image, noindex = false } = Astro.props;
 
 const siteTitle = setting("title");
 const siteUrl = setting("url");
@@ -26,7 +26,7 @@ const truncate = (text, length) =>
 const pageDescription = description ?? setting("description");
 
 const socialTitle = title ?? siteTitle;
-const socialImage = new URL("/images/default-social.png", siteUrl).href;
+const socialImage = new URL(image ?? "/images/default-social.png", siteUrl).href;
 ---
 
 <meta charset="utf-8" />
@@ -35,6 +35,7 @@ const socialImage = new URL("/images/default-social.png", siteUrl).href;
 <meta name="description" content={truncate(pageDescription, 160)} />
 <meta name="viewport" content="width=device-width" />
 <link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex" />}
 
 <meta property="fb:app_id" content={setting("social.facebook.app_id")} />
 <meta property="og:title" content={socialTitle} />
