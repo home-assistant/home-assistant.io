@@ -44,6 +44,7 @@ To choose the preferred AI task entities:
    - The list only shows AI tasks that can generate data.
 3. Optional: under **Image generation tasks**, select an AI task entity that can generate images.
 4. Optional: under **Decisions**, select an AI task entity that can evaluate questions.
+5. Select **Save**.
    - Result: The actions and the **Suggest** button use these AI task entities when you don't select one yourself.
 
 ## AI task states
