@@ -4,11 +4,47 @@ ha_release: '2025.7'
 ha_domain: ai_task
 ---
 
-The **AI Task** {% term integration %} allows you to use AI to generate text, structured data, and images, or to [evaluate questions](/actions/ai_task.evaluate/) about information you provide.
+The **AI Task** {% term integration %} lets your automations, scripts, and the Home Assistant interface use AI for a single job. For example, to describe what a camera sees, to generate an image, or to decide whether a delivery driver is at the door.
 
 {% include integrations/building_block_integration.md %}
 
-For each task, you can set a preferred AI task entity. This allows you to use different AI models for different purposes, such as generating text, summarizing information, or even controlling devices. When the entity ID is omitted in the action, the preferred AI task entity will be used.
+The AI task {% term entities %} come from AI integrations. For example, OpenAI, Google Gemini, and Ollama add them. For the full list of AI integrations, refer to [AI integrations](/integrations/category/ai_voice/ai_models/).
+
+## Ways to use AI tasks
+
+You can use AI tasks in the following ways:
+
+- In automations and scripts, with the AI task actions. With them, you can generate text or structured data, generate images, and evaluate questions. For all actions, refer to [List of actions](#list-of-actions).
+- In the Home Assistant interface, with the **Suggest** button. For example, when you save an automation, it suggests a name, a description, a category, and labels.
+
+Not every AI task supports every action. For example, some AI tasks can generate data, but not images.
+
+## AI tasks, AI tools, and conversation agents
+
+AI tasks and {% term "AI tools" %} work in opposite directions:
+
+- With AI tools, a {% term "conversation agent" %} or an {% term "AI app" %} uses Home Assistant. During a conversation, it decides which AI tools to call. For example, it calls an AI tool to turn off a light.
+- With an AI task, Home Assistant uses the AI model of an AI integration. Your automation, your script, or the **Suggest** button sends a single job to an AI task, and gets the result back. For example, when someone rings the doorbell, your automation asks an AI task whether the camera image shows a delivery driver. There's no conversation, and an AI task doesn't use AI tools.
+
+So an AI task can't control your devices. To control your devices with AI, use a conversation agent with the **Device control** set of AI tools. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools).
+
+## Choosing the preferred AI task entities
+
+When an action doesn't name an AI task entity, Home Assistant uses the preferred one. The **Suggest** button also uses the preferred AI task entity for data generation. You can choose a different one for each kind of task. For example, a fast model to generate text, and another model that can generate images.
+
+Prerequisites:
+
+- An administrator account in Home Assistant.
+- An AI integration that adds AI tasks. For example, [OpenAI](/integrations/openai_conversation/).
+
+To choose the preferred AI task entities:
+
+1. Go to {% my config_ai title="**Settings** > **System** > **AI**" %}.
+2. On the **AI suggestions** card, under **Data generation tasks**, select an AI task entity.
+   - The list only shows AI tasks that can generate data.
+3. Optional: under **Image generation tasks**, select an AI task entity that can generate images.
+4. Optional: under **Decisions**, select an AI task entity that can evaluate questions.
+   - Result: The actions and the **Suggest** button use these AI task entities when you don't select one yourself.
 
 ## AI task states
 
