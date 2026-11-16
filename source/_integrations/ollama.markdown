@@ -84,6 +84,7 @@ To set up an Ollama assistant with Device control:
    - On a narrow screen, it's under **Menu** {% icon "mdi:dots-vertical" %}. On a computer, you can also press <kbd>A</kbd>.
 5. At the top of the dialog, select the name of the assistant, and choose the assistant that uses `Ollama devices`.
    - To chat, choose the assistant that uses `Ollama chat` instead.
-   - To always start with this assistant, set it as preferred: go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}, select the three dots {% icon "mdi:dots-vertical" %} menu of the assistant on the **Assist** card, and then select **Set as preferred** {% icon "mdi:star" %}. Voice satellites that use the preferred assistant then use it too.
+   - The Assist dialog remembers the assistant that you chose last.
+   - To make this assistant the default, set it as preferred: go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}, select the three dots {% icon "mdi:dots-vertical" %} menu of the assistant on the **Assist** card, and then select **Set as preferred** {% icon "mdi:star" %}. Voice satellites that use the preferred assistant then use it too. The Assist dialog uses it when you haven't chosen an assistant yet.
 6. Ask the assistant about one of your exposed entities. For example, ask `Is the kitchen light on?`
    - Result: The assistant answers with the state of the entity.
