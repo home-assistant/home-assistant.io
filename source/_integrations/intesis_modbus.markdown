@@ -138,11 +138,11 @@ When trying to set up the integration, the form shows this message.
 
 #### Description
 
-Another integration already uses the same serial port with a different baud rate. All devices on one RS-485 line have to use the same settings.
+Another integration already uses the same serial port with incompatible connection settings. All devices on one RS-485 line must use compatible Modbus framing and serial settings.
 
 #### Resolution
 
-Set the **Baud rate** to the one the other devices on that line use, and set the DIP switches of the gateway to match.
+Match the **Baud rate** to the other devices on the line and set the gateway's DIP switches accordingly. Configure the other integration to use Modbus RTU with 8 data bits, no parity, and 2 stop bits. If the devices can't share these settings, use a separate RS-485 adapter for the gateway.
 
 ### Symptom: "The gateway is still starting up"
 
