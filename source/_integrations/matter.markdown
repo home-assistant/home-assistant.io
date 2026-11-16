@@ -18,9 +18,9 @@ related:
 
 The **Matter** {% term integration %} allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
-For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as an app (formerly known as add-on). This Matter Server app runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
+This page documents the **Matter** integration. To learn more about Matter in Home Assistant, refer to [Matter](/connectivity/matter/).
 
-To learn what Matter is, how it relates to Thread, and how a Matter device can work with several platforms at the same time, refer to [Matter](/connectivity/matter/).
+For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as an app (formerly known as add-on). This Matter Server app runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
 
 ## Supported installation types
 

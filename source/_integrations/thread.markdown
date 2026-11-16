@@ -22,9 +22,9 @@ related:
 
 The **Thread** {% term integration %} helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
 
-You do not need to install this integration. The Thread integration shows up automatically when Home Assistant detects a [border router](/connectivity/thread/#about-thread-border-routers).
+This page documents the **Thread** integration. To learn more about Thread in Home Assistant, refer to [Thread](/connectivity/thread/).
 
-To learn what Thread is, how to add Thread devices, and which border routers you can use, refer to [Thread](/connectivity/thread/).
+You do not need to install this integration. The Thread integration shows up automatically when Home Assistant detects a [border router](/connectivity/thread/#about-thread-border-routers).
 
 ## Turning Home Assistant into a Thread border router
 
