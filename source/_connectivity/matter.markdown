@@ -36,7 +36,7 @@ For more information about Thread, refer to [Thread](/connectivity/thread/).
 
 ### Thread devices don't necessarily support Matter
 
-Many devices on the market use {% term Thread %} for radio communication and Matter as a control protocol. But this is not guaranteed. Some Thread-based devices support Apple HomeKit or another vendor-specific communication protocol. There are also a few cases where you need to apply for a (beta) firmware update on the device to enable Matter as a communication protocol.
+Many devices on the market use {% term Thread %} for radio communication and Matter as a control protocol. But this is not guaranteed. Some Thread-based devices support Apple HomeKit or another vendor-specific communication protocol.
 
 Don't assume Matter support when you see a Thread logo on a device. Always look for the _Matter_ logo itself (on either Wi-Fi/Ethernet-based devices or {% term Thread %}) or any other confirmation by the manufacturer that the device supports Matter.
 
