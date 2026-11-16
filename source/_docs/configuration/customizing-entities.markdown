@@ -66,9 +66,7 @@ To change entity attributes, follow these steps:
 
 ## Renaming a device
 
-The device name is part of the name of its entities.
-When you rename a device, its entities show the new device name.
-For example, if you rename the device `Smart plug` to `Coffee machine`, its `Power` entity is shown as `Coffee machine Power`.
+Device names and entity names are separate, and renaming a device doesn't change the names of its entities. Wherever an entity needs more context, such as on dashboard cards or in entity pickers, Home Assistant shows the device name together with the entity name. For example, if you rename the device `Smart plug` to `Coffee machine`, its `Power` entity is shown as `Coffee machine Power`.
 
 To rename a device, follow these steps:
 
