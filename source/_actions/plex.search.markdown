@@ -206,6 +206,7 @@ The action returns a list named `results`. Each result includes the following fi
 - `album_title` and `track_number`: Only for tracks.
 - `thumb_url`: A link to the poster that works in dashboard cards. The link is signed and stays valid for a year or until Home Assistant restarts, whichever comes first.
 - `thumb_path`: The same link without a signature. It does not expire, but it only loads where the request is signed in, such as the media browser or the mobile app. Dashboard cards cannot load it.
+- `show_thumb_url` and `show_thumb_path`: Only for seasons and episodes. The same two links for the poster of the show, so a dashboard can show the poster of the show next to an episode.
 - `on_deck`: Only for TV shows when **Include on deck** is on. The next episode that is on deck, with the same fields.
 
 A shortened example of the response looks like this:

@@ -111,7 +111,7 @@ results:
 ## Good to know
 
 - The list is the same Continue Watching list that you see in Plex.
-- The `thumb_url` link of each item is signed. It works in dashboard cards and stays valid for a year or until Home Assistant restarts. If you store the links, for example in a helper, call the action again after a restart to get new ones.
+- The `thumb_url` link of each item is signed, and so is the `show_thumb_url` link of the poster of the show for episodes. They work in dashboard cards and stays valid for a year or until Home Assistant restarts. If you store the links, for example in a helper, call the action again after a restart to get new ones.
 
 {% include actions/try_it.md %}
 
