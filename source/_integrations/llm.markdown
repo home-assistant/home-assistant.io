@@ -25,6 +25,17 @@ Integrations can add more sets. For example, [KNX](/integrations/knx/) adds a **
 
 You choose the sets in the **AI tools** option of each {% term "conversation agent" %}. For example, [Anthropic](/integrations/anthropic/), [Google Gemini](/integrations/google_generative_ai_conversation/), [Ollama](/integrations/ollama/), and [OpenAI](/integrations/openai_conversation/) have this option. A new conversation agent starts with **Device control** only. In Ollama, it starts with no sets.
 
+{% important %}
+**Risk of unintended device actions**
+
+The **Home Assistant** set of AI tools can control every entity and change Home Assistant itself. It doesn't ask you before it acts. It also isn't limited to the entities that you expose to voice assistants. If the conversation agent misunderstands a request, it can turn off devices or change settings that you didn't intend to change.
+
+To avoid this:
+
+- Only select the **Home Assistant** set for a conversation agent that you use to manage Home Assistant.
+- For everyday voice control, use a separate assistant whose conversation agent only uses **Device control**. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
+{% endimportant %}
+
 ## Adding the Home Assistant AI tools to your conversation agent
 
 Use this procedure if only administrators use your {% term "conversation agent" %}. For example, they use it in {% term Assist %} in Home Assistant or in the {% term "Home Assistant Companion app" %}. There, each request comes from the user account that is signed in.
