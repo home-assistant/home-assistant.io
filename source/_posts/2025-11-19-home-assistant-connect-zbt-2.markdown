@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The best gets better - Home Assistant Connect ZBT-2"
+title: "The best gets better: Home Assistant Connect ZBT-2"
 description: "We launch our newest hardware that helps connect Zigbee, Thread, or Matter devices to Home Assistant."
 date: 2025-11-19 00:00:01
 date_formatted: "November 19, 2025"
