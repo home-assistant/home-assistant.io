@@ -7,7 +7,8 @@ This folder is working material for the rename. Remove it before the pull reques
 ## What is here
 
 - `audit.py`: finds every occurrence of "cloud" in the repository, records the sentence around it, and classifies it.
-- `occurrences.csv`: the result, one row per occurrence. The review spreadsheet imports this file.
+- `occurrences.csv`: the result, one row per occurrence.
+- `sheet/part-*.csv`: the same list without the link columns, split into parts that are small enough for the review spreadsheet to import.
 - `overrides.csv`: decisions made by hand. They take precedence over the automatic classification.
 
 ## Update the audit
