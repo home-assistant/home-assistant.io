@@ -30,7 +30,7 @@ Until:
   description: "The time of day at which the hold ends, on the thermostat's clock. Must be on a quarter hour."
   required: true
 Temperature:
-  description: "The target temperature during the hold. If left empty, the thermostat keeps its current target temperature. Cannot be used while the thermostat is in auto mode."
+  description: "The target temperature during the hold, in the temperature unit Home Assistant is set to. If left empty, the thermostat keeps its current target temperature. Cannot be used while the thermostat is in auto mode."
   required: false
 {% endoptions_ui %}
 
@@ -48,7 +48,7 @@ action: |
     temperature: 70
 {% endexample %}
 
-This holds the living room thermostat at 70 degrees until 22:30. After that, the thermostat follows its schedule again.
+This holds the living room thermostat at 70 °F until 22:30. After that, the thermostat follows its schedule again. The example assumes Home Assistant is set to Fahrenheit. The temperature is always given in the unit Home Assistant is set to, even if the thermostat displays a different one.
 
 ### Options in YAML
 
@@ -61,9 +61,9 @@ until:
   type: time
 temperature:
   description: >
-    The target temperature during the hold. If omitted, the thermostat keeps
-    its current target temperature. Cannot be used while the thermostat is
-    in auto mode.
+    The target temperature during the hold, in the temperature unit Home
+    Assistant is set to. If omitted, the thermostat keeps its current target
+    temperature. Cannot be used while the thermostat is in auto mode.
   required: false
   type: float
 {% endoptions_yaml %}
@@ -77,6 +77,37 @@ temperature:
 - To end the hold before the chosen time, set the preset of the thermostat to `none` with the `climate.set_preset_mode` action.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: keep the house warmer for the evening
+
+Raise the temperature in the early evening and let the thermostat go back to its schedule at bedtime, without a second automation to undo it. The temperature in this example is in Fahrenheit.
+
+- **Trigger**: Time, 18:00
+- **Action**: Honeywell Total Connect Comfort (US): Set hold until
+  - **Target**: Living room thermostat
+  - **Until**: `22:00`
+  - **Temperature**: `70`
+
+{% details "YAML example for an evening hold" %}
+
+{% example %}
+automation: |
+  alias: "Hold a warmer temperature for the evening"
+  triggers:
+    - trigger: time
+      at: "18:00:00"
+  actions:
+    - action: honeywell.set_hold_until
+      target:
+        entity_id: climate.living_room
+      data:
+        until: "22:00:00"
+        temperature: 70
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 
