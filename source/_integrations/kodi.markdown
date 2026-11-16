@@ -371,7 +371,7 @@ data:
     key: volume_up
 ```
 
-A example of a automation to turn up/down the volume of a receiver using the event:
+Example automation to turn up/down the volume of a receiver using the event:
 
 ```yaml
 alias: Kodi keypress

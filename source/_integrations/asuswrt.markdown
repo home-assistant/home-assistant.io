@@ -4,11 +4,11 @@ ha_release: 0.83
 ha_domain: asuswrt
 ---
 
-The **ASUSWRT** {% term integration %} can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
+The **ASUSWRT** {% term integration %} can connect Home Assistant to an ASUS router that runs on ASUSWRT firmware.
 
 There is currently support for the following device types within Home Assistant:
 
-- **Presence Detection** - The ASUSWRT platform offers presence detection by looking at connected devices to a ASUSWRT based router.
+- **Presence Detection** - The ASUSWRT platform offers presence detection by looking at connected devices to an ASUSWRT based router.
 - **Sensor** - The ASUSWRT sensors platform allows you to get information from your ASUS router within Home Assistant.
 
 {% include integrations/config_flow.md %}

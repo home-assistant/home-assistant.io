@@ -7,7 +7,7 @@ related:
     title: Configuration file
 ---
 
-The **Emby** {% term integration %} allows you to control a [Emby](https://emby.media/) multimedia system from Home Assistant.
+The **Emby** {% term integration %} allows you to control an [Emby](https://emby.media/) multimedia system from Home Assistant.
 
 To add Emby to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

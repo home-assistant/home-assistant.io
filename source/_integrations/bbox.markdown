@@ -28,7 +28,7 @@ Bbox is a generic name for different hardware routers. The {% term integration %
 
 ### Configuration
 
-To use an Bbox router in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use a Bbox router in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

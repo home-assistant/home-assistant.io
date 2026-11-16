@@ -10,9 +10,9 @@ The **Energenie Power-Sockets** {% term integration %} allows you to include [En
 
 ## Troubleshooting
 
-If you are running a {% term "Home Assistant Container" %} installation: Depending on your system configuration, it may be necessary to grant explicit user access rights to the USB device by creating an udev rule.
+If you are running a {% term "Home Assistant Container" %} installation: Depending on your system configuration, it may be necessary to grant explicit user access rights to the USB device by creating a udev rule.
 
-{% details "Creating an udev rule" %}
+{% details "Creating a udev rule" %}
 
 1. Find the *vendor_id* and *product_id* of the USB device by calling `lsusb`:
 
@@ -22,7 +22,7 @@ lsusb
 #e.g.: Bus 001 Device 005: ID 04b4:fd15 Cypress Semiconductor Corp. Energenie EG-PMS2
 ```
 
-2. Create an udev rule by calling:
+2. Create a udev rule by calling:
 
 ```bash
 sudo echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="04b4", ATTR{idProduct}=="fd15", MODE="0666"' > /lib/udev/rules.d/60-energenie-usb.rules

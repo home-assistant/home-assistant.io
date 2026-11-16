@@ -215,7 +215,7 @@ After your Home Assistant has restarted, go back to the `AWS Lambda Console`, yo
 
 This test event is a `Discovery` directive, your Home Assistant instance will respond with a list of devices Alexa can interact with. Since this test data is lacking a `token` in `payload.scope`, and your Lambda function will read the `LONG_LIVED_ACCESS_TOKEN` from environment variable.
 
-Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN` set, or you haven't enabled `DEBUG` you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
+Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN` set, or you haven't enabled `DEBUG` you will get an `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
 
 You can log in to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
 
@@ -852,7 +852,7 @@ Control an `input_number` or `number` entity with Alexa. Configures Alexa with t
 - _"Alexa, increase the [entity name] by two."_
 - _"Alexa, set the [entity name] to maximum."_
 
-The following table lists the possible friendly name synonyms available for a Input Number or Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
+The following table lists the possible friendly name synonyms available for an Input Number or Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
 
 | Fan Range | Friendly Name Synonyms                    |
 | --------- | ----------------------------------------- |

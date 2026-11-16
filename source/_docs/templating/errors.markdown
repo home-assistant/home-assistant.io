@@ -251,7 +251,7 @@ The template editor or the log shows the error `TemplateSyntaxError: Unexpected 
 
 #### Description
 
-A `{% if %}`, `{% for %}`, `{% set %}`, or `{% macro %}` block was opened but not closed. Every block tag needs a matching `{% endif %}`, `{% endfor %}`, `{% endset %}`, or `{% endmacro %}`.
+An `{% if %}`, `{% for %}`, `{% set %}`, or `{% macro %}` block was opened but not closed. Every block tag needs a matching `{% endif %}`, `{% endfor %}`, `{% endset %}`, or `{% endmacro %}`.
 
 #### Resolution
 

@@ -131,7 +131,7 @@ The **Xiaomi** router integration offers presence detection by looking at connec
 
 ### Configuration
 
-To use an Xiaomi router in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To use a Xiaomi router in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

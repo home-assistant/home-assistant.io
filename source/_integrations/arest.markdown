@@ -67,7 +67,7 @@ This sensor is not suitable for fast state changes because there is a high possi
 
 ## Sensor
 
-The `arest` sensor platform allows you to get all data from your devices (like Arduinos with a Ethernet/Wi-Fi connection, the ESP8266, and the Raspberry Pi) running the [aREST](https://github.com/marcoschwartz/aREST) RESTful framework.
+The `arest` sensor platform allows you to get all data from your devices (like Arduinos with an Ethernet/Wi-Fi connection, the ESP8266, and the Raspberry Pi) running the [aREST](https://github.com/marcoschwartz/aREST) RESTful framework.
 
 To use your aREST enabled device in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 

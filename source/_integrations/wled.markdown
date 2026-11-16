@@ -94,8 +94,8 @@ to control the following, segment-specific settings:
 This {% term integration %} provides [sensor entities](/integrations/sensor)
 for the following information from WLED:
 
-- Estimated current (in mA, only when a automatic brightness limiter is configured on the device)
-- Max current (in mA, only when a automatic brightness limiter is configured on the device)
+- Estimated current (in mA, only when an automatic brightness limiter is configured on the device)
+- Max current (in mA, only when an automatic brightness limiter is configured on the device)
 - LED count
 - Uptime ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - Free memory (in bytes, disabled by default)

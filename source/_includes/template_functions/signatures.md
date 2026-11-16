@@ -2,9 +2,9 @@
 
 The signature is a technical summary of this template function. It shows the name of the function, the values (called parameters) it accepts, and what type of data each parameter expects (for example, a piece of text or a number).
 
-Function parameters that have a `=` with a value after them are optional. If you leave them out, the default value shown is used automatically.
+Function parameters that have an `=` with a value after them are optional. If you leave them out, the default value shown is used automatically.
 
-Function parameters without a `=` are usually required. A few optional parameters have no default value, so the signature shows them without a `=` as well. To check whether a parameter is required, look at the parameter list below the signature. Each parameter is marked as **Required** or **Optional**.
+Function parameters without an `=` are usually required. A few optional parameters have no default value, so the signature shows them without an `=` as well. To check whether a parameter is required, look at the parameter list below the signature. Each parameter is marked as **Required** or **Optional**.
 
 The most common optional parameter without a default value is `default`. The `default` parameter sets the value a function returns when the function can't produce a result, for example, when `float` gets text that isn't a number. If you leave out `default`, there is no fallback value, so most functions raise an error and the template fails. The parameter list of each function says what happens. If you set `default`, the function returns your value instead.
 

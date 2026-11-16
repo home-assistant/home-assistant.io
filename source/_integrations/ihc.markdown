@@ -198,7 +198,7 @@ sensor:
       type: string
 {% endconfiguration %}
 
-The resource id should be a IHC float resource. For more information about IHC resource ids see [Manual Setup](#manual-setup).
+The resource id should be an IHC float resource. For more information about IHC resource ids see [Manual Setup](#manual-setup).
 
 ## Light
 

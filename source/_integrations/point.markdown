@@ -44,7 +44,7 @@ The Point is just active occasionally so the [sensors](#sensor) are only updated
 Each home configured in the Point mobile application will show up as a separate alarm control panel. The panels allow **arming** and **disarming** of the Point home alarm system.
 
 {% note %}
-The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is implemented.
+The Point only supports an Arm/Disarm action, so it is only `Arm Away` that is implemented.
 {% endnote %}
 
 ## Binary sensor

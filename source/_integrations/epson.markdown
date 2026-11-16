@@ -4,7 +4,7 @@ ha_release: 0.72
 ha_domain: epson
 ---
 
-The **Epson** {% term integration %} allows you to control a Epson projector from Home Assistant.
+The **Epson** {% term integration %} allows you to control an Epson projector from Home Assistant.
 **The device has to be turned on during initial configuration.**
 When you want to add a device for the first time, turn it on before following the integration steps.
 

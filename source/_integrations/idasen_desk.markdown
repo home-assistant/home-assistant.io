@@ -21,7 +21,7 @@ Also, if not using an ESPHome Bluetooth Proxy, you may experience the desk becom
 Home Assistant will display a list of addresses of the available desks, and you just need to select the one you want to add. Repeat the process to add more than one desk.
 
 {% note %}
-If you see an "No unconfigured devices found" message, make sure that the desk is in Bluetooth pairing mode. For that, press the small button with the Bluetooth logo on the controller until it starts blinking (about 3 seconds).
+If you see a "No unconfigured devices found" message, make sure that the desk is in Bluetooth pairing mode. For that, press the small button with the Bluetooth logo on the controller until it starts blinking (about 3 seconds).
 {% endnote %}
 
 ## Connect/Disconnect buttons
