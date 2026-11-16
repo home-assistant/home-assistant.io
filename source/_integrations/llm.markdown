@@ -36,13 +36,15 @@ To avoid this:
 - For everyday voice control, use a separate {% term assistant %} whose conversation agent only uses **Device control**. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
 {% endimportant %}
 
+## Who can use the Home Assistant AI tools
+
+Only administrators can use the Home Assistant {% term "AI tools" %}. Home Assistant checks the user account that each request comes from. When you talk to a {% term "conversation agent" %} in {% term Assist %} in Home Assistant or in the {% term "Home Assistant Companion app" %}, the request comes from the user account that is signed in.
+
+A {% term "voice satellite" %} isn't signed in to a user account. For example, [Home Assistant Voice Preview Edition](/voice-pe/) is a voice satellite. Its requests don't belong to any user. If its conversation agent has the **Home Assistant** set selected, every request from the voice satellite fails. This also stops **Device control** on that conversation agent. This means the voice satellite can't turn on a light either. Requests from users who aren't administrators fail the same way.
+
 ## Adding the Home Assistant AI tools to your conversation agent
 
-Use this procedure if only administrators use your {% term "conversation agent" %}. For example, they use it in {% term Assist %} in Home Assistant or in the {% term "Home Assistant Companion app" %}. There, each request comes from the user account that is signed in.
-
-Afterwards, the conversation agent you already use can also look into Home Assistant itself. For example, you can ask it why an {% term integration %} isn't working, or which errors are in the logs.
-
-The conversation agent then only works for administrators. Requests from a {% term "voice satellite" %}, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user, so they fail. Requests from users who aren't administrators fail too. This also stops **Device control** on this conversation agent. If voice satellites or users who aren't administrators use your {% term assistant %}, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, set up a separate assistant instead. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
+Use this procedure if only administrators use your {% term "conversation agent" %}. Afterwards, you can ask it why an {% term integration %} isn't working, or which errors are in the logs. The conversation agent then no longer works for {% term "voice satellites" %} or for users who aren't administrators. For details, refer to [Who can use the Home Assistant AI tools](#who-can-use-the-home-assistant-ai-tools).
 
 Prerequisites:
 
@@ -64,14 +66,7 @@ To add the Home Assistant {% term "AI tools" %} to your conversation agent:
 
 ## Setting up a separate assistant for the Home Assistant AI tools
 
-Use this procedure if {% term "voice satellites" %} or users who aren't administrators use your {% term assistant %}. An assistant is what you talk to in {% term Assist %} and on a voice satellite. You find your assistants under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, and each one uses a {% term "conversation agent" %}.
-
-Requests from a voice satellite, such as [Home Assistant Voice Preview Edition](/voice-pe/), don't belong to any user. Requests from users who aren't administrators can't use the Home Assistant {% term "AI tools" %} either. So you leave your current assistant as it is. Instead, you add a conversation agent with the Home Assistant AI tools, and a new assistant that uses it.
-
-Afterwards, you have two assistants:
-
-- Your current assistant stays as it is, for voice satellites and users who aren't administrators.
-- The new assistant can also look into Home Assistant itself. You select it in Assist when you want to ask about Home Assistant. For example, you can ask why an {% term integration %} isn't working.
+Use this procedure if {% term "voice satellites" %} or users who aren't administrators use your {% term assistant %}. Your current assistant stays as it is for them. You get a second assistant that you can ask why an {% term integration %} isn't working. For details, refer to [Who can use the Home Assistant AI tools](#who-can-use-the-home-assistant-ai-tools).
 
 Prerequisites:
 
