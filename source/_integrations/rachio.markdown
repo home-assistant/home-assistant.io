@@ -22,19 +22,29 @@ They will be automatically added if the Rachio integration is loaded.
 4. Copy the API key from the dialog that opens.
 
 {% important %}
-In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information. The smart hose timers use polling and don't require external access to be set up.
+In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information. If your Home Assistant is not internet accessible, you can turn on a [polling](#polling-for-changes) option so that zone and schedule switch entities will update. The smart hose timers use polling and don't require external access to be set up.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
 
 **Water-saving suggestion:**<br>
-After setting up the integration, change the options to set the duration in minutes to run when activating a zone switch to a maximum failsafe value when using scripts to control zones. If something goes wrong with your script, Home Assistant, or you hit the Rachio API rate limit of 1700 calls per day, the controller will still turn off the zone after this amount of time.
+After setting up the integration, change the options to set the duration in minutes to run when activating a zone switch to a maximum failsafe value when using scripts to control zones. If something goes wrong with your script, Home Assistant, or you hit the Rachio API rate limit of 3,500 calls per day, the controller will still turn off the zone after this amount of time.
 
 </div>
 
 ### Smart hose timers
 
 The Rachio smart hose timers are not currently capable of receiving real-time updates. Instead, they rely on polling. Because of this, the current state of valves started from a schedule or the physical button will not show up immediately. Polling occurs every 2 minutes when one base station is used, with an additional minute added for every additional base station to remain with the API rate limit. Up to 4 valves can be paired to a single base station.
+
+## Polling for changes
+
+Rachio sends changes to Home Assistant using webhooks, which requires Home Assistant to be reachable from the internet (through your external URL or Home Assistant Cloud). If it is not, zones and schedules that are started or stopped from outside Home Assistant, for example from the Rachio mobile app, will not update.
+
+To work around this, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Rachio integration, then select **Configure**. Turn on **Poll the controller for changes**. Home Assistant picks the polling interval itself (usually 0.5 to 1 minute). A zone run that is shorter than the interval can be missed.
+
+Rachio limits each account to a fixed number of API calls per day (3,500 at the time of writing). Home Assistant reads the limit from Rachio, shows the estimated usage for the interval it uses, and picks an interval that would not use more than 90% of the limit, leaving room for commands and the Rachio app. Smart hose timers already poll on their own, and their usage counts toward the same limit. Accounts that only have smart hose timers do not see this option.
+
+Polling updates zone and schedule switches. Standby and rain delay still rely on webhooks. If Rachio rejects your API key while polling, Home Assistant starts the reauthentication flow. Polling pauses until the limit resets if the calls remaining for the day drop below 50 (a reserve) plus the expected number of smart hose timer requests prior to the next reset. When this occurs, a message in the log says so.
 
 ## Switch
 
