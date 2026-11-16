@@ -1,7 +1,18 @@
 ---
+title: Intesis Modbus
 description: Instructions on how to integrate air conditioners connected to an Intesis Modbus gateway into Home Assistant.
 ha_release: 2026.12
 ha_domain: intesis_modbus
+ha_categories:
+  - climate.heat_pumps_air_conditioning
+ha_iot_class: Local Polling
+ha_codeowners:
+  - '@TimoPtr'
+ha_config_flow: true
+ha_integration_type: device
+ha_platforms:
+  - climate
+ha_quality_scale: bronze
 related:
   - url: https://www.intesis.com
     title: Intesis
