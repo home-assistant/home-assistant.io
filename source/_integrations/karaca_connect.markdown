@@ -3,6 +3,7 @@ title: Karaca Connect
 description: Monitor the status of compatible Karaca Connect smart tea makers.
 ha_release: 2026.12
 ha_domain: karaca_connect
+ha_categories: [appliances_cleaning.cooking]
 ha_iot_class: Cloud Polling
 ha_integration_type: device
 ---
