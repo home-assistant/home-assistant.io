@@ -163,7 +163,7 @@ Unlike regular voice timers, delayed commands cannot be canceled or modified.
 
 ### Symptom
 
-Assist answers *Sorry, I couldn't understand that*.
+Assist answers "Sorry, I couldn't understand that".
 
 #### Description
 
@@ -205,7 +205,7 @@ To find a sentence that works in your language, follow these steps.
 
 ### Symptom
 
-Assist answers *Sorry, I am not aware of any device called* followed by a name. For an area, it answers *Sorry, I am not aware of any area called* followed by a name.
+Assist answers "Sorry, I am not aware of any device called …", with the name that you used. For an area, it answers "Sorry, I am not aware of any area called …".
 
 #### Description
 
@@ -224,7 +224,7 @@ Assist understood the sentence, but no {% term entity %} or {% term area %} in H
 
 ### Symptom
 
-Assist answers *Sorry,* followed by a name and *is not exposed*.
+Assist answers "Sorry, … is not exposed", with the name of the entity.
 
 #### Description
 
