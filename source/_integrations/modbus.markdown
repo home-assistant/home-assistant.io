@@ -9,7 +9,9 @@ related:
     title: Configuration file
 ---
 
-The **Modbus** {% term integration %} connects Home Assistant to devices that have a Modbus interface. Many integrations for these devices use the Modbus integration to connect, so you usually don't set it up yourself. To learn how to connect a Modbus device and set up the integration for it, refer to [Modbus](/connectivity/modbus/).
+The **Modbus** {% term integration %} connects Home Assistant to devices that have a Modbus interface. Many integrations for these devices use the Modbus integration to connect, so you usually don't set it up yourself.
+
+This page documents the **Modbus** integration. To learn more about Modbus in Home Assistant, refer to [Modbus](/connectivity/modbus/).
 
 If no integration supports your device, you can still get to its data by manually configuring the Modbus registers in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
 
