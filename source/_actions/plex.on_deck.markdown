@@ -5,6 +5,7 @@ domain: plex
 description: "Returns the unfinished media and next episodes from the Continue Watching list of a Plex server."
 related_actions:
   - plex.search
+  - plex.recently_added
   - media_player.play_media
 ---
 
