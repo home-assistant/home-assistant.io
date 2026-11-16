@@ -9,57 +9,31 @@ related:
 
 This {% term integration %} allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/srm) router.
 
-## Configuration
-
-To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: synology_srm
-    host: 192.168.1.254
-    password: YOUR_ADMIN_PASSWORD
-```
-
-{% configuration %}
-host:
-  description: The Synology SRM router host or IP address, e.g., `192.168.1.1` or `router.mydomain.local`
-  required: true
-  type: string
-port:
-  description: The port to connect to the Synology SRM router.
-  required: false
-  default: 8001
-  type: integer
-username:
-  description: The username of a user with administrative privileges.
-  required: false
-  default: admin
-  type: string
-password:
-  description: The password for your given admin account.
-  required: true
-  type: string
-ssl:
-  description: Use HTTPS instead of HTTP to connect.
-  required: false
-  default: true
-  type: boolean
-verify_ssl:
-  description: Enable or disable SSL certificate verification.
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 For instructions on creating multiple administrators on SRM, please refer to the [Synology Knowledge Center](https://kb.synology.com/en-id/SRM/tutorial/Create_multiple_administrator_accounts_on_Synology_Router).
 
+See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
+
+{% note %}
 List of models known to be supported:
 
 - RT1900ac
 - RT2600ac
 - MR2200ac
 - RT6600ax
+{% endnote %}
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
+## Migrating from YAML configuration
+
+If you previously configured Synology SRM in YAML, follow these steps to switch to setup through the UI:
+
+1. Note the entity IDs of the devices you track, then remove the `synology_srm` device tracker platform for this router from `configuration.yaml`.
+2. Remove those devices' entries from `known_devices.yaml`. Keep entries used by other legacy trackers.
+3. Restart Home Assistant to stop the legacy scanner and release the removed trackers' entity IDs.
+4. Add Synology SRM using the configuration steps above and select the devices you want to track. You must select at least one device.
+5. If needed, change the entity IDs of the new trackers to their previous IDs to keep existing person assignments and automations working. If you keep the new IDs instead, update those references to use the new trackers.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
