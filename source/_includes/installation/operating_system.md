@@ -16,17 +16,7 @@ To get started, we suggest the ODROID-N2+, the board that powers our [Home Assis
 
 If unavailable, we also recommend the [ODROID-C4](https://ameridroid.com/products/odroid-c4).
 
-Home Assistant bundles (US market):
-
-The bundles come with Home Assistant pre-installed.
-
-- [ODROID-N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935)
-- [ODROID-N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399)
-- ODROID-M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831)
-- ODROID-M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367)
-- [ODROID-M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903)
-
-Variants without pre-installed Home Assistant:
+Boards:
 
 - ODROID-N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418)
 - [ODROID-C4](https://ameridroid.com/products/odroid-c4)
