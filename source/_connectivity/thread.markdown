@@ -73,7 +73,7 @@ These border routers may require an iPhone or Android phone for onboarding. What
 
 ### Home Assistant
 
-Out of the box, Home Assistant Connect&nbsp;ZBT-1, [Connect&nbsp;ZBT-2](/connect/zbt-2/), and Yellow run Zigbee, not Thread. Currently, enabling Thread involves manual steps. The integration of the Home Assistant based Thread border router with Matter is work-in-progress.
+Out of the box, Home Assistant Connect&nbsp;ZBT-1, [Connect&nbsp;ZBT-2](/connect/zbt-2/), and Yellow run Zigbee, not Thread.
 
 - If you have a Home Assistant Yellow, Connect&nbsp;ZBT-1, or a [Connect&nbsp;ZBT-2](/connect/zbt-2/), you can use their Thread radio. Follow these steps to [turn Home Assistant into a Thread border router](/integrations/thread/#turning-home-assistant-into-a-thread-border-router).
 
