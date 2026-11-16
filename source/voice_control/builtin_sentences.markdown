@@ -162,6 +162,7 @@ Unlike regular voice timers, delayed commands cannot be canceled or modified.
 {% details "Assist answers “Sorry, I couldn't understand that”" %}
 
 ### Symptom
+{: .no_toc}
 
 Assist answers "Sorry, I couldn't understand that".
 
@@ -178,11 +179,11 @@ To find a sentence that works in your language, follow these steps.
    - Select your language, enter the sentence, and select **Parse sentences**.
    - If the result shows **No intent matched**, Assist doesn't understand this sentence. For more on the sentence parser, refer to [Test a sentence per language without voice](/voice_control/troubleshooting/#test-a-sentence-per-language-without-voice-without-executing-commands).
 2. Look at the tested sentences for your language.
-   - On GitHub, open the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, and then the folder of your language. For example, `en` for English.
+   - On GitHub, open the [tests](https://github.com/OHF-Voice/intents/tree/main/tests) folder, and then the folder of your language. For example, `en` for English.
    - Each folder in it is named after an {% term intent %}. For example, `HassTurnOn` turns things on, and `HassLightSet` changes the brightness or color of lights.
    - Open a file in the folder of the intent. Each file tests one kind of sentence. For example, `area_domain.yaml` tests sentences with an area and a kind of entity, like *turn on the lights in the kitchen*.
    - The area and entity names in the test files are only examples. Use the names from your home instead.
-3. To see all the sentences that Assist understands for an intent, open the same intent folder in the [sentences](https://github.com/home-assistant/intents/tree/main/sentences) folder of your language.
+3. To see all the sentences that Assist understands for an intent, open the same intent folder in the [sentences](https://github.com/OHF-Voice/intents/tree/main/sentences) folder of your language.
    - For example, `HassTurnOn/area_domain.yaml` contains these sentences, among others:
 
      ```yaml
@@ -193,7 +194,7 @@ To find a sentence that works in your language, follow these steps.
    - () mean alternative elements.
    - [] mean optional elements.
    - {} mean a list, like the names of your areas.
-   - &lt;&gt; mean an expansion rule. To view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
+   - &lt;&gt; mean an expansion rule. For these English examples, refer to the [English expansion rules](https://github.com/OHF-Voice/intents/tree/main/rules/en).
    - The syntax is explained in detail in the [template sentence syntax documentation](https://contributors.home-assistant.io/translate/voice/template-syntax/).
 4. Rephrase your sentence to match one of these sentences, and test it again, as in step 1.
    - Result: The sentence parser shows the intent and the entities that your sentence targets.
@@ -204,6 +205,7 @@ To find a sentence that works in your language, follow these steps.
 {% details "Assist answers “Sorry, I am not aware of any device called …”" %}
 
 ### Symptom
+{: .no_toc}
 
 Assist answers "Sorry, I am not aware of any device called …", with the name that you used. For an area, it answers "Sorry, I am not aware of any area called …".
 
@@ -223,6 +225,7 @@ Assist understood the sentence, but no {% term entity %} or {% term area %} in H
 {% details "Assist answers “Sorry, … is not exposed”" %}
 
 ### Symptom
+{: .no_toc}
 
 Assist answers "Sorry, … is not exposed", with the name of the entity.
 
