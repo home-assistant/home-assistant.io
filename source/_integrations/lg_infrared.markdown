@@ -262,7 +262,7 @@ automation: |
 
 ### The TV or air conditioner does not respond to commands
 
-If the entity changes in Home Assistant but your TV or air conditioner does not react, the infrared signal is probably not reaching the device. Make sure the infrared emitter points at the receiver window of the device and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/integrations/infrared/#the-device-does-not-respond-to-commands).
+If the entity changes in Home Assistant but your TV or air conditioner does not react, the infrared signal is probably not reaching the device. Make sure the infrared emitter points at the receiver window of the device and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/connectivity/infrared/#the-device-does-not-respond-to-commands).
 
 If your air conditioner reacts to most commands but not to one mode or button, your model probably does not have that feature. Check your remote or the manual of your unit.
 
@@ -271,7 +271,7 @@ If your air conditioner reacts to most commands but not to one mode or button, y
 The event entity only fires for commands it receives from an LG TV remote. Signals from other remotes, including universal remotes set to another brand, are ignored.
 
 1. Make sure the TV has an infrared receiver selected. If it does not, add one by [reconfiguring the integration](#reconfiguring-the-integration).
-2. Check that the infrared receiver entity updates when you press a button. If it does not, refer to [An infrared receiver does not pick up signals](/integrations/infrared/#an-infrared-receiver-does-not-pick-up-signals).
+2. Check that the infrared receiver entity updates when you press a button. If it does not, refer to [An infrared receiver does not pick up signals](/connectivity/infrared/#an-infrared-receiver-does-not-pick-up-signals).
 
 ### Reporting an issue
 

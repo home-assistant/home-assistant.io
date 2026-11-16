@@ -1,0 +1,15 @@
+{%- assign connectivity_pages = site.connectivity | sort_natural: 'title' -%}
+<section class="vertical-nav aside-module grid__item one-whole lap-one-half">
+  <div class="section">
+    <h2 class="h1 title epsilon">{% icon "mdi:transit-connection-variant" %} Connectivity</h2>
+    <ul class="divided sidebar-menu">
+      <li>{% active_link /connectivity/ Overview %}</li>
+      {%- for connectivity_page in connectivity_pages -%}
+        {%- assign connectivity = site.data.integration_connectivity | where: 'slug', connectivity_page.connectivity | first %}
+      <li{% if page.url == connectivity_page.url %} class="active"{% endif %}>
+        <a href="{{ connectivity_page.url }}">{% if connectivity %}<iconify-icon icon="{{ connectivity.icon }}"></iconify-icon> {% endif %}{{ connectivity_page.title }}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

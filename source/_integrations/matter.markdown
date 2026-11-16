@@ -478,7 +478,7 @@ Make sure the requirements listed in the [prerequisites](#prerequisites) are met
   - Minimum version is 8.1. Recommended is version 12 or higher.
     - More issues have been reported by people using older Android versions.
   - Android Automotive is not supported.
-  - Install the app from the Google Play Store. Versions of the app without Google Play services can't add Matter devices.
+  - Install the app from the Google Play Store. Versions of the app without Google Play services, such as the version from F-Droid, can't add Matter devices.
   - Make sure the Google Play Services are all up to date.
 - **iPhone or iPad**:
   - Minimum version is iOS or iPadOS 16.4.
