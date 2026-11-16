@@ -85,7 +85,8 @@ command:
 
 ## Good to know
 
-- The trigger works with the Home Assistant conversation agent of Assist. Other conversation agents, such as the ones of the [OpenAI](/integrations/openai_conversation/) and [Google Gemini](/integrations/google_generative_ai_conversation/) integrations, only use sentence triggers when **Prefer handling commands locally** is turned on.
+- The trigger works with every {% term "conversation agent" %} that you talk to through an {% term assistant %}. For example, it also works with the conversation agents of the [OpenAI](/integrations/openai_conversation/) and [Google Gemini](/integrations/google_generative_ai_conversation/) integrations. Home Assistant checks your sentence triggers before the conversation agent gets the sentence. This doesn't depend on **Prefer handling commands locally**.
+- With conversation agents other than the Home Assistant one, sentence triggers don't run in two cases. They don't run when you call the conversation agent directly, for example with the `conversation.process` action. They also don't run when you answer a follow-up question from the conversation agent.
 - Home Assistant checks sentence triggers before the built-in sentences. If your sentence also matches a built-in command, such as "turn on the kitchen lights", your automation runs instead of the built-in command.
 - Several automations can use the same sentence. They all run. Assist answers with the first response that one of the automations sets with **Set conversation response**. If none of them sets a response, Assist answers "Done".
 - For the data that this trigger passes to your conditions and actions, such as `trigger.sentence` and `trigger.slots`, refer to [Sentence triggers](/docs/automation/trigger-data/#sentence-triggers).
