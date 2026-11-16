@@ -4,7 +4,7 @@ ha_release: 0.93
 ha_domain: meteoalarm
 ---
 
-The **MeteoAlarm** {% term integration %} shows the weather warnings that national weather services in Europe publish on [MeteoAlarm](https://meteoalarm.org) (EUMETNET). It creates a binary sensor for a region you choose. The sensor is on while the region has a current warning, and its attributes describe the most severe one, such as its level, type, headline and instructions. You can use it to get notified about storms, heavy rain, heat or snow, or to show warnings on a dashboard.
+The **MeteoAlarm** {% term integration %} shows the weather warnings that national weather services in Europe publish on [MeteoAlarm](https://meteoalarm.org) (EUMETNET). It creates a binary sensor for a region you choose. The sensor is on while the region has a current warning, and its attributes describe the most severe one, such as its level, type, headline and instructions. You can use it to get notified about storms, heavy rain, heat, or snow, or to show warnings on a dashboard.
 
 The integration fetches each country's public MeteoAlarm feed every 5 minutes. No account or API key is needed.
 
@@ -12,8 +12,8 @@ The integration fetches each country's public MeteoAlarm feed every 5 minutes. N
 
 You need the name of your region as MeteoAlarm uses it, or its EMMA_ID code:
 
-1. Open [MeteoAlarm](https://meteoalarm.org) and find your region on the map. Its name is shown when you select it.
-2. Alternatively, look up the region's EMMA_ID code, such as `ES098` for Sierra Sur de Sevilla, with the [MeteoAlarm EMMA_ID region explorer](https://saratoga-weather.org/meteoalarm-map/).
+- Open [MeteoAlarm](https://meteoalarm.org) and find your region on the map. Its name is shown when you select it.
+- Alternatively, look up the region's EMMA_ID code, such as `ES098` for Sierra Sur de Sevilla, with the [MeteoAlarm EMMA_ID region explorer](https://saratoga-weather.org/meteoalarm-map/).
 
 A code is the safest choice: some names appear in more than one region, and the name is matched as a regular expression. In Spain, for example, land and coastal regions often have similar names, such as "Ceuta" and "Costa - Ceuta", so the name "Ceuta" also matches the coastal region.
 
@@ -25,12 +25,12 @@ Country:
 Region:
     description: "The region's name as MeteoAlarm shows it, or its EMMA_ID code."
 Language:
-    description: "The language code for the warning texts, such as `en` or `de`. The default is `en`. Not every country publishes warnings in every language. If a warning isn't available in your language, the text is shown in the first language the feed has."
+    description: "The language for the warning texts. By default, this is the language of your Home Assistant. Not every country publishes warnings in every language. If a warning isn't available in your language, the text is shown in the first language the feed has."
 {% endconfiguration_basic %}
 
 Home Assistant checks that it can load the country's feed before it adds the region. It can't check the region itself, because MeteoAlarm's feeds only list regions that currently have a warning. If the sensor never turns on when MeteoAlarm shows a warning for your region, check the region name or code.
 
-You can add several regions, but each one only once.
+You can add several regions. Each combination of region and language can only be added once.
 
 ## Supported functionality
 
@@ -43,9 +43,9 @@ For each region, the integration creates a binary sensor:
 
 While the sensor is on, its attributes describe the most severe current warning. Warnings are ranked by their awareness level, then by severity. The attributes come from the warning's [CAP](https://en.wikipedia.org/wiki/Common_Alerting_Protocol) message and depend on the country, but usually include:
 
-- `awareness_level`: the level and color, such as `3; orange; Severe`. Warnings are yellow (2), orange (3) or red (4).
+- `awareness_level`: the level and color, such as `3; orange; Severe`. Warnings are yellow (2), orange (3), or red (4).
 - `awareness_type`: the type of weather, such as `1; Wind` or `8; forest-fire`.
-- `event`, `headline`, `description` and `instruction`: the warning's texts.
+- `event`, `headline`, `description`, and `instruction`: the warning's texts.
 - `onset`, `effective` and `expires`: when the weather is expected to start, when the warning takes effect, and when it ends.
 - `severity`, `certainty` and `urgency`: the CAP classification.
 - `identifier`, `message_type`, `references` and `sent`: the CAP message fields. They identify each warning and link an update or cancellation to the warning it replaces.
@@ -75,7 +75,7 @@ attribution: Information provided by MeteoAlarm
 
 ## Data updates
 
-The integration polls the country's MeteoAlarm feed every 5 minutes. If MeteoAlarm can't be reached, the sensor becomes unavailable until the next successful update.
+The integration {% term polling polls %} the country's MeteoAlarm feed every 5 minutes. If MeteoAlarm can't be reached, the error is logged and the sensor keeps its last state until the next successful update. If MeteoAlarm can't be reached when Home Assistant starts, the integration retries the setup later.
 
 ## MeteoAlarm automation examples
 
@@ -132,20 +132,45 @@ Replace `binary_sensor.meteoalarm` with your sensor's entity ID, and `notify.my_
 
 ## Troubleshooting
 
-### The MeteoAlarm YAML configuration import failed
+{% details "The MeteoAlarm YAML configuration import failed" %}
 
-Earlier versions of this integration were set up in YAML. When Home Assistant starts, it imports your YAML configuration and keeps the sensor's entity ID, `binary_sensor.meteoalarm` by default. After the import, remove the `meteoalarm` binary sensor from your {% term "`configuration.yaml`" %} file and restart Home Assistant.
+### Symptom: A repair issue says the MeteoAlarm YAML configuration import failed
 
-If the import fails, a repair issue explains why:
+After upgrading, Home Assistant shows the repair issue "The MeteoAlarm YAML configuration import failed", and there's no MeteoAlarm sensor for that region.
 
-- **MeteoAlarm could not be reached**: check your internet connection and restart Home Assistant to try again.
-- **MeteoAlarm has no feed for that country**: correct the country in your YAML configuration and restart Home Assistant. The country must be written as in MeteoAlarm's feed address, `https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-<country>`, for example `united-kingdom`.
+#### Description
 
-Alternatively, remove the YAML configuration and add the integration in the UI.
+Earlier versions of this integration were set up in YAML. When Home Assistant starts, it imports your YAML configuration and keeps the sensor's entity ID, `binary_sensor.meteoalarm` by default. The repair issue says why the import failed:
 
-### The sensor never turns on
+- **MeteoAlarm could not be reached**: Home Assistant couldn't load the country's feed.
+- **MeteoAlarm has no feed for that country**: the country in your YAML configuration doesn't match a MeteoAlarm feed.
 
-MeteoAlarm's feeds only list regions that currently have a warning, so Home Assistant can't check the region you entered. When MeteoAlarm shows a warning for your region but the sensor stays off, remove the region and add it again with its EMMA_ID code.
+#### Resolution
+
+1. If MeteoAlarm could not be reached, check your internet connection and restart Home Assistant to try again.
+2. If MeteoAlarm has no feed for that country, correct the country in your YAML configuration and restart Home Assistant. The country must be written as in MeteoAlarm's feed address, `https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-<country>`, for example `united-kingdom`.
+3. Alternatively, remove the YAML configuration and add the integration in the UI.
+
+After a successful import, remove the `meteoalarm` binary sensor from your {% term "`configuration.yaml`" %} file and restart Home Assistant.
+
+{% enddetails %}
+
+{% details "The sensor never turns on" %}
+
+### Symptom: MeteoAlarm shows a warning for your region, but the sensor stays off
+
+The MeteoAlarm website shows a current warning for your region, but the binary sensor stays off.
+
+#### Description
+
+MeteoAlarm's feeds only list regions that currently have a warning, so Home Assistant can't check the region you entered when you add it. If the name doesn't match the region in the feed, the sensor never turns on.
+
+#### Resolution
+
+1. Look up your region's EMMA_ID code, as described under [Prerequisites](#prerequisites).
+2. Remove the region and add it again with its EMMA_ID code.
+
+{% enddetails %}
 
 ## Removing the integration
 
