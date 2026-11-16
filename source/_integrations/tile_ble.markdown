@@ -1,6 +1,6 @@
 ---
 title: Tile BLE
-description: Instructions on how to track your Tile Bluetooth trackers and make them ring locally with Home Assistant.
+description: Instructions on how to track your Tile Bluetooth trackers locally with Home Assistant.
 ha_release: 2026.12
 ha_categories:
   - presence_location.trackers
@@ -11,7 +11,6 @@ ha_codeowners:
 ha_domain: tile_ble
 ha_integration_type: device
 ha_platforms:
-  - button
   - device_tracker
 ha_quality_scale: bronze
 related:
@@ -21,9 +20,9 @@ related:
     title: Bluetooth
 ---
 
-The **Tile BLE** {% term integration %} lets you use your [Tile](https://www.tile.com) Bluetooth trackers directly with Home Assistant over Bluetooth, without going through the Tile cloud. It tells you whether a Tile is in range of Home Assistant, and lets you make it ring.
+The **Tile BLE** {% term integration %} lets you use your [Tile](https://www.tile.com) Bluetooth trackers directly with Home Assistant over Bluetooth, without going through the Tile cloud. It tells you whether a Tile is in range of Home Assistant.
 
-Use case: Put a Tile on your keys or in your bag, and let Home Assistant remind you when you leave without them. Or, when you can't find them, ask Home Assistant to ring the Tile.
+Use case: Put a Tile on your keys or in your bag, and let Home Assistant remind you when you leave without them.
 
 This integration is separate from the cloud-based [Tile](/integrations/tile/) integration. You can use either of them, or both.
 
@@ -39,7 +38,7 @@ Home Assistant doesn't discover Tiles automatically, because Tiles owned by your
 
 {% configuration_basic %}
 Email:
-  description: "The email address of your Tile account. Home Assistant uses your account to get the names of your Tiles and the keys needed to ring them. Your credentials are not stored."
+  description: "The email address of your Tile account. Home Assistant uses your account to get the names of your Tiles and their keys. Your credentials are not stored."
 Password:
   description: "The password of your Tile account."
 Device:
@@ -53,12 +52,6 @@ To add more Tiles, repeat these steps for each Tile.
 ## Supported functionality
 
 The **Tile BLE** integration provides the following entities for each Tile.
-
-### Buttons
-
-- **Ring**
-  - **Description**: Makes the Tile play its find song.
-  - **Remarks**: Unavailable while the Tile is out of range.
 
 ### Device trackers
 
@@ -108,12 +101,12 @@ automation: |
 
 ## Data updates
 
-The **Tile BLE** integration listens to the Bluetooth advertisements a Tile sends out. It doesn't connect to the Tile for this, so it doesn't drain the battery of the Tile. Home Assistant connects to the Tile only when you ring it.
+The **Tile BLE** integration listens to the Bluetooth advertisements a Tile sends out. It doesn't connect to the Tile for this, so it doesn't drain the battery of the Tile. Home Assistant only connects to the Tile during setup.
 
 ## Known limitations
 
 - Home Assistant can only see a Tile within Bluetooth range of one of your Bluetooth adapters or proxies. **Away** means the Tile is out of range, not that it is in a specific place. To see where a Tile is when you are out, use the [Tile](/integrations/tile/) integration.
-- Ringing a Tile needs an active Bluetooth connection, which not every Bluetooth adapter or proxy can make. See the [Bluetooth](/integrations/bluetooth/) integration for which adapters can make active connections.
+- Setting up a Tile needs an active Bluetooth connection, which not every Bluetooth adapter or proxy can make. See the [Bluetooth](/integrations/bluetooth/) integration for which adapters can make active connections.
 - You can only set up Tiles that are in your own Tile account.
 - Each Tile is set up as its own integration entry.
 
@@ -132,8 +125,7 @@ Home Assistant has not received Bluetooth advertisements from any Tile that isn'
 #### Resolution
 
 1. Make sure the Bluetooth integration is set up and working.
-2. Move the Tile closer to your Bluetooth adapter or proxy.
-3. Press the button on the Tile to wake it up, and try again.
+2. Move the Tile closer to your Bluetooth adapter or proxy, and try again.
 
 {% enddetails %}
 
