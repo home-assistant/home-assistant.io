@@ -24,7 +24,7 @@ With a {% term "conversation agent" %} that uses AI, your {% term assistant %} c
 
 - Answer in the style of a character that you describe in the **Instructions** of the conversation agent. For example, Super Mario.
 - Understand requests that you word freely, not only the built-in sentences.
-- Control the {% term entities %} that you expose to Assist, run your exposed {% term scripts %}, and answer questions about them. For example, it can turn on the lights or tell you the temperature in the living room. For this, the conversation agent needs the **Device control** set of {% term "AI tools" %}. A new conversation agent has it selected by default. In Ollama, you select it yourself.
+- Control the {% term entities %} that you expose to Assist, run your exposed {% term scripts %}, and answer questions about them. For example, it can turn on the lights or tell you the temperature in the living room. For this, the conversation agent needs the **Device control** set of {% term "AI tools" %}. A new conversation agent has it selected by default. In Ollama, you select it yourself. The Ollama model must also support tools. For details, refer to the [Ollama integration](/integrations/ollama/#controlling-home-assistant).
 
 For the best results, follow the [best practices](/voice_control/best_practices/). For example, give your areas and entities names that are easy to say.
 
