@@ -60,6 +60,14 @@ Each device in your Vitesy Hub account is added as a separate device in Home Ass
 - **Battery**
   - **Description**: Battery charge level. Shown as diagnostic information on the device page.
   - **Available for**: Shelfy
+- **Fan speed**
+  - **Description**: Fan speed of the program the device is running: **Low**, **Medium**, or **High**. Shown as diagnostic information on the device page.
+  - **Available for**: Devices whose active program reports a fan speed
+- **Power level**
+  - **Description**: Power level of the program the device is running: **Low**, **Medium**, or **High**. Shown as diagnostic information on the device page.
+  - **Available for**: Devices whose active program reports a power level
+- **Last update**
+  - **Description**: When the device last sent a measurement to Vitesy Hub. Shown as diagnostic information on the device page. This sensor is disabled by default.
 - **Filter change due**
   - **Description**: Date the purification filter is next due to be cleaned or replaced. Shown as diagnostic information on the device page.
 - **Fridge cleaning due**

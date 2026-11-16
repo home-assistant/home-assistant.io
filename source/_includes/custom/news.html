@@ -151,6 +151,26 @@
 <!-- Center content begins -->
 <div class="grid__item one-third lap-one-half palm-one-whole">
 
+  <!-- Connect AUX-2. Its page is built by Astro, not Jekyll, so the
+       landing page loop below cannot list it: this card is written by
+       hand in the same markup. -->
+  <a class="material-card picture-promo" href="/connect/aux-2/"
+    style="
+          background-image: url(/images/frontpage/aux-2-frontpage.webp);
+          background-size: cover;
+          background-color: #41bdf5;
+          --caption-color: #3A332B;
+        ">
+    <div class="caption">
+      <div>
+        <div class="title">
+          Home Assistant Connect AUX-2
+        </div>
+        <div class="subtitle">Bring your classic audio equipment into your smart home with advanced control and Power over Ethernet.</div>
+      </div>
+    </div>
+  </a>
+
   <!-- All landing pages have a block. -->
   {% assign pages_by_date = site.pages | sort: "date" | reverse %} {% for
   page in pages_by_date %} {% if page.layout == "landingpage" and

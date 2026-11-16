@@ -82,10 +82,12 @@ export function select(lists, now) {
 // in a large card renders the items that might end up first twice: a
 // `hero` version, shown only in first place, and a `row` version, shown
 // anywhere else. Entries without a variant show wherever they land.
-export function isShowing(entry, keys) {
+// `heroTaken`: something else (a livestream card) has the large place,
+// so the first item shows as a row too.
+export function isShowing(entry, keys, heroTaken = false) {
   const position = keys.indexOf(entry.key);
   if (position === -1) return false;
-  if (entry.variant === "hero") return position === 0;
-  if (entry.variant === "row") return position > 0;
+  if (entry.variant === "hero") return position === 0 && !heroTaken;
+  if (entry.variant === "row") return position > 0 || heroTaken;
   return true;
 }

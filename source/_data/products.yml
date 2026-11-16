@@ -904,3 +904,184 @@ zbt-2:
       ship_to: Australia
       url: https://smartguys.com.au/product/home-assistant-zbt-2-connect-zigbee-thread-adapter/
       logo: /images/distributors/smart-guys.webp
+
+aux-2:
+  name: "<strong>Home Assistant</strong> Connect AUX-2"
+  new: true
+  # The partners in the AUX-2 Where to Buy links sheet. Kjell sells for
+  # Grönahus, Smarthomes is Herholdt's store, and RaspberryPi.dk is
+  # Jkollerup's.
+  distributors:
+    # North America
+    - name: Ameridroid
+      ship_from: US
+      ship_to: North America
+      url: https://ameridroid.com/products/home-assistant-connect-aux-2
+      logo: /images/distributors/ameridroid.webp
+    - name: Apollo Automation
+      ship_from: US and Canada
+      ship_to: North America
+      url: https://apolloautomation.com/products/home-assistant-connect-aux-2
+      logo: /images/distributors/apollo.webp
+    - name: CloudFree
+      ship_from: US
+      ship_to: North America
+      url: https://cloudfree.shop/products/home-assistant-connect-aux-2
+      logo: /images/distributors/cloudfree.webp
+    # Asia
+    - name: Seeed Studio
+      ship_from: China
+      ship_to: Asia
+      url: https://www.seeedstudio.com/Home-Assistant-Connect-AUX-2-p-7038.html
+      logo: /images/distributors/seeed-studio.webp
+    # Australia
+    - name: SmartHome
+      ship_from: Australia
+      ship_to: Australia
+      url: https://www.smarthome.com.au/product/home-assistant-connect-aux-2/
+      logo: /images/distributors/smarthome.webp
+    - name: Oz Smart Things
+      ship_from: Australia
+      ship_to: Australia
+      url: https://www.ozsmartthings.com.au/products/home-assistant-connect-aux-2
+      logo: /images/distributors/oz-smart-things.webp
+    - name: Smart Guys
+      ship_from: Australia
+      ship_to: Australia
+      url: https://smartguys.com.au/product/home-assistant-connect-aux-2/
+      logo: /images/distributors/smart-guys.webp
+    # Europe
+    - name: Alza
+      ship_from: Czech Republic
+      ship_to: Europe
+      url: https://www.alza.cz/kod/HA26001
+      logo: /images/distributors/alza-cz.webp
+    - name: SmarterHome
+      ship_from: Czech Republic
+      ship_to: Europe
+      url: https://smarterhome.sk/cs/adaptery-moduly-a-softver/home-assistant-connect-aux-2-poe-hub-pro-audio-rs-232-a-bluetooth-2638.html
+      logo: /images/distributors/smarter-home.png
+    - name: RaspberryPi.dk
+      ship_from: Denmark
+      ship_to: Europe
+      url: https://raspberrypi.dk/en/product/home-assistant-connect-aux-2/
+      logo: /images/distributors/raspberrypi-dk.webp
+    - name: Domadoo
+      ship_from: France
+      ship_to: Europe
+      url: https://www.domadoo.fr/fr/produits-de-domotique/10189-nabu-casa-home-assistant-connect-aux-2-passerelle-audio-intelligente-0860011789758.html
+      logo: /images/distributors/domadoo.jpg
+    - name: Kubii
+      ship_from: France
+      ship_to: Europe
+      url: https://www.kubii.com/fr/5291-home-assistant-connect-aux-2.html
+    - name: BerryBase
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.berrybase.de/detail/01a1c02be28673dcb9d23c649fd1e212
+      logo: /images/distributors/berrybase.webp
+    - name: Mediarath
+      ship_from: Germany
+      ship_to: Europe
+      url: https://mediarath.de/products/home-assistant-connect-aux-2-poe-audio-player-bluetooth-proxy-rs232-gateway
+      logo: /images/distributors/mediarath.de.webp
+    - name: reichelt
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.reichelt.de/shop/produkt/home_assistant_connect_aux-2-445656
+      logo: /images/distributors/reichelt.webp
+    - name: SmartDomo
+      ship_from: Germany
+      ship_to: Europe
+      url: https://smartdomo.de/products/home-assistant-connect-aux-2-poe-multifunktionsgateway-fur-audio-bluetooth-und-serielle-gerate
+      logo: /images/distributors/smartdomo.webp
+    - name: Nettop
+      ship_from: Greece
+      ship_to: Europe
+      url: https://nettop.gr/index.php/smart-home/home-assistant/home-assistant-connect-aux-2.html
+      logo: /images/distributors/nettop.webp
+    - name: Ewelinks
+      ship_from: Hungary
+      ship_to: Europe
+      url: https://ewelinkstore.com/product/nabu-casa-home-assistant-connect-aux-2/
+      logo: /images/distributors/ewelink.png
+    - name: Okosotthon
+      ship_from: Hungary
+      ship_to: Europe
+      url: https://okosotthon.bolt.hu/Nabu-Casa-Home-Assistant-Connect-AUX-2
+      logo: /images/distributors/okosotthon.png
+    - name: Dinamotech
+      ship_from: Italy
+      ship_to: Europe
+      url: https://dinamotech.it/products/home-assistant-connect-aux-2
+      logo: /images/distributors/dinamo-tech.webp
+    - name: Hashop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.hashop.nl/home-assistant-connect-aux-2
+      logo: /images/distributors/ha-shop.webp
+    - name: Robbshop
+      ship_from: Netherlands
+      ship_to: Europe
+      url: https://www.robbshop.nl/home-assistant-connect-aux-2
+      logo: /images/distributors/robb.webp
+    - name: Kjell
+      ship_from: Norway
+      ship_to: Europe
+      url: https://www.kjell.com/no/88435
+      logo: /images/distributors/kjell-company.webp
+    - name: Botland
+      ship_from: Poland
+      ship_to: Europe
+      url: https://botland.com.pl/centralki-i-bramki-sieciowe/29872-home-assistant-connect-aux-2-modul-audio-i-rs-232-z-poe-nabu-casa-nc-aux-9758-0860011789758.html
+      logo: /images/distributors/botland.webp
+    - name: Mauser
+      ship_from: Portugal
+      ship_to: Europe
+      url: https://mauser.pt/094-0903
+      logo: /images/distributors/mauser.webp
+    - name: WIFIShop
+      ship_from: Romania
+      ship_to: Europe
+      url: https://www.wifishop.ro/cumpara/home-assistant-connect-aux-2-%E2%80%93-multi-tool-smart-home-cu-poe-pentru-1516
+      logo: /images/distributors/wifishop.webp
+    - name: SmarterHome
+      ship_from: Slovakia
+      ship_to: Europe
+      url: https://smarterhome.sk/sk/adaptery-moduly-a-softver/home-assistant-connect-aux-2-poe-hub-pre-audio-rs-232-a-bluetooth-2638.html
+      logo: /images/distributors/smarter-home.png
+    - name: Kjell
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.kjell.com/se/88435
+      logo: /images/distributors/kjell-company.webp
+    - name: Pi-Shop.ch
+      ship_from: Switzerland
+      ship_to: Europe
+      url: https://www.pi-shop.ch/home-assistant-connect-aux-2
+      logo: /images/distributors/pi-shop.webp
+    - name: Swiss Domotique
+      ship_from: Switzerland
+      ship_to: Europe
+      url: https://www.swiss-domotique.ch/de/gateways-antennen/home-assistant-connect-aux-2-multifunktions-gateway-fur-audio-und-seriell-bluetooth-poe
+      logo: /images/distributors/swiss-domotique.webp
+    - name: Everythingsmart
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.everythingsmart.io/products/home-assistant-connect-aux-2
+      logo: /images/distributors/est.webp
+    - name: Pimoroni
+      ship_from: UK
+      ship_to: Europe
+      url: https://shop.pimoroni.com/products/home-assistant-connect-aux-2
+      logo: /images/distributors/pimoroni.webp
+    - name: ThePiHut
+      ship_from: UK
+      ship_to: Europe
+      url: https://thepihut.com/products/home-assistant-connect-aux-2
+      logo: /images/distributors/pi-hut.webp
+    # Africa
+    - name: Smarthomes
+      ship_from: South Africa
+      ship_to: Africa
+      url: https://smart-homes.co.za/products/home-assistant-connect-aux-2

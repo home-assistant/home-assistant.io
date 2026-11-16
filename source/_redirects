@@ -439,6 +439,7 @@ layout: null
 
 # Moved marketing pages / rebranding
 /skyconnect /connectzbt1
+/no-device-left-behind /connect/aux-2/ 301
 
 # Month of "What the Heck?!"
 /wth /what-the-heck/ 301

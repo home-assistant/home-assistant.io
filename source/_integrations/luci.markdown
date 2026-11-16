@@ -23,7 +23,7 @@ Before you add the integration, prepare your router:
 
   On OpenWrt versions that use the older package manager, use `opkg update` and `opkg install luci-mod-rpc` instead.
 
-- Have the credentials of a user with administrative privileges ready. This is usually the `admin` account.
+- Have the password for your router's `root` account ready. The LuCI RPC package only works with the `root` account.
 
 {% include integrations/config_flow.md %}
 
@@ -31,7 +31,7 @@ Before you add the integration, prepare your router:
 Host:
     description: "The hostname or IP address of your router, for example `192.168.1.1`."
 Username:
-    description: "The username of a user with administrative privileges on the router, usually `admin`."
+    description: "The username to log in to the router. Use `root`, the only account that works with the LuCI RPC package."
 Password:
     description: "The password for that account."
 SSL:
@@ -51,10 +51,6 @@ The integration polls the router every 30 seconds. When the router stops reporti
 To prevent a brief disconnection from starting an automation, use a [**State changed**](/triggers/state/) trigger with **To** set to **Away** and a **For at least** duration. The automation runs only if the device stays away for that duration. This delays only the automation, not the device tracker's state change.
 
 To choose which devices to track and how they are shown, see the [device tracker integration page](/integrations/device_tracker/).
-
-## Known limitations
-
-Some OpenWrt installations are affected by [a small bug](https://github.com/openwrt/luci/issues/576) where the timeout for LuCI RPC calls is not set, which makes the calls fail. To fix this on your router, you can apply the change manually to the `/usr/lib/lua/luci/controller/rpc.lua` file, or set a fixed timeout. The default is 3600.
 
 ## Troubleshooting
 

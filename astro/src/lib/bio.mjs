@@ -205,6 +205,12 @@ function validateSection(section, index, sources) {
   if (!isMap(section)) fail(keyPath, "must be a map");
   if (!SECTION_TYPES.includes(section.type)) fail(`${keyPath}.type`, `must be one of: ${SECTION_TYPES.join(", ")}`);
   if (has(section, "hero") && typeof section.hero !== "boolean") fail(`${keyPath}.hero`, "must be true or false");
+  if (has(section, "livestream")) {
+    if (section.type !== "feed") fail(`${keyPath}.livestream`, "only works on a feed section");
+    if (!/^[a-z0-9-]+$/.test(String(section.livestream ?? ""))) {
+      fail(`${keyPath}.livestream`, "must be a livestream channel name, e.g. home-assistant");
+    }
+  }
 
   if (section.type === "feed") {
     if (has(section, "source") === has(section, "sources")) {
@@ -394,6 +400,7 @@ export function resolve(config, posts, now, siteUrl, data = {}) {
         order: list.order,
         limit: Number.isFinite(list.limit) ? list.limit : null,
         claims: list.claims,
+        livestream: section.livestream ?? null,
         entries,
         tiles,
         hidden: tiles.length === 0,
@@ -490,7 +497,9 @@ function canShow(items, list, limit, holders, sources, now) {
 // with nothing sure to show before it. Those get a hero version and,
 // unless they are always first, a row version too. Without an image an
 // item stays a normal tile rather than a card with a hole. A video
-// already is a large card.
+// already is a large card. With a `livestream`, the first item gets a row
+// version too: the livestream card takes the large place while there is
+// a stream to show.
 function feedEntries(items, section, sources, posts, siteUrl, now) {
   return items.flatMap((item, index) => {
     const base = {
@@ -509,12 +518,27 @@ function feedEntries(items, section, sources, posts, siteUrl, now) {
 
     const hero = { ...feedTile(item, section, sources, posts, siteUrl, now, true), ...base, kind: "hero" };
     if (!hero.image) return [row];
-    if (index === 0) return [hero];
+    if (index === 0 && !section.livestream) return [hero];
     return [
       { ...hero, variant: "hero" },
       { ...row, variant: "row" },
     ];
   });
+}
+
+// A resolved feed section with its large first place given to something
+// else (a livestream card, known when the page is built): the item in that
+// place shows as its row version instead, as the page's script does once
+// the card appears.
+export function withHeroTaken(section) {
+  const hero = section.entries.find((entry) => entry.variant === "hero" && !entry.hidden);
+  if (!hero) return { ...section, heroTaken: true };
+  const entries = section.entries.map((entry) => {
+    if (entry === hero) return { ...entry, hidden: true };
+    if (entry.variant === "row" && entry.key === hero.key) return { ...entry, hidden: false };
+    return entry;
+  });
+  return { ...section, entries, tiles: entries.filter((entry) => !entry.hidden), heroTaken: true };
 }
 
 // Curated links, minus those that have ended. Links have no limit.

@@ -132,9 +132,32 @@ single page, or a one-off, goes in a folder named for that page. For
 example, the components of the Month of "What the Heck?!" page live in
 `src/components/what-the-heck/`.
 
+## Where files go
+
+Components are filed by which pages use them, so a component's path
+says how widely it is shared:
+
+- `src/components/<Name>.astro`: site-wide building blocks any page
+  can use, such as the header, footer, `Button` and `BuyDialog`.
+- `src/components/<line>/<Name>.astro`: used by the pages of more than
+  one product in a product line, such as the Connect line
+  (`src/components/connect/`).
+- `src/components/<line>/<product>/<Name>.astro`: used by one
+  product's page only, such as `src/components/connect/aux-2/ConnectNav.astro`.
+
+A product's components keep their line's name prefix (`ConnectNav`,
+not `Aux2Nav`): when a second product's page needs one, it moves up
+to the line's folder without a rename. Scripts that belong to one
+product follow the same folders in `src/lib/` (the AUX-2 drawing's
+engine is in `src/lib/connect/aux-2/drawing/`), as do its assets in
+`src/assets/` (`src/assets/connect/aux-2/`). A file only uses files
+from its own folder and the ones above it: a Connect line component
+never imports from `connect/aux-2/`. Content that belongs to one page,
+such as its copy and data, stays next to the page in `src/pages/`.
+
 ## Component previews
 
-Components live in `src/components/`. To make a component show up in
+Components live in `src/components/` (see "Where files go" above). To make a component show up in
 the tiled component browser at
 [`/astro-preview/component-preview/`](https://www.home-assistant.io/astro-preview/component-preview/),
 add a `<Name>.fixtures.mjs` file next to it that describes the

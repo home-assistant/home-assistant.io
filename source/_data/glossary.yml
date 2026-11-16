@@ -31,6 +31,22 @@
     An entity that receives a control signal and performs an action in a system.
   aliases:
     - actors
+- term: AI app
+  definition: >-
+    Third-party software that connects to Home Assistant through the Model Context Protocol integration.
+
+    An AI app can use the AI tools that you allow.
+  aliases:
+    - AI apps
+  link: /integrations/mcp_server/
+- term: AI tool
+  definition: >-
+    A function that conversation agents and AI apps can use to read information, control entities, or manage Home Assistant.
+
+    AI tools are grouped into sets. Each set provides different functionality. Some sets only work for administrators.
+  aliases:
+    - AI tools
+  link: /integrations/llm/
 - term: App
   definition: >-
     Apps, formerly known as add-ons, are additional standalone third-party software packages that can be
@@ -60,6 +76,19 @@
   aliases:
     - areas
   link: /docs/organizing/areas/
+- term: Assist
+  definition: >-
+    The voice assistant built into Home Assistant.
+    
+    You can use Assist by talking or typing in the Home Assistant web interface and in the Home Assistant Companion app. You can also use it by talking through a voice satellite. You can set up several assistants, each with its own language and conversation agent.
+  link: /voice_control/
+- term: Assistant
+  definition: >-
+    A configuration of Assist with its own name, language, and conversation agent.
+
+    An assistant can also use speech-to-text to understand spoken commands and text-to-speech to reply out loud.
+  aliases:
+    - assistants
 - term: Automation
   definition: >-
     Automations connect one or more triggers to one or more actions in a 'when
@@ -187,6 +216,12 @@
   definition: >-
     The configuration.yaml file is the main configuration file for Home Assistant. It lists the integrations to be loaded and their specific configurations. In some cases, the configuration needs to be edited manually directly in the configuration.yaml file. Most integrations can be configured in the UI.
   link: /docs/configuration/
+- term: Conversation agent
+  definition: >-
+    Software that Home Assistant uses to understand a request and decide what to do. Home Assistant has a built-in conversation agent. Integrations can add others, including ones that use AI. Conversation agents that use AI can also use AI tools. Each assistant uses a conversation agent.
+  aliases:
+    - conversation agents
+  link: /integrations/conversation/
 - term: Cover
   definition: >-
     Covers are devices such as blinds, garage doors, etc that can be opened and
@@ -337,6 +372,13 @@
   definition: >-
     Another name for Home Assistant Operating System
   link: /hassio/installation/
+- term: Home Assistant Companion app
+  definition: >-
+    The official Home Assistant app for Android and Apple devices. On phones, tablets, and Macs, it shows your Home Assistant interface, like a browser does. It can also share data from your device's sensors with Home Assistant and receive notifications. The Home Assistant Companion app also works on smartwatches and in cars, with Android Auto, Android Automotive OS, or Apple CarPlay.
+  aliases:
+    - Companion app
+    - Companion apps
+  link: https://companion.home-assistant.io/
 - term: Home Assistant Container
   definition: >-
     Home Assistant Container is a standalone container-based installation of
@@ -586,6 +628,14 @@
     confusion, as it does not come with a piece of hardware.
   aliases:
     - services
+
+- term: Speech-to-text
+  definition: >-
+    Technology that turns spoken words into text. Assist uses speech-to-text when you talk to it. Integrations provide speech-to-text. Some run locally, and others run in the cloud.
+  aliases:
+    - STT
+  link: /integrations/stt/
+
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
@@ -630,6 +680,13 @@
   aliases:
     - templates
 
+- term: Text-to-speech
+  definition: >-
+    Technology that turns text into spoken words. Assist uses text-to-speech to reply out loud. Home Assistant can also use it to make announcements on media players and voice satellites. Integrations provide text-to-speech. Some run locally, and others run in the cloud.
+  aliases:
+    - TTS
+  link: /integrations/tts/
+
 - term: Thread
   definition: >-
     Thread is a low-power mesh networking standard that is specifically designed
@@ -656,7 +713,7 @@
     Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod
     mini, and the Home Assistant Connect&nbsp;ZBT-2 together with the OpenThread Border
     Router app.
-  link: /integrations/thread/#about-thread-border-routers
+  link: /connectivity/thread/#about-thread-border-routers
   aliases:
     - Thread border routers
 - term: Trigger
@@ -667,11 +724,6 @@
   link: /docs/automation/trigger/
   aliases:
     - triggers
-
-- term: TTS
-  definition: >-
-    TTS (text-to-speech) allows Home Assistant to talk to you.
-  link: /integrations/tts/
 
 - term: Update
   definition: >-
@@ -697,6 +749,13 @@
     Variables are used to store values in memory that can be processed for
     example, in a script.
   link: /building-blocks/variables/
+- term: Voice satellite
+  definition: >-
+    A standalone device with a microphone that you use to talk to Assist.
+
+    Some voice satellites also have a speaker to play Assist's replies. Unlike a browser or the Home Assistant Companion app, a voice satellite isn't signed in to a user account. This means Home Assistant can't tell who is speaking. Each voice satellite uses at least one assistant.
+  aliases:
+    - voice satellites
 - term: YAML
   definition: >-
     YAML is a human-readable data serialization language. It is used to store and transmit data in a structured format. In Home Assistant, YAML is used for configuration, for example in the `configuration.yaml` or `automations.yaml` files.
