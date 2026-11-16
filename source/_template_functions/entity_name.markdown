@@ -13,6 +13,7 @@ related_functions:
   - states
   - is_hidden_entity
   - area_name
+  - device_name
 ---
 
 The `entity_name` template function returns the name of an {% term entity %} given its entity ID, without the name of its {% term device %}. For example, for a temperature sensor of the device _Living room sensor_, it returns _Temperature_. It looks up the name in the {% term entity %} registry first, and falls back to the friendly name of the state object if the entity is not registered. If the entity does not exist at all, it returns `None`.
@@ -66,7 +67,6 @@ fallback:
 - Uses the name from the entity registry first, without the device name, then falls back to the friendly name of the state object.
 - An entity without a name of its own, such as the main entity of a device, returns an empty string. To get the device name instead, use `fallback=true`.
 - When you use `entity_name` as a filter, add the parameter in parentheses: `| entity_name(fallback=true)`. With [`map`](/template-functions/map/), use `map("entity_name", fallback=true)`.
-- If the entity has its own area assigned, instead of using the area of its device, `fallback=true` does not return the device name.
 - Pass an entity ID, not a state object.
 
 {% include template_functions/try_it.md %}
@@ -75,8 +75,7 @@ fallback:
 
 ### Use entity names in a notification
 
-Send a {% term notification %} with the name of a {% term sensor %} instead of its entity ID.
-If the sensor is the main entity of its device, `fallback=true` uses the device name.
+Send a {% term notification %} with a readable name of a {% term sensor %} instead of its entity ID. Combine `entity_name` with [`device_name`](/template-functions/device_name/) and [`area_name`](/template-functions/area_name/) to build the name from its parts. Parts without a value, such as the entity name of the main entity of a device, are left out. For example, this sends `Hallway Front door sensor is on`.
 
 {% example %}
 action: |
@@ -84,8 +83,9 @@ action: |
     - action: notify.mobile
       data:
         message: >
-          {{ entity_name("binary_sensor.front_door", fallback=true) }} is
-          {{ states("binary_sensor.front_door") }}
+          {% set door = "binary_sensor.front_door" %}
+          {{ [area_name(door), device_name(door), entity_name(door)]
+             | select | join(" ") }} is {{ states(door) }}
 {% endexample %}
 
 ### List names of all lights that are on
