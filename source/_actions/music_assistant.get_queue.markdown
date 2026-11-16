@@ -32,9 +32,9 @@ To get queue details from an automation or a script:
 Limit:
   description: The maximum number of queue items to return. Leave it at 0 to only return the queue details.
 Offset:
-  description: The point in the queue to start returning items from.
+  description: The point in the queue to start returning items from. Requires a **Limit**.
 Username:
-  description: Retrieve the queue items as this Music Assistant user. The action fails when this user may not access the player. When omitted, the items are retrieved as the Home Assistant user who started the action, if that user is linked to a Music Assistant user.
+  description: Retrieve the queue items as this Music Assistant user. The action fails when this user may not access the player. When omitted, the items are retrieved as the Home Assistant user who started the action, if that user is linked to a Music Assistant user. Otherwise, they are retrieved as the account Home Assistant is connected with.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -58,12 +58,12 @@ limit:
   type: integer
   default: 0
 offset:
-  description: The point in the queue to start returning items from.
+  description: The point in the queue to start returning items from. Requires a **Limit**.
   required: false
   type: integer
   default: 0
 username:
-  description: Retrieve the queue items as this Music Assistant user. The action fails when this user may not access the player. When omitted, the items are retrieved as the Home Assistant user who started the action, if that user is linked to a Music Assistant user.
+  description: Retrieve the queue items as this Music Assistant user. The action fails when this user may not access the player. When omitted, the items are retrieved as the Home Assistant user who started the action, if that user is linked to a Music Assistant user. Otherwise, they are retrieved as the account Home Assistant is connected with.
   required: false
   type: string
 {% endoptions_yaml %}
