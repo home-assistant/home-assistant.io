@@ -92,11 +92,11 @@ The following conditions are supported:
 
 The following actions will work:
 
-- Browse media (Consider HTTPS and TTS limitation)
+- Browse media (Consider TTS limitation)
 - Next track
 - Pause media
 - Play media
-- Play specific media (Consider HTTPS and TTS limitation)
+- Play specific media (Consider TTS limitation)
 - Play/Pause media
 - Previous Track
 - Set media player volume
@@ -168,7 +168,6 @@ The **AirLino** integration {% term polling polls %} data from the device every 
 
 - The current version of the Integration supports the basic media player functionalities. TIDAL and Qobuz are currently not supported. Source selection is currently not supported
 - Multiroom joining and unjoining is not yet supported
-- HTTPS radio streams and mp3 streams are not supported by the AirLino devices. To play media from Home Assistant (local media, text-to-speech), the internal URL needs to use HTTP.
 - AirLino devices still report themselves as idle when used through Spotify Connect or Bluetooth. As a workaround, check the state of the Spotify integration.
 - When using the AirLino device for TTS output, the mp3 stream will run in repeat mode when not being stopped manually
 - Starting Internet Radio from Home Assistant will be reported by the AirLino device as source `other`
