@@ -87,7 +87,7 @@
           <li>
             {%- if connectivity_page %}
             <a href='{{ connectivity_page.url }}'>
-              <iconify-icon icon='{{ connectivity.icon }}'></iconify-icon>
+              <iconify-icon icon='{{ connectivity_page.icon | default: connectivity.icon }}'></iconify-icon>
               <span>{{ connectivity.name }}</span>
             </a>
             {%- else %}

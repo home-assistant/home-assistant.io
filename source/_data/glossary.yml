@@ -713,7 +713,7 @@
     Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod
     mini, and the Home Assistant Connect&nbsp;ZBT-2 together with the OpenThread Border
     Router app.
-  link: /integrations/thread/#about-thread-border-routers
+  link: /connectivity/thread/#about-thread-border-routers
   aliases:
     - Thread border routers
 - term: Trigger
