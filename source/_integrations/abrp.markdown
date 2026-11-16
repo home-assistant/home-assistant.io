@@ -166,7 +166,7 @@ Each sensor shows the newest value ABRP has for your vehicle. Some telemetry, li
 
 The device tracker updates when ABRP receives a new position for your vehicle.
 
-Your ABRP garage list is read when the integration loads. Reload the integration after adding or renaming vehicles in ABRP. Removing a vehicle from ABRP does not automatically remove its device from Home Assistant.
+The integration also checks your ABRP garage every hour. New vehicles, including vehicles shared with you, are added automatically, and their sensors appear when the vehicle first reports data. If you rename a vehicle in ABRP, its device name updates too, unless you renamed the device in Home Assistant.
 
 ## Known limitations
 
@@ -181,6 +181,14 @@ Data freshness depends on ABRP and your vehicle manufacturer data source. Some e
 ### Vehicle location
 
 The location is shown as ABRP reports it. For vehicles without a direct connection to ABRP, the position can come from the ABRP phone app, so the device tracker shows your phone's location instead.
+
+### Removed vehicles
+
+Vehicles you remove from your ABRP garage, or that are no longer shared with you, are not removed automatically. They stay in Home Assistant until you reload the integration.
+
+### Vehicle make and model
+
+If ABRP cannot provide the make and model for a vehicle, its device shows ABRP's raw vehicle type code instead. The hourly garage check updates the device when the make and model become available.
 
 ### Route planning
 
