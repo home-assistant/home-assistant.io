@@ -75,7 +75,9 @@ fallback:
 
 ### Use entity names in a notification
 
-Send a {% term notification %} with a readable name of a {% term sensor %} instead of its entity ID. Combine `entity_name` with [`device_name`](/template-functions/device_name/) and [`area_name`](/template-functions/area_name/) to build the name from its parts. Parts without a value, such as the entity name of the main entity of a device, are left out. For example, this sends `Hallway Front door sensor is on`.
+Send a {% term notification %} with a readable name of a {% term sensor %} instead of its entity ID. Combine `entity_name` with [`device_name`](/template-functions/device_name/) and [`area_name`](/template-functions/area_name/) to build the name from its parts. Parts without a value, such as the entity name of the main entity of a device, are left out. 
+
+For example, this action sends `Hallway Front door sensor is on`:
 
 {% example %}
 action: |
