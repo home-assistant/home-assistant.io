@@ -66,6 +66,20 @@ Each plant with a sensor attached provides the following entities.
 - **Battery**
   - **Description**: Sensor battery level.
   - **Remarks**: Diagnostic entity.
+- **Last reported**
+  - **Description**: When the sensor last sent readings.
+  - **Remarks**: Diagnostic entity, disabled by default.
+
+### Binary sensors
+
+- **Connectivity**
+  - **Description**: Whether the sensor is reporting. Off when SmartyPlants has it as offline, and also when its last readings are more than three hours old.
+  - **Remarks**: Diagnostic entity.
+- **Readings outdated**
+  - **Description**: On when the sensor has not reported for more than three hours. The sensors report hourly, so three missed reports mean the readings no longer describe the plant.
+  - **Remarks**: Diagnostic entity.
+- **Needs attention**
+  - **Description**: On when SmartyPlants has flagged the plant as needing attention.
 
 ## SmartyPlants automation examples
 
@@ -107,11 +121,11 @@ automation: |
 
 ### Automation: Tell me when a sensor stops reporting
 
-A sensor that goes offline stops reporting, and its entities become unavailable. A flat battery is the usual reason.
+**Connectivity** turns off when a sensor stops reporting, which is more direct than watching a reading become unavailable. A flat battery is the usual reason.
 
 - **Trigger**: State changed
-  - **Entity**: Monstera Soil moisture
-  - **To**: Unavailable
+  - **Entity**: Monstera Connectivity
+  - **To**: Disconnected
   - **For at least**: 30 minutes
 - **Action**: Create persistent notification
 
@@ -122,8 +136,8 @@ automation: |
   alias: "SmartyPlants sensor stopped reporting"
   triggers:
     - trigger: state
-      entity_id: sensor.monstera_soil_moisture
-      to: "unavailable"
+      entity_id: binary_sensor.monstera_connectivity
+      to: "off"
       for:
         minutes: 30
   actions:
@@ -177,7 +191,7 @@ automation: |
 
 The integration {% term polling polls %} SmartyPlants every minute. If a webhook is configured, readings are also pushed as they arrive, and the poll acts as a fallback.
 
-A sensor that the SmartyPlants cloud reports as offline has its entities marked unavailable, rather than continuing to show readings that no longer describe the plant.
+A sensor that the SmartyPlants cloud reports as offline has its reading entities marked unavailable, rather than continuing to show values that no longer describe the plant. **Connectivity**, **Readings outdated**, and **Last reported** stay available, so you can still see what the sensor itself is doing.
 
 ## Known limitations
 
