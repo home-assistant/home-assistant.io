@@ -979,14 +979,14 @@ type: power-sankey
 layout: horizontal
 ```
 
-## Power sources graph
+## Power profile graph
 
 <p class='img'>
-  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Sankey sources graph card'>
-  Screenshot of the power Sankey graph card.
+  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Power profile graph card'>
+  Screenshot of the Power profile graph card.
 </p>
 
-The power sources graph shows historical power data.
+The power profile graph shows historical power data.
 
 ### YAML configuration
 
