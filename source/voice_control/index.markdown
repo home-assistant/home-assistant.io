@@ -55,7 +55,7 @@ If you turn on **Prefer handling commands locally** in the assistant, the built-
 
 A voice satellite is a device with a microphone that you use to talk to Assist. For example, [Home Assistant Voice Preview Edition](/voice-pe/) is a voice satellite. Other examples are analog phones and devices that you build yourself with ESPHome. For more options, refer to [Expand and experiment](#expand-and-experiment). Many voice satellites start listening when you say a [wake word](/voice_control/about_wake_word/), such as "Okay Nabu".
 
-Unlike a browser or the {% term "Home Assistant Companion app" %}, a voice satellite isn't signed in to a user account. So its [assistant](#assistants) can't use {% term "AI tools" %} that only work for administrators. For example, it can turn on a light, but it can't read your logs. If the conversation agent of that assistant also has the **Home Assistant** set of AI tools selected, every request from the voice satellite fails. In that case, the voice satellite can't turn on a light either.
+Unlike a browser or the {% term "Home Assistant Companion app" %}, a voice satellite isn't signed in to a user account. So its [assistant](#assistants) can't use {% term "AI tools" %} that [only work for administrators](/integrations/llm/#sets-of-ai-tools). For example, it can turn on a light, but it can't read your logs. If the conversation agent of that assistant also has the **Home Assistant** set of AI tools selected, every request from the voice satellite fails. In that case, the voice satellite can't turn on a light either.
 
 ## Expand and experiment
 
