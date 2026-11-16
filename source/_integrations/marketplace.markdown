@@ -78,6 +78,8 @@ The Marketplace opens to the catalog. To find a project:
 
 Select a repository to open its page. It shows the project description, available version, author, and links to the source code and issue tracker. Use this information to decide whether you trust the project.
 
+The page also shows the README of the repository. If the repository has a README in the language of Home Assistant next to `README.md`, such as `README.de.md` or `README.pt-BR.md`, the page shows that one instead.
+
 Repositories that recently joined the catalog are marked as new. To clear that mark for all of them, select the three dots {% icon "mdi:dots-vertical" %} menu in the upper-right corner, then select **Dismiss new repositories**.
 
 ## Installing a repository
