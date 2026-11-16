@@ -41,7 +41,7 @@ The **Tractive** integration provides the following entities for each pet regist
   - **Description**: Time your pet has been active today.
 - **Bark status**
   - **Description**: Status of your pet's barking compared to its usual level, as shown in the Tractive app.
-  - **Options**: Calculating baseline, Normal, Not enough data today, Not synced yet
+  - **Options**: Normal
 - **Battery**
   - **Description**: Battery level of the tracker.
 - **Daily goal**
@@ -54,13 +54,13 @@ The **Tractive** integration provides the following entities for each pet regist
   - **Description**: Time your pet has been resting today.
 - **Resting heart rate status**
   - **Description**: Status of your pet's resting heart rate compared to its baseline, as shown in the Tractive app.
-  - **Options**: Calculating baseline, Elevated, Normal, Not enough data today, Not synced yet
+  - **Options**: Elevated, Normal
 - **Resting respiratory rate status**
   - **Description**: Status of your pet's resting respiratory rate compared to its baseline, as shown in the Tractive app.
-  - **Options**: Calculating baseline, Elevated, Normal, Not enough data today, Not synced yet
+  - **Options**: Elevated, Normal
 - **Scratch status**
   - **Description**: Status of your pet's scratching compared to its usual level, as shown in the Tractive app.
-  - **Options**: Infrequent, Normal, Not enough data today, Not synced yet
+  - **Options**: Infrequent, Normal
 - **Status**
   - **Description**: Current status of the tracker.
   - **Options**: Inaccurate position, Not reporting, Operational, System shutdown user, System startup
@@ -71,6 +71,7 @@ The **Tractive** integration provides the following entities for each pet regist
 {% note %}
 The **Activity time**, **Bark status**, **Daily goal**, **Day sleep**, **Night sleep**, **Rest time**, **Resting heart rate status**, **Resting respiratory rate status**, and **Scratch status** sensors are only created for pets whose tracker provides health data. Trackers without health features and trackers with an inactive subscription do not provide this data.
 Until the tracker has uploaded enough of the day's data, a health status sensor can show the status of the previous day.
+The state of a health status sensor is `unknown` while Tractive is calculating the baseline for your pet, before the tracker has synced its data, and on days without enough data.
 {% endnote %}
 
 ### Switches
