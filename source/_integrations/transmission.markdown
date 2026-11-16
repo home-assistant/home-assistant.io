@@ -1,24 +1,7 @@
 ---
-title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
-ha_category:
-  - Downloading
-  - Sensor
-  - Switch
 ha_release: 0.87
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@engrbm87'
-  - '@JPHutchins'
-  - '@andrew-codechimp'
 ha_domain: transmission
-ha_platforms:
-  - event
-  - sensor
-  - switch
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Transmission** {% term integration %} allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
@@ -45,8 +28,8 @@ Username:
   description: "Your Transmission username, if set."
 Password:
   description: "Your Transmission password, if set."
-Verify SSL certificate:
-  description: "Enable SSL certificate verification when connecting via HTTPS."
+Uses an SSL certificate:
+  description: "Connect to the Transmission RPC interface using HTTPS."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -166,7 +149,7 @@ actions:
 
 ### Attribute `torrent_info`
 
-All `*_torrents` sensors, such as `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents`, have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my developer_states title="**Settings** > **Tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
+All `*_torrents` sensors, such as `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents`, have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my tools_states title="**Settings** > **Tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
 ```yaml
 content: >

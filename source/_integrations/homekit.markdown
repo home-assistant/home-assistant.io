@@ -1,19 +1,8 @@
 ---
-title: HomeKit Bridge
 description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 featured: true
-ha_category:
-  - Voice
 ha_release: 0.64
-ha_iot_class: Local Push
 ha_domain: homekit
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-ha_zeroconf: true
-ha_platforms:
-  - diagnostics
-ha_integration_type: integration
 ---
 
 The **HomeKit Bridge** {% term integration %} allows you to make your Home Assistant entities available in Apple HomeKit,
@@ -52,6 +41,7 @@ homekit:
         - binary_sensor.*_occupancy
       include_entities:
         - binary_sensor.living_room_motion
+        - valve.front_lawn
     entity_config:
       alarm_control_panel.home:
         code: 1234
@@ -73,6 +63,8 @@ homekit:
           - feature: toggle_mute
       switch.bedroom_outlet:
         type: outlet
+      valve.front_lawn:
+        type: sprinkler
       camera.back_porch:
         support_audio: true
       sensor.some_co_sensor:
@@ -195,11 +187,11 @@ homekit:
               required: false
               type: string
             linked_valve_duration:
-              description: The `entity_id` of an `input_number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. Minimum value, maximum value, and step size are set based on the linked `input_number` entity.
+              description: The `entity_id` of an `input_number` or `number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`) or a valve accessory. The state, minimum value, maximum value, and step size of the entity configured for `linked_valve_duration` must be expressed in seconds.
               required: false
               type: string
             linked_valve_end_time:
-              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. The end time has to be maintained in Home Assistant. HomeKit will not update the state of this sensor. The maximum value is set based on the `input_number` of `linked_valve_duration`, or uses a default of 48 hours.
+              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`) or a valve accessory. The end time must be maintained in Home Assistant. HomeKit will not update the state of this sensor. The maximum value is set based on the entity configured for `linked_valve_duration`, or uses a default of 48 hours.
               required: false
               type: string
             low_battery_threshold:
@@ -222,10 +214,10 @@ homekit:
                   required: true
                   type: string
             type:
-              description: Only for `switch`, `fan`, and `climate` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`. Valid types for `climate` entities are `heater_cooler` and `thermostat`. For `climate` entities, the type is chosen automatically when you leave this unset.
+              description: Only for `switch`, `fan`, `climate`, and `valve` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch`, and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`. Valid types for `climate` entities are `heater_cooler` and `thermostat`. Valid types for `valve` entities are `faucet`, `shower`, `sprinkler`, and `valve`. For `climate` entities, the type is chosen automatically when you leave this unset.
               required: false
               type: string
-              default: "`switch` for `switch` entities, `fan` for `fan` entities, and chosen automatically for `climate` entities"
+              default: "`switch` for `switch` entities, `fan` for `fan` entities, chosen automatically for `climate` entities, and `valve` for `valve` entities"
             stream_count:
               description: Only for `camera` entities. The number of simultaneous streams the camera can support.
               required: false
@@ -403,7 +395,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, all entities except hidden entities and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
+By default, all entities except [hidden entities](/docs/configuration/customizing-entities/#hidden-entities) and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -472,14 +464,14 @@ The following integrations are currently supported:
 | media_player                                                  | ReceiverMediaPlayer    | All media players that have `receiver` as their `device_class`.  Represented as Receiver and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later.                                                                                                                                   |
 | sensor                                                        | TemperatureSensor      | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`.                                                                                                                                                                                                                                                                                                                                 |
 | sensor                                                        | HumiditySensor         | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`.                                                                                                                                                                                                                                                                                                                                             |
-| sensor                                                        | AirQualitySensor       | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization).                                                                                                                                                                   |
+| sensor                                                        | AirQualitySensor       | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`ozone`/`sulphur_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization).                                                                                                                                         |
 | sensor                                                        | CarbonMonoxideSensor   | All sensors that have `carbon_monoxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                                                           |
 | sensor                                                        | CarbonDioxideSensor    | All sensors that have `co2` as part of their `entity_id` or `carbon_dioxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                    |
 | sensor                                                        | LightSensor            | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class`                                                                                                                                                                                                                                                                                                                                   |
 | switch                                                        | Switch                 | Represented as a switch by default but can be changed by using `type` within `entity_config`. Valve switches (type `faucet`, `shower`, `sprinkler`, or `valve`) can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                                                                                                |
 | water_heater                                                  | WaterHeater            | All `water_heater` devices.                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | device_automation                                             | DeviceTriggerAccessory | All devices that support triggers.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| valve                                                         | Valve                  | All `valve` devices can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| valve                                                         | Valve                  | Represented as a generic valve by default but can be changed by using `type` within `entity_config`. Valve entities (type `faucet`, `shower`, `sprinkler`, or `valve`) can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                             |
 
 # Device triggers
 
@@ -505,11 +497,13 @@ automation:
       event_data:
         key_name: arrow_right
 
-  # Send the arrow right key via a broadlink IR blaster
+  # Send the arrow right key via a Broadlink IR blaster
   actions:
-    - action: broadlink.send
-      host: 192.168.1.55
-      packet: XXXXXXXX
+    - action: remote.send_command
+      target:
+        entity_id: remote.living_room_ir_blaster
+      data:
+        command: b64:YOUR_IR_CODE
 ```
 
 ## Events
@@ -734,3 +728,13 @@ HomeKit provides five values to represent air quality: Excellent, Good, Fair, In
 | Fair      | Unhealthy for Sensitive Groups (101-150) | 35.5 to 55.4  |
 | Inferior  | Unhealthy (151-200)                      | 55.5 to 125.4 |
 | Poor      | Very Unhealthy (201+)                    | 125.5+        |
+
+Ozone and sulphur dioxide sensor entities are mapped using the US AQI breakpoints for 8-hour ozone and 1-hour sulphur dioxide. The value is converted to ppb first. Ozone sensors can report in `ppb`, `ppm`, or `µg/m³`. Sulphur dioxide sensors can report in `ppb` or `µg/m³`. Sensors without a unit, or with a unit not listed here, are assumed to report in `µg/m³`. The mapping is as follows:
+
+| HomeKit   | US AQI                                   | Ozone ppb | Sulphur dioxide ppb |
+|-----------|------------------------------------------|-----------|---------------------|
+| Excellent | Good (0-50)                              | 0 to 54   | 0 to 35             |
+| Good      | Moderate (51-100)                        | 55 to 70  | 36 to 75            |
+| Fair      | Unhealthy for Sensitive Groups (101-150) | 71 to 85  | 76 to 185           |
+| Inferior  | Unhealthy (151-200)                      | 86 to 105 | 186 to 304          |
+| Poor      | Very Unhealthy (201+)                    | 106+      | 305+                |

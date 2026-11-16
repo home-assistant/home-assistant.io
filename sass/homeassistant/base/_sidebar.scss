@@ -69,3 +69,93 @@
     }
   }
 }
+
+// The categories of an integration: each category with its subcategories
+// indented underneath, joined by a line like a tree.
+#category-module {
+  .integration-categories-intro {
+    margin: 0 0 8px;
+    color: $gray;
+    font-size: 0.85rem;
+  }
+
+  .integration-categories,
+  .integration-subcategories {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .integration-categories > li + li {
+    margin-top: 6px;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 0;
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover span {
+      text-decoration: underline;
+    }
+  }
+
+  iconify-icon {
+    flex: none;
+    font-size: 20px;
+    color: $blueDark;
+  }
+
+  // The tree line starts under the middle of the category icon.
+  .integration-subcategories {
+    margin-left: 9px;
+
+    li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.9rem;
+
+      // From the line above to this subcategory, with a rounded corner.
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 12px;
+        height: 50%;
+        border-left: 2px solid #c3cbd5;
+        border-bottom: 2px solid #c3cbd5;
+        border-bottom-left-radius: 6px;
+      }
+
+      // Down to the next subcategory, if there is one.
+      &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        left: 0;
+        border-left: 2px solid #c3cbd5;
+      }
+    }
+
+    iconify-icon {
+      font-size: 18px;
+      color: $gray;
+    }
+  }
+}
+
+// The integration sidebar indents every list; this one draws its own tree.
+#integration-sidebar #category-module {
+  .integration-categories {
+    margin-left: 0;
+  }
+
+  .integration-subcategories {
+    margin-left: 9px;
+  }
+}

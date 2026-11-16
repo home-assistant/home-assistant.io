@@ -1,17 +1,7 @@
 ---
-title: Times of the Day
 description: Instructions on how to integrate Times of the Day binary sensors within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Helper
 ha_release: 0.89
-ha_iot_class: Calculated
-ha_quality_scale: internal
-ha_config_flow: true
 ha_domain: tod
-ha_platforms:
-  - binary_sensor
-ha_integration_type: helper
 ---
 
 The **Times of the Day** {% term integration %} provides a binary sensor that gets its values by checking if the current time is within defined time ranges.

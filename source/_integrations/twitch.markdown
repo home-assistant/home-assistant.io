@@ -1,17 +1,7 @@
 ---
-title: Twitch
 description: Instructions on how to integrate Twitch sensors into Home Assistant.
-ha_category:
-  - Social
 ha_release: '0.10'
-ha_iot_class: Cloud Polling
 ha_domain: twitch
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@joostlek'
-ha_config_flow: true
 ---
 
 The **Twitch** {% term integration %} allows you to monitor [Twitch](https://www.twitch.tv/) channel status from within Home Assistant and set up automation based on the information.

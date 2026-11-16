@@ -1,5 +1,5 @@
 ---
-title: "Profiler: Start log objects"
+title: "Start logging objects"
 action: profiler.start_log_objects
 domain: profiler
 description: "Starts logging the growth of objects in memory."
@@ -9,7 +9,7 @@ related_actions:
   - profiler.dump_log_objects
 ---
 
-Use this action to start logging the growth of objects in memory. Its primary use case is finding memory leaks. You can run it for long periods to find slow leaks. For finding fast leaks, [Profiler: Start log object sources](/actions/profiler.start_log_object_sources/) is preferred, although it is much more CPU intensive.
+Use this action to start logging the growth of objects in memory. Its primary use case is finding memory leaks. You can run it for long periods to find slow leaks. For finding fast leaks, [Start logging object sources](/actions/profiler.start_log_object_sources/) is preferred, although it is much more CPU intensive.
 
 This action requires an administrator account.
 
@@ -21,7 +21,7 @@ To start logging objects from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Profiler: Start log objects**.
+5. Search for and select **Profiler: Start logging objects**.
 6. Optionally, set the **Scan interval**.
 7. Select **Save**.
 

@@ -33,6 +33,6 @@ You can also participate in public datasets. Commonvoice and Librivox are used b
 ### Become an active contributor
 
 There are also a couple ways to actively contribute to the development of the voice initiative:
-- [Contribute sentence intents in your language](https://developers.home-assistant.io/docs/voice/intent-recognition/contributing/)
-- [Become a language leader](https://developers.home-assistant.io/docs/voice/language-leaders)
+- [Contribute sentence intents in your language](https://contributors.home-assistant.io/translate/voice/contributing/)
+- [Become a language leader](https://contributors.home-assistant.io/translate/voice/language-leaders/)
 - [Contribute code to Assist](https://github.com/home-assistant/core/tree/dev/homeassistant/components/assist_pipeline)

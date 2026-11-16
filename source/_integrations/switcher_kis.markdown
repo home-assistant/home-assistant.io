@@ -1,28 +1,7 @@
 ---
-title: Switcher
 description: Integrate Switcher devices.
-ha_category:
-  - Climate
-  - Cover
-  - Sensor
-  - Switch
 ha_release: 0.93
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@thecode'
-  - '@YogevBokobza'
 ha_domain: switcher_kis
-ha_platforms:
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - light
-  - sensor
-  - switch
-ha_config_flow: true
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Switcher** {% term integration %} allows you to control your [Switcher Devices](https://www.switcher.co.il/).

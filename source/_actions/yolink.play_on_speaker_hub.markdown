@@ -5,7 +5,7 @@ domain: yolink
 description: "Converts text to speech for playback on a YoLink SpeakerHub."
 ---
 
-The **Play on SpeakerHub** action converts a text message to speech and plays it on a YoLink SpeakerHub. You can optionally play a tone first, set the volume for this message, and repeat the message.
+The **YoLink: Play on SpeakerHub** action converts a text message to speech and plays it on a YoLink SpeakerHub. You can optionally play a tone first, set the volume for this message, and repeat the message.
 
 {% include actions/ui_header.md %}
 
@@ -97,11 +97,14 @@ repeat:
 
 This automation plays a spoken alert on your YoLink SpeakerHub when the front door stays open for more than two minutes.
 
-- **Trigger**: the front door sensor stays open for 2 minutes
-- **Action**: play a message on the SpeakerHub
-  - **SpeakerHub device**: your SpeakerHub
-  - **Text message**: "The front door is open"
-  - **Tone**: `alert`
+- **Trigger**: State changed
+  - **Entity**: Front door sensor
+  - **To**: Open
+  - **For at least**: `00:02:00`
+- **Action**: YoLink: Play on SpeakerHub
+  - **SpeakerHub device**: Your SpeakerHub
+  - **Text message**: `The front door is open`
+  - **Tone**: Alert
 
 {% details "YAML example for announcing an open door" %}
 

@@ -1,22 +1,7 @@
 ---
-title: Ping (ICMP)
 description: Instructions on how to use ICMP ping checks in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Network
-  - Presence detection
 ha_release: 0.43
-ha_iot_class: Local Polling
-ha_quality_scale: internal
 ha_domain: ping
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - sensor
-ha_integration_type: service
-ha_config_flow: true
-ha_codeowners:
-  - '@jpbede'
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -86,7 +71,7 @@ The integration exposes the different round trip times milliseconds as entities:
 - `Jitter` - the variation in round trip times
 - `Packet loss` - the percentage of missed ICMP replies
 
-**These entities are disabled by default and can be enabled in the UI if needed.**
+**These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and can be enabled in the UI if needed.**
 
 ## Presence detection
 

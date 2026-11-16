@@ -7,7 +7,7 @@ related_actions:
   - rainmachine.push_weather_data
 ---
 
-The **Push flow meter data** action sends a flow meter reading from Home Assistant to a RainMachine controller. This lets you feed the controller flow data from a meter that Home Assistant can read but RainMachine cannot reach directly.
+The **RainMachine: Push flow meter data** action sends a flow meter reading from Home Assistant to a RainMachine controller. This lets you feed the controller flow data from a meter that Home Assistant can read but RainMachine cannot reach directly.
 
 {% include actions/ui_header.md %}
 

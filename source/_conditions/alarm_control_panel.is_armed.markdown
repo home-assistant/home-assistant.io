@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently armed in any mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -58,9 +56,9 @@ behavior:
   default: any
 for:
   description: >
-    Duration the alarm must have been armed before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the alarm must have been armed before the condition passes. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -71,7 +69,7 @@ for:
 ## Good to know
 
 - This condition matches any arming mode, including away, home, night, vacation, and custom bypass. If you need to check a specific mode, use the dedicated condition for that mode, such as [Alarm is armed away](/conditions/alarm_control_panel.is_armed_away/) or [Alarm is armed home](/conditions/alarm_control_panel.is_armed_home/).
-- Alarm panels that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as armed. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted alarm is unavailable.
+{% include conditions/unavailable_targets.md entities="alarm panels" %}
 - To check the opposite state, use [Alarm is disarmed](/conditions/alarm_control_panel.is_disarmed/).
 
 {% include conditions/try_it.md %}
@@ -86,7 +84,8 @@ At midnight, power off standby appliances like the TV and coffee maker, but only
 - **Condition**: Alarm is armed
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
-- **Action**: Switch: Turn off (TV, coffee maker)
+- **Action**: Turn off switch
+  - **Target**: TV plug, Coffee maker
 
 {% details "YAML example for turning off appliances when armed at midnight" %}
 

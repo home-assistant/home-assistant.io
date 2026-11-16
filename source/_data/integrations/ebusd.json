@@ -1,0 +1,16 @@
+{
+  "domain": "ebusd",
+  "name": "ebusd",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.thermostats_heating",
+    "diy_makers.boards_hardware"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -8,7 +8,7 @@ related_actions:
   - ecobee.resume_program
 ---
 
-The **Delete vacation** action deletes a vacation on the selected ecobee thermostat.
+The **ecobee: Delete vacation** action deletes a vacation on the selected ecobee thermostat.
 
 This is handy when you return home earlier than planned and want to cancel a vacation you created earlier.
 

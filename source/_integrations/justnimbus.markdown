@@ -1,17 +1,7 @@
 ---
-title: JustNimbus
 description: Instructions on how to configure the JustNimbus integration within Home Assistant
-ha_category:
-  - Environment
 ha_release: 2022.9
-ha_iot_class: Cloud Polling
 ha_domain: justnimbus
-ha_platforms:
-  - sensor
-ha_config_flow: true
-ha_integration_type: device
-ha_codeowners:
-  - '@kvanzuijlen'
 ---
 
 The **JustNimbus** {% term integration %} queries the JustNimbus API used by the JustNimbus web dashboard.

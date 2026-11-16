@@ -57,7 +57,7 @@ This action has no additional YAML options beyond the target.
 
 Turn off a siren once it has been on for a set time.
 
-- **Trigger**: State: Siren has been on for 5 minutes
+- **Trigger**: State changed: Siren has been on for 5 minutes
 - **Action**: Turn off siren
   - **Target**: Patio siren
 

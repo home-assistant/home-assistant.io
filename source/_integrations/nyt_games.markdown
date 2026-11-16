@@ -1,18 +1,7 @@
 ---
-title: NYT Games
 description: Instructions on how to set up NYT Games in Home Assistant.
-ha_category:
-  - Gaming
-  - Sensor
-ha_config_flow: true
 ha_release: '2024.10'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@joostlek'
 ha_domain: nyt_games
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 The [NYT Games](https://www.nytimes.com/crosswords) {% term integration %} fetches data about your progress on their daily puzzles.

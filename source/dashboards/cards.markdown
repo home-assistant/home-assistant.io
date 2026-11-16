@@ -30,7 +30,7 @@ There are several different card types, each with their own configuration option
 - **Logic function**: [conditional](/dashboards/conditional/), [entity filter](/dashboards/entity-filter/)
 - **Display generic data**: [sensor](/dashboards/sensor/), [history graph](/dashboards/history-graph/), [statistic](/dashboards/statistic/), [statistics graph](/dashboards/statistics-graph/), [energy](/dashboards/energy/), [gauge](/dashboards/gauge/), [clock](/dashboards/clock/), [Markdown](/dashboards/markdown/), [webpage](/dashboards/iframe/)
 - **Control devices and entities**: [button](/dashboards/button/), [entity](/dashboards/entity/), [shortcut](/dashboards/shortcut/)
-- **Display data and control entities**: [tile](/dashboards/tile/), [heading](/dashboards/heading/), [entities](/dashboards/entities/), [glance](/dashboards/glance/), [area](/dashboards/area/), [picture](/dashboards/picture/), [picture entity](/dashboards/picture-entity/), [picture elements](/dashboards/picture-elements/), [picture glance](/dashboards/picture-glance/)
+- **Display data and control entities**: [tile](/dashboards/tile/), [alert](/dashboards/alert/), [heading](/dashboards/heading/), [entities](/dashboards/entities/), [glance](/dashboards/glance/), [area](/dashboards/area/), [picture](/dashboards/picture/), [picture entity](/dashboards/picture-entity/), [picture elements](/dashboards/picture-elements/), [picture glance](/dashboards/picture-glance/)
 
 ## Adding cards to your dashboard
 
@@ -99,38 +99,45 @@ This method is useful if you are on the **Device** page and want to create a car
 
 ## Showing or hiding a card or badge conditionally
 
-You can choose to show or hide certain cards or [badges](/dashboards/badges/) based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as the ones for the conditional card.
+You can choose to show or hide certain cards or [badges](/dashboards/badges/) based on different conditions. You can use conditions about the person viewing the dashboard and their device, such as **User**, **Screen**, **Location**, and **Time**. You can also use the same conditions as in automations, such as **Entity state**, **Template**, **Sun**, **Zone**, and **Device**. The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
 
 1. On the **Visibility** tab, select **Add condition**.
    - Troubleshooting: Don't see a **Visibility** tab?
      - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
 2. Select the type of condition, and enter the parameters.
-   - The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
    - If you define multiple conditions, the card or badge is only shown when all conditions are met.
    - If you did not define any conditions, the card or badge is always shown to all users.
-3. Select **Save**.
+3. To change the order of the conditions, drag a condition by its handle {% icon "mdi:drag-horizontal-variant" %}.
+4. Check the result before you save.
+   - At the top of the tab, **Current visibility** shows whether the card or badge would be shown right now.
+   - Each condition shows whether it passes right now, for example **Condition passes** or **Condition did not pass**.
+5. Select **Save**.
 
 ## Resizing a card
 
-In [sections view](/dashboards/sections/), you can resize cards. Follow these steps:
+In [sections view](/dashboards/sections/), you can resize cards. Each card has a recommended size, which it keeps until you change it. Follow these steps:
 
-1. On the **Layout** tab, use the grid size picker to adjust the number of columns and rows the card occupies.
+1. On the **Layout** tab, turn off **Use recommended size**. Below the switch, you can see the recommended size of the card, for example **6 columns × 2 rows**.
+
    ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
+
    - Troubleshooting: Don't see a **Layout** tab?
      - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
      - It is not available on the picture elements card.
-2. To make the card span the full width of the section, regardless of section size, enable **Full width card**.
-3. If you want a finer grid to size your card, enable **Precise mode**. The last row was done using precise mode.
-   ![Screenshot of a section using precise mode for some cards](/images/dashboards/precise-mode-example.png)
-4. Select **Save**.
+2. Use the grid size picker to adjust the number of columns and rows the card occupies.
+3. If you want to set the width with more precision, select **Enter precise mode** ({% icon "mdi:grid-large" %}) in the upper-left corner of the grid. To leave precise mode, select the button again. In the example below, all cards were resized using precise mode.
+
+   ![Screenshot of a section with cards resized using precise mode](/images/dashboards/precise-mode-example.png)
+
+4. To make the card as tall as its content, enable **Fit height to content**.
+5. To make the card always fill the section, whatever its width, enable **Full width**.
+6. Select **Save**.
 
 ## Revert resizing of a card
 
-If you previously [resized](#resizing-a-card) a card in the [sections view](/dashboards/sections/), and you don't like the new size, you can revert back to the card's default size. Follow these steps:
+If you previously [resized](#resizing-a-card) a card in the [sections view](/dashboards/sections/), and you don't like the new size, you can go back to the recommended size of the card. Follow these steps:
 
-1. On the **Layout** tab, select the {% icon "mdi:restore" %} icon.
-    ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
-
+1. On the **Layout** tab, turn on **Use recommended size**.
 2. Select **Save**.
 
 ## Card actions, features, header and footer widgets

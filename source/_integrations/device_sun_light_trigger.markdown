@@ -1,15 +1,7 @@
 ---
-title: Presence-based lights
 description: Instructions on how to automate your lights with Home Assistant.
-ha_category:
-  - Automation
-  - Light
-  - Presence detection
-ha_iot_class: Calculated
 ha_release: pre 0.7
-ha_quality_scale: internal
 ha_domain: device_sun_light_trigger
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file

@@ -1,18 +1,10 @@
 ---
-title: MaryTTS
 description: Instructions on how to set up MaryTTS with Home Assistant.
-ha_category:
-  - Text-to-speech
-ha_iot_class: Local Push
 ha_release: 0.43
 ha_domain: marytts
-ha_platforms:
-  - tts
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **MaryTTS** {% term integration %} uses [MaryTTS](https://marytts.github.io/) text-to-speech engine to read a text with natural sounding voices.

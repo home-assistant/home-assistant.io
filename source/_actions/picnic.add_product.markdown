@@ -2,10 +2,10 @@
 title: "Add a product to the cart"
 action: picnic.add_product
 domain: picnic
-description: "Adds a product to your Picnic shopping cart by product ID or by searching for a product name."
+description: "Adds a product to your Picnic shopping cart by product ID, product name, or GTIN barcode."
 ---
 
-Use this action to add a product to your Picnic shopping cart. You can add a product either by its product ID or by a product name. When you add a product by name, Picnic searches for it and adds the first result to your cart.
+Use this action to add a product to your Picnic shopping cart. You can add a product by its product ID, product name, or <abbr title="Global Trade Item Number">GTIN</abbr> barcode. When you add a product by name, Picnic searches for it and adds the first result to your cart.
 
 This is handy for automations, for example, to top up your cart with a staple like milk or coffee on a schedule, so it is ready the next time you place an order.
 
@@ -18,7 +18,7 @@ To add a product to your cart from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Picnic: Add a product to the cart**.
-6. Select the **Picnic service** to add the product to, then provide a product ID or a product name.
+6. Select the **Picnic service** to add the product to, then provide a **Product ID**, **Product name**, or **GTIN (EAN)**.
 7. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -34,6 +34,9 @@ Product ID:
   required: false
 Product name:
   description: The product name to search for. The first search result is added to the cart.
+  required: false
+GTIN (EAN):
+  description: The product barcode. Picnic must recognize the code.
   required: false
 Amount:
   description: The amount to add of the selected product.
@@ -73,6 +76,10 @@ product_name:
     the cart.
   required: false
   type: string
+gtin:
+  description: The product barcode. Picnic must recognize the code.
+  required: false
+  type: string
 amount:
   description: >
     The amount to add of the selected product.
@@ -83,9 +90,12 @@ amount:
 
 ## Good to know
 
-- Provide either a product ID or a product name, not both. The two are mutually exclusive.
+- Provide exactly one of `product_id`, `product_name`, or `gtin`. These fields are mutually exclusive.
+- GTINs must contain 8, 12, 13, or 14 digits and have a valid check digit.
+- In YAML, enclose GTINs in quotes to preserve leading zeros, for example `gtin: "01234565"`.
+- A valid GTIN only works if Picnic can match it to a product.
 - When you add a product by name, the first search result is added to your cart.
-- The action fails when no matching product can be found, or when neither a product ID nor a product name is provided.
+- The action fails when no matching product can be found, or when no product ID, product name, or GTIN is provided.
 
 {% include actions/try_it.md %}
 
@@ -95,7 +105,10 @@ amount:
 
 Add a bag of coffee to your Picnic cart at the start of each week, so it is ready for your next order.
 
-- **Trigger**: Every Monday at 09:00
+- **Trigger**: Time
+  - **At time**: `09:00`
+- **Condition**: Time
+  - **Days of the week**: Monday
 - **Action**: Picnic: Add a product to the cart
 
 {% details "YAML example for adding coffee every Monday" %}

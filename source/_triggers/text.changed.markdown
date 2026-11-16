@@ -31,7 +31,7 @@ trigger: |
 
 This fires whenever the value of `input_text.shopping_note` changes.
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="text entity or text helper" example="text.welcome_message" %}
 
 ## Good to know
 

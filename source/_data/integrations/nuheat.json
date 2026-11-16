@@ -1,0 +1,22 @@
+{
+  "domain": "nuheat",
+  "name": "NuHeat",
+  "integration_type": "device",
+  "codeowners": [
+    "@tstabrawa"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "climate"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

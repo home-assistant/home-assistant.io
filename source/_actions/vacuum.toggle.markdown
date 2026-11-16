@@ -1,5 +1,5 @@
 ---
-title: Toggle vacuum power
+title: "Toggle vacuum cleaner"
 action: vacuum.toggle
 domain: vacuum
 description: "Toggles a vacuum cleaner on or off."
@@ -34,8 +34,6 @@ The `entity_id` target is optional. If omitted, all targeted supported vacuums t
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum, area, or device to toggle.
@@ -57,9 +55,10 @@ target:
 
 If you want a quick manual control, this automation toggles the vacuum power whenever a helper button is pressed.
 
-- **Trigger**: Helper button pressed
-- **Action**: Toggle vacuum power
-- **Target**: Downstairs vacuum
+- **Trigger**: State changed
+  - **Entity**: Toggle vacuum power helper
+- **Action**: Toggle vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for toggling vacuum power" %}
 

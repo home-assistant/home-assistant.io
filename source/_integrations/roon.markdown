@@ -1,18 +1,7 @@
 ---
-title: RoonLabs music player
 description: Instructions on how to integrate a RoonLabs multi room player into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 0.115
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@pavoni'
 ha_domain: roon
-ha_platforms:
-  - event
-  - media_player
-ha_integration_type: hub
 ---
 
 The **Roon** {% term integration %} allows you to control [RoonLabs](https://roonlabs.com/) music players from Home Assistant.

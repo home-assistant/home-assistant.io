@@ -58,7 +58,9 @@ This action has no additional YAML options beyond the target.
 
 Pause a media player when something needs your attention, for example when the doorbell rings.
 
-- **Trigger**: Doorbell pressed
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
 - **Action**: Pause media
   - **Target**: Living room speaker
 

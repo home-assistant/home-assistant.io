@@ -10,7 +10,7 @@ related_actions:
   - adguard.refresh
 ---
 
-The **Disable URL** action switches off a filter subscription without removing it. AdGuard Home keeps the list, but stops blocking the domains on it until you switch it back on.
+The **AdGuard Home: Disable URL** action switches off a filter subscription without removing it. AdGuard Home keeps the list, but stops blocking the domains on it until you switch it back on.
 
 Use this when you want to relax filtering for a while, then return to it later. Because the subscription stays in place, you can turn it back on at any time with [Enable URL](/actions/adguard.enable_url/), which makes the two a natural pair for scheduled blocking.
 

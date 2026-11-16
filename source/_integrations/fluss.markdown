@@ -1,21 +1,7 @@
 ---
-title: Fluss+
 description: Instructions on how to integrate Fluss+ devices within Home Assistant.
-ha_category:
-  - Button
-  - Cover
 ha_release: 2026.1
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fluss'
-  - '@Marcello17'
 ha_domain: fluss
-ha_config_flow: true
-ha_platforms:
-  - button
-  - cover
-ha_integration_type: integration
-ha_quality_scale: bronze
 ---
 
 The **Fluss+** {% term integration %} allows you to control [Fluss+](https://fluss.io/) devices through Home Assistant. Fluss turns your phone into a remote key that can open your garage, your gate, your door or even the parking at your office - giving you complete control. The Home Assistant integration allows you to trigger Fluss+ devices via Wi-Fi to open or close a connected motor device.

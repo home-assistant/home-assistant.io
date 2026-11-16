@@ -71,7 +71,8 @@ message:
 
 Pair this with [Add doorbell text](/actions/unifiprotect.add_doorbell_text/) to show a message during the day and remove it in the evening.
 
-- **Trigger**: A scheduled time
+- **Trigger**: Time
+  - **At time**: `18:00`
 - **Action**: UniFi Protect: Remove doorbell text
 
 {% details "YAML example for removing a doorbell message on a schedule" %}

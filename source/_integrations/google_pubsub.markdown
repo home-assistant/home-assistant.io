@@ -1,16 +1,10 @@
 ---
-title: Google Pub/Sub
 description: Setup for Google Pub/Sub integration
-ha_category:
-  - History
 ha_release: 0.88
-ha_iot_class: Cloud Push
 ha_domain: google_pubsub
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Google Pub/Sub** {% term integration %} allows you to hook into the Home Assistant event bus and send events to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to sync about 1 event every 2 seconds on average (2 million invocations per month).

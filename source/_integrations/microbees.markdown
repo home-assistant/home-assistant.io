@@ -1,30 +1,7 @@
 ---
-title: microBees
 description: Instructions on how to integrate microBees devices into Home Assistant.
-ha_category:
-  - Button
-  - Climate
-  - Cover
-  - Cover
-  - Light
-  - Sensor
-  - Switch
-  - Switch
 ha_release: 2024.3
-ha_codeowners:
-  - '@microBeesTech'
-ha_config_flow: true
 ha_domain: microbees
-ha_iot_class: Cloud Polling
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - light
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **microBees** {% term integration %} allows you to control your [microBees devices](https://www.microbees.com/) such as plugs and wall switches.

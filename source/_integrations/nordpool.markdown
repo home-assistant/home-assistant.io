@@ -1,22 +1,7 @@
 ---
-title: Nord Pool
 description: Instructions on how to integrate with the Nord Pool Energy market prices.
-ha_category:
-  - Energy
-  - Finance
-  - Sensor
 ha_release: 2024.12
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@gjohansson-ST'
 ha_domain: nordpool
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **Nord Pool** {% term integration %} integrates [Nord Pool Group](https://www.nordpoolgroup.com/) energy prices into Home Assistant.
@@ -213,6 +198,6 @@ To use the Nordpool integration in the **Energy** dashboard, when configuring gr
   <img src='/images/integrations/nordpool/nordpool_energy_dashboard.png' alt='Screenshot: Create template sensor'>
 </p>
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

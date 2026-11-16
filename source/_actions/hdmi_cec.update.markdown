@@ -11,7 +11,7 @@ related_actions:
   - hdmi_cec.volume
 ---
 
-The **Update** action refreshes the state of your HDMI-CEC devices by polling the bus. Home Assistant asks each device for its current status, such as whether it is on or in standby, and updates the matching entities.
+The **HDMI-CEC: Update** action refreshes the state of your HDMI-CEC devices by polling the bus. Home Assistant asks each device for its current status, such as whether it is on or in standby, and updates the matching entities.
 
 Use it when you want to make sure the states in Home Assistant match what your devices are actually doing, for example right after powering things on or off outside of Home Assistant.
 

@@ -1,18 +1,7 @@
 ---
-title: Generic Camera
 description: Instructions on how to integrate IP cameras within Home Assistant.
-ha_category:
-  - Camera
 ha_release: pre 0.7
-ha_iot_class: Local Push
 ha_domain: generic
-ha_platforms:
-  - camera
-  - diagnostics
-ha_codeowners:
-  - '@davet2001'
-ha_config_flow: true
-ha_integration_type: device
 ---
 
 The **Generic Camera** {% term integration %} allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.

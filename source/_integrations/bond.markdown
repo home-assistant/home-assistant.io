@@ -1,32 +1,7 @@
 ---
-title: Bond
 description: Instructions on setting up Bond Bridge within Home Assistant.
-ha_category:
-  - Button
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Switch
-ha_iot_class: Local Push
 ha_release: 0.113
 ha_domain: bond
-ha_codeowners:
-  - '@bdraco'
-  - '@prystupa'
-  - '@joshs85'
-  - '@marciogranzotto'
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - button
-  - cover
-  - diagnostics
-  - fan
-  - light
-  - switch
-ha_integration_type: hub
-ha_dhcp: true
 ---
 
 The **Bond** {% term integration %} allows you to control appliances through your [Bond Bridge](https://bondhome.io/). Duplicates your RF remote control.

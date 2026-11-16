@@ -1,29 +1,7 @@
 ---
-title: Airzone
 description: Instructions on how to integrate Airzone within Home Assistant.
 ha_release: 2022.4
-ha_category:
-  - Binary sensor
-  - Climate
-  - Select
-  - Sensor
-  - Switch
-  - Water heater
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: airzone
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_codeowners:
-  - '@Noltari'
-ha_integration_type: hub
-ha_dhcp: true
 ---
 
 This {% term integration %} interacts with the Local API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).
@@ -42,6 +20,14 @@ Port:
 ID:
   description: "Airzone System ID (only needed if System ID 0 is not supported on your device)"
 {% endconfiguration_basic %}
+
+## MQTT updates
+
+Airzone supports optional MQTT updates on compatible Airzone WebServers. To enable them, configure the Airzone WebServer to connect to an MQTT broker and set up the [MQTT integration](/integrations/mqtt/) in Home Assistant to use the same broker.
+
+To configure MQTT updates for an existing Airzone integration, go to **Settings** > **Devices & services**, select **Airzone**, and open the integration's options. Enter the **MQTT topic prefix** configured on the Airzone WebServer.
+
+Leave the MQTT topic prefix empty to disable MQTT updates. The integration continues to poll the Airzone HTTP API even when MQTT is enabled, since the MQTT API only provides updates for a subset of devices and attributes.
 
 ## Binary sensors
 
@@ -82,6 +68,7 @@ For each Airzone zone (thermostat), the following *selects* are created:
 | :------------------ | :--------------------------------- |
 | Cold Angle          | Grille angle for cooling.          |
 | Heat Angle          | Grille angle for heating.          |
+| Heat Stage          | Heating stage used by the zone: air, radiant, or combined. Only created for zones that support more than one stage. |
 | Sleep               | Minutes for auto sleep.            |
 
 ## Sensors

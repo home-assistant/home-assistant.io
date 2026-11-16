@@ -1,26 +1,7 @@
 ---
-title: Rachio
 description: Instructions on how to use Rachio with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Calendar
-  - Irrigation
-  - Switch
-ha_iot_class: Cloud Push
 ha_release: 0.73
 ha_domain: rachio
-ha_codeowners:
-  - '@bdraco'
-  - '@rfverbruggen'
-ha_config_flow: true
-ha_homekit: true
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - switch
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **Rachio** {% term integration %} allows you to control your [Rachio irrigation system](https://rachio.com/).

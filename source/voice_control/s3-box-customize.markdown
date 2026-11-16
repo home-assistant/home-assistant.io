@@ -133,7 +133,7 @@ If your images have transparency, you can define the background color in the con
    - There's a [template](#to-draw-your-own-images) for it.
 2. Copy all 6 images into a folder. For example: `voice_assistant_gfx`.
 3. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
-   - [Install the Samba app](/common-tasks/os/#installing-and-using-the-samba-app).
+   - [Install the Samba app](/common-tasks/os/#installing-and-using-the-samba-share-app).
    - This allows you to copy multiple files at once.
 4. Copy your image folder into the configuration folder:
    - Open the `config` folder and open the `ESPHome` folder.

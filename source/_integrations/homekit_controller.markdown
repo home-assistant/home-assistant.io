@@ -1,48 +1,7 @@
 ---
-title: HomeKit Device
 description: Instructions for how to integrate your HomeKit devices within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Climate
-  - Cover
-  - Fan
-  - Health
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Number
-  - Sensor
-  - Switch
 ha_release: 0.68
-ha_iot_class: Local Push
-ha_bluetooth: true
-ha_config_flow: true
-ha_codeowners:
-  - '@Jc2k'
-  - '@bdraco'
 ha_domain: homekit_controller
-ha_zeroconf: true
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - lock
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The [HomeKit](https://developer.apple.com/apple-home/) Device {% term integration %} allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit Bridge](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
@@ -318,7 +277,7 @@ In these cases, the integration will skip polling to avoid a buildup of back pre
 
 ### I can't see any events generated for "stateless" accessories
 
-This is expected. The only way to use stateless accessories like some doorbells, buttons or remotes with Home Assistant is through device automations. Home Assistant doesn't create duplicate events for device automation triggers, so for example you won't be able to watch them in {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
+This is expected. The only way to use stateless accessories like some doorbells, buttons or remotes with Home Assistant is through device automations. Home Assistant doesn't create duplicate events for device automation triggers, so for example you won't be able to watch them in {% my tools_events title="**Settings** > **Tools** > **Events**" %}.
 
 ### Home Assistant can't see my Homebridge device(s)
 

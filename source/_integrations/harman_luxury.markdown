@@ -1,19 +1,7 @@
 ---
-title: Harman Luxury Audio
 description: Instructions on how to integrate Harman Luxury Audio streamers into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 2026.8
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@sbesh91'
 ha_domain: harman_luxury
-ha_platforms:
-  - media_player
-ha_integration_type: device
-ha_quality_scale: bronze
-ha_ssdp: true
 ---
 
 The **Harman Luxury Audio** {% term integration %} lets you control network streamers built on the Harman Luxury Audio (StreamUnlimited StreamSDK) platform, such as the Arcam Radia **ST5** and **ST60**, and equivalent JBL and Mark Levinson streamers.

@@ -1,17 +1,7 @@
 ---
-title: StreamLabs
 description: Instructions on how to integrate Streamlabs Water devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_release: '0.95'
-ha_iot_class: Cloud Polling
 ha_domain: streamlabswater
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: service
 ---
 
 The **StreamLabs** {% term integration %} is used to interact with [StreamLabs water monitoring devices](https://www.streamlabswater.com/) to retrieve usage information and manage the away mode of the device. The [StreamLabs Water API](https://developer.streamlabswater.com) is used to retrieve daily, monthly, and yearly water usage along with the current away mode.

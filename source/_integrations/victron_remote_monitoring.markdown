@@ -1,17 +1,7 @@
 ---
-title: Victron Remote Monitoring
 description: Instructions for implementation of Victron Remote Monitoring platform into Home Assistant.
-ha_category:
-  - Energy
 ha_release: '2025.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@AndyTempel'
 ha_domain: victron_remote_monitoring
-ha_platforms:
-  - sensor
-ha_integration_type: service
 related:
   - url: https://vrm.victronenergy.com/
     title: Victron VRM Portal
@@ -19,7 +9,6 @@ related:
     title: VRM JSON API v2 documentation
   - url: https://www.victronenergy.com/media/pg/VRM_Portal_manual/en/introduction.html
     title: VRM Portal manual
-ha_quality_scale: bronze
 ---
 
 The **Victron Remote Monitoring** (VRM) {% term integration %} pulls site statistics, solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.

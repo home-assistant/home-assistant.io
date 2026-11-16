@@ -19,7 +19,7 @@ To delete a user from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the locks to delete the user from.
-6. From the actions shown for that target, select **Delete user**.
+6. From the actions shown for that target, under **Z-Wave**, select **Delete user**.
 7. Set the **User index** to delete.
 8. Select **Save**.
 

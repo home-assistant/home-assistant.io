@@ -9,7 +9,7 @@ related_conditions:
 
 The **Door is open** condition passes when one or more targeted doors are currently open. Use it when an automation should continue only if a door is still open at the moment the automation runs.
 
-This condition is useful for reminders, security checks, and routines that should stop or warn you when a front door, patio door, or garage door has not been closed yet.
+This condition is useful for reminders, security checks, and routines that should stop or warn you when a front door, patio door, or back door has not been closed yet.
 
 {% include conditions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To use this condition in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Door is open**.
-5. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your door is in, like your entryway or garage. You can also select a floor, a device, a specific entity, or a label.
+5. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your door is in, like your entryway or hallway. You can also select a floor, a device, a specific entity, or a label.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the door must have stayed open before the condition passes.
 8. Select **Save**.
@@ -48,8 +48,6 @@ This passes when `binary_sensor.patio_door` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -59,22 +57,21 @@ behavior:
   default: any
 for:
   description: >
-    How long the door must have stayed open before the condition passes.
+    How long the door must have stayed open before the condition passes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="door sensor or motorized door" example="binary_sensor.front_door" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
 - The target must be a contact sensor or cover with the door device class.
-- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted door is open.
-- With **All**, the condition passes only if every available targeted door is open. If every targeted door is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
+- Garage doors have their own condition. To check whether a garage door is open, use [Garage door is open](/conditions/garage_door.is_open/).
+{% include conditions/unavailable_targets.md entities="doors" %}
 
 {% include conditions/try_it.md %}
 
@@ -84,9 +81,11 @@ for:
 
 If you have created a {% term helper %} to mark bedtime, this automation can use it to check whether any exterior door is still open. If one is, Home Assistant sends a notification instead of letting you discover it later.
 
-- **Trigger**: Bedtime helper turns on
+- **Trigger**: State changed
+  - **Entity**: Bedtime mode helper
+  - **To**: On
 - **Condition**: Door is open
-  - **Target**: Front door, patio door, and garage door
+  - **Target**: Front door, patio door, and back door
   - **Condition passes if**: Any
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -106,7 +105,7 @@ automation: |
         entity_id:
           - binary_sensor.front_door
           - binary_sensor.patio_door
-          - cover.garage_door
+          - binary_sensor.back_door
       options:
         behavior: any
   actions:
@@ -115,36 +114,39 @@ automation: |
         entity_id: notify.my_device
       data:
         title: "A door is still open"
-        message: "Check the front door, patio door, or garage door before bed."
+        message: "Check the front door, patio door, or back door before bed."
 {% endexample %}
 
 {% enddetails %}
 
-### Automation: alert you if the garage door is still open when you leave home
+### Automation: alert you if the back door is still open when you leave home
 
-When the last person leaves home, this automation checks whether the garage door is still open. If it is, Home Assistant sends an alert so you can close it before getting too far away.
+When Frenck leaves home, this automation checks whether the back door is still open. If it is, Home Assistant sends an alert so Frenck can close it before getting too far away.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Frenck
+  - **Zone**: Home
 - **Condition**: Door is open
-  - **Target**: Garage door
+  - **Target**: Back door
   - **Condition passes if**: Any
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for checking the garage door when leaving" %}
+{% details "YAML example for checking the back door when leaving" %}
 
 {% example %}
 automation: |
-  alias: "Warn if garage door is open when leaving home"
+  alias: "Warn if back door is open when leaving home"
   triggers:
-    - trigger: zone
-      entity_id: person.frenck
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.frenck
+      options:
+        zone: zone.home
   conditions:
     - condition: door.is_open
       target:
-        entity_id: cover.garage_door
+        entity_id: binary_sensor.back_door
       options:
         behavior: any
   actions:
@@ -152,8 +154,8 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        title: "Garage door is open"
-        message: "The garage door is still open, and you just left home."
+        title: "Back door is open"
+        message: "The back door is still open, and you just left home."
 {% endexample %}
 
 {% enddetails %}

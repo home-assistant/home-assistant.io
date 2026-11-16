@@ -1,25 +1,7 @@
 ---
-title: Hot Spring
 description: Instructions on how to integrate Hot Spring spas into Home Assistant.
 ha_release: 2026.9
-ha_category:
-  - Binary sensor
-  - Light
-  - Number
-  - Sensor
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Moustachauve'
 ha_domain: hotspring
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - light
-  - number
-  - sensor
-ha_integration_type: device
-ha_zeroconf: true
 ---
 
 The **Hot Spring** {% term integration %} allows you to monitor and control your [Hot Spring](https://www.hotspring.com/) spa equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) module directly from Home Assistant.
@@ -68,14 +50,26 @@ The **Hot Spring** integration provides the following entities:
 
 ### Light
 
-- **Light zone 1**
-  - **Description**: Controls a light zone on the spa (one entity is created per enabled light zone). Supports turning the light on and off, adjusting brightness, and setting an RGB color.
+- **Light zone**
+  - **Description**: Controls a light zone on the spa (one entity is created per enabled light zone, for example, **Light zone 1**). Supports turning the light on and off, adjusting brightness, and setting an RGB color.
 
 ### Number
 
+- **Salt output level**
+  - **Description**: Sets the chlorine generation output level of the FreshWater Salt System. This control adjusts chlorine generation: it does not measure or add salt (see the **Salt value** sensor).
+  - **Range**: 0 to 10 in whole-number steps. At level 0, chlorine generation stops. Level 10 is the maximum output.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed. The FreshWater IQ feature is not required.
 - **Target temperature**
   - **Description**: Allows setting the target water temperature for the spa.
-  - **Range**: 80 °F to 104 °F
+  - **Range**: 26 °C to 40 °C (80 °F to 104 °F)
+
+### Select
+
+- **Jet**
+  - **Description**: Controls the jet pump speed (one entity is created per enabled jet pump, for example, **Jet 1**). Supports **Off**, **Low**, and **High** on dual-speed jets, and **Off** and **High** on single-speed jets.
+- **Heating mode**
+  - **Description**: Controls the heating operating mode of the spa heater (**Heat saver**, **Heat with boost**, **Auto saver**, **Auto with boost**, and **Chill** (available when a CoolZone heat pump is installed)).
+  - **Availability**: Available when the spa hardware supports heating mode selection.
 
 ### Sensor
 
@@ -90,9 +84,21 @@ The **Hot Spring** integration provides the following entities:
 - **Salt value**
   - **Description**: Current salt level reading from the FreshWater Salt System.
   - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Chlorine**
+  - **Description**: Chlorine reading from the FreshWater IQ system, in parts per million (ppm).
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **Oxidation reduction potential**
+  - **Description**: Oxidation reduction potential reading from the FreshWater IQ system, in millivolts (mV).
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **pH**
+  - **Description**: pH reading from the FreshWater IQ system.
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **Sensor life**
+  - **Description**: Remaining FreshWater IQ sensor life, as a percentage reported by the spa.
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
 - **Control box version**
   - **Description**: Firmware version of the spa control box.
-  - **Remarks**: Disabled by default.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **FreshWater Salt System version**
   - **Description**: Firmware version of the FreshWater Salt System module.
   - **Remarks**: Disabled by default. Available when a FreshWater Salt System is detected.
@@ -171,6 +177,14 @@ If Home Assistant cannot establish a connection to your Hot Spring spa:
 - Verify that you can locate the device on your local network router client list.
 - Double-check that the IP address or hostname entered is correct and reachable from your Home Assistant instance.
 - Restart the Hot Spring spa module and reload the integration in Home Assistant.
+
+### FreshWater IQ sensors are missing
+
+If the FreshWater IQ sensor entities do not appear:
+
+- Verify the FreshWater IQ system is installed on the spa and enabled in the Hot Spring app.
+- Verify the spa reports FreshWater IQ status to the Home Network Adapter; the sensor entities are only created once the spa reports FreshWater IQ data.
+- Check that the spa's water quality readings are visible in the Hot Spring app.
 
 ## Diagnostics
 

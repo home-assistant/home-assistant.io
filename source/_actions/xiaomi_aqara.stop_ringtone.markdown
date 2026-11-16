@@ -9,7 +9,7 @@ related_actions:
   - xiaomi_aqara.remove_device
 ---
 
-The **Stop ringtone** action immediately stops a ringtone that is playing on a Xiaomi Aqara Gateway.
+The **Xiaomi Gateway (Aqara): Stop ringtone** action immediately stops a ringtone that is playing on a Xiaomi Aqara Gateway.
 
 This is useful for silencing a sound before it finishes on its own, for example stopping an alarm sound once you have acknowledged it.
 

@@ -1,5 +1,5 @@
 ---
-title: "Call a Kodi JSON-RPC API method"
+title: "Call method"
 action: kodi.call_method
 domain: kodi
 description: "Calls a Kodi JSON-RPC API method with optional parameters."
@@ -18,7 +18,7 @@ To call a method from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Kodi media player.
-6. From the actions shown for that target, select **Kodi: Call method**.
+6. From the actions shown for that target, under **Kodi**, select **Call method**.
 7. Enter the **Method** and any parameters it needs.
 8. Select **Save**.
 
