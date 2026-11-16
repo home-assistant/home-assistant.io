@@ -55,6 +55,8 @@ A room climate control also gets **Call for heat**, **Schedule override active**
 
 A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguard is the source of an active smoke alarm and turns off when the alarm ends.
 
+An Outdoor Siren gets **Acoustic alarm** and **Visual alarm** binary sensors that turn on while the siren sounds or flashes, and a **Tamper** diagnostic binary sensor.
+
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
