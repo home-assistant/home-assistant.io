@@ -233,9 +233,6 @@ This entity is used to control the appliance with the following actions:
 - **Residual heat state**:
   - **Description**: Reports residual heat in a zone.
   - **Available for appliance types**: Hob.
-- **Sound volume**:
-  - **Description**: Reports current sound level setting.
-  - **Available for appliance types**: Hood.
 - **Target temperature**
   - **Description**: Reports flexible drawer target temperature.
   - **Available for appliance types**: Refrigerator.
