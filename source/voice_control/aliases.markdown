@@ -10,7 +10,8 @@ related:
 ---
 
 Assist uses the names of your entities, areas, and floors, as well as any aliases you've configured.
-If you have set up Google Assistant or Amazon Alexa, they can use the aliases of your entities too.
+If you have set up Google Assistant or Amazon Alexa, they use the first alias of an entity as its name.
+Google Assistant also uses the other aliases as alternatives.
 
 These aliases are helpful in case you call the same device by multiple names
 or when using a voice assistant in multiple languages at the same time.
@@ -28,16 +29,13 @@ There are multiple ways to add an alias of an entity:
 
 The **Aliases** list starts with the default name of the entity, such as `Coffee machine Power`.
 When the switch next to it is turned on, the default name is used as the first alias.
-To use a different name first, drag the aliases into the order you want.
+To use a different name first, turn off the switch, then drag your aliases into the order you want.
 
 The order matters for some voice assistants:
 
 - Assist uses all aliases equally.
 - Google Assistant uses the first alias as the main name and the others as alternatives.
 - Amazon Alexa uses only the first alias.
-
-If you renamed an entity before Home Assistant 2026.11 and its name changed with the new naming, Home Assistant kept your previous name as the first alias for voice assistants that the entity is exposed to.
-This way, your voice commands keep working.
 
 ## Adding an alias of an area
 
