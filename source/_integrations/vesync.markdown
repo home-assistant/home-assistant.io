@@ -176,7 +176,7 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `current_temp`          | Current internal temperature of the fryer,  Unknown when off.                          | 150C      |
 | `cook_set_temp`         | The target cooking temperature                                                         | 165C      |
 | `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
-| `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
+| `cook_end_time`         | When the running cook finishes, preheating included. Unknown when paused or stopped    | 12:19     |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
 
 | Button                  | Description                                                                            |
