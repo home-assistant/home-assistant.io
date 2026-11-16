@@ -47,7 +47,7 @@ Model:
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/). Only available for conversation agents.
 AI tools:
-  description: "**Device control** only reaches the entities that you [expose](/voice_control/voice_remote_expose_devices/) to Assist. **Home Assistant** reaches everything, and it only works for administrators, not for {% term \"voice satellites\" %}. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). Only models that support [tools](https://ollama.com/search?c=tools) can use AI tools. For details, refer to [Setting up an Ollama assistant with Device control](#setting-up-an-ollama-assistant-with-device-control). Only available for conversation agents."
+  description: "**Device control** only reaches the entities that you [expose](/voice_control/voice_remote_expose_devices/) to Assist. **Home Assistant** reaches everything, and it only works for administrators, not for voice satellites. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). Only models that support [tools](https://ollama.com/search?c=tools) can use AI tools. For details, refer to [Setting up an Ollama assistant with Device control](#setting-up-an-ollama-assistant-with-device-control). Only available for conversation agents."
 Context window size:
   description: The number of tokens that the model can take as input. For a conversation agent with **Device control**, this includes your exposed entities. The default is 8192, and the minimum is 2048. A larger value supports homes with more exposed entities. A smaller value uses less memory on your Ollama server. Choose a value that your model supports.
 Max history messages:
@@ -60,7 +60,7 @@ Think before responding:
 
 ## Setting up an Ollama assistant with Device control
 
-With the **Device control** set of {% term "AI tools" %}, an Ollama {% term "conversation agent" %} can do what Assist does. For example, it can control your devices, tell you their state, and run your exposed {% term scripts %}. For all AI tools in this set, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). It can only reach the {% term entities %} that you [expose](/voice_control/voice_remote_expose_devices/) to {% term Assist %}.
+With the **Device control** set of {% term "AI tools" %}, an Ollama {% term "conversation agent" %} can control your devices, tell you their state, and run your exposed {% term scripts %}. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). It can only reach the {% term entities %} that you [expose](/voice_control/voice_remote_expose_devices/) to {% term Assist %}.
 
 Prerequisites:
 
@@ -80,7 +80,10 @@ To set up an Ollama assistant with Device control:
    - Under **AI tools**, clear all sets of AI tools.
 3. Create an {% term assistant %} for each conversation agent. For the steps, refer to [Creating an assistant with an AI personality](/voice_control/assist_create_open_ai_personality/#creating-an-assistant-with-an-ai-personality).
    - Under **Conversation agent**, select `Ollama devices`, or `Ollama chat` for the second assistant.
-4. Select the assistant for your devices.
-   - In the Assist dialog, select it at the top.
-5. Ask the assistant about one of your exposed entities. For example, ask `Is the kitchen light on?`
+4. On a dashboard, in the top-right corner, select **Assist** {% icon "mdi:comment-processing-outline" %}.
+   - On a narrow screen, it's under **Menu** {% icon "mdi:dots-vertical" %}. On a computer, you can also press <kbd>A</kbd>.
+5. At the top of the dialog, select the name of the assistant, and choose the assistant that uses `Ollama devices`.
+   - To chat, choose the assistant that uses `Ollama chat` instead.
+   - To always start with this assistant, set it as preferred: go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}, select the three dots {% icon "mdi:dots-vertical" %} menu of the assistant on the **Assist** card, and then select **Set as preferred** {% icon "mdi:star" %}. Voice satellites that use the preferred assistant then use it too.
+6. Ask the assistant about one of your exposed entities. For example, ask `Is the kitchen light on?`
    - Result: The assistant answers with the state of the entity.
