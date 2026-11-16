@@ -62,7 +62,8 @@ After setting up the connection details, you can configure partitions, zones, an
 
 A list of all partition, zone, and output IDs can be acquired by running the DLOADX program and connecting to your alarm.
 To create the respective entities, select the **Add partition**, **Add zone**, **Add output**, or **Add switchable output** buttons. Follow the instructions in the UI to set up the individual entities.
-**Result**: Each partition will have its own alarm panel. Each zone will have a main binary sensor for its violation state, plus Tamper and Bypass binary sensors that are disabled by default. Each output will have a binary sensor, and a switch will be created for each switchable output. Sensors will be created for each zone that has temperature sensor support enabled.
+
+Result: Each partition will have its own alarm panel. Each zone will have a main binary sensor for its violation state, plus **Tamper** and **Bypass** binary sensors that are disabled by default. Each output will have a binary sensor, and a switch will be created for each switchable output. Sensors will be created for each zone that has temperature sensor support enabled.
 
 Having configured the zones and the outputs, you can use them for automation, such as to react on the movement in your bedroom.
 For example:
@@ -93,7 +94,7 @@ Each zone also has the following additional binary sensors:
 - **Bypass**: Whether the panel reports that the zone is bypassed. This sensor only reports the bypass status; it cannot bypass or unbypass the zone.
 
 {% tip %}
-The Tamper and Bypass sensors are disabled by default. See [Enabling and disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to enable them. The main zone sensor remains enabled by default.
+The **Tamper** and **Bypass** sensors are disabled by default. See [Enabling and disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to enable them.
 {% endtip %}
 
 #### System status sensors
