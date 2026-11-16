@@ -58,6 +58,7 @@ To create an assistant with an AI personality:
    - In the **Instructions** field, describe how the character should answer. For example, enter `You are Super Mario from Mario Bros. Be funny.`
    - Under **AI tools**, select **Device control** to let the character control your devices. For example, it can turn on the lights. To only talk to the character, clear all sets of {% term "AI tools" %}.
      - **Device control** can only control {% term entities %} that are [exposed](/voice_control/voice_remote_expose_devices/) to Assist.
+     - Don't select **Home Assistant** if {% term "voice satellites" %} or users who aren't administrators use this assistant. Only administrators can use the Home Assistant AI tools. Requests from voice satellites and from other users then fail, and **Device control** stops working too. To use the Home Assistant AI tools yourself, set up a separate assistant for them. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](/integrations/llm/#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
    - To see more options, clear **Recommended model settings**. For example, for the options of OpenAI, refer to [Model](/integrations/openai_conversation/#model).
    - Select **Submit**. If the dialog shows more options, select **Submit** again.
 5. Decide whether to keep **Prefer handling commands locally** turned on. It's turned on by default.
