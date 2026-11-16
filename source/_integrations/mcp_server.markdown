@@ -145,7 +145,7 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
    ```
 
 4. In your web browser, log in to your Home Assistant instance.
-   - Result: You can now enable {% term "AI tools" %} from Home Assistant when chatting with Claude. This lets you control Home Assistant much like you do with Assist. Claude asks for your permission before it uses an AI tool, unless you choose to always allow it.
+   - Result: In Claude Code, run `/mcp` and select `home-assistant` to view the connected server and its available {% term "AI tools" %}.
 
 ### Example: Codex
 
