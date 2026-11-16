@@ -29,13 +29,23 @@ There are multiple ways to add an alias of an entity:
 
 The **Aliases** list starts with the default name of the entity, such as `Coffee machine Power`.
 When the switch next to it is turned on, the default name is used as the first alias.
-To use a different name first, turn off the switch, then drag your aliases into the order you want.
 
 The order matters for some voice assistants:
 
 - Assist uses all aliases equally.
 - Google Assistant uses the first alias as the main name and the others as alternatives.
 - Amazon Alexa uses only the first alias.
+
+Renaming an entity, its device, or its area doesn't change the aliases you added. Only the default name in the list follows the new name.
+
+### Using a different name for voice assistants
+
+Voice assistants don't have to use the name that Home Assistant shows. For example, you might want Amazon Alexa to call a device `Kitchen light`, while Home Assistant shows it as `Ceiling light`.
+
+1. [Add the name you want as an alias of the entity](#adding-an-alias-of-an-entity).
+2. In the **Aliases** list, turn off the switch next to the default name.
+3. Drag your alias to the top of the list.
+   - Result: Voice assistants that use the first alias, such as Amazon Alexa, now use your alias as the name of the entity.
 
 ## Adding an alias of an area
 
