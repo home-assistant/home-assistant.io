@@ -1,0 +1,479 @@
+6567,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/open_meteo.json,14,,,6
+6568,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/open_router.json,10,,,17
+6569,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/open_router.json,16,,,6
+6570,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/openai_conversation.json,9,,,17
+6571,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/openai_conversation.json,16,,,6
+6572,No,High,Code or identifier (other),"""domain"": ""«openalpr_cloud»"",",,openalpr_cloud,Integration metadata,Code block,source/_data/integrations/openalpr_cloud.json,2,,,23
+6573,No,High,Code or identifier (other),"""name"": ""OpenALPR «Cloud»"",",,Cloud,Integration metadata,Data value,source/_data/integrations/openalpr_cloud.json,3,,,21
+6574,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/openalpr_cloud.json,4,,,17
+6575,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/openalpr_cloud.json,10,,,6
+6576,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/openerz.json,7,,,17
+6577,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/openerz.json,13,,,6
+6578,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/openexchangerates.json,9,,,17
+6579,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/openexchangerates.json,14,,,6
+6580,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/opensensemap.json,9,,,17
+6581,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/opensensemap.json,15,,,6
+6582,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/opensky.json,9,,,17
+6583,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/opensky.json,14,,,6
+6584,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/openuv.json,9,,,17
+6585,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/openuv.json,14,,,6
+6586,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/openweathermap.json,12,,,17
+6587,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/openweathermap.json,18,,,6
+6588,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/opower.json,9,,,17
+6589,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/opower.json,15,,,6
+6590,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/osoenergy.json,9,,,17
+6591,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/osoenergy.json,14,,,6
+6592,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ourgroceries.json,9,,,17
+6593,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ourgroceries.json,14,,,6
+6594,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/overkiz.json,14,,,6
+6595,No,High,Code or identifier (other),"""domain"": ""«ovhcloud_ai_endpoints»"",",,ovhcloud_ai_endpoints,Integration metadata,Code block,source/_data/integrations/ovhcloud_ai_endpoints.json,2,,,17
+6596,No,High,Code or identifier (other),"""name"": ""«OVHcloud» AI Endpoints"",",,OVHcloud,Integration metadata,Data value,source/_data/integrations/ovhcloud_ai_endpoints.json,3,,,15
+6597,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ovhcloud_ai_endpoints.json,9,,,17
+6598,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ovhcloud_ai_endpoints.json,15,,,6
+6599,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ovo_energy.json,9,,,17
+6600,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ovo_energy.json,14,,,6
+6601,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/paj_gps.json,9,,,17
+6602,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/paj_gps.json,15,,,6
+6603,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/peco.json,9,,,17
+6604,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/peco.json,14,,,6
+6605,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/pegel_online.json,9,,,17
+6606,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/pegel_online.json,15,,,6
+6607,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/permobil.json,5,,,17
+6608,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/picnic.json,10,,,17
+6609,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/picnic.json,15,,,6
+6610,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/plaato.json,9,,,17
+6611,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/plaato.json,14,,,6
+6612,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/playstation_network.json,10,,,17
+6613,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/playstation_network.json,16,,,6
+6614,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/pocketcasts.json,4,,,17
+6615,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/pocketcasts.json,10,,,6
+6616,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/point.json,9,,,17
+6617,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/point.json,15,,,6
+6618,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/poolsense.json,9,,,17
+6619,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/poolsense.json,14,,,6
+6620,No,High,Code or identifier (other),"""name"": ""Powerfox «Cloud»"",",,Cloud,Integration metadata,Data value,source/_data/integrations/powerfox.json,3,,,21
+6621,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/powerfox.json,9,,,17
+6622,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/powerfox.json,16,,,6
+6623,No,High,Code or identifier (other),"""computers_network.«cloud_developer_tools»""",,cloud_developer_tools,Integration metadata,Code block,source/_data/integrations/profiler.json,10,,,24
+6624,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/prosegur.json,9,,,17
+6625,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/prosegur.json,14,,,6
+6626,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/prowl.json,6,,,17
+6627,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/prowl.json,11,,,6
+6628,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ptdevices.json,10,,,17
+6629,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ptdevices.json,16,,,6
+6630,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/purpleair.json,9,,,17
+6631,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/purpleair.json,15,,,6
+6632,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/pushbullet.json,9,,,17
+6633,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/pushbullet.json,14,,,6
+6634,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/pushover.json,9,,,17
+6635,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/pushover.json,14,,,6
+6636,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/pushsafer.json,4,,,17
+6637,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/pushsafer.json,10,,,6
+6638,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/pvoutput.json,9,,,17
+6639,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/pvoutput.json,15,,,6
+6640,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/pvpc_hourly_pricing.json,10,,,17
+6641,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/pvpc_hourly_pricing.json,15,,,6
+6642,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/qld_bushfire.json,8,,,17
+6643,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/qld_bushfire.json,14,,,6
+6644,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/rachio.json,10,,,17
+6645,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/rachio.json,15,,,6
+6646,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/radio_browser.json,9,,,17
+6647,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/radio_browser.json,15,,,6
+6648,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/rdw.json,10,,,17
+6649,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/rdw.json,15,,,6
+6650,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/recollect_waste.json,9,,,17
+6651,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/recollect_waste.json,14,,,6
+6652,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/reddit.json,4,,,17
+6653,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/reddit.json,10,,,6
+6654,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/redgtech.json,10,,,17
+6655,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/redgtech.json,16,,,6
+6656,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/rehlko.json,10,,,17
+6657,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/rehlko.json,16,,,6
+6658,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/rejseplanen.json,9,,,17
+6659,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/rejseplanen.json,15,,,6
+6660,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/remember_the_milk.json,9,,,17
+6661,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/remember_the_milk.json,14,,,6
+6662,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/remote_calendar.json,10,,,17
+6663,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/remote_calendar.json,16,,,6
+6664,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/renault.json,9,,,17
+6665,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/renault.json,15,,,6
+6666,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/rest.json,10,,,6
+6667,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/rest_command.json,12,,,6
+6668,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ridwell.json,9,,,17
+6669,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ridwell.json,14,,,6
+6670,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ring.json,9,,,17
+6671,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ring.json,16,,,6
+6672,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ripple.json,4,,,17
+6673,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ripple.json,10,,,6
+6674,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/rituals_perfume_genie.json,11,,,17
+6675,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/rituals_perfume_genie.json,16,,,6
+6676,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/rmvtransport.json,7,,,17
+6677,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/rmvtransport.json,13,,,6
+6678,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/roborock.json,17,,,6
+6679,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/rocketchat.json,4,,,17
+6680,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/rocketchat.json,10,,,6
+6681,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/route53.json,4,,,17
+6682,No,High,Code or identifier (other),"""computers_network.«cloud_developer_tools»""",,cloud_developer_tools,Integration metadata,Code block,source/_data/integrations/route53.json,7,,,24
+6683,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/route53.json,10,,,6
+6684,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/rova.json,6,,,17
+6685,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/rova.json,11,,,6
+6686,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/rympro.json,11,,,17
+6687,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/rympro.json,16,,,6
+6688,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sanix.json,9,,,17
+6689,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sanix.json,14,,,6
+6690,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/schlage.json,9,,,17
+6691,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/schlage.json,14,,,6
+6692,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/schluter.json,7,,,17
+6693,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/schluter.json,13,,,6
+6694,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/scorpiontrack.json,9,,,17
+6695,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/scorpiontrack.json,16,,,6
+6696,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/scrape.json,9,,,17
+6697,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/scrape.json,14,,,6
+6698,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/sendgrid.json,4,,,17
+6699,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sendgrid.json,10,,,6
+6700,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sense.json,9,,,17
+6701,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sense.json,14,,,6
+6702,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sensibo.json,10,,,17
+6703,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sensibo.json,18,,,6
+6704,No,High,Code or identifier (other),"""domain"": ""«sensorpush_cloud»"",",,sensorpush_cloud,Integration metadata,Code block,source/_data/integrations/sensorpush_cloud.json,2,,,25
+6705,No,High,Code or identifier (other),"""name"": ""SensorPush «Cloud»"",",,Cloud,Integration metadata,Data value,source/_data/integrations/sensorpush_cloud.json,3,,,23
+6706,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sensorpush_cloud.json,9,,,17
+6707,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sensorpush_cloud.json,15,,,6
+6708,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sensoterra.json,11,,,17
+6709,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sensoterra.json,16,,,6
+6710,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sentry.json,10,,,17
+6711,No,High,Code or identifier (other),"""computers_network.«cloud_developer_tools»""",,cloud_developer_tools,Integration metadata,Code block,source/_data/integrations/sentry.json,12,,,24
+6712,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sentry.json,15,,,6
+6713,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/senz.json,9,,,17
+6714,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/senz.json,14,,,6
+6715,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sesame.json,4,,,17
+6716,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sesame.json,10,,,6
+6717,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/seventeentrack.json,9,,,17
+6718,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/seventeentrack.json,14,,,6
+6719,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sharkiq.json,10,,,17
+6720,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sharkiq.json,15,,,6
+6721,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/shodan.json,7,,,17
+6722,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/shodan.json,13,,,6
+6723,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sighthound.json,7,,,17
+6724,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sighthound.json,13,,,6
+6725,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/signal_messenger.json,7,,,17
+6726,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/signal_messenger.json,13,,,6
+6727,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/simplefin.json,10,,,17
+6728,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/simplefin.json,15,,,6
+6729,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/simplepush.json,9,,,17
+6730,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/simplepush.json,14,,,6
+6731,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/simplisafe.json,9,,,17
+6732,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/simplisafe.json,14,,,6
+6733,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/sinch.json,7,,,17
+6734,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sinch.json,13,,,6
+6735,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/skoda.json,11,,,17
+6736,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/skoda.json,17,,,6
+6737,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/skybell.json,9,,,17
+6738,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/skybell.json,14,,,6
+6739,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/slack.json,10,,,17
+6740,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/slack.json,15,,,6
+6741,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sleepiq.json,10,,,17
+6742,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sleepiq.json,15,,,6
+6743,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/slide.json,7,,,17
+6744,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/slide.json,13,,,6
+6745,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/smappee.json,9,,,17
+6746,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/smappee.json,16,,,6
+6747,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/smarla.json,10,,,17
+6748,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/smarla.json,16,,,6
+6749,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/smart_meter_texas.json,9,,,17
+6750,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/smart_meter_texas.json,14,,,6
+6751,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/smartthings.json,9,,,17
+6752,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/smartthings.json,15,,,6
+6753,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/smarttub.json,9,,,17
+6754,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/smarttub.json,14,,,6
+6755,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/smartyplants.json,9,,,17
+6756,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/smartyplants.json,15,,,6
+6757,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/smhi.json,9,,,17
+6758,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/smhi.json,15,,,6
+6759,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/smtp.json,9,,,17
+6760,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/smtp.json,15,,,6
+6761,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/snoo.json,9,,,17
+6762,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/snoo.json,15,,,6
+6763,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/solaredge.json,10,,,17
+6764,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/solaredge.json,15,,,6
+6765,No,High,Code or identifier (other),"""domain"": ""«solyx_energy_cloud»"",",,solyx_energy_cloud,Integration metadata,Code block,source/_data/integrations/solyx_energy_cloud.json,2,,,27
+6766,No,High,Code or identifier (other),"""name"": ""Solyx Energy «Cloud»"",",,Cloud,Integration metadata,Data value,source/_data/integrations/solyx_energy_cloud.json,3,,,25
+6767,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/solyx_energy_cloud.json,9,,,17
+6768,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/solyx_energy_cloud.json,16,,,6
+6769,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/speedtestdotnet.json,10,,,17
+6770,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/speedtestdotnet.json,15,,,6
+6771,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»""",,cloud_polling,Integration metadata,Code block,source/_data/integrations/spider.json,5,,,17
+6772,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/spotify.json,10,,,17
+6773,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/spotify.json,15,,,6
+6774,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/srp_energy.json,10,,,17
+6775,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/srp_energy.json,15,,,6
+6776,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/starline.json,9,,,17
+6777,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/starline.json,14,,,6
+6778,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/starlingbank.json,4,,,17
+6779,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/starlingbank.json,10,,,6
+6780,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/startca.json,4,,,17
+6781,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/startca.json,10,,,6
+6782,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/steam_online.json,10,,,17
+6783,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/steam_online.json,15,,,6
+6784,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/stookwijzer.json,9,,,17
+6785,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/stookwijzer.json,14,,,6
+6786,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/streamlabswater.json,6,,,17
+6787,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/streamlabswater.json,11,,,6
+6788,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/subaru.json,10,,,17
+6789,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/subaru.json,16,,,6
+6790,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/suez_water.json,10,,,17
+6791,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/suez_water.json,16,,,6
+6792,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sunsynk.json,9,,,17
+6793,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/sunsynk.json,15,,,6
+6794,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»""",,cloud_polling,Integration metadata,Code block,source/_data/integrations/sunweg.json,6,,,17
+6795,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/supla.json,7,,,17
+6796,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/supla.json,14,,,6
+6797,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/surepetcare.json,10,,,17
+6798,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/surepetcare.json,15,,,6
+6799,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/swiss_hydrological_data.json,7,,,17
+6800,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/swiss_hydrological_data.json,13,,,6
+6801,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/swiss_public_transport.json,10,,,17
+6802,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/swiss_public_transport.json,15,,,6
+6803,No,High,Code or identifier (other),"""domain"": ""«switchbot_cloud»"",",,switchbot_cloud,Integration metadata,Code block,source/_data/integrations/switchbot_cloud.json,2,,,24
+6804,No,High,Code or identifier (other),"""name"": ""SwitchBot «Cloud»"",",,Cloud,Integration metadata,Data value,source/_data/integrations/switchbot_cloud.json,3,,,22
+6805,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/switchbot_cloud.json,12,,,17
+6806,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/switchbot_cloud.json,19,,,6
+6807,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/synology_chat.json,4,,,17
+6808,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/synology_chat.json,10,,,6
+6809,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tado.json,9,,,17
+6810,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tado.json,15,,,6
+6811,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tailscale.json,9,,,17
+6812,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tailscale.json,14,,,6
+6813,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tami4.json,9,,,17
+6814,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tami4.json,15,,,6
+6815,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tank_utility.json,7,,,17
+6816,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tank_utility.json,13,,,6
+6817,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tankerkoenig.json,11,,,17
+6818,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tankerkoenig.json,17,,,6
+6819,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tapsaff.json,7,,,17
+6820,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tapsaff.json,13,,,6
+6821,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/telegram.json,5,,,17
+6822,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/telegram_bot.json,9,,,17
+6823,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/telegram_bot.json,15,,,6
+6824,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tellduslive.json,9,,,17
+6825,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/tellduslive.json,14,,,6
+6826,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tesla_fleet.json,9,,,17
+6827,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tesla_fleet.json,15,,,6
+6828,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/teslemetry.json,9,,,17
+6829,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/teslemetry.json,17,,,6
+6830,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tessie.json,9,,,17
+6831,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tessie.json,16,,,6
+6832,No,High,Code or identifier (other),"""name"": ""The Things Network («Cloud» Storage)"",",,Cloud,Integration metadata,Data value,source/_data/integrations/thethingsnetwork.json,3,,,32
+6833,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/thethingsnetwork.json,9,,,17
+6834,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/thethingsnetwork.json,15,,,6
+6835,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/thethingsnetwork_lorawan.json,9,,,17
+6836,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/thethingsnetwork_lorawan.json,15,,,6
+6837,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/thingspeak.json,4,,,17
+6838,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/thingspeak.json,10,,,6
+6839,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/threema.json,9,,,17
+6840,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/threema.json,15,,,6
+6841,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tibber.json,9,,,17
+6842,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tibber.json,15,,,6
+6843,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tile.json,9,,,17
+6844,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tile.json,14,,,6
+6845,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tmb.json,13,,,6
+6846,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/todoist.json,9,,,17
+6847,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/todoist.json,14,,,6
+6848,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/tomorrowio.json,10,,,17
+6849,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tomorrowio.json,16,,,6
+6850,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/toon.json,6,,,17
+6851,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/toon.json,12,,,6
+6852,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/totalconnect.json,9,,,17
+6853,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/totalconnect.json,14,,,6
+6854,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/touchline_sl.json,9,,,17
+6855,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/touchline_sl.json,14,,,6
+6856,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/traccar.json,8,,,17
+6857,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/traccar.json,13,,,6
+6858,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/tractive.json,11,,,17
+6859,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tractive.json,17,,,6
+6860,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/trafikverket_camera.json,9,,,17
+6861,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/trafikverket_camera.json,15,,,6
+6862,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/trafikverket_ferry.json,9,,,17
+6863,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/trafikverket_ferry.json,14,,,6
+6864,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/trafikverket_train.json,9,,,17
+6865,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/trafikverket_train.json,14,,,6
+6866,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/trafikverket_weatherstation.json,9,,,17
+6867,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/trafikverket_weatherstation.json,15,,,6
+6868,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/transport_nsw.json,4,,,17
+6869,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/transport_nsw.json,10,,,6
+6870,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/triggercmd.json,9,,,17
+6871,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/triggercmd.json,14,,,6
+6872,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/trmnl.json,9,,,17
+6873,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/trmnl.json,15,,,6
+6874,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/tuya.json,10,,,17
+6875,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/tuya.json,15,,,6
+6876,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/twentemilieu.json,9,,,17
+6877,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/twentemilieu.json,15,,,6
+6878,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/twilio.json,6,,,17
+6879,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/twilio.json,11,,,6
+6880,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/twilio_call.json,4,,,17
+6881,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/twilio_call.json,10,,,6
+6882,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/twilio_sms.json,4,,,17
+6883,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/twilio_sms.json,10,,,6
+6884,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/twitch.json,9,,,17
+6885,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/twitch.json,14,,,6
+6886,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/twitter.json,4,,,17
+6887,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/twitter.json,10,,,6
+6888,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/uhoo.json,10,,,17
+6889,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/uhoo.json,16,,,6
+6890,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/uk_transport.json,4,,,17
+6891,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/uk_transport.json,10,,,6
+6892,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ukraine_alarm.json,9,,,17
+6893,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ukraine_alarm.json,14,,,6
+6894,No,High,Code or identifier (other),"""domain"": ""«upcloud»"",",,upcloud,Integration metadata,Data value,source/_data/integrations/upcloud.json,2,,,16
+6895,No,High,Code or identifier (other),"""name"": ""«UpCloud»"",",,UpCloud,Integration metadata,Data value,source/_data/integrations/upcloud.json,3,,,14
+6896,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/upcloud.json,9,,,17
+6897,No,High,Code or identifier (other),"""computers_network.«cloud_developer_tools»""",,cloud_developer_tools,Integration metadata,Code block,source/_data/integrations/upcloud.json,11,,,24
+6898,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/upcloud.json,14,,,6
+6899,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/uptime_kuma.json,9,,,17
+6900,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/uptime_kuma.json,15,,,6
+6901,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/uptimerobot.json,10,,,17
+6902,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/uptimerobot.json,16,,,6
+6903,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/usgs_earthquakes_feed.json,8,,,17
+6904,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/usgs_earthquakes_feed.json,14,,,6
+6905,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/vasttrafik.json,4,,,17
+6906,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/vasttrafik.json,10,,,6
+6907,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/verisure.json,6,,,17
+6908,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/verisure.json,11,,,6
+6909,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/vesync.json,14,,,17
+6910,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/vesync.json,22,,,6
+6911,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/viaggiatreno.json,4,,,17
+6912,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/viaggiatreno.json,10,,,6
+6913,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/vicare.json,10,,,17
+6914,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/vicare.json,16,,,6
+6915,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/victron_remote_monitoring.json,9,,,17
+6916,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/victron_remote_monitoring.json,15,,,6
+6917,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/vistapool.json,9,,,17
+6918,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/vistapool.json,15,,,6
+6919,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/vitesy.json,9,,,17
+6920,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/vitesy.json,15,,,6
+6921,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/voicerss.json,4,,,17
+6922,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/voicerss.json,10,,,6
+6923,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/volvo.json,9,,,17
+6924,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/volvo.json,15,,,6
+6925,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/wallbox.json,9,,,17
+6926,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/wallbox.json,14,,,6
+6927,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/waqi.json,9,,,17
+6928,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/waqi.json,14,,,6
+6929,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/waterfurnace.json,10,,,17
+6930,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/waterfurnace.json,16,,,6
+6931,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/watts.json,11,,,17
+6932,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/watts.json,17,,,6
+6933,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/watttime.json,9,,,17
+6934,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/watttime.json,14,,,6
+6935,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/waze_travel_time.json,9,,,17
+6936,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/waze_travel_time.json,14,,,6
+6937,No,High,Code or identifier (other),"""domain"": ""«weatherflow_cloud»"",",,weatherflow_cloud,Integration metadata,Code block,source/_data/integrations/weatherflow_cloud.json,2,,,26
+6938,No,High,Code or identifier (other),"""name"": ""«WeatherflowCloud»"",",,WeatherflowCloud,Integration metadata,Data value,source/_data/integrations/weatherflow_cloud.json,3,,,23
+6939,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/weatherflow_cloud.json,9,,,17
+6940,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/weatherflow_cloud.json,14,,,6
+6941,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/weatherkit.json,9,,,17
+6942,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/weatherkit.json,14,,,6
+6943,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/webdav.json,9,,,17
+6944,No,High,Code or identifier (other),"""computers_network.«cloud_developer_tools»""",,cloud_developer_tools,Integration metadata,Code block,source/_data/integrations/webdav.json,12,,,24
+6945,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/webdav.json,15,,,6
+6946,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/weheat.json,9,,,17
+6947,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/weheat.json,14,,,6
+6948,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/whirlpool.json,10,,,17
+6949,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/whirlpool.json,18,,,6
+6950,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/whois.json,9,,,17
+6951,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/whois.json,14,,,6
+6952,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/willow.json,9,,,17
+6953,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/willow.json,15,,,6
+6954,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/wirelesstag.json,7,,,17
+6955,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/wirelesstag.json,13,,,6
+6956,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/withings.json,9,,,17
+6957,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/withings.json,14,,,6
+6958,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/wolflink.json,10,,,17
+6959,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/wolflink.json,17,,,6
+6960,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/worldtidesinfo.json,4,,,17
+6961,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/worldtidesinfo.json,10,,,6
+6962,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/wsdot.json,9,,,17
+6963,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/wsdot.json,15,,,6
+6964,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/xbox.json,9,,,17
+6965,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/xbox.json,15,,,6
+6966,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/xiaomi_miio.json,18,,,6
+6967,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/xiaomi_weather.json,9,,,17
+6968,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/xiaomi_weather.json,15,,,6
+6969,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/xmpp.json,8,,,17
+6970,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/xmpp.json,14,,,6
+6971,No,High,Code or identifier (other),"""domain"": ""«xthings_cloud»"",",,xthings_cloud,Integration metadata,Code block,source/_data/integrations/xthings_cloud.json,2,,,22
+6972,No,High,Code or identifier (other),"""name"": ""Xthings «Cloud»"",",,Cloud,Integration metadata,Data value,source/_data/integrations/xthings_cloud.json,3,,,20
+6973,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/xthings_cloud.json,9,,,17
+6974,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/xthings_cloud.json,16,,,6
+6975,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/yale.json,9,,,17
+6976,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/yale.json,15,,,6
+6977,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/yale_smart_alarm.json,9,,,17
+6978,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/yale_smart_alarm.json,15,,,6
+6979,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/yandex_transport.json,8,,,17
+6980,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/yandex_transport.json,14,,,6
+6981,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/yandextts.json,4,,,17
+6982,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/yandextts.json,10,,,6
+6983,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/yolink.json,9,,,17
+6984,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/yolink.json,14,,,6
+6985,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/yoto.json,10,,,17
+6986,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/yoto.json,16,,,6
+6987,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/youtube.json,9,,,17
+6988,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/youtube.json,14,,,6
+6989,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/zamg.json,9,,,17
+6990,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/zamg.json,14,,,6
+6991,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/zinvolt.json,9,,,17
+6992,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/zinvolt.json,15,,,6
+6993,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/zonneplan.json,9,,,17
+6994,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/zonneplan.json,16,,,6
+6995,No,High,Third-party or integration name,"""Apple «iCloud»"",",,iCloud,Repository file,Data value,.textlintrc.json,68,,,17
+6996,No,High,Third-party or integration name,"""«iCloud»"",",,iCloud,Repository file,Data value,.textlintrc.json,157,,,11
+6997,No,High,Third-party or integration name,"""«icloud»"",",,icloud,Repository file,Data value,.vscode/cSpell.json,58,,,7
+6998,No,High,Code or identifier (other),source/_integrations/«airzone_cloud».markdown @Noltari,,airzone_cloud,Repository file,Code block,CODEOWNERS,46,,,30
+6999,No,High,Third-party or integration name,source/_integrations/aladdin_connect.markdown @«swcloudgenie»,,swcloudgenie,Repository file,Data value,CODEOWNERS,47,,,50
+7000,No,High,Code or identifier (other),source/_integrations/alexa.flash_briefings.markdown @home-assistant/«cloud» @ochlocracy @jbouwh,,cloud,Repository file,Code block,CODEOWNERS,51,,,69
+7001,No,High,Code or identifier (other),source/_integrations/alexa.intent.markdown @home-assistant/«cloud» @ochlocracy @jbouwh,,cloud,Repository file,Code block,CODEOWNERS,52,,,60
+7002,No,High,Code or identifier (other),source/_integrations/alexa.markdown @home-assistant/«cloud» @ochlocracy @jbouwh,,cloud,Repository file,Code block,CODEOWNERS,53,,,53
+7003,No,High,Code or identifier (other),source/_integrations/alexa.smart_home.markdown @home-assistant/«cloud» @ochlocracy @jbouwh,,cloud,Repository file,Code block,CODEOWNERS,54,,,64
+7004,No,High,Code or identifier (other),source/_integrations/«cloud».markdown @home-assistant/cloud,,cloud,Repository file,Code block,CODEOWNERS,195,,,22
+7005,No,High,Code or identifier (other),source/_integrations/cloud.markdown @home-assistant/«cloud»,,cloud,Repository file,Code block,CODEOWNERS,195,,,53
+7006,No,High,Code or identifier (other),source/_integrations/«cloudflare».markdown @ludeeus @ctalkington,,cloudflare,Repository file,Code block,CODEOWNERS,196,,,22
+7007,No,High,Code or identifier (other),source/_integrations/«cloudflare_r2».markdown @corrreia,,cloudflare_r2,Repository file,Code block,CODEOWNERS,197,,,22
+7008,No,High,Code or identifier (other),source/_integrations/google_assistant.markdown @home-assistant/«cloud»,,cloud,Repository file,Code block,CODEOWNERS,427,,,64
+7009,No,High,Code or identifier (other),source/_integrations/«google_cloud».markdown @lufton @tronikos,,google_cloud,Repository file,Code block,CODEOWNERS,429,,,29
+7010,No,High,Code or identifier (other),source/_integrations/«helty_cloud».markdown @ebaschiera,,helty_cloud,Repository file,Code block,CODEOWNERS,473,,,28
+7011,No,High,Code or identifier (other),source/_integrations/«homematicip_cloud».markdown @hahn-th @lackas,,homematicip_cloud,Repository file,Code block,CODEOWNERS,500,,,34
+7012,No,High,Code or identifier (other),source/_integrations/«icloud».markdown @Quentame @nzapponi @timlaing,,icloud,Repository file,Code block,CODEOWNERS,531,,,23
+7013,No,High,Code or identifier (other),source/_integrations/«melcloud».markdown @erwindouna,,melcloud,Repository file,Code block,CODEOWNERS,709,,,25
+7014,No,High,Code or identifier (other),source/_integrations/«melcloud_home».markdown @erwindouna,,melcloud_home,Repository file,Code block,CODEOWNERS,710,,,25
+7015,No,High,Code or identifier (other),source/_integrations/«nextcloud».markdown @mib1185,,nextcloud,Repository file,Code block,CODEOWNERS,783,,,26
+7016,No,High,Code or identifier (other),source/_integrations/«ovhcloud_ai_endpoints».markdown @Crocmagnon,,ovhcloud_ai_endpoints,Repository file,Code block,CODEOWNERS,864,,,25
+7017,No,High,Code or identifier (other),source/_integrations/«sensorpush_cloud».markdown @sstallion,,sensorpush_cloud,Repository file,Code block,CODEOWNERS,1028,,,33
+7018,No,High,Code or identifier (other),source/_integrations/«solyx_energy_cloud».markdown @MartinaeyNL,,solyx_energy_cloud,Repository file,Code block,CODEOWNERS,1092,,,35
+7019,No,High,Code or identifier (other),source/_integrations/«switchbot_cloud».markdown @SeraphicRav @laurence-presland @Gigatrappeur @XiaoLing-git,,switchbot_cloud,Repository file,Code block,CODEOWNERS,1133,,,32
+7020,No,High,Code or identifier (other),source/_integrations/«upcloud».markdown @scop,,upcloud,Repository file,Code block,CODEOWNERS,1227,,,24
+7021,No,High,Code or identifier (other),source/_integrations/«weatherflow_cloud».markdown @jeeftor,,weatherflow_cloud,Repository file,Code block,CODEOWNERS,1285,,,34
+7022,No,High,Code or identifier (other),source/_integrations/«xthings_cloud».markdown @XthingsJacobs,,xthings_cloud,Repository file,Code block,CODEOWNERS,1320,,,30
+7023,No,High,Home Assistant Cloud: code identifier,source/_actions/«cloud».remote_connect.markdown @home-assistant/cloud,,cloud,Repository file,Code block,CODEOWNERS,1450,,"Entity ID, action, or configuration key. Follows Home Assistant Core, not the website copy.",17
+7024,No,High,Home Assistant Cloud: code identifier,source/_actions/cloud.remote_connect.markdown @home-assistant/«cloud»,,cloud,Repository file,Code block,CODEOWNERS,1450,,"Entity ID, action, or configuration key. Follows Home Assistant Core, not the website copy.",63
+7025,No,High,Home Assistant Cloud: code identifier,source/_actions/«cloud».remote_disconnect.markdown @home-assistant/cloud,,cloud,Repository file,Code block,CODEOWNERS,1451,,"Entity ID, action, or configuration key. Follows Home Assistant Core, not the website copy.",17
+7026,No,High,Home Assistant Cloud: code identifier,source/_actions/cloud.remote_disconnect.markdown @home-assistant/«cloud»,,cloud,Repository file,Code block,CODEOWNERS,1451,,"Entity ID, action, or configuration key. Follows Home Assistant Core, not the website copy.",66
+7027,No,High,Code or identifier (other),source/_actions/google_assistant.reload.markdown @home-assistant/«cloud»,,cloud,Repository file,Code block,CODEOWNERS,1558,,,66
+7028,No,High,Code or identifier (other),source/_actions/google_assistant.request_sync.markdown @home-assistant/«cloud»,,cloud,Repository file,Code block,CODEOWNERS,1559,,,72
+7029,No,High,Code or identifier (other),source/_actions/«homematicip_cloud».activate_eco_mode_with_duration.markdown @hahn-th @lackas,,homematicip_cloud,Repository file,Code block,CODEOWNERS,1653,,,29
+7030,No,High,Code or identifier (other),source/_actions/«homematicip_cloud».activate_eco_mode_with_period.markdown @hahn-th @lackas,,homematicip_cloud,Repository file,Code block,CODEOWNERS,1654,,,29
+7031,No,High,Code or identifier (other),source/_actions/«homematicip_cloud».activate_vacation.markdown @hahn-th @lackas,,homematicip_cloud,Repository file,Code block,CODEOWNERS,1655,,,29
+7032,No,High,Code or identifier (other),source/_actions/«homematicip_cloud».deactivate_eco_mode.markdown @hahn-th @lackas,,homematicip_cloud,Repository file,Code block,CODEOWNERS,1656,,,29
+7033,No,High,Code or identifier (other),source/_actions/«homematicip_cloud».deactivate_vacation.markdown @hahn-th @lackas,,homematicip_cloud,Repository file,Code block,CODEOWNERS,1657,,,29
+7034,No,High,Code or identifier (other),source/_actions/«homematicip_cloud».dump_hap_config.markdown @hahn-th @lackas,,homematicip_cloud,Repository file,Code block,CODEOWNERS,1658,,,29
+7035,No,High,Code or identifier (other),source/_actions/«homematicip_cloud».reset_energy_counter.markdown @hahn-th @lackas,,homematicip_cloud,Repository file,Code block,CODEOWNERS,1659,,,29
+7036,No,High,Code or identifier (other),source/_actions/«homematicip_cloud».set_active_climate_profile.markdown @hahn-th @lackas,,homematicip_cloud,Repository file,Code block,CODEOWNERS,1660,,,29
+7037,No,High,Code or identifier (other),source/_actions/«homematicip_cloud».set_home_cooling_mode.markdown @hahn-th @lackas,,homematicip_cloud,Repository file,Code block,CODEOWNERS,1661,,,29
+7038,No,High,Code or identifier (other),source/_actions/«icloud».display_message.markdown @Quentame @nzapponi @timlaing,,icloud,Repository file,Code block,CODEOWNERS,1678,,,18
+7039,No,High,Code or identifier (other),source/_actions/«icloud».lost_device.markdown @Quentame @nzapponi @timlaing,,icloud,Repository file,Code block,CODEOWNERS,1679,,,18
+7040,No,High,Code or identifier (other),source/_actions/«icloud».play_sound.markdown @Quentame @nzapponi @timlaing,,icloud,Repository file,Code block,CODEOWNERS,1680,,,18
+7041,No,High,Code or identifier (other),source/_actions/«icloud».update.markdown @Quentame @nzapponi @timlaing,,icloud,Repository file,Code block,CODEOWNERS,1681,,,18
+7042,No,High,Code or identifier (other),source/_actions/«melcloud».set_vane_horizontal.markdown @erwindouna,,melcloud,Repository file,Code block,CODEOWNERS,1857,,,20
+7043,No,High,Code or identifier (other),source/_actions/«melcloud».set_vane_vertical.markdown @erwindouna,,melcloud,Repository file,Code block,CODEOWNERS,1858,,,20
+7044,No,High,Code or identifier (other),source/_actions/«switchbot_cloud».upload_art_frame_image.markdown @SeraphicRav @laurence-presland @Gigatrappeur @XiaoLing-git,,switchbot_cloud,Repository file,Code block,CODEOWNERS,2151,,,27
+7045,No,High,Code or identifier (other),"""textlint"": ""textlint source/_docs source/_faq source/_integrations source/_dashboards source/«cloud» source/getting-started source/hassio source/dashboards""",,cloud,Repository file,Code block,package.json,31,,,99

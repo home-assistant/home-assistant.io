@@ -605,6 +605,45 @@ COLUMNS = [
 
 
 OV: dict[tuple[str, str, str], dict] = {}
+PART_BYTES = 450_000
+SHEET_COLUMNS = ["id", "rewrite", "confidence", "category", "context", "suggestion", "matched",
+                 "content_type", "location", "path", "line", "live_path", "notes", "col"]
+SHEET_HEADER = ["ID", "Rewrite?", "Confidence", "Category", "Context", "Suggested replacement", "Matched text",
+                "Content type", "Where in the file", "File", "Line", "Live page path", "Notes", "Position in line"]
+
+
+def write_sheet_parts(rows: list[dict]) -> None:
+    """Write the slim, split copy that the spreadsheet imports.
+
+    Google Sheets limits the size of one IMPORTDATA call, so the list is split
+    into parts and the link columns are built by formulas in the sheet.
+    """
+    out_dir = HERE / "sheet"
+    out_dir.mkdir(exist_ok=True)
+    for old in out_dir.glob("part-*.csv"):
+        old.unlink()
+    part, size, buf = 1, 0, []
+
+    def flush() -> None:
+        nonlocal part, size, buf
+        with (out_dir / f"part-{part:02d}.csv").open("w", newline="", encoding="utf-8") as fh:
+            w = csv.writer(fh, lineterminator="\n")
+            if part == 1:
+                w.writerow(SHEET_HEADER)
+            w.writerows(buf)
+        part, size, buf = part + 1, 0, []
+
+    for o in rows:
+        o["live_path"] = o["live_link"].replace(SITE_URL, "", 1)
+        rec = [o[k] for k in SHEET_COLUMNS]
+        size += sum(len(str(v).encode("utf-8")) + 3 for v in rec)
+        buf.append(rec)
+        if size >= PART_BYTES:
+            flush()
+    if buf:
+        flush()
+
+
 
 
 def main() -> int:
@@ -633,6 +672,7 @@ def main() -> int:
         w.writerow([h for _, h in COLUMNS] + ["Position in line"])
         for o in rows:
             w.writerow([o[k] for k, _ in COLUMNS] + [o["col"]])
+    write_sheet_parts(rows)
     yes = sum(1 for o in rows if o["rewrite"] == "Yes")
     print(f"{len(rows)} occurrences in {len({o['path'] for o in rows})} files; {yes} to rewrite; "
           f"{sum(1 for v in OV.values() if v.get('_used'))}/{len(OV)} overrides applied", file=sys.stderr)
