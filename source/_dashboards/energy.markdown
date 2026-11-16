@@ -769,6 +769,8 @@ type: power-sankey
 layout: horizontal
 ```
 
+<a id="power-sources-graph"></a>
+
 ## Power profile graph
 
 <p class='img'>
