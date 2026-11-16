@@ -10,7 +10,7 @@ related_actions:
 
 Use this action to start the air conditioning of a Renault vehicle, for example to pre-heat or pre-cool the cabin before you leave. You can start it right away or schedule it for a later time.
 
-Air conditioning control may require an active subscription, such as the *Pack EV Remote Control*, and is not available on all vehicles.
+Air conditioning control may require an active subscription, such as the *Pack EV Remote Control*, and is not available on all vehicles. On electric vehicles, the air conditioning may not start if the battery charge is too low, resulting in an error message. If your vehicle reports it, the message also shows the minimum charge level that is needed. You can check this level with the **HVAC SoC threshold** sensor of the [Renault integration](/integrations/renault/).
 
 {% include actions/ui_header.md %}
 
