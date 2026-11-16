@@ -168,17 +168,17 @@ The gateway identified itself as a model for a brand that the integration doesn'
 
 There is no workaround. Refer to the list of [supported devices](#supported-devices).
 
-### Symptom: "The device on this port did not identify itself as a supported Intesis gateway"
+### Symptom: "The device at this unit ID did not identify itself as a supported Intesis gateway"
 
-Setup stops with this message.
+When trying to set up the integration, the form shows this message.
 
 #### Description
 
-A device answered on the serial port, but it isn't a supported gateway. This happens with gateways for multiple indoor units, or when the **Modbus unit ID** belongs to another device on the same line.
+A device answered at this unit ID, but it isn't a supported gateway. This happens with gateways for multiple indoor units, or when the **Modbus unit ID** belongs to another device on the same line.
 
 #### Resolution
 
-1. Make sure the **Modbus unit ID** is the address of the gateway.
+1. Make sure the **Modbus unit ID** is the address of the gateway, then submit the form again.
 2. Check that your gateway is in the list of [supported devices](#supported-devices).
 
 {% enddetails %}
@@ -203,13 +203,14 @@ The climate entity is unavailable, either all the time or from time to time.
 
 #### Description
 
-The gateway stopped answering. Home Assistant keeps trying, and the entity becomes available again as soon as the gateway answers.
+The gateway stopped answering, or it answers but can't reach the air conditioner. Home Assistant keeps trying, and the entity becomes available again as soon as the gateway reports the air conditioner again.
 
 #### Resolution
 
 1. Make sure the gateway is powered on.
 2. Check the RS-485 wiring and the termination resistor.
 3. Make sure the RS-485 adapter is still connected to the system that runs Home Assistant.
+4. Check the wiring between the gateway and the indoor unit, and make sure the indoor unit is powered on.
 
 {% enddetails %}
 
