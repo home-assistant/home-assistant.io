@@ -15,13 +15,13 @@ ha_domain: system_bridge
 
 ## Supported devices
 
-The integration works with any computer running [System Bridge](https://system-bridge.timmo.dev) 5.0.0 or later. System Bridge has packages for Linux and Windows. macOS isn't officially supported, but you can build System Bridge from source to run it there. Some features depend on the operating system; see [Known limitations](#known-limitations).
+The integration works with any computer running [System Bridge](https://system-bridge.timmo.dev) 5.28.6 or later. System Bridge has packages for Linux and Windows. macOS isn't officially supported, but you can build System Bridge from source to run it there. Some features depend on the operating system; see [Known limitations](#known-limitations).
 
 ## Prerequisites
 
 ### Version
 
-This integration requires System Bridge 5.0.0 and above. Any older version will not work.
+This integration requires System Bridge 5.28.6 or later. Older versions aren't supported.
 
 ### Key or pairing code
 
