@@ -14,7 +14,7 @@ related:
 
 The **Model Context Protocol** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an {% term "AI app" %}, such as ChatGPT or Claude, to Home Assistant. The AI app can then control your devices and see the current state of your home.
 
-With this integration, Home Assistant is the MCP *server*. It offers its {% term "AI tools" %} to the AI app. The AI tools are grouped into sets. Unless you change the settings, the AI app can use all sets of AI tools. Home Assistant has two built-in sets of AI tools:
+With this integration, Home Assistant is the MCP _server_. It offers its {% term "AI tools" %} to the AI app. The AI tools are grouped into sets. Unless you change the settings, the AI app can use all sets of AI tools. Home Assistant has two built-in sets of AI tools:
 
 - **Device control**: Reads and controls the {% term entities %} you expose to voice assistants, on the {% my voice_assistants title="exposed entities page" %}.
 - **Home Assistant**: Looks into and manages Home Assistant itself. It can read all entities, logs, and history, list and reload integrations, and perform any action. Only administrators can use it.
