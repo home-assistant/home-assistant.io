@@ -1,0 +1,68 @@
+file,line,col,rewrite,category,old,new,notes
+source/cloud/index.markdown,16,115,Yes,Describes the service as “cloud” (lowercase),a cloud connection,an online connection,Describes what the service needs. The announcement post uses “online” for this.
+source/common-tasks/general/backups.markdown,114,109,Yes,Describes the service as “cloud” (lowercase),cloud,online,Describes the storage that comes with the subscription.
+source/common-tasks/general/backups.markdown,177,55,Yes,Short name: Cloud,Cloud,Link,Short for the Home Assistant Cloud backup location.
+source/common-tasks/general/backups.markdown,190,12,Yes,Home Assistant Cloud: UI label,Cloud services,Link services,Label on the Nabu Casa account page. Confirm the new label there before changing it.
+source/voice_control/start_assist_from_dashboard.markdown,20,84,Yes,Short name: Cloud,Cloud assistant,Home Assistant Link assistant,Link text for the Home Assistant Cloud assistant guide.
+source/voice_control/voice_remote_cloud_assistant.markdown,19,31,Yes,Describes the service as “cloud” (lowercase),the cloud,Home Assistant Link,“The cloud” here is Home Assistant Cloud.
+source/voice_control/voice_remote_cloud_assistant.markdown,24,17,Yes,Describes the service as “cloud” (lowercase),a cloud Assist pipeline,an Assist pipeline with Home Assistant Link,Heading: changing it changes the anchor link. Add a fragment redirect.
+source/_integrations/cloud.markdown,15,97,No,Generic cloud (concept or other vendors),,,"Means other companies' cloud services, such as Alexa and Google Assistant."
+source/_integrations/config.markdown,18,174,Yes,Describes the service as “cloud” (lowercase),cloud,online,Describes the backup storage that comes with the subscription.
+source/voice_control/assist_create_open_ai_personality.markdown,5,12,Yes,Short name: Cloud,Cloud Assistant pipeline,Home Assistant Link assistant pipeline,Title of a related link in the sidebar.
+source/voice_control/start_assist_from_dashboard.markdown,9,23,Yes,Short name: Cloud,a Cloud assistant,an assistant with Home Assistant Link,Title of a related link in the sidebar.
+source/voice_control/thirteen-usd-voice-remote.markdown,12,23,Yes,Short name: Cloud,a Cloud assistant,an assistant with Home Assistant Link,Title of a related link in the sidebar.
+source/voice_control/worlds-most-private-voice-assistant.markdown,5,23,Yes,Short name: Cloud,a Cloud assistant,an assistant with Home Assistant Link,Title of a related link in the sidebar.
+source/voice_control/voice_remote_expose_devices.markdown,6,23,Yes,Short name: Cloud,a Cloud assistant,an assistant with Home Assistant Link,Title of a related link in the sidebar.
+source/voice_control/about_wake_word.markdown,9,21,Yes,Describes the service as “cloud” (lowercase),a cloud assistant,an assistant with Home Assistant Link,Title of a related link in the sidebar.
+source/voice_control/worlds-most-private-voice-assistant.markdown,30,4,Yes,Short name: Cloud,Cloud assistant pipeline,Home Assistant Link assistant pipeline,Link text for the Home Assistant Cloud assistant guide.
+source/voice_control/android.markdown,23,37,Yes,Describes the service as “cloud” (lowercase),cloud,Home Assistant Link,Link text for the Home Assistant Cloud assistant guide.
+source/voice_control/apple.markdown,25,37,Yes,Describes the service as “cloud” (lowercase),cloud,Home Assistant Link,Link text for the Home Assistant Cloud assistant guide.
+source/voice_control/install_wake_word_add_on.markdown,61,13,Yes,Describes the service as “cloud” (lowercase),a cloud assistant,an assistant with Home Assistant Link,Link text for the Home Assistant Cloud assistant guide.
+source/_integrations/volvo.markdown,49,78,Yes,Describes the service as “cloud” (lowercase),cloud,Home Assistant Link,Links to the Home Assistant Cloud integration.
+source/_integrations/alexa.markdown,12,311,Yes,Describes the service as “cloud” (lowercase),the cloud,Home Assistant Link,"“The cloud” here is Home Assistant Cloud, named in the sentence before."
+source/_integrations/alexa.smart_home.markdown,24,309,Yes,Describes the service as “cloud” (lowercase),the cloud,Home Assistant Link,"“The cloud” here is Home Assistant Cloud, named in the sentence before."
+source/_integrations/google_assistant.markdown,16,314,Yes,Describes the service as “cloud” (lowercase),the cloud,Home Assistant Link,"“The cloud” here is Home Assistant Cloud, named in the sentence before."
+source/_integrations/application_credentials.markdown,24,34,Yes,Describes the service as “cloud” (lowercase),cloud linking,account linking with Home Assistant Link,Means account linking through Home Assistant Cloud.
+source/_integrations/http.markdown,115,353,Yes,Describes the service as “cloud” (lowercase),cloud connections,Home Assistant Link connections,Means connections through Home Assistant Cloud remote access.
+source/_integrations/http.markdown,150,195,Yes,Describes the service as “cloud” (lowercase),cloud connections,Home Assistant Link connections,Means connections through Home Assistant Cloud remote access.
+source/_integrations/sleep_as_android.markdown,33,97,Yes,Describes the service as “cloud” (lowercase),cloud URL,Home Assistant Link URL,Means the Home Assistant Cloud remote access URL.
+source/voice-pe/index.html,493,106,Yes,Describes the service as “cloud” (lowercase),our privacy-first cloud,"Home Assistant Link, our privacy-first online service",Marketing copy on the Voice Preview Edition page that calls the service “our cloud”.
+source/_data/glossary.yml,172,57,Yes,Describes the service as “cloud” (lowercase),cloud,online,Home Assistant Cloud is given as the example of “cloud features”.
+source/_data/glossary.yml,169,28,No,Generic cloud (concept or other vendors),,,Means other vendors' cloud accounts.
+source/_data/glossary.yml,177,28,No,Generic cloud (concept or other vendors),,,Means other vendors' cloud accounts.
+source/_data/community_cards.yml,15,27,No,Generic cloud (concept or other vendors),,,Title of a community video.
+source/_data/integration_categories.json,108,18,No,Generic cloud (concept or other vendors),,,Integration category name.
+source/_data/integration_connectivity.json,10,14,No,Generic cloud (concept or other vendors),,,Connectivity type shown on integration pages.
+source/_includes/integrations/browser.html,212,35,No,Generic cloud (concept or other vendors),,,Connectivity filter option on the integrations page.
+source/_posts/2017-12-17-introducing-home-assistant-cloud.markdown,15,92,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2017-12-17-introducing-home-assistant-cloud.markdown,45,10,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2018-02-20-cloud-update.markdown,2,9,Yes,Short name: Cloud,Cloud,Link,Post title. Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2018-02-26-release-64.markdown,18,80,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2018-04-24-launch-google-assistant-support.markdown,33,55,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2018-09-17-thinking-big.markdown,42,4,No,Generic cloud (concept or other vendors),,,About Amazon and Google clouds.
+source/_posts/2018-12-12-release-84.markdown,2,15,Yes,Short name: Cloud,Cloud,Link,Post title. Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2018-12-12-release-84.markdown,24,4,Yes,Short name: Cloud,Cloud,Link,Heading. Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2021-02-03-release-20212.markdown,4,87,Yes,Short name: Cloud,Cloud,Link,Post description. Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2021-02-03-release-20212.markdown,49,4,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2021-02-03-release-20212.markdown,259,4,Yes,Short name: Cloud,Cloud,Link,Heading. Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2021-02-03-release-20212.markdown,270,60,Yes,Short name: Cloud,Cloud,Link,Image alt text. Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2021-02-03-release-20212.markdown,271,15,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2024-06-12-roadmap-2024h1.markdown,107,257,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2024-06-12-roadmap-2024h1.markdown,118,22,Yes,Short name: Cloud,Cloud monitoring,Monitoring with Link,Heading for a planned Home Assistant Cloud feature. Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2024-08-08-works-with-home-assistant-becomes-part-ohf.markdown,44,188,No,Generic cloud (concept or other vendors),,,"The Works with Home Assistant “Cloud” badge, a connectivity type."
+source/_posts/2025-01-03-3-2-1-backup.markdown,60,630,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2025-06-25-voice-chapter-10.markdown,94,6,Yes,Short name: Cloud,Cloud,Link,Label in a legend. Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2025-06-25-voice-chapter-10.markdown,98,169,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2025-09-11-ai-in-home-assistant.markdown,56,3,Yes,Short name: Cloud,Cloud,Link,Table label for Home Assistant Cloud text-to-speech. Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2025-09-11-ai-in-home-assistant.markdown,57,3,Yes,Short name: Cloud,Cloud,Link,Table label for Home Assistant Cloud text-to-speech. Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2026-05-06-release-20265.markdown,372,102,No,Third-party product or service name,,,IFS Cloud Cable Car in London.
+source/_posts/2026-09-02-release-20269.markdown,22,56,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2026-09-02-release-20269.markdown,35,25,Yes,Short name: Cloud,Cloud,Link,"Wordplay on clouds. Needs a new heading, not a word swap. Published before the rename. Decide whether archived posts and release notes get updated."
+source/_posts/2026-09-02-release-20269.markdown,37,23,Yes,Short name: Cloud,Cloud,Link,Wordplay on clouds (“float in”). Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2026-09-02-release-20269.markdown,72,452,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2026-09-02-release-20269.markdown,74,24,Yes,Short name: Cloud,Cloud,Link,"Heading with wordplay on clouds. Needs a new heading, not a word swap. Published before the rename. Decide whether archived posts and release notes get updated."
+source/_posts/2026-09-02-release-20269.markdown,78,516,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2026-09-02-release-20269.markdown,82,388,Yes,Short name: Cloud,Cloud,Link,Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2026-09-02-release-20269.markdown,90,22,Yes,Short name: Cloud,Cloud,Link,Heading with wordplay on clouds (“float in”). Published before the rename. Decide whether archived posts and release notes get updated.
+source/_posts/2026-10-07-release-202610.markdown,36,4,No,Old name kept on purpose,,,Announces the rename.
+source/_posts/2026-10-07-release-202610.markdown,70,4,No,Old name kept on purpose,,,Announces the rename.
