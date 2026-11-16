@@ -100,7 +100,7 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *volume up*
 - *turn up the volume in the living room*
 
-To play a song, an album, or a video by name, you need a media player that can search for media. For example, [Music Assistant](/integrations/music_assistant/), [Sonos](/integrations/sonos/), and [Jellyfin](/integrations/jellyfin/) media players can.
+To play media by name, use a media player that can search for the type of media you want to play. [Music Assistant](/integrations/music_assistant/), [Sonos](/integrations/sonos/), and [Jellyfin](/integrations/jellyfin/) support media search for different types of media.
 
 - *play the track Bohemian Rhapsody*
 - *play the song Bohemian Rhapsody in the kitchen*
@@ -182,9 +182,7 @@ A voice timer belongs to the {% term "voice satellite" %} where you start it. Th
 ### Pausing and resuming
 
 - *pause timer*
-- *pause the kitchen timer*
 - *resume timer*
-- *resume the kitchen timer*
 
 ### Adding/Removing Time
 
