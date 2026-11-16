@@ -99,7 +99,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Optionally, under **Acts as user**, select the person this assistant speaks for. Refer to [letting an assistant act as a user](#letting-an-assistant-act-as-a-user).
 
 3. That's it. You ensured your voice commands can be processed locally on your device.
-4. If you haven't done so yet, [expose your entities to Assist](/voice_control/voice_remote_expose_devices/#exposing-entities-to-assist).
+4. If you haven't done so yet, [expose your entities to Assist](/voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant).
    - Otherwise, you won't be able to control them by voice.
 
 ## Letting an assistant act as a user

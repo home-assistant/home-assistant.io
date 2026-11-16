@@ -261,5 +261,6 @@
 "/docs/energy/faq/":
   troubleshooting-missing-entities: /docs/energy/faq/#symptom-the-sensor-doesnt-appear-in-the-selection-list
 "/voice_control/voice_remote_expose_devices/":
-  exposing-your-devices-to-assist: /voice_control/voice_remote_expose_devices/#exposing-entities-to-assist
-  exposing-your-devices: /voice_control/voice_remote_expose_devices/#exposing-entities-to-assist
+  exposing-your-devices-to-assist: /voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant
+  exposing-your-devices: /voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant
+  turning-off-expose-new-entities: /voice_control/voice_remote_expose_devices/#changing-expose-new-entities
