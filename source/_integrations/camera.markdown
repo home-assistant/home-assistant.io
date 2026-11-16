@@ -25,10 +25,7 @@ The `Preload stream` option will start the camera feed on Home Assistant startup
 Requires the **Two-way audio** Labs preview feature. Enable it at {% my labs title="**Settings** > **System** > **Labs**" %}.
 {% endlabs %}
 
-With two-way audio, you can talk to people near a camera or doorbell while you watch its live stream.
-For example, you can answer a visitor at your front door from your phone.
-Home Assistant sends the sound from your microphone to the speaker of the camera.
-Your microphone is only used after you select **Start talking**, and never by default.
+With two-way audio, you can talk to people near a camera or doorbell while you watch its live stream. For example, you can answer a visitor at your front door from your phone. Home Assistant sends the sound from your microphone to the speaker of the camera. Your microphone is only used after you select **Start talking**, and never by default.
 
 ### Talking through a camera
 
@@ -43,16 +40,11 @@ Prerequisites:
 
 To talk through a camera:
 
-1. Open the more-info dialog of the camera.
-   For example, select the camera on your dashboard.
-2. Below the live stream, select **Start talking**.
-   The first time you do this, your browser or app asks for permission to use the microphone.
-   Allow access.
+1. Open the more-info dialog of the camera. For example, select the camera on your dashboard.
+2. Below the live stream, select **Start talking**. The first time you do this, your browser or app asks for permission to use the microphone. Allow access.
 
-   The button changes to **Stop talking**.
-   People near the camera can now hear you.
-3. When you're done, select **Stop talking**.
-   The microphone also turns off when you close the live stream.
+   The button changes to **Stop talking**. People near the camera can now hear you.
+3. When you're done, select **Stop talking**. The microphone also turns off when you close the live stream.
 
 ## Camera states
 
@@ -95,9 +87,7 @@ To make the button appear:
 
 1. Make sure the **Two-way audio** preview feature is enabled in {% my labs title="**Settings** > **System** > **Labs**" %}.
 2. Check the documentation of the integration of your camera to see if it supports two-way audio.
-3. Make sure Home Assistant can stream the camera using WebRTC.
-   On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, the [go2rtc](/integrations/go2rtc/) integration provides WebRTC for your cameras.
-   It's set up automatically if your configuration includes [`default_config`](/integrations/default_config/).
+3. Make sure Home Assistant can stream the camera using WebRTC. On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, the [go2rtc](/integrations/go2rtc/) integration provides WebRTC for your cameras. It's set up automatically if your configuration includes [`default_config`](/integrations/default_config/).
 
 When all of these are true, the **Start talking** button appears the next time you open the more-info dialog of the camera.
 
@@ -107,13 +97,11 @@ When all of these are true, the **Start talking** button appears the next time y
 
 ### Symptom: "Your browser blocks the microphone because your connection to Home Assistant is not secured using HTTPS."
 
-The **Start talking** button can't be selected.
-When you hover over or tap the button, it shows the message "Your browser blocks the microphone because your connection to Home Assistant is not secured using HTTPS."
+The **Start talking** button can't be selected. When you hover over or tap the button, it shows the message "Your browser blocks the microphone because your connection to Home Assistant is not secured using HTTPS."
 
 #### Description
 
-Browsers only allow access to the microphone over a secure connection.
-You opened Home Assistant using an HTTP address.
+Browsers only allow access to the microphone over a secure connection. You opened Home Assistant using an HTTP address.
 
 #### Resolution
 
@@ -128,13 +116,11 @@ When the problem is solved, you can select **Start talking**.
 
 ### Symptom: "Talking to this camera is only possible when the stream uses WebRTC."
 
-The **Start talking** button can't be selected.
-When you hover over or tap the button, it shows the message "Talking to this camera is only possible when the stream uses WebRTC."
+The **Start talking** button can't be selected. When you hover over or tap the button, it shows the message "Talking to this camera is only possible when the stream uses WebRTC."
 
 #### Description
 
-Two-way audio needs a WebRTC stream.
-Home Assistant shows the live stream using another streaming method, for example because the WebRTC stream didn't load.
+Two-way audio needs a WebRTC stream. Home Assistant shows the live stream using another streaming method, for example because the WebRTC stream didn't load.
 
 #### Resolution
 
@@ -149,8 +135,7 @@ To get a WebRTC stream:
 
 ### Symptom: "Microphone access was denied. Allow it in your browser settings to talk to this camera."
 
-The **Start talking** button can't be selected.
-When you hover over or tap the button, it shows the message "Microphone access was denied. Allow it in your browser settings to talk to this camera."
+The **Start talking** button can't be selected. When you hover over or tap the button, it shows the message "Microphone access was denied. Allow it in your browser settings to talk to this camera."
 
 #### Description
 
