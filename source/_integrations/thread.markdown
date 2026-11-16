@@ -20,7 +20,7 @@ related:
     title: Enabling Thread on Yellow
 ---
 
-The **Thread** {% term integration %} helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password).
+The **Thread** {% term integration %} helps you track the different Thread networks in your home and manage the Thread network credentials (similar to a Wi-Fi password).
 
 This page documents the **Thread** integration. To learn more about Thread in Home Assistant, refer to [Thread](/connectivity/thread/).
 
