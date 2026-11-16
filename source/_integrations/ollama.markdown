@@ -11,7 +11,7 @@ related:
     title: Sentence trigger
 ---
 
-The **Ollama** {% term integration %} adds {% term "conversation agents" %} and AI tasks to Home Assistant. They use a model on your own [Ollama](https://ollama.com/) server.
+The **Ollama** {% term integration %} lets you run AI locally, on your own hardware. [Ollama](https://ollama.com/) is a server that runs AI models on a computer in your home, instead of in a cloud service. The integration connects Home Assistant to your Ollama server and adds {% term "conversation agents" %} and AI tasks that use its models.
 
 - A conversation agent lets you talk to the model with {% term Assist %}. With the **Device control** set of {% term "AI tools" %}, it can also give you information about your devices and control them. It can only reach the {% term entities %} that you [expose](/voice_control/voice_remote_expose_devices/) to Assist.
 - An [AI task](/integrations/ai_task/) lets your automations and scripts use the model to generate data. For example, it can return the data in a structure that you define. If your model supports images, it can also describe a camera image. AI tasks only accept images as attachments.
@@ -20,7 +20,7 @@ When you talk to an Ollama conversation agent through an {% term assistant %}, H
 
 ## Prerequisites
 
-1. Install the Ollama server on a computer in your network. Ollama is available for macOS, Linux, and Windows. For the steps, refer to the [Ollama download instructions](https://ollama.com/download).
+1. Install the Ollama server on a computer in your network. This computer runs the AI models. Ollama is available for macOS, Linux, and Windows. For the steps, refer to the [Ollama download instructions](https://ollama.com/download).
 2. Make the Ollama server accessible over your network, so that Home Assistant can reach it. For the steps, refer to [How can I expose Ollama on my network?](https://github.com/ollama/ollama/blob/main/docs/faq.mdx#how-can-i-expose-ollama-on-my-network) in the Ollama FAQ.
 
 {% include integrations/config_flow.md %}
