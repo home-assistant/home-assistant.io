@@ -14,17 +14,17 @@ Assist can only see and control the {% term entities %} that you expose to it. T
 
 ## Entities that are exposed automatically
 
-Home Assistant exposes common devices to Assist as you add them. This is the **Expose new entities** setting on the **Assist** card, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}. It's turned on by default.
+Home Assistant exposes common {% term devices %} to {% term Assist %} as you add them. This is the **Expose new entities** setting on the **Assist** card, under {% my voice_assistants title="**Settings** > **Voice assistants**" %}. It's turned on by default.
 
-When **Expose new entities** is turned on, Home Assistant exposes each new entity of the following kinds to Assist:
+When **Expose new entities** is turned on, Home Assistant exposes each new {% term entity %} of the following kinds to Assist:
 
 - Lights, switches, fans, covers, climate devices, humidifiers, water heaters, vacuums, media players, scenes, and to-do lists.
 - Binary sensors for doors, garage doors, windows, locks, and other openings, and binary sensors that detect motion or presence. These sensors only report a state. Assist can tell you if a door is open, but it can't open or unlock anything with them.
 - Sensors that measure temperature, humidity, carbon monoxide, carbon dioxide, PM2.5, PM10, volatile organic compounds, or the air quality index.
 
-Covers include garage doors and gates, so Home Assistant exposes them automatically too. If you don't want to open them by voice, stop exposing them. For the steps, refer to [Unexposing entities](#unexposing-entities).
+{% term Covers %} include garage doors and gates, so Home Assistant exposes them automatically too. If you don't want to open them by voice, stop exposing them. For the steps, refer to [Unexposing entities](#unexposing-entities).
 
-Home Assistant never exposes other entities automatically. For example, locks, alarm control panels, and scripts stay unexposed until you expose them yourself. Configuration entities, diagnostic entities, and hidden entities are never exposed automatically either.
+Home Assistant never exposes other entities automatically. For example, locks, alarm control panels, and {% term scripts %} stay unexposed until you expose them yourself. Configuration entities, diagnostic entities, and hidden entities are never exposed automatically either.
 
 After an entity is added, it keeps its setting until you change it. You can expose or stop exposing any entity at any time.
 
@@ -32,7 +32,7 @@ The **Alexa** and **Google Assistant** cards have their own **Expose new entitie
 
 ## Alexa and Google Assistant
 
-With [Home Assistant Cloud](/integrations/cloud/), you can also control your entities with Alexa or Google Assistant. Each of them has its own card on the **Voice assistants** page, with its own exposure settings. You expose entities to them the same way as to Assist.
+With [Home Assistant Cloud](/integrations/cloud/), you can also control your {% term entities %} with Alexa or Google Assistant. Each of them has its own card on the **Voice assistants** page, with its own exposure settings. You expose entities to them the same way as to {% term Assist %}.
 
 To use Alexa or Google Assistant this way, you need the following:
 
@@ -42,15 +42,15 @@ To use Alexa or Google Assistant this way, you need the following:
   - For Google Assistant, the **Home Assistant Cloud by Nabu Casa** service is added in the Google Home app. For the steps, refer to [Google Assistant](https://support.nabucasa.com/hc/articles/25619376817053) in the Home Assistant Cloud documentation.
 - Alexa or Google Assistant is turned on in its card under {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
 
-If you set up Alexa or Google Assistant without Home Assistant Cloud, you choose the entities in YAML instead. For details, refer to [Configure filter](/integrations/alexa.smart_home/#configure-filter) for Alexa and to the [Google Assistant](/integrations/google_assistant/) integration.
+If you set up Alexa or Google Assistant without Home Assistant Cloud, you choose the entities in {% term YAML %} instead. For details, refer to [Configure filter](/integrations/alexa.smart_home/#configure-filter) for Alexa and to the [Google Assistant](/integrations/google_assistant/) {% term integration %}.
 
 ## Exposing entities to a voice assistant
 
-You can expose several entities at once from the **Expose** tab, or a single entity from its settings. Both work for Assist, Alexa, and Google Assistant.
+You can expose several {% term entities %} at once from the **Expose** tab, or a single entity from its settings. Both work for {% term Assist %}, Alexa, and Google Assistant.
 
 ### Exposing entities from the Expose tab
 
-Use the **Expose** tab to expose several entities at once, or entities that Home Assistant doesn't expose automatically. For example, you added a smart lock, and you want to lock the front door with Assist. Or you just connected Alexa, and you want to ask it to turn on the living room lights. The tab also shows which entities a voice assistant can use.
+Use the **Expose** tab to expose several {% term entities %} at once, or entities that Home Assistant doesn't expose automatically. For example, you added a smart lock, and you want to lock the front door with {% term Assist %}. Or you just connected Alexa, and you want to ask it to turn on the living room lights. The tab also shows which entities a voice assistant can use.
 
 Prerequisites:
 
@@ -73,7 +73,7 @@ To expose entities from the Expose tab:
 
 ### Exposing a single entity from its settings
 
-Use the settings of an entity when you're already working with that entity. For example, you just set up a new ceiling light and opened it from its device page. You can expose it right there, without going to the **Expose** tab. In the same dialog, you can also add [aliases](/voice_control/aliases/), the other names that voice assistants understand for the entity.
+Use the settings of an {% term entity %} when you're already working with that entity. For example, you just set up a new ceiling light and opened it from its {% term device %} page. You can expose it right there, without going to the **Expose** tab. In the same dialog, you can also add [aliases](/voice_control/aliases/), the other names that voice assistants understand for the entity.
 
 Prerequisites:
 
@@ -96,7 +96,7 @@ To expose a single entity from its settings:
 
 ## Unexposing entities
 
-Unexpose an entity when you no longer want to control it by voice. For example, Home Assistant exposed a new garage door to Assist automatically, and you don't want to open it by voice. Only the voice assistant that you choose stops using the entity. Unexposing doesn't remove the entity from Home Assistant.
+Unexpose an {% term entity %} when you no longer want to control it by voice. For example, Home Assistant exposed a new garage door to {% term Assist %} automatically, and you don't want to open it by voice. Only the voice assistant that you choose stops using the entity. Unexposing doesn't remove the entity from Home Assistant.
 
 Prerequisites:
 
@@ -116,9 +116,9 @@ To unexpose entities:
 
 ## Changing Expose new entities
 
-**Expose new entities** decides whether Home Assistant exposes new entities to a voice assistant as you add them. Each voice assistant has its own setting:
+**Expose new entities** decides whether Home Assistant exposes new {% term entities %} to a voice assistant as you add them. Each voice assistant has its own setting:
 
-- For Assist, it's turned on by default. If you want to decide on every entity yourself, turn it off. For example, you don't want a new garage door to be exposed before you decide. For the kinds of entities that it exposes, refer to [Entities that are exposed automatically](#entities-that-are-exposed-automatically).
+- For {% term Assist %}, it's turned on by default. If you want to decide on every entity yourself, turn it off. For example, you don't want a new garage door to be exposed before you decide. For the kinds of entities that it exposes, refer to [Entities that are exposed automatically](#entities-that-are-exposed-automatically).
 - For Alexa and Google Assistant, it's turned off by default. If you want to control each new entity with them, turn it on. For example, you often add new lights and switches, and you want to control each one with Alexa without exposing it yourself. It then exposes new supported entities that aren't security devices.
 
 Prerequisites:
