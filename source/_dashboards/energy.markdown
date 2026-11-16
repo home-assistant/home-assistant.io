@@ -772,8 +772,8 @@ layout: horizontal
 ## Power profile graph
 
 <p class='img'>
-  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Sankey sources graph card'>
-  Screenshot of the power Sankey graph card.
+  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Power profile graph card'>
+  Screenshot of the Power profile graph card.
 </p>
 
 The power profile graph shows historical power data.
