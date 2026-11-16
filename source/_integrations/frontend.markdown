@@ -102,7 +102,27 @@ frontend:
 
 The example above defines red color for open garage doors and brown color for inactive media players.
 
-Entities of other domains, like text sensors, have no default state colors. In history timelines, their states get colors from the graph palette, which can differ between visits. To give one of these states a fixed color, use the first or second variable from the list above. Write the state in lowercase and without accents. Replace spaces and other characters that are not letters or digits with a single underscore. For example, `state-sensor-heating-color` sets the color of the `Heating` state of a sensor, and `state-sensor-heating_cooling-color` sets the color of `Heating/Cooling`.
+##### Setting a fixed timeline color for a state
+
+Domains that are not in the list above, like `sensor`, have no default state colors. In history timelines, a free-text state, like that of a text sensor, gets the next color from the graph palette when it first appears, so it can have a different color on your next visit. To keep the color the same, set it in your theme.
+
+1. Look up the state as Home Assistant stores it: go to {% my tools_states title="**Settings** > **Tools** > **States**" %} and find the entity.
+   - Use this value, not the translated name that the timeline shows.
+2. Convert the state for the variable name: write it in lowercase and without accents, and replace each run of spaces or other characters that are not letters or digits with a single underscore.
+   - For example, `Heating` becomes `heating` and `Heating/Cooling` becomes `heating_cooling`.
+3. In your theme, add a `state-{domain}-{state}-color` variable. To color the state only for entities with a specific device class, use `state-{domain}-{device_class}-{state}-color` instead.
+
+   ```yaml
+   # Example configuration.yaml entry
+   frontend:
+     themes:
+       my_theme:
+         state-sensor-heating-color: "#ff9800"
+         state-sensor-heating_cooling-color: "#9c27b0"
+   ```
+
+4. [Reload your themes](/actions/frontend.reload_themes/) and make sure the theme is [applied](#applying-themes).
+   - Result: The history timeline shows the state in the color you set.
 
 ### Panel, toolbar and table backgrounds
 
