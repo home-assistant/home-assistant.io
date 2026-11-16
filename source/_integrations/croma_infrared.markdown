@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: croma_infrared
 ha_config_flow: true
 ha_platforms:
+  - button
   - media_player
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -46,7 +47,7 @@ Infrared emitter:
 
 ## Supported functionality
 
-The **Croma Infrared** integration provides the following entity.
+The **Croma Infrared** integration provides the following entities.
 
 ### Media player
 
@@ -54,6 +55,23 @@ The **Croma Infrared** integration provides the following entity.
   - **Description**: Represents the TV and lets you control it over infrared.
   - **Supported features**: Turn on, turn off, volume up, volume down, mute, play, pause, stop, and select source.
   - **Sources**: YouTube, Netflix, Prime Video, and Live TV. Selecting a source sends the matching app key from the remote, which opens that app on the TV.
+
+### Buttons
+
+Each button sends the matching key to the TV when you press it. They cover the keys the media player has no control for.
+
+- **Power**
+- **Up**, **Down**, **Left**, **Right**, **OK**
+- **Back**, **Exit**, **Home**, **Menu**, **Settings**, **Apps**
+- **Input**, **Info**, **Guide**
+- **Account**, **Voice**, **Subtitles**
+- **Program up**, **Program down**
+- **Fast forward**, **Rewind**
+- **Free hotkey**
+
+The **Power** button sends the power key without changing the state of the media player. Use it when only the TV needs to change, for example when the TV was switched with its own remote and the state in Home Assistant is already the one you want.
+
+The **Free hotkey** button opens the app assigned to that key on the TV.
 
 ## Croma Infrared automation examples
 
@@ -127,8 +145,10 @@ The integration does not {% term polling poll %} the TV. After sending a command
 - The mute key also switches between muted and unmuted, with the same effect when the states disagree.
 - Presses on the physical remote are not tracked. Using the remote directly leaves the media player showing whatever state Home Assistant last set.
 - Volume control is step-based only. You cannot set an absolute volume level.
-- Sources are apps opened by the remote's app keys. The TV's HDMI inputs cannot be selected directly, because the remote only has a key that opens the input menu.
+- Sources are apps opened by the remote's app keys. The TV's HDMI inputs cannot be selected directly, because the remote only has a key that opens the input menu. You can open that menu with the **Input** button.
 - Mute and the current source are not restored after a restart.
+- Pressing a button does not update the media player, because Home Assistant cannot tell what the key did on the TV.
+- On the verified TV, the **Menu** button and the **Free hotkey** button without an assigned app have no effect, and the **Exit** button acts like **Back**. Other models may behave differently.
 
 ## Troubleshooting
 
@@ -161,7 +181,10 @@ The integration uses assumed state. Using the physical remote, or a command that
 
 #### Resolution
 
-1. Repeat the command that matches what Home Assistant shows. For example, if Home Assistant shows the TV as on but the TV is off, turn the media player on. The power key turns the TV on, and both agree again.
+Do one of the following. Each switches the TV once, so doing both puts the TV and Home Assistant out of step again.
+
+- Repeat the command that matches what Home Assistant shows. For example, if Home Assistant shows the TV as on but the TV is off, turn the media player on. The power key turns the TV on, and both agree again.
+- Press the **Power** button. It switches the TV without changing what Home Assistant shows, so both agree again.
 
 {% enddetails %}
 
