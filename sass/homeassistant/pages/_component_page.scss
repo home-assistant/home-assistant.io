@@ -197,6 +197,9 @@
     text-decoration: none;
     align-content: center;
     transition: box-shadow .33s;
+    // Cards out of view skip layout and paint until you scroll to them.
+    content-visibility: auto;
+    contain-intrinsic-size: auto 160px;
 
     .img-container {
       height: 64px;
