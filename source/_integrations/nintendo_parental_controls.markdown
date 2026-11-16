@@ -97,6 +97,10 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 
 Make sure the Switch has access to the internet, without this, usage data is not being sent to Nintendo.
 
+### Entities of one Switch are unavailable
+
+Home Assistant marks a Switch's entities as unavailable when it could not fetch that Switch's data from Nintendo in the last update, instead of showing old values. A warning is logged when this happens and an info message when the Switch is available again. This usually clears on its own at the next update. If it doesn't, check the Switch in the Nintendo Switch Parental Controls app.
+
 ## Removing the integration
 
 This integration follows standard integration removal.
