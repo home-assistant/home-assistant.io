@@ -10,7 +10,7 @@ related:
     title: Best practices with Assist
 ---
 
-Assist can only see and control the {% term entities %} that you expose to it. This way, you decide which devices you can control by voice.
+Assist can only see and control the {% term entities %} that you expose to it. This way, you decide which devices you can control by voice. There's one exception: a {% term "conversation agent" %} with the **Home Assistant** set of {% term "AI tools" %} selected can reach all entities. This includes entities that you never exposed or stopped exposing. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools).
 
 ## Entities that are exposed automatically
 

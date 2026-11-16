@@ -17,7 +17,7 @@ related:
 ---
 Voice control feels effortless when it is set up well, and frustrating when it is not. The good news is that getting Assist to feel natural mostly comes down to a few simple choices: which devices it can see, how things are named, and how your home is organized into areas. This page collects the small habits that make a big difference.
 
-In Home Assistant, you decide what Assist has access to. Assist can only see and control the entities that you expose to it. Home Assistant exposes common devices as you add them. Examples are lights and switches. Locks and alarm control panels stay unexposed until you expose them yourself. Garage doors and gates are covers, so Home Assistant exposes them automatically. You can change this for every entity. For details, refer to [what Home Assistant exposes automatically](/voice_control/voice_remote_expose_devices/#entities-that-are-exposed-automatically).
+In Home Assistant, you decide what Assist has access to. Assist can only see and control the entities that you expose to it. There's one exception: a {% term "conversation agent" %} with the **Home Assistant** set of {% term "AI tools" %} selected can reach all entities. This includes entities that you never exposed or stopped exposing. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). Home Assistant exposes common devices as you add them. Examples are lights and switches. Locks and alarm control panels stay unexposed until you expose them yourself. Garage doors and gates are covers, so Home Assistant exposes them automatically. You can change this for every entity. For details, refer to [what Home Assistant exposes automatically](/voice_control/voice_remote_expose_devices/#entities-that-are-exposed-automatically).
 
 Some best practices we recommend to have an efficient setup are:
 
@@ -79,7 +79,7 @@ To talk to Assist, you can either use your phone or a custom device (and use the
 
 ### Let AI run your scripts
 
-You can use a conversation agent that uses AI. To add one, set up an [AI integration](/integrations/category/ai_voice/ai_models/). Examples are OpenAI, Google Gemini, and Ollama for local models. Each script that you expose to Assist becomes an {% term "AI tool" %} in the **Device control** set. If **Device control** is selected in the **AI tools** option of the conversation agent, it can call the script directly. Home Assistant never exposes scripts automatically, so expose the scripts that you want it to use. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the conversation agent doesn't know the script exists or when to use it.
+You can use a conversation agent that uses AI. To add one, set up an [AI integration](/integrations/category/ai_voice/ai_models/). Examples are OpenAI, Google Gemini, and Ollama for local models. Each script that you expose to Assist becomes an {% term "AI tool" %} in the [**Device control** set](/integrations/llm/#sets-of-ai-tools). If **Device control** is selected in the **AI tools** option of the conversation agent, it can call the script directly. Home Assistant never exposes scripts automatically, so expose the scripts that you want it to use. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the conversation agent doesn't know the script exists or when to use it.
 
 Find out [how to write these descriptions](/voice_control/exposing_scripts_to_llms/) when you're ready to expose your scripts.
 
