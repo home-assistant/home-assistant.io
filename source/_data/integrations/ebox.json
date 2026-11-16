@@ -6,6 +6,9 @@
   "categories": [
     "computers_network.routers_network"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

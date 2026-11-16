@@ -10,6 +10,9 @@
   "categories": [
     "vehicles_transport.flights"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor"
   ]

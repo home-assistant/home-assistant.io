@@ -6,6 +6,10 @@
   "categories": [
     "media_entertainment.speakers_audio"
   ],
+  "connectivity": [
+    "host",
+    "network"
+  ],
   "platforms": [
     "switch"
   ]
