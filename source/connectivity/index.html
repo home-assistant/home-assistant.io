@@ -11,11 +11,12 @@ regenerate: false
   Home Assistant reaches your devices in different ways. Some devices are on your network, some use a radio like Bluetooth, and some are connected with a cable. These pages explain each type of connection: what it is, what you need for it, and how to set it up.
 </p>
 
-<ul>
+<ul class="connectivity-list">
   {%- for connectivity_page in connectivity_pages -%}
     {%- assign connectivity = site.data.integration_connectivity | where: 'slug', connectivity_page.connectivity | first %}
   <li>
-    <a href="{{ connectivity_page.url }}">{% if connectivity %}<iconify-icon icon="{{ connectivity.icon }}"></iconify-icon> {% endif %}{{ connectivity_page.title }}</a>: {{ connectivity_page.description }}
+    <iconify-icon icon="{{ connectivity.icon | default: 'mdi:transit-connection-variant' }}"></iconify-icon>
+    <span><a href="{{ connectivity_page.url }}">{{ connectivity_page.title }}</a>: {{ connectivity_page.description }}</span>
   </li>
   {%- endfor %}
 </ul>
