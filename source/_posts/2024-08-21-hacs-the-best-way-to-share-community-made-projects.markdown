@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "HACS 2.0 - The best way to share community-made projects just got better"
+title: "HACS 2.0: The best way to share community-made projects just got better"
 description: "2.0 brings new features making it the best to share community-made integrations and UI elements."
 date: 2024-08-21 00:00:01
 date_formatted: "August 21, 2024"
