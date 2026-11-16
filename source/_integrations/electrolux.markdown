@@ -281,9 +281,6 @@ This entity is used to control the appliance with the following actions:
   - **Descriptions**: Reports the amount of time the appliance has been running for.
   - **Available for appliance types**: Oven.
   - **Remarks**: Disabled by default. Shown in hours by default. On double ovens, there is a sensor for each cavity: **Upper cavity running time** and **Lower cavity running time**.
-- **Sound volume**:
-  - **Description**: Reports current sound level setting.
-  - **Available for appliance types**: Hood.
 - **Start at**
   - **Descriptions**: Reports when the appliance will start running.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
