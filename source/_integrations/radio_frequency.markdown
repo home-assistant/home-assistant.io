@@ -21,6 +21,8 @@ The **Radio Frequency** {% term integration %} allows you to use Home Assistant 
 - An integration that provides radio frequency entities by integrating a radio frequency remote adapter (such as [ESPHome](/integrations/esphome/) or [Broadlink](/integrations/broadlink/))
 - Device-specific integrations (such as [Honeywell String Lights](/integrations/honeywell_string_lights/) or [Novy Cooker Hood](/integrations/novy_cooker_hood/))
 
+This page documents the **Radio Frequency** integration. To learn more about radio frequency control in Home Assistant, refer to [Radio frequency](/connectivity/radio-frequency/).
+
 You can control radio frequency-controlled devices from Home Assistant without touching the handheld remote control. Home Assistant can also receive signals from a handheld RF remote. The chart illustrates how this is possible via the integrations.
 
 <p class='img'><img class='invertDark' src='/images/integrations/radio_frequency/radio-frequency-overview.png' alt="Diagram showing how the Radio Frequency integration connects device integrations to a radio frequency remote adapter through a remote adapter integration.">
@@ -28,8 +30,6 @@ How the Radio Frequency integration connects device integrations to a radio freq
 </p>
 
 A radio frequency {% term entity %} represents either a [radio frequency transmitter](/connectivity/radio-frequency/#radio-frequency-transmitter) or a [radio frequency receiver](/connectivity/radio-frequency/#radio-frequency-receiver).
-
-To learn which remote adapters you can use, how to set up radio frequency control, and where to place your remote adapters, refer to [Radio frequency](/connectivity/radio-frequency/).
 
 {% include integrations/building_block_integration.md %}
 

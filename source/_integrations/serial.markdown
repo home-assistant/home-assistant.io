@@ -13,7 +13,9 @@ related:
 The **Raw Serial** {% term integration %} reads raw text from a serial port. To get useful values, you usually need to process that text with templates. Most devices with a serial port already have an integration that handles the connection for you. Before you use this integration, search the [integrations](/integrations/) for your device or its brand.
 {% endwarning %}
 
-The **Raw Serial** {% term integration %} uses the data provided by a device connected to a serial port that Home Assistant can reach. The port can be on the system where Home Assistant runs, or shared over your network, for example by a serial proxy. To learn how to connect a device to a serial port that Home Assistant can reach, refer to [Serial](/connectivity/serial/).
+The **Raw Serial** {% term integration %} uses the data provided by a device connected to a serial port that Home Assistant can reach. The port can be on the system where Home Assistant runs, or shared over your network, for example by a serial proxy.
+
+This page documents the **Raw Serial** integration. To learn more about serial connections in Home Assistant, refer to [Serial](/connectivity/serial/).
 
 To check what kind of data is arriving at your serial port, use a serial terminal program. On Linux, use `minicom` or `picocom`. On macOS, use `screen`. On Windows, use `PuTTY`.
 

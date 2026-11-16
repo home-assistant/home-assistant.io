@@ -13,7 +13,7 @@ related:
 
 The **Bluetooth** {% term integration %} supports Bluetooth Low Energy devices. Bluetooth Classic devices are not supported. Compatible devices discovered nearby appear on {% my integrations title="**Settings** > **Devices & services**" %}.
 
-To learn how to connect Bluetooth devices, which adapters and proxies you can use, and how to improve your Bluetooth connections, refer to [Bluetooth](/connectivity/bluetooth/).
+This page documents the **Bluetooth** integration. To learn more about Bluetooth in Home Assistant, refer to [Bluetooth](/connectivity/bluetooth/).
 
 {% include integrations/config_flow.md %}
 

@@ -10,6 +10,8 @@ related:
 
 The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.
 
+This page documents the **Zigbee Home Automation** integration. To learn more about Zigbee in Home Assistant, refer to [Zigbee](/connectivity/zigbee/).
+
 This {% term integration %} currently supports the following device types within Home Assistant:
 
 - [Alarm control panel](/integrations/alarm_control_panel/)
@@ -35,7 +37,7 @@ This {% term integration %} currently supports the following device types within
 
 The ZHA integration is a hardware-independent Zigbee gateway implementation that can replace most proprietary Zigbee gateways (or bridges, hubs, or controllers). ZHA creates a single Zigbee network to which you can add most Zigbee-based devices.
 
-If you do not have a coordinator yet, the [Home Assistant Connect ZBT-2](/connect/zbt-2/) is the recommended choice. For all the options, refer to [Zigbee adapters](/connectivity/zigbee/#zigbee-adapters). To learn how a Zigbee network works, refer to [Zigbee](/connectivity/zigbee/).
+If you do not have a coordinator yet, the [Home Assistant Connect ZBT-2](/connect/zbt-2/) is the recommended choice. For all the options, refer to [Zigbee adapters](/connectivity/zigbee/#zigbee-adapters).
 
 ## Configuration requirements
 
