@@ -5,9 +5,10 @@
     <ul class="divided sidebar-menu">
       <li>{% active_link /connectivity/ Overview %}</li>
       {%- for connectivity_page in connectivity_pages -%}
-        {%- assign connectivity = site.data.integration_connectivity | where: 'slug', connectivity_page.connectivity | first %}
+        {%- assign connectivity = site.data.integration_connectivity | where: 'slug', connectivity_page.connectivity | first -%}
+        {%- assign connectivity_icon = connectivity_page.icon | default: connectivity.icon %}
       <li{% if page.url == connectivity_page.url %} class="active"{% endif %}>
-        <a href="{{ connectivity_page.url }}">{% if connectivity %}<iconify-icon icon="{{ connectivity.icon }}"></iconify-icon> {% endif %}{{ connectivity_page.title }}</a>
+        <a href="{{ connectivity_page.url }}">{% if connectivity_icon %}<iconify-icon icon="{{ connectivity_icon }}"></iconify-icon> {% endif %}{{ connectivity_page.title }}</a>
       </li>
       {%- endfor %}
     </ul>

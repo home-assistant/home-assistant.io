@@ -15,7 +15,7 @@ regenerate: false
   {%- for connectivity_page in connectivity_pages -%}
     {%- assign connectivity = site.data.integration_connectivity | where: 'slug', connectivity_page.connectivity | first %}
   <li>
-    <iconify-icon icon="{{ connectivity.icon | default: 'mdi:transit-connection-variant' }}"></iconify-icon>
+    <iconify-icon icon="{{ connectivity_page.icon | default: connectivity.icon | default: 'mdi:transit-connection-variant' }}"></iconify-icon>
     <span><a href="{{ connectivity_page.url }}">{{ connectivity_page.title }}</a>: {{ connectivity_page.description }}</span>
   </li>
   {%- endfor %}
