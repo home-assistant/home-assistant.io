@@ -30,7 +30,7 @@ To accomplish this, you can use the [utility_meter integration](/integrations/ut
 Some costs on your bill don't depend on how much you use. Examples are a daily standing charge, a monthly network fee, or a yearly connection fee. Add them as fixed costs, so the costs in the energy dashboard match your bill.
 
 1. Go to the {% my config_energy title="energy configuration page" %}.
-2. Open the **Electricity**, **Gas**, or **Water** tab. The **Fixed costs** card is shown once that tab has at least one source.
+2. Open the **Electricity**, **Gas**, or **Water** tab. The **Fixed costs** card is shown once the tab has a grid connection, a gas source, or a water source.
 3. Select **Add fixed cost**.
 4. Enter a name, the amount, and how often it is charged: every day, every month, or every year.
    - Use a fixed amount, or an entity that holds the current amount in your currency.
