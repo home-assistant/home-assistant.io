@@ -47,7 +47,7 @@ Model:
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/). Only available for conversation agents.
 AI tools:
-  description: "**Device control** only reaches the entities that you [expose](/voice_control/voice_remote_expose_devices/) to Assist. **Home Assistant** reaches everything, and it only works for administrators, not for {% term \"voice satellites\" %}. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). Only models that support tools can use AI tools. For details, refer to [Controlling Home Assistant](#controlling-home-assistant). Only available for conversation agents."
+  description: "**Device control** only reaches the entities that you [expose](/voice_control/voice_remote_expose_devices/) to Assist. **Home Assistant** reaches everything, and it only works for administrators, not for voice satellites. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). Only models that support tools can use AI tools. For details, refer to [Controlling Home Assistant](#controlling-home-assistant). Only available for conversation agents."
 Context window size:
   description: The number of tokens that the model can take as input. For a conversation agent with **Device control**, this includes your exposed entities. The default is 8192, and the minimum is 2048. A larger value supports homes with more exposed entities. A smaller value uses less memory on your Ollama server. Choose a value that your model supports.
 Max history messages:
