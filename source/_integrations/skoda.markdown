@@ -85,7 +85,7 @@ The **Škoda** integration provides the following sensors. The available sensors
 - **Charging state**: `charging`, `connect_cable`, `ready_for_charging`, `conserving`, `discharging`, or `charging_interrupted`.
 - **Time to full charge**: Estimated time when the battery will reach the defined target level, while charging.
 - **Charge type**: `ac`, `dc`, `off`, or `not_charging`.
-- **Auxiliary heating mode**: Current mode (heating/ventilation) of the auxiliary heating, for equipped vehicles.
+- **Auxiliary heating mode**: The mode the auxiliary heating starts in (heating or ventilation), for equipped vehicles. It doesn't show whether the auxiliary heating is running.
 - **Auxiliary heating remaining duration**: Estimated time when auxiliary heating will finish, while active.
 - **Target cabin temperature**: The cabin temperature configured on the vehicle/MyŠkoda app for Climate Control/Auxiliary Air Conditioning (where supported).
 
