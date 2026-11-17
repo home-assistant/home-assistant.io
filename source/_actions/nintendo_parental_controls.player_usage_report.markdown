@@ -5,6 +5,8 @@ domain: nintendo_parental_controls
 description: "Get today's application usage details for one player on a device."
 related_actions:
   - nintendo_parental_controls.device_usage_report
+  - nintendo_parental_controls.player_usage_report
+ ---
 ---
 
 The **Nintendo Switch parental controls: Get player usage report** action retrieves which Nintendo applications one player has used today on a specified Nintendo Switch device, and for how long.
