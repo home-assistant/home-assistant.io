@@ -21,27 +21,41 @@ This integration requires an external Ollama server, which is available for macO
 
 {% include integrations/config_flow.md %}
 
-{% include integrations/option_flow.md %}
-
 {% configuration_basic %}
 URL:
-  description: The URL of the external Ollama server, such as `http://localhost:11434`.
-API Key:
-  description: The API key to use when connecting to the Ollama server. This is optional if your Ollama server does not require authentication.
+  description: The URL of your Ollama server, such as `http://192.168.1.10:11434`.
+API key:
+  description: The API key for your Ollama server. Leave it empty if your Ollama server doesn't require authentication.
+{% endconfiguration_basic %}
+
+## Configuration options
+
+The integration adds {% term "conversation agents" %} and AI tasks as separate entries on the integration page. When you set up the integration, it doesn't add any of them yet.
+
+- To add one, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Ollama**, and then select **Add conversation agent** or **Add AI task**.
+- To change one later, select **Reconfigure conversation agent** or **Reconfigure AI task** {% icon "mdi:cog-outline" %} in its row.
+
+If the model isn't on your Ollama server yet, Home Assistant downloads it when you save the conversation agent or AI task. The **Downloading model** screen shows that the download is in progress. Depending on the size of the model, this can take a long time.
+
+Conversation agents and AI tasks have the following options. **Instructions** and **AI tools** are only available for conversation agents.
+
+{% configuration_basic %}
+Name:
+  description: The name of the conversation agent or AI task. You set it when you add it. To change it later, select the three dots {% icon "mdi:dots-vertical" %} menu in its row, and then select **Rename**. The default is `Ollama Conversation` for a conversation agent and `Ollama AI Task` for an AI task.
 Model:
-  description: Name of the [Ollama model](https://ollama.com/library) to use, such as `mistral` or `llama2:13b`. Models will be automatically downloaded during setup.
+  description: The [Ollama model](https://ollama.com/library) to use. The list shows the models that are already on your Ollama server first, marked **(downloaded)**, followed by other models from the Ollama library. You can also enter the name and tag of any other model. The default is `qwen3:4b-instruct`.
 Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/). Only available for conversation agents.
 AI tools:
-  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices. Controlling Home Assistant with Ollama is experimental. See [Controlling Home Assistant](#controlling-home-assistant) below for model limitations."
+  description: "**Device control** only reaches the entities that you [expose](/voice_control/voice_remote_expose_devices/) to Assist. **Home Assistant** reaches everything, and it only works for administrators, not for voice satellites. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). Only models that support tools can use AI tools. For details, refer to [Controlling Home Assistant](#controlling-home-assistant). Only available for conversation agents."
 Context window size:
-  description: "The context window size is the number of tokens the model can take as input. Home Assistant defaults to 8k, which is larger than the default value in Ollama Server (2k), and you may adjust it based on the maximum context size of the specific model used. A larger value will better support larger homes with more entities, and smaller values may lower Ollama server RAM usage."
+  description: The number of tokens that the model can take as input. For a conversation agent with **Device control**, this includes your exposed entities. The default is 8192, and the minimum is 2048. A larger value supports homes with more exposed entities. A smaller value uses less memory on your Ollama server. Choose a value that your model supports.
 Max history messages:
-  description: Maximum number of messages to keep for each conversation (0 = no limit). Limiting this value will cause older messages in a conversation to be dropped.
+  description: The maximum number of messages to keep for each conversation. Older messages are dropped. The default is 20. Enter 0 to keep all messages.
 Keep alive:
-  description: Duration in seconds for the Ollama host to keep the model in memory after receiving a message (-1 = no limit, 0 = no retention). Default value is -1.
+  description: The number of seconds that Ollama keeps the model in memory after a message. Enter -1 to keep it in memory, or 0 to unload it right away. The default is -1.
 Think before responding:
-  description: If the AI should think about its response before responding. This will cause the AI to take longer to respond, but may result in better responses. Default value is `false`. Thinking is not supported by all models and displaying thinking content is not supported by frontend clients yet.
+  description: If turned on, the model thinks about its answer before it responds. This takes longer, but it can give better answers. Not all models support thinking. For a conversation agent, select **Show details** in the Assist dialog to see what the model thought. Turned off by default.
 {% endconfiguration_basic %}
 
 ## Controlling Home Assistant
