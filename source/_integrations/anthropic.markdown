@@ -19,6 +19,8 @@ The **Anthropic** {% term integrations %} adds conversation agents and AI task e
 
 Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
+When you talk to an Anthropic conversation agent through an {% term assistant %}, Home Assistant first checks your [sentence triggers](/triggers/conversation/). If one of them matches, the sentence trigger answers, and the conversation agent doesn't get the sentence. Sentence triggers don't run when you call the conversation agent directly, for example with the `conversation.process` action. They also don't run when you answer a follow-up question from the conversation agent.
+
 Legal note: Individuals and hobbyists are welcome to use the Anthropic API [for personal use](https://support.anthropic.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use), however, the use of the API is subject to their [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms), regardless of whether you are an individual or representing a company.
 
 ## Prerequisites
@@ -204,10 +206,6 @@ This may happen when the **Maximum Tokens to Return in Response** integration op
 ### Integration fails to set up, the logs show ImportError or AttributeError
 
 This may happen if the Python anthropic client had failed to upgrade to the correct version. If you know how to log into the Home Assistant container and manually reinstall the client, try that. Otherwise, downgrading and re-upgrading Home Assistant should help.
-
-## Known limitations
-
-This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Removing the integration
 
