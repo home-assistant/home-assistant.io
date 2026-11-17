@@ -1,7 +1,7 @@
 ---
 title: TFA.me
 description: Instructions on how to integrate the TFA.me integration into Home Assistant.
-ha_release: "2025.XX"
+ha_release: "2026.XX"
 ha_iot_class: Local Poll
 ha_codeowners:
   - '@DrMatthiasBlaschke'
@@ -33,7 +33,7 @@ In addition, each **TFA.me station** also has the ability to hold the most recen
 
 ## Supported TFA.me devices
 
-Currently (winter 2025), the following [TFA.me stations and sensors ](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) are supported. This product range is continuously being expanded. 
+Currently (winter 2026), the following [TFA.me stations and sensors ](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) are supported. This product range is continuously being expanded. 
 
 {% details "Stations and sensors list ..." %}
 
@@ -50,6 +50,8 @@ All stations cyclically deliver the following internal measured values ​​eve
 - [ID 06](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-06-35-8108/) (Temperature, Humidity) 
 - [ID 07](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-07-35-8107/) (Temperature, Humidity) 
 - [ID 08](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-08-35-8105/) (Temperature, Humidity) 
+- [ID 09](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-with-pool-transmitter-id-09-35-8114/) (Temperature, Humidity) 
+- [ID 10](https://www.tfa-dostmann.de/en/product/wifi-gateway-tfa-me-id-10-35-8115/) (-) 
 
 
 [TFA.me](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) Sensor overview
@@ -62,9 +64,9 @@ All 868 MHz sensors transmit cyclic the following measurement values in a data s
 - [ID A2](https://www.tfa-dostmann.de/en/product/wind-meter-tfa-me-id-a2-30-3904/) (Wind direction, Wind speed, Wind gust (TX=5)
 - [ID A3](https://www.tfa-dostmann.de/en/product/2-fold-temperature-transmitter-with-waterproof-cable-sensor-id-a3-30-3902/) (Temperature, Temperature probe (TX=5)
 - [ID A4](https://www.tfa-dostmann.de/en/product/professional-temperature-humidity-transmitter-with-waterproof-cable-sensor-id-a4-30-3905/) (Temperature, Humidity, Temperature probe (TX=1))
-- [ID A5](https://www.tfa-dostmann.de/en/product/temperature-transmitter-id-a5-30-3901/) (Temperature (TX=5)
-- [ID A5](https://www.tfa-dostmann.de/en/product/pool-transmitter-tfa-me-id-a5-pool-30-3907/) (Temperature (Pool) (TX=5)
-- [ID A6](https://www.tfa-dostmann.de/en/product/professional-temperature-humidity-transmitter-id-a6-30-3906/) (Temperature, Humidity (TX=1)
+- [ID A5](https://www.tfa-dostmann.de/en/product/temperature-transmitter-id-a5-30-3901/) (Temperature (TX=5))
+- [ID A5](https://www.tfa-dostmann.de/en/product/pool-transmitter-tfa-me-id-a5-pool-30-3907/) (Temperature (Pool) (TX=5))
+- [ID A6](https://www.tfa-dostmann.de/en/product/professional-temperature-humidity-transmitter-id-a6-30-3906/) (Temperature, Humidity (TX=1))
 
 
 (**TX**: Transmission interval in minutes)
@@ -233,10 +235,12 @@ For steps 1 and 6, please follow the instructions in the station manuals (PDF), 
 - Station ID 02: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/32488-a599999684365.pdf) or [manual](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/32416-0f0f952028916.pdf)
 - Station ID 03: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/32486-da31350748054.pdf) or [manual](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/32420-99cd613999497.pdf)
 - Station ID 04: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/32492-a085903128848.pdf) or [manual](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/32432-3e4d128334262.pdf)
-- Station ID 05: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34198-944a947928662.pdf) or manual (coming soon)
-- Station ID 06: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34202-71a5856072875.pdf) or manual (coming soon)
-- Station ID 07: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34200-288c483905760.pdf) or manual (coming soon)
-- Station ID 08: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34196-acf3991570949.pdf) or manual (coming soon)
+- Station ID 05: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34198-944a947928662.pdf) or [manual](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34399-74f7762616136.pdf)
+- Station ID 06: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34202-71a5856072875.pdf) or [manual](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/35414-a909941974324.pdf)
+- Station ID 07: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34200-288c483905760.pdf) or [manual](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34424-d78e410099867.pdf)
+- Station ID 08: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34196-acf3991570949.pdf) or [manual](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/34401-bd01469523753.pdf)
+- Station ID 09: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/35226-d658851664326.pdf) or [manual](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/35415-7d3a359210496.pdf)
+- Station ID 10: [Quick start](https://com-tradebyte-core-tbone-media-live.s3.eu-central-1.amazonaws.com/media/1768/35227-9d35443808053.pdf) or manual (coming soon)
 
 
 
@@ -246,46 +250,50 @@ For steps 1 and 6, please follow the instructions in the station manuals (PDF), 
 ### Entities
 
 Typically, you have one station and multiple sensors. If you have multiple stations, it's likely that sensors are received by more than one station.
-To distinguish which station received a sensor signal, the following naming scheme for entities is always used:
+The following naming scheme for entities is typically used and assinged by HA automatically:
 
 
-`sensor.<Gateway-ID>_<Sensor-ID>_<Measurement value>`
+`sensor.tfa_me_<Sensor-ID>_<Measurement value>_<No.>`
 
 **Example**: T/H-Sensor with ID A01-234-456 receiced via station with ID 017-654-321:
 
-- `sensor.017654321_A01234567_temperature`
-- `sensor.017654321_A01234567_humidity`
-- `sensor.017654321_A01234567_rssi` 
-- `sensor.017654321_A01234567_lowbatt` 
+- `sensor.tfa_me_a01_234_567_temperature`
+- `sensor.tfa_me_a01_234_567_humidity`
+- `sensor.tfa_me_a01_234_567_rssi` 
+- `sensor.tfa_me_a01_234_567_lowbatt` 
 
 **Example**: T/H-Sensor with ID A01-234-456 receiced via station with ID 031-654-321:
 
-- `sensor.031654321_A01234567_temperature`
-- `sensor.031654321_A01234567_humidity`
-- `sensor.031654321_A01234567_rssi` 
-- `sensor.031654321_A01234567_lowbatt` 
+- `sensor.tfa_me_a01_234_567_temperature_2`
+- `sensor.tfa_me_a01_234_567_humidity_2`
+- `sensor.tfa_me_a01_234_567_rssi_2` 
+- `sensor.tfa_me_a01_234_567_lowbatt_2` 
 
 
 {% details "Overview of all station & sensor entities" %}
 
-All entity name starts with: `sensor.xxxxxxxxx_yyyyyyyyy_` followed by the measurement
+All entity name starts with: `sensor.tfa_me_xxx_xxx_xxx_` followed by the measurement
 
-- ID 01: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
-- ID 02: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
-- ID 03: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
-- ID 04: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
-- ID 05: `temperature`, `humidity`, `barometric_pressure`, `rssi`, `lowbatt`, `lowbatt_txt`
-- ID 06: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
-- ID 07: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
-- ID 08: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
+- ID 01: `temperature`, `humidity`, `rssi`, `lowbatt`
+- ID 02: `temperature`, `humidity`, `rssi`, `lowbatt`
+- ID 03: `temperature`, `humidity`, `rssi`, `lowbatt`
+- ID 04: `temperature`, `humidity`, `rssi`, `lowbatt`
+- ID 05: `temperature`, `humidity`, `barometric_pressure`, `rssi`, `lowbatt`
+- ID 06: `temperature`, `humidity`, `rssi`, `lowbatt`
+- ID 07: `temperature`, `humidity`, `rssi`, `lowbatt`
+- ID 08: `temperature`, `humidity`, `rssi`, `lowbatt`
+- ID 09: `temperature`, `humidity`, `rssi`, `lowbatt`
+- ID 09: `temperature`, `humidity`, `rssi`, `lowbatt`
+- ID 10: `rssi`
 
-- ID A0: `temperature`, `humidity`, `rssi`, `low_batt`, `lowbatt_txt` 
-- ID A1: `rain`, `rain_rel`, `rain_1_hour`, `rain_24_hours`, `rssi`, `lowbatt`, `lowbatt_txt` 
-- ID A2: `wind_direction`, `wind_speed`, `wind_gust`, `rssi`, `lowbatt`, `lowbatt_txt`
-- ID A3: `temperature`, `temperature_probe`, `rssi`, `lowbatt`, `lowbatt_txt` 
-- ID A4: `temperature`, `humidity`, `temperature_probe`, `rssi`, `lowbatt`, `lowbatt_txt` 
-- ID A5: `temperature`, `rssi`, `lowbatt`, `lowbatt_txt`
-- ID A6: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
+
+- ID A0: `temperature`, `humidity`, `rssi`, `low_batt` 
+- ID A1: `rain`, `rain_rel`, `rain_1_hour`, `rain_24_hours`, `rssi`, `lowbatt`
+- ID A2: `wind_direction`, `wind_speed`, `wind_gust`, `rssi`, `lowbatt`
+- ID A3: `temperature`, `temperature_probe`, `rssi`, `lowbatt`
+- ID A4: `temperature`, `humidity`, `temperature_probe`, `rssi`, `lowbatt`
+- ID A5: `temperature`, `rssi`, `lowbatt`
+- ID A6: `temperature`, `humidity`, `rssi`, `lowbatt`
 
 {% enddetails %}
 
