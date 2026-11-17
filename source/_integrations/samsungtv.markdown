@@ -517,6 +517,27 @@ data:
 
 Samsung Smart TVs do not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant, the integration will fail to establish a connection. It may be possible to bypass this issue by using IP masquerading or a proxy.
 
+With IP masquerading (source NAT) on your router, connections from Home Assistant to the TV appear to come from the router's address on the TV's subnet, which the TV accepts. Masquerade these TCP ports from Home Assistant to the TV:
+
+- `8001` and `8002`: the WebSocket remote and REST API, used for pairing, control, and the power state.
+- `9197`: the UPnP media renderer, used for the volume level and mute state.
+
+#### Volume level and mute state
+
+Home Assistant finds the TV's UPnP media renderer with SSDP, which uses multicast and does not cross subnets. If SSDP finds nothing, the integration tries the renderer's standard address on Tizen TVs, `http://<TV address>:9197/dmr`.
+
+The TV then reports volume and mute changes through UPnP events. These need a connection in the opposite direction, from the TV to Home Assistant:
+
+1. Home Assistant starts a small HTTP server to receive the events, on a random free port (on Linux, usually between `32768` and `60999`).
+2. It sends a `SUBSCRIBE` request to the TV with a `CALLBACK` header pointing to that server: `http://<Home Assistant address>:<port>/notify`.
+3. The TV answers with a subscription ID and a timeout. From then on, it sends a `NOTIFY` request to the callback address whenever the volume or mute state changes. Home Assistant renews the subscription before it expires.
+
+Masquerading does not change the callback address, so the TV connects to Home Assistant directly. If your firewall blocks connections from the TV's subnet to Home Assistant, changes made with the remote are not shown in Home Assistant, but setting the volume from Home Assistant still works. To receive the events, allow TCP connections from the TV to Home Assistant on that port range. The port changes every time Home Assistant starts, so it cannot be limited to a single port.
+
+#### Turning on the TV
+
+Wake on LAN packets are broadcasts and are not forwarded between subnets. If the TV is on another subnet, use a `turn_on` action that does not rely on Wake on LAN, for example turning on a device connected to the TV over HDMI-CEC.
+
 ### H and J models
 
 Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This is automatically detected when attempting to send commands using the WebSocket connection, and will trigger the corresponding authentication flow.
