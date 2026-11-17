@@ -231,7 +231,7 @@ command_line:
       type: map
       keys:
         command_on:
-                   description: The shell command to run when you turn the switch on. If you leave it out, turning the switch on does nothing.
+           description: The shell command to run when you turn the switch on. If you leave it out, turning the switch on does nothing.
           required: false
           default: true
           type: string
