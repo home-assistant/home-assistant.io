@@ -17,7 +17,7 @@ ha_quality_scale: bronze
 ha_zeroconf: true
 ---
 
-The **Trimlight** {% term integration %} lets you control Trimlight Edge Pro permanent lighting over your local network.
+The **Trimlight** {% term integration %} lets you control [Trimlight](https://trimlight.com/) Edge Pro permanent lighting over your local network. For example, you can schedule your outdoor lights to turn off at bedtime.
 
 ## Supported devices
 
@@ -29,7 +29,8 @@ Earlier Trimlight Edge controllers are not supported.
 
 ## Prerequisites
 
-Set up your Trimlight Edge Pro controller using the Trimlight app. Make sure the controller is powered on and connected to the same network as Home Assistant.
+1. Set up your Trimlight Edge Pro controller in the Trimlight app.
+2. Make sure the controller is powered on and connected to the same network as Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -40,32 +41,39 @@ Host:
 
 ## Supported functionality
 
-The integration adds a [light](/integrations/light/) entity for each controller.
+The **Trimlight** integration provides the following entities.
 
-You can:
+### Lights
 
-- Turn the lights on or off.
-- Adjust brightness.
-- Set a static color.
+Each Trimlight Edge Pro controller provides one [light](/integrations/light/) entity.
 
-Available color and white-channel controls depend on the controller's configured LED type.
+- **Light**
+  - **Description**: Turns the lights on or off and sets their brightness and static color. The entity uses the controller's name by default.
+  - **Remarks**: The available color and white-channel controls depend on the LED type configured on the controller. Supported types are RGB, RGB with one white channel (RGBW), and RGB with cold and warm white channels (RGBWW).
 
 ## Trimlight automation examples
 
-### Automation: Turn on the lights at sunset
-
-This example turns on the lights at 50% brightness with a static orange color at sunset. Replace the entity ID with your Trimlight light's entity ID.
-
 {% include docs/paste_yaml_tip.md %}
 
+### Automation: Turn on the lights at sunset
+
+This example turns on the lights at 50% brightness with a static orange color at sunset.
+
+- **Trigger**: Sunset
+- **Action**: Turn on light
+  - **Target**: Trimlight Edge Pro (`light.trimlight_edge_pro`)
+  - **Brightness**: 50%
+  - **Color**: Orange
+
 {% details "YAML example for turning on the lights at sunset" %}
+
+Replace `light.trimlight_edge_pro` with the entity ID of your Trimlight light.
 
 {% example %}
 automation: |
   alias: "Turn on Trimlight lights at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: light.turn_on
       target:
