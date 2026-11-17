@@ -17,6 +17,6 @@ This means a device that does not support, for example, Apple Home directly can 
 Learn more:
 
 - [Apple HomeKit Bridge](/integrations/homekit/)
-- [Google Assistant via Home Assistant Cloud](https://www.nabucasa.com/config/google_assistant/)
-- [Amazon Alexa via Home Assistant Cloud](https://www.nabucasa.com/config/amazon_alexa/)
+- [Google Assistant via Home Assistant Link](https://www.nabucasa.com/config/google_assistant/)
+- [Amazon Alexa via Home Assistant Link](https://www.nabucasa.com/config/amazon_alexa/)
 - [Browse all integrations](/integrations/)

@@ -1,15 +1,15 @@
 ---
-description: Enable the Home Assistant Cloud integration.
+description: Enable the Home Assistant Link integration.
 ha_release: '0.60'
 ha_domain: cloud
 related:
   - url: https://support.nabucasa.com/hc/categories/24734619902749
-    title: Home Assistant Cloud user documentation
+    title: Home Assistant Link user documentation
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Setting up a voice Assistant with Home Assistant Cloud
+    title: Setting up a voice Assistant with Home Assistant Link
 ---
 
-The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services, such as the following:
+The Home Assistant Link allows you to quickly integrate your local Home Assistant with various cloud services, such as the following:
 
 - [Amazon Alexa](https://support.nabucasa.com/hc/articles/25619363899677)
 - [Google Assistant](https://support.nabucasa.com/hc/articles/25619376817053)
@@ -39,7 +39,7 @@ config:
 
 {% include integrations/actions.md %}
 
-## Home Assistant Cloud automation examples
+## Home Assistant Link automation examples
 
 With the remote access actions, you decide when your Home Assistant is reachable from outside your home.
 
