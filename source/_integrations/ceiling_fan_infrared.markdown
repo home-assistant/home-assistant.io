@@ -143,11 +143,11 @@ Some remotes use overlapping infrared codes with other devices, so the same code
 
 {% details "The fan is unavailable after the infrared emitter changed" %}
 
-### Symptom: The fan is unavailable, or sending commands fails, after the infrared emitter was renamed or removed
+### Symptom: The fan is unavailable, or sending commands fails, after the infrared emitter was removed
 
 #### Description
 
-The integration remembers the infrared emitter by its entity ID. If the emitter entity is renamed, its entity ID changes and the integration can no longer find it. The same happens if the emitter is deleted, or if the integration that provides it is removed and added again.
+The integration remembers the infrared emitter by its entity ID. If the emitter entity is deleted, or if the integration that provides it is removed and added again, the integration can no longer find it. Renaming the emitter entity is handled automatically.
 
 #### Resolution
 
