@@ -57,6 +57,8 @@ A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguar
 
 An Outdoor Siren gets **Acoustic alarm** and **Visual alarm** binary sensors that turn on while the siren sounds or flashes, and a **Tamper** diagnostic binary sensor.
 
+A Motion Detector II gets an **Occupancy** binary sensor and a **Tamper** diagnostic binary sensor that turns on when the device was tampered with.
+
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
