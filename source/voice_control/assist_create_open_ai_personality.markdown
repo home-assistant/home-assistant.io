@@ -18,22 +18,25 @@ related:
 
 You can give your voice assistant personality by using an AI conversation agent.
 
-## What can I do in Assist with AI exactly?
+## What can I do in Assist with AI?
 
-- Pick the LLM provider of your choice, either local or cloud, as long as it has a conversational agent.
-- Select a personality based on a prompt.
-- Get replies with the character's personality you defined.
-- Perform Home Assistant intents (turn on-off lights, etc), as long as Assist is correctly configured as per our [best practices](/voice_control/best_practices).
+With a {% term "conversation agent" %} that uses AI, your {% term assistant %} can do the following:
 
-Check this 1-minute clip showing how Assist is using AI to control a smart home.
+- Answer in the style of a character that you describe in the **Instructions** of the conversation agent. For example, Super Mario.
+- Understand requests that you word freely, not only the built-in sentences.
+- Control the {% term entities %} that you expose to Assist, run your exposed {% term scripts %}, and answer questions about them. For example, it can turn on the lights or tell you the temperature in the living room. For this, the conversation agent needs the **Device control** set of {% term "AI tools" %}. A new conversation agent has it selected by default. In Ollama, you select it yourself. The Ollama model must also support tools. For details, refer to the [Ollama integration](/integrations/ollama/#controlling-home-assistant).
+
+For the best results, follow the [best practices](/voice_control/best_practices/). For example, give your areas and entities names that are easy to say.
+
+Watch this 1-minute clip showing how Assist is using AI to control a smart home.
 
 <lite-youtube videoid="KXoIpwKsekY" videotitle="Demo of using Assist with an AI to control your smart home!"></lite-youtube>
 
-## What LLM providers are available?
+## What AI integrations are available?
 
-LLM-based agents are evolving constantly, and Home Assistant supports most of them. If you'd like to get a deeper knowledge on how to pick the best choice for your setup, [here](https://github.com/allenporter/home-assistant-datasets/tree/main/reports) is a comparison study you can check.
+Many AI integrations add conversation agents that use AI. Some of them use a service in the cloud. For example, [OpenAI](/integrations/openai_conversation/), [Anthropic](/integrations/anthropic/), and [Google Gemini](/integrations/google_generative_ai_conversation/). Others run a model on your own hardware. For example, [Ollama](/integrations/ollama/). For the full list of AI integrations, refer to [AI integrations](/integrations/category/ai_voice/ai_models/).
 
-There are cloud agents provided by [Open AI](/integrations/openai_conversation/) or [Anthropic](/integrations/anthropic/) and local ones provided by [Ollama](/integrations/ollama), and both cases are supported by Home Assistant.
+AI models change often. To compare how well different models work with Home Assistant, refer to the [Home Assistant datasets reports](https://github.com/allenporter/home-assistant-datasets/tree/main/reports). For example, they show how well each model controls devices and answers questions.
 
 ## Prerequisites
 
