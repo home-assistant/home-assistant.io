@@ -2,6 +2,16 @@
 description: Instructions on how to integrate Lunatone REST API devices with Home Assistant.
 ha_release: 2025.11
 ha_domain: lunatone
+ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - button
+  - diagnostics
+  - light
+  - sensor
+ha_integration_type: hub
+ha_zeroconf: true
+ha_quality_scale: silver
 ---
 
 The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API. This allows you to use lights and sensors in Home Assistant that are connected to the DALI bus via your device.
@@ -43,6 +53,28 @@ The Lunatone integration provides the following entities.
 
 - **DALI scan**
   - **Description**: Shows whether a DALI scan is running.
+  - **Available for devices**: All
+
+#### Buttons
+
+- **DALI scan: Cancel**
+  - **Description**: Cancels the DALI scan if it is running.
+  - **Available for devices**: All
+
+- **DALI scan: Read current devices**
+  - **Description**: Starts reading out the current devices on the DALI bus.
+  - **Available for devices**: All
+
+- **DALI scan: Start new installation**
+  - **Description**: Starts a DALI scan and clears all DALI addresses before the scan begins.
+  - **Available for devices**: All
+
+{% important %}
+Use the `DALI scan: Start new installation` option with care. This action deletes all addresses on the DALI bus and may affect connected devices.
+{% endimportant %}
+
+- **DALI scan: Start system extension**
+  - **Description**: Starts a DALI scan to find new devices and assign addresses.
   - **Available for devices**: All
 
 #### Lights
