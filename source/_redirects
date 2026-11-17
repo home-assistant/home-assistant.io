@@ -313,6 +313,10 @@ layout: null
 /ios/beta https://companion.home-assistant.io/app/ios/beta
 /ios/beta-auth /docs/ecosystem/ios
 /ios/dev-auth /docs/ecosystem/ios
+/cloud /link
+/cloud/alexa /link/alexa
+/cloud/google_assistant /link/google_assistant
+/cloud/troubleshooting /link/troubleshooting
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -369,7 +373,8 @@ layout: null
 /integrations/blueprint /docs/automation/using_blueprints
 /integrations/trace /docs/automation/testing/#traces
 /integrations/hassio /hassio
-/integrations/cloud.alexa /cloud/alexa
+/integrations/cloud /integrations/link
+/integrations/cloud.alexa /link/alexa
 /integrations/imap_email_content /integrations/imap/#using-events
 /integrations/webhook /triggers/webhook/
 /getting-started/automation-create-first /getting-started/automation
