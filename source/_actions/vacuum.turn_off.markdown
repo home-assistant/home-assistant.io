@@ -1,5 +1,5 @@
 ---
-title: Turn off vacuum
+title: "Turn off vacuum cleaner"
 action: vacuum.turn_off
 domain: vacuum
 description: "Turns off a vacuum cleaner."
@@ -34,8 +34,6 @@ The `entity_id` target is optional. If omitted, all targeted supported vacuums t
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum, area, or device to turn off.
@@ -58,8 +56,8 @@ target:
 If your vacuum supports a separate power state, this automation turns it off after it has finished cleaning and returned to the dock.
 
 - **Trigger**: Vacuum cleaner returned to dock
-- **Action**: Turn off vacuum
-- **Target**: Downstairs vacuum
+- **Action**: Turn off vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for turning off a vacuum after docking" %}
 

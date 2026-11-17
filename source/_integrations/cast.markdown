@@ -1,19 +1,8 @@
 ---
-title: Google Cast
 description: Instructions on how to integrate Google Cast into Home Assistant.
-ha_category:
-  - Media player
 featured: true
 ha_release: pre 0.7
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: cast
-ha_codeowners:
-  - '@emontnemery'
-ha_zeroconf: true
-ha_platforms:
-  - media_player
-ha_integration_type: hub
 ---
 
 {% include integrations/config_flow.md %}
@@ -36,7 +25,7 @@ Ignore CEC:
 Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device. You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` action to show a specific dashboard view on a Cast device from an automation or script.
 
 {% important %}
-Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/integrations/homeassistant/#homeassistant-configuration-variables).
+Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Link, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/integrations/homeassistant/#homeassistant-configuration-variables).
 {% endimportant %}
 
 {% include integrations/actions.md %}
@@ -78,7 +67,7 @@ target:
   entity_id: media_player.chromecast
 data:
   media_content_type: "image/jpeg"
-  media_content_id: "http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!"
+  media_content_id: "https://placehold.co/1024x600/0B6B94/FFFFFF/jpeg/?text=Hello,%20Home%20Assistant!"
 ```
 
 Extra media metadata (for example title, subtitle, artist or album name) can be passed into the action and that will be shown on the Chromecast display.

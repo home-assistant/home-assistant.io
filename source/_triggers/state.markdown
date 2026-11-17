@@ -1,5 +1,5 @@
 ---
-title: "State"
+title: "State changed"
 trigger: state
 domain: homeassistant
 description: "Triggers when the state or an attribute changes."
@@ -8,7 +8,7 @@ related_triggers:
   - time
 ---
 
-The **State** trigger is useful when you want an automation to react to a change in an entity or one of its attributes. Use it when you care about a device turning on or off, a door opening or closing, or a person arriving home.
+The **State changed** trigger is useful when you want an automation to react to a change in an entity or one of its attributes. Use it when you care about a device turning on or off, a door opening or closing, or a person arriving home.
 
 {% include triggers/ui_header.md %}
 
@@ -17,13 +17,13 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Search for and select the **State** trigger.
+4. Search for and select the **State changed** trigger.
 5. In **Entity**, select the entity whose state or attribute value Home Assistant should watch.
 6. Optional: Select **Add entity** to watch additional entities.
 7. Optional: In **Attribute**, select an attribute instead of the main state.
-8. Optional: In **From**, enter the state (or attribute value) the entity must have before the trigger fires.
-9. Optional: In **To**, enter the state (or attribute value) the entity must have when the trigger fires.
-10. Optional: In **For**, enter how long the entity must be in the new state, or hold the new attribute value, before the trigger fires. Instead of a **Duration**, you can enter a **Template**.
+8. Optional: In **From**, enter the state (or attribute value) the entity must have before the trigger fires. To fire when the entity changes from any state except one, select **Is not**, and then select that state.
+9. Optional: In **To**, enter the state (or attribute value) the entity must have when the trigger fires. To fire when the entity changes to any state except one, select **Is not**, and then select that state.
+10. Optional: In **For at least**, enter how long the entity must be in the new state, or hold the new attribute value, before the trigger fires. Instead of a **Duration**, you can enter a **Template**.
 11. Select **Save**.
 
 ### Options in the UI
@@ -36,12 +36,12 @@ Attribute:
   description: Entity attribute to watch instead of the main state.
   required: false
 From:
-  description: The starting state or starting attribute value to match.
+  description: The starting state or starting attribute value to match. Select **Is not** to match any starting state except the one you select.
   required: false
 To:
-  description: The new state or new attribute value to match.
+  description: The new state or new attribute value to match. Select **Is not** to match any new state except the one you select.
   required: false
-For:
+For at least:
   description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. Default is `0` hours, `00` minutes and `00` seconds (fires immediately).
   required: false
 {% endoptions_ui %}
@@ -79,11 +79,11 @@ to:
   required: false
   type: [string, list]
 not_from:
-  description: The starting state or starting attribute value to exclude. You can use one state or a list of states. This option is available in YAML only.
+  description: The starting state or starting attribute value to exclude. You can use one state or a list of states.
   required: false
   type: [string, list]
 not_to:
-  description: The new state or new attribute value to exclude. You can use one state or a list of states. This option is available in YAML only.
+  description: The new state or new attribute value to exclude. You can use one state or a list of states.
   required: false
   type: [string, list]
 attribute:
@@ -91,9 +91,9 @@ attribute:
   required: false
   type: string
 for:
-  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds.
+  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. With a list of states in `to`, the entity must stay in the state it changed to; changing to another state in the list starts the time again. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. You can also use a template. For a list of all accepted formats and templates, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map, template]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -106,11 +106,12 @@ This trigger watches one or more entities:
 
 ## Good to know
 
-- If you do not set any of **From**, **To**, `not_from`, or `not_to`, this trigger fires on all state changes. It also fires when only an attribute changes.
-- If you set one of the options **From** (`from`), **To** (`to`), `not_from`, or `not_to`, attribute-only changes do not fire the trigger.
+- If you do not set **From** or **To**, either as **Is** or **Is not** (`from`, `to`, `not_from`, or `not_to`), this trigger fires on all state changes. It also fires when only an attribute changes.
+- If you set **From** or **To**, either as **Is** or **Is not** (`from`, `to`, `not_from`, or `not_to`), attribute-only changes do not fire the trigger.
 - In the UI, **Any state (ignoring attribute changes)** for **From** or **To** means "match any state, but only when the state changes." In YAML, this appears as `from: null` or `to: null` (the key is present, but the value is empty), which prevents attribute-only changes from firing. This is useful for sensors that update attributes often while their main state changes less often.
-- You cannot combine the options `from` with `not_from`, or `to` with `not_to`.
-- If you use the **For** (`for`) option, the timer resets if Home Assistant restarts or automations reload.
+- **From** and **To** each match either the states you select (**Is**) or every state except those (**Is not**), not both. In YAML, this means you cannot combine `from` with `not_from`, or `to` with `not_to`.
+- If you use the **For at least** (`for`) option, the timer resets if Home Assistant restarts or automations reload.
+- If you use **For at least** (`for`) with several states in **To** (`to`), the entity must stay in the state it changed to for the whole time. The time isn't added up across the states: a change from one of the states to another starts the time again. For example, with `to: ["off", "unavailable"]` and `for: "00:05:00"`, a light that is off for 3 minutes and then unavailable for 3 minutes doesn't fire the trigger after 5 minutes. It fires once the light has been unavailable for 5 minutes.
 
 {% include triggers/try_it.md %}
 
@@ -120,10 +121,10 @@ This trigger watches one or more entities:
 
 If a door stays open longer than expected, this automation sends a message to your phone.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Back door sensor (`binary_sensor.back_door`)
   - **To**: On
-  - **For**: 5 minutes
+  - **For at least**: 5 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -151,7 +152,7 @@ automation: |
 
 If you want a message when a person arrives, this automation watches for a state change to `home`.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Person entity (`person.sam`)
   - **To**: Home
 - **Action**: Send a notification message
@@ -178,12 +179,12 @@ automation: |
 
 ### Automation: send a notification when a sensor value stops changing
 
-If you want to know when a sensor value has not changed for a period, use **Any state (ignoring attribute changes)** for **To** and set **For** to the amount of time you want to wait.
+If you want to know when a sensor value has not changed for a period, use **Any state (ignoring attribute changes)** for **To** and set **For at least** to the amount of time you want to wait.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Power sensor (`sensor.current_power`)
   - **To**: Any state (ignoring attribute changes)
-  - **For**: 30 minutes
+  - **For at least**: 30 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

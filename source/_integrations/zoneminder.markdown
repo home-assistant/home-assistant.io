@@ -1,28 +1,10 @@
 ---
-title: ZoneMinder
 description: How to integrate ZoneMinder into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Hub
-  - Sensor
-  - Switch
 ha_release: 0.31
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@rohankapoorcom'
-  - '@nabbi'
 ha_domain: zoneminder
-ha_platforms:
-  - binary_sensor
-  - camera
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **ZoneMinder** {% term integration %} sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.

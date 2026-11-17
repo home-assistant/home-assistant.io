@@ -1,20 +1,7 @@
 ---
-title: WattTime
 description: Instructions on how to set up the WattTime integration within Home Assistant.
-ha_category:
-  - Energy
-  - Environment
-  - Sensor
 ha_release: '2021.10'
-ha_iot_class: Cloud Polling
 ha_domain: watttime
-ha_codeowners:
-  - '@bachya'
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **WattTime** {% term integration %} allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org).

@@ -1,17 +1,7 @@
 ---
-title: Simplepush
 description: Instructions on how to add Simplepush notifications to Home Assistant.
-ha_category:
-  - Notifications
-ha_iot_class: Cloud Polling
 ha_release: 0.29
-ha_config_flow: true
 ha_domain: simplepush
-ha_platforms:
-  - notify
-ha_integration_type: service
-ha_codeowners:
-  - '@engrbm87'
 ---
 
 The **Simplepush** {% term integration %} uses [Simplepush](https://simplepush.io/) to deliver notifications from Home Assistant to your Android and iOS device. Unlike similar apps the Simplepush app requires no registration and supports end-to-end encryption.

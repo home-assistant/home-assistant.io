@@ -8,7 +8,7 @@ related_actions:
   - growatt_server.write_ac_charge_times
 ---
 
-The **Write AC discharge times** action writes the AC discharge settings and up to three discharge periods to a supported SPH inverter. You only need to provide the fields you want to change. Anything you leave out keeps its current value.
+The **Growatt Server: Write AC discharge times** action writes the AC discharge settings and up to three discharge periods to a supported SPH inverter. You only need to provide the fields you want to change. Anything you leave out keeps its current value.
 
 {% important %}
 This action changes your inverter's discharging behavior. Incorrect settings can affect battery lifespan and energy costs. Make changes only if you understand your battery and tariff setup.
@@ -22,7 +22,7 @@ To write the AC discharge times from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Growatt: Write AC discharge times**.
+5. From the search box, search for and select **Growatt Server: Write AC discharge times**.
 6. Choose the **Device**, then set the values you want to change.
 7. Select **Save**.
 

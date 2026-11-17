@@ -1,18 +1,10 @@
 ---
-title: Neurio energy
 description: Instructions on how to integrate Neurio within Home Assistant.
-ha_category:
-  - Energy
-ha_iot_class: Cloud Polling
 ha_release: 0.14
 ha_domain: neurio_energy
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 Integrate your [Neurio](https://neur.io/) meter information into Home Assistant. To get an API key and secret, log in to your [Neurio account](https://my.neur.io/#settings/applications/register) and register an application. Note the Homepage URL and Callback URL are optional.
@@ -23,10 +15,10 @@ To enable this {% term integration %} in your installation, add the following to
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: neurio_energy
-  api_key: "CLIENT_ID"
-  api_secret: "CLIENT_SECRET"
-  sensor_id: "SENSOR_ID"
+  - platform: neurio_energy
+    api_key: "CLIENT_ID"
+    api_secret: "CLIENT_SECRET"
+    sensor_id: "SENSOR_ID"
 ```
 
 Four sensors will be created with the following names:

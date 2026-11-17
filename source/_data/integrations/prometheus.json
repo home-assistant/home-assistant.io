@@ -1,0 +1,12 @@
+{
+  "domain": "prometheus",
+  "name": "Prometheus",
+  "codeowners": [
+    "@knyar"
+  ],
+  "iot_class": "assumed_state",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.monitoring"
+  ]
+}

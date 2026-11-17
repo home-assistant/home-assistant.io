@@ -22,10 +22,10 @@ module Jekyll
         next unless link.get_attribute('href') =~ /\Ahttp/i
 
         # Skip our own links
-        next if link.get_attribute('href') =~ %r{\Ahttps?://\w*.?home-assistant.io}i
+        next if link.get_attribute('href') =~ %r{\Ahttps?://(?:\w+\.)?home-assistant\.io(?:[/:?#]|\z)}i
 
         # Play nice with our own links
-        if link.get_attribute('href') =~ %r{\Ahttps?://(?:\w+\.)?(?:home-assistant\.io|esphome\.io|nabucasa\.com|openhomefoundation\.org)}i
+        if link.get_attribute('href') =~ %r{\Ahttps?://(?:\w+\.)?(?:home-assistant\.io|esphome\.io|nabucasa\.com|openhomefoundation\.org|music-assistant\.io|apolloautomation\.com)(?:[/:?#]|\z)}i
           next
         end
 

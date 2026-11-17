@@ -8,7 +8,7 @@ related_actions:
   - elkm1.alarm_arm_night_instant
 ---
 
-The **Alarm arm vacation** action arms an Elk-M1 area in *vacation* mode. This arms the system for an extended absence.
+The **Elk-M1 Control: Alarm arm vacation** action arms an Elk-M1 area in *vacation* mode. This arms the system for an extended absence.
 
 This is useful when you want an automation to arm your system for vacation, for example when you leave for a trip.
 

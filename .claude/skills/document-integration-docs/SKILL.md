@@ -10,10 +10,12 @@ Document the `<domain>` integration in the current Home Assistant split-page doc
 Keep the main context small.
 Use sub-agents for discovery and review.
 Do not trust the epic, issue text, or existing docs unless Core confirms them.
-Treat `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/integration-docs-examples.md` as the canonical template for split pages.
-Treat `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/yaml-style-guide.md` as the YAML style source for all YAML examples.
+Treat `https://contributors.home-assistant.io/writing/reference/integration-page/index.md` as the canonical template for split pages.
+Treat `https://contributors.home-assistant.io/writing/reference/yaml/index.md` as the YAML style source for all YAML examples.
 Do not loosely imitate it.
 Follow its structure closely unless Core implementation makes a specific section inapplicable.
+Follow the dedicated integration page structure and templates before applying the [topic-based authoring guide](https://contributors.home-assistant.io/writing/guides/structure/).
+Apply topic-based authoring to the remaining content and to any choices the dedicated guidance does not define.
 
 ## Stage 1: inventory with a sub-agent
 
@@ -97,9 +99,9 @@ Rules for Stage 1:
 Launch a sub-agent to inspect:
 
 - `./source/_integrations/_integration_docs_template.markdown`
-- `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/integration-docs-examples.md`
-- `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/general-style-guide.md`
-- `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/yaml-style-guide.md`
+- `https://contributors.home-assistant.io/writing/reference/integration-page/index.md`
+- `https://contributors.home-assistant.io/writing/reference/style/index.md`
+- `https://contributors.home-assistant.io/writing/reference/yaml/index.md`
 - relevant include snippets under `./source/_includes`
 - 2-4 existing files across integrations, triggers, conditions, and actions
 
@@ -161,7 +163,8 @@ Hard requirements:
 - In that section, example headings must be level-3 headings prefixed with `Automation:`.
 - The integration-page automation examples must match the documented split pages and use the same feature names and behavior.
 - Do not document unsupported Core features.
-- When documenting a `for` attribute in options or fields, document its type as `string`, not `time`.
+- When documenting a `for` attribute in YAML options, use `type: [string, integer, map]`, not `time`. Add `template` only if Core accepts a template for that `for` (check the schema: `cv.positive_time_period_template`). Device triggers and device conditions only accept a mapping (`type: map`).
+- End the `for` description with: "For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/)." Don't repeat the full list of formats on the page.
 - Do not use Markdown H1 headings.
 - Keep blank lines around headings and Liquid blocks.
 - Follow the Home Assistant YAML style guide for all YAML examples.
@@ -271,7 +274,7 @@ Required review checks:
 - every documented feature exists in Core
 - no unsupported feature was invented
 - examples are realistic and globally understandable
-- in YAML options, `for` is documented as `type: string` and the format is explained in the description
+- in YAML options, `for` uses `type: [string, integer, map]` (plus `template` only where Core accepts it) and the description links to [Durations in automations and scripts](/docs/automation/durations/)
 - UI options and YAML options sections list default values when applicable
 - automation examples do not list default values such as for `for` or `behavior`
 - automation examples use correct full action labels such as `Lock lock` or `Turn on switch`

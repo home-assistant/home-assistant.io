@@ -1,19 +1,7 @@
 ---
-title: Chacon DiO
 description: Instructions on how to integrate your Chacon Dio devices within Home Assistant.
-ha_category:
-  - Cover
-  - Switch
 ha_release: 2024.8
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@cnico'
 ha_domain: chacon_dio
-ha_platforms:
-  - cover
-  - switch
-ha_integration_type: integration
 ---
 
 [Chacon Dio devices](https://chacon.com/) are connected home devices that can be controlled via RF 433 MHz or Wi-Fi.

@@ -1,0 +1,12 @@
+{
+  "domain": "crownstone",
+  "name": "Crownstone",
+  "iot_class": "cloud_push",
+  "categories": [
+    "plugs_switches"
+  ],
+  "connectivity": [
+    "cloud",
+    "serial"
+  ]
+}

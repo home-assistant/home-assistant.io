@@ -1,0 +1,89 @@
+---
+// Document head for pages the website serves from Astro: title,
+// description, canonical URL, social sharing tags, icons, fonts and
+// analytics.
+//
+// Ports `source/_includes/site/head.html`, its
+// `site/social_meta.html` and `site/plausible.html` for content pages.
+// Left out, as nothing on these pages uses them yet: the redirect for
+// `external_url` pages, keywords, the post and integration variants of
+// the social tags, structured data (only emitted for templating pages)
+// and the Prism, PhotoSwipe and Iconify assets. The site stylesheet is
+// replaced by each component's own styles; DocSearch's stylesheet
+// stays, for the search box in the header.
+import { setting } from "../lib/site.mjs";
+
+const { title, description } = Astro.props;
+
+const siteTitle = setting("title");
+const siteUrl = setting("url");
+const pageTitle = title ? `${title} - ${siteTitle}` : siteTitle;
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+
+// Jekyll truncates with an ellipsis, counting it in the length.
+const truncate = (text, length) =>
+  text.length > length ? `${text.slice(0, length - 3)}...` : text;
+const pageDescription = description ?? setting("description");
+
+const socialTitle = title ?? siteTitle;
+const socialImage = new URL("/images/default-social.png", siteUrl).href;
+---
+
+<meta charset="utf-8" />
+<title>{pageTitle}</title>
+<meta name="author" content={setting("author")} />
+<meta name="description" content={truncate(pageDescription, 160)} />
+<meta name="viewport" content="width=device-width" />
+<link rel="canonical" href={canonical} />
+
+<meta property="fb:app_id" content={setting("social.facebook.app_id")} />
+<meta property="og:title" content={socialTitle} />
+<meta property="og:site_name" content={siteTitle} />
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content="website" />
+<meta property="og:description" content={truncate(pageDescription, 200)} />
+<meta property="og:image" content={socialImage} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={`@${setting("social.twitter.account")}`} />
+<meta name="twitter:title" content={socialTitle} />
+<meta name="twitter:description" content={truncate(pageDescription, 200)} />
+<meta name="twitter:image" content={socialImage} />
+<link rel="me" href={setting("social.mastodon.account")} />
+
+<link
+  href="https://cdn.jsdelivr.net/npm/@docsearch/css@3/dist/style.min.css"
+  rel="stylesheet"
+/>
+<link
+  href={setting("subscribe_rss")}
+  rel="alternate"
+  title={siteTitle}
+  type="application/atom+xml"
+/>
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any" />
+<link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/images/favicon-192x192.png" sizes="192x192" />
+<meta name="apple-mobile-web-app-title" content={siteTitle} />
+<meta name="theme-color" content="#18bcf2" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Instrument+Sans:ital,wdth,wght@0,99,400..700;1,99,400..700&display=swap"
+  rel="stylesheet"
+/>
+
+<script
+  async
+  src="https://www.openhomefoundation.org/plausible.js?site=home-assistant.io"
+></script>
+<script is:inline>
+  // Queues events sent before the loader has run.
+  window.plausible =
+    window.plausible ||
+    function () {
+      (plausible.q = plausible.q || []).push(arguments);
+    };
+</script>

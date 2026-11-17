@@ -1,18 +1,10 @@
 ---
-title: Flic
 description: Instructions on how to integrate flic buttons within Home Assistant.
-ha_category:
-  - Binary sensor
-ha_iot_class: Local Push
 ha_release: 0.35
 ha_domain: flic
-ha_platforms:
-  - binary_sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Flic** {% term integration %} allows you to receive click events from [flic](https://flic.io) smart buttons.
@@ -21,7 +13,7 @@ The {% term integration %} does not directly interact with the buttons, *but com
 
 ## Action setup
 
-If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os#installing-third-party-apps) the Home Assistant flicd app from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
+If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os/#installing-a-third-party-app-repository) the Home Assistant flicd app from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
 
 For instructions on how to install the service manually, visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [macOS](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
 

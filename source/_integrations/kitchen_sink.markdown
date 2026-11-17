@@ -1,27 +1,7 @@
 ---
-title: Everything but the Kitchen Sink
 description: Instructions on how to set up the Everything but the Kitchen Sink integration
-ha_category:
-  - Other
 ha_release: 2023.2
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: kitchen_sink
-ha_iot_class: Calculated
-ha_platforms:
-  - button
-  - device_tracker
-  - event
-  - fan
-  - image
-  - lawn_mower
-  - lock
-  - notify
-  - sensor
-  - switch
-  - weather
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file

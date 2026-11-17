@@ -1,26 +1,26 @@
 ---
 title: "Remote access to Home Assistant"
-description: "There are different ways to reach your Home Assistant from outside your home network. The recommended option is Home Assistant Cloud, which works without exposing anything to the internet."
+description: "There are different ways to reach your Home Assistant from outside your home network. The recommended option is Home Assistant Link, which works without exposing anything to the internet."
 related:
   - docs: /docs/configuration/securing/
     title: Securing your instance
   - url: https://www.nabucasa.com/config/remote/
-    title: Home Assistant Cloud - remote access
+    title: Home Assistant Link - remote access
 ---
 
-By default, your Home Assistant only listens on your local network, which keeps things private and secure. If you want to reach it from outside your home, for example to control your devices while you are at work or on holiday, you have a few options.
+By default, you can only reach your Home Assistant from your local network, which keeps things private and secure. If you want to reach it from outside your home, for example to control your devices while you are at work or on holiday, you have a few options.
 
-The easiest and safest option for most people is [Home Assistant Cloud](/cloud/). Other options are listed further down for those who prefer to set things up themselves.
+The easiest and safest option for most people is [Home Assistant Link](/link/). Other options are listed further down for those who prefer to set things up themselves.
 
 {% tip %}
 Before exposing Home Assistant to the internet, follow the [securing checklist](/docs/configuration/securing/).
 {% endtip %}
 
-## Home Assistant Cloud
+## Home Assistant Link
 
-[Home Assistant Cloud](https://www.nabucasa.com) gives you remote access to your Home Assistant from anywhere, without opening any ports on your router and without exposing your home network to the internet. Setup takes a single toggle in the user interface.
+[Home Assistant Link](https://www.nabucasa.com) gives you remote access to your Home Assistant from anywhere, without opening any ports on your router and without exposing your home network to the internet. After you sign in, setup takes a single toggle in the user interface.
 
-A unique remote URL is generated for you, and all traffic between your device and your home is encrypted automatically. Your Home Assistant Cloud subscription also helps fund the development of Home Assistant itself.
+A unique remote URL is generated for you, and all traffic between your device and your home is encrypted automatically. Your Home Assistant Link subscription also helps fund the development of Home Assistant itself.
 
 ## VPN
 
@@ -32,11 +32,23 @@ A VPN connection needs to be established before you can connect to your Home Ass
 
 A reverse proxy is an intermediary server that sits in front of Home Assistant. When using a reverse proxy, you must configure Home Assistant to trust it; otherwise, requests will be blocked by design.
 
+To trust your reverse proxy, go to {% my network title="**Settings** > **System** > **Network**" %}. Under **HTTP server**, turn on **Trust X-Forwarded-For** and add the proxy to **Trusted proxies**.
+
 See [Reverse proxies in the HTTP integration documentation](/integrations/http/#reverse-proxies).
+
+If your reverse proxy or CDN caches responses, see [Caching behind a reverse proxy or CDN](/integrations/http/#caching-behind-a-reverse-proxy-or-cdn).
 
 ## Port forwarding
 
-Set up port forwarding from your router to the port Home Assistant listens on. By default, this is port 8123 on the computer that is hosting Home Assistant. If you changed the Home Assistant HTTP server port, use the port shown under {% my network title="**Settings** > **System** > **Network**" %}. General instructions on how to do this can be found by searching `<router model> port forwarding instructions`. You can use any free port on your router and forward that to the Home Assistant HTTP server port.
+Set up port forwarding from your router to the port Home Assistant listens on. To find this port, go to {% my network title="**Settings** > **System** > **Network**" %}. Under **HTTP server**, check the **Server port**.
+
+The default port depends on your installation:
+
+- New installations of {% term "Home Assistant Operating System" %} use port 80.
+- Home Assistant OS installations set up before 2026.8 keep the port they already used, usually 8123.
+- Other installation types use port 8123.
+
+You set up port forwarding in your router's settings, usually through its web interface or app. The steps are different for each router. To find them, check your router's manual, or search the web for your router model and "port forwarding". On the router, you can use any free port and forward it to the Home Assistant port.
 
 A problem with making a port accessible is that some Internet Service Providers only offer dynamic IPs. This can cause you to lose access to Home Assistant while away. You can solve this by using a free Dynamic DNS service like [DuckDNS](https://www.duckdns.org/).
 
@@ -52,5 +64,5 @@ To set the URL under which your Home Assistant can be accessed from outside your
 
 1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
 2. Under **Home Assistant URL**, in the **Internet** field, enter the external URL that you previously set up for your instance.
-    - If you use Home Assistant Cloud, you can turn on **Use Home Assistant Cloud** instead, and your Nabu Casa URL is used automatically.
+    - If you use Home Assistant Link, you can turn on **Use Home Assistant Cloud** instead, and your Nabu Casa URL is used automatically.
 3. Select **Save**.

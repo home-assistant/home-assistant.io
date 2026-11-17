@@ -1,0 +1,23 @@
+{
+  "domain": "uptime_kuma",
+  "name": "Uptime Kuma",
+  "integration_type": "service",
+  "codeowners": [
+    "@tr4nt0r"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "computers_network.monitoring"
+  ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor",
+    "update"
+  ]
+}

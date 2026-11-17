@@ -1,18 +1,7 @@
 ---
-title: SIA Alarm Systems
 description: Instructions on how to integrate SIA Based Alarm systems.
-ha_category:
-  - Alarm
 ha_release: 2021.6
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@eavanvalkenburg'
 ha_domain: sia
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-ha_integration_type: hub
 ---
 
 The **SIA Alarm Systems** {% term integration %} provides integration with several alarm systems that implement the SIA Protocol, including [Ajax Systems](https://ajax.systems/). This protocol is listen-only, so does not allow you to turn on/off your alarm system, it just updates the state to reflect your alarm and allows you to act on that state, for instance turning on all lights and opening the curtains when the alarm triggers. The underlying package has support for different variants of SIA, including DC-09, DC-04 and a limited set of ADM-CID. If your alarm system uses the ADM-CID standard and it isn't working, please log an issue [here](https://github.com/eavanvalkenburg/pysiaalarm/issues/new).

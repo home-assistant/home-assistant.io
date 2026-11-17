@@ -10,7 +10,7 @@ related_actions:
   - mastodon.update_profile
 ---
 
-The **Unmute account** action unmutes an account you previously muted, so their posts appear in your timeline again.
+The **Mastodon: Unmute account** action unmutes an account you previously muted, so their posts appear in your timeline again.
 
 This is handy at the end of an automation that muted an account temporarily, for example unmuting a news account when you return from a vacation.
 
@@ -51,7 +51,7 @@ action: |
     account_name: "@account@instance.online"
 {% endexample %}
 
-To find the `config_entry_id`, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, select this action, choose your Mastodon instance, and switch to YAML mode.
+To find the `config_entry_id`, go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}, select this action, choose your Mastodon instance, and switch to YAML mode.
 
 ### Options in YAML
 

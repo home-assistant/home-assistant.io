@@ -8,7 +8,7 @@ related_actions:
   - teslemetry.remove_precondition_schedule
 ---
 
-The **Remove charge schedule** action deletes a location-based charging schedule from your Tesla vehicle. You identify the schedule to remove by its schedule ID.
+The **Teslemetry: Remove charge schedule** action deletes a location-based charging schedule from your Tesla vehicle. You identify the schedule to remove by its schedule ID.
 
 Use it to clean up schedules you no longer need, for example removing a temporary holiday charging schedule once you're back home.
 

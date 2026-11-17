@@ -1,38 +1,15 @@
 ---
-title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
-ha_category:
-  - Alarm
-  - Camera
-  - Network
-  - Presence detection
-  - Sensor
-  - Switch
 ha_release: 0.85
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@hacf-fr/reviewers'
-  - '@Quentame'
-ha_config_flow: true
 ha_domain: freebox
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - device_tracker
-  - sensor
-  - switch
-ha_zeroconf: true
-ha_integration_type: device
 ---
 
 The **Freebox** {% term integration %} allows you to observe and control [Freebox router](https://www.free.fr/freebox/).
 
 There is currently support for the following device types within Home Assistant:
 
-- [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
-- [Binary sensor](#binary-sensor) for monitoring Raid arrays health
+- [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space, missed calls, and LAN ports
+- [Binary sensor](#binary-sensor) for monitoring RAID array health and LAN port links
 - [Device tracker](#presence-detection) for connected devices
 - [Switch](#switch) to control Wi-Fi
 - [Camera](#camera)
@@ -100,13 +77,17 @@ refreshes the devices states.
 This platform offers you sensors to monitor a Freebox router.
 The monitored metrics are:
 - Internal temperature
-- Upload and download rates (in KB/s)
+- Upload and download rates (in kB/s)
 - Free partition space of used disks
 - Number of missed calls
+- Link speed of each LAN port, in Mbit/s
+- Receive and transmit rates of each LAN port, in kB/s (disabled by default)
 
 ## Binary sensor
 
 The health status of each RAID array can be monitored with a diagnostics binary sensor reflecting the `degraded` state (OK means not degraded, PROBLEM means degraded).
+
+Each LAN port also has a diagnostic link binary sensor. It is `on` when a device is plugged into the port and the link is up.
 
 ## Camera
 
@@ -125,3 +106,7 @@ This integration allows you to view and control the Freebox alarm control panel.
 ## Switch
 
 This platform offers you a switch to toggle the Wi-Fi on or off. This will toggle all Wi-Fi interfaces of the router (all SSID and all bands).
+
+## Cover
+
+This platform allows you to observe and control roller shutters (Somfy RTS and io-homecontrol) paired with the Freebox Delta.

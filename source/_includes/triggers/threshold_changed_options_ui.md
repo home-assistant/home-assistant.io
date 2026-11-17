@@ -8,7 +8,7 @@ Parameters:
                      unit_options_code, and unit_default.
   unit_label         Unit label. For example: "temperature unit", "energy unit".
   unit_options_code  Inline code list of allowed units. For example: "`°C` or `°F`".
-  unit_default       Default unit. For example: "°C".
+  unit_default       Optional. Default unit shown in the UI. For example: "°C".
 {% endcomment %}
 {% options_ui %}
 Threshold type:
@@ -17,12 +17,12 @@ Threshold type:
 
     - **Any change**: fires on any change, regardless of direction or new value.
     - **Above** or **Below** (exclusive): fires only when the new reading is strictly above or below the threshold. A reading equal to the threshold does not fire the trigger.
-    - **In range** (exclusive): fires only when the new reading is strictly between the two bounds. A reading equal to either bound does not fire the trigger.
-    - **Outside range** (inclusive): fires when the new reading is at or below the lower bound, or at or above the upper bound. A reading equal to either bound fires the trigger.
+    - **In range** (inclusive): fires when the new reading is between the two bounds. A reading equal to either bound fires the trigger.
+    - **Outside range** (exclusive): fires when the new reading is below the lower bound or above the upper bound. A reading equal to either bound does not fire the trigger.
 
     For each mode you can enter {{ include.unit_phrase_ui }} or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 {% if include.has_unit %}
 Unit:
-  description: The {{ include.unit_label }} to use for threshold comparison. Accepts {{ include.unit_options_code }}. Required when using numerical thresholds (not required when using entity references). Default is `{{ include.unit_default }}`.
+  description: The {{ include.unit_label }} to use for threshold comparison. Accepts {{ include.unit_options_code }}. Required when using numerical thresholds (not required when using entity references).{% if include.unit_default %} Default is `{{ include.unit_default }}`.{% endif %}
 {% endif %}
 {% endoptions_ui %}

@@ -1,28 +1,7 @@
 ---
-title: LetPot
 description: Instructions on how to integrate LetPot hydroponic gardens into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
 ha_release: 2025.2
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@jpelgrom'
 ha_domain: letpot
-ha_integration_type: hub
-ha_platforms:
-  - binary_sensor
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_quality_scale: silver
 ---
 
 The **LetPot** {% term integration %} allows you to integrate your [LetPot](https://letpot.com/) hydroponic gardens/systems into Home Assistant.
@@ -76,7 +55,7 @@ Additionally, binary sensors for possible issues are available:
   - Available for LetPot Max devices.
 
 {% important %}
-Binary sensors for issues are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for information on how to do this.
+Binary sensors for issues are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) documentation for information on how to do this.
 {% endimportant %}
 
 ### Numbers

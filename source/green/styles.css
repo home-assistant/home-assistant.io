@@ -1435,7 +1435,7 @@ h4.heading-small {
 }
 
 .hero-header-wrapper .logos {
-  max-width: 390px;
+  max-width: 460px;
   margin-top: 2rem;
   justify-self: flex-start;
   overflow: hidden;
@@ -1743,7 +1743,7 @@ section#collaboration .card .partner {
   font-weight: 300;
   align-items: center;
   display: flex;
-  gap: 16px;
+  gap: 8px;
   font-size: 16px;
   margin-bottom: 12px;
 }
@@ -1756,14 +1756,8 @@ section#collaboration .card .partner {
 }
 
 section#collaboration .card .partner img {
-  height: 25px;
+  height: 24px;
   border-radius: 0;
-}
-
-@media (min-width: 768px) {
-  section#collaboration .card .partner img {
-    height: 30px;
-  }
 }
 
 section#collaboration .card .card-inner {

@@ -1,15 +1,7 @@
 ---
-title: Flux
 description: Instructions on how to automate the color temperature of your lights based on the time of day with Home Assistant
-ha_category:
-  - Automation
 ha_release: 0.21
-ha_quality_scale: internal
 ha_domain: flux
-ha_iot_class: Calculated
-ha_platforms:
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file

@@ -1,30 +1,7 @@
 ---
-title: Viessmann ViCare
 description: Instructions how to integrate Viessmann heating devices with Home Assistant
-ha_category:
-  - Climate
-  - Fan
-  - Select
-  - Water heater
 ha_release: 0.99
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: vicare
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - number
-  - select
-  - sensor
-  - water_heater
-ha_dhcp: true
-ha_integration_type: hub
-ha_codeowners:
-  - '@CFenner'
-  - '@lackas'
 ---
 
 The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann-climatesolutions.com) devices via the Viessmann ViCare (REST) API.
@@ -80,6 +57,8 @@ Represents the heating controls of your device.
 Viessmann devices with room temperature sensing will show the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
 {% endnote %}
 
+The holiday programs appear as **Holiday** and **Holiday at home** binary sensors, with sensors for their start and end dates.
+
 ### Fan
 
 Ventilation units are displayed as fans and enable the change of speed and use of presets.
@@ -92,9 +71,30 @@ Represents the domestic hot water controls of your device.
 It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore, the operation mode of that integration is just available as an attribute and cannot be modified.
 {% endnote %}
 
+If your device has a domestic hot water circulation pump, you can read its weekly schedule with the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action and change it with the [Set circulation schedule](/actions/vicare.set_circulation_schedule/) action.
+
+### Binary sensor
+
+Binary sensors show on and off states of the device, such as a running burner or compressor. Each room of a ViCare room control also has a **Window** and a **Condensation risk** binary sensor.
+
 ### Sensor
 
 Additional data for a device is available as separate sensors. The sensors are automatically discovered based on the available API data points.
+
+The rooms of a ViCare room control appear as separate devices named **Room 0**, **Room 1**, and so on, each with a temperature and a humidity sensor. The Viessmann API does not provide the room names, so rename the devices and assign them to areas as needed.
+
+Vitoset Aqua water softeners have the following sensors:
+
+- **Salt supply**: the number of days the salt lasts
+- **Water consumption**: the total water consumption, in liters
+- **Water consumption today**: the water consumed today, in liters
+- **Water flow**: the current water flow, in liters per minute
+
+Heat pumps that report the heat they produce have the following sensors:
+
+- **Heat production**: the current heat output
+- **Heating heat production today**: the heat produced for heating today
+- **DHW heat production today**: the heat produced for domestic hot water today
 
 ### Button
 
@@ -107,6 +107,14 @@ Number entities are available to adjust values like the predefined temperature f
 ### Select
 
 Select entities allow configuring the domestic hot water (<abbr title="domestic hot water">DHW</abbr>) operating mode of your Viessmann device. Available options depend on the specific device model and may include `balanced`, `economical`, or `off` modes.
+
+Each heating circuit also has an **Operating mode** select that offers all operation modes the device reports, such as **DHW only**, **DHW and heating**, or **Standby**. The climate entity maps several of these modes to the same HVAC mode, the select sets each one directly.
+
+### Switch
+
+Ventilation devices expose their quickmodes as switches, such as **Intensive**, **Eco**, **Boost**, and **Silent**. Only the quickmodes reported by the device are created.
+
+Quickmodes are mutually exclusive. Turn the active one off before turning another on, otherwise activation fails with "Only one quickmode can be active at a time".
 
 {% include integrations/actions.md %}
 
@@ -129,6 +137,101 @@ The ViCare integration maps the Home Assistant HVAC modes to Viessmann operation
 ### Setting the preset mode
 
 The `climate.set_preset_mode` action supports the *eco* and *comfort* preset modes. These are identical to the respective Viessmann programs and are only active temporarily for 8 hours. Eco mode reduces the target temperature by 3°C, whereas Comfort mode sets the target temperature to a configurable value. Consult your heating device manual for more information.
+
+## Viessmann ViCare automation examples
+
+These examples show how to control the domestic hot water circulation pump from automations.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Pause circulation while nobody is home
+
+This automation saves the circulation schedule when everyone leaves, turns the pump off, and restores the saved schedule once someone comes back.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Home
+  - **Below**: `1`
+- **Action**: Viessmann ViCare: Get circulation schedule
+  - **Target**: Main water heater
+  - **Response variable**: `saved`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Monday** to **Sunday**: selected, with no slots
+- **Action**: Wait for a trigger
+  - **Trigger**: Numeric state crossed threshold
+    - **Entity**: Home
+    - **Above**: `0`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Data** (in YAML mode): the saved schedule of the water heater, as shown in the example YAML
+
+{% details "YAML example for pausing circulation while nobody is home" %}
+
+{% example %}
+automation: |
+  alias: "Pause circulation while nobody is home"
+  triggers:
+    - trigger: numeric_state
+      entity_id: zone.home
+      below: 1
+  actions:
+    - action: vicare.get_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      response_variable: saved
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data:
+        monday: []
+        tuesday: []
+        wednesday: []
+        thursday: []
+        friday: []
+        saturday: []
+        sunday: []
+    - wait_for_trigger:
+        - trigger: numeric_state
+          entity_id: zone.home
+          above: 0
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data: "{{ saved['water_heater.main_water_heater'] }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turn off circulation on weekends
+
+This automation turns off the circulation pump on Saturday and Sunday every Friday evening. The weekday schedule stays as it is.
+
+- **Trigger**: Time
+  - **At time**: `20:00:00`
+  - **Weekdays**: Friday
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Saturday** and **Sunday**: selected, with no slots
+
+{% details "YAML example for turning off circulation on weekends" %}
+
+{% example %}
+automation: |
+  alias: "Turn off circulation on weekends"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+      weekday: fri
+  actions:
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data:
+        saturday: []
+        sunday: []
+{% endexample %}
+
+{% enddetails %}
 
 ## Troubleshooting
 

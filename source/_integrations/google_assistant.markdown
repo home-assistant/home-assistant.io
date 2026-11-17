@@ -1,33 +1,23 @@
 ---
-title: Google Assistant
 description: Setup for Google Assistant integration
-ha_category:
-  - Voice
 featured: true
 ha_release: 0.56
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@home-assistant/cloud'
 ha_domain: google_assistant
-ha_integration_type: system
-ha_platforms:
-  - button
-  - diagnostics
 ---
 
 The **Google Assistant** {% term integration %} allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet, or Google Home device.
 
 If you want to send commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant, or broadcast messages to Google Assistant speakers and displays without interrupting music/video playback, take a look at the [Google Assistant SDK](/integrations/google_assistant_sdk) integration.
 
-## Automatic setup via Home Assistant Cloud
+## Automatic setup via Home Assistant Link
 
-With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
+With [Home Assistant Link](/link/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Link you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
 
-For Home Assistant Cloud users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
+For Home Assistant Link users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
 
-## Manual setup (if you don't have Home Assistant Cloud)
+## Manual setup (if you don't have Home Assistant Link)
 
-The Google Assistant integration (without Home Assistant Cloud) requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
+The Google Assistant integration (without Home Assistant Link) requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
 ### Prerequisites
 
@@ -242,6 +232,8 @@ entity_config:
           type: string
 {% endconfiguration %}
 
+To apply changes to this configuration without restarting Home Assistant, use the [`google_assistant.reload`](/actions/google_assistant.reload/) action. Changing `project_id` or `service_account` still requires a restart.
+
 ### Available domains
 
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
@@ -347,7 +339,7 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
-Your **Cloud fulfillment URL** may be invalid or unreachable. Recheck the **Cloud fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-cloud) and verify that it's publicly reachable.
+Your **Cloud fulfillment URL** may be invalid or unreachable. Recheck the **Cloud fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-link) and verify that it's publicly reachable.
 
 #### 500 / 429 error on request sync
 
@@ -366,3 +358,64 @@ If you're having trouble with _Account linking failed_ after you unlinked your s
 ### Failed linking - Could not update the setting. Please check your connection
 
 If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try setting `expose_by_default: false` then exposing a single simple device (light or switch preferably). It is also worth checking if any home ad blocker is disabled if you are having issues.
+
+{% include integrations/actions.md %}
+
+## Google Assistant automation examples
+
+With the manual setup, Google doesn't always notice right away when your devices change. These examples keep the Google Home app up to date for you.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: sync with Google after Home Assistant starts
+
+When you add or remove devices in your YAML configuration, use the [`google_assistant.reload`](/actions/google_assistant.reload/) action, which asks Google to sync right away. This automation covers restarts: it asks Google to sync after Home Assistant starts, so the Google Home app shows your devices.
+
+- **Trigger**: Home Assistant
+  - **Event**: Start
+- **Action**: Google Assistant: Request sync
+  - **Agent user ID**: Your Home Assistant user ID
+
+{% details "YAML example for syncing with Google after a restart" %}
+
+{% example %}
+automation: |
+  alias: "Sync devices with Google after a restart"
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: google_assistant.request_sync
+      data:
+        agent_user_id: "YOUR_USER_ID"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: sync with Google when you add a new entity
+
+When a new entity is added to Home Assistant, ask Google to sync, so a new device shows up in the Google Home app without saying "Hey Google, sync my devices".
+
+- **Trigger**: Manual event received
+  - **Event type**: `entity_registry_updated`
+  - **Event data**: `action: create`
+- **Action**: Google Assistant: Request sync
+  - **Agent user ID**: Your Home Assistant user ID
+
+{% details "YAML example for syncing with Google when an entity is added" %}
+
+{% example %}
+automation: |
+  alias: "Sync devices with Google when an entity is added"
+  triggers:
+    - trigger: event
+      event_type: entity_registry_updated
+      event_data:
+        action: create
+  actions:
+    - action: google_assistant.request_sync
+      data:
+        agent_user_id: "YOUR_USER_ID"
+{% endexample %}
+
+{% enddetails %}

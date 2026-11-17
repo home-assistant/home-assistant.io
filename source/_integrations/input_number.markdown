@@ -1,15 +1,7 @@
 ---
-title: Input number
 description: Instructions on how to integrate the input number integration into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_release: 0.55
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: input_number
-ha_integration_type: helper
 ---
 
 The **Input number** {% term integration %} lets you create a number {% term helper %}: an entity that stores a numeric value you can set yourself. Because the value is not tied to a physical device, you can use it as an adjustable setting for your automations, scripts, and dashboards. For example, you can create a number helper for a target temperature, a brightness level, or a delay in minutes, then read or change that value from anywhere in Home Assistant.
@@ -76,8 +68,12 @@ input_number:
         required: false
         type: string
         default: slider
+      device_class:
+        description: The [type/class](/integrations/number/#device-class) of the number, used to pick the number's wording and icon in the frontend.
+        required: false
+        type: device_class
       unit_of_measurement:
-        description: Unit of measurement in which the value of the slider is expressed in.
+        description: Unit of measurement in which the value of the slider is expressed. When a `device_class` is set, the unit must be one of the units supported by that device class. Otherwise, a warning is logged, and starting with Home Assistant 2027.5 the configuration is invalid.
         required: false
         type: string
       icon:
@@ -87,6 +83,15 @@ input_number:
 {% endconfiguration %}
 
 {% include integrations/actions.md %}
+
+## Unit conversion
+
+When a `device_class` is set, Home Assistant can show the state in another unit, based on your unit system or the unit selected in the entity settings. The configured `unit_of_measurement` stays the helper's own unit:
+
+- `min`, `max`, `step`, and `initial` are always in the helper's own unit.
+- The `min` and `max` attributes are converted to the shown unit. The `step` attribute is not.
+- The `input_number.set_value` action takes the value in the shown unit.
+- The `input_number.increment` and `input_number.decrement` actions change the value by `step` in the helper's own unit.
 
 ## Restore state
 

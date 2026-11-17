@@ -1,5 +1,5 @@
 ---
-title: "Make a warning device squawk"
+title: "Warning device squawk"
 action: zha.warning_device_squawk
 domain: zha
 description: "Emits a short audible and visible pulse on a Zigbee warning device."
@@ -19,7 +19,7 @@ To make a warning device squawk from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Warning device squawk**.
+5. Search for and select **Zigbee Home Automation: Warning device squawk**.
 6. Set the device and, optionally, the squawk mode, strobe, and level.
 7. Select **Save**.
 

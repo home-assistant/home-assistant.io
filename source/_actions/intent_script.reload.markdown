@@ -1,11 +1,11 @@
 ---
-title: Reload intent scripts
+title: "Reload"
 action: intent_script.reload
 domain: intent_script
 description: "Reloads the intent scripts from the YAML configuration."
 ---
 
-The **Reload intent scripts** action reloads your intent scripts from the YAML configuration. Use it after you change your intent script configuration and want Home Assistant to apply those changes without a restart.
+The **Intent Script: Reload** action reloads your intent scripts from the YAML configuration. Use it after you change your intent script configuration and want Home Assistant to apply those changes without a restart.
 
 {% include actions/ui_header.md %}
 
@@ -52,7 +52,8 @@ This action has no additional options in YAML.
 
 If another process updates your intent script YAML before a set time, you can schedule this action so Home Assistant picks up those changes automatically.
 
-- **Trigger**: A scheduled time
+- **Trigger**: Time
+  - **At time**: `03:05`
 - **Action**: Intent Script: Reload
 
 {% details "YAML example for reloading intent scripts after a scheduled sync" %}

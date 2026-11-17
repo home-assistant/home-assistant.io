@@ -68,7 +68,8 @@ seek_position:
 
 Jump to a fixed position when you press a button, for example to skip past an intro.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Skip intro helper
 - **Action**: Seek media
   - **Target**: Living room TV
   - **Position**: 90

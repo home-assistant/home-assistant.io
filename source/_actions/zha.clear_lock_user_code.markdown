@@ -1,5 +1,5 @@
 ---
-title: "Clear a lock user code"
+title: "Clear lock user"
 action: zha.clear_lock_user_code
 domain: zha
 description: "Removes a user code from a slot on a Zigbee lock."
@@ -20,7 +20,7 @@ To clear a lock user code from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the lock with the code you want to clear.
-6. From the actions shown for that target, select **Clear lock user**.
+6. From the actions shown for that target, under **Zigbee Home Automation**, select **Clear lock user**.
 7. Set the code slot.
 8. Select **Save**.
 
@@ -57,7 +57,7 @@ code_slot:
 
 ## Good to know
 
-- Clearing a code is permanent. To use the code again, store it with the [Set a lock user code](/actions/zha.set_lock_user_code/) action. To keep it but turn it off, use the [Disable a lock user code](/actions/zha.disable_lock_user_code/) action instead.
+- Clearing a code is permanent. To use the code again, store it with the [Set lock user code](/actions/zha.set_lock_user_code/) action. To keep it but turn it off, use the [Disable lock user](/actions/zha.disable_lock_user_code/) action instead.
 
 {% include actions/stuck.md %}
 

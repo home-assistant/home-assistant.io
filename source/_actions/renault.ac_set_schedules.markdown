@@ -1,5 +1,5 @@
 ---
-title: "Update the air conditioning schedules of a Renault vehicle"
+title: "Update A/C schedule"
 action: renault.ac_set_schedules
 domain: renault
 description: "Updates the air conditioning schedules of a Renault vehicle."
