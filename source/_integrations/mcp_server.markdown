@@ -179,7 +179,7 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
 
 ### Tools
 
-Home Assistant offers its {% term "AI tools" %} as [MCP tools](https://modelcontextprotocol.io/docs/concepts/tools). The {% term "AI app" %} can use the AI tools to read information and control Home Assistant. Each URL only exposes the AI tools from its sets of AI tools. For the AI tools in the **Home Assistant** set, refer to the [LLM](/integrations/llm/) integration.
+Home Assistant offers its {% term "AI tools" %} as [MCP tools](https://modelcontextprotocol.io/docs/concepts/tools). The {% term "AI app" %} can use the AI tools to read information and control Home Assistant. Each URL only exposes the AI tools from its sets of AI tools. For the AI tools in the **Home Assistant** set, refer to [List of Home Assistant AI tools](/integrations/llm/#list-of-home-assistant-ai-tools).
 
 ### Prompts
 
