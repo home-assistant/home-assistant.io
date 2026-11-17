@@ -70,6 +70,8 @@ The **Domestic hot water** water heater entity shows the hot water temperature a
 
 The **Activate one-time charge** button heats the hot water once, also outside of the schedule. Depending on the device, it heats to the normal or to the **DHW secondary temperature**.
 
+If your device has a domestic hot water circulation pump, you can read its weekly schedule with the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action and change it with the [Set circulation schedule](/actions/vicare.set_circulation_schedule/) action.
+
 ### Ventilation
 
 Ventilation units appear as fans with their speeds and presets. Their quickmodes, such as **Intensive**, **Eco**, **Boost**, and **Silent**, are switches. Only one quickmode can be active at a time, so turn the active one off before you turn on another.
@@ -192,6 +194,95 @@ automation: |
         entity_id: notify.my_phone
       data:
         message: "The heating has been offline in Home Assistant for an hour."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Pause circulation while nobody is home
+
+This automation saves the circulation schedule when everyone leaves, turns the pump off, and restores the saved schedule once someone comes back.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Home
+  - **Below**: `1`
+- **Action**: Viessmann ViCare: Get circulation schedule
+  - **Target**: Main water heater
+  - **Response variable**: `saved`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Monday** to **Sunday**: selected, with no slots
+- **Action**: Wait for a trigger
+  - **Trigger**: Numeric state crossed threshold
+    - **Entity**: Home
+    - **Above**: `0`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Data** (in YAML mode): the saved schedule of the water heater, as shown in the example YAML
+
+{% details "YAML example for pausing circulation while nobody is home" %}
+
+{% example %}
+automation: |
+  alias: "Pause circulation while nobody is home"
+  triggers:
+    - trigger: numeric_state
+      entity_id: zone.home
+      below: 1
+  actions:
+    - action: vicare.get_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      response_variable: saved
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data:
+        monday: []
+        tuesday: []
+        wednesday: []
+        thursday: []
+        friday: []
+        saturday: []
+        sunday: []
+    - wait_for_trigger:
+        - trigger: numeric_state
+          entity_id: zone.home
+          above: 0
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data: "{{ saved['water_heater.main_water_heater'] }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turn off circulation on weekends
+
+This automation turns off the circulation pump on Saturday and Sunday every Friday evening. The weekday schedule stays as it is.
+
+- **Trigger**: Time
+  - **At time**: `20:00:00`
+  - **Weekdays**: Friday
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Saturday** and **Sunday**: selected, with no slots
+
+{% details "YAML example for turning off circulation on weekends" %}
+
+{% example %}
+automation: |
+  alias: "Turn off circulation on weekends"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+      weekday: fri
+  actions:
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data:
+        saturday: []
+        sunday: []
 {% endexample %}
 
 {% enddetails %}
