@@ -7,15 +7,6 @@ A home battery allows homes to store energy when you are either producing more s
 
 Home Assistant allows you to track how much energy flows from/to your battery.
 
-## Battery capacity
-
-When you add a battery to the Energy dashboard, you can set its usable capacity. If you have more than one battery, Home Assistant uses the capacity to calculate the combined state of charge, so a larger battery counts more than a smaller one.
-
-- Select **Enter manually** to enter the usable capacity in kWh.
-- Select **Use a sensor** to choose a **Battery capacity sensor** that reports usable capacity in Wh, kWh, or MWh. Home Assistant uses the sensor's current reading. This is useful when the capacity can change, for example when an integration combines several batteries and one of them goes offline.
-
-Choose a sensor that reports total usable capacity, rather than remaining energy or lifetime charged energy.
-
 ## Hardware
 
 Home Assistant will need to know the amount of energy flowing from/to your batteries. This data can be tracked in various ways.
@@ -36,7 +27,7 @@ Once your battery data is available in Home Assistant, add your battery to the E
 2. Under **Home battery storage**, select **Add battery system**.
 3. Under **What does your battery measure?**, select the option that matches your battery's sensors. To find out which option fits, see [choose what your battery measures](#choose-what-your-battery-measures).
 4. Select the energy sensors for your battery.
-5. Optionally, select power sensors and a state of charge sensor, and enter the battery capacity. Power sensors are used by the live power views, such as the **Now** tab.
+5. Optionally, select power sensors and a state of charge sensor, and set the [battery capacity](#battery-capacity). Power sensors are used by the live power views, such as the **Now** tab.
 6. Select **Save**.
 
 Only compatible statistics are available for selection. If you have more than one battery, add each one separately. Each battery can use a different option.
@@ -74,6 +65,15 @@ You can add a power sensor to any of the directions. In the live power views, a 
 Each power sensor measures one direction only, so its value must never be negative. If a power sensor reports a negative value, Home Assistant shows a warning.
 
 From these power sensors, Home Assistant creates a battery power sensor. It shows the net power of your battery: positive while the battery discharges and negative while it charges. Views that show the battery as a single value, such as the power sources graph, use this sensor. If you change which power sensors you use, Home Assistant creates a new battery power sensor.
+
+### Battery capacity
+
+When you add a battery to the Energy dashboard, you can set its usable capacity. If you have more than one battery, Home Assistant uses the capacity to calculate the combined state of charge, so a larger battery counts more than a smaller one.
+
+- Select **Enter manually** to enter the usable capacity in kWh.
+- Select **Use a sensor** to choose a **Battery capacity sensor** that reports usable capacity in Wh, kWh, or MWh. Home Assistant uses the sensor's current reading. This is useful when the capacity can change, for example when an integration combines several batteries and one of them goes offline.
+
+Choose a sensor that reports total usable capacity, rather than remaining energy or lifetime charged energy.
 
 ### Warnings about missing sources
 
