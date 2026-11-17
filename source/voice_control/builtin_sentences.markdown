@@ -161,8 +161,7 @@ Unlike regular voice timers, delayed commands cannot be canceled or modified.
 
 {% details "Assist answers “Sorry, I couldn't understand that”" %}
 
-### Symptom
-{: .no_toc}
+<h3 class="no_toc">Symptom</h3>
 
 Assist answers "Sorry, I couldn't understand that".
 
@@ -204,8 +203,7 @@ To find a sentence that works in your language, follow these steps.
 
 {% details "Assist answers “Sorry, I am not aware of any device called …”" %}
 
-### Symptom
-{: .no_toc}
+<h3 class="no_toc">Symptom</h3>
 
 Assist answers "Sorry, I am not aware of any device called …", with the name that you used. For an area, it answers "Sorry, I am not aware of any area called …".
 
@@ -224,8 +222,7 @@ Assist understood the sentence, but no {% term entity %} or {% term area %} in H
 
 {% details "Assist answers “Sorry, … is not exposed”" %}
 
-### Symptom
-{: .no_toc}
+<h3 class="no_toc">Symptom</h3>
 
 Assist answers "Sorry, … is not exposed", with the name of the entity.
 
