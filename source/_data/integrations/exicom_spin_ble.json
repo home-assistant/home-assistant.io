@@ -7,12 +7,18 @@
   ],
   "config_flow": true,
   "iot_class": "local_polling",
-  "quality_scale": "bronze",
+  "quality_scale": "platinum",
   "categories": [
     "energy.ev_charging"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
-    "sensor"
+    "binary_sensor",
+    "diagnostics",
+    "sensor",
+    "switch"
   ],
   "discovery": [
     "bluetooth"

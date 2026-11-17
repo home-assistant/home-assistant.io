@@ -6,6 +6,17 @@ ha_domain: system_bridge
 
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
 
+## Use cases
+
+- **Keep an eye on your computers**: See CPU, memory, disk, GPU, network, and battery usage on a dashboard, and get notified when a disk fills up or a battery runs low.
+- **Automate around your computer**: Turn the lights down when your computer locks, or react to the camera being in use.
+- **Control your computer from Home Assistant**: Lock, sleep, or shut down the computer, turn its displays off, control its media, or open a URL on it.
+- **Send notifications to your desktop**: Show a notification with buttons and a sound on the computer, such as when someone rings the doorbell.
+
+## Supported devices
+
+The integration works with any computer running [System Bridge](https://system-bridge.timmo.dev) 5.0.0 or later. System Bridge has packages for Linux and Windows. macOS isn't officially supported, but you can build System Bridge from source to run it there. Some features depend on the operating system; see [Known limitations](#known-limitations).
+
 ## Prerequisites
 
 ### Version
@@ -14,22 +25,33 @@ This integration requires System Bridge 5.0.0 and above. Any older version will 
 
 ### Token
 
-You will need your token. For instructions on finding your token, follow the steps in the [System Bridge documentation](https://system-bridge.timmo.dev/docs/running).
+You will need your token. For instructions on finding your token, follow the steps in the [System Bridge documentation](https://system-bridge.timmo.dev/running/#token).
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the computer running System Bridge.
+Port:
+  description: The port System Bridge listens on. The default is `9170`, and you can change it on the computer with the `SYSTEM_BRIDGE_PORT` environment variable.
+Token:
+  description: The token from the System Bridge settings. To find it, run `system-bridge client token` on the computer, as the same user that runs System Bridge. On Windows, run `.\system-bridge.exe client token` in PowerShell from the `C:\Program Files\System Bridge` folder.
+{% endconfiguration_basic %}
+
+Home Assistant discovers computers running System Bridge on your network. A discovered computer shows up under {% my integrations title="**Settings** > **Devices & services**" %}, and you only need to enter its token.
 
 ## Binary sensors
 
 This integration provides the following binary sensors:
 
-| Name                  | Description                          |
-| --------------------- | ------------------------------------ |
-| AC Power              | Whether the device is on AC power    |
-| Battery Is Charging   | Whether the battery is charging      |
-| Camera In Use         | Whether the camera/webcam is in use  |
-| Locked                | Whether the user's session is locked |
-| Pending Reboot        | Whether a reboot is pending          |
-| New Version Available | Whether a new version is available   |
+| Name                  | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| AC Power              | Whether the device is on AC power                |
+| Battery Is Charging   | Whether the battery is charging                  |
+| Camera In Use         | Whether the camera/webcam is in use              |
+| Session lock          | Whether the user's session is Locked or Unlocked |
+| Pending Reboot        | Whether a reboot is pending                      |
+| New Version Available | Whether a new version is available               |
 
 ## Sensors
 
@@ -39,7 +61,9 @@ This integration provides the following sensors:
 | ------------------------- | ----------------------------------------------------------------- |
 | Battery                   | Battery level of the device                                       |
 | Battery State             | Charging state of the battery                                     |
+| Battery Time Remaining    | When the battery is expected to run out                           |
 | Boot Time                 | Time the device was turned on                                     |
+| CPU Package Power         | Power draw of the whole CPU package in watts                      |
 | CPU Speed                 | The current CPU speed                                             |
 | Disk Read Rate            | Total read rate across all disks                                  |
 | Disk Write Rate           | Total write rate across all disks                                 |
@@ -74,6 +98,7 @@ These sensors are also available, but are not enabled by default:
 | ------------------------ | ----------------------------------------------- |
 | Battery Power            | Battery power draw in watts                     |
 | Battery Voltage          | Battery voltage in volts                        |
+| CPU Core Power           | Power draw of each CPU core in watts            |
 | CPU Temperature          | The current temperature of the CPU              |
 | CPU Voltage              | The current voltage of the CPU                  |
 | Per-disk Read Rate       | Read rate of each disk                          |
@@ -94,11 +119,14 @@ These sensors are also available, but are not enabled by default:
 | Interface Download Rate  | Download rate of each network interface         |
 | Interface Upload Rate    | Upload rate of each network interface           |
 | Interface Link Rate      | Wi-Fi link rate of a wireless interface in Mbps |
+| Load CPU                 | Load percentage of each CPU core                |
 | Load Average (5 min)     | Load average over 5 minutes                     |
 | Load Average (15 min)    | Load average over 15 minutes                    |
 | Swap Used                | Swap used in GB                                 |
 
 Load average sensors are only added on devices that report a load average.
+
+Per-core CPU sensors are named after the core, such as `Load CPU 0` and `CPU core 0 power`. The CPU power sensors show as unknown on devices that don't report CPU power.
 
 Not every GPU reports every value. GPU sensors System Bridge can't read for a GPU, such as encoder and decoder usage on some integrated GPUs, show as unknown.
 
@@ -130,9 +158,27 @@ Each entity is added once the device first reports it, so devices without power 
 
 ## Media player
 
-The integration also provides a media player. This allows you control the currently playing media on your device.
+The integration provides a media player for the media currently playing on your device. It shows the title, artist, album, position and other details System Bridge reports, and you can play, pause, stop and skip tracks.
 
-> This is currently only supported devices running System Bridge on Windows.
+What else you can control depends on the operating system:
+
+- **Linux**: With System Bridge 5.20.0 or later, you can also seek, set the volume, and turn shuffle and repeat on or off, when the player supports it.
+- **Windows**: Shuffle and repeat are shown, but can't be changed.
+- **macOS**: Only play, pause and stop are available.
+
+When more than one app is playing, the media player follows the one that's playing, or else the first one that's paused. With System Bridge 5.23.0 or later, its source list holds every player it can see: pick one to show and control that player, or pick `Automatic` to go back to following the playing one. The pick resets when Home Assistant restarts.
+
+### Audio devices
+
+The `Audio` media player sets the volume of whichever output is the system default and mutes it, so it's the system volume. It follows the default when you switch outputs, which makes it the one to use in automations. Its source list holds your outputs: pick one to make it the default. The volume on the main media player is the playing app's own volume, not the system volume.
+
+Each audio output, such as speakers or headphones, also gets a media player named after it, such as `Speakers output`, to set its volume and mute it.
+
+Each audio input, such as a microphone, gets a `Microphone input volume` number entity to set its volume from 0 to 100%, and a `Microphone input mute` switch entity to mute it. An input only gets these entities once System Bridge reports its volume or mute state. The `Audio input` select entity picks the default input.
+
+An audio device connected later, such as a USB headset, gets its entities when it first shows up, and they become unavailable while it's disconnected.
+
+Audio devices need System Bridge 5.16.0 or later, on Linux or Windows. On Linux, they also require `pactl` with JSON support (PulseAudio 16 or later), using PulseAudio or PipeWire with `pipewire-pulse`.
 
 ## Media source
 
@@ -214,11 +260,159 @@ This is an object containing the `source` and `volume` (0-100). The source must 
 
 {% include integrations/actions.md %}
 
+## Data updates
+
+System Bridge sends data to Home Assistant as it changes, over a WebSocket connection. If no data arrives for 30 seconds, Home Assistant checks the connection is still open and reconnects if it isn't.
+
+With System Bridge 5.24.0 and later, the computer tells Home Assistant just before it goes to sleep or shuts down, so its entities become unavailable straight away. Home Assistant logs once that the computer is unavailable, and once when it's back.
+
+While the computer can't be reached, Home Assistant tries to reconnect after 30 seconds, then waits twice as long after each failed attempt, up to 2 minutes. Once it reconnects, the entities update again.
+
 ## Known limitations
 
 - Display brightness and power controls aren't available on macOS.
 - A display can report its brightness or power state without supporting changes to it. In that case, the action fails and shows the error message from System Bridge.
 - Some monitors stop responding to DDC/CI when they're off, so they can't be turned back on from Home Assistant.
+
+## System Bridge automation examples
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Lock your computer when you leave home
+
+This automation locks the computer when everyone has left home. Replace `button.my_computer_lock` with your computer's **Lock** button.
+
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
+- **Action**: Press button
+  - **Target**: Computer lock (`button.my_computer_lock`)
+
+{% details "YAML example for locking the computer when you leave home" %}
+
+{% example %}
+automation: |
+  alias: "Lock the computer when leaving home"
+  triggers:
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.my_computer_lock
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify when a disk is nearly full
+
+This automation sends a notification to your phone when a disk on the computer is more than 90% full. Replace `sensor.my_computer_c_space_used` with the space used sensor of the disk.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: C: drive space used (`sensor.my_computer_c_space_used`)
+  - **Above**: `90`
+- **Action**: Send a notification message
+  - **Target**: My phone (`notify.my_phone`)
+  - **Title**: `Disk nearly full`
+  - **Message**: The C: drive on your computer is more than 90% full.
+
+{% details "YAML example for a notification when a disk is nearly full" %}
+
+{% example %}
+automation: |
+  alias: "Computer disk nearly full"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.my_computer_c_space_used
+      above: 90
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        title: "Disk nearly full"
+        message: "The C: drive on your computer is more than 90% full."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Show a notification on the computer when the doorbell rings
+
+This automation shows a notification on the computer when someone rings the doorbell. Replace `event.front_door_doorbell` with your doorbell's event entity, and `notify.my_computer` with your computer's notify entity.
+
+- **Trigger**: Doorbell rang
+  - **Target**: Front door doorbell (`event.front_door_doorbell`)
+- **Action**: Send a notification message
+  - **Target**: My computer (`notify.my_computer`)
+  - **Title**: `Doorbell`
+  - **Message**: Someone is at the door.
+
+{% details "YAML example for a notification on the computer when the doorbell rings" %}
+
+{% example %}
+automation: |
+  alias: "Doorbell notification on the computer"
+  triggers:
+    - trigger: doorbell.rang
+      target:
+        entity_id: event.front_door_doorbell
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_computer
+      data:
+        title: "Doorbell"
+        message: "Someone is at the door."
+{% endexample %}
+
+{% enddetails %}
+
+## Troubleshooting
+
+{% details "Can't connect to System Bridge" %}
+
+### Symptom: Setup fails to connect, or the computer's entities stay unavailable
+
+#### Description
+
+Home Assistant can't reach System Bridge on the host and port you entered. The computer's entities are also unavailable while it sleeps or is turned off. This is expected, and they update again once it's back.
+
+#### Resolution
+
+1. Check that System Bridge is running on the computer, for example by opening its [web client](https://system-bridge.timmo.dev/using/web-client/).
+2. Check the host and port. From another device on your network, open `http://YOUR_COMPUTER:9170` in a browser, using your port if you changed it. If the System Bridge web client loads, that device can reach the computer.
+3. Check that the computer's firewall, and any routing between Home Assistant and the computer, allows incoming connections on the System Bridge port.
+4. If the computer gets its IP address from DHCP, give it a fixed address, or use its hostname. To change the host or port of a computer you already added, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **System Bridge**, then select **Reconfigure** on the computer's entry. A computer that Home Assistant discovered gets its address updated automatically.
+
+{% enddetails %}
+
+{% details "Authentication failed" %}
+
+### Symptom: Home Assistant asks you to reauthenticate
+
+#### Description
+
+The token Home Assistant uses no longer matches the one in System Bridge, for example after reinstalling System Bridge.
+
+#### Resolution
+
+Under {% my integrations title="**Settings** > **Devices & services**" %}, select **Reconfigure** on the notification and enter the new token.
+
+{% enddetails %}
+
+{% details "System Bridge upgrade required" %}
+
+### Symptom: A repair issue says "System Bridge upgrade required"
+
+#### Description
+
+The computer runs a System Bridge version older than 5.0.0. Home Assistant doesn't set up the integration until System Bridge is updated.
+
+#### Resolution
+
+Update System Bridge on the computer. Home Assistant keeps retrying, and sets up the integration once the update is done.
+
+{% enddetails %}
 
 ## Removing the integration
 

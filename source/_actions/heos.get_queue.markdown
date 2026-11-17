@@ -2,6 +2,7 @@
 title: "Get queue"
 action: heos.get_queue
 domain: heos
+response: required
 description: "Retrieves the play queue of a HEOS media player."
 related_actions:
   - heos.move_queue_item
@@ -43,6 +44,8 @@ This stores the play queue of `media_player.office` in `queue`.
 {% include actions/targets.md domain="media_player" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by the entity ID of each targeted player. For every player, a `queue` list holds the queued items, each with the following fields:
 

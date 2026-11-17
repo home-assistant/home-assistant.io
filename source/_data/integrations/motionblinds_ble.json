@@ -11,6 +11,9 @@
   "categories": [
     "blinds_curtains"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "button",
     "cover",

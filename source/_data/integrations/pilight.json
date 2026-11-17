@@ -7,6 +7,9 @@
     "hubs_protocols.wireless_protocols",
     "diy_makers.boards_hardware"
   ],
+  "connectivity": [
+    "rf"
+  ],
   "platforms": [
     "binary_sensor",
     "light",

@@ -2,6 +2,7 @@
 title: "Get forecasts"
 action: environment_canada.get_forecasts
 domain: environment_canada
+response: required
 description: "Retrieves the raw daily and hourly forecast data from Environment Canada."
 related_actions:
   - environment_canada.get_alerts
@@ -45,6 +46,8 @@ This stores the daily and hourly forecast of `weather.home` in `forecasts`.
 {% include actions/targets.md domain="weather" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by the entity ID of each targeted weather entity. For every entity, the response holds two lists:
 
