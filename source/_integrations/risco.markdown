@@ -81,3 +81,7 @@ And in the reverse direction:
 - [Switch](/integrations/switch/)
 
 {% include integrations/actions.md %}
+
+## Data updates
+
+When connected through Risco Cloud, the integration {% term polling polls %} the cloud every 30 seconds for the alarm state, and every 60 seconds for events. The local connection receives updates from the panel as they happen.
