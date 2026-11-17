@@ -161,7 +161,7 @@ actions:
 
 ## Data updates
 
-The Palazzetti integration {% term polling polls %} the device for new data every 30 seconds.
+The Palazzetti integration {% term polling polls %} the device for new data every 60 seconds.
 
 ## Known limitations
 
