@@ -2,6 +2,7 @@
 title: "Issue Zigbee cluster command"
 action: zha.issue_zigbee_cluster_command
 domain: zha
+response: optional
 description: "Sends a command to a Zigbee cluster on a device."
 related_actions:
   - zha.issue_zigbee_group_command
@@ -102,10 +103,17 @@ manufacturer:
   type: integer
 {% endoptions_yaml %}
 
+## Response data
+
+{% include actions/response.md %}
+
+When requested, the response contains a `response` field with the Zigbee command reply. Its contents depend on the command and device.
+
 ## Good to know
 
 - You must provide the command parameters through the **Params** field.
 - Cluster, command, and endpoint IDs are specific to each device. You can look them up on the device's page under **Manage clusters**.
+- Raw schedule commands bypass schedule validation and can change the heating target. For the dedicated schedule actions, see [Thermostat weekly schedules](/integrations/zha/#thermostat-weekly-schedules).
 
 {% include actions/stuck.md %}
 

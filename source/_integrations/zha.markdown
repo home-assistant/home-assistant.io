@@ -460,6 +460,116 @@ Additional devices in the [Compatible hardware](#compatible-hardware) section ma
 
 {% include integrations/actions.md %}
 
+## Thermostat weekly schedules
+
+Some Zigbee thermostats can store a weekly heating schedule on the device, so they keep following it even when Home Assistant is offline. ZHA can keep such a thermostat in sync with a [schedule helper](/integrations/schedule/), or read, upload, and clear the schedule with actions. Schedules are available for thermostats whose device support enables them, such as the Bosch Radiator Thermostat II. The number of transitions allowed per day depends on the device.
+
+{% caution %}
+Uploading or clearing a schedule can change the thermostat's target temperature. Before making changes, use [Get thermostat weekly schedule](/actions/zha.get_weekly_schedule/) and save the response somewhere safe. The clear action removes the entire device schedule, potentially including cooling schedules. These actions cannot read or restore cooling schedules, so back those up separately or do not clear the schedule if you need to keep them.
+{% endcaution %}
+
+### Creating a heating schedule
+
+Create a separate [schedule helper](/integrations/schedule/) to hold the heating schedule you want to upload:
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper** > **Schedule**.
+2. Add time blocks for all seven days. Each day must be covered continuously from `00:00` to `24:00`, without gaps or overlaps.
+3. Select each time block and add a numeric `temperature` in degrees Celsius under **Additional data**, for example:
+
+   ```yaml
+   temperature: 21.5
+   ```
+
+4. Use whole-minute start and end times and no more than two decimal places for each temperature.
+5. Save the helper. Choose temperatures that are within your thermostat's heating limits.
+
+Each time block's start time becomes a temperature transition on the thermostat. Adjacent time blocks can have different temperatures. When you [link the helper to a thermostat](#keeping-a-thermostat-in-sync-with-a-schedule-helper), you can instead set a default time block temperature and a default temperature outside of time blocks, so the full-day coverage and individual time block temperatures are optional.
+
+{% details "YAML example for a schedule helper" %}
+
+This example uses the same three time blocks every day. Adjust the times and temperatures to suit your needs. After editing your configuration, run [Reload schedules](/actions/schedule.reload/) or restart Home Assistant. For details on YAML configuration, refer to the [schedule integration](/integrations/schedule/#yaml-configuration).
+
+```yaml
+schedule:
+  heating_schedule:
+    name: "Heating schedule"
+    monday: &daily_schedule
+      - from: "00:00:00"
+        to: "06:00:00"
+        data:
+          temperature: 17.0
+      - from: "06:00:00"
+        to: "22:00:00"
+        data:
+          temperature: 21.5
+      - from: "22:00:00"
+        to: "24:00:00"
+        data:
+          temperature: 17.0
+    tuesday: *daily_schedule
+    wednesday: *daily_schedule
+    thursday: *daily_schedule
+    friday: *daily_schedule
+    saturday: *daily_schedule
+    sunday: *daily_schedule
+```
+
+{% enddetails %}
+
+### Keeping a thermostat in sync with a schedule helper
+
+Link a thermostat to a schedule helper to make the helper the source of truth. ZHA writes the helper to the thermostat and updates it automatically whenever you edit the helper.
+
+1. Open the **ZHA dashboard** from **Settings** > **Devices & services** > **Zigbee Home Automation**. Do not select **Options**, which opens a different dialog.
+   - The **Weekly schedules** card is shown when a supported ZHA thermostat exists, even if it is unavailable, or an existing link remains after its thermostat is removed. Adding a link requires an available thermostat.
+2. Select **Add weekly schedule**.
+3. Select the thermostat.
+4. Select an existing schedule helper, or select **Create a new Schedule helper** to create one directly from the dialog.
+5. Optionally, enter temperatures:
+   - **Default time block temperature** is used for time blocks without their own `temperature` under **Additional data**.
+   - **Default temperature outside of time blocks** is used for times not covered by any time block, including days with no time blocks, for example nights and weekends. Without this default, every day needs time blocks covering 00:00 to 24:00 without gaps.
+6. Select **Link**.
+
+Each thermostat can be linked to one helper, while one helper can drive several thermostats. The card shows the sync status of each link. Use **Sync now** to read the thermostat again and write any days that differ from the helper, for example after the schedule was changed on the device itself.
+
+For thermostats that only heat, **Auto** is offered after a verified upload or a successful linked sync. A linked thermostat must have synced its helper successfully. If the thermostat is already in Auto, Auto stays available.
+
+If a thermostat supports **Auto** but is in another mode, a hint below the sync status explains that it is not following the weekly schedule. Select **Open thermostat controls** and choose **Auto** to activate it. Opening the controls does not change the mode automatically.
+
+On thermostats that support temporary overrides in **Auto**, a manual change lasts until the next scheduled change, including the end of a time block. This does not change the schedule helper.
+
+How syncing works:
+
+- ZHA waits a few seconds after the last edit of the helper, then writes only the days that changed.
+- When Home Assistant starts, ZHA compares the thermostat with the helper and writes any days that differ.
+- If writing fails, for example because the thermostat is out of range, a repair issue is created and ZHA retries every 15 minutes. If the helper cannot be converted, or the thermostat or helper is deleted, a repair issue explains what to fix.
+- Select **Fix** on the repair issue to **Sync again** or **Remove link**.
+- If a temperature is outside the thermostat's allowed heating range, the error identifies the temperature, weekday, transition time, and allowed range. Adjust that time block's temperature or the applicable default and sync again.
+- The thermostat follows its weekly schedule only in its schedule (automatic) mode. Linking does not change the thermostat's mode.
+- Removing a link stops syncing, switches the thermostat from automatic to manual heating if needed, and clears its weekly schedule. If the thermostat or its current mode is unavailable, or clearing fails, the link is kept so you can try again. The dashboard and repair flow also offer an explicit, warned choice to remove only the link. In that case the thermostat's existing schedule may continue to change the heating target.
+
+{% important %}
+The linked helper overwrites the thermostat's existing weekly heating schedule. If you want to keep it, read it with [Get thermostat weekly schedule](/actions/zha.get_weekly_schedule/) before linking.
+{% endimportant %}
+
+### Uploading and managing the schedule
+
+If you prefer to upload a schedule once instead of keeping it in sync, use the actions:
+
+
+1. Use [Get thermostat weekly schedule](/actions/zha.get_weekly_schedule/) to read and save the existing heating schedule.
+2. Use [Upload thermostat weekly schedule](/actions/zha.set_weekly_schedule/) and select the thermostat and your schedule helper. ZHA checks the thermostat's current heating limits, uploads each day, and reads it back.
+3. If your thermostat requires a schedule or automatic mode, select that mode separately. The action does not change the mode or refresh the device clock.
+4. After changing the helper, run the upload action again to apply the changes. A linked thermostat is updated automatically instead.
+
+You can use [Clear thermostat weekly schedule](/actions/zha.clear_weekly_schedule/) to remove the device schedule. ZHA checks that the heating days are empty, but cannot verify cooling schedules.
+
+For heat-only thermostats, a successful upload makes **Auto** available for the current Home Assistant session. Clearing the schedule, an unverified write, or a failed or mismatching fresh read removes this assurance. Changes made outside ZHA may not be detected until the schedule is read again. After Home Assistant restarts, upload again or link a helper and wait for it to sync; a thermostat already in Auto remains in Auto.
+
+An upload or clear can fail after changing the device. No automatic rollback is attempted. If an action reports an error, read the device schedule again before deciding what to do.
+
+To recreate a seven-day heating schedule from a saved response, use the transitions under `days` to add a helper time block for each transition. Use the transition's time as the time block's start, the next transition's time as its end, and the transition's temperature as its additional data. End the last time block of each day at `24:00`, then upload the helper. An upload cannot recreate a schedule with empty days or a first transition later than `00:00`.
+
 ## Zigbee groups and binding devices
 
 ZHA supports the creation of Zigbee groups (different from Home Assistant's [Group](/integrations/group/) integration), as well as binding devices to each other. Groups and device binding can be set up independently of each other, but they can be also used in combination (such as binding a device to another group of devices).
