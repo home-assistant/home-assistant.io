@@ -27,7 +27,7 @@ Each recipe explains what it does, shows you a working template, and links to th
 Counting is one of the most common things you do with templates. "How many lights are on?" "How many windows are open?" These templates follow the same shape every time: list the entities, filter them, count the result.
 
 {% tip %}
-If all you need is a count on a dashboard, a [Group helper](/integrations/group/) can gather the entities and its state shows how many are active. No template needed.
+If you only need to know whether any of the entities is on, a [Group helper](/integrations/group/) can gather them. By default, its state is on when at least one member is on. It doesn't show how many, so to count them, use one of the templates below.
 {% endtip %}
 
 **Count how many lights are on:**
@@ -174,12 +174,12 @@ Home Assistant records when each state last changed, and you can reach that time
 {% example %}
 template: |
   The front door changed {{
-    relative_time(states.binary_sensor.front_door.last_changed)
+    time_since(states.binary_sensor.front_door.last_changed)
   }} ago.
 output: "The front door changed 15 minutes ago."
 {% endexample %}
 
-[`relative_time`](/template-functions/relative_time/) produces nice human-readable text like "15 minutes" or "2 hours".
+[`time_since`](/template-functions/time_since/) produces nice human-readable text like "15 minutes" or "2 hours".
 
 **Has it been more than 10 minutes?**
 
@@ -194,7 +194,7 @@ output: "True"
 
 `now()` gives you the current moment. Subtracting two moments gives you the duration between them. `.total_seconds()` turns that duration into a number of seconds, and `600` is ten minutes. This pattern is handy for conditions like "only notify me if the door has been open for more than 10 minutes".
 
-See [`now`](/template-functions/now/) and [`relative_time`](/template-functions/relative_time/).
+See [`now`](/template-functions/now/) and [`time_since`](/template-functions/time_since/).
 
 ## Formatting timestamps
 
@@ -263,11 +263,11 @@ Home Assistant entities can go missing, go offline, or report `unknown`. Templat
 
 {% example %}
 template: |
-  {{ states('sensor.might_not_exist') | default('not available') }}
+  {{ state_attr('sensor.might_not_exist', 'unit') | default('not available', true) }}
 output: "not available"
 {% endexample %}
 
-The [`default`](/template-functions/default/) filter replaces a missing value with one you choose.
+The [`default`](/template-functions/default/) filter replaces a missing value with one you choose. With `true` as the second argument, it also replaces `None`, which [`state_attr`](/template-functions/state_attr/) returns for a missing entity or attribute. `default` doesn't help with [`states`](/template-functions/states/): for a missing entity, `states()` returns the text `unknown`, which isn't a missing value. To check an entity, use `has_value`.
 
 **With [`has_value`](/template-functions/has_value/):**
 
@@ -367,7 +367,7 @@ template: |
      | selectattr('attributes.device_class', 'eq', 'door')
      | list %}
   {% set latest = doors | max(attribute='last_changed') %}
-  {{ latest.name }} changed {{ relative_time(latest.last_changed) }} ago.
+  {{ latest.name }} changed {{ time_since(latest.last_changed) }} ago.
 output: "Front door changed 3 minutes ago."
 {% endexample %}
 

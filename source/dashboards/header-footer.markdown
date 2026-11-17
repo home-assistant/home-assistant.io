@@ -1,6 +1,6 @@
 ---
-title: "Headers & Footers for dashboard cards"
-description: "Decorate your dashboard cards with header and footer widgets."
+title: "Card headers and footers"
+description: "Add a header or footer to a dashboard card to show extra information such as a graph, a weather forecast, or a list of buttons."
 related:
   - docs: /integrations/entity/
     title: Entity

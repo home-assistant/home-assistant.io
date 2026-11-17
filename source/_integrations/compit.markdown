@@ -1,25 +1,7 @@
 ---
-title: Compit
 description: Instructions on how to integrate Compit devices within Home Assistant.
-ha_category:
-  - Climate
-  - Water Heater
 ha_release: '2025.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Przemko92'
 ha_domain: compit
-ha_platforms:
-  - binary_sensor
-  - climate
-  - fan
-  - number
-  - select
-  - sensor
-  - water_heater
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Compit** {% term integration %} allows you to integrate air conditioning, ventilation, and heating controllers with Home Assistant. You need a Compit iNext account, which you can set up at [inext.compit.pl](https://inext.compit.pl).
@@ -358,7 +340,7 @@ When the SPM sensor is connected to a Nano Color thermostat, it is displayed as 
 
 - **Ventilation gear**
   - **Description**: Current ventilation gear setting.
-  - **Available for devices**: Nano Color 2 (Room thermostat)
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 - **Alarm code**
   - **Description**: System alarm code.
@@ -376,7 +358,7 @@ The available sensors depend on your specific Compit device configuration. Not a
 
 - **Airing**
   - **Description**: Indicates whether a window is open for airing.
-  - **Available for devices**: Nano Color 2 (Room thermostat)
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 - **Battery charging**
   - **Description**: Indicates whether the battery is currently charging.
@@ -394,6 +376,10 @@ The available sensors depend on your specific Compit device configuration. Not a
   - **Description**: Indicates whether the dust level has exceeded the threshold.
   - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
+- **Ground Heat Exchanger attached**
+  - **Description**: Indicates whether a ground heat exchanger is connected.
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
 - **Has battery**
   - **Description**: Indicates whether the device has a battery installed.
   - **Available for devices**: AF-1 (Anti-freeze system)
@@ -401,6 +387,10 @@ The available sensors depend on your specific Compit device configuration. Not a
 - **Has external power**
   - **Description**: Indicates whether the device is connected to external power.
   - **Available for devices**: AF-1 (Anti-freeze system)
+
+- **Mixer pump**
+  - **Description**: Indicates whether the mixer pump is currently running.
+  - **Available for devices**: R810 (Heating circuit controller)
 
 - **Pump status**
   - **Description**: Indicates whether the pump is currently running.
@@ -410,11 +400,44 @@ The available sensors depend on your specific Compit device configuration. Not a
   - **Description**: Indicates whether the temperature has exceeded the threshold.
   - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
+- **Ventilation filter dirty**
+  - **Description**: Indicates whether the ventilation filter is dirty and needs to be cleaned or replaced. When it does, the sensor shows **Problem**. Otherwise, it shows **OK**. The controller reports a dirty filter when the filter cleaning period set on the thermostat has elapsed. With AERO 3 and AERO 5 modules, it reports when the pressure switch reports a dirty filter.
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
 Binary sensors provide status information about your Compit devices.
+
+### Switches
+
+Switch entities let you turn device modes and features on or off.
+
+- **Device on/off**
+  - **Description**: Turns the device on or off.
+  - **Available for devices**: EL750 (Electric boiler controller)
+
+- **Force domestic hot water**
+  - **Description**: Forces domestic hot water production.
+  - **Available for devices**: R900 (Heat pump controller)
 
 ### Climate
 
 The climate entity reflects the current heating or cooling state and the **active** target temperature. Use the climate entity when you want to change the target temperature temporarily or for the current session (for example, turning up the heat for the evening). The climate entity is where you set what temperature the device is aiming for right now.
+
+The following devices provide a climate entity:
+
+- **Nano Color** (Room thermostat)
+- **Nano Color 2** (Room thermostat)
+- **Nano One** (Room thermostat)
+- **R900** (Heat pump controller)
+
+The available features depend on the device:
+
+- **Nano Color**, **Nano Color 2**, and **Nano One** support target temperature, preset mode, fan mode, and HVAC mode.
+  - Presets: Home, Eco, None, Away
+  - Fan modes: Off, Auto, Low, Medium, High
+  - HVAC modes: Cool, Heat, Off
+- **R900** supports preset mode and HVAC mode.
+  - Presets: Home, Away
+  - HVAC modes: Heat, Off
 
 ### Fans
 
@@ -555,6 +578,18 @@ Number entities let you set **default** temperature setpoints and other configur
   - **Description**: Buffer tank operating mode.
   - **Options**: Schedule, Manual, Disabled
   - **Available for devices**: R480 (Heat pump controller)
+
+### Switches
+
+Switch entities let you turn device modes and features on or off.
+
+- **Device on/off**
+  - **Description**: Turns the device on or off.
+  - **Available for devices**: EL750 (Electric boiler controller)
+
+- **Force domestic hot water**
+  - **Description**: Forces domestic hot water production.
+  - **Available for devices**: R900 (Heat pump controller)
 
 ### Water heaters
 

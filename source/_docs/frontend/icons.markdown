@@ -2,11 +2,9 @@
 title: "Icons"
 description: "Material Design Icons in the Home Assistant frontend"
 related:
-  - docs: /docs/frontend/
-    title: Frontend
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing entities
   - docs: https://pictogrammers.com/library/mdi/
     title: Material Design Icons
@@ -20,7 +18,7 @@ Home Assistant utilizes the community-driven [Material Design Icons](https://pic
 
 ## Default icons
 
-Every entity in Home Assistant has a default icon assigned to it. There are way too many to list out here, but you'll see them in your dashboard. You can [customize any of your entities](/docs/configuration/customizing-devices/) to change the icons displayed to you.
+Every entity in Home Assistant has a default icon assigned to it. There are way too many to list out here, but you'll see them in your dashboard. You can [customize any of your entities](/docs/configuration/customizing-entities/) to change the icons displayed to you.
 
 ## Finding icons
 
@@ -36,7 +34,7 @@ The most common way you can find icons is by using the icon picker built right i
 The icon picker will filter by icon name and by aliases applied to the icon by the MDI project. For example, typing "user" will show you most "account"-named icons.
 {% endtip %}
 
-For more detailed steps on customizing entities, including their icon, refer to [customizing entities](/docs/configuration/customizing-devices/).
+For more detailed steps on customizing entities, including their icon, refer to [customizing entities](/docs/configuration/customizing-entities/).
 
 ### Material design icons picker browser extension
 

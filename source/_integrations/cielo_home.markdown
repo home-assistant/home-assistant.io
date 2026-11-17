@@ -1,20 +1,7 @@
 ---
-title: Cielo Home
 description: Instructions on how to integrate Cielo smart thermostats in Home Assistant.
-ha_category:
-  - Climate
-ha_iot_class: Cloud Polling
 ha_release: 2026.6
-ha_config_flow: true
-ha_codeowners:
-  - '@cielo-connect'
-  - '@ihsan-cielo'
-
 ha_domain: cielo_home
-ha_platforms:
-  - climate
-ha_integration_type: integration
-ha_quality_scale: bronze
 ---
 
 The **Cielo Home** {% term integration %} allows you to control [Cielo](https://www.cielowigle.com) devices directly from Home Assistant, using the cloud-based **Cielo Connect API**.
@@ -62,7 +49,7 @@ If the message **This key is already used** appears, you must first revoke the o
 
 {% include integrations/config_flow.md %}
 
-If authentication succeeds, Home Assistant will automatically create the climate entities for all supported Cielo devices in your account.
+If authentication succeeds, Home Assistant will automatically create the climate and sensor entities for all supported Cielo devices in your account.
 
 {% note %}
 
@@ -107,6 +94,13 @@ Some fan modes or swing positions depend on the device’s remote configuration.
 - **HVAC modes** (varies by equipment): Cool, Auto, Heat, Off
 - **Temperature control**: Set the temperature setpoint.
 - **Presets**: Home, Away, Sleep & pets (where supported and defined)
+
+### Sensors
+
+Each supported device also exposes sensor entities that appear under the same device as the climate entity:
+
+- **Temperature**: Reports the current indoor temperature from the device. The unit (°C or °F) follows the device setting.
+- **Humidity**: Reports the current humidity from the device, in percent.
 
 ## Data updates
 
@@ -154,4 +148,3 @@ This integration follows standard integration removal. No extra steps are requir
 **Optional**: Revoke your API key in the [Cielo Home Web Portal](https://home.cielowigle.com).
 
 {% endnote %}
-

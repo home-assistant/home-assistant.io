@@ -1,17 +1,10 @@
 ---
-title: Camera Proxy
 description: Instructions on how to integrate a camera proxy within Home Assistant.
-ha_category:
-  - Camera
 ha_release: 0.65
 ha_domain: proxy
-ha_platforms:
-  - camera
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Camera Proxy** {% term integration %} allows you to pass another camera's output through post-processing routines and generate a new camera with the post-processed output.
@@ -22,7 +15,7 @@ The current proxy capabilities are intended to reduce the camera bandwidth for s
 
 ## Configuration
 
-To enable this camera in your installation, you must first have an existing working camera configured in Home Assistant.  Next, add the following to your {% term "`configuration.yaml`" %} file.
+To enable this camera in your installation, you must first have an existing working camera configured in Home Assistant. Next, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

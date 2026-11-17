@@ -1,20 +1,12 @@
 ---
-title: Zero-configuration networking (zeroconf)
 description: Exposes Home Assistant using the Zeroconf protocol.
-ha_category:
-  - Network
 ha_release: 0.18
-ha_quality_scale: internal
-ha_codeowners:
-  - '@bdraco'
 ha_domain: zeroconf
-ha_iot_class: Local Push
-ha_integration_type: system
 ---
 
 The **Zero-configuration networking (zeroconf)** {% term integration %} will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel. It will also make Home Assistant discoverable for other services in the network. Zeroconf is also sometimes known as Bonjour, Rendezvous, and Avahi.
 
-Integrations can opt-in to be found by adding either [a Zeroconf section](https://developers.home-assistant.io/docs/creating_integration_manifest/#zeroconf) or [a HomeKit section](https://developers.home-assistant.io/docs/creating_integration_manifest/#homekit) to their `manifest.json`.
+Integrations can opt-in to be found by adding either [a Zeroconf section](https://contributors.home-assistant.io/core/integrations/manifest/#zeroconf) or [a HomeKit section](https://contributors.home-assistant.io/core/integrations/manifest/#homekit) to their `manifest.json`.
 
 ## Configuration
 

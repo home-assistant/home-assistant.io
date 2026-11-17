@@ -1,26 +1,15 @@
 ---
-title: Zabbix
 description: Instructions on how to integrate Zabbix into Home Assistant.
-ha_category:
-  - Sensor
-  - System monitor
 ha_release: 0.37
-ha_iot_class: Local Polling
 ha_domain: zabbix
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
-ha_codeowners:
-  - '@kruton'
 ---
 
 The **Zabbix** {% term integration %} is the main {% term integration %} to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
 
-It is possible to publish Home Assistant state changes to Zabbix. In Zabbix a host has to be created which will contain the Home Assistant states as individual items. These items are automatically created using Zabbix Low-Level Discovery (LLD). In order to make setup in Zabbix easy, you can use this [template](/assets/integrations/zabbix/zbx_template_home_assistant.xml) for the host.
+It is possible to publish Home Assistant state changes to Zabbix. In Zabbix a host has to be created which will contain the Home Assistant states as individual items. These items are automatically created using Zabbix Low-Level Discovery (LLD). To make setup in Zabbix easy, you can use this [template](/assets/integrations/zabbix/zbx_template_home_assistant.xml) for the host.
 
 There is currently also support for the following device types within Home Assistant:
 
@@ -65,7 +54,7 @@ publish_states_host:
   required: false
   type: string
 publish_string_states:
-  description: Also publish string states, i.e. states which cannot be cast to a numeric value.
+  description: Also publish string states, that is, states which cannot be cast to a numeric value.
   required: false
   type: boolean
   default: false

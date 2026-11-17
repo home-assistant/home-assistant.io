@@ -1,16 +1,10 @@
 ---
-title: DOODS - Dedicated Open Object Detection Service
 description: Detect and recognize objects with DOODS.
-ha_category:
-  - Image processing
-ha_iot_class: Local Polling
 ha_release: '0.100'
 ha_domain: doods
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **DOODS** image processing {% term integration %} allows you to detect and recognize objects in a camera image using [DOODS](https://github.com/snowzach/doods/). The state of the entity is the number of objects detected and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
@@ -199,7 +193,7 @@ image_processing:
 
 ## Optimizing resources
 
-The [Image processing integration](/components/image_processing/) processes the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your configuration `scan_interval: 10000` (setting the interval to 10,000 seconds) and then call the `image_processing.scan` action when you actually want to perform processing.
+The [Image processing integration](/integrations/image_processing/) processes the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your configuration `scan_interval: 10000` (setting the interval to 10,000 seconds) and then call the `image_processing.scan` action when you actually want to perform processing.
 
 ```yaml
 # Example advanced configuration.yaml entry

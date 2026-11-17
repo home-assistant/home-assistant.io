@@ -1,15 +1,7 @@
 ---
-title: Emulated Kasa
 description: Instructions on how to integrate Emulated Kasa within Home Assistant.
-ha_category:
-  - Energy
-ha_iot_class: Local Push
 ha_release: 0.115
-ha_codeowners:
-  - '@kbickar'
 ha_domain: emulated_kasa
-ha_quality_scale: internal
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file

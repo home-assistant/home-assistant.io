@@ -1,21 +1,7 @@
 ---
-title: pyLoad
 description: Instructions on how to integrate pyLoad download manager with Home Assistant.
-ha_category:
-  - Downloading
 ha_release: 0.58
-ha_iot_class: Local Polling
 ha_domain: pyload
-ha_codeowners:
-  - '@tr4nt0r'
-ha_platforms:
-  - button
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: service
-ha_config_flow: true
-ha_quality_scale: platinum
 ---
 
 The [**pyLoad**](https://pyload.net/) {% term integration %} enables monitoring your downloads directly in Home Assistant. This integration provides various sensors to keep track of your download activities and allows creating automations based on the sensor information, alongside button and switch controls for performing specific tasks such as aborting downloads and managing file restarts.
@@ -57,10 +43,12 @@ URL:
   description: "The full URL of the pyLoad web interface, including the protocol (HTTP or HTTPS), hostname or IP address, port, and any path prefix if applicable. Example: `https://example.com:8000/path`"
 Verify SSL certificate:
   description: "If checked, the SSL certificate will be validated to ensure a secure connection."
-Username:
-  description: "The username used to access the pyLoad instance."
-Password:
-  description: "The password associated with the pyLoad account."
+API key:
+  description: "The API key to authenticato with the pyLoad API."
+Username [Deprecated]:
+  description: "The username used to access the pyLoad instance. No longer supported with pyLoad 0.5.0b3.dev97 or later."
+Password [Deprecated]:
+  description: "The password associated with the pyLoad account. No longer supported with pyLoad 0.5.0b3.dev97 or later."
 {% endconfiguration_basic %}
 
 ## Sensors

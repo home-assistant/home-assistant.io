@@ -1,16 +1,7 @@
 ---
-title: Manual Alarm control panel
 description: Instructions on how to integrate manual alarms into Home Assistant.
-ha_category:
-  - Alarm
-  - Helper
 ha_release: 0.7.6
-ha_quality_scale: internal
 ha_domain: manual
-ha_iot_class: Calculated
-ha_platforms:
-  - alarm_control_panel
-ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -109,7 +100,7 @@ The `manual_alarm_bad_code_attempt` event is fired when an attempt to change the
 
 - **entity_id** (string): The entity ID of the alarm control panel (for example, `alarm_control_panel.my_alarm`).
 - **target_state** (string): The attempted target state (for example, `disarmed`, `armed_away`, `armed_home`).
-- **user_id** (string): The user ID who initiated the service call (if available).
+- **user_id** (string): The user ID who initiated the action (if available).
 
 Example automation trigger:
 
@@ -117,7 +108,7 @@ Example automation trigger:
 automation:
   - alias: "Notify on invalid manual alarm code attempt"
     trigger:
-      - platform: event
+      - trigger: event
         event_type: manual_alarm_bad_code_attempt
     actions:
       - action: notify.your_notification_service # Replace with your actual notification service
@@ -139,7 +130,7 @@ When the alarm is armed, its state first goes to **arming** for a number
 of seconds equal to the destination state's **arming_time**, and then
 transitions to one of the "armed" states. Note that **code_template**
 never receives "arming" in the **to_state** variable; instead,
-**to_state** contains the state which the user has requested.  However,
+**to_state** contains the state which the user has requested. However,
 **from_state** *can* contain "arming".
 
 When the alarm is triggered, its state goes to **pending** for a number of
@@ -159,7 +150,7 @@ you some time to leave the building (for "armed" states).
 
 **delay_time** can be used to allow some time to disarm the alarm, with
 flexibility. For example, you could specify a delay time for the
-"armed away" state, in order to avoid triggering the alarm while the
+"armed away" state, to avoid triggering the alarm while the
 garage door opens, but not for the "armed home" state.
 
 **trigger_time** is useful to disable the alarm when disarmed, but it can also

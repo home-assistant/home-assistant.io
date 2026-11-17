@@ -1,0 +1,9 @@
+{
+  "domain": "calendar",
+  "name": "Calendar",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

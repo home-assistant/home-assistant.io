@@ -29,7 +29,7 @@ your smart home. Issue commands and get responses!
 ## Prerequisites
 
 - Home Assistant 2023.10 or later, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
-- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - Have [enabled a wake word](/voice_control/install_wake_word_add_on/) for your voice assistant
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS)
@@ -45,7 +45,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
       <script type="module" src="https://unpkg.com/esp-web-tools@10.2.1/dist/web/install-button.js?module" integrity="sha384-2Ea4WL8tjFb0qQKUqBoX45KlPVoUgL+Z3zUqsD0MHmtJ3faDbfNyZulLg/LfYDUZ" crossorigin="anonymous"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
-   - **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/m5stack-atom-echo/m5stack-atom-echo.yaml).
+   - **To customize the configuration**: The configuration file is available on [GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/m5stack-atom-echo/m5stack-atom-echo.yaml).
 
 2. To connect the ATOM Echo to your computer, follow these steps:
    - In the pop-up window, view the available ports.

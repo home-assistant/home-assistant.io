@@ -1,23 +1,7 @@
 ---
-title: Tailwind
 description: Instructions on how to integrate a Tailwind garage door controller with Home Assistant.
-ha_category:
-  - Cover
 ha_release: 2024.1
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: tailwind
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - cover
-  - diagnostics
-  - number
-ha_integration_type: device
-ha_dhcp: true
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
@@ -97,7 +81,9 @@ triggers:
     for:
       minutes: 10
 actions:
-  - action: notify.mobile_app_my_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Garage door"
       message: "The garage door has been open for 10 minutes."

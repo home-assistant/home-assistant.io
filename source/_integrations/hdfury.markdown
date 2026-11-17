@@ -1,28 +1,7 @@
 ---
-title: HDFury
 description: Instructions on how to integrate HDFury devices within Home Assistant.
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: 2026.2
-ha_category:
-  - Button
-  - Number
-  - Select
-  - Sensor
-  - Switch
-ha_codeowners:
-  - '@glenndehaan'
 ha_domain: hdfury
-ha_platforms:
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: platinum
-ha_zeroconf: true
 ---
 
 The **HDFury** {% term integration %} allows you to control and monitor your [HDFury](https://hdfury.com/) device.
@@ -66,7 +45,7 @@ Below is a complete overview of the entities this integration provides.
 
 ### Select
 
-- Operation Mode (Controls the device Operation Mode, Splitter/Matrix/etc.)
+- Operation Mode (Controls the device Operation Mode, such as Splitter or Matrix)
 - Port Select TX0 (Controls the HDMI source selection for output TX0)
 - Port Select TX1 (Controls the HDMI source selection for output TX1)
 

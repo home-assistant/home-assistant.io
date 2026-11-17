@@ -273,5 +273,5 @@ state_image:
   "on": /local/living_room_on.png
   "off": https://demo.home-assistant.io/stub_config/living_room.png
   "unavailable": media-source://image_upload/123456789
-entity: group.living.room
+entity: light.living_room
 ```

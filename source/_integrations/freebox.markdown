@@ -1,38 +1,15 @@
 ---
-title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
-ha_category:
-  - Alarm
-  - Camera
-  - Network
-  - Presence detection
-  - Sensor
-  - Switch
 ha_release: 0.85
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@hacf-fr'
-  - '@Quentame'
-ha_config_flow: true
 ha_domain: freebox
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - device_tracker
-  - sensor
-  - switch
-ha_zeroconf: true
-ha_integration_type: device
 ---
 
 The **Freebox** {% term integration %} allows you to observe and control [Freebox router](https://www.free.fr/freebox/).
 
 There is currently support for the following device types within Home Assistant:
 
-- [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
-- [Binary sensor](#binary-sensor) for monitoring Raid arrays health
+- [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space, missed calls, and LAN ports
+- [Binary sensor](#binary-sensor) for monitoring RAID array health and LAN port links
 - [Device tracker](#presence-detection) for connected devices
 - [Switch](#switch) to control Wi-Fi
 - [Camera](#camera)
@@ -61,7 +38,7 @@ You must have set a password for your Freebox router web administration page. En
 
 The first time Home Assistant will connect to your Freebox, you will need to authorize it by pressing the right arrow on the facade of the Freebox when prompted to do so.
 
-To make the Wi-Fi switch and the reboot action working, you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+To make the Wi-Fi switch and the reboot button work, you need to add the "Modification des réglages de la Freebox" permission to the Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme et maison connectée" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
@@ -69,6 +46,7 @@ To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme
 
 Only the routers with Freebox OS are supported:
 
+- Freebox V9 also known as Freebox Ultra
 - Freebox V8 also known as Freebox Pop
 - Freebox V7 also known as Freebox Delta
 - Freebox V6 also known as Freebox Revolution
@@ -89,18 +67,27 @@ On the contrary, the Freebox immediately reports devices newly connected, so
 they should appear as "home" almost instantly, as soon as Home Assistant
 refreshes the devices states.
 
+## Buttons
+
+- **Reboot**
+  - **Description**: Restarts your Freebox router.
+
 ## Sensor
 
 This platform offers you sensors to monitor a Freebox router.
 The monitored metrics are:
 - Internal temperature
-- Upload and download rates (in KB/s)
+- Upload and download rates (in kB/s)
 - Free partition space of used disks
 - Number of missed calls
+- Link speed of each LAN port, in Mbit/s
+- Receive and transmit rates of each LAN port, in kB/s (disabled by default)
 
 ## Binary sensor
 
 The health status of each RAID array can be monitored with a diagnostics binary sensor reflecting the `degraded` state (OK means not degraded, PROBLEM means degraded).
+
+Each LAN port also has a diagnostic link binary sensor. It is `on` when a device is plugged into the port and the link is up.
 
 ## Camera
 
@@ -116,14 +103,10 @@ This platform offers you sensors to monitor:
 
 This integration allows you to view and control the Freebox alarm control panel.
 
-
-
-## Action
-
-### Action: Reboot
-
-The `freebox.reboot` action allows you to reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
-
 ## Switch
 
 This platform offers you a switch to toggle the Wi-Fi on or off. This will toggle all Wi-Fi interfaces of the router (all SSID and all bands).
+
+## Cover
+
+This platform allows you to observe and control roller shutters (Somfy RTS and io-homecontrol) paired with the Freebox Delta.

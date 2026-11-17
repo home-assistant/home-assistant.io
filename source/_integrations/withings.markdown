@@ -1,22 +1,7 @@
 ---
-title: Withings
 description: Instructions on how to integrate Withings health products within Home Assistant.
-ha_category:
-  - Health
-  - Sensor
 ha_release: 0.99
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@joostlek'
 ha_domain: withings
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_dhcp: true
 ---
 
 The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
@@ -24,6 +9,7 @@ The **Withings** {% term integration %} consumes data from various health produc
 ## Prerequisites
 
 - Withings account
+  - A [Withings+](https://www.withings.com/en-us/pages/withings-plus) subscription is required for accounts created after October 11, 2026.
 - Withings app installed
 - Withings device setup in the app
 - [Withings developer account](#creating-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
@@ -46,7 +32,7 @@ You must have a developer account to distribute the data.
    - **Application name**: [any name]
    - **Application description**: [any description]
    - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
-     - Do not test this URL. It won't work at this stage. It will be setup once you install the integration in Home Assistant.
+     - Do not test this URL. It won't work at this stage. It will be set up once you install the integration in Home Assistant.
    - **Change logo**: Optional
 6. **Save** your changes.
    - Once saved, the *ClientID* and *Secret* fields will be populated.
@@ -95,7 +81,7 @@ You do not enter the webhook URL anywhere in the integration. Home Assistant bui
 
 Home Assistant prefers the **Internet** URL and falls back to the **Local Network** URL. For Withings webhooks to register successfully, the URL that Home Assistant selects must be a public HTTPS URL on port 443 with a valid certificate.
 
-If you use Home Assistant Cloud from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
+If you use Home Assistant Link from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
 
 #### Changing the webhook URL
 
@@ -103,10 +89,9 @@ If you see a warning like `Webhook not registered - HTTPS is required` or `Webho
 
 To resolve this:
 
-1. Make sure **Advanced mode** is enabled in your {% my profile title="**User profile**" %}.
-2. Go to {% my network title="**Settings** > **System** > **Network**" %}.
-3. Under **Internet**, enter the public HTTPS URL that Withings should use to reach your instance, for example, `https://home.example.com`.
-4. Select **Save**.
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+2. Under **Internet**, enter the public HTTPS URL that Withings should use to reach your instance, for example, `https://home.example.com`.
+3. Select **Save**.
 
 You can keep the **Local Network** URL set to your internal HTTP address. Home Assistant uses the **Internet** URL for webhooks, while integrations that prefer local communication continue to use the **Local Network** URL.
 
@@ -119,6 +104,12 @@ For example, measurement sensors like weight only work when data has been regist
 Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
 
 Workout {% term calendar %} and the workout and activity sensors show if the latest available data point is no older than 14 days.
+
+### Basal metabolic rate
+
+The **Basal metabolic rate** sensor shows your estimated daily energy requirement at rest in kilocalories per day (kcal/day). It is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and is created only when Withings returns this measurement.
+
+Withings lists basal metabolic rate as requiring its Advanced Biomarkers API plan. See [Withings' available health data](https://developer.withings.com/developer-guide/v3/data-api/all-available-health-data/) for supported devices and API availability.
 
 ## Removing the integration
 

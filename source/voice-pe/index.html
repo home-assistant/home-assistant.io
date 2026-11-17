@@ -6,6 +6,7 @@ date: 2024-12-19
 og_image: /images/voice-pe/og.jpg
 frontpage: true
 frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
+frontpage_gradient_color: "#183859"
 ---
 <link rel="preload" fetchpriority="high" as="image" href="/images/voice-pe/gradient.webp" type="image/webp">
 <link rel="stylesheet" href="/voice-pe/styles.css" />
@@ -109,10 +110,10 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
               <div class="event">
                 <div class="event-details">
                   <div class="when">April 2023</div>
-                  <div class="title h4">Home Assistant Cloud gets voice</div>
+                  <div class="title h4">Home Assistant Link gets voice</div>
                 </div>
                 <div class="event-content">
-                  Home Assistant Cloud adds speech-to-text and text-to-speech capabilities, enabling low-powered
+                  Home Assistant Link adds speech-to-text and text-to-speech capabilities, enabling low-powered
                   hardware
                   to run Assist. More languages and features are added.
                 </div>
@@ -215,7 +216,7 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
       <div class="wrapper">
         <div class="content">
           <div class="subtitle-medium">Preview the future of voice for just</div>
-          <div class="fs-price">&#x24;69 / &#8364;59 <span>*</span></div>
+          <div class="fs-price"><sub class="currency-symbol">&dollar;</sub>69 / 59<sub class="currency-symbol">&euro;</sub> <span>*</span></div>
         </div>
       </div>
       <div class="wrapper outer">
@@ -224,8 +225,8 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
             alt="Front view of the Voice Preview Edition showing the speaker holes">
           <div class="wrapper">
             <a class="button secondary buy">Buy now</a>
-            <small>* Recommended MSRP. Prices differ between regions due to varying local market costs and conditions,
-              and subject to individual retailers.</small>
+            <small>* Recommended MSRP. USD prices exclude taxes, while EUR prices include applicable taxes.
+              Prices differ between regions due to varying local market costs and conditions, and are subject to individual retailers.</small>
           </div>
         </div>
       </div>
@@ -246,7 +247,9 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
             </div>
         </div>
     </div>
-</section>
+  </section>
+
+  {% include custom/press.html product="voice-pe" id="press" class="press-cards--voice-pe" columns=3 %}
 
   <section id="controls" data-index="0">
     <div class="wrapper-outer">
@@ -543,8 +546,8 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
                 <div class="cards">
                   <div class="graphic-card">
                     <div class="h-line"></div>
-                    <span>Home Assistant Cloud</span>
-                    <p>Your voice is processed privately on Home Assistant Cloud, allowing Assist to run very accurately
+                    <span>Home Assistant Link</span>
+                    <p>Your voice is processed privately on Home Assistant Link, allowing Assist to run very accurately
                       on low-powered hardware.</p>
                   </div>
                 </div>
@@ -644,7 +647,7 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
             </div>
             <div class="supported-card cloud warning" data-state="-1">
               <div class="heading">
-                <span>Home Assistant Cloud</span>
+                <span>Home Assistant Link</span>
               </div>
               <div class="description"></div>
             </div>
@@ -969,7 +972,7 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
           </div>
           <div class="faq-item">
             <div class="faq-item-heading">
-              <div class="faq-item-heading-title">Do I need Home Assistant Cloud?</div>
+              <div class="faq-item-heading-title">Do I need Home Assistant Link?</div>
               <div class="faq-item-heading-icon">
                 <div class="button-more">
                   <div class="plus"></div>
@@ -980,11 +983,11 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
               <div class="faq-item-content-animation">
                 <div class="faq-item-content-transform-wrapper">
                   <div class="faq-item-content">
-                    <p>You do not need Home Assistant Cloud. However, for some languages, we believe that Home Assistant
-                      Cloud provides the best experience. There are languages that are not supported by the local
+                    <p>You do not need Home Assistant Link. However, for some languages, we believe that Home Assistant
+                      Link provides the best experience. There are languages that are not supported by the local
                       speech-to-text models we leverage (either our focused local Speech-to-Phrase model, or the fully
                       local Whisper by OpenAI), but are well-supported by the speech processing used by Home Assistant
-                      Cloud.</p>
+                      Link.</p>
                   </div>
                 </div>
               </div>
@@ -992,7 +995,7 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
           </div>
           <div class="faq-item">
             <div class="faq-item-heading">
-              <div class="faq-item-heading-title">How does Home Assistant Cloud maintain my privacy with voice?</div>
+              <div class="faq-item-heading-title">How does Home Assistant Link maintain my privacy with voice?</div>
               <div class="faq-item-heading-icon">
                 <div class="button-more">
                   <div class="plus"></div>
@@ -1003,13 +1006,13 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
               <div class="faq-item-content-animation">
                 <div class="faq-item-content-transform-wrapper">
                   <div class="faq-item-content">
-                    <p>Home Assistant Cloud has been designed from the ground up to uphold the core values of the Home
-                      Assistant project, with privacy being one of our highest priorities. Home Assistant Cloud
+                    <p>Home Assistant Link has been designed from the ground up to uphold the core values of the Home
+                      Assistant project, with privacy being one of our highest priorities. Home Assistant Link
                       leverages the enterprise services of Microsoft Azure for its industry-leading speech processing,
                       which unlike many consumer offerings, is bound by commercial terms and conditions and <a
                         href="https://learn.microsoft.com/en-us/legal/cognitive-services/speech-service/speech-to-text/data-privacy-security#data-storage-and-retention"
                         target="_blank" rel="noopener">does not retain or store your data</a>. In addition, Home
-                      Assistant Cloud itself does not keep any record of
+                      Assistant Link itself does not keep any record of
                       your voice, data, or commands.</p>
                   </div>
                 </div>
@@ -1044,7 +1047,7 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
           </div>
           <div class="faq-item" id="faq-language-not-supported-cloud">
             <div class="faq-item-heading">
-              <div class="faq-item-heading-title">Why is my language listed as “not supported” by Home Assistant Cloud?
+              <div class="faq-item-heading-title">Why is my language listed as “not supported” by Home Assistant Link?
               </div>
               <div class="faq-item-heading-icon">
                 <div class="button-more">
@@ -1056,12 +1059,12 @@ frontpage_image: /images/frontpage/voice-pe-frontpage.jpg
               <div class="faq-item-content-animation">
                 <div class="faq-item-content-transform-wrapper">
                   <div class="faq-item-content">
-                    <p>There can be a number of reasons why a language is not supported by Home Assistant Cloud, but
+                    <p>There can be a number of reasons why a language is not supported by Home Assistant Link, but
                       most often it is because the <a
-                        href="https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages"
+                        href="https://contributors.home-assistant.io/translate/voice/languages/"
                         target="_blank" rel="noopener">sentences</a> have not been translated by a member of our
                       community. If you would like to help translate these sentences and have your language added,
-                      please <a href="https://developers.home-assistant.io/docs/voice/intent-recognition/contributing"
+                      please <a href="https://contributors.home-assistant.io/translate/voice/contributing/"
                         target="_blank" rel="noopener">visit here</a>.</p>
                   </div>
                 </div>

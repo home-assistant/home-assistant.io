@@ -1,20 +1,10 @@
 ---
-title: TCP
 description: Instructions on how to set up TCP within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_release: 0.14
-ha_iot_class: Local Polling
 ha_domain: tcp
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **TCP** {% term integration %} allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.
@@ -52,7 +42,7 @@ port:
   required: true
   type: integer
 payload:
-  description: What to send to the host in order to get the response we're interested in.
+  description: What to send to the host to get the response we're interested in.
   required: true
   type: string
 timeout:
@@ -91,7 +81,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 #### EBUSd
 
-The [EBUSd](https://github.com/john30/ebusd/wiki) service enables connection to an EBUS serial bus on some home heating/cooling systems. Using this service it is possible to extract various metrics which may be useful to have within Home Assistant. In order to use EBUSd, you connect to it using a TCP socket and send it a command. The service will respond with the value it has received from EBUS. On the command line, this would look something like:
+The [EBUSd](https://github.com/john30/ebusd/wiki) service enables connection to an EBUS serial bus on some home heating/cooling systems. Using this service it is possible to extract various metrics which may be useful to have within Home Assistant. To use EBUSd, you connect to it using a TCP socket and send it a command. The service will respond with the value it has received from EBUS. On the command line, this would look something like:
 
 ```bash
 $ echo "r WaterPressure" | nc 10.0.0.127 8888
@@ -149,7 +139,7 @@ sensor:
 
 ## Binary sensor
 
-The TCP Binary Sensor is a type of [TCP Sensor](#sensor) which is either "off" or "on". In order to use this sensor type, in addition to the configuration for the TCP Sensor, you must supply a `value_on` value to represent what is returned when the device is turned on.
+The TCP Binary Sensor is a type of [TCP Sensor](#sensor) which is either "off" or "on". To use this sensor type, in addition to the configuration for the TCP Sensor, you must supply a `value_on` value to represent what is returned when the device is turned on.
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -178,7 +168,7 @@ port:
   required: true
   type: integer
 payload:
-  description: What to send to the host in order to get the response we're interested in.
+  description: What to send to the host to get the response we're interested in.
   required: true
   type: string
 value_on:

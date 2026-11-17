@@ -1,18 +1,10 @@
 ---
-title: Västtrafik
 description: Instructions on how to integrate timetable data for traveling in Sweden within Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: '0.30'
 ha_domain: vasttrafik
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Västtrafik** {% term integration %} will provide you traveling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.
@@ -97,7 +89,7 @@ In cases where the wrong station is being selected, it is possible to provide th
 
 To retrieve the ID using `curl`:
 
-1. Login into the Västtrafik API and go to ["Applikationer"](https://developer.vasttrafik.se/applications)
+1. Log in to the Västtrafik API and go to ["Applikationer"](https://developer.vasttrafik.se/applications)
 2. Click "* Generera accesstoken", and then "Kopiera". 
 3. Execute the following `curl` command, replacing "<ACCESS_TOKEN>" and "<STATION_NAME>" as necessary:
 

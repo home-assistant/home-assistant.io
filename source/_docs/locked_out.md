@@ -1,6 +1,6 @@
 ---
 title: "I'm locked out!"
-description: "Options for regaining access"
+description: "Options for regaining access to your Home Assistant when you are locked out, including resetting the owner password and recovering your data."
 related:
   - docs: /common-tasks/os/#listing-all-users-from-the-command-line
     title: Listing all usernames via command line
@@ -15,11 +15,11 @@ or need to recover your data.
 
 ## Forgot username
 
-### Symptom: I'm the owner and I forgot my username
+### Symptom
 
 You are the **owner** of the Home Assistant server and you cannot login because you forgot your username.
 
-#### Remedy
+#### Resolution
 
 1. Check if the following conditions are met:
    - you are using the {% term "Home Assistant Operating System" %}
@@ -38,13 +38,13 @@ You are the **owner** of the Home Assistant server and you cannot login because 
 
 ## Forgot password
 
-### Symptom: I'm the owner and I forgot my password
+### Symptom
 
 You are the owner or administrator of Home Assistant and forgot your password.
 
-### Remedy: resetting an owner's password
+### Resolution
 
-If you are the owner or have administrator, there are different methods to reset a password, depending on your situation:
+If you are the owner or have administrator rights, there are different methods to reset a password, depending on your situation:
 
 - [Reset a password while still logged in](#to-reset-a-password-while-still-logged-in)
 - [Reset an owner's password when logged out](#to-reset-an-owners-password-via-console)
@@ -60,7 +60,7 @@ The method used to reset a password depends on your user rights:
   - There is only one owner per system. You cannot add a new owner.
 - If you are an administrator, add a new user as an administrator and give the new user a password you can remember.
   1. Then log out, and log in with this new user.
-  2. Reset your password via this new administrator account (and then [delete this new account](/docs/locked_out/#to-delete-a-user)).
+  2. Reset your password via this new administrator account (and then [delete this new account](/docs/configuration/user-configuration/#deleting-a-user-or-person)).
      - Your configuration will remain, and you don't have to do a new onboarding process.
 
 #### To reset an owner's password, via console
@@ -85,25 +85,26 @@ Use this procedure only if the following conditions are met:
 
 #### To reset a user's password, via the container command line
 
-If you are running Home Assistant in a container, you can use the command line in the container with the `hass` command to change your password. The steps below refer to a Home Assistant container in Docker named `homeassistant`. Note that while working in the container, commands will take a few moments to execute.
+If you are running {% term "Home Assistant Container" %}, you can change a password with the `hass` command in the container. The steps below refer to a container in Docker named `homeassistant`. Commands in the container can take a few moments to run.
 
-1. `docker exec -it homeassistant bash` to open to the container command line
-2. `hass` to create a default user, if this is your first time using the tool
-3. `hass --script auth --config /config change_password existing_user new_password` to change the password
-4. `exit` to exit the container command line
-5. `docker restart homeassistant` to restart the container.
+1. To open the container command line, enter `docker exec -it homeassistant bash`.
+2. To change the password, enter `hass --script auth --config /config change_password USERNAME NEW_PASSWORD`.
+   - Replace `USERNAME` with the username that you log in with, and `NEW_PASSWORD` with the new password.
+   - If you don't know the username, enter `hass --script auth --config /config list` to list all users.
+   - Result: The message `Password changed` is shown. If the message `User not found` is shown, check the username.
+3. To leave the container command line, enter `exit`.
+4. To restart the container, enter `docker restart homeassistant`.
 
 #### To reset a user's password, as an owner via the web interface
 
-Only the owner can change other user's passwords.
+Only the owner can change the passwords of other users.
 
-1. In the bottom left, select your user to go to the {% my profile title="**Profile**" %} page and make sure **Advanced Mode** is activated.
-2. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
-3. At the bottom of the dialog box, select **Change password**.
-   - Note: this is available as the owner, not administrator.
-4. Enter the new password, and select **OK**.
-5. Confirm the new password by entering it again, and select **OK** again.
-6. A confirmation box will be displayed with the text **Password was changed successfully**.
+1. Go to {% my people title="**Settings** > **People**" %}, and select the person whose password you want to change.
+2. Next to **Password**, select the pencil {% icon "mdi:pencil" %} icon.
+   - Only the owner sees this option.
+3. Under **New password** and **Confirm password**, enter the new password, and then select **Change**.
+   - Result: The message **The password has been changed successfully.** is shown.
+4. Select **OK**.
 
 ## Preparing the system to start a new onboarding process
 
@@ -149,13 +150,3 @@ For Windows or macOS you will need third party software. Below are some options.
 
 - Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
 - macOS: <https://osxfuse.github.io/>
-
-## Deleting a user
-
-You need to be an owner or have administrator rights to delete a user.
-
-1. Go to {% my people title="**Settings** > **People**" %} and select the person which you want to delete.
-   - Note: you cannot delete the owner.
-2. At the bottom of the dialog box, select **Delete**.
-   - A confirmation dialog box will be displayed.
-3. To confirm, select **OK**.

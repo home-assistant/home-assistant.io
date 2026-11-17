@@ -10,8 +10,6 @@ related_conditions:
 
 The **Carbon monoxide cleared** condition passes when one or more carbon monoxide sensors are no longer detecting carbon monoxide (CO). After a CO event, you want to be absolutely sure the air is safe before letting your automation silence the alarm or tell the household everything is fine.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -29,7 +27,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is cleared, or **All** to pass only when every targeted sensor is cleared.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -47,8 +44,6 @@ This passes when the hallway carbon monoxide sensor is no longer detecting CO.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -58,13 +53,13 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="carbon monoxide detector" example="binary_sensor.hallway_carbon_monoxide" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as cleared. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check whether carbon monoxide is currently detected, use [Carbon monoxide detected](/conditions/air_quality.is_co_detected/).
 - To check the actual CO concentration, use [Carbon monoxide value](/conditions/air_quality.is_co_value/).
 
@@ -76,11 +71,13 @@ behavior:
 
 After a CO event, you want the alarm to keep sounding until every room is safe. This automation triggers when you press the silence button, but the condition requires _every_ CO sensor in the house to read clear before the siren actually turns off. If any sensor still detects carbon monoxide, the alarm keeps going.
 
-- **Trigger**: State: Silence alarm button pressed
-- **Condition**: Air Quality: Carbon monoxide cleared
-- **Target**: All CO sensors (hallway, basement)
-- **Condition passes if**: All
-- **Action**: Siren: Turn off, then notify the household
+- **Trigger**: State changed: Silence alarm button pressed
+- **Condition**: Carbon monoxide cleared
+  - **Target**: All CO sensors (hallway, basement)
+  - **Condition passes if**: All
+- **Action**: Turn off siren
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for silencing the alarm only after full CO all-clear" %}
 
@@ -102,7 +99,9 @@ automation: |
     - action: siren.turn_off
       target:
         entity_id: siren.house_alarm
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "CO all-clear"
         message: >

@@ -1,48 +1,8 @@
 ---
-title: ESPHome
 description: Support for ESPHome devices using the native ESPHome API.
 featured: true
-ha_category:
-  - Alarm
-  - DIY
-  - Update
 ha_release: 0.85
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@jesserockz'
-  - '@kbx81'
-  - '@bdraco'
 ha_domain: esphome
-ha_zeroconf: true
-ha_platforms:
-  - alarm_control_panel
-  - assist_satellite
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - date
-  - datetime
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-  - text
-  - time
-  - update
-  - valve
-  - water_heater
-ha_integration_type: device
-ha_dhcp: true
-ha_quality_scale: platinum
 ---
 
 ## Overview
@@ -67,9 +27,9 @@ ESPHome supports a variety of microcontrollers beyond just the ESP family. These
 
 For a list of officially supported microcontrollers and devices, refer to the [ESPHome device database](https://devices.esphome.io/). Keep in mind that this database represents only a portion of the ecosystem—many other devices and peripherals are supported but may not appear in the database.
 
-For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/). These include setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy/), which can extend the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant.
+For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/). These include proxies, which extend what Home Assistant can reach. For more details, refer to [ESPHome remote adapters (proxies)](#about-esphome-remote-adapters-proxies).
 
-If you're looking for pre-built solutions, the [Voice PE](https://www.home-assistant.io/voice-pe/) is an excellent example. It's a pre-built voice assistant device powered by ESPHome, offering an easy way to integrate voice control into your Home Assistant system. Many pre-built solutions, like the Voice PE, are open-source and can be customized, giving you flexibility to adapt them to your needs.
+If you're looking for pre-built solutions, the [Voice PE](/voice-pe/) is an excellent example. It's a pre-built voice assistant device powered by ESPHome, offering an easy way to integrate voice control into your Home Assistant system. Many pre-built solutions, like the Voice PE, are open-source and can be customized, giving you flexibility to adapt them to your needs.
 
 For detailed information on configuring unsupported or custom devices, consult the official [ESPHome documentation](https://esphome.io/), which provides in-depth guides on expanding and customizing your setup beyond the pre-configured devices.
 
@@ -109,6 +69,25 @@ Subscribe to logs from the device:
 
 The ESPHome {% term integration %} works with devices that run ESPHome firmware and expose their functionality through the [native ESPHome API](https://esphome.io/components/api/). This API is designed for tight, efficient integration with Home Assistant, enabling ESPHome devices to push updates directly to Home Assistant in **near real time**.
 
+## About ESPHome remote adapters (proxies)
+
+An ESPHome device can act as a remote adapter, also called a proxy. It picks up a signal or a connection where your device is, and makes it available to Home Assistant over your network. This way, you can use devices that are nowhere near the system that runs Home Assistant.
+
+An ESPHome device can provide capabilities to the following integrations:
+
+- **Bluetooth** integration: extends the range of Home Assistant, so that it can see and connect to Bluetooth devices all over your home. For more details, refer to the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) integration.
+- **Infrared** integration: sends commands to infrared-controlled devices, such as TVs and air conditioners, and receives signals from handheld remotes. For more details, refer to the [Infrared](/integrations/infrared/) integration.
+- **Radio frequency** integration: sends commands to devices that use sub-GHz radio frequencies, such as remote outlets and string lights, and receives signals from devices such as handheld remotes and sensors. For more details, refer to the [Radio frequency](/integrations/radio_frequency/) integration.
+- **Serial** integration: shares one of the serial ports of the ESPHome device over your network, so that integrations can reach a serial-connected device such as an AV receiver or an energy meter. For more details, refer to the [Serial](/integrations/serial/) integration.
+
+Once you add the ESPHome device to Home Assistant, its proxy capabilities become available to the related integrations. You still need to configure the integration that uses the capability, such as selecting the shared serial port.
+
+To set up a proxy, add the matching component to the configuration of your ESPHome device:
+
+- [Bluetooth proxy](https://esphome.io/components/bluetooth_proxy/), which also has [ready-made projects](https://esphome.io/projects/?type=bluetooth) that you can install from your browser
+- [Infrared and radio frequency proxy](https://esphome.io/components/ir_rf_proxy/), which also has [ready-made projects](https://esphome.io/projects/?type=irrf)
+- [Serial proxy](https://esphome.io/components/serial_proxy/), which also has [ready-made projects](https://esphome.io/projects/?type=serial)
+
 ## Updating data
 
 Rather than polling for sensor values or device states, Home Assistant maintains a persistent connection to each ESPHome device using the native API. This allows state changes—such as a temperature sensor update, a button press, or a binary sensor trigger—to be sent immediately as they happen, reducing latency and improving responsiveness in automations.
@@ -145,6 +124,16 @@ ESPHome devices can call any [Home Assistant Action](https://esphome.io/componen
 ### Tag scanning support
 
 The [Native API Component](https://esphome.io/components/api/) also supports sending tag scan events to Home Assistant. See the [homeassistant.tag_scanned Action](https://esphome.io/components/api/#homeassistanttag_scanned-action) for more information.
+
+### Bluetooth proxy scanning mode
+
+For ESPHome devices running the [Bluetooth proxy](https://esphome.io/components/bluetooth_proxy/) on a recent firmware, you can choose how the proxy scans for Bluetooth devices. The default is **Auto**, which is recommended for most setups. To change it, open the device in {% my integrations title="**Settings** > **Devices & services**" %}, select **Configure**, and pick a **Bluetooth scanning mode**:
+
+- **Auto**: Listens passively most of the time and only briefly switches to active scanning when a device or integration needs more details. Compared to running continuously active, this saves around 95 to 96 percent of the scan-related battery drain on your Bluetooth devices while still discovering devices and updates quickly.
+- **Active**: Continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you.
+- **Passive**: Only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work.
+
+The first time Home Assistant connects to a proxy, the device's YAML mode is honored if it was set to passive; otherwise the proxy starts in **Auto**. After that, the choice saved in Home Assistant takes ownership of the running mode and changing `bluetooth_proxy:` `mode:` in the device YAML no longer affects the running mode.
 
 ## Entity naming and IDs
 
@@ -214,7 +203,7 @@ If you want the device to send logs without requiring you to be actively monitor
 
 2. To adjust the logging level, there are two options:
     - enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics),
-    - or use the [Developer tools](/docs/tools/dev-tools/#actions-tab) to call the [`logger.set_level`](/integrations/logger/#action-set_level) action to specify the desired level:
+    - or use the [Actions tab](/docs/tools/dev-tools/#actions-tab) in **Settings** > **Tools** to call the [`logger.set_level`](/integrations/logger/#action-set-level) action to specify the desired level:
 
       ```yaml
       action: logger.set_level

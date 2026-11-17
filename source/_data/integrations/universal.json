@@ -1,0 +1,12 @@
+{
+  "domain": "universal",
+  "name": "Universal media player",
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "media_entertainment"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

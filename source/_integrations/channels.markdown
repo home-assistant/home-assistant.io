@@ -1,18 +1,10 @@
 ---
-title: Channels
 description: Instructions on how to integrate Channels into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 0.65
-ha_iot_class: Local Polling
 ha_domain: channels
-ha_platforms:
-  - media_player
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Channels** {% term integration %} allows you to control [Channels](https://getchannels.com/) from Home Assistant. Play, pause, seek, or skip commercials on an instance of Channels that is running on your network.
@@ -49,27 +41,4 @@ name:
   type: string
 {% endconfiguration %}
 
-### Action `seek_forward`
-
-Seek forward by the number of seconds currently set in settings on the instance of Channels.
-
-| Data attribute | Optional | Description                                        |
-| ---------------------- | -------- | -------------------------------------------------- |
-| `entity_id`            | no       | String that points at `entity_id` of Channels app. |
-
-### Action `seek_backward`
-
-Seek backward by the number of seconds currently set in settings on the instance of Channels.
-
-| Data attribute | Optional | Description                                        |
-| ---------------------- | -------- | -------------------------------------------------- |
-| `entity_id`            | no       | String that points at `entity_id` of Channels app. |
-
-### Action `seek_by`
-
-Seek forward or backward by a provided number of seconds.
-
-| Data attribute | Optional | Description                                                                     |
-| ---------------------- | -------- | ------------------------------------------------------------------------------- |
-| `entity_id`            | no       | String that points at `entity_id` of Channels app.                              |
-| `seconds`              | no       | Number of seconds to seek in the timeline by. Negative seconds seeks backwards. |
+{% include integrations/actions.md %}

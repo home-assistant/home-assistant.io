@@ -1,21 +1,7 @@
 ---
-title: Powerfox Local
 description: Instructions on how to integrate a Powerfox device locally with Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2026.3
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@klaasnicolaas'
 ha_domain: powerfox_local
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: device
-ha_quality_scale: platinum
-ha_zeroconf: true
 ---
 
 The **Powerfox Local** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) device directly over your local network, without relying on the Powerfox cloud API.
@@ -79,7 +65,9 @@ triggers:
     for:
       minutes: 2
 actions:
-  - action: notify.mobile_app_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "High consumption detected"
       message: "Poweropti currently reports {{ states('sensor.poweropti_power') }} W."

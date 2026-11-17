@@ -3,13 +3,13 @@ title: "Setting up custom sentences in configuration.yaml"
 related:
   - docs: /voice_control/aliases/
     title: Create aliases
-  - docs: /docs/scripts/#respond-to-a-conversation
-    title: Conversation response script action
-  - docs: /docs/automation/trigger/#sentence-trigger
+  - docs: /actions/set_conversation_response/
+    title: Set conversation response action
+  - docs: /triggers/conversation/
     title: Sentence triggers
-  - docs: /docs/automation/trigger/#sentence-wildcards
+  - docs: /triggers/conversation/#sentence-wildcards
     title: Sentence wildcards
-  - url: https://developers.home-assistant.io/docs/intent_builtin/
+  - url: https://contributors.home-assistant.io/core/internals/built-in-intents/
     title: View existing intents
 ---
 
@@ -48,7 +48,7 @@ Besides a text response, `intent_script` can trigger any `action` available in H
 
 ## Setting up sentences in the config directory
 
-More advanced customization can be done in Home Assistant's `config` directory. YAML files in `config/custom_sentences/en`, for example, will be loaded when English sentences (language code `en`) are requested.
+More customization can be done in Home Assistant's `config` directory. YAML files in `config/custom_sentences/en`, for example, will be loaded when English sentences (language code `en`) are requested.
 
 The following example creates a new `SetVolume` intent that changes the volume on one of two media players:
 

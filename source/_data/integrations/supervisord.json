@@ -1,0 +1,15 @@
+{
+  "domain": "supervisord",
+  "name": "Supervisord",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.monitoring"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

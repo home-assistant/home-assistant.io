@@ -1,22 +1,10 @@
 ---
-title: Bayesian
 description: Instructions on how to integrate threshold Bayesian sensors into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Utility
-ha_iot_class: Calculated
 ha_release: 0.53
-ha_quality_scale: internal
 ha_domain: bayesian
-ha_platforms:
-  - binary_sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@HarvsG'
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_config_flow: true
 ---
 
 A **Bayesian** sensor is a virtual binary sensor that determines its state by combining the states of other sensors using probability.
@@ -134,7 +122,7 @@ When configuring these conditional probabilities, define the probability of the 
 
 ## Full examples
 
-These are a number of worked examples which you may find helpful for each of the observation types. Whilst these are YAML examples, UI configurations work in the same way, except that probabilities are expressed in percentages.
+These are several worked examples which you may find helpful for each of the observation types. While these are YAML examples, UI configurations work in the same way, except that probabilities are expressed in percentages.
 
 ### State
 
@@ -147,7 +135,7 @@ binary_sensor:
   name: "in_bed"
   unique_id: "172b6ef1-e37e-4f04-8d64-891e84c02b43" # generated on https://www.uuidgenerator.net/
   prior: 0.25 # I spend 6 hours a day in bed 6hr/24hr is 0.25 
-  probability_threshold: 0.8 # I am going to be using this sensor to turn out the lights so I only want to to activate when I am sure
+  probability_threshold: 0.8 # I am going to be using this sensor to turn out the lights so I only want to activate when I am sure
   observations:
     - platform: "state"
       entity_id: "sensor.living_room_motion"
@@ -167,7 +155,7 @@ binary_sensor:
     - platform: "state"
       entity_id: "sun.sun"
       prob_given_true: 0.7 # If I am in bed then there is a good chance the sun will be down, but in the summer mornings I may still be in bed
-      prob_given_false: 0.45 # If I am am awake then there is a reasonable chance the sun will be below the horizon - especially in winter
+      prob_given_false: 0.45 # If I am awake then there is a reasonable chance the sun will be below the horizon - especially in winter
       to_state: "below_horizon"
     - platform: "state"
       entity_id: "sensor.android_charger_type"
@@ -279,3 +267,5 @@ binary_sensor:
       prob_given_false: 0.84 # All the prob_given_false should add to 1
       to_state: "not due"
 ```
+
+{% include integrations/actions.md %}

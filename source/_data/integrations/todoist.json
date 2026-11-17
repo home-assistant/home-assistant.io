@@ -1,0 +1,20 @@
+{
+  "domain": "todoist",
+  "name": "Todoist",
+  "integration_type": "service",
+  "codeowners": [
+    "@boralyl"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "productivity_information.calendars_todos"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "calendar",
+    "todo"
+  ]
+}

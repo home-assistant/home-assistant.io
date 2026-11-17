@@ -22,35 +22,37 @@ Every template author has stared at a template that refuses to work and wondered
 
 ## The template editor
 
-Home Assistant has a built-in template editor that shows the result of a template while you type. Open it from {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}.
+Home Assistant has a built-in template editor that shows the result of a template while you type. Open it from {% my tools_template title="**Settings** > **Tools** > **Template**" %}.
 
 The editor is the fastest feedback loop you have. It:
 
 - Shows the output of your template live.
-- Points at errors with a red message.
-- Has access to all your entities, which means you can try the template against real data.
+- Shows errors and warnings as a message above the result.
+- Shows the type of the result, for example **Result type: string** or **Result type: boolean**.
+- Shows when the template updates, for example, when an entity it listens to changes.
+- Has access to all your entities, so you can try a template against real data.
 
-When a template misbehaves in an automation or template entity, copy it into the editor, adjust until it produces what you want, then paste it back.
+For everything the editor shows, refer to [Template editor tab](/docs/tools/dev-tools/#template-editor-tab).
 
-## Read the error message
+## Finding the problem in a template
 
-When a template has a mistake, Home Assistant shows an error. The message is often more helpful than it looks.
+If a template in an automation or script misbehaves, start with the trace of the run. It shows which step went wrong and the error message. For the steps to open a trace, refer to [Viewing the traces of an automation](/docs/automation/testing/#viewing-the-traces-of-an-automation).
 
-**`UndefinedError: 'foo' is undefined`**
-Something in your template refers to a variable that does not exist. Check the spelling and make sure anything you `{% set %}` is defined before you use it.
+To fix a template in an automation, a script, or a template entity, use the template editor:
 
-**`TypeError: unsupported operand type(s)`**
-You are trying to do something to a value of the wrong type, like adding a number to some text. Convert with [`float`](/template-functions/float/) or [`int`](/template-functions/int/) first, and remember to add a fallback.
-
-**`TemplateSyntaxError`**
-A typo in the template itself. Count your brackets, check that every `{% if %}` has an `{% endif %}`, and that every `{% for %}` has an `{% endfor %}`.
-
-**`No first item, sequence was empty`**
-You used [`first`](/template-functions/first/) or [`last`](/template-functions/last/) on an empty list. Add an `if` check, or use the [`default`](/template-functions/default/) filter.
+1. Copy the template from your automation, script, or template entity.
+2. Go to {% my tools_template title="**Settings** > **Tools** > **Template**" %} and paste the template into the **Template editor**.
+   - If the template uses `trigger` or `this`, define them at the top with `{% set %}`. For the steps, refer to [Testing a template](/docs/tools/dev-tools/#testing-a-template).
+3. Under **Result**, check the output.
+   - If a message is shown above or instead of the result, refer to [Troubleshooting template errors](/docs/templating/errors/).
+   - Check the **Result type**. Home Assistant converts the final result of a template to the type it looks like, so a numeric-looking sensor state can appear as a number even though its value is text inside the template. To check a value inside the template, refer to [Check what a value actually is](#check-what-a-value-actually-is).
+   - Below the result, check what the template listens to. If neither the entity you expect nor its domain is listed, the template doesn't update when that entity changes. If the editor says that the template listens for all state changed events, it updates when any entity changes. For details, refer to [When does my template run?](#when-does-my-template-run).
+4. Change the template until the result is what you expect. If the template is long, take it apart first. For the steps, refer to [Narrow down the problem](#narrow-down-the-problem).
+5. If you defined `trigger` or `this` with `{% set %}`, remove those lines. Then copy the template, and paste it back into your automation, script, or template entity.
 
 ## Narrow down the problem
 
-When a long template does not work, the trick is to take it apart. Start with the smallest piece you can and add one thing at a time. The moment the result goes wrong, you know exactly which piece broke. This sounds slow but it is always faster than staring at the whole thing and hoping the problem jumps out.
+When a long template doesn't work, the trick is to take it apart. Start with the smallest piece you can and add one thing at a time. The moment the result goes wrong, you know exactly which piece broke. This sounds slow, but it's usually faster than staring at the whole thing and hoping the problem jumps out.
 
 {% example %}
 template: |
@@ -83,7 +85,7 @@ output: "It is 22.5°C outside."
 
 ## Check what a value actually is
 
-When a template gives the wrong result, show the raw value to see what you are working with.
+When a template gives the wrong result, show the raw value to see what you're working with.
 
 {% example %}
 template: |
@@ -91,7 +93,7 @@ template: |
 output: "22.5"
 {% endexample %}
 
-That result looks like a number, but it is actually text. Many sensors return text even when the content looks numeric. Use [`typeof`](/template-functions/typeof/) to be sure:
+In the editor, this result shows as a number, because Home Assistant converts the final result of a template to the type it looks like. Inside the template, the value is text. Entity states are always text, even when they look like numbers. Use [`typeof`](/template-functions/typeof/) to see the type inside the template:
 
 {% example %}
 template: |
@@ -131,27 +133,58 @@ A common source of confusion is "why isn't my template updating?", or the opposi
 
 **Entity states.** When your template reads a state, like `states('sensor.temperature')`, Home Assistant watches that entity. The template runs again every time the entity's state changes.
 
-**`now()` and `utcnow()`.** Templates that use `now()` or `utcnow()` re-run once per minute.
+**Time functions.** Templates that use `now()`, `utcnow()`, `today_at`, `relative_time`, `time_since`, or `time_until` re-run at the start of every minute. For details, refer to [Getting the current time](/docs/templating/dates-and-times/#getting-the-current-time).
 
 **Other variables.** Templates that depend on `this`, `trigger`, or other context variables only re-run when the context changes (a new trigger fires, the entity updates).
 
-If you write a template that does not read any state or use `now()`, it runs _once_ at startup and never again. That is fine for constant values, but it's a common trap when you want a template to react to something.
+If you write a template that does not read any state or use one of these time functions, it runs _once_ at startup and never again. That is fine for constant values, but it's a common trap when you want a template to react to something.
 
-### Why does it work in Developer Tools but not in my automation?
+<a id="why-does-it-work-in-tools-but-not-in-my-automation"></a>
 
-The **Template editor** runs your template once, right when you open it, and shows the result. There is no ongoing re-evaluation. That makes it great for testing, but a working template in the editor does not guarantee it works in an automation.
+## Why does my template behave differently in Tools?
 
-Two things commonly differ:
+The **Template editor** shows the result of your template right away. It updates the result while you type, and when the states that the template uses change. That makes it great for testing, but the editor does not run your template the same way as an automation or a template entity. A template can work in the editor and not in your automation, or the other way around.
 
-- **`this` and `trigger` are not available** in the editor. If your template refers to them, the editor shows an error. In a template entity or automation, they exist.
-- **Automations re-evaluate on change.** A template trigger only fires when the template's result goes from false to true. If you load an automation while the condition is already true, nothing fires.
+{% details "Template with `this` or `trigger` shows an error or an empty result in the editor" %}
 
-When a template works in the editor but not in an automation, check whether you are using `this`, `trigger`, or expecting a specific "on-change" behavior.
+### Symptom 1
+
+Your template uses `this` or `trigger`, for example, `{{ trigger.to_state.state }}`. In the **Template editor**, it shows an error, or a warning and an empty result.
+
+#### Cause
+
+The editor does not have the variables `this` and `trigger`. Home Assistant only provides them when the template runs in certain places, such as an automation or a template entity.
+
+#### Resolution
+
+1. In the **Template editor**, at the top of the template, define the variables yourself with `{% set %}`, using the values you expect. For an example, refer to [testing an incoming-data template](/docs/templating/where-to-use/#testing-an-incoming-data-template).
+2. Check the result.
+   - Result: The editor shows the result that the template gives with these values.
+
+{% enddetails %}
+
+{% details "Template trigger does not react" %}
+
+### Symptom 2
+
+In the **Template editor**, the result of your template is true, but the automation with the template trigger does not start.
+
+#### Cause
+
+A template trigger only reacts when the result of the template changes from false to true. The editor only shows the current result. If the result is already true when you load the automation, the trigger does not react until the result has been false again.
+
+#### Resolution
+
+1. Make sure the result of the template is false, for example, by changing the state that the template checks.
+2. Cause the change that makes the result true.
+   - Result: The trigger reacts, and the automation starts.
+
+{% enddetails %}
 
 ## Common mistakes
 
 - **Sensor gives text, not a number.** Use `| float(0)` or `| int(0)`.
-- **Entity is `unknown` or `unavailable`.** Add a fallback with `| default(...)` or an `if has_value(...)` check.
+- **Entity is `unknown` or `unavailable`.** Check it first with `if has_value(...)`, or give `float` and `int` a fallback, such as `| float(0)`.
 - **Variable changes inside a loop are lost.** Use [`namespace`](/template-functions/namespace/).
 - **YAML refuses to load your template.** Check quoting. See [Templates in YAML](/docs/templating/yaml/).
 - **Template appears as literal text in output.** The field does not support templating, or the template is inside a `{% raw %}` / `{% endraw %}` block.
@@ -165,10 +198,10 @@ Templates use [Jinja2](https://jinja.palletsprojects.com/), a templating engine 
 - **No `print()`.** Write `{{ expression }}` to show a value. There is no print statement.
 - **No `import`.** You cannot import modules. The functions available to you are the ones in the [template functions reference](/template-functions/) plus the standard Jinja filters.
 - **No `=` inside `{{ }}` for assignment.** Use `{% set name = value %}` to create a variable. Inside `{{ }}`, `=` does not exist.
-- **`None` must be capitalized.** Python writes `None`, `True`, `False` with a capital first letter. Template tests and literals use lowercase `none`, `true`, `false`. Both work in most places, but be consistent.
+- **Tests are lowercase.** In Python, you write `is None`. In templates, `is` runs a test, and test names are lowercase, so write `is none`. `is None` gives the error `No test named 'None'`. As values, `None`, `True`, and `False` work in either case, such as `none` or `None`.
 - **No f-strings.** Python's `f"hello {name}"` is not template syntax. Use `"hello " ~ name` (the `~` joins text) or `{{ name }}` directly.
 - **No `while` loops.** Templates only support `for` loops.
-- **List and dict methods are limited.** Read-only methods like `.items()`, `.values()`, `.keys()`, `.get()`, `.split()`, `.lower()`, and `.upper()` work fine. Methods that mutate a value in place, like `.append()`, `.pop()`, or `.update()`, are blocked as unsafe. To build up a list across loop iterations, use a [`namespace`](/template-functions/namespace/) instead.
+- **List and dict methods are limited.** Read-only methods like `.items()`, `.values()`, `.keys()`, `.get()`, `.split()`, `.lower()`, and `.upper()` work fine. Methods that mutate a value in place, like `.append()`, `.pop()`, or `.update()`, are blocked as unsafe. To build up a list across loop iterations, use a [`namespace`](/template-functions/namespace/) instead. For the blocked methods and their alternatives, refer to [Methods that change a list](/docs/templating/python-methods/#methods-that-change-a-list).
 
 ## Next steps
 
@@ -183,7 +216,7 @@ The Home Assistant community is quick to help: join [Discord](https://discord.gg
 - The template you are using (copied from the editor, where you can see what it runs against).
 - What you expected the result to be.
 - What the actual result or error was.
-- The entity IDs involved (from {% my developer_states title="**Settings** > **Developer tools** > **States**" %}).
+- The entity IDs involved (from {% my tools_states title="**Settings** > **Tools** > **States**" %}).
 
 {% tip %}
 AI assistants like ChatGPT or Claude can also explain or fix templates when you describe what you want in plain language.

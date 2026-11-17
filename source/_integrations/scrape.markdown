@@ -1,18 +1,7 @@
 ---
-title: Scrape
 description: Instructions on how to integrate Web scrape sensors into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 0.31
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fabaff'
-  - '@gjohansson-ST'
 ha_domain: scrape
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_config_flow: true
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -28,7 +17,7 @@ Both UI and [YAML setup](#yaml-configuration) is supported while YAML provides a
 
 Scrape uses configuration subentries for configuring the sensors.
 
-1. Setup the resource configuration once per resource you want to scrape information from.
+1. Set up the resource configuration once per resource you want to scrape information from.
 2. Create one or multiple configuration subentries per sensor you want to create by scraping the website.
 
 {% endnote %}
@@ -49,11 +38,11 @@ scrape:
 
 {% configuration %}
 resource:
-  description: The resource or endpoint that contains the value.
+  description: The resource or endpoint that contains the value. One of `resource` and `resource_template` must be used.
   required: true
   type: string
 resource_template:
-  description: The resource or endpoint that contains the value with template support.
+  description: The resource or endpoint that contains the value with template support. One of `resource` and `resource_template` must be used.
   required: true
   type: template
 method:
@@ -73,7 +62,7 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
@@ -84,11 +73,11 @@ authentication:
   required: false
   type: string
 username:
-  description: The username for accessing the REST endpoint.
+  description: The username for accessing the resource.
   required: false
   type: string
 password:
-  description: The password for accessing the REST endpoint.
+  description: The password for accessing the resource.
   required: false
   type: string
 headers:
@@ -100,7 +89,7 @@ params:
   required: false
   type: [list, template]
 scan_interval:
-  description: Define the refrequency to call the REST endpoint in seconds.
+  description: Define the frequency to call the resource in seconds.
   required: false
   type: integer
   default: 600
@@ -110,7 +99,7 @@ encoding:
   type: string
   default: UTF-8
 sensor:
-  description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
+  description: A list of sensors to create from the shared data.
   required: true
   type: map
   keys:
@@ -154,7 +143,7 @@ sensor:
       type: string
       default: None
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None

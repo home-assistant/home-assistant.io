@@ -52,7 +52,7 @@ module Jekyll
           if options[:title]
             # Custom title
             title = options[:title]
-          elsif @redirect == "developer_call_service"
+          elsif @redirect == "tools_perform_action" || @redirect == "developer_call_service"
             # Developer actions
             title = "Perform action"
             title = "`#{options[:service]}`" if options.include? :service
@@ -99,6 +99,10 @@ module Jekyll
         "developer_services" => "Actions",
         "developer_states" => "States",
         "developer_template" => "Templates",
+        "tools_actions" => "Actions",
+        "tools_events" => "Events",
+        "tools_states" => "States",
+        "tools_template" => "Templates",
         "energy" => "Energy",
         "general" => "General Settings",
         "info" => "Information",

@@ -1,18 +1,7 @@
 ---
-title: AirVisual Cloud
 description: Instructions on how to use AirVisual data within Home Assistant
-ha_category:
-  - Health
 ha_release: 0.53
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@bachya'
 ha_domain: airvisual
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **AirVisual Cloud** integration queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude or city/state/country.
@@ -25,13 +14,13 @@ The Community API key is valid for 12 months after which it will expire. You mus
 
 {% note %}
 
-The "Community" API key is limited to 10,000 calls per month. In order to accommodate using the same API key for multiple geographies, the `airvisual` integration will automatically "re-level" the time between API calls so as to not overrun the call limit.
+The "Community" API key is limited to 10,000 calls per month. To accommodate using the same API key for multiple geographies, the `airvisual` integration will automatically "re-level" the time between API calls so as to not overrun the call limit.
 
 For example:
 
 - One instance of the integration: API calls every 5 minutes
 - Two instances of the integration: API calls every 10 minutes
-- etc.
+- And so on.
 
 {% endnote %}
 

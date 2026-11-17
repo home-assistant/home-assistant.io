@@ -1,15 +1,7 @@
 ---
-title: Shell Command
 description: Instructions on how to integrate Shell commands into Home Assistant.
-ha_category:
-  - Automation
-ha_iot_class: Local Push
 ha_release: 0.7.6
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: shell_command
-ha_integration_type: integration
 ---
 
 The **Shell Command** {% term integration %} can expose regular shell commands as actions. Actions can be called from a [script] or in [automation].
@@ -44,7 +36,7 @@ Any action data passed into the action to activate the shell command will be ava
 `stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/integrations/logger/) to debug.
 
 {% note %}
-After you add or edit a command, restart Home Assistant. New commands won’t work until you restart, and changes to existing commands won’t take effect until after a restart.
+After you add or edit a command, reload the Shell Command integration. New commands won’t work until you reload, and changes to existing commands won’t take effect until after a reload. You can reload shell commands from {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %}, or by performing the `shell_command.reload` action.
 {% endnote %}
 
 ## Execution and runtime environment
@@ -65,7 +57,9 @@ Testing commands in a separate [Home Assistant Container](/installation/linux#in
 
 ## Response
 
-Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. You can use these in automations to act on the command results using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. You can use these in automations to act on the command results using [`response_variable`](/docs/automation/action/#action-response-data).
+
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -122,12 +116,16 @@ automation:
         response_variable: todo_response
       - if: "{{ todo_response['returncode'] == 0 }}"
         then:
-          - action: notify.mobile_app_iphone
+          - action: notify.send_message
+            target:
+              entity_id: notify.my_device
             data:
               title: "ToDo"
               message: "{{ todo_response['stdout'] }}"
         else:
-          - action: notify.mobile_app_iphone
+          - action: notify.send_message
+            target:
+              entity_id: notify.my_device
             data:
               title: "ToDo file error"
               message: "{{ todo_response['stderr'] }}"

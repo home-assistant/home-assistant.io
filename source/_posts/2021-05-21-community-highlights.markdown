@@ -64,8 +64,6 @@ which makes it possible to collapse entire cards and reappear as a dropdown.
 ## Hyperion - HA bridge
 ------
 
-<iframe src="https://drive.google.com/file/d/1nQzYOKjLEz-CBqsog2uumT8Dyv8r0y-A/preview" width="100%" height="400" style="margin-bottom:15px;"></iframe>
-
 You have those TVs where LEDs are mounted on the back so that the colors of
 the TV continue over the wall behind it, this is also called ambilight. If
 your TV is not equipped with this, you can also make this yourself through

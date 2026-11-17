@@ -1,8 +1,6 @@
 ---
 title: "RESTful Notifications"
 description: "Instructions on how to add RESTful notifications to Home Assistant."
-ha_category:
-  - Notifications
 ha_release: 0.13
 ha_domain: rest
 ---
@@ -38,7 +36,7 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 authentication:
   description:  Type of the HTTP authentication. `basic` or `digest`.
   required: false

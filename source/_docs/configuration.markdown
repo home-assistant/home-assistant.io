@@ -1,24 +1,22 @@
 ---
-title: "Configuration.yaml"
-description: "Configuring Home Assistant via text files."
+title: "The configuration.yaml file"
+description: "How the configuration.yaml file works in Home Assistant: when you need it, where to find it, and how to edit it safely."
 related:
   - docs: /docs/configuration/yaml/
     title: YAML syntax
   - docs: /docs/configuration/secrets
     title: Storing credentials in `secrets.yaml` file
-  - docs: /common-tasks/general/#backups
+  - docs: /common-tasks/general/backups/
     title: Creating and restoring backups
   - docs: /docs/tools/dev-tools/#reloading-the-yaml-configuration
-    title: Reloading the YAML configuration from developer tools
+    title: Reloading the YAML configuration from tools
   - docs: /common-tasks/os/#configuring-access-to-files
     title: Configuring file access on the Operating System
-  - docs: docs/configuration/troubleshooting/
+  - docs: /docs/configuration/troubleshooting/
     title: Troubleshooting the configuration
 ---
 
-While you can configure most of Home Assistant from the user interface, for some integrations, you need to edit the `configuration.yaml` file.
-
-This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation, you will find snippets that you can add to your configuration file to enable specific functionality.
+While you can configure most of Home Assistant from the user interface, a small number of integrations and power-user features still need a few lines in the `configuration.yaml` file. This page explains how that file works, so you can use it when you need to.
 
 <p class='img'>
 <img src='/images/docs/configuration/config-yaml_via-file-editor.png' alt='Screenshot of an example of a configuration.yaml file, accessed using the File editor app on a Home Assistant Operating System installation.'>
@@ -42,8 +40,8 @@ File access depends on your [installation type](/installation/#about-installatio
 To set up file access on the Home Assistant Operating System, follow these steps:
 
 - If you are unsure which option to choose, install the [file editor app](/common-tasks/os/#installing-and-using-the-file-editor-app).
-  - Alternatively, use the [Studio Code Server app](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
-  - If you prefer to use a file editor on your computer, use the [Samba app](/common-tasks/os/#installing-and-using-the-samba-app).
+  - Alternatively, use the [Studio Code Server app](/common-tasks/os/#installing-and-using-the-studio-code-server-app). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
+  - If you prefer to use a file editor on your computer, use the [Samba app](/common-tasks/os/#installing-and-using-the-samba-share-app).
 
 ### To find the configuration directory
 
@@ -84,17 +82,9 @@ The method for running a configuration check depends on your [installation type]
 
 ## Reloading the configuration to apply changes
 
-For configuration changes to become effective, the configuration must be reloaded. Most integrations in Home Assistant (that do not interact with {% term devices %} or {% term services %}) can reload changes made to their configuration in `configuration.yaml` without needing to restart Home Assistant.
+After you change `configuration.yaml` or another YAML file, apply the changes. Most changes apply with a quick reload, without a restart. Some changes need a restart instead, for example, when you add an integration in YAML for the first time.
 
-1. Under **Settings**, select the three dots menu (top right) {% icon "mdi:dots-vertical" %}, select **Restart Home Assistant** > **Quick reload**.
-
-   ![Settings, three dot menu, restart Home Assistant](/images/docs/configuration/settings_restart_ha.png)
-
-2. If you find that your changes were not applied, you need to restart.
-   - Select **Restart Home Assistant**.
-   - Note: This interrupts automations and scripts.
-
-   ![Reload and restart buttons](/images/docs/configuration/reload_restart.png)
+For the steps, refer to [Reloading the YAML configuration](/common-tasks/general/restarting/#reloading-the-yaml-configuration) and [Restarting Home Assistant](/common-tasks/general/restarting/#restarting-home-assistant).
 
 ## Troubleshooting the configuration
 

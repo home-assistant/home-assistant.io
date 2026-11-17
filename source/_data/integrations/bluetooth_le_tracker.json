@@ -1,0 +1,15 @@
+{
+  "domain": "bluetooth_le_tracker",
+  "name": "Bluetooth LE Tracker",
+  "iot_class": "local_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "presence_location"
+  ],
+  "connectivity": [
+    "bluetooth"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

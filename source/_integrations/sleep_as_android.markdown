@@ -1,21 +1,7 @@
 ---
-title: Sleep as Android
 description: Instructions on how to integrate Sleep as Android with Home Assistant.
-ha_category:
-  - Event
-  - Sensor
-ha_iot_class: Local Push
 ha_release: 2025.9
-ha_config_flow: true
-ha_codeowners:
-  - '@tr4nt0r'
 ha_domain: sleep_as_android
-ha_integration_type: service
-ha_platforms:
-  - diagnostics
-  - event
-  - sensor
-ha_quality_scale: platinum
 ---
 
 The **Sleep as Android** {% term integration %} connects the Sleep as Android app to Home Assistant, allowing you to trigger automations based on alarm clock or sleep cycle events.
@@ -30,7 +16,7 @@ The Sleep as Android integration allows you to trigger sleep-related automations
 
 ## Prerequisites
 
-This integration uses webhooks to receive events from Sleep as Android. By default, webhook triggers can only be accessed from devices on the same network as Home Assistant. If you want to receive events while away from your home network, remote access must be enabled, either by adding a [remote URL](/docs/configuration/remote/) or via [Home Assistant Cloud](https://www.nabucasa.com/config/webhooks/).
+This integration uses webhooks to receive events from Sleep as Android. By default, webhook triggers can only be accessed from devices on the same network as Home Assistant. If you want to receive events while away from your home network, remote access must be enabled, either by adding a [remote URL](/docs/configuration/remote/) or via [Home Assistant Link](https://www.nabucasa.com/config/webhooks/).
 
 Steps to set up the integration:
 
@@ -42,7 +28,7 @@ Steps to set up the integration:
 {% note %}
 
 To receive updates from Sleep as Android while away from home, your Home Assistant instance must be remotely accessible.  
-You can enable this by configuring a remote URL for Home Assistant or by using Home Assistant Cloud.  
+You can enable this by configuring a remote URL for Home Assistant or by using Home Assistant Link.  
 
 When setting up the Sleep as Android integration, the webhook is created using your external or cloud URL if remote access is available at that time.  
 If your instance is not remotely accessible during setup, the webhook will use your internal URL instead.  
@@ -201,11 +187,11 @@ The **Sleep as Android** app can be automated through its [Intent API](https://s
 - Start, stop, or pause sleep tracking
 - Stop lullaby playback
 
-Thanks to the **Home Assistant Companion App for Android**, which supports [broadcasting intents](/docs/notifications/notification-commands#broadcast-intent), you can trigger these actions directly from Home Assistant.
+Thanks to the **Home Assistant Companion App for Android**, which supports [broadcasting intents](https://companion.home-assistant.io/docs/notifications/notification-commands#broadcast-intent), you can trigger these actions directly from Home Assistant.
 
 To make this even easier, you can import the following blueprint. It supports nearly all Sleep as Android actions, so you can automate your sleep routine without writing any custom scripts:
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/sleep_as_android_trigger_app_actions.yaml" %}
+{% blueprint_example blueprint="sleep_as_android/sleep_as_android_trigger_app_actions.yaml" %}
 
 ## Data updates
 
@@ -219,7 +205,7 @@ This integration receives push updates from the Sleep as Android app whenever an
 
 ## Troubleshooting
 
-The **Sleep as Android** integration receives updates via a push from your Sleep as Android app to a webhook.  If you encounter issues, verify that your Home Assistant is reachable from your mobile phone.
+The **Sleep as Android** integration receives updates via a push from your Sleep as Android app to a webhook. If you encounter issues, verify that your Home Assistant is reachable from your mobile phone.
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 

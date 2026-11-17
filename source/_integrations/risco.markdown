@@ -1,22 +1,7 @@
 ---
-title: Risco
-description: Instructions on how to integrate Risco alarms into HA using Risco Cloud.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Switch
+description: Instructions on how to integrate Risco alarms into Home Assistant using Risco Cloud.
 ha_release: '0.115'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@OnFreund'
 ha_domain: risco
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - sensor
-  - switch
-ha_integration_type: integration
 ---
 
 This {% term integration %} connects with Risco Alarms, in one of two ways:
@@ -39,7 +24,7 @@ has the event timestamp as the state, and other event information in attributes.
 
 If you have multiple sites, only the first site will be used.
 
-## Local (advanced)
+## Local
 
 The integration will connect locally to your system.
 No dependency on the cloud, and instantaneous updates, but is harder to set up.
@@ -60,13 +45,13 @@ Require pin code to arm:
 Require pin code to disarm:
   description: When checked, you'll need to enter your pin code when disarming through Home Assistant.
 How often to poll Risco Cloud (in seconds):
-  description: "The lower this is, the faster your entities will reflect changes, but the more resource-intensive it'll be. Only available when using Cloud and only shown in advanced mode."
+  description: "The lower this is, the faster your entities will reflect changes, but the more resource-intensive it'll be. Only available when using Cloud."
 Maximum concurrent requests in Risco local:
-  description: "Lower values cause the integration to load slower. Higher values could lead to errors. Only available when using Local and only shown in advanced mode."
+  description: "Lower values cause the integration to load slower. Higher values could lead to errors. Only available when using Local."
 {% endconfiguration_basic %}
 
 Apart from these options, you can also define a custom mapping between your Home Assistant Alarm states and the Risco arming modes.
-This is an advanced configuration, and unless you're using group arming, the default mapping should probably be best.
+This is optional, and unless you're using group arming, the default mapping is probably best.
 This is a two-way mapping, meaning you can map:
 
 - What Home Assistant state your partition entity will report when Risco is armed in a specific mode.
@@ -97,13 +82,4 @@ And in the reverse direction:
 - [Sensor](/integrations/sensor/)
 - [Switch](/integrations/switch/)
 
-## Actions
-
-### Set time
-
-The `risco.set_time` action enables you to set the time of a panel on a local connection.
-
-| Data attribute    | Required | Description                                                                                |
-| ----------------- | -------- | ------------------------------------------------------------------------------------------ |
-| `config_entry_id` | yes      | The config entry ID of the alarm panel.                                                    |
-| `time`            | no       | The time to send to the alarm panel. Leave it empty to use the Home Assistant system time. |
+{% include integrations/actions.md %}

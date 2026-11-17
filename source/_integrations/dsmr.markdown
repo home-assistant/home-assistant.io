@@ -1,18 +1,7 @@
 ---
-title: DSMR Smart Meter
 description: Instructions on how to integrate DSMR smart meter within Home Assistant.
-ha_category:
-  - Energy
 ha_release: 0.34
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: dsmr
-ha_codeowners:
-  - '@Robbie1221'
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: hub
 ---
 
 A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'. Swedish meters with a 'HAN port' are not supported by this integration.
@@ -156,4 +145,4 @@ Smart meters in Belgium, Luxembourg and Sweden provided telegrams with largely t
 
 This module sets up an asynchronous reading loop using the `dsmr_parser` module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of `obis`/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the `obis` are know for each DSMR version the Entities for this integration are create during bootstrap.
 
-Another loop (DSMR class) is setup which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.
+Another loop (DSMR class) is set up which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.

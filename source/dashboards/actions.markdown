@@ -1,6 +1,6 @@
 ---
-title: "Actions"
-description: "Define what an object does when interacted with."
+title: "Dashboard actions"
+description: "Define what happens when you tap, hold, or double-tap a card on your dashboard, from toggling a device to opening another dashboard."
 related:
   - docs: /dashboards/button/
     title: Button card
@@ -24,6 +24,7 @@ Some cards have support for tap actions. These actions define what will happen w
 
 Actions can be enabled on the following cards:
 
+- [Alert](/dashboards/alert/)
 - [Button](/dashboards/button/)
 - [Entities](/dashboards/entities/)
 - [Gauge](/dashboards/gauge/)
@@ -65,7 +66,7 @@ tap_action:
       default: none
     navigation_replace:
       required: false
-      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      description: "Whether to replace the current page in the history with the new URL when the `action` is defined as `navigate`"
       type: boolean
       default: none
     url_path:
@@ -137,7 +138,7 @@ hold_action:
       default: none
     navigation_replace:
       required: false
-      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      description: "Whether to replace the current page in the history with the new URL when the `action` is defined as `navigate`"
       type: boolean
       default: none
     url_path:
@@ -209,7 +210,7 @@ double_tap_action:
       default: none
     navigation_replace:
       required: false
-      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      description: "Whether to replace the current page in the history with the new URL when the `action` is defined as `navigate`"
       type: boolean
       default: none
     url_path:
@@ -330,4 +331,4 @@ hold_action:
 
 ## Limitations
 
-It is not possible to use templates for actions. But calling a [script](/docs/scripts/) is a good alternative.
+It is not possible to use templates for actions. But calling a [script](/docs/script/) is a good alternative.

@@ -1,20 +1,10 @@
 ---
-title: Quantum Gateway
 description: Instructions on how to integrate Quantum Gateways into Home Assistant.
-ha_category:
-  - Presence detection
-ha_iot_class: Local Polling
 ha_release: 0.81
-ha_codeowners:
-  - '@cisasteelersfan'
 ha_domain: quantum_gateway
-ha_platforms:
-  - device_tracker
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Quantum Gateway** {% term integration %} offers presence detection by looking at devices connected to a Verizon Fios gateway.
@@ -48,7 +38,7 @@ ssl:
   description: Use HTTPS when connecting to gateway. New firmware may require HTTPS while older may require this to be False.
   required: false
   type: boolean
-  default: True
+  default: true
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.

@@ -1,32 +1,21 @@
 ---
-title: Amazon Alexa
 description: Instructions on how to connect Alexa/Amazon Echo to Home Assistant.
-ha_category:
-  - Voice
-ha_iot_class: Cloud Push
 featured: true
 ha_release: '0.10'
-ha_codeowners:
-  - '@home-assistant/cloud'
-  - '@ochlocracy'
-  - '@jbouwh'
 ha_domain: alexa
-ha_integration_type: system
-ha_platforms:
-  - diagnostics
 ---
 
-## Automatic setup via Home Assistant Cloud
+## Automatic setup via Home Assistant Link
 
-With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Cloud, you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
+With [Home Assistant Link](/link/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Link, you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
 
-For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
+For Home Assistant Link Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
 ## Manual setup
 
 There are a few ways that you can use Amazon Alexa and Home Assistant together.
 
-- [Create an Alexa Smart Home Skill to control lights, etc.](/integrations/alexa.smart_home/)
+- [Create an Alexa Smart Home Skill to control lights and more](/integrations/alexa.smart_home/)
   - Supports utterances without requiring the skill name, such as "Alexa, turn off the light."
   - Support for controlling devices through Alexa routines.
   - Support for viewing and controlling devices with the Alexa mobile app.

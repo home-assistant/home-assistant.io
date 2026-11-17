@@ -1,18 +1,10 @@
 ---
-title: Osramlightify
 description: Instructions on how to integrate Osram Lightify into Home Assistant.
-ha_category:
-  - Light
 ha_release: 0.21
-ha_iot_class: Local Polling
 ha_domain: osramlightify
-ha_platforms:
-  - light
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Osramlightify** {% term integration %} allows you to integrate your [Osram Lightify](https://www.osram.com/cb/lightify/index.jsp) into Home Assistant.
@@ -75,7 +67,7 @@ as expected. Shorter `scan_interval` may improve synchronization speed between i
 groups. For example, if you turn on a group, all its lights may be updated to `on` immediately,
 without querying the bridge.
 
-Please note that to update all light statuses, only one query to the bridge is actually needed.
+To update all light statuses, only one query to the bridge is actually needed.
 
 If a group has associated scenes, they will be imported as light effects and visible in `Effect`
 dropdown on UI. You can apply a scene by clicking an item from the dropdown or by calling

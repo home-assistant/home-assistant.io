@@ -8,7 +8,7 @@
 The {{ page.title }} {% term integration %} provides the following actions. Each link below opens a dedicated page with examples, parameters, and a step-by-step UI walkthrough.
 
 {% for act in domain_actions %}
-- [{{ act.title }}]({{ act.url }}) (`{{ act.action }}`)
+- [{{ act.title }}]({{ act.url }}) (`{{ act.action }}`{% if act.response == "required" %}, returns data{% elsif act.response == "optional" %}, can return data{% endif %})
     {{ act.description }}
 {% endfor %}
 

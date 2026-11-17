@@ -1,42 +1,7 @@
 ---
-title: Group
-description: Instructions on how to setup groups within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Cover
-  - Event
-  - Fan
-  - Helper
-  - Light
-  - Lock
-  - Media player
-  - Notifications
-  - Organization
-  - Sensor
-  - Switch
-  - Valve
+description: Instructions on how to set up groups within Home Assistant.
 ha_release: pre 0.7
-ha_iot_class: Calculated
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: group
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - cover
-  - event
-  - fan
-  - light
-  - lock
-  - media_player
-  - notify
-  - sensor
-  - switch
-  - valve
-ha_integration_type: helper
 ---
 
 The **Group** {% term integration %} lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
@@ -47,6 +12,7 @@ The following entities can be grouped:
 
 - [binary sensor (binary sensors)](/integrations/binary_sensor/)
 - [button (buttons)](/integrations/button/)
+- [calendar (calendars)](/integrations/calendar/)
 - [cover (covers)](/integrations/cover/)
 - [event (events)](/integrations/event/)
 - [fan (fans)](/integrations/fan/)
@@ -86,7 +52,7 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `on`.
 
 {% note %}
-For light groups using HS color mode: When a light group contains two or more lights, whose colors are evenly spaced (180° apart for two, 120° apart for three, etc.), the light group's average color *may* default to either 0° (red) or 180° (light blue). This occurs because averaging opposite hues on the color wheel can mathematically result in unexpected colors due to how hue values wrap around. To avoid this, consider using RGB color mode for your lights, or avoid grouping lights with perfectly opposite colors.
+For light groups using HS color mode: When a light group contains two or more lights, whose colors are evenly spaced (180° apart for two, 120° apart for three, and so on), the light group's average color *may* default to either 0° (red) or 180° (light blue). This occurs because averaging opposite hues on the color wheel can mathematically result in unexpected colors due to how hue values wrap around. To avoid this, consider using RGB color mode for your lights, or avoid grouping lights with perfectly opposite colors.
 {% endnote %}
 
 ### Button groups
@@ -95,6 +61,16 @@ The group state is the last time the grouped button was pressed.
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is the last time the grouped button was pressed.
+
+### Calendar groups
+
+A calendar group shows the events of all its member calendars together.
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `on` if at least one group member has an event in progress.
+- Otherwise, the group state is `off`.
+- The group attributes show the current event, or the next upcoming event, across all group members.
+- Events can't be created, edited, or deleted through a calendar group. Make these changes in the member calendars.
 
 ### Cover and valve groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover and valve groups behave:
@@ -161,6 +137,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
       - if at least one member has a numeric state: calculated according to the `type`
       - otherwise: set to `unknown`
 - The variable `ignore_non_numeric` can be combined with the type `first_available` to always take the first available numeric state from a group.
+- The type `stdev` calculates the sample standard deviation, which needs at least two numeric states. With fewer, a group that is not `unavailable` has the state `unknown`, whatever `ignore_non_numeric` is set to.
 
 ## Managing groups
 
@@ -173,6 +150,8 @@ To edit a group, **{% my helpers title="**Settings** > **Devices & services** > 
 To add or remove entities from an existing group, click on `Group options`, all the existing entities are listed in the `members` section where you add and remove entities.
 
 ![Group members](/images/integrations/group/Group_members.png)
+
+To hide the members of the group, so that only the group shows, turn on **Hide members**. Home Assistant hides the member entities when you save, and shows them again when you turn the option off. For what hiding does, refer to [Hidden entities](/docs/configuration/customizing-entities/#hidden-entities).
 
 ### Group attributes
 
@@ -207,10 +186,21 @@ Example YAML configuration of a button group:
 button:
   - platform: group
     name: "Restart all ESPHome devices"
-    device_class: opening
     entities:
       - button.device_1_restart
       - button.device_2_restart
+```
+
+Example YAML configuration of a calendar group:
+
+```yaml
+# Example configuration.yaml entry
+calendar:
+  - platform: group
+    name: "Family"
+    entities:
+      - calendar.work
+      - calendar.school
 ```
 
 Example YAML configuration of a cover group:
@@ -360,16 +350,16 @@ device_class:
   type: string
   required: false
 state_class:
-  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes).
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
   type: string
   required: false
 {% endconfiguration %}
 
-## Notify groups
+## Notify action groups
 
-This group is a special case of groups currently only available via YAML configuration.
+Notify action groups are used to combine multiple notification actions into a single one. This allows you to send a notification to multiple devices by performing a single action.
 
-Notify groups are used to combine multiple notification actions into a single action. This allows you to send notification to multiple devices by performing a single action.
+Groups of notify actions are not to be confused with [groups of notify entities](/integrations/group/#notify-entity-groups). Notify entity groups can be created through the UI using a **Notify group** {% term helper %}, while notify action groups are currently only available through YAML configuration.
 
 ```yaml
 # Example configuration.yaml entry
@@ -499,7 +489,7 @@ When a group contains entities from domains that have multiple `on` states or on
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
-These groups can still be in templates with the [`expand()`](/template-functions/expand/) function, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
+These groups can still be in templates with the [`expand()`](/template-functions/expand/) function, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, and so on.
 
 ### Attributes
 
@@ -511,18 +501,4 @@ These are the attributes available for an old-style group.
 | `order`                              | Integer representing the order in which the entity was created, starting with `0`.                           |
 | `auto`                               | Boolean that will always be set to `true`. Only appears in groups that were created with the `set` action.   |
 
-### Actions
-
-The following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself. These actions are only available for old-style groups. They cannot be used with the new-style groups described above.
-
-| Action   | Data              | Description                                                                   |
-| -------- | ----------------- | ----------------------------------------------------------------------------- |
-| `set`    | `Object ID`       | Group id and part of entity id.                                               |
-|          | `Name`            | Name of the group.                                                            |
-|          | `Icon`            | Name of the icon for the group.                                               |
-|          | `Entities`        | List of all members in the group. Not compatible with **delta**.              |
-|          | `Add Entities`    | List of members that will change on group listening.                          |
-|          | `Remove Entities` | List of members that will be removed from group listening.                    |
-|          | `All`             | Enable this option if the group should only turn on when all entities are on. |
-| `remove` | `Object ID`       | Group id and part of entity id.                                               |
-| `reload` | `Object ID`       | Group id and part of entity id.                                               |
+{% include integrations/actions.md %}

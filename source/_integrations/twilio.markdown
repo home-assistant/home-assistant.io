@@ -1,13 +1,7 @@
 ---
-title: Twilio
 description: Instructions on how to add Twilio notifications to Home Assistant.
-ha_category:
-  - Hub
 ha_release: '0.40'
-ha_config_flow: true
 ha_domain: twilio
-ha_iot_class: Cloud Push
-ha_integration_type: service
 ---
 
 The **Twilio** {% term integration %} enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).
@@ -39,7 +33,7 @@ auth_token:
 
 ### Usage
 
-After configuring the base Twilio integration, add and configure either or both of the [Twilio SMS](/integrations/twilio_sms) and [Twilio Phone](/integrations/twilio_call) integrations to utilize the notification functionality.
+After configuring the base Twilio integration, add and configure either or both of the [Twilio SMS](/integrations/twilio_sms) and [Twilio Phone](/integrations/twilio_call) integrations to use the notification functionality.
 
 To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#external_url) in Home Assistant.
 

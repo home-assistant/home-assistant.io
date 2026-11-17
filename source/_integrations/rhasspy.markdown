@@ -1,15 +1,7 @@
 ---
-title: Rhasspy
 description: Instructions on setting up Rhasspy within Home Assistant.
-ha_category:
-  - Voice
-ha_iot_class: Local Push
 ha_release: '2022.8'
-ha_config_flow: true
-ha_codeowners:
-  - '@synesthesiam'
 ha_domain: rhasspy
-ha_integration_type: integration
 ---
 
 The **Rhasspy** {% term integration %} allows you to use your [Rhasspy voice assistant](https://rhasspy.readthedocs.io) with your Home Assistant installation. Rhasspy is an open source, fully offline set of voice assistant services for many human languages.
@@ -20,6 +12,6 @@ Rhasspy comes in two flavors. If you want to just try out, you can connect a mic
 
 {% my supervisor_addon badge addon="47701997_rhasspy_junior" repository_url="https://github.com/rhasspy/hassio-addons" %}
 
-For advanced users that have experience with Rhasspy and want to learn more. The full version of Rhasspy allows tweaking every single possible setting and requires you to do so before you can use it. It can also be installed as an app:
+For users that have experience with Rhasspy and want to learn more. The full version of Rhasspy allows tweaking every single possible setting and requires you to do so before you can use it. It can also be installed as an app:
 
 {% my supervisor_addon badge addon="47701997_rhasspy" repository_url="https://github.com/rhasspy/hassio-addons" %}

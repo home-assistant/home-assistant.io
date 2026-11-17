@@ -1,6 +1,6 @@
 ---
-title: "Features for dashboard cards"
-description: "Decorate your dashboard cards with quick controls."
+title: "Card features"
+description: "Add quick controls to your dashboard cards, such as a brightness slider for a light, a fan speed selector, or a temperature setpoint."
 related:
   - docs: /dashboards/humidifier/
     title: Humidifier card
@@ -47,10 +47,7 @@ Features can be enabled on the following cards:
 
 Widget that displays buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
 
-<p class='img'>
-  <img src='/images/dashboards/features/alarm_modes.png' alt='Screenshot of the tile card with alarm modes feature'>
-  Screenshot of the tile card with alarm modes feature
-</p>
+{% include dashboard/demo.html demo="feature_alarm_modes" caption="The tile card with the alarm modes feature." %}
 
 ```yaml
 features:
@@ -70,8 +67,8 @@ type:
   description: "`alarm-modes`"
   type: string
 modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`.
+  required: false
+  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`. If not set, all modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -79,16 +76,24 @@ modes:
 
 Widget that displays the state of a numeric [sensor](/integrations/sensor) as a horizontal bar.
 
-<p class='img'>
-  <img src='/images/dashboards/features/bar_gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
-  Screenshots of the tile card with the bar gauge feature
-</p>
+{% include dashboard/demo.html demo="feature_bar_gauge" caption="The tile card with the bar gauge feature." %}
 
 ```yaml
 features:
   - type: "bar-gauge"
     min: 0
     max: 100
+    segments:
+      - from: 0
+        color: '#db4437'
+      - from: 35.5
+        color: '#ffa600'
+      - from: 40
+        color: '#43a047'
+      - from: 60
+        color: '#ffa600'
+      - from: 65
+        color: '#db4437'
 ```
 
 {% configuration features %}
@@ -106,16 +111,43 @@ max:
   description: Maximum value for the gauge range.
   type: integer
   default: 100
+severity:
+  required: false
+  description: Allows setting of colors for different numbers.
+  type: map
+  keys:
+    green:
+      required: false
+      description: Value from which to start green color.
+      type: float
+    yellow:
+      required: false
+      description: Value from which to start yellow color.
+      type: float
+    red:
+      required: false
+      description: Value from which to start red color.
+      type: float
+segments:
+  required: false
+  description: List of colors and their corresponding start values. Segments will override the severity settings.
+  type: list
+  keys:
+    from:
+      required: true
+      description: Value from which to start the color.
+      type: float
+    color:
+      required: true
+      description: Color of the segment, may be any CSS color declaration like "red", "#0000FF" or "rgb(255, 120, 0)".
+      type: string
 {% endconfiguration %}
 
 ## Button
 
 Widget that displays buttons to control [button](/integrations/button), [input_button](/integrations/input_button), [scene](/integrations/scene), or [script](/integrations/script).
 
-<p class='img'>
-  <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
-  Screenshot of the tile card with the button feature
-</p>
+{% include dashboard/demo.html demo="feature_button" caption="The tile card with the button feature." %}
 
 ```yaml
 features:
@@ -145,10 +177,7 @@ data:
 
 Widget that displays buttons or icons to control the fan mode for a [climate](/integrations/climate) device.
 
-<p class='img'>
-  <img src='/images/dashboards/features/climate_fan_modes.png' alt='Screenshot of the tile card with the climate fan modes feature'>
-  Screenshot of the tile card with the climate fan modes feature
-</p>
+{% include dashboard/demo.html demo="feature_climate_fan_modes" caption="The tile card with the climate fan modes feature." %}
 
 ```yaml
 features:
@@ -172,8 +201,8 @@ style:
   type: string
   default: dropdown
 fan_modes:
-  required: true
-  description: List of fan modes to show on the card. The list can contain `on`, `off`, `auto`, `low`, `medium`, `high`, `middle`, `focus` and `diffuse` or any other custom fan mode.
+  required: false
+  description: List of fan modes to show on the card. The list can contain `on`, `off`, `auto`, `low`, `medium`, `high`, `middle`, `focus` and `diffuse` or any other custom fan mode. If not set, all fan modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -181,10 +210,7 @@ fan_modes:
 
 Widget that displays buttons to control the HVAC mode for a [climate](/integrations/climate).
 
-<p class='img'>
-  <img src='/images/dashboards/features/climate_hvac_modes.png' alt='Screenshot of the tile card with the climate HVAC modes feature'>
-  Screenshot of the tile card with the climate HVAC modes feature
-</p>
+{% include dashboard/demo.html demo="feature_climate_hvac_modes" caption="The tile card with the climate HVAC modes feature." %}
 
 ```yaml
 features:
@@ -210,8 +236,8 @@ style:
   type: string
   default: icons
 hvac_modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only`, and `off`.
+  required: false
+  description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only`, and `off`. If not set, all HVAC modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -219,10 +245,7 @@ hvac_modes:
 
 Widget that displays buttons or icons to control the preset mode for a [climate](/integrations/climate).
 
-<p class='img'>
-  <img src='/images/dashboards/features/climate_preset_modes.png' alt='Screenshot of the tile card with the climate preset modes feature'>
-  Screenshot of the tile card with the climate preset modes feature
-</p>
+{% include dashboard/demo.html demo="feature_climate_preset_modes" caption="The tile card with the climate preset modes feature." %}
 
 ```yaml
 features:
@@ -244,8 +267,70 @@ style:
   type: string
   default: dropdown
 preset_modes:
+  required: false
+  description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode. If not set, all preset modes supported by the entity are shown.
+  type: list
+{% endconfiguration %}
+
+## Climate swing modes
+
+Widget that displays a dropdown or icons to control the swing mode for a [climate](/integrations/climate).
+
+{% include dashboard/demo.html demo="feature_climate_swing_modes" caption="The tile card with the climate swing modes feature." %}
+
+```yaml
+features:
+  - type: "climate-swing-modes"
+    style: "icons"
+    swing_modes:
+      - "on"
+      - "off"
+```
+
+{% configuration features %}
+type:
   required: true
-  description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode.
+  description: "`climate-swing-modes`"
+  type: string
+style:
+  required: false
+  description: "How the swing modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+swing_modes:
+  required: false
+  description: List of swing modes to show on the card. The list can contain `on`, `off`, or any other custom swing mode supported by your climate device. If not set, all swing modes supported by the entity are shown.
+  type: list
+{% endconfiguration %}
+
+## Climate swing horizontal modes
+
+Widget that displays a dropdown or icons to control the horizontal swing mode for a [climate](/integrations/climate).
+
+{% include dashboard/demo.html demo="feature_climate_swing_horizontal_modes" caption="The tile card with the climate swing horizontal modes feature." %}
+
+```yaml
+features:
+  - type: "climate-swing-horizontal-modes"
+    style: "dropdown"
+    swing_horizontal_modes:
+      - "on"
+      - "off"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-swing-horizontal-modes`"
+  type: string
+style:
+  required: false
+  description: "How the horizontal swing modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+swing_horizontal_modes:
+  required: false
+  description: List of horizontal swing modes to show on the card. The list can contain `on`, `off`, or any other custom horizontal swing mode supported by your climate device. If not set, all horizontal swing modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -253,10 +338,7 @@ preset_modes:
 
 Widget that displays buttons to increment, decrement, and reset a [counter](/integrations/counter).
 
-<p class='img'>
-  <img src='/images/dashboards/features/counter_actions.png' alt='Screenshot of the tile card with counter actions feature'>
-  Screenshot of the tile card with counter actions feature
-</p>
+{% include dashboard/demo.html demo="feature_counter_actions" caption="The tile card with the counter actions feature." %}
 
 ```yaml
 features:
@@ -273,8 +355,8 @@ type:
   description: "`counter-actions`"
   type: string
 actions:
-  required: true
-  description: List of actions to show on the card. The list can contain `increment`, `decrement`, and `reset`.
+  required: false
+  description: List of actions to show on the card. The list can contain `increment`, `decrement`, and `reset`. If not set, all actions supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -282,10 +364,7 @@ actions:
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
 
-<p class='img'>
-  <img src='/images/dashboards/features/cover_open_close.png' alt='Screenshot of the tile card with open/close feature'>
-  Screenshot of the tile card with cover open/close feature
-</p>
+{% include dashboard/demo.html demo="feature_cover_open_close" caption="The tile card with the cover open/close feature." %}
 
 ```yaml
 features:
@@ -303,10 +382,7 @@ type:
 
 Widget that displays a slider to control the position for a [cover](/integrations/cover).
 
-<p class='img'>
-  <img src='/images/dashboards/features/cover_position.png' alt='Screenshot of the tile card with the cover position feature'>
-  Screenshot of the tile card with the cover position feature
-</p>
+{% include dashboard/demo.html demo="feature_cover_position" caption="The tile card with the cover position feature." %}
 
 ```yaml
 features:
@@ -326,10 +402,7 @@ Widget that displays a dropdown with favorite positions for a [cover](/integrati
 
 You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
 
-<p class='img'>
-  <img src='/images/dashboards/features/cover_position_favorite.png' alt='Screenshot of the tile card with the cover favorite positions feature'>
-  Screenshot of the tile card with the cover favorite positions feature
-</p>
+{% include dashboard/demo.html demo="feature_cover_position_favorite" caption="The tile card with the cover favorite positions feature." %}
 
 ```yaml
 features:
@@ -347,10 +420,7 @@ type:
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
 
-<p class='img'>
-  <img src='/images/dashboards/features/cover_tilt.png' alt='Screenshot of the tile card with tilt feature'>
-  Screenshot of the tile card with cover tilt feature
-</p>
+{% include dashboard/demo.html demo="feature_cover_tilt" caption="The tile card with the cover tilt feature." %}
 
 ```yaml
 features:
@@ -370,10 +440,7 @@ Widget that displays a dropdown with favorite tilt positions for a [cover](/inte
 
 You can customize favorites in a cover's **More info** dialog. To edit them, press and hold a favorite.
 
-<p class='img'>
-  <img src='/images/dashboards/features/cover_tilt_favorite.png' alt='Screenshot of the tile card with the cover favorite tilt positions feature'>
-  Screenshot of the tile card with the cover favorite tilt positions feature
-</p>
+{% include dashboard/demo.html demo="feature_cover_tilt_favorite" caption="The tile card with the cover favorite tilt positions feature." %}
 
 ```yaml
 features:
@@ -391,10 +458,7 @@ type:
 
 Widget that displays a slider to control the tilt position for a [cover](/integrations/cover).
 
-<p class='img'>
-  <img src='/images/dashboards/features/cover_tilt_position.png' alt='Screenshot of the tile card with the cover tilt position feature'>
-  Screenshot of the tile card with the cover tilt position feature
-</p>
+{% include dashboard/demo.html demo="feature_cover_tilt_position" caption="The tile card with the cover tilt position feature." %}
 
 ```yaml
 features:
@@ -412,10 +476,7 @@ type:
 
 Widget that displays a button to select a date using the date picker dialog for the [date](/integrations/date), [datetime](/integrations/datetime), and [input datetime](/integrations/input_datetime) entities.
 
-<p class='img'>
-  <img src='/images/dashboards/features/date.png' alt='Screenshot of the tile card with the date feature'>
-  Screenshot of the tile card with the date feature
-</p>
+{% include dashboard/demo.html demo="feature_date" caption="The tile card with the date feature." %}
 
 ```yaml
 features:
@@ -433,10 +494,7 @@ type:
 
 Widget that displays controls to change direction for a [fan](/integrations/fan).
 
-<p class='img'>
-  <img src='/images/dashboards/features/fan_direction.png' alt='Screenshot of the tile card with the fan direction feature'>
-  Screenshot of the tile card with the fan direction feature
-</p>
+{% include dashboard/demo.html demo="feature_fan_direction" caption="The tile card with the fan direction feature." %}
 
 ```yaml
 features:
@@ -454,10 +512,7 @@ type:
 
 Widget that displays controls to change oscillation state for a [fan](/integrations/fan).
 
-<p class='img'>
-  <img src='/images/dashboards/features/fan_oscillate.png' alt='Screenshot of the tile card with the fan oscillate feature'>
-  Screenshot of the tile card with the fan oscillate feature
-</p>
+{% include dashboard/demo.html demo="feature_fan_oscillate" caption="The tile card with the fan oscillate feature." %}
 
 ```yaml
 features:
@@ -475,15 +530,11 @@ type:
 
 Widget that displays buttons or icons to control the preset mode for a [fan](/integrations/fan).
 
-<p class='img'>
-  <img src='/images/dashboards/features/fan_preset_modes.png' alt='Screenshot of the tile card with the fan preset modes feature'>
-  Screenshot of the tile card with the fan preset modes feature
-</p>
+{% include dashboard/demo.html demo="feature_fan_preset_modes" caption="The tile card with the fan preset modes feature." %}
 
 ```yaml
 features:
   - type: "fan-preset-modes"
-    style: "icons"
     preset_modes:
       - auto
       - smart
@@ -502,8 +553,8 @@ style:
   type: string
   default: dropdown
 preset_modes:
-  required: true
-  description: List of preset modes to show on the card. The list can contain any supported preset modes.
+  required: false
+  description: List of preset modes to show on the card. The list can contain any supported preset modes. If not set, all preset modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -511,14 +562,21 @@ preset_modes:
 
 Widget that displays speed controls for a [fan](/integrations/fan).
 
-<p class='img'>
-  <img src='/images/dashboards/features/fan_speed.png' alt='Screenshot of the tile card with fan speed feature'>
-  Screenshot of the tile card with fan speed feature
-</p>
+{% include dashboard/demo.html demo="feature_fan_speed" caption="The tile card with the fan speed feature." %}
+
+The available style depends on how many speeds your fan supports:
+
+- Fans that only support being turned on or off always use buttons.
+- Fans with 2 to 5 speeds use buttons by default, but you can switch to a slider.
+- Fans with 6 to 10 speeds use a slider by default, but you can switch to buttons.
+- Fans with more than 10 speeds always use a slider.
+
+If the buttons don't fit the width of the card, a slider is shown instead, regardless of whether buttons are the default or your own choice.
 
 ```yaml
 features:
   - type: "fan-speed"
+    style: "buttons"
 ```
 
 {% configuration features %}
@@ -526,16 +584,17 @@ type:
   required: true
   description: "`fan-speed`"
   type: string
+style:
+  required: false
+  description: "Which style of control to display. It can be either `buttons` or `slider`. The default depends on how many speeds the fan supports. See above."
+  type: string
 {% endconfiguration %}
 
 ## Humidifier modes
 
 Widget that displays buttons or icons to control the mode for a [humidifier](/integrations/humidifier).
 
-<p class='img'>
-  <img src='/images/dashboards/features/humidifier_modes.png' alt='Screenshot of the tile card with the humidifier modes feature'>
-  Screenshot of the tile card with the humidifier modes feature
-</p>
+{% include dashboard/demo.html demo="feature_humidifier_modes" caption="The tile card with the humidifier modes feature." %}
 
 ```yaml
 features:
@@ -557,8 +616,8 @@ style:
   type: string
   default: dropdown
 modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby` or any other custom mode.
+  required: false
+  description: List of modes to show on the card. The list can contain `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby` or any other custom mode. If not set, all modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -566,10 +625,7 @@ modes:
 
 Widget that displays buttons to turn on or off a [humidifier](/integrations/humidifier).
 
-<p class='img'>
-  <img src='/images/dashboards/features/humidifier_toggle.png' alt='Screenshot of the tile card with the humidifier toggle feature'>
-  Screenshot of the tile card with the humidifier toggle feature
-</p>
+{% include dashboard/demo.html demo="feature_humidifier_toggle" caption="The tile card with the humidifier toggle feature." %}
 
 ```yaml
 features:
@@ -587,10 +643,7 @@ type:
 
 Widget that displays buttons to control a [lawn mower](/integrations/lawn_mower).
 
-<p class='img'>
-  <img src='/images/dashboards/features/lawn_mower_commands.png' alt='Screenshot of the tile card with the lawn mower commands feature'>
-  Screenshot of the tile card with the lawn mower commands feature
-</p>
+{% include dashboard/demo.html demo="feature_lawn_mower_commands" caption="The tile card with the lawn mower commands feature." %}
 
 ```yaml
 features:
@@ -606,8 +659,8 @@ type:
   description: "`lawn-mower-commands`"
   type: string
 commands:
-  required: true
-  description: List of commands to show on the card. The list can contain `start_pause` and `dock`.
+  required: false
+  description: List of commands to show on the card. The list can contain `start_pause`, `stop`, and `dock`. If not set, all commands supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -615,10 +668,7 @@ commands:
 
 Widget that displays a slider to select the brightness for a [light](/integrations/light).
 
-<p class='img'>
-  <img src='/images/dashboards/features/light_brightness.png' alt='Screenshot of the tile card with light brightness feature'>
-  Screenshot of the tile card with light brightness feature
-</p>
+{% include dashboard/demo.html demo="feature_light_brightness" caption="The tile card with the light brightness feature." %}
 
 ```yaml
 features:
@@ -632,16 +682,39 @@ type:
   type: string
 {% endconfiguration %}
 
+## Light color
+
+Widget that displays controls to select the color for a [light](/integrations/light).
+
+You can show the hue, the saturation, or both. When both are shown, select the small button next to the control to switch between them.
+
+{% include dashboard/demo.html demo="feature_light_color" caption="The tile card with the light color feature." %}
+
+```yaml
+features:
+  - type: "light-color"
+    controls: "hue"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-color`"
+  type: string
+controls:
+  required: false
+  description: "Which controls to display. It can be `hue`, `saturation`, or `hue_saturation`."
+  type: string
+  default: hue
+{% endconfiguration %}
+
 ## Light color favorites
 
 Widget that displays a set of buttons to select a color for a [light](/integrations/light) from a list of favorites.
 
 You can customize favorites in a light's more-info dialog. The feature shows as many favorites as fit in the available width, following the favorites' sort order.
 
-<p class='img'>
-  <img src='/images/dashboards/features/light_color_favorites.png' alt='Screenshot of the tile card with the light color favorites feature'>
-  Screenshot of the tile card with the light color favorites feature
-</p>
+{% include dashboard/demo.html demo="feature_light_color_favorites" caption="The tile card with the light color favorites feature." %}
 
 ```yaml
 features:
@@ -659,10 +732,7 @@ type:
 
 Widget that displays a slider to select the color temperature for a [light](/integrations/light).
 
-<p class='img'>
-  <img src='/images/dashboards/features/light_color_temp.png' alt='Screenshot of the tile card with the light color temperature feature'>
-  Screenshot of the tile card with the light color temperature feature
-</p>
+{% include dashboard/demo.html demo="feature_light_color_temp" caption="The tile card with the light color temperature feature." %}
 
 ```yaml
 features:
@@ -676,14 +746,33 @@ type:
   type: string
 {% endconfiguration %}
 
+## Light effect
+
+Widget that displays a dropdown to select an effect for a [light](/integrations/light).
+
+{% include dashboard/demo.html demo="feature_light_effect" caption="The tile card with the light effect feature." %}
+
+```yaml
+features:
+  - type: "light-effect"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-effect`"
+  type: string
+effects:
+  required: false
+  description: "List of effects to show in the dropdown. Use this to filter or reorder the available effects. The effect names depend on your device and can be found in the `effect_list` attribute of the entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}. When not specified, all effects supported by the entity are shown."
+  type: list
+{% endconfiguration %}
+
 ## Lock commands
 
 Widget that displays buttons to lock or unlock a [lock](/integrations/lock).
 
-<p class='img'>
-  <img src='/images/dashboards/features/lock_feature_commands.png' alt='Screenshot of the tile card with the lock commands feature'>
-  Screenshot of the tile card with the lock commands feature
-</p>
+{% include dashboard/demo.html demo="feature_lock_commands" caption="The tile card with the lock commands feature." %}
 
 ```yaml
 features:
@@ -701,10 +790,7 @@ type:
 
 Widget that displays a button to [open a door](/integrations/lock).
 
-<p class='img'>
-  <img src='/images/dashboards/features/lock_feature_open_door.png' alt='Screenshot of the tile card with the lock open door feature'>
-  Screenshot of the tile card with the lock open door feature
-</p>
+{% include dashboard/demo.html demo="feature_lock_open_door" caption="The tile card with the lock open door feature." %}
 
 ```yaml
 features:
@@ -722,14 +808,16 @@ type:
 
 Widget that displays playback controls for a [media player](/integrations/media_player).
 
-<p class='img'>
-  <img src='/images/dashboards/features/media_player_playback.png' alt='Screenshot of the tile card with media player playback feature'>
-  Screenshot of the tile card with media player playback feature
-</p>
+{% include dashboard/demo.html demo="feature_media_player_playback" caption="The tile card with the media player playback controls feature." %}
 
 ```yaml
 features:
   - type: "media-player-playback"
+    controls:
+      - media_play_pause
+      - media_previous_track
+      - media_next_track
+      - volume_mute
 ```
 
 {% configuration features %}
@@ -737,20 +825,25 @@ type:
   required: true
   description: "`media-player-playback`"
   type: string
+controls:
+  required: false
+  description: "List of controls to show on the card. The list can contain `turn_on`, `turn_off`, `media_play`, `media_pause`, `media_play_pause`, `media_stop`, `media_previous_track`, `media_next_track`, `volume_down`, `volume_up`, `volume_mute`, `shuffle`, and `repeat`. When not specified, the controls are determined automatically based on the capabilities of the media player entity."
+  type: list
 {% endconfiguration %}
 
 ## Media player sound mode
 
 Widget that displays a dropdown to select the sound mode for a [media player](/integrations/media_player).
 
-<p class='img'>
-  <img src='/images/dashboards/features/media_player_sound_mode.png' alt='Screenshot of the tile card with media player sound mode feature'>
-  Screenshot of the tile card with media player sound mode feature
-</p>
+{% include dashboard/demo.html demo="feature_media_player_sound_mode" caption="The tile card with the media player sound mode feature." %}
 
 ```yaml
 features:
   - type: "media-player-sound-mode"
+    sound_modes:
+      - "movie"
+      - "music"
+      - "game"
 ```
 
 {% configuration features %}
@@ -758,20 +851,25 @@ type:
   required: true
   description: "`media-player-sound-mode`"
   type: string
+sound_modes:
+  required: false
+  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available sound modes are shown."
+  type: list
 {% endconfiguration %}
 
 ## Media player source
 
 Widget that displays a dropdown to select the source for a [media player](/integrations/media_player).
 
-<p class='img'>
-  <img src='/images/dashboards/features/media_player_source.png' alt='Screenshot of the tile card with media player source feature'>
-  Screenshot of the tile card with media player source feature
-</p>
+{% include dashboard/demo.html demo="feature_media_player_source" caption="The tile card with the media player source feature." %}
 
 ```yaml
 features:
   - type: "media-player-source"
+    sources:
+      - "TV"
+      - "Bluetooth"
+      - "Radio"
 ```
 
 {% configuration features %}
@@ -779,16 +877,17 @@ type:
   required: true
   description: "`media-player-source`"
   type: string
+sources:
+  required: false
+  description: "List of sources to show in the dropdown. Use this to filter or reorder the available sources. The source names depend on your device. When not specified, all available sources are shown."
+  type: list
 {% endconfiguration %}
 
 ## Media player volume buttons
 
 Widget that displays buttons to control the volume for a [media player](/integrations/media_player).
 
-<p class='img'>
-  <img src='/images/dashboards/features/media_player_volume_buttons.png' alt='Screenshot of the tile card with media player volume buttons feature'>
-  Screenshot of the tile card with media player volume buttons feature
-</p>
+{% include dashboard/demo.html demo="feature_media_player_volume_buttons" caption="The tile card with the media player volume buttons feature." %}
 
 ```yaml
 features:
@@ -805,16 +904,18 @@ step:
   description: "The step size of the volume. The default is 5%."
   type: integer
   default: 5
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Media player volume slider
 
 Widget that displays a slider to control the volume for a [media player](/integrations/media_player).
 
-<p class='img'>
-  <img src='/images/dashboards/features/media_player_volume_slider.png' alt='Screenshot of the tile card with media player volume slider feature'>
-  Screenshot of the tile card with media player volume slider feature
-</p>
+{% include dashboard/demo.html demo="feature_media_player_volume_slider" caption="The tile card with the media player volume slider feature." %}
 
 ```yaml
 features:
@@ -826,16 +927,18 @@ type:
   required: true
   description: "`media-player-volume-slider`"
   type: string
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Numeric input
 
 Widget that displays a slider or buttons to set the value for a [number](/integrations/number) or [input number](/integrations/input_number).
 
-<p class='img'>
-  <img src='/images/dashboards/features/numeric_input.png' alt='Screenshot of the tile card with the numeric input feature'>
-  Screenshot of the tile card with the numeric input feature
-</p>
+{% include dashboard/demo.html demo="feature_numeric_input" caption="The tile card with the numeric input feature." %}
 
 ```yaml
 features:
@@ -855,18 +958,43 @@ style:
   default: slider
 {% endconfiguration %}
 
+## Select options
+
+Widget that displays a dropdown to select an option for a [select](/integrations/select) or [input select](/integrations/input_select).
+
+{% include dashboard/demo.html demo="feature_select_options" caption="The tile card with the select options feature." %}
+
+```yaml
+features:
+  - type: "select-options"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`select-options`"
+  type: string
+style:
+  required: false
+  description: "How the options should be displayed. It can be either `buttons` or `dropdown`."
+  type: string
+  default: dropdown
+options:
+  required: false
+  description: List of options to show on the card. If not specified, all available options from the entity are displayed.
+  type: list
+{% endconfiguration %}
+
 ## Target humidity
 
-Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier).
+Widget that displays a slider or buttons to select the target humidity for a [humidifier](/integrations/humidifier) or a [climate](/integrations/climate) entity.
 
-<p class='img'>
-  <img src='/images/dashboards/features/target_humidity.png' alt='Screenshot of the tile card with the target humidity feature'>
-  Screenshot of the tile card with the target humidity feature
-</p>
+{% include dashboard/demo.html demo="feature_target_humidity" caption="The tile card with the target humidity feature." %}
 
 ```yaml
 features:
   - type: "target-humidity"
+    style: "buttons"
 ```
 
 {% configuration features %}
@@ -874,20 +1002,23 @@ type:
   required: true
   description: "`target-humidity`"
   type: string
+style:
+  required: false
+  description: "How the target humidity should be displayed. It can be either `buttons` or `slider`."
+  type: string
+  default: slider
 {% endconfiguration %}
 
 ## Target temperature
 
-Widget that displays buttons to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater).
+Widget that displays buttons or a slider to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater). For climate entities with a target temperature range, the feature shows separate controls for the low and high targets.
 
-<p class='img'>
-  <img src='/images/dashboards/features/target_temperature.png' alt='Screenshot of the tile card with the target temperature feature'>
-  Screenshot of the tile card with the target temperature feature
-</p>
+{% include dashboard/demo.html demo="feature_target_temperature" caption="Tile cards with the target temperature feature, using the buttons style (left) and the slider style (right)." %}
 
 ```yaml
 features:
   - type: "target-temperature"
+    style: "slider"
 ```
 
 {% configuration features %}
@@ -895,16 +1026,71 @@ type:
   required: true
   description: "`target-temperature`"
   type: string
+style:
+  required: false
+  description: "How the target temperature should be displayed. It can be either `buttons` or `slider`."
+  type: string
+  default: buttons
+{% endconfiguration %}
+
+## Timer actions
+
+Widget that displays buttons to start, pause, cancel, and finish a [timer](/integrations/timer). Buttons are only enabled when the action is valid for the current timer state. While the timer is running, the start button becomes a restart button, which restarts the timer with the duration it was last started with, ignoring the remaining time.
+
+{% include dashboard/demo.html demo="feature_timer_actions" caption="The tile card with the timer actions feature." %}
+
+```yaml
+features:
+  - type: "timer-actions"
+    actions:
+      - start
+      - pause
+      - cancel
+      - finish
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`timer-actions`"
+  type: string
+actions:
+  required: false
+  description: List of actions to show on the card. The list can contain `start`, `pause`, `cancel`, and `finish`. If not set, `start`, `pause`, and `cancel` are shown.
+  type: list
+{% endconfiguration %}
+
+## Timer presets
+
+Widget that displays the preset durations of a [timer](/integrations/timer). Selecting a preset starts the timer with that duration. Presets can be shown as a row of buttons or as a dropdown.
+
+Presets belong to the timer entity and are managed in its more info dialog, that you open by selecting the entity. Then go to **Menu** {% icon "mdi:dots-vertical" %} > **Edit presets** to add, edit, delete, or reorder them. A timer has no presets until you add some, and the widget is hidden while the list is empty.
+
+{% include dashboard/demo.html demo="feature_timer_presets" caption="The tile card with the timer presets feature." %}
+
+```yaml
+features:
+  - type: "timer-presets"
+    style: "buttons"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`timer-presets`"
+  type: string
+style:
+  required: false
+  description: "Which style of control to display. It can be either `buttons` or `dropdown`."
+  type: string
+  default: buttons
 {% endconfiguration %}
 
 ## Toggle
 
 Widget that displays a button to toggle a [switch](/integrations/switch) or [input boolean](/integrations/input_boolean) entity on or off.
 
-<p class='img'>
-  <img src='/images/dashboards/features/toggle.png' alt='Screenshot of the tile card with the toggle feature'>
-  Screenshot of the tile card with the toggle feature
-</p>
+{% include dashboard/demo.html demo="feature_toggle" caption="The tile card with the toggle feature." %}
 
 ```yaml
 features:
@@ -922,10 +1108,7 @@ type:
 
 Widget that displays a trend of the history for a numeric [sensor](/integrations/sensor).
 
-<p class='img'>
-  <img src='/images/dashboards/features/trend_graph.png' alt='Screenshot of the tile card with the trend graph feature'>
-  Screenshot of the tile card with the trend graph feature
-</p>
+{% include dashboard/demo.html demo="feature_trend_graph" caption="The tile card with the trend graph feature." %}
 
 ```yaml
 features:
@@ -959,10 +1142,7 @@ The `hours_to_show` option controls the time range of historical data shown in t
 
 Widget that displays actions to install or skip an [update](/integrations/update).
 
-<p class='img'>
-  <img src='/images/dashboards/features/update_actions.png' alt='Screenshot of the tile card with update actions feature'>
-  Screenshot of the tile card with update actions feature
-</p>
+{% include dashboard/demo.html demo="feature_update_actions" caption="The tile card with the update actions feature." %}
 
 ```yaml
 features:
@@ -986,10 +1166,7 @@ backup:
 
 Widget that displays buttons to control a [vacuum](/integrations/vacuum).
 
-<p class='img'>
-  <img src='/images/dashboards/features/vacuum_commands.png' alt='Screenshot of the tile card with vacuum commands feature'>
-  Screenshot of the tile card with vacuum commands feature
-</p>
+{% include dashboard/demo.html demo="feature_vacuum_commands" caption="The tile card with the vacuum commands feature." %}
 
 ```yaml
 features:
@@ -1013,14 +1190,33 @@ commands:
   type: list
 {% endconfiguration %}
 
+## Vacuum fan speed
+
+Widget that displays a dropdown to select the fan speed for a [vacuum](/integrations/vacuum).
+
+{% include dashboard/demo.html demo="feature_vacuum_fan_speed" caption="The tile card with the vacuum fan speed feature." %}
+
+```yaml
+features:
+  - type: "vacuum-fan-speed"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`vacuum-fan-speed`"
+  type: string
+fan_speeds:
+  required: false
+  description: "List of fan speeds to show in the dropdown. Use this to filter or reorder the available fan speeds. The fan speed names depend on your device and can be found in the `fan_speed_list` attribute of the entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available fan speeds are shown."
+  type: list
+{% endconfiguration %}
+
 ## Valve open/close
 
 Widget that displays buttons to open, close, or stop a [valve](/integrations/valve).
 
-<p class='img'>
-  <img src='/images/dashboards/features/valve_open_close.png' alt='Screenshot of the tile card with open/close feature'>
-  Screenshot of the tile card with valve open/close feature
-</p>
+{% include dashboard/demo.html demo="feature_valve_open_close" caption="The tile card with the valve open/close feature." %}
 
 ```yaml
 features:
@@ -1038,10 +1234,7 @@ type:
 
 Widget that displays a slider to control the position for a [valve](/integrations/valve).
 
-<p class='img'>
-  <img src='/images/dashboards/features/valve_position.png' alt='Screenshot of the tile card with the valve position feature'>
-  Screenshot of the tile card with the valve position feature
-</p>
+{% include dashboard/demo.html demo="feature_valve_position" caption="The tile card with the valve position feature." %}
 
 ```yaml
 features:
@@ -1061,10 +1254,7 @@ Widget that displays a dropdown with favorite positions for a [valve](/integrati
 
 You can customize favorites in a valve's **More info** dialog. To edit them, press and hold a favorite.
 
-<p class='img'>
-  <img src='/images/dashboards/features/valve_position_favorite.png' alt='Screenshot of the tile card with the valve favorite positions feature'>
-  Screenshot of the tile card with the valve favorite positions feature
-</p>
+{% include dashboard/demo.html demo="feature_valve_position_favorite" caption="The tile card with the valve favorite positions feature." %}
 
 ```yaml
 features:
@@ -1082,10 +1272,7 @@ type:
 
 Widget that displays buttons to control the operation mode of a [water heater](/integrations/water_heater).
 
-<p class='img'>
-  <img src='/images/dashboards/features/water_heater_operation_modes.png' alt='Screenshot of the tile card with the water heater operation modes feature'>
-  Screenshot of the tile card with the water heater operation modes feature
-</p>
+{% include dashboard/demo.html demo="feature_water_heater_operation_modes" caption="The tile card with the water heater operation modes feature." %}
 
 ```yaml
 features:
@@ -1106,8 +1293,8 @@ type:
   description: "`water-heater-operation-modes`"
   type: string
 operation_modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`.
+  required: false
+  description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`. If not set, all operation modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -1115,10 +1302,7 @@ operation_modes:
 
 Widget that displays buttons to control different types of entities in your area. You can control all entities of a specific domain or select individual entities.
 
-<p class='img'>
-  <img src='/images/dashboards/features/area_controls.png' alt='Screenshot of the area card with the area controls feature'>
-  Screenshot of the area card with the area controls feature
-</p>
+{% include dashboard/demo.html demo="feature_area_controls" caption="The area card with the area controls feature." %}
 
 ```yaml
 features:
@@ -1136,7 +1320,99 @@ type:
   description: "`area-controls`"
   type: string
 controls:
-  required: true
-  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above.
+  required: false
+  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above. If not set, the default set of controls supported in the area is shown.
   type: list
+{% endconfiguration %}
+
+## Temperature forecast
+
+Widget that displays a bar chart of the upcoming high and low temperatures for a [weather](/integrations/weather) entity. When the forecast type is set to hourly, a filled curve is shown instead. By default, the bars use a temperature-aware gradient with cool blues for the lowest values and warm reds for the highest values.
+
+{% include dashboard/demo.html demo="feature_temperature_forecast" caption="The tile card with the temperature forecast feature." %}
+
+```yaml
+features:
+  - type: "temperature-forecast"
+    forecast_type: daily
+    days_to_show: 7
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`temperature-forecast`"
+  type: string
+forecast_type:
+  required: false
+  description: "The forecast resolution to display. The value can be `daily`, `twice_daily`, or `hourly`. When not specified, the best resolution supported by the entity is used, in this order: `daily`, `twice_daily`, `hourly`."
+  type: string
+days_to_show:
+  required: false
+  description: "Number of days to show in the chart. Used when `forecast_type` is `daily` or `twice_daily`."
+  type: integer
+  default: 7
+hours_to_show:
+  required: false
+  description: "Number of hours to show in the chart. Used when `forecast_type` is `hourly`."
+  type: integer
+  default: 24
+color:
+  required: false
+  description: "Color to use for the bars or curve. Accepts any Home Assistant color token or CSS color value. When not specified, a temperature-aware gradient is used."
+  type: string
+show_labels:
+  required: false
+  description: "Show day or hour labels under the chart."
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+## Precipitation forecast
+
+Widget that displays a bar chart of the upcoming precipitation for a [weather](/integrations/weather) entity. You can choose between showing the precipitation amount or the precipitation probability. Empty slots are shown as a small dot to keep the timeline easy to read.
+
+{% include dashboard/demo.html demo="feature_precipitation_forecast" caption="The tile card with the precipitation forecast feature." %}
+
+```yaml
+features:
+  - type: "precipitation-forecast"
+    forecast_type: daily
+    days_to_show: 7
+    precipitation_type: amount
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`precipitation-forecast`"
+  type: string
+forecast_type:
+  required: false
+  description: "The forecast resolution to display. The value can be `daily`, `twice_daily`, or `hourly`. When not specified, the best resolution supported by the entity is used, in this order: `daily`, `twice_daily`, `hourly`."
+  type: string
+days_to_show:
+  required: false
+  description: "Number of days to show in the chart. Used when `forecast_type` is `daily` or `twice_daily`."
+  type: integer
+  default: 7
+hours_to_show:
+  required: false
+  description: "Number of hours to show in the chart. Used when `forecast_type` is `hourly`."
+  type: integer
+  default: 24
+precipitation_type:
+  required: false
+  description: "What to display on the chart. The value can be `amount` to show the precipitation amount, or `probability` to show the chance of precipitation."
+  type: string
+  default: amount
+color:
+  required: false
+  description: "Color to use for the bars. Accepts any Home Assistant color token or CSS color value. Defaults to the rainy weather state color."
+  type: string
+show_labels:
+  required: false
+  description: "Show day or hour labels under the chart."
+  type: boolean
+  default: true
 {% endconfiguration %}

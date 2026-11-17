@@ -1,20 +1,7 @@
 ---
-title: Trane Local
 description: Locally control Trane and American Standard thermostats over the local network.
-ha_category:
-  - Climate
-  - Switch
-ha_iot_class: Local Push
-ha_quality_scale: bronze
 ha_release: 2026.3
-ha_codeowners:
-  - '@bdraco'
 ha_domain: trane
-ha_integration_type: hub
-ha_config_flow: true
-ha_platforms:
-  - climate
-  - switch
 related:
   - docs: /integrations/nexia/
     title: Nexia (Cloud)

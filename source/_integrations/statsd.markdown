@@ -1,16 +1,10 @@
 ---
-title: StatsD
 description: Record events in StatsD.
-ha_category:
-  - History
-ha_iot_class: Local Push
 ha_release: 0.12
 ha_domain: statsd
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **StatsD** {% term integration %} makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.

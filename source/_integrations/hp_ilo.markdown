@@ -1,18 +1,10 @@
 ---
-title: HP Integrated Lights-Out (ILO)
 description: How to integrate HP ILO (Integrated Lights-Out) sensors within Home Assistant.
-ha_category:
-  - System monitor
 ha_release: 0.27
-ha_iot_class: Local Polling
 ha_domain: hp_ilo
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **HP Integrated Lights-Out** {% term integration %} allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.
@@ -99,7 +91,7 @@ Valid sensor_types:
 
 ## Example
 
-In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your {% term "`configuration.yaml`" %} file
+To get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your {% term "`configuration.yaml`" %} file
 
 ```yaml
 sensor:

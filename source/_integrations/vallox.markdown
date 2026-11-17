@@ -1,27 +1,7 @@
 ---
-title: Vallox
 description: Instructions on how to integrate Vallox ventilation units into Home Assistant.
-ha_category:
-  - Fan
-  - Sensor
-  - Switch
-ha_config_flow: true
 ha_release: 0.96
-ha_iot_class: Local Polling
 ha_domain: vallox
-ha_platforms:
-  - binary_sensor
-  - date
-  - fan
-  - number
-  - sensor
-  - switch
-ha_codeowners:
-  - '@andre-richter'
-  - '@slovdahl'
-  - '@viiru-'
-  - '@yozik04'
-ha_integration_type: device
 ---
 
 The **Vallox** {% term integration %} lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
@@ -55,48 +35,17 @@ The number platform gives you control over the supply air temperatures.
 The date platform allows you to set the filter change date.
 
 
-## Profile switching
+## Fan presets
 
-For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan {% term entity %} to get a drop-down menu to select from. Alternatively, the action `fan/set_preset_mode` can be used.
+The presets of the **Vallox** fan {% term entity %} are the ventilation modes of your unit. To switch them in the UI, select the fan and choose a preset. In automations and scripts, use the `fan.set_preset_mode` action with one of these values:
 
-The four standard Vallox profiles are supported:
+- **Home**: `home`
+- **Away**: `away`
+- **Boost**: `boost`
+- **Fireplace / Custom**: `fireplace`. This mode was renamed to **Custom** in firmware 2.0.20.
+- **Extra**: `extra`
+- **Auto**: `auto`. Requires firmware 3.1.4 or newer.
 
-- `Home`
-- `Away`
-- `Boost`
-- `Fireplace`
+The unit doesn't report which modes it supports, so the fan always lists all six presets.
 
-## Fan actions
-
-### Action: Set profile fan speed home
-
-The `vallox.set_profile_fan_speed_home` action sets the fan speed of the `Home` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action: Set profile fan speed away
-
-The `vallox.set_profile_fan_speed_away` action sets the fan speed of the `Away` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action: Set profile fan speed boost
-
-The `vallox.set_profile_fan_speed_boost` action sets the fan speed of the `Boost` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action: Set profile
-
-The `vallox.set_profile` action sets the profile, and optionally a duration for the profile to be active.
-
-| Data attribute | Optional | Description                                                                                                                                                                           |
-|----------------|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `profile`      |       no | Profile to set, one of `home`, `away`, `boost`, `fireplace`, or `extra`.                                                                                                              |
-| `duration`     |      yes | Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace` or `extra` profiles. 65535 sets the profile without a timeout. |
+{% include integrations/actions.md %}

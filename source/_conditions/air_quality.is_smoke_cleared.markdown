@@ -9,8 +9,6 @@ related_conditions:
 
 The **Smoke cleared** condition passes when one or more smoke sensors are no longer detecting smoke. After a smoke event, the last thing you want is to restore normal lighting or send an all-clear while one room still has hazy air. This condition acts as your safety gate, letting your automation continue only after every sensor in the house confirms the air is clear again.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -28,7 +26,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor is cleared, or **All** to pass only when every targeted sensor is cleared.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -46,8 +43,6 @@ This passes when the kitchen smoke sensor is no longer detecting smoke.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -57,13 +52,13 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="smoke detector" example="binary_sensor.hallway_smoke" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as cleared. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check whether smoke is currently detected, use [Smoke detected](/conditions/air_quality.is_smoke_detected/).
 
 {% include conditions/try_it.md %}
@@ -74,11 +69,13 @@ behavior:
 
 After a smoke event, you want to keep the emergency lights on until every room is safe. This automation triggers when you press the reset button, but the condition requires _every_ smoke sensor to read clear before the normal lighting scene restores. If any sensor still detects smoke, the emergency lights stay on.
 
-- **Trigger**: State: Reset lighting button pressed
-- **Condition**: Air Quality: Smoke cleared
-- **Target**: All smoke sensors (kitchen, hallway)
-- **Condition passes if**: All
-- **Action**: Scene: Turn on (normal lighting), then notify
+- **Trigger**: State changed: Reset lighting button pressed
+- **Condition**: Smoke cleared
+  - **Target**: All smoke sensors (kitchen, hallway)
+  - **Condition passes if**: All
+- **Action**: Activate scene (normal lighting)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for restoring lighting only after full smoke all-clear" %}
 
@@ -100,7 +97,9 @@ automation: |
     - action: scene.turn_on
       target:
         entity_id: scene.normal_lighting
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Smoke all-clear"
         message: >

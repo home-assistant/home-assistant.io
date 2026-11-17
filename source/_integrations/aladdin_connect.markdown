@@ -1,20 +1,7 @@
 ---
-title: Aladdin Connect
 description: Instructions on how to integrate Genie Aladdin Connect garage door openers with Home Assistant for monitoring and control.
-ha_category:
-  - Cover
 ha_release: 0.75
-ha_iot_class: Cloud Polling
 ha_domain: aladdin_connect
-ha_platforms:
-  - cover
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_codeowners:
-  - '@swcloudgenie'
-ha_config_flow: true
-ha_dhcp: true
 ---
 
 The **Aladdin Connect** {% term integration %} lets you open, close, and check the status of Genie Aladdin Connect garage doors through Home Assistant. It also reports the battery level of your opener's backup battery.
@@ -29,7 +16,7 @@ Any garage door opener that works with the **AladdinConnect** app should work wi
 
 You need the following before you start:
 
-1. An active [Home Assistant Cloud](https://www.nabucasa.com/) subscription, since the integration authenticates through it.
+1. An active [Home Assistant Link](https://www.nabucasa.com/) subscription, since the integration authenticates through it.
 2. Install the **AladdinConnect** app on your phone and create an account.
 3. Add your garage door opener to the app and confirm you can open and close it.
 
@@ -54,7 +41,7 @@ The **Aladdin Connect** integration provides the following entities.
 - **Battery level**
   - **Description**: The battery level of your opener's backup battery, as a percentage. Useful for knowing when the battery needs replacing.
   - **Entity category**: Diagnostic
-  - **Remarks**: Disabled by default. To use this sensor, enable it manually from the entity's settings.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). To use this sensor, enable it manually from the entity's settings.
 
 
 ## Examples
@@ -78,7 +65,9 @@ triggers:
     for:
       minutes: 10
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Garage door open"
       message: "The garage door has been open for 10 minutes."
@@ -121,14 +110,14 @@ Door status and battery level are updated by {% term polling %} the Aladdin Conn
 - Only doors that are owned by your Aladdin Connect account are available. Doors that your account has been granted shared access to are not supported.
 - There is no position control. You can open or close the door, but you cannot stop it at a specific position.
 - All communication goes through the cloud. There is no local or LAN-based control, so the integration stops working if your internet connection drops.
-- A Home Assistant Cloud subscription is required for authentication.
+- A Home Assistant Link subscription is required for authentication.
  
 
 ## Troubleshooting
 
 ### Setup fails with "cloud not enabled"
 
-This error means Home Assistant Cloud is not active. Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %} and verify you have an active [Home Assistant Cloud](https://www.nabucasa.com/) subscription.
+This error means Home Assistant Link is not active. Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %} and verify you have an active [Home Assistant Link](https://www.nabucasa.com/) subscription.
 
 ### OAuth sign-in fails or times out
 

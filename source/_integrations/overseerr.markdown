@@ -1,23 +1,7 @@
 ---
-title: Seerr
 description: Instructions on how to set up Seerr with Home Assistant.
-ha_category:
-  - Event
-  - Multimedia
-  - Sensor
 ha_release: 2025.2
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@joostlek'
-  - '@AmGarera'
 ha_domain: overseerr
-ha_integration_type: service
-ha_platforms:
-  - diagnostics
-  - event
-  - sensor
-ha_quality_scale: platinum
 ---
 
 Seerr is a service that allows you to manage media requests and to integrate these media requests with Plex, Jellyfin, Radarr, and Sonarr. The **Seerr** {% term integration %} allows you to integrate your [Seerr](https://seerr.dev/) instance. The integration is backward compatible with [Overseerr](https://github.com/sct/overseerr).
@@ -82,23 +66,7 @@ There are sensors for:
  - Audio issues
  - Subtitle issues
 
-## Actions
-
-The Seerr integration has the following actions:
-
-### Request actions
-
-- `seerr.get_requests` - Get a list of media requests
-
-### Get requests
-
-Get a list of media requests using the `seerr.get_requests` action.
-
-- **config_entry_id** (*Required*): The ID of the Seerr config entry to get data from.
-- **status** (*Optional*): The status to filter the results on.
-- **sort_order** (*Optional*): The sort order to sort the results in (`added`/`modified`).
-- **requested_by** (*Optional*): Filter the requests based on the user ID of the requester.
-
+{% include integrations/actions.md %}
 
 ## Use cases
 
@@ -124,7 +92,9 @@ conditions:
       {{ state_attr('event.overseerr_last_media_event', 'event_type') ==
       'pending' }}
 actions:
-  - action: notify.mobile_app
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     metadata: {}
     data:
       message: >-
@@ -144,7 +114,9 @@ triggers:
       - sensor.overseerr_open_issues
     above: 10
 actions:
-  - action: notify.mobile_app
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: >-
         Warning: {{ states('sensor.overseerr_open_issues') }} open issues in Overseerr!
@@ -179,7 +151,9 @@ triggers:
       - sensor.overseerr_video_issues
     above: 5
 actions:
-  - action: notify.mobile_app
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: >-
         Video issues are elevated: {{ states('sensor.overseerr_video_issues') }} issues detected
@@ -200,7 +174,9 @@ conditions:
     entity_id: sensor.overseerr_total_issues
     above: 0
 actions:
-  - action: notify.mobile_app
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Overseerr Daily Report"
       message: >-
@@ -248,5 +224,5 @@ This integration follows standard integration removal, no extra steps are requir
 
 {% details "Failed to register Seerr webhook" %}
 
-Make sure your Seerr instance is able to reach your Home Assistant instance.
+Make sure your Seerr instance can reach your Home Assistant instance.
 {% enddetails %}

@@ -1,18 +1,7 @@
 ---
-title: Google Air Quality
 description: Instructions on how to integrate Google Air Quality into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 2025.12
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Thomas55555'
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ha_domain: google_air_quality
-ha_quality_scale: bronze
 ---
 
 The **Google Air Quality** {% term integration %} provides Air quality data through the Google Air Quality API.
@@ -38,12 +27,40 @@ Coordinates | API calls per month
 Consider each restart of Home Assistant is an additional API call, per coordinate/entry.
 
 You can set up a [budget](https://cloud.google.com/billing/docs/how-to/budgets) for your billing account. This does not limit your costs, but you can get an alert when you reach the budget.
-You may want to setup [disable billing with notifications](https://cloud.google.com/billing/docs/how-to/disable-billing-with-notifications). This can still produce costs between incurring costs and receiving budget notifications.
+You may want to set up [disable billing with notifications](https://cloud.google.com/billing/docs/how-to/disable-billing-with-notifications). This can still produce costs between incurring costs and receiving budget notifications.
 
 Make sure to monitor the cost. If you make too many requests, you will be charged for it. The integration cannot monitor it for you.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
+
+
+### Configuration parameters
+
+{% configuration_basic %}
+API key:
+  description: "The API key, which is described in the prerequisites."
+HTTP Referrer:
+  description: "Specify this only if the API key has a website application restriction."
+Name:
+  description: "A display name for this location, such as Home or Work."
+Latitude:
+  description: "Latitude of your location."
+Longitude:
+  description: "Longitude of your location."
+{% endconfiguration_basic %}
+
+#### Custom local air quality index
+
+If you want to set a custom local Air Quality Index (AQI) during the setup of the integration you can do this in this optional section.
+{% configuration_basic %}
+Enable custom local AQI:
+  description: "Turn on to use a custom local AQI for this location."
+Country:
+  description: "The country of your location."
+Custom local AQI:
+  description: "The custom local AQI."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 

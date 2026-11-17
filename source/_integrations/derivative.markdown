@@ -1,24 +1,7 @@
 ---
-title: Derivative
 description: Instructions on how to integrate Derivative Sensor into Home Assistant.
-ha_category:
-  - Energy
-  - Helper
-  - Sensor
-  - Utility
 ha_release: 0.105
-ha_iot_class: Calculated
-ha_qa_scale: internal
-ha_codeowners:
-  - '@afaucogney'
-  - '@karwosts'
 ha_domain: derivative
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: helper
-ha_quality_scale: internal
 ---
 
 The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) {% term integration %} creates a sensor that estimates the derivative of the
@@ -107,7 +90,7 @@ max_sub_interval:
 For example, you have a temperature sensor `sensor.temperature` that outputs a value every few seconds, but rounds to the nearest half number.
 That means that two consecutive output values might be the same (so the derivative is `Δy/Δx=0` because `Δy=0` !)
 However, the temperature might actually be changing over time.
-In order to capture this, you should use a `time_window`, such that immediate jumps don't result in high derivatives and that after the next sensor update, the derivatives doesn't vanish to zero.
+To capture this, you should use a `time_window`, such that immediate jumps don't result in high derivatives and that after the next sensor update, the derivatives doesn't vanish to zero.
 An example YAML configuration that uses `time_window` is
 
 ```yaml
@@ -119,3 +102,5 @@ sensor:
     unit_time: h # the resulting "unit_of_measurement" will be °C/h if the sensor.temperate has set °C as its unit
     time_window: "00:30:00"  # we look at the change over the last half hour
 ```
+
+{% include integrations/actions.md %}
