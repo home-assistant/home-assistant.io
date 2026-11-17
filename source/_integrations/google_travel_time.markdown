@@ -25,6 +25,8 @@ Notes:
 - Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity ID that provides this information in its state, an entity ID with latitude and longitude attributes, or zone friendly name (case sensitive).
 - When selecting a **Travel routing preference** of **Traffic-aware** or **Traffic-unaware**, the **Traffic model** must not be specified.
 
+{% include integrations/actions.md %}
+
 ## Dynamic Configuration
 
 Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the Origin or Destination then every 5 minutes when the platform updates it will use the latest location of that entity.
