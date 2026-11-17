@@ -589,7 +589,55 @@ def scan_file(path: str, sha: str) -> list[dict]:
             frag = text_fragment(line, a2, b2) if loc in ("Body text", "Heading") and url else ""
             o["live_link"] = (url + "#:~:text=" + frag) if frag else url
             rows.append(o)
+    if ctype == "Blog post" and date and date < RENAME_POST:
+        first_mention(rows)
     return rows
+
+
+FORMERLY = " (formerly known as Home Assistant Cloud)"
+FIRST_NOTE = "First mention in a post from before the rename: adds “formerly known as Home Assistant Cloud”."
+TOC_LINK = re.compile(r"^\s*[-*] \[[^\]]*\]\(#")
+
+
+def first_mention(rows: list[dict]) -> None:
+    """Add "(formerly known as Home Assistant Cloud)" to the first mention in an older blog post.
+
+    The first mention is the first one in the body text. Titles, descriptions,
+    headings, table of contents links, and image alt text only get the new name.
+    When the name is link text, the note goes after the link.
+    """
+    def prose(o: dict) -> bool:
+        line, start = o["_line"], o["_start"]
+        return (o["rewrite"] == "Yes" and o["location"] == "Body text" and bool(o["_new"])
+                and not TOC_LINK.match(line) and line[:start].count("<") <= line[:start].count(">"))
+
+    full = [o for o in rows if prose(o) and o["category"].startswith("Product name")]
+    cand = full or [o for o in rows if prose(o)]
+    if not cand:
+        return
+    o = cand[0]
+    line, a, b = o["_line"], o["_start"], o["_end"]
+    new = o["_new"] if full else NEW_NAME
+    end, extra = b, ""
+    lb, rb = line.rfind("[", 0, a), line.find("]", b)
+    if lb >= 0 and rb >= 0 and "]" not in line[lb:a] and "[" not in line[b:rb]:
+        m = re.match(r"\]\([^)]*\)|\]\[[^\]]*\]|\]", line[rb:])
+        end = rb + m.end()
+        if m.group(0) == "]":
+            extra = " The link uses a reference with the old name: rename the matching reference at the end of the post too."
+    else:
+        close = line.find("</a>", b)
+        if close >= 0 and line.rfind("<a ", 0, a) > line.rfind("</a>", 0, a):
+            end = close + 4
+    if re.match(r"[’']s\b", line[b:]):
+        extra += " Possessive: reword the sentence."
+    if not full:
+        extra += " The post only uses the short name, so the full name is added here."
+    s, e = sentence_bounds(line, a, end)
+    ctx, ms, me = clip(line, s, e, a, end)
+    o["suggestion"] = ctx[:ms] + "«" + new + line[b:end] + FORMERLY + "»" + ctx[me:]
+    o["notes"] = (FIRST_NOTE + extra + (" " + o["notes"] if o["notes"] else "")).strip()
+    o["confidence"] = "Review"
 
 
 def tl_is_identifier(token: str, line: str, a: int) -> bool:

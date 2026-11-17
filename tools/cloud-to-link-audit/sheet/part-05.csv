@@ -1,3 +1,56 @@
+4826,No,High,Pull request title in release notes,- Remove cloud from mypy ignore list ([@epenet] - [#74449]) ([«cloud» docs]) ([webhook docs]),,cloud,Changelog,Body text,source/changelogs/core-2022.8.markdown,332,/changelogs/core-2022.8/#:~:text=cloud%20docs,Verbatim pull request title from Home Assistant Core about the Cloud integration. Historical record.,63
+4827,No,High,Third-party or integration name,- Bump homematicip 1.0.5 ([@hahn-th] - [#75334]) ([«homematicip_cloud» docs]) (dependency),,homematicip_cloud,Changelog,Body text,source/changelogs/core-2022.8.markdown,354,/changelogs/core-2022.8/#:~:text=homematicip_cloud%20docs,,64
+4828,No,High,Third-party or integration name,- Update «google-cloud-texttospeech» to 2.12.0 ([@frenck] - [#75401]),,google-cloud-texttospeech,Changelog,Body text,source/changelogs/core-2022.8.markdown,378,/changelogs/core-2022.8/#:~:text=Update%20google%2Dcloud%2Dtexttospeech%20to%202,,17
+4829,No,High,Pull request title in release notes,- Allow account linking to phase out services ([@frenck] - [#75447]) ([«cloud» docs]),,cloud,Changelog,Body text,source/changelogs/core-2022.8.markdown,417,/changelogs/core-2022.8/#:~:text=cloud%20docs,Verbatim pull request title from Home Assistant Core about the Cloud integration. Historical record.,72
+4830,No,High,Third-party or integration name,- Update icons for backward-incompatible changes in MDI 7.0.96 ([@bramkragten] - [#75560]) ([huawei_lte docs]) ([«icloud» docs]) ([netgear docs]) (breaking-change) (noteworthy),,icloud,Changelog,Body text,source/changelogs/core-2022.8.markdown,438,/changelogs/core-2022.8/#:~:text=icloud%20docs,,115
+4831,No,High,Third-party or integration name,- Add device HmIP-STE2-PCB to «homematicip_cloud» ([@hahn-th] - [#75369]) ([homematicip_cloud docs]),,homematicip_cloud,Changelog,Body text,source/changelogs/core-2022.8.markdown,503,/changelogs/core-2022.8/#:~:text=Add%20device%20HmIP%2DSTE2%2DPCB%20to%20homematicip_cloud,,43
+4832,No,High,Third-party or integration name,- Add device HmIP-STE2-PCB to homematicip_cloud ([@hahn-th] - [#75369]) ([«homematicip_cloud» docs]),,homematicip_cloud,Changelog,Body text,source/changelogs/core-2022.8.markdown,503,/changelogs/core-2022.8/#:~:text=homematicip_cloud%20docs,,87
+4833,No,High,Generic cloud (concept or other vendors),[«cloud» docs]: /integrations/cloud/,,cloud,Changelog,Body text,source/changelogs/core-2022.8.markdown,1378,/changelogs/core-2022.8/#:~:text=cloud%20docs,,2
+4834,No,High,"Home Assistant Cloud: URL, anchor, or file path",[cloud docs]: /integrations/«cloud»/,,cloud,Changelog,URL or file path,source/changelogs/core-2022.8.markdown,1378,/changelogs/core-2022.8/,"Not copy. Changes only if the page, anchor, or file is renamed, and then needs a redirect.",29
+4835,No,High,Third-party or integration name,[«homematicip_cloud» docs]: /integrations/homematicip_cloud/,,homematicip_cloud,Changelog,Body text,source/changelogs/core-2022.8.markdown,1447,/changelogs/core-2022.8/#:~:text=homematicip_cloud%20docs,,14
+4836,No,High,URL or file path (other),[homematicip_cloud docs]: /integrations/«homematicip_cloud»/,,homematicip_cloud,Changelog,URL or file path,source/changelogs/core-2022.8.markdown,1447,/changelogs/core-2022.8/,,53
+4837,No,High,Third-party or integration name,[«icloud» docs]: /integrations/icloud/,,icloud,Changelog,Body text,source/changelogs/core-2022.8.markdown,1451,/changelogs/core-2022.8/#:~:text=icloud%20docs,,3
+4838,No,High,URL or file path (other),[icloud docs]: /integrations/«icloud»/,,icloud,Changelog,URL or file path,source/changelogs/core-2022.8.markdown,1451,/changelogs/core-2022.8/,,31
+4839,No,High,Third-party or integration name,[«melcloud» docs]: /integrations/melcloud/,,melcloud,Changelog,Body text,source/changelogs/core-2022.8.markdown,1479,/changelogs/core-2022.8/#:~:text=melcloud%20docs,,5
+4840,No,High,URL or file path (other),[melcloud docs]: /integrations/«melcloud»/,,melcloud,Changelog,URL or file path,source/changelogs/core-2022.8.markdown,1479,/changelogs/core-2022.8/,,35
+4841,No,High,Generic cloud (concept or other vendors),- Update offline keys from august «cloud» for august branded yale locks ([@bdraco] - [#76577]) ([august docs]),,cloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,174,/changelogs/core-2022.9/#:~:text=Update%20offline%20keys%20from%20august%20cloud%20for%20august%20branded%20yale%20locks,Pull request title in release notes.,35
+4842,No,High,Third-party or integration name,- Update «google-cloud-texttospeech» to 2.12.1 ([@frenck] - [#76854]) ([google_cloud docs]) (dependency),,google-cloud-texttospeech,Changelog,Body text,source/changelogs/core-2022.9.markdown,251,/changelogs/core-2022.9/#:~:text=Update%20google%2Dcloud%2Dtexttospeech%20to%202,,17
+4843,No,High,Third-party or integration name,- Update google-cloud-texttospeech to 2.12.1 ([@frenck] - [#76854]) ([«google_cloud» docs]) (dependency),,google_cloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,251,/changelogs/core-2022.9/#:~:text=google_cloud%20docs,,78
+4844,No,High,Pull request title in release notes,- Update hass-nabucasa to 0.55.0 ([@frenck] - [#76892]) ([«cloud» docs]) (dependency),,cloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,265,/changelogs/core-2022.9/#:~:text=cloud%20docs,Verbatim pull request title from Home Assistant Core about the Cloud integration. Historical record.,59
+4845,No,High,Third-party product or service name,- Adjust version comparison in HA «Cloud» account linking ([@frenck] - [#76978]) ([cloud docs]),,Cloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,299,/changelogs/core-2022.9/#:~:text=Adjust%20version%20comparison%20in%20HA%20Cloud%20account%20linking,Part of “HA Cloud”.,35
+4846,No,High,Pull request title in release notes,- Adjust version comparison in HA Cloud account linking ([@frenck] - [#76978]) ([«cloud» docs]),,cloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,299,/changelogs/core-2022.9/#:~:text=cloud%20docs,Verbatim pull request title from Home Assistant Core about the Cloud integration. Historical record.,82
+4847,No,High,Third-party or integration name,- Improve type hints in «icloud» ([@epenet] - [#77531]) ([icloud docs]),,icloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,585,/changelogs/core-2022.9/#:~:text=Improve%20type%20hints%20in%20icloud,,26
+4848,No,High,Third-party or integration name,- Improve type hints in icloud ([@epenet] - [#77531]) ([«icloud» docs]),,icloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,585,/changelogs/core-2022.9/#:~:text=icloud%20docs,,58
+4849,No,High,Third-party or integration name,- Implement reauth_confirm in «icloud» ([@epenet] - [#77530]) ([icloud docs]),,icloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,609,/changelogs/core-2022.9/#:~:text=in%20icloud,,32
+4850,No,High,Third-party or integration name,- Implement reauth_confirm in icloud ([@epenet] - [#77530]) ([«icloud» docs]),,icloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,609,/changelogs/core-2022.9/#:~:text=icloud%20docs,,64
+4851,No,High,Third-party or integration name,- Fix sync context in «icloud» ([@epenet] - [#77582]) ([icloud docs]),,icloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,611,/changelogs/core-2022.9/#:~:text=Fix%20sync%20context%20in%20icloud,,24
+4852,No,High,Third-party or integration name,- Fix sync context in icloud ([@epenet] - [#77582]) ([«icloud» docs]),,icloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,611,/changelogs/core-2022.9/#:~:text=icloud%20docs,,56
+4853,No,High,Generic cloud (concept or other vendors),[«cloud» docs]: /integrations/cloud/,,cloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,1573,/changelogs/core-2022.9/#:~:text=cloud%20docs,,2
+4854,No,High,"Home Assistant Cloud: URL, anchor, or file path",[cloud docs]: /integrations/«cloud»/,,cloud,Changelog,URL or file path,source/changelogs/core-2022.9.markdown,1573,/changelogs/core-2022.9/,"Not copy. Changes only if the page, anchor, or file is renamed, and then needs a redirect.",29
+4855,No,High,Third-party or integration name,[«google_cloud» docs]: /integrations/google_cloud/,,google_cloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,1637,/changelogs/core-2022.9/#:~:text=google_cloud%20docs,,9
+4856,No,High,URL or file path (other),[google_cloud docs]: /integrations/«google_cloud»/,,google_cloud,Changelog,URL or file path,source/changelogs/core-2022.9.markdown,1637,/changelogs/core-2022.9/,,43
+4857,No,High,Third-party or integration name,[«icloud» docs]: /integrations/icloud/,,icloud,Changelog,Body text,source/changelogs/core-2022.9.markdown,1662,/changelogs/core-2022.9/#:~:text=icloud%20docs,,3
+4858,No,High,URL or file path (other),[icloud docs]: /integrations/«icloud»/,,icloud,Changelog,URL or file path,source/changelogs/core-2022.9.markdown,1662,/changelogs/core-2022.9/,,31
+4859,No,High,Third-party or integration name,- Use attributes in «homematicip_cloud» ([@epenet] - [#83295]),,homematicip_cloud,Changelog,Body text,source/changelogs/core-2023.1.markdown,85,/changelogs/core-2023.1/#:~:text=Use%20attributes%20in%20homematicip_cloud,,33
+4860,No,High,Third-party or integration name,- Upgrade «google-cloud-pubsub» to 2.13.11 ([@frenck] - [#83419]),,google-cloud-pubsub,Changelog,Body text,source/changelogs/core-2023.1.markdown,140,/changelogs/core-2023.1/#:~:text=Upgrade%20google%2Dcloud%2Dpubsub%20to%202,,18
+4861,No,High,Third-party or integration name,- Use Unit enums in «MELCloud» sensors ([@ollo69] - [#84036]),,MELCloud,Changelog,Body text,source/changelogs/core-2023.1.markdown,297,/changelogs/core-2023.1/#:~:text=Use%20Unit%20enums%20in%20MELCloud%20sensors,,24
+4862,No,High,Third-party or integration name,- Handle zone exception when setting up «Cloudflare» ([@ludeeus] - [#85110]),,Cloudflare,Changelog,Body text,source/changelogs/core-2023.1.markdown,636,/changelogs/core-2023.1/#:~:text=Handle%20zone%20exception%20when%20setting%20up%20Cloudflare,,41
+4863,No,High,Generic cloud (concept or other vendors),[«cloud» docs]: /integrations/cloud/,,cloud,Changelog,Body text,source/changelogs/core-2023.1.markdown,1398,/changelogs/core-2023.1/#:~:text=cloud%20docs,,2
+4864,No,High,"Home Assistant Cloud: URL, anchor, or file path",[cloud docs]: /integrations/«cloud»/,,cloud,Changelog,URL or file path,source/changelogs/core-2023.1.markdown,1398,/changelogs/core-2023.1/,"Not copy. Changes only if the page, anchor, or file is renamed, and then needs a redirect.",29
+4865,No,High,Third-party or integration name,[«cloudflare» docs]: /integrations/cloudflare/,,cloudflare,Changelog,Body text,source/changelogs/core-2023.1.markdown,1399,/changelogs/core-2023.1/#:~:text=cloudflare%20docs,,2
+4866,No,High,URL or file path (other),[cloudflare docs]: /integrations/«cloudflare»/,,cloudflare,Changelog,URL or file path,source/changelogs/core-2023.1.markdown,1399,/changelogs/core-2023.1/,,34
+4867,No,High,Third-party or integration name,[«homematicip_cloud» docs]: /integrations/homematicip_cloud/,,homematicip_cloud,Changelog,Body text,source/changelogs/core-2023.1.markdown,1471,/changelogs/core-2023.1/#:~:text=homematicip_cloud%20docs,,14
+4868,No,High,URL or file path (other),[homematicip_cloud docs]: /integrations/«homematicip_cloud»/,,homematicip_cloud,Changelog,URL or file path,source/changelogs/core-2023.1.markdown,1471,/changelogs/core-2023.1/,,53
+4869,No,High,Third-party or integration name,[«melcloud» docs]: /integrations/melcloud/,,melcloud,Changelog,Body text,source/changelogs/core-2023.1.markdown,1507,/changelogs/core-2023.1/#:~:text=melcloud%20docs,,5
+4870,No,High,URL or file path (other),[melcloud docs]: /integrations/«melcloud»/,,melcloud,Changelog,URL or file path,source/changelogs/core-2023.1.markdown,1507,/changelogs/core-2023.1/,,35
+4871,No,High,Third-party or integration name,- Use shorthand attributes in «iCloud» ([@joostlek] - [#99390]),,iCloud,Changelog,Body text,source/changelogs/core-2023.10.markdown,23,/changelogs/core-2023.10/#:~:text=Use%20shorthand%20attributes%20in%20iCloud,,32
+4872,No,High,Third-party or integration name,- Bump «homematicip_cloud» to 1.0.15 ([@hahn-th] - [#99387]),,homematicip_cloud,Changelog,Body text,source/changelogs/core-2023.10.markdown,316,/changelogs/core-2023.10/#:~:text=Bump%20homematicip_cloud%20to%201,,20
+4873,No,High,Third-party or integration name,- Use more shorthand properties in «homematicip_cloud» ([@bdraco] - [#100210]),,homematicip_cloud,Changelog,Body text,source/changelogs/core-2023.10.markdown,321,/changelogs/core-2023.10/#:~:text=Use%20more%20shorthand%20properties%20in%20homematicip_cloud,,48
+4874,No,High,Generic cloud (concept or other vendors),- Add switchbot «cloud» integration ([@SeraphicRav] - [#99607]),,cloud,Changelog,Body text,source/changelogs/core-2023.10.markdown,449,/changelogs/core-2023.10/#:~:text=Add%20switchbot%20cloud%20integration,Pull request title in release notes.,17
+4875,No,High,Third-party or integration name,- Bump «aioairzone-cloud» to 0.2.2 ([@Noltari] - [#100915]),,aioairzone-cloud,Changelog,Body text,source/changelogs/core-2023.10.markdown,632,/changelogs/core-2023.10/#:~:text=Bump%20aioairzone%2Dcloud%20to%200,,19
+4876,No,Review,Home Assistant Cloud: feature term (cloudhook),- Support «cloudhooks» in Withings ([@joostlek] - [#100916]),,cloudhooks,Changelog,Body text,source/changelogs/core-2023.10.markdown,663,/changelogs/core-2023.10/#:~:text=Support%20cloudhooks%20in%20Withings,"Feature name used in the product UI and Core. Follows the product, not the website copy.",11
+4877,No,High,Generic cloud (concept or other vendors),- Add test helper for «cloud» status updates ([@joostlek] - [#100993]),,cloud,Changelog,Body text,source/changelogs/core-2023.10.markdown,697,/changelogs/core-2023.10/#:~:text=Add%20test%20helper%20for%20cloud%20status%20updates,Pull request title in release notes.,23
+4878,No,High,Third-party product or service name,- Implement Airzone «Cloud» Zone climate support ([@Noltari] - [#100792]),,Cloud,Changelog,Body text,source/changelogs/core-2023.10.markdown,700,/changelogs/core-2023.10/#:~:text=Implement%20Airzone%20Cloud%20Zone%20climate%20support,Part of “Airzone Cloud”.,21
 4879,No,High,Third-party or integration name,- Update «aioairzone-cloud» to v0.2.3 ([@Noltari] - [#101052]),,aioairzone-cloud,Changelog,Body text,source/changelogs/core-2023.10.markdown,720,/changelogs/core-2023.10/#:~:text=Update%20aioairzone%2Dcloud%20to%20v0,,21
 4880,No,High,Third-party product or service name,- Implement Airzone «Cloud» Aidoo climate support ([@Noltari] - [#101011]),,Cloud,Changelog,Body text,source/changelogs/core-2023.11.markdown,17,/changelogs/core-2023.11/#:~:text=Implement%20Airzone%20Cloud%20Aidoo%20climate%20support,Part of “Airzone Cloud”.,21
 4881,No,High,Third-party product or service name,- Implement Airzone «Cloud» Group climate support ([@Noltari] - [#101018]),,Cloud,Changelog,Body text,source/changelogs/core-2023.11.markdown,21,/changelogs/core-2023.11/#:~:text=Implement%20Airzone%20Cloud%20Group%20climate%20support,Part of “Airzone Cloud”.,21
@@ -1600,89 +1653,3 @@
 6478,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/myneomitis.json,15,,,6
 6479,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»""",,cloud_polling,Integration metadata,Code block,source/_data/integrations/myq.json,5,,,17
 6480,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/mythicbeastsdns.json,4,,,17
-6481,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/mythicbeastsdns.json,10,,,6
-6482,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/myuplink.json,10,,,17
-6483,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/myuplink.json,16,,,6
-6484,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/namecheapdns.json,9,,,17
-6485,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/namecheapdns.json,15,,,6
-6486,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nature_remo.json,9,,,17
-6487,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nature_remo.json,17,,,6
-6488,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/neato.json,6,,,17
-6489,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/neato.json,11,,,6
-6490,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nederlandse_spoorwegen.json,10,,,17
-6491,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nederlandse_spoorwegen.json,15,,,6
-6492,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/nest.json,9,,,17
-6493,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nest.json,16,,,6
-6494,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/netatmo.json,9,,,17
-6495,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/netatmo.json,17,,,6
-6496,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/neurio_energy.json,4,,,17
-6497,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/neurio_energy.json,10,,,6
-6498,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nexblue.json,9,,,17
-6499,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nexblue.json,15,,,6
-6500,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nexia.json,9,,,17
-6501,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nexia.json,14,,,6
-6502,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nextbus.json,9,,,17
-6503,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nextbus.json,14,,,6
-6504,No,High,Code or identifier (other),"""domain"": ""«nextcloud»"",",,nextcloud,Integration metadata,Data value,source/_data/integrations/nextcloud.json,2,,,18
-6505,No,High,Code or identifier (other),"""name"": ""«Nextcloud»"",",,Nextcloud,Integration metadata,Data value,source/_data/integrations/nextcloud.json,3,,,16
-6506,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nextcloud.json,9,,,17
-6507,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/nextcloud.json,14,,,6
-6508,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nextdns.json,9,,,17
-6509,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nextdns.json,15,,,6
-6510,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/nice_go.json,9,,,17
-6511,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nice_go.json,14,,,6
-6512,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nightscout.json,9,,,17
-6513,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/nightscout.json,14,,,6
-6514,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nilu.json,7,,,17
-6515,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nilu.json,13,,,6
-6516,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nina.json,9,,,17
-6517,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nina.json,15,,,6
-6518,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nintendo_parental_controls.json,9,,,17
-6519,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nintendo_parental_controls.json,15,,,6
-6520,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nissan_leaf.json,7,,,17
-6521,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nissan_leaf.json,13,,,6
-6522,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nmbs.json,6,,,17
-6523,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nmbs.json,11,,,6
-6524,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/no_ip.json,4,,,17
-6525,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/no_ip.json,10,,,6
-6526,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/noaa_tides.json,7,,,17
-6527,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/noaa_tides.json,13,,,6
-6528,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nordpool.json,9,,,17
-6529,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nordpool.json,15,,,6
-6530,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/norway_air.json,4,,,17
-6531,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/norway_air.json,10,,,6
-6532,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/notify_events.json,8,,,17
-6533,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/notify_events.json,14,,,6
-6534,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/notion.json,9,,,17
-6535,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/notion.json,15,,,6
-6536,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nsw_fuel_station.json,7,,,17
-6537,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nsw_fuel_station.json,13,,,6
-6538,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nsw_rural_fire_service_feed.json,8,,,17
-6539,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nsw_rural_fire_service_feed.json,14,,,6
-6540,No,High,Code or identifier (other),"""iot_class"": ""«cloud_push»"",",,cloud_push,Integration metadata,Code block,source/_data/integrations/ntfy.json,9,,,17
-6541,No,High,Code or identifier (other),"""«cloud»"",",,cloud,Integration metadata,Data value,source/_data/integrations/ntfy.json,15,,,6
-6542,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nuheat.json,9,,,17
-6543,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nuheat.json,14,,,6
-6544,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nws.json,10,,,17
-6545,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nws.json,15,,,6
-6546,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/nyt_games.json,9,,,17
-6547,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/nyt_games.json,14,,,6
-6548,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/oasa_telematics.json,4,,,17
-6549,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/oasa_telematics.json,10,,,6
-6550,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ohmconnect.json,7,,,17
-6551,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ohmconnect.json,13,,,6
-6552,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ohme.json,9,,,17
-6553,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ohme.json,15,,,6
-6554,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/omie.json,9,,,17
-6555,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/omie.json,15,,,6
-6556,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/omnilogic.json,6,,,17
-6557,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/omnilogic.json,11,,,6
-6558,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/oncue.json,5,,,17
-6559,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/ondilo_ico.json,9,,,17
-6560,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/ondilo_ico.json,14,,,6
-6561,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/onedrive.json,9,,,17
-6562,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/onedrive.json,15,,,6
-6563,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/onedrive_for_business.json,9,,,17
-6564,No,High,Code or identifier (other),"""computers_network.«cloud_developer_tools»""",,cloud_developer_tools,Integration metadata,Code block,source/_data/integrations/onedrive_for_business.json,12,,,24
-6565,No,High,Code or identifier (other),"""«cloud»""",,cloud,Integration metadata,Data value,source/_data/integrations/onedrive_for_business.json,15,,,6
-6566,No,High,Code or identifier (other),"""iot_class"": ""«cloud_polling»"",",,cloud_polling,Integration metadata,Code block,source/_data/integrations/open_meteo.json,9,,,17
