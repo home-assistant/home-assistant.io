@@ -88,7 +88,7 @@ To expose a single entity from its settings:
    - If the entity is already listed on the **Expose** tab, you can also select it there, and continue with step 4.
 2. Select **Settings** {% icon "mdi:cog-outline" %}.
 3. Select **Voice assistants**.
-4. Under **Expose**, turn on the voice assistant.
+4. Under **Expose**, turn on the voice assistant you want to use. If you only see the main **Expose** switch, use the [Expose tab](#exposing-entities-from-the-expose-tab) to choose a single assistant. The main switch exposes the entity to all supported assistants managed in the UI.
    - Result: The change takes effect right away.
    - For example, turn on **Assist**.
    - If a voice assistant shows **Unsupported**, it can't control this kind of entity.
