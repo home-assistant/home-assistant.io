@@ -39,9 +39,6 @@ The **Tractive** integration provides the following entities for each pet regist
 
 - **Activity time**
   - **Description**: Time your pet has been active today.
-- **Bark status**
-  - **Description**: Status of your pet's barking compared to its usual level, as shown in the Tractive app.
-  - **Options**: Normal
 - **Battery**
   - **Description**: Battery level of the tracker.
 - **Daily goal**
@@ -69,7 +66,7 @@ The **Tractive** integration provides the following entities for each pet regist
   - **Remarks**: The entity state is `unknown` if no weight is set for your pet. Home Assistant checks for weight changes every 30 minutes.
 
 {% note %}
-The **Activity time**, **Bark status**, **Daily goal**, **Day sleep**, **Night sleep**, **Rest time**, **Resting heart rate status**, **Resting respiratory rate status**, and **Scratch status** sensors are only created for pets whose tracker provides health data. Trackers without health features and trackers with an inactive subscription do not provide this data.
+The **Activity time**, **Daily goal**, **Day sleep**, **Night sleep**, **Rest time**, **Resting heart rate status**, **Resting respiratory rate status**, and **Scratch status** sensors are only created for pets whose tracker provides health data. Trackers without health features and trackers with an inactive subscription do not provide this data.
 Until the tracker has uploaded enough of the day's data, a health status sensor can show the status of the previous day.
 The state of a health status sensor is `unknown` while Tractive is calculating the baseline for your pet, before the tracker has synced its data, and on days without enough data.
 {% endnote %}
