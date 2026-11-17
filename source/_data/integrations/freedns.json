@@ -5,5 +5,8 @@
   "quality_scale": "legacy",
   "categories": [
     "computers_network.routers_network"
+  ],
+  "connectivity": [
+    "cloud"
   ]
 }

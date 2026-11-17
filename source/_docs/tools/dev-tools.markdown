@@ -144,7 +144,7 @@ The list shows the following columns:
 
 ### Viewing the action history
 
-1. Go to **Settings** > **Tools** > **Action history**.
+1. Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %}.
    - Result: The list shows the actions performed from the start of the previous hour until now.
 2. Optional: To show a different period, at the top of the list, select the date range. Select a preset, or select a start and end date and time.
 3. Optional: To find an action, enter text in the search box. The search matches the action name, the action ID, the targets, and the cause.
@@ -152,7 +152,7 @@ The list shows the following columns:
 
 ### Viewing the details of an action
 
-1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+1. Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %} and select an action from the list.
    - Result: A dialog shows the details of the action:
      - **Time**: The date and time the action was performed, to the second.
      - **Cause**: What or who performed the action and, if available, what triggered it.
@@ -165,7 +165,7 @@ The list shows the following columns:
 
 You can copy the YAML of an action and use it in an automation or a script.
 
-1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+1. Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %} and select an action from the list.
 2. In the action dialog, select **Copy as YAML** {% icon "mdi:content-copy" %} button to copy the YAML.
    - Result: The action is copied with its targets and data, in the same format as an action in an automation.
 
@@ -173,7 +173,7 @@ You can copy the YAML of an action and use it in an automation or a script.
 
 To perform an action again with the same data:
 
-1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+1. Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %} and select an action from the list.
 2. In the action dialog, select **Perform again**. This button is only shown if the action is still available.
    - Result: The action runs again, and controls the same devices as the first time.
 

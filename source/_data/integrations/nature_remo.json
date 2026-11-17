@@ -13,6 +13,9 @@
     "energy.meters_monitoring",
     "sensors.temperature_humidity"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

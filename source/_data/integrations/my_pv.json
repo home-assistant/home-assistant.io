@@ -11,10 +11,15 @@
   "quality_scale": "silver",
   "categories": [
     "energy.solar_batteries",
-    "climate.water_heaters"
+    "climate.water_heaters",
+    "climate.thermostats_heating"
+  ],
+  "connectivity": [
+    "network"
   ],
   "platforms": [
     "button",
+    "climate",
     "diagnostics",
     "number",
     "select",

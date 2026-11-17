@@ -11,6 +11,12 @@
     "media_entertainment",
     "computers_network.nas_servers"
   ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "diagnostics"
+  ],
   "discovery": [
     "ssdp"
   ]

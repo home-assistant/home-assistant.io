@@ -2,6 +2,7 @@
 title: "Count the Omer"
 action: jewish_calendar.count_omer
 domain: jewish_calendar
+response: required
 description: "Returns the phrase for counting the Omer on a given date."
 ---
 
@@ -88,6 +89,8 @@ language:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the following data:
 

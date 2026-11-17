@@ -12,6 +12,10 @@
   "categories": [
     "hubs_protocols.building_automation"
   ],
+  "connectivity": [
+    "network",
+    "serial"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

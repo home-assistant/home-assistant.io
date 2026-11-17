@@ -11,6 +11,8 @@ ha_domain: e3dc
 ha_config_flow: true
 ha_integration_type: device
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - sensor
 ha_quality_scale: bronze
 ha_zeroconf: true
@@ -23,10 +25,13 @@ The **E3/DC** {% term integration %} connects Home Assistant to an E3/DC home po
 - Seeing where your power goes. Solar production, battery charging and discharging, house consumption and grid import and export are all live sensors.
 - Running appliances on surplus solar. Start a heavy load once the solar power exceeds what the house uses.
 - Knowing when the house runs on backup power. The emergency power sensor shows when the power station supplies the house during a grid failure.
+- Noticing when backup power is not ready. The **Emergency power ready** binary sensor shows whether the power station can switch to emergency power. How long it can then supply the house depends on the battery's charge, which the **Battery** sensor shows.
 
 ## Supported devices
 
 The integration supports E3/DC home power stations whose Modbus interface uses the E3/DC protocol ("Simple Mode"), such as the S10 E, S10 E PRO, S10 X, S20 X PRO and E3/DC one, and the systems running the Q10 and P10 firmware lines.
+
+Newer firmware releases add registers: the failsafe timeouts from release 2025_06, the inverter mode from release 2025_43, and the battery's limits and stored energy from release 2026_04. The SG Ready status comes with the 32-bit power meter values. The integration checks which of these your firmware serves during setup and adds only the matching entities. After a firmware update, reload the integration.
 
 ## Unsupported devices
 
@@ -55,6 +60,18 @@ A discovered power station is set up on the default port `502`. If you set a dif
 Home Assistant can share a Modbus connection between integrations. Another integration that already talks to the same power station shares the connection instead of opening a second one.
 {% endnote %}
 
+## Reconfiguration
+
+If the power station gets a new IP address or you change its Modbus port, you can update the entry without removing the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **E3/DC** integration.
+2. Next to the power station entry, select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
+3. Update the **Host** and **Port**, then select **Submit**.
+
+The integration reads the serial number again and accepts the new settings only if they lead to the same power station.
+
+When Home Assistant discovers the power station at a new IP address, it updates the host by itself.
+
 ## Supported functionality
 
 ### Sensors
@@ -73,9 +90,26 @@ These sensors depend on the installed hardware:
 
 The integration checks the wallboxes and power meters when it starts. After you add a wallbox or a power meter, reload the integration.
 
+These sensors depend on the firmware:
+
+- **Stored energy**, **Battery capacity**, **Maximum charge power** and **Maximum discharge power**, if the power station reports its battery capacity. Maximum discharge power is negative. All but stored energy are diagnostic sensors.
+- **Inverter mode**, a diagnostic sensor. It shows normal operation, or the idle, off-grid power save mode.
+- **Active power failsafe timeout** and **Reactive power failsafe timeout**, diagnostic sensors that are disabled by default. They show how long an active or reactive power setpoint holds. A timeout of 0 turns the failsafe off.
+- **SG Ready status**, a diagnostic sensor that is disabled by default. It shows the SG Ready operating state: **Blocked**, **Normal operation**, **Switch-on recommended** or **Forced on**. Any other value shows as unknown.
+
+### Binary sensors
+
+The power station device has these binary sensors:
+
+- **Charging locked** and **Discharging locked**: the energy management system has blocked the battery.
+- **Emergency power ready**: emergency power is available once the battery is charged.
+- **Charging limited by forecast**: the weather forecast holds back charging capacity for the expected sunshine. This shows whether that is happening right now, not whether the forecast setting is on.
+- **Feed-in limited**: output is throttled because the maximum feed-in was reached.
+- **Charging lockout period** and **Discharging lockout period**: a lockout time from **Smart Charge** is active. Disabled by default.
+
 ## Data updates
 
-The integration polls the power flows every 5 seconds.
+The integration polls the power station every 5 seconds.
 
 ## Troubleshooting
 
@@ -111,7 +145,7 @@ Home Assistant got no answer from the power station at the host and port you ent
 
 1. Check that Modbus is turned on in the power station's **Smart Home** menu, and that the port matches.
 2. Check that Home Assistant is in the same subnet as the power station. The power station answers Modbus requests only from devices in its own subnet.
-3. Check that the host is the power station's current IP address. To keep it from changing, give the power station a fixed IP address in your router.
+3. Check that the host is the power station's current IP address. If it changed, [reconfigure](#reconfiguration) the entry with the new address. To keep it from changing, give the power station a fixed IP address in your router.
 
 {% enddetails %}
 
@@ -127,8 +161,8 @@ Home Assistant recognizes your power station by the serial number it read when y
 
 #### Resolution
 
-1. Give the power station of this entry its old IP address back, for example with a fixed IP address in your router.
-2. To use the power station that answers now, delete this entry and add the integration again.
+1. If the power station of this entry moved to a new IP address, [reconfigure](#reconfiguration) the entry with that address. A fixed IP address in your router keeps it from moving again.
+2. To use the power station that answers now instead, add it as a new entry and delete this one.
 
 {% enddetails %}
 

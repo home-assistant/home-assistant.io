@@ -12,6 +12,9 @@
     "weather_alerts.forecasts",
     "weather_alerts.public_warnings"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "camera",
     "diagnostics",

@@ -8,8 +8,12 @@
   ],
   "config_flow": true,
   "iot_class": "local_polling",
+  "quality_scale": "silver",
   "categories": [
     "media_entertainment.tv_streaming"
+  ],
+  "connectivity": [
+    "network"
   ],
   "platforms": [
     "button",
@@ -18,6 +22,7 @@
     "remote"
   ],
   "discovery": [
+    "dhcp",
     "ssdp"
   ]
 }
