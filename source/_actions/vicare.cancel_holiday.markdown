@@ -56,7 +56,7 @@ program:
 
 ## Good to know
 
-- The holiday program applies to the whole device, so cancelling it through one climate entity cancels it for all heating circuits of the device.
+- The holiday program applies to the whole device, so cancelling it through one climate entity cancels it for all heating circuits of the device. Target only one climate entity per device: every additional one sends the same command again and counts against the daily API limit.
 - Not every device has the **Holiday at home** program. If yours doesn't, the action fails with an error saying the device does not support it.
 
 {% include actions/try_it.md %}

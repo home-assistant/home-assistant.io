@@ -73,7 +73,7 @@ end_date:
 
 ## Good to know
 
-- The holiday program applies to the whole device, not only to the heating circuit of the climate entity you target.
+- The holiday program applies to the whole device, not only to the heating circuit of the climate entity you target. Target only one climate entity per device: every additional one sends the same command again and counts against the daily API limit.
 - Not every device has the **Holiday at home** program. If yours doesn't, the action fails with an error saying the device does not support it.
 - Some devices reject a holiday that starts and ends on the same day.
 - The **Holiday** and **Holiday at home** binary sensors and their start and end date sensors show the scheduled holiday.
