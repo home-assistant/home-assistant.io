@@ -536,7 +536,7 @@ Masquerading does not change the callback address, so the TV connects to Home As
 
 #### Turning on the TV
 
-Wake on LAN packets are broadcasts and are not forwarded between subnets. If the TV is on another subnet, use a `turn_on` action that does not rely on Wake on LAN, for example turning on a device connected to the TV over HDMI-CEC.
+Wake on LAN broadcasts are not forwarded between subnets by default. If your router supports it, you can configure magic packet forwarding to the TV's subnet and use the [**Send magic packet**](/actions/wake_on_lan.send_magic_packet/#good-to-know) action. Otherwise, use the [**Device is requested to turn on**](/triggers/samsungtv.turn_on/) trigger with an action that can power on the TV without Wake on LAN, such as turning on a device connected to the TV over HDMI-CEC.
 
 ### H and J models
 
