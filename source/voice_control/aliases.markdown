@@ -9,7 +9,9 @@ related:
     title: Assist - custom sentences
 ---
 
-Assist will use the names of your entities, areas and floors, as well as any aliases you've configured. The configured aliases are not only used by Assist, but can also be used by Google Assistant, if you have set that up.
+Assist uses the names of your entities, areas, and floors, as well as any aliases you've configured.
+If you have set up Google Assistant or Amazon Alexa, they use the first alias of an entity as its name.
+Google Assistant also uses the other aliases as alternatives.
 
 These aliases are helpful in case you call the same device by multiple names
 or when using a voice assistant in multiple languages at the same time.
@@ -22,6 +24,28 @@ There are multiple ways to add an alias of an entity:
 ![Screenshot showing the alias editing capabilities added to the more info dialog of entities, accessed from the Voice assistants page](/images/assist/assist_aliases.png)
 - **Option 2**: You can also change the alias from the entity's more information dialog. In the upper right corner of the dialog, select the cogwheel {% icon "mdi:cog-outline" %} and then select **Voice assistants**.
 ![Screenshot showing the alias editing capabilities added to the more info dialog of entities, accessed from the Voice assistants page](/images/assist/assist_aliases_02.png).
+
+### Default name and the order of aliases
+
+The **Aliases** list starts with the default name of the entity, such as `Coffee machine Power`.
+When the switch next to it is turned on, the default name is used as the first alias.
+
+The order matters for some voice assistants:
+
+- Assist uses all aliases equally.
+- Google Assistant uses the first alias as the main name and the others as alternatives.
+- Amazon Alexa uses only the first alias.
+
+Renaming an entity, its device, or its area doesn't change the aliases you added. Only the default name in the list follows the new name.
+
+### Using a different name for voice assistants
+
+Voice assistants don't have to use the name that Home Assistant shows. For example, you might want Amazon Alexa to call a device `Kitchen light`, while Home Assistant shows it as `Ceiling light`.
+
+1. [Add the name you want as an alias of the entity](#adding-an-alias-of-an-entity).
+2. In the **Aliases** list, turn off the switch next to the default name.
+3. Drag your alias to the top of the list.
+   - Result: Voice assistants that use the first alias, such as Amazon Alexa, now use your alias as the name of the entity.
 
 ## Adding an alias of an area
 
@@ -40,6 +64,9 @@ There are multiple ways to add an alias of an entity:
 
 ### Area-less aliases for entities with an assigned area
 
-It’s good practice to add areas to entity canonical names, such as Living room lamp. However, since Assist can both infer the area and explicitly extract it from sentences, it’s a very good idea to add simplified aliases to all your exposed entities. In this case, having the Lamp alias set for the Living room lamp would allow you to turn on the lamp in the living room or simply turn on the lamp, when asking a satellite in the living room.
+Assist can infer the area from the satellite you're talking to, and it can also take the area from your sentence.
+That's why entity names don't need to include the area, as described in the [naming recommendations](/docs/configuration/customizing-entities/#recommendations-on-entity-naming-and-related-elements).
+If an entity name includes the area, such as `Living room lamp`, add a simplified alias, such as `Lamp`.
+This allows you to say "turn on the lamp in the living room", or simply "turn on the lamp" when asking a satellite in the living room.
 
 Don’t worry if you also have a Bedroom lamp. You can alias that one Lamp as well, as it would get matched only when in conjunction with the area name (Living room or Bedroom).

@@ -11,13 +11,17 @@ related:
     title: Sentence trigger
 ---
 
-The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server.
+The **Ollama** {% term integration %} lets you run AI locally, on your own hardware. [Ollama](https://ollama.com/) is a server that runs AI models on a computer in your home, instead of in a cloud service. The integration connects Home Assistant to your Ollama server and adds {% term "conversation agents" %} and AI tasks that use its models.
 
-Controlling Home Assistant is an experimental feature that provides the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+- A conversation agent lets you talk to the model with {% term Assist %}. With the **Device control** set of {% term "AI tools" %}, it can also give you information about your devices and control them. It can only reach the {% term entities %} that you [expose](/voice_control/voice_remote_expose_devices/) to Assist.
+- An [AI task](/integrations/ai_task/) lets your automations and scripts use the model to generate data. For example, it can return the data in a structure that you define. If your model supports images, it can also describe a camera image. AI tasks only accept images as attachments.
 
-This integration does not integrate with [sentence triggers](/triggers/conversation/).
+When you talk to an Ollama conversation agent through an {% term assistant %}, Home Assistant first checks your [sentence triggers](/triggers/conversation/). If one of them matches, the sentence trigger answers, and the conversation agent doesn't get the sentence. Sentence triggers don't run when you call the conversation agent directly, for example with the `conversation.process` action. They also don't run when you answer a follow-up question from the conversation agent.
 
-This integration requires an external Ollama server, which is available for macOS, Linux, and Windows. Follow the [download instructions](https://ollama.com/download) to install the server. Once installed, configure Ollama to be [accessible over the network](https://github.com/ollama/ollama/blob/main/docs/faq.mdx#how-can-i-expose-ollama-on-my-network).
+## Prerequisites
+
+1. Install the Ollama server on a computer in your network. This computer runs the AI models. Ollama is available for macOS, Linux, and Windows. For the steps, refer to the [Ollama download instructions](https://ollama.com/download).
+2. Make the Ollama server accessible over your network, so that Home Assistant can reach it. For the steps, refer to [How can I expose Ollama on my network?](https://github.com/ollama/ollama/blob/main/docs/faq.mdx#how-can-i-expose-ollama-on-my-network) in the Ollama FAQ.
 
 {% include integrations/config_flow.md %}
 

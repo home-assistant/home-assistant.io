@@ -49,6 +49,18 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
   - Uses area of voice satellite
 - *turn on the lights in the living room*
 
+### Fans
+
+- *set kitchen fan speed to 50%*
+- *kitchen fans 50%*
+
+### Climate
+
+- *what is the temperature in the living room?*
+- *set bedroom temp to 21 degrees*
+- *set the fan mode to auto*
+- *set the bedroom fan mode to low*
+
 ### Covers
 
 - *Close the garage door*
@@ -85,30 +97,67 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *turn TV volume down to 90 percent*
 - *Mute my TV*
 - *Unmute the television*
+- *volume up*
+- *turn up the volume in the living room*
+
+To play media by name, use a media player that can search for the type of media you want to play. [Music Assistant](/integrations/music_assistant/), [Sonos](/integrations/sonos/), and [Jellyfin](/integrations/jellyfin/) support media search for different types of media.
+
+- *play the track Bohemian Rhapsody*
+- *play the song Bohemian Rhapsody in the kitchen*
 
 ### Vacuum
 
 - *return rover to base*
 - *start rover*
 
+To send a vacuum to clean an area, the vacuum must support cleaning areas, and its areas must be mapped to Home Assistant areas. For the steps, refer to [Mapping your vacuum areas to Home Assistant areas](/integrations/vacuum/#mapping-your-vacuum-areas-to-home-assistant-areas).
+
+- *clean the living room*
+- *vacuum in here*
+  - Uses area of voice satellite
+- *clean living room with rover*
+
+### Lawn mower
+
+- *start mowing*
+- *start clippy*
+  - Starts the lawn mower named "Clippy"
+- *dock the mower*
+- *stop mowing*
+  - Sends the lawn mower back to its dock
+
 ### Lists
 
 - *Add bread to my shopping list*
+- *check off bread from my shopping list*
 - *Add decorating christmas tree to my december chores list*
   - needs a todo list name "december chores"
 - *add clean out garage to weekend list*
   - needs a todo list named "Weekend"
+- *complete clean out garage on my weekend list*
+- *delete clean out garage in my weekend list*
+
+## Weather
+
+- *what's the weather?*
+- *what's the weather like in London?*
+  - Needs a weather entity named "London"
 
 ## Date and time
 
 - *what time is it?*
 - *what's the date?*
 
+## Broadcasting
+
+- *broadcast that dinner is ready*
+  - Plays the message on all other voice satellites that can play announcements. For example, [Home Assistant Voice Preview Edition](/voice-pe/) can. Analog phones that you connect through [Voice over IP](/integrations/voip/) don't get the message.
+
 ## Timers
 
 Timers created with Assist are voice timers. They are separate from [Timer helper entities](/integrations/timer/) and do not create `timer.*` entities that you can use in dashboards, scripts, or automations.
 
-A voice timer belongs to the Assist device where you start it. The device must support handling timer events. If it does not, Assist responds that the device does not support timers.
+A voice timer belongs to the {% term "voice satellite" %} where you start it. The voice satellite must support timers. For example, [Home Assistant Voice Preview Edition](/voice-pe/) supports them. The Assist dialog in Home Assistant doesn't. If you start a timer where timers aren't supported, Assist responds that the device doesn't support timers.
 
 ### Starting
 
@@ -116,16 +165,24 @@ A voice timer belongs to the Assist device where you start it. The device must s
 - *5 minute timer*
 - *set a 20 minute timer for pizza*
 - *set a timer for 1 hour and 3 minutes*
-  - Break it up into hours, minutes, and seconds instead of using a technical term like *set a timer for 63 minutes*. 
+  - Break it up into hours, minutes, and seconds instead of using a technical term like *set a timer for 63 minutes*.
 
 ### Cancelling
 
 - *cancel timer*
-  - can't cancel multiple timers yet
+  - If several timers are running, Assist first looks for a timer of the voice satellite that you talk to. Then it looks in the area of the voice satellite, and then on its floor. If it still finds more than one timer, name the timer, or cancel all timers.
 - *cancel 5 minute timer*
 - *cancel pizza timer*
 - *cancel kitchen timer*
   - Must have been set by a voice satellite in the kitchen
+- *cancel all timers*
+  - Cancels the voice timers of all voice satellites
+- *cancel all kitchen timers*
+
+### Pausing and resuming
+
+- *pause timer*
+- *resume timer*
 
 ### Adding/Removing Time
 
@@ -147,7 +204,7 @@ To learn how to set this up, refer to the [ESP32-S3-Box-3B tutorial](/voice_cont
 
 ### Combining timers and device control to add a delay
 
-Unlike regular voice timers, delayed commands cannot be canceled or modified.
+Unlike regular voice timers, delayed commands can't be canceled, paused, or changed. They also work where voice timers aren't supported. For example, they work in the Assist dialog in Home Assistant.
 
 - *Turn off the lights in the living room in 5 minutes*
 - *Pause TV in 10 minutes*
