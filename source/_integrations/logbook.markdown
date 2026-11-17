@@ -25,7 +25,6 @@ The **Activity** panel shows recorded changes and events in your home, with the 
 4. To change the time period, select the date range in the toolbar.
    - To move to the previous or next period, select the arrows next to the date range.
 5. Optional: In the top right corner, select **Menu** {% icon "mdi:dots-vertical" %} for more options:
-   - **Refresh**: loads the latest activity.
    - **Download data**: exports the activity that is currently shown in CSV format.
    - **Reset**: removes your targets and filters and goes back to the default time period.
 
