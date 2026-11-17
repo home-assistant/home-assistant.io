@@ -55,6 +55,7 @@ Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass
         "dhcp": ["ipv4leases"],
         "file": ["read"]
       },
+      "uci": ["dhcp"],
       "file": {
         "/tmp/dhcp.leases": ["read"]
       }
