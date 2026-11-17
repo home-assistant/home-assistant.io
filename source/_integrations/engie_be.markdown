@@ -45,7 +45,7 @@ The integration looks at the contract on each meter and creates the price sensor
 
 #### Fixed and variable tariff prices
 
-All prices are in EUR/kWh, shown with six decimals. The gas price per m³ is in EUR/m³.
+Prices are in EUR/kWh, shown with six decimals. The gas price per m³ is in EUR/m³.
 
 These sensors show the supplier energy price only. They do not include network and distribution costs, energy taxes and levies, green energy contributions, or other charges on your bill, so your total cost per kWh is higher than the value shown. The default sensors include VAT, and each one has an excluding-VAT version that is turned off by default. You can turn it on from the entity settings if you need the price before VAT.
 
