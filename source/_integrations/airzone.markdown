@@ -43,7 +43,9 @@ For each Airzone zone (thermostat), the following *binary sensors* are created:
 | :------------------ | :--------------------------------- |
 | air_demand          | HVAC is running.                   |
 | battery_low         | Thermostat battery warning.        |
+| cold_demand         | Cooling is running.                |
 | floor_demand        | Radiating floor is running.        |
+| heat_demand         | Heating is running.                |
 | problems            | Zone has errors or warnings.       |
 
 ## Climate
@@ -90,6 +92,7 @@ For each Airzone zone (thermostat), the following *sensors* are created:
 | Condition           | Description                              |
 | :------------------ | :--------------------------------------- |
 | battery             | Current zone thermostat battery.         |
+| eco_adapt           | Eco-Adapt mode: off, manual, A, A+, or A++. Diagnostic sensor. |
 | humidity            | Current zone relative humidity.          |
 | temperature         | Current zone temperature.                |
 | signal_strength     | Current zone thermostat signal strength. |
