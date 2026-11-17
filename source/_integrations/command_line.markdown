@@ -83,7 +83,7 @@ command_line:
           description: Define time in seconds between each update.
           required: false
           type: integer
-          default: 60
+          default: 30
     cover:
       description: Cover platform.
       required: false
@@ -91,12 +91,12 @@ command_line:
       keys:
         command_close:
           description: The action to close the cover.
-          required: true
+          required: false
           default: true
           type: string
         command_open:
           description: The command to open the cover.
-          required: true
+          required: false
           default: true
           type: string
         command_state:
@@ -105,7 +105,7 @@ command_line:
           type: string
         command_stop:
           description: The action to stop the cover.
-          required: true
+          required: false
           default: true
           type: string
         command_timeout:
@@ -224,7 +224,7 @@ command_line:
           description: Define time in seconds between each update.
           required: false
           type: integer
-          default: 60
+          default: 30
     switch:
       description: Switch platform.
       required: false
@@ -232,11 +232,13 @@ command_line:
       keys:
         command_on:
           description: The action to take for on.
-          required: true
+          required: false
+          default: true
           type: string
         command_off:
           description: The action to take for off.
-          required: true
+          required: false
+          default: true
           type: string
         command_state:
           description: "If given, this command will be run. Returning a result code `0` will indicate that the switch is on."
