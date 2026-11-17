@@ -328,7 +328,7 @@ All entity name starts with: `sensor.tfa_me_xxx_xxx_xxx_` followed by the measur
 - ID A6: `temperature`, `humidity`, `rssi`, `lowbatt`
 
 {% enddetails %}
-
+ 
 
 {% details "Overview of all station & sensor entities uints" %}
 
