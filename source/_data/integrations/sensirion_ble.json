@@ -11,6 +11,9 @@
     "sensors.air_quality",
     "sensors.temperature_humidity"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "sensor"
   ],

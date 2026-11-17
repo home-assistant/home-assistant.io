@@ -12,6 +12,9 @@
   "categories": [
     "appliances_cleaning"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

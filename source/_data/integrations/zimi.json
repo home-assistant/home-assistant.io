@@ -12,6 +12,9 @@
     "plugs_switches",
     "hubs_protocols.smart_home_hubs"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "cover",
     "fan",

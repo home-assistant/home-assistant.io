@@ -2,6 +2,7 @@
 title: "Create a daily"
 action: habitica.create_daily
 domain: habitica
+response: optional
 description: "Creates a daily for your Habitica character."
 ---
 
@@ -161,6 +162,10 @@ alias:
   required: false
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

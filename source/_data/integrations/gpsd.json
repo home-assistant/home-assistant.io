@@ -11,6 +11,9 @@
     "presence_location.trackers",
     "diy_makers.boards_hardware"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor"
   ]
