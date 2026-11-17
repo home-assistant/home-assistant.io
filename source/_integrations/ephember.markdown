@@ -3,9 +3,6 @@ description: Instructions on how to integrate EPH Controls EMBER thermostats wit
 ha_release: 0.57
 ha_domain: ephember
 ha_config_flow: true
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ---
 
 The **EPH Controls** {% term integration %} lets you control [EPH Controls](https://emberapp.ephcontrols.com/) thermostats and hot water zones.
@@ -40,10 +37,6 @@ If **All Day** is selected in the EMBER app, it shows as **Heat/Cool** in Home A
 ## Data updates
 
 The **EPH Controls** integration {% term polling polls %} the EPH Ember cloud every 2 minutes. If the cloud can't be reached, the entities become unavailable until it answers again.
-
-## YAML configuration
-
-If you have an existing `ephember` climate platform in your {% term "`configuration.yaml`" %} file, Home Assistant imports it into a config entry automatically, and your existing entities keep their entity IDs. After the import, remove the `ephember` platform from your `configuration.yaml` file.
 
 ## Removing the integration
 
