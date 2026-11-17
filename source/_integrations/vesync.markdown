@@ -107,6 +107,7 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
+| `child_lock`            | Child lock On or Off                                                               | Off       |
 
 | Button                  | Description                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------- |
@@ -119,11 +120,9 @@ VeSync air purifiers will expose the following details depending on the features
 | Attribute               | Description                                                                       | Example         |
 | ----------------------- | --------------------------------------------------------------------------------- | --------------- |
 | `mode`                  | The current mode the device is in. (LV-PUR131S, Core200S/300s/400s)               | manual          |
-| `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S/300s/400s)         | high            |
-| `speed_list`            | The available list of speeds supported by the device. (LV-PUR131S)                | high            |
 | `oscillating`           | If the fan is currently oscillating                                               | True            |
 | `active_time`           | The number of seconds since the device has been in a non-off mode. (LV-PUR131S)   | 1598            |
-| `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
+| `display_status`        | The current status of the display.                                                | on              |
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
 
