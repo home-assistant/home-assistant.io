@@ -1,12 +1,13 @@
 ---
 title: TFA.me
 description: Instructions on how to integrate the TFA.me integration into Home Assistant.
-ha_release: "2026.XX"
-ha_iot_class: Local Poll
+ha_release: "2026.12"
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@DrMatthiasBlaschke'
 ha_domain: tfa_me
 ha_integration_type: hub
+ha_config_flow: true
 ha_category:
   - Sensor
 ha_platforms:
@@ -120,18 +121,18 @@ Change station settings to activate Home Assistant:
 
 **Network settings:**
 <p class='img'>
-  <img src='/images/integrations/tfa_me/tfa_me_local_api_activation.png' width=50% height=50% />
+  <img src='/images/integrations/tfa_me/tfa_me_local_api_activation.png' width=50% height=50% alt='TFA.me network settings showing the Local API option used to enable Home Assistant access' />
 </p>
 
 3. Optional: Use link **HA menu** to enter main menu <br>
-   (**IP/ha_menu** or **tfa-me-XXX-XXX-XXX.local**)
+   (**IP/ha_menu** or **tfa-me-XXX-XXX-XXX.local/ha_menu**)
 
 Your station is now prepared for Home Assistant. It generates a table with all station & sensor measurement values. The list may be emtpy at start because the sensor values were not received. Just wait some minutes until you see all sensors. Normally this only takes 5 minutes which is the typically sensor & station transmission interval. 
 
 The list of sensor measured values ​​can also be found under the menu item **Sensors table**:
 
 <p class='img'>
-  <img src='/images/integrations/tfa_me/tfa_me_sensor_table.png' width=100% height=100% />
+  <img src='/images/integrations/tfa_me/tfa_me_sensor_table.png' width=100% height=100% alt='TFA.me sensors table displaying the station and sensor measurement values' />
 </p>
 
 
@@ -141,7 +142,7 @@ The list of sensor measured values ​​can also be found under the menu item *
 You can also get direct access to the entire Home Assistant menu of the station and enter the **IP address** or the **mDNS name** of your station followed by path **/ha_menu**.
 
 - **IP/ha_menu**
-- **tfa-me-XXX-XXX-XXX.local** where XXX-XXX-XXX is the 9 digit serial number.
+- **tfa-me-XXX-XXX-XXX.local/ha_menu** where XXX-XXX-XXX is the 9 digit serial number.
 
 **Use IP:** To get the IP address of your station press and hold the **+** key and wait until the IP is shown. 
 **Example:** In your browser enter **192.168.1.42/ha_menu**. 
@@ -176,8 +177,7 @@ Otherwise please insert the batteries into all sensors you want to use.
 Please follow the configuration flow and make some basic setting.
 
 1. Mandatory: Enter the IP address of your device or the 9 digit serial number **XXX-XXX-XXX**. To get the IP address of your station press and hold the **+** key and wait until the IP is shown. The serial number is placed at the backside of your station.
-2. Optional: Checkbox  **Add station ID to device name**, when you only use one station leave this unchecked. If there is more than one station, sensors will likely received from multiple stations. To better distinguish between them, the station ID is also displayed after the sensor ID/name when the checkbox is selected.
-3. Mandatory: Press button **OK**. 
+2. Mandatory: Press button **OK**. 
 
 The integration now requests sensor list & sensor measurement data once at start. When successful you will see a list with all sensors added. The integrationn also generates all entities (section **Entities**) and updates them every minute.. 
 
@@ -202,7 +202,7 @@ After completing the configuration flow, the **TFA.me** integration will be avai
 
 The following options or actions can be set or triggered:
 
-- **Reset all rain sensors**: Set all **rain last hour** and **rain last 24 hours** to 0. (also see chapter **Entities**)
+- none
 
 {% enddetails %}
 
@@ -247,30 +247,62 @@ For steps 1 and 6, please follow the instructions in the station manuals (PDF), 
 
 ## Supported functionality
 
-### Entities
+{% details "Entity names and IDs" %}
 
 Typically, you have one station and multiple sensors. If you have multiple stations, it's likely that sensors are received by more than one station.
-The following naming scheme for entities is typically used and assinged by HA automatically:
+TFA.me device names include both the sensor ID and the receiving station ID. This allows Home Assistant to distinguish the same sensor when it is received by multiple stations.
 
+The TFA.me integration generates device names using the following naming scheme:
 
-`sensor.tfa_me_<Sensor-ID>_<Measurement value>_<No.>`
+`TFA.me <Sensor-ID> (<Station-ID>)`
 
-**Example**: T/H-Sensor with ID A01-234-456 receiced via station with ID 017-654-321:
+- `Sensor-ID`: The sensor serial number, formatted as `XXX-XXX-XXX`.
+- `Station-ID`: The serial number of the receiving station, without hyphens.
+
+Home Assistant automatically generates entity IDs based on device and entity names.
+The following entity IDs are typical examples. Actual entity IDs may differ depending on Home Assistant's automatic naming and existing entities.
+
+**Example 1:** A temperature/humidity sensor with ID `A01-234-567` received by station `017-654-321`.
+
+Generated device name: `TFA.me A01-234-567 (017654321)`
+
+Typical entity IDs:
 
 - `sensor.tfa_me_a01_234_567_temperature`
 - `sensor.tfa_me_a01_234_567_humidity`
-- `sensor.tfa_me_a01_234_567_rssi` 
-- `sensor.tfa_me_a01_234_567_lowbatt` 
+- `sensor.tfa_me_a01_234_567_rssi`
+- `sensor.tfa_me_a01_234_567_lowbatt`
 
-**Example**: T/H-Sensor with ID A01-234-456 receiced via station with ID 031-654-321:
+**Example 2:** The same temperature/humidity sensor with ID `A01-234-567` received by another station with ID `031-654-321`.
+
+Generated device name: `TFA.me A01-234-567 (031654321)`
+
+If the entity IDs from the first station already exist, Home Assistant may generate:
 
 - `sensor.tfa_me_a01_234_567_temperature_2`
 - `sensor.tfa_me_a01_234_567_humidity_2`
-- `sensor.tfa_me_a01_234_567_rssi_2` 
-- `sensor.tfa_me_a01_234_567_lowbatt_2` 
+- `sensor.tfa_me_a01_234_567_rssi_2`
+- `sensor.tfa_me_a01_234_567_lowbatt_2`
+
+The numeric suffixes are assigned automatically when needed and are not guaranteed.
+
+{% enddetails %}
 
 
-{% details "Overview of all station & sensor entities" %}
+{% details "Finding the actual entity ID" %}
+
+To find the correct entity ID, open **Settings > Devices & services**, select the **TFA.me** integration, and open the corresponding device and entity.
+Always use the entity ID displayed by Home Assistant when creating automations, scripts, or dashboards.
+
+{% enddetails %}
+
+
+{% details "Overview of all station & sensor entities" %} 
+
+The following overview lists the measurement types supported by the TFA.me integration.
+Entity IDs are generated automatically by Home Assistant. They typically contain the sensor ID and measurement name, but may differ depending on device naming and existing entities.
+The measurement names listed below describe the supported sensor values and should not be interpreted as guaranteed entity ID suffixes.
+
 
 All entity name starts with: `sensor.tfa_me_xxx_xxx_xxx_` followed by the measurement
 
@@ -288,7 +320,7 @@ All entity name starts with: `sensor.tfa_me_xxx_xxx_xxx_` followed by the measur
 
 
 - ID A0: `temperature`, `humidity`, `rssi`, `low_batt` 
-- ID A1: `rain`, `rain_rel`, `rain_1_hour`, `rain_24_hours`, `rssi`, `lowbatt`
+- ID A1: `rain`, `rssi`, `lowbatt`
 - ID A2: `wind_direction`, `wind_speed`, `wind_gust`, `rssi`, `lowbatt`
 - ID A3: `temperature`, `temperature_probe`, `rssi`, `lowbatt`
 - ID A4: `temperature`, `humidity`, `temperature_probe`, `rssi`, `lowbatt`
@@ -306,26 +338,28 @@ All units are metric.
 - `humidity`in **%**: Relative humidity
 - `barometric_pressure` in **hPa**: Barometric pressure
 - `rain`in **mm**: Rain fall (absolute value)
-- `rain_rel`, `rain_1_hour`, `rain_24_hours` in **mm**: Rain fall (relative value)
 - `rssi` in **1/256**: Signal strength<br>Theoretical range: 0 (bad) ... 255 (very good)<br>Practical range: 80 (bad) ... 230 (very good)|
-- `lowbatt`, 0: battery good, 1: battery bad, 2: battery critical bad, 3: batteries not inserted/removed
-- `lowbatt_txt`,  Good: battery good, Bad: battery bad, Critical: battery very bad, Removed: batteries not inserted/removed
+- `lowbatt`: Battery status sensor with the following states:
+  - `ok`: Battery level is good.
+  - `low`: Battery level is low.
+  - `critical`: Battery level is critically low.
+  - `missing`: Batteries are missing or have been removed.
 - `wind_speed`, `wind_gust` in **m/s**: Speed is the average speed of last measurement period, gust is the maximum.
-- `wind_direction`, Value range: 0...15 for the 16 main directions:<BR> 0=**N**, 1=**NNE**, 2=**NE**, 3=**ENE**, 4=**E**, 5=**ESE**, 6=**SE**, 7=**SSE**, 8=**S**, 9=**SSW**, 10=**SW**, 11=**WSW**, 12=**W**, 13=**WNW**, 14=**NW**, 15=**NNW**
-- `wind_direction_deg` in **degress**: Value range: 0...337.5 for the 16 main directions (step 22.5):<BR> 0.0=**N**, 22.5=**NNE**, 45.0=**NE**, ... 337.5=**NNW**
-- `wind_direction_txt`, Text values for the 16 main directions:<BR> **N**, **NNE**, **NE**, **ENE**, **E**, **ESE**, **SE**, **SSE**, **S**, **SSW**, **SW**, **WSW**, **W**, **WNW**, **NW**, **NNW**
-
-
+- `wind_direction`: Compass direction with 16 possible states.
+  The station reports numeric values from 0 to 15, which are converted into compass-point states in Home Assistant:<br>
+  0 = `n` (N), 1 = `nne` (NNE), 2 = `ne` (NE), 3 = `ene` (ENE),
+  4 = `e` (E), 5 = `ese` (ESE), 6 = `se` (SE), 7 = `sse` (SSE),
+  8 = `s` (S), 9 = `ssw` (SSW), 10 = `sw` (SW), 11 = `wsw` (WSW),
+  12 = `w` (W), 13 = `wnw` (WNW), 14 = `nw` (NW), 15 = `nnw` (NNW).<br>
+  **Note:** Home Assistant exposes the compass-point states, not the numeric values.
+- `wind_direction_deg` in **degrees (°)**: Wind direction from 0° to 337.5° in steps of 22.5°.<br>
+  Examples: 0° = **N**, 22.5° = **NNE**, 45° = **NE**, ... 337.5° = **NNW**.
 {% enddetails %}
 
 
 
 {% details "More informations to entities" %}
 
-- `rain_rel`, `rain_1_hour` and `rain_24_hours` are generated entities and does not come from the rain sensor itself. 
-- `rain_rel` is the rain value since the integration was started or since last reset of this value. This value can be reset by option **Reset all rain sensors**. 
-- `rain_1_hour` is the rain value of the last hour. For that integration holds the history of rainfall values ​​from the last hour.
-- `rain_24_hours` is the rain value of the last 24 hours. For that integration holds the history of rainfall values ​​from the last 24 hours.
 - `rssi` values for stations are set to 255. They are internal values and not received via 868 MHz.
 - Sensors not received longer then (2 * transmisson interval time + 0.5 minute) are marked as **unavailable**. A sensor that sends every 5 minutes is marked after (2 * 5 + 0.5) = 10.5 minutes.
 - Dynamically Icons: Icons for measurement values (entities) are some time depending on the measuerement value itself.
@@ -335,48 +369,41 @@ All units are metric.
 
 Depending on the measured value (value/range):
 
-- `temperature` 
-  - {% icon "mdi:thermometer" %} default 
-  - {% icon "mdi:thermometer-high" %} high (> 25)
+- `temperature`
+  - {% icon "mdi:thermometer" %} default (0...< 25)
+  - {% icon "mdi:thermometer-high" %} high (>= 25)
   - {% icon "mdi:thermometer-low" %} low (< 0)
 - `humidity`
-  - {% icon "mdi:water-percent" %} default (31...64)
-  - {% icon "mdi:water-percent-alert" %} alert (0...30 or 65...99)
+  - {% icon "mdi:water-percent" %} default (> 30...< 65)
+  - {% icon "mdi:water-percent-alert" %} alert (0...30 or >= 65)
 - `co2`
   - {% icon "mdi:molecule-co2" %} default
 - `barometric_pressure`
   - {% icon "mdi:gauge" %} default
 - `rssi`
-  - {% icon "mdi:wifi" %} default
-  - {% icon "mdi:wifi-strength-1" %} weak (0...99)
-  - {% icon "mdi:wifi-strength-2" %} middle (100...149)
-  - {% icon "mdi:wifi-strength-3" %} good  (150..219)
+  - {% icon "mdi:wifi-strength-1" %} default, weak (0...99)
+  - {% icon "mdi:wifi-strength-2" %} medium (100...149)
+  - {% icon "mdi:wifi-strength-3" %} good (150...219)
   - {% icon "mdi:wifi-strength-4" %} strong (220...255)
-- `lowbatt` 
-  - {% icon "mdi:battery" %} full  (0)
-  - {% icon "mdi:battery-alert" %} low (1)
-  - {% icon "mdi:battery-sync" %} critical (2)
-  - {% icon "mdi:battery-off" %} removed (-1)
-- `wind_direction` 
+- `lowbatt`
+  - {% icon "mdi:battery" %} ok
+  - {% icon "mdi:battery-alert" %} low
+  - {% icon "mdi:battery-sync" %} critical
+  - {% icon "mdi:battery-off" %} missing
+- `wind_direction`
   - {% icon "mdi:compass-outline" %} default
-  - {% icon "mdi:arrow-down" %} N, NNE  (0, 1)
-  - {% icon "mdi:arrow-bottom-left" %} NE, ENE (2, 3)
-  - {% icon "mdi:arrow-left" %} E, ESE (4, 5)
-  - {% icon "mdi:arrow-top-left" %} SE, SSE (6, 7)
-  - {% icon "mdi:arrow-up" %} S, SSW (8, 9)
-  - {% icon "mdi:arrow-top-right" %}  SW, SSW (10, 11)
-  - {% icon "mdi:arrow-right" %} W, WNW (12, 13)
-  - {% icon "mdi:arrow-bottom-right" %} NW, NNW (14, 15)
+  - {% icon "mdi:arrow-down" %} N, NNE
+  - {% icon "mdi:arrow-bottom-left" %} NE, ENE
+  - {% icon "mdi:arrow-left" %} E, ESE
+  - {% icon "mdi:arrow-top-left" %} SE, SSE
+  - {% icon "mdi:arrow-up" %} S, SSW
+  - {% icon "mdi:arrow-top-right" %} SW, WSW
+  - {% icon "mdi:arrow-right" %} W, WNW
+  - {% icon "mdi:arrow-bottom-right" %} NW, NNW
 - `wind_speed`
-  - {% icon "mdi:weather-windy-variant" %} default 
+  - {% icon "mdi:weather-windy" %} default
 - `wind_gust`
-  - {% icon "mdi:weather-windy" %} default 
-- `rain`
-  - {% icon "mdi:weather-sunny" %} none (< 0.1 mm/hour)
-  - {% icon "mdi:weather-partly-rainy" %} light (0.1 mm ... < 0.5 mm/hour)
-  - {% icon "mdi:weather-rainy" %} moderate (0.5 mm/hour ... < 4.0 mm)/hour
-  - {% icon "mdi:weather-pouring" %} heavy (>= 4.0 mm/hour)
-
+  - {% icon "mdi:weather-windy-variant" %} default
 
 {% enddetails %}
 {% enddetails %}
