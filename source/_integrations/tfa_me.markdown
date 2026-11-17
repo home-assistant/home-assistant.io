@@ -2,7 +2,7 @@
 title: TFA.me
 description: Instructions on how to integrate the TFA.me integration into Home Assistant.
 ha_release: "2026.XX"
-ha_iot_class: Local Poll
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@DrMatthiasBlaschke'
 ha_domain: tfa_me
