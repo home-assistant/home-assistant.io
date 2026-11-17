@@ -103,6 +103,8 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s/EverestAir)   | 142       |
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/EverestAir)                       | 8         |
+| `pm1`                   | The current PM1 reading in µg/m³ (purifiers that measure it).                          | 5         |
+| `pm10`                  | The current PM10 reading in µg/m³ (purifiers that measure it).                         | 12        |
 
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
@@ -137,6 +139,7 @@ Sensors and settings exposed by VeSync humidifiers.
 | Sensor                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `humidity`              | Current humidity (in %)                                                            | 35        |
+| `temperature`           | Current temperature (Superior6000S)                                                | 68        |
 
 | Number                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
@@ -149,7 +152,8 @@ Sensors and settings exposed by VeSync humidifiers.
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
-| 'auto_off_config'       | Auto turn off when humidity target exceeded,  resume when below target             | On        |
+| `auto_off_config`       | Auto turn off when humidity target exceeded, resume when below target              | On        |
+| `drying_mode_power_off` | Enable drying mode while power is off (Superior6000S)                              | On        |
 
 
 ## Binary Sensors
