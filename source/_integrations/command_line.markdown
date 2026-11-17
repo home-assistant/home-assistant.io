@@ -231,12 +231,12 @@ command_line:
       type: map
       keys:
         command_on:
-          description: The action to take for on.
+                   description: The shell command to run when you turn the switch on. If you leave it out, turning the switch on does nothing.
           required: false
           default: true
           type: string
         command_off:
-          description: The action to take for off.
+          description: The shell command to run when you turn the switch off. If you leave it out, turning the switch off does nothing.
           required: false
           default: true
           type: string
