@@ -55,10 +55,15 @@ A room climate control also gets **Call for heat**, **Schedule override active**
 
 A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguard is the source of an active smoke alarm and turns off when the alarm ends.
 
+An Outdoor Siren gets **Acoustic alarm** and **Visual alarm** binary sensors that turn on while the siren sounds or flashes, and a **Tamper** diagnostic binary sensor.
+
+A Motion Detector II gets an **Occupancy** binary sensor and a **Tamper** diagnostic binary sensor that turns on when the device was tampered with.
+
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
 - A Motion Detector II that supports it gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
+- An Outdoor Siren gets a **Test alarm** button that fires a short alarm at the configured sound level.
 
 ### Climate
 
@@ -100,6 +105,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Smart Plug or Smart Plug Compact that supports it gets an **LED brightness** value (0 to 100 %), controlling the brightness of the plug's status LED.
 - A Micromodule Dimmer that supports calibration gets a **Dimming speed** value (1 to 10), controlling how quickly the dimmer changes brightness.
 - A Thermostat II or Room Thermostat II that supports display configuration gets a **Display brightness** value (0 to 100 %) and a **Display on-time** value (0 to 3600 seconds), controlling how bright the display is and how long it stays on after a button press.
+- A Micromodule Dimmer that supports calibration gets a **Minimum brightness** and a **Maximum brightness** value (0 to 100 %), setting the lowest and highest brightness the dimmer outputs.
 
 ### Select
 
@@ -118,6 +124,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Micromodule Relay that supports it: an **Output mode** select, letting you choose between **Coupled**, **Disconnected on any key press**, **Disconnected on short press**, **Disconnected on long press**, or **Unsupported**. In YAML, the options are `attached`, `detached`, `detached_short_press`, `detached_long_press`, and `unsupported`.
 - Motion Detector II that supports it: a **Sensitivity for alarm system** select and a **Sensitivity for other cases** select, each letting you choose between **High**, **Medium**, or **Low**. In YAML, the medium option is `middle`.
 - Micromodule Dimmer that supports it: a **Dimmer phase control** select, letting you choose between **Trailing edge phase cut** and **Leading edge phase cut**. In YAML, the options are `trailing` and `leading`.
+- Motion Detector II: an **Orientation light response time** select, letting you choose between **Long** and **Short**. In YAML, the options are `long` and `short`.
 
 ### Sensors
 

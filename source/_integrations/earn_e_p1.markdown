@@ -74,6 +74,7 @@ IP Address:
 ### Sensors show as unavailable
 
 - The device sends full meter data approximately every 60 seconds. Some sensors may take up to a minute to become available after setup.
+- If Home Assistant receives no data from the device for 2 minutes, all its sensors become unavailable. They recover automatically when the device sends data again.
 - Check that the device is still powered on and connected to the network.
 
 ## Removing the integration

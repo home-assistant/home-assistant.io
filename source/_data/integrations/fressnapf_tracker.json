@@ -17,6 +17,7 @@
   "platforms": [
     "binary_sensor",
     "device_tracker",
+    "diagnostics",
     "light",
     "sensor",
     "switch"
