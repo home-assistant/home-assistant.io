@@ -47,7 +47,7 @@ The following sensors are created for gas prices:
 
 ## Data updates
 
-The API is polled every 12 hours to fetch price data. Each call fetches all hourly prices for today and tomorrow (when available). Tomorrow's prices typically appear after 12:00 CET for electricity and 19:00 CET for gas.
+The API is polled every hour to fetch price data. Each call fetches all hourly prices for today and tomorrow (when available). Tomorrow's prices typically appear after 12:00 CET for electricity and 19:00 CET for gas.
 
 Sensors update on the hour using cached API data, so they advance to the current price without additional API calls between polls.
 
