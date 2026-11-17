@@ -47,6 +47,10 @@ To get a map of valid weather stations, open the [trafikverket website](https://
   <img src='/images/screenshots/get_trafikverket_weather_station_example.png' />
 </p>
 
+## Data updates
+
+The integration {% term polling polls %} the Trafikverket API every 10 minutes.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
