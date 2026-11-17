@@ -38,8 +38,8 @@ option:
 priority:
   description: Priority of the messages. Check the table below for entries.
   required: false
-  default: info
-  type: string
+  default: -1
+  type: integer
 {% endconfiguration %}
 
 The table contains values to use in your `configuration.yaml` file.
