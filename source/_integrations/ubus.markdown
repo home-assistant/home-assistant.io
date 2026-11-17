@@ -113,6 +113,7 @@ To track a person with one of these devices:
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **OpenWrt (ubus)**.
 2. Select the device you want to track, then [enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) its device tracker entity.
 3. Go to {% my people title="**Settings** > **People**" %}, select the person, and add the device tracker entity with **Pick device to track**.
+4. Select **Save**.
 
 ## Troubleshooting
 
