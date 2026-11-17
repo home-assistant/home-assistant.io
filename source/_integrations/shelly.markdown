@@ -381,6 +381,16 @@ Shelly device relays are added to Home Assistant by default as `switch` entities
 
 Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **EXTERNAL CONSUMPTION TYPE** value in the WebUI of the device is set to `light`.
 
+## White channel of RGBW devices (generation 2+)
+
+In the RGBW profile, devices such as the Shelly Plus RGBW PM dim color and white independently. The main light {% term entity %} sets both together. To control white on its own, for example in a scene or an automation, [enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the **White** light entity of the device. It is disabled by default. Its brightness sets the white level and leaves color unchanged.
+
+Color and white share one output on the device:
+
+- Turning off the white light sets white to 0. The output turns off only if no color is lit.
+- Turning on the white light while the device is off also turns the last color back on.
+- Turning on the white light without a brightness uses the current white level of the device. If that level is 0, it restores the level from the last time you turned off the white light. If Home Assistant has restarted since then, it turns on at full brightness.
+
 ## Light transition
 
 Shelly lights supporting light transition:
