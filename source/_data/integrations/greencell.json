@@ -11,9 +11,13 @@
   "categories": [
     "energy.ev_charging"
   ],
+  "connectivity": [
+    "mqtt"
+  ],
   "platforms": [
     "diagnostics",
-    "sensor"
+    "sensor",
+    "switch"
   ],
   "discovery": [
     "mqtt"

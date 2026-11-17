@@ -12,6 +12,9 @@
   "categories": [
     "water.meters_leak_detection"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]
