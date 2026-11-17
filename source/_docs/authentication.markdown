@@ -39,7 +39,7 @@ On the **Security** page, you can:
   - Unused refresh tokens are automatically removed. A refresh token is considered unused if it has not been used to sign in within 90 days. If you need a permanent token, we recommend using a [long-lived access token](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens) instead.
 - Create [long-lived access tokens](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens) so scripts and apps can securely interact with Home Assistant.
 
-In addition to the settings above, Administrators can enable IP banning to prevent brute force attacks by going to {% my config_network title="**Settings** > **System** > **Network** > **HTTP server** > **IP banning**" %}.
+In addition to the settings above, Administrators can enable IP banning to prevent brute force attacks by going to {% my network title="**Settings** > **System** > **Network** > **HTTP server** > **IP banning**" %}.
 
 
 ## Changing your account password
