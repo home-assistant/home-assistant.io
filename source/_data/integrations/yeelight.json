@@ -3,7 +3,6 @@
   "name": "Yeelight",
   "integration_type": "device",
   "codeowners": [
-    "@zewelor",
     "@shenxn",
     "@starkillerOG",
     "@alexyao2015"
@@ -13,8 +12,12 @@
   "categories": [
     "lighting.bulbs_lamps"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
+    "diagnostics",
     "light"
   ],
   "discovery": [

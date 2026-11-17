@@ -2,6 +2,7 @@
 title: "Get precipitation forecast"
 action: environment_canada.get_precipitation_forecast
 domain: environment_canada
+response: required
 description: "Retrieves the precipitation forecast series for an Environment Canada location."
 related_actions:
   - environment_canada.get_alerts
@@ -10,8 +11,6 @@ related_actions:
 ---
 
 Use this action to retrieve the precipitation forecast series for one of your Environment Canada locations: a short-interval series covering the recent past and the next hour or so, and an hourly series covering up to the next two days. The result is intended for building your own precipitation chart, for example with a template sensor or a custom card.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -97,6 +96,8 @@ hourly_hours:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response has three keys:
 

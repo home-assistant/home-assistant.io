@@ -7,6 +7,9 @@
     "security_safety.cameras",
     "presence_location.network_presence"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "camera",
     "device_tracker"

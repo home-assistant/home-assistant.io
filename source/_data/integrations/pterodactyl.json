@@ -7,9 +7,12 @@
   ],
   "config_flow": true,
   "iot_class": "local_polling",
-  "quality_scale": "bronze",
+  "quality_scale": "silver",
   "categories": [
     "media_entertainment.gaming"
+  ],
+  "connectivity": [
+    "network"
   ],
   "platforms": [
     "binary_sensor",

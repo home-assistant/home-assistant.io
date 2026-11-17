@@ -11,6 +11,9 @@
   "categories": [
     "sensors.air_quality"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "diagnostics",
     "number",

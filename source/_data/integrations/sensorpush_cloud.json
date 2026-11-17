@@ -11,6 +11,9 @@
   "categories": [
     "sensors.temperature_humidity"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]
