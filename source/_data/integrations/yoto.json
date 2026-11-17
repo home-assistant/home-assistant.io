@@ -12,6 +12,9 @@
   "categories": [
     "media_entertainment.speakers_audio"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

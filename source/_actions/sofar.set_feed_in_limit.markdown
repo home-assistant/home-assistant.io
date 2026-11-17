@@ -7,6 +7,7 @@ related_actions:
   - sofar.set_active_power_limit
   - sofar.set_passive_mode_timeout
   - sofar.set_passive_mode_power
+  - sofar.set_battery_cutoffs
 ---
 
 Use this action to cap how much power your Sofar inverter feeds back into the grid. This is different from [Set active power limit](/actions/sofar.set_active_power_limit/), which caps the inverter's own generation directly: the feed-in limit only throttles export, and leaves the inverter free to generate more for local use.

@@ -11,6 +11,7 @@ ha_codeowners:
   - '@kayloehmann'
 ha_domain: aerosmart
 ha_platforms:
+  - binary_sensor
   - number
   - sensor
 ha_integration_type: device
@@ -78,9 +79,22 @@ Sensors report information such as:
 - Filter operating hours, service life, and volume values.
 - Operating-hour counters and controller information.
 
+### Binary sensors
+
+Binary sensors report states such as:
+
+- Heat-pump high-pressure and low-pressure faults.
+- Temperature sensor, fan, electric heater, and hot-water system faults.
+- Filter replacement signals and aggregate controller faults.
+- Utility lockouts for space heating, hot water, and the electric heater.
+- Heating, hot-water, defrost, fan, and summer bypass requests.
+- Installed capabilities, including filters, cooling, sensors, and the electric heater.
+
+Faults, requests, contacts, and lockout states are enabled by default and can be used as triggers or conditions in automations. Static installed-capability entities are disabled by default. You can enable any of them from the aerosmart device page if you need them in a dashboard or automation.
+
 ## Aerosmart automation examples
 
-Use the aerosmart sensors in automations to react to changes in your installation. Create an automation in {% my automations title="**Settings** > **Automations & scenes**" %} with the trigger and action below.
+Use the aerosmart sensors and binary sensors in automations to react to changes in your installation. Create an automation in {% my automations title="**Settings** > **Automations & scenes**" %} with the trigger and action below.
 
 {% include docs/paste_yaml_tip.md %}
 

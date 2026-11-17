@@ -2,6 +2,7 @@
 title: "Create a full backup"
 action: hassio.backup_full
 domain: hassio
+response: optional
 description: "Creates a full backup."
 related_actions:
   - hassio.backup_partial
@@ -82,7 +83,9 @@ homeassistant_exclude_database:
 
 ## Response data
 
-This action returns the slug of the backup it created, so you can use it in later steps, for example to copy or to reference the backup.
+{% include actions/response.md %}
+
+The response contains the slug of the backup it created. For example, you can use the slug to copy or to reference the backup.
 
 {% example %}
 action: |

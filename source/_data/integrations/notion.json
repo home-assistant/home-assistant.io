@@ -11,6 +11,9 @@
     "sensors",
     "water.meters_leak_detection"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",
