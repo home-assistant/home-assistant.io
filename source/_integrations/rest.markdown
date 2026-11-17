@@ -2,11 +2,112 @@
 description: Instructions on how to integrate REST sensors and binary sensors into Home Assistant.
 ha_release: 0.7.4
 ha_domain: rest
+ha_categories:
+  - diy_makers.web_data_connectors
+ha_platforms:
+  - binary_sensor
+  - notify
+  - sensor
+  - switch
+ha_integration_type: service
+ha_config_flow: true
 ---
 
 The **RESTful** {% term integration %} is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
-[RESTful Sensor](/integrations/sensor.rest) and [RESTful Binary Sensor](/integrations/binary_sensor.rest) can also be set up as platforms if there is only a single sensor per endpoint.
+Both UI and [YAML setup](#yaml-configuration) are supported.
+
+[RESTful Sensor](/integrations/sensor.rest) and [RESTful Binary Sensor](/integrations/binary_sensor.rest) can also be set up as platforms in the [YAML Configuration](#yaml-configuration) if there will be only a single sensor configured per endpoint.
+
+{% include integrations/config_flow.md %}
+
+{% note %}
+
+RESTful uses configuration subentries for configuring the sensors.
+
+1. Set up the resource configuration once per resource or endpoint.
+2. Create a subentry for each sensor you want to derive from the endpoint.
+
+{% endnote %}
+
+### RESTful resource configuration
+
+{% configuration_basic %}
+Resource:
+  description: "The resource or endpoint URL, supports templates. Example: {% raw %}`https://{{ 'example.com' }}/resource`.{% endraw %}"
+Method:
+  description: "The HTTP method of the request. Only `GET` or `POST` supported."
+Authentication:
+  description: "Type of the HTTP authentication: `Basic` or `Digest`"
+Username:
+  description: "Endpoint username."
+Password:
+  description: "Endpoint password, required if username is specified."
+HTTP Headers:
+  description: "HTTP headers as key/value pairs, values support templates. Can support header authorization `Authorization: Bearer **auth_code**`."
+Query Parameters:
+  description: "Key/value pairs, values support templates."
+Request payload:
+   description: "The request body payload to send with the request, typically JSON, supports templates."
+SSL cipher list:
+  description: "The list of SSL ciphers to be accepted from this endpoint. `Python Default` (default), `Modern` or `Intermediate` (_see [Mozilla Security/Server Side TLS](https://docs.tlsref.org/server-side-tls.html)_)."
+Verify SSL:
+  description: "Verify the SSL certificates of the connection, default: enabled."
+Timeout:
+  description: "Timeout in seconds for endpoint response, default: `10` seconds."
+Encoding:
+  description: "Encoding of the endpoint response, default: `UTF-8`."
+{% endconfiguration_basic %}
+
+### RESTful subentry configuration
+
+[RESTful Binary Sensors](#restful-binary-sensor-configuration) and [RESTful Sensors](#restful-sensor-configuration) share these common attributes:
+
+{% configuration_basic %}
+Name:
+  description: "Entity name, supports templates, default:  `RESTful Binary Sensor` or `RESTful Sensor`."
+Icon:
+  description:  "Entity icon, supports templates."
+Picture:
+  description:  "Entity picture, supports templates."
+Value template:
+  description: "Defines a [template](#templates) to extract the value."
+Force update:
+  description: "Sends update events even if the value hasn’t changed. Useful if you want to have meaningful value graphs in history. _See [Force update](/integrations/sensor.rest/#force-update) for more information_."
+Availability:
+  description: "Defines a template to get the available state of the entity. If omitted, the entity is available if the last resource update was successful. See [Template integration documentation](../template/#availability)."
+{% endconfiguration_basic %}
+
+#### RESTful binary sensor configuration
+
+Attributes specific to binary sensor:
+
+{% configuration_basic %}
+Device class:
+  description: "The [device class](../binary_sensor/#device-class) used to pick the sensor’s on/off wording and icon."
+{% endconfiguration_basic %}
+
+#### RESTful sensor configuration
+
+Attributes specific to sensor:
+
+{% configuration_basic %}
+Device class:
+  description: "The [device class](../sensor/#device-class) for the sensor."
+State class:
+  description: "The [state class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor."
+Unit of measurement:
+  description: "The unit of measurement for the class. Will filter based on `device class` and `state class` selections."
+JSON attributes:
+  description: "A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the `text/xml`, `application/xml` or `application/xhtml+xml` content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)"
+JSON attributes path:
+  description: "A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `JSON attributes` in the JSON content."
+{% endconfiguration_basic %}
+
+## YAML Configuration
+
+To enable this {% term integration %} using YAML, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -126,7 +227,7 @@ verify_ssl:
   type: boolean
   default: true
 ssl_cipher_list:
-  description: The list of SSL ciphers to be accepted from this endpoint. `python_default` (_default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
+  description: The list of SSL ciphers to be accepted from this endpoint. `python_default` (_default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://docs.tlsref.org/server-side-tls.html)_).
   required: false
   type: string
   default: default
@@ -176,9 +277,10 @@ binary_sensor:
 {% endconfiguration %}
 
 {% important %}
-Use either `resource` or `resource_template`.
+Use either `resource` or `resource_template` in YAML configurations.
 {% endimportant %}
 
+## Templates
 
 {% include integrations/using_templates.md %}
 
