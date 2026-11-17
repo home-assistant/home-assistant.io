@@ -15,3 +15,7 @@ For a list of tradable asset pairs check [this kraken support article](https://s
 Tracked Asset Pairs:
   description: "Select the assets you want to track. This list is automatically updated with a list of tradable assets on kraken.com"
 {% endconfiguration_basic %}
+
+## Data updates
+
+The integration {% term polling polls %} kraken.com every 60 seconds.
