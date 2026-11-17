@@ -4,10 +4,26 @@ ha_release: 2024.11
 ha_domain: palazzetti
 ---
 
-The **Palazzetti** {% term integration %} integrates the [Palazzetti](https://palazzettigroup.com/)
-stoves equipped with a [Connection Box](https://palazzettigroup.com/research-and-development/app/).
-It is accessing the device's local API. [WPalaControl](https://github.com/Domochip/WPalaControl)
-devices have a compatible API and are supported by this integration too.
+The **Palazzetti** {% term integration %} integrates pellet stoves manufactured by [Palazzetti](https://palazzettigroup.com/)
+and OEM or rebranded stoves using the same hardware architecture (such as Jøtul, TurboFonte, and others)
+equipped with a [Connection Box](https://palazzettigroup.com/research-and-development/app/).
+It accesses the device's local API. Third-party bridges such as [WPalaControl](https://github.com/Domochip/WPalaControl)
+implement a compatible API and are supported by this integration as well.
+
+## Supported devices and brands
+
+This integration supports pellet stoves equipped with a Palazzetti Connection Box or a compatible bridge (such as WPalaControl). Many manufacturers share this electronic architecture (Fumis controller).
+
+Compatible brands include:
+
+- Casatelli
+- Fonte Flamme
+- Godin
+- Invicta
+- Jøtul
+- Palazzetti
+- Royal
+- TurboFonte
 
 ## Prerequisites
 
@@ -143,13 +159,15 @@ actions:
 
 {% enddetails %}
 
+## Data updates
+
+The Palazzetti integration {% term polling polls %} the device for new data every 30 seconds.
+
 ## Known limitations
 
 This integration does **not** yet support the following features and sensors:
 
 - Light and Door entities on stove models equipped with them.
-- Fan control other than the main one.
-- Combustion power control.
 
 ## Troubleshooting
 
