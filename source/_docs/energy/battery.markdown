@@ -12,7 +12,7 @@ Home Assistant allows you to track how much energy flows from/to your battery.
 When configuring a battery in the energy dashboard, you can specify its usable capacity. Home Assistant uses this capacity to weight the combined state of charge when you have multiple batteries of different sizes.
 
 - Select **Enter manually** to enter the usable capacity in kWh.
-- Select **Use a sensor** to choose a **Battery capacity sensor** that reports usable capacity in Wh, kWh, or MWh. Home Assistant uses the sensor's current reading and updates the capacity when it changes.
+- Select **Use a sensor** to choose a **Battery capacity sensor** that reports usable capacity in Wh, kWh, or MWh. Home Assistant uses the sensor's current reading. This is useful when the capacity can change, for example when an integration combines several batteries and one of them goes offline.
 
 Choose a sensor that reports total usable capacity, rather than remaining energy or lifetime charged energy.
 
