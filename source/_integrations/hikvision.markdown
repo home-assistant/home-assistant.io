@@ -8,7 +8,7 @@ The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <
 
 - Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state, and become unavailable while the event stream is disconnected
 - Camera entities with <abbr title="Real Time Streaming Protocol">RTSP</abbr> streaming and <abbr title="Hypertext Transfer Protocol">HTTP</abbr> snapshot capabilities
-- Number, select, and switch entities to view and change the image settings of a camera, such as brightness, <abbr title="Wide Dynamic Range">WDR</abbr>, and day/night mode
+- Number, select, and switch entities to view and change the image settings of a camera, or of each camera attached to an NVR, such as brightness, <abbr title="Wide Dynamic Range">WDR</abbr>, and day/night mode
 
 The platform will automatically add all sensors to Home Assistant that are
 configured within the camera/nvr interface to "Notify the surveillance center"
@@ -174,6 +174,8 @@ Use these entities when you want an automation to react only to a particular kin
 
 For a camera, the integration reads which image settings the camera supports and creates an entity for each one. These are the settings you find in the image configuration of the camera's web interface. Changing an entity changes the setting on the camera. Changes you make in the web interface of the camera show up in Home Assistant within 30 seconds.
 
+For an NVR, the integration does the same for each camera attached to the NVR. The entities of a camera are on the device of its channel, for example **Home channel 1**, the same device as the camera entity and binary sensors of that channel.
+
 Which settings exist depends on the model and the firmware. The integration only creates entities for the settings your camera reports. For example, a camera with a fixed iris has no iris controls, and a camera without a built-in light has no light controls.
 
 The image setting entities are configuration entities on the device page of the camera. Many of the less common ones are disabled by default to keep the device page readable. To use one, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the entity, and enable it. You do not need to restart Home Assistant.
@@ -311,12 +313,13 @@ If the camera still refuses the change, Home Assistant shows the reason the came
 
 The binary sensors and event entities get their data through the event stream of the device. The device sends changes to Home Assistant as they happen.
 
-Home Assistant {% term polling polls %} the image settings of a camera every 30 seconds, and again right after you change one in Home Assistant. The image setting entities are unavailable while the camera cannot be reached.
+Home Assistant {% term polling polls %} the image settings of a camera, or of each camera attached to an NVR, every 30 seconds, and again right after you change one in Home Assistant. The image setting entities are unavailable while the camera or NVR cannot be reached.
 
 ## Known limitations
 
 - The image settings are those of the first video channel of the camera.
-- Image settings are not available for cameras that are attached to an NVR.
+- An NVR lists the cameras whose image settings it can reach. A camera that the NVR cannot reach, that is disabled on the NVR, or that has no image settings gets no entities.
+- Home Assistant reads and changes the image settings of the cameras of an NVR one at a time. Changes to one camera can take a moment if the NVR is busy with another.
 - Only the settings your camera reports are available. Settings that your model or firmware does not support, or that need other permissions, do not appear.
 - Changing an image setting needs a user who is allowed to change the parameters of the camera remotely. See the troubleshooting section.
 
@@ -338,6 +341,8 @@ Image settings are optional. If the camera does not offer them, or does not allo
 2. Check the logs for `Not allowed to read the image settings`. If it is there, give the user the **Remote: Parameters Settings** permission in the user management section of the camera's web interface, or use an administrator account.
 3. Check the logs for `Unable to read the image settings` or `Unable to read the image values`. Make sure the camera is reachable, then reload the integration.
 4. If the camera does not offer image settings in its web interface either, no entities are created. This is not an error and nothing is logged.
+5. For an NVR, the cameras attached to it are only listed if they are enabled on the NVR and the NVR can read their image settings. Check the logs for `Unable to read the image settings of channel`, which names the channel that failed.
+6. Some NVRs report themselves as a camera. The integration then reads the camera endpoints first, and, if the device rejects them, tries the NVR endpoints once. If you still have no entities, download the diagnostics as described below and include them in your report.
 
 {% enddetails %}
 
@@ -370,7 +375,7 @@ The camera did not take the change. Home Assistant shows one of these messages:
 
 #### Description
 
-The diagnostics list every image setting that the camera reported, with its type, allowed values, and current value. They also tell whether the integration has an entity for each setting. The host name, user name, password, name, and device ID are removed. The diagnostics also include the image settings documents as the camera sent them, which are what is needed to add support for a camera model.
+The diagnostics list every image setting that the camera reported, or for an NVR, the settings of each attached camera by channel, with its type, allowed values, and current value. They also tell whether the integration has an entity for each setting. The host name, user name, password, name, and device ID are removed. The diagnostics also include the image settings documents as the camera sent them, which are what is needed to add support for a camera model.
 
 #### Resolution
 
