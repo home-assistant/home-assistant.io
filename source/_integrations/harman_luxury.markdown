@@ -35,6 +35,10 @@ A media player entity is created for the device, exposing:
 - Volume level and mute
 - Transport controls (play, pause, stop, next, previous)
 
+## Data updates
+
+The integration {% term polling polls %} the streamer every 10 seconds.
+
 ## Known limitations
 
 - Power cannot be controlled from Home Assistant. The device only reports its power state; it is switched on and off by its own remote, front panel, or automatic standby. The media player reports `off` when the device is in standby but does not offer power on/off.
