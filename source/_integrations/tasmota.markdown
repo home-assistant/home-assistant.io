@@ -44,5 +44,5 @@ On devices that run an official Tasmota release build, version 14.0.0 or later, 
 - The device needs access to `ota.tasmota.com`.
 - Before the update starts, the device's OTA URL is reset to the default of its firmware with `OtaUrl 1`. If the update does not complete, the previous OTA URL is restored.
 - Installing is not offered for self-built firmware, development builds, `tasmota-minimal` and `safeboot` images, firmware older than 14.0.0, and devices using deep sleep. Official releases older than 14.0.0 cannot be told apart from self-built firmware. Update these devices through their Tasmota web interface.
-- Installing is refused while several devices share the same MQTT topic, because all of them would receive the update command.
+- Installing is refused while several devices share the same MQTT topic, or when the device uses the Tasmota default group topic `tasmotas` as its topic, because all of these devices would receive the update command.
 - The update fails if the device reports an error, restarts with the same version, or does not report a new version within 10 minutes.
