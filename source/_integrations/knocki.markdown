@@ -22,6 +22,13 @@ The **Knocki** {% term integration %} allows you to trigger your favorite automa
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+  description: "The email address of your Knocki account."
+Password:
+  description: "The password of your Knocki account."
+{% endconfiguration_basic %}
+
 ## Automation example
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select  **Create Automation**.
@@ -31,3 +38,9 @@ The **Knocki** {% term integration %} allows you to trigger your favorite automa
    - Select **State** as the type of entity change.
 4. Select **Add action** and choose whatever action(s) you’d like the automation to trigger.
 5. Finally, test the action by tapping the associated gesture pattern.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
