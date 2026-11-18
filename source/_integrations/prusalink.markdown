@@ -37,3 +37,7 @@ Firmware update guides can be found here:
  - Use the **username** and **password** you entered during the initial PrusaLink setup (not the API key).
 
 {% include integrations/config_flow.md %}
+
+## Data updates
+
+The integration {% term polling polls %} the printer every 30 seconds. After you press one of its job buttons, such as pause or resume, it polls every 5 seconds for the next 30 seconds, so the new state shows quickly.

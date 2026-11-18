@@ -18,3 +18,7 @@ Depending on device abilities, the following separate sensors are created if sup
 In order for a device to be discovered automatically, SSPD / UPnP (under Network settings) must be enabled.
 
 {% include integrations/config_flow.md %}
+
+## Data updates
+
+The integration {% term polling polls %} the printer every 30 seconds.

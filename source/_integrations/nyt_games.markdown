@@ -18,3 +18,7 @@ Before setting up the integration, you need to fetch the token from the dev tool
 6. The token can be found in the `NYT-S` cookie.
 
 {% include integrations/config_flow.md %}
+
+## Data updates
+
+The integration {% term polling polls %} The New York Times every 15 minutes.
