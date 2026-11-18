@@ -28,6 +28,10 @@ Password:
   description: "The password of your Wolf SmartSet account."
 {% endconfiguration_basic %}
 
+## Data updates
+
+The integration {% term polling polls %} the Wolf Smart-Set web service every 60 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
