@@ -24,7 +24,7 @@ This page explains where to place your Z-Wave adapter, and how Z-Wave security w
 
 ## Z-Wave adapters
 
-To find out which Z-Wave adapter to use, refer to [Z-Wave adapters](/docs/z-wave/controllers/).
+The [Home Assistant Connect ZWA-2](/connect/zwa-2/) is the recommended Z-Wave adapter. For more about the recommended adapter, and for all other supported adapters, refer to [Z-Wave adapters](/docs/z-wave/controllers/).
 
 ### Placing your adapter elsewhere in your home
 
