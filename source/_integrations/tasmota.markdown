@@ -29,10 +29,20 @@ Tasmota Buttons, Fans, Lights, Relays, Sensors, Shutters, Switches and Cameras a
 - The camera functionality in ESP32 Tasmota devices with [tasmota32-webcam](https://templates.blakadder.com/ai-thinker_ESP32-CAM.html) firmware will be added as Home Assistant `Camera` entities. Note that this functionality is supported only when the Tasmota device and the Home Assistant server are on the same network.
 - The integration will also create up to eight Status Sensors, each one with a different information. All the Status Sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   ![iot](/images/integrations/tasmota/tasmota_status_sensors.png)
-- The integration adds an `update` entity for each Tasmota device. The entity reports the Tasmota firmware version installed on the device and whether a newer Tasmota release is available. When an update is offered, you can review the release notes. New releases are checked daily. Firmware cannot be installed from Home Assistant; update the device through its Tasmota web interface.
+- The integration adds an `update` entity for each Tasmota device. The entity reports the Tasmota firmware version installed on the device and whether a newer Tasmota release is available. When an update is offered, you can review the release notes. New releases are checked daily. For official Tasmota release builds, the release can be installed from Home Assistant, see [Firmware updates](#firmware-updates).
 
 {% include integrations/config_flow.md %}
 
 You must also configure each Tasmota device's MQTT settings to communicate with whatever MQTT broker you are using. Enter the broker address under host, and enter a username/password combination that allows access to the broker.
 
 If you are using the Home Assistant Mosquitto Broker app, first create a new Home Assistant user under {% my users title="Settings > People" %}. Then, in **Tasmota** > **Configure MQTT** under "Host" enter the address of your Home Assistant instance and under "User" and "Password" enter the Home Assistant user you just created.
+
+## Firmware updates
+
+On devices that run an official Tasmota release build, version 14.0.0 or later, you can install the latest Tasmota release from the device's firmware update entity. The device downloads the release image for its own build variant, for example `tasmota32c3` or `tasmota-DE`, directly from `ota.tasmota.com` and restarts. The update is complete when the device reports the new version.
+
+- The device needs access to `ota.tasmota.com`.
+- Before the update starts, the device's OTA URL is reset to the default of its firmware with `OtaUrl 1`. If the update does not complete, the previous OTA URL is restored.
+- Installing is not offered for self-built firmware, development builds, `tasmota-minimal` and `safeboot` images, firmware older than 14.0.0, and devices using deep sleep. Official releases older than 14.0.0 cannot be told apart from self-built firmware. Update these devices through their Tasmota web interface.
+- Installing is refused while several devices share the same MQTT topic, because all of them would receive the update command.
+- The update fails if the device reports an error, restarts with the same version, or does not report a new version within 10 minutes.
