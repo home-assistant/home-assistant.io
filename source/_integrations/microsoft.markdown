@@ -11,7 +11,7 @@ related:
     title: Microsoft Azure text-to-speech documentation
 ---
 
-The **Microsoft Text-to-Speech** {% term integration %} uses the [text-to-speech service of Azure AI Speech](https://learn.microsoft.com/azure/ai-services/speech-service/text-to-speech) to turn text into natural-sounding speech.
+The **Microsoft Text-to-speech** {% term integration %} uses the [text-to-speech service of Azure AI Speech](https://learn.microsoft.com/azure/ai-services/speech-service/text-to-speech) to turn text into natural-sounding speech.
 
 You can use it to have Home Assistant read out announcements and notifications on your media players, or as the text-to-speech engine of your [voice assistant](/voice_control/).
 
@@ -58,7 +58,7 @@ Pitch contour:
 
 ## Supported functionality
 
-The **Microsoft Text-to-Speech** integration provides the following entity.
+The **Microsoft Text-to-speech** integration provides the following entity.
 
 ### Text-to-speech
 
@@ -143,7 +143,7 @@ When you set up the integration, the form shows that the API key was rejected.
 
 ### Symptom: The message is not spoken and the logs show error 400
 
-When Home Assistant sends a message to the Microsoft Text-to-Speech service, nothing is played. The logs show an error with HTTP status code 400 (Bad Request).
+When Home Assistant sends a message to the Microsoft Text-to-speech service, nothing is played. The logs show an error with HTTP status code 400 (Bad Request).
 
 #### Description
 
