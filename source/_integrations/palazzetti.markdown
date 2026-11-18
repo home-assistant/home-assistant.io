@@ -22,7 +22,7 @@ Compatible brands and their commercial gateway names include:
 - **Invicta** (Kit Wi-Fi C-Box)
 - **Jøtul** (Jøtul Connection Box / CBox)
 - **Palazzetti** (Palazzetti Connection Box)
-- **Royal** (Connection Box)
+- **Royal 1915** (Connection Box)
 - **TurboFonte** (Connection Box / CBox)
 - **WPalaControl** (open-source hardware bridge)
 
