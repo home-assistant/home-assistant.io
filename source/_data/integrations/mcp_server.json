@@ -11,5 +11,8 @@
   "categories": [
     "ai_voice.ai_models",
     "other_ecosystems"
+  ],
+  "platforms": [
+    "diagnostics"
   ]
 }

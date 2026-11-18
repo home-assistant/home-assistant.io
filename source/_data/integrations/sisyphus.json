@@ -10,6 +10,9 @@
     "media_entertainment",
     "lighting"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "light",
     "media_player"

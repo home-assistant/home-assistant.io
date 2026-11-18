@@ -14,6 +14,9 @@
     "appliances_cleaning",
     "climate.heat_pumps_air_conditioning"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

@@ -5,5 +5,8 @@
   "quality_scale": "legacy",
   "categories": [
     "security_safety.locks_access"
+  ],
+  "connectivity": [
+    "network"
   ]
 }

@@ -11,6 +11,9 @@
     "security_safety.locks_access",
     "security_safety.doorbells_intercoms"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

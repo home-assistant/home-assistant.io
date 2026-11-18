@@ -6,6 +6,9 @@
   "categories": [
     "energy.energy_prices"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]
