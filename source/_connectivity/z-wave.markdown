@@ -11,7 +11,12 @@ related:
     title: Home Assistant Connect ZWA-2
 ---
 
-Z-Wave is a wireless technology that many smart home devices use, such as locks, light switches, and sensors. Z-Wave devices form a mesh network with a [Z-Wave adapter](#z-wave-adapters) that is connected to Home Assistant.
+Z-Wave is a wireless technology that many smart home devices use, such as locks, light switches, and sensors. Z-Wave devices connect to Home Assistant through a [Z-Wave adapter](#z-wave-adapters). There are two types of Z-Wave:
+
+- **Z-Wave Classic**: devices form a mesh network. Devices that are always powered pass messages on for other devices, which extends the range of your network.
+- **Z-Wave Long Range**: each device connects directly to the Z-Wave adapter, over a longer distance. Z-Wave Long Range is not a mesh network.
+
+When you add a device that supports both, you can choose which type to use. For the steps, refer to [Adding a new device to the Z-Wave network](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network).
 
 The recommended way to use Z-Wave is the [Z-Wave](/integrations/zwave_js/) {% term integration %}, which is built into Home Assistant. It controls your Z-Wave network through the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. To set it up and add devices, refer to the [Z-Wave](/integrations/zwave_js/) integration.
 
