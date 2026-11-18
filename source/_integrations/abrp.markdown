@@ -50,11 +50,11 @@ The integration does not connect to your vehicle directly. It uses the telemetry
 
 - An [A Better Routeplanner](https://abetterrouteplanner.com/) account.
 - At least one vehicle in your ABRP garage.
-- The [Home Assistant Cloud](/integrations/cloud/) integration loaded. It is included in `default_config:`, which is enabled by default. If you removed `default_config:` from your {% term "configuration.yaml" %}, add `cloud:` instead.
+- The [Home Assistant Link](/integrations/link/) integration loaded. It is included in `default_config:`, which is enabled by default. If you removed `default_config:` from your {% term "configuration.yaml" %}, add `cloud:` instead.
 
 {% include integrations/config_flow.md %}
 
-During setup, you sign in to ABRP and every vehicle in your ABRP garage is added to Home Assistant. Sign-in uses account linking provided by Home Assistant Cloud. This service is free and does not require a Home Assistant Cloud subscription, so you do not need API credentials or a developer app.
+During setup, you sign in to ABRP and every vehicle in your ABRP garage is added to Home Assistant. Sign-in uses account linking provided by Home Assistant Link. This service is free and does not require a Home Assistant Link subscription, so you do not need API credentials or a developer app.
 
 To monitor vehicles from more than one ABRP account, add the integration once for each account.
 
@@ -166,7 +166,7 @@ Each sensor shows the newest value ABRP has for your vehicle. Some telemetry, li
 
 The device tracker updates when ABRP receives a new position for your vehicle.
 
-Your ABRP garage list is read when the integration loads. Reload the integration after adding or renaming vehicles in ABRP. Removing a vehicle from ABRP does not automatically remove its device from Home Assistant.
+The integration also checks your ABRP garage every hour. New vehicles, including vehicles shared with you, are added automatically, and their sensors appear when the vehicle first reports data. If you rename a vehicle in ABRP, its device name updates too, unless you renamed the device in Home Assistant.
 
 ## Known limitations
 
@@ -181,6 +181,14 @@ Data freshness depends on ABRP and your vehicle manufacturer data source. Some e
 ### Vehicle location
 
 The location is shown as ABRP reports it. For vehicles without a direct connection to ABRP, the position can come from the ABRP phone app, so the device tracker shows your phone's location instead.
+
+### Removed vehicles
+
+Vehicles you remove from your ABRP garage, or that are no longer shared with you, are not removed automatically. They stay in Home Assistant until you reload the integration.
+
+### Vehicle make and model
+
+If ABRP cannot provide the make and model for a vehicle, its device shows ABRP's raw vehicle type code instead. The hourly garage check updates the device when the make and model become available.
 
 ### Route planning
 
@@ -213,7 +221,7 @@ After you sign in, the integration reloads and your entities update again.
 
 ### Setup stops with a message about default_config
 
-If setup stops and asks you to run Home Assistant with `default_config` enabled, the [Home Assistant Cloud](/integrations/cloud/) integration is not loaded. Add `default_config:` or `cloud:` to your {% term "configuration.yaml" %}, restart Home Assistant, and add the integration again.
+If setup stops and asks you to run Home Assistant with `default_config` enabled, the [Home Assistant Link](/integrations/link/) integration is not loaded. Add `default_config:` or `cloud:` to your {% term "configuration.yaml" %}, restart Home Assistant, and add the integration again.
 
 ### Sensor states appear stale
 
