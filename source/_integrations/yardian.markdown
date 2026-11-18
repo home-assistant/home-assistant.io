@@ -35,3 +35,9 @@ The **Yardian** integration provides the following entities.
 ## Actions
 
 {% include integrations/actions.md %}
+
+## Removing the integration
+
+To remove Yardian from Home Assistant, delete its integration entry. You can continue to use your controller in the Yardian app.
+
+{% include integrations/remove_device_service.md %}
