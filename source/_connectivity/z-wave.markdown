@@ -28,20 +28,18 @@ To find out which Z-Wave adapter to use, refer to [Z-Wave adapters](/docs/z-wave
 
 ### Placing your adapter elsewhere in your home
 
-Your Z-Wave adapter doesn't have to be plugged into your Home Assistant server. It can also connect to an ESP32-based device running [ESPHome](/integrations/esphome/). The ESPHome device then passes the Z-Wave traffic to Home Assistant over your network. This lets you place the adapter anywhere you have a Wi-Fi or Ethernet connection.
+Your Z-Wave adapter doesn't have to be plugged into your Home Assistant server. You can place it anywhere you have a Wi-Fi or Ethernet connection, and connect it to Home Assistant over your network:
 
-For example, you can use the experimental [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/) firmware with a [Home Assistant Connect ZWA-2](/connect/zwa-2). Portable Z-Wave is ESPHome firmware for connecting a Z-Wave adapter to Home Assistant over your network. You can use it in two ways:
+- [Home Assistant Connect AUX-2](/connect/aux-2/): plug your Home Assistant Connect ZWA-2 into the Connect AUX-2. The Connect AUX-2 then connects the adapter to Home Assistant over your network.
+- [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/): firmware for connecting a [Home Assistant Connect ZWA-2](/connect/zwa-2) to Home Assistant over your network. You can use it in two ways:
+  - Install it on the Home Assistant Connect ZWA-2 itself. The adapter then connects over its built-in Wi-Fi.
+  - Install it on an ESP32 board with Power over Ethernet (PoE). Then plug the Home Assistant Connect ZWA-2 into that board by USB. The adapter keeps its standard firmware.
 
-- Install it on the Home Assistant Connect ZWA-2 itself. The adapter then connects over its built-in Wi-Fi.
-- Install it on an ESP32 board with Power over Ethernet (PoE). Then plug the Home Assistant Connect ZWA-2 into that board by USB. The adapter keeps its standard firmware.
-
-To install the firmware, use the [Open Home Foundation toolbox](https://toolbox.openhomefoundation.org/home-assistant-connect-zwa-2/).
+  To install the firmware, use the [Open Home Foundation toolbox](https://toolbox.openhomefoundation.org/home-assistant-connect-zwa-2/).
 
 Over the network, Z-Wave devices respond a little slower than over USB. On most home networks, you won't notice the difference. On a busy network or with a weak Wi-Fi signal, the delay can become noticeable.
 
-You can also plug a Home Assistant Connect ZWA-2 into a [Home Assistant Connect AUX-2](/connect/aux-2/). The Connect AUX-2 then connects the adapter to Home Assistant over your network.
-
-To set up a Z-Wave adapter that is connected to an ESPHome device, refer to [Using a Z-Wave adapter connected to an ESPHome device](/integrations/zwave_js/#using-a-z-wave-adapter-connected-to-an-esphome-device).
+To set up an adapter that connects over your network, refer to [the setup steps in the Z-Wave integration](/integrations/zwave_js/#using-a-z-wave-adapter-connected-to-an-esphome-device).
 
 ## Z-Wave security
 
