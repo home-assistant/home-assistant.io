@@ -20,13 +20,11 @@ When you add a device that supports both, you can choose which type to use. For 
 
 The recommended way to use Z-Wave is the [Z-Wave](/integrations/zwave_js/) {% term integration %}, which is built into Home Assistant. It controls your Z-Wave network through the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. To set it up and add devices, refer to the [Z-Wave](/integrations/zwave_js/) integration.
 
-This page explains which Z-Wave adapter to use, where to place it, and how Z-Wave security works.
+This page explains where to place your Z-Wave adapter, and how Z-Wave security works.
 
 ## Z-Wave adapters
 
-Z-Wave supports all known 500, 700, and 800 series Z-Wave adapters. If you are just starting out, we recommend that you purchase a 800-series adapter (with firmware updated to >=7.23.2), such as the [Home Assistant Connect ZWA-2](/connect/zwa-2/).
-
-For all the supported adapters, refer to [Z-Wave adapters](/docs/z-wave/controllers/).
+To find out which Z-Wave adapter to use, refer to [Z-Wave adapters](/docs/z-wave/controllers/).
 
 ### Placing your adapter elsewhere in your home
 
