@@ -178,9 +178,11 @@ Otherwise please insert the batteries into all sensors you want to use.
 {% enddetails %}
 
 
-{% details "4. Add the TFA.me integration to your Home Assistant" %}
-
 {% include integrations/config_flow.md %}
+
+
+
+{% details "4. Add the TFA.me integration to your Home Assistant" %}
 
 Please follow the configuration flow and make some basic setting.
 
