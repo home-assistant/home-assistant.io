@@ -1,7 +1,7 @@
 ---
 description: Enable the Home Assistant Link integration.
 ha_release: '0.60'
-ha_domain: cloud
+ha_domain: link
 related:
   - url: https://support.nabucasa.com/hc/categories/24734619902749
     title: Home Assistant Link user documentation
@@ -25,8 +25,8 @@ The Home Assistant Link allows you to quickly integrate your local Home Assistan
 This {% term integration %} is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
-# Example configuration.yaml entry to enable the cloud component
-cloud:
+# Example configuration.yaml entry to enable the link component
+link:
 ```
 
 Documentation of further configuration possibilities are located at [NabuCasa](https://www.nabucasa.com/config/)
@@ -66,7 +66,7 @@ automation: |
       options:
         zone: zone.home
   actions:
-    - action: cloud.remote_connect
+    - action: link.remote_connect
 {% endexample %}
 
 {% enddetails %}
@@ -92,7 +92,7 @@ automation: |
       options:
         zone: zone.home
   actions:
-    - action: cloud.remote_disconnect
+    - action: link.remote_disconnect
 {% endexample %}
 
 {% enddetails %}

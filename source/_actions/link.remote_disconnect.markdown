@@ -1,10 +1,10 @@
 ---
 title: "Disable Home Assistant Link remote access"
-action: cloud.remote_disconnect
-domain: cloud
+action: link.remote_disconnect
+domain: link
 description: "Turns off remote access to your Home Assistant through Home Assistant Link."
 related_actions:
-  - cloud.remote_connect
+  - link.remote_connect
 ---
 
 Use this action to turn off remote access through Home Assistant Link. With remote access off, you can no longer reach your Home Assistant from outside your home network through your Nabu Casa URL. Other Home Assistant Link features, like voice assistants and backups, keep working.
@@ -30,11 +30,11 @@ This action has no additional options in the UI.
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `cloud.remote_disconnect`. A basic example looks like this:
+In YAML, refer to this action as `link.remote_disconnect`. A basic example looks like this:
 
 {% example %}
 action: |
-  action: cloud.remote_disconnect
+  action: link.remote_disconnect
 {% endexample %}
 
 ### Options in YAML
@@ -46,7 +46,7 @@ This action has no additional options in YAML.
 - You need to be signed in to [Home Assistant Link](/integrations/link/) for remote access to work.
 - Only administrators can run this action.
 - If you run this action while you're away from home, you lose remote access right away. To be able to turn it back on remotely, enable **Allow external activation of remote access** under **Remote access** first.
-- To turn remote access on again, use [Enable Home Assistant Link remote access](/actions/cloud.remote_connect/).
+- To turn remote access on again, use [Enable Home Assistant Link remote access](/actions/link.remote_connect/).
 
 {% include actions/try_it.md %}
 
@@ -73,7 +73,7 @@ automation: |
       options:
         zone: zone.home
   actions:
-    - action: cloud.remote_disconnect
+    - action: link.remote_disconnect
 {% endexample %}
 
 {% enddetails %}
@@ -95,7 +95,7 @@ automation: |
     - trigger: time
       at: "00:00:00"
   actions:
-    - action: cloud.remote_disconnect
+    - action: link.remote_disconnect
 {% endexample %}
 
 {% enddetails %}
