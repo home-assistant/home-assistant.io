@@ -65,6 +65,20 @@ While the inverter is asleep, it stops measuring, so **Temperature**, **Power
 factor**, **Grid frequency**, and the phase voltages read as unknown overnight.
 Readings that genuinely are zero, such as **AC power**, still report zero.
 
+### MPP trackers
+
+Each MPP tracker (DC input) of the inverter gets its own device, **MPPT 1**,
+**MPPT 2**, and so on, under the inverter's device. Its sensors are named after
+it, for example **MPPT 1 DC power**:
+
+- **DC power**: The power coming in on this input.
+- **DC voltage** and **DC current**: The voltage and current on this input.
+  [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+
+Together, the MPP trackers' **DC power** adds up to the inverter's **DC power**.
+Inverters that don't report their MPP trackers over SunSpec don't get these
+devices.
+
 ## Data updates
 
 The **KACO Modbus** {% term integration %} {% term polling polls %} the inverter
