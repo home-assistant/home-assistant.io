@@ -32,6 +32,14 @@ Language:
 
 The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
 
+The integration provides the following sensors:
+* Temperature: Tracks the current outdoor temperature.
+* Atmospheric Pressure: Measures current air pressure.
+* Wind Speed: Monitors current wind speed.
+* Wind Direction: Shows the direction of the wind in degrees.
+* UV Index: Tracks the current ultraviolet index.
+* Wind Gust Speed: Monitors peak wind gusts (disabled by default, but can be enabled in settings).
+
 ## Limitations
 
 1. The weather provider sometimes uses two weather conditions for the same day (see below). When this is the case, only the first weather condition is taken into account in this integration. <br/> <img src="/images/integrations/irm_kmi/monday.png" height="150" alt="Example of two weather conditions">
