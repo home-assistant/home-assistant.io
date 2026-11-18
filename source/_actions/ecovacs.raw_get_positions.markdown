@@ -2,6 +2,7 @@
 title: "Get raw positions"
 action: ecovacs.raw_get_positions
 domain: ecovacs
+response: required
 description: "Retrieves a raw response containing the positions of the charger and the vacuum."
 ---
 
@@ -44,6 +45,8 @@ This action has no additional YAML options beyond the target. Optionally, set `r
 {% include actions/targets.md domain="vacuum" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a raw response with the positions of the vacuum and charger. The exact response structure depends on the vacuum model and firmware.
 

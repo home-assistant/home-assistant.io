@@ -13,6 +13,7 @@ If your system is compatible with this integration, then you will be able access
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Humidifier](#humidifier)
+- [List of actions](#list-of-actions)
 
 {% include integrations/config_flow.md %}
 
@@ -120,3 +121,5 @@ automation:
         data:
           humidity: 35 # Set target humidity to 35% (recommended for comfort)
 ```
+
+{% include integrations/actions.md %}

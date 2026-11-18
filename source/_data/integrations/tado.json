@@ -11,6 +11,9 @@
     "climate.thermostats_heating",
     "climate.heat_pumps_air_conditioning"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

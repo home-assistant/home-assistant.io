@@ -13,6 +13,9 @@
     "lighting.bulbs_lamps",
     "plugs_switches"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

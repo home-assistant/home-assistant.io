@@ -11,12 +11,14 @@ ha_codeowners:
   - '@kayloehmann'
 ha_domain: aerosmart
 ha_platforms:
+  - binary_sensor
+  - number
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **aerosmart** {% term integration %} lets you monitor a combined aerosmart ventilation and heat-pump installation. Home Assistant connects locally through a Modbus TCP gateway or a directly connected serial Modbus RTU port, without a cloud service.
+The **aerosmart** {% term integration %} lets you monitor and control a combined aerosmart ventilation and heat-pump installation. Home Assistant connects locally through a Modbus TCP gateway or a directly connected serial Modbus RTU port, without a cloud service.
 
 The integration represents the ventilation controller and heat-pump controller as one device. It provides operating values, filter information, and controller status.
 
@@ -56,7 +58,16 @@ Heat pump unit:
 
 ## Supported functionality
 
-The integration provides sensor entities for the complete installation.
+The integration provides controls and sensor entities for the complete installation.
+
+### Controls
+
+You can control the following settings from the aerosmart device page, dashboards, scripts, and automations:
+
+- Room temperature setpoint from 14 to 26 °C.
+- Domestic hot water temperature setpoint from 20 to 55 °C.
+
+Home Assistant reads the value back from the controller after each change. If the controller does not confirm the requested value, Home Assistant reports an error and does not show the change as accepted.
 
 ### Sensors
 
@@ -68,9 +79,22 @@ Sensors report information such as:
 - Filter operating hours, service life, and volume values.
 - Operating-hour counters and controller information.
 
+### Binary sensors
+
+Binary sensors report states such as:
+
+- Heat-pump high-pressure and low-pressure faults.
+- Temperature sensor, fan, electric heater, and hot-water system faults.
+- Filter replacement signals and aggregate controller faults.
+- Utility lockouts for space heating, hot water, and the electric heater.
+- Heating, hot-water, defrost, fan, and summer bypass requests.
+- Installed capabilities, including filters, cooling, sensors, and the electric heater.
+
+Faults, requests, contacts, and lockout states are enabled by default and can be used as triggers or conditions in automations. Static installed-capability entities are disabled by default. You can enable any of them from the aerosmart device page if you need them in a dashboard or automation.
+
 ## Aerosmart automation examples
 
-Use the aerosmart sensors in automations to react to changes in your installation. Create an automation in {% my automations title="**Settings** > **Automations & scenes**" %} with the trigger and action below.
+Use the aerosmart sensors and binary sensors in automations to react to changes in your installation. Create an automation in {% my automations title="**Settings** > **Automations & scenes**" %} with the trigger and action below.
 
 {% include docs/paste_yaml_tip.md %}
 

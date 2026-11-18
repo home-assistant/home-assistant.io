@@ -8,7 +8,15 @@ ha_domain: agent_dvr
 
 You can add Agent DVR via integrations using the IP address and port of the server, like: `http://192.168.1.3:8090/`. If you have "Protect API" turned on in your Agent DVR server configuration, you can supply the username and password as part of the URL, for example, `http://username:password@192.168.1.3:8090`.
 
-{% include integrations/config_flow.md %}
+## Agent DVR app
+
+On Home Assistant OS, you can also run Agent DVR as an app on the same machine:
+
+{% my supervisor_addon badge addon="a910219e_agentdvr" repository_url="https://github.com/ispysoftware/home-assistant-apps" %}
+
+When the app is running, Home Assistant discovers it and shows **Agent DVR** as **Discovered** under {% my integrations title="**Settings** > **Devices & services**" %}. Select **Add** to set it up; you don't need to enter a host or port.
+
+{% include integrations/config_flow.md discovery=true %}
 
 {% important %}
 Please ensure you are using Agent DVR v2.6.1.0 +

@@ -11,6 +11,9 @@
   "categories": [
     "hubs_protocols.smart_home_hubs"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "climate",
     "cover",

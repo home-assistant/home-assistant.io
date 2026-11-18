@@ -2,6 +2,7 @@
 title: "Get queue"
 action: sonos.get_queue
 domain: sonos
+response: required
 description: "Returns the contents of a Sonos speaker's queue."
 related_actions:
   - sonos.play_queue
@@ -9,8 +10,6 @@ related_actions:
 ---
 
 Use this action to get the contents of a Sonos speaker's queue, for example to find a specific track and remove it, or to show what is coming up next.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -44,6 +43,8 @@ action: |
 {% include actions/targets.md domain="media_player" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the queue for each speaker you targeted, keyed by the speaker's entity ID. Each item in the list includes the following fields:
 

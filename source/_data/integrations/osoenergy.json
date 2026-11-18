@@ -10,6 +10,9 @@
   "categories": [
     "climate.water_heaters"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "sensor",

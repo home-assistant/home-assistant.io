@@ -233,6 +233,144 @@ combine_sources:
 type: energy-gas-graph
 ```
 
+## Gas Sankey graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/gas-sankey.png' alt='Screenshot of the gas Sankey graph card'>
+  Screenshot of the gas Sankey graph card.
+</p>
+
+The gas Sankey graph shows the flow of gas consumption in your home. It visualizes how gas flows from sources to the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
+
+This card displays historical gas data based on the selected date range from the energy date picker.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`gas-sankey`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+max_devices:
+  required: false
+  description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
+  type: integer
+  default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: gas-sankey
+```
+
+The following example orients the flow from left to right:
+
+```yaml
+type: gas-sankey
+layout: horizontal
+```
+
+## Gas flow Sankey graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/gas-sankey.png' alt='Screenshot of the gas flow Sankey graph card'>
+  Screenshot of the gas flow Sankey graph card.
+</p>
+
+The gas flow Sankey graph shows the real-time flow of gas in your home. Unlike the gas Sankey card, which shows historical gas data based on the selected date range, this card displays current flow values and is not affected by the date picker selection.
+
+To use this card, configure a gas flow rate sensor for each source or individual device you want to display on the {% my config_energy title="energy configuration page" %}. Cumulative gas consumption sensors alone cannot supply data to this card.
+
+It visualizes the instantaneous gas flow from sources to the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`gas-flow-sankey`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+max_devices:
+  required: false
+  description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
+  type: integer
+  default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: gas-flow-sankey
+```
+
+The following example orients the flow from left to right:
+
+```yaml
+type: gas-flow-sankey
+layout: horizontal
+```
+
 ## Water consumption graph
 
 <p class='img'>
@@ -428,6 +566,13 @@ layout: horizontal
 The energy distribution card shows how the energy flowed, from the grid to your house, from your solar panels to your house and/or back to the grid.
 
 If setup, it will also tell you how many kWh of the energy you got from the grid was produced without using fossil fuels.
+
+If you have a home battery, the card also shows where its energy comes from and where it goes. If your battery has [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction), these flows are measured. Otherwise, the card estimates them from your battery's totals.
+
+The card has no flow from one battery to another. If one battery charges another, what the card shows depends on your batteries:
+
+- With sensors for each direction, the card shows what those sensors measure. For example, energy from the first battery to your home, and energy from the grid or solar into the second battery.
+- With only total in and out, the charging and the discharging can cancel each other out. The card might then not show the transfer at all.
 
 ### YAML configuration
 
@@ -689,6 +834,13 @@ max_devices: 5
 
 The sankey energy graph shows the flow of energy in your home. It starts with sources and flows into the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
 
+If your battery has [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction), the energy flowing into and out of the battery is measured. Otherwise, the card estimates these flows from your battery's totals.
+
+The graph has no flow from one battery to another. If one battery charges another, what the graph shows depends on your batteries:
+
+- With sensors for each direction, the graph shows what those sensors measure. For example, energy from the first battery to your home, and energy from the grid or solar into the second battery.
+- With only total in and out, the charging and the discharging can cancel each other out. The graph might then not show the transfer at all.
+
 ### YAML configuration
 
 The following YAML options are available:
@@ -758,6 +910,13 @@ The power Sankey graph shows the real-time flow of power in your home. Unlike th
 
 It visualizes the instantaneous power flow from sources (like the grid, solar panels, and battery) to consumers in your home. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
 
+For a battery with [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction), the card shows the power that the battery's [power sensors](/docs/energy/battery/#power-sensors-for-each-direction) measure. A direction without a power sensor counts as 0 W. For a battery with only total in and out, the card estimates these flows from the battery's net power.
+
+The graph has no flow from one battery to another. If one battery charges another, what the graph shows depends on your batteries:
+
+- With power sensors for each direction, the graph shows what those sensors measure. For example, power from the first battery to your home, and power from the grid or solar into the second battery.
+- With only total in and out, the charging and the discharging power cancel each other out. The graph might then not show the transfer at all.
+
 ### YAML configuration
 
 The following YAML options are available:
@@ -820,14 +979,16 @@ type: power-sankey
 layout: horizontal
 ```
 
-## Power sources graph
+<span id="power-sources-graph"></span>
+
+## Power profile graph
 
 <p class='img'>
-  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Sankey sources graph card'>
-  Screenshot of the power Sankey graph card.
+  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Power profile graph card'>
+  Screenshot of the Power profile graph card.
 </p>
 
-The power sources graph shows historical power data.
+The power profile graph shows historical power data.
 
 ### YAML configuration
 
