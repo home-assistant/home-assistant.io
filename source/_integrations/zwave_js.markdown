@@ -138,7 +138,7 @@ Two integrations work together to find the adapter:
   - On other installation types, connect your own [Z-Wave JS server](#setting-up-a-z-wave-server-without-using-the-z-wave-js-app) to `esphome://` followed by the IP address of the ESPHome device. For example: `esphome://192.168.1.50`.
     - If the ESPHome device uses API encryption, add `?key=` followed by its URL-encoded encryption key. For example: `esphome://192.168.1.50?key=YOUR_ENCRYPTION_KEY`. For details, refer to the [Z-Wave JS documentation](https://zwave-js.github.io/zwave-js/#/usage/esphome-connection).
 - An ESP32-based device running ESPHome with the [Z-Wave proxy](https://esphome.io/components/zwave_proxy/) component. A Z-Wave adapter must be connected to it.
-  - For example, a Home Assistant Connect ZWA-2 running Portable Z-Wave, or plugged into an ESP32 board running it.
+  - For example, a Home Assistant Connect ZWA-2 plugged into a [Home Assistant Connect AUX-2](/connect/aux-2/), or a Connect ZWA-2 running Portable Z-Wave.
 - If you already use Z-Wave, your Z-Wave network must run on the Z-Wave JS app.
   - If you use Z-Wave JS UI, first [migrate to the Z-Wave JS app](#migrating-from-z-wave-js-ui-to-the-z-wave-js-app).
 - If the adapter already holds a Z-Wave network, [back up your Z-Wave network](#backing-up-your-z-wave-network) before you change the adapter's connection.
@@ -147,7 +147,7 @@ Two integrations work together to find the adapter:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Under **Discovered**, find the ESPHome device and select **Add**.
-   - For example: your Home Assistant Connect ZWA-2 running Portable Z-Wave, or the ESP32 board it's plugged into.
+   - For example: the Home Assistant Connect AUX-2 that your Connect ZWA-2 is plugged into, or your Connect ZWA-2 running Portable Z-Wave.
    - Follow the steps on screen to add the device to the ESPHome integration.
    - If you already added the ESPHome device, skip this step.
 3. Continue with the Z-Wave adapter:
