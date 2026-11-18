@@ -28,14 +28,11 @@ To find out which Z-Wave adapter to use, refer to [Z-Wave adapters](/docs/z-wave
 
 ### Placing your adapter elsewhere in your home
 
-Your Z-Wave adapter doesn't have to be plugged into your Home Assistant server. You can place it anywhere you have a Wi-Fi or Ethernet connection, and connect it to Home Assistant over your network:
+Your Z-Wave adapter doesn't have to be plugged into your Home Assistant server. You can place it anywhere in your home, and connect it to Home Assistant over your network.
 
-- [Home Assistant Connect AUX-2](/connect/aux-2/): plug your Home Assistant Connect ZWA-2 into the Connect AUX-2. The Connect AUX-2 then connects the adapter to Home Assistant over your network.
-- [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/): firmware for connecting a [Home Assistant Connect ZWA-2](/connect/zwa-2) to Home Assistant over your network. You can use it in two ways:
-  - Install it on the Home Assistant Connect ZWA-2 itself. The adapter then connects over its built-in Wi-Fi.
-  - Install it on an ESP32 board with Power over Ethernet (PoE). Then plug the Home Assistant Connect ZWA-2 into that board by USB. The adapter keeps its standard firmware.
+The recommended way is to plug your [Home Assistant Connect ZWA-2](/connect/zwa-2) into a [Home Assistant Connect AUX-2](/connect/aux-2/), and power the Connect AUX-2 with Power over Ethernet (PoE). A single Ethernet cable then provides both power and the network connection.
 
-  To install the firmware, use the [Open Home Foundation toolbox](https://toolbox.openhomefoundation.org/home-assistant-connect-zwa-2/).
+You can also install the [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/) firmware on the Connect ZWA-2 itself. The adapter then connects to Home Assistant over its built-in Wi-Fi. To install the firmware, use the [Open Home Foundation toolbox](https://toolbox.openhomefoundation.org/home-assistant-connect-zwa-2/).
 
 Over the network, Z-Wave devices respond a little slower than over USB. On most home networks, you won't notice the difference. On a busy network or with a weak Wi-Fi signal, the delay can become noticeable.
 
