@@ -157,6 +157,10 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | `forecast_cons_remaining_today` | Forecast of the remaining energy consumption for today. | Wh   |
 | `forecast_prod_remaining_today` | Forecast of the remaining energy production for today.  | Wh   |
 
+## Data updates
+
+The integration {% term polling polls %} the inverter every 60 seconds.
+
 ## Troubleshooting
 
 ### What is my domain name?
