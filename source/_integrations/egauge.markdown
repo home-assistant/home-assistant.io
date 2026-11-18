@@ -86,7 +86,7 @@ Some installations report a power register backwards, for example a current tran
 
 The dialog reads the register list from the device and offers the power registers that the integration is currently exposing. Select the registers whose sign you want to flip, and then select **Submit**. The integration reloads, so the change applies without a restart.
 
-Only power sensors are affected. Energy, voltage, and current sensors keep reporting the values that the device sends. An energy sensor reports a running total that Home Assistant expects to only increase, so a negated reading is skipped when statistics are calculated and Home Assistant logs a warning. The state itself is still recorded in the history.
+The power and energy sensors of a selected register are both affected. The eGauge accumulates its counters from the same measurement it reports as power, so a register whose power reads negative has an energy counter that runs negative too, and flipping the sign leaves an increasing, non-negative total. Voltage and current sensors keep reporting the values that the device sends.
 
 ## Known limitations
 
