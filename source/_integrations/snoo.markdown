@@ -12,6 +12,13 @@ This integration follows standard integration installation. No extra steps are r
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+  description: "The username or email address of your Snoo account."
+Password:
+  description: "The password of your Snoo account."
+{% endconfiguration_basic %}
+
 ## Binary Sensors
 
 ### Left and right safety clips
