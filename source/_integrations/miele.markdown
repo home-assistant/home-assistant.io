@@ -100,6 +100,14 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 {% enddetails %}
 
+### Image
+
+{% details "List of image entities" %}
+
+- **Camera**: Shows the latest snapshot from the internal oven camera (Smart FoodView) on supported ovens.
+
+{% enddetails %}
+
 ### Light
 
 {% details "List of light entities" %}
