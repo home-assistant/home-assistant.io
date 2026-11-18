@@ -46,7 +46,7 @@ If the credentials for your router change later, Home Assistant asks you to ente
 
 For each device it finds on the router, the integration creates a {% term "device tracker" %} entity that shows whether the device is home or away. Each entity also exposes the device's IP address, hostname, and MAC address.
 
-The integration polls the router every 30 seconds. When the router stops reporting a device, the entity changes to away at the next poll. It keeps its last known IP address and hostname.
+When the router stops reporting a device, the entity changes to away at the next poll. It keeps its last known IP address and hostname.
 
 To prevent a brief disconnection from starting an automation, use a [**State changed**](/triggers/state/) trigger with **To** set to **Away** and a **For at least** duration. The automation runs only if the device stays away for that duration. This delays only the automation, not the device tracker's state change.
 
