@@ -12,18 +12,27 @@ implement a compatible API and are supported by this integration as well.
 
 ## Supported devices and brands
 
-This integration supports pellet stoves equipped with a Palazzetti Connection Box or a compatible bridge (such as WPalaControl). Many manufacturers share this electronic architecture (Fumis controller).
+This integration supports pellet stoves equipped with a Palazzetti Connection Box, an OEM equivalent, or a compatible bridge (such as WPalaControl). Many manufacturers share this electronic architecture (Fumis controller).
 
-Compatible brands include:
+Compatible brands and their commercial gateway names include:
 
-- Casatelli
-- Fonte Flamme
-- Godin
-- Invicta
-- Jøtul
-- Palazzetti
-- Royal
-- TurboFonte
+- **Casatelli** (Kit Wi-Fi)
+- **Fonte Flamme** (FFBox / FFBox2)
+- **Godin** (Kit Wi-Fi C-Box)
+- **Invicta** (Kit Wi-Fi C-Box)
+- **Jøtul** (Jøtul Connection Box / CBox)
+- **Palazzetti** (Palazzetti Connection Box)
+- **Royal** (Connection Box)
+- **TurboFonte** (Connection Box / CBox)
+- **WPalaControl** (open-source hardware bridge)
+
+### Identifying compatible hardware
+
+Compatible Wi-Fi modules connect directly to the stove's serial interface (RJ11/RJ12), communicate over local network HTTP (typically with hostname `connbox` or initial setup Wi-Fi SSID `connboxXXXXX`), and do not require a cloud service.
+
+{% note %}
+If your stove is equipped with a **Fumis WiRCU** Wi-Fi module (requiring a MAC address and PIN code to connect to the Fumis cloud), use the [Fumis](/integrations/fumis) integration instead.
+{% endnote %}
 
 ## Prerequisites
 
