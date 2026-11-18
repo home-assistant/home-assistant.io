@@ -1,10 +1,9 @@
 ---
 title: Mistral
 description: Instructions on how to integrate Mistral as a conversation agent
-ha_category:
-  - AI
-  - Voice
-ha_release: 2026.10
+ha_categories:
+  - ai_voice.ai_models
+ha_release: 2026.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: mistral_ai
@@ -29,7 +28,7 @@ ha_codeowners:
 
 The **Mistral** {% term integration %} adds a conversation agent powered by [Mistral](https://mistral.ai) to Home Assistant.
 
-To control Home Assistant, give the AI access to the Assist API. You can choose which devices and entities it can access on the {% my voice_assistants title="exposed entities page" %}. The AI can provide information about and control those devices and entities.
+To let the AI interact with Home Assistant, select one or more of the available APIs in the conversation agent settings. Without any API selected, the AI can still answer questions, but it cannot interact with your home.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
@@ -64,7 +63,7 @@ Chat model:
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+  description: Which Home Assistant APIs the model can use. **Device control** reads and controls the entities you have [exposed](/voice_control/voice_remote_expose_devices/) to Assist; a few helpers, such as the current date and time, work without exposure. **Home Assistant** provides admin-only inspection tools, such as search, history, and the system log, which are not limited to exposed entities but include no device control. If you select more than one API, every request must come from an administrator.
 {% endconfiguration_basic %}
 
 If you choose not to use the recommended settings, you can configure the following additional options:
