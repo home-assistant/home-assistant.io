@@ -19,6 +19,11 @@ Additionally, various sensor entities are provided:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Location:
+  description: "The location you want the Stookwijzer information for. Select it on the map. It defaults to your Home Assistant home location."
+{% endconfiguration_basic %}
+
 {% include integrations/actions.md %}
 
 ## Examples
@@ -53,3 +58,9 @@ template:
 ```
 
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
