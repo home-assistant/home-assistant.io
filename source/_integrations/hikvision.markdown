@@ -8,7 +8,7 @@ The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <
 
 - Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state, and become unavailable while the event stream is disconnected
 - Camera entities with <abbr title="Real Time Streaming Protocol">RTSP</abbr> streaming and <abbr title="Hypertext Transfer Protocol">HTTP</abbr> snapshot capabilities
-- Switch entities to view and change the on/off image settings of a camera, such as highlight compensation
+- Number and switch entities to view and change the image settings of a camera, such as brightness, contrast, and highlight compensation
 
 The platform will automatically add all sensors to Home Assistant that are
 configured within the camera/nvr interface to "Notify the surveillance center"
@@ -177,6 +177,51 @@ For a camera, the integration reads which image settings the camera supports and
 Which settings exist depends on the model and the firmware. The integration only creates entities for the settings your camera reports. For example, a camera with a fixed iris has no iris controls, and a camera without a built-in light has no light controls.
 
 The image setting entities are configuration entities on the device page of the camera. Many of the less common ones are disabled by default to keep the device page readable. To use one, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the entity, and enable it. You do not need to restart Home Assistant.
+
+### Number
+
+Numbers control the image settings that have a range. A number is created for each of these settings that your camera reports. The minimum and maximum come from the camera, and values are whole numbers.
+
+These numbers are enabled by default:
+
+- **Brightness**
+- **Contrast**
+- **Saturation**
+- **Sharpness**
+- **Gain**
+- **Shutter speed**
+- **WDR level**
+- **Highlight compensation level**
+- **Light brightness**
+
+These numbers are disabled by default:
+
+- **Gain limit**
+- **Night-to-day sensitivity**
+- **Night-to-day delay**
+- **Auto iris level**
+- **P-Iris level**
+- **Maximum iris level**
+- **Minimum iris level**
+- **White balance red**
+- **White balance blue**
+- **Noise reduction level**
+- **Spatial noise reduction level**
+- **Temporal noise reduction level**
+- **Smart noise reduction level**
+- **Defog level**
+- **Smart supplement light distance**
+- **Smart supplement light high-light distance**
+- **Smart supplement light low-light distance**
+- **White light brightness limit**
+- **IR light brightness**
+- **IR light brightness limit**
+- **IR high brightness**
+- **IR low brightness**
+- **IR brightness limit**
+- **Event intelligence white light brightness**
+- **Event intelligence IR light brightness**
+- **Lens distortion correction level**
 
 ### Switch
 
