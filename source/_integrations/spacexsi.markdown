@@ -76,25 +76,35 @@ Review your account's privacy controls, [SpaceXSI privacy information](https://x
 
 ## Troubleshooting
 
-### The sign-in code expired
+{% details "The sign-in code expired" %}
 
 If the code expires before you finish signing in, select **Submit** to request a new code.
 
-### SpaceXSI rejects the sign-in
+{% enddetails %}
+
+{% details "SpaceXSI rejects the sign-in" %}
 
 Home Assistant refreshes your sign-in automatically. If access is revoked or the sign-in is rejected, open the SpaceXSI integration under **Settings** > **Devices & services** and follow the sign-in prompt. Sign in with the same account you used during setup. Your existing conversation agent and settings are kept.
 
-### The selected model is no longer available
+{% enddetails %}
+
+{% details "The selected model is no longer available" %}
 
 If Home Assistant reports that the selected model is no longer available to your account, remove the SpaceXSI integration and add it again. Choose one of the available models during setup. If you use Grok with a voice assistant, check that the assistant has the new Grok conversation agent selected.
 
-### Grok cannot access an entity
+{% enddetails %}
+
+{% details "Grok cannot access an entity" %}
 
 Make sure you selected **Device control** under **AI tools** during setup and [exposed the entity to Assist](/voice_control/voice_remote_expose_devices/).
 
-### The account is not allowed to use the service
+{% enddetails %}
+
+{% details "The account is not allowed to use the service" %}
 
 If SpaceXSI rejects a request because your account does not have access, check the account's subscription and access to the selected model. Signing in again does not grant additional permissions. Try again after access is restored.
+
+{% enddetails %}
 
 ## Removing the integration
 
