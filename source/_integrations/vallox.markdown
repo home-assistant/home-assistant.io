@@ -55,6 +55,10 @@ The following Vallox profiles are supported. Availability depends on the connect
 
 {% include integrations/actions.md %}
 
+## Data updates
+
+The integration {% term polling polls %} the Vallox unit every 60 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
