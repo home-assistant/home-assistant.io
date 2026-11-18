@@ -24,6 +24,10 @@ Port:
 
 Each data controller can support up to 64 `climate` devices.
 
+## Data updates
+
+The integration {% term polling polls %} the CCM15 controller every 30 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
