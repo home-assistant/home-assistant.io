@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Aeotec joins Works with Home Assistant"
-description: "Leaks, smoke, mold risk, and open doors: Aeotec’s 10 newly certified devices join the program to keep watch locally, with Z-Wave Long Range reaching up to 1 km 😮"
+description: "Leaks, smoke, mold risk, and open doors: Aeotec’s 9 newly certified devices join the program to keep watch locally, with Z-Wave Long Range reaching up to 1 km 😮"
 date: 2026-11-18 00:00:01
 date_formatted: "November 18, 2026"
 author: Jacqueline Ajayi
@@ -13,7 +13,7 @@ og_image: /images/blog/2026-11-aeotec/art.webp
 
 <img src="/images/blog/2026-11-aeotec/art.webp" alt="Aeotec joins Works with Home Assistant" style="border: 0;box-shadow: none;">
 
-Get ready for gear that goes the distance, because this month <a href="https://aeotec.com/" target="_blank" rel="noopener">Aeotec</a> join Works with Home Assistant 🎉 Building Z-Wave and smart home tech since 2006, our newest partners bring 10 certified devices to the program. From sensors and sirens to switches and a smoke detector upgrade – not to mention new Z-Wave Long Range devices from the 8 series – there’s *plenty* of exciting ground to cover 📡<!--more-->
+Get ready for gear that goes the distance, because this month <a href="https://aeotec.com/" target="_blank" rel="noopener">Aeotec</a> join Works with Home Assistant 🎉 Building Z-Wave and smart home tech since 2006, our newest partners bring 9 certified devices to the program. From sensors and sirens to switches and a smoke detector upgrade – not to mention new Z-Wave Long Range devices from the 8 series – there’s *plenty* of exciting ground to cover 📡<!--more-->
 
 ## Howdy, partner!
 
