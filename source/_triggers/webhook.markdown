@@ -100,7 +100,6 @@ allowed_methods:
   default: "[POST, PUT]"
 local_only:
   description: Set to `true` to only accept requests from your local network. Set to `false` to also accept requests from the internet, including through Home Assistant Link.
-  description: Set to `true` to only accept requests from your local network. Set to `false` to also accept requests from the internet, including through Home Assistant Link.
   required: false
   type: boolean
   default: true
