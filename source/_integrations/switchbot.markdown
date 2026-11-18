@@ -171,7 +171,7 @@ In addition to the certified devices, the following devices are also supported:
 ### Buttons
 
 - [Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
-- AI Memory Frame (W1218)
+- E Ink Photo Magnet (W1218)
 
 ### Keypad Visions
 
@@ -895,11 +895,11 @@ Features:
 
 ### Buttons
 
-Art Frame and AI Memory Frame provide buttons to display the next, previous, or a random image.
+Art Frame and E Ink Photo Magnet provide buttons to display the next, previous, or a random image.
 
 This is an encrypted device.
 
-Add images in the SwitchBot app before using the image buttons. For AI Memory Frame, the random image button selects from stored user images.
+Add images in the SwitchBot app before using the image buttons. For E Ink Photo Magnet, the random image button selects from stored user images.
 
 Features:
 - next image
