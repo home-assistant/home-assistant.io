@@ -269,6 +269,12 @@ These selects are disabled by default:
 
 Changing **Power line frequency** can need a restart of the camera before it takes effect.
 
+### Sensor
+
+If a camera offers only one choice for a setting, that setting cannot be changed, so there is no select for it. For example, a camera with a fixed iris offers only **Manual** for its exposure mode. The integration shows the value of such a setting as a read-only sensor instead.
+
+The sensors have the same names as the selects listed above. They are diagnostic entities and are disabled by default. Enable a sensor as described at the start of this section.
+
 ### Switch
 
 Switches control the on/off image settings of a camera. A switch is created for each of these settings that your camera reports.
