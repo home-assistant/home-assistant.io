@@ -44,7 +44,7 @@ For each device, the following *sensors* are created:
 
 ## Data updates
 
-The integration {% term polling polls %} the SensorPush cloud every 60 seconds.
+The integration {% term polling polls %} the SensorPush cloud every 60 seconds. The [SensorPush Gateway Cloud API](https://www.sensorpush.com/gateway-cloud-api) allows requests at most once per minute. Use an interval of at least 60 seconds if you customize polling.
 
 ## Known limitations
 
