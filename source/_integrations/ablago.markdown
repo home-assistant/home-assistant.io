@@ -1,7 +1,12 @@
 ---
+title: Ablago
 description: Instructions on how to integrate Ablago into Home Assistant
 ha_release: 2026.12
+ha_iot_class: Local Polling
+ha_codeowners:
+  - '@motom001'
 ha_domain: ablago
+ha_integration_type: service
 related:
   - url: https://github.com/motom001/dms
     title: Ablago
@@ -39,9 +44,8 @@ Add the integration once per person. The key does not tell Home Assistant whom i
 
 ## Supported functionality
 
-Each entry creates a service device with the following entities.
+Each entry creates a service device with the following sensors.
 
-### Sensors
 
 | Sensor          | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
@@ -50,30 +54,40 @@ Each entry creates a service device with the following entities.
 | **Overdue**     | Open deadlines, reminders and tasks of this person dated before today.      |
 | **Last change** | When one of the counters last changed.                                     |
 
-### Binary sensors
-
-| Binary sensor        | Description                                                         |
-|----------------------|---------------------------------------------------------------------|
-| **New mail waiting** | On while **New mail** is above 0.                                   |
-| **Connectivity**     | Diagnostic. On while Ablago is running and its database answers.   |
+While Ablago is not reachable, the sensors are unavailable.
 
 ## Use cases
 
-- Turn on a lamp in the hallway while new mail is waiting.
+- Turn on a lamp in the hallway while **New mail** is above 0.
 - Send a notification to your phone when new mail arrives.
 - Show the counters of every person on a family dashboard.
 
-## Example automations
+## Ablago automation examples
 
-{% details "Send a notification when new mail arrives" %}
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Send a notification when new mail arrives
+
+This automation sends a notification each time the **New mail** count of a person goes up, also when mail was already waiting.
+
+- **Trigger**: Entity state: **New mail** of the person changes
+- **Condition**: The new count is higher than the old one
+- **Action**: Send a notification
+
+After pasting the example into the automation editor, select the **New mail** sensor of the person in the trigger and your notification entity in the action. Replace `sensor.ablago_lena_new_mail` in the message with the entity ID of that **New mail** sensor.
+
+{% details "YAML example for a notification when new mail arrives" %}
 
 ```yaml
 alias: New mail in Ablago
 triggers:
   - trigger: state
-    entity_id: binary_sensor.ablago_lena_new_mail_waiting
-    from: "off"
-    to: "on"
+    entity_id: sensor.ablago_lena_new_mail
+conditions:
+  - condition: template
+    value_template: >
+      {{ trigger.from_state is not none and trigger.to_state is not none
+         and trigger.to_state.state | int(0) > trigger.from_state.state | int(0) }}
 actions:
   - action: notify.send_message
     target:
@@ -86,13 +100,13 @@ actions:
 
 ## Data updates
 
-The integration polls Ablago **every minute**: the counters and whether Ablago is reachable. If the counters have not changed, Ablago answers without sending them again, so frequent polling costs next to nothing.
+The integration polls the counters from Ablago **every minute**. If the counters have not changed, Ablago answers without sending them again, so frequent polling costs next to nothing.
 
 ## Known limitations
 
 - Ablago does not push changes to Home Assistant. New mail shows up within a minute.
 - A key with the level **Counters only** cannot read titles, senders or the Ablago version, so the integration shows none of them.
-- Without HTTPS in your home network, the key travels unencrypted. With **Counters only** it reveals at most how much mail is waiting; HTTPS is still recommended.
+- Without HTTPS in your home network, the API key travels unencrypted. Anyone who intercepts it can read the person's new mail, to-do and overdue counters. Use HTTPS to protect the key and the counters.
 
 ## Troubleshooting
 
