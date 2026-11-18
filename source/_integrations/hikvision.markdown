@@ -82,7 +82,16 @@ Verify SSL certificate:
   description: "Turn off if your device uses a self-signed certificate, which is what Hikvision devices come with. This only applies when **Use SSL** is on. This is on by default."
 {% endconfiguration_basic %}
 
-You cannot change these settings after you add the device. To use different settings, remove the integration and add it again.
+## Reconfiguration
+
+If the address of your device changes, or you turn HTTPS on or off on the device, reconfigure the integration instead of removing it:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Hikvision** integration.
+3. Next to the device, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+4. Change the **Host**, **Port**, **Use SSL**, or **Verify SSL certificate** setting.
+
+Home Assistant connects to the device with the new settings before it saves them. The username and password are kept. To change them, follow the reauthentication notification that Home Assistant shows when the device rejects them. The device must be the same one that you added: if it is not, Home Assistant stops with the message **The device at this address is not the one this entry was set up for.** Your entities and automations are kept, and Home Assistant reloads the integration when the settings are saved.
 
 ## Camera
 
@@ -420,6 +429,23 @@ The device rejected the stored username or password, for example because you cha
 2. Enter the current username and password. They must belong to the same device. If they belong to a different device, Home Assistant stops with the message **The credentials belong to a different device than the one being reauthenticated.**
 
 The host, port, and SSL settings are kept, and Home Assistant reloads the integration without removing your entities or automations.
+
+{% enddetails %}
+
+{% details "Reconfiguring stops with a message about another device" %}
+
+### Symptom: The device at this address is not the one this entry was set up for
+
+When you reconfigure the integration, Home Assistant stops with the message **The device at this address is not the one this entry was set up for.**
+
+#### Description
+
+Home Assistant compares the device ID of the device at the new address with the one it stored when you added the device. This stops an entry from being moved to a different device, which would give its entities and history to the wrong device.
+
+#### Resolution
+
+1. Check that the host and port are those of the same device that you added.
+2. If you replaced the device with a new one, remove the integration and add the new device.
 
 {% enddetails %}
 
