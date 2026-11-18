@@ -39,7 +39,7 @@ Before adding the TFA.me integration to Home Assistant, make sure that:
 
 The **Local API** is disabled by default and must be enabled manually.
 
-Follow the instructions in the [Station preparation](#station-preparation) section below before starting the integration setup.
+Follow the instructions in the [Station:Basic configuration steps](#station-basic-configuration-steps) section below before starting the integration setup.
 
 
 ## Supported TFA.me devices
@@ -180,16 +180,14 @@ Otherwise please insert the batteries into all sensors you want to use.
 
 {% details "4. Add the TFA.me integration to your Home Assistant" %}
 
-1. Open the web page of your Home Assistant and go no menu: **Settings** > **Devices & services**.
-2. Click on the **+** sign to and search for **tfa**.
-3. Click on **TFA** then **TFA.me station** to add the integration.
+{% include integrations/config_flow.md %}
 
 Please follow the configuration flow and make some basic setting.
 
 1. Mandatory: Enter the IP address of your device or the 9 digit serial number **XXX-XXX-XXX**. To get the IP address of your station press and hold the **+** key and wait until the IP is shown. The serial number is placed at the backside of your station.
 2. Mandatory: Press button **OK**. 
 
-The integration now requests sensor list & sensor measurement data once at start. When successful you will see a list with all sensors added. The integrationn also generates all entities (section **Entities**) and updates them every minute.. 
+The integration now requests sensor list & sensor measurement data once at start. When successful you will see a list with all sensors added. The integrationn also generates all entities (section **Entities**) and updates them every minute.
 
 After completing the configuration flow, the **TFA.me** integration will be available.
 
@@ -354,7 +352,7 @@ All units are metric.
 - `humidity`in **%**: Relative humidity
 - `barometric_pressure` in **hPa**: Barometric pressure
 - `rain`in **mm**: Rain fall (absolute value)
-- `rssi` in **1/256**: Signal strength<br>Theoretical range: 0 (bad) ... 255 (very good)<br>Practical range: 80 (bad) ... 230 (very good)|
+- `rssi` is **unitless signal-strength scale**: Values<br>Theoretical range: 0 (bad) ... 255 (very good)<br>Practical range: 80 (bad) ... 230 (very good)|
 - `lowbatt`: Battery status sensor with the following states:
   - `ok`: Battery level is good.
   - `low`: Battery level is low.
