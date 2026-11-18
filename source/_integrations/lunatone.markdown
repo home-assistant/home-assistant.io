@@ -69,9 +69,9 @@ The Lunatone integration provides the following entities.
   - **Description**: Starts a DALI scan and clears all DALI addresses before the scan begins.
   - **Available for devices**: All
 
-{% important %}
-Use the `DALI scan: Start new installation` option with care. This action deletes all addresses on the DALI bus and may affect connected devices.
-{% endimportant %}
+{% caution %}
+Use the **DALI scan: Start new installation** option with care. This action deletes all addresses on the DALI bus and may affect connected devices.
+{% endcaution %}
 
 - **DALI scan: Start system extension**
   - **Description**: Starts a DALI scan to find new devices and assign addresses.
