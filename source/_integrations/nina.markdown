@@ -78,7 +78,7 @@ This integration provides the following entities for each warning slot.
 
 - **Affected areas**:
   - **Description**: Areas affected by the warning.
-  - **Remarks**: Shortened to 250 chars. To get all areas please use the `nina.get_affected_areas` action.
+  - **Remarks**: Shortened to 250 chars. To get all areas please use the `nina.get_details` action.
 - **Expires**:
   - **Description**: Expiration timestamp of the warning.
 - **Headline**:
