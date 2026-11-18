@@ -29,7 +29,17 @@ The internal and external measurement values ​​are partially displayed on th
 In addition, each **TFA.me station** also has the ability to hold the most recent measurement data in a table and make it available to Home Assistant via an integrated web server. Therefore, Home Assistant can query measurement data directly and locally from your station via the LAN (Wi-Fi).
 
 
-{% include integrations/config_flow.md %}
+## Before you begin
+
+Before adding the TFA.me integration to Home Assistant, make sure that:
+
+1. Your TFA.me station is connected to your local Wi-Fi network.
+2. Your Home Assistant instance can access the station over the local network.
+3. The **Local API** is enabled in the station's network settings.
+
+The **Local API** is disabled by default and must be enabled manually.
+
+Follow the instructions in the [Station preparation](#station-preparation) section below before starting the integration setup.
 
 
 ## Supported TFA.me devices
@@ -257,9 +267,17 @@ The TFA.me integration generates device names using the following naming scheme:
 `TFA.me <Sensor-ID> (<Station-ID>)`
 
 - `Sensor-ID`: The sensor serial number, formatted as `XXX-XXX-XXX`.
-- `Station-ID`: The serial number of the receiving station, without hyphens.
+- `Station-ID`: The serial number of the receiving station, without hyphens `YYYYYYYYY`.
 
-Home Assistant automatically generates entity IDs based on device and entity names.
+Home Assistant automatically generates entity IDs based on device and entity names. Typically they look like this:
+
+`sensor.tfa_me_<Sensor-ID>_<Station-ID>_<Measurement>`
+
+- `Sensor-ID`: The sensor serial number, formatted as `xxx_xxx_xxx`.
+- `Station-ID`: The serial number of the receiving station `yyyyyyyyy`.
+- `Measurement `: The measurement descriptor.
+
+
 The following entity IDs are typical examples. Actual entity IDs may differ depending on Home Assistant's automatic naming and existing entities.
 
 **Example 1:** A temperature/humidity sensor with ID `A01-234-567` received by station `017-654-321`.
@@ -268,23 +286,21 @@ Generated device name: `TFA.me A01-234-567 (017654321)`
 
 Typical entity IDs:
 
-- `sensor.tfa_me_a01_234_567_temperature`
-- `sensor.tfa_me_a01_234_567_humidity`
-- `sensor.tfa_me_a01_234_567_rssi`
-- `sensor.tfa_me_a01_234_567_lowbatt`
+- `sensor.tfa_me_a01_234_567_017654321_temperature`
+- `sensor.tfa_me_a01_234_567_017654321_humidity`
+- `sensor.tfa_me_a01_234_567_017654321_rssi`
+- `sensor.tfa_me_a01_234_567_017654321_battery_status`
 
 **Example 2:** The same temperature/humidity sensor with ID `A01-234-567` received by another station with ID `031-654-321`.
 
 Generated device name: `TFA.me A01-234-567 (031654321)`
 
-If the entity IDs from the first station already exist, Home Assistant may generate:
+Typical entity IDs:
 
-- `sensor.tfa_me_a01_234_567_temperature_2`
-- `sensor.tfa_me_a01_234_567_humidity_2`
-- `sensor.tfa_me_a01_234_567_rssi_2`
-- `sensor.tfa_me_a01_234_567_lowbatt_2`
-
-The numeric suffixes are assigned automatically when needed and are not guaranteed.
+- `sensor.tfa_me_a01_234_567_031654321_temperature`
+- `sensor.tfa_me_a01_234_567_031654321_humidity`
+- `sensor.tfa_me_a01_234_567_031654321_rssi`
+- `sensor.tfa_me_a01_234_567_031654321_battery_status`
 
 {% enddetails %}
 
