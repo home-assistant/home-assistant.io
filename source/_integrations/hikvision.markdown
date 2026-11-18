@@ -169,6 +169,45 @@ Whether your device classifies events, and which of these values it uses, depend
 
 Use these entities when you want an automation to react only to a particular kind of trigger, for example to send a notification for a person crossing a line but not for a vehicle. Use the binary sensors instead when you want to know whether an event is currently active.
 
+## Troubleshooting
+
+{% details "The device rejects the username or password" %}
+
+### Symptom: "Invalid authentication" when adding the device
+
+When you add the device, the form shows **Invalid authentication**.
+
+#### Description
+
+The device rejected the username or password you entered.
+
+#### Resolution
+
+1. Check the username and password by signing in to the web interface of the device.
+2. Make sure the user has the permissions described at the start of this page, and that **WEB Authentication** is set to `digest/basic`.
+3. If the problem continues, try a user with administrator rights. Some devices only accept an administrator account.
+
+{% enddetails %}
+
+{% details "Home Assistant asks you to reauthenticate" %}
+
+### Symptom: A notification says the authentication expired
+
+Home Assistant shows a reauthentication notification for your Hikvision device, and the entities of the device are not available.
+
+#### Description
+
+The device rejected the stored username or password, for example because you changed the password of the user. Home Assistant stops connecting to the device until you enter the current credentials. This avoids repeated failed sign-ins, which can lock the user on the device for a while.
+
+#### Resolution
+
+1. Follow the reauthentication notification.
+2. Enter the current username and password. They must belong to the same device. If they belong to a different device, Home Assistant stops with the message **The credentials belong to a different device than the one being reauthenticated.**
+
+The host, port, and SSL settings are kept, and Home Assistant reloads the integration without removing your entities or automations.
+
+{% enddetails %}
+
 ## Removing the integration
 
 This integration follows standard integration removal.
