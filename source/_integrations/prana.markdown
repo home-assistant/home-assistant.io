@@ -26,6 +26,11 @@ Use case: If you have a Prana recuperator and want to automate ventilation, moni
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The IP address or hostname of your Prana device. This field is not shown when Home Assistant discovered the device on your network."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 ### Entities
