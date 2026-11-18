@@ -12,6 +12,9 @@
     "energy.meters_monitoring",
     "water.meters_leak_detection"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "diagnostics",
     "sensor"

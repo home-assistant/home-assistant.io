@@ -1,6 +1,6 @@
 ---
 title: SilverCrest Infrared
-description: Integration to control SilverCrest infrared devices using an infrared emitter.
+description: Integration to control SilverCrest infrared devices using an infrared emitter, and to use their remote in automations with an infrared receiver.
 ha_release: 2026.11
 ha_iot_class: Assumed state
 ha_codeowners:
@@ -12,16 +12,17 @@ ha_categories:
 ha_config_flow: true
 ha_platforms:
   - button
+  - event
 ha_quality_scale: bronze
 ---
 
-The **SilverCrest Infrared** {% term integration %} lets you control SilverCrest infrared devices with any infrared emitter that has been previously configured in Home Assistant.
+The **SilverCrest Infrared** {% term integration %} lets you control SilverCrest infrared devices with any infrared emitter previously configured in Home Assistant. With an infrared receiver, you can also use the device's remote to trigger automations.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device, but there is no feedback channel to confirm its current state. The integration therefore uses assumed states.
 
 ## How you can use the integration
 
-After setup, you can control your SilverCrest devices from Home Assistant with the created entities. Use it to turn the device on or off or control other features.
+After setup, you can control your SilverCrest devices from Home Assistant using the created entities. Use them to turn the device on or off, or control other features. With an infrared receiver, you can also use the buttons on the fan's remote to start automations, like turning on a light when you turn on the fan.
 
 ## Supported devices
 
@@ -59,17 +60,20 @@ When submitting a request, include the device model and the captured infrared co
 {% include integrations/infrared_controlled.md %}
 
 For example, you can use an ESPHome device with an IR LED pointed at your
-SilverCrest device.
+- For example, you can use an ESPHome device with an IR LED pointed at your SilverCrest device. 
+- To use the remote in automations, the device also needs an IR receiver.
 
 {% include integrations/config_flow.md %}
 
-Select the device type that matches your remote control, then select an infrared emitter.
+Select the device type that matches your remote control, then select an infrared emitter, an infrared receiver, or both. You need at least one. To add or change the emitter or receiver later, reconfigure the integration.
 
 {% configuration_basic %}
 Device type:
   description: The type of SilverCrest device to control.
 Infrared emitter:
-  description: The infrared emitter entity to use for sending commands to your device. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
+  description: The infrared emitter entity used to send commands to your device. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter. Button entities are only created when you select an emitter.
+Infrared receiver:
+  description: The infrared receiver entity used to receive commands from your remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver. The event entity is only created when you select a receiver.
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -101,6 +105,20 @@ The **SilverCrest** integration provides the following entities.
 - **Mist**
   - **Description**: Toggles the misting function.
   - **Available for**: Misting pedestal fans.
+
+### Events
+
+An event entity is created when an infrared receiver is configured. It fires an event each time a remote command is received, so you can use the remote to trigger automations in Home Assistant.
+
+- **Received command**
+  - **Description**: Fires when a command from the remote is successfully decoded by the infrared receiver. The event type corresponds to the button pressed on the remote.
+  - **Event types**:
+    - Power (`power`)
+    - Speed (`speed`)
+    - Timer (`timer`)
+    - Oscillation (`osc`)
+    - Mode (`mode`)
+  - **Remarks**: For misting pedestal fans, the **Mode** event corresponds to the **Mist** button on the remote.
 
 ## SilverCrest Infrared automation examples
 

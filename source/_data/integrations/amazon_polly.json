@@ -9,6 +9,9 @@
   "categories": [
     "ai_voice.speech"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "tts"
   ]

@@ -10,6 +10,9 @@
     "presence_location.phones_companion_apps",
     "messaging_notifications.push_notifications"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "notify",
     "sensor"

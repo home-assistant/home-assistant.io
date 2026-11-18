@@ -101,8 +101,38 @@ The following update entities will be created:
 
 - **Core firmware** - Core firmware updates of SLZB firmware
 - **Zigbee firmware** - Firmware updates of Zigbee chip
+- **Z-Wave firmware** - Firmware updates of the Z-Wave chip, on devices with a Z-Wave radio
 
 The updates offered in Home Assistant will match your currently installed firmware. This is based on the firmware channel (dev, release) and for Zigbee also on the firmware type (coordinator, router, Thread). If you wish to switch channels, install the different firmware type in the SMLIGHT web UI. You will get notifications when new firmware updates are available to install.
+
+#### Installing a specific firmware version
+
+By default, the update entities install the latest firmware. You can also install a specific version, for example to go back to a previous version after an update.
+
+1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
+2. Search for and select **Update: Install update**.
+3. As the target, select the **Core firmware**, **Zigbee firmware**, or **Z-Wave firmware** update entity of your SLZB device.
+4. Enable **Version** and enter the version you want to install.
+5. Select **Perform action**.
+
+You can also use the **Install update** action with a version in an automation or a script.
+
+For core firmware, the version looks like `v3.4.3.dev1`. For Zigbee firmware, it's the firmware release date, for example, `20250212`. You can only install a version that SMLIGHT offers on your device's current firmware channel and, for Zigbee, its current firmware type. Home Assistant shows an error if the version isn't available or is already installed. Installing core firmware restarts the SLZB device.
+
+{% details "YAML example for installing a specific core firmware version" %}
+
+{% example %}
+action: |
+  action: update.install
+  target:
+    entity_id: update.slzb_ultima3_core_firmware
+  data:
+    version: "v3.4.3.dev1"
+{% endexample %}
+
+{% enddetails %}
+
+For more details, see the [**Install update**](/actions/update.install/) action.
 
 ### Peripherals
 
@@ -163,7 +193,7 @@ Certain advanced features are not supported directly within this integration and
 
 ## Troubleshooting
 
-- In the unlikely event you encounter issues after a firmware update, you can always downgrade the firmware to a previously stable version using the device's web UI.
+- In the unlikely event you encounter issues after a firmware update, you can go back to a previous firmware version from Home Assistant, as described in [Installing a specific firmware version](#installing-a-specific-firmware-version), or from the device's web UI.
 
 - If you require access to the SLZB device over IPv6, this can be enabled on the device's web UI.
 

@@ -10,6 +10,9 @@
   "categories": [
     "lighting.lighting_systems"
   ],
+  "connectivity": [
+    "serial"
+  ],
   "platforms": [
     "diagnostics",
     "light",

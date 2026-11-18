@@ -11,6 +11,9 @@
   "categories": [
     "garden_plants"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor",
     "switch"
