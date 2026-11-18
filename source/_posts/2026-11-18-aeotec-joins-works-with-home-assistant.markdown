@@ -77,7 +77,7 @@ A: It highlights the devices we know work well with Home Assistant and the brand
 
 Q: How were these devices tested?
 
-A: The Z-Wave devices in this list were tested with Home Assistant Container running on an Intel NUC (a compact mini PC), using the Home Assistant Connect ZWA-2 adapter and the [Z-Wave integration](/integrations/zwave_js/). The Zigbee devices were tested separately, joined to a temporary Zigbee network with a Home Assistant Connect ZBT-2 adapter and the [Zigbee Home Automation](/integrations/zha/) integration. If you have a different hub or adapter set up, that’s not a problem, but we test against these as they’re the most effective way for our team to certify devices within our ecosystem.
+A: The Z-Wave devices in this list were tested with Home Assistant Container running on an Intel NUC (a compact mini PC), using the Home Assistant Connect ZWA-2 adapter and the [Z-Wave integration](/integrations/zwave_js/). The Zigbee device was tested separately, joined to a temporary Zigbee network with a Home Assistant Connect ZBT-2 adapter and the [Zigbee Home Automation](/integrations/zha/) integration. If you have a different hub or adapter set up, that’s not a problem, but we test against these as they’re the most effective way for our team to certify devices within our ecosystem.
 
 Q: Will you be adding more Aeotec devices to the program?
 
