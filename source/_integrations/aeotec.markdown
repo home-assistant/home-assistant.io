@@ -18,9 +18,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
-ha_iot_standard:
-  - zwave
-  - zigbee
+ha_iot_standard: zwave
 ha_brand: true
 ---
 
