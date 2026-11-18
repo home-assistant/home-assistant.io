@@ -2034,20 +2034,20 @@ water_heaters:
         F:
           description: "Fahrenheit"
     min_temp:
-      description: "Minimum target temperature."
+      description: "Minimum target temperature, in the configured `temperature_unit`."
       required: false
       type: integer
-      default: 40
+      default: 40 (°C) or 104 (°F)
     max_temp:
-      description: "Maximum target temperature."
+      description: "Maximum target temperature, in the configured `temperature_unit`."
       required: false
       type: integer
-      default: 60
+      default: 60 (°C) or 140 (°F)
     temp_step:
       description: "Step size of the target temperature."
       required: false
       type: float
-      default: 0.5
+      default: 1
     operation_mode_register:
       description: "Register that holds the operation mode."
       required: false
