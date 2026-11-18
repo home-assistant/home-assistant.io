@@ -70,6 +70,10 @@ To get your monthly cost data, you can use the [template sensor](/integrations/t
 {% endraw %}
 ```
 
+## Data updates
+
+The integration {% term polling polls %} the smart meter every 5 minutes.
+
 ## Removing the {% term integration %}
 
 This {% term integration %} follows standard {% term integration %} removal. No extra steps are required.
