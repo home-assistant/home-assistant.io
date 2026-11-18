@@ -29,7 +29,7 @@ The options are the same three lists, so you can change what you track at any ti
 
 ## Data updates
 
-The integration {% term polling polls %} the Home Assistant analytics service every 12 hours. If an update fails, it tries again after 15 minutes.
+The integration {% term polling polls %} the Home Assistant analytics service every 12 hours. If a request to the analytics service fails, the integration retries the update after 15 minutes.
 
 ## Removing the integration
 
