@@ -8,7 +8,7 @@ The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <
 
 - Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state, and become unavailable while the event stream is disconnected
 - Camera entities with <abbr title="Real Time Streaming Protocol">RTSP</abbr> streaming and <abbr title="Hypertext Transfer Protocol">HTTP</abbr> snapshot capabilities
-- Number, select, and switch entities to view and change the image settings of a camera, such as brightness, <abbr title="Wide Dynamic Range">WDR</abbr>, and day/night mode
+- Number, select, and switch entities to view and change the image settings of a camera, such as brightness, <abbr title="Wide Dynamic Range">WDR</abbr>, and day/night mode, and sensor entities that show the settings a camera does not let you change
 
 The platform will automatically add all sensors to Home Assistant that are
 configured within the camera/nvr interface to "Notify the surveillance center"
@@ -176,7 +176,7 @@ For a camera, the integration reads which image settings the camera supports and
 
 Which settings exist depends on the model and the firmware. The integration only creates entities for the settings your camera reports. For example, a camera with a fixed iris has no iris controls, and a camera without a built-in light has no light controls.
 
-The image setting entities are configuration entities on the device page of the camera. Many of the less common ones are disabled by default to keep the device page readable. To use one, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the entity, and enable it. You do not need to restart Home Assistant.
+The numbers, selects, and switches are configuration entities on the device page of the camera. The sensors, for settings the camera does not let you change, are diagnostic entities (see [Sensor](#sensor)). Many of the less common ones are disabled by default to keep the device page readable. To use one, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the entity, and enable it. You do not need to restart Home Assistant.
 
 ### Number
 
@@ -268,6 +268,12 @@ These selects are disabled by default:
 - **Capture mode**
 
 Changing **Power line frequency** may require a camera restart before it takes effect.
+
+### Sensor
+
+If a camera offers only one choice for a setting, that setting cannot be changed, so there is no select for it. For example, a camera with a fixed iris offers only **Manual** for its exposure mode. The integration shows the value of such a setting as a read-only sensor instead.
+
+The sensors have the same names as the selects and switches listed in this section: a switch setting the camera reports with only one value is shown as a sensor too. They are diagnostic entities and are disabled by default. Enable a sensor as described at the start of this section.
 
 ### Switch
 
