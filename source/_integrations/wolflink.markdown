@@ -21,6 +21,13 @@ The {% term integration %} fetches all data based on parameters that are exposed
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+  description: "The username of your Wolf SmartSet account."
+Password:
+  description: "The password of your Wolf SmartSet account."
+{% endconfiguration_basic %}
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
