@@ -187,7 +187,7 @@ You can download the backup from the backups page in Home Assistant, or from you
 ### To download a backup from your Home Assistant Link account
 
 1. Log in to your [Home Assistant Link account](https://account.nabucasa.com/).
-2. Under **Cloud services** > **Backups**, find the latest available backup file, and select **Download**.
+2. Under **Link services** > **Backups**, find the latest available backup file, and select **Download**.
 
 ## App update backups
 
