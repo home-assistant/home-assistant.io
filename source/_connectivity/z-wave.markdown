@@ -40,6 +40,8 @@ To set up an adapter that connects over your network, refer to [the setup steps 
 
 Z-Wave has two types of security: Security S2 and Security S0. Both encrypt the messages between Home Assistant and your devices, and detect messages that were damaged on the way.
 
+Modern Z-Wave devices support Security S2. To add such a device, you scan the QR code on the device, or enter the PIN code that is printed next to it. This confirms that the device you add is the one in your hands, and not another device nearby that pretends to be it. After you add the device, all messages between the device and Home Assistant are encrypted. Z-Wave Long Range devices always use Security S2.
+
 When you add a device that supports Security S2, Home Assistant uses it automatically, because it is the better choice. Security S2 does not add extra traffic to your network, and it provides additional benefits. For example, devices that use Security S2 require Home Assistant to confirm that it received and understood their reports.
 
 Home Assistant only uses Security S0 when a device needs encryption to work, but does not support Security S2. This is the case for some older devices, such as door locks. Security S0 adds significant extra traffic to your network.
