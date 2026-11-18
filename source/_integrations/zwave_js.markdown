@@ -5,7 +5,7 @@ ha_release: '2021.2'
 ha_domain: zwave_js
 related:
   - docs: /connectivity/z-wave/
-    title: Z-Wave in Home Assistant
+    title: About Z-Wave
   - docs: /connect/zwa-2
     title: Home Assistant Connect ZWA-2 Z-Wave adapter
   - docs: /docs/z-wave/controllers/
@@ -14,7 +14,7 @@ related:
 
 The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
 
-This page documents the **Z-Wave** integration. To learn more about Z-Wave in Home Assistant, refer to [Z-Wave](/connectivity/z-wave/).
+This page documents the **Z-Wave** integration. To learn more about Z-Wave, refer to [Z-Wave](/connectivity/z-wave/).
 
 ## Getting started
 
