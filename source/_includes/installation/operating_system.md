@@ -342,7 +342,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
 
     1. Select your new **Home Assistant** VM in the list, and then select **Settings** on the toolbar.
     2. Go to the **Storage** section.
-    3. In the **Storage Devices** list, under **Controller: SATA** (or on Mac with Apple silicon, **Controller: VirtioSCSI**), right-click the empty placeholder disk and select **Remove attachment**.
+    3. If the **Storage Devices** list still shows an empty placeholder disk under **Controller: SATA** (or on Mac with Apple silicon, **Controller: VirtioSCSI**), right-click it and select **Remove attachment**.
     4. Next to **Controller: SATA** (or **Controller: VirtioSCSI**), select the **Add hard disk** icon (the blue disk with a plus sign).
     5. In the dialog that appears, select the **Add** button.
     6. Find and select the downloaded `.vdi` file.
