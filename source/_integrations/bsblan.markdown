@@ -218,4 +218,4 @@ The integration is tested with the stable firmware version `5.0.16-2025052500281
 
 ## Data updates
 
-The integration {% term polling polls %} the BSB-LAN device every 12 seconds for state and sensor values, and every 5 minutes for the domestic hot water settings. Schedules are read at startup and after Home Assistant writes to the device.
+The integration {% term polling polls %} the BSB-LAN device every 12 seconds for state and sensor values, and every 5 minutes for the domestic hot water settings. Each schedule is read at startup and again after Home Assistant writes that schedule.
