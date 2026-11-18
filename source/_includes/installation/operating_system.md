@@ -331,7 +331,10 @@ To create the virtual machine, follow the instructions for the hypervisor you us
        - **Number of CPUs**: Set to at least **2**.
        - **Use EFI**: Select the checkbox to use UEFI instead of legacy BIOS. Home Assistant requires UEFI to boot.
     5. Select **Next**.
-    6. In the **Summary** step, review the settings and select **Finish**.
+    6. In the **Virtual hard disk** step, select **Do not add a virtual hard disk**.
+       - Home Assistant uses the disk image you attach in the next section.
+       - If VirtualBox asks whether to continue without a hard disk, select **Continue**.
+    7. In the **Summary** step, review the settings and select **Finish**.
 
     #### Attach the Home Assistant disk (VDI)
 
