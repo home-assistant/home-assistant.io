@@ -16,6 +16,11 @@ get the Zeversolar IP address.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Zeversolar inverter."
+{% endconfiguration_basic %}
+
 ## Sensor types
 
 When configured, the {% term integration %} will create two sensors for each configured inverter:
