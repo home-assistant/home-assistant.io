@@ -18,9 +18,7 @@ Z-Wave is a wireless technology that many smart home devices use, such as locks,
 
 When you add a device that supports both, you can choose which type to use. For the steps, refer to [Adding a new device to the Z-Wave network](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network).
 
-The recommended way to use Z-Wave is the [Z-Wave](/integrations/zwave_js/) {% term integration %}, which is built into Home Assistant. It controls your Z-Wave network through the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. To set it up and add devices, refer to the [Z-Wave](/integrations/zwave_js/) integration.
-
-This page explains where to place your Z-Wave adapter, and how Z-Wave security works.
+Home Assistant controls your Z-Wave network with the built-in [Z-Wave](/integrations/zwave_js/) {% term integration %}. To set it up and add devices, refer to its documentation.
 
 ## Z-Wave adapters
 
