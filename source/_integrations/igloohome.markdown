@@ -45,6 +45,10 @@ Client secret:
   type: string
 {% endconfiguration_basic %}
 
+## Data updates
+
+The integration {% term polling polls %} the igloohome cloud every hour.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
