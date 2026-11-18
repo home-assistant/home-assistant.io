@@ -849,6 +849,14 @@ demos:
         - type: timer-presets
           style: buttons
 
+  feature_timer_progress:
+    - type: tile
+      entity: timer.laundry
+      grid_options:
+        columns: 12
+      features:
+        - type: timer-progress
+
   feature_toggle:
     - type: tile
       entity: switch.coffee_maker
