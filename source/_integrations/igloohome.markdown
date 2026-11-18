@@ -47,7 +47,7 @@ Client secret:
 
 ## Data updates
 
-The integration {% term polling polls %} the igloohome cloud every hour.
+The integration {% term polling polls %} the igloohome cloud every hour for battery levels. The lock entity shows an assumed lock state.
 
 ## Removing the integration
 
