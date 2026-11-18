@@ -14,3 +14,7 @@ The **SmartTub** {% term integration %} allows you to view and control hot tubs 
 {% include integrations/config_flow.md %}
 
 {% include integrations/actions.md %}
+
+## Data updates
+
+The integration {% term polling polls %} the SmartTub cloud every 60 seconds.
