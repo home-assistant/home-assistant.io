@@ -1253,6 +1253,18 @@ template:
         location_accuracy: "{{ trigger.json.resolution }}"
 ```
 
+```yaml
+# Example configuration.yaml entry using in_zones, for presence that comes
+# from another entity, such as a router binary sensor
+template:
+  - device_tracker:
+      - name: Phone on Wi-Fi
+        unique_id: phone_on_wifi
+        in_zones: "{{ ['zone.home'] if is_state('binary_sensor.phone_home', 'on') else [] }}"
+```
+
+The `in_zones` template must return a list of zone entity IDs, not `home` or `not_home`. An empty list makes the state `not_home`. This is also a way to move away from the `device_tracker.see` action for presence that is not GPS based.
+
 ## Event
 
 The template event platform allows you to create events with templates to define the state.
