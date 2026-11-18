@@ -200,6 +200,12 @@ green:
       ship_to: Europe
       url: https://www.kubii.com/en/consoles-systems/4776-home-assistant-green-860011789703.html
       logo: /images/distributors/kubii.webp
+      # Africa
+    - name: Smarthomes
+      ship_from: South Africa
+      ship_to: Africa
+      url: https://smart-homes.co.za/products/home-assistant-green
+      logo: /images/distributors/smarthomes.webp
 yellow:
   name: "<strong>Home Assistant Yellow</strong>"
   distributors:
@@ -540,6 +546,12 @@ voice-pe:
       ship_to: Europe
       url: https://www.kubii.com/en/embedded-boards/5288-home-assistant-voice-preview-edition-0860011789727.html
       logo: /images/distributors/kubii.webp
+      # Africa
+    - name: Smarthomes
+      ship_from: South Africa
+      ship_to: Africa
+      url: https://smart-homes.co.za/products/home-assistant-voice-pe
+      logo: /images/distributors/smarthomes.webp
 zwa-2:
   name: "<strong>Home Assistant</strong> Connect ZWA-2"
   distributors:
@@ -925,6 +937,12 @@ zbt-2:
       url: https://smartguys.com.au/product/home-assistant-zbt-2-connect-zigbee-thread-adapter/
       logo: /images/distributors/smart-guys.webp
 
+      # Africa
+    - name: Smarthomes
+      ship_from: South Africa
+      ship_to: Africa
+      url: https://smart-homes.co.za/products/home-assistant-connect-zbt-2-zigbee
+      logo: /images/distributors/smarthomes.webp
 aux-2:
   name: "<strong>Home Assistant</strong> Connect AUX-2"
   new: true
@@ -1115,4 +1133,5 @@ aux-2:
     - name: Smarthomes
       ship_from: South Africa
       ship_to: Africa
-      url: https://smart-homes.co.za/products/home-assistant-connect-aux-2
+      url: https://smart-homes.co.za/products/home-assistant-connect-aux-3
+      logo: /images/distributors/smarthomes.webp
