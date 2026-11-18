@@ -7,7 +7,7 @@ related:
   - docs: /integrations/matter/
     title: Matter integration
   - docs: /connectivity/thread/
-    title: Thread in Home Assistant
+    title: About Thread
 ---
 
 Matter is a new smart home connectivity standard for home automation products and IoT (Internet of Things) devices, see its [Wikipedia article](https://en.wikipedia.org/wiki/Matter_(standard)).

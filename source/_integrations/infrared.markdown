@@ -4,7 +4,7 @@ ha_release: 2026.4
 ha_domain: infrared
 related:
   - docs: /connectivity/infrared/
-    title: Infrared control in Home Assistant
+    title: About infrared control
   - docs: /connectivity/infrared/#infrared-remote-adapters
     title: Infrared remote adapters
   - docs: /integrations/#infrared-controlled
@@ -21,7 +21,7 @@ The **Infrared** {% term integration %} allows you to use Home Assistant to send
 - An integration that provides infrared entities by integrating an infrared remote adapter (such as [ESPHome](/integrations/esphome/) or [SMLIGHT SLZB](/integrations/smlight/))
 - Device-specific integrations (such as [LG Infrared](/integrations/lg_infrared/) or [Samsung Infrared](/integrations/samsung_infrared/))
 
-This page documents the **Infrared** integration. To learn more about infrared control in Home Assistant, refer to [Infrared](/connectivity/infrared/).
+This page documents the **Infrared** integration. To learn more about infrared control, refer to [Infrared](/connectivity/infrared/).
 
 You can control infrared-controlled devices from Home Assistant without touching the handheld remote control. You can also send signals from the handheld remote control to Home Assistant. The chart illustrates how this is possible via the integrations.
 

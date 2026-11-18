@@ -6,7 +6,7 @@ related:
   - docs: /integrations/thread/
     title: Thread integration
   - docs: /connectivity/matter/
-    title: Matter in Home Assistant
+    title: About Matter
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
 ---

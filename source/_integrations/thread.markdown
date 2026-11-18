@@ -3,7 +3,7 @@ ha_release: 2023.2
 ha_domain: thread
 related:
   - docs: /connectivity/thread/
-    title: Thread in Home Assistant
+    title: About Thread
   - docs: /integrations/matter/
     title: Matter
   - docs: /integrations/homekit_controller/
@@ -22,7 +22,7 @@ related:
 
 The **Thread** {% term integration %} helps you track the different Thread networks in your home and manage the Thread network credentials (similar to a Wi-Fi password).
 
-This page documents the **Thread** integration. To learn more about Thread in Home Assistant, refer to [Thread](/connectivity/thread/).
+This page documents the **Thread** integration. To learn more about Thread, refer to [Thread](/connectivity/thread/).
 
 You do not need to install this integration. The Thread integration shows up automatically when Home Assistant detects a [border router](/connectivity/thread/#about-thread-border-routers).
 
