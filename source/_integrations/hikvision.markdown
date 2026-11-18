@@ -8,7 +8,7 @@ The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <
 
 - Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state, and become unavailable while the event stream is disconnected
 - Camera entities with <abbr title="Real Time Streaming Protocol">RTSP</abbr> streaming and <abbr title="Hypertext Transfer Protocol">HTTP</abbr> snapshot capabilities
-- Number and switch entities to view and change the image settings of a camera, such as brightness, contrast, and highlight compensation
+- Number, select, and switch entities to view and change the image settings of a camera, such as brightness, <abbr title="Wide Dynamic Range">WDR</abbr>, and day/night mode
 
 The platform will automatically add all sensors to Home Assistant that are
 configured within the camera/nvr interface to "Notify the surveillance center"
@@ -223,6 +223,52 @@ These numbers are disabled by default:
 - **Event intelligence IR light brightness**
 - **Lens distortion correction level**
 
+### Select
+
+Selects control the image settings that offer a list of choices. A select is created for each of these settings that your camera reports with two or more choices. The choices are the ones your camera lists.
+
+Named choices are translated, for example **Auto**, **Day**, and **Night** for **Day/night mode**. Choices that are numbers, such as shutter speeds, are shown as the camera reports them. Some settings can show up as a switch or as a select, depending on how your camera reports them.
+
+These selects are enabled by default:
+
+- **WDR**
+- **Backlight compensation mode**
+- **Backlight compensation**
+- **Highlight compensation mode**
+- **Day/night mode**
+- **Shutter speed**
+- **Noise reduction**
+- **White balance**
+- **Supplement light**
+- **Light brightness mode**
+
+These selects are disabled by default:
+
+- **Day/night schedule type**
+- **Night-to-day sensitivity**
+- **Exposure mode**
+- **P-Iris mode**
+- **Smart supplement light mode**
+- **Maximum shutter speed**
+- **Minimum shutter speed**
+- **Iris level**
+- **Color mode**
+- **Defog**
+- **Flip direction**
+- **Power line frequency**
+- **Supplement light mode**
+- **Event intelligence brightness mode**
+- **IR light mode**
+- **Scene mode**
+- **Focus mode**
+- **Focus distance mode**
+- **Focus limit mode**
+- **Digital slow shutter level**
+- **Zoom limit ratio**
+- **Capture mode**
+
+Changing **Power line frequency** may require a camera restart before it takes effect.
+
 ### Switch
 
 Switches control the on/off image settings of a camera. A switch is created for each of these settings that your camera reports.
@@ -243,6 +289,17 @@ These switches are disabled by default:
 - **Lens initialization**
 - **Proportional pan**
 - **Image loss detection**
+
+### Settings that exclude each other
+
+Some cameras do not allow certain settings to be on at the same time:
+
+- WDR cannot be on together with highlight compensation or backlight compensation.
+- Highlight compensation cannot be on together with WDR or defog.
+
+When you turn one of them on while another is on, the integration first turns the other one off, and then applies your change. The entity of the setting that was turned off shows its new state after the next refresh.
+
+If the camera still refuses the change, Home Assistant shows the reason the camera gave in the error message.
 
 ## Data updates
 
