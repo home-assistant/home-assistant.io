@@ -20,6 +20,13 @@ Sensor entities (temperature, humidity, barometric pressure) will not be availab
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Email:
+  description: "The email address you use to sign in to the Gateway Cloud Dashboard."
+Password:
+  description: "The password you use to sign in to the Gateway Cloud Dashboard."
+{% endconfiguration_basic %}
+
 ## Sensors
 
 For each device, the following *sensors* are created:
