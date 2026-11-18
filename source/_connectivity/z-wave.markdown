@@ -38,13 +38,11 @@ To set up an adapter that connects over your network, refer to [the setup steps 
 
 ## Z-Wave security
 
-There are two generations of Z-Wave encryption, Security S0, and Security S2. Both provide encryption and allow detecting packet corruption.
+Z-Wave has two types of security: Security S2 and Security S0. Both encrypt the messages between Home Assistant and your devices, and detect messages that were damaged on the way.
 
-Security S0 imposes significant additional traffic on your mesh and is recommended only for older devices that do not support Security S2 but require encryption to work, such as door locks.
+When you add a device that supports Security S2, Home Assistant uses it automatically, because it is the better choice. Security S2 does not add extra traffic to your network, and it provides additional benefits. For example, devices that use Security S2 require Home Assistant to confirm that it received and understood their reports.
 
-Security S2 does not impose additional network traffic and provides additional benefits. For example, end devices using S2 require the hub to report whether it has received and understood their reports.
-
-By default, Z-Wave prefers Security S2, if supported. Security S0 is used only when absolutely necessary.
+Home Assistant only uses Security S0 when a device needs encryption to work, but does not support Security S2. This is the case for some older devices, such as door locks. Security S0 adds significant extra traffic to your network.
 
 ## Z-Wave terminology
 
