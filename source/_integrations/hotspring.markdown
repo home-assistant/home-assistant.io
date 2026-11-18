@@ -84,6 +84,18 @@ The **Hot Spring** integration provides the following entities:
 - **Salt value**
   - **Description**: Current salt level reading from the FreshWater Salt System.
   - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Chlorine**
+  - **Description**: Chlorine reading from the FreshWater IQ system, in parts per million (ppm).
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **Oxidation reduction potential**
+  - **Description**: Oxidation reduction potential reading from the FreshWater IQ system, in millivolts (mV).
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **pH**
+  - **Description**: pH reading from the FreshWater IQ system.
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **Sensor life**
+  - **Description**: Remaining FreshWater IQ sensor life, as a percentage reported by the spa.
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
 - **Control box version**
   - **Description**: Firmware version of the spa control box.
   - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
@@ -165,6 +177,14 @@ If Home Assistant cannot establish a connection to your Hot Spring spa:
 - Verify that you can locate the device on your local network router client list.
 - Double-check that the IP address or hostname entered is correct and reachable from your Home Assistant instance.
 - Restart the Hot Spring spa module and reload the integration in Home Assistant.
+
+### FreshWater IQ sensors are missing
+
+If the FreshWater IQ sensor entities do not appear:
+
+- Verify the FreshWater IQ system is installed on the spa and enabled in the Hot Spring app.
+- Verify the spa reports FreshWater IQ status to the Home Network Adapter; the sensor entities are only created once the spa reports FreshWater IQ data.
+- Check that the spa's water quality readings are visible in the Hot Spring app.
 
 ## Diagnostics
 

@@ -9,6 +9,9 @@
   "categories": [
     "sensors"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "sensor",

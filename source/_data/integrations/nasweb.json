@@ -10,6 +10,9 @@
   "categories": [
     "hubs_protocols.building_automation"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "alarm_control_panel",
     "climate",

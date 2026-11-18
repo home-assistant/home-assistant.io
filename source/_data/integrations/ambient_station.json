@@ -11,6 +11,9 @@
     "weather_alerts",
     "sensors.temperature_humidity"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

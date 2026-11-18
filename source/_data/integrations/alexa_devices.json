@@ -13,11 +13,15 @@
     "ai_voice.voice_assistants",
     "media_entertainment.speakers_audio"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",
     "diagnostics",
     "event",
+    "light",
     "media_player",
     "notify",
     "select",

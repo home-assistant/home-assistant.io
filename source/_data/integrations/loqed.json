@@ -11,6 +11,9 @@
   "categories": [
     "security_safety.locks_access"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "lock",
     "sensor"

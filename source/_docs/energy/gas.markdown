@@ -7,6 +7,12 @@ Some homes are connected to gas. Gas is being used to heat water, cook and heat 
 
 Home Assistant allows you to track your gas usage and easily compare it against your energy usage for the same period of time.
 
+## Individual gas devices
+
+Similar to tracking individual energy devices, Home Assistant supports tracking gas usage of individual devices. This feature allows you to monitor gas consumption from specific appliances in your home, such as heat pumps.
+
+You can create hierarchies of gas devices by setting one device as an "upstream device" of another. This prevents double-counting when you have, for example, a main gas meter and individual device meters. For more details on setting up device hierarchies and preventing double-counting, see the [individual devices documentation](/docs/energy/individual-devices/).
+
 ## Hardware
 
 Home Assistant needs a source that measures the amount of gas being consumed. How this is measured depends on your installation. For homes connected to a gas grid, the gas meter is usually the best source for this data. For off-grid setups, such as gas supplied from a tank or cylinders, this can be a different measurement source.

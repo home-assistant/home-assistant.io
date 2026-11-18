@@ -6,6 +6,9 @@
   "categories": [
     "buttons_remotes"
   ],
+  "connectivity": [
+    "infrared"
+  ],
   "platforms": [
     "remote",
     "sensor"
