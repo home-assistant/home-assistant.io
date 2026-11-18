@@ -52,6 +52,10 @@ To prevent a brief disconnection from starting an automation, use a [**State cha
 
 To choose which devices to track and how they are shown, see the [device tracker integration page](/integrations/device_tracker/).
 
+## Data updates
+
+The integration {% term polling polls %} the router every 30 seconds.
+
 ## Troubleshooting
 
 ### Some device trackers are missing or no longer updating
