@@ -32,6 +32,8 @@ Language:
 
 The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
 
+An image entity is provided for rain radar and short-term rain previsions. 
+
 ## Limitations
 
 1. The weather provider sometimes uses two weather conditions for the same day (see below). When this is the case, only the first weather condition is taken into account in this integration. <br/> <img src="/images/integrations/irm_kmi/monday.png" height="150" alt="Example of two weather conditions">
