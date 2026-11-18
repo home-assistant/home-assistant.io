@@ -303,7 +303,7 @@ Some cameras do not allow certain settings to be on at the same time:
 - WDR cannot be on together with highlight compensation or backlight compensation.
 - Highlight compensation cannot be on together with WDR or defog.
 
-When you turn one of them on while another is on, the integration first turns the other one off, and then applies your change. The entity of the setting that was turned off shows its new state after the next refresh.
+When you turn one of them on while another is on, the integration first turns the other one off, and then applies your change. The entity of the setting that was turned off updates right after the change, and the logbook records what happened. For example: **Front Porch Highlight compensation was turned off automatically so that Front Porch WDR could be changed**.
 
 If the camera still refuses the change, Home Assistant shows the reason the camera gave in the error message.
 
