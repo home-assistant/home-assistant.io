@@ -204,21 +204,8 @@ After completing the configuration flow, the **TFA.me** integration will be avai
 {% enddetails %}
 
 
-**Optional:**
 
-{% details "5. Change the configuration or perform an action" %}
-
-{% include integrations/option_flow.md %}
-
-The following options or actions can be set or triggered:
-
-- none
-
-{% enddetails %}
-
-
-
-{% details "6. Set your forecast area and time zone" %}
+{% details "5. Set your forecast area and time zone" %}
 
 **Note**: You can skip this step when your weather forecast location is already set.
 Otherwise please follow the instructions from the datasheets above. Basically it works like this:
