@@ -4,13 +4,19 @@ title: "Troubleshooting Assist"
 
 This section lists a few steps that may help you troubleshoot issues with Assist. 
 
-## View debug information
+## Viewing debug information
+
+The debug information shows each recent run of an {% term assistant %}. For each run, you see what the assistant heard, how it understood the sentence, which entities it targeted, and how it responded.
 
 1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
-2. From the list of assistants, go to your assistant and select **Debug** in the dialog.
-![Open the debug dialog](/images/assist/assistant-debug-03.png)
-3. At the top of the screen, from the dropdown menu, select the run you are interested in.
-![Debug speech-to-text](/images/assist/assistant-debug-02.png)
+2. Next to your assistant, select the three dots {% icon "mdi:dots-vertical" %}, then select **Debug**.
+   ![Screenshot of the assistant menu with the Debug option](/images/assist/assistant-debug-03.png)
+3. At the top of the page, select the run you're interested in.
+   - The list shows the date and time of each run. To step through the runs, select **Older run** {% icon "mdi:ray-end-arrow" %} or **Newer run** {% icon "mdi:ray-start-arrow" %}.
+   - Result: The page shows each stage of the run, such as speech-to-text, natural language processing, and text-to-speech.
+   ![Screenshot of a debug run with the speech-to-text stage](/images/assist/assistant-debug-02.png)
+
+If the page says **No runs found**, the assistant didn't receive anything. Check that your device or the Assist dialog uses this assistant.
 
 ## Testing a sentence without running it
 
@@ -32,7 +38,7 @@ The sentence parser only tests the built-in **Home Assistant** conversation agen
 
 If you want to test if a sentence works with a specific assistant while actively executing the commands, use the sentence parser in the **Debug** view.
 
-1. [Open the debug view](#view-debug-information).
+1. [Open the debug view](#viewing-debug-information).
 2. In the top right corner, select the icon.
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-04.png)
 3. Select the assistant you want to test.
