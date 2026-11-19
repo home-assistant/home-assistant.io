@@ -23,8 +23,9 @@ The sentence parser only tests the built-in **Home Assistant** conversation agen
 3. Under **Sentences**, enter the sentence you want to test.
    - To test several sentences at once, enter each one on its own line.
 4. Select **Parse sentences**.
-   - Result: For each sentence, you see if it matched. A matched sentence shows the intent, the entities it targeted, and which of them matched.
+   - Result: For each sentence, you see the intent that fits it best, the entities it targets, and which of them matched.
    - If the result shows **No intent matched**, Assist doesn't understand this sentence.
+   - If the result shows `match: false`, Assist recognized the type of command, but not the entire sentence. `unmatched_slots` shows the part it didn't recognize. For example, an area name that doesn't exist.
    ![Screenshot of the sentence parser with a result](/images/assist/assistant-debug-06.png)
 
 ## Test a sentence per assistant without voice: while executing the commands
