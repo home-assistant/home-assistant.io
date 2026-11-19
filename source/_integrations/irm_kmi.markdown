@@ -62,6 +62,82 @@ Each item in the `warnings` attribute has these fields:
 - `starts_at` and `ends_at`: When the warning is in effect.
 - `is_active`: Whether the warning is in effect now.
 
+## IRM KMI automation examples
+
+The warning entities let you react to official weather warnings in your automations. Here are two ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Notify when a weather warning is in effect
+
+Get a notification for each warning that is in effect when the **Warning** binary sensor turns on. The notification shows the warning type as the title and the provider's description as the message, both in the configured language.
+
+- **Trigger**: State changed
+  - **Entity**: Your own warning binary sensor, for example Brussels Warning (`binary_sensor.brussels_warning`)
+  - **To**: On
+- **Action**: Repeat
+  - **Type**: For each
+  - **Items**: The warnings in effect, see the YAML example
+  - **Action**: Send a notification message
+    - **Target**: My Device (`notify.my_device`)
+    - **Title**: {% raw %}`Weather warning: {{ repeat.item.friendly_name }}`{% endraw %}
+    - **Message**: {% raw %}`{{ repeat.item.text }}`{% endraw %}
+
+{% details "YAML example for notifying on a weather warning" %}
+
+{% example %}
+automation: |
+  alias: "Notify on weather warning"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.brussels_warning
+      to: "on"
+  actions:
+    - repeat:
+        for_each: >-
+          {{ state_attr('binary_sensor.brussels_warning', 'warnings')
+             | selectattr('is_active') | list }}
+        sequence:
+          - action: notify.send_message
+            target:
+              entity_id: notify.my_device
+            data:
+              title: "Weather warning: {{ repeat.item.friendly_name }}"
+              message: "{{ repeat.item.text }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Close the awning on a wind warning
+
+Close the awning as soon as a wind warning comes into effect. The trigger filters the `warnings` attribute on `slug`, which does not depend on the language. It also fires when a wind warning starts while another warning is already in effect, which a trigger on the binary sensor would miss. Add other types to the list, such as `thunder_wind_rain`, if you want to react to those too.
+
+- **Trigger**: Template
+  - **Value template**: The template from the YAML example
+- **Action**: Close cover
+  - **Target**: Awning (`cover.awning`)
+
+{% details "YAML example for closing the awning on a wind warning" %}
+
+{% example %}
+automation: |
+  alias: "Close the awning on a wind warning"
+  triggers:
+    - trigger: template
+      value_template: >-
+        {{ state_attr('binary_sensor.brussels_warning', 'warnings')
+           | default([], true)
+           | selectattr('is_active')
+           | selectattr('slug', 'in', ['wind', 'thunderstorm_strong_gusts'])
+           | list | count > 0 }}
+  actions:
+    - action: cover.close_cover
+      target:
+        entity_id: cover.awning
+{% endexample %}
+
+{% enddetails %}
+
 ## Limitations
 
 1. The weather provider sometimes uses two weather conditions for the same day (see below). When this is the case, only the first weather condition is taken into account in this integration. <br/> <img src="/images/integrations/irm_kmi/monday.png" height="150" alt="Example of two weather conditions">
@@ -75,50 +151,6 @@ Each item in the `warnings` attribute has these fields:
 The integration {% term polling polls %} weather data every 7 minutes by default.
 
 When a poll cannot reach the API, the weather entity keeps showing the data from the last poll that succeeded. Once that poll is more than 17.5 minutes old, the next failed poll makes the entity unavailable, until a poll succeeds again.
-
-## Examples
-
-### Notify when a weather warning is in effect
-
-{% raw %}
-
-```yaml
-automation:
-  - alias: "Notify on weather warning"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.brussels_warning
-        to: "on"
-    actions:
-      - action: notify.send_message
-        target:
-          entity_id: notify.my_device
-        data:
-          title: "Weather warning"
-          message: >
-            {% for warning in state_attr('binary_sensor.brussels_warning', 'warnings')
-               | selectattr('is_active') %}
-            {{ warning.friendly_name }} (level {{ warning.level }}): {{ warning.text }}
-            {% endfor %}
-```
-
-{% endraw %}
-
-To only react to one type of warning, filter on `slug`:
-
-{% raw %}
-
-```yaml
-conditions:
-  - condition: template
-    value_template: >
-      {{ state_attr('binary_sensor.brussels_warning', 'warnings')
-         | selectattr('is_active')
-         | selectattr('slug', 'eq', 'ice_or_snow')
-         | list | count > 0 }}
-```
-
-{% endraw %}
 
 ## Removing the integration
 
