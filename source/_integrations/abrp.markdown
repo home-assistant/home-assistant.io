@@ -166,7 +166,7 @@ Each sensor shows the newest value ABRP has for your vehicle. Some telemetry, li
 
 The device tracker updates when ABRP receives a new position for your vehicle.
 
-The integration also checks your ABRP garage every hour. New vehicles, including vehicles shared with you, are added automatically, and their sensors appear when the vehicle first reports data. If you rename a vehicle in ABRP, its device name updates too, unless you renamed the device in Home Assistant.
+The integration also checks your ABRP garage every hour. New vehicles, including vehicles shared with you, are added automatically, and their sensors appear when the vehicle first reports data. If you rename a vehicle in ABRP, its device name updates too, unless you renamed the device in Home Assistant. Vehicles that leave your garage are removed automatically. For details, see [Removing a vehicle](#removing-a-vehicle).
 
 ## Known limitations
 
@@ -181,10 +181,6 @@ Data freshness depends on ABRP and your vehicle manufacturer data source. Some e
 ### Vehicle location
 
 The location is shown as ABRP reports it. For vehicles without a direct connection to ABRP, the position can come from the ABRP phone app, so the device tracker shows your phone's location instead.
-
-### Removed vehicles
-
-Vehicles you remove from your ABRP garage, or that are no longer shared with you, are not removed automatically. They stay in Home Assistant until you reload the integration.
 
 ### Vehicle make and model
 
@@ -244,3 +240,15 @@ If you need help, use the [Home Assistant Community forums](https://community.ho
 This integration follows the standard integration removal process.
 
 {% include integrations/remove_device_service.md %}
+
+### Removing a vehicle
+
+When a vehicle leaves your ABRP garage, Home Assistant removes its device and entities automatically. This happens when you remove the vehicle from your garage, or when the owner stops sharing it with you.
+
+Home Assistant checks your garage when the integration loads and every hour after that, so removal can take up to about an hour. If ABRP cannot be reached during a check, nothing is removed.
+
+If you removed all vehicles from your ABRP garage, Home Assistant does not remove them automatically. In that case, remove the integration entry for that ABRP account.
+
+If you set up more than one ABRP account and a vehicle is shared with several of them, the vehicle is only removed from the account whose garage it left.
+
+If the vehicle comes back to your garage, it is added again at the next garage check.
