@@ -4,7 +4,7 @@ description: Instructions on how to integrate gridX energy systems within Home A
 ha_category:
   - Energy
   - Sensor
-ha_release: 2026.5
+ha_release: 2026.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -84,6 +84,10 @@ Examples include:
 
 Some optional sensors are disabled by default to avoid clutter when they are less commonly used.
 
+## Examples
+
+To track electricity drawn from the grid, open your Energy dashboard configuration. Under **Electricity grid**, add the gridX cumulative import energy sensor as grid consumption. If you also export electricity, add the cumulative export energy sensor as return to grid. Choose the energy sensors (kWh), not the live power sensor (W).
+
 ## Data updates
 
 The integration polls the gridX cloud API every 60 seconds for the live data of all systems of the account.
@@ -120,7 +124,7 @@ If the integration was working previously and sensors become unavailable:
 1. Check your internet connection.
 2. Verify that the provider app can still show current system data.
 3. Reload the integration from **Settings** > **Devices & services**.
-4. If your account password changed, add the integration again with the same email address; the stored password is updated.
+4. If your account password changed, remove the gridX integration entry and add it again with the new password.
 
 ## Removing the integration
 
