@@ -14,7 +14,7 @@ Prerequisites: An integration must provide a [timer list entity](/integrations/t
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. For a new automation, add a trigger in the **When** section. Scripts do not need a trigger.
-4. In the **Then do** section, select **Add action**.
+4. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the timer list.
 6. From the actions shown for that target, select **Subtract time**.
 7. Enter the **Timer ID** and set **Duration**.
