@@ -30,23 +30,28 @@ If you want to test if a sentence works in a specific language without actually 
    - Which of the targeted entities were matched.
 ![Open the Assist developer tool sentence parser](/images/assist/assistant-debug-06.png)
 
-## Test a sentence per assistant without voice: while executing the commands
+## Testing a sentence with an assistant
 
-If you want to test if a sentence works with a specific assistant while actively executing the commands, use the sentence parser in the **Debug** view.
+To test a sentence with a specific assistant and its conversation agent, run it from the debug view. Unlike the sentence parser, this runs the command. For example, if you test "Turn on the kitchen light", the kitchen light turns on.
 
-1. [Open the debug view](#viewing-debug-information).
-2. In the top right corner, select the icon.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-04.png)
+1. [Open the debug information](#viewing-debug-information) of your assistant.
+2. In the upper-right corner, select **Start debug run** {% icon "mdi:microphone-message" %}.
+   ![Screenshot of the debug page with the Start debug run button](/images/assist/assistant-debug-04.png)
 3. Select the assistant you want to test.
 4. Select **Run text pipeline**.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-01.png)
-5. Enter the phrase you want to test and select **Run**.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-02.png)
-6. Check if it worked.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-03.png)
-   - If the phrase does not work, try a variant. For example, if *Turn off the light* doesn't work, try: *Turn off the lights in the kitchen*.
-   - Check if your phrase is [supported](/voice_control/builtin_sentences/).
-   - Make sure you are using the name of the area as it is defined in Home Assistant. If you have a room called *bathroom*, the phrase *Turning on the lights in the bath* won’t work.
+   ![Screenshot of the Run text pipeline button](/images/assist/assistant-debug-pipeline-01.png)
+5. Under **Input text**, enter the sentence you want to test, and select **Run**.
+   ![Screenshot of the dialog to enter the sentence](/images/assist/assistant-debug-pipeline-02.png)
+6. Check the result.
+   - Result: You see each stage of the run, including the response of the assistant.
+   - To continue the conversation, enter your reply under **Response**, and select **Send**.
+   ![Screenshot of the result of a text pipeline run](/images/assist/assistant-debug-pipeline-03.png)
+
+If the sentence doesn't work, try the following:
+
+- Try a variant of the sentence. For example, if "Turn off the light" doesn't work, try "Turn off the lights in the kitchen".
+- If your assistant uses the built-in **Home Assistant** conversation agent, check if the sentence is [supported by the built-in sentences](/voice_control/builtin_sentences/).
+- Use the names of your entities and areas exactly as they're defined in Home Assistant. For example, if your area is called "Bathroom", the sentence "Turn on the lights in the bath" doesn't work. To use other names, [add aliases](/voice_control/aliases/).
 
 ## I do not see any assistant
 
