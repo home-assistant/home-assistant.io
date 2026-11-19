@@ -19,6 +19,19 @@ In order for a device to be discovered automatically, SSPD / UPnP (under Network
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Web interface URL:
+  description: "The address of the printer's web interface, for example `http://192.168.1.10`. If you leave out `http://` or `https://`, the integration uses `http://`."
+Name:
+  description: "Optional. The name of the printer in Home Assistant. If you leave it empty, the integration uses `Samsung` followed by the printer model."
+{% endconfiguration_basic %}
+
 ## Data updates
 
 The integration {% term polling polls %} the printer every 30 seconds.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
