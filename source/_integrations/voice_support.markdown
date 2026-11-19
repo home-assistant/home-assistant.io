@@ -23,7 +23,7 @@ Next-generation voice is a preview feature in [Home Assistant Labs](/integration
 ## Prerequisites
 
 - A voice satellite that sends Home Assistant the audio from just before it woke up. The [Home Assistant Voice Preview Edition](/voice-pe/) needs the beta firmware for this. Refer to [Installing the beta firmware](#installing-the-beta-firmware-on-the-voice-preview-edition).
-- Wake words the app can verify. It currently verifies **Okay Nabu**, **Hey Jarvis**, and **Hey Mycroft**, in English. Every wake word that is active on the satellite must be one of these. If a satellite also has another wake word active, for example a custom one, Home Assistant verifies none of its wake words.
+- Wake words the app can verify. It currently verifies **Okay Nabu**, **Hey Jarvis**, and **Hey Mycroft**. Every wake word that is active on the satellite must be one of these. If a satellite also has another wake word active, for example a custom one, Home Assistant verifies none of its wake words.
 
 Satellites and wake words that are not supported keep working exactly as they do today, without the second opinion.
 
