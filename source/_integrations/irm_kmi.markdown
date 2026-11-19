@@ -46,6 +46,7 @@ The integration also provides the following sensors for the current weather at y
 - **Wind gust speed**: The speed of the strongest wind gusts. Disabled by default.
 - **Wind direction**: The direction the wind is coming from, in degrees.
 - **UV index**: The current ultraviolet index.
+- **Precipitation intensity**: The current rain rate from the radar, in mm/h.
 
 ## Limitations
 
