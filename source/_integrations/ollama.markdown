@@ -51,7 +51,7 @@ Model:
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/). Only available for conversation agents.
 AI tools:
-  description: "**Device control** only reaches the entities that you [expose](/voice_control/voice_remote_expose_devices/) to Assist. **Home Assistant** reaches everything, and it only works for administrators, not for voice satellites. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). Only models that support tools can use AI tools. For details, refer to [Controlling Home Assistant](#controlling-home-assistant). Only available for conversation agents."
+  description: "**Device control** only reaches the entities that you [expose](/voice_control/voice_remote_expose_devices/) to Assist. **Home Assistant** reaches everything, and it only works for administrators, not for voice satellites. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). Only models that support [tools](https://ollama.com/search?c=tools) can use AI tools. For details, refer to [Setting up an Ollama assistant with Device control](#setting-up-an-ollama-assistant-with-device-control). Only available for conversation agents."
 Context window size:
   description: The number of tokens that the model can take as input. For a conversation agent with **Device control**, this includes your exposed entities. The default is 8192, and the minimum is 2048. A larger value supports homes with more exposed entities. A smaller value uses less memory on your Ollama server. Choose a value that your model supports.
 Max history messages:
@@ -62,17 +62,33 @@ Think before responding:
   description: If turned on, the model thinks about its answer before it responds. This takes longer, but it can give better answers. Not all models support thinking. For a conversation agent, select **Show details** in the Assist dialog to see what the model thought. Turned off by default.
 {% endconfiguration_basic %}
 
-## Controlling Home Assistant
+## Setting up an Ollama assistant with Device control
 
-If you want to experiment with local LLMs using Home Assistant, we recommend exposing fewer than 25 entities. Note that smaller models are more likely to make mistakes than larger models.
+With the **Device control** set of {% term "AI tools" %}, an Ollama {% term "conversation agent" %} can control your devices, tell you their state, and run your exposed {% term scripts %}. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). It can only reach the {% term entities %} that you [expose](/voice_control/voice_remote_expose_devices/) to {% term Assist %}.
 
-Only models that support [Tools](https://ollama.com/search?c=tools) may control Home Assistant.
+Prerequisites:
 
-Smaller models may not [reliably maintain a conversation](https://llama.meta.com/docs/model-cards-and-prompt-formats/llama3_1/#llama-3.1-instruct) when a set of tools
-is selected in **AI tools**. However, you may use multiple Ollama configurations that
-share the same model, but use different prompts:
+- An administrator account in Home Assistant.
+- The Ollama integration is set up.
+- The entities that you want to control are [exposed to Assist](/voice_control/voice_remote_expose_devices/). Models that run on your own hardware are often smaller than the models of cloud services, and smaller models are more likely to make mistakes. So only expose the entities that you want the assistant to use. For details, refer to [Expose (the minimum) entities](/voice_control/best_practices/#expose-the-minimum-entities).
 
-- Add the Ollama integration without selecting anything in **AI tools**. You can use
-  this conversation agent to have a conversation.
-- Add an additional Ollama integration, using the same model, and select a set of tools in **AI tools**.
-  You can use this conversation agent to control Home Assistant.
+To set up an Ollama assistant with Device control:
+
+1. Add a conversation agent for your devices. For the steps, refer to [Configuration options](#configuration-options).
+   - Enter a **Name**. For example, enter `Ollama devices`.
+   - Under **Model**, select a model that supports tools. Only these models can use AI tools. For a list, refer to [models with tools](https://ollama.com/search?c=tools) in the Ollama library.
+   - Under **AI tools**, select **Device control**.
+2. Optional: some smaller models don't chat as well when AI tools are selected. If your model is one of them, add a second conversation agent for chatting, in the same way.
+   - Enter a **Name**. For example, enter `Ollama chat`.
+   - Under **Model**, select the same model.
+   - Under **AI tools**, clear all sets of AI tools.
+3. Create an {% term assistant %} for each conversation agent. For the steps, refer to [Creating an assistant with an AI personality](/voice_control/assist_create_open_ai_personality/#creating-an-assistant-with-an-ai-personality).
+   - Under **Conversation agent**, select `Ollama devices`, or `Ollama chat` for the second assistant.
+4. On a dashboard, in the top-right corner, select **Assist** {% icon "mdi:comment-processing-outline" %}.
+   - On a narrow screen, it's under **Menu** {% icon "mdi:dots-vertical" %}. On a computer, you can also press <kbd>A</kbd>.
+5. At the top of the dialog, select the name of the assistant, and choose the assistant that uses `Ollama devices`.
+   - To chat, choose the assistant that uses `Ollama chat` instead.
+   - The Assist dialog remembers the assistant that you chose last.
+   - To make this assistant the default, set it as preferred: go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}, select the three dots {% icon "mdi:dots-vertical" %} menu of the assistant on the **Assist** card, and then select **Set as preferred** {% icon "mdi:star" %}. Voice satellites that use the preferred assistant then use it too. The Assist dialog uses it when you haven't chosen an assistant yet.
+6. Ask the assistant about one of your exposed entities. For example, ask `Is the kitchen light on?`
+   - Result: The assistant answers with the state of the entity.
