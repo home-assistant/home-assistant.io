@@ -27,6 +27,10 @@ You need to select at least one app, integration, or custom integration.
 
 The options are the same three lists, so you can change what you track at any time.
 
+## Data updates
+
+The integration {% term polling polls %} the Home Assistant analytics service every 12 hours. If a request to the analytics service fails, the integration retries the update after 15 minutes.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
