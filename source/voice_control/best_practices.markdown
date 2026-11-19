@@ -25,7 +25,7 @@ Some best practices we recommend to have an efficient setup are:
 
 Learn how in [Exposing your entities to Assist](/voice_control/voice_remote_expose_devices/).
 
-Home Assistant exposes some new entities to Assist automatically. If you want to decide on every entity yourself, [turn off **Expose new entities**](/voice_control/voice_remote_expose_devices/#turning-off-expose-new-entities).
+Home Assistant exposes some new entities to Assist automatically. If you want to decide on every entity yourself, [turn off **Expose new entities**](/voice_control/voice_remote_expose_devices/#changing-expose-new-entities).
 
 It might be tempting to expose all entities to Assist, but doing so will come with a performance penalty. The more entity names and aliases the parser will have to go through, the more time it will spend matching. And if you’re using a LLM-based conversation agent, it will incur a higher cost per request, due to the larger context size. Only expose the bare minimum you know you are going to use with voice assistants.
 

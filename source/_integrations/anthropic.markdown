@@ -19,6 +19,8 @@ The **Anthropic** {% term integrations %} adds conversation agents and AI task e
 
 Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
+When you talk to an Anthropic conversation agent through an {% term assistant %}, Home Assistant first checks your [sentence triggers](/triggers/conversation/). If one of them matches, the sentence trigger answers, and the conversation agent doesn't get the sentence. Sentence triggers don't run when you call the conversation agent directly, for example with the `conversation.process` action. They also don't run when you answer a follow-up question from the conversation agent.
+
 Legal note: Individuals and hobbyists are welcome to use the Anthropic API [for personal use](https://support.anthropic.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use), however, the use of the API is subject to their [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms), regardless of whether you are an individual or representing a company.
 
 ## Prerequisites
@@ -67,11 +69,11 @@ Maximum tokens to return in response:
 Caching strategy:
   description: Optimize your API usage by allowing resuming from specific prefixes in your prompts. This significantly reduces processing time and costs in multi-turn conversations, but may increase cost for single-turn conversations. The cache duration is 5 minutes, the cache writes are [billed](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pricing) at 1.25 times the base input tokens price, and cache read tokens are 0.1 times the base input tokens price. This means that the cache can reduce your costs and latency if you are likely to either call a tool to control your home, which also counts as a multi-turn conversation, or reply to the model with a follow-up. There are 3 caching strategies available, `Disabled` (if you often ask general-knowledge questions without follow-up), `System prompt` (caches system prompt and tools, useful if you often have short conversations like asking time or turning on lights), and `Full` (caches every user message, useful if you often have long conversations).
 Thinking type:
-  description: Controls when Claude spends additional tokens reasoning through requests or tool results. **Disabled** turns thinking off, **Enabled** uses a thinking budget, and **Adaptive** lets Claude decide when and how much to think. The default is **Adaptive** on models that support it. If the selected model supports only one type, this option is not displayed. See [thinking](https://platform.claude.com/docs/en/build-with-claude/thinking) for details.
+  description: Controls when Claude spends additional tokens reasoning through requests or tool results. **Disabled** turns thinking off, **Enabled** uses a thinking budget, and **Adaptive** lets Claude decide when and how much to think. **Between tool calls** turns off up-front thinking, so Claude doesn't think before it answers and only writes short notes between tool calls. It is the lowest setting on models that can't turn thinking off, such as Claude Sonnet 5.5. The default is **Adaptive** on models that support it. If the selected model supports only one type, this option is not displayed. See [thinking](https://platform.claude.com/docs/en/build-with-claude/thinking) for details.
 Thinking budget:
   description: The tokens available for [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) when **Thinking type** is **Enabled**. The budget must be less than **Maximum Tokens to Return in Response**. Larger budgets can improve reasoning on complex requests but may increase response time and cost. This option is available on models that support manual extended thinking and is unused with other thinking types. To turn thinking off, select **Disabled** under **Thinking type**, if the model supports it.
 Effort:
-  description: Controls how much work Claude puts into a response, balancing thoroughness, response time, and token usage. Depending on the model, the available levels are **Low**, **Medium**, **High**, **X-High**, and **Max**. The default is **Low**. Effort applies independently of **Thinking type**, including with thinking disabled or with a manual thinking budget on models that support both. Some models require thinking for higher effort levels. See [effort](https://platform.claude.com/docs/en/build-with-claude/effort) for details.
+  description: Controls how much work Claude puts into a response, balancing thoroughness, response time, and token usage. Depending on the model, the available levels are **Low**, **Medium**, **High**, **X-High**, and **Max**. The default is **Low**. Effort applies independently of **Thinking type**, including with thinking disabled or with a manual thinking budget on models that support both. Some models require thinking for higher effort levels. **X-High** and **Max** don't work with **Between tool calls**. See [effort](https://platform.claude.com/docs/en/build-with-claude/effort) for details.
 Code execution:
   description: Enable the server-side [Code execution tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool). With this tool, the model can analyze data, perform complex calculations, run system commands, including writing code, in a secure, sandboxed environment.
 Enable web search:
@@ -204,10 +206,6 @@ This may happen when the **Maximum Tokens to Return in Response** integration op
 ### Integration fails to set up, the logs show ImportError or AttributeError
 
 This may happen if the Python anthropic client had failed to upgrade to the correct version. If you know how to log into the Home Assistant container and manually reinstall the client, try that. Otherwise, downgrading and re-upgrading Home Assistant should help.
-
-## Known limitations
-
-This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Removing the integration
 

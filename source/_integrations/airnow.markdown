@@ -13,6 +13,10 @@ To generate an AirNow API key, go to the [AirNow Developer Tools](https://docs.a
 
 {% include integrations/config_flow.md %}
 
+## Data updates
+
+The integration {% term polling polls %} the AirNow API every 30 minutes.
+
 ## Troubleshooting
 
 The EPA AirNow API is often flaky and will occasionally not return any results for a particular location. This will prevent the integration from being added to Home Assistant, but the situation is usually temporary and will resolve itself later.

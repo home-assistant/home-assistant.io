@@ -215,3 +215,7 @@ To see a more detailed listing of the reported systems which are successfully us
 [Supported heating systems](https://docs.bsb-lan.de/supported_heating_systems.html)
 
 The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed. For autodiscovery, use the latest release: [release 5.0](https://github.com/fredlcore/bsb-lan/releases/tag/v5.0).
+
+## Data updates
+
+The integration {% term polling polls %} the BSB-LAN device every 12 seconds for state and sensor values, and every 5 minutes for the domestic hot water settings. Each schedule is read at startup and again after Home Assistant writes that schedule.

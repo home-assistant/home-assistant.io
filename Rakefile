@@ -55,7 +55,13 @@ task :generate do
   abort("Generating WTH stats failed") unless success
   success = system "rake wth_forum_data"
   abort("Fetching WTH forum topics failed") unless success
-  success = system "jekyll build"
+  # Deploy previews also build future-dated posts, so a post can be
+  # reviewed at its final URL and date before it is published. Every
+  # other build, production included, keeps Jekyll's default of
+  # leaving them out until their date.
+  jekyll_build = "jekyll build"
+  jekyll_build += " --future" if ENV["CONTEXT"] == "deploy-preview"
+  success = system jekyll_build
   abort("Generating site failed") unless success
   # The Astro build runs on every deploy (see astro/README.md). Jekyll
   # builds its routes; the routes in astro/served-routes.json are then

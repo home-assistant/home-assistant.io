@@ -54,6 +54,10 @@ actions:
 ```
 {% enddetails %}
 
+## Data updates
+
+The integration {% term polling polls %} Electric Kiwi every 20 minutes for your hour of free power, and every 6 hours for your account balances.
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
