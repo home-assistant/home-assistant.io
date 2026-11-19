@@ -32,13 +32,6 @@ Language:
 
 The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
 
-The integration provides the following sensors:
-
-- Temperature: Tracks the current outdoor temperature.
-- Atmospheric Pressure: Measures current air pressure.
-- Wind Speed: Monitors current wind speed.
-- Wind Direction: Shows the direction of the wind in degrees.
-- UV Index: Tracks the current ultraviolet index.
 ## Supported functionality
 
 The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
