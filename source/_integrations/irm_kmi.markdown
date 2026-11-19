@@ -47,6 +47,16 @@ The integration also provides the following sensors for the current weather at y
 - **Wind direction**: The direction the wind is coming from, in degrees.
 - **UV index**: The current ultraviolet index.
 
+There is also a pollen sensor for each type the provider reports, such as **Grass pollen** and **Birch pollen**. The colors follow the provider's [pollen scale](https://www.meteo.be/en/weather/forecasts/pollen-allergy-and-hay-fever):
+
+- `green`: The lowest level.
+- `yellow`: Low.
+- `orange`: Moderate.
+- `red`: High.
+- `purple`: Very high.
+- `active`: The type is in season, but the provider gives no level.
+- `none`: The type is not in season.
+
 ## Limitations
 
 1. The weather provider sometimes uses two weather conditions for the same day (see below). When this is the case, only the first weather condition is taken into account in this integration. <br/> <img src="/images/integrations/irm_kmi/monday.png" height="150" alt="Example of two weather conditions">
@@ -55,11 +65,40 @@ The integration also provides the following sensors for the current weather at y
 
 3. The provider only has data for Belgium, Luxembourg and The Netherlands. 
 
+4. Not every location gets a pollen forecast. For locations in The Netherlands, all pollen sensors report `none`.
+
 ## Data updates
 
 The integration {% term polling polls %} weather data every 7 minutes by default.
 
 When a poll cannot reach the API, the weather entity keeps showing the data from the last poll that succeeded. Once that poll is more than 17.5 minutes old, the next failed poll makes the entity unavailable, until a poll succeeds again.
+
+The pollen levels are downloaded separately. If only that download fails, the other entities keep updating and the pollen sensors keep their last level for the same 17.5 minutes, then become unavailable until a download succeeds again. Right after Home Assistant starts, there is no earlier level to keep, and they are unavailable at once. The log shows `Could not get pollen data from the API` when the problem starts and `Pollen data is available again` when it is over.
+
+## Examples
+
+### Notify on high grass pollen
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Notify on high grass pollen"
+    triggers:
+      - trigger: state
+        entity_id: sensor.brussels_grass_pollen
+        to:
+          - "red"
+          - "purple"
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          message: "Grass pollen level is {{ states('sensor.brussels_grass_pollen') }}."
+```
+
+{% endraw %}
 
 ## Removing the integration
 
