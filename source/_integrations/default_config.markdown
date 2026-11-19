@@ -1,12 +1,7 @@
 ---
-title: Default Config
 description: The default configuration integration sets up a default set of integrations for Home Assistant.
 ha_release: 0.88
 ha_domain: default_config
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: system
 ---
 
 This {% term integration %} is a meta integration that configures a default set of integrations for Home Assistant to load. The following integrations are loaded:
@@ -20,7 +15,7 @@ This {% term integration %} is a meta integration that configures a default set 
 - [Go2rtc](/integrations/go2rtc/) (`go2rtc`)
 - [History](/integrations/history/) (`history`)
 - [Home Assistant Alerts](/integrations/homeassistant_alerts/) (`homeassistant_alerts`)
-- [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
+- [Home Assistant Link](/integrations/link/) (`cloud`)
 - [Activity](/integrations/logbook/) (`logbook`)
 - [Media source](/integrations/media_source/) (`media_source`)
 - [Mobile app support](/integrations/mobile_app/) (`mobile_app`)

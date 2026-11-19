@@ -34,7 +34,7 @@ action: |
     entity_id: image.my_photos
 {% endexample %}
 
-{% include actions/targets.md domain="image" %}
+{% include actions/targets.md entity_type="Collection image entity" example="image.my_photos" %}
 
 {% include actions/try_it.md %}
 

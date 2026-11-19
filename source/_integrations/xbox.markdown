@@ -1,25 +1,7 @@
 ---
-title: Xbox
 description: Instructions on how to set up Xbox devices in Home Assistant.
-ha_categories:
-  - media_entertainment.gaming
-ha_iot_class: Cloud Polling
 ha_release: 0.117
-ha_codeowners:
-  - '@tr4nt0r'
 ha_domain: xbox
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - image
-  - media_player
-  - remote
-  - sensor
-ha_integration_type: hub
-ha_ssdp: true
-ha_dhcp: true
-ha_quality_scale: platinum
 ---
 
 The **Xbox** {% term integration %} allows you to connect Home Assistant to the **Xbox Network**.
@@ -36,7 +18,7 @@ The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox
 
 - You must sign in with a **non-child Xbox account** (age 18+).
 - To enable the media player and remote entities, make sure **remote features** are turned on in **Settings** > **Devices & connections** > **Remote features** on your Xbox.
-- Home Assistant connects to **Xbox Network** via OAuth2 using Home Assistant Cloud’s account-linking service. To use this, your {% term "configuration.yaml" %} must include either `cloud:` or `default_config:`.
+- Home Assistant connects to **Xbox Network** via OAuth2 using Home Assistant Link’s account-linking service. To use this, your {% term "configuration.yaml" %} must include either `cloud:` or `default_config:`.
 
 {% include integrations/config_flow.md %}
 

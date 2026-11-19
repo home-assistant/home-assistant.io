@@ -63,7 +63,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="door sensor or motorized door" example="binary_sensor.front_door" %}
 
 {% include conditions/behavior.md %}
 

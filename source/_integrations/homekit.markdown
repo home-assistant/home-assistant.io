@@ -1,19 +1,8 @@
 ---
-title: HomeKit Bridge
 description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 featured: true
-ha_categories:
-  - other_ecosystems
 ha_release: 0.64
-ha_iot_class: Local Push
 ha_domain: homekit
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-ha_zeroconf: true
-ha_platforms:
-  - diagnostics
-ha_integration_type: integration
 ---
 
 The **HomeKit Bridge** {% term integration %} allows you to make your Home Assistant entities available in Apple HomeKit,
@@ -404,9 +393,25 @@ To add a single entity in accessory mode:
 5. Complete the options flow
 6. [Pair the accessory](#setup).
 
+### HomeKit Secure Video
+
+A camera can record to HomeKit Secure Video when motion is detected. This requires:
+
+- A home hub and an iCloud+ plan.
+- The camera in [accessory mode](#accessory-mode).
+- A motion sensor for the camera. It is linked automatically when it belongs to the same device, or via `linked_motion_sensor`.
+
+To turn it on, go to **Settings** > **Devices & services**, select **Configure** on the HomeKit entry of the camera, and set **Camera mode** to **HomeKit Secure Video (H.264 recording)**. Then turn on recording for the camera in the Home app.
+
+Each recording runs FFmpeg, which encodes the video to the format the home hub selects. This needs a capable CPU. If the camera is set to native H.264 (`video_codec: copy`), the stream is recorded as is. The camera must then send H.264 with a keyframe interval of 4 seconds or less. Every recording opens its own connection to the camera. Without a prebuffer, the first part of a recording waits for the camera's next keyframe. With transcoding this can take longer than the home hub waits, so use native H.264 where possible.
+
+There is no prebuffer, so the first seconds of a motion event are missing from the recording. Turning the camera off in the Home app also stops live video and snapshots.
+
+Recordings are sent to the home hub over a random TCP port, which changes on every start. Docker port mapping cannot forward it, so use host networking. See also [Firewall](#firewall).
+
 ## Configure Filter
 
-By default, all entities except [hidden entities](/docs/configuration/customizing-devices/#hidden-entities) and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
+By default, all entities except [hidden entities](/docs/configuration/customizing-entities/#hidden-entities) and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -446,6 +451,7 @@ If you have a firewall configured on your Home Assistant system, make sure you o
 
 - UDP: 5353
 - TCP: 21063 (or the configured/used `port` in the integration settings).
+- TCP: a random port per camera when [HomeKit Secure Video](#homekit-secure-video) is enabled. It changes on every start, so allow all TCP ports from your home hubs.
 
 ## Supported integrations
 
@@ -457,7 +463,7 @@ The following integrations are currently supported:
 | automation / button / input_boolean / input_button / lawn_mower / remote / scene / script / vacuum | Switch                 | All represented as switches.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | input_select / select                                         | Switch                 | Represented as a power strip with buttons for each option.                                                                                                                                                                                                                                                                                                                                                                                   |
 | binary_sensor                                                 | Sensor                 | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else.                                                                                                                                                                                                                                            |
-| camera                                                        | Camera                 | All camera devices. **HomeKit Secure Video is not supported.**                                                                                                                                                                                                                                                                                                                                                                  |
+| camera                                                        | Camera                 | All camera devices. Cameras in accessory mode can record to [HomeKit Secure Video](#homekit-secure-video).                                                                                                                                                                                                                                                                                                                     |
 | climate                                                       | Thermostat             | All climate devices.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | cover                                                         | GarageDoorOpener       | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`.                                                                                                                                                                                                                                                                                                                                              |
 | cover                                                         | WindowCovering         | All covers that support `set_cover_position`.                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -475,7 +481,7 @@ The following integrations are currently supported:
 | media_player                                                  | ReceiverMediaPlayer    | All media players that have `receiver` as their `device_class`.  Represented as Receiver and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later.                                                                                                                                   |
 | sensor                                                        | TemperatureSensor      | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`.                                                                                                                                                                                                                                                                                                                                 |
 | sensor                                                        | HumiditySensor         | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`.                                                                                                                                                                                                                                                                                                                                             |
-| sensor                                                        | AirQualitySensor       | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization).                                                                                                                                                                   |
+| sensor                                                        | AirQualitySensor       | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`ozone`/`sulphur_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization).                                                                                                                                         |
 | sensor                                                        | CarbonMonoxideSensor   | All sensors that have `carbon_monoxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                                                           |
 | sensor                                                        | CarbonDioxideSensor    | All sensors that have `co2` as part of their `entity_id` or `carbon_dioxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                    |
 | sensor                                                        | LightSensor            | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class`                                                                                                                                                                                                                                                                                                                                   |
@@ -739,3 +745,13 @@ HomeKit provides five values to represent air quality: Excellent, Good, Fair, In
 | Fair      | Unhealthy for Sensitive Groups (101-150) | 35.5 to 55.4  |
 | Inferior  | Unhealthy (151-200)                      | 55.5 to 125.4 |
 | Poor      | Very Unhealthy (201+)                    | 125.5+        |
+
+Ozone and sulphur dioxide sensor entities are mapped using the US AQI breakpoints for 8-hour ozone and 1-hour sulphur dioxide. The value is converted to ppb first. Ozone sensors can report in `ppb`, `ppm`, or `µg/m³`. Sulphur dioxide sensors can report in `ppb` or `µg/m³`. Sensors without a unit, or with a unit not listed here, are assumed to report in `µg/m³`. The mapping is as follows:
+
+| HomeKit   | US AQI                                   | Ozone ppb | Sulphur dioxide ppb |
+|-----------|------------------------------------------|-----------|---------------------|
+| Excellent | Good (0-50)                              | 0 to 54   | 0 to 35             |
+| Good      | Moderate (51-100)                        | 55 to 70  | 36 to 75            |
+| Fair      | Unhealthy for Sensitive Groups (101-150) | 71 to 85  | 76 to 185           |
+| Inferior  | Unhealthy (151-200)                      | 86 to 105 | 186 to 304          |
+| Poor      | Very Unhealthy (201+)                    | 106+      | 305+                |

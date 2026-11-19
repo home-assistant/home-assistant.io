@@ -2,14 +2,13 @@
 title: "Get Shelly KVS value"
 action: shelly.get_kvs_value
 domain: shelly
+response: required
 description: "Reads a value from a Shelly device's Key-Value Storage."
 related_actions:
   - shelly.set_kvs_value
 ---
 
 Use this action to read a value from a Shelly device's Key-Value Storage (KVS). KVS is a small store on the device where Shelly scripts keep values. A common use is to pull a value that a device script calculated, such as a measurement, into Home Assistant. The value can be text, a number, a boolean, an empty value, a mapping, or a list.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -59,6 +58,8 @@ key:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the stored value in a `value` field. The value can be text, a number, a boolean, an empty value, a mapping, or a list, depending on what the device script stored.
 

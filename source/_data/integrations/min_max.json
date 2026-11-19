@@ -1,0 +1,17 @@
+{
+  "domain": "min_max",
+  "name": "Min/Max",
+  "integration_type": "helper",
+  "codeowners": [
+    "@gjohansson-ST"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

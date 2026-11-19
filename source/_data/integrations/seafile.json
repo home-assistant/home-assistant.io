@@ -1,0 +1,24 @@
+{
+  "domain": "seafile",
+  "name": "Seafile",
+  "integration_type": "service",
+  "codeowners": [
+    "@erwindouna"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "computers_network.nas_servers"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "button",
+    "diagnostics",
+    "number",
+    "select",
+    "sensor"
+  ]
+}

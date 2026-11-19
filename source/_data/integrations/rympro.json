@@ -1,0 +1,21 @@
+{
+  "domain": "rympro",
+  "name": "Read Your Meter Pro",
+  "integration_type": "hub",
+  "codeowners": [
+    "@OnFreund",
+    "@elad-bar",
+    "@maorcc"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "water.meters_leak_detection"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

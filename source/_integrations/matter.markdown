@@ -1,35 +1,8 @@
 ---
-title: Matter
 description: Instructions on how to integrate Matter with Home Assistant.
-ha_categories:
-  - hubs_protocols.wireless_protocols
 featured: true
 ha_release: '2022.12'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/matter'
 ha_domain: matter
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-  - vacuum
-  - valve
-  - water_heater
-ha_integration_type: hub
 related:
   - docs: /integrations/thread/
     title: Thread
@@ -39,7 +12,6 @@ related:
     title: Adding an Apple HomeKit device through Thread
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
-ha_zeroconf: true
 ---
 
 The **Matter** {% term integration %} allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
@@ -272,6 +244,16 @@ Home Assistant, as a Matter controller, only supports **control** of Matter devi
 
 How you add a bridge to Home Assistant depends on the device. Check the documentation of that device for the specific steps. In case of SwitchBot&nbsp;Hub&nbsp;2, for example, you need to enable the Matter-paring mode within the app. It then gives you a pairing code and tells you to set the actual device into pairing mode. You can then add that bridge device to Home Assistant as a Matter device. There is no guarantee that all the devices from that ecosystem can be used in Home Assistant. SwitchBot Hub 2 V1.5, for example, allows you to use curtain, lock, and blind via Matter, but not light.
 
+#### Suggested areas for bridged devices
+
+If your bridge groups its devices into rooms (for example, in the Philips Hue app), Home Assistant uses that grouping to suggest an area for each bridged device the first time it is added. This only happens when a device is created in Home Assistant for the first time, so:
+
+- Devices you already have won't be moved into an area automatically.
+- Moving a device to another room in the bridge's app afterward does not move it to a different area in Home Assistant.
+- A device the bridge adds later only gets an area if it was already placed in a room on the bridge by the time Home Assistant creates it.
+
+You can always change or remove the suggested area afterward; Home Assistant never overrides an area you have already assigned yourself.
+
 #### When not to use a bridge
 
 In some cases, bridging devices into Home Assistant via Matter might not bring you benefits. So far, the Philips Hue Bridge, for example, supports Matter, but Matter only supports a limited set of features. The native Home Assistant integration of Philips Hue comes with a wide variety of features. It also runs locally. You would not gain anything by adding your Philips Hue devices to Home Assistant via Matter bridging. On the contrary, you would lose some of the features.
@@ -287,6 +269,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
 3. Select **Share device**, then in the dialog, select **Share device** again.
    - There is no need to press a hardware button on the device to set it to commissioning mode.
 4. To join the device to the other platform, in their app, scan the QR code or enter the sharing code.
+   - In the Home Assistant Companion app, you can instead select **Add to Apple Home** (iOS) or **Share with app** (Android, `full` flavor only), if shown. This adds the device directly, with its Home Assistant name.
 5. Follow the instructions in their app. Once the process is complete, you can see that the device is shared in Home Assistant:
    - Next to the **Share device** button, select the three dots {% icon "mdi:dots-vertical" %} menu, then **Manage fabrics**.
    - In the list there, the new platform should be listed.

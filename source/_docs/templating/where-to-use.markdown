@@ -56,7 +56,7 @@ output: "True (when the outdoor temperature is below 5°C)"
 
 ## Automation triggers
 
-A [template trigger](/docs/automation/trigger/#template-trigger) fires when the template changes from false to true. This lets you react to conditions that no single entity represents.
+A [template trigger](/triggers/template/) reacts when the template changes from false to true. This lets you react to conditions that no single entity represents.
 
 {% example %}
 trigger: |
@@ -72,7 +72,7 @@ output: "True (fires when the washing machine power drops between 0 and 5 W)"
 
 ## Limited templates
 
-A few fields only accept limited templates, such as `trigger_variables` and the `enabled` option of triggers, conditions, and other steps. A limited template can't read the state of your home or the current time. For what limited templates can use, and which fields use limited templates, refer to [Limited templates](/docs/templating/limited-templates/).
+A few fields only accept limited templates, such as `trigger_variables` and the `enabled` option of triggers and conditions. A limited template can't read the state of your home or the current time. For what limited templates can use, and which fields use limited templates, refer to [Limited templates](/docs/templating/limited-templates/).
 
 ## Template entities
 

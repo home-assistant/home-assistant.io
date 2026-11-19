@@ -1,0 +1,21 @@
+{
+  "domain": "motioneye",
+  "name": "motionEye",
+  "integration_type": "hub",
+  "codeowners": [
+    "@dermotduffy"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "security_safety.cameras"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "camera",
+    "sensor",
+    "switch"
+  ]
+}

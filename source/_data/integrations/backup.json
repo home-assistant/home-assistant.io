@@ -1,0 +1,18 @@
+{
+  "domain": "backup",
+  "name": "Backup",
+  "integration_type": "service",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "computers_network"
+  ],
+  "platforms": [
+    "diagnostics",
+    "event",
+    "sensor"
+  ]
+}

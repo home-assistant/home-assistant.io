@@ -1,21 +1,7 @@
 ---
-title: Withings
 description: Instructions on how to integrate Withings health products within Home Assistant.
-ha_categories:
-  - health_wellbeing
 ha_release: 0.99
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@joostlek'
 ha_domain: withings
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_dhcp: true
 ---
 
 The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
@@ -95,7 +81,7 @@ You do not enter the webhook URL anywhere in the integration. Home Assistant bui
 
 Home Assistant prefers the **Internet** URL and falls back to the **Local Network** URL. For Withings webhooks to register successfully, the URL that Home Assistant selects must be a public HTTPS URL on port 443 with a valid certificate.
 
-If you use Home Assistant Cloud from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
+If you use Home Assistant Link from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
 
 #### Changing the webhook URL
 
@@ -118,6 +104,12 @@ For example, measurement sensors like weight only work when data has been regist
 Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
 
 Workout {% term calendar %} and the workout and activity sensors show if the latest available data point is no older than 14 days.
+
+### Basal metabolic rate
+
+The **Basal metabolic rate** sensor shows your estimated daily energy requirement at rest in kilocalories per day (kcal/day). It is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and is created only when Withings returns this measurement.
+
+Withings lists basal metabolic rate as requiring its Advanced Biomarkers API plan. See [Withings' available health data](https://developer.withings.com/developer-guide/v3/data-api/all-available-health-data/) for supported devices and API availability.
 
 ## Removing the integration
 

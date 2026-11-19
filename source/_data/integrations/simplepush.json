@@ -1,0 +1,19 @@
+{
+  "domain": "simplepush",
+  "name": "Simplepush",
+  "integration_type": "service",
+  "codeowners": [
+    "@engrbm87"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "messaging_notifications.push_notifications"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

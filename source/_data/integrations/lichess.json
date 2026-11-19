@@ -1,0 +1,20 @@
+{
+  "domain": "lichess",
+  "name": "Lichess",
+  "integration_type": "service",
+  "codeowners": [
+    "@aryanhasgithub"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "media_entertainment.gaming"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

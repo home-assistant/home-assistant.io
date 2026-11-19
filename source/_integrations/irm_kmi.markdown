@@ -1,21 +1,10 @@
 ---
-title: IRM KMI Weather Belgium
 description: Instructions on how to integrate IRM KMI weather within Home Assistant.
 ha_release: '2025.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@jdejaegh'
 ha_domain: irm_kmi
-ha_integration_type: service
 related:
   - url: https://community.home-assistant.io/t/660421
     title: Community forum thread
-ha_categories:
-  - weather_alerts.forecasts
-ha_quality_scale: bronze
-ha_platforms:
-  - weather
 ---
 
 The **Royal Meteorological Institute of Belgium** {% term integration %} integrates the weather data from [IRM KMI (meteo.be)](https://www.meteo.be) with Home Assistant.
@@ -42,6 +31,21 @@ Language:
 ## Supported features
 
 The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
+
+## Supported functionality
+
+The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
+
+### Sensors
+
+The integration also provides the following sensors for the current weather at your location. Some sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). You can enable them after you set up the integration.
+
+- **Temperature**: The current outdoor temperature.
+- **Atmospheric pressure**: The current air pressure.
+- **Wind speed**: The current wind speed.
+- **Wind gust speed**: The speed of the strongest wind gusts. Disabled by default.
+- **Wind direction**: The direction the wind is coming from, in degrees.
+- **UV index**: The current ultraviolet index.
 
 ## Limitations
 

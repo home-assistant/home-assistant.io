@@ -1,25 +1,7 @@
 ---
-title: 1-Wire
 description: Instructions on how to integrate 1-Wire sensors and switches into Home Assistant using owserver.
-ha_categories:
-  - diy_makers.boards_hardware
-  - sensors.temperature_humidity
 ha_release: 0.12
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@garbled1'
-  - '@epenet'
 ha_domain: onewire
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_zeroconf: true
-ha_quality_scale: platinum
 ---
 
 The **1-Wire** {% term integration %} brings devices on a 1-Wire bus into Home Assistant. 1-Wire is a low-cost bus that is popular for DIY projects. A single pair of wires can connect many temperature sensors, counters, and input/output chips.
@@ -116,7 +98,7 @@ Sensor precision:
 
 The integration creates one device for each 1-Wire device it finds on the bus. Devices connected to a DS2409 coupler are linked to that coupler. Each entity has a `device_file` attribute with the path of the value in owserver, for example `/28.FF5C68521604/temperature`.
 
-Many entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), so that the integration does not read unnecessary data from the bus. You can turn them on from the device page.
+Many entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), so that the integration does not read unnecessary data from the bus. You can turn them on from the device page.
 
 ### Binary sensors
 

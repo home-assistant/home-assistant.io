@@ -1,19 +1,12 @@
 ---
-title: Text-to-speech (TTS)
 description: Instructions on how to set up text-to-speech (TTS) with Home Assistant.
 ha_release: 0.35
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: tts
-ha_quality_scale: internal
-ha_platforms:
-  - notify
-ha_integration_type: entity
 related:
   - url: https://www.home-assistant.io/integrations/#text-to-speech
     title: List of integrations using the TTS integration
   - url: https://www.nabucasa.com/config/tts/
-    title: TTS with Home Assistant Cloud
+    title: TTS with Home Assistant Link
   - url: https://www.home-assistant.io/integrations/google_translate/
     title: Google Translate TTS
   - url: https://www.home-assistant.io/integrations/microsoft/
@@ -26,7 +19,7 @@ Text-to-speech (TTS) enables Home Assistant to speak to you.
 
 {% include integrations/building_block_integration.md %}
 
-See all [TTS integrations](/integrations/#text-to-speech) using this building block for ways to use it in your automations. If you are using the Home Assistant voice assistant [Assist](/voice_control/), it uses TTS when replying to you. Another way to use TTS is by using [TTS with Home Assistant Cloud](https://www.nabucasa.com/config/tts/).
+See all [TTS integrations](/integrations/#text-to-speech) using this building block for ways to use it in your automations. If you are using the Home Assistant voice assistant [Assist](/voice_control/), it uses TTS when replying to you. Another way to use TTS is by using [TTS with Home Assistant Link](https://www.nabucasa.com/config/tts/).
 
 ## Text-to-speech states
 
