@@ -794,8 +794,6 @@ After ensuring you are using an extension cable, rebuild network routes.
 
 The combination of these two steps corrects many reported difficulties.
 
-If you need help setting up or configuring Z-Wave, ask in the [Home Assistant community forum](https://community.home-assistant.io/). If you've found a bug in the Home Assistant Z-Wave integration, use the [Home Assistant Core bug report form](https://github.com/home-assistant/core/issues/new?template=bug_report.yml).
-
 ### My Z-Wave adapter isn't recognized automatically during setup
 
 If your Z-Wave adapter doesn't show up in the **Discovered** section automatically, try adding it manually:
