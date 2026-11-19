@@ -22,12 +22,18 @@ Next-generation voice is a preview feature in [Home Assistant Labs](/integration
 
 ## Prerequisites
 
-- A voice satellite that sends Home Assistant the audio from just before it woke up. The [Home Assistant Voice Preview Edition](/voice-pe/) needs the beta firmware for this.
-  <!-- TODO: link to how to install the Voice PE beta firmware -->
-- A wake word the app can verify. It currently verifies **Okay Nabu**, **Hey Jarvis**, and **Hey Mycroft**, in English.
-- A 64-bit system (amd64 or aarch64) to run the app.
+- A voice satellite that sends Home Assistant the audio from just before it woke up. The [Home Assistant Voice Preview Edition](/voice-pe/) needs the beta firmware for this. Refer to [Installing the beta firmware](#installing-the-beta-firmware-on-the-voice-preview-edition).
+- Wake words the app can verify. It currently verifies **Okay Nabu**, **Hey Jarvis**, and **Hey Mycroft**, in English. Every wake word that is active on the satellite must be one of these. If a satellite also has another wake word active, for example a custom one, Home Assistant verifies none of its wake words.
 
 Satellites and wake words that are not supported keep working exactly as they do today, without the second opinion.
+
+### Installing the beta firmware on the Voice Preview Edition
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and open the device page of your Voice Preview Edition.
+2. Under **Configuration**, enable the **Beta firmware** entity. It is disabled by default. Refer to [enabling an entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+3. Turn on **Beta firmware**.
+   - Result: The device's firmware update entity now offers the beta firmware.
+4. Install the firmware update.
 
 ## Turning on next-generation voice
 
@@ -71,6 +77,8 @@ docker run -d \
 
 The app listens on port `10900`. The `/data` volume keeps the downloaded speech model, so it is not downloaded again when the container is recreated.
 
+Home Assistant and the app talk over unencrypted HTTP, and that traffic includes the audio from your satellites' microphones. Run the app on a trusted network, and do not expose port `10900` to the internet.
+
 With host networking, the app announces itself on your network and Home Assistant discovers it. If you cannot use host networking, publish the port instead with `-p 10900:10900` (or `ports: ["10900:10900"]` in Docker Compose) and add the integration manually.
 
 ### Connecting Home Assistant to the app
@@ -98,9 +106,9 @@ Nothing stops working. Wake words are accepted without the second opinion, and H
 
 Turn off **Next-generation voice** in {% my labs title="**Settings** > **System** > **Labs**" %}.
 
-On Home Assistant OS, Home Assistant automatically removes the integration and uninstalls the Voice Support app. It makes a backup of the app first. There is nothing else to do.
+On Home Assistant OS, Home Assistant automatically removes the integration and uninstalls the Voice Support app it installed. It makes a backup of the app first.
 
-If you run the app in a container, remove the integration and stop the app's container yourself.
+If you installed the app yourself, or run it in a container, Home Assistant leaves it in place. Remove the integration, and uninstall the app or stop its container yourself.
 
 ## Troubleshooting
 
@@ -115,6 +123,8 @@ On Home Assistant OS, Home Assistant creates a repair issue when it cannot insta
 - If you published the port instead of using host networking, enter the IP address of the machine running the container, not the container's name.
 
 ## Removing the integration
+
+Turn off **Next-generation voice** first, as described in [Turning off next-generation voice](#turning-off-next-generation-voice). On Home Assistant OS, that already removes the integration. If you remove the integration while the feature is still on, Home Assistant OS sets it up again the next time Home Assistant starts.
 
 This integration follows standard integration removal.
 
