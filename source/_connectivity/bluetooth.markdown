@@ -11,7 +11,9 @@ related:
     title: ESPHome Bluetooth proxy component
 ---
 
-Home Assistant supports Bluetooth Low Energy devices. Bluetooth Classic devices are not supported. This includes playing music on Bluetooth speakers or headphones.
+Bluetooth is a short-range wireless technology. Many smart home devices, such as sensors, locks, and plant monitors, use Bluetooth Low Energy (BLE). This version of Bluetooth uses very little power, so battery-powered devices can run for a long time.
+
+Home Assistant supports Bluetooth Low Energy devices. Bluetooth Classic and Bluetooth LE Audio devices, like speakers and headphones, are not supported.
 
 Home Assistant receives Bluetooth signals through a [Bluetooth adapter](#bluetooth-adapters) that is connected to the system that runs Home Assistant, or through a [Bluetooth proxy](#bluetooth-proxies) on your network. The [Bluetooth](/integrations/bluetooth/) {% term integration %} manages them. Compatible devices discovered nearby appear on {% my integrations title="**Settings** > **Devices & services**" %}.
 

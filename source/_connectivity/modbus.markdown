@@ -6,10 +6,10 @@ related:
   - docs: /integrations/modbus/
     title: Modbus integration
   - docs: /connectivity/serial/
-    title: Serial connections in Home Assistant
+    title: About serial connections
 ---
 
-Some devices have a Modbus interface, such as solar inverters, heat pumps, and ventilation units. Home Assistant can read data from these devices and control them.
+[Modbus](https://www.modbus.org/) is a communication protocol that devices use to share data and accept commands. It started in industrial equipment, and is now common in devices such as solar inverters, heat pumps, and ventilation units. Modbus works over a wired serial connection, usually <abbr title="Recommended Standard 485">RS-485</abbr>, or over your network. Home Assistant can read data from these devices and control them.
 
 You do not set up Modbus by itself. Instead, you add the {% term integration %} for your device, and enter how Home Assistant reaches its Modbus interface. To find out if an integration is available for your device, search for the brand of your device when you add an integration in {% my integrations title="**Settings** > **Devices & services**" %}.
 
