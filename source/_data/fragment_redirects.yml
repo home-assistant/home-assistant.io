@@ -269,6 +269,7 @@
   i-dont-get-a-voice-response: /voice_control/troubleshooting/#common-problems
   local-network-settings: /voice_control/troubleshooting/#common-problems
   missing-media-source: /voice_control/troubleshooting/#common-problems
+  view-debug-information: /voice_control/troubleshooting/#viewing-debug-information
 "/voice_control/voice_remote_expose_devices/":
   exposing-your-devices-to-assist: /voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant
   exposing-your-devices: /voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant

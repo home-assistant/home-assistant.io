@@ -59,6 +59,18 @@ IP Address:
   description: "The local IP address of your EARN-E P1 Meter (for example, 192.168.1.100). Only required if auto-discovery does not find your device."
 {% endconfiguration_basic %}
 
+## Adding the meter to the Energy dashboard
+
+Home Assistant does not add the meter to the [Energy dashboard](/docs/energy/) automatically. Your meter reports energy per tariff, so add one grid connection per tariff:
+
+1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
+2. On the **Electricity** tab, under **Electricity grid**, select **Add grid connection**.
+3. For **Energy imported from grid**, select **Energy imported tariff 1**. For **Energy exported to grid**, select **Energy exported tariff 1**.
+4. Optional: to show real-time power, set **Type of power measurement** to **Two sensors**. Select **Power imported** for **Power imported from grid** and **Power exported** for **Power exported to grid**.
+5. Select **Save**.
+6. Add a second grid connection with **Energy imported tariff 2** and **Energy exported tariff 2**. Leave out the power sensors, because each power sensor can only be used on one grid connection.
+7. If your meter reports gas, go to the **Gas** tab, select **Add gas source**, and select **Gas consumed**.
+
 ## Known limitations
 
 - The device must be on the same network subnet as Home Assistant, or UDP broadcast traffic must be routed between subnets.

@@ -4,13 +4,19 @@ title: "Troubleshooting Assist"
 
 This page helps you find out why {% term Assist %} doesn't do what you expect, and how to fix it. Start with the debug information or a sentence test. They show what Assist heard, how it understood your sentence, and what it did. Then check the [common problems](#common-problems).
 
-## View debug information
+## Viewing debug information
+
+The debug information shows each recent run of an {% term assistant %}. For each run, you see what the assistant heard, how it understood the sentence, which entities it targeted, and how it responded.
 
 1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
-2. From the list of assistants, go to your assistant and select **Debug** in the dialog.
-![Open the debug dialog](/images/assist/assistant-debug-03.png)
-3. At the top of the screen, from the dropdown menu, select the run you are interested in.
-![Debug speech-to-text](/images/assist/assistant-debug-02.png)
+2. Next to your assistant, select the three dots {% icon "mdi:dots-vertical" %}, then select **Debug**.
+   ![Screenshot of the assistant menu with the Debug option](/images/assist/assistant-debug-03.png)
+3. At the top of the page, select the run you're interested in.
+   - The list shows the date and time of each run. To step through the runs, select **Older run** {% icon "mdi:ray-end-arrow" %} or **Newer run** {% icon "mdi:ray-start-arrow" %}.
+   - Result: The page shows each stage of the run, such as speech-to-text, natural language processing, and text-to-speech.
+   ![Screenshot of a debug run with the speech-to-text stage](/images/assist/assistant-debug-02.png)
+
+If the page says **No runs found**, the assistant didn't receive anything. Check that your device or the Assist dialog uses this assistant.
 
 ## Test a sentence per language without voice: without executing commands
 
@@ -28,7 +34,7 @@ If you want to test if a sentence works in a specific language without actually 
 
 If you want to test if a sentence works with a specific assistant while actively executing the commands, use the sentence parser in the **Debug** view.
 
-1. [Open the debug view](#view-debug-information).
+1. [Open the debug view](#viewing-debug-information).
 2. In the top right corner, select the icon.
 ![Open the pipeline debug dialog](/images/assist/assistant-debug-04.png)
 3. Select the assistant you want to test.
@@ -124,7 +130,7 @@ Speech-to-text can only understand what the microphone picks up. Background nois
 #### Resolution
 
 1. Check what speech-to-text understood.
-   - [Open the debug information](#view-debug-information) of the assistant, and select the run. Look at the text under speech-to-text.
+   - [Open the debug information](#viewing-debug-information) of the assistant, and select the run. Look at the text under speech-to-text.
 2. Listen to what Home Assistant received from the device.
    - For the steps, refer to [Recording voice commands for debugging](/integrations/assist_pipeline/#recording-voice-commands-for-debugging).
    - If your voice is clear in the recording, but speech-to-text still gets it wrong, the problem is in speech-to-text, not in the device.
