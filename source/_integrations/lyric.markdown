@@ -88,3 +88,9 @@ An extra set of sensors is created for each room sensor accessory paired with a 
 
 - **Room average temperature**
   - **Description**: The average temperature measured in that room.
+
+## Switches
+
+- **Emergency heat**
+  - **Description**: Turns emergency heat on or off. While it's on, the thermostat's climate entity shows its mode as **Heat**. Turning it off sets the thermostat back to **Heat**.
+  - **Available for**: Thermostats that offer emergency heat as a mode, usually ones controlling a heat pump with backup heat.
