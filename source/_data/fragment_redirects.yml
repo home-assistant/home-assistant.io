@@ -265,6 +265,8 @@
 "/voice_control/troubleshooting/":
   test-a-sentence-per-assistant-without-voice-while-executing-the-commands: /voice_control/troubleshooting/#testing-a-sentence-with-an-assistant
   view-debug-information: /voice_control/troubleshooting/#viewing-debug-information
+  tweaking-the-assist-audio-configuration-for-your-device: /integrations/assist_pipeline/#debug-recordings
+  to-tweak-the-assist-audio-configuration-for-your-device: /integrations/assist_pipeline/#debug-recordings
 "/voice_control/voice_remote_expose_devices/":
   exposing-your-devices-to-assist: /voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant
   exposing-your-devices: /voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant

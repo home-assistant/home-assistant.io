@@ -66,7 +66,7 @@ Prerequisites:
 5. Listen to the recordings.
    - `01_stt-*.wav`: the audio that was sent to speech-to-text.
    - `00_wake-*.wav`: the audio Home Assistant listened to for the wake word. Only saved if Home Assistant detects the wake word, not the device itself.
-   - Result: You hear what wake word detection and speech-to-text received. For an example of how to use this, see [tweaking the Assist audio configuration](/voice_control/troubleshooting/#tweaking-the-assist-audio-configuration-for-your-device).
+   - Result: You hear what wake word detection and speech-to-text received.
 
 When you're done, [turn off debug recording](#turning-off-debug-recording).
 
