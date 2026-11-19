@@ -265,6 +265,12 @@
 "/voice_control/troubleshooting/":
   tweaking-the-assist-audio-configuration-for-your-device: /integrations/assist_pipeline/#debug-recordings
   to-tweak-the-assist-audio-configuration-for-your-device: /integrations/assist_pipeline/#debug-recordings
+  i-do-not-see-any-assistant: /voice_control/troubleshooting/#common-problems
+  i-do-not-see-a-text-to-speech-or-speech-to-text-option: /voice_control/troubleshooting/#common-problems
+  assist-does-not-understand-my-question-about-the-weather-forecast: /voice_control/troubleshooting/#common-problems
+  i-dont-get-a-voice-response: /voice_control/troubleshooting/#common-problems
+  local-network-settings: /voice_control/troubleshooting/#common-problems
+  missing-media-source: /voice_control/troubleshooting/#common-problems
 "/voice_control/voice_remote_expose_devices/":
   exposing-your-devices-to-assist: /voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant
   exposing-your-devices: /voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant
