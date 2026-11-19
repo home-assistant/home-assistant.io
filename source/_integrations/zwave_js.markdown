@@ -815,7 +815,7 @@ The first-generation Gen5 adapter has a known bug when plugged into a Pi&nbsp;4 
 
 Entities will be created only after the node is ready (the interview is completed). Also, note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the events section on how to handle those events in your automations.
 
-If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), create an issue about your problem on the GitHub issue tracker.
+If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), create an issue about your problem on the [GitHub issue tracker](https://github.com/home-assistant/core/issues).
 
 ### My device doesn't automatically update its status in Home Assistant if I control it manually
 
