@@ -11,6 +11,9 @@
     "messaging_notifications.push_notifications",
     "productivity_information.calendars_todos"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "sensor",

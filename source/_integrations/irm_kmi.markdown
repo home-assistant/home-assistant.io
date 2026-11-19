@@ -32,6 +32,21 @@ Language:
 
 The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
 
+## Supported functionality
+
+The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
+
+### Sensors
+
+The integration also provides the following sensors for the current weather at your location. Some sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). You can enable them after you set up the integration.
+
+- **Temperature**: The current outdoor temperature.
+- **Atmospheric pressure**: The current air pressure.
+- **Wind speed**: The current wind speed.
+- **Wind gust speed**: The speed of the strongest wind gusts. Disabled by default.
+- **Wind direction**: The direction the wind is coming from, in degrees.
+- **UV index**: The current ultraviolet index.
+
 ## Limitations
 
 1. The weather provider sometimes uses two weather conditions for the same day (see below). When this is the case, only the first weather condition is taken into account in this integration. <br/> <img src="/images/integrations/irm_kmi/monday.png" height="150" alt="Example of two weather conditions">

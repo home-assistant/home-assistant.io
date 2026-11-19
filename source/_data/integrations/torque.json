@@ -6,6 +6,9 @@
   "categories": [
     "vehicles_transport.cars_evs"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor"
   ]

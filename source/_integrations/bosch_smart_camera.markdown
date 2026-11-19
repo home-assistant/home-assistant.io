@@ -67,6 +67,16 @@ After signing in, you are not sent back to Home Assistant.
 1. Make sure [My Home Assistant](https://my.home-assistant.io/) is configured with your instance URL in the same browser you use to sign in.
 2. Start the setup again from {% my integrations title="**Settings** > **Devices & services**" %}.
 
+### Signing in again
+
+#### Symptom
+
+Home Assistant shows that the integration needs you to sign in again.
+
+#### Resolution
+
+Follow the prompt to sign in again with your SingleKey ID. The cameras and their entities stay as they are.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

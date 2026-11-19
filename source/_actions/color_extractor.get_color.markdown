@@ -2,6 +2,7 @@
 title: "Get predominant color"
 action: color_extractor.get_color
 domain: color_extractor
+response: required
 description: "Returns the predominant RGB color found in an image provided by URL or file path."
 related_actions:
   - color_extractor.turn_on
@@ -75,6 +76,8 @@ color_extract_path:
 Provide either `color_extract_url` or `color_extract_path`. The two options are mutually exclusive and cannot be used together.
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response data is a mapping with a single `color` field. It holds the predominant color as a list of three RGB values, each from 0 to 255, such as `[255, 128, 0]`.
 

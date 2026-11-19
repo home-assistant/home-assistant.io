@@ -12,6 +12,9 @@
     "lighting.lighting_systems",
     "hubs_protocols.building_automation"
   ],
+  "connectivity": [
+    "dali"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

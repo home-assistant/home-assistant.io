@@ -8,9 +8,9 @@ ha_domain: system_bridge
 
 ## Use cases
 
-- **Keep an eye on your computers**: See CPU, memory, disk, GPU, network and battery use on a dashboard, and get notified when a disk fills up or a battery runs low.
+- **Keep an eye on your computers**: See CPU, memory, disk, GPU, network, and battery usage on a dashboard, and get notified when a disk fills up or a battery runs low.
 - **Automate around your computer**: Turn the lights down when your computer locks, or react to the camera being in use.
-- **Control your computer from Home Assistant**: Lock, sleep or shut down the computer, turn its displays off, control its media, or open a URL on it.
+- **Control your computer from Home Assistant**: Lock, sleep, or shut down the computer, turn its displays off, control its media, or open a URL on it.
 - **Send notifications to your desktop**: Show a notification with buttons and a sound on the computer, such as when someone rings the doorbell.
 
 ## Supported devices
@@ -46,14 +46,14 @@ Home Assistant discovers computers running System Bridge on your network. A disc
 
 This integration provides the following binary sensors:
 
-| Name                  | Description                          |
-| --------------------- | ------------------------------------ |
-| AC Power              | Whether the device is on AC power    |
-| Battery Is Charging   | Whether the battery is charging      |
-| Camera In Use         | Whether the camera/webcam is in use  |
-| Locked                | Whether the user's session is locked |
-| Pending Reboot        | Whether a reboot is pending          |
-| New Version Available | Whether a new version is available   |
+| Name                  | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| AC Power              | Whether the device is on AC power                |
+| Battery Is Charging   | Whether the battery is charging                  |
+| Camera In Use         | Whether the camera/webcam is in use              |
+| Session lock          | Whether the user's session is Locked or Unlocked |
+| Pending Reboot        | Whether a reboot is pending                      |
+| New Version Available | Whether a new version is available               |
 
 ## Sensors
 
@@ -150,11 +150,45 @@ The integration provides a button for each power command: **Sleep**, **Hibernate
 
 The buttons do the same as the [`system_bridge.power_command`](/actions/system_bridge.power_command/) action, and are easier to add to a dashboard or an automation.
 
+## Command buttons
+
+Each command in the device's [command allowlist](https://system-bridge.timmo.dev/features/commands/) gets a button named after it. Adding, renaming, or removing a command in System Bridge adds, renames, or removes its button straight away.
+
+Pressing a button runs the command on the device and waits for it to finish. Pressing it shows an error if the command can't run, exits with a code other than `0`, or doesn't finish within a few seconds. A command that takes longer keeps running on the device.
+
+Anyone who can press the button in Home Assistant can run the command, so only add commands to the allowlist that you're happy to run from Home Assistant.
+
+## Power controls
+
+On Linux with power-profiles-daemon, the **Power profile** select entity shows the active power profile, such as **Balanced**, **Performance**, or **Power saver**, and switches to another. Only the profiles the device supports are listed.
+
+On Linux, the **Keep awake** switch entity keeps the device from idling, so it doesn't lock, blank the screen, or sleep for being idle. Turn it off to let the device idle again. On Omarchy, this is the same as the bar's stay awake switch.
+
+Each entity is added once the device first reports it, so devices without power profiles or keep awake support don't get them. These need System Bridge 5.20.0 or later.
+
 ## Media player
 
-The integration also provides a media player. This allows you control the currently playing media on your device.
+The integration provides a media player for the media currently playing on your device. It shows the title, artist, album, position and other details System Bridge reports, and you can play, pause, stop and skip tracks.
 
-> This is currently only supported devices running System Bridge on Windows.
+What else you can control depends on the operating system:
+
+- **Linux**: With System Bridge 5.20.0 or later, you can also seek, set the volume, and turn shuffle and repeat on or off, when the player supports it.
+- **Windows**: Shuffle and repeat are shown, but can't be changed.
+- **macOS**: Only play, pause and stop are available.
+
+When more than one app is playing, the media player follows the one that's playing, or else the first one that's paused. With System Bridge 5.23.0 or later, its source list holds every player it can see: pick one to show and control that player, or pick `Automatic` to go back to following the playing one. The pick resets when Home Assistant restarts.
+
+### Audio devices
+
+The `Audio` media player sets the volume of whichever output is the system default and mutes it, so it's the system volume. It follows the default when you switch outputs, which makes it the one to use in automations. Its source list holds your outputs: pick one to make it the default. The volume on the main media player is the playing app's own volume, not the system volume.
+
+Each audio output, such as speakers or headphones, also gets a media player named after it, such as `Speakers output`, to set its volume and mute it.
+
+Each audio input, such as a microphone, gets a `Microphone input volume` number entity to set its volume from 0 to 100%, and a `Microphone input mute` switch entity to mute it. An input only gets these entities once System Bridge reports its volume or mute state. The `Audio input` select entity picks the default input.
+
+An audio device connected later, such as a USB headset, gets its entities when it first shows up, and they become unavailable while it's disconnected.
+
+Audio devices need System Bridge 5.16.0 or later, on Linux or Windows. On Linux, they also require `pactl` with JSON support (PulseAudio 16 or later), using PulseAudio or PipeWire with `pipewire-pulse`.
 
 ## Media source
 
@@ -166,75 +200,58 @@ The integration provides an update component, which will notify you when a new v
 
 ## Notifiers
 
-The **System Bridge** {% term integration %} adds a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [notify platform](#notifications-notifysystem_bridge_hostname) instead. For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
+The **System Bridge** {% term integration %} adds a notify {% term entity %} for each computer. To send a plain notification, use the `notify.send_message` {% term action %}. For more notification options, see [Send message](/actions/system_bridge.send_message/). To close a notification, see [Dismiss message](/actions/system_bridge.dismiss_message/). For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
 
 {% example %}
 action: |
   action: notify.send_message
   target:
-    entity_id: notify.my_device
+    entity_id: notify.my_computer
   data:
     title: "Reminder"
     message: "Have you considered frogs?"
 {% endexample %}
 
-## Notifications
+### Notification events
 
-You can send notifications to the device using the `notify.system_bridge_hostname` notify entity.
+With System Bridge 5.20.0 or later, each computer has a notification {% term event %} {% term entity %}, such as `event.my_computer_notification`. It fires when a notification sent by Home Assistant is clicked or closed on the computer, and, with System Bridge 5.27.0 or later, when System Bridge sends a notification from anywhere.
 
-```yaml
-action: notify.system_bridge_hostname
-data:
-  data:
-    image: "https://brands.home-assistant.io/system_bridge/logo@2x.png"
-    timeout: 30
-    actions:
-      - command: api
-        data:
-          endpoint: open
-          method: POST
-          body:
-            url: "http://homeassistant.local:8123/lovelace/cameras"
-        label: "Open Cameras"
-    audio:
-      source: "https://d3qhmae9zx9eb.cloudfront.net/home/amzn_sfx_doorbell_chime_02.mp3"
-      volume: 80
-  title: "Test Title"
-  message: "This is a message"
-```
+| Event type | Attributes | When |
+| ---------- | ---------- | ---- |
+| `sent` | `notification_id`, `title`, `message`, `buttons` | System Bridge sent a notification, from Home Assistant or another app. `buttons` lists each button's `id` and `label`. |
+| `clicked` | `notification_id`, `action` | The notification or one of its buttons was clicked. `action` is the button's `id`, or `default` for the notification itself. |
+| `closed` | `notification_id`, `reason` | The notification closed without a click. `reason` is `expired`, `dismissed` or `closed`. |
 
-### Parameters
+`notification_id` is the same for every event about one notification, and matches the `id` that `system_bridge.send_message` returned, so you can follow a notification from `sent` to its click or close. Linux reports clicks and closes, Windows only clicks, and macOS neither.
 
-- **target**: The target to send the notification to. This can be ignored.
-- **title**: The title of the notification.
-- **message**: The message of the notification.
-- **data**: The data to send to the device. See below for more information.
-
-#### Actions (`data` parameter)
-
-This is a list of actions that can be sent to the device. These are buttons that show below the title, message, and image.
-
-- **command**: The command to send to the device. For example, `api` sends a request to the System Bridge API.
-- **label**: The label of the button.
-- **data**: The data to send to the device. The available parameters for the `api` command are `endpoint`, `method`, `body`, and `params`.
-
-Here is an example action that opens a URL in the device's browser:
-
-```yaml
-- command: api
-  label: "Open Cameras"
-  data:
-    endpoint: open
-    method: POST
-    body:
-      url: "http://homeassistant.local:8123/lovelace/cameras"
-```
-
-#### Audio (`data` parameter)
-
-This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file, such as an MP3.
+{% example %}
+automation: |
+  triggers:
+    - trigger: state
+      entity_id: event.my_computer_notification
+      not_from: unavailable
+  conditions:
+    - condition: state
+      entity_id: event.my_computer_notification
+      attribute: event_type
+      state: clicked
+    - condition: template
+      value_template: "{{ trigger.to_state.attributes.action == 'unlock' }}"
+  actions:
+    - action: lock.unlock
+      target:
+        entity_id: lock.front_door
+{% endexample %}
 
 {% include integrations/actions.md %}
+
+## Data updates
+
+System Bridge sends data to Home Assistant as it changes, over a WebSocket connection. If no data arrives for 30 seconds, Home Assistant checks the connection is still open and reconnects if it isn't.
+
+With System Bridge 5.24.0 and later, the computer tells Home Assistant just before it goes to sleep or shuts down, so its entities become unavailable straight away. Home Assistant logs once that the computer is unavailable, and once when it's back.
+
+While the computer can't be reached, Home Assistant tries to reconnect after 30 seconds, then waits twice as long after each failed attempt, up to 2 minutes. Once it reconnects, the entities update again.
 
 ## Known limitations
 
@@ -244,6 +261,8 @@ This is an object containing the `source` and `volume` (0-100). The source must 
 
 ## System Bridge automation examples
 
+{% include docs/paste_yaml_tip.md %}
+
 ### Automation: Lock your computer when you leave home
 
 This automation locks the computer when everyone has left home. Replace `button.my_computer_lock` with your computer's **Lock** button.
@@ -252,6 +271,8 @@ This automation locks the computer when everyone has left home. Replace `button.
   - **Zone**: Home (`zone.home`)
 - **Action**: Press button
   - **Target**: Computer lock (`button.my_computer_lock`)
+
+{% details "YAML example for locking the computer when you leave home" %}
 
 {% example %}
 automation: |
@@ -266,6 +287,8 @@ automation: |
         entity_id: button.my_computer_lock
 {% endexample %}
 
+{% enddetails %}
+
 ### Automation: Notify when a disk is nearly full
 
 This automation sends a notification to your phone when a disk on the computer is more than 90% full. Replace `sensor.my_computer_c_space_used` with the space used sensor of the disk.
@@ -277,6 +300,8 @@ This automation sends a notification to your phone when a disk on the computer i
   - **Target**: My phone (`notify.my_phone`)
   - **Title**: `Disk nearly full`
   - **Message**: The C: drive on your computer is more than 90% full.
+
+{% details "YAML example for a notification when a disk is nearly full" %}
 
 {% example %}
 automation: |
@@ -294,6 +319,8 @@ automation: |
         message: "The C: drive on your computer is more than 90% full."
 {% endexample %}
 
+{% enddetails %}
+
 ### Automation: Show a notification on the computer when the doorbell rings
 
 This automation shows a notification on the computer when someone rings the doorbell. Replace `event.front_door_doorbell` with your doorbell's event entity, and `notify.my_computer` with your computer's notify entity.
@@ -304,6 +331,8 @@ This automation shows a notification on the computer when someone rings the door
   - **Target**: My computer (`notify.my_computer`)
   - **Title**: `Doorbell`
   - **Message**: Someone is at the door.
+
+{% details "YAML example for a notification on the computer when the doorbell rings" %}
 
 {% example %}
 automation: |
@@ -321,26 +350,54 @@ automation: |
         message: "Someone is at the door."
 {% endexample %}
 
+{% enddetails %}
+
 ## Troubleshooting
 
-### Can't connect to System Bridge
+{% details "Can't connect to System Bridge" %}
 
-If Home Assistant can't connect when you set up the integration, or the computer's entities stay unavailable:
+### Symptom: Setup fails to connect, or the computer's entities stay unavailable
 
-1. Check System Bridge is running on the computer, for example by opening its [web client](https://system-bridge.timmo.dev/using/web-client/).
-2. Check the host and port. From another device on your network, open `http://YOUR_COMPUTER:9170` in a browser, using your port if you changed it. If the System Bridge web client loads, that device can reach the computer. Also check that routing and firewall rules allow Home Assistant to reach the same host and port.
-3. Check the computer's firewall allows incoming connections on the System Bridge port.
-4. If the computer gets its IP address from DHCP, give it a fixed address, or use its hostname. A computer that Home Assistant discovered gets its address updated when it changes.
+#### Description
 
-The computer's entities are unavailable while it sleeps or is turned off. This is expected, and they update again once it's back.
+Home Assistant can't reach System Bridge on the host and port you entered. The computer's entities are also unavailable while it sleeps or is turned off. This is expected, and they update again once it's back.
 
-### Authentication failed
+#### Resolution
 
-If System Bridge no longer accepts Home Assistant's key, for example after it was removed under **Settings** > **Devices** in the web client or System Bridge was reinstalled, Home Assistant asks you to reauthenticate. Select **Reconfigure** on the notification under {% my integrations title="**Settings** > **Devices & services**" %} and enter a new key or pairing code.
+1. Check that System Bridge is running on the computer, for example by opening its [web client](https://system-bridge.timmo.dev/using/web-client/).
+2. Check the host and port. From another device on your network, open `http://YOUR_COMPUTER:9170` in a browser, using your port if you changed it. If the System Bridge web client loads, that device can reach the computer.
+3. Check that the computer's firewall, and any routing between Home Assistant and the computer, allows incoming connections on the System Bridge port.
+4. If the computer gets its IP address from DHCP, give it a fixed address, or use its hostname. To change the host or port of a computer you already added, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **System Bridge**, then select **Reconfigure** on the computer's entry. A computer that Home Assistant discovered gets its address updated automatically.
 
-### System Bridge upgrade required
+{% enddetails %}
 
-If the computer runs a System Bridge version older than 5.0.0, Home Assistant creates a repair issue and doesn't set up the integration. Update System Bridge on the computer. Home Assistant keeps retrying, and sets the integration up once the update is done.
+{% details "Authentication failed" %}
+
+### Symptom: Home Assistant asks you to reauthenticate
+
+#### Description
+
+System Bridge no longer accepts Home Assistant's key, for example after it was removed under **Settings** > **Devices** in the web client, or after reinstalling System Bridge.
+
+#### Resolution
+
+Under {% my integrations title="**Settings** > **Devices & services**" %}, select **Reconfigure** on the notification and enter a new key or pairing code.
+
+{% enddetails %}
+
+{% details "System Bridge upgrade required" %}
+
+### Symptom: A repair issue says "System Bridge upgrade required"
+
+#### Description
+
+The computer runs a System Bridge version older than 5.28.6. Home Assistant doesn't set up the integration until System Bridge is updated.
+
+#### Resolution
+
+Update System Bridge on the computer. Home Assistant keeps retrying, and sets up the integration once the update is done.
+
+{% enddetails %}
 
 ## Removing the integration
 

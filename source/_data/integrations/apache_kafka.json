@@ -8,5 +8,8 @@
   "quality_scale": "legacy",
   "categories": [
     "diy_makers.web_data_connectors"
+  ],
+  "connectivity": [
+    "network"
   ]
 }

@@ -46,7 +46,8 @@ The WattWächter Plus provides sensors that are based on your smart meter's repo
 ### Power sensors
 
 - **Active power (W)**: Current power being consumed or fed in. Negative values indicate feed-in.
-- **Active power L1 / L2 / L3 (W)**: Active power per phase.
+- **Active power L1 / L2 / L3 (W)**: Active power per phase. The device reports one value per phase, depending on the meter. It reports the net power of the phase (negative values indicate feed-in) or only its consumption part. Disabled by default. To enable it, refer to [Disabling or enabling an entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+- **Power feed-in L1 / L2 / L3 (W)**: Feed-in power per phase, on meters that report it separately. Disabled by default. To enable it, refer to [Disabling or enabling an entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Power consumption / Power feed-in (W)**: Separate import and export power readings, on meters that report them as two registers.
 - **Absolute power (W)**: Power regardless of direction, on meters that report the unsigned value.
 - **Reactive power consumption / feed-in (var)**: Reactive power, if reported by your meter.
@@ -167,6 +168,7 @@ Most smart meters need to be unlocked with a PIN from your energy provider befor
 
 - Make sure the WattWächter device is connected to the same network as Home Assistant.
 - Verify the device is powered on and reachable (try accessing its web interface in a browser).
+- If the device is already set up through MQTT, Home Assistant doesn't offer it for discovery, because every sensor would exist twice. You can still add it manually. Once you delete its MQTT device in Home Assistant, the device is offered again on its next discovery, for example after restarting Home Assistant.
 - You can always add the device manually by entering its IP address.
 
 ### Authentication failed

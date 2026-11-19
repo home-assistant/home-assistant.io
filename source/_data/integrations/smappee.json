@@ -12,6 +12,11 @@
     "plugs_switches",
     "water.meters_leak_detection"
   ],
+  "connectivity": [
+    "cloud",
+    "mqtt",
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "sensor",
