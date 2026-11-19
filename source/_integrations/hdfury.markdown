@@ -85,6 +85,7 @@ Below is a complete overview of the entities this integration provides.
 - Relay (Controls the onboard relay output)
 - TX0 force +5v (Forces the +5v line on the HDMI cable for TX0 to be active)
 - TX1 force +5v (Forces the +5v line on the HDMI cable for TX1 to be active)
+- IP interrupt (Enables or disables the TCP command server)
 
 ## Data updates
 
