@@ -32,6 +32,17 @@ Timer ID:
 
 Use `timer_list.cancel_timer` as the `action` value. Put the list selection under `target` and the fields below under `data`.
 
+Replace `timer_list.kitchen` with a list supplied by your integration. Replace `REPLACE_WITH_TIMER_ID` with an ID returned by [Get timers](/actions/timer_list.get_timers/).
+
+{% example %}
+action: |
+  action: timer_list.cancel_timer
+  target:
+    entity_id: timer_list.kitchen
+  data:
+    timer_id: "REPLACE_WITH_TIMER_ID"
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -50,6 +61,97 @@ timer_id:
 - The timer ID must exist in each targeted list. An unknown ID causes an error. Finished or canceled timers are unchanged.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+These examples require timer lists supplied by another integration. Replace the entity IDs with your own. A timer name must match exactly; if no timer matches, the item action is skipped.
+
+### Automation: cancel kitchen timers when you leave home
+
+Cancel all active and paused kitchen timers when you leave home. Replace `person.me` with your person entity. The YAML selects current timer IDs from the response, so you do not need to save them in advance.
+
+- **Trigger**: Zone left
+  - **Target**: Me (`person.me`)
+  - **Zone**: Home (`zone.home`)
+- **Action**: Get timers
+  - **Target**: `timer_list.kitchen`
+  - **Status**: Active, Paused
+- For each returned timer, use **Cancel timer** with that item's timer ID.
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Cancel kitchen timers when you leave home"
+  triggers:
+    - trigger: zone.left
+      target:
+        entity_id: person.me
+      options:
+        zone: zone.home
+  actions:
+    - action: timer_list.get_timers
+      target:
+        entity_id: timer_list.kitchen
+      data:
+        status:
+          - active
+          - paused
+      response_variable: timers
+    - repeat:
+        for_each: "{{ timers['timer_list.kitchen']['timers'] }}"
+        sequence:
+          - action: timer_list.cancel_timer
+            target:
+              entity_id: timer_list.kitchen
+            data:
+              timer_id: "{{ repeat.item.timer_id }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: cancel cooking timers when the oven turns off
+
+Cancel active and paused timers named Cooking when the oven switches off. This requires an oven integration that exposes a switch. The YAML selects current timer IDs from the response, so you do not need to save them in advance.
+
+- **Trigger**: Oven changes from `on` to `off`
+- **Action**: Get timers
+  - **Target**: `timer_list.kitchen`
+  - **Status**: Active, Paused
+- For each returned timer named `Cooking`, use **Cancel timer** with that item's timer ID.
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Cancel cooking timers when the oven turns off"
+  triggers:
+    - trigger: state
+      entity_id: switch.oven
+      from: "on"
+      to: "off"
+  actions:
+    - action: timer_list.get_timers
+      target:
+        entity_id: timer_list.kitchen
+      data:
+        status:
+          - active
+          - paused
+      response_variable: timers
+    - repeat:
+        for_each: >
+          {{ timers['timer_list.kitchen']['timers']
+             | selectattr('name', 'eq', 'Cooking') | list }}
+        sequence:
+          - action: timer_list.cancel_timer
+            target:
+              entity_id: timer_list.kitchen
+            data:
+              timer_id: "{{ repeat.item.timer_id }}"
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

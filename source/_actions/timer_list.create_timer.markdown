@@ -36,6 +36,19 @@ Name:
 
 Use `timer_list.create_timer` as the `action` value. Put the list selection under `target` and the fields below under `data`.
 
+Replace `timer_list.kitchen` with a list supplied by your integration.
+
+{% example %}
+action: |
+  action: timer_list.create_timer
+  target:
+    entity_id: timer_list.kitchen
+  data:
+    duration: "00:05:00"
+    name: "Tea"
+  response_variable: new_timer
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -63,6 +76,71 @@ The response is a mapping keyed by the targeted entity ID. Each entry contains `
 - Available actions depend on the integration that provides the timer list.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+These examples require timer lists supplied by another integration. Replace the entity IDs with your own.
+
+### Automation: start a tea timer when the kettle stops
+
+When the kettle switches off, start a three-minute timer named Tea. This requires a kettle integration that exposes a switch.
+
+- **Trigger**: State changes from `on` to `off`
+  - **Target**: Kettle (`switch.kettle`)
+- **Action**: Create timer
+  - **Target**: Kitchen timers (`timer_list.kitchen`)
+  - **Duration**: Three minutes
+  - **Name**: Tea
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Start a tea timer when the kettle stops"
+  triggers:
+    - trigger: state
+      entity_id: switch.kettle
+      from: "on"
+      to: "off"
+  actions:
+    - action: timer_list.create_timer
+      target:
+        entity_id: timer_list.kitchen
+      data:
+        duration: "00:03:00"
+        name: "Tea"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: schedule a stretching break
+
+At 15:00, start a five-minute timer named Stretching on your office timer list.
+
+- **Trigger**: Time, at 15:00
+- **Action**: Create timer
+  - **Target**: Office timers (`timer_list.office`)
+  - **Duration**: Five minutes
+  - **Name**: Stretching
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Start a stretching timer"
+  triggers:
+    - trigger: time
+      at: "15:00:00"
+  actions:
+    - action: timer_list.create_timer
+      target:
+        entity_id: timer_list.office
+      data:
+        duration: "00:05:00"
+        name: "Stretching"
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

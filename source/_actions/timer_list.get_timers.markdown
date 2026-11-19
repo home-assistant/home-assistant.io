@@ -36,6 +36,18 @@ Status:
 
 Use `timer_list.get_timers` as the `action` value. Put the list selection under `target` and the fields below under `data`.
 
+Replace `timer_list.kitchen` with a list supplied by your integration.
+
+{% example %}
+action: |
+  action: timer_list.get_timers
+  target:
+    entity_id: timer_list.kitchen
+  data:
+    status: active
+  response_variable: timers
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -59,6 +71,86 @@ The response is a mapping keyed by the targeted entity ID. Each entry contains a
 - Available actions depend on the integration that provides the timer list.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+These examples require timer lists supplied by another integration. Replace the entity IDs with your own.
+
+### Automation: check active kitchen timers in the morning
+
+At 08:00, send a notification with the number of active kitchen timers. A notification entity is required; replace `notify.my_device` with yours.
+
+- **Trigger**: Time, at 08:00
+- **Action**: Get timers
+  - **Target**: Kitchen timers (`timer_list.kitchen`)
+  - **Status**: Active
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Check active kitchen timers in the morning"
+  triggers:
+    - trigger: time
+      at: "08:00:00"
+  actions:
+    - action: timer_list.get_timers
+      target:
+        entity_id: timer_list.kitchen
+      data:
+        status: active
+      response_variable: timers
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          {{ timers['timer_list.kitchen']['timers'] | count }}
+          active kitchen timers.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: check paused kitchen timers in the evening
+
+At 21:00, send a notification only if at least one kitchen timer is still paused. A notification entity is required; replace `notify.my_device` with yours.
+
+- **Trigger**: Time, at 21:00
+- **Action**: Get timers
+  - **Target**: Kitchen timers (`timer_list.kitchen`)
+  - **Status**: Paused
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Check paused kitchen timers in the evening"
+  triggers:
+    - trigger: time
+      at: "21:00:00"
+  actions:
+    - action: timer_list.get_timers
+      target:
+        entity_id: timer_list.kitchen
+      data:
+        status: paused
+      response_variable: timers
+    - condition: template
+      value_template: "{{ timers['timer_list.kitchen']['timers'] | count > 0 }}"
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          {{ timers['timer_list.kitchen']['timers'] | count }}
+          paused kitchen timers.
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

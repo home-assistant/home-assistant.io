@@ -32,6 +32,17 @@ Timer ID:
 
 Use `timer_list.pause_timer` as the `action` value. Put the list selection under `target` and the fields below under `data`.
 
+Replace `timer_list.kitchen` with a list supplied by your integration. Replace `REPLACE_WITH_TIMER_ID` with an ID returned by [Get timers](/actions/timer_list.get_timers/).
+
+{% example %}
+action: |
+  action: timer_list.pause_timer
+  target:
+    entity_id: timer_list.kitchen
+  data:
+    timer_id: "REPLACE_WITH_TIMER_ID"
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -50,6 +61,88 @@ timer_id:
 - The timer ID must exist in each targeted list. An unknown ID causes an error. Finished or canceled timers are unchanged.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+These examples require timer lists supplied by another integration. Replace the entity IDs with your own. A timer name must match exactly; if no timer matches, the item action is skipped.
+
+### Automation: pause a work timer when the office door opens
+
+Pause active timers named Work session when the office door opens. The YAML selects current timer IDs from the response, so you do not need to save them in advance.
+
+- **Trigger**: Office door changes from `off` to `on`
+- **Action**: Get timers
+  - **Target**: `timer_list.office`
+  - **Status**: Active
+- For each returned timer named `Work session`, use **Pause timer** with that item's timer ID.
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Pause a work timer when the office door opens"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.office_door
+      from: "off"
+      to: "on"
+  actions:
+    - action: timer_list.get_timers
+      target:
+        entity_id: timer_list.office
+      data:
+        status: active
+      response_variable: timers
+    - repeat:
+        for_each: >
+          {{ timers['timer_list.office']['timers']
+             | selectattr('name', 'eq', 'Work session') | list }}
+        sequence:
+          - action: timer_list.pause_timer
+            target:
+              entity_id: timer_list.office
+            data:
+              timer_id: "{{ repeat.item.timer_id }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: pause timers for the night
+
+Pause every active timer on the house timer list at 22:00. Paused and archived timers are unchanged. The YAML selects current timer IDs from the response, so you do not need to save them in advance.
+
+- **Trigger**: Time, at 22:00
+- **Action**: Get timers
+  - **Target**: `timer_list.house`
+  - **Status**: Active
+- For each returned timer, use **Pause timer** with that item's timer ID.
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Pause timers for the night"
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  actions:
+    - action: timer_list.get_timers
+      target:
+        entity_id: timer_list.house
+      data:
+        status: active
+      response_variable: timers
+    - repeat:
+        for_each: "{{ timers['timer_list.house']['timers'] }}"
+        sequence:
+          - action: timer_list.pause_timer
+            target:
+              entity_id: timer_list.house
+            data:
+              timer_id: "{{ repeat.item.timer_id }}"
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

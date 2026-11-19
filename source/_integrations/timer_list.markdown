@@ -65,3 +65,72 @@ Timestamps use ISO 8601 format in UTC.
 {% include integrations/triggers.md %}
 
 {% include integrations/actions.md %}
+
+## Timer list automation examples
+
+These automations work together: one starts a named timer, and the other sends a notification when that timer finishes. They require a timer list supplied by an integration, a kettle switch, and a notification entity. Replace the entity IDs with your own.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: start a tea timer when the kettle stops
+
+When the kettle switches off, start a three-minute timer named Tea. This requires a kettle integration that exposes a switch.
+
+- **Trigger**: State changes from `on` to `off`
+  - **Target**: Kettle (`switch.kettle`)
+- **Action**: Create timer
+  - **Target**: Kitchen timers (`timer_list.kitchen`)
+  - **Duration**: Three minutes
+  - **Name**: Tea
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Start a tea timer when the kettle stops"
+  triggers:
+    - trigger: state
+      entity_id: switch.kettle
+      from: "on"
+      to: "off"
+  actions:
+    - action: timer_list.create_timer
+      target:
+        entity_id: timer_list.kitchen
+      data:
+        duration: "00:03:00"
+        name: "Tea"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: send a notification when the tea timer finishes
+
+React to the Tea timer created by the preceding automation. Other timers on the kitchen list do not match the name condition.
+
+- **Trigger**: Timer finished
+  - **Target**: Kitchen timers (`timer_list.kitchen`)
+- **Condition**: Template, timer name equals `Tea`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Notify when tea is ready"
+  triggers:
+    - trigger: timer_list.timer_finished
+      target:
+        entity_id: timer_list.kitchen
+  conditions:
+    - "{{ trigger.timer.name == 'Tea' }}"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Your tea timer has finished."
+{% endexample %}
+
+{% enddetails %}

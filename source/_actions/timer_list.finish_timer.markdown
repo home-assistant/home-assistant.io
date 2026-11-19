@@ -32,6 +32,17 @@ Timer ID:
 
 Use `timer_list.finish_timer` as the `action` value. Put the list selection under `target` and the fields below under `data`.
 
+Replace `timer_list.kitchen` with a list supplied by your integration. Replace `REPLACE_WITH_TIMER_ID` with an ID returned by [Get timers](/actions/timer_list.get_timers/).
+
+{% example %}
+action: |
+  action: timer_list.finish_timer
+  target:
+    entity_id: timer_list.kitchen
+  data:
+    timer_id: "REPLACE_WITH_TIMER_ID"
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -50,6 +61,92 @@ timer_id:
 - The timer ID must exist in each targeted list. An unknown ID causes an error. Finished or canceled timers are unchanged.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+These examples require timer lists supplied by another integration. Replace the entity IDs with your own. A timer name must match exactly; if no timer matches, the item action is skipped.
+
+### Automation: finish a laundry timer when the dryer stops
+
+Finish active or paused timers named Laundry when your dryer reports that its cycle has stopped. This requires a binary sensor that is on while the dryer runs. The YAML selects current timer IDs from the response, so you do not need to save them in advance.
+
+- **Trigger**: Dryer running changes from `on` to `off`
+- **Action**: Get timers
+  - **Target**: `timer_list.laundry`
+  - **Status**: Active, Paused
+- For each returned timer named `Laundry`, use **Finish timer** with that item's timer ID.
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Finish a laundry timer when the dryer stops"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.dryer_running
+      from: "on"
+      to: "off"
+  actions:
+    - action: timer_list.get_timers
+      target:
+        entity_id: timer_list.laundry
+      data:
+        status:
+          - active
+          - paused
+      response_variable: timers
+    - repeat:
+        for_each: >
+          {{ timers['timer_list.laundry']['timers']
+             | selectattr('name', 'eq', 'Laundry') | list }}
+        sequence:
+          - action: timer_list.finish_timer
+            target:
+              entity_id: timer_list.laundry
+            data:
+              timer_id: "{{ repeat.item.timer_id }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: finish office timers at the end of the workday
+
+Finish all active and paused office timers at 18:00. Any automations using the Timer finished trigger can then react to each timer. The YAML selects current timer IDs from the response, so you do not need to save them in advance.
+
+- **Trigger**: Time, at 18:00
+- **Action**: Get timers
+  - **Target**: `timer_list.office`
+  - **Status**: Active, Paused
+- For each returned timer, use **Finish timer** with that item's timer ID.
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Finish office timers at the end of the workday"
+  triggers:
+    - trigger: time
+      at: "18:00:00"
+  actions:
+    - action: timer_list.get_timers
+      target:
+        entity_id: timer_list.office
+      data:
+        status:
+          - active
+          - paused
+      response_variable: timers
+    - repeat:
+        for_each: "{{ timers['timer_list.office']['timers'] }}"
+        sequence:
+          - action: timer_list.finish_timer
+            target:
+              entity_id: timer_list.office
+            data:
+              timer_id: "{{ repeat.item.timer_id }}"
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

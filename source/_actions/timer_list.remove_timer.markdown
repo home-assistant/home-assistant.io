@@ -32,6 +32,17 @@ Timer ID:
 
 Use `timer_list.remove_timer` as the `action` value. Put the list selection under `target` and the fields below under `data`.
 
+Replace `timer_list.kitchen` with a list supplied by your integration. Replace `REPLACE_WITH_TIMER_ID` with an ID returned by [Get timers](/actions/timer_list.get_timers/).
+
+{% example %}
+action: |
+  action: timer_list.remove_timer
+  target:
+    entity_id: timer_list.kitchen
+  data:
+    timer_id: "REPLACE_WITH_TIMER_ID"
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -50,6 +61,85 @@ timer_id:
 - The timer ID must exist in each targeted list. An unknown ID causes an error.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+These examples require timer lists supplied by another integration. Replace the entity IDs with your own. A timer name must match exactly; if no timer matches, the item action is skipped.
+
+### Automation: remove a tea timer after it finishes
+
+Remove a finished timer named Tea immediately. Other timers remain archived. Only use this if you do not need to keep the tea timer history.
+
+- **Trigger**: Timer finished
+  - **Target**: Kitchen timers (`timer_list.kitchen`)
+- **Condition**: Template, timer name equals `Tea`
+- **Action**: Remove timer
+  - **Target**: Kitchen timers (`timer_list.kitchen`)
+  - **Timer ID**: The ID from the trigger
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Remove finished tea timers"
+  triggers:
+    - trigger: timer_list.timer_finished
+      target:
+        entity_id: timer_list.kitchen
+  conditions:
+    - "{{ trigger.timer.name == 'Tea' }}"
+  actions:
+    - action: timer_list.remove_timer
+      target:
+        entity_id: timer_list.kitchen
+      data:
+        timer_id: "{{ trigger.timer.timer_id }}"
+{% endexample %}
+
+{% enddetails %}
+
+<!-- textlint-disable terminology -->
+
+### Automation: clear archived timers each evening
+
+At 23:00, remove all finished and canceled timers from the kitchen list. Active and paused timers stay in the list.
+
+- **Trigger**: Time, at 23:00
+- **Action**: Get timers
+  - **Target**: Kitchen timers (`timer_list.kitchen`)
+  - **Status**: Finished and canceled
+- For each returned timer, use **Remove timer** with its timer ID.
+
+{% details "YAML for this automation" %}
+
+{% example %}
+automation: |
+  alias: "Clear archived kitchen timers"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: timer_list.get_timers
+      target:
+        entity_id: timer_list.kitchen
+      data:
+        status:
+          - finished
+          - cancelled
+      response_variable: timers
+    - repeat:
+        for_each: "{{ timers['timer_list.kitchen']['timers'] }}"
+        sequence:
+          - action: timer_list.remove_timer
+            target:
+              entity_id: timer_list.kitchen
+            data:
+              timer_id: "{{ repeat.item.timer_id }}"
+{% endexample %}
+
+{% enddetails %}
+
+<!-- textlint-enable terminology -->
 
 {% include actions/stuck.md %}
 
