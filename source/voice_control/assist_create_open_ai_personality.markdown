@@ -69,7 +69,8 @@ To create an assistant with an AI personality:
    ![Prefer handling commands locally toggle](/images/assist/fallback-assist-toggle.png)
 
    - If you keep it turned on, the built-in **Home Assistant** conversation agent handles each command first. If it understands the command, it carries it out and answers right away. For example, it turns on the lights. The answer is fast, but it doesn't have the personality. Commands that it doesn't understand go to your AI conversation agent. Keep it turned on if you want fast answers, and you don't mind that the character doesn't always answer.
-   - If you turn it off, every command goes to your AI conversation agent. The answer takes longer, but the character always answers. For example, turn it off if your personality is Santa Claus and should never break character.
+   - If you turn it off, the built-in **Home Assistant** conversation agent doesn't handle your commands. They go to your AI conversation agent. The answer takes longer, but the character answers. For example, turn it off if your personality is Santa Claus and should never break character.
+   - Your [sentence triggers](/triggers/conversation/) run first, whether this setting is turned on or off. If a command matches a sentence trigger, your automation handles it. The command then doesn't go to your AI conversation agent.
 6. To talk to the character by voice, under **Speech-to-text** and **Text-to-speech**, select the engines that turn your voice into text and the answer into speech.
    - Your AI conversation agent doesn't turn speech into text or text into speech. The engines that you select here do that. For example, if you have a Home Assistant Cloud subscription, select **Home Assistant Cloud**.
    - Under **Text-to-speech**, you can select a voice that fits the character.
