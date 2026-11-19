@@ -28,8 +28,6 @@ ha_codeowners:
 
 The **Mistral** {% term integration %} adds a conversation agent powered by [Mistral](https://mistral.ai) to Home Assistant.
 
-To let the AI interact with Home Assistant, select one or more of the available APIs in the conversation agent settings. Without any API selected, the AI can still answer questions, but it cannot interact with your home.
-
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
 This integration requires an API key to use, [which you can generate here](https://console.mistral.ai/api-keys). The service is billed based on usage, we advise you to monitor your costs in the [Mistral Studio](https://console.mistral.ai) closely to avoid unwanted costs associated with using the service.
@@ -62,8 +60,8 @@ Chat model:
   description: The chat model to use for the conversation. The default is `mistral-small-latest`. The list of available models is retrieved from the Mistral API.
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
-Control Home Assistant:
-  description: Which Home Assistant APIs the model can use. **Device control** reads and controls the entities you have [exposed](/voice_control/voice_remote_expose_devices/) to Assist; a few helpers, such as the current date and time, work without exposure. **Home Assistant** provides admin-only inspection tools, such as search, history, and the system log, which are not limited to exposed entities but include no device control. If you select more than one API, every request must come from an administrator.
+AI tools:
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices."
 {% endconfiguration_basic %}
 
 If you choose not to use the recommended settings, you can configure the following additional options:
