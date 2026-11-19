@@ -55,6 +55,7 @@ Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass
         "dhcp": ["ipv4leases"],
         "file": ["read"]
       },
+      "uci": ["dhcp"],
       "file": {
         "/tmp/dhcp.leases": ["read"]
       }
@@ -87,50 +88,33 @@ If not already done, add the ACL file path to `/etc/sysupgrade.conf` so that the
 ```
 {% endtip %}
 
-Now that the device setup is finished, add the password for the `hass` account created in a previous step to your [`secrets.yaml`](/docs/configuration/secrets/) file.
+{% include integrations/config_flow.md %}
 
-```yaml
-hass_password: "YOUR_HASS_PASSWORD"
-```
-
-Add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: ubus
-    host: OPENWRT_IP_ADDRESS
-    username: hass
-    password: !secret hass_password
-  # If you configured multiple OpenWrt devices, add a separate entry for each device.
-  - platform: ubus
-    host: OPENWRT_IP_ADDRESS_2
-    username: hass
-    password: !secret hass_password
-```
-
-{% configuration %}
-host:
+{% configuration_basic %}
+Host:
   description: The IP address of your OpenWrt device, for example, `192.168.1.1`.
-  required: true
-  type: string
-username:
+Username:
   description: The username for the account you created on your OpenWrt device. Use the dedicated `hass` user rather than `root` to follow the principle of least privilege.
-  required: true
-  type: string
-password:
+Password:
   description: The password for the user above.
-  required: true
-  type: string
-dhcp_software:
+DHCP software:
   description: "The DHCP software used in your OpenWrt device: `dnsmasq`, `odhcpd`, or `none`. Use `none` if neither service is used on the device, for example, if it's a bridged access point."
-  required: false
-  default: dnsmasq
-  type: string
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
+If you configured multiple OpenWrt devices, add the integration once for each device.
+
+If you set up this integration in YAML before, Home Assistant imports that configuration automatically. You can then remove the `ubus` entries from your {% term "`configuration.yaml`" %} file.
+
+## Tracking people
+
+The integration creates a device tracker entity for each client device it sees on your OpenWrt device. These entities are disabled by default.
+
+To track a person with one of these devices:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **OpenWrt (ubus)**.
+2. Select the device you want to track, then [enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) its device tracker entity.
+3. Go to {% my people title="**Settings** > **People**" %}, select the person, and add the device tracker entity with **Pick device to track**.
+4. Select **Save**.
 
 ## Troubleshooting
 

@@ -195,6 +195,11 @@ green:
       ship_to: Europe
       url: https://www.reichelt.com/shop/product/home_assistant_green-441682
       logo: /images/distributors/reichelt.webp
+    - name: Kubii
+      ship_from: France
+      ship_to: Europe
+      url: https://www.kubii.com/en/consoles-systems/4776-home-assistant-green-860011789703.html
+      logo: /images/distributors/kubii.webp
 yellow:
   name: "<strong>Home Assistant Yellow</strong>"
   distributors:
@@ -530,6 +535,11 @@ voice-pe:
       ship_to: Europe
       url: https://www.reichelt.com/shop/product/home_assistant_voice_pe-441683
       logo: /images/distributors/reichelt.webp
+    - name: Kubii
+      ship_from: France
+      ship_to: Europe
+      url: https://www.kubii.com/en/embedded-boards/5288-home-assistant-voice-preview-edition-0860011789727.html
+      logo: /images/distributors/kubii.webp
 zwa-2:
   name: "<strong>Home Assistant</strong> Connect ZWA-2"
   distributors:
@@ -707,6 +717,11 @@ zwa-2:
       ship_to: Europe
       url: https://www.reichelt.com/shop/product/home_assistant_connect_zwa-2-441684
       logo: /images/distributors/reichelt.webp
+    - name: Kubii
+      ship_from: France
+      ship_to: Europe
+      url: https://www.kubii.com/en/hub-cables-adapters/5289-home-assistant-connect-zwa-2-0860011789734.html
+      logo: /images/distributors/kubii.webp
 zbt-2:
   name: "<strong>Home Assistant</strong> Connect ZBT-2"
   distributors:
@@ -899,6 +914,11 @@ zbt-2:
       ship_to: Europe
       url: https://www.reichelt.com/shop/product/home_assistant_connect_zbt-2-441685
       logo: /images/distributors/reichelt.webp
+    - name: Kubii
+      ship_from: France
+      ship_to: Europe
+      url: https://www.kubii.com/en/hub-cables-adapters/5290-nabu-casa-home-assistant-connect-zbt-2-adaptateur-usb-zigbee-ou-matter-thread-0860011789741.html
+      logo: /images/distributors/kubii.webp
     - name: Smart Guys
       ship_from: Australia
       ship_to: Australia
@@ -928,6 +948,11 @@ aux-2:
       ship_to: North America
       url: https://cloudfree.shop/products/home-assistant-connect-aux-2
       logo: /images/distributors/cloudfree.webp
+    - name: Seeed Studio
+      ship_from: US
+      ship_to: North America
+      url: https://www.seeedstudio.com/Home-Assistant-Connect-AUX-2-p-7038.html
+      logo: /images/distributors/seeed-studio.webp
     # Asia
     - name: Seeed Studio
       ship_from: China
@@ -974,7 +999,8 @@ aux-2:
     - name: Kubii
       ship_from: France
       ship_to: Europe
-      url: https://www.kubii.com/fr/5291-home-assistant-connect-aux-2.html
+      url: https://www.kubii.com/en/embedded-boards/5291-home-assistant-connect-aux-2-0860011789758.html
+      logo: /images/distributors/kubii.webp
     - name: BerryBase
       ship_from: Germany
       ship_to: Europe
@@ -1080,6 +1106,11 @@ aux-2:
       ship_to: Europe
       url: https://thepihut.com/products/home-assistant-connect-aux-2
       logo: /images/distributors/pi-hut.webp
+    - name: Seeed Studio
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.seeedstudio.com/Home-Assistant-Connect-AUX-2-p-7038.html
+      logo: /images/distributors/seeed-studio.webp
     # Africa
     - name: Smarthomes
       ship_from: South Africa

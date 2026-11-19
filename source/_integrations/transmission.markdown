@@ -161,6 +161,10 @@ content: >
 type: markdown
 ```
 
+## Data updates
+
+The integration {% term polling polls %} the Transmission server every 2 minutes.
+
 ## Removing the integration
 
 This integration follows standard integration removal. After removal, your Transmission instance continues running with its current configuration.

@@ -70,9 +70,9 @@ sections:
     # stream playing muted) and the list's first item shows as a row. When
     # there's no stream it hides itself. Nothing to update per stream: it
     # reads the channel's current stream from the Open Home Foundation API.
-    # Off after the Connect AUX-2 launch stream, so the Connect AUX-2 pin in
-    # `sources.pinned` below takes the large place. Turn it back on once
-    # the pin has ended (17:00 GMT on November 12).
+    # Off for now, so the Month of "What the Heck?!" pin in `sources.pinned`
+    # below keeps the large place. Turn it back on once the pin has ended
+    # (end of November 30).
     # livestream: home-assistant
     # Add anything else to the list here, with `starts` and, if you like,
     # `ends` (see the top of this file).
@@ -164,14 +164,12 @@ sources:
   pinned:
     type: pinned
     items:
-      # Connect AUX-2 launch: at the top from 21:00 GMT on November 11, as
-      # a row under the livestream card until `livestream` is commented out
-      # in the Latest section, then as the large card.
-      - title: "Home Assistant Connect AUX-2"
-        url: /connect/aux-2/
-        image: /images/connect/aux-2/og.webp
-        starts: 2026-11-11T21:00:00Z  # 21:00 GMT
-        ends: 2026-11-12T17:00:00Z    # 17:00 GMT
+      # Month of "What the Heck?!": the large card at the top of Latest for
+      # the rest of November.
+      - title: "Month of 'What the Heck?!' 2026"
+        url: /what-the-heck/
+        image: /images/blog/2026-10-what-the-heck/art.webp
+        ends: 2026-11-30
     #  - title: "2026.11: An example"
     #    url: /blog/2026/11/05/release-202611/
     #    image: auto
