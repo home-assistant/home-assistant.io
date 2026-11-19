@@ -78,7 +78,7 @@ The following older models have been reported to use a different menu procedure 
 **SE3000H-RW000NNN2** (firmware `0003.2537`):
 
 1. Press and hold **OK**, the button on the far right, for about five seconds until the password prompt appears.
-2. Enter the password `123121312`.
+2. Enter the password `12312312`.
 3. Go to **Communication** > **LAN Conf** > **Modbus TCP**, and select port `502`. The selected port is sufficient to enable Modbus TCP.
 
 {% enddetails %}
