@@ -138,8 +138,8 @@ Your inverter is added as a device, with any energy meter or battery wired to it
 
 ### Inverter sensors
 
-- **Power**: The AC power the inverter is feeding into your home right now. The [Energy dashboard](#energy-dashboard) uses this one for live power flow.
-- **Energy**: The total energy the inverter has produced since it was installed. This is the sensor to use for solar production on the [Energy dashboard](#energy-dashboard).
+- **Power**: The AC power the inverter is feeding into your home right now. With a DC-coupled battery, this can include power discharged from the battery. See [Energy dashboard](#energy-dashboard) before using it for solar production.
+- **Energy**: The total AC energy delivered by the inverter since it was installed. With a DC-coupled battery, this can include energy discharged from the battery. See [Energy dashboard](#energy-dashboard) before using it for solar production.
 - **Current**: The AC current the inverter is delivering.
 - **Current phase A**, **Current phase B**, **Current phase C**: The current per phase. Only added for inverters that report per phase.
 - **DC power**: The power coming in from your solar panels.
@@ -241,7 +241,15 @@ They can also affect what your installation is allowed to do. Export limits in p
 
 ## Energy dashboard
 
-Your inverter's production fits straight into the [Energy dashboard](/docs/energy/solar-panels/), next to what your home consumes.
+You can use this integration's sensors in the [Energy dashboard](/docs/energy/solar-panels/).
+
+{% important %}
+If you have a DC-coupled battery, connected to the inverter on the same side as the solar panels, the inverter's **Energy** and **Power** sensors do not measure solar production separately. Battery discharge can be included in the inverter's output, while solar energy used to charge the battery directly does not pass through its AC output. Selecting these sensors as solar production can therefore count battery discharge as solar production and miss solar energy stored in the battery.
+
+The integration does not calculate separate solar production sensors for this setup. Subtracting battery discharge alone does not account for solar energy charging the battery directly.
+{% endimportant %}
+
+If your inverter has no DC-coupled battery, add its solar production as follows:
 
 1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
 2. Under **Solar panels**, select **Add solar production**.
