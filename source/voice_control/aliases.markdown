@@ -18,12 +18,19 @@ or when using a voice assistant in multiple languages at the same time.
 
 ## Adding an alias of an entity
 
-There are multiple ways to add an alias of an entity:
+To add an alias of an entity:
 
-- **Option 1**: Go to **Settings** > **Voice assistants**. On the **Expose** tab, select the entity for which you want to add an alias.
-![Screenshot showing the alias editing capabilities added to the more info dialog of entities, accessed from the Voice assistants page](/images/assist/assist_aliases.png)
-- **Option 2**: You can also change the alias from the entity's more information dialog. In the upper right corner of the dialog, select the cogwheel {% icon "mdi:cog-outline" %} and then select **Voice assistants**.
-![Screenshot showing the alias editing capabilities added to the more info dialog of entities, accessed from the Voice assistants page](/images/assist/assist_aliases_02.png).
+1. Open the dialog of the entity.
+   - For example, select the entity on a dashboard. Or go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity.
+2. In the upper-right corner of the dialog, select **Settings** {% icon "mdi:cog-outline" %}.
+3. Select **Voice assistants**.
+   ![Screenshot of the entity settings, with the Voice assistants entry that lists the aliases of the entity](/images/assist/assist_aliases_02.png)
+4. Under **Aliases**, select **Add alias**, and enter the alias.
+   - To add more aliases, repeat this step.
+   - Result: Home Assistant saves the alias when you leave the field.
+   ![Screenshot of the voice assistant settings of an entity, with three aliases in the Aliases list](/images/assist/assist_aliases.png)
+
+If the entity is already exposed to a voice assistant, you can also start from the **Expose** tab. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}. On the **Expose** tab, select the entity. The same settings open, with the **Aliases** list.
 
 ### Default name and the order of aliases
 
