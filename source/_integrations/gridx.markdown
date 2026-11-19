@@ -11,7 +11,6 @@ ha_codeowners:
   - '@unl0ck'
 ha_domain: gridx
 ha_platforms:
-  - diagnostics
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
