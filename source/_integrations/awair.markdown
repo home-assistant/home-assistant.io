@@ -20,6 +20,15 @@ This integration refreshes once every 5 minutes, based on the [default per-devic
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Device:
+  description: "Only when you connect locally. The Awair device to add, from the devices Home Assistant found on your network. Select **Manual** to enter an IP address instead."
+IP address:
+  description: "Only when you connect locally. The IP address of your Awair device. The form asks for it when no device was found, or after you select **Manual**."
+Access token:
+  description: "Only when you connect via the cloud. Your access token from the Awair [Developer Console](https://developer.getawair.com/)."
+{% endconfiguration_basic %}
+
 ## Available sensors
 
 The integration will fetch data from each device. The following sensors are supported:
