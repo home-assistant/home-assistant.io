@@ -28,6 +28,7 @@ You can skip this step if you are configuring one of the following devices:
 - P1 Meter
 - kWh Meter
 - Plug-In Battery
+- Energy Socket with the latest firmware
 
 These products use a different authentication method that doesn't require enabling the local API.
 {% endtip %}
@@ -204,7 +205,8 @@ It may happen that you can't find your devices or they won't show up in the inte
     - **P1 Meter**: Press the white button on the front of the P1 Meter.  
     - **Plug-In Battery**: Press the black touch button on the front of the device. You will hear a beep.
     - **kWh Meter**: Press and hold the button with the Wi‑Fi icon for two seconds. Release the button before the display shows "AP".
-    - **Energy Socket** and **Watermeter**: they do not require this step.
+    - **Energy Socket**: Press the button on the Energy Socket once. This doesn't turn the socket on or off. Energy Sockets with older firmware don't require this step.
+    - **Watermeter**: The Watermeter doesn't require this step.
 2. After pressing the button, you must select **Continue** within 30 seconds to complete the setup. 
     - If the setup times out, you may need to press the button again.
     
