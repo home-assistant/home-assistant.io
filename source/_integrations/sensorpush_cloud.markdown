@@ -42,6 +42,10 @@ For each device, the following *sensors* are created:
 | `temperature`          | Measures the temperature.                                     |
 | `vapor_pressure`       | Measures the vapor-pressure deficit. (disabled by default)    |
 
+## Data updates
+
+The integration {% term polling polls %} the SensorPush cloud every 60 seconds. The [SensorPush Gateway Cloud API](https://www.sensorpush.com/gateway-cloud-api) allows requests at most once per minute. Use an interval of at least 60 seconds if you customize polling.
+
 ## Known limitations
 
 - `atmospheric_pressure` is not available on HT1 and HT.w series devices.
