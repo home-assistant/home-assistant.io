@@ -1,3 +1,15 @@
+<li>
+  {% icon "mdi:transit-connection-variant" %} {% active_link /connectivity/ Connectivity %}
+  {% if root == 'connectivity' or include.docs_index %}
+  <ul>
+    {%- assign connectivity_pages = site.connectivity | sort_natural: 'title' %}
+    {%- for connectivity_page in connectivity_pages %}
+    <li>{% active_link {{connectivity_page.url}} {{connectivity_page.title}} %}</li>
+    {%- endfor %}
+  </ul>
+  {% endif %}
+</li>
+
 {%- comment -%}
   The automation branch stays open on the trigger, condition, action, and
   building block reference pages, so you keep the automation context when you
