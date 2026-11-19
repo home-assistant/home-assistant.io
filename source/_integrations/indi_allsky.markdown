@@ -33,6 +33,14 @@ Verify SSL:
 
 If you change the password in INDI Allsky or turn on login after setting up the integration, Home Assistant asks you to enter the username and password.
 
+### Reconfiguring the integration
+
+To update your connection details (host, port, credentials, or SSL settings) after initial setup:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **INDI Allsky** integration entry, select the {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
+3. Update the connection settings as needed and select **Submit**.
+
 ## Supported functionality
 
 The **INDI Allsky** {% term integration %} provides the following entities:
