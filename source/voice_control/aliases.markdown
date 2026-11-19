@@ -18,8 +18,6 @@ or when using a voice assistant in multiple languages at the same time.
 
 ## Adding an alias of an entity
 
-To add an alias of an entity:
-
 1. Open the dialog of the entity.
    - For example, select the entity on a dashboard. Or go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity.
 2. In the upper-right corner of the dialog, select **Settings** {% icon "mdi:cog-outline" %}.
