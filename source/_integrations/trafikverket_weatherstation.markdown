@@ -41,13 +41,13 @@ You can change the API key or switch to another weather station without removing
 - Air temperature.
 - Road temperature.
 - Dew point
-- Relative humidity.
 - Precipitation type.
 - Precipitation amount
 - Wind direction in degrees.
 - Wind speed
 
 ### Entities provided but not enabled by default
+- Relative humidity
 - Maximum wind speed measured during the last 30 minutes
 - Measurement time
 - Visible distance
