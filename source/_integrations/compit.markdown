@@ -604,6 +604,10 @@ Switch entities let you turn device modes and features on or off.
       - State `eco` maps to `schedule` in Compit
     - Solar controllers don't support current temperature attribute.
 
+## Data updates
+
+The integration {% term polling polls %} your Compit iNext account every 30 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

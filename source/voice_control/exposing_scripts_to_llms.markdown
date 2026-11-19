@@ -4,7 +4,7 @@ related:
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing entities to Assist
+    title: Exposing entities to voice assistants
   - docs: /integrations/llm/
     title: LLM
 ---

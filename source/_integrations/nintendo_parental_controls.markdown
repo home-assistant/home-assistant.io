@@ -84,6 +84,10 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 
 {% include integrations/actions.md %}
 
+## Data updates
+
+The integration {% term polling polls %} Nintendo's servers every 60 seconds.
+
 ## Known limitations
 
 - The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.

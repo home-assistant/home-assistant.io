@@ -73,6 +73,10 @@ the configuration section below.
 
 {% include integrations/config_flow.md %}
 
+## Data updates
+
+The integration {% term polling polls %} the VeSync cloud every 60 seconds. The weekly, monthly, and yearly energy use of outlets is fetched every 6 hours.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

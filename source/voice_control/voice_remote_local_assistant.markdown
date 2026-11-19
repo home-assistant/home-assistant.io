@@ -7,7 +7,7 @@ related:
   - docs: /voice_control/expanding_assist/
     title: Expanding Assist
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing devices to Assist
+    title: Exposing entities to voice assistants
   - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition - Documentation
 ---
@@ -98,7 +98,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
      - Depending on your language, you may be able to select different language variants.
 
 3. That's it. You ensured your voice commands can be processed locally on your device.
-4. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
+4. If you haven't done so yet, [expose your entities to Assist](/voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant).
    - Otherwise, you won't be able to control them by voice.
 
 ## Fine-tuning Whisper and Piper for your setup
