@@ -161,6 +161,9 @@
       <section id="toc-module" class="aside-module grid__item one-whole lap-one-half">
         <div class='section'>
           <h2 class="h1 title epsilon">{% icon "mdi:toc" %} On this page</h2>
+          {% if page.collection == "integrations" and page.feedback != false and page.layout != "landingpage" %}
+            <p><a href="#feedback_section">Help and feedback</a></p>
+          {% endif %}
           {{ rendered_toc }}
         </div>
       </section>

@@ -1,6 +1,18 @@
 {% unless page.feedback == false  or page.layout == "landingpage"  %}
 <div class="material-card text feedback">
-  <h4>{% icon "mdi:feedback" %} <b> Help us improve our documentation</b><a href="#feedback_section" class="title-link" name="feedback_section"></a></h4>
+  <h4 id="feedback_section">{% icon "mdi:feedback" %} <b>{% if page.collection == "integrations" %}Help and feedback{% else %}Help us improve our documentation{% endif %}</b><a href="#feedback_section" class="title-link"></a></h4>
+  {% if page.collection == "integrations" %}
+  <h5>Integration support</h5>
+  <p>For help setting up or using this integration, <a href="https://community.home-assistant.io/">ask the community</a>.</p>
+  {% if page.ha_domain %}
+  {% assign support_domain = page.ha_supporting_domain | default: page.ha_domain %}
+  <p>
+    <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+label%3A%22integration%3A+{{ support_domain }}%22">View known issues</a>
+    or <a href="https://github.com/home-assistant/core/issues/new?template=bug_report.yml">report an integration bug</a>.
+  </p>
+  {% endif %}
+  <h5>Documentation feedback</h5>
+  {% endif %}
   <div class="page-rating">
     <div class="page-rating-ask">
       <span id="page-rating-question">Was this page helpful?</span>

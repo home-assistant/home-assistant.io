@@ -74,6 +74,11 @@ top bar and in the sidebar. {%- endcomment -%}
                   </div>
                 </section>
                 {% endif %}
+                {% if page.collection == "integrations" and page.feedback != false and page.layout != "landingpage" %}
+                <section class="aside-module grid__item one-whole">
+                  <div class="section"><a href="#feedback_section">Help and feedback</a></div>
+                </section>
+                {% endif %}
                 <section class="aside-module grid__item one-whole">
                   <div class='section'>
                     <label for="toc-toggle"><span class="title epsilon">{% icon "mdi:toc" %} On this page</span> <input type="checkbox" id="toc-toggle"/> <span class="toc-current"></span></label>
