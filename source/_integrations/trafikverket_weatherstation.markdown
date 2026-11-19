@@ -47,6 +47,7 @@ You can change the API key or switch to another weather station without removing
 - Wind speed
 
 ### Entities provided but not enabled by default
+
 - Relative humidity
 - Maximum wind speed measured during the last 30 minutes
 - Measurement time
