@@ -112,6 +112,7 @@ To unexpose entities:
 4. Select the entities.
 5. Select **Unexpose**.
    - Result: The voice assistant can no longer use these entities.
+   - A {% term "conversation agent" %} with the **Home Assistant** set of {% term "AI tools" %} can still reach them. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools).
    - To unexpose a single entity, you can also turn off the voice assistant in the settings of the entity, as described in [Exposing a single entity from its settings](#exposing-a-single-entity-from-its-settings).
 
 ## Changing Expose new entities
