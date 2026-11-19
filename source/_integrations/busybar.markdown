@@ -3,12 +3,12 @@ title: BUSY Bar
 description: Monitor the battery and Wi-Fi connection of your BUSY Bar in Home Assistant.
 ha_categories:
   - sensors
-ha_release: 2026.11
+ha_release: 2026.12
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@truetug'
   - '@gornekich'
-ha_domain: busy
+ha_domain: busybar
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
@@ -43,7 +43,6 @@ API key:
 
 - **Battery**: The remaining battery charge, as a percentage.
 - **Wi-Fi signal**: The Wi-Fi signal strength, in dBm.
-- **Wi-Fi network**: The name of the connected Wi-Fi network.
 
 ## Data updates
 
