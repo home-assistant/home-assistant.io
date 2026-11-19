@@ -79,13 +79,13 @@ Additional hardware sensors connected to your INDI Allsky instance (such as ambi
 
 ## Media source
 
-A [media source](/integrations/media_source/) is provided for your INDI Allsky camera, allowing you to browse and play media directly in Home Assistant.
+The integration adds your INDI Allsky camera to the [media browser](/integrations/media_source/), so you can view its images and play its timelapse videos in Home Assistant. To open it, select **Media** in the sidebar, select **INDI Allsky**, and then select your INDI Allsky instance.
 
-The media browser organizes media into three categories:
+The media is organized into three folders:
 
-- **Latest Media**: Instant access to the latest captured snapshot, keogram, star trail composite, and night/day timelapse video.
-- **Timelapses & Generated Media**: Browse generated timelapse videos and associated keograms and star trails organized by year and month.
-- **Captured Images History**: Browse historical individual camera exposures organized by year, month, day, and hour.
+- **Latest Media**: The latest snapshot, keogram, star trail, and timelapse video.
+- **Timelapses & Generated Media**: Day and night timelapse videos, with their keograms and star trails, organized by year and month.
+- **Captured Images History**: The individual images your camera captured, organized by year, month, day, and hour.
 
 ## Data updates
 
