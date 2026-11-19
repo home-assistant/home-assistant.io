@@ -89,6 +89,10 @@ Home Assistant doesn't list a disabled entity as an option. Each service has a `
 
 You ask Assist about the weather, and it doesn't understand you or answers about the wrong place. The same checks apply to other entities too.
 
+#### Description
+
+Assist can only answer about weather entities that are exposed to it. It recognizes them by their exact name or by an alias.
+
 #### Resolution
 
 1. Make sure you have a [weather integration](/integrations/#weather).
