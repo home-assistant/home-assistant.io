@@ -233,7 +233,7 @@ To find a sentence that works in your language, follow these steps.
 1. Test the sentence:
    - Go to {% my tools_assist title="**Settings** > **Tools** > **Assist**" %}.
    - Select your language, enter the sentence, and select **Parse sentences**.
-   - If the result shows **No intent matched**, Assist doesn't understand this sentence. For more on the sentence parser, refer to [Test a sentence per language without voice](/voice_control/troubleshooting/#test-a-sentence-per-language-without-voice-without-executing-commands).
+   - If the result shows **No intent matched**, Assist doesn't understand this sentence. For more on the sentence parser, refer to [Testing a sentence without running it](/voice_control/troubleshooting/#testing-a-sentence-without-running-it).
 2. Look at the tested sentences for your language.
    - On GitHub, open the [tests](https://github.com/OHF-Voice/intents/tree/main/tests) folder, and then the folder of your language. For example, `en` for English.
    - Each folder in it is named after an {% term intent %}. For example, `HassTurnOn` turns things on, and `HassLightSet` changes the brightness or color of lights.
