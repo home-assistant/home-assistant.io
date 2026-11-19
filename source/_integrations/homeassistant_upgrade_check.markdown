@@ -19,16 +19,13 @@ Every release comes with release notes that list what changed. When you skip a f
 
 ## Where to find it
 
-When an update of Home Assistant is available, the upgrade check shows up in two places:
-
-- **In the update dialog**: Go to {% my updates title="**Settings** > **System** > **Updates**" %} and select the Home Assistant update. Below the version numbers, a short summary tells you how many changes affect your integrations, and how many of them are backward-incompatible. Select **Show what changes for you** to see them all.
-- **On the updates page**: At the bottom of {% my updates title="**Settings** > **System** > **Updates**" %}, the **Before you upgrade** card lists every change that affects your integrations.
+When an update of Home Assistant is available, go to {% my updates title="**Settings** > **System** > **Updates**" %} and select the Home Assistant update. Below the version numbers, a summary lists the integrations with backward-incompatible changes, and how many general changes there are. Select an integration to go straight to its changes, or select **Show all changes** to open the **Before you update** page.
 
 The upgrade check is only shown while a Home Assistant update is waiting to be installed. Once you are up to date, it disappears until the next update.
 
 ## What it shows
 
-The **Before you upgrade** card groups the changes into sections. Each change links to the release notes it comes from, so you can always read the full story.
+The **Before you update** page groups the changes into sections. Each change links to the release notes it comes from, so you can always read the full story.
 
 - **Backward-incompatible changes**: Changes that may need you to take action, grouped per integration. Changes that are not tied to a single integration, such as changes to dashboards or automations, are grouped under **General changes**. Read these before you update.
 - **Noteworthy improvements**: New features and improvements in the integrations you use, grouped per integration.
@@ -52,7 +49,7 @@ The upgrade check reads the release notes from the [Home Assistant website](/blo
 
 ### Symptom: "Unable to read the release notes right now"
 
-The **Before you upgrade** card shows **Unable to read the release notes right now. Try again later.** instead of the changes.
+The **Before you update** page shows **Unable to read the release notes right now. Try again later.** instead of the changes.
 
 Home Assistant could not download the release notes. This can happen when your Home Assistant has no internet connection, or when the website hosting the release notes is temporarily unavailable or limits the number of requests. Check the internet connection of your Home Assistant, and try again later. In the meantime, you can read the release notes on the [Home Assistant website](/blog/categories/release-notes/).
 
