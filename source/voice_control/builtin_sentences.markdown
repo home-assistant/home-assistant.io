@@ -289,7 +289,7 @@ Assist found the {% term entity %}, but the entity isn't exposed to Assist. Assi
 
 #### Resolution
 
-1. Expose the entity to Assist. For the steps, refer to [Exposing entities to Assist](/voice_control/voice_remote_expose_devices/).
+1. Expose the entity to Assist. For the steps, refer to [Exposing entities to voice assistants](/voice_control/voice_remote_expose_devices/).
 2. Say the sentence again.
    - Result: Assist does what you asked.
 

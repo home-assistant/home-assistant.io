@@ -12,7 +12,7 @@ related:
   - docs: /integrations/openai_conversation/
     title: OpenAI Conversation integration
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing entities to Assist
+    title: Exposing entities to voice assistants
     
 ---
 
@@ -49,7 +49,7 @@ Prerequisites:
   - Most AI integrations add a conversation agent when you set them up. For example, OpenAI adds **OpenAI Conversation**.
   - For a model that runs on your own hardware, set up [Ollama](/integrations/ollama/). Ollama doesn't add a conversation agent by itself. On its integration page, select **Add conversation agent**, and select a model.
   - The character settings belong to the conversation agent. Every assistant that uses this conversation agent answers as the character. If another assistant already uses it, add a separate conversation agent for the character: on the page of your AI integration, select **Add conversation agent**.
-- To let the character control your devices: {% term entities %} that are exposed to {% term Assist %}. For the steps, refer to [Exposing entities to Assist](/voice_control/voice_remote_expose_devices/).
+- To let the character control your devices: {% term entities %} that are exposed to {% term Assist %}. For the steps, refer to [Exposing entities to voice assistants](/voice_control/voice_remote_expose_devices/).
 
 To create an assistant with an AI personality:
 

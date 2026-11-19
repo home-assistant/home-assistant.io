@@ -6,7 +6,7 @@ related:
   - docs: /docs/templating/
     title: Home Assistant Templating
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing entities to Assist
+    title: Exposing entities to voice assistants
   - docs: /triggers/conversation/
     title: Sentence trigger
 ---
