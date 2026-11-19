@@ -10,6 +10,29 @@ To enable local control on your Govee device, refer to the instructions availabl
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Device IP addresses:
+  description: "Optional. The IPv4 addresses of Govee lights that Home Assistant can't discover, such as lights on another VLAN or subnet. Leave this empty if all your lights are on the same network as Home Assistant."
+{% endconfiguration_basic %}
+
+Home Assistant discovers Govee lights automatically on each network that is enabled in your [network configuration](/integrations/network). Discovery uses multicast, which doesn't reach other subnets, so lights on a separate network, such as an IoT VLAN, are not found on their own. For those lights, enter their IP addresses. Home Assistant then contacts them directly, alongside the automatic discovery.
+
+## Lights on another network
+
+To use a light on a network that Home Assistant can't discover:
+
+- Give the light a fixed IP address, for example with a DHCP reservation on your router. If its address changes, update it in the [options](#options).
+- Make sure your router or firewall allows this traffic between Home Assistant and the light:
+  - From Home Assistant to the light: UDP ports 4001 and 4003.
+  - From the light to Home Assistant: UDP port 4002.
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Device IP addresses:
+  description: "The IPv4 addresses of Govee lights that Home Assistant contacts directly, in addition to the lights it discovers automatically."
+{% endconfiguration_basic %}
+
 ## Supported devices
 
 H1232,
