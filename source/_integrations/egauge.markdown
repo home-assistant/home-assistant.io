@@ -88,6 +88,8 @@ The dialog reads the register list from the device and offers the power register
 
 The power and energy sensors of a selected register are both affected. The eGauge accumulates its counters from the same measurement it reports as power, so a register whose power reads negative has an energy counter that runs negative too, and flipping the sign leaves an increasing, non-negative total. Voltage and current sensors keep reporting the values that the device sends.
 
+Select only the registers that report the value back to front. Flipping a register that already reports positive values leaves its energy total running downwards, and Home Assistant stops calculating statistics for a total that decreases.
+
 The option changes what the integration reports from then on. Statistics that Home Assistant has already recorded keep the values they were calculated from.
 
 ## Known limitations
