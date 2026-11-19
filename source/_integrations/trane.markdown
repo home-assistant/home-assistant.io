@@ -48,6 +48,24 @@ The difference between **Heat/Cool** and **Auto** is that **Heat/Cool** uses a m
 - **On**: The fan runs continuously.
 - **Circulate**: The fan runs periodically to circulate air, even when heating or cooling is not active.
 
+#### Dead band
+
+The thermostat keeps a minimum gap between its heating and cooling setpoints, called the dead
+band. It can be changed on the thermostat itself but cannot be modified through the integration.
+
+The gap is enforced whenever setpoints are written:
+
+- The `climate.set_temperature` action converts the requested values to Fahrenheit and rounds them
+  to whole degrees.
+- If the resulting pair is closer together than the dead band, Home Assistant moves one of the two
+  setpoints so the pair stays valid, rather than sending a pair the thermostat would reject.
+  Nothing is reported as an error: the value that ends up on the thermostat can differ from the
+  value that was sent.
+
+The attribute `deadband_fahrenheit` contains the dead band in degrees Fahrenheit, independent of the
+selected unit system in Home Assistant. It does not auto-convert to other units because temperature
+conversions assume absolute temperature, not temperature differences, and 5 F would convert to -15 C.
+
 ### Switches
 
 The integration provides a **Hold** switch for each zone. When enabled, the thermostat maintains its current setpoints indefinitely (permanent hold). When disabled, the thermostat follows its programmed schedule.
