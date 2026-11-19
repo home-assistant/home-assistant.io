@@ -69,7 +69,7 @@ The **Ceiling Fan Infrared** integration provides the following entity.
 - **Fan**
   - **Description**: Represents the ceiling fan and allows it to be controlled using infrared (IR) commands.
   - **Supported features**: Turn on, turn off, and set the fan speed.
-  - **Remarks**: The original remote has a single key to toggle the fan on and off. Turning the fan on or off sends that toggle key, but only when Home Assistant considers the state to be changing.
+  - **Remarks**: The original remote has a single key to toggle the fan on and off. Turning the fan on or off sends that toggle key, but only when Home Assistant considers the state to be changing. The assumed state is remembered across restarts and reloads, so the fan is not toggled unexpectedly after a restart.
 
 ## Ceiling Fan Infrared automation examples
 
@@ -147,7 +147,7 @@ Some remotes use overlapping infrared codes with other devices, so the same code
 
 #### Description
 
-The integration remembers the infrared emitter by its entity ID. If the emitter entity is deleted, or if the integration that provides it is removed and added again, the integration can no longer find it. Renaming the emitter entity is handled automatically.
+The integration remembers the infrared emitter by its entity registry entry. If the emitter entity is deleted, or if the integration that provides it is removed and added again, the integration can no longer find it. Renaming the emitter entity is handled automatically.
 
 #### Resolution
 
