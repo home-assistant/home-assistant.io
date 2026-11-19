@@ -39,7 +39,20 @@ The integration provides the following sensors:
 - Wind Speed: Monitors current wind speed.
 - Wind Direction: Shows the direction of the wind in degrees.
 - UV Index: Tracks the current ultraviolet index.
-- Wind Gust Speed: Monitors peak wind gusts (disabled by default, but can be enabled in settings).
+## Supported functionality
+
+The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
+
+### Sensors
+
+The integration also provides the following sensors for the current weather at your location. Some sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). You can enable them after you set up the integration.
+
+- **Temperature**: The current outdoor temperature.
+- **Atmospheric pressure**: The current air pressure.
+- **Wind speed**: The current wind speed.
+- **Wind gust speed**: The speed of the strongest wind gusts. Disabled by default.
+- **Wind direction**: The direction the wind is coming from, in degrees.
+- **UV index**: The current ultraviolet index.
 
 ## Limitations
 
