@@ -9,7 +9,7 @@ related:
     title: ESPHome infrared proxy projects
 ---
 
-Infrared (<abbr title="Infrared">IR</abbr>) is invisible light that a handheld remote control uses to send commands to a device, such as a TV or an air conditioner. Infrared only works in a line of sight: the signal does not pass through walls or furniture.
+Infrared (IR) is invisible light that a handheld remote control uses to send commands to a device, such as a TV or an air conditioner. Infrared only works in a line of sight: the signal does not pass through walls or furniture.
 
 You can control infrared-controlled devices, such as a TV, air conditioner, amplifier, or soundbar, from Home Assistant without touching the handheld remote control. You can also send signals from the handheld remote control to Home Assistant. Home Assistant does this through an [infrared remote adapter](#infrared-remote-adapters). To learn how the integrations work together, refer to the [Infrared](/integrations/infrared/) {% term integration %}.
 
