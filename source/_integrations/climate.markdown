@@ -24,7 +24,7 @@ A climate entity can have the following states, depending on the specific climat
 
 ## Attributes
 
-The climate entity has extra attributes to represent the state of the device, depending on the specific climate device and its capabilities. A climate entity may not support all the attributes.
+The climate entity has extra attributes to represent the state of the device, depending on the specific climate device and its capabilities. A climate entity might not support all the attributes.
 
 | Name | Description |
 | ---- | ----------- |
