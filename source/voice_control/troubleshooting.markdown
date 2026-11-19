@@ -22,7 +22,7 @@ If the page says **No runs found**, the assistant didn't receive anything. Check
 
 To find out if Assist understands a sentence, use the sentence parser. It shows how the built-in conversation agent understands the sentence, but it doesn't run the command. Your devices don't change.
 
-The sentence parser only tests the built-in **Home Assistant** conversation agent. If your assistant uses another {% term "conversation agent" %}, [test the sentence with your assistant](#test-a-sentence-per-assistant-without-voice-while-executing-the-commands) instead.
+The sentence parser only tests the built-in **Home Assistant** conversation agent. If your assistant uses another {% term "conversation agent" %}, [test the sentence with your assistant](#testing-a-sentence-with-an-assistant) instead.
 
 1. Go to {% my tools_assist title="**Settings** > **Tools** > **Assist**" %}.
 2. Under **Language**, select the language of the sentence.
