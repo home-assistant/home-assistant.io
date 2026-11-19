@@ -110,7 +110,7 @@ To unexpose entities:
    - Result: The **Expose** tab opens. It only lists the entities that are exposed to that voice assistant.
 3. Select **Enter selection mode** {% icon "mdi:format-list-checks" %}.
 4. Select the entities.
-5. Select **Unexpose**.
+5. Select **Unexpose**, then select **Unexpose** again in the confirmation dialog.
    - Result: The voice assistant can no longer use these entities.
    - A {% term "conversation agent" %} with the **Home Assistant** set of {% term "AI tools" %} can still reach them. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools).
    - To unexpose a single entity, you can also turn off the voice assistant in the settings of the entity, as described in [Exposing a single entity from its settings](#exposing-a-single-entity-from-its-settings).
@@ -120,7 +120,7 @@ To unexpose entities:
 **Expose new entities** decides whether Home Assistant exposes new {% term entities %} to a voice assistant as you add them. Each voice assistant has its own setting:
 
 - For {% term Assist %}, it's turned on by default. If you want to decide on every entity yourself, turn it off. For example, you don't want a new garage door to be exposed before you decide. For the kinds of entities that it exposes, refer to [Entities that are exposed automatically](#entities-that-are-exposed-automatically).
-- For Alexa and Google Assistant, it's turned off by default. If you want to control each new entity with them, turn it on. For example, you often add new lights and switches, and you want to control each one with Alexa without exposing it yourself. It then exposes new supported entities that aren't security devices.
+- For Alexa and Google Assistant, it's turned off by default. If you want to control each new entity with them, turn it on. For example, you often add new lights and switches, and you want to control each one with Alexa without exposing it yourself. Home Assistant uses the same [automatic exposure rules](#entities-that-are-exposed-automatically) as for Assist.
 
 Prerequisites:
 
