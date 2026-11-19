@@ -24,6 +24,7 @@ Reading the inverter directly, rather than through SolarEdge's cloud, is worth i
 
 This integration has been tested with, or reported to work on, the following inverters:
 
+- SE3800
 - SE4K
 - SE5000H
 - SE8000H
