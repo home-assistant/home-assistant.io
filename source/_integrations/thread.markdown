@@ -69,8 +69,9 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
      - In the Companion app, go to **Settings** > **Companion app** > **Troubleshooting**, then select **Sync Thread credentials**.
      - Follow the instructions on screen.
      - **Result**: You see the message **Added network from Home Assistant to this device**.
-   - To share the credentials with your iPhone, open the Home Assistant Companion app.
-     - In the Companion app, go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
+   - To share the credentials with your iPhone, open the Home Assistant Companion app and sign in with a Home Assistant administrator account.
+     - In the Home Assistant sidebar, go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
+     - **Connectivity** is only visible to administrators.
      - At the bottom of the preferred network box, select **Send credentials to phone**.
 4. To add Matter-based Thread devices, follow the steps on [Adding a matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
