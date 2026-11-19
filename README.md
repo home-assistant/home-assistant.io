@@ -52,3 +52,4 @@ bundle exec rake integrate
 ```
 
 [![Home Assistant - A project from the Open Home Foundation](https://www.openhomefoundation.org/badges/home-assistant.png)](https://www.openhomefoundation.org/)
+
