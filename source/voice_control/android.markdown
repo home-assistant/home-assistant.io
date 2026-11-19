@@ -81,7 +81,7 @@ To enable wake word detection on your Android device, follow these steps:
 
 - Home Assistant Companion App version 2026.2.3 or later
 - Assist set as the [default assistant app](#setting-up-home-assistant-assist-as-default-assistant-app)
-- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
+- [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
 
 #### To enable wake word detection
 
@@ -175,7 +175,7 @@ The way how Assist can be set up on your phone may differ depending on your vers
 
     ![Assist speak your command](/images/assist/android_watch_3.png)
 
-4. To change the assistant, tap the current assistant (**Home Assistant Cloud** in the screenshot above).
+4. To change the assistant, tap the current assistant (**Home Assistant Link** in the screenshot above).
    - Select the assistant from the list.
 
    ![List of assistants](/images/assist/android_watch_6.png)

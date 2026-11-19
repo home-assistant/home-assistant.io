@@ -15,7 +15,7 @@ This {% term integration %} is a meta integration that configures a default set 
 - [Go2rtc](/integrations/go2rtc/) (`go2rtc`)
 - [History](/integrations/history/) (`history`)
 - [Home Assistant Alerts](/integrations/homeassistant_alerts/) (`homeassistant_alerts`)
-- [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
+- [Home Assistant Link](/integrations/link/) (`cloud`)
 - [Home Assistant Upgrade Check](/integrations/homeassistant_upgrade_check/) (`homeassistant_upgrade_check`)
 - [Activity](/integrations/logbook/) (`logbook`)
 - [Media source](/integrations/media_source/) (`media_source`)

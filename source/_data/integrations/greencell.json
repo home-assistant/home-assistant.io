@@ -16,7 +16,8 @@
   ],
   "platforms": [
     "diagnostics",
-    "sensor"
+    "sensor",
+    "switch"
   ],
   "discovery": [
     "mqtt"
