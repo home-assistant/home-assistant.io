@@ -68,6 +68,85 @@ username:
 
 {% include actions/try_it.md %}
 
+{% include actions/more_examples.md %}
+
+### Script: start the queue over from the first item
+
+Jump back to the first item of the queue, for example to restart an album or a playlist from a dashboard button.
+
+- **Action**: Get playerQueue details
+  - **Target**: Kitchen speaker
+  - **Limit**: 1
+  - **Response variable**: `queue_info`
+- **Action**: Play queue item
+  - **Target**: Kitchen speaker
+  - **Queue item ID**: `{{ queue_info['media_player.kitchen_speaker'].queue_items[0].queue_item_id }}`
+
+{% details "YAML example for starting the queue over" %}
+
+{% example %}
+script: |
+  alias: "Start the kitchen queue over"
+  sequence:
+    - action: music_assistant.get_queue
+      target:
+        entity_id: media_player.kitchen_speaker
+      data:
+        limit: 1
+      response_variable: queue_info
+    - action: music_assistant.play_queue_item
+      target:
+        entity_id: media_player.kitchen_speaker
+      data:
+        queue_item_id: >
+          {{ queue_info['media_player.kitchen_speaker']
+             .queue_items[0].queue_item_id }}
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: play a track from the queue by voice
+
+Ask your voice assistant to play a track that is already in the queue, without skipping through the items before it.
+
+- **Trigger**: Sentence
+  - **Sentence**: `play {track} from the queue`
+- **Action**: Get playerQueue details
+  - **Target**: Kitchen speaker
+  - **Limit**: 100
+  - **Response variable**: `queue_info`
+- **Action**: Play queue item
+  - **Target**: Kitchen speaker
+  - **Queue item ID**: the ID of the first queue item whose name contains the spoken track
+
+{% details "YAML example for playing a track from the queue by voice" %}
+
+{% example %}
+automation: |
+  alias: "Play a track from the kitchen queue by voice"
+  triggers:
+    - trigger: conversation
+      command: "play {track} from the queue"
+  actions:
+    - action: music_assistant.get_queue
+      target:
+        entity_id: media_player.kitchen_speaker
+      data:
+        limit: 100
+      response_variable: queue_info
+    - action: music_assistant.play_queue_item
+      target:
+        entity_id: media_player.kitchen_speaker
+      data:
+        queue_item_id: >
+          {{ (queue_info['media_player.kitchen_speaker'].queue_items
+              | selectattr('name', 'search', trigger.slots.track,
+                           ignorecase=True)
+              | first).queue_item_id }}
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
