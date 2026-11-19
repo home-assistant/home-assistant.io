@@ -4,7 +4,7 @@ ha_release: 2023.2
 ha_domain: openai_conversation
 related:
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing entities to Assist
+    title: Exposing entities to voice assistants
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Create an AI personality
   - url: https://platform.openai.com/account/api-keys
