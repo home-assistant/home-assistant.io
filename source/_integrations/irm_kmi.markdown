@@ -70,11 +70,11 @@ The warning entities let you react to official weather warnings in your automati
 
 ### Automation: Notify when a weather warning is in effect
 
-Get a notification for each warning that is in effect when the **Warning** binary sensor turns on. The notification shows the warning type as the title and the provider's description as the message, both in the configured language.
+Get a notification for each warning that is in effect when the **Warning** binary sensor turns on. The editor shows this state as **Unsafe**. The notification shows the warning type as the title and the provider's description as the message, both in the configured language.
 
 - **Trigger**: State changed
   - **Entity**: Your own warning binary sensor, for example Brussels Warning (`binary_sensor.brussels_warning`)
-  - **To**: On
+  - **To**: Unsafe
 - **Action**: Repeat
   - **Type**: For each
   - **Items**: The warnings in effect, see the YAML example
