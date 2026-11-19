@@ -11,6 +11,9 @@
   "categories": [
     "plugs_switches"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "light"
   ],

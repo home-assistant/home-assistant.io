@@ -11,6 +11,12 @@
   "categories": [
     "hubs_protocols.smart_home_hubs"
   ],
+  "connectivity": [
+    "enocean",
+    "network",
+    "zigbee",
+    "zwave"
+  ],
   "platforms": [
     "alarm_control_panel",
     "binary_sensor",

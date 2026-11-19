@@ -2,6 +2,7 @@
 title: "Download file"
 action: telegram_bot.download_file
 domain: telegram_bot
+response: optional
 description: "Downloads a file received by a Telegram bot to local storage."
 ---
 
@@ -70,6 +71,8 @@ config_entry_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 When the file is downloaded, the action returns the local path where it was saved:
 

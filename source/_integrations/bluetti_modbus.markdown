@@ -34,6 +34,8 @@ You also need the hostname or IP address of the device on your network. Giving t
 
 {% include integrations/config_flow.md %}
 
+Once Modbus TCP is enabled, a Balco 260 on your network is discovered automatically and shows up under {% my integrations title="**Settings** > **Devices & services**" %} as discovered. A discovered power station is reached on port `502` with device ID `1`, the BLUETTI defaults. If yours uses other settings, add it manually with the fields below. When a power station you added on port `502` with device ID `1` announces itself at a new IP address and answers there, Home Assistant updates its entry.
+
 {% configuration_basic %}
 Host:
   description: "The hostname or IP address of your BLUETTI power station. For example, `192.168.1.100`."
@@ -91,7 +93,6 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 ### Connection management
 
-- The device is not discovered automatically yet; add it by its address.
 - Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and the Home Assistant log says why.
 - A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
 
@@ -129,6 +130,8 @@ The entities of this entry are unavailable, and the Home Assistant log says a di
 Home Assistant recognizes your power station by its serial number, not by its address. The power station this entry was set up for has moved or been replaced, and another device now answers at its address. The entities stay unavailable until the power station answers at that address again.
 
 #### Resolution
+
+If the power station is set up on port `502` with device ID `1`, Home Assistant updates the address once the power station announces itself at the new one. Otherwise:
 
 1. Find the new address of your power station, for example by looking it up in your router.
 2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.

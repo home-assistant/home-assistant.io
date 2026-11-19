@@ -11,6 +11,9 @@
   "categories": [
     "lighting.bulbs_lamps"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "diagnostics",

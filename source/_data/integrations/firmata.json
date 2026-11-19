@@ -9,6 +9,9 @@
   "categories": [
     "diy_makers.boards_hardware"
   ],
+  "connectivity": [
+    "serial"
+  ],
   "platforms": [
     "binary_sensor",
     "light",

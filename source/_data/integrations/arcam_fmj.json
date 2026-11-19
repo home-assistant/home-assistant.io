@@ -10,6 +10,9 @@
   "categories": [
     "media_entertainment.speakers_audio"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "media_player",
