@@ -8,8 +8,9 @@ The **Escea** {% term integration %} allows monitoring and control of local [Esc
 
 ## Supported hardware
 
-Support all current Escea fireplaces with the Smart Heat feature, including the DF, DL, DS, and DX series.
-Though these fireplaces are supported, they can only be integrated if they were connected via Ethernet when installed (that is, these fireplaces do not support Wi-Fi).
+The integration supports Escea fireplaces with Ethernet-connected Smart Heat controllers that use the local UDP protocol, including compatible models in the DF, DL, DS, and DX series. Your fireplace must be connected via Ethernet.
+
+Generation 3 (G3) controllers that use Wi-Fi and the newer HTTP API are not supported. Compatibility depends on the controller generation, not only the fireplace series.
 
 {% include integrations/config_flow.md %}
 
