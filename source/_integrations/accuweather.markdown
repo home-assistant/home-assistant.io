@@ -6,6 +6,16 @@ ha_domain: accuweather
 
 The **AccuWeather** {% term integration %} uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location. A paid subscription is required to use this integration.
 
+## Use cases
+
+- Show the current weather and the daily and hourly forecasts for your location on your dashboard.
+- Get a notification when the forecasted UV index is high, so you remember to apply sunscreen before you go outside.
+- Pause your garden watering when it rains.
+- Get a warning when the forecasted thunderstorm probability or wind gusts are high, so you can secure your outdoor furniture or retract your awning.
+- Plan your day with the RealFeel temperature and the forecasted hours of sun.
+
+See [AccuWeather automation examples](#accuweather-automation-examples) for examples you can use as a starting point.
+
 ## Prerequisites
 
 To use this integration, you need an AccuWeather API key.
