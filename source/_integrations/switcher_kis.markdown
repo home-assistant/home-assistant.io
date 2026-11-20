@@ -94,26 +94,52 @@ For Switcher light control devices (Switcher Runner S11, Switcher Runner S12, an
   
 ## Sensors
 
-For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4, Switcher Heater) the integration provides the following sensors:
-| Sensor Name         | Description                                            | Example           |
-| ------------------- | ------------------------------------------------------ | ----------------- |
-| `Auto Shutdown`*    | The auto shutdown time limit configured on the device  | 01:30:00          |
-| `Remaining Time`*   | Time remaining to shutdown (auto or timer)             | 01:29:41          |
-| `Electric Current`  | The electric current in amps                           | 12.5 A            |
-| `Power Consumption` | The power consumption in watts                         | 2756 W            |
+For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4, Switcher Heater), the integration provides the following sensors:
 
-*Currently not supported for Switcher Power Plug
+- **Shutdown time**: The date and time when the device will turn off, either by auto shutdown or by a timer. The sensor is unknown when no timer is running. Not available for Switcher Power Plug.
+- **Auto-off**: The auto shutdown time limit configured on the device, shown in minutes by default. This sensor is disabled by default. Not available for Switcher Power Plug.
+- **Electric current**: The electric current in amperes, for example 12.5 A.
+- **Power consumption**: The power consumption in watts, for example 2756 W.
 
-For Switcher Breeze the integration provides the following sensor:
-| Sensor Name           | Description                                            | Example           |
-| --------------------- | ------------------------------------------------------ | ----------------- |
-| `Current temperature` | The current temperature in celsius                     | 25.0 °C           |
+For Switcher Breeze, the integration provides the following sensor:
+
+- **Current temperature**: The current temperature in degrees Celsius, for example 25.0 °C.
 
 ## Switches
 
 For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12), the integration allows you to control its child lock state; ON means locked, and OFF means unlocked.
 
 {% include integrations/actions.md %}
+
+## Examples
+
+### Show the remaining time as a countdown
+
+The **Shutdown time** sensor shows when the device will turn off. If you prefer a countdown in `HH:MM:SS` format, you can create a [template sensor](/integrations/template/) based on the **Shutdown time** sensor. The example below updates every 5 seconds and shows `00:00:00` when no timer is running. Replace `sensor.water_heater_shutdown_time` with the entity ID of your **Shutdown time** sensor.
+
+Add the following to your {% term "`configuration.yaml`" %}:
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+```yaml
+template:
+  - triggers:
+      - trigger: time_pattern
+        seconds: "/5"
+      - trigger: state
+        entity_id: sensor.water_heater_shutdown_time
+    sensor:
+      - name: "Water heater remaining time"
+        unique_id: water_heater_remaining_time
+        icon: mdi:av-timer
+        state: >
+          {% set entity = 'sensor.water_heater_shutdown_time' %}
+          {% set s = 0 %}
+          {% if has_value(entity) %}
+            {% set left = states(entity) | as_datetime - now() %}
+            {% set s = [left.total_seconds() | int, 0] | max %}
+          {% endif %}
+          {{ '%02d:%02d:%02d' % (s // 3600, s % 3600 // 60, s % 60) }}
+```
 
 ## Notes
 
