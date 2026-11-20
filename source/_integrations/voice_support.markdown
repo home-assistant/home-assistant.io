@@ -49,7 +49,7 @@ The first time it starts, the app downloads a speech model of about 174&nbsp;MB.
 
 ## Running the app in a container
 
-If you run Home Assistant in a container, there is no Supervisor to install the app for you. Run the standalone image of the app instead, on the same machine or on another one on your network.
+If you run Home Assistant in a container, Home Assistant can't install apps for you. Run the standalone image of the app instead, on the same machine or on another one on your network.
 
 ### Docker Compose
 
@@ -83,9 +83,9 @@ With host networking, the app announces itself on your network and Home Assistan
 
 ### Connecting Home Assistant to the app
 
-Turn on **Next-generation voice** in Labs first. Home Assistant ignores the app until you do.
+Turn on **Next-generation voice** in Labs first. Until you do, Home Assistant ignores the app. If the app was already running before you turned on the feature, restart Home Assistant or add the integration manually.
 
-If Home Assistant discovered the app, it shows up under {% my integrations title="**Settings** > **Devices & services**" %}. Select **Add** to set it up. Otherwise, add the integration manually:
+You can connect Home Assistant to one Voice Support app. If Home Assistant discovered the app, it shows up under {% my integrations title="**Settings** > **Devices & services**" %}. Select **Add** to set it up. Otherwise, add the integration manually:
 
 {% include integrations/config_flow.md %}
 
@@ -96,7 +96,7 @@ Port:
   description: The port the Voice Support app listens on. The default is `10900`.
 {% endconfiguration_basic %}
 
-Keep the app up to date. If Home Assistant and the app do not speak the same protocol version, the integration does not connect and tells you which one to update.
+Keep the app up to date. If Home Assistant and the app use different protocol versions, the integration doesn't connect and asks you to update the app or Home Assistant. On Home Assistant OS, Home Assistant keeps the app it installed up to date for you.
 
 ## If the app is stopped
 
