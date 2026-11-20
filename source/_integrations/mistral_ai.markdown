@@ -28,7 +28,7 @@ ha_codeowners:
 
 The **Mistral** {% term integration %} adds a conversation agent powered by [Mistral](https://mistral.ai) to Home Assistant.
 
-When you talk to a Mistral conversation agent through an {% term assistant %}, Home Assistant first checks your [sentence triggers](/triggers/conversation/). If one of them matches, the sentence trigger answers, and the conversation agent doesn't get the sentence. Sentence triggers don't run when you call the conversation agent directly, for example with the `conversation.process` action. They also don't run when you answer a follow-up question from the conversation agent.
+When you talk to a Mistral conversation agent through an assistant, Home Assistant first checks your [sentence triggers](/triggers/conversation/). If one of them matches, the sentence trigger answers, and the conversation agent doesn't get the sentence. Sentence triggers don't run when you call the conversation agent directly, for example with the `conversation.process` action. They also don't run when you answer a follow-up question from the conversation agent.
 
 This integration requires an API key to use, [which you can generate here](https://console.mistral.ai/api-keys). The service is billed based on usage, we advise you to monitor your costs in the [Mistral Studio](https://console.mistral.ai) closely to avoid unwanted costs associated with using the service.
 
