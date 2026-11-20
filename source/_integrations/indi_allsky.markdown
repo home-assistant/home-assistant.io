@@ -100,7 +100,7 @@ If you need to report an issue, you can [download diagnostics](/integrations/dia
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **INDI Allsky**.
 2. On the integration entry, select the {% icon "mdi:dots-vertical" %} menu and select **Download diagnostics**.
 
-The downloaded JSON file contains your connection state and latest coordinator data. Sensitive fields such as your host, username, and password are automatically redacted.
+The downloaded JSON file contains your connection state and latest coordinator data. Sensitive fields such as your host, username, and password are automatically redacted. Review the file before sharing it to verify that it does not contain any other sensitive information.
 
 ## Known limitations
 
