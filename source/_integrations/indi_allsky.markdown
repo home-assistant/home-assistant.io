@@ -33,7 +33,7 @@ Verify SSL:
 
 If you change the password in INDI Allsky or turn on login after setting up the integration, Home Assistant asks you to enter the username and password.
 
-### Reconfiguring the integration
+## Reconfiguring the integration
 
 To update your connection details (host, port, credentials, or SSL settings) after initial setup:
 
