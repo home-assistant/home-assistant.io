@@ -21,7 +21,8 @@
     "fan",
     "light",
     "sensor",
-    "switch"
+    "switch",
+    "update"
   ],
   "discovery": [
     "mqtt"
