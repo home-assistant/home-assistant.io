@@ -346,13 +346,6 @@ To create the virtual machine, follow the instructions for the hypervisor you us
     4. In the dialog that appears, select the **Add** button.
     5. Find and select the downloaded `.vdi` file.
     6. Select **Choose** to confirm the file.
-    4. Next to **Controller: SATA** (or **Controller: VirtioSCSI**), select the **Add hard disk** icon (the blue disk with a plus sign).
-    5. In the dialog that appears, select the **Add** button.
-    6. Find and select the downloaded `.vdi` file.
-    7. Next to **Controller: SATA** (or **Controller: VirtioSCSI**), select the **Add hard disk** icon (the blue disk with a plus sign).
-    8. In the dialog that appears, select the **Add** button.
-    9. Find and select the downloaded `.vdi` file.
-    10. Select **Choose** to confirm the file.
 
     #### Configure network
 
