@@ -96,9 +96,43 @@ The **Hot Spring** integration provides the following entities:
 - **Sensor life**
   - **Description**: Remaining FreshWater IQ sensor life, as a percentage reported by the spa.
   - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **Total apparent power**
+  - **Description**: Combined apparent power across all spa circuits derived from voltage and current readings, in volt-amperes (VA).
+  - **Availability**: Available on spas with current-sensing hardware.
+- **Heater power**
+  - **Description**: Real power consumption of the spa heater, in watts (W).
+  - **Availability**: Available on spas with current-sensing hardware.
+- **Small loads apparent power**
+  - **Description**: Apparent power drawn by auxiliary circuits, such as the circulation pump, lights, and control electronics, in volt-amperes (VA).
+  - **Availability**: Available on spas with current-sensing hardware.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+- **Jets 1, 2, and blower apparent power**
+  - **Description**: Apparent power drawn by the Jet 1, Jet 2, and blower circuit, in volt-amperes (VA).
+  - **Availability**: Available on spas with current-sensing hardware.
+  - **Remarks**: Disabled by default.
+- **Jet 3 apparent power**
+  - **Description**: Apparent power drawn by the Jet 3 pump, in volt-amperes (VA).
+  - **Availability**: Available on spas with current-sensing hardware and an enabled Jet 3 pump.
+  - **Remarks**: Disabled by default.
+- **Heater current**
+  - **Description**: Electrical current drawn by the spa heater, in whole amperes (A).
+  - **Availability**: Available on spas with current-sensing hardware.
+  - **Remarks**: Disabled by default.
+- **Small loads current**
+  - **Description**: Electrical current drawn by auxiliary spa circuits, in whole amperes (A).
+  - **Availability**: Available on spas with current-sensing hardware.
+  - **Remarks**: Disabled by default.
+- **Jets 1, 2, and blower current**
+  - **Description**: Electrical current drawn by the Jet 1, Jet 2, and blower circuit, in whole amperes (A).
+  - **Availability**: Available on spas with current-sensing hardware.
+  - **Remarks**: Disabled by default.
+- **Jet 3 current**
+  - **Description**: Electrical current drawn by the Jet 3 pump, in whole amperes (A).
+  - **Availability**: Available on spas with current-sensing hardware and an enabled Jet 3 pump.
+  - **Remarks**: Disabled by default.
 - **Control box version**
   - **Description**: Firmware version of the spa control box.
-  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+  - **Remarks**: Disabled by default.
 - **FreshWater Salt System version**
   - **Description**: Firmware version of the FreshWater Salt System module.
   - **Remarks**: Disabled by default. Available when a FreshWater Salt System is detected.
@@ -166,6 +200,12 @@ automation: |
 
 The **Hot Spring** integration uses local {% term polling %} to fetch status updates directly from the spa module on your local network.
 
+## Known limitations
+
+### Apparent power and real power measurements
+
+The spa control board calculates circuit power by multiplying voltage and current without measuring power factor. Because the spa heater is a purely resistive load, **Heater power** reports real power in watts (W) and can be used directly in the [Energy dashboard](/docs/energy/) or with the [Integral](/integrations/integration/) helper to estimate heating energy consumption. Pump motors and auxiliary electronics have a non-unity power factor, so **Small loads apparent power**, **Jets 1, 2, and blower apparent power**, **Jet 3 apparent power**, and **Total apparent power** are reported as apparent power in volt-amperes (VA) and cannot be added directly to the Energy dashboard.
+
 ## Troubleshooting
 
 ### Cannot connect to Hot Spring spa
@@ -185,6 +225,14 @@ If the FreshWater IQ sensor entities do not appear:
 - Verify the FreshWater IQ system is installed on the spa and enabled in the Hot Spring app.
 - Verify the spa reports FreshWater IQ status to the Home Network Adapter; the sensor entities are only created once the spa reports FreshWater IQ data.
 - Check that the spa's water quality readings are visible in the Hot Spring app.
+
+### Power and current sensors are missing
+
+If the power or current sensor entities do not appear:
+
+- Verify that your spa uses a control board equipped with current-sensing hardware. Entry-level control boards without current sensors do not create power or current entities.
+- Check if the entity is disabled by default. Only **Total apparent power** and **Heater power** are enabled by default; the seven per-circuit power and current diagnostic entities must be [enabled manually](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) before they appear.
+- Verify that Jet 3 is enabled on the spa if **Jet 3 apparent power** and **Jet 3 current** are missing, as those entities are only created when Jet 3 is present and enabled.
 
 ## Diagnostics
 
