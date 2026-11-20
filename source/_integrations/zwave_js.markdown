@@ -811,7 +811,7 @@ If your Z-Wave adapter doesn't show up in the **Discovered** section automatical
 
 The first-generation Gen5 adapter has a known bug when plugged into a Pi&nbsp;4 and possibly other systems. Aeotec released the Gen5+ stick to correct this bug. Gen5 users can plug their adapters into a USB&nbsp;2.0 hub to overcome the issue.
 
-More detailed information can be found on this [community post](https://community.home-assistant.io/t/sticky-aeotec-z-stick-gen5-raspberry-pi4/218405), where also a hardware modification is explained that doesn't require a hub afterwards.
+More detailed information can be found in this [community post](https://community.home-assistant.io/t/sticky-aeotec-z-stick-gen5-raspberry-pi4/218405), which also explains a hardware modification that eliminates the need for a hub.
 
 ### I do not see any entities created for my device in Home Assistant
 
