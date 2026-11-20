@@ -3,6 +3,7 @@ title: "Send command"
 action: shelly.command
 domain: shelly
 description: "Sends a command to a Shelly device and returns the device's response."
+response: optional
 since: "2026.12"
 related_actions:
   - shelly.get_kvs_value
@@ -129,6 +130,8 @@ If the action fails, the error message tells you why:
 - **Command parameters for ... must be text, number or boolean values**: A parameter for a generation 1 device contains a nested value.
 - **Command ... failed for ... with error ...**: A generation 2 or later device rejected the command. The error code and the message come from the device and describe what is wrong, for example a missing parameter or an unknown method.
 - **Command ... failed for ... with HTTP status ...**: A generation 1 device rejected the command. Status 404 means the endpoint doesn't exist on the device. Status 400 means a parameter is not valid.
+- **Device communication error occurred for ...**: Home Assistant can't reach the device. Check that the device is powered on and connected to your network, then try again.
+- **Authentication failed for ..., please update your credentials**: The device no longer accepts the stored credentials. Go to {% my integrations title="**Settings** > **Devices & services**" %} and enter the new credentials for the device when Home Assistant asks for them.
 
 {% include actions/try_it.md %}
 
