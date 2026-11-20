@@ -19,7 +19,7 @@ The following devices are known to be supported:
 - Cookeo Touch Mini WiFi
 - Cookeo Infinity
 
-Other Cookeo models that connect to Wi-Fi and are added to your account in the app, such as the Cookeo Wi-Fi 8-in-1, 9-in-1, and 10-in-1, are expected to work but have not been tested. The same goes for the connected Companion, which uses the same cloud service.
+Other Cookeo models that connect to Wi-Fi and are added to your account in the app, such as the Cookeo Wi-Fi 8-in-1, 9-in-1, and 10-in-1, are expected to work but have not been tested.
 
 ## Unsupported devices
 
@@ -35,7 +35,7 @@ Home Assistant can also discover the appliance on your network and suggest the i
 
 {% configuration_basic %}
 Region:
-  description: "The brand and country you selected when you created the account, for example **Moulinex (France)**. An account only works with its own region."
+  description: "The brand and country you selected when you created the account. **Moulinex (France)** is selected by default, change it if your account is from another brand or country. An account only works with its own region."
 Email:
   description: "The email address of the account you use in the app of your appliance."
 Password:
@@ -54,52 +54,80 @@ Each appliance provides the following sensors:
 - **Program**: The program that is selected or running, such as **High pressure** or **Browning**. It is unknown when no program is selected.
 - **Progress**: The progress of the preheating and of the pressure release, as a percentage. It is unknown during the rest of the program.
 
-## Examples
+## Moulinex automation examples
 
-Here are a few ways to use your Cookeo in automations. Replace `sensor.cookeo` with the state sensor of your appliance.
+With the state of your Cookeo in Home Assistant, you can react to what it is doing in your automations. Here are a few ideas to get you started.
 
-### Notify when the meal has been kept warm for a while
+{% include docs/paste_yaml_tip.md %}
 
-When the cooking is finished, the Cookeo keeps the food warm. This automation sends a notification to your phone when that has lasted 30 minutes, so the meal is not forgotten.
+### Automation: Notify when the meal has been kept warm for a while
 
-```yaml
-automation:
-  - alias: "Notify when the Cookeo has kept the meal warm for 30 minutes"
-    triggers:
-      - trigger: state
-        entity_id: sensor.cookeo
-        to: "keep_warm"
-        for:
-          minutes: 30
-    actions:
-      - action: notify.mobile_app_phone
-        data:
-          message: "The Cookeo has been keeping your meal warm for 30 minutes."
-```
+When the cooking is finished, the Cookeo keeps the food warm. Get a notification on your phone when that has lasted 30 minutes, so the meal is not forgotten.
 
-### Turn on the range hood during the pressure release
+- **Trigger**: State
+  - **Entity**: The state sensor of your Cookeo
+  - **To**: Keep warm
+  - **For**: 30 minutes
+- **Action**: Send a notification message
+  - **Target**: My phone
 
-At the end of a pressure cooking, the Cookeo releases a lot of steam. This automation turns on the range hood when the pressure release starts, and turns it off again when it is over.
+{% details "YAML example for a keep warm notification" %}
 
-```yaml
-automation:
-  - alias: "Run the range hood while the Cookeo releases its pressure"
-    triggers:
-      - trigger: state
-        entity_id: sensor.cookeo
-        to: "depressurization"
-    actions:
-      - action: fan.turn_on
-        target:
-          entity_id: fan.range_hood
-      - wait_for_trigger:
-          - trigger: state
-            entity_id: sensor.cookeo
-            from: "depressurization"
-      - action: fan.turn_off
-        target:
-          entity_id: fan.range_hood
-```
+{% example %}
+automation: |
+  alias: "Notify when the Cookeo has kept the meal warm for 30 minutes"
+  triggers:
+    - trigger: state
+      entity_id: sensor.cookeo
+      to: "keep_warm"
+      for:
+        minutes: 30
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        message: "The Cookeo has been keeping your meal warm for 30 minutes."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turn on the range hood during the pressure release
+
+At the end of a pressure-cooking program, the Cookeo releases a lot of steam. Turn on the range hood when the pressure release starts, and turn it off again when it is over.
+
+- **Trigger**: State
+  - **Entity**: The state sensor of your Cookeo
+  - **To**: Depressurizing
+- **Action**: Turn on fan
+  - **Target**: The range hood
+- **Action**: Wait for the state sensor to leave Depressurizing
+- **Action**: Turn off fan
+  - **Target**: The range hood
+
+{% details "YAML example for the range hood" %}
+
+{% example %}
+automation: |
+  alias: "Run the range hood while the Cookeo releases its pressure"
+  triggers:
+    - trigger: state
+      entity_id: sensor.cookeo
+      to: "depressurization"
+  actions:
+    - action: fan.turn_on
+      target:
+        entity_id: fan.range_hood
+    - wait_for_trigger:
+        - trigger: state
+          entity_id: sensor.cookeo
+          from: "depressurization"
+    - action: fan.turn_off
+      target:
+        entity_id: fan.range_hood
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
