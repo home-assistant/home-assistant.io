@@ -17,7 +17,7 @@ related_functions:
 
 The `timedelta` test checks whether a value is a timedelta object, a duration such as 1 hour 30 minutes. It returns `true` for timedelta objects and `false` for everything else, including ISO 8601 duration strings like `"PT10M"` and numbers of seconds.
 
-This is useful when a value might be a duration or might be something else, for example the result of [`as_timedelta`](https://www.home-assistant.io/template-functions/as_timedelta/), which returns `None` for invalid input. Checking the type first lets you avoid template errors when you do duration math or formatting.
+This is useful when a value might be a duration or might be something else, for example, the result of [`as_timedelta`](/template-functions/as_timedelta/), which returns `None` for invalid input. Checking the type first lets you avoid template errors when you do duration math or formatting.
 
 {% include template_functions/usage.md %}
 
@@ -53,9 +53,9 @@ value:
 ## Good to know
 
 - Only real timedelta objects pass. Strings like `"PT10M"`, numbers, and datetimes do not.
-- To convert an ISO 8601 duration string first, use [`as_timedelta`](https://www.home-assistant.io/template-functions/as_timedelta/).
+- To convert an ISO 8601 duration string, first use [`as_timedelta`](/template-functions/as_timedelta/).
 - Subtracting two datetimes gives a timedelta.
-- `timedelta()` without `is` is the function that creates a duration. See [`timedelta`](https://www.home-assistant.io/template-functions/timedelta/).
+- `timedelta()` without `is` is the function that creates a duration. See [`timedelta`](/template-functions/timedelta/).
 
 {% include template_functions/try_it.md %}
 
