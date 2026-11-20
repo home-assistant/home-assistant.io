@@ -200,6 +200,12 @@ automation: |
 
 The **Hot Spring** integration uses local {% term polling %} to fetch status updates directly from the spa module on your local network.
 
+## Known limitations
+
+### Apparent power and real power measurements
+
+The spa control board calculates circuit power by multiplying voltage and current without measuring power factor. Because the spa heater is a purely resistive load, **Heater power** reports real power in watts (W) and can be used directly in the [Energy dashboard](/docs/energy/) or with the [Integral](/integrations/integration/) helper to estimate heating energy consumption. Pump motors and auxiliary electronics have a non-unity power factor, so **Small loads apparent power**, **Jets 1, 2, and blower apparent power**, **Jet 3 apparent power**, and **Total apparent power** are reported as apparent power in volt-amperes (VA) and cannot be added directly to the Energy dashboard.
+
 ## Troubleshooting
 
 ### Cannot connect to Hot Spring spa
