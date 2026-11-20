@@ -1,5 +1,5 @@
 {
-  "domain": "link",
+  "domain": "cloud",
   "name": "Home Assistant Link",
   "integration_type": "system",
   "codeowners": [

@@ -1,0 +1,20 @@
+{
+  "domain": "intesis_modbus",
+  "name": "Intesis Modbus",
+  "integration_type": "device",
+  "codeowners": [
+    "@TimoPtr"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "connectivity": [
+    "modbus"
+  ],
+  "platforms": [
+    "climate"
+  ]
+}

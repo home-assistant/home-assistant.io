@@ -1,11 +1,13 @@
 {
   "domain": "ephember",
   "name": "EPH Controls",
+  "integration_type": "hub",
   "codeowners": [
     "@ttroy50",
     "@roberty99"
   ],
-  "iot_class": "local_polling",
+  "config_flow": true,
+  "iot_class": "cloud_polling",
   "quality_scale": "legacy",
   "categories": [
     "climate.thermostats_heating"
