@@ -331,7 +331,10 @@ To create the virtual machine, follow the instructions for the hypervisor you us
        - **Number of CPUs**: Set to at least **2**.
        - **Use EFI**: Select the checkbox to use UEFI instead of legacy BIOS. Home Assistant requires UEFI to boot.
     5. Select **Next**.
-    6. In the **Summary** step, review the settings and select **Finish**.
+    6. In the **Virtual hard disk** step, select **Do not add a virtual hard disk**.
+       - Home Assistant uses the disk image you attach in the next section.
+       - If VirtualBox asks whether to continue without a hard disk, select **Continue**.
+    7. In the **Summary** step, review the settings and select **Finish**.
 
     #### Attach the Home Assistant disk (VDI)
 
@@ -339,11 +342,10 @@ To create the virtual machine, follow the instructions for the hypervisor you us
 
     1. Select your new **Home Assistant** VM in the list, and then select **Settings** on the toolbar.
     2. Go to the **Storage** section.
-    3. In the **Storage Devices** list, under **Controller: SATA** (or on Mac with Apple silicon, **Controller: VirtioSCSI**), right-click the empty placeholder disk and select **Remove attachment**.
-    4. Next to **Controller: SATA** (or **Controller: VirtioSCSI**), select the **Add hard disk** icon (the blue disk with a plus sign).
-    5. In the dialog that appears, select the **Add** button.
-    6. Find and select the downloaded `.vdi` file.
-    7. Select **Choose** to confirm the file.
+    3. Next to **Controller: SATA** (or **Controller: VirtioSCSI**), select the **Add hard disk** icon (the blue disk with a plus sign).
+    4. In the dialog that appears, select the **Add** button.
+    5. Find and select the downloaded `.vdi` file.
+    6. Select **Choose** to confirm the file.
 
     #### Configure network
 
