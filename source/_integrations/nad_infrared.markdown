@@ -3,7 +3,7 @@ title: NAD Infrared
 description: Integration to control NAD receivers, amplifiers, CD players and cassette decks using an infrared transmitter.
 ha_categories:
   - media_entertainment.speakers_audio
-ha_release: 2026.11
+ha_release: 2026.12
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@rrooggiieerr'
@@ -15,7 +15,7 @@ ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-The **NAD Infrared** {% term integration %} lets you control NAD audio equipment using any infrared transmitter previously configured in Home Assistant. It supports NAD receivers, amplifiers, CD players and cassette decks.
+The **NAD Infrared** {% term integration %} lets you control NAD audio equipment using an infrared emitter that is already set up in Home Assistant. It supports NAD receivers, amplifiers, CD players, and cassette decks.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device but there is no feedback channel to confirm the current state. The integration therefore uses assumed states.
 
@@ -38,14 +38,16 @@ NAD receivers and amplifiers can be set to one of several IR channels, so that t
 
 When adding the integration, first select the type of NAD device you want to control, then select the infrared transmitter.
 
+When adding the integration, first select the type of NAD device you want to control, then select the infrared emitter.
+
 {% configuration_basic %}
 Device type:
-  description: "The type of NAD device to control: **Receiver** (an amplifier with a built-in tuner), **Amplifier**, **CD player**, or **Cassette deck**."
-Infrared transmitter:
-  description: The infrared transmitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR transmitter.
+  description: "The type of NAD device to control: **Receiver (amplifier with tuner)**, **Amplifier**, **CD player**, or **Cassette deck**."
+Infrared emitter:
+  description: The infrared emitter entity to use for sending commands. This entity comes from another integration that is already set up with an infrared emitter, such as ESPHome.
 {% endconfiguration_basic %}
 
-You can add the integration multiple times, once for each NAD device you want to control. Different device types can share the same infrared transmitter, because each NAD device only responds to its own commands.
+You can add the integration multiple times, once for each NAD device you want to control. Devices of different types can share the same infrared emitter. Each combination of device type and emitter can only be added once.
 
 ## Supported devices
 
@@ -61,11 +63,9 @@ If you own NAD equipment that uses codes not covered by this integration, you ca
 
 ## Supported functionality
 
-### Entities
+### Media player
 
 Each NAD device gets one media player entity. Its features depend on the device type you selected.
-
-#### Media player
 
 - **Receiver and amplifier**
   - **Supported features**: Turn on, turn off, volume up, volume down, mute, source select, and sound mode select.
@@ -78,9 +78,9 @@ Each NAD device gets one media player entity. Its features depend on the device 
   - **Supported features**: Play, pause, and stop.
   - The commands are sent to deck B. Single-cassette decks also respond to the deck B commands.
 
-## Examples
+## NAD Infrared automation examples
 
-### Turn on the receiver and select an input
+### Automation: Turn on the receiver and select an input
 
 This automation turns on the receiver and switches to Input 1 when the TV turns on.
 
@@ -90,7 +90,7 @@ To create this automation in the automation editor:
 2. Under **When**, add a **State** trigger for your TV's media player entity, with **To** set to **On**.
 3. Under **Then do**, add the **Media player: Turn on** action, and select the NAD receiver as the target.
 4. Add a **Wait for time to pass (delay)** action of 2 seconds, to give the receiver time to start up.
-5. Add the **Media player: Select source** action, select the NAD receiver as the target, and set **Source** to `input_1`.
+5. Add the **Media player: Select source** action, select the NAD receiver as the target, and set **Source** to **Input 1**.
 6. Save the automation.
 
 Alternatively, you can add the automation in YAML:
