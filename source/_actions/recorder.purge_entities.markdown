@@ -82,6 +82,7 @@ keep_days:
 
 - You must provide at least one of `entity_id`, `domains`, or `entity_globs`. You can combine them to select exactly what to remove.
 - To clean up the whole database based on age instead of specific entities, use the [Purge Recorder database](/actions/recorder.purge/) action.
+- Unlike [Purge Recorder database](/actions/recorder.purge/), this action doesn't keep the latest state. With the default `keep_days` of 0, it removes all states of the matching entities.
 
 {% include actions/more_examples.md %}
 

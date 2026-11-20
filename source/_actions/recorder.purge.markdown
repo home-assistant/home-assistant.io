@@ -30,7 +30,7 @@ To purge the database from an automation or a script:
 
 {% options_ui %}
 Days to keep:
-  description: The number of days of history to keep, counting back from today. For example, a value of 7 keeps the last week and removes everything older. If omitted, the recorder uses the number of days set in its configuration.
+  description: The number of days of history to keep, counting back from today. For example, a value of 7 keeps the last week and removes everything older, except the latest state of each entity. If omitted, the recorder uses the number of days set in its configuration.
   required: false
 Repack:
   description: Rewrites the entire database to try to free up disk space. This is a heavy operation that can cause slowdowns and temporarily use more disk space while it runs.
@@ -55,7 +55,7 @@ action: |
 
 {% options_yaml %}
 keep_days:
-  description: The number of days of history to keep, counting back from today. For example, a value of 7 keeps the last week and removes everything older. If omitted, the recorder uses the number of days set in its configuration.
+  description: The number of days of history to keep, counting back from today. For example, a value of 7 keeps the last week and removes everything older, except the latest state of each entity. If omitted, the recorder uses the number of days set in its configuration.
   required: false
   type: integer
 repack:
@@ -74,6 +74,7 @@ apply_filter:
 
 - Purging does not immediately reduce disk usage, but it significantly slows down further growth. To reclaim disk space, use the **Repack** option, keeping in mind it is a heavy operation.
 - To remove data for specific entities, domains, or patterns instead of a time-based cleanup, use the [Purge Recorder entities](/actions/recorder.purge_entities/) action.
+- The latest state of each entity that is still recorded is kept, even if it is older than the days you keep. A state that a newer state change links to is also kept until that change is purged. This way the [Activity](/integrations/logbook/) panel still shows changes of entities that rarely change. To remove all data of an entity, including its latest state, use the [Purge Recorder entities](/actions/recorder.purge_entities/) action.
 
 {% include actions/stuck.md %}
 
