@@ -18,7 +18,7 @@ Check the [country list](https://github.com/vacanza/holidays#available-countries
 
 {% include integrations/config_flow.md %}
 
-The **Custom holidays** and **Country settings** sections are collapsed. Select a section to open it. **Country settings** is only shown when the selected country has settings.
+The **Custom holidays** and **Country settings** sections are collapsed. Select a section to open it. The **Country settings** section is only shown when the selected country has settings.
 
 {% configuration_basic %}
 Country:
