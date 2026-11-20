@@ -231,6 +231,74 @@ automation: |
 
 By default, the integration {% term polling polls %} the current weather condition data from the AccuWeather API every 10 minutes, daily forecast data every 6 hours, and hourly forecast data every 30 minutes.
 
+## Troubleshooting
+
+{% details "Failed to connect, Invalid API key, or request limit exceeded during setup" %}
+
+### Symptom: Setup shows "Failed to connect", "Invalid API key", or a request limit message
+
+When you try to set up the integration, the form shows one of these messages:
+
+- "Failed to connect"
+- "Invalid API key"
+- "The allowed number of requests to the AccuWeather API has been exceeded. You have to wait or change the API key."
+
+#### Description
+
+Before it creates the entry, the integration checks your API key with AccuWeather. The message tells you what went wrong:
+
+- "Failed to connect": Home Assistant can't reach the AccuWeather service, or the service returned an error.
+- "Invalid API key": AccuWeather doesn't accept the key you entered.
+- "The allowed number of requests to the AccuWeather API has been exceeded...": The request limit of your AccuWeather plan has been reached for now.
+
+#### Resolution
+
+- If the form shows "Failed to connect", check that Home Assistant can reach the internet, then try again.
+- If the form shows "Invalid API key", check the key in the **Subscriptions & Keys** section of the [AccuWeather APIs](https://developer.accuweather.com/) page. Copy the key again and make sure it has no extra spaces.
+- If the form shows the request limit message, wait and try again later. You can also enter an API key from a different AccuWeather account or application. If this happens often, check whether the same API key is also used by other applications or by another Home Assistant installation.
+
+{% enddetails %}
+
+{% details "Weather entities are unavailable" %}
+
+### Symptom: AccuWeather entities become unavailable
+
+The AccuWeather entities show as unavailable. If this happens while Home Assistant starts, the AccuWeather entry on the {% my integrations title="**Settings** > **Devices & services**" %} page shows **Retrying setup**. {% my logs title="**Settings** > **System** > **Logs**" %} contains a message like "An error occurred while retrieving weather current conditions data from the AccuWeather API: ...", "An error occurred while retrieving weather forecast data from the AccuWeather API: ...", or "Timeout fetching ... data".
+
+#### Description
+
+The integration marks its entities as unavailable when it can't get data from AccuWeather. The log message tells you why:
+
+- The text after the colon starts with `RequestsExceededError`: The request limit of your AccuWeather plan has been reached. Each location you add makes its own requests, so adding locations uses the limit up faster.
+- The text after the colon starts with `ApiError`: AccuWeather returned an error. This is usually temporary.
+- The text after the colon starts with `ClientConnectorError`: Home Assistant can't reach the AccuWeather service.
+- "Timeout fetching ... data": AccuWeather didn't answer in time.
+
+#### Resolution
+
+1. Check that Home Assistant can reach the internet. The integration tries again automatically, and the entities become available again once AccuWeather responds.
+2. To see how many requests are left, go to {% my repairs title="**Settings** > **System** > **Repairs**" %}, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **System information**. Look for **Remaining allowed requests** in the AccuWeather section. If you added several locations, the value comes from one of them. It applies to all locations only if they use the same API key.
+3. If the requests are used up, wait until AccuWeather allows requests again. To prevent this, remove locations you don't need, or subscribe to a plan with a higher limit on the [AccuWeather APIs](https://developer.accuweather.com/) page. The entities become available again after the next successful update.
+
+{% enddetails %}
+
+{% details "Authentication failed, please update your API key" %}
+
+### Symptom: Home Assistant asks you to reauthenticate the AccuWeather integration
+
+Home Assistant asks you to reauthenticate the AccuWeather integration, or the log shows a message like "Authentication failed for Home, please update your API key". The name in the message is the name of your location.
+
+#### Description
+
+Your API key is no longer accepted by AccuWeather. This happens, for example, when the key was deleted or the application it belongs to was removed on the [AccuWeather APIs](https://developer.accuweather.com/) page.
+
+#### Resolution
+
+1. Check the **Subscriptions & Keys** section on the [AccuWeather APIs](https://developer.accuweather.com/) page. If the key is missing or no longer active, create a new one there.
+2. If Home Assistant shows a reauthentication prompt, select it and enter the new API key.
+
+{% enddetails %}
+
 ## Removing the integration
 
 This integration follows standard integration removal.
