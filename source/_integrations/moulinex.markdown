@@ -50,18 +50,7 @@ After setup, Home Assistant creates one {% term device %} for each compatible ap
 
 Each appliance provides the following sensors:
 
-- **State**: What the appliance is doing. This is the main sensor of the device, so it carries the name of the appliance. The possible states are:
-  - **Idle**: The appliance is on and nothing is running.
-  - **Ready**: A program is selected and waits to be started.
-  - **Preheating**: The appliance is heating up before the cooking starts.
-  - **Cooking**: The program is running.
-  - **Depressurizing**: The appliance is releasing the pressure at the end of a pressure cooking.
-  - **Keep warm**: The cooking is finished and the food is kept warm.
-  - **Done**: The program is finished or was stopped.
-  - **Paused**: The program is paused.
-  - **Delayed start**: A delayed start is programmed.
-  - **Stopped**: A recipe is open and waits for you to prepare the ingredients of the current step.
-  - **Alert**: The appliance shows a message on its screen and waits for you to act.
+- **State**: What the appliance is doing, such as preheating, cooking, releasing the pressure, or keeping the food warm. It is idle when the appliance is on and nothing is running. This is the main sensor of the device, so it carries the name of the appliance.
 - **Program**: The program that is selected or running, such as **High pressure** or **Browning**. It is unknown when no program is selected.
 - **Progress**: The progress of the preheating and of the pressure release, as a percentage. It is unknown during the rest of the program.
 
