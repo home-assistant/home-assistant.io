@@ -121,10 +121,6 @@ The appliance is turned off, unplugged, or out of reach of your Wi-Fi. The senso
 
 Check that you selected the region of your account. An account created for one brand and country is not known in another region, even when the email and the password are correct.
 
-### The account is locked or the email is not confirmed
-
-The cloud service locks an account for 15 minutes after several failed attempts. Wait before you try again. If the email address of the account was never confirmed, open the link in the confirmation email first. If a password reset is required, reset the password in the app, then set up the integration again.
-
 ## Removing the integration
 
 This integration follows standard integration removal.
