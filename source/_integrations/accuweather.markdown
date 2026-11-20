@@ -235,7 +235,7 @@ By default, the integration {% term polling polls %} the current weather conditi
 
 {% details "Failed to connect, Invalid API key, or request limit exceeded during setup" %}
 
-### Symptom: Setup shows Failed to connect, Invalid API key, or a request limit message
+### Symptom: Setup shows "Failed to connect", "Invalid API key", or a request limit message
 
 When you try to set up the integration, the form shows one of these messages:
 
