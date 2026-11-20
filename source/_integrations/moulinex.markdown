@@ -19,7 +19,7 @@ The following devices are known to be supported:
 - Cookeo Touch Mini WiFi
 - Cookeo Infinity
 
-Other Cookeo models that connect to Wi-Fi and are added to your account in the app, such as the Cookeo Wi-Fi 8-in-1, 9-in-1, and 10-in-1, are expected to work but have not been tested.
+Other Cookeo models that connect to Wi-Fi and are added to your account in the app, such as the Cookeo Wi-Fi 8-in-1, 9-in-1, and 10-in-1, are expected to work but have not been tested. The same goes for the connected Companion, which uses the same cloud service.
 
 ## Unsupported devices
 
@@ -110,7 +110,6 @@ The appliance pushes its state to Home Assistant as soon as it changes, so there
 - The integration only reports what the appliance is doing. You cannot start, stop, or configure a program from Home Assistant.
 - The sensors are unavailable while the appliance is turned off or not connected to Wi-Fi.
 - The appliance reports its progress in steps of about 5%, so the **Progress** sensor can stay on the same value for a few minutes at the beginning of the preheating.
-- The Moulinex Companion uses the same cloud service and is added when it is linked to your account, but it has not been tested.
 
 ## Troubleshooting
 
