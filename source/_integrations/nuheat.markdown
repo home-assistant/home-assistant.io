@@ -1,123 +1,112 @@
 ---
-description: Instructions on how to integrate your NuHeat Signature thermostats within Home Assistant.
+description: Connect your NuHeat floor-heating thermostats to Home Assistant and control schedules, temperature holds, and Standby.
 ha_release: 0.61
 ha_domain: nuheat
 ---
 
-The **NuHeat** {% term integration %} lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
+The **NuHeat** {% term integration %} connects your NuHeat account to Home Assistant. You can view thermostat temperatures, resume schedules, set temperature holds, and enter Standby.
 
-There is currently support for the following device types within Home Assistant:
+## Supported devices
 
-- Climate
+The integration has been tested with [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor-heating thermostats.
 
 ## Prerequisites
 
-First, you will need to obtain your thermostat's numeric serial number or ID by logging into [MyNuHeat.com](https://mynuheat.com/) and selecting your thermostat(s).
+- A NuHeat account with your thermostats already connected and working in the NuHeat app.
+- An internet connection for Home Assistant and your thermostats.
+- Home Assistant's [cloud integration](/integrations/cloud/), included in `default_config`, for official account linking.
 
 {% include integrations/config_flow.md %}
 
-## Concepts
+Follow the sign-in steps to authorize access to your NuHeat account. Home Assistant discovers the thermostats linked to that account; you do not need to enter each thermostat's serial number.
 
-The NuHeat Thermostat supports the following key concepts.
+### Reconnecting an existing NuHeat integration
 
-The `target temperature` is the temperature that the device attempts to achieve. The target temperature is either determined by the schedule programmed into the thermostat (`auto mode`) or may be overridden. When the target temperature is set by Home Assistant, the thermostat will hold this temperature until the schedule is resumed.
+If you previously used the username and password integration, reconnect it through the authorization flow:
 
-## Attributes
+1. [Create a Home Assistant backup](/common-tasks/general/#backups).
+2. Go to **Settings** > **Devices & services** and open the NuHeat entry that requires attention.
+3. Follow the reconnection prompt. In **Reconnect NuHeat**, confirm that you want to continue.
+4. Sign in to the NuHeat account that contains your existing thermostat and authorize access.
 
-The following attributes are provided by the NuHeat thermostat: `name`, `temperature_unit`, `current_temperature`, `target_temperature`, `current_hold_mode`, `current_operation`, `operation_list`, `min_temp` and `max_temp`.
+Home Assistant validates the account and thermostat before removing the stored legacy credentials. Matching legacy thermostat entries are consolidated into an account entry while preserving their entity and device identities and registry customizations.
 
-### Attribute `name`
+## Supported functionality
 
-Returns the name of the NuHeat Thermostat.
+Home Assistant creates one climate entity for each thermostat found during setup. Reload the integration to discover thermostats added later. The entity provides the current temperature, target temperature, heating activity, operating mode, and supported presets. Temperatures use Home Assistant's configured temperature unit.
 
-| Attribute type | Description |
-| ---------------| ----------- |
-| String | Name of the thermostat
+### Operating modes
 
-### Attribute `temperature_unit`
+- **Auto** resumes the thermostat's programmed schedule and cancels a hold or Manual operation.
+- **Heat** selects permanent hold, preserving the behavior of the previous integration.
+- **Off** enters NuHeat Standby. This uses Manual operation at 5 °C (41 °F) and retains frost protection. It does not disconnect power or guarantee that heating can never run.
 
-Returns the unit of measurement used for temperature by the thermostat.
+Turning the entity on resumes the schedule. Turning it off enters Standby. After cloud readback confirms Standby, the entity reports **Off** and does not display a target temperature. Setting a target temperature while off exits Standby into permanent hold at that target. To resume the schedule instead, turn the entity on.
 
-| Attribute type | Description |
-| ---------------| ----------- |
-| String | Name of the temperature unit
+### Presets
 
-### Attribute `current_temperature`
+- **Run Schedule** resumes the programmed schedule.
+- **Temporary Hold** holds the current target until the next scheduled event.
+- **Permanent Hold** maintains the current target indefinitely, until you select another preset or operating mode.
 
-Returns the current temperature measured by the thermostat.
+Permanent hold keeps the thermostat in automatic operation with its schedule overridden. Manual operation is a separate operating mode. If the cloud response cannot distinguish them, Home Assistant does not report a permanent-hold preset.
 
-| Attribute type | Description |
-| ---------------| ----------- |
-| Integer | Currently measured temperature
+### Changing the target temperature
 
-### Attribute `target_temperature`
+The result depends on the thermostat's current state:
 
-Returns the target temperature of the thermostat, when the thermostat is
-not in auto operation mode.
+- During scheduled operation, changing the target creates a hold until the next scheduled event.
+- During a timed hold, changing the target preserves the hold's end time.
+- During a permanent hold, changing the target keeps the indefinite hold.
+- During Manual operation, changing the target keeps Manual operation.
 
-| Attribute type | Description |
-| ---------------| ----------- |
-| Integer | Target temperature
+### Heating activity
 
-### Attribute `preset_mode`
+The entity reports **Heating** when the thermostat reports active heating, **Idle** when it is not heating, and **Off** in Standby.
 
-Returns the current temperature hold, if any.
+The standard climate actions also let you [set the operating mode](/actions/climate.set_hvac_mode/), [select a preset](/actions/climate.set_preset_mode/), and [change the target temperature](/actions/climate.set_temperature/).
 
-| Attribute type | Description |
-| ---------------| ----------- |
-| String | such as 'temperature', 'temporary_temperature', or 'auto'
+## NuHeat automation examples
 
-### Attribute `hvac_action`
+### Automation: control an existing thermostat
 
-Returns the current HVAC mode of the thermostat.
-
-| Attribute type | Description |
-| ---------------| ----------- |
-| String | 'heat', 'idle'
-
-### Attribute `preset_modes`
-
-Returns the list of available preset modes.
-
-| Attribute type | Description |
-| ---------------| ----------- |
-| List of String | Available preset modes
-
-### Attribute `min_temp`
-
-Returns the minimum supported temperature by the thermostat
-
-| Attribute type | Description |
-| ---------------| ----------- |
-| Integer | Minimum supported temperature
-
-### Attribute `max_temp`
-
-Returns the maximum supported temperature by the thermostat
-
-| Attribute type | Description |
-| ---------------| ----------- |
-| Integer | Maximum supported temperature
-
-## Using the thermostat in automations
-
-To control a NuHeat thermostat from an automation or a script, use the climate actions and select your NuHeat climate entity as the target.
-
-Available actions include:
-
-- [**Set thermostat HVAC mode**](/actions/climate.set_hvac_mode/): Set the thermostat to `auto` or `heat` mode.
-- [**Set thermostat preset mode**](/actions/climate.set_preset_mode/): Set the schedule hold mode. Available preset modes are `Run Schedule`, `Temporary Hold`, and `Permanent Hold`.
-- [**Set thermostat target temperature**](/actions/climate.set_temperature/): Set the target floor temperature.
-
-To use these actions from an automation or a script:
+To add thermostat control to an existing automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target**, select your NuHeat climate entity.
-6. From the actions shown for that target, select the thermostat action you want to use.
-7. Set the required fields.
-8. Select **Save**.
+6. From the actions shown for that target, select the thermostat action you want to use and set the required fields.
+7. Select **Save**.
 
-NuHeat thermostats do not have an off mode. To stop active heating, set the thermostat to its minimum temperature with the `heat` HVAC mode. This puts the thermostat in `Permanent Hold`, and it stops heating unless freeze protection is needed.
+Use the preset values `Run Schedule`, `Temporary Hold`, and `Permanent Hold` when editing a climate preset action in YAML. Operating-mode values are `auto`, `heat`, and `off`.
+
+## Data updates
+
+The integration polls the NuHeat cloud every five minutes. After a command, it also schedules a delayed read. Home Assistant displays the latest cloud-reported settings, so you may briefly see the previous value while the cloud updates. It does not automatically repeat the heating command.
+
+## Known limitations
+
+- The integration requires the NuHeat cloud; it does not provide local thermostat control.
+- The cloud API does not expose the thermostat's native minimum and maximum temperatures. Home Assistant uses fallback control limits of 7–35 °C, approximately 45–95 °F. These are not reported hardware limits. The separate Standby command uses 5 °C (41 °F).
+- The integration follows schedules stored by NuHeat. It does not edit the thermostat's schedule.
+- If schedule details are missing or conflicting, an implicit temperature change can be rejected rather than silently changing a hold to Manual. Select a preset or operating mode explicitly, then retry after the state updates.
+
+## Troubleshooting
+
+### Authorization needs to be renewed
+
+Open the NuHeat entry under **Settings** > **Devices & services** and follow the reauthentication prompt. In **Relink NuHeat**, sign in to the same NuHeat account used by that entry.
+
+### The thermostat becomes unavailable
+
+Check that the thermostat is online in the NuHeat app and that Home Assistant can reach the internet. Offline thermostats, thermostats temporarily omitted by the cloud, and failed cloud updates are represented as unavailable without deleting their entities.
+
+### Reconnection reports a different account
+
+Sign in to the NuHeat account that contains the original thermostat. Account validation failures leave the legacy configuration unchanged. If Home Assistant reports incomplete migration cleanup, follow the repair instructions. If it reports that rollback could not restore the configuration, stop retrying and restore the backup created before reconnection.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
