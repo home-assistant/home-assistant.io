@@ -145,6 +145,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **PowerDisk level**: A sensor displaying the remaining level in the detergent container in applicable dishwashers. If the device does not support this sensor, the value is shown as `Unknown`.
   - **Rinse aid level**: A sensor displaying the remaining level in the rinse aid container in dishwashers.
   - **Salt level**: A sensor displaying the remaining level in the salt container in dishwashers.
+  - **Grease filter saturation, charcoal filter saturation**: Two sensors displaying the saturation of the grease filter and the charcoal filter in cooker hoods.
 {% enddetails %}
 
 ### Switch
