@@ -368,6 +368,35 @@ The lines between devices show how they connect, and how well they can reach eac
 
 A connection without any recent signal is not drawn. A device that has no known route to Home Assistant is shown without a connection.
 
+## Importing a Thread network from a Matter border router
+
+Some {% term "Thread border routers" %} are Matter devices themselves, like Wi-Fi routers with a built-in Thread border router that support Matter's Network Infrastructure Manager device type. They can share the credentials of their {% term Thread %} network with Home Assistant. Once Home Assistant has the credentials, you can use the network like any other Thread network in Home Assistant, for example as your [preferred network](/integrations/thread/#making-a-network-your-preferred-network).
+
+When you add such a border router to Home Assistant, its device page has an **Import Thread network** button. Home Assistant does not read the credentials until you select it.
+
+### Prerequisites
+
+- The border router is added to Home Assistant as a Matter device.
+- The border router supports sharing its Thread network over Matter. This was introduced with Matter 1.4, and not every border router supports it. If the device page of your border router has no **Import Thread network** button, it does not support it.
+
+### To import the Thread network of a Matter border router
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Matter** integration, and open the device page of the border router.
+2. Under **Configuration**, next to **Import Thread network**, select **Press**.
+   - If you don't use the Thread integration yet, Home Assistant sets it up now.
+   - If Home Assistant already has different credentials for this network that are at least as new, nothing is imported, and you get a message saying so.
+3. To see the network, go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
+   - The **Network information** row on the network's card shows that Home Assistant has the credentials.
+
+### Keeping an imported network up to date
+
+After you have imported a network, Home Assistant keeps its credentials up to date. When a border router of that network changes the network's settings, for example its channel, Home Assistant reads the new credentials from the border router.
+
+- This applies only to networks that you imported with the **Import Thread network** button. Home Assistant does not read the credentials of any other Thread network from your border routers.
+- If Home Assistant already had the credentials of the network from somewhere else, for example from the OpenThread Border Router app, the import updates them once. Home Assistant then does not keep them up to date from the Matter border router.
+- Some border routers do not report which Thread network they are on. Home Assistant keeps the credentials of their network up to date only until the Matter integration is reloaded, for example when Home Assistant restarts. To continue, select **Import Thread network** again.
+- If reading the credentials fails, Home Assistant tries again a few times, and then every 15 minutes.
+
 ## Matter OTA device updates
 
 The Matter protocol supports OTA (Over-the-Air) software updates. But the OTA software update is an optional feature for Matter devices, so not all Matter devices implement it. Home Assistant creates an update entity for every Matter device which does support Matter updates.
