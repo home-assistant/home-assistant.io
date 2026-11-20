@@ -19,6 +19,9 @@ Discovery cannot reach lights on a different subnet or VLAN, or on a network tha
 
 Repeat these steps for each light you want to add.
 
+
+You can also enter the IP address of a light that was already discovered automatically. The light then becomes a manually configured light, shown under its own entry.
+
 {% configuration_basic %}
 "IP address":
     description: "The IP address of the Govee light to add. Give the light a static IP address or a DHCP reservation so the address does not change."
