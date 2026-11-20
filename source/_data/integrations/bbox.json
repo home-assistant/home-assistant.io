@@ -10,6 +10,8 @@
   "connectivity": [
     "network"
   ],
+  "config_flow": true,
+  "integration_type": "hub",
   "platforms": [
     "device_tracker",
     "sensor"
