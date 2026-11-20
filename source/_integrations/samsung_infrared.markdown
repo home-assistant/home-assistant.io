@@ -74,7 +74,7 @@ Available when **TV** is selected as the device type.
 
 - **Samsung TV**: Represents the Samsung TV and allows you to control it via IR commands. Supported features include turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, stop, and source selection (TV, HDMI 1, HDMI 2, HDMI 3, HDMI 4).
 
-## Examples
+## Samsung Infrared automation examples
 
 The integration can be used to manually control a device (using buttons on a dashboard or voice commands) or automatically issue commands using automations.
 
@@ -82,10 +82,15 @@ The integration can be used to manually control a device (using buttons on a das
 
 ### Automation: Turn off the TV when nobody is in the same room
 
-If you pair the Samsung Infrared integration with a smart plug with power monitoring capabilities, you can detect whether a TV is on (see the section on "Limitations") and turn it off when no one is in the room.
+If you pair the Samsung Infrared integration with a smart plug with power monitoring capabilities, you can detect whether a TV is on (see the **Known limitations** section) and turn it off when no one is in the room.
 
- - **Trigger**: Motion Sensor: Become not occupied
- - **Action**: If TV is on, press power button. 
+- **Trigger**: Occupancy cleared
+  - **Target**: Living room occupancy sensor
+  - **For at least**: 00:15:00
+- **Condition**: Power value (above 10 W for at least 1 minute)
+  - **Target**: TV power sensor
+- **Action**: Press button
+  - **Target**: Samsung TV power button
 
 {% details "YAML example for turning off the TV when the room is empty" %}
 
@@ -94,7 +99,7 @@ alias: "Turn TV off if the room is empty"
 triggers:
   - trigger: occupancy.cleared
     target:
-      entity_id: binary_sensor.living_room_motion_sensor
+      entity_id: binary_sensor.living_room_occupancy
     options:
       for:
         minutes: 15
@@ -113,10 +118,8 @@ conditions:
           unit_of_measurement: W
 actions:
   - action: button.press
-    metadata: {}
     target:
       entity_id: button.samsung_tv_power
-    data: {}      
 {% endexample %}
 
 {% enddetails %}
@@ -126,9 +129,9 @@ actions:
 You could also configure an automation to turn a TV on in the morning.
 
  - **Trigger**: Time: It is 9:00 am
- - **Action**: Press power button
+- **Action**: Press button
 
-{% details "YAML example for turning on the TV at 09:00 everyday" %}
+{% details "YAML example for turning on the TV at 09:00 every day" %}
 
 {% example %}
 triggers:
@@ -170,7 +173,7 @@ In the Device info page, all buttons are greyed out and the "Activity" panel sho
 
 #### Description
 
-The integration will only work if an functional Infrared Proxy Transmitter is configured and enabled.
+The integration only works if a functional infrared transmitter is configured and enabled.
 
 #### Resolution
 
