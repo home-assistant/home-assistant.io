@@ -296,7 +296,6 @@ Your API key is no longer accepted by AccuWeather. This happens, for example, wh
 
 1. Check the **Subscriptions & Keys** section on the [AccuWeather APIs](https://developer.accuweather.com/) page. If the key is missing or no longer active, create a new one there.
 2. If Home Assistant shows a reauthentication prompt, select it and enter the new API key.
-3. Otherwise, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **AccuWeather**, select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and select **Reconfigure**. Enter the new API key. The location of the entry stays the same.
 
 {% enddetails %}
 
