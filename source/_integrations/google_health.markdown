@@ -15,6 +15,10 @@ The **Google Health** {% term integration %} allows you to expose health and fit
 
 ## Prerequisites
 
+{% important %}
+If your Google Account is enrolled in the [Advanced Protection Program](https://support.google.com/accounts/answer/7539956), you cannot use the setup described below. Advanced Protection blocks unverified apps from accessing sensitive account data, including your Google Health data. Publishing your OAuth app does not verify it.
+{% endimportant %}
+
 You need to configure developer credentials to allow Home Assistant to access your Google Account. These credentials are the same as the ones for [Google Photos](/integrations/google_photos), [Nest](/integrations/nest), [Google Tasks](/integrations/google_tasks), and [Google Mail](/integrations/google_mail).
 
 {% include integrations/google_client_secret.md %}

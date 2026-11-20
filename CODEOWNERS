@@ -2464,6 +2464,7 @@ source/_triggers/geo_location.markdown @home-assistant/core
 source/_triggers/homeassistant.host_reboot_required.markdown @home-assistant/core
 source/_triggers/homeassistant.markdown @home-assistant/core
 source/_triggers/homeassistant.restart_required.markdown @home-assistant/core
+source/_triggers/homeassistant.updated.markdown @home-assistant/core
 source/_triggers/humidifier.mode_changed.markdown @home-assistant/core @Shulyaka
 source/_triggers/humidifier.started_drying.markdown @home-assistant/core @Shulyaka
 source/_triggers/humidifier.started_humidifying.markdown @home-assistant/core @Shulyaka

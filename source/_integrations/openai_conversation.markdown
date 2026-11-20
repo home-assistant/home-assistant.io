@@ -4,7 +4,7 @@ ha_release: 2023.2
 ha_domain: openai_conversation
 related:
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing entities to Assist
+    title: Exposing entities to voice assistants
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Create an AI personality
   - url: https://platform.openai.com/account/api-keys
@@ -17,7 +17,7 @@ The **OpenAI** {% term integration %} adds conversation agents, AI tasks, speech
 
 Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/triggers/conversation/).
+When you talk to an OpenAI conversation agent through an {% term assistant %}, Home Assistant first checks your [sentence triggers](/triggers/conversation/). If one of them matches, the sentence trigger answers, and the conversation agent doesn't get the sentence. Sentence triggers don't run when you call the conversation agent directly, for example with the `conversation.process` action. They also don't run when you answer a follow-up question from the conversation agent.
 
 This integration requires an API key to use, [which you can generate here.](https://platform.openai.com/account/api-keys). This is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
 

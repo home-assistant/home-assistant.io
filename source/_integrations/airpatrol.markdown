@@ -47,6 +47,10 @@ The integration will create the following sensors for each air conditioning syst
 - **Humidity**: Shows the current humidity in the room.
 
 
+## Data updates
+
+The integration {% term polling polls %} the Airpatrol cloud every minute.
+
 ## Known limitations
 
 

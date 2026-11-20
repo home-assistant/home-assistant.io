@@ -4,13 +4,19 @@ title: "Troubleshooting Assist"
 
 This section lists a few steps that may help you troubleshoot issues with Assist. 
 
-## View debug information
+## Viewing debug information
+
+The debug information shows each recent run of an {% term assistant %}. For each run, you see what the assistant heard, how it understood the sentence, which entities it targeted, and how it responded.
 
 1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
-2. From the list of assistants, go to your assistant and select **Debug** in the dialog.
-![Open the debug dialog](/images/assist/assistant-debug-03.png)
-3. At the top of the screen, from the dropdown menu, select the run you are interested in.
-![Debug speech-to-text](/images/assist/assistant-debug-02.png)
+2. Next to your assistant, select the three dots {% icon "mdi:dots-vertical" %}, then select **Debug**.
+   ![Screenshot of the assistant menu with the Debug option](/images/assist/assistant-debug-03.png)
+3. At the top of the page, select the run you're interested in.
+   - The list shows the date and time of each run. To step through the runs, select **Older run** {% icon "mdi:ray-end-arrow" %} or **Newer run** {% icon "mdi:ray-start-arrow" %}.
+   - Result: The page shows each stage of the run, such as speech-to-text, natural language processing, and text-to-speech.
+   ![Screenshot of a debug run with the speech-to-text stage](/images/assist/assistant-debug-02.png)
+
+If the page says **No runs found**, the assistant didn't receive anything. Check that your device or the Assist dialog uses this assistant.
 
 ## Test a sentence per language without voice: without executing commands
 
@@ -24,23 +30,28 @@ If you want to test if a sentence works in a specific language without actually 
    - Which of the targeted entities were matched.
 ![Open the Assist developer tool sentence parser](/images/assist/assistant-debug-06.png)
 
-## Test a sentence per assistant without voice: while executing the commands
+## Testing a sentence with an assistant
 
-If you want to test if a sentence works with a specific assistant while actively executing the commands, use the sentence parser in the **Debug** view.
+To test a sentence with a specific assistant and its conversation agent, run it from the debug view. Unlike the sentence parser, this runs the command. For example, if you test "Turn on the kitchen light", the kitchen light turns on.
 
-1. [Open the debug view](#view-debug-information).
-2. In the top right corner, select the icon.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-04.png)
+1. [Open the debug information](#viewing-debug-information) of your assistant.
+2. In the upper-right corner, select **Start debug run** {% icon "mdi:microphone-message" %}.
+   ![Screenshot of the debug page with the Start debug run button](/images/assist/assistant-debug-04.png)
 3. Select the assistant you want to test.
 4. Select **Run text pipeline**.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-01.png)
-5. Enter the phrase you want to test and select **Run**.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-02.png)
-6. Check if it worked.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-03.png)
-   - If the phrase does not work, try a variant. For example, if *Turn off the light* doesn't work, try: *Turn off the lights in the kitchen*.
-   - Check if your phrase is [supported](/voice_control/builtin_sentences/).
-   - Make sure you are using the name of the area as it is defined in Home Assistant. If you have a room called *bathroom*, the phrase *Turning on the lights in the bath* won’t work.
+   ![Screenshot of the Run text pipeline button](/images/assist/assistant-debug-pipeline-01.png)
+5. Under **Input text**, enter the sentence you want to test, and select **Run**.
+   ![Screenshot of the dialog to enter the sentence](/images/assist/assistant-debug-pipeline-02.png)
+6. Check the result.
+   - Result: You see each stage of the run, including the response of the assistant.
+   - To continue the conversation, enter your reply under **Response**, and select **Send**.
+   ![Screenshot of the result of a text pipeline run](/images/assist/assistant-debug-pipeline-03.png)
+
+If the sentence doesn't work, try the following:
+
+- Try a variant of the sentence. For example, if "Turn off the light" doesn't work, try "Turn off the lights in the kitchen".
+- If your assistant uses the built-in **Home Assistant** conversation agent, check if the sentence is [supported by the built-in sentences](/voice_control/builtin_sentences/).
+- Use the names of your entities and areas exactly as they're defined in Home Assistant. For example, if your area is called "Bathroom", the sentence "Turn on the lights in the bath" doesn't work. To use other names, [add aliases](/voice_control/aliases/).
 
 ## I do not see any assistant
 
@@ -113,54 +124,3 @@ To fix the URL, follow these steps:
 
 ### Missing Media Source
 If you are using YAML configuration and do not have `default_config:` make sure `media_source:` is present.
-
-## Tweaking the Assist audio configuration for your device
-
-You think there is an issue with background noise or speaker volume? In some cases, it can help to tweak settings such as noise suppression and gain of your voice assistant device (such as the S32-S3-BOX-3).
-
-### To tweak the Assist audio configuration for your device
-
-1. Make sure you have the ESPHome app (formerly known as an add-on) installed:
-   - Go to {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}.
-   - If you do not have the **ESPHome** app installed, install it.
-2. Start the ESPHome app, and select **Open Web UI**.
-3. Adopt your device to the ESPHome app:
-   - Once the ESPHome app is started, you see your device as **Discovered**.
-   - Select **Adopt**.
-   - When prompted, enter the Network credentials of your local 2.4 GHz Wi-Fi network and select **Adopt**.
-
-4. If you see a notification that there is an update available for this device, select **Update**.
-5. Make sure you have access to the configuration file.
-   - If you are unsure what method to use, [install the File editor](/common-tasks/os/#installing-and-using-the-file-editor-app) app.
-   - In the File Editor configuration, make sure the **Enforce basepath** option is disabled.
-6. Edit the general configuration to enable debug mode:
-   - Access the `config` folder and open the `configuration.yaml` file.
-   - Enter the following text:
-
-      ```yaml
-      assist_pipeline:
-         debug_recording_dir: /share/assist_pipeline
-      ```
-
-7. Save the changes and restart Home Assistant.
-8. Navigate to `/share/assist_pipeline`.
-   - For each voice command you gave, you will find a subfolder with the audio file in `.wav` format.
-9. Listen to the audio file of interest.
-10. Open the configuration file:
-    - In the ESPHome app, on your device, select **Edit**.
-    - This lets you edit the configuration file of that device.
-11. To add a section to adjust noise suppression and volume, add the following lines:
-
-      ```yaml
-      voice_assistant:
-         noise_suppression_level: 3
-         auto_gain: 31dBFS
-         volume_multiplier: 10.0
-      ```
-
-12. Adjust the settings:
-    - If the audio is too noisy, increase the `noise_suppression_level` (max.&nbsp;4).
-    - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
-13. Note: Collecting debug recordings impacts your disk space.
-    - Once you have found a configuration that works, delete the folder with the audio files.
-    - In the `configuration.yaml` file, delete the `assist_pipeline` entry and restart Home Assistant.
