@@ -19,7 +19,7 @@ The following devices are known to be supported:
 - Cookeo Touch Mini WiFi
 - Cookeo Infinity
 
-Other Cookeo models that connect to Wi-Fi and are added to your account in the app, such as the Cookeo Wi-Fi 8-in-1, 9-in-1, and 10-in-1, are expected to work but have not been tested.
+The other Cookeo models that connect to Wi-Fi, the Cookeo 9-in-1, 10-in-1, and Infinity Autostir, are expected to work but have not been tested. The same appliances are sold as Cook4me by Tefal and Krups.
 
 ## Unsupported devices
 
