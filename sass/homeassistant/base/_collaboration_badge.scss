@@ -6,8 +6,9 @@
     border: 1px solid rgba(255, 255, 255, 0.03);
     display: flex;
     gap: 20px;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 12px;
+    width: fit-content;
 
     @media (min-width: 768px) {
         padding: 8px 24px;
