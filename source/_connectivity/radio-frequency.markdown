@@ -1,7 +1,7 @@
 ---
 title: "Radio frequency"
 connectivity: rf
-description: "Control radio frequency devices, like remote outlets, garage doors, and string lights, from Home Assistant with a radio frequency remote adapter."
+description: "Radio frequency control uses radio signals to send commands to devices such as remote outlets and garage doors. These signals can pass through walls."
 related:
   - docs: /integrations/radio_frequency/
     title: Radio Frequency integration

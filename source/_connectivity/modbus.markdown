@@ -1,7 +1,7 @@
 ---
 title: "Modbus"
 connectivity: modbus
-description: "Connect devices with a Modbus interface, like solar inverters, heat pumps, and ventilation units, to Home Assistant over the network or a serial connection."
+description: "Modbus is a protocol for exchanging data and commands over a network or serial connection. It is common in solar inverters, heat pumps, and ventilation units."
 related:
   - docs: /integrations/modbus/
     title: Modbus integration
