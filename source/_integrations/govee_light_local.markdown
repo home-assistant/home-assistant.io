@@ -14,7 +14,7 @@ To enable local control on your Govee device, refer to the instructions availabl
 
 Discovery cannot reach lights on a different subnet or VLAN, or on a network that filters multicast traffic. You can add such lights manually by their IP address. Each manually added light is stored as its own entry under the integration.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Govee light local** integration.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Govee lights local** integration.
 2. Select **{% icon "mdi:plus" %} Add device** and enter the IP address of the light.
 
 Repeat these steps for each light you want to add.
@@ -35,7 +35,7 @@ Give the light a static IP address or a DHCP reservation in your router. If the 
 
 If a manually added light has received a new IP address, you can update it without removing the light:
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Govee light local** integration.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Govee lights local** integration.
 2. Each manually added light is shown as its own entry. Open the menu {% icon "mdi:dots-vertical" %} of the entry and select **Reconfigure**.
 3. Enter the new IP address.
 
