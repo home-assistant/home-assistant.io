@@ -3,7 +3,7 @@ title: Zentraly
 description: Instructions on how to integrate Zentraly devices with Home Assistant.
 ha_categories:
   - climate.thermostats_heating
-ha_release: "2026.11"
+ha_release: "2026.12"
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_zeroconf: true
@@ -40,6 +40,8 @@ Zentraly thermostats must be discovered automatically before they can be added t
 3. Enter the device password from the **About device** section in the Zentraly app and submit the form.
 
 Home Assistant verifies the connection and password before adding the thermostat.
+
+If the thermostat's IP address or port changes, Home Assistant updates its connection details when it receives a new Zeroconf announcement for the same device and reconnects automatically.
 
 If the thermostat does not appear, check that third-party connections are enabled and that Home Assistant and the thermostat are on the same local network. Adding an undiscovered thermostat manually or entering its IP address is not supported.
 
@@ -111,7 +113,7 @@ Zentraly uses a local WebSocket connection to receive state updates reported by 
 
 Home Assistant also reads the device state every five minutes as a synchronization fallback. If you disable polling in the integration's system options, these periodic reads stop. Device reports and state refreshes on startup and reconnection continue.
 
-Hardware and firmware versions are read when the integration loads, including initial setup, Home Assistant startup, and integration reload, and when the device reconnects. There are no periodic version reads or a dedicated manual version refresh. If a version cannot be read, Home Assistant retains its previously known value. Missing version information does not prevent setup or reconnection.
+Hardware and firmware versions are read when the integration loads, including initial setup, Home Assistant startup, and integration reload, and when the device reconnects. There are no periodic version reads or a dedicated manual version refresh. If a version cannot be read, Home Assistant retains its previously known value. A failed version read does not prevent setup or reconnection, or make an otherwise responding thermostat unavailable.
 
 All communication between Home Assistant and the Zentraly device takes place over the local network.
 
