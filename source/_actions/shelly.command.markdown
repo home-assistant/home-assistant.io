@@ -83,7 +83,7 @@ params:
 
 ## Response data
 
-This action can return the response from the device, exactly as the device sent it. The contents depend on the command, so the fields vary from one command to another. If a command returns nothing, the response is empty.
+This action can return the response from the device. The contents depend on the command, so the fields vary from one command to another. If the device returns nothing, the response is an empty mapping (`{}`).
 
 Using the response is optional. To capture it, set a `response_variable` and use it in a later step. This example lists the Wi-Fi networks that the device can see, with their signal strength:
 
