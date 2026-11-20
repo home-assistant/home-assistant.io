@@ -1743,7 +1743,7 @@ section#collaboration .card .partner {
   font-weight: 300;
   align-items: center;
   display: flex;
-  gap: 8px;
+  gap: 24px;
   font-size: 16px;
   margin-bottom: 12px;
 }
@@ -1756,7 +1756,7 @@ section#collaboration .card .partner {
 }
 
 section#collaboration .card .partner img {
-  height: 24px;
+  height: 20px;
   border-radius: 0;
 }
 
@@ -1782,6 +1782,12 @@ section#collaboration .card .card-inner {
 
 section#collaboration .card .card-inner p {
   font-size: 16px;
+}
+
+section#collaboration .card .card-inner p a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .spin-section {
