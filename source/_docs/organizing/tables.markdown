@@ -50,7 +50,7 @@ Filters narrow the table down, so you only see the items that match.
 
 3. To change how a filter matches, use the toggles at the top of the filter. For example, you can show everything _except_ what you picked, or only the items that have _all_ of your picks. These options are explained below.
 
-The **With** and **Without** toggle described below is also available in the filters on other pages, such as **History**, **Logbook**, and **Settings** > **System** > **Logs**.
+The **With** and **Without** toggle described below is also available in the filters on other pages, such as **History**, **Logbook**, and **Settings** > **System** > **Logs**. On the **Logs** page, the raw logs can't leave out integrations. After you select **Show raw logs**, you can't switch the **Integrations** filter to **Without**, and a **Without** selection you made before is not applied.
 
 ### Finding items without an area, label, or other value
 
