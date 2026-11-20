@@ -290,6 +290,8 @@ UniFi Protect reports what happens at an Alarm Hub as events. The Alarm Hub ther
 - **Inputs**: An event entity for each enabled input. Its name uses the input name configured in UniFi Protect, or _Input_ followed by the number of its terminal. The emergency input has no entity of its own. Its events arrive on the Alarm Hub entity. See [Alarm Hub Input Event](#alarm-hub-input-event).
 - **Alarm Hub**: An event entity named after the Alarm Hub, for events of the hub itself, such as an opened cover, a low backup battery, or a switched relay. See [Alarm Hub Event](#alarm-hub-event).
 
+Inputs enabled, disabled, or renamed in UniFi Protect are picked up when the integration is reloaded. Until then, the events of a newly enabled input arrive on the Alarm Hub entity.
+
 ### NVR
 
 Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device also gets several entities that can be used for tracking and controlling your UniFi Protect system:
