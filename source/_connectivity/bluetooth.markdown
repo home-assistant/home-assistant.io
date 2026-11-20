@@ -1,7 +1,7 @@
 ---
 title: "Bluetooth"
 connectivity: bluetooth
-description: "Connect Bluetooth Low Energy devices to Home Assistant with a Bluetooth adapter or a Bluetooth proxy."
+description: "Bluetooth is a short-range wireless technology. Sensors, locks, and plant monitors often use its low-power version, Bluetooth Low Energy."
 related:
   - docs: /integrations/bluetooth/
     title: Bluetooth integration

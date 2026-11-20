@@ -1,7 +1,7 @@
 ---
 title: "Serial"
 connectivity: serial
-description: "Connect devices with a serial port, like AV receivers, projectors, and smart meters, to Home Assistant."
+description: "Serial is a wired connection that sends data one bit at a time. Devices such as AV receivers, projectors, and smart meters use serial connections."
 related:
   - docs: /integrations/esphome/#about-esphome-remote-adapters-proxies
     title: ESPHome remote adapters (proxies)

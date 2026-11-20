@@ -1,7 +1,7 @@
 ---
 title: "Thread"
 icon: "cbi:thread-net"
-description: "Connect Thread devices, like sensors, switches, and locks, to Home Assistant through a Thread border router."
+description: "Thread is a low-power wireless mesh networking technology for devices such as sensors and switches. Devices use protocols such as Matter or Apple HomeKit for control."
 related:
   - docs: /integrations/thread/
     title: Thread integration

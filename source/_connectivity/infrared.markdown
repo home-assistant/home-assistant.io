@@ -1,7 +1,7 @@
 ---
 title: "Infrared"
 connectivity: infrared
-description: "Control infrared devices, like TVs and air conditioners, from Home Assistant with an infrared remote adapter."
+description: "Infrared uses invisible light to send commands to devices such as TVs and air conditioners. It needs a clear line of sight."
 related:
   - docs: /integrations/infrared/
     title: Infrared integration
