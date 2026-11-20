@@ -101,6 +101,7 @@ In addition to the certified devices, the following devices are also supported:
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini EU](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
+- Outdoor Plug EU (W1186)
 - [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 
 ### Cover
@@ -222,6 +223,17 @@ Features:
 - get voltage
 - get current
 - get electricity consumption
+
+#### Outdoor Plug EU
+
+This is an encrypted device with one switch and separate consumption and production measurements.
+
+Features:
+
+- Turn on or off
+- Monitor voltage
+- Monitor consumption current, power, and energy
+- Monitor production current, power, and energy
 
 #### Relay Switch 1
 
