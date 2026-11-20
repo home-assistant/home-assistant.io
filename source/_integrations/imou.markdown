@@ -6,7 +6,7 @@ ha_domain: imou
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
 
-Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates alarm control panel, button, switch, siren, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
+Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates alarm control panel, button, switch, siren, select, binary sensor, sensor, number, and date/time entities. See [Supported functionality](#supported-functionality) for the full list.
 
 ## Use cases
 
@@ -14,6 +14,7 @@ Channel devices expose **Live view SD** and **Live view HD** camera entities. De
 - See whether a camera, gateway, or plug is online, sleeping, or upgrading.
 - Arm or disarm a supported gateway.
 - Turn a supported plug on or off, and read its power use.
+- Set when a supported plug should turn off, and cap its max power.
 - Get a notification when a supported door or window contact opens.
 
 ## Supported devices
@@ -155,6 +156,18 @@ On supported PTZ cameras with saved presets:
 When the cloud API reports that a contact state is supported for a device, the integration exposes the following binary sensor entity:
 
 - **Door**: Open or closed state of a door or window contact on supported devices.
+
+### Date/time
+
+When the cloud API reports that a countdown timer is supported for a smart plug, the integration exposes the following date/time entity under **Configuration**:
+
+- **Turn off at**: When the plug will turn off. Set a future date and time; Home Assistant sends the remaining minutes to Imou. The entity keeps that end time so the UI can show remaining time without rewriting state every minute.
+
+### Numbers
+
+When the cloud API reports that the setting is supported for a device, the integration exposes the following number entity under **Configuration**:
+
+- **Max power**: Maximum power in watts for a supported smart plug.
 
 ### Sensors
 
