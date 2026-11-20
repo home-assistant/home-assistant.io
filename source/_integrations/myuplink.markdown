@@ -46,6 +46,28 @@ The integration configuration will require the **Client ID** and **Client Secret
 The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink](https://myuplink.com/works-with).
 However, the representation in Home Assistant depends on how and to what extent the manufacturer has implemented the service.
 
+## Supported functionality
+
+Each device in your myUplink account, such as a heat pump or a control module, becomes a device in Home Assistant, named after its myUplink system. Which entities you get depends on the model and on what the manufacturer makes available in myUplink, so the list differs between installations.
+
+### Entities for every device
+
+- **Connectivity** (binary sensor): Whether the device is connected to myUplink.
+- **Firmware** (update): The installed and the latest available firmware version. Firmware is updated through myUplink, not from Home Assistant.
+- **Alarm** (binary sensor): On when the system has an active alarm. There is one per myUplink system, on its first device.
+
+### Entities from data points
+
+Every data point that myUplink reports for a device becomes an entity. The type is chosen from what the data point says about itself:
+
+- **Switch**: A data point that can only be off or on, and can be changed.
+- **Binary sensor**: A data point that can only be off or on, but is read-only.
+- **Select**: A data point with a list of options that can be changed.
+- **Number**: A data point with a minimum and a maximum value that can be changed.
+- **Sensor**: Everything else that has a numeric value, such as temperatures, energy, and operating times.
+
+Entity names come from myUplink, for example "Room temperature (BT50)". Some common data points, such as status, priority, compressor status, and fan mode, show a translated state. For those, a disabled "raw" sensor holds the original value. Energy log sensors are disabled by default. Data points used for scheduling are left out.
+
 ## Use cases
 
 Common use cases include:
