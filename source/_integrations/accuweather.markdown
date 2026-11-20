@@ -231,6 +231,11 @@ automation: |
 
 By default, the integration {% term polling polls %} the current weather condition data from the AccuWeather API every 10 minutes, daily forecast data every 6 hours, and hourly forecast data every 30 minutes.
 
+## Known limitations
+
+- AccuWeather matches the coordinates you select on the map to one of its locations. You can add each AccuWeather location only once, so you cannot add two points on the map that match the same AccuWeather location.
+- Your AccuWeather plan limits the number of API requests. Each configured location makes its own requests, at the intervals described in [Data updates](#data-updates). When the limit is reached, the entities become unavailable. They become available again at the next data update after AccuWeather resets the limit.
+
 ## Troubleshooting
 
 {% details "Failed to connect, Invalid API key, or request limit exceeded during setup" %}
