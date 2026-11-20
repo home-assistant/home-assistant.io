@@ -40,6 +40,12 @@ Subdivision of country:
   required: false
 Additional category as holiday:
   description: Additional holiday categories to include. Check the supported categories for each country in the [holidays library webpage](https://pypi.org/project/holidays/). Available under **Country settings**.
+Include Sundays as holidays:
+  description: Adds all Sundays to the holidays of the country. Only shown for countries that support it, such as Sweden and Norway. By default, off. Available under **Country settings**.
+Mark estimated Islamic holidays:
+  description: Adds "estimated" to the name of Islamic holidays that have an estimated date. Only shown for countries that support it. The default depends on the country. Available under **Country settings**.
+Mark estimated Hindu holidays:
+  description: Adds "estimated" to the name of Hindu holidays that have an estimated date. Only shown for countries that support it, such as Bhutan. By default, on. Available under **Country settings**.
 {% endconfiguration_basic %}
 
 {% important %}
