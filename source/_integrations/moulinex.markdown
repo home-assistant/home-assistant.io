@@ -125,16 +125,6 @@ Check that you selected the region of your account. An account created for one b
 
 The cloud service locks an account for 15 minutes after several failed attempts. Wait before you try again. If the email address of the account was never confirmed, open the link in the confirmation email first. If a password reset is required, reset the password in the app, then set up the integration again.
 
-## Migrating from the Cookeo custom integration
-
-This integration replaces the `cookeo` custom integration. Because it uses another domain, the configuration is not moved over:
-
-1. Remove the Cookeo entry in {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Remove the custom integration, for example in HACS, and restart Home Assistant.
-3. Set up the **Moulinex** integration.
-
-The entities get new entity IDs, so update your automations and dashboards. The history of the old entities is not carried over.
-
 ## Removing the integration
 
 This integration follows standard integration removal.
