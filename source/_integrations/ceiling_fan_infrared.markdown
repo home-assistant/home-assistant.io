@@ -16,7 +16,7 @@ ha_platforms:
 
 The **Ceiling Fan Infrared** {% term integration %} lets you control a ceiling fan that comes with an infrared remote, using any infrared emitter that has been previously configured in Home Assistant.
 
-Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the fan, but there is no feedback channel to confirm the current state of the fan. The integration therefore uses assumed states.
+Infrared only sends commands in one direction. The fan can't report its current state back to Home Assistant, so the integration assumes the state based on the last command it sent.
 
 ## How you can use the integration
 
@@ -28,11 +28,11 @@ These are the screw-in fan lights (E27 fan lights) and similar ceiling fans that
 
 ### Identifying a supported remote
 
-The remote has 14 keys. This integration uses the 9 keys that control the fan and the light: a fan toggle, three fan speeds, a light toggle, brightness up and down, and color warmer and cooler. The timer, natural wind and M keys are not supported yet.
+The remote has 14 keys. This integration currently uses the 4 keys that control the fan: a fan toggle and three fan speeds. The remote's light keys (a light toggle, brightness up and down, and color warmer and cooler) and its timer, natural wind, and M keys are not supported yet.
 
-The light must be a cold/warm white light. Remotes for the models with an RGB light use a different code set and are not supported.
+Remotes for the models with an RGB light use a different code set and are not supported.
 
-If your remote has this key layout, the integration works as-is. If your remote has different keys, the fan uses a different code set, which this integration does not support yet.
+If your remote has this key layout, the integration works with it. If your remote has different keys, your fan uses a different code set, which this integration does not support yet.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ If you replace your infrared emitter, or want the fan controlled by a different 
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Find the **Ceiling Fan Infrared** integration and select it.
-3. Next to the fan, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+3. Next to the **Ceiling fan via …** entry you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
 4. Select the new infrared emitter and select **Submit**.
 
 The fan entity and its entity ID stay the same, so your dashboards and automations keep working.
@@ -69,7 +69,7 @@ The **Ceiling Fan Infrared** integration provides the following entity.
 - **Fan**
   - **Description**: Represents the ceiling fan and allows it to be controlled using infrared (IR) commands.
   - **Supported features**: Turn on, turn off, and set the fan speed.
-  - **Remarks**: The original remote has a single key to toggle the fan on and off. Turning the fan on or off sends that toggle key, but only when Home Assistant considers the state to be changing. The assumed state is remembered across restarts and reloads, so the fan is not toggled unexpectedly after a restart.
+  - **Remarks**: The original remote has a single key to toggle the fan on and off, and one key for each of the three speeds (33 %, 66 %, and 100 %). Turning the fan on or off sends the toggle key, but only when Home Assistant considers the state to be changing. Until you send the first command, the on or off state is unknown. After that, the assumed state is remembered across restarts and reloads, so the fan is not toggled unexpectedly after a restart. Setting the speed to 0 % turns the fan off.
 
 ## Ceiling Fan Infrared automation examples
 
@@ -104,6 +104,8 @@ automation: |
 ## Known limitations
 
 The integration uses assumed state, meaning Home Assistant cannot read the actual state of the fan (for example, whether it is on or off, or what the current speed is). If the fan is also controlled with the original remote, Home Assistant is not aware of those changes.
+
+Each infrared emitter can control only one ceiling fan in Home Assistant.
 
 The light of the ceiling fan is not supported yet.
 
