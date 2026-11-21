@@ -55,6 +55,8 @@ The integration also provides the following sensors for the current weather at y
 
 3. The provider only has data for Belgium, Luxembourg and The Netherlands. 
 
+{% include integrations/actions.md %}
+
 ## Data updates
 
 The integration {% term polling polls %} weather data every 7 minutes by default.
