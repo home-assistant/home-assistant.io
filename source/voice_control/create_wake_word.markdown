@@ -33,7 +33,7 @@ Enabling a wake word consists of 2 steps:
 ### Prerequisites
 
 - Home Assistant version 2023.10 or later, installed with the Home Assistant Operating System
-- Assist configured either with [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
+- Assist configured either with [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
 - All the [Best Practices](/voice_control/best_practices) we recommend.
 
 ### Installing the openWakeWord app
@@ -54,7 +54,7 @@ Enabling a wake word consists of 2 steps:
 3. Give your assistant a name, for example the wake word you are going to use.
 4. Select the language you are going to use to speak to Home Assistant.
    - If the **Text-to-speech** and **Speech-to-text** sections do not provide language selectors, this means you do not have an Assist pipeline set up.
-   - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
+   - Set up [Home Assistant Link](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
 5. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
 6. To define the wake word engine, in the top-right corner of the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Add streaming wake word**.
    - Troubleshooting: If you don't see the three dots {% icon "mdi:dots-vertical" %} menu, go to {% my integrations title="**Settings** > **Devices & services**" %} and make sure the **openWakeWord** component of the **Wyoming** integration is added.

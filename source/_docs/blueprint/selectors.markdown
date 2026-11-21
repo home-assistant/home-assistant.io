@@ -398,6 +398,8 @@ max:
   required: false
 {% endconfiguration %}
 
+When `unit` is `kelvin`, `min` and `max` are the default slider bounds. They apply when no targeted entity reports `min_color_temp_kelvin` and `max_color_temp_kelvin`. Otherwise the slider uses the range those entities report.
+
 The output of this selector is the number representing the chosen color temperature for the unit used.
 
 ## Condition selector

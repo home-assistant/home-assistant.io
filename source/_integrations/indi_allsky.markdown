@@ -77,6 +77,16 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 
 Additional hardware sensors connected to your INDI Allsky instance (such as ambient temperature, relative humidity, barometric pressure, voltage, current, power, or illuminance sensors) are automatically discovered and created dynamically with appropriate units of measurement and device classes.
 
+## Media source
+
+The integration adds your INDI Allsky camera to the [media browser](/integrations/media_source/), so you can view its images and play its timelapse videos in Home Assistant. To open it, select **Media** in the sidebar, select **INDI Allsky**, and then select your INDI Allsky instance.
+
+The media is organized into three folders:
+
+- **Latest Media**: The latest snapshot, keogram, star trail, and timelapse video.
+- **Timelapses & Generated Media**: Day and night timelapse videos, with their keograms and star trails, organized by year and month.
+- **Captured Images History**: The individual images your camera captured, organized by year, month, day, and hour.
+
 ## Data updates
 
 The camera entity fetches the latest image on-demand from the INDI Allsky server whenever requested by Home Assistant. Sensor data is pushed in real time via a persistent local WebSocket connection.

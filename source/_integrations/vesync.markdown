@@ -109,6 +109,7 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
 | `mute`                  | Mutes the sounds the device makes. Only available on fans that support muting.     | On        |
+| `light_detection`       | Light detection On or Off. When on, the purifier responds to the light level in the room. (Vital 200S, EverestAir) | On        |
 
 | Button                  | Description                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------- |
@@ -165,6 +166,7 @@ The OasisMist 4.5L has a minimum light brightness of 40%, so its night light can
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
 | `water_tank_lifted`     | Water tank is lifted                                                               | false     |
+| `sync_chambers`         | On dual-basket air fryers, indicates whether both baskets use the same settings   | true      |
 
 ## Air Fryers
 
@@ -176,8 +178,16 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `current_temp`          | Current internal temperature of the fryer,  Unknown when off.                          | 150C      |
 | `cook_set_temp`         | The target cooking temperature                                                         | 165C      |
 | `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
-| `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
+| `cook_end_time`         | When the running cook finishes, preheating included. Unknown when paused or stopped    | 12:19     |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
+
+| Button                  | Description                                                                            |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| `stop_cooking`          | Stops cooking or preheating                                                            |
+| `pause_cooking`         | Pauses cooking. Only on air fryers that support pausing (CS137, CS158, Turbo Tower Pro) |
+| `resume_cooking`        | Resumes paused cooking with the remaining time. Same air fryers as pause               |
+
+On dual-basket air fryers, each button is available once per basket, such as **Basket 1 pause cooking**. It only acts on that basket.
 
 
 ## Extracting attribute data

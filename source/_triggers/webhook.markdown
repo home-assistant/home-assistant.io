@@ -39,13 +39,13 @@ Webhook settings:
   required: false
 {% endoptions_ui %}
 
-## Using a webhook with Home Assistant Cloud
+## Using a webhook with Home Assistant Link
 
-With [Home Assistant Cloud](/cloud/), a webhook gets a public address. Apps and services can then reach it from anywhere, without opening your Home Assistant to the internet.
+With [Home Assistant Link](/link/), a webhook gets a public address. Apps and services can then reach it from anywhere, without opening your Home Assistant to the internet.
 
 1. In the automation, select **Webhook settings** {% icon "mdi:cog" %} on the trigger, and turn off **Only accessible from the local network**. Then, select **Save**.
-   - Requests through Home Assistant Cloud don't count as local, so the webhook must accept requests from outside your local network. Webhooks that only accept local requests don't appear in the list of Home Assistant Cloud webhooks.
-2. Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %}, and select **Webhooks**.
+   - Requests through Home Assistant Link don't count as local, so the webhook must accept requests from outside your local network. Webhooks that only accept local requests don't appear in the list of Home Assistant Link webhooks.
+2. Go to {% my link title="**Settings** > **Home Assistant Link**" %}, and select **Webhooks**.
 3. Next to your automation, turn on the switch.
    - Result: A dialog shows the **Public address** of the webhook.
 4. Use the public address in the app or service. To see the address again later, select **Manage** next to the automation.
@@ -99,7 +99,7 @@ allowed_methods:
   type: list
   default: "[POST, PUT]"
 local_only:
-  description: Set to `true` to only accept requests from your local network. Set to `false` to also accept requests from the internet, including through Home Assistant Cloud.
+  description: Set to `true` to only accept requests from your local network. Set to `false` to also accept requests from the internet, including through Home Assistant Link.
   required: false
   type: boolean
   default: true
@@ -131,7 +131,7 @@ A webhook doesn't need a password or a token. Anyone who knows the webhook ID ca
 
 - Home Assistant renders the `webhook_id` template once, when it sets up the trigger: when the automation loads, is reloaded, or is turned on. It doesn't render the template again when a webhook call comes in, or when a state the template uses changes. In a **Wait for a trigger** step, Home Assistant renders the template each time the wait starts, and the template can use the variables of the run.
 - Several triggers can use the same webhook ID, also in different automations. They all react to each request. Give them the same webhook settings, because Home Assistant uses the settings of the trigger that it sets up first.
-- Requests through Home Assistant Cloud don't count as local. This includes the Home Assistant Cloud webhook addresses and the remote access address of Home Assistant Cloud.
+- Requests through Home Assistant Link don't count as local. This includes the Home Assistant Link webhook addresses and the remote access address of Home Assistant Link.
 - Home Assistant almost always answers a webhook request with `200 OK`, so that nobody can find out whether a webhook ID exists. It also answers `200 OK` when the webhook ID doesn't exist, or when a request from outside your local network reaches a webhook that only accepts local requests. Only a request method that isn't allowed gets `405 Method Not Allowed`. If a webhook doesn't react, check the logs at {% my logs title="**Settings** > **System** > **Logs**" %}.
 - A **HEAD** request always gets `200 OK`, so that apps and services can check that the address exists. If **HEAD** isn't one of the allowed methods, the trigger doesn't react to it.
 
