@@ -454,6 +454,14 @@ If your Teslemetry authentication token becomes invalid or expires, Home Assista
 
 Timeouts can occur due to connection issues between Home Assistant, Teslemetry, Tesla, or the vehicle itself (e.g., the vehicle is in an area with poor cellular reception). These are often temporary. If timeouts persist, please contact `support@teslemetry.com`.
 
+### Streaming allowance exceeded
+
+Each Teslemetry plan includes a streaming allowance for each vehicle. If the streaming configuration Home Assistant requests for a vehicle is over that allowance, Teslemetry refuses it, and Home Assistant raises a repair issue that names the vehicle. The streaming values in the refused configuration do not update. To fix it, do at least one of the following, then reload the integration:
+
+- Disable the entities of that vehicle you do not need, so that Home Assistant stops requesting their fields.
+- On the **Fields** page for the vehicle in the [Teslemetry Console](https://teslemetry.com/console), remove fields or raise their **Minimum Interval Seconds**. Home Assistant requests a removed field again while its entity is enabled.
+- Move the vehicle to a higher Teslemetry plan.
+
 ## Examples
 
 ### Common use cases
