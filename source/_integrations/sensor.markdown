@@ -151,7 +151,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
   - Condition: [Volatile organic compounds ratio value](/conditions/air_quality.is_voc_ratio_value/)
 - **Voltage** (`voltage`): Voltage, in V, mV, μV, kV, or MV.
 - **Volume** (`volume`): Volume, in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF.
-- **Volume flow rate** (`volume_flow_rate`): Volume flow rate, in m³/h, m³/min, m³/s, ft³/min, L/h, L/min, L/s, gal/d, gal/h, gal/min, or mL/s.
+- **Volume flow rate** (`volume_flow_rate`): Volume flow rate, in m³/h, m³/min, m³/s, ft³/h, ft³/min, L/h, L/min, L/s, gal/d, gal/h, gal/min, or mL/s.
 - **Stored volume** (`volume_storage`): Stored volume, such as in a tank, in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF.
 - **Water** (`water`): Water consumption, in L, gal, m³, ft³, CCF, or MCF.
 - **Weight** (`weight`): Weight, in kg, g, mg, μg, oz, lb, or st.
