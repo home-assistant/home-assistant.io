@@ -160,6 +160,8 @@ Supported event types are:
 
 The binary sensors follow the connection to your device's event stream. While the stream is down, for example because the device is powered off or unreachable on your network, the sensors show as unavailable instead of keeping their last state. They return to reporting "off" or "on" once the connection is restored.
 
+Home Assistant logs a message once when the event stream is lost, and once when it is back. A stream that Home Assistant stops itself, for example when you reload the integration, is not logged.
+
 ## Event
 
 Some Hikvision devices classify what triggered a smart event, so you can tell a person from a passing car. The integration creates an event entity for each of these kinds of events on each channel:
