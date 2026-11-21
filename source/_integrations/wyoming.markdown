@@ -28,5 +28,3 @@ To connect a service running on another device, add the **Wyoming Protocol** int
 Wyoming voice satellites have a **Timers** entity that holds their Assist timers. You can also create and control these timers with [Timer list actions](/integrations/timer_list/), and use timer events in automations. Timers started with actions send the same events to the satellite as voice timers.
 
 Timers keep running in Home Assistant if the satellite disconnects. The satellite misses timer changes and finished events while it is disconnected. These events are not sent again when it reconnects.
-
-Timers are lost when Home Assistant restarts or you reload the satellite's Wyoming integration entry.

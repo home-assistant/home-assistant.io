@@ -21,16 +21,7 @@ Timer list does not create a list on its own. A providing integration supplies t
 
 ## Voice timers
 
-The following integrations provide timer lists for voice devices:
-
-- [ESPHome](/integrations/esphome/#timers) voice satellites with timer support.
-- [Wyoming](/integrations/wyoming/#timers) voice satellites.
-- [Voice over IP](/integrations/voip/#timers) devices.
-- [Mobile App](/integrations/mobile_app/#timers) devices with push notification support.
-
-Timers started with Assist are kept in the device's timer list. You can control them with timer list actions and use their events in automations. Timers started with actions notify the device when they finish, just like voice timers.
-
-These integrations keep their timers in Home Assistant's memory. Timers are lost when Home Assistant restarts or the device's integration entry reloads.
+On supported devices, timers started with Assist are kept in the device's timer list. You can control them with timer list actions and use their events in automations. Timers started with actions notify the device when they finish, just like voice timers.
 
 ## Timer list states
 

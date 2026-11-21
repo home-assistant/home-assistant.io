@@ -111,8 +111,6 @@ ESPHome voice satellites whose firmware supports timers have a **Timers** entity
 
 Timers keep running in Home Assistant if the device disconnects. The device misses timer changes and finished events while it is disconnected. These events are not sent again when it reconnects.
 
-Timers are lost when Home Assistant restarts or you reload the device's ESPHome integration entry.
-
 ### Firing events on the Home Assistant event bus
 
 When using the native API with Home Assistant, you can trigger events on the Home Assistant event bus directly from ESPHome. For more details, see the [homeassistant.event Action](https://esphome.io/components/api/#homeassistantevent-action).

@@ -25,8 +25,6 @@ Mobile app devices that support push notifications have a **Timers** entity. It 
 
 When a timer finishes, Home Assistant sends a push notification to the device. This applies to timers started with Assist and with actions. Devices that do not support push notifications do not get a timer list.
 
-Timers are lost when Home Assistant restarts or you reload the device's Mobile App integration entry.
-
 ## Apps that use Mobile App
 
 - [Home Assistant for iOS](https://apps.apple.com/app/id1099568401) (official)
