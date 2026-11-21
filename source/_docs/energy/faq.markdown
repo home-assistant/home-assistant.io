@@ -25,6 +25,26 @@ If you are using a third-party device (for example, not reading directly from yo
 
 To accomplish this, you can use the [utility_meter integration](/integrations/utility_meter/). With this integration you define as many tariffs as required by your utility provider.
 
+## Add fixed costs, like a standing charge
+
+Some costs on your bill don't depend on how much you use. Examples are a daily standing charge, a monthly network fee, or a yearly connection fee. Add them as fixed costs, so the costs in the energy dashboard match your bill.
+
+1. Go to the {% my config_energy title="energy configuration page" %}.
+2. Open the **Electricity**, **Gas**, or **Water** tab. The **Fixed costs** card is shown once the tab has a grid connection, a gas source, or a water source.
+3. Select **Add fixed cost**.
+4. Enter a name, the amount, and how often it is charged: every day, every month, or every year.
+   - Use a fixed amount, or an entity that holds the current amount in your currency.
+   - Use a negative amount for a rebate or a credit.
+5. Select **Save**.
+
+You can add several fixed costs to each tab, for example a daily standing charge and a monthly fee.
+
+### When fixed costs are added
+
+The amount is added once at the start of each period, in the time zone of Home Assistant: at midnight for a daily cost, on the first day of the month for a monthly cost, and on January 1 for a yearly cost. When you add a fixed cost, the amount for the current period is added right away.
+
+If you change the amount, the new amount is used from the next period. Costs that were already added keep the old amount. If Home Assistant was not running at the start of a period, the missed amounts are added when it starts again. If the amount comes from an entity, its unit must be your currency, or your currency per period, such as EUR/day for a daily cost. If the entity has no valid number or another unit at the start of a period, the amount is added as soon as that is fixed.
+
 ## Setting up a dedicated solar export connection in the Energy dashboard
 
 If you have a solar installation with a dedicated grid connection that is used only for exporting production—separate from the main household consumption grid connection—you can configure the energy dashboard as follows:
