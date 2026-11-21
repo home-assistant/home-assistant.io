@@ -66,6 +66,23 @@ This platform has also been confirmed to work with the following Hikvision-based
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Hikvision device. For example, `192.168.1.100`."
+Port:
+  description: "The port number of the web interface of your device. The default is `80`."
+Username:
+  description: "The username of a user on your device. This user needs the permissions described earlier on this page."
+Password:
+  description: "The password of that user."
+Use SSL:
+  description: "Turn on if your device uses HTTPS. This is off by default."
+Verify SSL certificate:
+  description: "Turn off if your device uses a self-signed certificate, which is what Hikvision devices come with. This only applies when **Use SSL** is on. This is on by default."
+{% endconfiguration_basic %}
+
+You cannot change these settings after you add the device. To use different settings, remove the integration and add it again.
+
 ## Camera
 
 The integration creates camera entities for each video channel on your Hikvision device. These camera entities support:
@@ -151,6 +168,45 @@ Each event entity reports one of these event types when it triggers:
 Whether your device classifies events, and which of these values it uses, depends on the model and the firmware. Devices that do not classify report `triggered` every time.
 
 Use these entities when you want an automation to react only to a particular kind of trigger, for example to send a notification for a person crossing a line but not for a vehicle. Use the binary sensors instead when you want to know whether an event is currently active.
+
+## Troubleshooting
+
+{% details "The device rejects the username or password" %}
+
+### Symptom: "Invalid authentication" when adding the device
+
+When you add the device, the form shows **Invalid authentication**.
+
+#### Description
+
+The device rejected the username or password you entered.
+
+#### Resolution
+
+1. Check the username and password by signing in to the web interface of the device.
+2. Make sure the user has the permissions described at the start of this page, and that **WEB Authentication** is set to `digest/basic`.
+3. If the problem continues, try a user with administrator rights. Some devices only accept an administrator account.
+
+{% enddetails %}
+
+{% details "Home Assistant asks you to reauthenticate" %}
+
+### Symptom: A notification says the authentication expired
+
+Home Assistant shows a reauthentication notification for your Hikvision device, and the entities of the device are not available.
+
+#### Description
+
+The device rejected the stored username or password, for example because you changed the password of the user. Home Assistant stops connecting to the device until you enter the current credentials. This avoids repeated failed sign-ins, which can lock the user on the device for a while.
+
+#### Resolution
+
+1. Follow the reauthentication notification.
+2. Enter the current username and password. They must belong to the same device. If they belong to a different device, Home Assistant stops with the message **The credentials belong to a different device than the one being reauthenticated.**
+
+The host, port, and SSL settings are kept, and Home Assistant reloads the integration without removing your entities or automations.
+
+{% enddetails %}
 
 ## Removing the integration
 
