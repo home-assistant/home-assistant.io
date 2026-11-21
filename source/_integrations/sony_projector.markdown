@@ -33,7 +33,7 @@ The integration adds a device for your projector with the following entity.
 
 The integration {% term polling polls %} the power state of the projector every 30 seconds.
 
-After you turn the projector on or off, the switch shows the new state right away. The projector can take a while to warm up or cool down, so the state is read from the projector again at the next update.
+After you turn the projector on or off, the integration reads the power state again right away. A projector that is warming up shows as on, and a projector that is cooling down shows as off.
 
 ## Known limitations
 
