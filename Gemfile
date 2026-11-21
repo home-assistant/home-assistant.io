@@ -17,7 +17,7 @@ group :jekyll_plugins do
   gem 'jekyll-toc', '0.19.0'
 end
 
-gem 'sinatra', '4.2.1'
+gem 'sinatra', '4.2.2'
 gem 'nokogiri', '1.19.7'
 gem 'ostruct', '0.6.3'
 
