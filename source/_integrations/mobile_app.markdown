@@ -19,6 +19,12 @@ This integration is enabled by default, unless you've disabled or removed the [`
 mobile_app:
 ```
 
+## Timers
+
+Mobile app devices that support push notifications have a **Timers** entity. It holds timers started with Assist. You can also create and control these timers with [Timer list actions](/integrations/timer_list/), and use timer events in automations.
+
+When a timer finishes, Home Assistant sends a push notification to the device. This applies to timers started with Assist and with actions. Devices that do not support push notifications do not get a timer list.
+
 ## Apps that use Mobile App
 
 - [Home Assistant for iOS](https://apps.apple.com/app/id1099568401) (official)

@@ -105,6 +105,12 @@ This real-time behavior enables fast, reactive automations and a smooth user exp
 
 The available entities depend on the components defined in the ESPHome YAML configuration for each device. These entities are exposed through the [Native API Component](https://esphome.io/components/api/).
 
+### Timers
+
+ESPHome voice satellites whose firmware supports timers have a **Timers** entity. It holds timers started with Assist. You can also create and control these timers with [Timer list actions](/integrations/timer_list/), and use timer events in automations. The device handles timers started with actions in the same way as voice timers.
+
+Timers keep running in Home Assistant if the device disconnects. The device misses timer changes and finished events while it is disconnected. These events are not sent again when it reconnects.
+
 ### Firing events on the Home Assistant event bus
 
 When using the native API with Home Assistant, you can trigger events on the Home Assistant event bus directly from ESPHome. For more details, see the [homeassistant.event Action](https://esphome.io/components/api/#homeassistantevent-action).
