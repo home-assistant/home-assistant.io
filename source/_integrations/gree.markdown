@@ -17,6 +17,15 @@ There is currently support for the following device types within Home Assistant:
 Devices must first be bound to WiFi using the Gree+ app, or app provided by the device manufacturer. It is not possible to connect devices to WiFi using this integration at the current time.
 {% endimportant %}
 
+Gree discovers devices automatically using network broadcasts. If discovery fails, the IP addresses of Gree devices can be manually entered in the configuration as mentioned below.
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Known hosts:
+  description: "A list of IPv4 addresses of Gree devices, use if broadcast discovery is not working"
+{% endconfiguration_basic %}
+
 ## Supported models
 
 Any Gree Smart device working with the Gree+ app should be supported, including non-Gree branded devices such some sold by:
