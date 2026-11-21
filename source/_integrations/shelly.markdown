@@ -254,6 +254,14 @@ target:
   entity_id: media_player.shelly_wall_display
 ```
 
+## Wall Display brightness
+
+Wall Display devices with firmware 2.6.2 or newer provide entities to control the screen brightness:
+
+- **Auto display brightness** switch: When on, the device adjusts the brightness to the ambient light.
+- **Display brightness** (0–100%): The screen brightness when auto brightness is off. This entity is unavailable while auto brightness is on, because the device then sets the brightness itself.
+- **Minimum auto display brightness** (1–50%): The lowest brightness that auto brightness uses. This entity is only available when the device reports support for it.
+
 ## Event entities
 
 ### Event entities (generation 1)
