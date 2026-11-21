@@ -75,7 +75,7 @@ If your device has a domestic hot water circulation pump, you can read its weekl
 
 ### Binary sensor
 
-Binary sensors show on and off states of the device, such as a running burner or compressor. Each room of a ViCare room control also has a **Window** and a **Condensation risk** binary sensor.
+Binary sensors show on and off states of the device, such as a running burner or compressor. Each room of a ViCare room control also has a **Window** and a **Condensation risk** binary sensor. Devices that report their internal pump have an **Internal pump** binary sensor, which is on while the pump runs.
 
 ### Sensor
 
@@ -95,6 +95,13 @@ Heat pumps that report the heat they produce have the following sensors:
 - **Heat production**: the current heat output
 - **Heating heat production today**: the heat produced for heating today
 - **DHW heat production today**: the heat produced for domestic hot water today
+
+Devices that report the modulation of their internal pump have the following sensors:
+
+- **Internal pump modulation**: the current modulation of the internal pump, in percent
+- **Internal pump target modulation**: the modulation the device requests from the internal pump, in percent
+
+Not every device reports both. Some gas boilers only report the target.
 
 ### Button
 
