@@ -161,3 +161,12 @@ tail -f /config/home-assistant.log
 ```
 
 To rely only on the container runtime logs and prevent Home Assistant from writing `home-assistant.log`, set the `HA_DISABLE_LOG_FILE` environment variable to `1` (or `true`). When the log file is disabled, `/config/home-assistant.log` is not available, and you cannot enable **Show raw logs** or download the log file in the Home Assistant UI.
+
+By default, Home Assistant keeps only the current `home-assistant.log` and the log from the previous run in `home-assistant.log.1`. To keep more history, set the `HA_LOG_ROTATE_DAYS` environment variable to the maximum number of rotated log files to keep. Home Assistant uses daily log rotation and keeps up to that many rotated files in addition to the current log. The oldest rotated file is deleted when this limit is exceeded. This limits the number of rotated files, not their age. For example, to keep up to 7 rotated log files with Docker Compose:
+
+```yaml
+services:
+  homeassistant:
+    environment:
+      HA_LOG_ROTATE_DAYS: 7
+```
