@@ -14,8 +14,8 @@ This integration speaks the serial control protocol only; it does not use the TV
 
 The following devices have been tested with the integration:
 
-- Samsung The Frame (LS03B, 2022)
-- Samsung QN55S84FAFXZC (tested with an AUX-2 serial proxy and a 3.5 mm cable)
+- Samsung The Frame (LS03B, 2022), using a 3.5&nbsp;mm cable
+- Samsung QN55S84FAFXZC, using a 3.5&nbsp;mm cable
 
 In general, Samsung consumer TVs (The Frame, Q-series, 8000-series, and similar) that expose an ExLink control port are supported.
 
@@ -34,7 +34,6 @@ Samsung TVs expose ExLink in one of two ways:
 {% include integrations/serial_connected.md %}
 
 - On Samsung TVs, connect a serial cable into the ExLink jack, or use the Samsung USB-to-ExLink dongle. Serial settings are 9600&nbsp;baud, 8 data bits, no parity, and 1 stop bit (8N1).
-- On TVs that use the 3.5&nbsp;mm ExLink jack, turn off **USB Serial** in the TV settings. Enabling it can disable the 3.5&nbsp;mm connection.
 - On TVs that use the USB-to-ExLink dongle, **EXT Link Support** and **USB Serial** must be enabled in the TV's hidden service menu. To open it, with the TV off, press **Mute → 1 → 8 → 2 → Power** on the IR remote. The exact location of these settings varies by model, so consult your TV's documentation.
 
 {% include integrations/config_flow.md %}
@@ -132,7 +131,7 @@ Home Assistant could not communicate with the TV over the serial port.
 To resolve this issue, try the following steps:
 
 1. On TVs that use the USB-to-ExLink dongle, make sure **EXT Link Support** and **USB Serial** are enabled in the TV's service menu (to open it, with the TV off, press **Mute → 1 → 8 → 2 → Power**).
-2. On TVs that use the 3.5&nbsp;mm ExLink jack, make sure **USB Serial** is turned off in the TV settings.
+2. If you use the 3.5&nbsp;mm ExLink jack, try turning off **USB Serial** in the TV settings. On some models, enabling this setting disables the 3.5&nbsp;mm connection.
 3. Verify the cable is connected to the TV's 3.5&nbsp;mm ExLink jack (or the Samsung USB-to-ExLink dongle) and is fully seated.
 4. Confirm the correct serial port was selected, and that no other software is using it.
 
