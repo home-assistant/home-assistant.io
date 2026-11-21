@@ -11,6 +11,7 @@ ha_codeowners:
   - "@mosandlt"
 ha_platforms:
   - camera
+  - update
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -39,6 +40,10 @@ You are redirected to the Bosch login page to sign in with your SingleKey ID.
 The integration adds one camera entity per camera of the account. The entity shows the latest available event image, for example a motion or person event. It is not a live image. The image is cached for 60 seconds, so dashboards and automations can request it often without extra load on the Bosch cloud.
 
 Each camera is also added as a device, together with its model and firmware version. Cameras that are added to or removed from the account are added or removed in Home Assistant automatically.
+
+### Firmware
+
+The **Firmware** entity shows the installed firmware version of a camera and whether a newer version is available. Bosch installs firmware updates on its own, so you cannot start an update from Home Assistant. While an update is installed, the entity shows its progress.
 
 ## Data updates
 
