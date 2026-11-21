@@ -33,6 +33,20 @@ Use your regular Apple Account password when setting up the integration. If Appl
 
 If you do not receive a verification code, select **Request a new verification code** in the verification step to ask Apple to send another code.
 
+### Security keys
+
+If your Apple Account is protected by [security keys](https://support.apple.com/en-us/102637), Apple does not send a verification code. Instead, Home Assistant asks you to sign in with one of your security keys:
+
+1. Plug a security key registered to your Apple Account into a USB port on the machine running Home Assistant.
+2. If more than one security key is connected, select the one to use.
+3. Select **Submit**, then touch the key when it blinks. You have 60 seconds.
+
+If the key is not touched in time, or Apple does not accept it, select **Submit** again to retry. Home Assistant asks Apple for a new sign-in each time.
+
+{% note %}
+The security key must be connected by USB to the machine that runs Home Assistant, not to the device you use to open the Home Assistant interface. Security keys connected over NFC or Bluetooth, and passkeys stored on your phone, cannot be used. If you run Home Assistant in a container, the key must be passed through to the container.
+{% endnote %}
+
 ## In case of troubleshooting
 
 Delete the integration's configuration (most likely in `/config/.storage/icloud`), then retry.
