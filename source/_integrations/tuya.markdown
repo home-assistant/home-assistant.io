@@ -44,6 +44,10 @@ After adding new devices to your Tuya account through the Smart Life or Tuya Sma
 3. Click the three dots menu
 4. Select **Reload**
 
+## Illuminance
+
+Tuya presence sensors that provide illuminance readings through the integration have an illuminance sensor entity. It shows the light level in lux (lx).
+
 ## Scenes
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
