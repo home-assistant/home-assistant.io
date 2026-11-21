@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - "@joostlek"
+  - "@piitaya"
 ha_domain: bambu_lab
 ha_integration_type: device
 ha_platforms:
@@ -20,7 +21,7 @@ related:
     title: Bambu Lab
 ---
 
-The **Bambu Lab** {% term integration %} lets you follow your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. You can see what the printer is doing, how far along the print is, when it will finish, and the temperatures of the nozzle, the bed, and the chamber.
+The **Bambu Lab** {% term integration %} lets you follow your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. You can see what the printer is doing, how far along the print is, when it will finish, and the temperatures of the bed and the chamber.
 
 The integration talks directly to the printer over your local network. It does not use the Bambu Lab cloud, and the printer sends its updates to Home Assistant as soon as something changes. For example, you can get a notification on your phone the moment a print finishes, or when the printer pauses a print and needs your attention.
 
@@ -89,9 +90,6 @@ The **Bambu Lab** integration adds your printer as a device, with the following 
   - **Available for printers**: all
 - **Total layers**
   - **Description**: The number of layers of the current print.
-  - **Available for printers**: all
-- **Nozzle temperature**
-  - **Description**: The temperature of the nozzle.
   - **Available for printers**: all
 - **Bed temperature**
   - **Description**: The temperature of the bed.
