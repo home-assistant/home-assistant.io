@@ -10,6 +10,7 @@ ha_domain: flic_button
 ha_platforms:
   - event
   - number
+  - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
 ha_codeowners:
@@ -85,15 +86,29 @@ The **Flic** integration provides the following entities.
 
 In **Continuous** mode, the Twist has no number entities. Its LED ring shows the raw rotation of the dial in that mode, so a position set from Home Assistant would not show on the device.
 
+### Sensors
+
+- **Battery**
+  - **Description**: Estimated remaining battery capacity, as a percentage.
+  - **Available for**: Flic 2.
+  - **Remarks**: Uses Shortcut Labs' voltage-to-capacity estimate. It is a rough estimate, especially between 50% and 100%.
+
+- **Battery voltage**
+  - **Description**: The last measured battery voltage, in volts.
+  - **Available for**: Flic 2, Flic Duo, and Flic Twist.
+  - **Remarks**: Disabled by default. To enable it, open the device page, select the entity, and turn on **Enabled**.
+
 ## Data updates
 
 Flic buttons push their events to Home Assistant over Bluetooth the moment they happen, so pushes, holds, and rotations are reported immediately. There is no {% term polling %} interval to configure.
+
+Battery sensors use the voltage read when the button connects or reconnects. They do not make additional Bluetooth requests. The last value remains visible while the button is disconnected. After a Home Assistant restart, the sensors remain unknown until a new measurement is available.
 
 ## Known limitations
 
 The Flic Twist does not store its rotation position itself. Home Assistant holds the position and sends it back to the button every time they connect. If you turn the dial while the button is disconnected, that movement is not reported, and the position is restored to the last value Home Assistant saw once the button reconnects.
 
-Battery level and firmware updates are not exposed yet. Additional functionality may be added in future releases.
+Firmware updates are not exposed yet. Additional functionality may be added in future releases.
 
 ## Troubleshooting
 
