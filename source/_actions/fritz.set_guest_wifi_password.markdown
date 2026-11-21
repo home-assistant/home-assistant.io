@@ -5,6 +5,7 @@ domain: fritz
 description: "Sets a new password for the guest Wi-Fi on a FRITZ!Box."
 related_actions:
   - fritz.dial
+  - fritz.get_mesh_info
 ---
 
 Use this action to set a new password for the guest Wi-Fi on your FRITZ!Box. This is handy when you want to rotate the guest password on a schedule, for example to generate a fresh password each week for visitors.
