@@ -72,7 +72,7 @@ Floor heating actuators are operated through the climate group (`HMIP-FAL230-C6`
 
 - Dimming actuators (`HmIP-BDT`, `HmIP-FDT`, `HmIP-PDT`, `HmIP-DRDI3`)
 - Universal dimmer with push-button (`HmIP-UDI-PB2`)
-- Light strip and RGBW controllers (`HmIP-LSC`, `HmIP-RGBW`)
+- Light strip and RGBW controllers (`HmIP-LSC`, `HmIP-RGBW`); the `HmIP-LSC` also supports color temperature
 - Switch actuators with signal lamp or meter (`HmIP-BSL`, `HmIP-BSM`)
 - Status lights of wall-mounted remote controls (`HmIP-WRC6-230`, `HmIPW-WRC6`)
 - Light of the combination signalling device (`HmIP-MP3P`)
