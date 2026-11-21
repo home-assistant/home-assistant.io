@@ -22,3 +22,11 @@ Wyoming services can run on another device on your local network. This can be us
 To connect a service running on another device, add the **Wyoming Protocol** integration and enter the hostname or IP address and port of the Wyoming service.
 
 {% include integrations/config_flow.md %}
+
+## Timers
+
+Wyoming voice satellites have a **Timers** entity that holds their Assist timers. You can also create and control these timers with [Timer list actions](/integrations/timer_list/), and use timer events in automations. Timers started with actions send the same events to the satellite as voice timers.
+
+Timers keep running in Home Assistant if the satellite disconnects. The satellite misses timer changes and finished events while it is disconnected. These events are not sent again when it reconnects.
+
+Timers are lost when Home Assistant restarts or you reload the satellite's Wyoming integration entry.

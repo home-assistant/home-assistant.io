@@ -18,3 +18,11 @@ If you are running Home Assistant on a machine with other VoIP software, you can
 </p>
 
 {% include integrations/config_flow.md %}
+
+## Timers
+
+Each VoIP device has a **Timers** entity that holds its Assist timers. You can also create and control these timers with [Timer list actions](/integrations/timer_list/), and use timer events in automations.
+
+When a timer finishes, the phone announces its name or duration. This applies to timers started with Assist and with actions.
+
+Timers are lost when Home Assistant restarts or you reload the VoIP integration entry.
