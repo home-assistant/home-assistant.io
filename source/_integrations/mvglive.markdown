@@ -28,20 +28,20 @@ Lines:
 Modes of transport:
   description: "The modes of transport to include. If none are selected, all modes are included."
 Time offset (minutes):
-  description: "Do not show departures leaving sooner than this number of minutes. Useful if it takes you a few minutes to get to the stop."
+  description: "Do not show departures leaving sooner than this number of minutes. Useful if it takes you a few minutes to get to the stop. Defaults to `0`."
 Number of departures:
-  description: "How many upcoming departures are stored in the `departures` attribute."
+  description: "How many upcoming departures are stored in the `departures` attribute. Defaults to `5`."
 {% endconfiguration_basic %}
 
 ## Sensor
 
 The state of the sensor is the number of minutes until the next matching departure. The attributes contain the details of that departure, such as `line`, `destination`, and `time_in_mins`, as well as a `departures` list with all upcoming departures up to the configured number.
 
-For example, to get the minutes until the second departure in a template:
+For example, to get the minutes until the second departure in a template (this requires **Number of departures** to be at least `2`):
 
 {% raw %}
 
-```yaml
+```jinja2
 {{ state_attr('sensor.hauptbahnhof', 'departures')[1].time_in_mins }}
 ```
 
