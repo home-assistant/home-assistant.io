@@ -12,10 +12,10 @@ Because the integration communicates over infrared, it operates in a one-way, fi
 
 The integration supports:
 
-- Samsung TVs that can be controlled via the standard Samsung infrared protocol.
+- Samsung TVs that can be controlled via the standard Samsung infrared protocol (such as the QE43Q60DAUXXU).
 - Samsung air conditioners that use the Samsung AC 0292 infrared protocol.
 
-{% details "Example TV remotes" %}
+{% details "Example compatible TV remotes" %}
 
 ![BN59-01315Q](/images/integrations/samsung_infrared/samsung-bn59-01315q.jpg)
 
