@@ -40,6 +40,10 @@ The integration adds one camera entity per camera of the account. The entity sho
 
 Each camera is also added as a device, together with its model and firmware version. Cameras that are added to or removed from the account are added or removed in Home Assistant automatically.
 
+### Notifications
+
+The **Notifications** switch turns the push notifications of a camera on or off. While it is off, the camera sends no push notifications. The switch is shown with the configuration entities of the device.
+
 ## Data updates
 
 The integration polls the Bosch cloud for the list of cameras every 5 minutes. The image of a camera is only retrieved when it is requested.
