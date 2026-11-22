@@ -17,7 +17,7 @@ To view a list of currently supported companies, refer to [Fuelprices.dk Compani
 
 ## Prerequisites
 
-To set up the integration, you need a valid [Fuelprices.dk](https://fuelprices.dk) API key
+To set up the integration, you need a valid [Fuelprices.dk](https://fuelprices.dk) API key.
 
 1. Go to [Fuelprices.dk](https://fuelprices.dk).
 2. Select **Registrering**.
@@ -25,21 +25,30 @@ To set up the integration, you need a valid [Fuelprices.dk](https://fuelprices.d
 4. Select **Opret bruger**.
 5. Check your email and copy your API key.
 
-After setup, you can reconfigure selected products for each station from the integration settings.
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-api_key:
-  description: Your API key as specified in the email received after registration on [Fuelprices.dk](https://fuelprices.dk)
+API key:
+  description: Your personal API key from the Fuelprices.dk registration email.
+Select company:
+  description: Choose a fuel company to show only its stations in the station list.
+Select station:
+  description: Choose the first station you want Home Assistant to create price sensors for.
 {% endconfiguration_basic %}
+
+### Add another station
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **Fuelprices.dk**.
+3. On the integration page, select **Add station**. If prompted, select the entry you want to add the station to.
+4. In **Select company**, choose the fuel company and select **Submit**.
+5. In **Select station**, choose the station you want to add and select **Submit**.
 
 ## Supported functionality
 
-## Sensors
-The integration creates sensor entities for the selected station:
+### Sensors
 
-- One price sensor per selected product (for example **Blyfri 92**, **Oktan 95**, and **Diesel**)
+For each station you add, Home Assistant automatically creates one price sensor for every fuel product Fuelprices.dk reports for that station.
 
 ## Data updates
 
