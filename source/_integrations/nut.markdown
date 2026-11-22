@@ -278,7 +278,11 @@ if needed.
 The username and password configured for the device must be granted `instcmds` permissions on the NUT server to use buttons, switches, and device {% term actions %}. These entities and device actions will not be available if user credentials are not specified. See the [NUT server documentation](https://networkupstools.org/documentation.html) for configuration information.
 {% endimportant %}
 
-Home Assistant creates a device action for each supported parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html). For supported outlet commands, you can also use the switch entity, the button entity in the UI, or the standard [button press action](/actions/button.press/) in an automation.
+Home Assistant creates a device action for each supported NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html). For supported outlet commands, you can also use the switch entity, the button entity in the UI, or the standard [button press action](/actions/button.press/) in an automation.
+
+Some NUT commands accept an optional parameter, similar to the optional value accepted by the [NUT `upscmd` command](https://networkupstools.org/docs/man/upscmd.html).
+
+The parameter is device and command specific. Not all commands require or accept a parameter, and support depends on the NUT server, driver, and device. Check the documentation for your NUT driver or device to find the supported command values. Leave **Parameter** empty if the command does not require a value.
 
 ## NUT automation examples
 
@@ -361,8 +365,6 @@ following are known limitations:
 "commands".
 - This NUT integration only supports retrieving, but not setting, NUT
 "variables".
-- This NUT integration does not support NUT "commands" that require
-parameters.
 
 ## Troubleshooting
 
