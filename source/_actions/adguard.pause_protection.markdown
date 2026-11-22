@@ -27,7 +27,7 @@ To pause protection from an automation or a script:
 6. Enter the **Duration** for how long protection should stay paused.
 7. Select **Save**.
 
-This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. Only users with administrator rights can run this action.
 
 ### Options in the UI
 
