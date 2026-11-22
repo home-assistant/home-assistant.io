@@ -40,6 +40,10 @@ The integration adds one camera entity per camera of the account. The entity sho
 
 Each camera is also added as a device, together with its model and firmware version. Cameras that are added to or removed from the account are added or removed in Home Assistant automatically.
 
+### Speaker level
+
+The **Speaker level** number sets the speaker volume of a camera, from 0 to 100 percent. It is only added for cameras that have a speaker and is shown with the configuration entities of the device.
+
 ## Data updates
 
 The integration polls the Bosch cloud for the list of cameras every 5 minutes. The image of a camera is only retrieved when it is requested.
