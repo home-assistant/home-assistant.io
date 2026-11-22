@@ -62,9 +62,7 @@ The gap is enforced whenever setpoints are written:
   Nothing is reported as an error: the value that ends up on the thermostat can differ from the
   value that was sent.
 
-The attribute `deadband_fahrenheit` contains the dead band in degrees Fahrenheit, independent of the
-selected unit system in Home Assistant. It does not auto-convert to other units because temperature
-conversions assume absolute temperature, not temperature differences, and 5 F would convert to -15 C.
+The attribute `deadband_fahrenheit` contains the dead band in degrees Fahrenheit, independent of the selected unit system in Home Assistant. It intentionally remains in Fahrenheit because a dead band is a temperature difference: 5°F corresponds to approximately 2.8°C, while converting it as an absolute temperature would produce the misleading value of -15°C.
 
 ### Switches
 
