@@ -40,6 +40,10 @@ The integration adds one camera entity per camera of the account. The entity sho
 
 Each camera is also added as a device, together with its model and firmware version. Cameras that are added to or removed from the account are added or removed in Home Assistant automatically.
 
+### Motion detection
+
+The **Motion detection** switch turns the motion detection of a camera on or off. The switch is shown with the configuration entities of the device. The camera can switch motion detection back on its own, for example because of its own rules. The switch then shows the state the camera reports at the next update.
+
 ## Data updates
 
 The integration polls the Bosch cloud for the list of cameras every 5 minutes. The image of a camera is only retrieved when it is requested.
