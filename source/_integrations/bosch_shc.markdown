@@ -59,6 +59,8 @@ An Outdoor Siren gets **Acoustic alarm** and **Visual alarm** binary sensors tha
 
 A Motion Detector II gets an **Occupancy** binary sensor and a **Tamper** diagnostic binary sensor that turns on when the device was tampered with.
 
+A Smoke Detection System gets a **Smoke** binary sensor. It turns on while the system reports a smoke alarm, including a pre-alarm or a muted alarm, and turns off when the alarm ends.
+
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
@@ -86,7 +88,6 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 
 - A Motion Detector or Motion Detector II gets an event entity that fires whenever the device detects motion.
 - A Smoke Detector gets an event entity that fires whenever its alarm state changes.
-- A Smoke Detection System gets an event entity that fires whenever its alarm state changes: **Idle** (`alarm_off`), **Alarm** (`alarm_on`), or **Alarm muted** (`alarm_muted`).
 
 ### Light
 
