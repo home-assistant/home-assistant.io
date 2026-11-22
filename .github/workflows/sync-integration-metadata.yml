@@ -100,7 +100,7 @@ jobs:
             homeassistant/generated
 
       - name: Set up Ruby
-        uses: ruby/setup-ruby@20eb24b0d509e2b9ed9b6d42ddfeb992915e0564 # v1.341.0
+        uses: ruby/setup-ruby@f9c4492e86def3e644ab32a0ef185eda5b0c20d0 # v1.342.0
         with:
           bundler-cache: true
 
