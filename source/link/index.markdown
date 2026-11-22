@@ -4,7 +4,7 @@ description: "Home Assistant Link is an optional subscription from Nabu Casa tha
 sidebar: false
 ha_release: "0.60"
 ha_iot_class: Cloud Push
-ha_domain: cloud
+ha_domain: link
 ---
 
 {% note %}

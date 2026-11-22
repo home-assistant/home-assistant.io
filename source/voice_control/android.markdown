@@ -175,7 +175,7 @@ The way how Assist can be set up on your phone may differ depending on your vers
 
     ![Assist speak your command](/images/assist/android_watch_3.png)
 
-4. To change the assistant, tap the current assistant (**Home Assistant Cloud** in the screenshot above).
+4. To change the assistant, tap the current assistant (**Home Assistant Link** in the screenshot above).
    - Select the assistant from the list.
 
    ![List of assistants](/images/assist/android_watch_6.png)

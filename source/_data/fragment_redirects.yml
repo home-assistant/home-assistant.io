@@ -32,6 +32,26 @@
 "/common-tasks/general/backups/":
   about-the-backup-storage-on-home-assistant-cloud: /common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-link
   downloading-a-backup-from-home-assistant-cloud: /common-tasks/general/backups/#downloading-a-backup-from-home-assistant-link
+  to-download-a-home-assistant-cloud-backup-from-the-backups-page: /common-tasks/general/backups/#to-download-a-home-assistant-link-backup-from-the-backups-page
+  to-download-a-backup-from-your-home-assistant-cloud-account: /common-tasks/general/backups/#to-download-a-backup-from-your-home-assistant-link-account
+  to-delete-a-backup-from-your-home-assistant-cloud-account: /common-tasks/general/backups/#to-delete-a-backup-from-your-home-assistant-link-account
+"/integrations/google_assistant/":
+  automatic-setup-via-home-assistant-cloud: /integrations/google_assistant/#automatic-setup-via-home-assistant-link
+  manual-setup-if-you-dont-have-home-assistant-cloud: /integrations/google_assistant/#manual-setup-if-you-dont-have-home-assistant-link
+"/integrations/alexa/":
+  automatic-setup-via-home-assistant-cloud: /integrations/alexa/#automatic-setup-via-home-assistant-link
+"/integrations/telegram_bot/":
+  home-assistant-cloud: /integrations/telegram_bot/#home-assistant-link
+"/integrations/config/":
+  home-assistant-cloud: /integrations/config/#home-assistant-link
+"/integrations/link/":
+  home-assistant-cloud-automation-examples: /integrations/link/#home-assistant-link-automation-examples
+"/triggers/webhook/":
+  using-a-webhook-with-home-assistant-cloud: /triggers/webhook/#using-a-webhook-with-home-assistant-link
+"/docs/configuration/remote/":
+  home-assistant-cloud: /docs/configuration/remote/#home-assistant-link
+"/more-info/no-url-available/":
+  using-nabu-casa-home-assistant-cloud: /more-info/no-url-available/#using-nabu-casa-home-assistant-link
 "/common-tasks/general/logs/":
   viewing-the-logs-of-other-parts-of-the-system: /common-tasks/os/logs/#viewing-the-logs-of-other-parts-of-the-system
   viewing-the-logs-of-an-earlier-startup: /common-tasks/os/logs/#viewing-the-logs-of-an-earlier-startup
