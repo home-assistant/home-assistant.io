@@ -81,25 +81,6 @@ The server answers with `0.903;ok`. The response contains more than the value, s
 | Value template | `{{ value.split(';')[0] }}` |
 | Unit of measurement | `bar` |
 
-### hddtemp
-
-The tool `hddtemp` collects the temperature of your hard disks. With `hddtemp -d` it runs as a daemon on port 7634 and sends its data to every client that connects.
-
-```bash
-telnet localhost 7634
-```
-
-The server answers with `|/dev/sda\SAMSUNG MZMTE256HMHP-000L1\38\C\`.
-
-| Parameter | Value |
-| --------- | ----- |
-| Host | `127.0.0.1` |
-| Port | `7634` |
-| Payload | `status` |
-| Timeout | `5` |
-| Value template | `{{ value.split('\')[3] }}` |
-| Unit of measurement | `°C` |
-
 ### Binary sensor
 
 If your server answers `1` when a device is on, set **Value for on** to `1`. A binary sensor is created together with the sensor, and it is on while the response is `1`.
@@ -113,7 +94,7 @@ If your server answers `1` when a device is on, set **Value for on** to `1`. A b
 
 - Only one response is read per update, up to the configured buffer size. Longer responses are truncated.
 - The payload is sent as plain text. Binary protocols are not supported.
-- The server is polled, so state changes are detected with a delay of up to 30 seconds. Servers that push data on their own are not supported.
+- The server is polled, so state changes are detected with a delay of up to 30 seconds. Persistent connections for receiving ongoing pushed updates are not supported.
 - There is no authentication, other than what the server itself requires in the payload.
 
 ## Troubleshooting
