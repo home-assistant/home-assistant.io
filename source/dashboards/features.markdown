@@ -1100,7 +1100,7 @@ features:
 {% configuration features %}
 type:
   required: true
-  description: "`timer-presets`"
+  description: "`timer-progress`"
   type: string
 {% endconfiguration %}
 

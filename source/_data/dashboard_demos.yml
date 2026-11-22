@@ -411,6 +411,7 @@ heights:
   feature_target_temperature: 120
   feature_timer_actions: 120
   feature_timer_presets: 120
+  feature_timer_progress: 120
   feature_toggle: 120
   feature_trend_graph: 120
   feature_update_actions: 120
