@@ -435,7 +435,7 @@ The UniFi Protect integration provides support for various event types triggered
 - **Event Attributes**:
   - **event_type**: `ring`
   - **event_id**: A unique ID that identifies the doorbell event.
-- **Description**: This event is triggered when someone rings the doorbell. To start an automation on a ring, use the [Event received](/triggers/event.received/) trigger with the `ring` event type. It only reacts to actual rings, not to the entity becoming available again after a restart. The `event_id` attribute can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_doorbell` to get the thumbnail image when a ring occurs.
+- **Description**: This event is triggered when someone rings the doorbell. To start an automation on a ring, use the [Event received](/triggers/event.received/) trigger with the `ring` event type. It only reacts to actual rings, not to the entity becoming available again after a restart. The `event_id` attribute can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_poe_doorbell` to get the thumbnail image when a ring occurs.
 
 #### Example G4 Doorbell Ring Triggered Automation
 
