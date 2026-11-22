@@ -20,6 +20,7 @@ The following devices are known to be supported by the integration:
 - Switcher Mini
 - Switcher Breeze
 - Switcher Runner
+- Switcher Runner Mini
 - Switcher Runner S11
 - Switcher Runner S12
 - Switcher Light SL01
@@ -80,7 +81,7 @@ For Switcher Breeze, the integration provides a {% term climate %} entity to con
 
 ### Covers
 
-For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12) the integration allows you to control its covers open/close state, set specific covers position and get information about the cover direction (UP/DOWN/STOP).
+For Switcher cover control devices (Switcher Runner, Switcher Runner Mini, Switcher Runner S11, Switcher Runner S12) the integration allows you to control its covers open/close state, set specific covers position and get information about the cover direction (UP/DOWN/STOP).
 
 ### Lights
 
@@ -88,7 +89,7 @@ For Switcher light control devices (Switcher Runner S11, Switcher Runner S12, an
 
 ### Sensors
 
-For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4, Switcher Heater) the integration provides the following sensors:
+For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4, Switcher Mini, Switcher Heater) the integration provides the following sensors:
 | Sensor Name         | Description                                            | Example           |
 | ------------------- | ------------------------------------------------------ | ----------------- |
 | `Auto Shutdown`*    | The auto shutdown time limit configured on the device  | 01:30:00          |
@@ -108,7 +109,7 @@ For Switcher Breeze the integration provides the following sensor:
 
 For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4, Switcher Mini, Switcher Heater), the integration provides a switch to turn the device on and off.
 
-For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12), the integration allows you to control its child lock state; ON means locked, and OFF means unlocked.
+For Switcher cover control devices (Switcher Runner, Switcher Runner Mini, Switcher Runner S11, Switcher Runner S12), the integration allows you to control its child lock state; ON means locked, and OFF means unlocked.
 
 {% include integrations/actions.md %}
 
@@ -267,7 +268,7 @@ If Home Assistant does not receive a broadcast from a device for 30 seconds, the
 
 ## Known limitations
 
-- Home Assistant and the Switcher devices must be on the same local network, because the integration relies on broadcasts from the devices. For details, see [Devices are not discovered or become unavailable](#devices-are-not-discovered-or-become-unavailable).
+- The integration relies on broadcasts from the Switcher devices, so Home Assistant and the devices need to be on the same local network. If they are on different networks, like separate VLANs or subnets, you need to forward the broadcast traffic between them. For details, see [Devices are not discovered or become unavailable](#devices-are-not-discovered-or-become-unavailable).
 - The Switcher Breeze picks up commands from the air conditioner's own remote to keep its state up to date. If it misses a command, for example because the remote was not pointed toward it, the state in Home Assistant can go out of sync. Use the **Assume on** and **Assume off** buttons to correct it. To correct it automatically, see [Keep the air conditioner state in sync using a power sensor](#automation-keep-the-air-conditioner-state-in-sync-using-a-power-sensor).
 - The Switcher Breeze climate entity is only created if the integration supports the air conditioner remote selected in the Switcher app. If the remote is not supported, a warning is logged and no climate entity is created.
 - The **Set auto-off** and **Turn on with timer** actions, and the **Auto Shutdown** and **Remaining Time** sensors, are not available for the Switcher Power Plug.
