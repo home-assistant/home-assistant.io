@@ -435,7 +435,7 @@ The UniFi Protect integration provides support for various event types triggered
 - **Event Attributes**:
   - **event_type**: `ring`
   - **event_id**: A unique ID that identifies the doorbell event.
-- **Description**: This event is triggered when someone rings the doorbell. It provides an `event_id`, which can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_doorbell` to get the thumbnail image when a ring occurs.
+- **Description**: This event is triggered when someone rings the doorbell. To start an automation on a ring, use the [Event received](/triggers/event.received/) trigger with the `ring` event type. It only reacts to actual rings, not to the entity becoming available again after a restart. The `event_id` attribute can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_doorbell` to get the thumbnail image when a ring occurs.
 
 #### Example G4 Doorbell Ring Triggered Automation
 
@@ -443,20 +443,12 @@ The UniFi Protect integration provides support for various event types triggered
 alias: G4 Doorbell Ring Triggered Automation
 description: Automation that triggers when the G4 Doorbell Pro rings
 triggers:
-  - event_type: state_changed
-    event_data:
+  - trigger: event.received
+    target:
       entity_id: event.g4_doorbell_pro_poe_doorbell # Replace with your doorbell entity
-    trigger: event
-conditions:
-  - condition: template
-    value_template: >
-      {% raw %}{{
-        trigger.event.data.old_state is not none and
-        not trigger.event.data.old_state.state == 'unavailable' and
-        trigger.event.data.new_state is not none and
-        not trigger.event.data.new_state.state == 'unavailable' and
-        trigger.event.data.new_state.attributes.event_type == 'ring'
-      }}{% endraw %}
+    options:
+      event_type:
+        - ring
 actions:
   - data:
       message: Someone is at the door!
@@ -464,7 +456,7 @@ actions:
     action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
-The condition ensures the notification is only sent for actual doorbell rings and not during startup or power-cycle state restoration, when the entity may temporarily transition through the `unavailable` state (such as during a UniFi Protect restart).
+The Event received trigger only reacts to actual `ring` events. It does not fire during startup or power-cycle state restoration, when the entity may temporarily transition through the `unavailable` state (such as during a UniFi Protect restart).
 
 ### NFC Card Scanned Event
 
