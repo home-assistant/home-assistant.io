@@ -96,11 +96,11 @@ Velbus Manager exposes the installation over HTTP (REST API v2 and WebSocket). H
 
 {% configuration_basic %}
 host:
-    description: Hostname or IP address where Velbus Manager is reachable. On Home Assistant OS, the default suggested host is `manager`, which resolves to the Supervisor internal network. Use `127.0.0.1` or a LAN IP when Manager runs on the same machine outside of Home Assistant OS, or the hostname/IP of a remote Manager instance.
+    description: Hostname or IP address where Velbus Manager is reachable. On Home Assistant OS, the default suggested host is `manager`, which resolves on the Supervisor internal network. For a native Home Assistant Core install on the same machine as Manager, use `127.0.0.1` or the host LAN address. For Home Assistant Container or Docker, use the host gateway IP, the Manager container hostname, or another address reachable from the Home Assistant container; `127.0.0.1` points at the container itself, not the host. For a remote Manager instance, use its hostname or IP.
 port:
     description: Velbus Manager HTTP port (default `4201`).
 access_token:
-    description: Bearer token when Velbus Manager authentication is enabled. Leave empty when authentication is disabled (recommended for a local Manager instance on the internal network).
+    description: Bearer token when Velbus Manager authentication is enabled. Leave empty only if authentication is disabled and the API is not reachable by untrusted clients; otherwise configure authentication in Manager and provide the token here.
 {% endconfiguration_basic %}
 
 #### Example: Velbus Manager app on Home Assistant OS
@@ -111,15 +111,21 @@ access_token:
 
 - host: `manager`
 - port: `4201`
-- access_token: leave empty if authentication is disabled in the app
+- access_token: leave empty only if authentication is disabled in the app and the API is not exposed outside the trusted network
 
 You can open the Manager web UI from the app sidebar (ingress) under `/velbus-ui/`.
 
-#### Example: Velbus Manager on the same host (non-OS)
+#### Example: Velbus Manager on the same machine (Home Assistant Core)
 
 - host: `127.0.0.1` or the host LAN address
 - port: `4201`
-- access_token: leave empty unless authentication is enabled
+- access_token: leave empty only if authentication is disabled and Manager is not reachable from untrusted clients
+
+#### Example: Velbus Manager with Home Assistant Container
+
+- host: host gateway IP, Manager container name, or LAN address (not `127.0.0.1`)
+- port: `4201`
+- access_token: use a token if Manager authentication is enabled or the API may be reached from other networks
 
 If the access token is rejected, Home Assistant prompts you to **Reauthenticate** and enter a new token.
 
@@ -137,7 +143,7 @@ The pushbutton LEDs of input modules are disabled by default. These can be enabl
 This step is optional.
 {% endnote %}
 
-After USB or TCP/IP setup, you can import a Velbus VLP configuration file exported from VelbusLink. That can reduce scan time and improves module detection. This step is skipped when you connect **Via Velbus Manager**.
+After USB or TCP/IP setup, you can import a Velbus VLP configuration file exported from VelbusLink. That can reduce scan time and improve module detection. This step is skipped when you connect **Via Velbus Manager**.
 
 ## Actions
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
