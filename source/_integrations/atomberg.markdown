@@ -26,17 +26,15 @@ The **Atomberg** {% term integration %} connects Home Assistant to your [Atomber
 
 The integration supports Atomberg smart fans that have Wi-Fi and work with the [Atomberg public API](https://developer.atomberg-iot.com/). According to Atomberg, the following fans are supported:
 
-| Fan | Series |
-| --- | ------ |
-| Renesa / Renesa+ / Studio+ | R1, R2, R3, R4, R6 |
-| Renesa Fusion | R5 |
-| Renesa Elite / Studio Nexus | S1, S2, S3 |
-| Aris | I2 |
-| Aris Gladius | I3, I4 |
-| Aris Contour | M1, M2, M3 |
-| Aris Starlight | I1, I5 |
-| Erica | K1 |
-| Emperion Magna | O1 |
+- Renesa, Renesa+, and Studio+ (series R1, R2, R3, R4, and R6)
+- Renesa Fusion (series R5)
+- Renesa Elite and Studio Nexus (series S1, S2, and S3)
+- Aris (series I2)
+- Aris Gladius (series I3 and I4)
+- Aris Contour (series M1, M2, and M3)
+- Aris Starlight (series I1 and I5)
+- Erica (series K1)
+- Emperion Magna (series O1)
 
 Fans that don't have Wi-Fi aren't supported. This includes fans that you can only control with a remote or an IR blaster.
 
