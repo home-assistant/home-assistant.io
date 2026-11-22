@@ -100,6 +100,7 @@ The Full Flush Lock Controller (`HmIP-FLC`) has no lock entity. Its lock state i
 - Power and energy of switch actuators with a meter (`HmIP-PSM`, `HmIP-PSM-CH`, `HmIP-PSM-IT`, `HmIP-PSM-UK`, `HmIP-PSM-PE`, `HmIP-PSMCO`, `HmIP-BSM`, `HmIP-BSM-I`, `HmIP-FSM`, `HmIP-FSM16`, `HmIP-USBSM`)
 - Energy and gas meter interface (`HmIP-ESI`)
 - Floor heating actuators, valve positions and valve adaptation state (`HmIP-FAL230-C6`, `HmIP-FAL230-C10`, `HmIP-FAL24-C6`, `HmIP-FAL24-C10`, `HmIP-FALMOT-C8`, `HmIP-FALMOT-C12`, `HmIPW-FALMOT-C12`)
+- Valve state of motorized floor heating actuators (`HmIP-FALMOT-C8`, `HmIP-FALMOT-C12`, `HmIPW-FALMOT-C12`)
 - Smoke detector dirt level (`HmIP-SWSD-2`)
 - Fine dust sensor (`HmIP-SFD`)
 - Soil moisture sensor (`ELV-SH-SMSI`)
