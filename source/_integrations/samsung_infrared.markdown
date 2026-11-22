@@ -15,6 +15,12 @@ The integration supports:
 - Samsung TVs that can be controlled via the standard Samsung infrared protocol.
 - Samsung air conditioners that use the Samsung AC 0292 infrared protocol.
 
+{% details "Example TV remotes" %}
+
+![BN59-01315Q](/images/integrations/samsung_infrared/samsung-bn59-01315q.jpg)
+
+{% enddetails %}
+
 ## Prerequisites
 
 {% include integrations/infrared_controlled.md %}
@@ -74,13 +80,17 @@ Available when **TV** is selected as the device type.
 
 - **Samsung TV**: Represents the Samsung TV and allows you to control it via IR commands. Supported features include turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, stop, and source selection (TV, HDMI 1, HDMI 2, HDMI 3, HDMI 4).
 
-## Samsung Infrared automation examples
+## Use cases
 
-The integration can be used to manually control a device (using buttons on a dashboard or voice commands) or automatically issue commands using automations.
+The integration can be used to:
+ - Add an IR-controlled air conditioner to a climate schedule.
+ - Turn off a TV or air conditioner when nobody is watching.
+ - Control an older TV or air conditioner that does not have smart functionality.
+ - Avoid the need to connect your TV to the internet if you are concerned about privacy.
 
-{% include docs/paste_yaml_tip.md %}
+### Automation examples
 
-### Automation: Turn off the TV when nobody is in the same room
+#### Automation: Turn off the TV when nobody is in the same room
 
 If you pair the Samsung Infrared integration with a smart plug with power monitoring capabilities, you can detect whether a TV is on (see the **Known limitations** section) and turn it off when no one is in the room.
 
@@ -91,6 +101,8 @@ If you pair the Samsung Infrared integration with a smart plug with power monito
   - **Target**: TV power sensor
 - **Action**: Press button
   - **Target**: Samsung TV power button
+
+{% include docs/paste_yaml_tip.md %}
 
 {% details "YAML example for turning off the TV when the room is empty" %}
 
@@ -124,7 +136,7 @@ actions:
 
 {% enddetails %}
 
-### Automation: Turn on the TV in the morning
+#### Automation: Turn on the TV in the morning
 
 You could also configure an automation to turn a TV on in the morning.
 
@@ -147,10 +159,10 @@ triggers:
       - sun
 conditions: []
 actions:
-  - action: button.press
+  - action: media_player.turn_on
     metadata: {}
     target:
-      entity_id: button.samsung_tv_power
+      entity_id: media_player.samsung_tv
     data: {}
 {% endexample %}
 
