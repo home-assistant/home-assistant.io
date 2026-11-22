@@ -60,7 +60,6 @@ The integration does not modify values. Home Assistant shows the values exactly 
 
 - Data availability and freshness depend on [Fuelprices.dk](https://fuelprices.dk) and the fuel companies.
 - Some stations may not provide all products.
-- API rate limits can temporarily delay updates.
 
 ## Troubleshooting
 
