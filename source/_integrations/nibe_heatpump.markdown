@@ -41,7 +41,6 @@ To communicate with the pump there are a few different connection methods availa
     - [ESPHome](#esphome)
     - [Arduino](#arduino)
     - [Raspberry Pi / Linux](#raspberry-pi--linux)
-    - [Registers sent by the pump](#registers-sent-by-the-pump)
   - [Modbus Connection](#modbus-connection)
     - [TCP/IP](#tcpip)
     - [RCU](#rcu)
