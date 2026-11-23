@@ -303,7 +303,7 @@ The configuration panel shows the configuration of the selected item for each so
 - An entity from [single component discovery](#single-component-discovery-payload) shows its discovery payload as JSON, with the discovery topic and the origin. You can switch it to YAML.
 - An entity from YAML, a subentry, or device discovery shows its configuration as YAML, under its platform key. An entity from YAML can only be matched to its configuration when it has a `unique_id`.
 - A discovered device trigger or tag shows its discovery payload, with the discovery topic and the origin.
-- A device from [device discovery](#device-discovery-payload) shows its device discovery payload with the discovery topic. The payload is built again from all its components.
+- A device from [device discovery](#device-discovery-payload) shows its device discovery payload with the discovery topic. The payload is built again from all its components, so it can differ from the payload the device sent: abbreviations and `~` are expanded, and the shared options are part of each component.
 - A device that was discovered with its entities shows the device part of their configuration as YAML.
 - For a device from YAML, the panel refers to the YAML configuration of its entities. For a device from a subentry, it links to the reconfigure flow of the subentry.
 
