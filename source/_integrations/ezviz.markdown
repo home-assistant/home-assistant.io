@@ -101,8 +101,9 @@ The image entity represents the last detected event from a camera and visually r
 
 Each camera has a motion event entity. It fires every time the camera reports a new alarm, so you can use it to trigger automations on a detection.
 
-The event carries the alarm type in its attributes:
+The event carries the alarm in its attributes:
 
+- `alarm_time`: the time of the alarm as reported by EZVIZ, for example `2026-11-17 12:00:20`.
 - `alarm_type_code`: the alarm code reported by EZVIZ, for example `10079`.
 - `alarm_type_name`: the alarm name reported by EZVIZ, for example `Smart Detection Alarm`.
 
