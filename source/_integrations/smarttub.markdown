@@ -13,8 +13,21 @@ The **SmartTub** {% term integration %} allows you to view and control hot tubs 
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Email:
+  description: "The email address of your SmartTub account."
+Password:
+  description: "The password of your SmartTub account."
+{% endconfiguration_basic %}
+
 {% include integrations/actions.md %}
 
 ## Data updates
 
 The integration {% term polling polls %} the SmartTub cloud every 60 seconds.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

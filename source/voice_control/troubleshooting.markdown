@@ -18,17 +18,21 @@ The debug information shows each recent run of an {% term assistant %}. For each
 
 If the page says **No runs found**, the assistant didn't receive anything. Check that your device or the Assist dialog uses this assistant.
 
-## Test a sentence per language without voice: without executing commands
+## Testing a sentence without running it
 
-If you want to test if a sentence works in a specific language without actually executing the commands, use the sentence parser in **Tools**.
+To find out if Assist understands a sentence, use the sentence parser. It shows how the built-in conversation agent understands the sentence, but it doesn't run the command. Your devices don't change.
+
+The sentence parser only tests the built-in **Home Assistant** conversation agent. If your assistant uses another {% term "conversation agent" %}, [test the sentence with your assistant](#testing-a-sentence-with-an-assistant) instead.
 
 1. Go to {% my tools_assist title="**Settings** > **Tools** > **Assist**" %}.
-2. In the sentence parser, select the language and enter the sentence you want to test.
-3. The debug tool shows you the following:
-   - The intent triggered.
-   - The entities that were targeted.
-   - Which of the targeted entities were matched.
-![Open the Assist developer tool sentence parser](/images/assist/assistant-debug-06.png)
+2. Under **Language**, select the language of the sentence.
+3. Under **Sentences**, enter the sentence you want to test.
+   - To test several sentences at once, enter each one on its own line.
+4. Select **Parse sentences**.
+   - Result: For each sentence, you see the intent that fits it best, the entities it targets, and which of them matched.
+   - If the result shows **No intent matched**, Assist doesn't understand this sentence.
+   - If the result shows `match: false`, Assist recognized the type of command, but not the entire sentence. `unmatched_slots` shows the part it didn't recognize. For example, an area name that doesn't exist.
+   ![Screenshot of the sentence parser with a result](/images/assist/assistant-debug-06.png)
 
 ## Testing a sentence with an assistant
 

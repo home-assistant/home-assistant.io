@@ -73,6 +73,10 @@ actions:
       entity_id: cover.rolladen_arbeitszimmer
 ```
 
+## Data updates
+
+homee pushes changed values to Home Assistant over a WebSocket connection, so the integration doesn't {% term polling poll %}. Some values arrive at set intervals rather than the moment they change. For details, see [Limitations](#limitations).
+
 ## Troubleshooting
 
 First, see the general [Home Assistant troubleshooting guide](/docs/configuration/troubleshooting/).

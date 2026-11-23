@@ -1,7 +1,7 @@
 ---
 title: "Z-Wave"
 connectivity: zwave
-description: "Connect Z-Wave devices, like locks, light switches, and sensors, to Home Assistant with a Z-Wave adapter."
+description: "Z-Wave is a wireless technology for smart home devices such as locks, switches, and sensors. It supports mesh networks and direct Long Range connections."
 related:
   - docs: /integrations/zwave_js/
     title: Z-Wave integration

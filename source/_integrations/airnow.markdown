@@ -13,6 +13,13 @@ To generate an AirNow API key, go to the [AirNow Developer Tools](https://docs.a
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+API key:
+  description: "Your AirNow API key. To generate one, go to the [AirNow Developer Tools](https://docs.airnowapi.org/account/request/) page."
+Location:
+  description: "The location you want air quality data for. Select it on the map. It defaults to your Home Assistant home location."
+{% endconfiguration_basic %}
+
 ## Data updates
 
 The integration {% term polling polls %} the AirNow API every 30 minutes.

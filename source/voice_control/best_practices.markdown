@@ -39,11 +39,7 @@ Assist relies heavily on entity names, domains, and areas. Below you will find t
 So make sure your devices and entities are correctly assigned to areas, and your areas are correctly assigned to floors.
 Learn how [here](/voice_control/assign_areas_floors/).
 
-Not having good ways to address entities in common speech will greatly hinder your voice experience with Assist. You can expect to have a hard time asking Assist to “turn on Tuya Light Controller 0E54B1 Light 1”. You should therefore name your devices and entities logically, using a schema such as `<area> [<identifier_or_descriptor>] [<domain>].`
-
-For example, `light.living_room_lamp` might be the entity ID of `Living room lamp`. `Kitchen light` would be enough for the `light.kitchen` if you only have one light fixture in that room.
-
-Note that this convention is only a recommendation, actual naming of your devices and entities might depend on your language or personal preference.
+Give your devices and entities short names that are easy to remember. A phrase like “Turn on Tuya Light Controller 0E54B1 Light 1” is hard to say. Name each device and entity for what it is, without the area. For example, name a light `Lamp` instead of `Living room lamp`. Assist takes the area from your sentence or from the voice satellite you're talking to. For more tips, refer to the [naming recommendations](/docs/configuration/customizing-entities/#recommendations-on-entity-naming-and-related-elements).
 
 If you ever find yourself mentioning a certain device or entity in a certain way, make sure to [add that as an alias](/voice_control/aliases/), as it would probably be the most natural way to refer to the entity.
 
