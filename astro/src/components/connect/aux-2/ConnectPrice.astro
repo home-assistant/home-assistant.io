@@ -1,0 +1,157 @@
+---
+// Price section of a Connect product page: a line of text, the US and
+// euro prices in display type with a footnote marker, the Buy button
+// and the price terms, on a blue glow. Its id is `buy`, the target of
+// the product bar's Buy button.
+//
+// Built from "Price Section" in the Figma file "Connect AUX-2" (node
+// 2002:31233). It replaces the per-page `#buy` section of the Jekyll
+// Connect pages (`source/connect/*/components/_buy.html`), whose terms
+// text it takes over. Its Buy button opens the page's BuyDialog, when
+// there is one (otherwise it links to `buyHref`). Deliberate differences:
+//   - The glow is a CSS radial gradient instead of Figma's blurred
+//     vector. It fades in when the section scrolls into view, as on
+//     the Jekyll pages (1.5s ease-out), and grows slightly as it does.
+//     Without the script, or with reduced motion, it is simply there.
+//   - The prices scale with the window (--font-size-display, 128px at
+//     its largest as in Figma).
+import Button from "../../Button.astro";
+
+interface Props {
+  // Prices as shown, with their currency signs: "$69", "€59".
+  usd: string;
+  eur: string;
+  buyHref: string;
+}
+
+const { usd, eur, buyHref } = Astro.props;
+---
+
+<section class="connect-price" id="buy" data-connect-price>
+  <p class="strap"><slot /></p>
+  <p class="price">
+    <span>{usd}</span><span class="slash">/</span><span>{eur}</span><sup>*</sup>
+  </p>
+  <Button
+    href={buyHref}
+    scheme="connect-line"
+    onDark
+    data-buy-dialog
+    data-buy-context="price">Buy now</Button
+  >
+  <p class="terms">
+    * Recommended MSRP. USD prices exclude taxes, while EUR prices include
+    applicable taxes. Prices differ between regions due to varying local
+    market costs and conditions, and are subject to individual retailers.
+  </p>
+</section>
+
+<script>
+  import { reveal } from "../../../lib/motion";
+
+  // Fade the glow in when the price scrolls into view (styles:
+  // .is-armed hides it, .is-revealed shows it).
+  for (const section of document.querySelectorAll("[data-connect-price]")) {
+    reveal(section, { threshold: 0.35 });
+  }
+</script>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/layout";
+
+  .connect-price {
+    @include layout.container;
+    align-items: center;
+    color: var(--color-text-inverse);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-heading);
+    isolation: isolate;
+    padding-block: var(--space-xxlarge);
+    position: relative;
+    text-align: center;
+
+    /* The glow, behind the content. */
+    &::before {
+      background: radial-gradient(
+        circle 22rem at 50% 45%,
+        rgb(0 95 190 / 55%),
+        transparent
+      );
+      content: "";
+      inset: 0;
+      pointer-events: none;
+      position: absolute;
+      transition:
+        opacity 1.5s ease-out,
+        transform 1.5s ease-out;
+      z-index: -1;
+    }
+
+    &:global(.is-armed)::before {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+
+    &:global(.is-revealed)::before {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media only screen and (min-width: breakpoints.$connect-desk) {
+      padding-block: calc(var(--space-xxxlarge) + var(--space-xxlarge));
+    }
+  }
+
+  .strap,
+  .price,
+  .terms {
+    margin: 0;
+  }
+
+  /* Balanced, so a line never ends with one word on its own. */
+  .strap {
+    font-size: var(--font-size-xlarge);
+    font-weight: 500;
+    line-height: 1.2;
+    padding-block: var(--space-medium);
+    text-wrap: balance;
+
+    @media only screen and (min-width: breakpoints.$connect-desk) {
+      font-size: var(--font-size-heading);
+    }
+  }
+
+  .price {
+    display: flex;
+    font-size: var(--font-size-display);
+    font-weight: 700;
+    gap: 0.375rem;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    padding-block: var(--space-xlarge) var(--space-xxlarge);
+  }
+
+  .slash {
+    opacity: 0.2;
+  }
+
+  sup {
+    font-size: 0.28em;
+    line-height: 1;
+  }
+
+  .terms {
+    backdrop-filter: blur(2px);
+    background: rgb(0 19 38 / 60%);
+    border-radius: var(--radius-small);
+    box-sizing: border-box;
+    color: var(--color-text-inverse-muted);
+    font-size: var(--font-size-small);
+    line-height: 1.2;
+    margin-top: var(--space-xxlarge);
+    max-width: 27.5rem;
+    padding: var(--space-medium) var(--space-large);
+  }
+</style>

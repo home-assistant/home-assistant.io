@@ -24,8 +24,6 @@ To add AEMET OpenData integration go to {% my integrations title="**Settings** >
 {% configuration_basic %}
 API Key:
   description: "API Key from the website"
-Name:
-  description: "Name of the integration"
 Location:
   description: "Latitude and longitude for weather forecast and sensor"
 {% endconfiguration_basic %}

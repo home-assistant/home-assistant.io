@@ -1,0 +1,168 @@
+---
+// The Month of "What the Heck?!" page, /what-the-heck/.
+//
+// Ports source/what-the-heck/index.html and the sections it includes from
+// source/what-the-heck/components/. Jekyll keeps building the page as the fallback
+// while the migration runs, but the styling here is the Astro build's own
+// (components, scoped SCSS, theme tokens) rather than the Jekyll
+// stylesheet, so a change of design has to be made on both sides until
+// the Jekyll page goes.
+//
+// A page of its own rather than the `pages` collection: it is a designed
+// landing page, not Markdown in the site's reading column. It keeps the
+// site header and footer, as the Jekyll page does.
+//
+// The campaign's palette and scale are in src/styles/wth.scss, which the
+// components import the way they import the site's tokens.
+//
+// The layout is the "concept F" design reviewed with the team: one job,
+// getting people to post. The hero's forum cards come from
+// source/_data/wth_forum.json (rake wth_forum_data).
+import SiteHead from "../../components/SiteHead.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import DocSearch from "../../components/DocSearch.astro";
+import WthForumHero from "../../components/what-the-heck/WthForumHero.astro";
+import WthTips from "../../components/what-the-heck/WthTips.astro";
+import WthHouseholdNote from "../../components/what-the-heck/WthHouseholdNote.astro";
+import WthJourney from "../../components/what-the-heck/WthJourney.astro";
+import WthRows from "../../components/what-the-heck/WthRows.astro";
+import WthCta from "../../components/what-the-heck/WthCta.astro";
+import { release } from "../../lib/site.mjs";
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+
+const title = "Month of 'What the Heck?!' 2026";
+const description =
+  "Home Assistant's Month of 'What the Heck?!' is back for November 2026. Tell us what makes Home Assistant hard, whether you set it up or just live with it.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SiteHead
+      title={title}
+      description={description}
+      image="/images/blog/2026-10-what-the-heck/art.webp"
+    />
+    <!-- Archivo Black is the lettering for the CSS fallback of the
+         "What the Heck?!" wordmark only. -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+    />
+    <!-- The icons on this page are <iconify-icon> elements, as they are on
+         the Jekyll page; see WthIcon.astro. -->
+    <script
+      is:inline
+      src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
+      integrity="sha384-GPb5RlngihS9H0z1D137JsvzmeZ7tCpWEF4t5YDoTZyMsPP8S7h7vFDh4XhheU83"
+      crossorigin="anonymous"></script>
+    <script
+      type="importmap"
+      is:inline
+      set:html={JSON.stringify({
+        imports: { three: "/javascripts/wth/three.min.js" },
+      })}
+    />
+    <!-- Shared with the Jekyll build, which publishes them at the site
+         root: the 3D wordmark and the moving backgrounds. -->
+    <script
+      is:inline
+      src="/javascripts/wth/logo.js"
+      type="module"
+      onerror="document.querySelectorAll('.wth-mark--loading').forEach(function (mark) { mark.classList.remove('wth-mark--loading'); })"
+    ></script>
+    <script is:inline src="/javascripts/wth/flow-lines.js" type="module"
+    ></script>
+    <script is:inline src="/javascripts/wth/wth-chat.js" type="module"
+    ></script>
+    <script is:inline src="/javascripts/wth/wth-prs.js" type="module"
+    ></script>
+  </head>
+  <body>
+    <div class="masthead">
+      <SiteHeader
+        pathname={Astro.url.pathname}
+        version={release.version}
+        versionUrl={release.url}
+        releasedOn={release.releasedOn}
+      />
+    </div>
+
+    <main class="wth">
+      {/* One job: getting people to post. The hero (button, ideas and real
+          forum WTHs), the tips with this year's challenge, what happens
+          next, the call to action, and the WTH rows to close. */}
+      <WthForumHero />
+      <WthTips><WthHouseholdNote /></WthTips>
+      <WthJourney variant="card" story="after" tone="band" />
+      <WthCta />
+      <WthRows />
+    </main>
+
+    <SiteFooter />
+    {/* The header's search button and shortcut, as Page.astro starts them. */}
+    <DocSearch />
+
+    <script>
+      // The links in the hero scroll rather than jump, as the
+      // Jekyll `landingpage` layout does.
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (event) => {
+          const href = anchor.getAttribute("href");
+          if (!href || href === "#") return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      // The Plausible goal "Share WTH": a click on any of the page's "Share
+      // your WTH" buttons, with which one in `context` (hero, tips, cta).
+      // The buttons open the forum in a new tab, so this page stays to send
+      // it.
+      document.querySelectorAll<HTMLElement>("[data-wth-share]").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (typeof window.plausible === "function") {
+            window.plausible("Share WTH", { props: { context: button.dataset.wthShare } });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  .wth {
+    /* No surface of its own: the sections that want one paint it, and
+       the rest inherit the page, which carries on into the footer. */
+    background-color: transparent;
+    color: var(--wth-ink);
+    font-family: var(--font-heading);
+    /* The hero card and the artwork in it reach past the page edge. */
+    overflow-x: clip;
+  }
+
+</style>
+
+<style is:global>
+  html {
+    /* Clears the header, which stays on top as the page scrolls. */
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+  }
+
+  body {
+    background: var(--color-page);
+    margin: 0;
+  }
+
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+</style>

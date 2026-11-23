@@ -33,6 +33,9 @@ Data:
 Sound:
   description: "The notification sound to play. See [Notification sounds](/integrations/lametric/#notification-sounds) for the full list."
   required: false
+Custom sound:
+  description: "An MP3 file to play instead of a built-in sound: pick one from your media, or enter its URL. When a sound is selected as well, it plays when the file cannot be fetched."
+  required: false
 Cycles:
   description: "How many times to display the chart. Set to 0 to keep it on screen until it is dismissed."
   required: false
@@ -77,6 +80,11 @@ data:
 sound:
   description: >
     The notification sound to play. See [Notification sounds](/integrations/lametric/#notification-sounds) for the full list.
+  required: false
+  type: string
+sound_url:
+  description: >
+    An MP3 file to play instead of a built-in sound: a media source ID of a file in Home Assistant, or the URL of the file. When `sound` is set as well, that sound plays when the file cannot be fetched. The device fetches the file itself, so it must be able to reach Home Assistant, or the URL, on the network.
   required: false
   type: string
 cycles:

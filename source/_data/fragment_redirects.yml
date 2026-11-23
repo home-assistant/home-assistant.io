@@ -63,6 +63,8 @@
   flashing-an-odroid-n2: /installation/odroid/#flashing-an-odroid-n2
   snapshots: /common-tasks/general/backups/
   backups: /common-tasks/general/backups/
+  installing-a-third-party-app-repository: /common-tasks/os/apps/#adding-an-app-repository
+  troubleshooting-repository-is-not-showing-up: /common-tasks/os/apps/#an-added-repository-doesnt-show-up
 "/conditions/":
   logical-conditions: /conditions/and/
   and-condition: /conditions/and/
@@ -279,3 +281,26 @@
 "/docs/configuration/troubleshooting/":
   disable-debug-logging-and-download-logs: /docs/configuration/troubleshooting/#disabling-debug-logging-and-downloading-the-log
   download-diagnostics: /docs/configuration/troubleshooting/#downloading-diagnostics
+"/docs/energy/faq/":
+  troubleshooting-missing-entities: /docs/energy/faq/#symptom-the-sensor-doesnt-appear-in-the-selection-list
+"/integrations/ollama/":
+  controlling-home-assistant: /integrations/ollama/#setting-up-an-ollama-assistant-with-device-control
+"/voice_control/troubleshooting/":
+  i-do-not-see-any-assistant: /voice_control/troubleshooting/#symptom-no-assistants-under-settings--voice-assistants
+  i-do-not-see-a-text-to-speech-or-speech-to-text-option: /voice_control/troubleshooting/#symptom-a-text-to-speech-or-speech-to-text-service-is-missing
+  assist-does-not-understand-my-question-about-the-weather-forecast: /voice_control/troubleshooting/#symptom-assist-doesnt-understand-my-question-about-the-weather
+  i-dont-get-a-voice-response: /voice_control/troubleshooting/#symptom-no-voice-response
+  local-network-settings: /voice_control/troubleshooting/#symptom-no-voice-response
+  missing-media-source: /voice_control/troubleshooting/#symptom-no-voice-response
+  test-a-sentence-per-language-without-voice-without-executing-commands: /voice_control/troubleshooting/#testing-a-sentence-without-running-it
+  test-a-sentence-per-assistant-without-voice-while-executing-the-commands: /voice_control/troubleshooting/#testing-a-sentence-with-an-assistant
+  view-debug-information: /voice_control/troubleshooting/#viewing-debug-information
+  tweaking-the-assist-audio-configuration-for-your-device: /integrations/assist_pipeline/#debug-recordings
+  to-tweak-the-assist-audio-configuration-for-your-device: /integrations/assist_pipeline/#debug-recordings
+"/voice_control/voice_remote_expose_devices/":
+  exposing-your-devices-to-assist: /voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant
+  exposing-your-devices: /voice_control/voice_remote_expose_devices/#exposing-entities-to-a-voice-assistant
+  turning-off-expose-new-entities: /voice_control/voice_remote_expose_devices/#changing-expose-new-entities
+"/voice_control/assist_create_open_ai_personality/":
+  creating-a-voice-assistant-personality-with-an-llm-based-conversation-agent: /voice_control/assist_create_open_ai_personality/#creating-an-assistant-with-an-ai-personality
+  prerequisites: /voice_control/assist_create_open_ai_personality/#creating-an-assistant-with-an-ai-personality

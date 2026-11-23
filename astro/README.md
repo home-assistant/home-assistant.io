@@ -11,9 +11,9 @@ build after the Jekyll build) and in CI. The pages listed in
 `served-routes.json` are served from Astro (see "Serving a page from
 Astro" below); everything else Astro builds appears only under the
 `/astro-preview/` path described below. A failed Astro build fails
-deploy previews and CI; on production deploys it only warns, and the
-served routes keep Jekyll's version of their pages, so a broken Astro
-build can neither be merged nor block publishing the site.
+every build — deploy previews, CI and production alike. There is no
+fallback to Jekyll's version of a served route, so a broken Astro build
+cannot be merged or published.
 
 The Astro output is browsable on every deploy, production included,
 at `/astro-preview/` — for example,
@@ -55,16 +55,43 @@ A page is served from Astro by listing its route in
   `src/pages/[...page].astro` builds it at the same URL Jekyll uses,
   with the `Page` layout: site header, the page in `Prose`, the
   feedback card and the site footer.
-- After both builds, `rake generate` copies Astro's page over the one
-  Jekyll built at that route (`public/tos/index.html`). Nothing is
-  rewritten or redirected: Netlify serves the file it finds, so deploy
-  previews show the Astro page at its real URL exactly as production
-  will.
+- After both builds, `rake generate` publishes Astro's page at that
+  route (`public/tos/index.html`), replacing the page Jekyll built
+  there, if any. Nothing is rewritten or redirected: Netlify serves
+  the file it finds, so deploy previews show the Astro page at its
+  real URL exactly as production will.
 
-Jekyll keeps building the page too, so the Jekyll dev server still
-has it and its Markdown stays shared. If the Astro build fails on a
-production deploy, the copy is skipped and Jekyll's version is
-published instead.
+A served route does not need a Jekyll page. Which version a visitor
+gets depends only on the route list:
+
+- Route listed and Astro builds the page: the Astro page is served,
+  whether or not a Jekyll page still exists for the route.
+- Route not listed: Jekyll's page is served, if there is one. Astro's
+  page then only appears under `/astro-preview/`.
+- Route not listed and no Jekyll page: the URL returns a 404.
+
+So you can keep the old Jekyll page while moving a route to Astro, and
+switch back by removing the route from the list. If the route has a
+page of its own in `src/pages`, delete the old Jekyll page once you no
+longer need it, so the content is not duplicated. Do not delete a
+route's Markdown file, such as `source/tos/index.markdown`, while it
+is served from the `pages` collection: it is not a duplicate, but the
+content Astro builds the page from. A
+route that is listed but that Astro does not build fails the build;
+there is no fallback to Jekyll.
+
+Pages without a Jekyll version are not in the Jekyll dev server
+(`rake preview`); use the Astro dev server to work on them.
+
+A designed page is not Markdown in a reading column, so it gets a
+page of its own in `src/pages` instead — `src/pages/what-the-heck/index.astro`
+for `/what-the-heck/`, built from components in `src/components/`. The route
+still goes in `served-routes.json`, which is what publishes it;
+`[...page].astro` skips a route that has its own page.
+Those pages share the Jekyll stylesheet for the page
+(`sass/homeassistant/pages/…`, reachable from SCSS because
+`astro.config.mjs` puts `sass/` on the load path), so one change of
+design reaches both stacks while they both build the page.
 
 Site settings the layout needs (title, release version, search key)
 come from the repository's `_config.yml`, read by `src/lib/site.mjs`,
@@ -97,9 +124,40 @@ to that list and import the file. If the API cannot be reached, the
 build keeps the copy from the previous build and warns; with no copy
 to fall back on, it fails rather than ship broken images.
 
+## Where components live
+
+Only common components, the ones used throughout the whole site, belong
+at the root of `src/components/`. A component that is specific to a
+single page, or a one-off, goes in a folder named for that page. For
+example, the components of the Month of "What the Heck?!" page live in
+`src/components/what-the-heck/`.
+
+## Where files go
+
+Components are filed by which pages use them, so a component's path
+says how widely it is shared:
+
+- `src/components/<Name>.astro`: site-wide building blocks any page
+  can use, such as the header, footer, `Button` and `BuyDialog`.
+- `src/components/<line>/<Name>.astro`: used by the pages of more than
+  one product in a product line, such as the Connect line
+  (`src/components/connect/`).
+- `src/components/<line>/<product>/<Name>.astro`: used by one
+  product's page only, such as `src/components/connect/aux-2/ConnectNav.astro`.
+
+A product's components keep their line's name prefix (`ConnectNav`,
+not `Aux2Nav`): when a second product's page needs one, it moves up
+to the line's folder without a rename. Scripts that belong to one
+product follow the same folders in `src/lib/` (the AUX-2 drawing's
+engine is in `src/lib/connect/aux-2/drawing/`), as do its assets in
+`src/assets/` (`src/assets/connect/aux-2/`). A file only uses files
+from its own folder and the ones above it: a Connect line component
+never imports from `connect/aux-2/`. Content that belongs to one page,
+such as its copy and data, stays next to the page in `src/pages/`.
+
 ## Component previews
 
-Components live in `src/components/`. To make a component show up in
+Components live in `src/components/` (see "Where files go" above). To make a component show up in
 the tiled component browser at
 [`/astro-preview/component-preview/`](https://www.home-assistant.io/astro-preview/component-preview/),
 add a `<Name>.fixtures.mjs` file next to it that describes the

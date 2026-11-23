@@ -52,6 +52,11 @@ We recommend adding devices through Home Assistant's automatic detection, but yo
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+IP address:
+  description: "The IP address of your VegeHub. A hostname is not accepted. This field is not shown when Home Assistant discovered the VegeHub on your network."
+{% endconfiguration_basic %}
+
 ### Device settings
 
 To open the VegeHub settings page, navigate to {% my integrations title="**Settings** > **Devices & services**" %}, choose the VegeHub device card, and under **Device info** select **Visit**.

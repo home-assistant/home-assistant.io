@@ -21,6 +21,13 @@ credentials but they will only work with Google Calendar.
 
 {% include integrations/google_oauth.md %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Home Assistant access to Google Calendar:
+  description: "**Read/Write access (can create events)**, the default, lets Home Assistant create and delete events in the calendars you can edit. **Read-only access** only reads your calendars. After you change it, Home Assistant asks you to sign in to Google again, so that its access matches the new setting."
+{% endconfiguration_basic %}
+
 ## Troubleshooting
 
 If the setup process fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
