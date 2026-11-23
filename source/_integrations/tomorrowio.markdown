@@ -50,6 +50,7 @@ If you set up Tomorrow.io before this version, your existing entries are migrate
 
 To change a location's name, coordinates, or NowCast timestep, select the three-dot menu next to the location and select **Reconfigure location**.
 
+{% include integrations/actions.md %}
 ## Data updates
 
 All of an API key's locations are {% term polling polled %} together in one cycle. The polling interval is calculated from your account's daily request limit and the number of configured locations, keeping usage at about 90% of the available daily requests.
