@@ -70,7 +70,7 @@ ac_mode:
   type: boolean
   default: false
 min_cycle_duration:
-  description: The minimum amount of time that must elapse before the switch specified in the *heater* option can be switched off.
+  description: The minimum amount of time the switch specified in the *heater* option stays on before it can be switched off. This only limits the on time, not a full on/off cycle. To set a minimum off time, use `cycle_cooldown`. Changing the target temperature, HVAC mode or preset is applied right away, without waiting.
   required: false
   type: [time, integer]
 max_cycle_duration:
