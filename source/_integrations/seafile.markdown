@@ -111,13 +111,13 @@ The integration has been tested with Seafile 13 and 14 (Community Edition).
 
 - Encrypted libraries are not supported and are not shown in the list of libraries.
 - An account on a server can only be added once.
-- When a library is deleted on the Seafile server, or your account loses access to it, Home Assistant does not remove it automatically. A repair issue asks you to remove it, because a library that is only temporarily unavailable comes back by itself.
+- When a library is deleted on the Seafile server, or your account loses access to it, Home Assistant doesn't remove it automatically because the library might only be unavailable for a while. Instead, a repair issue lets you remove it.
 
 ## Troubleshooting
 
 ### Symptom: The sensors of a library are unavailable
 
-The sensors of one or more libraries show as unavailable, and there may be a **Seafile library "…" not found** repair.
+The entities of one or more libraries show as unavailable. You might also see a repair issue named **Seafile library "_name_" not found**, where _name_ is the name of your library.
 
 #### Description
 
@@ -127,7 +127,7 @@ Home Assistant can't reach the Seafile server, or the library is no longer avail
 
 1. Check that Home Assistant can reach the Seafile server, and look for connection errors in {% my logs title="**Settings** > **System** > **Logs**" %}.
 2. Sign in to the Seafile web interface with the same account and check that the library is still listed. If the library comes back, for example because it was shared with you again, the repair issue disappears by itself within a few minutes.
-3. If the library is gone for good, open the repair in {% my repairs title="**Settings** > **System** > **Repairs**" %} and select **Submit**. This removes the library, its device and its backup location from Home Assistant.
+3. If the library is gone for good, open the repair issue in {% my repairs title="**Settings** > **System** > **Repairs**" %} and select **Submit**. This removes the library, its device and entities, and its backup location from Home Assistant. You can also delete the library entry from the **Seafile** integration page.
 
 ### Symptom: A library is not listed as a backup location
 
