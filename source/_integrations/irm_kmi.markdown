@@ -105,7 +105,7 @@ Before the evening watering run, check the radar and only turn on the sprinklers
 
 - **Trigger**: Time, 20:00:00
 - **Action**: Get radar forecasts
-  - **Target**: Home (`weather.home`)
+  - **Target**: Brussels (`weather.brussels`)
   - **Response variable**: `radar`
 - **Condition**: Template, no frame has rain
 - **Action**: Turn on switch
@@ -122,11 +122,11 @@ automation: |
   actions:
     - action: irm_kmi.get_forecasts_radar
       target:
-        entity_id: weather.home
+        entity_id: weather.brussels
       response_variable: radar
     - condition: template
       value_template: >
-        {{ radar['weather.home'].forecast
+        {{ radar['weather.brussels'].forecast
            | map(attribute='precipitation')
            | select('gt', 0)
            | list

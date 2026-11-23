@@ -41,11 +41,11 @@ In YAML, refer to this action as `irm_kmi.get_forecasts_radar`. Because it retur
 action: |
   action: irm_kmi.get_forecasts_radar
   target:
-    entity_id: weather.home
+    entity_id: weather.brussels
   response_variable: radar
 {% endexample %}
 
-This stores the radar forecast for `weather.home` in `radar`.
+This stores the radar forecast for `weather.brussels` in `radar`.
 
 ### Options in YAML
 
@@ -76,7 +76,7 @@ The response is keyed by the entity ID of each targeted weather entity. For ever
 A shortened example response looks like this:
 
 ```yaml
-weather.home:
+weather.brussels:
   forecast:
     - datetime: "2023-12-28T15:10:00+01:00"
       precipitation: 0.6
@@ -109,7 +109,7 @@ Before the evening watering run, check the radar and only turn on the sprinklers
 
 - **Trigger**: Time, 20:00:00
 - **Action**: Get radar forecasts
-  - **Target**: Home (`weather.home`)
+  - **Target**: Brussels (`weather.brussels`)
   - **Response variable**: `radar`
 - **Condition**: Template, no frame has rain
 - **Action**: Turn on switch
@@ -126,11 +126,11 @@ automation: |
   actions:
     - action: irm_kmi.get_forecasts_radar
       target:
-        entity_id: weather.home
+        entity_id: weather.brussels
       response_variable: radar
     - condition: template
       value_template: >
-        {{ radar['weather.home'].forecast
+        {{ radar['weather.brussels'].forecast
            | map(attribute='precipitation')
            | select('gt', 0)
            | list
@@ -148,7 +148,7 @@ Check the radar every 10 minutes, and send a notification when it is dry now but
 
 - **Trigger**: Time pattern, every 10 minutes
 - **Action**: Get radar forecasts
-  - **Target**: Home (`weather.home`)
+  - **Target**: Brussels (`weather.brussels`)
   - **Response variable**: `radar`
 - **Condition**: Template, the current frame is dry and a later frame has rain
 - **Action**: Send a notification message
@@ -165,11 +165,11 @@ automation: |
   actions:
     - action: irm_kmi.get_forecasts_radar
       target:
-        entity_id: weather.home
+        entity_id: weather.brussels
       response_variable: radar
     - variables:
         rates: >
-          {{ radar['weather.home'].forecast
+          {{ radar['weather.brussels'].forecast
              | map(attribute='precipitation')
              | list }}
     - condition: template
