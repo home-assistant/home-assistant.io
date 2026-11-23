@@ -243,6 +243,7 @@ To ask an AI app:
 
 1. Connect your AI app to Home Assistant, and sign in with an administrator account.
    - For the steps, refer to the [Prerequisites](/integrations/mcp_server/#prerequisites) and [Client configuration](/integrations/mcp_server/#client-configuration) in the Model Context Protocol documentation.
+   - Use the **Main URL**. The individual URLs ignore the configuration options of the integration, including **Read-only**.
    - The AI app needs the **Home Assistant** set of AI tools. When you enable the integration, the main URL includes it. If you set it up earlier, check that **Expose all AI tools** is turned on, or that **Home Assistant** is selected under **AI tools**.
 2. Optional: To keep the AI app from changing anything, turn on **Read-only**. For details, refer to [Configuration options](/integrations/mcp_server/#configuration-options).
    - This option only applies to the main URL. The individual URLs ignore it.
