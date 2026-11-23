@@ -176,7 +176,7 @@ Get a notification when your heating has been unavailable in Home Assistant for 
   - **To**: Unavailable
   - **For**: 1 hour
 - **Action**: Send a notification message
-  - **Target**: My phone
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a notification when the heating goes offline" %}
 
