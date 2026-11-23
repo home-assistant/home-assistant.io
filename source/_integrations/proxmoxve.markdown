@@ -73,7 +73,7 @@ Home Assistant only creates the entities your Proxmox VE user has privileges for
 - Restart and shut down nodes: `Sys.PowerMgmt`.
 - Show updates for nodes: `Sys.Modify`.
 
-`PVEVMUser` and `PVEVMAdmin` do not include `Sys.Audit`, which the node sensors need, so assign them together with `PVEAuditor`. `Sys.PowerMgmt` and `Sys.Modify` are only included in the `Administrator` role. To use them without full access, create a custom role with only the privileges you need.
+With `PVEVMUser` or `PVEVMAdmin`, a node only shows its **Status** sensor and **Status** binary sensor. The other node entities need `Sys.Audit`, so to monitor nodes fully, assign these roles together with `PVEAuditor`. `Sys.PowerMgmt` and `Sys.Modify` are only included in the `Administrator` role. To use them without full access, create a custom role with only the privileges you need.
 
 ### Create a Home Assistant group
 
@@ -179,7 +179,7 @@ Some entities are not enabled by default. You can enable them from the device pa
 
 ### Binary sensors
 
-- **Backup status**: for the node. Shows **Problem** if the last backup failed, and **OK** if it was successful or no backup exists.
+- **Backup status**: for the node. Shows **Problem** if the last backup was not successful, for example because it failed or was canceled, and **OK** if it was successful or no backup exists.
 - **Status**: for each node/VM/LXC. Shows **Running** if the node is online or the VM/LXC is running, and **Not running** for any other state.
 - **Storage active**: for each storage. Shows **Active** if the storage is available on the node, or **Inactive** if it is not.
 - **Storage enabled**: for each storage. Shows **Enabled** if the storage is enabled in Proxmox VE, or **Disabled** if it is not.
@@ -224,9 +224,9 @@ For each node in your Proxmox VE environment, the update entity shows whether th
 
 Data is {% term polling polled %} from devices every 60 seconds.
 
-## Examples
+## Proxmox VE automation examples
 
-### Alert for offline VM
+### Automation: Alert for offline VM
 
 This example automation will alert you if a critical VM is  offline beyond a reasonable time.
 
@@ -249,9 +249,9 @@ automation: |
         entity_id: notify.notifier
 {% endexample %}
 
-### Alert for a failed backup
+### Automation: Alert for a failed backup
 
-This example automation alerts you when the last backup on a node has failed. It uses the **Backup status** binary sensor, which is not enabled by default.
+This example automation alerts you when the last backup on a node was not successful. It uses the **Backup status** binary sensor, which is not enabled by default.
 
 {% example %}
 automation: |
@@ -268,7 +268,7 @@ automation: |
         entity_id: notify.notifier
 {% endexample %}
 
-### Weekly snapshot of a VM
+### Automation: Weekly snapshot of a VM
 
 This example automation creates a snapshot of a VM every Sunday night, so you can go back to an earlier state if something goes wrong.
 
@@ -304,7 +304,7 @@ Home Assistant does not remove snapshots. Each time the automation runs, it adds
 
 {% details "Buttons, node sensors, or the update entity are missing" %}
 
-Home Assistant only creates entities your Proxmox VE user has privileges for. For example, with only the `PVEVMUser` role, a node shows just its status sensor.
+Home Assistant only creates entities your Proxmox VE user has privileges for. For example, with only the `PVEVMUser` role, a node shows just its **Status** sensor and **Status** binary sensor.
 
 1. Check the privileges of your user against [Choose the right role](#choose-the-right-role), and add what is missing in Proxmox VE.
 2. Home Assistant reads the privileges when the integration starts. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Proxmox VE**, and reload the integration.
