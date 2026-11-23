@@ -8,7 +8,7 @@ The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use 
 
 LiteLLM exposes a single OpenAI-compatible API in front of a wide range of model providers, so you can use almost any model through one endpoint. This is similar to a service like OpenRouter, with the added benefit that you can run LiteLLM yourself if you prefer to keep everything under your own control. This integration lets you point Home Assistant at any LiteLLM proxy, whether it is a hosted instance or one you self-host.
 
-Home Assistant lists all models returned by LiteLLM filtered by the mode of each model when defined. Choose a model that supports chat completions for a conversation agent or audio transcription for a speech-to-text service. The proxy's settings may not match what a model's backend can do, so LiteLLM or the model's backend may reject an incompatible request.
+Home Assistant lists all models returned by LiteLLM filtered by the mode of each model when defined. Choose a model that supports chat completions for a conversation agent, audio transcription for a speech-to-text service, or speech generation for a text-to-speech service. The proxy's settings may not match what a model's backend can do, so LiteLLM or the model's backend may reject an incompatible request.
 
 ## Prerequisites
 
