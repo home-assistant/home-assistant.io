@@ -98,3 +98,14 @@ If your system is equipped with a MODBUS40 accessory, this can be used to contro
 {% note %}
 Support for RCU-based communication is currently untested.
 {% endnote %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant.
+
+{% include integrations/remove_device_service.md %}
+
+After removing the integration, you can turn off what you set up on the pump for it, if nothing else uses it:
+
+- **Modbus connection**: Turn off Modbus TCP/IP on the pump (menu 7.5.9 on S-series pumps).
+- **NibeGW**: If you also remove the NibeGW unit, turn off the MODBUS40 accessory in the pump's settings, or the pump raises an alarm about the missing accessory.
