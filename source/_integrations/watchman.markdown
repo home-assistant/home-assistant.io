@@ -2,8 +2,8 @@
 title: Kingspan Watchman SENSiT
 description: Instructions on how to integrate Kingspan Watchman SENSiT sensors into Home Assistant.
 ha_categories:
-  - Energy
-  - Sensor
+  - energy
+  - sensors
 ha_release: 2026.11
 ha_iot_class: cloud_polling
 ha_domain: watchman
