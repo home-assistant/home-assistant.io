@@ -9,6 +9,10 @@ related:
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration lets you monitor your Proxmox VE nodes, virtual machines, and containers in Home Assistant, and exposes control actions (if your Proxmox permissions allow it).
 
+## Supported devices
+
+The integration is tested with the latest version of Proxmox VE (currently Proxmox VE 9), both on a standalone node and in a cluster. Earlier versions should also work, because the integration uses the Proxmox VE API, which has been available since Proxmox VE 2.0. Some features need a more recent version. For details, see [Known limitations](#known-limitations).
+
 ## Prerequisites
 
 {% important %}
@@ -146,29 +150,40 @@ To create a token:
 
 {% enddetails %}
 
-## Entities
+## Supported functionality
 
-Some entities are not enabled by default, you can enable them via the device page.
+The integration creates a device for each node, VM, container, and storage, and adds new ones automatically. Each device page links to the matching page in the Proxmox VE web interface.
 
-### Sensor
+Some entities are not enabled by default. You can enable them from the device page.
 
-- **CPU**: Percentage of CPU usage.
-- **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
-- **Disk**: Disk usage of the node/VM/LXC.
-- **Last backup** & **Backup duration**: Time and duration of the last backup on the node. Returns `unknown` if no backups exist.
-- **Max disk**: Maximum amount of available disk space.
-- **Memory** & **Memory percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
-- **Max memory**: Maximum amount of memory on the node/VM/LXC.
-- **Network input**: Amount of incoming network traffic since starting the VM/LXC.
-- **Network output**: Amount of outgoing network traffic since starting the VM/LXC.
+### Sensors
+
+- **CPU usage**: Percentage of CPU usage of the node/VM/LXC.
+- **Max CPU**: Number of CPUs of the node/VM/LXC.
+- **Disk usage** and **Max disk usage**: Disk space in use and total disk space of the node/VM/LXC.
+- **Memory usage** and **Memory usage percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
+- **Max memory usage**: Total amount of memory of the node/VM/LXC.
+- **Network input** and **Network output**: Amount of incoming and outgoing network traffic since the VM/LXC started.
+- **Status** (node): Shows whether the node is **Online** or **Offline**.
+- **Status** (VM/LXC): Shows whether the VM/LXC is **Running**, **Stopped**, or **Suspended**.
 - **Uptime**: Time since the node/VM/LXC started.
+- **Last backup** and **Backup duration**: Time and duration of the last backup on the node. Shows **Unknown** if no backups exist.
+- **Used storage**: Space in use on a storage.
+- **Available storage**: Free space on a storage.
+- **Total storage**: Total size of a storage.
+- **Storage usage percentage**: Percentage of the storage that is in use.
 
-### Binary sensor
+### Binary sensors
 
-- **Backup status**: for the node. This will be **on** if the last backup was successful or **off** for any other state.
-- **Status**: for each VM/LXC. This will be **on** if the state is running or **off** for any other state.
+- **Backup status**: for the node. Shows **Problem** if the last backup failed, and **OK** if it was successful or no backup exists.
+- **Status**: for each node/VM/LXC. Shows **Running** if the node is online or the VM/LXC is running, and **Not running** for any other state.
+- **Storage active**: for each storage. Shows **Active** if the storage is available on the node, or **Inactive** if it is not.
+- **Storage enabled**: for each storage. Shows **Enabled** if the storage is enabled in Proxmox VE, or **Disabled** if it is not.
+- **Storage shared**: for each storage. Shows **Shared** if the storage is shared between the nodes in a cluster, or **Not shared** if it is local to one node.
 
-### Button
+### Buttons
+
+Buttons are only created when the Proxmox VE user has the required privileges (see [Buttons not working](#buttons-not-working)).
 
 - **Create snapshot**: Creates a snapshot of a VM/LXC.
 - **Start**: Starts a VM/LXC.
@@ -188,9 +203,18 @@ Some entities are not enabled by default, you can enable them via the device pag
 **Stop** ends a running VM or LXC immediately. It is like pulling the power plug of a running computer and may damage data.
 {% endnote %}
 
-### Update
+### Updates
 
 For each node in your Proxmox VE environment, the update entity shows whether the node is up to date or if a new version is available, including any pending package updates.
+
+## Use cases
+
+- See at a glance on a dashboard whether your nodes, VMs, and containers are running, and how much CPU and memory they use.
+- Get notified when a storage is almost full, or when a VM or container is running low on memory.
+- Get notified when a backup fails, or when a node has updates available.
+- Shut down non-essential VMs when your uninterruptible power supply (UPS) switches to battery, and start them again when the power is back.
+- Start a VM only when you need it, such as a game server, and shut it down again at night.
+- Create a snapshot of a VM or container on a schedule, so you can go back to an earlier state if something goes wrong.
 
 ## Data updates
 
@@ -221,9 +245,56 @@ automation: |
         entity_id: notify.notifier
 {% endexample %}
 
+### Alert for a failed backup
+
+This example automation alerts you when the last backup on a node has failed. It uses the **Backup status** binary sensor, which is not enabled by default.
+
+{% example %}
+automation: |
+  alias: "Proxmox backup failed"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.pve1_backup_status
+      to: "on"
+  actions:
+    - action: notify.send_message
+      data:
+        message: "The last backup on Proxmox node pve1 has failed."
+      target:
+        entity_id: notify.notifier
+{% endexample %}
+
+### Weekly snapshot of a VM
+
+This example automation creates a snapshot of a VM every Sunday night, so you can go back to an earlier state if something goes wrong.
+
+{% example %}
+automation: |
+  alias: "Proxmox weekly snapshot of database VM"
+  triggers:
+    - trigger: time
+      at: "03:00:00"
+      weekday: sun
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.databaseserver_create_snapshot
+{% endexample %}
+
+{% caution %}
+Home Assistant does not remove snapshots. Each time the automation runs, it adds a new snapshot, named `homeassistant_snapshot_` followed by the date and time in UTC. Snapshots take up space on the storage of the VM, so remove old snapshots regularly in Proxmox VE: select the VM, open **Snapshots**, select the snapshot, and select **Remove**.
+{% endcaution %}
+
 ## Known limitations
 
-Unfortunately not all storage types and data are exposed fully via the ProxmoxVE API.
+- The integration connects to a single host. In a cluster, all nodes are reported through that host, but if that host is down, all entities become unavailable.
+- For a node that is offline, no VM, container, storage, backup, or update data can be retrieved.
+- Backup entities only reflect the most recent backup (`vzdump`) task of a node.
+- The update entity only shows pending updates; installing them must be done in Proxmox VE.
+- Snapshots created with the **Create snapshot** button are not removed automatically. VM snapshots do not include the RAM state.
+- Not all storage types and data are fully available through the Proxmox VE API.
+- The **Suspend all** button requires Proxmox VE 8.1 or later.
+- Authentication with an API token requires Proxmox VE 6.2 or later.
 
 ## Troubleshooting
 
