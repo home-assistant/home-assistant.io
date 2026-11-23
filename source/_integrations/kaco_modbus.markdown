@@ -67,9 +67,7 @@ Readings that genuinely are zero, such as **AC power**, still report zero.
 
 ### MPP trackers
 
-Each MPP tracker (DC input) of the inverter gets its own device, **MPPT 1**,
-**MPPT 2**, and so on, under the inverter's device. Its sensors are named after
-it, for example **MPPT 1 DC power**:
+Each maximum power point (MPP) tracker in the inverter has its own device: **MPPT 1**, **MPPT 2**, and so on. An MPP tracker is a DC input, usually with its own string of solar panels. These devices are child devices of the inverter. Their sensors are named after them; for example, **MPPT 1 DC power**.
 
 - **DC power**: The power coming in on this input.
 - **DC voltage** and **DC current**: The voltage and current on this input.
