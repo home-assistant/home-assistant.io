@@ -38,12 +38,16 @@ Earlier versions set up SmartThings through a Home Assistant Cloud login. This o
 
 ### Reauthenticating
 
-When the integration asks you to reauthenticate, you can choose:
+If SmartThings rejects the connection, Home Assistant asks you to reauthenticate the integration.
 
-- **Reconnect with the existing app**: Sign in again using the SmartThings app Home Assistant already created.
-- **Create a new app**: Enter a new Personal Access Token to create a replacement app, for example if the app was deleted from your SmartThings account.
+If the integration already uses an app that Home Assistant created on your SmartThings account, you can choose:
 
-You must sign in with the same Samsung account and select the same location as the original entry.
+- **Reconnect with the existing app**: Sign in to SmartThings again. No new Personal Access Token is needed.
+- **Create a new app**: Enter a new Personal Access Token, and Home Assistant creates a replacement app. Use this if the app was deleted from your SmartThings account, or if reconnecting does not work.
+
+Otherwise, Home Assistant asks for a new Personal Access Token straight away. This happens, for example, for entries set up with the Home Assistant Cloud login, or after the URL of your Home Assistant instance has changed.
+
+When you sign in, select the same location as the one you originally set up.
 
 ## Supported functionality
 
