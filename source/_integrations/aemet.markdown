@@ -15,7 +15,7 @@ There is currently support for the following entity types within Home Assistant:
 You need an API key, which is free but requires a [registration](https://opendata.aemet.es/centrodedescargas/altaUsuario).
 The AEMET OpenData service is completely free but is limited to the Spanish territory.
 
-AEMET API keys expire after 3 months. When your key expires, Home Assistant asks you to enter a new one. For the steps, refer to [Troubleshooting](#troubleshooting).
+New AEMET API keys expire after 3 months, and older keys without an expiration date are being retired. When AEMET rejects your key, Home Assistant asks you to enter a new one. For the steps, refer to [Troubleshooting](#troubleshooting).
 
 ## Configuration
 
@@ -66,11 +66,11 @@ Details about the API are available in the [AEMET OpenData documentation](https:
 
 ### Symptom: The API key is invalid or has expired
 
-In {% my integrations title="**Settings** > **Devices & services**" %}, the AEMET OpenData integration shows **Attention required** and the message "The AEMET OpenData API key is invalid or has expired". The AEMET entities stop updating.
+In {% my integrations title="**Settings** > **Devices & services**" %}, **AEMET OpenData** is listed under **Attention required**, and the AEMET entities are unavailable. The Home Assistant log shows "The AEMET OpenData API key is invalid or has expired".
 
 #### Description
 
-AEMET API keys expire after 3 months. AEMET is also retiring older keys that were issued without an expiration date. When AEMET rejects the key, Home Assistant stops updating the AEMET data and asks you for a new key.
+New AEMET API keys expire after 3 months. AEMET is also retiring older keys that were issued without an expiration date. Until they are fully retired, AEMET rejects these older keys more and more often, so replace an older key as soon as you can. When AEMET rejects the key, Home Assistant stops updating the AEMET data and asks you for a new key.
 
 #### Resolution
 
