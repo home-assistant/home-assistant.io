@@ -15,17 +15,19 @@ ha_domain: system_bridge
 
 ## Supported devices
 
-The integration works with any computer running [System Bridge](https://system-bridge.timmo.dev) 5.0.0 or later. System Bridge has packages for Linux and Windows. macOS isn't officially supported, but you can build System Bridge from source to run it there. Some features depend on the operating system; see [Known limitations](#known-limitations).
+The integration works with any computer running [System Bridge](https://system-bridge.timmo.dev) 5.28.6 or later. System Bridge has packages for Linux and Windows. macOS isn't officially supported, but you can build System Bridge from source to run it there. Some features depend on the operating system; see [Known limitations](#known-limitations).
 
 ## Prerequisites
 
 ### Version
 
-This integration requires System Bridge 5.0.0 and above. Any older version will not work.
+This integration requires System Bridge 5.28.6 or later. Older versions aren't supported.
 
-### Token
+### Key or pairing code
 
-You will need your token. For instructions on finding your token, follow the steps in the [System Bridge documentation](https://system-bridge.timmo.dev/running/#token).
+Home Assistant signs in to System Bridge with a key of its own. To set it up, you need a key or a pairing code from the computer. Open the System Bridge [web client](https://system-bridge.timmo.dev/using/web-client/) on the computer and go to **Settings** > **Devices**, or run `system-bridge client key create "Home Assistant"` there. A pairing code works once, for 5 minutes, and Home Assistant trades it for its key.
+
+If you set up the integration with the System Bridge token before keys, Home Assistant trades the token for a key of its own the next time it connects. There's nothing you need to do.
 
 {% include integrations/config_flow.md %}
 
@@ -34,11 +36,11 @@ Host:
   description: The hostname or IP address of the computer running System Bridge.
 Port:
   description: The port System Bridge listens on. The default is `9170`, and you can change it on the computer with the `SYSTEM_BRIDGE_PORT` environment variable.
-Token:
-  description: The token from the System Bridge settings. To find it, run `system-bridge client token` on the computer, as the same user that runs System Bridge. On Windows, run `.\system-bridge.exe client token` in PowerShell from the `C:\Program Files\System Bridge` folder.
+Key or pairing code:
+  description: A key or a pairing code from **Settings** > **Devices** in the System Bridge web client. You can also paste the link a pairing code comes with. Pairing again replaces Home Assistant's key, rather than adding another.
 {% endconfiguration_basic %}
 
-Home Assistant discovers computers running System Bridge on your network. A discovered computer shows up under {% my integrations title="**Settings** > **Devices & services**" %}, and you only need to enter its token.
+Home Assistant discovers computers running System Bridge on your network. A discovered computer shows up under {% my integrations title="**Settings** > **Devices & services**" %}, and you only need to enter a key or a pairing code.
 
 ## Binary sensors
 
@@ -148,6 +150,14 @@ The integration provides a button for each power command: **Sleep**, **Hibernate
 
 The buttons do the same as the [`system_bridge.power_command`](/actions/system_bridge.power_command/) action, and are easier to add to a dashboard or an automation.
 
+## Command buttons
+
+Each command in the device's [command allowlist](https://system-bridge.timmo.dev/features/commands/) gets a button named after it. Adding, renaming, or removing a command in System Bridge adds, renames, or removes its button straight away.
+
+Pressing a button runs the command on the device and waits for it to finish. Pressing it shows an error if the command can't run, exits with a code other than `0`, or doesn't finish within a few seconds. A command that takes longer keeps running on the device.
+
+Anyone who can press the button in Home Assistant can run the command, so only add commands to the allowlist that you're happy to run from Home Assistant.
+
 ## Power controls
 
 On Linux with power-profiles-daemon, the **Power profile** select entity shows the active power profile, such as **Balanced**, **Performance**, or **Power saver**, and switches to another. Only the profiles the device supports are listed.
@@ -190,73 +200,48 @@ The integration provides an update component, which will notify you when a new v
 
 ## Notifiers
 
-The **System Bridge** {% term integration %} adds a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [notify platform](#notifications-notifysystem_bridge_hostname) instead. For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
+The **System Bridge** {% term integration %} adds a notify {% term entity %} for each computer. To send a plain notification, use the `notify.send_message` {% term action %}. For more notification options, see [Send message](/actions/system_bridge.send_message/). To close a notification, see [Dismiss message](/actions/system_bridge.dismiss_message/). For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
 
 {% example %}
 action: |
   action: notify.send_message
   target:
-    entity_id: notify.my_device
+    entity_id: notify.my_computer
   data:
     title: "Reminder"
     message: "Have you considered frogs?"
 {% endexample %}
 
-## Notifications
+### Notification events
 
-You can send notifications to the device using the `notify.system_bridge_hostname` notify entity.
+With System Bridge 5.20.0 or later, each computer has a notification {% term event %} {% term entity %}, such as `event.my_computer_notification`. It fires when a notification sent by Home Assistant is clicked or closed on the computer, and, with System Bridge 5.27.0 or later, when System Bridge sends a notification from anywhere.
 
-```yaml
-action: notify.system_bridge_hostname
-data:
-  data:
-    image: "https://brands.home-assistant.io/system_bridge/logo@2x.png"
-    timeout: 30
-    actions:
-      - command: api
-        data:
-          endpoint: open
-          method: POST
-          body:
-            url: "http://homeassistant.local:8123/lovelace/cameras"
-        label: "Open Cameras"
-    audio:
-      source: "https://d3qhmae9zx9eb.cloudfront.net/home/amzn_sfx_doorbell_chime_02.mp3"
-      volume: 80
-  title: "Test Title"
-  message: "This is a message"
-```
+| Event type | Attributes | When |
+| ---------- | ---------- | ---- |
+| `sent` | `notification_id`, `title`, `message`, `buttons` | System Bridge sent a notification, from Home Assistant or another app. `buttons` lists each button's `id` and `label`. |
+| `clicked` | `notification_id`, `action` | The notification or one of its buttons was clicked. `action` is the button's `id`, or `default` for the notification itself. |
+| `closed` | `notification_id`, `reason` | The notification closed without a click. `reason` is `expired`, `dismissed` or `closed`. |
 
-### Parameters
+`notification_id` is the same for every event about one notification, and matches the `id` that `system_bridge.send_message` returned, so you can follow a notification from `sent` to its click or close. Linux reports clicks and closes, Windows only clicks, and macOS neither.
 
-- **target**: The target to send the notification to. This can be ignored.
-- **title**: The title of the notification.
-- **message**: The message of the notification.
-- **data**: The data to send to the device. See below for more information.
-
-#### Actions (`data` parameter)
-
-This is a list of actions that can be sent to the device. These are buttons that show below the title, message, and image.
-
-- **command**: The command to send to the device. For example, `api` sends a request to the System Bridge API.
-- **label**: The label of the button.
-- **data**: The data to send to the device. The available parameters for the `api` command are `endpoint`, `method`, `body`, and `params`.
-
-Here is an example action that opens a URL in the device's browser:
-
-```yaml
-- command: api
-  label: "Open Cameras"
-  data:
-    endpoint: open
-    method: POST
-    body:
-      url: "http://homeassistant.local:8123/lovelace/cameras"
-```
-
-#### Audio (`data` parameter)
-
-This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file, such as an MP3.
+{% example %}
+automation: |
+  triggers:
+    - trigger: state
+      entity_id: event.my_computer_notification
+      not_from: unavailable
+  conditions:
+    - condition: state
+      entity_id: event.my_computer_notification
+      attribute: event_type
+      state: clicked
+    - condition: template
+      value_template: "{{ trigger.to_state.attributes.action == 'unlock' }}"
+  actions:
+    - action: lock.unlock
+      target:
+        entity_id: lock.front_door
+{% endexample %}
 
 {% include integrations/actions.md %}
 
@@ -392,11 +377,11 @@ Home Assistant can't reach System Bridge on the host and port you entered. The c
 
 #### Description
 
-The token Home Assistant uses no longer matches the one in System Bridge, for example after reinstalling System Bridge.
+System Bridge no longer accepts Home Assistant's key, for example after it was removed under **Settings** > **Devices** in the web client, or after reinstalling System Bridge.
 
 #### Resolution
 
-Under {% my integrations title="**Settings** > **Devices & services**" %}, select **Reconfigure** on the notification and enter the new token.
+Under {% my integrations title="**Settings** > **Devices & services**" %}, select **Reconfigure** on the notification and enter a new key or pairing code.
 
 {% enddetails %}
 
@@ -406,7 +391,7 @@ Under {% my integrations title="**Settings** > **Devices & services**" %}, selec
 
 #### Description
 
-The computer runs a System Bridge version older than 5.0.0. Home Assistant doesn't set up the integration until System Bridge is updated.
+The computer runs a System Bridge version older than 5.28.6. Home Assistant doesn't set up the integration until System Bridge is updated.
 
 #### Resolution
 

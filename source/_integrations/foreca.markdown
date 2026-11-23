@@ -82,13 +82,23 @@ Each location also gets three sensors for the current conditions:
 - **Precipitation probability**: the current probability of precipitation, in percent.
 - **Thunderstorm probability**: the current probability of thunder, in percent.
 
-The sensors come from the same requests as the weather entity, so they add nothing to your request count.
+These sensors come from the same requests as the weather entity, so they add nothing to your request count.
+
+Each location also gets the latest measurements from the nearest weather station:
+
+- **Observation station**: the name of the station the measurements come from. This is a diagnostic entity.
+- **Observation time**: when the station took the measurements. This is a diagnostic entity and is disabled by default.
+- **Observed temperature** and **Observed humidity**.
+- **Observed condition**: the weather the station reports, such as sunny, rainy, or snowy. Disabled by default.
+- **Observed apparent temperature**, **Observed pressure**, **Observed wind speed**, **Observed wind gust speed**, **Observed wind direction**, **Observed visibility**, and **Observed snow depth**. These are disabled by default.
+
+Where no station reports nearby, the observation sensors show as unknown.
 
 {% include integrations/actions.md %}
 
 ## Data updates
 
-The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses three requests per location, around 144 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Every location you add polls separately, so that limit allows around 13 of them. Because the integration polls continuously, a Freemium key used this way does not go idle.
+The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses four requests per location: three for the forecast and current conditions, and one for the weather station sensors. That's around 192 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Each location you add polls separately, so that limit allows around 10 locations. If you disable all observation sensors of a location, it uses three requests per update instead. Because the integration polls continuously, a Freemium key used this way does not go idle.
 
 The `weather.get_forecasts` and `foreca.get_forecasts_extra` actions read the forecast the integration has already retrieved, so using them in templates and automations costs no extra requests.
 
@@ -122,7 +132,7 @@ The `foreca.get_3_hour_forecast` action requests fresh data, so each call uses o
 
 #### Description
 
-The integration marks entities unavailable when the API cannot be reached or the daily request limit is exceeded.
+The integration marks entities as unavailable when the API cannot be reached or the daily request limit is exceeded. If only the weather station request fails, only the observation sensors are unavailable, and the rest keep updating.
 
 #### Resolution
 

@@ -92,6 +92,7 @@ These sensors are disabled by default, because calculating them can take a long 
 - **Status**: Whether the stack is `active` or `inactive`.
 - **Type**: The stack type: `Compose`, `Swarm`, or `Kubernetes`.
 - **Container count**: Number of containers belonging to the stack.
+- **Last deployed**: When the stack was last deployed or updated, including redeploys and Git auto-updates. For a stack that was never updated, this is when it was created.
 
 ### Switches
 
@@ -151,7 +152,7 @@ Each Docker container is a child device under its endpoint or stack. Container d
 
 ### Stacks
 
-Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, a switch to start or stop the entire stack, and a button to update it.
+Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, a last deployed sensor, a switch to start or stop the entire stack, and a button to update it.
 
 Docker API Engine needs to be equal to or above version 1.44. Older versions are [deprecated](https://docs.docker.com/reference/api/engine/#deprecated-api-versions). 
 

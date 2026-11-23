@@ -211,6 +211,12 @@ Depending on how a device's button type is configured, the integration will crea
 
 For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the **Input Mode** is set to `Switch`. When the **Input Mode** is set to `Button` you need to use events for your automations.
 
+## Input lock
+
+Generation 2+ devices with a physical input provide an **Input lock** switch. When it is on, the device ignores all changes to its physical inputs. The output can still be controlled from Home Assistant, the Shelly app, and automations.
+
+The switch is created for every switch or cover channel that supports it. This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Changes made in the Shelly app or web interface are reflected in Home Assistant as well.
+
 ## Media player entities
 
 Wall Display devices with firmware 2.2 or newer can function as media players. The integration creates media player entities for them.
@@ -247,6 +253,14 @@ data:
 target:
   entity_id: media_player.shelly_wall_display
 ```
+
+## Wall Display brightness
+
+Wall Display devices with firmware 2.6.2 or newer provide entities to control the screen brightness:
+
+- **Auto display brightness** switch: When on, the device adjusts the brightness to the ambient light.
+- **Display brightness** (0–100%): The screen brightness when auto brightness is off. This entity is unavailable while auto brightness is on, because the device then sets the brightness itself.
+- **Minimum auto display brightness** (1–50%): The lowest brightness that auto brightness uses. This entity is only available when the device reports support for it.
 
 ## Event entities
 

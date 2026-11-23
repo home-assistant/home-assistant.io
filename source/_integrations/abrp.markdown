@@ -33,6 +33,8 @@ The **A Better Routeplanner (ABRP)** {% term integration %} connects your ABRP a
 
 Use this integration to track battery level and range, then use that data in dashboards and automations.
 
+You can also send data from Home Assistant to ABRP with an action, for example the state of charge from your vehicle's own integration, so ABRP plans routes from the right starting point.
+
 ## Supported devices
 
 This integration works with electric vehicles supported by the [A Better Routeplanner](https://abetterrouteplanner.com/) cloud service and added to your ABRP garage.
@@ -50,11 +52,11 @@ The integration does not connect to your vehicle directly. It uses the telemetry
 
 - An [A Better Routeplanner](https://abetterrouteplanner.com/) account.
 - At least one vehicle in your ABRP garage.
-- The [Home Assistant Cloud](/integrations/cloud/) integration loaded. It is included in `default_config:`, which is enabled by default. If you removed `default_config:` from your {% term "configuration.yaml" %}, add `cloud:` instead.
+- The [Home Assistant Link](/integrations/link/) integration loaded. It is included in `default_config:`, which is enabled by default. If you removed `default_config:` from your {% term "configuration.yaml" %}, add `cloud:` instead.
 
 {% include integrations/config_flow.md %}
 
-During setup, you sign in to ABRP and every vehicle in your ABRP garage is added to Home Assistant. Sign-in uses account linking provided by Home Assistant Cloud. This service is free and does not require a Home Assistant Cloud subscription, so you do not need API credentials or a developer app.
+During setup, you sign in to ABRP and every vehicle in your ABRP garage is added to Home Assistant. Sign-in uses account linking provided by Home Assistant Link. This service is free and does not require a Home Assistant Link subscription, so you do not need API credentials or a developer app.
 
 To monitor vehicles from more than one ABRP account, add the integration once for each account.
 
@@ -94,7 +96,9 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
 
 ### Controls
 
-This is a read-only integration. It does not provide vehicle control actions like start charging, stop charging, climate control, or lock and unlock.
+The integration does not control your vehicle. It does not provide vehicle control actions like start charging, stop charging, climate control, or lock and unlock.
+
+{% include integrations/actions.md %}
 
 ## A Better Routeplanner automation examples
 
@@ -158,6 +162,40 @@ automation: |
 
 {% enddetails %}
 
+### Automation: Send the state of charge from another integration to ABRP
+
+If your vehicle's own integration reports the battery level, forward it to ABRP every time it changes, so route planning always starts from the current value.
+
+- **Trigger**: State
+  - **Entity**: The battery level sensor from your vehicle's integration
+  - **To**: Any state (ignoring attribute changes)
+- **Condition**: Template
+  - **Value template**: {% raw %}`{{ is_number(trigger.to_state.state) }}`{% endraw %}
+- **Action**: Send telemetry
+  - **Vehicle**: Your vehicle in ABRP
+  - **State of charge**: {% raw %}`{{ trigger.to_state.state | float }}`{% endraw %}. The number field doesn't accept a template, so select **Edit in YAML** on the action to enter it.
+
+{% details "YAML example for sending the state of charge to ABRP" %}
+
+{% example %}
+automation: |
+  alias: "Send battery level to ABRP"
+  triggers:
+    - trigger: state
+      entity_id: sensor.my_ev_battery_level
+      to:
+  conditions:
+    - condition: template
+      value_template: "{{ is_number(trigger.to_state.state) }}"
+  actions:
+    - action: abrp.send_telemetry
+      data:
+        vehicle: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        soc: "{{ trigger.to_state.state | float }}"
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 Telemetry is pushed from ABRP in near real time when ABRP receives vehicle updates. If the live stream connection drops, the integration reconnects automatically.
@@ -172,7 +210,7 @@ The integration also checks your ABRP garage every hour. New vehicles, including
 
 ### Vehicle controls
 
-The integration is read-only and does not control your vehicle. To send commands to your vehicle, use the manufacturer integration for your vehicle, such as [Tesla Fleet](/integrations/tesla_fleet/), [Volvo](/integrations/volvo/), [Renault](/integrations/renault/), [Nissan Leaf](/integrations/nissan_leaf/), or [Subaru](/integrations/subaru/). The available commands, like charging, climate control, or locking, depend on the manufacturer integration and your vehicle.
+The integration does not control your vehicle. It can send telemetry to ABRP, but not commands to the vehicle. To send commands to your vehicle, use the manufacturer integration for your vehicle, such as [Tesla Fleet](/integrations/tesla_fleet/), [Volvo](/integrations/volvo/), [Renault](/integrations/renault/), [Nissan Leaf](/integrations/nissan_leaf/), or [Subaru](/integrations/subaru/). The available commands, like charging, climate control, or locking, depend on the manufacturer integration and your vehicle.
 
 ### Telemetry availability
 
@@ -221,7 +259,7 @@ After you sign in, the integration reloads and your entities update again.
 
 ### Setup stops with a message about default_config
 
-If setup stops and asks you to run Home Assistant with `default_config` enabled, the [Home Assistant Cloud](/integrations/cloud/) integration is not loaded. Add `default_config:` or `cloud:` to your {% term "configuration.yaml" %}, restart Home Assistant, and add the integration again.
+If setup stops and asks you to run Home Assistant with `default_config` enabled, the [Home Assistant Link](/integrations/link/) integration is not loaded. Add `default_config:` or `cloud:` to your {% term "configuration.yaml" %}, restart Home Assistant, and add the integration again.
 
 ### Sensor states appear stale
 

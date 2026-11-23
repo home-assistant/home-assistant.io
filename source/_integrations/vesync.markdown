@@ -65,6 +65,10 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 ### Air Fryers
 
 - Cosori 3.7 and 5.8 Quart Air Fryer
+- Cosori TurboBlaze 6 Quart Air Fryer
+- Cosori Dual Blaze 6.8 Quart Air Fryer
+- Cosori Twinfry Dual Air Fryer
+- Cosori Turbo Tower Pro Smart Air Fryer
 
 ## Prerequisite
 
@@ -165,6 +169,7 @@ The OasisMist 4.5L has a minimum light brightness of 40%, so its night light can
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
 | `water_tank_lifted`     | Water tank is lifted                                                               | false     |
+| `sync_chambers`         | On dual-basket air fryers, indicates whether both baskets use the same settings   | true      |
 
 ## Air Fryers
 
@@ -178,6 +183,10 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
 | `cook_end_time`         | When the running cook finishes, preheating included. Unknown when paused or stopped    | 12:19     |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
+
+The `preheat_set_time` sensor is only available on air fryers that support preheating. For example, the Dual Blaze doesn't have it.
+
+On dual-basket air fryers, you get a separate set of these sensors for each basket. The sensor names include the basket number, such as **Basket 1 cooking status** and **Basket 2 cooking status**. This way, you can follow each basket on its own. On single-basket air fryers, the sensor names do not include a basket number.
 
 | Button                  | Description                                                                            |
 | ----------------------- | -------------------------------------------------------------------------------------- |
