@@ -14,7 +14,7 @@ Channel devices expose **Live view SD** and **Live view HD** camera entities. De
 - See whether a camera, gateway, or plug is online, sleeping, or upgrading.
 - Arm or disarm a supported gateway.
 - Turn a supported plug on or off, and read its power use.
-- Set when a supported plug should turn off, and cap its max power.
+- Set when a supported plug should switch, and cap its max power.
 - Get a notification when a supported door or window contact opens.
 
 ## Supported devices
@@ -161,7 +161,7 @@ When the cloud API reports that a contact state is supported for a device, the i
 
 When the cloud API reports that a countdown timer is supported for a smart plug, the integration exposes the following date/time entity under **Configuration**:
 
-- **Turn off at**: When the plug will turn off. Set a future date and time; Home Assistant sends the remaining minutes to Imou. The entity keeps that end time so the UI can show remaining time without rewriting state every minute.
+- **Switch at**: When the plug will switch. If it is on, it turns off; if it is off, it turns on. Set a future date and time; Home Assistant sends the remaining minutes to Imou. The entity keeps that end time so the UI can show remaining time without rewriting state every minute.
 
 ### Numbers
 
