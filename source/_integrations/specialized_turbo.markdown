@@ -243,11 +243,11 @@ If the connection stops, the entities become unavailable. The integration reconn
 - **Encrypted setup**: Account key retrieval requires internet access during setup or reauthentication.
 - **Bluetooth proxies**: Some ESPHome proxies cannot complete operating-system pairing requests.
 
-## Move from the HACS integration
+## Move from the custom integration
 
-The Core integration uses the same domain and entity unique IDs as the HACS integration.
+The built-in integration uses the same domain and entity unique IDs as the custom integration from the Marketplace (formerly known as HACS).
 
-1. Update the HACS integration to version 0.6.0 or later.
+1. Update the custom integration to version 0.6.0 or later.
 2. Restart Home Assistant.
 3. Remove the Specialized Turbo custom integration files from HACS.
 4. Do not delete the Specialized Turbo configuration entry.
