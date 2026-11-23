@@ -182,6 +182,7 @@ automation: |
   triggers:
     - trigger: state
       entity_id: sensor.my_ev_battery_level
+      to:
   conditions:
     - condition: template
       value_template: "{{ is_number(trigger.to_state.state) }}"
