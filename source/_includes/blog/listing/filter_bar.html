@@ -1,0 +1,126 @@
+{%- comment -%}
+  The blog's filters: the active filter, with a link to clear it, and a
+  Filters button that opens a drawer with every year, category and
+  author. The drawer is a side panel on wider screens and a bottom
+  sheet on phones.
+
+  Every filter is a link to a static page, so filtering works without
+  JavaScript. The drawer opens with invoker commands (commandfor),
+  with a small script for browsers that don't support them yet.
+{%- endcomment -%}
+{%- assign facets = page.listing.facets -%}
+{%- assign current = page.listing.facet -%}
+
+{%- case current.kind -%}
+  {%- when "category" -%}{%- assign active_prefix = "Category" -%}
+  {%- when "author" -%}{%- assign active_prefix = "Author" -%}
+  {%- when "year" -%}{%- assign active_prefix = "Year" -%}
+{%- endcase -%}
+
+{%- if current.kind == "category" -%}
+  {%- assign feed = current.url | append: "atom.xml" -%}
+{%- else -%}
+  {%- assign feed = "/atom.xml" -%}
+{%- endif -%}
+
+<div class="blog-toolbar">
+  <div class="blog-active-filter">
+    <span class="blog-chip active">
+      {%- if active_prefix %}<span class="blog-chip-prefix">{{ active_prefix }}:</span> {% endif -%}
+      {{ current.label }} <span class="blog-count">{{ current.count }}</span>
+    </span>
+    {%- if current.kind != "all" %}
+    <a class="blog-clear-filter" href="/blog/">Clear filter</a>
+    {%- endif %}
+  </div>
+  <div class="blog-actions">
+    <button type="button" class="blog-action blog-filters-button" commandfor="blog-filters" command="show-modal">
+      {% icon "mdi:filter-variant" %} Filters
+    </button>
+    <a class="blog-action blog-feed" href="{{ feed }}">{% icon "mdi:rss" %} <span>RSS</span></a>
+  </div>
+</div>
+
+<dialog id="blog-filters" class="blog-drawer" closedby="any" aria-labelledby="blog-filters-title">
+  <header class="blog-drawer-header">
+    <h2 id="blog-filters-title">Filter posts</h2>
+    <button type="button" class="blog-drawer-close" commandfor="blog-filters" command="close" aria-label="Close filters">{% icon "mdi:close" %}</button>
+  </header>
+  <div class="blog-drawer-body">
+    {%- assign top_categories = facets.categories | slice: 0, 7 -%}
+    {%- assign more_categories = facets.categories | slice: 7, 1000 | sort_natural: "label" -%}
+    {%- assign current_in_more = false -%}
+    {%- for facet in more_categories -%}
+      {%- if facet.url == current.url -%}{%- assign current_in_more = true -%}{%- endif -%}
+    {%- endfor %}
+    <section>
+      <h3>Category</h3>
+      <ul>
+        <li><a href="/blog/"{% if current.kind == "all" %} aria-current="page"{% endif %}><span class="label">{{ facets.all.label }}</span> <span class="blog-count">{{ facets.all.count }}</span></a></li>
+        {%- for facet in top_categories %}
+        <li><a href="{{ facet.url }}"{% if facet.url == current.url %} aria-current="page"{% endif %}><span class="label">{{ facet.label }}</span> <span class="blog-count">{{ facet.count }}</span></a></li>
+        {%- endfor %}
+      </ul>
+      {%- if more_categories.size > 0 %}
+      <details class="blog-drawer-more"{% if current_in_more %} open{% endif %}>
+        <summary>More categories <span class="blog-count">{{ more_categories.size }}</span></summary>
+        <ul>
+          {%- for facet in more_categories %}
+          <li><a href="{{ facet.url }}"{% if facet.url == current.url %} aria-current="page"{% endif %}><span class="label">{{ facet.label }}</span> <span class="blog-count">{{ facet.count }}</span></a></li>
+          {%- endfor %}
+        </ul>
+      </details>
+      {%- endif %}
+    </section>
+    <section>
+      <h3>Year</h3>
+      <ul class="blog-drawer-years">
+        {%- for facet in facets.years %}
+        <li><a href="{{ facet.url }}"{% if facet.url == current.url %} aria-current="page"{% endif %}>{{ facet.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </section>
+    <section>
+      <h3>Author</h3>
+      <ul>
+        {%- for facet in facets.authors %}
+        <li><a href="{{ facet.url }}"{% if facet.url == current.url %} aria-current="page"{% endif %}>
+          {%- if facet.avatar %}<img src="{{ facet.avatar }}" alt="" width="24" height="24" loading="lazy" />{% else %}<span class="avatar-placeholder" aria-hidden="true"></span>{% endif %}
+          <span class="label">{{ facet.label }}</span> <span class="blog-count">{{ facet.count }}</span></a></li>
+        {%- endfor %}
+      </ul>
+    </section>
+  </div>
+  <footer class="blog-drawer-footer">
+    {%- if current.kind != "all" %}
+    <a href="/blog/">Clear filter</a>
+    {%- else %}
+    <span></span>
+    {%- endif %}
+    <button type="button" class="blog-drawer-done" commandfor="blog-filters" command="close">Done</button>
+  </footer>
+</dialog>
+
+<script>
+  (() => {
+    const dialog = document.getElementById("blog-filters");
+    if (!dialog) return;
+    if (!("commandForElement" in HTMLButtonElement.prototype)) {
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("button[commandfor='blog-filters']");
+        if (!button) return;
+        if (button.getAttribute("command") === "show-modal") dialog.showModal();
+        else dialog.close();
+      });
+    }
+    if (!("closedBy" in HTMLDialogElement.prototype)) {
+      dialog.addEventListener("click", (event) => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        const inside = rect.top <= event.clientY && event.clientY <= rect.bottom &&
+          rect.left <= event.clientX && event.clientX <= rect.right;
+        if (!inside) dialog.close();
+      });
+    }
+  })();
+</script>
