@@ -128,7 +128,7 @@ Track network devices:
 Select SSIDs to track wireless clients on:
   description: "Only track wireless clients connected to the selected SSIDs. Leave empty to track clients on all SSIDs."
 Time in seconds from last seen until considered away:
-  description: "Number of seconds since last seen before a client is considered away. Defaults to `300` seconds."
+  description: "Number of seconds since last seen before a client is considered away. Defaults to `300` seconds. When you connect with an API key, the minimum is `60` seconds, because clients are polled instead of pushed."
 Disable UniFi Network wired bug logic:
   description: "Disable the workaround for a UniFi Network bug that sometimes reports wired clients as wireless."
 Ignore Wi-Fi clients with private (randomized) MAC addresses:
@@ -328,7 +328,7 @@ If the WebSocket connection is lost, the integration automatically tries to reco
 ## Known limitations
 
 - **Ubiquiti SSO cloud users are not supported.** You must create a local user in your UniFi OS Console. See the [Local user](#local-user) section for instructions.
-- **Connecting with an API key offers fewer features.** Switches, lights, images, firmware updates, client bandwidth sensors, and network access control need a [local user](#local-user). With an API key, the integration options only include client and device tracking, the away time, and ignoring clients with private MAC addresses.
+- **Connecting with an API key offers fewer features.** Switches, lights, images, firmware updates, client bandwidth sensors, and network access control need a [local user](#local-user). With an API key, the integration options only include client and device tracking, the away time (at least 60 seconds), and ignoring clients with private MAC addresses.
 - **The Integration API only lists connected clients.** When you connect with an API key, a client that is away when Home Assistant starts keeps its device tracker, but a client that was never seen while connected doesn't get one.
 - **Your UniFi Network application must offer the Integration API to connect with an API key.** If it doesn't, Home Assistant asks you to update UniFi Network or to connect with a local user.
 - **Early Access and Release Candidate versions of UniFi Network and UniFi OS are not supported.** Only the official Stable Release channel is expected to work with this integration.
