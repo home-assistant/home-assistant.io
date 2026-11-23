@@ -102,7 +102,7 @@ weather.home_daily:
 
 {% include actions/more_examples.md %}
 
-### Automation: get a heads-up before rain starts
+### Automation: Get a heads-up before rain starts
 
 Check the nowcast every 5 minutes, and send a notification when rain is expected to start within the next half hour. It stays quiet while it is already raining, so you only hear about it before it starts. Because the action doesn't use any API requests, checking this often costs nothing.
 
