@@ -22,6 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary sensor
 - Lock
+- Select
 - Sensor
 - Switch
 
