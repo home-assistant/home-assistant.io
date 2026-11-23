@@ -18,11 +18,9 @@ When using a free account, the information provided by Tomorrow.io is limited to
 
 Each location has a weather {% term entity %} that provides these forecasts:
 
-| Forecast | Coverage                                                                   | How to get it                                                                           |
-|----------|----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| Daily    | The next 14 days                                                           | The `weather.get_forecasts` action with type `daily`                                    |
-| Hourly   | The next 24 hours                                                          | The `weather.get_forecasts` action with type `hourly`                                   |
-| Nowcast  | Up to 30 intervals of 1 to 60 minutes, depending on the location's setting | The [`tomorrowio.get_minute_forecast`](/actions/tomorrowio.get_minute_forecast/) action |
+- **Daily**: the next 14 days, from the [`weather.get_forecasts`](/actions/weather.get_forecasts/) action with type `daily`.
+- **Hourly**: the next 24 hours, from the [`weather.get_forecasts`](/actions/weather.get_forecasts/) action with type `hourly`.
+- **Nowcast**: up to 30 intervals of 1 to 60 minutes, depending on the location's setting, from the [`tomorrowio.get_minute_forecast`](/actions/tomorrowio.get_minute_forecast/) action.
 
 Locations set up before Home Assistant 2023.9 can also have separate Hourly and Nowcast weather entities. They provide the same forecasts as the main entity.
 
