@@ -25,6 +25,13 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
+## Prerequisites
+
+1. Install the **Schlage Home** app on your phone and create a Schlage account.
+2. Add your locks to your account in the app.
+
+The integration signs in with the email address and password of your Schlage account. Only accounts that sign in with an email address and password are supported.
+
 {% include integrations/config_flow.md %}
 
 ## Data updates
