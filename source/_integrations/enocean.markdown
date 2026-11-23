@@ -60,7 +60,11 @@ If you have binary sensors configured in YAML, they are imported into the EnOcea
 1. Remove the entries with `platform: enocean` under `binary_sensor:` from your {% term "`configuration.yaml`" %} file. Keep the EnOcean entries under `light:`, `sensor:` and `switch:`; they are not imported yet.
 2. Restart Home Assistant.
 
-A binary sensor is not imported if its `id` is not four bytes long, or if the EnOcean hub is not set up. The repair issue then says which of the two applies.
+A binary sensor is not imported in the following cases. The repair issue then says which one applies:
+
+- Its `id` is not four bytes long.
+- The EnOcean hub is not set up.
+- Another binary sensor with the same `id` but a different `device_class` has already been imported. A device can only be set up once.
 
 Until the YAML configuration is removed, a binary sensor can still be added with the following entry, which is then imported as described above.
 {% include integrations/restart_ha_after_config_inclusion.md %}
