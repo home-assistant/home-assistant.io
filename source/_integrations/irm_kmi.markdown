@@ -62,7 +62,7 @@ There is also a pollen sensor for each type the provider reports, such as **Gras
 
 ## IRM KMI automation examples
 
-The pollen sensors let you react to the pollen levels in your automations. Here is an idea to get you started.
+The pollen sensors and the [radar forecast action](/actions/irm_kmi.get_forecasts_radar/) let you react to pollen and rain in your automations. Here are a few ideas to get you started.
 
 {% include docs/paste_yaml_tip.md %}
 
@@ -95,6 +95,45 @@ automation: |
         entity_id: notify.my_device
       data:
         message: "Grass pollen level is {{ states('sensor.brussels_grass_pollen') }}."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Skip the sprinklers when rain is on the way
+
+Before the evening watering run, check the radar and only turn on the sprinklers when no rain shows up in any of the frames.
+
+- **Trigger**: Time, 20:00:00
+- **Action**: Get radar forecasts
+  - **Target**: Home (`weather.home`)
+  - **Response variable**: `radar`
+- **Condition**: Template, no frame has rain
+- **Action**: Turn on switch
+  - **Target**: Sprinklers (`switch.sprinklers`)
+
+{% details "YAML example for skipping the sprinklers when rain is coming" %}
+
+{% example %}
+automation: |
+  alias: "Water the garden unless rain is coming"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+  actions:
+    - action: irm_kmi.get_forecasts_radar
+      target:
+        entity_id: weather.home
+      response_variable: radar
+    - condition: template
+      value_template: >
+        {{ radar['weather.home'].forecast
+           | map(attribute='precipitation')
+           | select('gt', 0)
+           | list
+           | count == 0 }}
+    - action: switch.turn_on
+      target:
+        entity_id: switch.sprinklers
 {% endexample %}
 
 {% enddetails %}
