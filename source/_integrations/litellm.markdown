@@ -1,14 +1,14 @@
 ---
-description: Instructions on how to integrate a LiteLLM proxy as a conversation agent and speech-to-text service in Home Assistant
+description: Instructions on how to integrate a LiteLLM proxy as a conversation agent, speech-to-text service, and AI task decision model in Home Assistant
 ha_release: 2026.8
 ha_domain: litellm
 ---
 
-The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use a LiteLLM proxy as a conversation agent or [speech-to-text](/integrations/stt/) service in Home Assistant.
+The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use a LiteLLM proxy as a conversation agent, [speech-to-text](/integrations/stt/) service, or decision model for [AI tasks](/integrations/ai_task/) in Home Assistant.
 
 LiteLLM exposes a single OpenAI-compatible API in front of a wide range of model providers, so you can use almost any model through one endpoint. This is similar to a service like OpenRouter, with the added benefit that you can run LiteLLM yourself if you prefer to keep everything under your own control. This integration lets you point Home Assistant at any LiteLLM proxy, whether it is a hosted instance or one you self-host.
 
-Home Assistant lists all models returned by LiteLLM in both the conversation and speech-to-text model lists. Choose a model that supports chat completions for a conversation agent or audio transcription for a speech-to-text service. The proxy's settings may not match what a model's backend can do, so LiteLLM or the model's backend may reject an incompatible request.
+Home Assistant lists all models returned by LiteLLM in the conversation, speech-to-text, and AI task model lists. Choose a model that supports chat completions for a conversation agent, audio transcription for a speech-to-text service, or the LiteLLM decisions API for an AI task evaluation. The proxy's settings may not match what a model's backend can do, so LiteLLM or the model's backend may reject an incompatible request.
 
 ## Prerequisites
 
@@ -67,11 +67,24 @@ The service appears as a speech-to-text entity named after the model. Select it 
 
 To change these settings later, select the speech-to-text service and choose **Reconfigure speech-to-text service**.
 
+### Adding an AI task evaluation entity
 
+You can use a model from your LiteLLM proxy as the decision model of [AI tasks](/integrations/ai_task/). The proxy must route the model to a backend that supports the LiteLLM decisions API.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your LiteLLM entry.
+2. Select **Add AI task evaluation**.
+3. Select the model used for decision tasks. The list is discovered from your LiteLLM proxy. You can also enter a model name that the proxy's model list does not report, for example a dedicated decision model.
+
+{% configuration_basic %}
+Model:
+  description: "The model used for decision tasks. The model must support the LiteLLM decisions API."
+{% endconfiguration_basic %}
+
+The evaluation entity appears as an AI task entity and can be selected when an automation evaluates a decision. To change the model later, select **Reconfigure AI task evaluation** on the subentry.
 
 ## Supported functionality
 
-For each conversation agent you add, you can use it in [Assist](/voice_control/) like any other conversation agent. Speech-to-text entities can be selected in an [Assist pipeline](/integrations/assist_pipeline/).
+For each conversation agent you add, you can use it in [Assist](/voice_control/) like any other conversation agent. Speech-to-text entities can be selected in an [Assist pipeline](/integrations/assist_pipeline/). AI task evaluation entities can be selected as the decision model of an [AI task](/integrations/ai_task/), for example to decide whether a condition is met or which option applies.
 
 When you select tools in **AI tools**, the agent can call them to interact with your devices and entities. To choose which devices and entities **Device control** can access, see [exposing entities to Assist](/voice_control/voice_remote_expose_devices/).
 
