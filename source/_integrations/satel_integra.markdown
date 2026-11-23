@@ -37,6 +37,8 @@ If you do not have access to the DLOADX program or your project file, ask your i
 
 {% include integrations/config_flow.md %}
 
+### Configuration parameters
+
 {% configuration_basic %}
 Host:
   description: The IP address of the Satel Integra ETHM module.
@@ -45,8 +47,13 @@ Port:
 Integration encryption key:
   description: Encryption key to use if an encrypted connection is used, as configured in DLOADX
     for the ETHM-1 Plus module. Leave empty if not using an encrypted connection.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
 Code:
-  description: Optional code that will be used to toggle switchable outputs.
+  description: The 4- to 16-digit user code configured on the alarm panel. The integration uses this code to toggle switchable outputs. Leave the field empty if you do not need to control switchable outputs.
 {% endconfiguration_basic %}
 
 ## Configuring partitions, zones, and outputs
@@ -55,7 +62,8 @@ After setting up the connection details, you can configure partitions, zones, an
 
 A list of all partition, zone, and output IDs can be acquired by running the DLOADX program and connecting to your alarm.
 To create the respective entities, select the **Add partition**, **Add zone**, **Add output**, or **Add switchable output** buttons. Follow the instructions in the UI to set up the individual entities.
-**Result**: Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output. Sensors will be created for each zone that has temperature sensor support enabled.
+
+Result: Each partition will have its own alarm panel. Each zone will have a main binary sensor for its violation state, plus **Tamper** and **Bypass** binary sensors that are disabled by default. Each output will have a binary sensor, and a switch will be created for each switchable output. Sensors will be created for each zone that has temperature sensor support enabled.
 
 Having configured the zones and the outputs, you can use them for automation, such as to react on the movement in your bedroom.
 For example:
@@ -76,6 +84,21 @@ For example:
 
 ### Binary sensors
 
+#### Zone sensors
+
+Each configured zone has a main binary sensor named after the zone. It reports whether the panel detects a zone violation, such as motion or an open door. The sensor uses the type selected when configuring the zone, such as motion or door, to display its state. A zone violation is not the same as a triggered alarm.
+
+Each zone also has the following additional binary sensors:
+
+- **Tamper**: Whether the panel reports a tamper condition for the zone.
+- **Bypass**: Whether the panel reports that the zone is bypassed. This sensor only reports the bypass status; it cannot bypass or unbypass the zone.
+
+{% tip %}
+The **Tamper** and **Bypass** sensors are disabled by default. See [Enabling and disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to enable them.
+{% endtip %}
+
+#### System status sensors
+
 - **Service mode**: Whether the panel is in service mode, activated during maintenance. Use it to pause automations while the panel is under maintenance.
 - **System trouble**: Whether any system trouble is active on the alarm panel.
 
@@ -84,6 +107,8 @@ For example:
 {% tip %}
 The individual trouble sensors are disabled by default. See [Enabling and disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to enable them.
 {% endtip %}
+
+{% details "Individual trouble sensors" %}
 
 - **Panel AC trouble**: Whether the panel has lost its AC power supply.
 - **Panel battery trouble**: Whether there is a fault with the panel backup battery.
@@ -105,6 +130,8 @@ The individual trouble sensors are disabled by default. See [Enabling and disabl
 - **Telephone line no signal trouble**: Whether there is no signal detected on the telephone line.
 - **Telephone line voltage or auxiliary processor trouble**: Whether there is a telephone line voltage fault or an auxiliary processor fault, depending on the panel model.
 - **Monitoring station {number} trouble**: Whether there is a trouble communicating with the specified monitoring station (stations 1–2).
+
+{% enddetails %}
 
 ## Removing the integration
 

@@ -76,11 +76,11 @@ Numbers are limited in the same way: the camera microphone level, the floodlight
 
 Selects are limited in the same way: the camera HDR mode, the floodlight light mode, and the alarm profile.
 
-Sensors are limited in the same way: the smart sensor battery, signal strength, signal quality, light, humidity and temperature readings with their trip timestamps, the floodlight last motion, the key fob sensors, and the Alarm Hub battery voltage and last event.
+Sensors are limited in the same way: the smart sensor battery, signal strength, signal quality, light, humidity and temperature readings with their trip timestamps, the floodlight last motion, and the key fob sensors.
 
-With an API key only, binary sensors are limited to the states the public API reports: camera motion, sound detections, and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; smart sensor contact, motion, leak, tamper, and low battery; key fob low battery; Alarm Hub tamper, backup battery, and zone inputs; and the relay inputs. The read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
+With an API key only, binary sensors are limited to the states the public API reports: camera motion, sound detections, and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; smart sensor contact, motion, leak, tamper, and low battery; key fob low battery; and the relay inputs. The read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
 
-Events are limited in the same way: the camera motion, smart detection, sound detection and package events, and the key fob buttons. The doorbell ring, NFC, fingerprint and vehicle events need a local user.
+Events are limited in the same way: the camera motion, smart detection, sound detection and package events, the smoke detector alarm and maintenance events, the key fob buttons, and the Alarm Hub events. The doorbell ring, NFC, fingerprint and vehicle events need a local user.
 
 {% note %}
 The public Integration API is actively growing, so more features become available with an API key only over time.
@@ -167,7 +167,7 @@ The table below shows what each device type provides in each connection mode. Se
 | ------------ | :---------------------------------------------------------------------------------------: | :---------------: |
 | Camera       | ✅ (streams, snapshots, switches, numbers, selects, binary sensors, events, media player) |        ✅         |
 | Floodlight   |              ✅ (light, switches, numbers, selects, sensors, binary sensors)              |        ✅         |
-| Smart sensor |                      ✅ (switches, numbers, sensors, binary sensors)                      |        ✅         |
+| Smart sensor |                  ✅ (switches, numbers, sensors, binary sensors, events)                  |        ✅         |
 | Viewer       |                                             —                                             |        ✅         |
 | Smart chime  |                                ✅ (ring volume per camera)                                |        ✅         |
 | Relay        |                                            ✅                                             |        ✅         |
@@ -234,6 +234,7 @@ The USL GlassBreak detects motion as well as glass break acoustically, but only 
   - **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
   - **Leak** - A moisture sensor will be available if the mount type is set to "Leak", or if the sensor supports water leak detection and leak detection is enabled.
   - **Tamper** - A binary sensor to detect tampering.
+- **Events** - Smoke detectors, such as the USL Smoke, get an **Alarm** and a **Maintenance** event {% term entity %}. See [Smoke Detector Alarm Event](#smoke-detector-alarm-event) and [Smoke Detector Maintenance Event](#smoke-detector-maintenance-event).
 - **Device Configuration** - Smart sensors will get configuration controls for the Status Light and for enabling/disabling all of the main sensors.
 - **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
 
@@ -284,11 +285,12 @@ Each UniFi Protect key fob (USL-FOB) is added as a separate device in Home Assis
 
 Each UniFi Protect Alarm Hub is added as a separate device in Home Assistant, linked to the NVR. See [Public API features](#public-api-features).
 
-- **Tamper**: A binary sensor that turns on when the Alarm Hub cover is open.
-- **Zones**: A binary sensor for each enabled zone input. Its name uses the zone name configured in UniFi Protect, and its type follows the input type, such as motion, entry, smoke, glass break, or emergency button. It turns on while the zone is in alarm.
-- **Battery**: A diagnostic binary sensor that turns on when the backup battery is low or critical.
-- **Battery voltage**: A diagnostic sensor with the backup battery voltage. It shows as unknown while no backup battery is connected.
-- **Last event**: A diagnostic sensor with the time of the last event reported by the Alarm Hub.
+UniFi Protect reports what happens at an Alarm Hub as events. The Alarm Hub therefore has event entities, which report that something happened, instead of entities with a state.
+
+- **Inputs**: An event entity for each enabled input. Its name uses the input name configured in UniFi Protect, or _Input_ followed by the number of its terminal. The emergency input has no entity of its own. Its events arrive on the Alarm Hub entity. See [Alarm Hub Input Event](#alarm-hub-input-event).
+- **Alarm Hub**: An event entity named after the Alarm Hub, for events of the hub itself, such as an opened cover, a low backup battery, or a switched relay. See [Alarm Hub Event](#alarm-hub-event).
+
+Inputs enabled, disabled, or renamed in UniFi Protect are picked up when the integration is reloaded. Until then, the events of a newly enabled input arrive on the Alarm Hub entity.
 
 ### NVR
 
@@ -766,6 +768,152 @@ mode: single
 ```
 
 The `not_from` option keeps the automation from running during startup or power-cycle state restoration, when the entity temporarily transitions out of the `unavailable` state.
+
+### Alarm Hub Input Event
+
+- **Event Name**: The input name configured in UniFi Protect, or _Input_ followed by the number of its terminal.
+- **Event Attributes**:
+  - **event_type**: One of `motion`, `entry_opened`, `entry_closed`, `smoke`, `glass_break`, `button_press`, or `tamper`.
+  - **event_id**: A unique ID that identifies the event.
+  - **status**: The status UniFi Protect reports with the event, such as `alarm`, `normal` for a closed entry input, or `short` and `cut` for a tampered wire.
+- **Description**: This event is triggered when an input of a UniFi Protect Alarm Hub reports something. The event type follows the input type set in UniFi Protect. An input without a type reports `motion`.
+
+Each event is a one-time notification, not a state. An entry input reports both opening and closing. For the other input types, the event fires when the input triggers. There is no event when it returns to normal.
+
+{% note %}
+The type of an input can change in UniFi Protect, so every input exposes the full list of event types above. Reload the integration after you enable, disable, or rename an input in UniFi Protect.
+{% endnote %}
+
+To react to an Alarm Hub event in an automation, use the [**Event received**](/triggers/event.received/) trigger and select the event types you want.
+
+#### Example Alarm Hub Entry Automation
+
+```yaml
+alias: "Alarm Hub front door opened"
+description: "Send a notification when the front door contact opens"
+triggers:
+  - trigger: event.received
+    target:
+      # Replace with your Alarm Hub input entity
+      entity_id: event.alarm_hub_front_door
+    options:
+      event_type: entry_opened
+actions:
+  # Replace with your notification target
+  - action: notify.mobile_app_your_device
+    data:
+      message: "The front door was opened."
+```
+
+#### Example Alarm Hub Motion Light Automation
+
+A motion input reports motion, but not when the motion ends. With `mode: restart`, each motion event starts the delay again, so the light turns off 2 minutes after the last motion event.
+
+```yaml
+alias: "Alarm Hub hallway light"
+description: "Turn on the hallway light when the motion detector triggers"
+triggers:
+  - trigger: event.received
+    target:
+      # Replace with your Alarm Hub input entity
+      entity_id: event.alarm_hub_hallway
+    options:
+      event_type: motion
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.hallway
+  - delay:
+      minutes: 2
+  - action: light.turn_off
+    target:
+      entity_id: light.hallway
+mode: restart
+```
+
+#### Example Alarm Hub Door State
+
+To see whether a door is open or closed, you can create a binary sensor from the entry events. Add this to your {% term "`configuration.yaml`" %} file. The binary sensor keeps its state when Home Assistant restarts and updates with the next entry event.
+
+{% raw %}
+
+```yaml
+template:
+  - triggers:
+      - trigger: event.received
+        target:
+          # Replace with your Alarm Hub input entity
+          entity_id: event.alarm_hub_front_door
+        options:
+          event_type:
+            - entry_opened
+            - entry_closed
+    binary_sensor:
+      - name: "Front door"
+        device_class: door
+        state: >
+          {{ trigger.to_state.attributes.event_type == 'entry_opened' }}
+```
+
+{% endraw %}
+
+### Alarm Hub Event
+
+- **Event Name**: The name of the Alarm Hub.
+- **Event Attributes**:
+  - **event_type**: One of `device_tamper` (the cover was opened), `battery_low`, `battery_connected` (the backup battery was connected or disconnected), or `relay_switched`. Events of an input without an entity of its own, such as the emergency input, use the input event types listed above.
+  - **event_id**: A unique ID that identifies the event.
+  - **status**: The status UniFi Protect reports with the event, if any.
+  - **input**: The terminal number of the input the event belongs to, if any.
+- **Description**: This event is triggered when the Alarm Hub itself reports something, or when an input without an entity of its own triggers.
+
+There is no event when the cover is closed again. UniFi Protect keeps the tamper alert until it is cleared in UniFi Protect.
+
+### Smoke Detector Alarm Event
+
+- **Event Name**: Alarm
+- **Event Attributes**:
+  - **event_type**: `smoke` or `co` (carbon monoxide).
+  - **event_id**: A unique ID that identifies the alarm.
+- **Description**: This event is triggered when a UniFi Protect smoke detector reports a smoke or carbon monoxide alarm. It fires when the alarm starts. There is no separate event when the alarm stops.
+
+The UP Sense also gets these entities, because UniFi Protect reports smoke support for it.
+
+{% important %}
+The detector sounds its own alarm, whether or not Home Assistant is running. Use this event for additional actions, such as turning on lights or sending notifications. Home Assistant only receives alarms while it is connected to UniFi Protect. An alarm that starts during an outage can be reported late, when the alarm ends, or not at all. If Home Assistant restarts while an alarm is sounding, the event can fire again when the alarm ends.
+{% endimportant %}
+
+#### Example Smoke Alarm Automation
+
+```yaml
+alias: Smoke Alarm Lights
+description: Turn on all lights when a smoke detector reports an alarm
+triggers:
+  - trigger: state
+    # Replace with your smoke detector entity
+    entity_id: event.kitchen_smoke_detector_alarm
+    not_from:
+      - unavailable
+    not_to:
+      - unavailable
+      - unknown
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: all
+    data:
+      brightness_pct: 100
+```
+
+### Smoke Detector Maintenance Event
+
+- **Event Name**: Maintenance
+- **Event Attributes**:
+  - **event_type**: One of `self_test` (a self-test ran), `battery_low`, `needs_cleaning`, `smoke_fault`, `co_fault`, or `end_of_life`.
+  - **event_id**: A unique ID that identifies the event.
+- **Description**: This event is triggered when a UniFi Protect smoke detector reports a self-test, a low battery, that it needs cleaning, a smoke or carbon monoxide sensor fault, or that it has reached the end of its service life.
+
+Each is a one-time notification, not a state. Check the UniFi Protect app for the current state of a detector.
 
 ## Troubleshooting
 

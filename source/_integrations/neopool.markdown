@@ -67,7 +67,7 @@ The NeoPool device acts as a Modbus _server_. This integration is a Modbus _clie
 
 {% include integrations/config_flow.md %}
 
-Setting up starts by picking how the controller is reached, **Network (Modbus TCP / RTU-over-socket)** or **Serial (USB RS485 adapter or ESPHome serial proxy)**.
+Setting up starts by picking how the controller is reached, **Network (Modbus TCP / RTU-over-socket)** or **Serial port (Modbus RTU)**.
 
 ### Configuration parameters
 
@@ -85,7 +85,7 @@ Modbus framer:
 For a serial connection:
 
 {% configuration_basic %}
-Serial device:
+Serial port:
   description: The serial port the controller's RS-485 bus is wired to. Use the stable `/dev/serial/by-id/...` path rather than `/dev/ttyUSB0`, whose mapping can change. Ports shared over the network by an ESPHome serial proxy are listed alongside the local ones.
 Baud rate:
   description: The baud rate of the RS-485 bus. NeoPool controllers use `19200`.

@@ -92,6 +92,8 @@ If your system includes the Supervisor, this will also contain:
   - If protection mode is enabled
   - If auto update is enabled
 
+For what protection mode and auto update do, refer to [App options](/common-tasks/os/apps/#app-options).
+
 {% details "Example payload" %}
 
 ```json

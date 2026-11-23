@@ -6,6 +6,10 @@
   "categories": [
     "climate.thermostats_heating"
   ],
+  "connectivity": [
+    "network",
+    "serial"
+  ],
   "platforms": [
     "sensor"
   ]

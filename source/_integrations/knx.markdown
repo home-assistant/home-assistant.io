@@ -448,7 +448,7 @@ With these tools, an agent can answer questions such as "Which device sent the l
 ### Enabling the KNX tools
 
 {% important %}
-Only administrators can select an LLM API on a conversation agent. Once the KNX API is selected, everyone who can talk to that agent can use every KNX tool, including the ones that write to the bus. This also covers voice satellites, where the request is not associated with a user.
+Only administrators can change the tools of a conversation agent. Once **KNX** is selected, everyone who can talk to that agent can use every KNX tool, including the ones that write to the bus. This also covers voice satellites, where the request is not associated with a user.
 
 Only enable the KNX API on agents you are willing to give write access to your installation.
 {% endimportant %}
@@ -457,9 +457,9 @@ The KNX API is not used by default. Select it on the {% term integration %} that
 
 1. Go to {% my integrations icon title="**Settings** > **Devices & services**" %}.
 2. Select the conversation agent integration, then select **Configure**.
-3. Add **KNX** to **Control Home Assistant**.
+3. Add **KNX** to **AI tools**.
 
-To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`. Connecting to `/api/mcp/knx` requires an administrator token. The base `/api/mcp` endpoint serves the API you selected during setup and is also available to non-administrators.
+To use the tools from an external MCP client instead, use the [Model Context Protocol](/integrations/mcp_server/) integration. Its main URL exposes **KNX** when **Expose all AI tools** is on or when **KNX** is selected in **AI tools**. You can also point the client at `/api/mcp/knx`, which requires an administrator account.
 
 ### Available tools
 
@@ -2511,7 +2511,7 @@ The following table lists the supported numeric Data Point Types (DPT). You can 
 
 - The [KNX tools for AI conversation agents](#knx-tools-for-ai-conversation-agents) return at most 1000 entries per call. An agent can page through the rest, but a question that would need the entire project or the full telegram history in a single answer may not be answered completely.
 
-- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep the built-in **Device control** API selected alongside the KNX API.
+- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep **Device control** selected alongside **KNX**.
 
 - USB bus interfaces are not directly supported by the underlying [`xknx` library](https://github.com/XKNX/xknx). However, you could try to run a software KNX router such as `Calimero` or `knxd` alongside Home Assistant to serve as a USB to IP bridge. For best reliability, using a certified KNX IP interface or router is recommended.
 

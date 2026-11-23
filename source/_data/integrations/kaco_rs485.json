@@ -11,6 +11,9 @@
   "categories": [
     "energy.solar_batteries"
   ],
+  "connectivity": [
+    "serial"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

@@ -11,12 +11,16 @@
   "categories": [
     "hubs_protocols.smart_home_hubs"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "alarm_control_panel",
     "binary_sensor",
     "button",
     "climate",
     "cover",
+    "diagnostics",
     "event",
     "light",
     "number",

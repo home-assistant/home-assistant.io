@@ -303,7 +303,15 @@ task :newsletter_data do
                 image.split('/content/images/', 2).last
       end
 
-      { 'title' => title, 'image' => image }
+      # The bio page (source/_data/bio.yml) links to the latest edition, so
+      # keep its address and date too. The community page ignores them.
+      published = item.elements['pubDate']&.text
+      {
+        'title' => title,
+        'image' => image,
+        'url' => item.elements['link']&.text.to_s.strip,
+        'date' => published && Time.parse(published).utc.iso8601,
+      }
     end.first(3)
     raise "feed does not contain any usable editions" if editions.empty?
 
@@ -381,6 +389,7 @@ task :integrations_data do
       "quality_scale" => manifest["quality_scale"],
       "categories" => manifest["categories"],
       "iot_standards" => manifest["iot_standards"],
+      "connectivity" => manifest["connectivity"],
       "platforms" => integration_platforms.sort,
       "discovery" => discovery,
     }.reject { |_key, value| value.nil? || value == [] || value == false }
@@ -388,10 +397,12 @@ task :integrations_data do
     File.write(File.join(output_dir, "#{manifest['domain']}.json"), JSON.pretty_generate(integration) + "\n")
   end
 
-  FileUtils.cp(
-    File.join(core_dir, "homeassistant", "generated", "integration_categories.json"),
-    "#{source_dir}/_data/integration_categories.json"
-  )
+  %w[integration_categories integration_connectivity].each do |name|
+    FileUtils.cp(
+      File.join(core_dir, "homeassistant", "generated", "#{name}.json"),
+      "#{source_dir}/_data/#{name}.json"
+    )
+  end
 
   puts "## Wrote metadata for #{manifests.length} integrations to #{output_dir}"
 

@@ -10,6 +10,9 @@
   "categories": [
     "appliances_cleaning.cooking"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "sensor"

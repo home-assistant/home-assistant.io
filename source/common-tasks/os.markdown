@@ -35,6 +35,8 @@ If you have the {% term "Home Assistant Operating System" %} installed, you rece
 
 Each of these components needs to be updated separately.
 
+To update apps, integrations, and devices, to install several updates at once, or to skip an update, refer to [Updating Home Assistant, apps, and devices](/common-tasks/general/updating/).
+
 ### Updating the Home Assistant Operating System
 
 Updates of the {% term "Home Assistant Operating System" %} are independent of other updates. They do not trigger repair issues and are usually backward-compatible.
@@ -43,7 +45,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
 - [Back up your installation](/common-tasks/general/backups/).
   - Make sure the backup is stored on a [backup location](/common-tasks/general/backups/#defining-backup-locations) outside of the device where Home Assistant is installed.
-    - For example, if Home Assistant is installed on [Home Assistant Green](/green), make sure it is stored on [Home Assistant Cloud](/common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-cloud) or another location.
+    - For example, if Home Assistant is installed on [Home Assistant Green](/green), make sure it is stored on [Home Assistant Link](/common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-link) or another location.
   - So that you can [restore from that backup](/common-tasks/general/backups/#restoring-a-backup) in case there is an issue with the system.
 
 #### To update the Home Assistant Operating System
@@ -129,21 +131,3 @@ For more information, refer to the [Labs documentation](/integrations/labs).
 
 <!-- Accessing Home Assistant from the commandline-->
 {% include common-tasks/commandline.md %}
-
-## Enable duplicate log file
-
-By default, Home Assistant Core logs are sent to the Systemd Journal, which can be read using the [`ha core logs` command](/common-tasks/os/#home-assistant-via-the-command-line). If you need logs to also be written to a file (`/config/home-assistant.log`), you can enable the duplicated log file option using the [command line](/common-tasks/os/#home-assistant-via-the-command-line):
-
-```bash
-ha core options --duplicate-log-file=true
-ha core rebuild
-ha core restart
-```
-
-To disable it:
-
-```bash
-ha core options --duplicate-log-file=false
-ha core rebuild
-ha core restart
-```

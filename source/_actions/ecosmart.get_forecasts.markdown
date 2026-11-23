@@ -2,12 +2,13 @@
 title: "Get price forecast"
 action: ecosmart.get_forecasts
 domain: ecosmart
+response: required
 description: "Retrieves the wholesale price forecast for a New Zealand connection point from ecosmart."
 ---
 
 Use this action to retrieve the forecast wholesale price for the half hours ahead at one of your connection points. The forecast comes from the market's published price schedules, so how far ahead it reaches changes during the day, and it is a forecast, not a promise of the price you will pay.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to start a heat pump or charge a battery in the cheapest forecast half hour.
+For example, you can use the result to start a heat pump or charge a battery in the cheapest forecast half hour.
 
 The action asks the ecosmart API each time it runs, and each run counts against the same per-minute request allowance as the spot price sensor. Run it when you need a fresh forecast, for example every 30 minutes when the short schedule is republished, rather than every minute.
 
@@ -60,6 +61,8 @@ device_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains `forecasts`: a list of forecast half hours, earliest first. It is empty when no forecast is published for your grid exit point. How far ahead it reaches changes during the day and is usually far less than a week.
 

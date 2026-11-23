@@ -8,6 +8,9 @@
     "climate.thermostats_heating",
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

@@ -69,7 +69,7 @@ duration:
 
 ## Good to know
 
-- You cannot extend a timer beyond the duration set when it was started.
+- If you extend a timer beyond its current duration, the duration grows to match the new remaining time. It resets to the configured duration when the timer finishes or is canceled.
 - The timer must be running for this action to have an effect.
 
 {% include actions/stuck.md %}

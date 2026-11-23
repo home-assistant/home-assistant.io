@@ -193,52 +193,41 @@ For instructions on how to change an entity name, refer to the section on [custo
 
 ## Debug logs and diagnostics
 
-The first thing you will need before reporting an issue online is debug logs and diagnostics (if available) for the integration giving you trouble. Getting those ahead of time will ensure someone can help resolve your issue in the fastest possible manner.
+When an integration doesn't work as expected, debug logs and diagnostics help find the cause. Debug logs show in detail what the integration does. Diagnostics describe how the integration is set up.
 
 ### Enabling debug logging
 
-To enable debug logging for a specific integration, follow these steps:
+Debug logging writes detailed messages of one integration to the log. Turn it on, make the problem happen again, and then turn it off to get the log.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the integration for which you want to enable debug logging.
-3. In the top right of the page, open the three dots {% icon "mdi:dots-vertical" %} menu, and select **Enable debug logging**.
+Debug logging writes many messages, which uses disk space. Turn it off as soon as you have made the problem happen again.
 
-    <p class='img'>
-      <img src='/images/docs/configuration/enable-debug-logging.png' alt='Screenshot showing the Enable debug logging button on an integration detail page'>
-      Screenshot showing the <b>Enable debug logging</b> menu item.
-    </p>
-4. To see the error in the logs, you need to reproduce the error.
-   - Run your automation, change up your device or whatever was giving you an error.
-5. Continue with the steps on [disabling debug logging and download logs](#disable-debug-logging-and-download-logs).
+Debug logging stays on if you restart Home Assistant once, so the log also shows what happens during startup. After the next restart, it's off again.
 
-### Disable debug logging and download logs
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
+2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Enable debug logging**.
+   - Result: The integration page shows **Debug logging enabled**.
+3. Make the problem happen again.
+   - For example, run the automation that fails, or use the device that doesn't respond.
+4. To get the log, continue with [Disabling debug logging and downloading the log](#disabling-debug-logging-and-downloading-the-log).
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the integration for which you want to disable debug logging.
-3. In the top right of the page, open the three dots {% icon "mdi:dots-vertical" %} menu, and select **Disable debug logging**.
-4. After you disable it, you will be prompted to download your log file.
-   - Save this to a safe location to upload later.
+### Disabling debug logging and downloading the log
 
-### Download diagnostics
+When you turn off debug logging, Home Assistant downloads the log right away. The log contains all messages of Home Assistant, including the debug messages of the integration.
 
-After you download logs, you will also want to download the diagnostics for the integration giving you trouble. Not all integrations provide diagnostics, but if they do, you can download them by following these steps:
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
+2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Disable debug logging**.
+   - You can also select **Disable** next to **Debug logging enabled**.
+   - Result: Your browser saves the log as a file, for example, `home-assistant_<integration>_<date and time>.log`.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the integration.
-3. In the top right of the integration card, open the three dots {% icon "mdi:dots-vertical" %} menu, and select **Download diagnostics**.
+### Setting log levels in YAML
 
-<p class='img'>
-  <img src='/images/docs/configuration/download-diagnostics.png' alt='Example of Download Diagnostics'>
-  Example showing the <b>Download diagnostics</b> button on the Zigbee integration card.
-</p>
+Debug logging from the UI is temporary. It turns itself off after the second restart. To keep debug logging on, or to set the log level of a library that an integration uses, set the log levels in your {% term "`configuration.yaml`" %} file. For the steps, refer to the [Logger integration](/integrations/logger/).
 
-### Handling unexpected restarts or crashes
+### Downloading diagnostics
 
-Suppose you find that Home Assistant unexpectedly restarts or crashes; it's likely that you have a misbehaving integration impacting system stability. Home Assistant has a built-in debug option that can help find implementation errors. It can also block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use. To enable debug, add the following to your {% term "`configuration.yaml`" %}:
+Diagnostics describe how an integration is set up, for example, its settings. Not all integrations provide diagnostics.
 
-```yaml
-homeassistant:
-  debug: true
-```
-
-Once debug is enabled, periodically check [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs) for new messages.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
+2. Next to the entry of the integration, select **Menu** {% icon "mdi:dots-vertical" %} > **Download diagnostics**.
+   - If **Download diagnostics** isn't shown, the integration doesn't provide diagnostics.
+   - Result: Your browser saves the diagnostics as a file.

@@ -10,6 +10,7 @@
     "hubs_protocols.wireless_protocols"
   ],
   "platforms": [
+    "diagnostics",
     "switch",
     "update"
   ],

@@ -59,14 +59,14 @@ After you add the integration, your conversation agent doesn't use the new tools
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration of your conversation agent, for example **OpenAI**.
 2. Next to the conversation agent, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Under **Control Home Assistant**, select the MCP server. It is listed by its name. You can keep **Device control** selected as well, so the agent can still control your home.
+3. Under **AI tools**, select the MCP server. It is listed by its name. You can keep **Device control** selected as well, so the agent can still control your home.
 4. Select **Submit**.
 
 The next time you talk to this conversation agent, it can use the tools from the MCP server.
 
 ## How it works
 
-Home Assistant acts as a client to the MCP server you specify. It connects to the MCP server and asks for the list of tools it offers. These tools are then made available to Home Assistant conversation agents, in the same way as the tools of the **Device control** API. For more details on the protocol, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction#general-architecture).
+Home Assistant acts as a client to the MCP server you specify. It connects to the MCP server and asks for the list of tools it offers. These tools are then made available to Home Assistant conversation agents, in the same way as the tools of **Device control**. For more details on the protocol, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction#general-architecture).
 
 Home Assistant connects to MCP servers over the network. It first tries the [Streamable HTTP transport](https://modelcontextprotocol.io/docs/concepts/transports#streamable-http). If the MCP server doesn't support it, Home Assistant uses the [Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse) instead.
 
