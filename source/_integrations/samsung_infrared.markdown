@@ -84,7 +84,7 @@ Available when **TV** is selected as the device type.
 
 The integration can be used to:
  - Add an IR-controlled air conditioner to a climate schedule.
- - Turn off a TV or air conditioner when nobody is watching.
+ - Turn off a TV or air conditioner when nobody is in the room.
  - Control an older TV or air conditioner that does not have smart functionality.
  - Avoid the need to connect your TV to the internet if you are concerned about privacy.
 
