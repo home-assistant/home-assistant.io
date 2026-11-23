@@ -15,7 +15,7 @@ ha_categories:
   - energy.energy_prices
 ---
 
-The **Osmund** {% term integration %} shows your electricity prices from [Osmund](https://osmundenergi.dk/), a licensed Danish electricity supplier. It reads them from the [Osmund API](https://osmundenergi.dk/docs/osmund-api/), and it only reads.
+The **Osmund** {% term integration %} shows your electricity prices from [Osmund](https://osmundenergi.dk/), a licensed Danish electricity supplier. It reads them from the [Osmund API](https://osmundenergi.dk/docs/osmund-api/) and never changes anything on your account.
 
 Use case: Start the dishwasher at the time of today's lowest price, or show on a dashboard what electricity costs now and next.
 
@@ -55,9 +55,38 @@ Prices are per hour, or per quarter hour where your meter measures quarter hours
 - **Time of highest electricity price today**
   - **Description**: When the most expensive hour or quarter hour of the day starts. If several are equally expensive, the earliest.
 
+## Osmund automation examples
+
+{% include docs/paste_yaml_tip.md %}
+
+### Start the dishwasher at today's lowest price
+
+Fill the dishwasher, and let it start when the cheapest hour or quarter hour of the day begins. A time trigger only fires at a time that is still ahead, so if the cheapest time has already passed, the dishwasher waits for tomorrow's.
+
+- **Trigger**: Time: at the time of the sensor **Time of lowest electricity price today**
+- **Action**: Turn on the switch of the dishwasher
+
+{% details "YAML example for starting the dishwasher at today's lowest price" %}
+
+In this example, `hjem` is the name of the location, and `switch.dishwasher` is the switch of the dishwasher.
+
+{% example %}
+automation: |
+  alias: "Start the dishwasher at today's lowest price"
+  triggers:
+    - trigger: time
+      at: sensor.hjem_time_of_lowest_electricity_price_today
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.dishwasher
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
-The **Osmund** integration {% term polling polls %} the Osmund API every 30 minutes. It reads today's prices once, and tomorrow's from 13:00 Danish time until they are published. The sensors move to the next price on the quarter hour without a new call.
+The **Osmund** integration {% term polling polls %} the Osmund API every 30 minutes. It reads today's prices once, and tomorrow's from 13:00 Danish time until they are published. The sensors move to the next price when it starts, without a new call.
 
 The API counts the calls of all your keys together. The integration uses about 50 to 60 calls a day for one location. When the API answers that the calls are used up, the integration waits as long as the API says. See [Limits](https://osmundenergi.dk/docs/osmund-api/#tag/limits).
 
