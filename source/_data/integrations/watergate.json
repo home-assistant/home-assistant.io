@@ -11,7 +11,12 @@
   "categories": [
     "water.meters_leak_detection"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
+    "binary_sensor",
+    "button",
     "diagnostics",
     "event",
     "number",

@@ -14,6 +14,9 @@
     "media_entertainment.speakers_audio",
     "media_entertainment.music_radio_services"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

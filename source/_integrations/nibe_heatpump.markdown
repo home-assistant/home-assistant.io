@@ -94,3 +94,14 @@ If your system is equipped with a MODBUS40 accessory, this can be used to contro
 {% note %}
 Support for RCU-based communication is currently untested.
 {% endnote %}
+
+## Supported functionality
+
+Besides the entities for the registers of your pump, the **Nibe Heat Pump** integration provides the following entities.
+
+### Images
+
+- **Heating curve**
+  - **Description**: Shows the heating curve of a climate system: the supply temperature the pump aims for at each outdoor temperature, limited by the minimum and maximum supply temperatures. The current outdoor, supply, and return temperatures are marked on the curve.
+  - **Available for**: Each climate system, for example **Heating curve S1**.
+  - **Remarks**: Disabled by default for climate systems that need an accessory.

@@ -13,6 +13,9 @@
     "sensors.temperature_humidity",
     "sensors.air_quality"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

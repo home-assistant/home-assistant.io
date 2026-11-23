@@ -33,6 +33,14 @@ Verify SSL:
 
 If you change the password in INDI Allsky or turn on login after setting up the integration, Home Assistant asks you to enter the username and password.
 
+## Reconfiguring the integration
+
+To update your connection details (host, port, credentials, or SSL settings) after initial setup:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **INDI Allsky** integration entry, select the {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
+3. Update the connection settings as needed and select **Submit**.
+
 ## Supported functionality
 
 The **INDI Allsky** {% term integration %} provides the following entities:
@@ -77,6 +85,16 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 
 Additional hardware sensors connected to your INDI Allsky instance (such as ambient temperature, relative humidity, barometric pressure, voltage, current, power, or illuminance sensors) are automatically discovered and created dynamically with appropriate units of measurement and device classes.
 
+## Media source
+
+The integration adds your INDI Allsky camera to the [media browser](/integrations/media_source/), so you can view its images and play its timelapse videos in Home Assistant. To open it, select **Media** in the sidebar, select **INDI Allsky**, and then select your INDI Allsky instance.
+
+The media is organized into three folders:
+
+- **Latest Media**: The latest snapshot, keogram, star trail, and timelapse video.
+- **Timelapses & Generated Media**: Day and night timelapse videos, with their keograms and star trails, organized by year and month.
+- **Captured Images History**: The individual images your camera captured, organized by year, month, day, and hour.
+
 ## Data updates
 
 The camera entity fetches the latest image on-demand from the INDI Allsky server whenever requested by Home Assistant. Sensor data is pushed in real time via a persistent local WebSocket connection.
@@ -92,6 +110,12 @@ If you see a "Cannot connect" error during setup, verify that:
 3. If connecting using HTTPS with a self-signed SSL certificate, disable **Verify SSL** in the configuration options.
 
 Most INDI Allsky servers are discovered automatically via Zeroconf. If your server is not discovered, verify that Zeroconf/mDNS (Avahi) is enabled on your INDI Allsky server and that multicast traffic is not blocked across network subnets or VLANs.
+
+### Downloading diagnostics
+
+If you need to report an issue, you can download [diagnostics](/integrations/diagnostics/) from the **INDI Allsky** integration.
+
+The downloaded JSON file contains your connection state and latest coordinator data. Sensitive fields such as your host, username, and password are automatically redacted. Review the file before sharing it to verify that it does not contain any other sensitive information.
 
 ## Known limitations
 
