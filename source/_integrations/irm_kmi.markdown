@@ -112,7 +112,7 @@ The integration {% term polling polls %} weather data every 7 minutes by default
 
 When a poll cannot reach the API, the weather entity keeps showing the data from the last poll that succeeded. Once that poll is more than 17.5 minutes old, the next failed poll makes the entity unavailable, until a poll succeeds again.
 
-The pollen levels are downloaded separately. If only that download fails, the other entities keep updating and the pollen sensors keep their last level for the same 17.5 minutes, then become unavailable until a download succeeds again. Right after Home Assistant starts, there is no earlier level to keep, and they are unavailable at once. The log shows `Could not get pollen data from the API` when the problem starts and `Pollen data is available again` when it is over.
+The pollen levels are downloaded separately. If only that download fails, the other entities keep updating and the pollen sensors keep their last level for the same 17.5 minutes, then become unavailable until a download succeeds again. Right after Home Assistant starts, there is no earlier level to keep, and they are unavailable at once. The log shows "Could not get pollen data from the API" when the problem starts and "Pollen data is available again" when it is over.
 
 ## Removing the integration
 
