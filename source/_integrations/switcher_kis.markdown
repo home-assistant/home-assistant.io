@@ -96,7 +96,7 @@ For Switcher light control devices (Switcher Runner S11, Switcher Runner S12, an
 
 For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4, Switcher Heater), the integration provides the following sensors:
 
-- **Shutdown time**: The date and time when the device will turn off, either by auto shutdown or by a timer. The sensor is unknown when no timer is running. Not available for Switcher Power Plug.
+- **Shutdown time**: The date and time when the device will turn off, either by auto shutdown or by a timer. The sensor is **Unknown** when no timer is running. Not available for Switcher Power Plug.
 - **Auto-off**: The auto shutdown time limit configured on the device, shown in minutes by default. This sensor is disabled by default. Not available for Switcher Power Plug.
 - **Electric current**: The electric current in amperes, for example 12.5 A.
 - **Power consumption**: The power consumption in watts, for example 2756 W.
@@ -118,6 +118,8 @@ For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switch
 The **Shutdown time** sensor shows when the device will turn off. If you prefer a countdown in `HH:MM:SS` format, you can create a [template sensor](/integrations/template/) based on the **Shutdown time** sensor. The example below updates every 5 seconds and shows `00:00:00` when no timer is running. Replace `sensor.water_heater_shutdown_time` with the entity ID of your **Shutdown time** sensor.
 
 Add the following to your {% term "`configuration.yaml`" %}:
+Add the following to your {% term "`configuration.yaml`" %}:
+
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
