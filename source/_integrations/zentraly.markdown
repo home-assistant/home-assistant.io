@@ -33,19 +33,32 @@ Before setting up the integration:
 
 ## Configuration
 
-Zentraly thermostats must be discovered automatically before they can be added to Home Assistant.
+Zentraly thermostats can be added through automatic discovery or manually using their IP address, device ID, and device password.
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Under **Discovered**, find the Zentraly thermostat with your device ID and select **Configure**.
 3. Enter the device password from the **About device** section in the Zentraly app and submit the form.
 
-Home Assistant verifies the connection and password before adding the thermostat.
+To add a thermostat manually:
+
+1. Go to **{% my integrations title="Settings > Devices & services" %}** and select **Add integration**.
+2. Search for **Zentraly**.
+3. Select **Add a device by IP address**.
+4. Enter the thermostat's IPv4 address, device ID, and device password, and submit the form. The connection uses port 80.
+
+Home Assistant verifies the connection and password and reads the device MAC address before adding the thermostat.
 
 If the thermostat's IP address or port changes, Home Assistant updates its connection details when it receives a new Zeroconf announcement for the same device and reconnects automatically.
 
-If the thermostat does not appear, check that third-party connections are enabled and that Home Assistant and the thermostat are on the same local network. Adding an undiscovered thermostat manually or entering its IP address is not supported.
+If the thermostat does not appear, check that third-party connections are enabled and that Home Assistant and the thermostat are on the same local network. You can also add it manually. Zeroconf announcements can update the address of a manually added thermostat as well.
+
+Changing the IP address through a reconfiguration form is not currently supported. If Zeroconf announcements cannot reach Home Assistant, reserve an address for the thermostat in your router to prevent DHCP address changes from interrupting communication.
 
 {% configuration_basic %}
+Host:
+  description: "The thermostat IPv4 address. Required for manual setup."
+Device ID:
+  description: "The identifier of the thermostat. Required for manual setup."
 Password:
   description: "The device password shown in the Zentraly app. This is not your Zentraly account password."
 {% endconfiguration_basic %}
