@@ -119,8 +119,7 @@ prevent this, either (a) clear them in the web/mobile app or (b) use the
 
 ## Removing the integration
 
-The SimpliSafe integration follows the standard integration removal process.
+The SimpliSafe integration follows the standard integration removal process - no additional steps are required.
 
 {% include integrations/remove_device_service.md %}
 
-No additional steps are required for removal.
