@@ -8,7 +8,7 @@ ha_domain: smartthings
 [SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.
 
 {% important %}
-Access to the SmartThings API requires a paid SmartThings API plan. Without an active plan, or once its API usage quota is used up, the integration cannot set up or communicate with SmartThings. For details, see the [SmartThings community announcement](https://community.smartthings.com/t/a-new-enhanced-smartthings-api-experience/309947).
+Access to the SmartThings API requires a paid SmartThings API plan. Without an active plan, or once its API usage quota is used up, the integration cannot set up or communicate with SmartThings. For details, see the [SmartThings community announcement about the changes for Home Assistant](https://community.smartthings.com/t/changes-to-the-smartthings-integration-for-home-assistant-what-s-happening-and-what-you-need-to-do/311942).
 {% endimportant %}
 
 ## Prerequisites
