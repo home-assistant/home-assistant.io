@@ -321,14 +321,14 @@ The Home Assistant community has created blueprints that use the UniFi Network i
 
 The UniFi Network {% term integration %} uses a local push connection (WebSocket) to the UniFi Network application. This means state changes for clients, devices, and network configuration are received in near-real-time as they happen on the controller, without the need for {% term polling %}. Data that the UniFi Network application doesn't push, such as Zone-Based Firewall Policies, is polled every 10 seconds. While a type of data has no items, for example when no firewall policies exist, it is polled every 10 minutes instead, so the first new item can take up to 10 minutes to appear.
 
-When you connect with an API key, the Integration API doesn't push updates, so the integration polls instead. Clients and devices are polled every 10 seconds. Device statistics, such as uptime, CPU, and memory, and PoE port details are polled every 60 seconds.
+When you connect with an API key, the Integration API doesn't push updates, so the integration polls instead. Clients and devices are polled every 10 seconds. PoE port details are polled every 30 seconds. Device statistics, such as uptime, CPU, and memory, are polled every 60 seconds. The **power cycle** button of a port is unavailable while PoE is turned off on that port.
 
 If the WebSocket connection is lost, the integration automatically tries to reconnect. While disconnected, entities are marked as unavailable until the connection is restored.
 
 ## Known limitations
 
 - **Ubiquiti SSO cloud users are not supported.** You must create a local user in your UniFi OS Console. See the [Local user](#local-user) section for instructions.
-- **Connecting with an API key offers fewer features.** Switches, lights, images, firmware updates, client bandwidth sensors, and network access control need a [local user](#local-user). With an API key, the integration options only include client and device tracking, the away time (at least 60 seconds), and ignoring clients with private MAC addresses.
+- **Connecting with an API key offers fewer features.** Switches, lights, images, firmware updates, client bandwidth sensors, and network access control need a [local user](#local-user). With an API key, the integration options only include client and device tracking, the away time (at least 60 seconds), and ignoring clients with private MAC addresses. Clients you selected under **Create entities from network clients** while connected with a local user stay tracked after you switch to an API key.
 - **The Integration API only lists connected clients.** When you connect with an API key, a client that is away when Home Assistant starts keeps its device tracker, but a client that was never seen while connected doesn't get one.
 - **Your UniFi Network application must offer the Integration API to connect with an API key.** If it doesn't, Home Assistant asks you to update UniFi Network or to connect with a local user.
 - **Early Access and Release Candidate versions of UniFi Network and UniFi OS are not supported.** Only the official Stable Release channel is expected to work with this integration.
