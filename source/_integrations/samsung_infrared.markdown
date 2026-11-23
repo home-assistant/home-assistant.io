@@ -88,9 +88,9 @@ The integration can be used to:
  - Control an older TV or air conditioner that does not have smart functionality.
  - Avoid the need to connect your TV to the internet if you are concerned about privacy.
 
-### Automation examples
+## Samsung Infrared automation examples
 
-#### Automation: Turn off the TV when nobody is in the same room
+### Automation: Turn off the TV when nobody is in the same room
 
 If you pair the Samsung Infrared integration with a smart plug with power monitoring capabilities, you can detect whether a TV is on (see the **Known limitations** section) and turn it off when no one is in the room.
 
@@ -136,7 +136,7 @@ actions:
 
 {% enddetails %}
 
-#### Automation: Turn on the TV in the morning
+### Automation: Turn on the TV in the morning
 
 You could also configure an automation to turn a TV on in the morning.
 
