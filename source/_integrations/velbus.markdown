@@ -30,9 +30,9 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports a direct Velbus USB interface, a Velbus TCP/IP gateway, and [Velbus Manager](https://github.com/velbus/velbus-manager) (HTTP REST API and WebSocket).
+The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It connects through a Velbus USB interface, a Velbus TCP/IP gateway, or [Velbus Manager](https://github.com/velbus/velbus-manager).
 
-To use the Velbus integration, you need Velbus modules on the bus and a supported interface: USB, TCP/IP, or Velbus Manager. Velbus Manager can connect to the bus over USB or TCP and is suitable when Home Assistant should not talk to the Velbus wire protocol directly (for example when using the [Velbus Manager app](https://github.com/cereal2nd/hassio-velbus-manager) on Home Assistant OS).
+To use the Velbus integration, you need Velbus modules on the bus and one of these interfaces. Velbus Manager connects to the bus itself, over USB or TCP/IP, and Home Assistant connects to Velbus Manager. On Home Assistant OS, you can run it with the [Velbus Manager app](https://github.com/cereal2nd/hassio-velbus-manager).
 
 {% include integrations/config_flow.md %}
 
@@ -111,7 +111,10 @@ access_token:
 
 - host: `manager`
 - port: `4201`
-- access_token: leave empty only if authentication is disabled in the app and the API is not exposed outside the trusted network
+3. Enter these values:
+   - host: `manager`
+   - port: `4201`
+   - access_token: the token from Velbus Manager, if authentication is enabled
 
 You can open the Manager web UI from the app sidebar (ingress) under `/velbus-ui/`.
 
