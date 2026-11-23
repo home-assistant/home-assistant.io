@@ -12,6 +12,7 @@ ha_domain: heiman_local
 ha_integration_type: device
 ha_platforms:
   - switch
+ha_quality_scale: bronze
 ha_zeroconf: true
 ---
 
