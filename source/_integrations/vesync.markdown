@@ -184,7 +184,7 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `cook_end_time`         | When the running cook finishes, preheating included. Unknown when paused or stopped    | 12:19     |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
 
-The preheating set time sensor is only available on air fryers that support preheating.
+The `preheat_set_time` sensor is only available on air fryers that support preheating. For example, the Dual Blaze doesn't have it.
 
 On dual-basket air fryers, you get a separate set of these sensors for each basket. The sensor names include the basket number, such as **Basket 1 cooking status** and **Basket 2 cooking status**. This way, you can follow each basket on its own. On single-basket air fryers, the sensor names do not include a basket number.
 
