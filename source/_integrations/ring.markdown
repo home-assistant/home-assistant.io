@@ -73,7 +73,7 @@ Two-way audio has the following requirements:
 
 - The **Two-way audio** preview feature is enabled in {% my labs title="**Settings** > **System** > **Labs**" %}. For more information, see [Home Assistant Labs](/integrations/labs/).
 - You use the `live_view` camera entity. The `last_recording` camera entity doesn't support two-way audio.
-- Home Assistant is opened over HTTPS, because browsers only allow microphone access over a secure connection. The Home Assistant app on iPhone or iPad also supports two-way audio over HTTP.
+- Home Assistant is opened over HTTPS, because browsers only allow microphone access over a secure connection. The Home Assistant app on iPhone or iPad, version 2026.10.3 or later, also supports two-way audio over HTTP.
 
 ### Event
 
