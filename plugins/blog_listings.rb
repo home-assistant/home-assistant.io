@@ -18,7 +18,7 @@
 #   - featured: the featured entry (page 1 of /blog/ only)
 #   - facet: the filter this page shows (kind, slug, label, count, url)
 #   - facets: every filter, for the filter bar (all, categories, authors, years)
-#   - page, total_pages, pages: pagination (see pagination_items)
+#   - page, total_pages, pages, compact_pages: pagination (see pagination_items)
 #
 # Ported from the blog filters of esphome.io (#8195) and
 # openhomefoundation.org (#174).
@@ -99,11 +99,12 @@ module Jekyll
       facets.values
     end
 
-    # First and last two pages, and those next to the current one. A gap
-    # between them is an item with `ellipsis` set.
-    def self.pagination_items(current, total, base)
-      numbers = [1, 2, current - 1, current, current + 1, total - 1, total]
-                .select { |n| n.between?(1, total) }.uniq.sort
+    # The page numbers to link: the first and last two pages and those
+    # next to the current one or, `compact` for phones, the first, current
+    # and last pages only. A gap between them is an item with `ellipsis` set.
+    def self.pagination_items(current, total, base, compact: false)
+      numbers = compact ? [1, current, total] : [1, 2, current - 1, current, current + 1, total - 1, total]
+      numbers = numbers.select { |n| n.between?(1, total) }.uniq.sort
       numbers.each_with_index.flat_map do |n, i|
         item = { 'number' => n, 'url' => page_url(base, n), 'current' => n == current }
         i.positive? && n - numbers[i - 1] > 1 ? [{ 'ellipsis' => true }, item] : [item]
@@ -196,6 +197,7 @@ module Jekyll
               'previous_url' => number > 1 ? BlogListings.page_url(facet['url'], number - 1) : nil,
               'next_url' => number < pages.size ? BlogListings.page_url(facet['url'], number + 1) : nil,
               'pages' => BlogListings.pagination_items(number, pages.size, facet['url']),
+              'compact_pages' => BlogListings.pagination_items(number, pages.size, facet['url'], compact: true),
             },
           })
         end

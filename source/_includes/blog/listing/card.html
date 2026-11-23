@@ -32,19 +32,23 @@
     {%- if post.description %}
     <p class="blog-card-description">{% if include.featured %}{{ post.description | truncate: 260, "…" }}{% else %}{{ post.description | truncate: 140, "…" }}{% endif %}</p>
     {%- endif %}
+    {%- comment -%}
+      Two lines of one line each, so footers are the same height and
+      author rows line up across a row of cards.
+    {%- endcomment %}
     <div class="blog-card-footer">
       {%- if include.entry.authors.size > 0 %}
       <span class="blog-card-authors">
         <span class="blog-card-avatars">
-          {%- for author in include.entry.authors %}{% if author.avatar %}<img src="{{ author.avatar }}" alt="" width="24" height="24" loading="lazy" />{% endif %}{% endfor -%}
+          {%- for author in include.entry.authors %}{% if author.avatar %}<img src="{{ author.avatar }}" alt="" width="24" height="24" loading="lazy" />{% else %}<span class="avatar-placeholder" aria-hidden="true"></span>{% endif %}{% endfor -%}
         </span>
-        {{ include.entry.authors | map: "label" | join: ", " }}
+        <span class="blog-card-author-names">{{ include.entry.authors | map: "label" | join: ", " }}</span>
       </span>
       {%- endif %}
       {%- if post.external_url %}
-      <span class="blog-card-badge">Shared from {{ post.external_source | default: "another site" }}</span>
+      <span class="blog-card-source">Shared from {{ post.external_source | default: "another site" }}</span>
       {%- else %}
-      <span>{{ include.entry.reading_time }} min read</span>
+      <span class="blog-card-source">{{ include.entry.reading_time }} min read</span>
       {%- endif %}
     </div>
   </div>

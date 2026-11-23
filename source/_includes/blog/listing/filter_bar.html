@@ -63,7 +63,7 @@
       </ul>
       {%- if more_categories.size > 0 %}
       <details class="blog-drawer-more"{% if current_in_more %} open{% endif %}>
-        <summary>More categories <span class="blog-count">{{ more_categories.size }}</span></summary>
+        <summary>More categories</summary>
         <ul>
           {%- for facet in more_categories %}
           <li><a href="{{ facet.url }}"{% if facet.url == current.url %} aria-current="page"{% endif %}><span class="label">{{ facet.label }}</span> <span class="blog-count">{{ facet.count }}</span></a></li>

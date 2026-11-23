@@ -65,19 +65,9 @@ layout: default
     {%- else %}
     <span class="blog-pagination-arrow disabled" aria-hidden="true">{% icon "mdi:arrow-left" %}</span>
     {%- endif %}
-    <ul>
-      {%- for item in listing.pages %}
-      <li>
-        {%- if item.ellipsis -%}
-        <span class="blog-pagination-ellipsis">…</span>
-        {%- elsif item.current -%}
-        <a class="blog-pagination-number current" href="{{ item.url }}" aria-current="page">{{ item.number }}</a>
-        {%- else -%}
-        <a class="blog-pagination-number" href="{{ item.url }}">{{ item.number }}</a>
-        {%- endif -%}
-      </li>
-      {%- endfor %}
-    </ul>
+    {%- comment -%} A long list of page numbers, and a short one for phones. {%- endcomment %}
+    {%- include blog/listing/page_numbers.html items=listing.pages class="wide" %}
+    {%- include blog/listing/page_numbers.html items=listing.compact_pages class="compact" %}
     {%- if listing.next_url %}
     <a class="blog-pagination-arrow" href="{{ listing.next_url }}" aria-label="Older posts">{% icon "mdi:arrow-right" %}</a>
     {%- else %}

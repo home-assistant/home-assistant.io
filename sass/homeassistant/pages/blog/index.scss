@@ -279,40 +279,49 @@ $desk: 1200px;
 }
 
 .blog-card-footer {
-  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 8px;
   margin-top: auto;
   padding-top: 12px;
 }
 
 .blog-card-authors {
   align-items: center;
-  display: inline-flex;
+  display: flex;
   gap: 8px;
+  min-width: 0;
 }
 
-// Several authors' avatars overlap.
+.blog-card-author-names,
+.blog-card-source {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Several authors' avatars overlap. Authors without a GitHub account get
+// a plain circle, as in the filters panel.
 .blog-card-avatars {
   display: inline-flex;
+  flex-shrink: 0;
 
-  &:empty {
-    display: none;
-  }
-
-  img {
+  img,
+  .avatar-placeholder {
+    background: var(--blog-subtle);
     border-radius: 50%;
     box-shadow: 0 0 0 2px var(--blog-surface);
+    display: block;
+    height: 24px;
     margin: 0;
+    width: 24px;
 
-    + img {
+    + img,
+    + .avatar-placeholder {
       margin-left: -8px;
     }
   }
-}
-
-.blog-card-badge {
-  background: var(--blog-subtle);
-  border-radius: var(--blog-pill);
-  padding: 2px 12px;
 }
 
 // The newest post: image on the left and text on the right from the
@@ -363,11 +372,18 @@ $desk: 1200px;
     justify-content: center;
   }
 
-  // On phones, only the current page shows between the arrows.
+  // Phones get the short list of page numbers: first, current and last.
+  .blog-pagination-numbers.compact {
+    display: none;
+  }
+
   @media (max-width: 479px) {
-    li:has(.blog-pagination-ellipsis),
-    li:has(.blog-pagination-number:not(.current)) {
+    .blog-pagination-numbers.wide {
       display: none;
+    }
+
+    .blog-pagination-numbers.compact {
+      display: flex;
     }
   }
 }

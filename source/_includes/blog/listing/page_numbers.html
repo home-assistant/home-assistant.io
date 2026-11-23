@@ -1,0 +1,20 @@
+{%- comment -%}
+  Page numbers for the blog's pagination.
+
+  Parameters:
+    items: page.listing.pages or page.listing.compact_pages
+    class: "wide" or "compact", which the stylesheet shows by screen width
+{%- endcomment %}
+    <ul class="blog-pagination-numbers {{ include.class }}">
+      {%- for item in include.items %}
+      <li>
+        {%- if item.ellipsis -%}
+        <span class="blog-pagination-ellipsis" aria-hidden="true">…</span>
+        {%- elsif item.current -%}
+        <a class="blog-pagination-number current" href="{{ item.url }}" aria-current="page">{{ item.number }}</a>
+        {%- else -%}
+        <a class="blog-pagination-number" href="{{ item.url }}">{{ item.number }}</a>
+        {%- endif -%}
+      </li>
+      {%- endfor %}
+    </ul>
