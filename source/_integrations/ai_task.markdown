@@ -234,18 +234,21 @@ automation: |
 
 ### Template image: show the current weather as a picture
 
-When the weather changes, this automation uses [Generate image](/actions/ai_task.generate_image/) to create a picture of New York in the current weather. It then fires an event with the image URL. A template image entity reacts to that event and shows the new picture. The example uses your preferred AI task entity for image generation.
+When the weather changes, and every hour, this automation uses [Generate image](/actions/ai_task.generate_image/) to create a picture of New York in the current weather. It then fires an event with the image URL. A template image entity reacts to that event and shows the new picture. The example uses your preferred AI task entity for image generation.
 
 Add this to your {% term "`configuration.yaml`" %} file. Replace the weather entity ID with your own. The action returns the image URL as a path, without the address of your Home Assistant. The template image adds `http://localhost:8123` in front of it. If your Home Assistant uses a different local address, replace that part.
 
-The image URL is only valid for one hour. Home Assistant downloads the picture the first time you view the image entity, and then keeps it until the next picture arrives. If you don't view the picture within an hour, it doesn't load until the weather changes again.
+The image URL is only valid for one hour. That's why the automation also creates a new picture every hour, even if the weather stays the same. Each new picture is a request to your AI provider, which might cost money.
 
 ```yaml
 automation:
-  - alias: "Update image when weather changes"
+  - alias: "Update the weather image"
     triggers:
       - trigger: state
         entity_id: weather.home
+      # The image URL expires after one hour
+      - trigger: time_pattern
+        hours: "/1"
     actions:
       - alias: "Generate an image with AI Task"
         action: ai_task.generate_image
