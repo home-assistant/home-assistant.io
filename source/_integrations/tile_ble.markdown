@@ -12,6 +12,7 @@ ha_domain: tile_ble
 ha_integration_type: device
 ha_platforms:
   - device_tracker
+  - diagnostics
 ha_quality_scale: bronze
 related:
   - docs: /integrations/tile/
