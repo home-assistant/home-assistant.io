@@ -238,6 +238,8 @@ When the weather changes, this automation uses [Generate image](/actions/ai_task
 
 Add this to your {% term "`configuration.yaml`" %} file. Replace the weather entity ID with your own. The action returns the image URL as a path, without the address of your Home Assistant. The template image adds `http://localhost:8123` in front of it. If your Home Assistant uses a different local address, replace that part.
 
+The image URL is only valid for one hour. Home Assistant downloads the picture the first time you view the image entity, and then keeps it until the next picture arrives. If you don't view the picture within an hour, it doesn't load until the weather changes again.
+
 ```yaml
 automation:
   - alias: "Update image when weather changes"
