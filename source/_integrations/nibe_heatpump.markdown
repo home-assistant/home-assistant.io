@@ -78,7 +78,7 @@ A standard Linux application for running the Nibe Gateway software is also avail
 
 When you use the NibeGW connection method, the pump sends the registers listed in a `LOG.SET` file without being asked. Home Assistant polls all other registers. To create a `LOG.SET` file for the entities you have enabled:
 
-1. Go to {% my integrations domain="nibe_heatpump" title="**Settings** > **Devices & services**" > **Nibe Heat Pump** %} .
+1. Go to {% my integrations title="**Settings** > **Devices & services**" > **Nibe Heat Pump** %} .
 2. Select **Configure** and download `LOG.SET`.
 3. Copy the file to a USB stick and load it from the USB menu on the pump.
 
