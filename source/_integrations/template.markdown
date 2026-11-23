@@ -1253,9 +1253,12 @@ template:
         location_accuracy: "{{ trigger.json.resolution }}"
 ```
 
+### State based device tracker - Presence from a router binary sensor
+
+This example sets presence from another entity, such as a router binary sensor, using `in_zones`.
+
 ```yaml
-# Example configuration.yaml entry using in_zones, for presence that comes
-# from another entity, such as a router binary sensor
+# Example configuration.yaml entry
 template:
   - device_tracker:
       - name: Phone on Wi-Fi
