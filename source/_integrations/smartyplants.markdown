@@ -83,10 +83,7 @@ Each plant with a sensor attached provides the following entities.
 ### Binary sensors
 
 - **Connectivity**
-  - **Description**: Whether the sensor is reporting. Off when SmartyPlants has it as offline, and also when its last readings are more than three hours old.
-  - **Remarks**: Diagnostic entity.
-- **Readings outdated**
-  - **Description**: On when the sensor has not reported for more than three hours. The sensors report hourly, so three missed reports mean the readings no longer describe the plant.
+  - **Description**: Whether SmartyPlants currently has the sensor as online.
   - **Remarks**: Diagnostic entity.
 - **Needs attention**
   - **Description**: On when SmartyPlants has flagged the plant as needing attention.
@@ -201,7 +198,7 @@ automation: |
 
 The integration {% term polling polls %} SmartyPlants every minute. If a webhook is configured, readings are also pushed as they arrive, and the poll acts as a fallback.
 
-A sensor that the SmartyPlants cloud reports as offline has its reading entities marked unavailable, rather than continuing to show values that no longer describe the plant. **Connectivity**, **Readings outdated**, and **Last reported** stay available, so you can still see what the sensor itself is doing.
+A sensor that the SmartyPlants cloud reports as offline has its reading entities marked unavailable, rather than continuing to show values that no longer describe the plant. **Connectivity** and **Last reported** stay available, so you can still see what the sensor itself is doing. The sensors report hourly, so a **Last reported** time several hours old is a sign the readings have stopped arriving even while the sensor still shows as connected.
 
 ## Known limitations
 
