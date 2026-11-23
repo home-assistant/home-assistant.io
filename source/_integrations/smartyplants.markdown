@@ -24,14 +24,14 @@ The integration works with any SmartyPlants soil sensor that reports to the Smar
 API key:
   description: "The API key created in the SmartyPlants app under **Settings**. It identifies your account to Home Assistant."
 Webhook secret:
-  description: "Optional. The signing secret shown by the SmartyPlants app after you add Home Assistant's webhook URL. Home Assistant must be reachable from the internet to receive pushed updates, so leave this empty to use polling only. It can be changed later, see [Reconfiguration](#reconfiguration)."
+  description: "Optional. The signing secret shown by the SmartyPlants app after you add Home Assistant's webhook URL. Home Assistant must be reachable from the internet to receive pushed updates, so leave this empty to use polling only. You can change it later. For details, refer to [Reconfiguration](#reconfiguration)."
 {% endconfiguration_basic %}
 
 ### Live updates with a webhook
 
 The integration polls every minute. To have readings arrive immediately as well:
 
-1. During setup, copy the webhook URL shown on the second step.
+1. During setup, or later when you [reconfigure](#reconfiguration) the integration, copy the webhook URL shown in the dialog.
 2. In the SmartyPlants app, add that URL as your Home Assistant webhook.
 3. Paste the signing secret the app gives you back into the setup dialog.
 
@@ -46,12 +46,12 @@ Home Assistant must be reachable from the internet for a webhook to be delivered
 The API key and the webhook secret can both be changed after setup, without removing the integration:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **SmartyPlants**.
-2. Select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, then select **Reconfigure**.
-3. Enter the new API key, and the new signing secret if you are changing it. Clear the secret to stop using a webhook and poll only.
+2. Select **Menu** {% icon "mdi:dots-vertical" %} and then **Reconfigure**.
+3. Enter the new API key and, if you are changing it, the new signing secret. To stop using a webhook and use polling only, clear the secret.
 
-The new API key has to belong to the same SmartyPlants account the integration was set up with. A key for a different account is refused, and the existing key is kept.
+The new API key must belong to the same SmartyPlants account the integration was set up with. If you enter a key for a different account, the dialog stops with an error, and the existing key is kept.
 
-The webhook URL does not change when you reconfigure, so there is nothing to update in the SmartyPlants app. If Home Assistant has no address reachable from the internet the URL cannot be shown, but the secret can still be changed or cleared, and the webhook you already added in the app keeps working. An integration set up without a webhook is offered the API key on its own.
+The webhook URL does not change when you reconfigure, so there is nothing to update in the SmartyPlants app. If you set up the integration without a webhook secret, you can add one later the same way: copy the webhook URL shown in the dialog, add it in the SmartyPlants app, and paste the signing secret the app gives you. If Home Assistant has no address reachable from the internet, the URL can't be shown, but you can still change or clear the secret, and the webhook you already added in the app keeps working. If you clear the secret, Home Assistant stops listening for pushed updates, so also remove the Home Assistant webhook URL in the SmartyPlants app.
 
 ## Supported functionality
 
