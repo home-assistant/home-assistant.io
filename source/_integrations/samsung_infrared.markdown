@@ -157,13 +157,10 @@ triggers:
       - fri
       - sat
       - sun
-conditions: []
 actions:
   - action: media_player.turn_on
-    metadata: {}
     target:
       entity_id: media_player.samsung_tv
-    data: {}
 {% endexample %}
 
 {% enddetails %}
