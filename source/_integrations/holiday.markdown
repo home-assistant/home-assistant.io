@@ -19,16 +19,30 @@ Province:
   description: "The province, state, or other region of the country. Some regions have extra or different holidays. Only shown if the selected country has regions."
 Categories:
   description: "Additional holiday categories to include, such as bank or school holidays. Public holidays are always included. Only shown if the selected country has additional categories. For the categories each country supports, refer to the [holidays](https://pypi.org/project/holidays/) library."
+Include Sundays as holidays:
+  description: "Adds all Sundays to the holidays of the country. Only shown for countries that support it, such as Sweden and Norway. By default, off."
+Mark estimated Islamic holidays:
+  description: "Adds \"estimated\" to the name of Islamic holidays that have an estimated date. Only shown for countries that support it. The default depends on the country."
+Mark estimated Hindu holidays:
+  description: "Adds \"estimated\" to the name of Hindu holidays that have an estimated date. Only shown for countries that support it, such as Bhutan. By default, on."
 {% endconfiguration_basic %}
 
-You can add the integration more than once, for example, to show holidays for several countries or regions. Each combination of country, region, and categories can only be added once.
+You can add the integration more than once, for example, to show holidays for several countries or regions. Each combination of country, region, categories, and options can only be added once.
 
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 Categories:
-  description: "Additional holiday categories to include. Public holidays are always included. If the country has no additional categories, the options are not available."
+  description: "Additional holiday categories to include. Public holidays are always included. Only shown if the selected country has additional categories."
+Include Sundays as holidays:
+  description: "Adds all Sundays to the holidays of the country. Only shown for countries that support it, such as Sweden and Norway. By default, off."
+Mark estimated Islamic holidays:
+  description: "Adds \"estimated\" to the name of Islamic holidays that have an estimated date. Only shown for countries that support it. The default depends on the country."
+Mark estimated Hindu holidays:
+  description: "Adds \"estimated\" to the name of Hindu holidays that have an estimated date. Only shown for countries that support it, such as Bhutan. By default, on."
 {% endconfiguration_basic %}
+
+If the country has no additional categories and none of these options, the options are not available.
 
 To change the province or region of an existing entry, use **Reconfigure** from the three dots {% icon "mdi:dots-vertical" %} menu on the entry.
 
