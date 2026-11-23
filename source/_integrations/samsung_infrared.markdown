@@ -17,7 +17,7 @@ The integration supports:
 
 {% details "Example compatible TV remotes" %}
 
-![BN59-01315Q](/images/integrations/samsung_infrared/samsung-bn59-01315q.jpg)
+![Samsung BN59-01315Q TV remote](/images/integrations/samsung_infrared/samsung-bn59-01315q.jpg)
 
 {% enddetails %}
 
