@@ -168,11 +168,12 @@ If your vehicle's own integration reports the battery level, forward it to ABRP 
 
 - **Trigger**: State
   - **Entity**: The battery level sensor from your vehicle's integration
+  - **To**: Any state (ignoring attribute changes)
 - **Condition**: Template
-  - **Value template**: The new state is a number
+  - **Value template**: {% raw %}`{{ is_number(trigger.to_state.state) }}`{% endraw %}
 - **Action**: Send telemetry
   - **Vehicle**: Your vehicle in ABRP
-  - **State of charge**: The new battery level
+  - **State of charge**: {% raw %}`{{ trigger.to_state.state | float }}`{% endraw %}. The number field doesn't accept a template, so select **Edit in YAML** on the action to enter it.
 
 {% details "YAML example for sending the state of charge to ABRP" %}
 
