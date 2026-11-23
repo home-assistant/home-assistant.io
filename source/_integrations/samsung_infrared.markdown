@@ -99,8 +99,8 @@ If you pair the Samsung Infrared integration with a smart plug with power monito
   - **For at least**: 00:15:00
 - **Condition**: Power value (above 10 W for at least 1 minute)
   - **Target**: TV power sensor
-- **Action**: Press button
-  - **Target**: Samsung TV power button
+- **Action**: Turn off media player
+  - **Target**: Samsung TV media player
 
 {% include docs/paste_yaml_tip.md %}
 
@@ -129,9 +129,9 @@ conditions:
           number: 10
           unit_of_measurement: W
 actions:
-  - action: button.press
+  - action: media_player.turn_off
     target:
-      entity_id: button.samsung_tv_power
+      entity_id: media_player.samsung_tv
 {% endexample %}
 
 {% enddetails %}
