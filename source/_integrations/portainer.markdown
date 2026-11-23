@@ -39,6 +39,7 @@ There is currently support for the following device types within Home Assistant:
 - **Pause container**: Pauses the container.
 - **Resume container**: Resumes the container.
 - **Recreate container**: Recreates the container by pulling the latest tagged image.
+- **Pull image**: Downloads the latest version of the container's image without recreating or restarting the container, so a later update or recreate is quicker. The container keeps running the old image until it is recreated, so its image update stays available until then. Disabled by default. Images from a private registry can't be pulled this way; recreate the container or install its update instead.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
 - **Prune unused volumes**: Removes unused Docker volumes from the endpoint.
 - **Prune build cache**: Removes the unused Docker build cache from the endpoint.
