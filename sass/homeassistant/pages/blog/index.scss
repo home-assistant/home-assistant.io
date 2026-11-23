@@ -1,0 +1,653 @@
+// The blog's listing pages (source/_layouts/blog_listing.html): the
+// intro, the filter bar and drawer, the post cards and pagination.
+// Compiled to its own stylesheet, which only those pages load.
+@use 'homeassistant/variables' as *;
+
+$tab: 768px;
+$desk: 1200px;
+
+.blog-listing,
+.blog-drawer {
+  --blog-ink: #002e3e;
+  --blog-text: #{$grayDarker};
+  --blog-muted: #{$gray};
+  --blog-link: #{$blueDark};
+  --blog-highlight: #{$blue};
+  --blog-highlight-shade: #086585;
+  --blog-surface: #{$white};
+  --blog-subtle: #e8edf0;
+  --blog-hover: rgb(26 188 242 / 10%);
+  --blog-inverse: #{$white};
+  --blog-inverse-muted: #aaabae;
+  --blog-pill: 1000px;
+}
+
+.blog-listing {
+  padding: 24px 0 80px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
+  }
+}
+
+// --- Intro ---
+
+.blog-listing-intro {
+  margin-bottom: 32px;
+
+  h1 {
+    color: var(--blog-ink);
+    font-family: $heading-font;
+    font-size: clamp(2.5rem, 1.75rem + 3vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 12px;
+  }
+
+  p {
+    color: var(--blog-muted);
+    font-size: 1.125rem;
+    margin: 0;
+    max-width: 52.5rem;
+  }
+}
+
+// --- Toolbar: the active filter, Filters and RSS ---
+
+.blog-toolbar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.blog-active-filter {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  min-width: 0;
+}
+
+.blog-chip,
+.blog-action {
+  align-items: center;
+  background: var(--blog-surface);
+  border: 1px solid var(--blog-subtle);
+  border-radius: var(--blog-pill);
+  color: var(--blog-ink);
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: 8px;
+  line-height: 1.4;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.blog-chip.active {
+  background: var(--blog-ink);
+  border-color: var(--blog-ink);
+  color: var(--blog-inverse);
+
+  .blog-chip-prefix,
+  .blog-count {
+    color: var(--blog-inverse-muted);
+  }
+
+  .blog-count {
+    font-size: 0.75rem;
+  }
+}
+
+.blog-clear-filter {
+  color: var(--blog-link);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.blog-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.blog-action {
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  white-space: nowrap;
+
+  &:focus-visible {
+    outline: 2px solid var(--blog-ink);
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: $tab - 1px) {
+  // The feed link keeps its icon only, with its name for screen readers.
+  .blog-feed span {
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+@media (hover: hover) {
+  .blog-action:hover {
+    background: var(--blog-hover);
+    border-color: var(--blog-highlight);
+  }
+}
+
+// --- Cards ---
+
+.blog-listing-featured {
+  margin-bottom: 24px;
+}
+
+.blog-listing-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+}
+
+.blog-card {
+  background: var(--blog-surface);
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px var(--blog-subtle);
+  color: var(--blog-ink);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 0 2px var(--blog-highlight);
+    color: var(--blog-ink);
+    text-decoration: none;
+
+    .blog-card-title {
+      color: var(--blog-highlight-shade);
+    }
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--blog-ink);
+    outline: none;
+  }
+}
+
+// Every card's image box has the shape of a social image (1200 × 630),
+// whatever the image's own shape: the image fills it, so cards in a row
+// line up. Until the image loads, the box shows the Home Assistant mark,
+// as the Music Assistant blog does with its own. The image sits on top
+// of the mark; its onload handler adds `loaded`, which hides the mark
+// behind images with transparent backgrounds.
+.blog-card-media {
+  aspect-ratio: 1200 / 630;
+  background: var(--blog-subtle);
+  display: grid;
+  flex: none;
+  // One cell the size of the box, so a tall image can't stretch it.
+  grid-template: 100% / 100%;
+  overflow: hidden;
+
+  > * {
+    grid-area: 1 / 1;
+    min-height: 0;
+  }
+
+  &.loaded {
+    background: var(--blog-surface);
+
+    .blog-card-placeholder {
+      visibility: hidden;
+    }
+  }
+
+  > img {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.blog-card-placeholder {
+  color: var(--blog-highlight);
+  display: grid;
+  opacity: 0.5;
+  place-items: center;
+}
+
+.blog-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+}
+
+.blog-card-meta,
+.blog-card-footer {
+  align-items: center;
+  color: var(--blog-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  gap: 8px 16px;
+}
+
+.blog-card-category {
+  color: var(--blog-link);
+  font-weight: 600;
+}
+
+.blog-listing .blog-card-title {
+  color: var(--blog-ink);
+  font-family: $heading-font;
+  font-size: 1.25rem;
+  font-weight: 650;
+  line-height: 1.3;
+  margin: 0;
+  text-wrap: pretty;
+  transition: color 0.2s ease;
+}
+
+.blog-card-description {
+  color: var(--blog-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.blog-card-footer {
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.blog-card-authors {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+}
+
+// Several authors' avatars overlap.
+.blog-card-avatars {
+  display: inline-flex;
+
+  &:empty {
+    display: none;
+  }
+
+  img {
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--blog-surface);
+    margin: 0;
+
+    + img {
+      margin-left: -8px;
+    }
+  }
+}
+
+.blog-card-badge {
+  background: var(--blog-subtle);
+  border-radius: var(--blog-pill);
+  padding: 2px 12px;
+}
+
+// The newest post: image on the left and text on the right from the
+// desk width, stacked below it. The image is never cropped: it keeps
+// its own shape, and the text sits centered beside it.
+.blog-card.featured {
+  .blog-card-media {
+    aspect-ratio: auto;
+    min-height: 12rem;
+
+    > img {
+      height: auto;
+    }
+  }
+
+  .blog-card-title {
+    font-size: 1.75rem;
+  }
+
+  @media (min-width: $desk) {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+
+    .blog-card-body {
+      padding: 32px 40px;
+    }
+
+    .blog-card-footer {
+      margin-top: 16px;
+    }
+  }
+}
+
+// --- Pagination ---
+
+.blog-pagination {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 40px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+  }
+
+  // On phones, only the current page shows between the arrows.
+  @media (max-width: 479px) {
+    li:has(.blog-pagination-ellipsis),
+    li:has(.blog-pagination-number:not(.current)) {
+      display: none;
+    }
+  }
+}
+
+.blog-pagination-number,
+.blog-pagination-arrow,
+.blog-pagination-ellipsis {
+  align-items: center;
+  border-radius: var(--blog-pill);
+  color: var(--blog-ink);
+  display: inline-flex;
+  font-size: 0.875rem;
+  font-weight: 500;
+  height: 2.5rem;
+  justify-content: center;
+  min-width: 2.5rem;
+  text-decoration: none;
+}
+
+.blog-pagination-number.current {
+  background: var(--blog-ink);
+  color: var(--blog-inverse);
+}
+
+.blog-pagination-arrow {
+  border: 1px solid var(--blog-subtle);
+  font-size: 1.25rem;
+
+  &.disabled {
+    opacity: 0.35;
+  }
+}
+
+@media (hover: hover) {
+  a.blog-pagination-number:not(.current):hover,
+  a.blog-pagination-arrow:hover {
+    background: var(--blog-hover);
+    color: var(--blog-ink);
+  }
+}
+
+// --- Drawer ---
+
+html:has(#blog-filters[open]) {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+
+.blog-drawer {
+  background: var(--blog-surface);
+  border: 0;
+  box-shadow: 0 0 1px rgb(0 0 0 / 50%), 0 8px 24px rgb(0 0 0 / 10%);
+  color: var(--blog-text);
+  height: 100dvh;
+  margin: 0 0 0 auto;
+  max-height: 100dvh;
+  max-width: 100vw;
+  opacity: 0;
+  overscroll-behavior: contain;
+  padding: 0;
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out, display 0.25s allow-discrete, overlay 0.25s allow-discrete;
+  width: min(24rem, 100vw);
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  &::backdrop {
+    background-color: rgb(0 46 62 / 0%);
+    transition: background-color 0.25s ease-out, display 0.25s allow-discrete, overlay 0.25s allow-discrete;
+  }
+
+  &[open]::backdrop {
+    background-color: rgb(0 46 62 / 50%);
+
+    @starting-style {
+      background-color: rgb(0 46 62 / 0%);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transform: translateX(100%);
+
+    &[open] {
+      transform: none;
+
+      @starting-style {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  // A bottom sheet on phones.
+  @media (max-width: $tab - 1px) {
+    border-radius: 16px 16px 0 0;
+    height: auto;
+    margin: auto 0 0;
+    max-height: 85dvh;
+    width: 100vw;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transform: translateY(100%);
+
+      &[open] {
+        transform: none;
+
+        @starting-style {
+          transform: translateY(100%);
+        }
+      }
+    }
+  }
+}
+
+.blog-drawer-header,
+.blog-drawer-footer {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.blog-drawer-header {
+  border-bottom: 1px solid var(--blog-subtle);
+
+  h2 {
+    color: var(--blog-ink);
+    font-family: $heading-font;
+    font-size: 1.25rem;
+    font-weight: 650;
+    margin: 0;
+  }
+}
+
+.blog-drawer-close {
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: var(--blog-ink);
+  cursor: pointer;
+  display: grid;
+  font-size: 1.25rem;
+  height: 2.5rem;
+  padding: 0;
+  place-items: center;
+  width: 2.5rem;
+}
+
+.blog-drawer-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 8px 16px 24px;
+
+  h3 {
+    color: var(--blog-muted);
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin: 24px 8px 8px;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    align-items: center;
+    border-radius: 8px;
+    color: var(--blog-ink);
+    display: flex;
+    font-size: 0.9375rem;
+    gap: 12px;
+    padding: 10px 8px;
+    text-decoration: none;
+
+    &[aria-current="page"] {
+      background: var(--blog-ink);
+      color: var(--blog-inverse);
+      font-weight: 500;
+    }
+  }
+
+  img,
+  .avatar-placeholder {
+    background: var(--blog-subtle);
+    border-radius: 50%;
+    flex-shrink: 0;
+    height: 1.5rem;
+    margin: 0;
+    object-fit: cover;
+    width: 1.5rem;
+  }
+
+  .label {
+    flex-grow: 1;
+  }
+
+  .blog-count {
+    font-size: 0.8125rem;
+    opacity: 0.7;
+  }
+}
+
+.blog-drawer-more {
+  summary {
+    align-items: center;
+    border-radius: 8px;
+    color: var(--blog-link);
+    cursor: pointer;
+    display: flex;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    gap: 12px;
+    padding: 10px 8px;
+
+    .blog-count {
+      color: var(--blog-muted);
+    }
+  }
+
+  ul {
+    margin-top: 4px;
+  }
+}
+
+// Years are short, so they wrap as pills rather than take a row each.
+.blog-drawer-body .blog-drawer-years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-inline: 8px;
+
+  a {
+    border: 1px solid var(--blog-subtle);
+    border-radius: var(--blog-pill);
+    padding: 4px 12px;
+  }
+}
+
+@media (hover: hover) {
+  .blog-drawer-close:hover,
+  .blog-drawer-body a:not([aria-current="page"]):hover {
+    background: var(--blog-hover);
+  }
+}
+
+.blog-drawer-footer {
+  border-top: 1px solid var(--blog-subtle);
+
+  a {
+    color: var(--blog-link);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.blog-drawer-done {
+  background: var(--blog-ink);
+  border: 0;
+  border-radius: var(--blog-pill);
+  color: var(--blog-inverse);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 10px 24px;
+}
