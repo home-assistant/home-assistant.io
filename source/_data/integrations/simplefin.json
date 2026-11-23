@@ -11,6 +11,9 @@
   "categories": [
     "finance"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "sensor"

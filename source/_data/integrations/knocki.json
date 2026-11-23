@@ -12,6 +12,9 @@
   "categories": [
     "buttons_remotes"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "diagnostics",
     "event"

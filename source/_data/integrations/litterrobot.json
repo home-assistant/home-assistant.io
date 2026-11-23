@@ -12,6 +12,9 @@
   "categories": [
     "pets"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

@@ -11,6 +11,9 @@
     "vehicles_transport",
     "local_services"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

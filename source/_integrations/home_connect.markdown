@@ -853,6 +853,14 @@ Both entities can use these options, but the availability of these will depend o
 This sensor will be available only if the program is running
 {% endnote %}
 
+- **Program running time**:
+  - **Description**: Represents how long the current program has been running, in minutes, as reported by the appliance. The time while the program is paused isn't counted. The appliance reports the running time about once per minute.
+  - **Availability**: Hood, Oven
+
+{% note %}
+This sensor is only available while a program is running or paused.
+{% endnote %}
+
 - **Program progress**:
   - **Description**: Represents the progress of the program.
   - **Availability**: Coffee maker, Hood, Oven, Warming drawer, Dishwasher, Dryer, Washer, Washer dryer

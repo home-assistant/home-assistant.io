@@ -398,6 +398,8 @@ max:
   required: false
 {% endconfiguration %}
 
+When `unit` is `kelvin`, `min` and `max` are the default slider bounds. They apply when no targeted entity reports `min_color_temp_kelvin` and `max_color_temp_kelvin`. Otherwise the slider uses the range those entities report.
+
 The output of this selector is the number representing the chosen color temperature for the unit used.
 
 ## Condition selector
@@ -710,6 +712,21 @@ multiple:
   type: boolean
   default: false
   required: false
+context:
+  description: >
+    Limits the selectable device classes based on the value of another input
+    in the same blueprint or form. Each key refers to the name of that input.
+  type: map
+  required: false
+  keys:
+    filter_unit_of_measurement:
+      description: >
+        The name of an input that uses a [unit of measurement selector](#unit-of-measurement-selector).
+        Device classes that do not support the selected unit are listed last
+        and cannot be selected. If exactly one device class supports the unit
+        and no device class is selected yet, it is selected.
+      type: string
+      required: false
 {% endconfiguration %}
 
 The output of this selector is the device class, or (in case `multiple` is set to
@@ -2034,7 +2051,8 @@ context:
 ### Example unit of measurement selector
 
 This blueprint example limits the selectable units to the device class and
-state class selected in the other inputs of the blueprint:
+state class selected in the other inputs of the blueprint, and the selectable
+device classes to the selected unit:
 
 ```yaml
 blueprint:
@@ -2044,6 +2062,8 @@ blueprint:
       selector:
         device_class:
           domain: sensor
+          context:
+            filter_unit_of_measurement: unit
     state_class:
       name: State class
       selector:

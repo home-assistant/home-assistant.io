@@ -27,7 +27,7 @@ To set the profile from an automation or a script:
 
 {% options_ui %}
 Profile:
-  description: "The profile to activate: `home`, `away`, `boost`, `fireplace`, or `extra`."
+  description: "The profile to activate: `home`, `away`, `boost`, `fireplace`, `extra`, or `auto`."
   required: true
 Duration:
   description: "How long to keep the profile active, in minutes, between 1 and 65535. Only applies to the `boost`, `fireplace`, and `extra` profiles. A value of 65535 activates the profile without a timeout."
@@ -52,7 +52,7 @@ This activates the Boost profile for 30 minutes.
 
 {% options_yaml %}
 profile:
-  description: "The profile to activate: `home`, `away`, `boost`, `fireplace`, or `extra`."
+  description: "The profile to activate: `home`, `away`, `boost`, `fireplace`, `extra`, or `auto`."
   required: true
   type: string
 duration:

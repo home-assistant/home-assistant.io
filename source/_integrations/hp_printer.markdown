@@ -104,6 +104,22 @@ Some entities are disabled by default. To use them, [enable them](/docs/configur
 - **Faxed pages**
   - **Description**: Total number of pages faxed.
 
+### Binary sensors
+
+- **Ethernet**
+  - **Description**: Whether the printer's wired network port is connected. Shown as diagnostic information on the device page.
+- **Wi-Fi**
+  - **Description**: Whether the printer is connected to a Wi-Fi network. Shown as diagnostic information on the device page.
+- **USB**
+  - **Description**: Whether a computer is connected to the printer's USB port. Shown as diagnostic information on the device page.
+  - **Remarks**: Disabled by default.
+- **Cloud registered**
+  - **Description**: Whether the printer is registered with HP's cloud printing service. Shown as diagnostic information on the device page.
+- **Cloud services**
+  - **Description**: Whether HP's cloud services are turned on in the printer. Shown as diagnostic information on the device page.
+
+Which binary sensors are created depends on what the printer reports. For example, a printer without a wired network port does not get the **Ethernet** sensor.
+
 ## HP Printer automation examples
 
 The sensors of this integration are a good basis for supply and maintenance automations.
