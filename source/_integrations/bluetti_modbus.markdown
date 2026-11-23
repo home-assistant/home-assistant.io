@@ -47,7 +47,7 @@ You change the host, port, or device ID later, for example after your power stat
 
 ## Supported functionality
 
-Your power station is added as a device, with its built-in battery as a child device, **Built-in battery**. The built-in battery is part of the power station rather than a product of its own, so it has no serial number or firmware of its own on its device page.
+Your power station is added as a device, with its built-in battery as a child device named **Built-in battery**. The built-in battery is part of the power station, so its device page shows no serial number or firmware version. When you target the power station in an automation, its built-in battery is included.
 
 ### Sensors
 
@@ -124,6 +124,22 @@ Setup stops with this error when the device at that address does not report itse
 ### The device reports no serial number
 
 Setup stops with this error when the device answers but reports no serial number, which Home Assistant needs to tell your power station apart from any other. Restart the power station and try again.
+
+{% details "The firmware version of the built-in battery could not be read" %}
+
+### Symptom: "The firmware version of the built-in battery could not be read from the BLUETTI power station."
+
+The integration entry shows this error and keeps retrying setup.
+
+#### Description
+
+During setup, Home Assistant reads the firmware version of the built-in battery from the power station. The power station did not answer this request.
+
+#### Resolution
+
+Home Assistant retries the setup automatically. If the error doesn't go away, follow the steps in [The device cannot be reached](#the-device-cannot-be-reached).
+
+{% enddetails %}
 
 {% details "A different device answers at the address" %}
 
