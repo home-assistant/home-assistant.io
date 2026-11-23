@@ -46,7 +46,18 @@ The integration also provides the following sensors for the current weather at y
 - **Wind gust speed**: The speed of the strongest wind gusts. Disabled by default.
 - **Wind direction**: The direction the wind is coming from, in degrees.
 - **UV index**: The current ultraviolet index.
+- **Precipitation intensity**: The current rain rate from the radar, in mm/h.
 - **Next warning**: The start time of the next upcoming weather warning. Unknown if no warning is scheduled to start.
+
+There is also a pollen sensor for each type the provider reports, such as **Grass pollen** and **Birch pollen**. The colors follow the provider's [pollen scale](https://www.meteo.be/en/weather/forecasts/pollen-allergy-and-hay-fever):
+
+- `green`: The lowest level.
+- `yellow`: Low.
+- `orange`: Moderate.
+- `red`: High.
+- `purple`: Very high.
+- `active`: The type is in season, but the provider gives no level.
+- `none`: The type is not in season.
 
 ### Binary sensors
 
@@ -64,9 +75,42 @@ Each item in the `warnings` attribute has these fields:
 
 ## IRM KMI automation examples
 
-The warning entities let you react to official weather warnings in your automations. Here are two ideas to get you started.
+The pollen sensors and the warning entities let you react to pollen levels and official weather warnings in your automations. Here are a few ideas to get you started.
 
 {% include docs/paste_yaml_tip.md %}
+
+### Automation: Notify on high grass pollen
+
+Get a notification when the grass pollen level at your location turns red or purple, the two highest levels on the provider's scale.
+
+- **Trigger**: State changed
+  - **Entity**: Your own grass pollen sensor, for example Brussels Grass pollen (`sensor.brussels_grass_pollen`)
+  - **To**: Red
+  - **To**: Purple
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: {% raw %}`Grass pollen level is {{ states('sensor.brussels_grass_pollen') }}.`{% endraw %}
+
+{% details "YAML example for notifying on high grass pollen" %}
+
+{% example %}
+automation: |
+  alias: "Notify on high grass pollen"
+  triggers:
+    - trigger: state
+      entity_id: sensor.brussels_grass_pollen
+      to:
+        - "red"
+        - "purple"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Grass pollen level is {{ states('sensor.brussels_grass_pollen') }}."
+{% endexample %}
+
+{% enddetails %}
 
 ### Automation: Notify when a weather warning is in effect
 
@@ -146,11 +190,15 @@ automation: |
 
 3. The provider only has data for Belgium, Luxembourg and The Netherlands. 
 
+4. Not every location gets a pollen forecast. For locations in The Netherlands, all pollen sensors report `none`.
+
 ## Data updates
 
 The integration {% term polling polls %} weather data every 7 minutes by default.
 
 When a poll cannot reach the API, the weather entity keeps showing the data from the last poll that succeeded. Once that poll is more than 17.5 minutes old, the next failed poll makes the entity unavailable, until a poll succeeds again.
+
+The pollen levels are downloaded separately. If only that download fails, the other entities keep updating and the pollen sensors keep their last level for the same 17.5 minutes, then become unavailable until a download succeeds again. Right after Home Assistant starts, there is no earlier level to keep, and they are unavailable at once. The log shows "Could not get pollen data from the API" when the problem starts and "Pollen data is available again" when it is over.
 
 ## Removing the integration
 

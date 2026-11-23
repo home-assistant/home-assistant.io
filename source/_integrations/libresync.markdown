@@ -32,7 +32,7 @@ The integration has been tested with:
 
 The same hardware and software are sold under other brands, and are expected to work, but have not been tested: System Audio Stereo Hub, Buchardt Audio Stereo Hub, Econik Stereo Hub, and Triangle Compact Stereo Hub.
 
-The Platin Stereo Hub HT (New Generation, model PTX3) uses a different chipset and has not been tested.
+The newer hubs built on Libre's LS10 module, such as the Platin Stereo Hub HT (New Generation, model PTX3) and the Platin Surround Hub, are currently not supported, and the integration refuses to add them. On these hubs, port 7777, which carries volume and playback, does not accept the integration's connection.
 
 ## Prerequisites
 
