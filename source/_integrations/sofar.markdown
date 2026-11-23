@@ -1,23 +1,7 @@
 ---
-title: Sofar
 description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP or a serial RS485 connection.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 2026.9
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@darkrain-nl'
 ha_domain: sofar
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - select
-  - sensor
-  - switch
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus. You can reach the inverter over the network (Modbus TCP), either directly or through a Modbus TCP bridge, or over a serial port wired to its RS485 terminals (Modbus RTU).
@@ -29,7 +13,7 @@ The **Sofar** integration brings your inverter's own measurements into Home Assi
 - Putting your solar production on the [Energy dashboard](/docs/energy/). Feed the inverter's own production, import, export, and battery energy totals into Home Assistant's Energy dashboard, measured at the inverter rather than estimated.
 - Running appliances on surplus solar. Start the dishwasher or washing machine once the inverter reports more production than the house is using, and raise or lower a car charger's rate as production rises and falls.
 - Automating around the battery. Use the battery's state of charge to decide when to run heavy loads, when to hold charge back for the evening, and when to warn that the reserve is nearly gone.
-- Noticing problems the same day they happen. The fault binary sensors and the system state sensor turn a silent underperforming string or a tripped inverter into a notification, instead of something you find weeks later in the monthly yield.
+- Noticing problems the same day they happen. The fault binary sensors, the fault event, and the system state sensor turn a silent underperforming string or a tripped inverter into a notification, instead of something you find weeks later in the monthly yield.
 - Keeping an eye on the hardware. Inverter, heatsink, and module temperatures, plus battery state of health and charge cycles, show how the installation is aging.
 - Stopping and resuming the inverter remotely. Put the inverter into its waiting state for grid work or an export ban, then bring it back, without going to the unit.
 
@@ -57,14 +41,16 @@ Older Sofar inverters that use the legacy Modbus register map aren't supported. 
 
 Depending on how you connect the inverter, you need one of the following:
 
-- **Network (Modbus TCP)**: The inverter has its own Modbus TCP port, or its RS485 port is wired to a Modbus TCP bridge or a data logger stick that speaks Modbus TCP.
-- **Serial port (Modbus RTU)**: The inverter's RS485 terminals are wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS485 interface can share the port with Home Assistant over the network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy).
+- **Modbus TCP**: The inverter has its own Modbus TCP port, or its RS485 port is wired to a Modbus TCP bridge or a data logger stick that speaks Modbus TCP.
+- **Serial port (Modbus RTU)**: The inverter's RS485 terminals are wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS485 interface can share the port with Home Assistant over the network.
 
 Modbus also needs to be enabled on the inverter, if it has a setting for this.
 
+For help with each way to connect, such as setting up an ESPHome serial proxy, a Modbus gateway, or a serial device server, refer to [Setting up a device integration that uses Modbus](/integrations/modbus/#setting-up-a-device-integration-that-uses-modbus).
+
 {% include integrations/config_flow.md %}
 
-When you add the integration, choose how the inverter is reached: **Network (Modbus TCP)** or **Serial port (Modbus RTU)**. The settings that follow depend on your choice.
+When you add the integration, choose how the inverter is reached: **Modbus TCP** or **Serial port (Modbus RTU)**. The settings that follow depend on your choice.
 
 {% configuration_basic %}
 Host:
@@ -83,7 +69,7 @@ Modbus unit ID:
 Home Assistant can share a Modbus connection between integrations when their connection settings are compatible. If another integration already uses the same serial port or bridge with different settings, such as another baud rate, setup fails with a connection error.
 {% endnote %}
 
-During setup, the integration also detects whether the inverter has EPS (Emergency Power Supply) wiring for an off-grid backup output, and polls its registers only if it does.
+During setup, the integration also detects whether the inverter has EPS (Emergency Power Supply) wiring for an off-grid backup output, and polls its registers only if it does. In the same way, it detects whether a hybrid inverter has a BTS battery tower. If the tower doesn't answer when the integration loads again later, for example after a restart, its battery packs are kept.
 
 ## Reconfiguration
 
@@ -98,7 +84,7 @@ To update the connection settings:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration.
 2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
-3. Choose how the inverter is reached from now on: **Network (Modbus TCP)** or **Serial port (Modbus RTU)**.
+3. Choose how the inverter is reached from now on: **Modbus TCP** or **Serial port (Modbus RTU)**.
 4. Enter the connection settings. For a network connection, these are the **Host**, **Port**, and **Modbus unit ID**. For a serial connection, these are the **Serial port**, **Baud rate**, and **Modbus unit ID**. 
    - If you keep the same connection type, the current settings are filled in for you. 
    - If you switch, only the **Modbus unit ID** carries over.
@@ -110,17 +96,24 @@ The integration reads the serial number again and only accepts the new settings 
 
 The **Sofar** integration provides the following entities.
 
-The inverter's power limits and its passive-mode setpoints each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
+The inverter's power limits, its passive-mode setpoints, and its battery cut-offs each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
 
 ### Binary sensors
 
 - **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which still writes the limit while this is off, but the inverter ignores it until it's enabled again. Disabled by default.
-- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
+- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity), since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
 
 ### Buttons
 
 - **RTC sync**: Writes the current date and time to the inverter's clock.
 - **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
+
+### Events
+
+- **Fault**: Reports each fault the inverter records in its own fault log, by name, such as **Grid overvoltage** or **AC output hardware overcurrent**. You can use it to start an automation. Each fault shows its **Category**, its **Fault ID**, which is the fault code listed in your inverter's manual, and **Occurred at**, the time the inverter recorded it. It doesn't report when a fault clears. Only shown for inverters that keep a fault log.
+  - The fault log is more detailed than the alarm history in the Sofar app. It also records brief faults that the inverter clears by itself, so you may see faults here that the app doesn't show.
+  - Recent faults the inverter recorded while Home Assistant couldn't reach it are reported once the connection is back. Faults that were already in the log when you added the integration aren't reported.
+  - **Occurred at** uses the inverter's own clock. If the time looks wrong, select the **RTC sync** button to correct the clock.
 
 ### Selects
 
@@ -137,12 +130,14 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **Grid and output measurements**: Frequency, and active, reactive, and apparent power, both at the inverter's output and at the point of common coupling (PCC). Total household load and external solar production, as reported by the inverter, are also included. Per-phase voltage, current, power, and power factor are available for inverters with multiple phases.
 - **Off-grid (EPS/backup) measurements**: The same kind of readings for the EPS/backup output. Only shown for inverters wired for EPS/backup power.
 - **PV strings**: Power for each solar panel string, plus voltage and current if you need more detail. Each string the inverter supports gets its own device, connected via the inverter. Only shown for PV-capable inverters.
-- **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery pack, plus combined power, state of charge, and state of health totals. Each pack gets its own device, connected via the inverter, and only packs that respond are added. A pack added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
-- **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. Only shown for inverters with battery storage.
+- **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery connected to the inverter's battery inputs, as the inverter measures them, plus combined power, state of charge, and state of health totals. Each battery gets its own device, such as **Battery 1**, connected via the inverter, and only batteries that respond are added. A battery added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
+- **Battery packs**: Remaining capacity, full charge capacity, charge cycles, highest and lowest cell voltage, and MOSFET and internal temperatures for each pack in a BTS battery tower, such as the BTS 5K, as the tower reports them. The tower as a whole is a battery on one of the inverter's battery inputs, and each module stacked in it is a battery pack. Each pack gets its own device, connected via the inverter and named after its group and place in the tower, such as **Battery pack 2.1**. The device shows the pack's model, <abbr title="battery management system">BMS</abbr> version, and serial number. A pack's sensors are added once it first answers, and are unavailable while it doesn't answer. Only shown for hybrid inverters with a BTS battery tower.
+  - Each cell's voltage and the pack's four cell temperatures are also available. Only the cells the pack has get a sensor.
+- **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. This includes the state of charge at which the battery stops charging, the levels at which it stops discharging on-grid and off-grid, and the level at which off-grid discharging resumes. Only shown for inverters with battery storage.
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 - **Current settings**: The feed-in limit, the active power limit, and the passive-mode setpoints as they're currently stored on the inverter, so you can read back what the actions below have set.
 
-The readings most people need are enabled by default. Per-phase detail, the reactive power totals, daily energy counters, the battery configuration, and the current settings are disabled. To use one of them, enable it from the entity's settings.
+The readings most people need are enabled by default. Per-phase detail, the reactive power totals, daily energy counters, the battery configuration, the battery pack cell sensors, and the current settings are disabled. To use one of them, enable it from the entity's settings.
 
 ### Switches
 
@@ -162,8 +157,13 @@ The entity IDs below are named after the inverter, so replace `sofar` with your 
 
 An installation on the roof is easy to forget about, and an inverter that has stopped producing costs you money every sunny hour. This automation sends a notification as soon as the inverter raises a fault or drops out of normal grid-connected operation, so you find out the same day instead of weeks later in the monthly yield.
 
-- **Trigger**: **Grid fault**, **PV fault**, **Battery fault**, or **Thermal fault** turned on
-- **Trigger**: **System state** changed to **Recoverable fault** or **Permanent fault**
+- **Trigger**: State changed
+  - **Entity**: Sofar grid fault sensor, Sofar pv fault sensor, Sofar battery fault sensor, Sofar thermal fault sensor
+  - **From**: Off
+  - **To**: On
+- **Trigger**: State changed
+  - **Entity**: Sofar system state sensor
+  - **To**: Recoverable fault, Permanent fault
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -193,8 +193,9 @@ automation: |
       data:
         title: "Sofar inverter fault"
         message: >
-          The inverter reported a fault. Download the integration's
-          diagnostics for the decoded list of everything active.
+          The inverter reported a fault. Check the Fault entity's
+          history, or download the integration's diagnostics, to see
+          which fault it was.
 {% endexample %}
 
 {% enddetails %}
@@ -232,7 +233,9 @@ automation: |
 
 The battery is worth the most in the evening, when the panels have stopped and the grid is expensive. This automation notifies you when the battery drops below a fifth of its capacity, so you can decide whether to hold the rest back or let heavy loads keep running.
 
-- **Trigger**: **Battery state of charge total** below 20
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Sofar battery state of charge total
+  - **Below**: `20`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -260,7 +263,9 @@ automation: |
 
 ## Data updates
 
-The **Sofar** {% term integration %} {% term polling polls %} the inverter's live readings every 5 seconds. Values that rarely change, such as the device information and the battery configuration, are polled every 60 seconds instead, so each poll stays short.
+The **Sofar** {% term integration %} {% term polling polls %} the inverter's live readings every 5 seconds. Values that rarely change, such as the device information and the battery configuration, are polled every 60 seconds instead, so each poll stays short. The packs of a BTS battery tower are polled every 5 minutes, one pack at a time.
+
+A PV inverter switches off when there's no sunlight, so its entities are unavailable at night. If Home Assistant starts while the inverter is off, the integration still loads as long as the Modbus TCP bridge or serial port is reachable. Its entities stay unavailable until the inverter answers again.
 
 ## Known limitations
 
@@ -320,10 +325,10 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-### To remove a battery pack
+### To remove a battery or battery pack
 
-Battery packs appear as separate devices under the inverter. A pack you physically remove stays listed until you delete its device. Packs the inverter still reports can't be deleted, and a pack you reconnect is added back on the next update. The inverter and its PV strings can't be deleted individually, since PV strings come from the inverter model rather than from a reading.
+Batteries and battery packs appear as separate devices under the inverter. One you physically remove stays listed until you delete its device. Batteries and packs the inverter still reports can't be deleted. A battery or battery pack you reconnect is added back on the next update. The inverter and its PV strings can't be deleted individually, since PV strings come from the inverter model rather than from a reading.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Sofar** integration card.
-2. From the list of devices, find the battery pack you want to remove.
-3. Next to the battery pack, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
+2. From the list of devices, find the battery or battery pack you want to remove.
+3. Next to it, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.

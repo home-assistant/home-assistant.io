@@ -1,16 +1,10 @@
 ---
-title: Datadog
 description: Send data and events to Datadog.
-ha_categories:
-  - computers_network.monitoring
-ha_iot_class: Local Push
 ha_release: 0.45
 ha_domain: datadog
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_config_flow: true
 ---
 
 The **Datadog** {% term integration %} sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](https://docs.datadoghq.com/guides/basic_agent_usage/).

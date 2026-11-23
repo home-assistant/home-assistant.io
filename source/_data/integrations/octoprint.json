@@ -1,0 +1,28 @@
+{
+  "domain": "octoprint",
+  "name": "OctoPrint",
+  "integration_type": "service",
+  "codeowners": [
+    "@rfleming71"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.printers"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "camera",
+    "diagnostics",
+    "number",
+    "sensor"
+  ],
+  "discovery": [
+    "ssdp",
+    "zeroconf"
+  ]
+}

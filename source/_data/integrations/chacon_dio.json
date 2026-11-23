@@ -1,0 +1,20 @@
+{
+  "domain": "chacon_dio",
+  "name": "Chacon DiO",
+  "codeowners": [
+    "@cnico"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "plugs_switches",
+    "blinds_curtains"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "cover",
+    "switch"
+  ]
+}

@@ -1,25 +1,7 @@
 ---
-title: LIFX
 description: Instructions on how to integrate LIFX into Home Assistant.
-ha_categories:
-  - lighting.bulbs_lamps
-ha_iot_class: Local Polling
 ha_release: 0.81
-ha_config_flow: true
 ha_domain: lifx
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - select
-  - sensor
-ha_integration_type: device
-ha_dhcp: true
-ha_zeroconf: true
-ha_codeowners:
-  - '@Djelibeybi'
 ---
 
 The **LIFX** {% term integration %} controls [LIFX](https://www.lifx.com) lights over your local network, without going through the LIFX cloud. Use it to switch your lights on and off, set their color and brightness, and start the animated effects that LIFX lights can run.
@@ -132,18 +114,24 @@ Both buttons are configuration entities.
   - **Available for**: LIFX Nightvision lights
   - **Remarks**: Configuration entity. In an automation or a script, change it with the [**Select option**](/actions/select.select_option/) action.
 
+- **Mood**
+  - **Description**: Applies one of the LIFX app's Moods to the light, the way the app does.
+  - **Options**: any of the [available themes](#themes), shown as category and name
+  - **Available for**: multizone and matrix lights
+  - **Remarks**: Configuration entity. It shows the Mood Home Assistant applied, from this select or the [**Set mood**](/actions/lifx.set_mood/) action, for as long as the light still shows it. Any change to the light, including its brightness, sets it to unknown, and so does starting or stopping an effect. It also stays unknown when a Mood is applied while the Move effect runs, even though Move carries on with that Mood. It is also unknown after Home Assistant restarts, and does not follow Moods picked in the LIFX app.
+
 - **Theme**
   - **Description**: Paints one of the built-in themes across the light.
-  - **Options**: any of the [available themes](#themes)
+  - **Options**: any of the [available themes](#themes), shown as category and name. The list also keeps the [renamed themes](#themes), which paint the theme they became.
   - **Available for**: multizone and matrix lights
-  - **Remarks**: Configuration entity. It shows the last theme applied from Home Assistant, not what the light is currently showing, so it does not change when you pick a theme in the LIFX app.
+  - **Remarks**: Configuration entity. It shows the theme Home Assistant painted, from this select, the [**Paint theme**](/actions/lifx.paint_theme/) action, or the Morph effect, for as long as the light still shows it. It goes unknown in the same cases as **Mood**, and while the Move effect runs, even when Move was started with a theme. Applying a Mood sets it to unknown, and painting a theme sets **Mood** to unknown.
 
 ### Sensors
 
 - **RSSI**
   - **Description**: Reports the current Wi-Fi signal strength of the light.
   - **Available for**: all LIFX lights
-  - **Remarks**: Diagnostic entity, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). To use it, enable the entity first. Home Assistant only asks the light for its signal strength while the entity is enabled, which saves a request on every update. The unit depends on the light's firmware.
+  - **Remarks**: Diagnostic entity, [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). To use it, enable the entity first. Home Assistant only asks the light for its signal strength while the entity is enabled, which saves a request on every update. The unit depends on the light's firmware.
 
 ### Binary sensors
 
@@ -197,6 +185,8 @@ Themes can be painted onto any LIFX light with the [**Paint theme**](/actions/li
 
 You can also set a theme when you start the [**Move effect**](/actions/lifx.effect_move/) or [**Morph effect**](/actions/lifx.effect_morph/). To apply a theme by hand from the device page, use the **Theme** select entity, which multizone and matrix lights have.
 
+The same themes double as the LIFX app's Moods. The [**Set mood**](/actions/lifx.set_mood/) action and the **Mood** select apply one the way the LIFX app does, while **Paint theme** keeps Home Assistant's own arrangement. Every theme dropdown shows each theme as its category and name, such as **Moods > Dream**.
+
 The following themes are available:
 
 | Category | Themes |
@@ -241,9 +231,14 @@ Here are a few automation examples that use the actions provided by the LIFX int
 
 Pulse the living room lights a few times so you notice the doorbell even if the sound is turned down.
 
-- **Trigger**: State of the doorbell button changes to pressed
-- **Action**: Pulse effect
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
+- **Action**: LIFX: Pulse effect
   - **Target**: Living room (`light.living_room`)
+  - **Mode**: Breathe
+  - **Color name**: `white`
+  - **Cycles**: `3`
 
 Use the blueprint to pick the sensor, the lights, and the flash color without writing any YAML.
 
@@ -253,9 +248,11 @@ Use the blueprint to pick the sensor, the lights, and the flash color without wr
 
 Start the Sky effect on a LIFX Ceiling light at sunset, using the slow sunset scene. To return the light to normal control later, use the [**Stop effect**](/actions/lifx.effect_stop/) action.
 
-- **Trigger**: Sun: after sunset
-- **Action**: Sky effect
+- **Trigger**: Sunset
+- **Action**: LIFX: Sky effect
   - **Target**: Bedroom ceiling (`light.bedroom_ceiling`)
+  - **Sky type**: Sunset
+  - **Speed**: `120` seconds
 
 Use the blueprint to choose the lights, the sky type, the speed, and how long after sunset the effect starts.
 
@@ -265,9 +262,12 @@ Use the blueprint to choose the lights, the sky type, the speed, and how long af
 
 Start a two-hour HEV cycle on a LIFX Clean light at 2 AM every night. The example runs from 2 AM to 4 AM, when rooms are most likely to be empty. If your schedule is different, adjust the start time. We strongly recommend running each cycle for at least two continuous hours.
 
-- **Trigger**: Time: 02:00
-- **Action**: Set HEV cycle state
+- **Trigger**: Time
+  - **At**: `02:00`
+- **Action**: LIFX: Set HEV cycle state
   - **Target**: Bathroom (`light.bathroom`)
+  - **Enable**: On
+  - **Duration**: `7200` seconds
 
 Use the blueprint to choose the start time, the LIFX Clean lights, and how long the cycle runs.
 
@@ -276,6 +276,8 @@ Use the blueprint to choose the start time, the LIFX Clean lights, and how long 
 ## Data updates
 
 The **LIFX** integration {% term polling polls %} each light over your local network every 10 seconds. Changes made outside Home Assistant, such as from the LIFX app or a wall switch, can take up to that long to show up. After Home Assistant changes a light or starts an effect, it reads the light again straight away, and once more when a transition finishes, instead of waiting for the next poll.
+
+A light that does not answer a poll keeps showing its last known state. It only becomes unavailable after it misses three polls in a row, and any answer resets the count. This rides out the odd dropped reply on a busy Wi-Fi or Thread network without the light flickering to unavailable.
 
 Home Assistant also searches for LIFX lights every 15 minutes, which finds new lights and updates the address of lights you have already added. Zeroconf/HomeKit and DHCP discovery find lights as well.
 

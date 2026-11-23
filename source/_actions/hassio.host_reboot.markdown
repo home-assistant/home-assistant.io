@@ -5,6 +5,9 @@ domain: hassio
 description: "Reboots the host system."
 related_actions:
   - hassio.host_shutdown
+related:
+  - docs: /common-tasks/general/restarting/#rebooting-the-system
+    title: Rebooting the system
 ---
 
 Use this action to reboot the host system that Home Assistant runs on. This restarts the whole machine, not just Home Assistant, so every app and the operating system restart with it.

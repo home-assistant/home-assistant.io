@@ -1,29 +1,7 @@
 ---
-title: Plugwise
 description: Plugwise Gateway platform integration.
-ha_categories:
-  - climate.thermostats_heating
-  - energy.meters_monitoring
-ha_iot_class: Local Polling
 ha_release: 0.98
-ha_codeowners:
-  - '@CoMPaTech'
-  - '@bouwew'
-ha_config_flow: true
 ha_domain: plugwise
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 [Plugwise](https://www.plugwise.com) provides smart home devices that allow you to monitor and control your climate, energy (including gas) consumption, and energy production. The energy information can be used for the [energy dashboard](/home-energy-management).
@@ -108,6 +86,35 @@ A generous number of sensors is provided for your climate setup. Examples includ
   - **Description**: The temperature your climate gateway retrieves online.
 - **Outdoor air temperature**
   - **Description**: The temperature reported by the sensor present in the outdoor unit of your HVAC system, such as a heat pump.
+
+#### Heater sensors
+
+Many heaters share extra information over OpenTherm, such as usage counters and status codes. Not every heater provides this information, so these sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). They are only created when your heater reports them. You can find most of them on the **OpenTherm** device.
+
+- **DHW flow rate**
+  - **Description**: The current flow of domestic hot water, in liters per minute.
+- **Burner starts**, **Heating pump starts**, **DHW burner starts**, and **DHW pump starts**
+  - **Description**: The total number of times the burner or pump has started. The heating pump is the pump that circulates water through the heating circuit, not the compressor of a heat pump.
+- **Failed burner starts** and **Failed burner flame ignitions**
+  - **Description**: The total number of burner starts or flame ignitions that failed.
+- **Burner operation time**, **Heating pump operation time**, **DHW burner operation time**, and **DHW pump operation time**
+  - **Description**: The total time, in hours, that the burner or pump has been running.
+- **OEM fault code**
+  - **Description**: A fault code defined by the manufacturer of your heater, exactly as your heater reports it. To find out what a code means, check the manual of your heater. Many heaters report `255` when there is no fault code to report, so `255` does not always mean there is a fault.
+- **Application-specific fault code**
+  - **Description**: A set of standard OpenTherm fault flags, combined into one number. `0` means no flag is set. Each flag adds its own value to the number:
+    - `1`: Service required
+    - `2`: Lockout-reset enabled
+    - `4`: Low water pressure
+    - `8`: Gas or flame fault
+    - `16`: Air pressure fault
+    - `32`: Water over-temperature
+
+    For example, `12` means low water pressure (`4`) and a gas or flame fault (`8`).
+- **OEM diagnostic code**
+  - **Description**: A diagnostic or service code defined by the manufacturer of your heater. Depending on your heater, this code can also show normal operating states, so a value other than `0` does not always mean there is a problem. To find out what a code means, check the manual of your heater.
+- **Maximum modulation level**
+  - **Description**: The maximum modulation level set on a connected OpenTherm thermostat. You can find this sensor on the thermostat device.
 
 #### Selects
 

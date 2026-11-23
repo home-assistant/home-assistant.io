@@ -1,18 +1,7 @@
 ---
-title: SmartyPlants
 description: Instructions on how to integrate SmartyPlants plant sensors with Home Assistant.
-ha_categories:
-  - garden_plants
 ha_release: 2026.11
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bigbimbs'
 ha_domain: smartyplants
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **SmartyPlants** {% term integration %} connects your SmartyPlants plant sensors to Home Assistant. Each sensor measures soil moisture, temperature, humidity, and light for the plant it is attached to. SmartyPlants combines those readings with the plant's species to produce a health score and a fertilizing countdown.
@@ -35,24 +24,34 @@ The integration works with any SmartyPlants soil sensor that reports to the Smar
 API key:
   description: "The API key created in the SmartyPlants app under **Settings**. It identifies your account to Home Assistant."
 Webhook secret:
-  description: "Optional, and only set while adding the integration. The signing secret shown by the SmartyPlants app after you add Home Assistant's webhook URL. Home Assistant must be reachable from the internet to receive pushed updates, so leave this empty to use polling only. See [Live updates with a webhook](#live-updates-with-a-webhook)."
+  description: "Optional. The signing secret shown by the SmartyPlants app after you add Home Assistant's webhook URL. Home Assistant must be reachable from the internet to receive pushed updates, so leave this empty to use polling only. You can change it later. For details, refer to [Reconfiguration](#reconfiguration)."
 {% endconfiguration_basic %}
 
 ### Live updates with a webhook
 
 The integration polls every minute. To have readings arrive immediately as well:
 
-1. During setup, copy the webhook URL shown on the second step.
+1. During setup, or later when you [reconfigure](#reconfiguration) the integration, copy the webhook URL shown in the dialog.
 2. In the SmartyPlants app, add that URL as your Home Assistant webhook.
 3. Paste the signing secret the app gives you back into the setup dialog.
 
 Pushed updates are verified against that secret, so an update that is not correctly signed is rejected. Polling continues either way as a fallback, so the integration still works if a push is missed.
 
-The secret is set while adding the integration and cannot be changed afterwards. To use a different one, remove the integration and add it again.
-
 {% note %}
 Home Assistant must be reachable from the internet for a webhook to be delivered. If it is not, leave the secret empty and the integration polls instead.
 {% endnote %}
+
+## Reconfiguration
+
+The API key and the webhook secret can both be changed after setup, without removing the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **SmartyPlants**.
+2. Select **Menu** {% icon "mdi:dots-vertical" %} and then **Reconfigure**.
+3. Enter the new API key and, if you are changing it, the new signing secret. To stop using a webhook and use polling only, clear the secret.
+
+The new API key must belong to the same SmartyPlants account the integration was set up with. If you enter a key for a different account, the dialog stops with an error, and the existing key is kept.
+
+The webhook URL does not change when you reconfigure, so there is nothing to update in the SmartyPlants app. If you set up the integration without a webhook secret, you can add one later the same way: copy the webhook URL shown in the dialog, add it in the SmartyPlants app, and paste the signing secret the app gives you. If Home Assistant has no address reachable from the internet, the URL can't be shown, but you can still change or clear the secret, and the webhook you already added in the app keeps working. If you clear the secret, Home Assistant stops listening for pushed updates, so also remove the Home Assistant webhook URL in the SmartyPlants app.
 
 ## Supported functionality
 
@@ -196,13 +195,12 @@ A sensor that the SmartyPlants cloud reports as offline has its entities marked 
 - The integration is read-only. Renaming a plant or assigning a sensor is done in the SmartyPlants app.
 - Sensors are read once when the integration starts. A sensor added in the SmartyPlants app appears after you reload the integration.
 - Plants that have no sensor attached are not shown.
-- The webhook secret cannot be changed once the integration is added.
 
 ## Troubleshooting
 
 ### The integration cannot connect
 
-Check that the API key is still valid in the SmartyPlants app under **Settings**. If it was revoked or regenerated, delete the integration and add it again with the new key.
+Check that the API key is still valid in the SmartyPlants app under **Settings**. If it was revoked or regenerated, [reconfigure](#reconfiguration) the integration with the new key.
 
 ### The API key is refused even though it is correct
 

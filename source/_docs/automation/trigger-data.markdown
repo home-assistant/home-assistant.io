@@ -57,7 +57,11 @@ These are the properties available for an entity trigger:
 - `trigger.for`: Timedelta object of how long the entity had to stay in the new state, or `None` if the trigger has no duration.
 - `trigger.description`: `state of` followed by the entity ID, such as `state of light.kitchen`.
 
-Some other triggers with a full trigger key, such as **Timer remaining time reached** or **To-do item added**, include different properties.
+Some other triggers with a full trigger key include different properties:
+
+- The [calendar](#calendar-triggers), [moon](#moon-triggers), and [sun](#sun-triggers) triggers, described on this page
+- [**Timer remaining time reached**](/triggers/timer.remaining_time_reached/#trigger-variables), described on its own page
+- The to-do item triggers, such as [**To-do item added**](/triggers/todo.item_added/#trigger-variables), described on their own pages
 
 ### Calendar triggers
 
@@ -117,10 +121,24 @@ These are the properties available for a [**Geolocation** trigger](/triggers/geo
 
 The Home Assistant trigger is recommended for automations instead of [homeassistant_start or homeassistant_stop events](/docs/configuration/events/#homeassistant_start-homeassistant_started).
 
+The Home Assistant triggers with a full trigger key include these properties:
+
+- [**Restart required**](/triggers/homeassistant.restart_required/) (`homeassistant.restart_required`): `trigger.sources`, a list of the integrations that asked for a restart, by their domain. `trigger.description` is `Home Assistant restart required`.
+- [**Host reboot required**](/triggers/homeassistant.host_reboot_required/) (`homeassistant.host_reboot_required`): no more properties. `trigger.description` is `host reboot required`.
+
 These are the properties available for a [**Home Assistant** trigger](/triggers/homeassistant/).
 
 - `trigger.platform`: `homeassistant`.
 - `trigger.event`: The trigger event type, either `start` or `shutdown`.
+
+### Moon triggers
+
+These are the properties available for the [**Moon phase changed**](/triggers/moon.phase_changed/) trigger.
+
+- `trigger.platform`: `moon.phase_changed`.
+- `trigger.phase`: The new moon phase, such as `full_moon`.
+- `trigger.previous_phase`: The previous moon phase, such as `waxing_gibbous`.
+- `trigger.description`: `moon phase changed`.
 
 ### MQTT triggers
 
@@ -146,7 +164,7 @@ These are the properties available for a [**Numeric state crossed threshold** tr
 
 ### Persistent notification triggers
 
-These properties are available for a [**Persistent notification** trigger](/integrations/persistent_notification/#automation).
+These properties are available for a [**Persistent notification** trigger](/triggers/persistent_notification/).
 
 - `trigger.platform`: `persistent_notification`.
 - `trigger.update_type`: Type of persistent notification update: `added`, `removed`, or `updated`.
@@ -158,12 +176,12 @@ These properties are available for a [**Persistent notification** trigger](/inte
 
 ### Sentence triggers
 
-These are the properties available for a [**Sentence** trigger](/docs/automation/trigger/#sentence-trigger).
+These are the properties available for a [**Sentence** trigger](/triggers/conversation/).
 
 - `trigger.platform`: `conversation`.
 - `trigger.sentence`: The text of the sentence that you said or typed.
 - `trigger.slots`: Object with matched slot values.
-- `trigger.details`: Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains:
+- `trigger.details`: Object with matched slot details by name, such as [wildcards](/triggers/conversation/#sentence-wildcards). Each detail contains:
   - `name`: The name of the slot.
   - `text`: The matched text.
   - `value`: The output value. For more information, refer to [lists](https://contributors.home-assistant.io/translate/voice/template-syntax/#lists).
@@ -190,7 +208,14 @@ These are the properties available for a [**Sun** trigger](/docs/automation/trig
 - `trigger.event`: The event that just happened: `sunset` or `sunrise`.
 - `trigger.offset`: Timedelta object with the offset to the event. If the trigger has no offset, the offset is zero.
 
-Sun triggers with a full trigger key, such as **Sunrise** (`sun.sunrise`), don't include `trigger.event` or `trigger.offset`.
+The sun triggers with a full trigger key, such as **Sunrise** (`sun.sunrise`), have these properties instead:
+
+- `trigger.platform`: The full trigger key, such as `sun.sunrise`.
+- `trigger.description`: `sun event` followed by the event, such as `sun event sunrise` or `sun event golden_hour_started`.
+- `trigger.type`: Only for **Dawn** (`sun.dawn`) and **Dusk** (`sun.dusk`). The type of twilight that you set: `civil`, `nautical`, or `astronomical`.
+- `trigger.period`: Only for the golden hour and blue hour triggers, such as **Golden hour started** (`sun.golden_hour_started`). The period that you set: `any`, `morning`, or `evening`. It's the option of the trigger, not the time of day when it reacted.
+
+**Sun elevation changed** (`sun.elevation_changed`) and **Sun elevation crossed threshold** (`sun.elevation_crossed_threshold`) have different properties because they're [entity triggers](#entity-triggers) of `sun.sun`.
 
 ### Tag triggers
 
@@ -204,7 +229,7 @@ These are the properties available for a [**Tag** trigger](/triggers/tag/).
 
 ### Template triggers
 
-These are the properties available for a [**Template** trigger](/docs/automation/trigger/#template-trigger).
+These are the properties available for a [**Template** trigger](/triggers/template/).
 
 - `trigger.platform`: `template`.
 - `trigger.entity_id`: Entity ID that caused the change.
@@ -231,7 +256,7 @@ These are the properties available for a [**Time pattern** trigger](/triggers/ti
 
 ### Webhook triggers
 
-These are the properties available for a [**Webhook** trigger](/docs/automation/trigger/#webhook-trigger).
+These are the properties available for a [**Webhook** trigger](/triggers/webhook/).
 
 - `trigger.platform`: `webhook`.
 - `trigger.webhook_id`: The webhook ID that was triggered.

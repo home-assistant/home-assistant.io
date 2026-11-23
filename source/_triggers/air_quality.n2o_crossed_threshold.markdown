@@ -48,7 +48,7 @@ This fires when the greenhouse N2O sensor reading rises above 630 μg/m³.
    unit_phrase_yaml="literal value in μg/m³"
    example_value="630" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="nitrous oxide sensor" example="sensor.living_room_nitrous_oxide" %}
 
 {% include triggers/behavior.md %}
 

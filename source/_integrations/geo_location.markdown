@@ -1,12 +1,7 @@
 ---
-title: Geolocation
 description: Show events such as earthquakes and bush fires near your home on a map, and use them in automations.
 ha_release: 0.78
 ha_domain: geo_location
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 The **Geolocation** {% term integration %} provides entities for real-world events near your home, such as weather events, bush fires, or earthquakes. Each entity has coordinates and a distance to the location the integration watches, which is usually your home. This lets you see it on a map and react to it in automations.

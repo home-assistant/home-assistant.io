@@ -1,29 +1,7 @@
 ---
-title: Whisker
 description: Instructions on how to integrate Whisker's lineup of Wi-Fi-enabled, automatic, self-cleaning litter boxes and pet feeders to Home Assistant.
-ha_categories:
-  - pets
-ha_iot_class: Cloud Push
 ha_release: 2021.3
-ha_config_flow: true
-ha_codeowners:
-  - '@natekspencer'
-  - '@tkdrob'
 ha_domain: litterrobot
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - select
-  - sensor
-  - switch
-  - time
-  - update
-  - vacuum
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Whisker** {% term integration %} allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
@@ -86,7 +64,7 @@ Password:
 | Firmware                      | `update`        | View and update to the latest firmware, only for Litter-Robot 4.                                            |
 
 {% note %}
-The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode start (per day)**, and **Sleep mode end (per day)**) are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable the days you want to control in the entity settings.
+The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode start (per day)**, and **Sleep mode end (per day)**) are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Enable the days you want to control in the entity settings.
 {% endnote %}
 
 ### Feeder-Robot
@@ -105,10 +83,11 @@ The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode star
 
 ### Pet
 
-| Entity       | Domain   | Description                                       |
-| ------------ | -------- | ------------------------------------------------- |
-| Visits today | `sensor` | Pet's daily visits to the Litter-Robot. |
-| Weight       | `sensor` | Pet's weight.                                     |
+| Entity        | Domain   | Description                                                                                        |
+| ------------- | -------- | -------------------------------------------------------------------------------------------------- |
+| Profile image | `image`  | Pet's profile picture from the Whisker app, named after the pet. Only created if the pet has one.  |
+| Visits today  | `sensor` | Pet's daily visits to the Litter-Robot.                                                            |
+| Weight        | `sensor` | Pet's weight.                                                                                      |
 
 {% include integrations/actions.md %}
 

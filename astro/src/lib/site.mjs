@@ -1,6 +1,6 @@
 // Site-wide data shared with the Jekyll build: settings from the
 // repository's _config.yml, the latest release (for the header's
-// version badge) and the analytics referrer allowlist.
+// version badge).
 //
 // _config.yml is read with a deliberately small reader instead of a
 // YAML package (see the ground rules in astro/README.md): it supports
@@ -67,17 +67,6 @@ export const release = {
   releasedOn: setting("date_released"),
   url: latestReleasePost(),
 };
-
-// Referrer domains Plausible may report, downloaded by `rake
-// allowed_referrers_data` before the build. Empty when the file is
-// missing (a local Astro build without the Rake data tasks).
-export function allowedReferrers() {
-  try {
-    return JSON.parse(fs.readFileSync(path.join(root, "source/_data/allowed_referrers.json"), "utf8"));
-  } catch {
-    return [];
-  }
-}
 
 // Deploy details from Netlify's build environment, as Jekyll's
 // `site.netlify` (plugins/environment_variables.rb), with the same

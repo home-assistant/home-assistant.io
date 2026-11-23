@@ -2,6 +2,7 @@
 title: Get user keyring info
 action: unifiprotect.get_user_keyring_info
 domain: unifiprotect
+response: required
 description: "Returns the UniFi Protect users along with their NFC and fingerprint keys."
 ---
 
@@ -50,6 +51,8 @@ device_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `users` list. Each user contains:
 

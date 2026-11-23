@@ -1,20 +1,7 @@
 ---
-title: Tomorrow.io
 description: Instructions on how to integrate the Tomorrow.io Weather and Air Quality API into Home Assistant.
-ha_categories:
-  - weather_alerts.forecasts
-  - weather_alerts.air_quality_pollen
 ha_release: 2022.4
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@raman325'
-  - '@lymanepp'
 ha_domain: tomorrowio
-ha_platforms:
-  - sensor
-  - weather
-ha_integration_type: service
 ---
 
 The **Tomorrow.io** {% term integration %} allows you to obtain weather, air quality, pollen, and fire information from the [Tomorrow.io API](https://www.tomorrow.io/weather-api/).

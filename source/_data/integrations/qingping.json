@@ -1,0 +1,27 @@
+{
+  "domain": "qingping",
+  "name": "Qingping",
+  "integration_type": "device",
+  "codeowners": [
+    "@bdraco",
+    "@tengfeili-qingping"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "gold",
+  "categories": [
+    "sensors.temperature_humidity",
+    "sensors.air_quality"
+  ],
+  "connectivity": [
+    "bluetooth"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

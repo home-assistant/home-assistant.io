@@ -1,0 +1,9 @@
+{
+  "domain": "browser",
+  "name": "Browser",
+  "iot_class": "local_push",
+  "quality_scale": "internal",
+  "categories": [
+    "computers_network"
+  ]
+}

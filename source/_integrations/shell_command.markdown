@@ -1,15 +1,7 @@
 ---
-title: Shell Command
 description: Instructions on how to integrate Shell commands into Home Assistant.
-ha_categories:
-  - diy_makers
-ha_iot_class: Local Push
 ha_release: 0.7.6
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: shell_command
-ha_integration_type: integration
 ---
 
 The **Shell Command** {% term integration %} can expose regular shell commands as actions. Actions can be called from a [script] or in [automation].

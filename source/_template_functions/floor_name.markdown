@@ -17,7 +17,7 @@ related_functions:
   - area_name
 ---
 
-The `floor_name` template function returns the friendly, human-readable name of a {% term floor %}. You can give it a floor ID, an {% term area %} name, an {% term entity %} ID, or a {% term device %} ID, and it tells you the name of the floor it belongs to.
+The `floor_name` template function returns the friendly, human-readable name of a {% term floor %}. You can give it a floor ID, an {% term area %} name or alias, an {% term entity %} ID, or a {% term device %} ID, and it tells you the name of the floor it belongs to.
 
 This is especially useful for building dynamic messages and {% term notifications %}. Instead of showing a technical floor ID like `ground_floor`, you can show the actual name _"Ground Floor"_ that you (or whoever receives the message) recognize. For example, when a leak sensor triggers, your notification can say _"Water detected on the Ground Floor"_ by looking up the floor name of the {% term sensor %} that triggered.
 
@@ -56,7 +56,9 @@ lookup_value:
 
 ## Good to know
 
-- Returns `None` when the lookup value does not match a floor.
+- Returns `None` when the lookup value does not match a floor, or when the area, entity, or device is not assigned to a floor.
+- It doesn't accept a floor name or an area ID. For an area ID, pass the area name instead, for example, `floor_name(area_name(area_id))`.
+- An entity gets its floor through its area. If the entity has no area of its own, it uses the area of its device.
 - The name changes when you rename the floor, so the output can shift over time.
 
 {% include template_functions/try_it.md %}
@@ -111,7 +113,7 @@ Build a summary showing which floor each area belongs to, using `floor_name` as 
 {% example %}
 template: |
   {% for id in areas() %}
-    {{ area_name(id) }}: {{ floor_name(id) }}
+    {{ area_name(id) }}: {{ floor_name(area_name(id)) }}
   {% endfor %}
 type: string
 output: |

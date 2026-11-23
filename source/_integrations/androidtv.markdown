@@ -1,20 +1,7 @@
 ---
-title: Android Debug Bridge
 description: Instructions on how to integrate Android and Fire TV devices into Home Assistant.
-ha_categories:
-  - media_entertainment.tv_streaming
 ha_release: 0.7.6
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@JeffLIrion'
-  - '@ollo69'
 ha_domain: androidtv
-ha_platforms:
-  - diagnostics
-  - media_player
-  - remote
-ha_integration_type: device
 ---
 
 The **Android Debug Bridge** {% term integration %} allows you to control an Android device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
