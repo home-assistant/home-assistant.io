@@ -1,24 +1,7 @@
 ---
-title: Nibe Heat Pump
 description: Instructions on how to integrate a Nibe Heat Pump into Home Assistant.
-ha_category:
-  - Climate
 ha_release: '2022.10'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@elupus'
 ha_domain: nibe_heatpump
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - number
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: device
 ---
 
 The **Nibe Heat Pump** {% term integration %} allows you to control and monitor [Nibe Heat Pumps](https://www.nibe.eu/en-eu/products/heat-pumps) in Home Assistant.
@@ -34,6 +17,7 @@ Supported devices:
 - S320/S325
 - S330/S332
 - F370
+- F372
 - F470
 - F730
 - S735
@@ -110,3 +94,14 @@ If your system is equipped with a MODBUS40 accessory, this can be used to contro
 {% note %}
 Support for RCU-based communication is currently untested.
 {% endnote %}
+
+## Supported functionality
+
+Besides the entities for the registers of your pump, the **Nibe Heat Pump** integration provides the following entities.
+
+### Images
+
+- **Heating curve**
+  - **Description**: Shows the heating curve of a climate system: the supply temperature the pump aims for at each outdoor temperature, limited by the minimum and maximum supply temperatures. The current outdoor, supply, and return temperatures are marked on the curve.
+  - **Available for**: Each climate system, for example **Heating curve S1**.
+  - **Remarks**: Disabled by default for climate systems that need an accessory.

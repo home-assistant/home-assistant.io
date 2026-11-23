@@ -1,0 +1,26 @@
+{
+  "domain": "tellduslive",
+  "name": "Telldus Live",
+  "integration_type": "hub",
+  "codeowners": [
+    "@fredrike"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "connectivity": [
+    "cloud",
+    "network",
+    "rf",
+    "zwave"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "cover",
+    "light",
+    "sensor",
+    "switch"
+  ]
+}

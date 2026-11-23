@@ -37,6 +37,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted device starts drying.
     - **First**: fires only on the first device that starts drying.
     - **All**: fires only after every targeted device starts drying.
+  required: false
 For at least:
   description: How long the device must be actively drying before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -56,8 +57,6 @@ This fires every time `humidifier.basement_dehumidifier` starts actively removin
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -71,9 +70,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the device must be actively drying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the device has been actively drying for 5 minutes.
+    How long the device must be actively drying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the device has been actively drying for 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

@@ -1,31 +1,7 @@
 ---
-title: Gardena Bluetooth
 description: Instructions on how to integrate Gardena Bluetooth devices within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Valve
 ha_release: '2023.8'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@elupus'
 ha_domain: gardena_bluetooth
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - number
-  - select
-  - sensor
-  - switch
-  - text
-  - valve
-ha_integration_type: device
 ---
 
 The **Gardena Bluetooth** {% term integration %} allows users to integrate their Gardena Bluetooth devices into Home Assistant.
@@ -89,6 +65,8 @@ In addition to the pump controls, pressure tank units provide sensors for the cu
 
 - Aqua Precise Overground ([16000-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-irrigation-system/970746801.html))
 - Aqua Precise Underground ([16001-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-pipeline-irrigation-system/970746901.html))
+
+For these devices, the integration provides diagnostic sensors for flow and lets you configure positions and names. Watering contours are exposed as image entities.
 
 ### Limitations
 

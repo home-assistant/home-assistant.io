@@ -1,0 +1,24 @@
+{
+  "domain": "oralb",
+  "name": "Oral-B",
+  "integration_type": "device",
+  "codeowners": [
+    "@bdraco",
+    "@Lash-L"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "health_wellbeing"
+  ],
+  "connectivity": [
+    "bluetooth"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

@@ -1,0 +1,20 @@
+- key: decisions
+  label: Making decisions
+  icon: "mdi:call-split"
+  description: "These building blocks decide which steps run next, or whether the automation or script continues at all."
+- key: repeating
+  label: Repeating steps
+  icon: "mdi:refresh"
+  description: "These building blocks run the same steps more than once: a set number of times, once for each item in a list, or until a condition is met."
+- key: waiting
+  label: Waiting
+  icon: "mdi:timer-sand"
+  description: "These building blocks pause the automation or script: for a set time, until a template is true, or until a trigger reacts."
+- key: running_together
+  label: Running steps together
+  icon: "mdi:format-list-group"
+  description: "These building blocks group steps, so they run one after the other or at the same time."
+- key: variables
+  label: Variables
+  icon: "mdi:variable"
+  description: "These building blocks store values that later steps can use."

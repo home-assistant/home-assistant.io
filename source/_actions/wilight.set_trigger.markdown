@@ -16,7 +16,7 @@ To set a WiLight trigger from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the WiLight watering switch.
-6. From the actions shown for that target, select **Set trigger**.
+6. From the actions shown for that target, under **WiLight**, select **Set trigger**.
 7. Enter the trigger index and trigger rules.
 8. Select **Save**.
 

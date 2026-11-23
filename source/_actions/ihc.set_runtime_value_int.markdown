@@ -9,7 +9,7 @@ related_actions:
   - ihc.pulse
 ---
 
-The **Set runtime value integer** action sets a whole-number runtime value on a resource of your IHC controller. This lets you write directly to an IHC resource by its ID, even when that resource is not exposed as an entity in Home Assistant.
+The **IHC Controller: Set runtime value integer** action sets a whole-number runtime value on a resource of your IHC controller. This lets you write directly to an IHC resource by its ID, even when that resource is not exposed as an entity in Home Assistant.
 
 {% include actions/ui_header.md %}
 

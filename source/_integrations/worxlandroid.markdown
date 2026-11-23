@@ -1,18 +1,10 @@
 ---
-title: Worx Landroid
 description: Instructions on how to integrate Worx Landroid WG796E.1 or WG797E as sensors within Home Assistant.
-ha_category:
-  - DIY
 ha_release: 0.54
-ha_iot_class: Local Polling
 ha_domain: worxlandroid
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Worx Landroid** {% term integration %} allows you to get the current state, battery level and error status Worx Landroid WG796E.1 or WG797E.

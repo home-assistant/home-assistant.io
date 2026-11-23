@@ -1,7 +1,8 @@
 ---
-title: "Get Matter lock users"
+title: "Get lock users"
 action: matter.get_lock_users
 domain: matter
+response: required
 description: "Returns all users configured on a Matter lock."
 related_actions:
   - matter.set_lock_user
@@ -13,8 +14,6 @@ Use this action to list all the users configured on a Matter lock. A common use 
 
 For security, the lock never returns the actual credential secrets, such as PIN codes or RFID tag values. It only returns a reference to each credential.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
-
 {% include actions/ui_header.md %}
 
 To get lock users from an automation or a script:
@@ -24,7 +23,7 @@ To get lock users from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the lock you want to query.
-6. From the actions shown for that target, select **Get Matter lock users**.
+6. From the actions shown for that target, under **Matter**, select **Get lock users**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -47,9 +46,11 @@ action: |
 
 This action has no options.
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the maximum number of users the lock supports and a list of the users that are configured. The response includes the following fields:
 

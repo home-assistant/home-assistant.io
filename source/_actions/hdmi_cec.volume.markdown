@@ -11,7 +11,7 @@ related_actions:
   - hdmi_cec.send_command
 ---
 
-The **Volume** action changes the volume on your HDMI-CEC audio system, such as a TV or AV receiver. You can step the volume up or down by a number of levels, or mute and unmute the audio.
+The **HDMI-CEC: Volume** action changes the volume on your HDMI-CEC audio system, such as a TV or AV receiver. You can step the volume up or down by a number of levels, or mute and unmute the audio.
 
 Use it to give a dashboard button or an automation control over the volume, for example lowering it automatically when a doorbell rings.
 
@@ -79,7 +79,7 @@ mute:
 
 ## Good to know
 
-- Use one option per call. Combine separate **Volume** actions if you need to do more than one thing.
+- Use one option per call. Combine separate **HDMI-CEC: Volume** actions if you need to do more than one thing.
 - The audio system must support volume control over CEC for this action to have an effect.
 
 {% include actions/try_it.md %}
@@ -90,7 +90,9 @@ mute:
 
 When someone rings the doorbell, step the volume down so you can hear them.
 
-- **Trigger**: The doorbell button is pressed
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
 - **Action**: HDMI-CEC: Volume
 
 {% details "YAML example for lowering the volume on a doorbell press" %}

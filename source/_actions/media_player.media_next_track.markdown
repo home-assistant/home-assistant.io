@@ -58,7 +58,8 @@ This action has no additional YAML options beyond the target.
 
 Skip forward each time you press a button.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Next track helper
 - **Action**: Next track
   - **Target**: Living room speaker
 

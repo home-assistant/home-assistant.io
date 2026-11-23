@@ -8,7 +8,7 @@ related_actions:
   - elkm1.speak_word
 ---
 
-The **Set time** action sets the clock on the Elk-M1 panel to match the current time in Home Assistant.
+The **Elk-M1 Control: Set time** action sets the clock on the Elk-M1 panel to match the current time in Home Assistant.
 
 This is useful when you want an automation to keep the panel clock accurate, for example after a power loss or on a regular schedule.
 

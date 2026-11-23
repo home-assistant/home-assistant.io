@@ -1,16 +1,10 @@
 ---
-title: AWS Route53
 description: Automatically update your AWS Route53 DNS records.
-ha_category:
-  - Network
-ha_iot_class: Cloud Push
 ha_release: 0.81
 ha_domain: route53
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 With the **AWS Route53** {% term integration %} can you keep your AWS Route53 DNS records up to date.

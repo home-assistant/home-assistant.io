@@ -1,0 +1,15 @@
+{
+  "domain": "twitter",
+  "name": "X",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "news_social_media"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

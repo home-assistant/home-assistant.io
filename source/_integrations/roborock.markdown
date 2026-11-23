@@ -1,37 +1,7 @@
 ---
-title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
-ha_category:
-  - Binary sensor
-  - Button
-  - Image
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Vacuum
-ha_iot_class: Local Polling
 ha_release: 2023.5
-ha_config_flow: true
-ha_codeowners:
-  - '@Lash-L'
-  - '@allenporter'
 ha_domain: roborock
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - image
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-  - vacuum
-ha_integration_type: hub
-ha_quality_scale: silver
-ha_dhcp: true
 ---
 
 The **Roborock** {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
@@ -164,6 +134,10 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Selected map**
   - **Description**: Choose the map that is loaded on the vacuum.
 
+- **Cleaning cycles**
+  - **Description**: Sets how many times the vacuum cleans each area (1x or 2x).
+  - **Availability**: For Q7 series vacuums.
+
 - **Empty mode**
   - **Description**: You can set the "empty mode" setting including Max, Light, Balanced, and Smart.
   - **Availability**: For vacuum equipped with an auto-empty dock
@@ -180,7 +154,7 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
   - **Description**: States if the mop is currently attached.
 
 - **Mop drying status**
-  - **Description**: Only available on docks with drying capabilites - States if the mop is currently being driven.
+  - **Description**: Only available on docks with drying capabilities. Indicates whether the mop is currently being dried.
 
 - **Water box attached**
   - **Description**: States if the water box is currently attached.
@@ -270,6 +244,15 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Do not disturb**
   - **Description**: This enables _Do not disturb_ during the time frame you have set in the app or on the time entity. When _Do not disturb_ is enabled, the vacuum does not run or speak.
 
+- **Dust emptying**
+  - **Description**: Only available on docks that support automatic dust collection. States if the dock is currently emptying the vacuum's dust bin, and lets you start or stop emptying.
+
+- **Mop washing**
+  - **Description**: Only available on docks with mop washing capabilities. States if the mop is currently being washed, and lets you start or stop washing.
+
+- **Mop drying**
+  - **Description**: Only available on docks with mop drying capabilities. States if the mop is currently being dried, and lets you start or stop drying.
+
 #### Number
 
 - **Volume**
@@ -277,7 +260,11 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 #### Button
 
-There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are disabled by default to make sure they are not pressed unintentionally.
+- **Resolve dock error**
+  - **Availability**: Enabled by default on supported docks that provide a **Dock error** sensor.
+  - **Description**: After fixing the cause of a dock error, such as refilling an empty clean water tank, press this button to acknowledge the current dock error. Home Assistant then refreshes the dock status. If no dock error is reported, pressing the button shows an error and sends no command. Whether an interrupted cleaning job resumes depends on the device. The button only acknowledges dock errors.
+
+The following maintenance buttons allow you to reset the various maintenance items on your vacuum. Pressing a maintenance button cannot be undone. For this reason, the maintenance buttons are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to make sure they are not pressed unintentionally.
 
 - **Reset sensor consumable**
   - **Description**: The sensors on your vacuum are expected to be cleaned after 30 hours of use.
@@ -464,7 +451,7 @@ Running a robot vacuum while your alarm system is armed can falsely trigger moti
 alias: "Vacuum: Clean when house is empty"
 description: "Triggers a full clean when the house alarm is armed to away."
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: alarm_control_panel.home_alarm
     to: "armed_away"
 condition:
@@ -472,7 +459,7 @@ condition:
     entity_id: vacuum.roborock_s8
     state: "docked"
 action:
-  - service: vacuum.start
+  - action: vacuum.start
     target:
       entity_id: vacuum.roborock_s8
 mode: single
@@ -495,7 +482,7 @@ alias: "Vacuum: Clean kitchen after cooking"
 description: "Sends the vacuum to the kitchen zone 1 minute after the stovetop turns off."
 mode: single
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: switch.smart_hob_power
     from: "on"
     to: "off"
@@ -506,7 +493,7 @@ condition:
     entity_id: vacuum.roborock_s8
     state: "docked"
 action:
-  - service: vacuum.clean_area
+  - action: vacuum.clean_area
     target:
       entity_id: vacuum.roborock_s8
     data:

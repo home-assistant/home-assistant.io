@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently armed in vacation mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -58,9 +56,9 @@ behavior:
   default: any
 for:
   description: >
-    Duration the alarm must have been armed in vacation mode before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the alarm must have been armed in vacation mode before the condition passes. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -70,7 +68,7 @@ for:
 
 ## Good to know
 
-- Alarm panels that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as armed vacation. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted alarm is unavailable.
+{% include conditions/unavailable_targets.md entities="alarm panels" %}
 - If you want to check whether the alarm is armed in any mode (not just vacation), use [Alarm is armed](/conditions/alarm_control_panel.is_armed/).
 - To check the opposite state, use [Alarm is disarmed](/conditions/alarm_control_panel.is_disarmed/).
 
@@ -115,7 +113,9 @@ automation: |
 Your morning routine turns on the lights, starts the coffee maker, and bumps the heating. None of that makes sense in an empty house. Add a "not armed vacation" check so the routine only runs when you are actually home.
 
 - **Trigger**: Time: 06:30 on weekdays
-- **Condition**: Alarm is _not_ armed vacation
+- **Condition**: Not
+  - **Condition**: Alarm is armed vacation
+    - **Target**: Home alarm
 - **Action**: Run the morning routine script
 
 {% details "YAML example for skipping the morning routine on vacation" %}

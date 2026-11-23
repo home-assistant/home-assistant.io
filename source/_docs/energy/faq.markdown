@@ -39,6 +39,24 @@ If you have a solar installation with a dedicated grid connection that is used o
 
 With this setup, the dashboard correctly attributes solar production exported via the dedicated connection as **Solar → Grid**.
 
+## Why is my Energy dashboard showing inflated totals?
+
+If you add up several sensors that reset on a schedule, for example with a template sensor or a **Group** helper that sums two `utility_meter` sensors, and use that combined sensor as an Energy dashboard source, your totals can become inflated. The individual sensors are unlikely to reset to zero at the exact same moment, so in the brief gap where one has reset and the other hasn't, the combined sensor reports a false, temporary value. Home Assistant records that value in long-term statistics, where it's easy to miss and requires manual correction.
+
+To avoid this, add each cumulative sensor to the Energy dashboard as its own separate source, instead of combining them into one summed sensor first.
+
+If inflated data has already been recorded, you can review and adjust it from {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+
+## Why does grid charging of my battery look like solar charging?
+
+If your battery only measures the total energy going in and out, the Energy dashboard doesn't know where that energy came from. It estimates the battery flows from the totals of your grid, solar panels, and battery.
+
+The dashboard makes this estimate for each period of time. When you view a day, each period is an hour. When you view a week or a month, each period is a day. When you view a year, each period is a month. When your solar panels produce energy in the same period that your battery charges, the dashboard counts as much of the charging as it can as solar charging.
+
+For example, your battery charges from the grid at night, when electricity is cheap. During the day, your solar panels power your home. In a week view, each period is a whole day, so the night and the day fall into the same period. The dashboard can then show some or all of the grid charging as solar charging.
+
+To see the real flows, use sensors that measure each direction separately, if your battery provides them. The dashboard then shows the measured flows instead of estimates. To set this up, see [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction).
+
 ## The Energy dashboard is not visible
 
 If you do not see the Energy dashboard in the sidebar, make sure you have not removed [`default_config:`](/integrations/default_config/) from your {% term "`configuration.yaml`" %}. If you have, you will need to enable the integrations and UI elements required for the dashboard to appear.
@@ -53,12 +71,15 @@ You are trying to add a sensor to the Energy dashboard, but it does not appear i
 
 To find out why the sensor is not showing, check the following points:
 
-- The sensor must have the appropriate attributes. Check your entity attributes in {% my developer_states title="**Settings** > **Tools** > **States**" %} to confirm the following:
-  - `device_class` must be `energy` or `power` for electricity grid, solar, or battery categories. It must be `gas` for gas, or `water` for water.
-  - `state_class` must be `measurement` for power sensors and `total` or `total_increasing` for all others.
-  - The sensor must have an appropriate `unit_of_measurement`. See the help text for each category to see which units are accepted. Units containing an exponent must match superscript characters exactly.
-  
+- The sensor must have the appropriate attributes. Check your entity attributes in {% my tools_states title="**Settings** > **Tools** > **States**" %}. The required attributes depend on what the sensor measures:
+  - **Energy**: `device_class: energy` with `state_class: total` or `state_class: total_increasing`.
+  - **Power**: `device_class: power` with `state_class: measurement`.
+  - **Battery state of charge**: `device_class: battery`, `state_class: measurement`, and `unit_of_measurement: "%"`.
+  - **Gas**: `device_class: gas` with `state_class: total` or `state_class: total_increasing`.
+  - **Water**: `device_class: water` with `state_class: total` or `state_class: total_increasing`.
+  - The sensor must use a supported `unit_of_measurement`. See the help text for the Energy dashboard field for the accepted units. Units containing an exponent must match superscript characters exactly.
+
   If any of the attributes are not correct, please open an issue against the integration that provides your sensor, or if you are developing custom template sensors, make sure the templates have the correct attributes.
 
 - The entity must be a `sensor`. If you are trying to add something from another domain (for example an `input_number`), then you must first create a template sensor from it.
-- The entity must not have any statistics errors. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %} to check your specific entity. If your unit has a listed issue here, address that first.
+- The entity must not have any statistics errors. Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %} to check your specific entity. If your unit has a listed issue here, address that first.

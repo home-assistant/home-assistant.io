@@ -8,7 +8,7 @@ related_actions:
   - insteon.add_default_links
 ---
 
-The **Delete All-Link** action tells the Insteon Modem (IM) to remove an All-Link record from its own All-Link database and from a device.
+The **Insteon: Delete All-Link** action tells the Insteon Modem (IM) to remove an All-Link record from its own All-Link database and from a device.
 
 This is useful when you want to unlink a device from the modem, for example when you are removing a device or cleaning up links that are no longer needed.
 

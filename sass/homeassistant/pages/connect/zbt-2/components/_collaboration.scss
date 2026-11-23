@@ -45,18 +45,14 @@ section#collaboration {
             font-weight: 300;
             align-items: center;
             display: flex;
-            gap: 16px;
+            gap: 8px;
 
             @include bp(tablet) {
                 font-size: 20px;
             }
 
             img {
-                height: 25px;
-
-                @include bp(tablet) {
-                    height: 30px;
-                }
+                height: 24px;
             }
         }
 

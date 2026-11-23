@@ -1,27 +1,7 @@
 ---
-title: Schlage
 description: Instructions on how to integrate Schlage WiFi smart locks into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Lock
-  - Select
-  - Sensor
-  - Switch
 ha_release: 2023.9
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@dknowles2'
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - lock
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
 ha_domain: schlage
-ha_quality_scale: bronze
 ---
 
 [Schlage] is a lock manufacturer whose Encode range of smart deadbolts and levers connects directly to your WiFi network, without needing a separate hub or bridge.

@@ -2,6 +2,7 @@
 title: Fetch message
 action: imap.fetch
 domain: imap
+response: required
 description: "Fetches the text body and part metadata of an IMAP email message."
 related_actions:
   - imap.fetch_part
@@ -9,9 +10,9 @@ related_actions:
   - imap.move
 ---
 
-The **Fetch message** action fetches the text body of an email message on your IMAP server and returns metadata about the parts inside the message. Unlike the `imap_content` event, the returned text is not limited in size.
+The **IMAP: Fetch message** action fetches the text body of an email message on your IMAP server and returns metadata about the parts inside the message. Unlike the `imap_content` event, the returned text is not limited in size.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script. It is meant to run after an `imap_content` event, using the entry and the message `uid` from the event data.
+This action is meant to run after an `imap_content` event, using the entry and the message `uid` from the event data.
 
 {% include actions/ui_header.md %}
 
@@ -67,6 +68,8 @@ uid:
 
 ## Response data
 
+{% include actions/response.md %}
+
 The response contains the following fields:
 
 - `text`: The plain text version of the fetched email.
@@ -74,6 +77,7 @@ The response contains the following fields:
 - `sender`: The sender's email address.
 - `uid`: The UID of the message.
 - `parts`: A dictionary with metadata about the available parts in a multipart message. Each key is a part index that you can pass to the [Fetch message part](/actions/imap.fetch_part/) action. Each part includes its `content_type`, `content_transfer_encoding`, and, if set, its `filename`.
+- `date`: The date of the fetched email.
 
 An example of the `parts` data for a multipart message looks like this:
 

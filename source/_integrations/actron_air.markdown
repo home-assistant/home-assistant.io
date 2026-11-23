@@ -1,26 +1,7 @@
 ---
-title: Actron Air
 description: Instructions on how to integrate the Actron Air A/C controller into Home Assistant.
-ha_category:
-  - Climate
-  - Sensor
-  - Switch
 ha_release: 2025.11
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@kclif9'
-  - '@JagadishDhanamjayam'
 ha_domain: actron_air
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: silver
-ha_dhcp: true
 ---
 
 The **Actron Air** {% term integration %} allows you to control [Actron Air](https://www.actronair.com.au/) Air Conditioning controllers into Home Assistant.
@@ -47,6 +28,15 @@ The integration will create a climate entity for the main air conditioning syste
 
 Each zone will be reflected as a separate climate entity. You can set the temperature and operation mode per zone (if supported by your air conditioner).
 
+### Cover
+
+The integration creates a cover entity for each zone to report the damper position (open percentage).
+
+{% note %}
+
+These entities are read-only. The Actron Air API does not support manually controlling the damper opening.
+
+{% endnote %}
 ### Sensor
 
 The integration will add the following sensors to Home Assistant for your air conditioner:

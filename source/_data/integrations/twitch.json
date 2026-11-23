@@ -1,0 +1,20 @@
+{
+  "domain": "twitch",
+  "name": "Twitch",
+  "integration_type": "service",
+  "codeowners": [
+    "@joostlek"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "news_social_media"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

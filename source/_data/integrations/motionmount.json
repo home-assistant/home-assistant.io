@@ -1,0 +1,26 @@
+{
+  "domain": "motionmount",
+  "name": "Vogel's MotionMount",
+  "integration_type": "device",
+  "codeowners": [
+    "@Wernes-vogels"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "number",
+    "select",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

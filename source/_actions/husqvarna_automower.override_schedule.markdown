@@ -7,7 +7,7 @@ related_actions:
   - husqvarna_automower.override_schedule_work_area
 ---
 
-The **Override schedule** action lets your mower mow or park for a set duration, overriding all of its configured schedules for that time.
+The **Husqvarna Automower: Override schedule** action lets your mower mow or park for a set duration, overriding all of its configured schedules for that time.
 
 This is handy when you want a one-off change without touching your regular schedule, for example sending the mower out for an extra hour before guests arrive, or parking it while the kids play in the garden. The duration can be between 1 minute and 42 days.
 
@@ -20,7 +20,7 @@ To override the schedule from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the mower you want to control.
-6. From the actions shown for that target, select **Override schedule**.
+6. From the actions shown for that target, under **Husqvarna Automower**, select **Override schedule**.
 7. Set the **Duration** and the **Override mode**.
 8. Select **Save**.
 

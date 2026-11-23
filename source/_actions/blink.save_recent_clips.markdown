@@ -9,7 +9,7 @@ related_actions:
   - blink.trigger_camera
 ---
 
-The **Save recent clips** action saves all recent video clips of a Blink camera to a local directory.
+The **Blink: Save recent clips** action saves all recent video clips of a Blink camera to a local directory.
 
 This is handy when you want to keep your own copies of recent recordings. Blink keeps recent clips available for download for up to an hour, and a clip is removed from the list once it has been downloaded. Each clip is saved with the file pattern `%Y%m%d_%H%M%S_[camera name].mp4`.
 
@@ -22,7 +22,7 @@ To save recent clips from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Blink camera whose clips you want to save.
-6. From the actions shown for that target, select **Blink: Save recent clips**.
+6. From the actions shown for that target, under **Blink**, select **Save recent clips**.
 7. Enter the **Output directory** where the clips are saved.
 8. Select **Save**.
 
@@ -74,7 +74,8 @@ file_path:
 
 Save the recent clips of a camera every few minutes, so new recordings are downloaded before they expire.
 
-- **Trigger**: every 3 minutes
+- **Trigger**: Time pattern
+  - **Minutes**: `/3`
 - **Action**: Blink: Save recent clips
   - **Target**: Front door camera
   - **Output directory**: the directory where the clips are saved

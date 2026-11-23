@@ -1,18 +1,7 @@
 ---
-title: SensorPro
 description: Instructions on how to integrate SensorPro devices into Home Assistant.
-ha_category:
-  - Sensor
-ha_bluetooth: true
 ha_release: 2022.9
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@bdraco'
 ha_domain: sensorpro
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: device
 ---
 
 Integrates [SensorPro](https://www.sigmawit.com/) devices into Home Assistant.

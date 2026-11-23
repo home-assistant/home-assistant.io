@@ -1,5 +1,5 @@
 {% if include.product %}{% assign press_data = site.data.product_press[include.product] %}{% endif %}
-{% assign press_title = include.title | default: press_data.title | default: "Over 2 million households" %}
+{% assign press_title = include.title | default: press_data.title | default: "Over 2.7 million households" %}
 {% assign press_lead = include.lead | default: press_data.lead | default: "Trusted by home automation experts and everyday users worldwide" %}
 {% assign press_cards = include.cards | default: press_data.cards | default: site.data.community_cards.cards %}
 {% assign press_columns = include.columns | default: 4 %}

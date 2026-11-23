@@ -2,6 +2,7 @@
 title: "Get raw positions"
 action: ecovacs.raw_get_positions
 domain: ecovacs
+response: required
 description: "Retrieves a raw response containing the positions of the charger and the vacuum."
 ---
 
@@ -16,7 +17,7 @@ To get raw positions from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Ecovacs vacuum.
-6. From the actions shown for that target, select **Get raw positions**.
+6. From the actions shown for that target, under **Ecovacs**, select **Get raw positions**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -44,6 +45,8 @@ This action has no additional YAML options beyond the target. Optionally, set `r
 {% include actions/targets.md domain="vacuum" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a raw response with the positions of the vacuum and charger. The exact response structure depends on the vacuum model and firmware.
 

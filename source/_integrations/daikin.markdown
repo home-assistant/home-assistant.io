@@ -1,24 +1,7 @@
 ---
-title: Daikin AC
 description: Instructions on how to integrate Daikin AC devices with Home Assistant.
-ha_category:
-  - Climate
-  - Energy
-  - Sensor
-  - Switch
 ha_release: 0.59
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@fredrike'
 ha_domain: daikin
-ha_zeroconf: true
-ha_platforms:
-  - climate
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
@@ -31,8 +14,11 @@ There is currently support for the following device types within Home Assistant:
 
 ## Supported hardware
 
-- The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the ONECTA application ([Google Play](https://play.google.com/store/apps/details?id=com.daikineurope.online.controller), [App Store](https://apps.apple.com/fr/app/onecta/id1474811586?l=en-GB), previously known as [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp)). The new version of WiFi Controller Unit BRP069Bxx is also confirmed to work, tested and working devices are the BRP069B41 and BRP069B45.
-- The Australian version of the Daikin Wifi Controller Unit BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://apps.apple.com/au/app/id917168708) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical).
+- The European versions of the Wifi Controller Unit BRP069Axx, which is powered by the ONECTA application ([Google Play](https://play.google.com/store/apps/details?id=com.daikineurope.online.controller), [App Store](https://apps.apple.com/fr/app/onecta/id1474811586?l=en-GB), previously known as [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp)). The new version of the Wifi Controller Unit BRP069Bxx is also confirmed to work. Tested working devices include BRP069B41 and BRP069B45.
+- Australian Daikin Wifi controllers:
+  - BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://apps.apple.com/au/app/id917168708) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working models include:
+    - Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA, with operation mode, temp, and fan swing (3d, horizontal, vertical).
+    - Daikin Alira X series (FTXM20YVMA and FTXM60WVMA).
   - BRP072Cxx based units (including Zena devices)*.
 - The United States version of the Wifi Controller Unit (BRP072A43), which is powered by the [Daikin Comfort Control](https://play.google.com/store/apps/details?id=us.daikin.comfortcontrols) application. Confirmed working on a Daikin Wall Units FTXS09LVJU, FTXS15LVJU, FTXS18LVJU and a Floor Unit FVXS15NVJU with operation mode, temp, fan swing (3d, horizontal, vertical).
 - BRP084Cxx units using firmware 2.8.0 was added in Home Assistant 2025.9.
@@ -165,3 +151,5 @@ Currently known region codes:
 - TH
 
 If you experience problems with certain apps such as the Daikin ONECTA, try setting a lowercase region code (for example, `eu`).
+
+{% include integrations/actions.md %}

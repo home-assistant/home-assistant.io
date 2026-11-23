@@ -24,7 +24,7 @@ To set a program and options from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Set program and options**.
+5. From the list of actions, search for and select **Home Connect: Set program and options**.
 6. Select the appliance you want to control.
 7. Under **Affects to**, choose whether the action affects the active or the selected program.
 8. Optionally, choose a program and set any options for your appliance.
@@ -82,8 +82,13 @@ For the full list, see [Program options](#program-options).
 
 The options you can set depend on the type of appliance. In the UI, they appear in collapsible groups. In YAML, you add them as extra keys in the `data` section.
 
+{% note %}
+All the temperature options are in degrees Celsius. If your appliance uses Fahrenheit, Home Assistant automatically converts the values to Fahrenheit when sending them to the appliance.
+{% endnote %}
+
 Air conditioner options:
 
+- `heating_ventilation_air_conditioning_air_conditioner_option_setpoint_temperature`: the target temperature, which will be held by the air conditioner.
 - `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_percentage`: the fan speed as a percentage (1 to 100).
 - `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_mode`: the fan speed mode, manual or automatic.
 
@@ -168,9 +173,15 @@ Washer options:
 
 Because electricity is often cheaper at night, this automation starts a quiet eco program when the price drops, but only between 22:00 and 06:00.
 
-- **Trigger**: Electricity price drops to your night rate
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Electricity price
+  - **Below**: `0.1`
 - **Condition**: The dishwasher door is closed
-- **Action**: Set program and options
+- **Action**: Home Connect: Set program and options
+  - **Device ID**: `a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6`
+  - **Affects to**: Active program
+  - **Program**: Eco 50ºC
+  - **Silence on demand**: On
 
 {% details "Show example YAML" %}
 

@@ -1,28 +1,7 @@
 ---
-title: HDFury
 description: Instructions on how to integrate HDFury devices within Home Assistant.
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: 2026.2
-ha_category:
-  - Button
-  - Number
-  - Select
-  - Sensor
-  - Switch
-ha_codeowners:
-  - '@glenndehaan'
 ha_domain: hdfury
-ha_platforms:
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: platinum
-ha_zeroconf: true
 ---
 
 The **HDFury** {% term integration %} allows you to control and monitor your [HDFury](https://hdfury.com/) device.
@@ -63,6 +42,7 @@ Below is a complete overview of the entities this integration provides.
 - eARC unmute delay (Controls time offset before sending audio data to eARC TX)
 - OLED fade timer (Controls time before the front-panel OLED display fades out)
 - Restart timer (Controls interval for automatic device restarts)
+- IP interrupt port (Controls the TCP command server port number)
 
 ### Select
 
@@ -106,6 +86,7 @@ Below is a complete overview of the entities this integration provides.
 - Relay (Controls the onboard relay output)
 - TX0 force +5v (Forces the +5v line on the HDMI cable for TX0 to be active)
 - TX1 force +5v (Forces the +5v line on the HDMI cable for TX1 to be active)
+- IP interrupt (Enables or disables the TCP command server)
 
 ## Data updates
 

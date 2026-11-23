@@ -1,19 +1,7 @@
 ---
-title: PrusaLink
 description: Instructions on monitoring Prusa 3D printers using PrusaLink.
-ha_category:
-  - 3D printing
-ha_iot_class: Local Polling
 ha_release: '2022.9'
-ha_config_flow: true
 ha_domain: prusalink
-ha_integration_type: device
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - sensor
-ha_dhcp: true
 related:
   - url: https://help.prusa3d.com/article/prusa-connect-and-prusalink-explained_302608
     title: PrusaLink documentation

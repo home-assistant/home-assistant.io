@@ -1,0 +1,115 @@
+blueprint:
+  name: Reimburse Monzo purchases from a pot by merchant
+  description: >
+    When a debit transaction is created for a chosen merchant, withdraw the
+    transaction amount from a selected Monzo pot into its account.
+  domain: automation
+  author: Jake Martin
+  homeassistant:
+    min_version: 2026.9.0
+  input:
+    transaction_event:
+      name: Transaction event
+      description: The Transaction event entity for the selected account.
+      selector:
+        entity:
+          filter:
+            - integration: monzo
+              domain: event
+              device:
+                integration: monzo
+                model: Account
+    account:
+      name: Monzo account
+      description: The account that contains the matching transactions.
+      selector:
+        device:
+          filter:
+            - integration: monzo
+              model: Account
+    pot:
+      name: Monzo pot
+      description: >
+        The pot to reimburse the account from. It must belong to the selected
+        account and Monzo connection.
+      selector:
+        device:
+          filter:
+            - integration: monzo
+              model: Pot
+    merchant_name:
+      name: Merchant name
+      description: >
+        The merchant name to match, without regard to capitalization. For
+        example, Netflix.
+      selector:
+        text:
+    processed_transaction:
+      name: Processed transactions helper
+      description: >
+        An Input text helper with its maximum length set to 255 characters. The
+        automation uses it to remember recently processed transaction IDs.
+      selector:
+        entity:
+          filter:
+            - domain: input_text
+
+variables:
+  account_device_input: !input account
+  transaction_event_entity: !input transaction_event
+  merchant_name_input: !input merchant_name
+  processed_transaction_entity: !input processed_transaction
+
+triggers:
+  - trigger: event.received
+    target:
+      entity_id: !input transaction_event
+    options:
+      event_type:
+        - transaction_created
+
+actions:
+  - variables:
+      transaction: >
+        {{ trigger.to_state.attributes.get('data', {}) }}
+  - variables:
+      transaction_amount: >
+        {{ transaction.get('amount', 0) | int }}
+      transaction_id: >
+        {{ transaction.get('id', '') }}
+      transaction_merchant_name: >
+        {% set merchant = transaction.get('merchant') %}
+        {{ merchant.get('name', '') if merchant is mapping else '' }}
+      processed_transaction_ids: >
+        {% set value = states(processed_transaction_entity) %}
+        {{
+          value.split('|')
+          if value not in ['unknown', 'unavailable', '']
+          else []
+        }}
+  - condition: template
+    value_template: >
+      {{
+        transaction_id
+        and transaction_id not in processed_transaction_ids
+        and device_id(transaction_event_entity) == account_device_input
+        and transaction_amount < 0
+        and not transaction.get('decline_reason')
+        and (transaction_merchant_name | lower)
+          == (merchant_name_input | lower)
+      }}
+  - action: monzo.withdraw_from_pot
+    data:
+      account: !input account
+      pot: !input pot
+      amount: >
+        {{ (transaction_amount | abs / 100) | round(2) }}
+  - action: input_text.set_value
+    target:
+      entity_id: !input processed_transaction
+    data:
+      value: >
+        {{ ([transaction_id] + processed_transaction_ids)[:5] | join('|') }}
+
+mode: queued
+max_exceeded: silent

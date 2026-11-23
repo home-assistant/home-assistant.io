@@ -1,0 +1,259 @@
+---
+description: Instructions on how to integrate Hot Spring spas into Home Assistant.
+ha_release: 2026.9
+ha_domain: hotspring
+---
+
+The **Hot Spring** {% term integration %} allows you to monitor and control your [Hot Spring](https://www.hotspring.com/) spa equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) module directly from Home Assistant.
+
+## Supported devices
+
+- Hot Spring spas equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) local network module.
+
+## Prerequisites
+
+1. Install and set up the **HotSpring Connected Spa Kit 2** on your spa following the manufacturer's quick start guide.
+2. Use the official **HotSpring Connected Spa** app to connect the spa module to your home Wi-Fi or local network.
+3. Verify that your Home Assistant instance and the Hot Spring spa module are on the same local network subnet.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of your Hot Spring HNA (Home Network Adapter) on your local network (for example, `192.168.1.150`)."
+{% endconfiguration_basic %}
+
+{% note %}
+When setting up or reconfiguring the integration, ensure you enter the IP address of the **HNA** (Home Network Adapter) and _not_ the IP address of the **SNA** (Spa Network Adapter).
+{% endnote %}
+
+### Reconfiguration
+
+If the IP address of your Hot Spring spa changes, reconfigure the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Hot Spring** integration.
+3. Select **Menu** {% icon "mdi:dots-vertical" %} > **Reconfigure**.
+
+## Supported functionality
+
+The **Hot Spring** integration provides the following entities:
+
+### Binary sensor
+
+- **Heating**
+  - **Description**: Indicates whether the spa heater is actively heating water.
+- **Problem**
+  - **Description**: Indicates whether a failure or error condition is detected on the spa.
+- **Spa connected**
+  - **Description**: Indicates whether the wireless radio link between the Home Network Adapter (HNA) and the Spa Network Adapter (SNA) is connected.
+
+### Light
+
+- **Light zone**
+  - **Description**: Controls a light zone on the spa (one entity is created per enabled light zone, for example, **Light zone 1**). Supports turning the light on and off, adjusting brightness, and setting an RGB color.
+
+### Number
+
+- **Salt output level**
+  - **Description**: Sets the chlorine generation output level of the FreshWater Salt System. This control adjusts chlorine generation: it does not measure or add salt (see the **Salt value** sensor).
+  - **Range**: 0 to 10 in whole-number steps. At level 0, chlorine generation stops. Level 10 is the maximum output.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed. The FreshWater IQ feature is not required.
+- **Target temperature**
+  - **Description**: Allows setting the target water temperature for the spa.
+  - **Range**: 26 °C to 40 °C (80 °F to 104 °F)
+
+### Select
+
+- **Jet**
+  - **Description**: Controls the jet pump speed (one entity is created per enabled jet pump, for example, **Jet 1**). Supports **Off**, **Low**, and **High** on dual-speed jets, and **Off** and **High** on single-speed jets.
+- **Heating mode**
+  - **Description**: Controls the heating operating mode of the spa heater (**Heat saver**, **Heat with boost**, **Auto saver**, **Auto with boost**, and **Chill** (available when a CoolZone heat pump is installed)).
+  - **Availability**: Available when the spa hardware supports heating mode selection.
+
+### Sensor
+
+- **Current temperature**
+  - **Description**: Current water temperature of the spa.
+- **Salt 10-day check timer**
+  - **Description**: Number of days remaining until the next 10-day salt water test reminder.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Salt cartridge age**
+  - **Description**: Number of days the FreshWater Salt System cartridge has been in use.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Salt value**
+  - **Description**: Current salt level reading from the FreshWater Salt System.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Chlorine**
+  - **Description**: Chlorine reading from the FreshWater IQ system, in parts per million (ppm).
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **Oxidation reduction potential**
+  - **Description**: Oxidation reduction potential reading from the FreshWater IQ system, in millivolts (mV).
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **pH**
+  - **Description**: pH reading from the FreshWater IQ system.
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **Sensor life**
+  - **Description**: Remaining FreshWater IQ sensor life, as a percentage reported by the spa.
+  - **Availability**: Available when the spa reports a FreshWater IQ system.
+- **Total apparent power**
+  - **Description**: Combined apparent power across all spa circuits derived from voltage and current readings, in volt-amperes (VA).
+  - **Availability**: Available on spas with current-sensing hardware.
+- **Heater power**
+  - **Description**: Real power consumption of the spa heater, in watts (W).
+  - **Availability**: Available on spas with current-sensing hardware.
+- **Small loads apparent power**
+  - **Description**: Apparent power drawn by auxiliary circuits, such as the circulation pump, lights, and control electronics, in volt-amperes (VA).
+  - **Availability**: Available on spas with current-sensing hardware.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+- **Jets 1, 2, and blower apparent power**
+  - **Description**: Apparent power drawn by the Jet 1, Jet 2, and blower circuit, in volt-amperes (VA).
+  - **Availability**: Available on spas with current-sensing hardware.
+  - **Remarks**: Disabled by default.
+- **Jet 3 apparent power**
+  - **Description**: Apparent power drawn by the Jet 3 pump, in volt-amperes (VA).
+  - **Availability**: Available on spas with current-sensing hardware and an enabled Jet 3 pump.
+  - **Remarks**: Disabled by default.
+- **Heater current**
+  - **Description**: Electrical current drawn by the spa heater, in whole amperes (A).
+  - **Availability**: Available on spas with current-sensing hardware.
+  - **Remarks**: Disabled by default.
+- **Small loads current**
+  - **Description**: Electrical current drawn by auxiliary spa circuits, in whole amperes (A).
+  - **Availability**: Available on spas with current-sensing hardware.
+  - **Remarks**: Disabled by default.
+- **Jets 1, 2, and blower current**
+  - **Description**: Electrical current drawn by the Jet 1, Jet 2, and blower circuit, in whole amperes (A).
+  - **Availability**: Available on spas with current-sensing hardware.
+  - **Remarks**: Disabled by default.
+- **Jet 3 current**
+  - **Description**: Electrical current drawn by the Jet 3 pump, in whole amperes (A).
+  - **Availability**: Available on spas with current-sensing hardware and an enabled Jet 3 pump.
+  - **Remarks**: Disabled by default.
+- **Control box version**
+  - **Description**: Firmware version of the spa control box.
+  - **Remarks**: Disabled by default.
+- **FreshWater Salt System version**
+  - **Description**: Firmware version of the FreshWater Salt System module.
+  - **Remarks**: Disabled by default. Available when a FreshWater Salt System is detected.
+- **Wi-Fi dongle version**
+  - **Description**: Firmware version of the Wi-Fi dongle.
+  - **Remarks**: Disabled by default.
+
+## Hot Spring automation examples
+
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Notify when the 10-day salt check timer is due
+
+Get a reminder to test your Hot Spring spa water with a salt test strip when the 10-day check timer expires.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify when 10-day salt check is due"
+  description: "Send a notification when the 10-day salt check timer reaches 0 days."
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.hot_spring_salt_10_day_check_timer
+      below: 1
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.notify
+      data:
+        title: "Hot Spring spa"
+        message: "The 10-day salt water test timer has expired. Please test your spa water with a test strip."
+{% endexample %}
+
+{% enddetails %}
+
+### Notify when the spa reaches target temperature
+
+Get notified when your spa water has reached the desired target temperature and is ready for use.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify when spa reaches target temperature"
+  description: "Send a notification when the spa water temperature reaches the target temperature."
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.hot_spring_current_temperature
+      above: 101
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.notify
+      data:
+        title: "Hot Spring spa"
+        message: "The spa is ready! Current water temperature is {{ states('sensor.hot_spring_current_temperature') }} °F."
+{% endexample %}
+
+{% enddetails %}
+
+## Data updates
+
+The **Hot Spring** integration uses local {% term polling %} to fetch status updates directly from the spa module on your local network.
+
+## Known limitations
+
+### Apparent power and real power measurements
+
+The spa control board calculates circuit power by multiplying voltage and current without measuring power factor. Because the spa heater is a purely resistive load, **Heater power** reports real power in watts (W) and can be used directly in the [Energy dashboard](/docs/energy/) or with the [Integral](/integrations/integration/) helper to estimate heating energy consumption. Pump motors and auxiliary electronics have a non-unity power factor, so **Small loads apparent power**, **Jets 1, 2, and blower apparent power**, **Jet 3 apparent power**, and **Total apparent power** are reported as apparent power in volt-amperes (VA) and cannot be added directly to the **Energy** dashboard.
+
+## Troubleshooting
+
+### Cannot connect to Hot Spring spa
+
+If Home Assistant cannot establish a connection to your Hot Spring spa:
+
+- Make sure your Hot Spring spa module is powered on and connected to your local network.
+- Verify that you are using the IP address of the **HNA** (Home Network Adapter) and _not_ the **SNA** (Spa Network Adapter).
+- Verify that you can locate the device on your local network router client list.
+- Double-check that the IP address or hostname entered is correct and reachable from your Home Assistant instance.
+- Restart the Hot Spring spa module and reload the integration in Home Assistant.
+
+### FreshWater IQ sensors are missing
+
+If the FreshWater IQ sensor entities do not appear:
+
+- Verify the FreshWater IQ system is installed on the spa and enabled in the Hot Spring app.
+- Verify the spa reports FreshWater IQ status to the Home Network Adapter; the sensor entities are only created once the spa reports FreshWater IQ data.
+- Check that the spa's water quality readings are visible in the Hot Spring app.
+
+### Power and current sensors are missing
+
+If the power or current sensor entities do not appear:
+
+- Verify that your spa uses a control board equipped with current-sensing hardware. Entry-level control boards without current sensors do not create power or current entities.
+- Check if the entity is disabled by default. Only **Total apparent power** and **Heater power** are enabled by default; the seven per-circuit power and current diagnostic entities must be [enabled manually](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) before they appear.
+- Verify that Jet 3 is enabled on the spa if **Jet 3 apparent power** and **Jet 3 current** are missing, as those entities are only created when Jet 3 is present and enabled.
+
+## Diagnostics
+
+The Hot Spring {% term integration %} provides diagnostics to help with troubleshooting. The download includes:
+
+- Redacted configuration entry data
+- Spa hardware information and firmware versions
+- Current state and telemetry for the spa heater, jets, blower, lights, clean cycle, spa lock, water care, FreshWater IQ, energy savings schedules, connection status, and test metrics
+
+Sensitive information, such as the host, IP address, and MAC address, is redacted.
+
+To download diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Hot Spring** integration.
+3. Open the three-dot {% icon "mdi:dots-vertical" %} menu on the integration entry and select **Download diagnostics**.
+
+Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}

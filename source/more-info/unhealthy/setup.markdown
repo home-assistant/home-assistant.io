@@ -19,7 +19,7 @@ This can also be done with the CLI, by running the following command:
 ha supervisor restart
 ```
 
-If this does not help or you do not have any way to access the CLI, you can try to reboot the host. This can be done by going to {% my hardware title="**Settings** > **System** > **Hardware**" %}, opening the menu in the top right corner, and selecting "Reboot system".
+If this does not help or you do not have any way to access the CLI, you can try to reboot the host. This can be done by going to {% my hardware title="**Settings** > **System** > **Hardware**" %}. Then, select the power {% icon "mdi:power" %} icon in the top-right corner, select **More options**, and then select **Reboot system**.
 
 To help us make the setup more robust, please enable the sharing of diagnostics and crash logs on the {% my analytics title="**Settings** > **System** > **Analytics**" %} panel.
 

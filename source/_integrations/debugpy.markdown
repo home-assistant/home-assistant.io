@@ -1,15 +1,7 @@
 ---
-title: Remote Python Debugger
 description: Remote Python debugger (debugpy) for Visual Studio Code
-ha_category:
-  - Utility
 ha_release: 0.112
-ha_codeowners:
-  - '@frenck'
 ha_domain: debugpy
-ha_quality_scale: internal
-ha_iot_class: Local Push
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file

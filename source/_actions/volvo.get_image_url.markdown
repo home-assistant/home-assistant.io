@@ -2,10 +2,11 @@
 title: "Get image URL"
 action: volvo.get_image_url
 domain: volvo
+response: required
 description: "Retrieves the URL for one or more vehicle-specific images."
 ---
 
-The **Get image URL** action retrieves the URLs of images of your vehicle from a specific angle. You can request all available images at once, or pick one or more specific angles.
+The **Volvo: Get image URL** action retrieves the URLs of images of your vehicle from a specific angle. You can request all available images at once, or pick one or more specific angles.
 
 This action returns [response data](#response-data) and does not change anything on your vehicle.
 
@@ -71,6 +72,8 @@ images:
 
 ## Response data
 
+{% include actions/response.md %}
+
 The action returns a response containing an `images` list. Each item describes one image that is available for your vehicle:
 
 - `type`: The angle of the image, for example `exterior_front`.
@@ -87,27 +90,6 @@ images:
 ```
 
 {% include actions/try_it.md %}
-
-## Available image angles
-
-- `exterior_back`
-- `exterior_back_left`
-- `exterior_back_right`
-- `exterior_front`
-- `exterior_front_left`
-- `exterior_front_right`
-- `exterior_side_left`
-- `exterior_side_right`
-- `interior`
-
-## Response data
-
-The action response contains the requested image URLs.
-
-## Good to know
-
-If you leave `images` empty, the action retrieves all available image URLs for the selected vehicle.
->>>>>>> current
 
 {% include actions/stuck.md %}
 

@@ -2,6 +2,7 @@
 title: "Get credential capabilities"
 action: zwave_js.get_credential_capabilities
 domain: zwave_js
+response: required
 description: "Queries the user and credential management capabilities of a Z-Wave lock."
 related_actions:
   - zwave_js.get_users
@@ -10,8 +11,6 @@ related_actions:
 ---
 
 Use this action to find out what a Z-Wave lock supports for user and credential management, such as the maximum number of users, the supported user types and credential rules, and the slot count and length range for each credential type. Run this before calling the other user and credential actions so you know what your specific lock allows.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -22,7 +21,7 @@ To get the credential capabilities from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the locks to query.
-6. From the actions shown for that target, select **Get credential capabilities**.
+6. From the actions shown for that target, under **Z-Wave**, select **Get credential capabilities**.
 7. In the **Response variable** field, enter a name to store the result, for example, `capabilities`.
 8. Select **Save**.
 
@@ -45,6 +44,8 @@ action: |
 {% include actions/targets.md domain="lock" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by lock entity. Each entry reports the user and credential limits of the lock. A shortened example looks like this:
 

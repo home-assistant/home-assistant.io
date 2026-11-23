@@ -1,7 +1,8 @@
 ---
-title: "Get Matter lock credential status"
+title: "Get lock credential status"
 action: matter.get_lock_credential_status
 domain: matter
+response: required
 description: "Returns the status of a credential slot on a Matter lock."
 related_actions:
   - matter.set_lock_credential
@@ -10,8 +11,6 @@ related_actions:
 ---
 
 Use this action to check the status of a single credential slot on a Matter lock. The response tells you whether the slot is in use, which user it belongs to, and which controller created or last changed it. A common use is to check whether a slot is free before you add a new credential.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -22,7 +21,7 @@ To get a credential status from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the lock you want to query.
-6. From the actions shown for that target, select **Get Matter lock credential status**.
+6. From the actions shown for that target, under **Matter**, select **Get lock credential status**.
 7. Set the **Credential type** and **Credential index** to check.
 8. Select **Save**.
 
@@ -75,9 +74,11 @@ credential_index:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the status of the credential slot you queried. The response includes the following fields:
 

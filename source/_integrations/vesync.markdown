@@ -1,37 +1,7 @@
 ---
-title: VeSync
 description: Instructions on how to set up VeSync devices with Home Assistant.
-ha_category:
-  - Fan
-  - Light
-  - Number
-  - Switch
-  - Update
 ha_release: 0.66
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@markperdue'
-  - '@webdjoe'
-  - '@thegardenmonkey'
-  - '@cdnninja'
-  - '@iprak'
-  - '@sapuseven'
 ha_domain: vesync
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - fan
-  - humidifier
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: hub
-ha_quality_scale: bronze
-ha_dhcp: true
 ---
 
 The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets, humidifers and select air fryers.
@@ -41,6 +11,7 @@ The devices must be added to the VeSync App before this {% term integration %} c
 The following platforms are supported:
 
 - **binary sensor**
+- **button**
 - **fan**
 - **humidifier**
 - **light**
@@ -87,12 +58,17 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- OasisMist 4.5L Smart Humidifier (LUH-O451S-WEU)
 - OasisMist 1000S Smart Ultrasonic Cool Mist Tower Humidifier (LUH-M101S-WUS)
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ### Air Fryers
 
 - Cosori 3.7 and 5.8 Quart Air Fryer
+- Cosori TurboBlaze 6 Quart Air Fryer
+- Cosori Dual Blaze 6.8 Quart Air Fryer
+- Cosori Twinfry Dual Air Fryer
+- Cosori Turbo Tower Pro Smart Air Fryer
 
 ## Prerequisite
 
@@ -136,6 +112,11 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
+| `light_detection`       | Light detection On or Off. When on, the purifier responds to the light level in the room. (Vital 200S, EverestAir) | On        |
+
+| Button                  | Description                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| `reset_filter`          | Resets the filter life to 100%. Press it after replacing the filter. (Core 200S)   |
 
 ## Fan exposed attributes
 
@@ -159,6 +140,10 @@ VeSync air purifiers will expose the following details depending on the features
 ## Humidifier
 
 Sensors and settings exposed by VeSync humidifiers.
+
+On humidifiers with a color night light, the **Night light** entity provides on/off, brightness, and color controls. You can control the night light while mist output is off.
+
+The OasisMist 4.5L has a minimum light brightness of 40%, so its night light cannot dim below that level.
 
 | Sensor                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
@@ -184,6 +169,7 @@ Sensors and settings exposed by VeSync humidifiers.
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
 | `water_tank_lifted`     | Water tank is lifted                                                               | false     |
+| `sync_chambers`         | On dual-basket air fryers, indicates whether both baskets use the same settings   | true      |
 
 ## Air Fryers
 
@@ -195,8 +181,20 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `current_temp`          | Current internal temperature of the fryer,  Unknown when off.                          | 150C      |
 | `cook_set_temp`         | The target cooking temperature                                                         | 165C      |
 | `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
-| `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
+| `cook_end_time`         | When the running cook finishes, preheating included. Unknown when paused or stopped    | 12:19     |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
+
+The `preheat_set_time` sensor is only available on air fryers that support preheating. For example, the Dual Blaze doesn't have it.
+
+On dual-basket air fryers, you get a separate set of these sensors for each basket. The sensor names include the basket number, such as **Basket 1 cooking status** and **Basket 2 cooking status**. This way, you can follow each basket on its own. On single-basket air fryers, the sensor names do not include a basket number.
+
+| Button                  | Description                                                                            |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| `stop_cooking`          | Stops cooking or preheating                                                            |
+| `pause_cooking`         | Pauses cooking. Only on air fryers that support pausing (CS137, CS158, Turbo Tower Pro) |
+| `resume_cooking`        | Resumes paused cooking with the remaining time. Same air fryers as pause               |
+
+On dual-basket air fryers, each button is available once per basket, such as **Basket 1 pause cooking**. It only acts on that basket.
 
 
 ## Extracting attribute data

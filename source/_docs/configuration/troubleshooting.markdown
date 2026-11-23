@@ -3,7 +3,7 @@ title: "Troubleshooting your configuration"
 description: "Common problems with your Home Assistant configuration and how to fix them, including how to read the logs and check your YAML before restarting."
 related:
   - docs: /docs/configuration/
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Changing entity name and ID
 ---
 
@@ -21,17 +21,45 @@ If you have incorrect entries in your configuration files you can use the config
 
 ### Problems with the configuration
 
-One of the most common problems with Home Assistant is an invalid {% term "`configuration.yaml`" %} or other configuration file.
+One of the most common problems with Home Assistant is an invalid {% term "`configuration.yaml`" %} or other configuration file. To find problems, check your configuration under {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %} > **Check configuration**. You can also run the configuration check from the command line:
 
-- Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has its own section in the common-tasks about this:
-  - [Operating System](/common-tasks/os/#configuration-check)
-  - [Container](/common-tasks/container/#configuration-check)
+- [Home Assistant Operating System](/common-tasks/os/#running-a-configuration-check-from-the-cli)
+- [Home Assistant Container](/common-tasks/container/#configuration-check)
 
-- The configuration files, including {% term "`configuration.yaml`" %} must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
-- You can verify your configuration's {% term YAML %} structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
-- To learn more about the quirks of {% term YAML %}, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
+{% details "Home Assistant reports an invalid configuration" %}
 
-`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one integration, you can append a number or string to the name or nest them:
+#### Symptom: An "Invalid config for" error
+
+The configuration check, or the logs, show an error that starts with `Invalid config for`, followed by the name of an integration. For example: `Invalid config for 'example' at configuration.yaml, line 12: required key 'host' not provided`.
+
+##### Description
+
+The configuration of that integration doesn't match what the integration expects. For example, a required setting is missing, an option is misspelled, or a value has the wrong type. The error usually shows the file and line where the problem is.
+
+##### Resolution
+
+1. Open the file mentioned in the error and go to the line it mentions.
+2. Compare the configuration with the documentation of the integration. You can find it on [the integration pages](/integrations/).
+   - If a required setting is missing, add it.
+   - If an option is invalid, check its spelling. The error often suggests the option you might have meant.
+3. If you're not sure the {% term YAML %} structure is correct, check it with an online tool such as [YAML online parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/). To learn more about common YAML mistakes, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack. The examples there are specific to SaltStack, but they explain YAML issues well.
+4. Check your configuration again.
+
+{% enddetails %}
+
+{% details "Only one of several sections with the same name works" %}
+
+#### Symptom: "contains duplicate key"
+
+You added the same top-level section more than once, for example `sensor:` twice, and only one of them works. The logs show a warning like `YAML file configuration.yaml contains duplicate key "sensor". Check lines 10 and 20`.
+
+##### Description
+
+A {% term YAML %} file can only have each top-level section once. If a section appears twice, Home Assistant only uses the last one.
+
+##### Resolution
+
+Combine the sections into one, and list each platform under it:
 
 ```yaml
 sensor:
@@ -41,21 +69,82 @@ sensor:
     ...
 ```
 
-Another common problem is that a required configuration setting is missing. If this is the case, the integration will report this in [the logs](/integrations/logger/#viewing-logs). You can have a look at [the various integration pages](/integrations/) for instructions on how to setup the integrations.
+{% enddetails %}
 
-See the [logger](/integrations/logger/) integration for instructions on how to define the level of logging you require for specific modules.
+{% details "Home Assistant can't read a configuration file" %}
 
-If you find any errors or want to expand the documentation, please [let us know](https://github.com/home-assistant/home-assistant.io/issues).
+#### Symptom: "'utf-8' codec can't decode byte"
 
-#### Problems with dependencies
+The logs show an error like `Unable to read file configuration.yaml: 'utf-8' codec can't decode byte`.
 
-Almost all integrations have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in [the logs](/integrations/logger/#viewing-logs).
+##### Description
 
-The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can't figure it out, please [report it](https://github.com/home-assistant/core/issues) so we can investigate what is going on.
+All configuration files, including {% term "`configuration.yaml`" %}, must be saved with UTF-8 encoding. Some editors save files in a different encoding, for example when the file contains special characters.
 
-#### Problems with integrations
+##### Resolution
 
-It can happen that some integrations either do not work right away or stop working after Home Assistant has been running for a while. If this happens to you, please [report it](https://github.com/home-assistant/core/issues) so that we can have a look.
+Open the file mentioned in the error in a text editor, and save it again with UTF-8 encoding.
+
+{% enddetails %}
+
+{% details "Unexpected error validating config" %}
+
+#### Symptom: "Unexpected error calling config validator"
+
+When you check your configuration, you see an error that starts with `Unexpected error calling config validator:`. The logs then show `Unexpected error validating config`.
+
+##### Description
+
+The code that checks the configuration of one of your integrations stopped unexpectedly, instead of reporting what is wrong. This is usually caused by a bug in the integration, often a custom integration, or by a configuration that the integration doesn't expect.
+
+##### Resolution
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and open the `Unexpected error validating config` entry.
+   - The entry is logged by `homeassistant.helpers.check_config`, so it can look like a problem in Home Assistant itself.
+   - To find the integration that caused it, look in the full error for a path like `custom_components/<name>/` for a custom integration, or `homeassistant/components/<name>/` for a built-in integration.
+2. Check the {% term YAML %} configuration of that integration for mistakes, such as a value in the wrong place or a value of the wrong type. Compare it with the documentation of the integration.
+3. If it's a custom integration, update it to the latest version. If the error stays, report it to the author of the custom integration.
+4. If it's a built-in integration and your configuration looks correct, [report the issue](/help/reporting_issues/) and include the error from the logs.
+
+{% enddetails %}
+
+{% details "An integration can't install its dependencies" %}
+
+#### Symptom: A "Requirements for … not found" error
+
+The integration doesn't start, and the logs show an error like `Setup failed for 'example': Requirements for example not found`.
+
+##### Description
+
+Almost all integrations use extra software packages to communicate with your devices and services. Home Assistant installs these packages when it sets up the integration. Sometimes, it can't install them, for example because there is no internet connection.
+
+##### Resolution
+
+1. Make sure Home Assistant is connected to the internet.
+2. Restart Home Assistant, and check if the problem persists.
+3. If it does, check [the logs](/integrations/logger/#viewing-logs) for more details about the error.
+4. If you can't find the cause, [report the issue](/help/reporting_issues/) and include the error from the logs.
+
+{% enddetails %}
+
+{% details "An integration stops working" %}
+
+#### Symptom: An integration doesn't work, or stops working after a while
+
+An integration doesn't work right after you set it up, or it stops working after Home Assistant has been running for a while.
+
+##### Description
+
+This can have many causes, such as a problem with the device or service, the network, or a bug in the integration.
+
+##### Resolution
+
+1. Check [the logs](/integrations/logger/#viewing-logs) for errors related to the integration.
+   - To get more details, [turn on debug logging](#enabling-debug-logging) for the integration.
+2. Check the troubleshooting section on the documentation page of the integration.
+3. If you can't find the cause, [report the issue](/help/reporting_issues/) and include the logs.
+
+{% enddetails %}
 
 #### Multiple files
 
@@ -100,56 +189,45 @@ The only characters valid in entity names are:
 
 The entity name must not start or end with an underscore. If you create an entity with other characters from the UI, Home Assistant validates the name. If you change the name directly in the {% term YAML %} file, then Home Assistant may not generate an error for that entity. However, attempts to use that entity will generate errors (or possibly fail silently).
 
-For instructions on how to change an entity name, refer to the section on [customizing entities](/docs/configuration/customizing-devices/).
+For instructions on how to change an entity name, refer to the section on [customizing entities](/docs/configuration/customizing-entities/).
 
 ## Debug logs and diagnostics
 
-The first thing you will need before reporting an issue online is debug logs and diagnostics (if available) for the integration giving you trouble. Getting those ahead of time will ensure someone can help resolve your issue in the fastest possible manner.
+When an integration doesn't work as expected, debug logs and diagnostics help find the cause. Debug logs show in detail what the integration does. Diagnostics describe how the integration is set up.
 
 ### Enabling debug logging
 
-To enable debug logging for a specific integration, follow these steps:
+Debug logging writes detailed messages of one integration to the log. Turn it on, make the problem happen again, and then turn it off to get the log.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the integration for which you want to enable debug logging.
-3. In the top right of the page, open the three dots {% icon "mdi:dots-vertical" %} menu, and select **Enable debug logging**.
+Debug logging writes many messages, which uses disk space. Turn it off as soon as you have made the problem happen again.
 
-    <p class='img'>
-      <img src='/images/docs/configuration/enable-debug-logging.png' alt='Screenshot showing the Enable debug logging button on an integration detail page'>
-      Screenshot showing the <b>Enable debug logging</b> menu item.
-    </p>
-4. To see the error in the logs, you need to reproduce the error.
-   - Run your automation, change up your device or whatever was giving you an error.
-5. Continue with the steps on [disabling debug logging and download logs](#disable-debug-logging-and-download-logs).
+Debug logging stays on if you restart Home Assistant once, so the log also shows what happens during startup. After the next restart, it's off again.
 
-### Disable debug logging and download logs
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
+2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Enable debug logging**.
+   - Result: The integration page shows **Debug logging enabled**.
+3. Make the problem happen again.
+   - For example, run the automation that fails, or use the device that doesn't respond.
+4. To get the log, continue with [Disabling debug logging and downloading the log](#disabling-debug-logging-and-downloading-the-log).
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the integration for which you want to disable debug logging.
-3. In the top right of the page, open the three dots {% icon "mdi:dots-vertical" %} menu, and select **Disable debug logging**.
-4. After you disable it, you will be prompted to download your log file.
-   - Save this to a safe location to upload later.
+### Disabling debug logging and downloading the log
 
-### Download diagnostics
+When you turn off debug logging, Home Assistant downloads the log right away. The log contains all messages of Home Assistant, including the debug messages of the integration.
 
-After you download logs, you will also want to download the diagnostics for the integration giving you trouble. Not all integrations provide diagnostics, but if they do, you can download them by following these steps:
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
+2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Disable debug logging**.
+   - You can also select **Disable** next to **Debug logging enabled**.
+   - Result: Your browser saves the log as a file, for example, `home-assistant_<integration>_<date and time>.log`.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the integration.
-3. In the top right of the integration card, open the three dots {% icon "mdi:dots-vertical" %} menu, and select **Download diagnostics**.
+### Setting log levels in YAML
 
-<p class='img'>
-  <img src='/images/docs/configuration/download-diagnostics.png' alt='Example of Download Diagnostics'>
-  Example showing the <b>Download diagnostics</b> button on the Zigbee integration card.
-</p>
+Debug logging from the UI is temporary. It turns itself off after the second restart. To keep debug logging on, or to set the log level of a library that an integration uses, set the log levels in your {% term "`configuration.yaml`" %} file. For the steps, refer to the [Logger integration](/integrations/logger/).
 
-### Handling unexpected restarts or crashes
+### Downloading diagnostics
 
-Suppose you find that Home Assistant unexpectedly restarts or crashes; it's likely that you have a misbehaving integration impacting system stability. Home Assistant has a built-in debug option that can help find implementation errors. It can also block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use. To enable debug, add the following to your {% term "`configuration.yaml`" %}:
+Diagnostics describe how an integration is set up, for example, its settings. Not all integrations provide diagnostics.
 
-```yaml
-homeassistant:
-  debug: true
-```
-
-Once debug is enabled, periodically check [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs) for new messages.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
+2. Next to the entry of the integration, select **Menu** {% icon "mdi:dots-vertical" %} > **Download diagnostics**.
+   - If **Download diagnostics** isn't shown, the integration doesn't provide diagnostics.
+   - Result: Your browser saves the diagnostics as a file.

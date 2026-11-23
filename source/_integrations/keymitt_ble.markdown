@@ -1,18 +1,7 @@
 ---
-title: Keymitt MicroBot Push
 description: Instructions on how to set up the MicroBot Push.
-ha_category:
-  - Switch
 ha_release: '2022.10'
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@spycle'
 ha_domain: keymitt_ble
-ha_bluetooth: true
-ha_platforms:
-  - switch
-ha_config_flow: true
-ha_integration_type: device
 ---
 
 This {% term integration %} allows you to locally control a MicroBot Push (previously manufactured by Naran but now under the Keymitt brand).

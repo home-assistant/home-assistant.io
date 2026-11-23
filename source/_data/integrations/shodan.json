@@ -1,0 +1,18 @@
+{
+  "domain": "shodan",
+  "name": "Shodan",
+  "codeowners": [
+    "@fabaff"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.monitoring"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

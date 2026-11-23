@@ -1,19 +1,7 @@
 ---
-title: Stookwijzer
 description: Instructions on how to use Stookwijzer data within Home Assistant
-ha_category:
-  - Environment
-  - Sensor
 ha_release: 2023.2
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fwestenberg'
 ha_domain: stookwijzer
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **Stookwijzer** {% term integration %} queries the [Atlas Leefomgeving Stookwijzer](https://www.atlasleefomgeving.nl/stookwijzer) API for windspeed and air quality index. Based on these values, Stookwijzer advises people not to burn pallets or wood or use barbecues. This can help prevent health issues for people in the area.

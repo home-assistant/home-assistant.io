@@ -1,0 +1,15 @@
+{
+  "domain": "openalpr_cloud",
+  "name": "OpenALPR Cloud",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "ai_voice.image_recognition"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "image_processing"
+  ]
+}

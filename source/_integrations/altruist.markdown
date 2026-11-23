@@ -1,21 +1,7 @@
 ---
-title: Altruist
 description: Instructions on how to set up Altruist Sensors in Home Assistant.
-ha_category:
-  - Health
-  - Sensor
-ha_config_flow: true
 ha_release: 2025.7
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@airalab'
-  - '@LoSk-p'
 ha_domain: altruist
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: bronze
 ---
 
 The **Altruist** {% term integration %} connects Home Assistant to [Air Quality Sensor “Altruist“](https://robonomics.network/devices/altruist/) — a device designed for decentralized environmental monitoring. It captures noise, dust, and temperature data from the sensor over HTTP, making it available as locally usable entities within Home Assistant.

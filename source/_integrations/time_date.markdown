@@ -1,18 +1,7 @@
 ---
-title: Time & Date
 description: Instructions on how to create time and the date sensors within Home Assistant.
-ha_category:
-  - Calendar
-ha_iot_class: Local Push
 ha_release: pre 0.7
-ha_quality_scale: internal
-ha_config_flow: true
-ha_codeowners:
-  - '@fabaff'
 ha_domain: time_date
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 The **Time & Date** {% term integration %} provides sensors for the current date or time in different formats. All values are based on the time zone configured under {% my general title="**Settings** > **System** > **General**" %}.

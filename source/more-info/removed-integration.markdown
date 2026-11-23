@@ -16,5 +16,5 @@ Possible reasons for the removal:
 For alternative integrations have a look at the list of our [integrations here][integrations].
 
 [architecture-repo]: https://github.com/home-assistant/architecture
-[dev-docs]: https://developers.home-assistant.io/docs/development_index
+[dev-docs]: https://contributors.home-assistant.io/core/
 [integrations]: /integrations

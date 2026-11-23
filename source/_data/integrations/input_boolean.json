@@ -1,0 +1,12 @@
+{
+  "domain": "input_boolean",
+  "name": "Input boolean",
+  "integration_type": "helper",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.store_value"
+  ]
+}

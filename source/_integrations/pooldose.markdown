@@ -1,29 +1,7 @@
 ---
-title: SEKO PoolDose
 description: Connect your SEKO PoolDose water treatment system to Home Assistant.
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Water Management
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_release: '2025.9'
-ha_codeowners:
-  - '@lmaertin'
 ha_domain: pooldose
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: platinum
-ha_dhcp: true
 ---
 
 The **SEKO PoolDose** {% term integration %} connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
@@ -75,8 +53,11 @@ The following devices are known to be supported by the integration:
 - SEKO PoolDose pH+ORP CF Group Wi-Fi
 - SEKO PoolDose pH
 - BWT MEDO CONNECT Wi-Fi
+- BWT Manager Connect Duo
 - VÁGNER POOL VA DOS BASIC
 - VÁGNER POOL VA DOS EXACT
+- KEMI DOSE AQUAVIVA pH-ORP
+- KEMI DOSE AQUAVIVA pH-ORP-CL
 
 ## Supported functionality
 
