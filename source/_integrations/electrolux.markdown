@@ -240,6 +240,10 @@ This entity is used to control the appliance with the following actions:
 - **Current temperature**
   - **Description**: Reports the current cavity temperature.
   - **Available for appliance types**: Oven.
+- **End at**
+  - **Descriptions**: Reports when the appliance will stop running.
+  - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
+  - **Remarks**: Disabled by default.
 - **Food probe state**
   - **Description**: Reports the food probe state.
   - **Available for appliance types**: Oven.
@@ -249,6 +253,18 @@ This entity is used to control the appliance with the following actions:
 - **Remote control**
   - **Description**: Reports the remote control status.
   - **Available for appliance types**: Oven.
+- **Running time**
+  - **Descriptions**: Reports the amount of time the appliance has been running for.
+  - **Available for appliance types**: Oven.
+  - **Remarks**: Disabled by default. Shown in hours by default. On double ovens, there is a sensor for each cavity: **Upper cavity running time** and **Lower cavity running time**.
+- **Start at**
+  - **Descriptions**: Reports when the appliance will start running.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
+  - **Remarks**: Disabled by default. On double ovens, there is a sensor for each cavity: **Upper cavity start at** and **Lower cavity start at**.
+- **Time left**
+  - **Descriptions**: Reports the amount of time left until the appliance stops running.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
+  - **Remarks**: Disabled by default. Shown in hours by default. On double ovens, there is a sensor for each cavity: **Upper cavity time left** and **Lower cavity time left**.
 
 {% enddetails %}
 
