@@ -12,7 +12,7 @@ Use this action to get a short-term forecast, also called a nowcast, for one of 
 
 This is more detailed than the hourly forecast from the `weather.get_forecasts` action. Use it when the timing matters, for example to send yourself a heads-up a few minutes before rain reaches your house.
 
-The length of each interval is the **Minutes between NowCast forecasts** setting of the location: 1, 5, 15, 30, or 60 minutes. The action returns up to 30 intervals, so a 1-minute setting covers the next half hour and a 60-minute setting covers the next 30 hours. To change the setting, [reconfigure the location](/integrations/tomorrowio/#changing-a-location).
+The length of each interval is the **Minutes between NowCast forecasts** setting of the location: 1, 5, 15, 30, or 60 minutes. The action returns up to 30 intervals, so a 1-minute setting covers the next half hour and a 60-minute setting covers the next 30 hours. Tomorrow.io provides forecasts in intervals shorter than 60 minutes for up to 6 hours ahead, so the 15-minute and 30-minute settings return fewer intervals. To change the setting, [reconfigure the location](/integrations/tomorrowio/#changing-a-location).
 
 The action returns the data from the integration's latest scheduled update, so it does not use any of your Tomorrow.io API requests and you can call it as often as you like. The data is only as fresh as that update, and intervals that have already ended are left out.
 
