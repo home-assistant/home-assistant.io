@@ -38,7 +38,7 @@ Language:
   description: The language of the text. When left empty, the server language is used.
   required: false
 Conversation ID:
-  description: The ID of a new or previous conversation. Provide a previous ID to continue that conversation, or a new one to start a fresh conversation.
+  description: The ID of a new or previous conversation. Provide a previous ID to continue that conversation, or a new one to start a fresh conversation. A conversation ends after 5 minutes without activity. After that, the same ID starts a new conversation. If you start a conversation while signed in to your account, only your account can continue it. If an automation starts a conversation, any automation can continue it, but your account can't.
   required: false
 {% endoptions_ui %}
 
@@ -78,7 +78,11 @@ language:
 conversation_id:
   description: >
     The ID of a new or previous conversation. Provide a previous ID to continue
-    that conversation, or a new one to start a fresh conversation.
+    that conversation, or a new one to start a fresh conversation. A
+    conversation ends after 5 minutes without activity. After that, the same ID
+    starts a new conversation. If you start a conversation while signed in to
+    your account, only your account can continue it. If an automation starts a
+    conversation, any automation can continue it, but your account can't.
   required: false
   type: string
 {% endoptions_yaml %}
