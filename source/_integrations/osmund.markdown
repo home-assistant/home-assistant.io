@@ -59,7 +59,7 @@ Prices are per hour, or per quarter hour where your meter measures quarter hours
 
 {% include docs/paste_yaml_tip.md %}
 
-### Start the dishwasher at today's lowest price
+### Automation: Start the dishwasher at today's lowest price
 
 Fill the dishwasher, and let it start when the cheapest hour or quarter hour of the day begins. A time trigger only fires at a time that is still ahead, so if the cheapest time has already passed, the dishwasher waits for tomorrow's.
 
