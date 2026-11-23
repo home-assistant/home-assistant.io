@@ -11,7 +11,11 @@
   "categories": [
     "media_entertainment.speakers_audio"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
+    "diagnostics",
     "media_player",
     "number",
     "select",

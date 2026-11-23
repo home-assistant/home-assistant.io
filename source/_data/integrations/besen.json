@@ -11,6 +11,9 @@
   "categories": [
     "energy.ev_charging"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "diagnostics",
     "number",

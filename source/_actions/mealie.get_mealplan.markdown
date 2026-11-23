@@ -2,6 +2,7 @@
 title: "Get mealplan"
 action: mealie.get_mealplan
 domain: mealie
+response: required
 description: "Get the Mealie meal plan for a specified date range."
 related_actions:
   - mealie.set_mealplan
@@ -12,8 +13,6 @@ related_actions:
 ---
 
 Use this action to get the meal plan from Mealie for a specified date range. This is handy when you want to read out today's dinner, show it on a dashboard, or send it in a notification.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -77,6 +76,8 @@ end_date:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the meal plan entries for the date range, under a `mealplan` key. Each entry includes the meal type (such as `breakfast` or `dinner`), the date, and either the planned recipe or a note.
 

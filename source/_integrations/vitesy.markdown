@@ -11,6 +11,7 @@ Vitesy makes smart air purifiers and air quality monitors. This integration read
 ## Use cases
 
 - Keep an eye on the air quality inside your refrigerator and get notified when it drops.
+- Track temperature, humidity, and carbon dioxide in a room, for example to know when to open a window.
 - Track how often and how long the refrigerator door is opened.
 - Switch the purifier mode from Home Assistant, for example to boost after a grocery run.
 - Get a reminder when the purification filter is due to be cleaned or replaced.
@@ -21,10 +22,8 @@ Vitesy makes smart air purifiers and air quality monitors. This integration read
 The following devices are supported:
 
 - Vitesy Shelfy (the refrigerator air purifier)
-
-## Unsupported devices
-
-Other Vitesy products, such as Natede and Eteria, are not supported yet.
+- Vitesy Natede
+- Vitesy Eteria
 
 ## Prerequisites
 
@@ -57,6 +56,24 @@ Each device in your Vitesy Hub account is added as a separate device in Home Ass
 - **Door open duration**
   - **Description**: Total time the refrigerator door was open during the latest measurement period.
   - **Available for**: Shelfy
+- **Temperature**
+  - **Description**: Temperature measured in the room.
+  - **Available for**: Natede, Eteria
+- **Humidity**
+  - **Description**: Relative humidity measured in the room.
+  - **Available for**: Natede, Eteria
+- **Volatile organic compounds parts**
+  - **Description**: Concentration of volatile organic compounds (VOC) in the air, in parts per million (ppm).
+  - **Available for**: Natede, Eteria
+- **Carbon dioxide**
+  - **Description**: Carbon dioxide (CO₂) concentration in the air, in parts per million (ppm).
+  - **Available for**: Natede, Eteria
+- **Carbon monoxide**
+  - **Description**: Carbon monoxide (CO) concentration in the air, in parts per million (ppm).
+  - **Available for**: Natede models with a carbon monoxide sensor
+- **PM2.5**
+  - **Description**: Concentration of fine particulate matter (PM2.5) in the air, in micrograms per cubic meter (µg/m³).
+  - **Available for**: Natede
 - **Battery**
   - **Description**: Battery charge level. Shown as diagnostic information on the device page.
   - **Available for**: Shelfy
@@ -158,7 +175,7 @@ automation: |
 
 ## Known limitations
 
-- Only the Vitesy Shelfy is supported. Other Vitesy devices are not exposed yet.
+- Home Assistant only creates the environmental sensors that a device reports to Vitesy Hub. The exact set depends on the model and its sensor hardware.
 - The integration relies on the Vitesy Hub cloud service and needs an active internet connection.
 
 ## Troubleshooting

@@ -9,5 +9,8 @@
   "iot_class": "cloud_push",
   "categories": [
     "computers_network.cloud_developer_tools"
+  ],
+  "connectivity": [
+    "cloud"
   ]
 }

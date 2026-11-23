@@ -18,6 +18,9 @@
     "blinds_curtains",
     "plugs_switches"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

@@ -65,6 +65,30 @@ A smart meter can have multiple subdevices, also known as [M-Bus](https://m-bus.
 For the <abbr title="Dutch smart meter requirement">DSMR</abbr> version 5B, support was added for water and gas M-Bus devices. This means you can have up to 4 subdevices on your <abbr title="Dutch smart meter requirement">DSMR</abbr> meter.
 While previously only 1 gas meter was supported, there is now support for multiple gas and water meters.
 
+### Belgian DSMR 5B diagnostics
+
+Belgian DSMR 5B meters can provide additional diagnostic information, including the P1 version, electricity meter identifier, electricity switch position, and meter text message. Gas M-Bus devices can also expose their device type, meter identifier, and valve position when these fields are present in the meter telegram.
+
+The additional static diagnostic entities are disabled by default. To use one, go to **Settings** > **Devices & services** > **DSMR Smart Meter**, select the device, and enable the entity in its settings. Available entities depend on the fields included in the first successfully received telegram.
+
+#### Historical monthly maximum demand
+
+If a Belgian DSMR 5B meter provides the historical maximum-demand buffer, the **Historical monthly maximum demand** sensor shows the peak power of the most recent completed month in kW. Its `monthly_peaks` attribute contains available monthly records with the month, the peak power in kW, and the time the peak occurred.
+
+For example:
+
+```yaml
+monthly_peaks:
+  - month: "2025-09"
+    peak: 3.175
+    occurred: "2025-09-28T16:15:00+00:00"
+  - month: "2025-10"
+    peak: 3.277
+    occurred: "2025-10-29T16:30:00+00:00"
+```
+
+The `occurred` timestamp includes its time zone offset. This is one sensor containing a list of monthly peaks in its attributes, not a separate sensor for every month. The number of available months depends on the meter's data; invalid placeholder records are excluded. The integration does not reconstruct missing peaks from Home Assistant's own statistics.
+
 ### Connecting to the meter
 
 Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy.

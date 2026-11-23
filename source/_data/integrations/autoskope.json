@@ -12,6 +12,9 @@
     "presence_location.trackers",
     "vehicles_transport.cars_evs"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "device_tracker"
   ]

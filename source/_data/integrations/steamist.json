@@ -10,6 +10,9 @@
   "categories": [
     "water.pools_spas"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor",
     "switch"

@@ -12,6 +12,9 @@
     "lighting.bulbs_lamps",
     "health_wellbeing"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "binary_sensor",
     "button",
