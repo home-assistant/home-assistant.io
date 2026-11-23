@@ -8,6 +8,9 @@
     "presence_location.network_presence",
     "computers_network.routers_network"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "device_tracker"
   ]

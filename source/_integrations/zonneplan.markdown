@@ -5,7 +5,7 @@ ha_domain: zonneplan
 ---
 
 The **Zonneplan** {% term integration %} lets you retrieve electricity and gas price information from [Zonneplan](https://www.zonneplan.nl/), a Dutch provider of dynamic energy contracts and energy services, including home batteries and EV charge points.
-This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, the status, control mode and settings of your Zonneplan home battery, and the status of your EV charge point.
+This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, the status, control mode and settings of your Zonneplan home battery, and the status of your EV charge point. An action returns all known electricity prices, for example to plan when to charge an electric car.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ During setup, you are asked for the email address linked to your Zonneplan accou
 
 ## Data updates
 
-The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status and control mode of each home battery every 5 minutes (the battery settings refresh along with the control mode), and the status of each EV charge point every minute.
+The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status and control mode of each home battery every 5 minutes (the battery settings refresh along with the control mode), and the status of each EV charge point every minute. The price sensors also update at the start of every quarter hour, using the prices from the last update.
 
 ## Supported functionality
 
@@ -26,6 +26,7 @@ The Zonneplan integration retrieves data from the Zonneplan cloud API on a regul
 The following sensors are provided by this integration:
 
 - **Current electricity price**: The electricity price for the current hour.
+- **Current quarter-hour electricity price**: The electricity price for the current quarter hour.
 - **Next hour electricity price**: The electricity price for the next hour.
 - **Current electricity tariff group**: How Zonneplan classifies the price of the current hour: Low, Normal, or High.
 - **Current sustainability score**: Zonneplan's score, from 0 to 100%, for how sustainable the electricity supplied in the current hour is.
@@ -105,11 +106,13 @@ Each home battery device has these numbers, depending on what your battery suppo
 
 Changing a setting in Zonneplan also turns on its control mode. To prevent the battery from switching modes unexpectedly, the power limits can only be changed while the control mode is **Home optimization**, and the price spread only while it is **Day-ahead arbitrage**. In any other mode, changing them shows an error.
 
+{% include integrations/actions.md %}
+
 ## Known limitations
 
 ### Unsupported devices and functionality
 
-The integration does not yet expose entities for Zonneplan solar panels. EV charge points can't be controlled yet.
+The integration does not yet expose entities for Zonneplan solar panels. EV charge points can't be controlled yet. Only the charge point entities listed above are available. For home batteries, only the control mode and the numbers listed above can be changed; other battery settings are not available yet.
 
 ### Delayed usage data
 

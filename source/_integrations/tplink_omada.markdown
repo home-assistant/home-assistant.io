@@ -68,6 +68,13 @@ All adopted Omada devices expose:
 - WAN Port Online detection sensors
 - WAN Port Connect/Disconnect switches
 - LAN Port PoE activity sensor
+- VPN policy switches
+
+### VPN policy switches
+
+If your site has an Omada gateway, each VPN policy configured on the controller is added as a switch {% term entity %} on the gateway device. This includes VPN server, VPN client, and site-to-site policies. Turning a switch on or off enables or disables that VPN policy on the controller.
+
+VPN policies are polled every 5 minutes. New policies added on the controller are picked up automatically, and switches for deleted policies become unavailable.
 
 ## Device trackers
 
