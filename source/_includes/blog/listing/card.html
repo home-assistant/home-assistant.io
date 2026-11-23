@@ -11,11 +11,15 @@
 <a href="{{ post.url }}" class="blog-card{% if include.featured %} featured{% endif %}">
   {%- comment -%} Posts without an image of their own use the site's social image, as when they're shared. {%- endcomment %}
   <div class="blog-card-media">
-    {%- comment -%} The Home Assistant mark shows until the image loads, as on the Music Assistant blog. {%- endcomment %}
+    {%- comment -%}
+      The Home Assistant mark shows until the image loads, as on the Music
+      Assistant blog. An image that fails to load is replaced with the
+      site's social image, once, so a missing default can't loop.
+    {%- endcomment %}
     <span class="blog-card-placeholder" aria-hidden="true">
       <svg viewBox="0 0 24 24" width="48" height="48" focusable="false"><path fill="currentColor" d="M22.939 10.627L13.061.749a1.505 1.505 0 0 0-2.121 0l-9.879 9.878C.478 11.21 0 12.363 0 13.187v9c0 .826.675 1.5 1.5 1.5h9.227l-4.063-4.062a2 2 0 0 1-.664.113c-1.13 0-2.05-.92-2.05-2.05s.92-2.05 2.05-2.05s2.05.92 2.05 2.05c0 .233-.041.456-.113.665l3.163 3.163V9.928a2.05 2.05 0 0 1-1.15-1.84c0-1.13.92-2.05 2.05-2.05s2.05.92 2.05 2.05a2.050 2.050 0 0 1-1.15 1.84v8.127l3.146-3.146A2.05 2.05 0 0 1 18 12.239c1.13 0 2.05.92 2.05 2.05s-.92 2.05-2.05 2.05a2 2 0 0 1-.709-.13L12.9 20.602v3.088h9.6c.825 0 1.5-.675 1.5-1.5v-9c0-.825-.477-1.977-1.061-2.561z"/></svg>
     </span>
-    <img src="{{ post.og_image | default: '/images/default-social.png' }}" alt="" width="1200" height="630" {% if include.featured %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async" onload="this.parentNode.classList.add('loaded')" onerror="this.parentNode.classList.add('loaded')" />
+    <img src="{{ post.og_image | default: '/images/default-social.png' }}" alt="" width="1200" height="630" {% if include.featured %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async" onload="this.parentNode.classList.add('loaded')" onerror="this.onerror=null;this.src='/images/default-social.png'" />
   </div>
   <div class="blog-card-body">
     <div class="blog-card-meta">
@@ -24,11 +28,7 @@
       {%- endif %}
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
     </div>
-    {%- if include.featured %}
     <h2 class="blog-card-title">{{ post.title }}</h2>
-    {%- else %}
-    <h3 class="blog-card-title">{{ post.title }}</h3>
-    {%- endif %}
     {%- if post.description %}
     <p class="blog-card-description">{% if include.featured %}{{ post.description | truncate: 260, "…" }}{% else %}{{ post.description | truncate: 140, "…" }}{% endif %}</p>
     {%- endif %}
