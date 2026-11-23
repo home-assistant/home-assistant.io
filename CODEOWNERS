@@ -855,6 +855,7 @@ source/_integrations/opnsense.markdown @HarlemSquirrel @Snuffy2
 source/_integrations/opower.markdown @tronikos
 source/_integrations/oralb.markdown @bdraco @Lash-L
 source/_integrations/oru_opower.markdown @tronikos
+source/_integrations/osmund.markdown @maziarzamani
 source/_integrations/osoenergy.markdown @osohotwateriot
 source/_integrations/osram_infrared.markdown @freeDom-
 source/_integrations/otbr.markdown @home-assistant/core
