@@ -14,7 +14,7 @@ related:
 
 Assist can run entirely on your own hardware. Your spoken commands never leave your home: a microphone hears you, a local speech-to-text engine turns your voice into text, Home Assistant figures out what you want, and a local text-to-speech engine speaks the answer back. This guide walks you through setting that up.
 
-If you would rather not run all of that yourself, the simplest path is to use the speech-to-text and text-to-speech voices included with [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/). Both options work well, and you can switch between them later.
+If you would rather not run all of that yourself, the simplest path is to use the speech-to-text and text-to-speech voices included with [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/). Both options work well, and you can switch between them later.
 
 ## Prerequisites
 
