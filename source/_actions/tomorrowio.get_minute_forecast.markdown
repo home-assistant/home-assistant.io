@@ -51,7 +51,7 @@ This stores the nowcast for `weather.home_daily` in `nowcast`.
 
 This action has no options beyond the target.
 
-{% include actions/targets.md domain="weather" %}
+{% include actions/targets.md domain="weather" entity_type="Tomorrow.io weather entity" example="weather.home_daily" %}
 
 ## Response data
 
