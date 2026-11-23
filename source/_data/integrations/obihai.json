@@ -1,0 +1,24 @@
+{
+  "domain": "obihai",
+  "name": "Obihai",
+  "integration_type": "device",
+  "codeowners": [
+    "@dshokouhi",
+    "@ejpenney"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "messaging_notifications.email_sms_calls"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "button",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

@@ -1,21 +1,7 @@
 ---
-title: Axle Energy
 description: Instructions on how to use Axle Energy grid event schedules in Home Assistant.
-ha_categories:
-  - energy
 ha_release: '2026.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Herbertmt978'
 ha_domain: axle_energy
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **Axle Energy** {% term integration %} shows the grid event schedule for your [Axle Energy](https://www.axle.energy/) account. You can use the event direction and start and end times in your automations to prepare for an import or export event.
@@ -76,8 +62,8 @@ This example creates a notification in Home Assistant when the scheduled export 
 
 - **Trigger**: Time, using the Axle Energy **Event start** sensor
 - **Condition**: State, with the Axle Energy **Event type** sensor set to `export`
-- **Action**: Create persistent notification
-  - **Message**: Your Axle export event is starting.
+- **Action**: Persistent Notification: Create persistent notification
+  - **Message**: `Your Axle export event is starting.`
 
 {% details "YAML example for an export event notification" %}
 
@@ -106,8 +92,8 @@ automation: |
 This example creates a notification at the scheduled end of an import or export event.
 
 - **Trigger**: Time, using the Axle Energy **Event end** sensor
-- **Action**: Create persistent notification
-  - **Message**: Your Axle event has reached its scheduled end.
+- **Action**: Persistent Notification: Create persistent notification
+  - **Message**: `Your Axle event has reached its scheduled end.`
 
 {% details "YAML example for an event end notification" %}
 
@@ -133,8 +119,8 @@ This example creates a persistent notification one hour before a scheduled Axle 
 
 - **Trigger**: Time, using the Axle Energy **Event start** sensor
 - **Condition**: State, with the Axle Energy **Event type** sensor set to `export`
-- **Action**: Create notification
-  - **Message**: Your Axle export event starts in one hour.
+- **Action**: Persistent Notification: Create persistent notification
+  - **Message**: `Your Axle export event starts in one hour.`
 
 To set the reminder in the UI, select **Value of a date/time helper or timestamp-class sensor** in the **Time** trigger, choose your **Event start** sensor, and enter `-01:00:00` in **Offset**. To send the reminder two hours before the event, change the offset to `-02:00:00` and update the automation alias and notification message to say two hours.
 

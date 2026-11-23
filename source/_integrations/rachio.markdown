@@ -1,23 +1,7 @@
 ---
-title: Rachio
 description: Instructions on how to use Rachio with Home Assistant.
-ha_categories:
-  - garden_plants
-ha_iot_class: Cloud Push
 ha_release: 0.73
 ha_domain: rachio
-ha_codeowners:
-  - '@bdraco'
-  - '@rfverbruggen'
-ha_config_flow: true
-ha_homekit: true
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - switch
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **Rachio** {% term integration %} allows you to control your [Rachio irrigation system](https://rachio.com/).
@@ -38,7 +22,7 @@ They will be automatically added if the Rachio integration is loaded.
 4. Copy the API key from the dialog that opens.
 
 {% important %}
-In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information. The smart hose timers use polling and don't require external access to be set up.
+In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Link or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information. The smart hose timers use polling and don't require external access to be set up.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}

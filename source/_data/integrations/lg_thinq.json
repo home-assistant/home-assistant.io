@@ -1,0 +1,34 @@
+{
+  "domain": "lg_thinq",
+  "name": "LG ThinQ",
+  "integration_type": "hub",
+  "codeowners": [
+    "@LG-ThinQ-Integration"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "appliances_cleaning",
+    "climate"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "diagnostics",
+    "event",
+    "fan",
+    "humidifier",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "vacuum",
+    "water_heater"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

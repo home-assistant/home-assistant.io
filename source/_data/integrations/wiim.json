@@ -1,0 +1,25 @@
+{
+  "domain": "wiim",
+  "name": "WiiM",
+  "integration_type": "device",
+  "codeowners": [
+    "@Linkplay2020"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "diagnostics",
+    "media_player",
+    "select"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

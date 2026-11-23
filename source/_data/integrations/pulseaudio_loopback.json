@@ -1,0 +1,16 @@
+{
+  "domain": "pulseaudio_loopback",
+  "name": "PulseAudio Loopback",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "connectivity": [
+    "host",
+    "network"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

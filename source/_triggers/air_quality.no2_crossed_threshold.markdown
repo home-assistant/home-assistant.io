@@ -60,7 +60,7 @@ This fires when the street-side NO2 sensor reading rises above 40 μg/m³.
    unit_example_entity="input_number.no2_alert_level"
    unit_example_value="25" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="nitrogen dioxide sensor" example="sensor.living_room_nitrogen_dioxide" %}
 
 {% include triggers/behavior.md %}
 

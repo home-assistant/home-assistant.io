@@ -1,27 +1,7 @@
 ---
-title: Imou
 description: Integrate Imou smart devices into Home Assistant.
-ha_categories:
-  - security_safety.cameras
-ha_iot_class: Cloud Polling
 ha_release: 2026.7
-ha_config_flow: true
-ha_dhcp: true
 ha_domain: imou
-ha_codeowners:
-  - '@Imou-OpenPlatform'
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - select
-  - sensor
-  - siren
-  - switch
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
@@ -74,6 +54,8 @@ When adding the integration, select **Server region** to match your Open Platfor
 - **China** (`cn`)
 
 These regions correspond to the API endpoints used by the integration.
+
+An existing entry keeps the server it was already using. If it was saved as **Europe** or **North America**, Home Assistant changes the saved **Server region** to the name of that server. If the name does not match your account, update **Server region** as described below.
 
 ### Updating credentials and server region
 

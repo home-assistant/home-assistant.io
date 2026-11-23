@@ -2,6 +2,7 @@
 title: "Search Music Assistant"
 action: music_assistant.search
 domain: music_assistant
+response: required
 description: "Performs a global search on the Music Assistant library and all providers."
 related_actions:
   - music_assistant.get_library
@@ -10,7 +11,7 @@ related_actions:
 
 Use this action to search the Music Assistant library and all connected providers at once. This gives you programmatic access to the full catalog of your music providers, which you can use to build a dashboard where any track can be found and played.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script. It does not change anything on a player.
+This action does not change anything on a player.
 
 {% include actions/ui_header.md %}
 
@@ -101,6 +102,8 @@ username:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns lists of matching items, grouped by media type: `artists`, `albums`, `tracks`, `playlists`, `radio`, `audiobooks`, and `podcasts`. Each item includes details such as its name and URI, which you can pass to the [Play media](/actions/music_assistant.play_media/) action.
 

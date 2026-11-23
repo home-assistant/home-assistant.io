@@ -97,7 +97,7 @@ trigger: |
    unit_example_entity="input_number.comfort_temperature_min"
    unit_example_value="24" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="temperature sensor, thermostat, water heater, or weather entity" example="sensor.living_room_temperature" %}
 
 ## Good to know
 

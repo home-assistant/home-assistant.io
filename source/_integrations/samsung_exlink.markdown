@@ -1,18 +1,7 @@
 ---
-title: Samsung TV via ExLink
 description: Instructions on how to integrate Samsung TVs via their ExLink (RS-232) serial port into Home Assistant.
-ha_categories:
-  - media_entertainment.tv_streaming
-ha_iot_class: Local Polling
 ha_release: 2026.9
-ha_codeowners:
-  - '@balloob'
-ha_config_flow: true
 ha_domain: samsung_exlink
-ha_platforms:
-  - media_player
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **Samsung TV via ExLink** {% term integration %} lets you control Samsung consumer TVs by connecting to their RS-232 serial port, which Samsung markets as **ExLink** (also written EX-Link or EXT Link). Because Home Assistant talks straight to the TV, control is local and fast, and it also works on TVs that lack smart features or a network connection.
@@ -67,6 +56,30 @@ For supported TVs, you can use Home Assistant to:
 - Change the volume and step it up or down.
 - Mute and unmute the TV.
 - Select the input source.
+
+### Remote
+
+The integration also creates a remote entity for the TV. You can use it to turn the TV on or off, or to send one or more remote key commands with the [**Send remote command**](/actions/remote.send_command/) action. Use Samsung ExLink key names, such as `KEY_HOME` or `KEY_VOLUP`. For the full list, see the [key names in the samsung-exlink library](https://github.com/home-assistant-libs/samsung-exlink/blob/main/src/samsung_exlink/const.py). Whether a key has an effect depends on your TV model.
+
+The remote entity state follows the TV's reported power state. It becomes unavailable when the serial connection is lost.
+
+ To send a key command from the UI:
+ 
+ 1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
+ 2. Select **Send remote command** (`remote.send_command`).
+ 3. Select **Add target** and choose your TV's remote entity.
+ 4. In **Command**, enter `KEY_HOME`.
+ 5. Select **Perform action**.
+ 
+ If you prefer YAML, use the following action with your TV's remote entity ID:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.samsung_tv
+data:
+  command: KEY_HOME
+```
 
 ## Data updates
 

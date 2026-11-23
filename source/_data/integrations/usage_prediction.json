@@ -1,0 +1,10 @@
+{
+  "domain": "usage_prediction",
+  "name": "Usage Prediction",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "iot_class": "calculated",
+  "quality_scale": "internal"
+}

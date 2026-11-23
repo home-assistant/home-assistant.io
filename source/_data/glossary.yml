@@ -80,7 +80,7 @@
     of your configuration. This can be used to restore your Home Assistant as
     well as migrate to a new system. The backup feature is available for all
     [installation types](/installation/#about-installation-types).
-  link: /common-tasks/general/#backups
+  link: /common-tasks/general/backups/
   aliases:
     - backups
 - term: Binary sensor
@@ -141,7 +141,7 @@
     Devices that talk over local protocols such as Zigbee, Z-Wave, Matter,
     Thread, and ESPHome continue to work even when the internet is down or a
     manufacturer shuts down its cloud service. Optional cloud features, such as
-    [Home Assistant Cloud](https://www.nabucasa.com), can be added on top, but
+    [Home Assistant Link](https://www.nabucasa.com), can be added on top, but
     the core of your smart home stays on your own hardware.
   excerpt: >-
     Cloud-independent means Home Assistant does not need an internet
@@ -532,10 +532,10 @@
     Applies the changes made to the Home Assistant configuration files. Changes
     are normally automatically updated. However, changes made outside of the
     front end will not be reflected in Home Assistant and require a reload. To
-    perform a manual reload, go to **Settings** > **System** > **Restart Home
-    Assistant** (top right) > **Quick reload**. More granular reload options
-    are available in *YAML configuration reloading* section in **Settings** >
-    **Tools** > **YAML**.
+    reload, go to **Settings** > **System**, select the power icon in the
+    top-right corner, and then select **Quick reload**. To reload only some
+    parts, go to **Settings** > **Tools** > **YAML**.
+  link: /common-tasks/general/restarting/#reloading-the-yaml-configuration
   excerpt: >
     Applies the changes made to Home Assistant configuration files. Changes are
     normally automatically updated. However, changes made outside of the front

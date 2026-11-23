@@ -1,24 +1,7 @@
 ---
-title: Renault
 description: Instructions on how to integrate your Renault, Dacia, or Alpine vehicle into Home Assistant using the My Renault service.
-ha_categories:
-  - vehicles_transport.cars_evs
 ha_release: 2021.8
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@epenet'
 ha_domain: renault
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - number
-  - select
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Renault** {% term integration %} connects your Renault, Dacia, or Alpine vehicle to Home Assistant through the **My Renault** cloud service. It uses the same account as the My Renault app on your phone.
@@ -171,6 +154,9 @@ On the device page, the **Minimum charge level** and **Target charge level** num
   - **Description**: The total distance traveled by the vehicle
 - **Outside temperature**
   - **Description**: The temperature outside the vehicle
+- **Inside temperature**
+  - **Description**: The temperature inside the vehicle.
+  - **Remarks**: Updated only when the vehicle sends data, for example at the end of a trip, so the value can be outdated while the vehicle is parked.
 - **HVAC SoC threshold**
   - **Description**: The minimum battery <abbr title="state of charge">SoC</abbr>, in %, needed to start the air conditioning remotely
 - **Front left tyre pressure**, **Front right tyre pressure**, **Rear left tyre pressure**, and **Rear right tyre pressure**
@@ -179,7 +165,7 @@ On the device page, the **Minimum charge level** and **Target charge level** num
   - **Description**: The status of the last remote engine start
 - **Last battery activity**, **Last HVAC activity**, and **Last location activity**
   - **Description**: When the vehicle last reported battery, air conditioning, or location data
-  - **Remarks**: These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **Remote engine start code**
   - **Description**: The code of the last remote engine start
   - **Remarks**: This entity is disabled by default
@@ -197,8 +183,9 @@ Here are some ideas to get you started.
 
 Send a notification to your phone when your vehicle finishes charging. Replace the entity IDs in the example with the entity IDs of your vehicle and phone.
 
-- **Trigger**: State: **Charge state** changes to **Charge ended**
+- **Trigger**: State changed
   - **Target**: Your vehicle's **Charge state** sensor
+  - **To**: Charge ended
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -228,9 +215,9 @@ Start the air conditioning at 19°C at 7:30 on weekdays, so the cabin is comfort
 - **Trigger**: Time
   - **At time**: `07:30:00`
   - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, and Friday
-- **Action**: Start A/C
-  - **Vehicle**: Your vehicle
-  - **Temperature**: `19`
+- **Action**: Renault: Start A/C
+  - **Vehicle**: `abcde1234567890abcde1234567890ab`
+  - **Temperature**: `19`°C
 
 {% details "YAML example for pre-heating the cabin on weekday mornings" %}
 

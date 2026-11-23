@@ -1,18 +1,7 @@
 ---
-title: Electra Smart
 description: Instructions on how to integrate Electra Smart air conditioners with Home Assistant.
-ha_categories:
-  - climate.heat_pumps_air_conditioning
 ha_release: 2023.6
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@jafar-atili'
 ha_domain: electrasmart
-ha_dhcp: true
-ha_platforms:
-  - climate
-ha_integration_type: hub
 ---
 
 The **Electra Smart** {% term integration %} lets you control air conditioners from [Electra Air](https://www.electra-air.co.il) that are registered in the **Electra Smart** mobile app. Every air conditioner on your Electra account is added to Home Assistant as a {% term climate %} {% term entity %}.

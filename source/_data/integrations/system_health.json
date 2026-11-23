@@ -1,0 +1,6 @@
+{
+  "domain": "system_health",
+  "name": "System Health",
+  "integration_type": "system",
+  "quality_scale": "internal"
+}

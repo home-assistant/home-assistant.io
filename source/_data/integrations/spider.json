@@ -1,0 +1,6 @@
+{
+  "domain": "spider",
+  "name": "Itho Daalderop Spider",
+  "integration_type": "system",
+  "iot_class": "cloud_polling"
+}

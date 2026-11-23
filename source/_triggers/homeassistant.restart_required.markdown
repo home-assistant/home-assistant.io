@@ -32,6 +32,14 @@ trigger: |
 
 In templates, `trigger.sources` holds the integrations that asked for the restart when the trigger fired, such as `["hacs"]`.
 
+## Trigger variables
+
+When the trigger reacts, the `trigger` variable contains the following data:
+
+- `trigger.sources`: List of the integrations that asked for a restart, by their domain, in alphabetical order.
+
+For the data that all triggers include, refer to [Trigger data in templates](/docs/automation/trigger-data/#properties-of-all-triggers).
+
 ## Good to know
 
 - The trigger fires once, when the first integration asks for a restart. More integrations asking after that do not fire it again, because the restart is already pending.

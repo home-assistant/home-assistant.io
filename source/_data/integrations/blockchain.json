@@ -1,0 +1,15 @@
+{
+  "domain": "blockchain",
+  "name": "Blockchain.com",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "finance"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -1,23 +1,7 @@
 ---
-title: DoorBird
 description: Instructions on how to integrate your DoorBird video doorbell with Home Assistant.
-ha_categories:
-  - security_safety.doorbells_intercoms
 ha_release: 0.54
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@oblogic7'
-  - '@bdraco'
-  - '@flacjacket'
 ha_domain: doorbird
-ha_zeroconf: true
-ha_platforms:
-  - button
-  - camera
-  - event
-  - image
-ha_integration_type: device
 ---
 
 The **DoorBird** {% term integration %} allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
@@ -117,6 +101,8 @@ You can also create automation actions based on the DoorBird RFID scanner being 
 ## Camera
 
 The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
+
+Models that support it, such as the D11x series, also serve the live video in 1080p. This is available as a separate **Live 1080p** camera entity, which is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 The last doorbell ring and last motion still images are also available as [image](#image) entities.
 

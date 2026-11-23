@@ -1,19 +1,7 @@
 ---
-title: Forecast.Solar
 description: Instructions on how to integrate Forecast.Solar within Home Assistant.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 2021.7
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@klaasnicolaas'
-  - '@frenck'
 ha_domain: forecast_solar
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **Forecast.Solar** {% term integration %} estimates how much energy your solar panels will produce, using the [Forecast.Solar](https://forecast.solar/) service. The forecast combines the location, orientation, and size of your panels with historic averages and weather data, so you can plan ahead and use your own solar energy as efficiently as possible.
@@ -47,10 +35,8 @@ Azimuth:
 The second step asks only for what you chose in the first step. For each angle, you enter either a fixed value or a sensor, never both.
 
 {% configuration_basic %}
-Latitude:
-  description: "The latitude of your solar panels. Only asked for if you selected **Enter fixed coordinates**. Pre-filled with your Home Assistant home location."
-Longitude:
-  description: "The longitude of your solar panels. Only asked for if you selected **Enter fixed coordinates**. Pre-filled with your Home Assistant home location."
+Location:
+  description: "The location of your solar panels. Only asked for if you selected **Enter fixed coordinates**. Pre-filled with your Home Assistant home location."
 Declination (0 = Horizontal, 90 = Vertical):
   description: "The tilt of your panels in degrees, from 0 (flat) to 90 (upright). Only asked for if you selected **Enter a fixed tilt**."
 Declination sensor:
@@ -156,7 +142,7 @@ The following sensors are enabled by default:
 - **Highest power peak time - today**: The time of the highest expected power peak today.
 - **Highest power peak time - tomorrow**: The time of the highest expected power peak tomorrow.
 
-The following sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable them in the user interface if you want to use them:
+The following sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Enable them in the user interface if you want to use them:
 
 - **Estimated power production - in 1 hour**: Estimated power production one hour from now, in Watt.
 - **Estimated power production - in 12 hours**: Estimated power production twelve hours from now, in Watt.
