@@ -65,12 +65,15 @@ For security, create a dedicated Proxmox VE user for Home Assistant and grant on
 
 ### Choose the right role
 
-The minimum required permissions depend on what you want to do:
+Home Assistant only creates the entities your Proxmox VE user has privileges for. The privileges you need depend on what you want to do:
 
-- **Monitor only** (sensors and binary sensors): The **Auditor** role (`PVEAuditor`) is typically sufficient.
-- **Monitor and control** (button entities like start, stop, reboot): You will need a role that allows those actions, such as **User** (`PVEVMUser`) or another custom role that includes the required privileges.
+- Monitor nodes, VMs, containers, and storages: the `PVEAuditor` role.
+- Start, stop, and restart VMs and containers: `VM.PowerMgmt`, included in the `PVEVMUser` role.
+- Create snapshots: `VM.Snapshot`, included in the `PVEVMAdmin` role.
+- Restart and shut down nodes: `Sys.PowerMgmt`.
+- Show updates for nodes: `Sys.Modify`.
 
-If you are not sure which privileges you need for control in your Proxmox VE setup, start with `PVEVMUser`, confirm everything works, and then tighten the permissions by switching to a custom role. If you want full but responsible control start with `PVEVMAdmin`.
+`PVEVMUser` and `PVEVMAdmin` do not include `Sys.Audit`, which the node sensors need, so assign them together with `PVEAuditor`. `Sys.PowerMgmt` and `Sys.Modify` are only included in the `Administrator` role. To use them without full access, create a custom role with only the privileges you need.
 
 ### Create a Home Assistant group
 
@@ -98,9 +101,10 @@ Assign the role you chose to the group at the root path (**/**) so it applies to
 3. Open **Add** and select **Group Permission**.
 4. For **Path**, select **/**.
 5. For **Group**, select your Home Assistant group (`HomeAssistant`).
-6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only) or **PVEVMUser** (monitoring plus basic actions).
+6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only).
 7. Make sure **Propagate** is checked.
 8. Confirm **Create**.
+9. To add another role, like **PVEVMUser**, repeat these steps.
 
 {% enddetails %}
 
@@ -183,7 +187,7 @@ Some entities are not enabled by default. You can enable them from the device pa
 
 ### Buttons
 
-Buttons are only created when the Proxmox VE user has the required privileges (see [Buttons not working](#buttons-not-working)).
+Buttons are only created when the Proxmox VE user has the required privileges (see [Choose the right role](#choose-the-right-role)).
 
 - **Create snapshot**: Creates a snapshot of a VM/LXC.
 - **Start**: Starts a VM/LXC.
@@ -298,16 +302,14 @@ Home Assistant does not remove snapshots. Each time the automation runs, it adds
 
 ## Troubleshooting
 
-### Buttons not working
+{% details "Buttons, node sensors, or the update entity are missing" %}
 
-If you want to use the `button` entities to perform actions on your node(s), additional privileges may be required:
-- For actions related to power, such as start, stop, or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerMgmt`, or role `PVEVMUser`.
-- To create snapshots, the privilege `VM.Snapshot` is required, or role `PVEVMAdmin`.
-If monitoring works (for example, sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
+Home Assistant only creates entities your Proxmox VE user has privileges for. For example, with only the `PVEVMUser` role, a node shows just its status sensor.
 
-### Update unavailable
+1. Check the privileges of your user against [Choose the right role](#choose-the-right-role), and add what is missing in Proxmox VE.
+2. Home Assistant reads the privileges when the integration starts. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Proxmox VE**, and reload the integration.
 
-If the update entity for any of your nodes shows **Unavailable**, make sure your Proxmox VE user has the `Sys.Modify` privilege or the `PVEAdmin` role.
+{% enddetails %}
 
 ### Diagnostic data
 
