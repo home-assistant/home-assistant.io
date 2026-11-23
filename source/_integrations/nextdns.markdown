@@ -190,7 +190,7 @@ The **NextDNS** integration provides the following entities.
 - **Block residential hosting**
   - **Description**: Controls blocking of residential hosting
 - **Block rotating ad domains**
-  - **Description**: Controls blocking of ad domains that change often to avoid ad blockers
+  - **Description**: Controls blocking of advertisements that hide behind constantly changing domains; NextDNS identifies the advertising infrastructure behind new domains, so it can block them before popular blocklists catch up
 - **Block social networks**
   - **Description**: Controls blocking of social networks
   - **Remarks**: This entity is disabled by default
