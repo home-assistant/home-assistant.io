@@ -85,8 +85,8 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
 - **Voltage**: Battery pack voltage.
 - **Current**: Battery pack current.
 - **Battery temperature**: Battery pack temperature.
-- **Battery temperature min**: Lowest battery cell temperature. This sensor is disabled by default.
-- **Battery temperature max**: Highest battery cell temperature. This sensor is disabled by default.
+- **Minimum battery temperature**: Lowest battery cell temperature. This sensor is disabled by default.
+- **Maximum battery temperature**: Highest battery cell temperature. This sensor is disabled by default.
 - **Cabin temperature**: Temperature inside the vehicle.
 - **External temperature**: Outside air temperature.
 - **Driving state**: The gear the vehicle is in. Possible states are:
