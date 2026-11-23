@@ -111,6 +111,12 @@ If you see a "Cannot connect" error during setup, verify that:
 
 Most INDI Allsky servers are discovered automatically via Zeroconf. If your server is not discovered, verify that Zeroconf/mDNS (Avahi) is enabled on your INDI Allsky server and that multicast traffic is not blocked across network subnets or VLANs.
 
+### Downloading diagnostics
+
+If you need to report an issue, you can download [diagnostics](/integrations/diagnostics/) from the **INDI Allsky** integration.
+
+The downloaded JSON file contains your connection state and latest coordinator data. Sensitive fields such as your host, username, and password are automatically redacted. Review the file before sharing it to verify that it does not contain any other sensitive information.
+
 ## Known limitations
 
 - The integration can't sign in with OpenID Connect (OIDC). If you use OIDC with INDI Allsky, keep username and password sign-in turned on (`LOCAL_AUTH_ENABLE` set to `true`) and use a local user account for Home Assistant.
