@@ -107,10 +107,6 @@ access_token:
 
 1. Install and start the Velbus Manager app and configure **Bus connections** in the Manager UI.
 2. Add the Velbus integration and choose **Via Velbus Manager**.
-3. Use:
-
-- host: `manager`
-- port: `4201`
 3. Enter these values:
    - host: `manager`
    - port: `4201`
