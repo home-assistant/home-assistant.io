@@ -15,6 +15,7 @@
     "serial"
   ],
   "platforms": [
-    "media_player"
+    "media_player",
+    "remote"
   ]
 }

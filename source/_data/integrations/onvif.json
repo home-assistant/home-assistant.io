@@ -18,6 +18,7 @@
     "button",
     "camera",
     "diagnostics",
+    "event",
     "sensor",
     "switch"
   ],
