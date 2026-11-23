@@ -53,14 +53,14 @@ Each heating circuit has a **Heating** climate entity. It shows the room tempera
 
 The HVAC modes of the climate entity map to the Viessmann operation modes:
 
-- `off`: `Standby`, which switches off heating and domestic hot water. Devices without standby use `DHW` (hot water only) or `ForcedReduced` instead.
-- `heat`: `ForcedNormal`, which permanently heats to the normal temperature.
-- `auto`: `DHWandHeating`, which switches between the reduced and normal temperature following the schedule programmed in your device.
-- `cool`: `Cooling`, on heat pumps that can cool.
+- `off`: `standby`, which switches off heating and domestic hot water. Devices without standby use `dhw` (hot water only) or `forcedReduced` instead.
+- `heat`: `forcedNormal`, which permanently heats to the normal temperature.
+- `auto`: the first of `dhwAndHeatingCooling`, `dhwAndHeating`, `heatingCooling`, and `heating` that the device supports. These follow the schedule programmed in your device, switching between the reduced and normal temperature.
+- `cool`: `cooling`, on heat pumps that can cool.
 
-Each heating circuit also has an **Operating mode** select that offers all operation modes the device reports, such as **DHW only**, **DHW and heating**, or **Standby**. The climate entity maps several of these modes to the same HVAC mode, the select sets each one directly.
+Each heating circuit also has an **Operating mode** select that offers all operation modes the device reports, such as **DHW only**, **DHW and heating**, or **Standby**. The climate entity maps several of these modes to the same HVAC mode, but the select sets each one directly.
 
-The `climate.set_temperature` action changes the normal temperature or, if a preset is active, the temperature of the preset. The presets *eco* and *comfort* are the Viessmann programs of the same name and end after 8 hours. Eco lowers the target temperature by 3 °C, comfort heats to a temperature you configure. Number entities set the temperatures of the reduced, normal, and comfort programs, and the slope and shift of the heating curve.
+The `climate.set_temperature` action changes the temperature of the active program: the reduced or normal temperature, following your schedule, or the temperature of the preset if one is active. The presets *eco* and *comfort* are the Viessmann programs of the same name and end after 8 hours. Eco lowers the target temperature by 3 °C, and comfort heats to a temperature you configure. Number entities set the temperatures for the reduced, normal, and comfort programs, as well as the slope and shift of the heating curve.
 
 The holiday programs appear as **Holiday** and **Holiday at home** binary sensors, with sensors for their start and end dates.
 
@@ -68,7 +68,7 @@ The holiday programs appear as **Holiday** and **Holiday at home** binary sensor
 
 The **Domestic hot water** water heater entity shows the hot water temperature and sets its target. It cannot switch hot water on or off. Use the **DHW operating mode** select if your device has one, or the **Operating mode** select of the heating circuit.
 
-The **Activate one-time charge** button heats the hot water once, also outside of the schedule. Depending on the device, it heats to the normal or to the **DHW secondary temperature**.
+The **Activate one-time charge** button heats the hot water once, also outside of the schedule. Depending on the device, it heats to the normal temperature or to the **DHW secondary temperature**. The **Deactivate one-time charge** button stops it.
 
 If your device has a domestic hot water circulation pump, you can read its weekly schedule with the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action and change it with the [Set circulation schedule](/actions/vicare.set_circulation_schedule/) action.
 
@@ -303,7 +303,7 @@ Use your API client only for one Home Assistant installation. Two installations 
 - The water heater entity sets the target temperature only. Switching hot water on or off goes through the operating mode selects.
 - The Viessmann API does not provide the names of the rooms of a ViCare room control.
 
-## Report a new device or a missing value
+## Reporting a new device or a missing value
 
 The integration only creates entities for the data points that the Viessmann API reports for your device. If your device has only a few entities, or a value you see in the ViCare app is missing in Home Assistant, it most likely needs support in [PyViCare](https://github.com/openviess/PyViCare), the library that reads the data for Home Assistant:
 
