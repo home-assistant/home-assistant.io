@@ -35,7 +35,7 @@ Support for tech-in messages is not implemented.
 
 {% include integrations/config_flow.md %}
 
-Despite the UI-based configuration of the hub, the entities are still configured using YAML see next chapters).
+Despite the UI-based configuration of the hub, lights, sensors and switches are still configured using YAML (see next chapters). Binary sensors configured in YAML are [imported into the integration](#binary-sensor).
 
 ## Binary sensor
 
@@ -51,7 +51,18 @@ The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/spec
 - F6-02-01 (Light and Blind Control - Application Style 1)
 - F6-02-02 (Light and Blind Control - Application Style 2)
 
-To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file.
+### Binary sensors configured in YAML
+
+Configuring EnOcean binary sensors in {% term "`configuration.yaml`" %} is deprecated and will be removed in Home Assistant 2027.6.
+
+If you have binary sensors configured in YAML, they are imported into the EnOcean integration automatically when Home Assistant starts. Each one is then listed as a device under your EnOcean hub and keeps its entity ID. A repair issue is created to remind you to remove the YAML configuration:
+
+1. Remove the entries with `platform: enocean` under `binary_sensor:` from your {% term "`configuration.yaml`" %} file. Keep the EnOcean entries under `light:`, `sensor:` and `switch:`; they are not imported yet.
+2. Restart Home Assistant.
+
+A binary sensor is not imported if its `id` is not four bytes long, or if the EnOcean hub is not set up. The repair issue then says which of the two applies.
+
+Until the YAML configuration is removed, a binary sensor can still be added with the following entry, which is then imported as described above.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
