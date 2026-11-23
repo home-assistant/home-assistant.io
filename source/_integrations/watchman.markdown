@@ -29,9 +29,3 @@ Options for Kingspan Watchman SENSiT can be set via the user interface.
 
 - **Usage window**: The number of recent days used to calculate the rolling usage rate and the predicted empty date. Default: 14.
 - **Oil energy density**: The conversion factor used for oil-to-energy calculations, in kWh per litre. The default of 9.8 assumes 10.35 kWh per litre for heating oil and a boiler efficiency of 95%.
-
-## Energy Dashboard
-
-Home Assistant Energy Management does not include native support for oil consumption, so you must configure it using the gas consumption interface. 
-
-This integration provides a continuous `sensor.oil_consumption` entity tracking the monotonically increasing amount of oil consumed, represented in kWh. Add this sensor as your source of gas usage.
