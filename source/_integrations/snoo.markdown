@@ -91,6 +91,10 @@ Allows you to turn on SNOO’s soothing sounds before you put your baby in SNOO 
 
 Starts sleepytime sounds and motion for the SNOO. This adheres to settings such as car ride or weaning mode.
 
+## Data updates
+
+The integration subscribes to updates from your SNOO through the Happiest Baby cloud. It asks for the SNOO's status once when it starts, and after that the SNOO pushes changes as they happen.
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}

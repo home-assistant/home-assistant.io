@@ -263,6 +263,13 @@
 "/integrations/ollama/":
   controlling-home-assistant: /integrations/ollama/#setting-up-an-ollama-assistant-with-device-control
 "/voice_control/troubleshooting/":
+  i-do-not-see-any-assistant: /voice_control/troubleshooting/#symptom-no-assistants-under-settings--voice-assistants
+  i-do-not-see-a-text-to-speech-or-speech-to-text-option: /voice_control/troubleshooting/#symptom-a-text-to-speech-or-speech-to-text-service-is-missing
+  assist-does-not-understand-my-question-about-the-weather-forecast: /voice_control/troubleshooting/#symptom-assist-doesnt-understand-my-question-about-the-weather
+  i-dont-get-a-voice-response: /voice_control/troubleshooting/#symptom-no-voice-response
+  local-network-settings: /voice_control/troubleshooting/#symptom-no-voice-response
+  missing-media-source: /voice_control/troubleshooting/#symptom-no-voice-response
+  test-a-sentence-per-language-without-voice-without-executing-commands: /voice_control/troubleshooting/#testing-a-sentence-without-running-it
   test-a-sentence-per-assistant-without-voice-while-executing-the-commands: /voice_control/troubleshooting/#testing-a-sentence-with-an-assistant
   view-debug-information: /voice_control/troubleshooting/#viewing-debug-information
   tweaking-the-assist-audio-configuration-for-your-device: /integrations/assist_pipeline/#debug-recordings

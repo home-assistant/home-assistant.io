@@ -59,6 +59,10 @@ template:
 
 {% enddetails %}
 
+## Data updates
+
+The integration {% term polling polls %} the Stookwijzer API once an hour. The **Get forecast** action fetches the forecast from the API each time it runs.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

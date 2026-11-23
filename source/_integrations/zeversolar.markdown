@@ -27,3 +27,7 @@ When configured, the {% term integration %} will create two sensors for each con
 
 - Energy today, in `kWh` (Kilowatt-hour)
 - Current power, in `W` (Watts)
+
+## Data updates
+
+The integration {% term polling polls %} the inverter every minute.

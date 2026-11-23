@@ -2,7 +2,7 @@
 title: "Troubleshooting Assist"
 ---
 
-This section lists a few steps that may help you troubleshoot issues with Assist. 
+This page helps you find out why {% term Assist %} doesn't do what you expect, and how to fix it. Start with the debug information or a sentence test. They show what Assist heard, how it understood your sentence, and what it did. Then check the [common problems](#common-problems).
 
 ## Viewing debug information
 
@@ -18,17 +18,21 @@ The debug information shows each recent run of an {% term assistant %}. For each
 
 If the page says **No runs found**, the assistant didn't receive anything. Check that your device or the Assist dialog uses this assistant.
 
-## Test a sentence per language without voice: without executing commands
+## Testing a sentence without running it
 
-If you want to test if a sentence works in a specific language without actually executing the commands, use the sentence parser in **Tools**.
+To find out if Assist understands a sentence, use the sentence parser. It shows how the built-in conversation agent understands the sentence, but it doesn't run the command. Your devices don't change.
+
+The sentence parser only tests the built-in **Home Assistant** conversation agent. If your assistant uses another {% term "conversation agent" %}, [test the sentence with your assistant](#testing-a-sentence-with-an-assistant) instead.
 
 1. Go to {% my tools_assist title="**Settings** > **Tools** > **Assist**" %}.
-2. In the sentence parser, select the language and enter the sentence you want to test.
-3. The debug tool shows you the following:
-   - The intent triggered.
-   - The entities that were targeted.
-   - Which of the targeted entities were matched.
-![Open the Assist developer tool sentence parser](/images/assist/assistant-debug-06.png)
+2. Under **Language**, select the language of the sentence.
+3. Under **Sentences**, enter the sentence you want to test.
+   - To test several sentences at once, enter each one on its own line.
+4. Select **Parse sentences**.
+   - Result: For each sentence, you see the intent that fits it best, the entities it targets, and which of them matched.
+   - If the result shows **No intent matched**, Assist doesn't understand this sentence.
+   - If the result shows `match: false`, Assist recognized the type of command, but not the entire sentence. `unmatched_slots` shows the part it didn't recognize. For example, an area name that doesn't exist.
+   ![Screenshot of the sentence parser with a result](/images/assist/assistant-debug-06.png)
 
 ## Testing a sentence with an assistant
 
@@ -53,74 +57,111 @@ If the sentence doesn't work, try the following:
 - If your assistant uses the built-in **Home Assistant** conversation agent, check if the sentence is [supported by the built-in sentences](/voice_control/builtin_sentences/).
 - Use the names of your entities and areas exactly as they're defined in Home Assistant. For example, if your area is called "Bathroom", the sentence "Turn on the lights in the bath" doesn't work. To use other names, [add aliases](/voice_control/aliases/).
 
-## I do not see any assistant
+## Common problems
 
-If under {% my voice_assistants title="**Settings** > **Voice assistants**" %} you do not see any assistants, you are not using the default configuration. The image below shows the **Assist** section.
+{% details "There are no assistants under Settings > Voice assistants" %}
 
-![Open the pipeline debug dialog](/images/assist/assist-assistants-page.png)
+### Symptom: No assistants under Settings > Voice assistants
 
-If the **Assist** section is missing entirely, you need to add the following to your `configuration.yaml` file:
+Under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, you don't see any assistants. Or the entire **Assist** section is missing.
 
-   ```yaml
-   # Example configuration.yaml entry
-   assist_pipeline:
-   ```
+#### Description
 
-## I do not see a text-to-speech or speech-to-text option
+The assistants come from the [Assist pipeline](/integrations/assist_pipeline/) integration. It's part of the default configuration of Home Assistant. If you removed `default_config:` from your {% term "`configuration.yaml`" %} file, Home Assistant doesn't load it.
 
-If a text-to-speech or speech-to-text service is missing from the options of your assistant, its entity may be disabled. Home Assistant does not offer a disabled entity as an option. This can also happen with Home Assistant Cloud, for example with the entities `tts.home_assistant_cloud` and `stt.home_assistant_cloud`.
+#### Resolution
+
+Add the following to your {% term "`configuration.yaml`" %} file, and restart Home Assistant:
+
+```yaml
+# Example configuration.yaml entry
+assist_pipeline:
+```
+
+{% enddetails %}
+
+{% details "A text-to-speech or speech-to-text service is missing from the assistant settings" %}
+
+### Symptom: A text-to-speech or speech-to-text service is missing
+
+In the settings of your assistant, a text-to-speech or speech-to-text service isn't in the list of options. For example, Home Assistant Cloud is missing.
+
+#### Description
+
+Home Assistant doesn't list a disabled entity as an option. Each service has a `tts` or `stt` entity. For example, Home Assistant Cloud has `tts.home_assistant_cloud` and `stt.home_assistant_cloud`.
+
+#### Resolution
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
 2. In **Filters**, under **Status**, select **Disabled**.
-3. Look for the `tts` or `stt` entity of the service. If it is there, [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+3. Look for the `tts` or `stt` entity of the service. If it's there, [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
-## Assist does not understand my question about the weather forecast
+{% enddetails %}
 
-The example below shows common pitfalls when enquiring about the weather. While some steps are specific to the weather, the general mechanics apply to other entities as well.
+{% details "Assist doesn't understand my question about the weather" %}
 
-1. Make sure you have a [weather service](/integrations/#weather) installed.
-   - By default, [Met.no](/integrations/met/) is installed.
-2. Make sure you have an entity set up for the location you are interested in.
-   - For example, if you are interested in the weather in Berlin, add an entity for Berlin.
-  
-     ![Create weather entity](/images/assist/metno_weather_entity.png)
-3. Make sure the entity is exposed to Assist:
-   - Under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the weather entity for that location.
-   - In the details view that opens, select the cogwheel {% icon "mdi:cog-outline" %}, then select **Voice Assistant**.
-  
-     ![Select voice assistants](/images/assist/weather_entity_voice_assistant.png)
+### Symptom: Assist doesn't understand my question about the weather
 
-   - Make sure the entity is exposed to Assist.
-  
-     ![Expose entity to Assist](/images/assist/expose_entity_dialog.png)
+You ask Assist about the weather, and it doesn't understand you or answers about the wrong place. The same checks apply to other entities too.
 
-4. Make sure you use the exact entity name when talking to Assist.
-   - To view the entity name, check the list under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
-   - For example, if the entity is called *Forecast Berlin*, you have to say "What is the weather in forecast Berlin like".
-   - Assist would not recognize it if you ask "What is the weather in Berlin like".
-   - If you want to use Berlin instead of *Forecast Berlin*, you can create an entity name alias.
-     - You can create as many aliases as you like.
+#### Description
 
-     ![Create alias for entity name](/images/assist/assist_create_alias.png)
-5. If you just ask "What is the weather" when you have forecast entities for multiple entities, Assist always returns the data for the place that was first added. Currently, there is no way to change that.
+Assist can only answer about weather entities that are exposed to it. It recognizes them by their exact name or by an alias.
 
-## I don't get a voice response
+#### Resolution
 
-My voice assistant understands me and processes the command, but I don't get a voice response.
+1. Make sure you have a [weather integration](/integrations/#weather).
+   - By default, Home Assistant sets up the [Met.no](/integrations/met/) integration.
+2. Make sure you have a weather entity for the location you're interested in.
+   - For example, if you're interested in the weather in Berlin, add an entity for Berlin.
+   ![Screenshot of the Met.no setup with a location](/images/assist/metno_weather_entity.png)
+3. Make sure the weather entity is exposed to Assist.
+   - For the steps, refer to [Exposing entities to voice assistants](/voice_control/voice_remote_expose_devices/).
+4. Use the exact name of the entity when you talk to Assist.
+   - To see the name, check the list under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+   - For example, if the entity is called "Forecast Berlin", say "What is the weather like in Forecast Berlin". Assist doesn't recognize "What is the weather like in Berlin".
+   - To use "Berlin" instead, add it as an alias of the entity. For the steps, refer to [Adding an alias of an entity](/voice_control/aliases/#adding-an-alias-of-an-entity).
 
-The voice response is generated in Home Assistant by one of our supported text-to-speech (or {% term TTS %}) engines.
-The voice assistant device then fetches the audio file from Home Assistant and plays it back.
+If you have several weather entities and ask "What is the weather" without a name, Assist answers with one of them. You can't choose which one.
 
-### Local Network Settings
-For this fetching process to work, Home Assistant must communicate its own URL to the device.
-If you have a complex network setup, or if you changed this setting in the past, the URL communicated could be wrong.
+{% enddetails %}
 
-To fix the URL, follow these steps:
+{% details "Assist often doesn't understand what I say" %}
+
+### Symptom: Assist often doesn't understand what I say
+
+When you talk to a {% term "voice satellite" %}, Assist often gets your words wrong. In the debug information, the text under speech-to-text isn't what you said.
+
+#### Description
+
+Speech-to-text can only understand what the microphone picks up. Background noise or a low volume might make your voice hard to recognize.
+
+#### Resolution
+
+1. Check what speech-to-text understood.
+   - [Open the debug information](#viewing-debug-information) of the assistant, and select the run. Look at the text under speech-to-text.
+2. Listen to what Home Assistant received from the device.
+   - For the steps, refer to [Recording voice commands for debugging](/integrations/assist_pipeline/#recording-voice-commands-for-debugging).
+   - If your voice is clear in the recording, but speech-to-text still gets it wrong, the problem is in speech-to-text, not in the device.
+3. When you're done, [turn off debug recording](/integrations/assist_pipeline/#turning-off-debug-recording), and delete the recordings.
+
+{% enddetails %}
+
+{% details "Assist understands the command, but there's no voice response" %}
+
+### Symptom: No voice response
+
+Your voice satellite understands you and runs the command, but you don't hear a voice response.
+
+#### Description
+
+A {% term "text-to-speech" %} integration creates the voice response in Home Assistant. The voice satellite then downloads the audio file from Home Assistant and plays it. For this, Home Assistant tells the device its own URL. If you have a complex network setup, or if you changed this setting in the past, that URL might be wrong.
+
+#### Resolution
 
 1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
-2. Change your Local Network Home Assistant URL to a URL that can be reached locally and that points to Home Assistant
-  - For most users, the **Automatic** option works and is recommended.
-   ![Create alias for entity name](/images/assist/local_url.png)
+2. Under **Home Assistant URL**, check the **Local network** URL. It must point to Home Assistant, and the device must be able to reach it in your network.
+   - In most cases, **Automatic** works.
+   ![Screenshot of the Local network URL setting](/images/assist/local_url.png)
 
-### Missing Media Source
-If you are using YAML configuration and do not have `default_config:` make sure `media_source:` is present.
+{% enddetails %}

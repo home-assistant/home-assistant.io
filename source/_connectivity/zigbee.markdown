@@ -1,7 +1,7 @@
 ---
 title: "Zigbee"
 connectivity: zigbee
-description: "Connect Zigbee devices, like lights, plugs, switches, and sensors, to Home Assistant with a Zigbee adapter."
+description: "Zigbee is a wireless technology for devices such as lights, plugs, and sensors. Devices form a mesh network managed by a coordinator."
 related:
   - docs: /integrations/zha/
     title: Zigbee Home Automation integration

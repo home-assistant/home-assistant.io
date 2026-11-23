@@ -15,6 +15,14 @@ Home Assistant Cloud is an optional subscription service provided by our partner
 
 Home Assistant works fully without it. Home Assistant Cloud is there for the things that genuinely benefit from a cloud connection, such as remote access and the voice assistant integrations, while everything else continues to run locally on your own hardware.
 
+## Remote access for your household
+
+Home Assistant Cloud connects to the Home Assistant installation running in your home. Everyone in your household can use the same subscription and remote address to access that installation, through the [Home Assistant Companion app](https://companion.home-assistant.io/docs/getting_started/) or a web browser.
+
+Each person signs in with their own [Home Assistant user account](/docs/configuration/user-configuration/), separate from the Nabu Casa account used to manage the subscription. They do not need their own cloud subscription or your Nabu Casa login details. Accounts with **Local access only** enabled cannot connect remotely.
+
+Your phone does not need to be online for other household members to connect. Your Home Assistant installation must be running and connected to the internet, with cloud remote access enabled. The app can connect both at home and away; see [how the Companion apps use Home Assistant Cloud](https://support.nabucasa.com/hc/en-us/articles/40244529243037-How-the-companion-apps-use-Home-Assistant-Cloud) and the [remote access documentation](/docs/configuration/remote/).
+
 For full details on features, pricing, and setup instructions, see the [Nabu Casa website](https://www.nabucasa.com/link/).
 
 <div style='max-width: 320px; margin: 0 auto'><a href='https://www.nabucasa.com'><img src='/images/sponsors/nabu_casa.svg' style='border: 0; box-shadow: none' alt='Logo of Nabu Casa, Inc'></a>

@@ -32,6 +32,15 @@ Uses an SSL certificate:
   description: "Connect to the Transmission RPC interface using HTTPS."
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Limit:
+  description: "The maximum number of torrents listed in the `torrent_info` attribute, from 1 to 500. Defaults to 10."
+Order:
+  description: "The order of the torrents in the `torrent_info` attribute: oldest first (the default), newest first, best ratio first, or worst ratio first."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 The **Transmission** integration provides the following sensors and switches.
