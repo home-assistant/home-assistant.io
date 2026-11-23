@@ -19,7 +19,7 @@ Access to the SmartThings API requires a paid SmartThings API plan. Without an a
 - A SmartThings Personal Access Token (PAT). Home Assistant only uses this token during setup, to create its own SmartThings app on your account. To create a token:
   1. Go to the [SmartThings tokens page](https://account.smartthings.com/tokens) and sign in with your Samsung account.
   2. Select **Generate new token** and give it a name, for example `Home Assistant`.
-  3. Under **Authorized Scopes**, select all the **Apps** scopes.
+  3. Under **Authorized Scopes**, select all the **Applications** scopes.
   4. Select **Generate token** and copy the token. SmartThings only shows it once.
      - Personal Access Tokens expire after 24 hours. Use the token right away, or create a new one if setup fails with an invalid token error.
 
@@ -27,7 +27,7 @@ Access to the SmartThings API requires a paid SmartThings API plan. Without an a
 
 {% configuration_basic %}
 Personal Access Token:
-  description: "The SmartThings Personal Access Token with the **Apps** scopes, created as described in the [prerequisites](#prerequisites). Home Assistant uses it to create a SmartThings app named **Home Assistant** on your account, and then asks you to sign in to SmartThings and select the location to connect."
+  description: "The SmartThings Personal Access Token with the **Applications** scopes, created as described in the [prerequisites](#prerequisites). Home Assistant uses it to create a SmartThings app named **Home Assistant** on your account, and then asks you to sign in to SmartThings and select the location to connect."
 {% endconfiguration_basic %}
 
 If you previously set up an application credential for SmartThings, Home Assistant uses it and does not ask for a Personal Access Token.
@@ -371,7 +371,7 @@ The SmartThings Water heater platform lets you control heat pumps that provide h
 
 SmartThings rejects requests when your account has no active API plan, or when the plan's API usage quota is used up.
 
-- **API plan required**: Subscribe to a plan in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans). Then reauthenticate the integration. If the error appears during setup, also check that your Personal Access Token has the **Apps** scopes selected.
+- **API plan required**: Subscribe to a plan in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans). Then reauthenticate the integration. If the error appears during setup, also check that your Personal Access Token has the **Applications** scopes selected.
 - **Quota exceeded**: Home Assistant retries setting up the integration later. Check your remaining quota, or change your plan, in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans).
 
 ### Enabling debug logs
