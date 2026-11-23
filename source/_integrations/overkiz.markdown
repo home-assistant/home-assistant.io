@@ -166,6 +166,14 @@ If a scene or automation sets both the position and the tilt of a cover, Home As
 
 To move a cover to a target position and tilt in one smooth motion, use the [Set cover position and tilt](/actions/overkiz.set_cover_position_and_tilt/) action instead.
 
+### Atlantic towel dryers driven by heating levels
+
+Some Atlantic towel dryers, such as the Adélis 2 Digit, are controlled with heating levels. They support the **Comfort**, **Comfort -1°C**, **Comfort -2°C**, **Eco**, **Frost protection**, and **Boost** presets.
+
+- **Boost** heats for 60 minutes, like the boost button on the towel dryer. The towel dryer then returns to the preset it had before the boost. The **Boost end** attribute shows when the boost ends.
+- The gateway doesn't report the boost or its end, so Home Assistant tracks the boosts it starts. A boost started on the towel dryer itself or from the vendor app isn't shown.
+- The gateway doesn't report changes made on the towel dryer itself.
+
 ### Troubleshooting connection issues with the local API
 
 If your entities frequently become unavailable for short periods, this usually indicates connection problems between Home Assistant and your gateway. To improve reliability, try connecting to your gateway using its IP address instead of the `gateway-xxxx-xxxx-xxx.local` hostname.
