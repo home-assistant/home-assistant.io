@@ -14,13 +14,14 @@ This integration speaks the serial control protocol only; it does not use the TV
 
 The following devices have been tested with the integration:
 
-- Samsung The Frame (LS03B, 2022)
+- Samsung The Frame (LS03B, 2022), using a 3.5&nbsp;mm cable
+- Samsung QN55S84FAFXZC, using a 3.5&nbsp;mm cable
 
 In general, Samsung consumer TVs (The Frame, Q-series, 8000-series, and similar) that expose an ExLink control port are supported.
 
 Samsung TVs expose ExLink in one of two ways:
 
-- A native 3.5&nbsp;mm ExLink jack, found on higher-end sets (Q70 and above). Plug in and go.
+- A native 3.5&nbsp;mm ExLink jack, found on higher-end sets (Q70 and above).
 - A USB port together with the proprietary Samsung USB-to-ExLink dongle, used on the 8000 and Q60 series.
 
 ## Unsupported devices
@@ -130,8 +131,9 @@ Home Assistant could not communicate with the TV over the serial port.
 To resolve this issue, try the following steps:
 
 1. On TVs that use the USB-to-ExLink dongle, make sure **EXT Link Support** and **USB Serial** are enabled in the TV's service menu (to open it, with the TV off, press **Mute → 1 → 8 → 2 → Power**).
-2. Verify the cable is connected to the TV's 3.5&nbsp;mm ExLink jack (or the Samsung USB-to-ExLink dongle) and is fully seated.
-3. Confirm the correct serial port was selected, and that no other software is using it.
+2. If you use the 3.5&nbsp;mm ExLink jack, try turning off **USB Serial** in the TV settings. On some models, enabling this setting disables the 3.5&nbsp;mm connection.
+3. Verify the cable is connected to the TV's 3.5&nbsp;mm ExLink jack (or the Samsung USB-to-ExLink dongle) and is fully seated.
+4. Confirm the correct serial port was selected, and that no other software is using it.
 
 ### The TV becomes unavailable
 

@@ -263,6 +263,7 @@
 "/integrations/ollama/":
   controlling-home-assistant: /integrations/ollama/#setting-up-an-ollama-assistant-with-device-control
 "/voice_control/troubleshooting/":
+  test-a-sentence-per-language-without-voice-without-executing-commands: /voice_control/troubleshooting/#testing-a-sentence-without-running-it
   test-a-sentence-per-assistant-without-voice-while-executing-the-commands: /voice_control/troubleshooting/#testing-a-sentence-with-an-assistant
   view-debug-information: /voice_control/troubleshooting/#viewing-debug-information
   tweaking-the-assist-audio-configuration-for-your-device: /integrations/assist_pipeline/#debug-recordings
