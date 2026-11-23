@@ -12,6 +12,9 @@
   "categories": [
     "water"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "sensor"

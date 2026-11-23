@@ -25,6 +25,7 @@ Depending on your system and the available heating circuits, the following entit
 - Button
 - Climate
 - Diagnostics
+- Number
 - Sensor
 - Water heater
 
@@ -48,10 +49,36 @@ The **Sync time** button appears under the **Configuration** section of the devi
 - These appear in Home Assistant as **Heating circuit 1** and **Heating circuit 2**, depending on what your system exposes.
 - Each heating circuit has its own device, connected through the main BSB-LAN device.
 
+The target temperature is the setpoint the controller uses right now. The mode and preset set which setpoint that is:
+
+- **Auto**: The heating circuit follows its time program. The preset shows whether the comfort or reduced level is in effect.
+- **Heat** with the **Comfort** preset: The heating circuit heats to the comfort setpoint until you change the mode or preset.
+- **Heat** with the **Eco** preset: The heating circuit heats to the reduced setpoint until you change the mode or preset.
+- **Off**: The heating circuit only heats to protect against frost. Selecting a preset switches it to **Heat**.
+
+In **Auto** mode, selecting a preset overrides the time program until its next switch point.
+
+In **Heat** mode, changing the target temperature changes the comfort setpoint, or the reduced setpoint when the **Eco** preset is active. In **Auto** and **Off** modes, the controller decides the setpoint, so changing the target temperature has no effect. To change the temperatures that **Auto** mode uses, change the [comfort and reduced temperatures](#numbers) of the heating circuit.
+
+Presets aren't available for controllers connected over PPS.
+
 ### Water heater
 
 - If your heating system exposes domestic hot water controls, Home Assistant creates a water heater entity for it.
 - The water heater entity has its own device, connected through the main BSB-LAN device.
+- The target temperature is the hot water setpoint the controller uses right now, the nominal or the reduced one depending on its release program. Changing it changes that setpoint.
+- When the water heater is off, the target temperature shows the frost protection setpoint, and changing it does nothing.
+
+### Numbers
+
+Home Assistant creates number entities for the setpoints of each heating circuit and of the domestic hot water. They appear under the **Configuration** section of the heating circuit or domestic hot water device page.
+
+- **Comfort temperature** and **Reduced temperature**: the setpoints a heating circuit uses during the comfort and reduced periods of its time program.
+- **Nominal temperature** and **Reduced temperature**: the setpoints of the domestic hot water.
+
+You can change a setpoint at any time, even when the controller is not using it right now. The reduced setpoint can't be higher than the comfort or nominal one, so Home Assistant refuses a change that would break this order.
+
+A number entity only appears if your controller exposes that setpoint.
 
 ### Sensors
 

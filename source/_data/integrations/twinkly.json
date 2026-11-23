@@ -12,6 +12,9 @@
   "categories": [
     "lighting.led_strips_controllers"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "diagnostics",
     "light",

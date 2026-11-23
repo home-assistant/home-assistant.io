@@ -8,6 +8,9 @@
     "hubs_protocols.smart_home_hubs",
     "lighting.bulbs_lamps"
   ],
+  "connectivity": [
+    "zigbee"
+  ],
   "platforms": [
     "cover",
     "diagnostics",

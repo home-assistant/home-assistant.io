@@ -14,6 +14,9 @@
   "categories": [
     "energy.backup_power"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "diagnostics",

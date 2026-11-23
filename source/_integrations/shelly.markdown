@@ -111,21 +111,21 @@ The integration uses the following strategy to name its devices and entities if 
 - If a `Device Name` is set in the device, the integration will use it to generate the device name and entity names.
 - If a `Device Name` is not set, the integration will use the `Device ID` to generate the device name and entity names.
 
-The integration creates a sub-device for every relay and uses the following strategy to name its entities if the device has more than one relay:
+If the device has more than one relay, the integration creates a child device for every relay (channel). The same applies to multi-channel lights, such as Shelly RGBW2 in white mode, and to energy meter channels. A child device is a part of the parent device, such as one relay of a multi-relay switch. Child devices share the model and firmware of the parent device and follow its area unless you assign them their own. If the devices are not in an area, the entity IDs of child devices start with the parent device name. The integration uses the following strategy to name the devices and entities:
 
-- If a `Device Name` is set in the device, the integration will use it to generate the main device name and entity names assigned to the main device.
-- If a `Device Name` is not set, the integration will use the `Device ID` to generate the main device name and entity names assigned to the main device.
-- If a `Channel Name` is set in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
-- If a `Channel Name` is not set in the device, the integration will use the device name and channel/relay number to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+- If a `Device Name` is set in the device, the integration will use it to generate the parent device name and entity names assigned to the parent device.
+- If a `Device Name` is not set, the integration will use the `Device ID` to generate the parent device name and entity names assigned to the parent device.
+- If a `Channel Name` is set in the device, the integration will use it to generate the child device name and entity names assigned to this child device (channel/relay).
+- If a `Channel Name` is not set in the device, the integration will use the channel/relay number, for example `Channel 1`, to generate the child device name and entity names assigned to this child device (channel/relay). On Shelly 3EM, the child devices are named after the phase, for example `Phase A`.
 
 Examples:
 
-| Device Name | Channel Name   | Main Device Name      | Sub-device Name                 | Entity Name                      |
-| ----------- | -------------- | --------------------- | ------------------------------- | -------------------------------- |
-| `Not set`   | `Not Set`      | shellyswitch25-ABC123 | shellyswitch25-ABC123 Channel 1 |  shellyswitch25-ABC123 Channel 1 |
-| `Not set`   | Kids Room Bulb | shellyswitch25-ABC123 | Kids Room Bulb                  | Kids Room Bulb                   |
-| Kitchen     | `Not Set`      | Kitchen               | Kitchen Channel 1               | Kitchen Channel 1                |
-| Bedroom     | Round Bulb     | Bedroom               | Round Bulb                      | Round Bulb                       |
+| Device Name | Channel Name   | Parent Device Name    | Child Device Name | Entity Name    | Entity ID                                     |
+| ----------- | -------------- | --------------------- | ----------------- | -------------- | --------------------------------------------- |
+| `Not set`   | `Not Set`      | shellyswitch25-ABC123 | Channel 1         | Channel 1      | `switch.shellyswitch25_abc123_channel_1`      |
+| `Not set`   | Kids Room Bulb | shellyswitch25-ABC123 | Kids Room Bulb    | Kids Room Bulb | `switch.shellyswitch25_abc123_kids_room_bulb` |
+| Kitchen     | `Not Set`      | Kitchen               | Channel 1         | Channel 1      | `switch.kitchen_channel_1`                    |
+| Bedroom     | Round Bulb     | Bedroom               | Round Bulb        | Round Bulb     | `switch.bedroom_round_bulb`                   |
 
 Names are set from the device web page:
 
@@ -143,28 +143,35 @@ The integration uses the following strategy to name its devices and entities if 
 
 Examples:
 
-| Device Name | Channel Name   | Integration Device Name  | Entity Name                             |
-| ----------- | -------------- | ------------------------ | --------------------------------------- |
-| `Not set`   | `Not Set`      | shelly1gen3-aabbccddeeff | shelly1gen3-aabbccddeeff                |
-| `Not set`   | Kids Room Bulb | shelly1gen3-aabbccddeeff | shelly1gen3-aabbccddeeff Kids Room Bulb |
-| Kitchen     | `Not Set`      | Kitchen                  | Kitchen                                 |
-| Bedroom     | Round Bulb     | Bedroom                  | Bedroom Round Bulb                      |
+| Device Name | Channel Name   | Integration Device Name | Entity Name                           |
+| ----------- | -------------- | ----------------------- | ------------------------------------- |
+| `Not set`   | `Not Set`      | shelly1g3-aabbccddeeff  | shelly1g3-aabbccddeeff                |
+| `Not set`   | Kids Room Bulb | shelly1g3-aabbccddeeff  | shelly1g3-aabbccddeeff Kids Room Bulb |
+| Kitchen     | `Not Set`      | Kitchen                 | Kitchen                               |
+| Bedroom     | Round Bulb     | Bedroom                 | Bedroom Round Bulb                    |
 
-The integration creates a sub-device for every relay (channel) and uses the following strategy to name its devices and entities if the device has more than one relay:
+If the device has more than one relay, the integration creates a child device for every relay (channel). The same applies to other multi-channel components, such as covers, lights, energy meters, energy meter phases, and irrigation zones. A child device is a part of the parent device, such as one output of a power strip. Child devices share the model and firmware of the parent device and follow its area unless you assign them their own. If the devices are not in an area, the entity IDs of child devices start with the parent device name. The integration uses the following strategy to name the devices and entities:
 
-- If a `Device Name` is set in the device, the integration will use it to generate the main device name and entity names assigned to the main device.
-- If a `Device Name` is not set, the integration will use the `Device ID` to generate the main device name and entity names assigned to the main device.
-- If a `Channel Name` is set in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
-- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this default channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+- If a `Device Name` is set in the device, the integration will use it to generate the parent device name and entity names assigned to the parent device.
+- If a `Device Name` is not set, the integration will use the `Device ID` to generate the parent device name and entity names assigned to the parent device.
+- If a `Channel Name` is set in the device, the integration will use it to generate the child device name and entity names assigned to this child device (channel/relay).
+- If a `Channel Name` is not set in the device, the integration will use the component type and channel number, for example `Output 0`, to generate the child device name and entity names assigned to this child device (channel/relay).
+- Energy meter phases are always named after the phase, for example `Phase A`, even if a name is set for the energy meter in the device.
 
 Examples:
 
-| Device Name | Channel Name   | Main Device Name           | Sub-device Name                     | Entity Name                         |
-| ----------- | -------------- | -------------------------- | ----------------------------------- | ----------------------------------- |
-| `Not set`   | `Not Set`      | shelly2pmgen3-aabbccddeeff | shelly2pmgen3-aabbccddeeff Switch 1 | shelly2pmgen3-aabbccddeeff Switch 1 |
-| `Not set`   | Kids Room Bulb | shelly2pmgen3-aabbccddeeff | Kids Room Bulb                      | Kids Room Bulb                      |
-| Kitchen     | `Not Set`      | Kitchen                    | Kitchen Switch 1                    | Kitchen Switch 1                    |
-| Bedroom     | Round Bulb     | Bedroom                    | Round Bulb                          | Round Bulb                          |
+| Device Name | Channel Name   | Parent Device Name       | Child Device Name | Entity Name    | Entity ID                                        |
+| ----------- | -------------- | ------------------------ | ----------------- | -------------- | ------------------------------------------------ |
+| `Not set`   | `Not Set`      | shelly2pmg3-aabbccddeeff | Output 0          | Output 0       | `switch.shelly2pmg3_aabbccddeeff_output_0`       |
+| `Not set`   | Kids Room Bulb | shelly2pmg3-aabbccddeeff | Kids Room Bulb    | Kids Room Bulb | `switch.shelly2pmg3_aabbccddeeff_kids_room_bulb` |
+| Kitchen     | `Not Set`      | Kitchen                  | Output 0          | Output 0       | `switch.kitchen_output_0`                        |
+| Bedroom     | Round Bulb     | Bedroom                  | Round Bulb        | Round Bulb     | `switch.bedroom_round_bulb`                      |
+
+The integration also creates a child device for every IR device, even if there is only one. The child device is named after the IR device, or `IR Device` followed by its ID if the IR device has no name.
+
+{% note %}
+Shelly BLU TRV devices are not child devices. A BLU TRV is a separate physical device that Home Assistant reaches through a Shelly BLU Gateway Gen3 or another Shelly device with built-in BLU TRV support. The integration creates it as a sub-device connected through that Shelly device. Unlike a child device, a BLU TRV has its own model and firmware, and it does not inherit the area of the Shelly device it connects through.
+{% endnote %}
 
 ## Cover entities
 
@@ -176,6 +183,24 @@ Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, yo
 
 To move a cover and its tilt to target positions with a single command, use the [**Set cover position and tilt**](/actions/shelly.set_cover_position_and_tilt/) action.
 
+## Fan entities
+
+Generation 2+ devices that have a fan component create a `fan` entity.
+
+The fan entity lets you turn the fan on or off and set its speed as a percentage. It also has two preset modes:
+
+- **Manual**: You control the fan yourself by turning it on or off and setting the speed.
+- **Auto**: The device controls the fan automatically.
+
+Turning the fan on or off from Home Assistant, or setting a speed, switches it to **Manual** mode. To let the device control the fan again, select the **Auto** preset mode. When you switch from **Auto** to **Manual**, the fan keeps its current on or off state and speed until you change it.
+
+The integration also creates the following entities for the fan:
+
+- **Boost**: A `switch` entity that turns the boost function of the device on or off. It's only available while the fan is in **Auto** mode.
+- **Illuminance level**: A `sensor` entity with the states **Dark**, **Twilight**, and **Bright**.
+- **Humidity level**: A `sensor` entity with the states **Low**, **Medium**, **High**, and **Very high**.
+- **Energy**: A `sensor` entity that shows the total energy consumed by the fan, in kWh by default.
+
 ## Binary input sensors
 
 ### Binary input sensors (generation 1)
@@ -185,6 +210,12 @@ Depending on how a device's button type is configured, the integration will crea
 ### Binary input sensors (generation 2+)
 
 For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the **Input Mode** is set to `Switch`. When the **Input Mode** is set to `Button` you need to use events for your automations.
+
+## Input lock
+
+Generation 2+ devices with a physical input provide an **Input lock** switch. When it is on, the device ignores all changes to its physical inputs. The output can still be controlled from Home Assistant, the Shelly app, and automations.
+
+The switch is created for every switch or cover channel that supports it. This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Changes made in the Shelly app or web interface are reflected in Home Assistant as well.
 
 ## Media player entities
 
@@ -222,6 +253,14 @@ data:
 target:
   entity_id: media_player.shelly_wall_display
 ```
+
+## Wall Display brightness
+
+Wall Display devices with firmware 2.6.2 or newer provide entities to control the screen brightness:
+
+- **Auto display brightness** switch: When on, the device adjusts the brightness to the ambient light.
+- **Display brightness** (0–100%): The screen brightness when auto brightness is off. This entity is unavailable while auto brightness is on, because the device then sets the brightness itself.
+- **Minimum auto display brightness** (1–50%): The lowest brightness that auto brightness uses. This entity is only available when the device reports support for it.
 
 ## Event entities
 

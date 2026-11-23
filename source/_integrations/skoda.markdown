@@ -13,14 +13,18 @@ ha_config_flow: true
 ha_categories:
   - vehicles_transport.cars_evs
 ha_platforms:
+  - binary_sensor
+  - device_tracker
+  - number
   - sensor
+  - switch
 ha_quality_scale: bronze
 related:
   - url: https://public.api.connect.skoda-auto.cz/docs
     title: Škoda public API documentation
 ---
 
-The **Škoda** {% term integration %} lets you monitor your [Škoda](https://www.skoda-auto.com) vehicle in Home Assistant. It retrieves vehicle information from Škoda Connect through the official Škoda B2C public API.
+The **Škoda** {% term integration %} lets you monitor your [Škoda](https://www.skoda-auto.com) vehicle and control some of its functions in Home Assistant. It retrieves vehicle information from Škoda Connect through the official Škoda B2C public API.
 
 ## Use cases
 
@@ -28,17 +32,17 @@ The **Škoda** {% term integration %} lets you monitor your [Škoda](https://www
 
 Keep an eye on the mileage, fuel or battery level, and estimated driving range. Use this information in dashboards and automations, or track how the car is used over time.
 
-### Monitor charging
+### Monitor and control charging
 
 Track the battery's state of charge, electric range, charging power, charging state, and estimated time until fully charged. Get notified when charging starts, finishes, or is unexpectedly interrupted.
 
-The integration is read-only. It reports the charging state provided by Škoda Connect but cannot start, stop, or schedule charging.
+Start or stop charging from Home Assistant, for example to charge only when electricity is cheap. You can also change the charge limit, for example to charge to 100 % only before a long trip. The integration cannot schedule charging.
 
 ### Monitor climate control and auxiliary heating
 
 See the target cabin temperature and, while climate control is active, the estimated time when the target temperature will be reached. For supported vehicles, you can also monitor the auxiliary heating mode and its estimated completion time.
 
-The integration cannot start or stop climate control or auxiliary heating. The target temperature is not available for some combustion vehicles.
+The integration cannot start or stop climate control or auxiliary heating. For supported vehicles, you can start or stop active ventilation. The target temperature is not available for some combustion vehicles.
 
 ## Supported vehicles
 
@@ -71,7 +75,32 @@ API key:
 
 ## Supported functionality
 
-The **Škoda** integration provides the following sensors. The available sensors depend on the vehicle's equipment and powertrain.
+The **Škoda** integration provides the following entities. The available entities depend on the vehicle's equipment and powertrain.
+
+### Binary sensors
+
+- **Lock**: Whether the vehicle is unlocked.
+- **Doors**: Whether any door is open.
+- **Windows**: Whether any window is open.
+- **Sunroof**: Whether the sunroof is open, for vehicles with a sunroof.
+- **Trunk**: Whether the trunk is open.
+- **Hood**: Whether the hood is open.
+- **Lights**: Whether the lights are on.
+- **Charging cable**: Whether the charging cable is plugged in, for vehicles that support charging.
+- **Air conditioning**: Whether the air conditioning is running.
+- **Auxiliary heating**: Whether the auxiliary heating is running, for equipped vehicles.
+
+### Device tracker
+
+- **Parking position**: Where the vehicle is parked. The device tracker is named after the vehicle. While the vehicle is driving, the location is unknown.
+
+### Numbers
+
+Numbers are only created for settings the vehicle supports changing remotely.
+
+- **Charge limit**: The battery level at which charging stops, from 50 to 100 % in steps of 10 %, for vehicles that support charging.
+
+The vehicle applies a new value with a short delay. After you change it, the number shows the requested value until the next data update reports the actual value.
 
 ### Sensors
 
@@ -83,7 +112,7 @@ The **Škoda** integration provides the following sensors. The available sensors
 - **Air conditioning remaining time**: Estimated time when the target cabin temperature will be reached, while climate control is active.
 - **Charging power**: Current charging power, while the vehicle is actively charging.
 - **Charging state**: `charging`, `connect_cable`, `ready_for_charging`, `conserving`, `discharging`, or `charging_interrupted`.
-- **Time to full charge**: Estimated time when the battery will reach the defined target level, while charging.
+- **Time to full charge**: Estimated time when the battery will reach the charge limit, while charging.
 - **Charge type**: `ac`, `dc`, `off`, or `not_charging`.
 - **Auxiliary heating mode**: Current mode (heating/ventilation) of the auxiliary heating, for equipped vehicles.
 - **Auxiliary heating remaining duration**: Estimated time when auxiliary heating will finish, while active.
@@ -92,6 +121,15 @@ The **Škoda** integration provides the following sensors. The available sensors
 ### Diagnostic sensors
 
 - **Registration plate**: The vehicle's registration plate, if set in MyŠkoda.
+
+### Switches
+
+Switches are only created for commands the vehicle supports remotely.
+
+- **Charging**: Starts or stops charging. On while the vehicle is charging. Charging can only start while the charging cable is connected.
+- **Active ventilation**: Starts or stops active ventilation, for supported vehicles. On while the vehicle reports ventilation or preheating.
+
+The vehicle applies a command with a short delay. After you switch it, the switch shows the requested state until the next data update reports the actual state.
 
 ## Examples
 
@@ -120,7 +158,7 @@ The Škoda public API enforces a rate limit per Vehicle Identification Number (V
 
 ## Known limitations
 
-- The integration is read-only. It reports vehicle status but cannot start or stop charging, control climate, or lock or unlock the vehicle.
+- The integration can start and stop charging and active ventilation, and change the charge limit. It cannot control climate or auxiliary heating, schedule charging, or lock or unlock the vehicle.
 - Available sensors depend on the vehicle's model, powertrain, equipment, and the validity of Škoda Connect licenses.
 
 ## Troubleshooting
@@ -131,9 +169,13 @@ The Škoda public API enforces a rate limit per Vehicle Identification Number (V
 
 ### Re-authentication
 
-If the API key expires or is revoked, the integration can no longer retrieve data from the vehicle. Generate a new API key in the MyŠkoda app under **Profile** > **Smart Home**, or through the [Škoda API key portal](https://go.skoda.eu/api-keys).
+If the API key expires or is revoked, the integration can no longer retrieve data from the vehicle, and Home Assistant asks you to reauthenticate:
 
-Remove the existing integration entry and add the vehicle again using the new API key.
+1. Generate a new API key in the MyŠkoda app under **Profile** > **Smart Home**, or through the [Škoda API key portal](https://go.skoda.eu/api-keys).
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and open the Škoda entry that asks you to reauthenticate.
+3. Enter the new API key.
+
+Home Assistant checks the new key against the vehicle and reloads the integration. You do not need to remove and re-add the vehicle.
 
 ## Removing the integration
 
