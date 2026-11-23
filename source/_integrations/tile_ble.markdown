@@ -20,7 +20,7 @@ related:
     title: Bluetooth
 ---
 
-The **Tile BLE** {% term integration %} lets you use your [Tile](https://www.tile.com) Bluetooth trackers directly with Home Assistant over Bluetooth, without going through the Tile cloud. It tells you whether a Tile is in range of Home Assistant.
+The **Tile BLE** {% term integration %} lets you use your [Tile](https://www.tile.com) Bluetooth trackers directly with Home Assistant over Bluetooth. After setup, it tracks whether a Tile is in range locally, without relying on the Tile cloud.
 
 Use case: Put a Tile on your keys or in your bag, and let Home Assistant remind you when you leave without them.
 
@@ -66,11 +66,11 @@ The **Tile BLE** integration provides the following entities for each Tile.
 
 When you leave home but your keys are still in range, send a notification to your phone.
 
-- **Trigger**: Entity: state
-  - **Target**: Your person
+- **Trigger**: State changed
+  - **Entity**: Alex
   - **From**: Home
-- **Condition**: Entity: state
-  - **Target**: Keys (`device_tracker.keys`)
+- **Condition**: State
+  - **Entity**: Keys (`device_tracker.keys`)
   - **State**: Home
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
