@@ -97,7 +97,8 @@ The [Themes](/integrations/lifx/#themes) section of the LIFX integration page li
 - Each palette color is a list of four numbers in the order hue, saturation, brightness, Kelvin. A palette needs at least 2 and at most 16 colors. A saturation or brightness of 1 or less is read as a fraction, so `0.5` and `50` both mean 50%, and `1` means 100%, not 1%.
 - Painting a theme is not an animation, so there is nothing to stop afterwards. To clear a running firmware effect first, use the [Stop effect](/actions/lifx.effect_stop/) action.
 - Every paint arranges the colors at random, even when you paint the same theme again. If you repaint a theme over and over with a long transition, the light drifts slowly from one arrangement to the next and looks animated. The action returns as soon as the colors are sent, so wait for the transition to finish before painting again. For an example, refer to [slowly drift through a theme](#automation-slowly-drift-through-a-theme-in-the-evening).
-- The same themes are also available on the [Move effect](/actions/lifx.effect_move/) and the [Morph effect](/actions/lifx.effect_morph/), and from the theme selector on the device page.
+- On multizone and matrix lights, the **Theme** select shows a theme painted by this action, for as long as the light still shows it. A custom palette leaves it unknown.
+- The same themes are also available on the [Move effect](/actions/lifx.effect_move/) and the [Morph effect](/actions/lifx.effect_morph/), and from the theme selector on the device page. To lay a theme out the way the LIFX app does, use the [Set mood](/actions/lifx.set_mood/) action.
 
 {% include actions/try_it.md %}
 

@@ -5,7 +5,7 @@ ha_domain: zonneplan
 ---
 
 The **Zonneplan** {% term integration %} lets you retrieve electricity and gas price information from [Zonneplan](https://www.zonneplan.nl/), a Dutch provider of dynamic energy contracts and energy services, including home batteries and EV charge points.
-This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, the status and control mode of your Zonneplan home battery, and the status of your EV charge point.
+This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, the status and control mode of your Zonneplan home battery, and the status of your EV charge point. An action returns all known electricity prices, for example to plan when to charge an electric car.
 
 ## Prerequisites
 
@@ -92,6 +92,8 @@ Each home battery device has a **Control mode** select that sets how Zonneplan s
 - **Day-ahead arbitrage**: The battery charges and discharges based on the day-ahead prices.
 
 The select offers the modes available for your battery and always includes the current mode, even if it is marked as unavailable. Day-ahead arbitrage has to be set up once in the Zonneplan app; until then, selecting it shows an error.
+
+{% include integrations/actions.md %}
 
 ## Known limitations
 

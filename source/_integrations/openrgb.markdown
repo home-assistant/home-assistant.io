@@ -22,8 +22,6 @@ To enable the OpenRGB SDK server:
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Name:
-  description: A name for this integration entry, like the name of the computer running the OpenRGB SDK server (for example, `My Gaming PC`).
 Host:
   description: The hostname or IP address of the computer running the OpenRGB SDK server (for example, `192.168.1.100`).
 Port:
