@@ -71,9 +71,9 @@ Depending on the measurements returned by your meter, the integration provides:
 - Reactive power, in vars
 - Inductive and capacitive reactive energy, in kilovar-hours
 
-Multi-channel meters also provide frequency and power factor when returned by the meter. Three-phase models provide phase A, B, and C measurements. WEM2067 provides channels A and B, without channel C.
+Multi-channel meters also provide frequency and power factor when returned by the meter. Three-phase models provide phase A, B, and C measurements. WEM2067 provides measurements for channels A and B.
 
-If the meter returns NET measurements, additional sensors provide net voltage, active power, import energy, export energy, frequency, and power factor. A NET current sensor is not provided.
+When a three-phase meter returns NET measurements, additional sensors provide net voltage, active power, import energy, export energy, frequency, and power factor. A NET current sensor is not provided.
 
 Optional sensors are added when their measurements first appear. If a previously reported measurement is absent from a later response, its sensor becomes unavailable. It recovers when the measurement returns. Missing measurements are not reported as zero.
 
