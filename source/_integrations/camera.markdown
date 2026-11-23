@@ -35,7 +35,7 @@ Prerequisites:
 - The integration of the camera supports two-way audio, such as [Matter](/integrations/matter/) or [Reolink](/integrations/reolink/). Some integrations have extra requirements, so check the documentation of your camera's integration.
 - Home Assistant can stream the camera using WebRTC.
 
-  This is the case if the integration of the camera supports WebRTC, such as [Matter](/integrations/matter/), or if the [`go2rtc`](/integrations/go2rtc/) integration is set up. On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, `go2rtc` is set up by default. If you see the **Start talking** button, this requirement is met.
+  This is the case if the integration of the camera supports WebRTC, such as [Matter](/integrations/matter/), or if the [`go2rtc`](/integrations/go2rtc/) integration is set up. On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, `go2rtc` is set up by default if your configuration includes [`default_config`](/integrations/default_config/). If you see the **Start talking** button, this requirement is met.
 - You open Home Assistant in one of these ways:
   - In a browser or a Home Assistant app, using an HTTPS address. Browsers only allow access to the microphone over a secure connection.
   - In the Home Assistant app on iPhone or iPad, version 2026.10.3 or later. The app also supports two-way audio over HTTP.
