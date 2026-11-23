@@ -567,6 +567,13 @@ The energy distribution card shows how the energy flowed, from the grid to your 
 
 If setup, it will also tell you how many kWh of the energy you got from the grid was produced without using fossil fuels.
 
+If you have a home battery, the card also shows where its energy comes from and where it goes. If your battery has [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction), these flows are measured. Otherwise, the card estimates them from your battery's totals.
+
+The card has no flow from one battery to another. If one battery charges another, what the card shows depends on your batteries:
+
+- With sensors for each direction, the card shows what those sensors measure. For example, energy from the first battery to your home, and energy from the grid or solar into the second battery.
+- With only total in and out, the charging and the discharging can cancel each other out. The card might then not show the transfer at all.
+
 ### YAML configuration
 
 The following YAML options are available:
@@ -827,6 +834,13 @@ max_devices: 5
 
 The sankey energy graph shows the flow of energy in your home. It starts with sources and flows into the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
 
+If your battery has [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction), the energy flowing into and out of the battery is measured. Otherwise, the card estimates these flows from your battery's totals.
+
+The graph has no flow from one battery to another. If one battery charges another, what the graph shows depends on your batteries:
+
+- With sensors for each direction, the graph shows what those sensors measure. For example, energy from the first battery to your home, and energy from the grid or solar into the second battery.
+- With only total in and out, the charging and the discharging can cancel each other out. The graph might then not show the transfer at all.
+
 ### YAML configuration
 
 The following YAML options are available:
@@ -896,6 +910,13 @@ The power Sankey graph shows the real-time flow of power in your home. Unlike th
 
 It visualizes the instantaneous power flow from sources (like the grid, solar panels, and battery) to consumers in your home. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
 
+For a battery with [sensors for each direction](/docs/energy/battery/#sensors-for-each-direction), the card shows the power that the battery's [power sensors](/docs/energy/battery/#power-sensors-for-each-direction) measure. A direction without a power sensor counts as 0 W. For a battery with only total in and out, the card estimates these flows from the battery's net power.
+
+The graph has no flow from one battery to another. If one battery charges another, what the graph shows depends on your batteries:
+
+- With power sensors for each direction, the graph shows what those sensors measure. For example, power from the first battery to your home, and power from the grid or solar into the second battery.
+- With only total in and out, the charging and the discharging power cancel each other out. The graph might then not show the transfer at all.
+
 ### YAML configuration
 
 The following YAML options are available:
@@ -958,14 +979,16 @@ type: power-sankey
 layout: horizontal
 ```
 
-## Power sources graph
+<span id="power-sources-graph"></span>
+
+## Power profile graph
 
 <p class='img'>
-  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Sankey sources graph card'>
-  Screenshot of the power Sankey graph card.
+  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Power profile graph card'>
+  Screenshot of the Power profile graph card.
 </p>
 
-The power sources graph shows historical power data.
+The power profile graph shows historical power data.
 
 ### YAML configuration
 

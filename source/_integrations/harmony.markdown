@@ -22,7 +22,7 @@ Once the Logitech Harmony Hub has been configured, the default activity and dura
 
 ### Configuration file
 
-Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_UNIQUE_ID.conf`. The file will contain:
+Upon startup one file will be written to the `.storage/harmony` folder of your Home Assistant configuration directory per device in the following format: `harmony_UNIQUE_ID.conf`. The file will contain:
 
 - List of all programmed activity names and ID numbers
 - List of all programmed device names and ID numbers
