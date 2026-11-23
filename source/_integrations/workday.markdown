@@ -30,11 +30,11 @@ Days to exclude:
 Offset:
   description: The number of days to shift the day that is checked. The default `0` checks today. Enter `1` to check whether tomorrow is a workday, for example, for an evening automation that prepares for the next day. You can enter a value from -10 to 10.
 Add holidays:
-  description: Provide dates formatted with `YYYY-MM-DD` or a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` to add them as holidays. Available under **Custom holidays**.
+  description: Enter dates formatted with `YYYY-MM-DD` or a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` to add them as holidays. Available under **Custom holidays**.
 Remove holidays:
-  description: Provide dates formatted with `YYYY-MM-DD`, a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` or partial of name, (for example, `christmas` will find `Christmas Day`) to remove them from the list of holidays. Available under **Custom holidays**.
+  description: Enter dates formatted with `YYYY-MM-DD`, a date range formatted with `YYYY-MM-DD,YYYY-MM-DD`, or part of a holiday name (for example, `christmas` finds `Christmas Day`) to remove them from the list of holidays. Available under **Custom holidays**.
 Language for named holidays:
-  description: The language of the holiday names. It's used when you remove holidays by name in **Remove holidays**. Available under **Country settings**.
+  description: The language of the holiday names. It's used to match names you enter in **Remove holidays** (under **Custom holidays**). Available under **Country settings**.
 Subdivision of country:
   description: The subdivision of the chosen country, if any or wanted. Available under **Country settings**.
   required: false
