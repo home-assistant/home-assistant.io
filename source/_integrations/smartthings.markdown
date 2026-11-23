@@ -7,20 +7,43 @@ ha_domain: smartthings
 
 [SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.
 
-{% warning %}
-**Upcoming breaking API change (October 2026).**
-
-Samsung has announced that free access to the SmartThings API will be phased out starting in **October 2026**. After this date, the SmartThings API access will require a paid Personal Plan subscription ($4.99/month).
-
-If you use this integration, you will need to either subscribe to Samsung's Personal Plan or migrate your devices (like local Zigbee/Z-Wave devices) before October 2026 to avoid a service disruption. For full details, see the [SmartThings community announcement](https://community.smartthings.com/t/a-new-enhanced-smartthings-api-experience/309947).
-{% endwarning %}
+{% important %}
+Access to the SmartThings API requires a paid SmartThings API plan. Without an active plan, or once its API usage quota is used up, the integration cannot set up or communicate with SmartThings. For details, see the [SmartThings community announcement](https://community.smartthings.com/t/a-new-enhanced-smartthings-api-experience/309947).
+{% endimportant %}
 
 ## Prerequisites
 
 - You need a Samsung account and account credentials.
 - To connect devices, you need the SmartThings app installed on your phone.
+- An active SmartThings API plan on your Samsung account. You can manage your plans in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans).
+- A SmartThings Personal Access Token (PAT). Home Assistant only uses this token during setup, to create its own SmartThings app on your account. To create a token:
+  1. Go to the [SmartThings tokens page](https://account.smartthings.com/tokens) and sign in with your Samsung account.
+  2. Select **Generate new token** and give it a name, for example `Home Assistant`.
+  3. Under **Authorized Scopes**, select all the **Apps** scopes.
+  4. Select **Generate token** and copy the token. SmartThings only shows it once.
+     - Personal Access Tokens expire after 24 hours. Use the token right away, or create a new one if setup fails with an invalid token error.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Personal Access Token:
+  description: "The SmartThings Personal Access Token with the **Apps** scopes, created as described in the [prerequisites](#prerequisites). Home Assistant uses it to create a SmartThings app named **Home Assistant** on your account, and then asks you to sign in to SmartThings and select the location to connect."
+{% endconfiguration_basic %}
+
+If you previously set up an application credential for SmartThings, Home Assistant uses it and does not ask for a Personal Access Token.
+
+### Migrating from the Home Assistant Cloud login
+
+Earlier versions set up SmartThings through a Home Assistant Cloud login. This option is no longer available for new setups. Existing entries keep working until they need to be reauthenticated. When that happens, Home Assistant asks for a Personal Access Token and moves the entry to its own SmartThings app.
+
+### Reauthenticating
+
+When the integration asks you to reauthenticate, you can choose:
+
+- **Reconnect with the existing app**: Sign in again using the SmartThings app Home Assistant already created.
+- **Create a new app**: Enter a new Personal Access Token to create a replacement app, for example if the app was deleted from your SmartThings account.
+
+You must sign in with the same Samsung account and select the same location as the original entry.
 
 ## Supported functionality
 
@@ -340,6 +363,13 @@ The SmartThings Water heater platform lets you control heat pumps that provide h
 
 ## Troubleshooting
 
+### SmartThings API plan required or quota exceeded
+
+SmartThings rejects requests when your account has no active API plan, or when the plan's API usage quota is used up.
+
+- **API plan required**: Subscribe to a plan in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans). Then reauthenticate the integration. If the error appears during setup, also check that your Personal Access Token has the **Apps** scopes selected.
+- **Quota exceeded**: Home Assistant retries setting up the integration later. Check your remaining quota, or change your plan, in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans).
+
 ### Enabling debug logs
 
 If debug logging is enabled, the integration shows all the received events in the logs. The log captures events for that device for 5 seconds, and returns a JSON file with the state of the device and the events.
@@ -374,3 +404,4 @@ The SmartThings integration is complex due to the breadth of devices and capabil
 
 {% include integrations/remove_device_service.md %}
 4. Open the SmartThings app and delete the Home Assistant application from SmartThings.
+5. Optionally, delete the Personal Access Token on the [SmartThings tokens page](https://account.smartthings.com/tokens), if you have not done so already.
