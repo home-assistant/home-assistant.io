@@ -374,6 +374,14 @@ SmartThings rejects requests when your account has no active API plan, or when t
 - **API plan required**: Subscribe to a plan in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans). Then reauthenticate the integration. If the error appears during setup, also check that your Personal Access Token has the **Applications** scopes selected.
 - **Quota exceeded**: Home Assistant retries setting up the integration later. Check your remaining quota, or change your plan, in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans).
 
+### Setup fails after the API Access App credentials were regenerated
+
+The configuration flow tries to use an existing Home Assistant API Access App on your SmartThings account, if there is one. If the client ID and secret of that API Access App were regenerated in SmartThings, the application credentials stored in Home Assistant are no longer valid. Remove the stored application credentials before you try setting up the integration again:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Application credentials**.
+3. Delete the SmartThings credential. Credentials that Home Assistant created are named **Created** followed by the date and time they were created.
+
 ### Enabling debug logs
 
 If debug logging is enabled, the integration shows all the received events in the logs. The log captures events for that device for 5 seconds, and returns a JSON file with the state of the device and the events.
