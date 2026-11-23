@@ -141,7 +141,7 @@ actions:
 You could also configure an automation to turn a TV on in the morning.
 
  - **Trigger**: Time: It is 9:00 am
-- **Action**: Press button
+- **Action**: Turn on media player
 
 {% details "YAML example for turning on the TV at 09:00 every day" %}
 
