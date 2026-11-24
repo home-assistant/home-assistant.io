@@ -55,17 +55,18 @@ The action returns the forecast for each targeted weather entity, keyed by its e
 
 A trimmed example response looks like this:
 
-```yaml
-weather.home:
-  resolution: 1
-  forecast:
-    - datetime: "2026-11-06T11:20:00+02:00"
-      precipitation: 0
-    - datetime: "2026-11-06T11:21:00+02:00"
-      precipitation: 0.4
-    - datetime: "2026-11-06T11:22:00+02:00"
-      precipitation: 1.27
-```
+{% example %}
+output: |
+  weather.home:
+    resolution: 1
+    forecast:
+      - datetime: "2026-11-06T11:20:00+02:00"
+        precipitation: 0
+      - datetime: "2026-11-06T11:21:00+02:00"
+        precipitation: 0.4
+      - datetime: "2026-11-06T11:22:00+02:00"
+        precipitation: 1.27
+{% endexample %}
 
 ## Good to know
 
