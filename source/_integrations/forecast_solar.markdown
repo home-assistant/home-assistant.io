@@ -154,10 +154,10 @@ If you track your solar panels in the [Energy dashboard](/docs/energy/solar-pane
 
 To add the forecast:
 
-1. Go to {% my energy title="**Settings** > **Dashboards** > **Energy**" %}.
+1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
 2. Under **Solar panels**, select your solar production entry. If you have not set one up yet, see [integrating your solar panels](/docs/energy/solar-panels/) first.
-3. Turn on the solar production forecast option and select **Forecast.Solar**.
-4. Save your changes.
+3. Under **Solar production forecast**, select **Forecast.Solar**.
+4. Select **Save**.
 
 The Energy dashboard now overlays the expected production on your solar graph.
 
