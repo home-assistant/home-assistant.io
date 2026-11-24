@@ -6,6 +6,9 @@
   "categories": [
     "appliances_cleaning.cleaning"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor",
     "switch"

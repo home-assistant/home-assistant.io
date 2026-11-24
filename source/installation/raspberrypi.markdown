@@ -52,8 +52,10 @@ This guide shows how to install the {% term "Home Assistant Operating System" %}
 
 ### Start up your Raspberry Pi
 
+You do not need to install or configure another operating system on your Raspberry Pi first.
+
 1. Insert the SD card into your Raspberry Pi.
-2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer and is connected to the internet.
+2. Connect one end of an Ethernet cable to your Raspberry Pi and the other end to your router or a network switch. Use the same network as your computer, and make sure that network has internet access.
 3. Connect the power supply to start up the device.
 
 ### Access Home Assistant

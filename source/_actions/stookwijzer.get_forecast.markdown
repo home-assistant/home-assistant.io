@@ -2,6 +2,7 @@
 title: "Get forecast"
 action: stookwijzer.get_forecast
 domain: stookwijzer
+response: required
 description: "Retrieves the advice forecast from Stookwijzer."
 ---
 
@@ -55,6 +56,8 @@ config_entry_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `forecast` field. `forecast` is a list of advice entries, each with the following fields:
 

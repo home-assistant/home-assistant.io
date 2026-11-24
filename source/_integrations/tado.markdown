@@ -19,7 +19,7 @@ There is currently support for the following device types within Home Assistant:
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
-It currently supports presenting the current temperature, the setting temperature, and the current operation mode. The operation mode can be set to manual, auto, and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode). Manually switching between `home-mode` and `away-mode` is also supported. Manually switching to `auto-mode` is only supported with Tado assist mode. Any Tado climate card can be switched between these presence modes. This changes the setting for the entire home.
+It currently supports presenting the current temperature, the setting temperature, and the current operation mode. The operation mode can be set to manual, auto, and off. If no user is at home anymore, all Tado zones show the away-state (only with Tado Auto-Assist). Refer to [Changing the presence mode](#changing-the-presence-mode) for the steps.
 
 {% include integrations/config_flow.md %}
 
@@ -40,11 +40,21 @@ Consider using a [custom polling interval](#defining-a-custom-polling-interval) 
 
 ### Migrate to new authentication method
 
-By default, the integration detects when re-authentication is needed for the new login method and prompts with a re-authenticate action. Follow the steps described under  [Connect with Tado](#connect-with-tado).
+By default, the integration detects when re-authentication is needed for the new login method and prompts with a re-authenticate action. Follow the steps described under [Connect with Tado](#connect-with-tado).
 
 ## Unsupported device types
 
 New Tado X devices are not supported by this integration, they have to be used through the [Matter integration](/integrations/matter).
+
+## Changing the presence mode
+
+You can change the presence mode for your entire Tado home from any Tado climate entity:
+
+1. Go to **Settings** > **Devices & services** > **Tado**, and select one of the Tado climate entities to open its dialog.
+2. Select the **Preset** control.
+3. Select **Home** or **Away**. If your Tado account supports automatic geofencing (Tado Auto-Assist), you can also select **Auto**.
+
+The selected presence mode applies to the entire Tado home, not only to the zone represented by the climate entity.
 
 ## Presence detection
 

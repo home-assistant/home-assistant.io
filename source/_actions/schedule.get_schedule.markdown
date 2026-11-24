@@ -2,14 +2,13 @@
 title: "Get schedule"
 action: schedule.get_schedule
 domain: schedule
+response: required
 description: "Retrieves the configured time ranges of one or more schedules."
 related_actions:
   - schedule.reload
 ---
 
 Use this action to read the configured time ranges of one or more schedules, for example to include today's schedule in a notification. You can read several schedules in one call.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -50,6 +49,8 @@ This action has no additional YAML options beyond the target.
 {% include actions/targets.md %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a field for every schedule entity you targeted. Each schedule has seven fields, one for each day of the week in lowercase, containing a list of the configured time ranges. Days without any ranges are returned as an empty list. Each time range has a `from` and a `to` time.
 
@@ -114,7 +115,6 @@ data:
 
 ### Automation: List the time blocks of a heating schedule
 
-If you want to create a new schedule based on one you already have, list the time blocks of the existing schedule and use them as a reference when you create the new one. For example, you can create a new heating schedule with extra time blocks for the weekend.
 This automation uses a [button helper](/integrations/input_button/) to start the copy and creates a persistent notification with the time blocks.
 
 - **Trigger**: State changed

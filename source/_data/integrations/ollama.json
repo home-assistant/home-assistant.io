@@ -10,8 +10,12 @@
   "categories": [
     "ai_voice.ai_models"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "ai_task",
-    "conversation"
+    "conversation",
+    "diagnostics"
   ]
 }

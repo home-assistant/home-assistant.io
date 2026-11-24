@@ -11,6 +11,9 @@
     "vehicles_transport.cars_evs",
     "energy.solar_batteries"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

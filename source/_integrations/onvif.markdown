@@ -34,9 +34,9 @@ By default, the integration will only enable the camera entity for the first H26
 - If additional camera entities are available for other profiles, try enabling those entities.
 - Set the `Extra FFmpeg arguments` to `-pred 1 -ss 00:00:05 -frames:v 1` to cause the snapshot to be taken 5 seconds into the stream.
 
-### Supported sensors
+### Supported events and sensors
 
-This integration uses the ONVIF pullpoint subscription API to process events into sensors that will be automatically added to Home Assistant. Below is a list of currently supported event topics along with the entities they create.
+This integration uses the ONVIF pullpoint subscription API to process events into entities that will be automatically added to Home Assistant. Below is a list of currently supported event topics along with the entities they create.
 
 To help with development of this integration, enable `info` level logging for `homeassistant.components.onvif` and create an issue on GitHub for any messages that show _"No registered handler for event"_.
 
@@ -57,11 +57,14 @@ To help with development of this integration, enable `info` level logging for `h
 | Tamper detector | Binary sensor | Problem |  Detects any kind of tampering to the image sensor. |
 | Storage failure | Binary sensor | Problem | Storage failure on device. |
 | Recording job state | Binary sensor | None | Whether or not the device is actively recording. |
+| Line crossing | Event | Motion | An object crossed a configured line. Currently supported for Ajax cameras. |
 | Processor usage | Sensor | Percent | Device processor usage. |
 | Last reboot | Sensor | Timestamp | When the device was last rebooted. |
 | Last reset | Sensor | Timestamp | When the device was last reset. |
 | Last Clock Synchronization | Sensor | Timestamp | When the device clock was last synchronized. |
 | Last Backup | Sensor | Timestamp | When the last backup of the device configuration has been retrieved. |
+
+Event entities do not have an on or off state. Each time the device reports the event, the entity updates its state to the time it was last triggered and sets its `event_type` attribute to `triggered`. To use an event entity in an automation, select it as the target, select the [**Event received** trigger](/triggers/event.received/), and choose the `triggered` event type.
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
 
