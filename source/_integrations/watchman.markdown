@@ -16,18 +16,18 @@ ha_config_flow: true
 ha_quality_scale: silver
 ---
 
-The **Kingspan Watchman SENSiT** {% term integration %} allows you to monitor heating oil levels and consumption rates from Kingspan Watchman SENSiT ultrasonic tank monitors via Kingspan's ConnectSensor cloud service.
+The **Kingspan Watchman SENSiT** {% term integration %} allows you to monitor heating oil levels and consumption rates from Kingspan Watchman SENSiT ultrasonic tank monitors via Kingspan's cloud service.
 
 ## Supported devices
 
-This integration supports ultrasonic oil tank level monitors connected to the **Kingspan Watchman SENSiT** cloud platform (`connectsensor.com` / Kingspan Watchman SENSiT mobile app).
+This integration supports ultrasonic oil tank level monitors connected to the **Kingspan Watchman SENSiT** cloud platform shared by the KNECT Pro mobile app.
 
 - Accounts with multiple tanks are supported automatically; each tank appears as a separate device in Home Assistant.
 
 ## Prerequisites
 
-- An active Kingspan Watchman SENSiT account with at least one registered tank sensor.
-- The email address and password used to sign in to the Kingspan Watchman SENSiT mobile app.
+- An active KNECT Pro with at least one registered tank sensor.
+- The email address and password used to sign in to the KNECT Pro mobile app.
 
 {% include integrations/config_flow.md %}
 
@@ -66,10 +66,18 @@ For each tank registered on your account, the integration creates the following 
 
 ## Examples
 
+{% include docs/paste_yaml_tip.md %}
+
 ### Low oil level notification
 
-Send a mobile notification when your tank level drops below 20% full:
+Send a mobile notification when your tank level drops below 20% full.
 
+- **When**: The **Tank Percentage Full** sensor drops below `20`.
+- **Then do**: Send a notification to your mobile device with the current percentage and oil level.
+
+{% details "YAML configuration" %}
+
+{% raw %}
 ```yaml
 automation:
   - alias: "Notify when heating oil is low"
@@ -85,11 +93,20 @@ automation:
             Oil level is down to {{ states('sensor.my_tank_tank_percentage_full') }}%
             ({{ states('sensor.my_tank_oil_level') }} L).
 ```
+{% endraw %}
+
+{% enddetails %}
 
 ### Alert when estimated days remaining drops below a threshold
 
-Send a reminder to order heating oil when the **Forecast Empty** sensor drops below 14 days:
+Send a reminder to order heating oil when the **Forecast Empty** sensor drops below 14 days.
 
+- **When**: The **Forecast Empty** sensor is above `0` and drops below `14`.
+- **Then do**: Send a notification to your mobile device with the estimated days remaining and current oil level.
+
+{% details "YAML configuration" %}
+
+{% raw %}
 ```yaml
 automation:
   - alias: "Remind to order heating oil"
@@ -106,6 +123,9 @@ automation:
             Approximately {{ states('sensor.my_tank_forecast_empty') }} days of
             heating oil remaining ({{ states('sensor.my_tank_oil_level') }} L).
 ```
+{% endraw %}
+
+{% enddetails %}
 
 ### Tracking cumulative energy consumption
 
