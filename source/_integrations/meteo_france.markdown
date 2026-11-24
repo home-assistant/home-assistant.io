@@ -79,7 +79,7 @@ forecast_time_ref: '2020-08-20T19:25:00+00:00'
 
 #### About the `weather_alert` sensor
 
-The state is the highest alert level for the department of the city: `Vert`, `Jaune`, `Orange` or `Rouge`. The attributes give the alert level for each type of weather event, such as wind, rain or thunderstorms.
+The state is the highest alert level for the department of the city: `green`, `yellow`, `orange` or `red`. Home Assistant shows it in your language. The attributes give the alert level for each type of weather event, such as wind, rain or thunderstorms. They come from Météo-France and are in French.
 
 ## Data updates
 
@@ -89,13 +89,21 @@ The integration {% term polling polls %} Météo-France for new data:
 - Rain within the next hour: every 5 minutes.
 - Weather alerts: every 15 minutes.
 
-## Examples
+## Météo-France automation examples
 
 {% include docs/paste_yaml_tip.md %}
 
 The examples below use the entities of a location named Paris. Replace them with your own.
 
-### Notify on orange or red weather alerts
+### Automation: Notify on orange or red weather alerts
+
+This automation sends a notification when your department's weather alert turns orange or red.
+
+- **Trigger**: State changed
+  - **Entity**: Paris Weather alert
+  - **To**: Orange, Red
+- **Action**: Send a notification message
+  - **Message**: `Météo-France weather alert: {{ state_translated('sensor.paris_weather_alert') }}`
 
 {% details "YAML example for weather alert notifications" %}
 
@@ -106,8 +114,8 @@ automation: |
     - trigger: state
       entity_id: sensor.paris_weather_alert
       to:
-        - "Orange"
-        - "Rouge"
+        - "orange"
+        - "red"
   actions:
     - action: notify.notify
       data:
@@ -116,7 +124,7 @@ automation: |
 
 {% enddetails %}
 
-### Notify when rain is expected within the hour
+### Automation: Notify when rain is expected within the hour
 
 {% details "YAML example for rain notifications" %}
 
@@ -142,7 +150,7 @@ automation: |
 - Only one city per department provides the weather alert sensor. If you add several cities in the same department, only the first one gets it.
 - The rain forecast for the next hour is only available in the areas covered by Météo-France.
 - The probability sensors are only created when Météo-France provides this data for the location.
-- The weather descriptions, the types of rain and the alert levels come from Météo-France and are always in French.
+- The weather descriptions, the types of rain and the alert levels of each weather event come from Météo-France and are always in French.
 
 ## Troubleshooting
 
