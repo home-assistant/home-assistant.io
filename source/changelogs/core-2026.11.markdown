@@ -13,6 +13,7 @@ For a summary in a more readable format
 - [Frontend](#frontend)
 - [2026.11.1 - November 9](#2026111---november-9)
 - [2026.11.2 - November 16](#2026112---november-16)
+- [2026.11.3 - November 23](#2026113---november-23)
 
 ### Backend
 
@@ -12858,3 +12859,207 @@ For a summary in a more readable format
 [frontend#55869]: https://github.com/home-assistant/frontend/pull/55869
 [frontend#55884]: https://github.com/home-assistant/frontend/pull/55884
 [frontend#55886]: https://github.com/home-assistant/frontend/pull/55886
+
+## 2026.11.3 - November 23
+
+### Backend
+
+#### Alexa Devices
+
+- Bump aioamazondevices to 17.3.2 ([@jamesonuk] - [#193129])
+
+#### Auth
+
+- Allow large response headers when fetching the IndieAuth client_id ([@frenck] - [#193440])
+
+#### Blink
+
+- Store every Blink token refresh, not only the first one ([@frenck] - [#193455])
+
+#### ClickSend TTS
+
+- Accept unquoted E.164 phone numbers in twilio_call and clicksend_tts ([@frenck] - [#193434])
+
+#### EARN-E P1 Meter
+
+- Bump earn-e-p1 to 0.4.0 ([@Miggets7] - [#193283])
+- Bump earn-e-p1 to 0.4.2 ([@Miggets7] - [#193292])
+
+#### FRITZ!Box Tools
+
+- Fix availability of FRITZ!Box tools profile switches ([@mib1185] - [#193682])
+- Further reduce API calls in FRITZ!Box tools ([@mib1185] - [#193680])
+- Fix missing SSL option on older FRITZ!Box tools config entries ([@mib1185] - [#193670])
+- Add a note about the credentials docs in the FRITZ!Box tools re-auth flow ([@mib1185] - [#193673])
+- Fix duplicate unique ID during FRITZ!Box Tools switch migration ([@ldeutschland] - [#185485])
+
+#### go2rtc
+
+- Stop re-adding go2rtc streams that have credentials in their URL ([@frenck] - [#193436])
+
+#### Home Assistant frontend
+
+- Update frontend to 20261028.8 ([@bramkragten] - [#193593])
+
+#### Hunter Hydrawise
+
+- Bump pydrawise to 2026.11.0 ([@dknowles2] - [#193708])
+
+#### Hydro-Québec Peak Events
+
+- Bump hydroquebec_peak to 0.3.0 ([@Beat-YT] - [#192960])
+
+#### IOmeter
+
+- Revert iometer to 1.0.2 to restore sensor updates ([@jukrebs] - [#193267])
+
+#### LG webOS TV
+
+- Keep webOS TV volume set when the TV speaker is active ([@thecode] - [#193694])
+- Bump aiowebostv to 1.1.1 ([@thecode] - [#193731])
+
+#### Marketplace
+
+- Keep the resolved Marketplace content when the catalog install falls back ([@frenck] - [#193438])
+- Give the Marketplace card gzip the same file mode as the card ([@frenck] - [#193439])
+
+#### Midea
+
+- Bump midea-local to 15.2.1 ([@chemelli74] - [#193567])
+- Remove AC entities for unsupported capabilities ([@chemelli74] - [#193994])
+
+#### Modbus
+
+- Bump modbus-connection to 4.12.8 ([@balloob] - [#193617])
+
+#### MQTT
+
+- Fix initial hvac mode for MQTT climate in optimistic mode ([@jbouwh] - [#193626])
+
+#### Nintendo Switch parental controls
+
+- Fix add_bonus_time selector range in Nintendo Parental Controls ([@theSiegs] - [#192891])
+
+#### RESTful Command
+
+- Do not log RESTful Command header values ([@DCSBL] - [#193394])
+
+#### Shelly
+
+- Clear Shelly RPC update progress when the device reconnects ([@thecode] - [#193168])
+- Handle Shelly virtual components without a view ([@frenck] - [#193460])
+
+#### SmartThings
+
+- Add SmartThings air conditioners without a demand response status ([@frenck] - [#193458])
+
+#### Sonos
+
+- Keep polling manual Sonos hosts when one can not be resolved ([@frenck] - [#193579])
+
+#### Stream
+
+- Skip non-monotonic packets in stream recorder ([@chemelli74] - [#193668])
+
+#### Switcher
+
+- Redact Switcher credentials in diagnostics ([@thecode] - [#193835])
+
+#### Tasmota
+
+- Fix Tasmota discovery after a device was removed ([@tux1337] - [#193290])
+
+#### Tuya
+
+- Stop the Tuya MQ thread when Home Assistant stops ([@frenck] - [#193461])
+
+#### Twilio Call
+
+- Accept unquoted E.164 phone numbers in twilio_call and clicksend_tts ([@frenck] - [#193434])
+
+#### UniFi Network
+
+- Disable UniFi polling for unavailable v2 endpoints ([@fermulator] - [#188431])
+
+#### VIZIO SmartCast
+
+- Bump vizaio to 0.7.1 ([@raman325] - [#193637])
+
+#### Vodafone Station
+
+- Re-login Vodafone Station on session expired by the router ([@chemelli74] - [#193102])
+- Bump aiovodafone to 3.3.13 ([@chemelli74] - [#193730])
+- Bump aiovodafone to 3.3.14 ([@chemelli74] - [#193869])
+
+#### Other changes
+
+- Check the time zone before other core config changes ([@balloob] - [#193306])
+
+### Frontend
+
+- Fix getWeatherExtrema when either is 0° ([@silamon] - [frontend#55687])
+- Align MQTT subscribe card width with other cards ([@jbouwh] - [frontend#55914])
+- Stop camera streams right away when hidden in the companion apps ([@bramkragten] - [frontend#55887])
+
+[#185485]: https://github.com/home-assistant/core/pull/185485
+[#188431]: https://github.com/home-assistant/core/pull/188431
+[#192891]: https://github.com/home-assistant/core/pull/192891
+[#192960]: https://github.com/home-assistant/core/pull/192960
+[#193102]: https://github.com/home-assistant/core/pull/193102
+[#193129]: https://github.com/home-assistant/core/pull/193129
+[#193168]: https://github.com/home-assistant/core/pull/193168
+[#193267]: https://github.com/home-assistant/core/pull/193267
+[#193283]: https://github.com/home-assistant/core/pull/193283
+[#193290]: https://github.com/home-assistant/core/pull/193290
+[#193292]: https://github.com/home-assistant/core/pull/193292
+[#193306]: https://github.com/home-assistant/core/pull/193306
+[#193394]: https://github.com/home-assistant/core/pull/193394
+[#193434]: https://github.com/home-assistant/core/pull/193434
+[#193436]: https://github.com/home-assistant/core/pull/193436
+[#193438]: https://github.com/home-assistant/core/pull/193438
+[#193439]: https://github.com/home-assistant/core/pull/193439
+[#193440]: https://github.com/home-assistant/core/pull/193440
+[#193455]: https://github.com/home-assistant/core/pull/193455
+[#193458]: https://github.com/home-assistant/core/pull/193458
+[#193460]: https://github.com/home-assistant/core/pull/193460
+[#193461]: https://github.com/home-assistant/core/pull/193461
+[#193567]: https://github.com/home-assistant/core/pull/193567
+[#193579]: https://github.com/home-assistant/core/pull/193579
+[#193593]: https://github.com/home-assistant/core/pull/193593
+[#193617]: https://github.com/home-assistant/core/pull/193617
+[#193626]: https://github.com/home-assistant/core/pull/193626
+[#193637]: https://github.com/home-assistant/core/pull/193637
+[#193668]: https://github.com/home-assistant/core/pull/193668
+[#193670]: https://github.com/home-assistant/core/pull/193670
+[#193673]: https://github.com/home-assistant/core/pull/193673
+[#193680]: https://github.com/home-assistant/core/pull/193680
+[#193682]: https://github.com/home-assistant/core/pull/193682
+[#193694]: https://github.com/home-assistant/core/pull/193694
+[#193708]: https://github.com/home-assistant/core/pull/193708
+[#193730]: https://github.com/home-assistant/core/pull/193730
+[#193731]: https://github.com/home-assistant/core/pull/193731
+[#193835]: https://github.com/home-assistant/core/pull/193835
+[#193869]: https://github.com/home-assistant/core/pull/193869
+[#193994]: https://github.com/home-assistant/core/pull/193994
+[@Beat-YT]: https://github.com/Beat-YT
+[@DCSBL]: https://github.com/DCSBL
+[@Miggets7]: https://github.com/Miggets7
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@dknowles2]: https://github.com/dknowles2
+[@fermulator]: https://github.com/fermulator
+[@frenck]: https://github.com/frenck
+[@jamesonuk]: https://github.com/jamesonuk
+[@jbouwh]: https://github.com/jbouwh
+[@jukrebs]: https://github.com/jukrebs
+[@ldeutschland]: https://github.com/ldeutschland
+[@mib1185]: https://github.com/mib1185
+[@raman325]: https://github.com/raman325
+[@silamon]: https://github.com/silamon
+[@theSiegs]: https://github.com/theSiegs
+[@thecode]: https://github.com/thecode
+[@tux1337]: https://github.com/tux1337
+[frontend#55687]: https://github.com/home-assistant/frontend/pull/55687
+[frontend#55887]: https://github.com/home-assistant/frontend/pull/55887
+[frontend#55914]: https://github.com/home-assistant/frontend/pull/55914
