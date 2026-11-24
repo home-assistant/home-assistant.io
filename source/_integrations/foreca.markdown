@@ -4,9 +4,9 @@ ha_release: '2026.11'
 ha_domain: foreca
 ---
 
-The **Foreca** {% term integration %} uses the [Foreca Weather API](https://developer.foreca.com) to provide weather forecasts for any location worldwide. [Foreca](https://business.foreca.com) is an independent weather company that has produced forecasts for consumer and business services since 1996.
+The **Foreca** {% term integration %} uses the [Foreca Weather API](https://business.foreca.com/weather-api) to provide weather forecasts for any location worldwide. [Foreca](https://business.foreca.com) is an independent weather company that has produced forecasts for consumer and business services since 1996.
 
-You can use this integration free of charge with a Foreca Weather API Freemium subscription, which is strictly for non-commercial use. It also works with [Foreca's premium packages](https://business.foreca.com/weather-api/pricing), which allow commercial use and provide higher request limits and further weather products.
+You can use this integration free of charge with a [Foreca Weather API Freemium](https://business.foreca.com/weather-api/free-weather-api) subscription, which is strictly for non-commercial use. It also works with [Foreca's premium packages](https://business.foreca.com/weather-api/pricing), which allow commercial use and provide higher request limits and further weather products.
 
 ## Use cases
 
@@ -102,7 +102,7 @@ The integration {% term polling polls %} the Foreca Weather API every 30 minutes
 
 The `weather.get_forecasts` and `foreca.get_forecasts_extra` actions read the forecast the integration has already retrieved, so using them in templates and automations costs no extra requests.
 
-The `foreca.get_3_hour_forecast` action requests fresh data, so each call uses one request for every Foreca weather entity it targets.
+The `foreca.get_3_hour_forecast` and `foreca.get_minute_forecast` actions request fresh data, so each call uses one request for every Foreca weather entity it targets.
 
 ## Known limitations
 

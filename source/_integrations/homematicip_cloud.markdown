@@ -18,7 +18,7 @@ Groups you set up in the Homematic IP app appear as well: heating groups as clim
 
 ### Binary sensors
 
-- Access point cloud connection and arming blocked (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Access point cloud connection and arming blocked (`HmIP-HAP`, `HmIP-HAP-B1`, `HmIP-HAP2`)
 - Window and door contacts, including the rotary handle sensor (`HmIP-SWDO`, `HmIP-SWDO-PL`, `HmIP-SWDO-I`, `HmIP-SWDM`, `HmIP-SWDM-B2`, `HmIP-SRH`)
 - Contact interfaces (`HmIP-FCI1`, `HmIP-FCI6`, `HmIP-SCI`)
 - Smoke detectors (`HmIP-SWSD`, `HmIP-SWSD-2`)
@@ -86,7 +86,7 @@ The Full Flush Lock Controller (`HmIP-FLC`) has no lock entity. Its lock state i
 
 ### Sensors
 
-- Access point duty cycle (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Access point duty cycle (`HmIP-HAP`, `HmIP-HAP-B1`, `HmIP-HAP2`)
 - Wall thermostats (`HmIP-WTH`, `HmIP-WTH-1`, `HmIP-WTH-2`, `HmIP-WTH-B`, `HmIPW-WTH`, `HmIP-BWTH`, `HmIP-WGT`, `HmIP-WGT-A`, `HmIP-WGTC`, `ALPHA-IP-RBG`, `ALPHA-IP-RBGa`)
 - Radiator thermostats (`HmIP-eTRV`, `HmIP-eTRV-2`, `HmIP-eTRV-3`, `HmIP-eTRV-C`, `HmIP-eTRV-CL`, `HmIP-eTRV-E`, `HmIP-eTRV-F`)
 - Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`, `HmIP-STHO`, `HmIP-STHO-A`, `ELV-SH-CTH`)

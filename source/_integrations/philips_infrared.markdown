@@ -111,7 +111,7 @@ The infrared signal is probably not reaching the TV. Infrared relies on a clear 
 
 #### Resolution
 
-Make sure the infrared emitter points at the receiver window of the TV and that nothing blocks the path between them. For more steps, refer to [the troubleshooting section](/integrations/infrared/#the-device-does-not-respond-to-commands) of the infrared documentation.
+Make sure the infrared emitter points at the receiver window of the TV and that nothing blocks the path between them. For more steps, refer to [the troubleshooting section](/connectivity/infrared/#the-device-does-not-respond-to-commands) of the infrared documentation.
 
 {% enddetails %}
 

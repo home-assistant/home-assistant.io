@@ -18,6 +18,15 @@ The **Imeon Inverter** {% term integration %} will poll an [Imeon](https://imeon
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your inverter. This field is not shown when Home Assistant discovered the inverter on your network."
+Username:
+  description: "The username of your OS One account."
+Password:
+  description: "The password of your OS One account."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 This document provides an overview of the sensors available in the Imeon Inverter integration and details their functionality, units, and purpose.
@@ -147,6 +156,10 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | ------------------------------- | ------------------------------------------------------- | ---- |
 | `forecast_cons_remaining_today` | Forecast of the remaining energy consumption for today. | Wh   |
 | `forecast_prod_remaining_today` | Forecast of the remaining energy production for today.  | Wh   |
+
+## Data updates
+
+The integration {% term polling polls %} the inverter every 60 seconds.
 
 ## Troubleshooting
 
