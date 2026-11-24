@@ -7,7 +7,7 @@ related_actions:
   - rainmachine.restrict_watering
 ---
 
-The **Unrestrict all watering** action removes any watering restriction on a RainMachine controller that was set with [Restrict all watering](/actions/rainmachine.restrict_watering/). After this, watering can start again according to the controller's schedule.
+The **RainMachine: Unrestrict all watering** action removes any watering restriction on a RainMachine controller that was set with [Restrict all watering](/actions/rainmachine.restrict_watering/). After this, watering can start again according to the controller's schedule.
 
 {% include actions/ui_header.md %}
 

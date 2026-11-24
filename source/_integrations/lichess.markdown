@@ -1,19 +1,7 @@
 ---
-title: Lichess
 description: Instructions on how to integrate Lichess with Home Assistant.
-ha_category:
-  - Gaming
-  - Sensor
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_release: 2026.4
-ha_codeowners:
-  - '@aryanhasgithub'
 ha_domain: lichess
-ha_integration_type: service
-ha_platforms:
-  - sensor
-ha_quality_scale: bronze
 ---
 
 The **Lichess** {% term integration %} allows you to monitor your [Lichess](https://lichess.org) chess statistics in Home Assistant.
@@ -42,7 +30,7 @@ The API token is used to authenticate requests to the Lichess API. To generate a
 
 The integration creates sensors for your rating in Bullet, Blitz, Rapid, and Classical, and also the number of games played in each of these formats.
 
-Entities for your rating and the number of games played in the following formats are also available, but are disabled by default:
+Entities for your rating and the number of games played in the following formats are also available, but are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity):
 - Puzzles
 - Ultra Bullet
 - Correspondence

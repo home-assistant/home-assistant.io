@@ -1,18 +1,7 @@
 ---
-title: Swiss public transport
 description: Instructions on how to integrate timetable data for traveling in Switzerland within Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: pre 0.7
-ha_config_flow: true
-ha_codeowners:
-  - '@fabaff'
-  - '@miaucl'
 ha_domain: swiss_public_transport
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 The **Swiss public transport** {% term integration %} will give you the next three departure times from a given location to another one in Switzerland.
@@ -26,6 +15,8 @@ End station:
   description: "The arrival station for the end of the connection (e.g., `Geneva`)"
 Via stations:
   description: "List of up to 5 via stations (e.g., `Bern`, `Lausanne`)"
+Means of transport:
+  description: "Only show connections that use the selected means of transport (train, tram, ship, bus, cableway). Leave empty to allow all."
 Departure or arrival time:
   description: "Choose between the departure or arrival time or the connection to be displayed"
 Time mode:
@@ -49,6 +40,14 @@ The minimum configuration for a connection requires a _start_ and _end_ station 
 Optionally, you can provide up to 5 additional _via_ stations where the connection must go through.
 
 ![Config flow](/images/integrations/swiss_public_transport/config_flow.png)
+
+### Means of transport
+
+By default, a connection can use any means of transport. This includes connections that start with a walk to a nearby stop, for example, a few minutes on foot to a bus stop next to the train station. The sensors then show the start of that walk as the departure time.
+
+Select one or more _Means of transport_ to only get connections that use them. For example, select **Train** to only get train departures from a station that is also served by nearby buses.
+
+The selection can't be changed later. To use a different selection, add the connection again.
 
 ### Time mode
 

@@ -1,14 +1,7 @@
 ---
-title: Scenes
 description: Scenes set a group of entities to saved states in one step. Learn what the Scenes integration provides, how to define scenes in YAML, and how to use scenes in automations.
-ha_category:
-  - Organization
 ha_release: 0.15
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: scene
-ha_integration_type: entity
 related:
   - docs: /docs/scene/
     title: Scenes
@@ -18,7 +11,7 @@ The **Scenes** {% term integration %} lets you use {% term scenes %} in Home Ass
 
 Each scene is an {% term entity %}, for example, `scene.movie_night`. You can activate it from a dashboard, an automation, or a script, and start an automation when it's activated.
 
-To create a scene, use the [scene editor](/docs/scene/editor/). To learn what scenes are and when to use them, refer to [Scenes](/docs/scene/).
+To create a scene, use the [scene editor](/docs/scene/#creating-a-scene-in-the-scene-editor). To learn what scenes are and when to use them, refer to [Scenes](/docs/scene/).
 
 {% my scenes badge %}
 

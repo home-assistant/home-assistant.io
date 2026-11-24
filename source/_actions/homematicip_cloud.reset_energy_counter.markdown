@@ -8,7 +8,7 @@ related_actions:
   - homematicip_cloud.set_home_cooling_mode
 ---
 
-The **Reset energy counter** action sets the energy counter of a Homematic IP measuring entity back to zero.
+The **HomematicIP Cloud: Reset energy counter** action sets the energy counter of a Homematic IP measuring entity back to zero.
 
 This action is only available to Home Assistant administrators.
 

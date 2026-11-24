@@ -1,18 +1,10 @@
 ---
-title: RaspyRFM
 description: Instructions on how to integrate RaspyRFM switches into Home Assistant.
-ha_category:
-  - Switch
 ha_release: 0.85
-ha_iot_class: Assumed State
 ha_domain: raspyrfm
-ha_platforms:
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **RaspyRFM** {% term integration %} adds support for cheap RC 433 MHz outlets via one of the supported gateways.

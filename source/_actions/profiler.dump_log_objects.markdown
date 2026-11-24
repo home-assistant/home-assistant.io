@@ -1,5 +1,5 @@
 ---
-title: "Profiler: Dump log objects"
+title: "Dump log objects"
 action: profiler.dump_log_objects
 domain: profiler
 description: "Logs the representation of objects of a given type in memory."
@@ -9,7 +9,7 @@ related_actions:
   - profiler.start_log_object_sources
 ---
 
-Use this action to investigate objects in memory. When [Profiler: Start log objects](/actions/profiler.start_log_objects/) highlights the growth of a collection of objects in memory, this action helps you investigate it. The representation of each object that matches the given **Type** is logged.
+Use this action to investigate objects in memory. When [Start logging objects](/actions/profiler.start_log_objects/) highlights the growth of a collection of objects in memory, this action helps you investigate it. The representation of each object that matches the given **Type** is logged.
 
 This action requires an administrator account.
 

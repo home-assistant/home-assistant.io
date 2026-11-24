@@ -1,8 +1,6 @@
 ---
 title: "RESTful Sensor"
 description: Instructions on how to integrate REST sensors into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
 ha_domain: rest
@@ -126,7 +124,7 @@ scan_interval:
   type: integer
   default: 30
 state_class:
-  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  description: The [state_class](/integrations/sensor/#state-class) of the sensor.
   required: false
   type: string
 timeout:
@@ -139,7 +137,7 @@ unique_id:
   required: false
   type: string
 unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
+  description: Defines the units of measurement of the sensor, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes).
   required: false
   type: string
 username:

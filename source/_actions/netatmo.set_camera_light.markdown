@@ -19,7 +19,7 @@ To set the camera light mode from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Netatmo Outdoor camera you want to control.
-6. From the actions shown for that target, select **Set camera light mode**.
+6. From the actions shown for that target, under **Netatmo**, select **Set camera light mode**.
 7. Set the **Camera light mode** you want.
 8. Select **Save**.
 
@@ -54,7 +54,7 @@ camera_light_mode:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Netatmo outdoor camera" example="camera.front_door" %}
 
 ## Good to know
 
@@ -69,11 +69,15 @@ camera_light_mode:
 
 Light up the front of the house when the camera spots motion after dark.
 
-- **Trigger**: Motion detected by the front door camera
-- **Condition**: Sun is below the horizon
-- **Action**: Set camera light mode
+- **Trigger**: State changed
+  - **Entity**: Front door motion sensor
+  - **To**: Detected
+- **Condition**: State
+  - **Entity**: Sun
+  - **State**: Below horizon
+- **Action**: Netatmo: Set camera light mode
   - **Target**: Front door camera
-  - **Camera light mode**: on
+  - **Camera light mode**: On
 
 {% details "Show example YAML" %}
 

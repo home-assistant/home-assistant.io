@@ -1,14 +1,7 @@
 ---
-title: Remote
 description: Instructions on how to set up your remotes with Home Assistant.
 ha_release: 0.34
 ha_domain: remote
-ha_category:
-  - Remote
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 The **Remote** {% term integration %} manages remote entities and lets you control devices through them.
@@ -74,8 +67,7 @@ automation: |
 
 At sunset, start a saved evening activity on a remote that supports activities.
 
-- **Trigger**: Sun
-  - **Event**: Sunset
+- **Trigger**: Sunset
 - **Action**: Turn on via remote
   - **Target**: Living room remote
   - **Activity**: Evening TV
@@ -86,8 +78,7 @@ At sunset, start a saved evening activity on a remote that supports activities.
 automation: |
   alias: "Start evening TV activity at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: remote.turn_on
       target:

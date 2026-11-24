@@ -1,22 +1,7 @@
 ---
-title: Flo
 description: Instructions on how to integrate Flo by Moen into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
-  - Switch
-  - Water management
-ha_config_flow: true
-ha_codeowners:
-  - '@dmulcahey'
 ha_domain: flo
-ha_iot_class: Cloud Polling
 ha_release: 0.115
-ha_platforms:
-  - binary_sensor
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **Flo** {% term integration %} integrates

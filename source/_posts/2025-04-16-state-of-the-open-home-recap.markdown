@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2 million homes strong - State of the Open Home 2025"
+title: "2 million homes strong: State of the Open Home 2025"
 description: "We celebrate the biggest moments of 2025, the community, and look forward to what’s next."
 date: 2025-04-16 00:00:01
 date_formatted: "April 16, 2025"

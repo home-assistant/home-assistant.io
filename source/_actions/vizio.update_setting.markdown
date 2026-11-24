@@ -82,7 +82,9 @@ new_value:
 
 This automation switches the TV's audio equalizer to the "Movie" preset whenever the VIZIO media player starts playing, giving you better sound for films.
 
-- **Trigger**: The VIZIO media player starts playing
+- **Trigger**: State changed
+  - **Entity**: Vizio smartcast media player
+  - **To**: Playing
 - **Action**: VIZIO SmartCast: Update setting
 
 {% details "YAML example for switching the equalizer on playback" %}

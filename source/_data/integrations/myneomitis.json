@@ -1,0 +1,21 @@
+{
+  "domain": "myneomitis",
+  "name": "MyNeomitis",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Epyes"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "climate",
+    "select"
+  ]
+}

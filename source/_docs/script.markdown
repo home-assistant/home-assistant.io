@@ -4,15 +4,15 @@ description: "A script is a saved list of steps that Home Assistant runs when yo
 related:
   - docs: /integrations/script/
     title: Scripts integration
-  - docs: /docs/scripts/
-    title: Building blocks and actions
+  - docs: /docs/automation/building-blocks/
+    title: Building blocks
   - docs: /docs/automation/which-tool-to-use/
     title: Which tool to use
 ---
 
-A {% term script %} is a saved list of steps that Home Assistant runs when you start it. For example, a "Good morning" script can turn on the lights, start the coffee machine, and read out the weather. Unlike an {% term automation %}, a script has no triggers, and no conditions that are checked before it starts. It runs its steps as soon as you start it: from a dashboard, with Assist, from an automation, or from another script. If a script should only continue in certain situations, it can check a condition as one of its steps, with the [**Condition**](/docs/scripts/#condition) building block.
+A {% term script %} is a saved list of steps that Home Assistant runs when you start it. For example, a "Good morning" script can turn on the lights, start the coffee machine, and read out the weather. Unlike an {% term automation %}, a script has no triggers, and no conditions that are checked before it starts. It runs its steps as soon as you start it: from a dashboard, with Assist, from an automation, or from another script. If a script should only continue in certain situations, it can check a condition as one of its steps, with the [**Condition**](/building-blocks/condition/) building block.
 
-The steps of a script are the same actions and building blocks you use in automations. For all steps you can use, refer to [Building blocks and actions](/docs/scripts/). For the script entity, scripts in YAML, and the actions that start or stop scripts, refer to the [Scripts integration](/integrations/script/).
+The steps of a script are the same actions and building blocks you use in automations. For how the steps run, refer to [Building blocks](/docs/automation/building-blocks/). For all actions, refer to the [list of actions](/actions/). For the script entity, scripts in YAML, and the actions that start or stop scripts, refer to the [Scripts integration](/integrations/script/).
 
 ## When to use a script
 
@@ -144,9 +144,17 @@ For how to pass values in YAML, refer to [Passing values to a script in YAML](/i
 
 ### Waiting for a script to finish
 
-When you run the script itself, the automation or script that started it waits for it to finish. If the script stops because of an error, the automation or script that started it stops too.
+When you run the script itself, the automation or script that started it waits for it to finish. If an action in the script fails, the automation or script that started it stops too. To continue anyway, turn on [**Continue on error**](/docs/automation/building-blocks/#continuing-on-error) for the failing action, or for the step that runs the script.
 
-With **Turn on script**, the automation or script that started it doesn't wait. If you start several scripts, they start in the order you list them, and the automation continues as soon as the last one has started. Errors in those scripts don't affect the automation.
+In the following situations, only the script stops, and the automation or script that started it continues:
+
+- A [**Stop**](/building-blocks/stop/) building block with **Stop because of an unexpected error** turned on.
+- A wait that times out while **Continue on timeout** is turned off.
+- A template that can't be rendered in a delay, in a timeout, or in the count or the list of items of a repeat.
+
+With **Turn on script**, the automation or script that started it doesn't wait. It continues as soon as the script has started. Errors in the script don't affect the automation.
+
+If you start several scripts with one **Turn on script** action, they start one after the other. They start in the order Home Assistant loaded them, not in the order you list them. If the order matters, use a separate **Turn on script** action for each script.
 
 ![Diagram showing the difference between calling a script directly and via script.turn_on, and how the calling script waits or continues](/images/integrations/script/script_wait.jpg)
 
@@ -154,6 +162,6 @@ To do other steps while a script runs, and still wait for it later, start it wit
 
 ### Returning a response
 
-A script can return data to the automation or script that started it. In the script, add a [**Stop**](/docs/scripts/#stop) building block, and enter the name of the variable to return in **The name of the variable to use as response**. In the automation, run the script itself, and enter a name in **Response variable**. The automation can then use the data in templates.
+A script can return data to the automation or script that started it. In the script, add a [**Stop**](/building-blocks/stop/) building block, and enter the name of the variable to return in **The name of the variable to use as response**. In the automation, run the script itself, and enter a name in **Response variable**. The automation can then use the data in templates.
 
-The variable that the script returns must contain keys and values. For an example, refer to [Examples of Stop](/docs/scripts/#examples-of-stop).
+The variable that the script returns must contain keys and values. For an example, refer to [Examples of Stop](/building-blocks/stop/#examples).

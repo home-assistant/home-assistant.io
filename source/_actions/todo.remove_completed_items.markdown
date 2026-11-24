@@ -57,7 +57,9 @@ This action has no additional YAML options beyond the target.
 
 When you arrive home from the store, clear off everything you have already picked up.
 
-- **Trigger**: You arrive home
+- **Trigger**: Zone entered
+  - **Target**: Me
+  - **Zone**: Home
 - **Action**: Remove completed to-do list items
   - **Target**: Shopping list
 
@@ -67,10 +69,11 @@ When you arrive home from the store, clear off everything you have already picke
 automation: |
   alias: "Clear completed shopping items when arriving home"
   triggers:
-    - trigger: zone
-      entity_id: person.me
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.me
+      options:
+        zone: zone.home
   actions:
     - action: todo.remove_completed_items
       target:

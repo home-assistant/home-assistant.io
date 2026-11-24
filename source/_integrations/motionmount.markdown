@@ -1,25 +1,7 @@
 ---
-title: Vogel's MotionMount
 description: Instructions on how to integrate Vogel's MotionMount into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
 ha_release: 2024.1
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - number
-  - select
-  - sensor
-ha_codeowners:
-  - '@laiho-vogels'
 ha_domain: motionmount
-ha_zeroconf: true
-ha_quality_scale: bronze
-ha_integration_type: device
 ---
 
 The **Vogel's MotionMount** {% term integration %} allows you to control the position of your [TVM 7675 Pro](https://www.vogels.com/p/tvm-7675-pro-motorized-tv-wall-mount-black) SIGNATURE MotionMount from Vogel's.

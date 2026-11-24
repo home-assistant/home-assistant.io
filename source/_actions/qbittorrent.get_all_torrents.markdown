@@ -2,14 +2,13 @@
 title: "Get all torrents"
 action: qbittorrent.get_all_torrents
 domain: qbittorrent
+response: required
 description: "Gets the current torrents from all qBittorrent instances."
 related_actions:
   - qbittorrent.get_torrents
 ---
 
 Use this action to get the current torrents from all of your qBittorrent instances at once, for example to show a combined overview on a dashboard. You can narrow the result down with a filter, such as only the active or paused torrents.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -58,6 +57,8 @@ torrent_filter:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a dictionary keyed by each qBittorrent instance, and each instance contains a dictionary of matching torrents keyed by torrent name.
 

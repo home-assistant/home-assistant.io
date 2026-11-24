@@ -2,6 +2,7 @@
 title: "Get media URL"
 action: media_extractor.extract_media_url
 domain: media_extractor
+response: required
 description: "Extracts a media URL and returns it in the action response."
 ---
 
@@ -15,7 +16,7 @@ To extract a media URL from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Media Extractor: Get media URL**.
+5. From the search box, search for and select **Media extractor: Get media URL**.
 6. Enter the URL to extract.
 7. In the **Response variable** field, enter a name to store the result in, such as `extracted_media`.
 8. Select **Save**.
@@ -65,6 +66,8 @@ format_query:
 This action does not support targets.
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the extracted media URL in the action response.
 

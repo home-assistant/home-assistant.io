@@ -1,20 +1,7 @@
 ---
-title: Autarco
 description: Instructions on how to integrate Autarco solar system within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2024.8
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@klaasnicolaas'
 ha_domain: autarco
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Autarco** {% term integration %} allows you to gather data from the cloud API of [Autarco](https://www.autarco.com) and use it in Home Assistant.

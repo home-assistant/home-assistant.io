@@ -8,7 +8,7 @@ related_actions:
   - elkm1.sensor_zone_trigger
 ---
 
-The **Sensor zone bypass** action bypasses a single Elk-M1 zone. A bypassed zone is ignored while the system is armed.
+The **Elk-M1 Control: Sensor zone bypass** action bypasses a single Elk-M1 zone. A bypassed zone is ignored while the system is armed.
 
 This is useful when you want an automation to temporarily exclude one zone, for example a specific door or window that you want to leave open.
 

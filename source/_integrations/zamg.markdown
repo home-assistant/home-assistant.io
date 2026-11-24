@@ -1,19 +1,7 @@
 ---
-title: GeoSphere Austria
 description: Instructions on how to integrate GeoSphere Austria (formerly known as ZAMG) within Home Assistant.
-ha_category:
-  - Sensor
-  - Weather
 ha_release: 0.35
-ha_iot_class: Cloud Polling
 ha_domain: zamg
-ha_config_flow: true
-ha_platforms:
-  - sensor
-  - weather
-ha_integration_type: service
-ha_codeowners:
-  - '@killer0071234'
 ---
 
 The **GeoSphere Austria** {% term integration %} uses meteorological details published by the Austrian weather service [GeoSphere Austria](https://www.geosphere.at).

@@ -54,8 +54,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -66,9 +64,9 @@ behavior:
 for:
   description: >
     The time the vacuum must remain paused before the trigger fires.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}

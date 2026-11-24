@@ -1,3 +1,3 @@
-## Lost Password and password reset
+## Lost password and password reset
 
-Please refer to the [I'm locked out!](/docs/locked_out/) documentation page.
+If you forgot your password, refer to [I'm locked out!](/docs/locked_out/).

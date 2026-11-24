@@ -1,23 +1,7 @@
 ---
-title: FYTA
 description: Instructions on how to integrate FYTA sensors within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_release: 2024.4
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@dontinelli'
 ha_domain: fyta
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - image
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: platinum
-ha_dhcp: true
 ---
 
 The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta.de) to obtain the data from your plant sensors and integrate these into Home Assistant.

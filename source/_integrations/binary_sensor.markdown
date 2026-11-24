@@ -1,14 +1,7 @@
 ---
-title: Binary sensor
 description: Instructions on how-to set up binary sensors with Home Assistant.
-ha_category:
-  - Binary sensor
 ha_release: 0.9
-ha_quality_scale: internal
 ha_domain: binary_sensor
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 Binary sensors are similar to other [sensors](/integrations/sensor) in that they
@@ -175,7 +168,7 @@ For sensors that measure values, see the [sensor device classes](/integrations/s
 
 If a binary sensor shows up as the wrong type, for example as an opening instead of a door, you can change its device class.
 
-You can only change the device class in the UI if the binary sensor has a unique ID. A binary sensor without a unique ID shows a message in its entity settings instead. For such a binary sensor, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
+You can only change the device class in the UI if the binary sensor has a unique ID. A binary sensor without a unique ID shows a message in its entity settings instead. For such a binary sensor, you can change the device class in YAML with [customization](/docs/configuration/customizing-entities/#customizing-an-entity-in-yaml).
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the binary sensor.
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.

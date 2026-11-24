@@ -8,16 +8,18 @@ Parameters:
                      unit_options_code, and unit_default.
   unit_label         Unit label. For example: "temperature unit", "energy unit".
   unit_options_code  Inline code list of allowed units. For example: "`°C` or `°F`".
-  unit_default       Default unit. For example: "°C"
+  unit_default       Optional. Default unit shown in the UI. For example: "°C"
 {% endcomment %}
 {% options_ui %}
 Threshold type:
   description: |
-    The threshold the entity's reading is compared against. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter {{ include.value_short }}, or **Entity** to use a sensor or number helper as a dynamic threshold.
+    The threshold the entity's reading is compared against. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** includes both bounds: a reading equal to either bound passes. **Outside range** excludes both bounds: a reading equal to either bound does not pass. Choose **Number** to enter {{ include.value_short }}, or **Entity** to use a sensor or number helper as a dynamic threshold.
 {% if include.has_unit %}
 Unit:
   description: The {{ include.unit_label }} to use for threshold comparison. Accepts {{ include.unit_options_code }}. Required when using numerical thresholds (not required when using entity references).
+{%- if include.unit_default %}
   default: {{ include.unit_default }}
+{%- endif %}
 {% endif %}
 Condition passes if:
   description: |

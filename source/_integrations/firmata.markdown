@@ -1,24 +1,7 @@
 ---
-title: Firmata
 description: Connect Arduino-compatible boards within Home Assistant
-ha_category:
-  - Binary sensor
-  - DIY
-  - Light
-  - Sensor
-  - Switch
 ha_release: 0.114
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@DaAwesomeP'
 ha_domain: firmata
-ha_platforms:
-  - binary_sensor
-  - light
-  - sensor
-  - switch
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 [Firmata](https://github.com/firmata/protocol) can be used to add analog and digital inputs and outputs to Home Assistant. This allows for buttons, switches, motion detectors, relay control, sensors, potentiometers, and dimmers. The integration can currently connect to a Firmata board via serial or serial over USB.

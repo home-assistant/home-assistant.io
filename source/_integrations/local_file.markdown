@@ -1,18 +1,10 @@
 ---
-title: Local file
 description: Instructions how to use local file as a camera within Home Assistant.
-ha_category:
-  - Camera
-ha_iot_class: Local Polling
 ha_release: 0.22
 ha_domain: local_file
-ha_platforms:
-  - camera
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_config_flow: true
 ---
 
 The **Local file** camera {% term integration %} allows you to integrate an image file from disk into Home Assistant as a camera. If the image is updated on the file system, the image displayed in Home Assistant will also be updated. The `local_file.update_file_path` action can be used to update the image using an automation.

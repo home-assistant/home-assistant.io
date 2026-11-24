@@ -5,12 +5,12 @@ related:
     title: Local assistant pipeline
   - docs: /integrations/local_calendar/
     title: Local calendar
-  - docs: /integrations/telegram/#setup-example
+  - docs: /integrations/telegram_bot/#notifiers
     title: Telegram notification
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Telegram notification
   - url: https://www.nabucasa.com
-    title: Home Assistant Cloud
+    title: Home Assistant Link
 ---
 
 In this tutorial, we are creating an automation that has Assist send you a daily summary. Assist will tell you about the weather and your calendar events today. It will also send you the summary to your messenger.
@@ -25,7 +25,7 @@ We will be using OpenAI, which requires an OpenAI account. For what we do in thi
 
 This tutorial assumes you have a few things set up already:
 
-- [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [local assistant pipeline](/voice_control/voice_remote_local_assistant/).
+- [Home Assistant Link](https://www.nabucasa.com) or a manually configured [local assistant pipeline](/voice_control/voice_remote_local_assistant/).
 
 This tutorial was done using the **Local calendar**, the **Meteorologisk institutt**,  and the **Telegram** integrations. It has not been tested with other integrations of the notifications or calendar category.
 
@@ -58,15 +58,9 @@ Skip this if you're already using a notification integration.
 
 1. Go to the [integrations page](/integrations/) and select the **Notifications** filter.
 2. Pick a messenger service you like and install it as described in the documentation.
-3. If unsure, select **Telegram** and add the integration.
+3. If unsure, select **Telegram bot** and add the integration.
 4. If you don't have it already, install Telegram on your phone.
-5. To get started with Telegram on Home Assistant, follow the [set up instruction](/integrations/telegram/#setup-example) step by step.
-   - Make sure not to copy and paste the following values from the example. Enter the real values:
-     - `api_key`
-     - `allowed_chat_ids`
-     - `name`
-     - `chat_id`
-     - `service`
+5. To get started with Telegram on Home Assistant, set up the [Telegram bot](/integrations/telegram_bot/#prerequisites) step by step, and add the chat ID you want to send the summary to.
 6. You now have a working **Notification** integration. Home Assistant can now send messages to you.
 
 ### Creating an OpenAI voice assistant personality
@@ -88,7 +82,8 @@ We are using a blueprint (courtesy of [@allenporter]) that polls calendar events
 3. Select the blueprint **Conversation agent agenda notification** from the list.
 4. Enter the values for each category.
    ![Add prompt for Mario personality](/images/assist/blueprint_daily_summary_notification_01.png)
-   - Under **Notify service name**, make sure not to leave the default but to use the one you set up previously. For example `notify.nina`.
+   - Under **Notify entity**, select the notify entity of the chat you set up previously. For example `notify.telegram_bot_chat`.
+   - If your notification integration provides a notify action instead of a notify entity, leave **Notify entity** empty. Under **Notify service name**, enter that action instead of the default. For example `notify.mobile_app_pixel`.
    - **Save** your changes.
    - In the dialog, enter a name for your new automation. For example, `Daily summary by Mario`.
 5. To view the automation, go to {% my automations title="**Settings** > **Automations & Scenes**" %}.

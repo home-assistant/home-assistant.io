@@ -1,24 +1,10 @@
 ---
-title: Imeon Inverter
 description: Instructions on Imeon Inverter Integration for Imeon inverters with Home Assistant.
 ha_release: 2025.5
-ha_category:
-  - Energy
-  - Sensor
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Imeon-Energy'
 ha_domain: imeon_inverter
 related:
   - url: https://imeon-energy.com/
   - title: Imeon Energy website
-ha_integration_type: device
-ha_quality_scale: bronze
-ha_platforms:
-  - select
-  - sensor
-ha_ssdp: true
 ---
 
 The **Imeon Inverter** {% term integration %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
@@ -31,6 +17,15 @@ The **Imeon Inverter** {% term integration %} will poll an [Imeon](https://imeon
    - To do so, connect to **OS One** > **Applications** and by hovering over *ModuleAPI*, select **Activate**.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your inverter. This field is not shown when Home Assistant discovered the inverter on your network."
+Username:
+  description: "The username of your OS One account."
+Password:
+  description: "The password of your OS One account."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
@@ -161,6 +156,10 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | ------------------------------- | ------------------------------------------------------- | ---- |
 | `forecast_cons_remaining_today` | Forecast of the remaining energy consumption for today. | Wh   |
 | `forecast_prod_remaining_today` | Forecast of the remaining energy production for today.  | Wh   |
+
+## Data updates
+
+The integration {% term polling polls %} the inverter every 60 seconds.
 
 ## Troubleshooting
 

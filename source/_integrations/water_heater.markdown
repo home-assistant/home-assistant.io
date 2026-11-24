@@ -1,13 +1,7 @@
 ---
-title: Water heater
 description: Instructions on how to set up water heater devices within Home Assistant.
 ha_release: 0.81
 ha_domain: water_heater
-ha_quality_scale: internal
-ha_category: []
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 The **Water heater** {% term integration %} lets you monitor and control hot water heaters in Home Assistant. Water heater entities are provided by integrations that support your device. You can use them to check whether a water heater is on or off, adjust the target temperature, change the operation mode, and build automations around those changes.
@@ -16,7 +10,11 @@ The **Water heater** {% term integration %} lets you monitor and control hot wat
 
 {% warning %}
 
- Misconfiguring Water Heater automations may allow water temperatures to drop into ranges between 25°C to 45°C (77°F and 113°F) which allows for Legionella bacteria growth. This can pose serious health risks, including death from Legionnaires' disease. Maintain water temperature ≥ 60°C (140°F) for bacterial safety.
+Water heater automations that lower water temperatures can allow Legionella bacteria to grow, particularly between 25°C and 45°C (77°F and 113°F). Legionella can cause serious illness, including potentially fatal Legionnaires' disease.
+
+Hot water storage temperature and the temperature delivered at taps are different. Where temperature is used to control Legionella, guidance commonly calls for storing hot water at 60°C (140°F) or higher. Water this hot can cause scalding. Thermostatic mixing valves near taps and showers mix hot and cold water to reduce this risk.
+
+Follow your water heater manufacturer's instructions and local public health guidance when configuring automations. A temperature setting alone does not guarantee Legionella control. See the [CDC guidance on controlling Legionella in potable water systems](https://www.cdc.gov/control-legionella/php/toolkit/potable-water-systems-module.html) for more information.
 
 {% endwarning %}
 

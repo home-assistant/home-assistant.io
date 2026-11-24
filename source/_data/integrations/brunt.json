@@ -1,0 +1,19 @@
+{
+  "domain": "brunt",
+  "name": "Brunt Blind Engine",
+  "integration_type": "hub",
+  "codeowners": [
+    "@eavanvalkenburg"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "cover"
+  ]
+}

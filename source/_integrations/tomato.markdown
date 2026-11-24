@@ -1,15 +1,7 @@
 ---
-title: Tomato
 description: Instructions on how to integrate Tomato routers into Home Assistant.
-ha_category:
-  - Presence detection
 ha_release: pre 0.7
 ha_domain: tomato
-ha_iot_class: Local Polling
-ha_platforms:
-  - device_tracker
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **Tomato** {% term integration %} allows one to track devices which are

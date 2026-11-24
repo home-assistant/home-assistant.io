@@ -1,14 +1,7 @@
 ---
-title: RESTful Command
 description: Instructions on how to integrate REST commands into Home Assistant.
-ha_category:
-  - Automation
 ha_release: 0.36
-ha_iot_class: Local Push
 ha_domain: rest_command
-ha_integration_type: integration
-ha_codeowners:
-  - '@jpbede'
 ---
 
 This {% term integration %} can expose regular REST commands as actions. Actions can be called from a [script] or in [automation].
@@ -129,7 +122,7 @@ rest_command:
 ### Using REST command Response in automations
 
 REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code), `content` containing the response body as text or JSON and `headers` containing the response headers.
-This response can be accessed in automations using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+This response can be accessed in automations using [`response_variable`](/docs/automation/action/#action-response-data).
 
 The following example shows how the REST command response may be used in automations. In this case, checking the [Traefik API](https://doc.traefik.io/traefik/operations/api/) for errors.
 
@@ -214,10 +207,11 @@ Call the new action from [Tools](/docs/tools/dev-tools/) in the sidebar with som
 automation:
 - alias: "Arrive at Work"
   triggers:
-    - trigger: zone
-      entity_id: device_tracker.my_device
-      zone: zone.work
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: device_tracker.my_device
+      options:
+        zone: zone.work
   actions:
     - action: rest_command.my_request
       data:

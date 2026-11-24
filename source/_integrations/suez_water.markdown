@@ -1,19 +1,7 @@
 ---
-title: Suez Water
 description: Instructions on how to integrate Suez Water daily data within Home Assistant.
 ha_release: 0.97
-ha_category:
-  - Sensor
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@ooii'
-  - '@jb101010-2'
 ha_domain: suez_water
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Suez Water** {% term integration %} fetches your water consumption data from the French water provider [Tout Sur Mon Eau](https://www.toutsurmoneau.fr) website.
@@ -81,6 +69,10 @@ Counter ID:
     5. In the **Network** tab, search for `id_PDS=`. The 10-digit number that follows it is your counter ID.
 
 {% endconfiguration_basic %}
+
+## Data updates
+
+The integration {% term polling polls %} your Suez account every 12 hours.
 
 ## Removing the integration
 

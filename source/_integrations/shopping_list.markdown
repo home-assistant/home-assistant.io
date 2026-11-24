@@ -1,17 +1,7 @@
 ---
-title: Shopping list
 description: Instructions on how to integrate a Shopping list into Home Assistant using Intent.
-ha_category:
-  - Intent
-  - To-do list
 ha_release: '0.50'
-ha_config_flow: true
-ha_quality_scale: internal
-ha_iot_class: Local Push
 ha_domain: shopping_list
-ha_integration_type: integration
-ha_platforms:
-  - todo
 ---
 
 The **Shopping list** {% term integration %} allows you to keep track of shopping list items.

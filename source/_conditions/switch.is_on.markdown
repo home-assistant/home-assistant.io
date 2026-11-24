@@ -55,20 +55,20 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the switch must have been on for the condition to pass. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the switch must have been on for the condition to pass. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="switch or toggle helper" example="switch.coffee_maker" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- A switch in the `unknown` or `unavailable` state does not count as on.
-- With **All**, every targeted switch must match. With **Any**, one matching switch is enough.
+- You can use switch entities and [toggle helpers](/integrations/input_boolean/) (`input_boolean`) as [targets](/docs/automation/targets/).
+{% include conditions/unavailable_targets.md entities="switches" %}
 - To check for the opposite state, use [Switch is off](/conditions/switch.is_off/).
 
 {% include conditions/try_it.md %}

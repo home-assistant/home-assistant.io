@@ -1,32 +1,12 @@
 ---
-title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Hub
-  - Select
-  - Sensor
 ha_release: 0.81
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@mvn23'
 ha_domain: opentherm_gw
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **OpenTherm Gateway** {% term integration %} is used to control the [OpenTherm Gateway](https://otgw.tclcode.com/) from Home Assistant.
 
-This integration will add three devices to Home Assistant for each configured gateway. The main control of the integration is a single `climate` entity which can be found on the added `OpenTherm Thermostat` device. All added devices have a collection of `sensor` and `binary_sensor` entities, which are disabled by default. To enable them, follow the steps on [enabling entities](/common-tasks/general/#enabling-or-disabling-entities).
+This integration will add three devices to Home Assistant for each configured gateway. The main control of the integration is a single `climate` entity which can be found on the added `OpenTherm Thermostat` device. All added devices have a collection of `sensor` and `binary_sensor` entities, which are disabled by default. To enable them, follow the steps on [enabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 {% note %}
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
@@ -84,6 +64,26 @@ Pressing this button, which can be found on the `OpenTherm Boiler` device, trigg
 #### Restart
 
 The restart button on the `OpenTherm Gateway` device can be used to restart the OpenTherm Gateway.
+
+### Number
+
+#### Control setpoint 1 override - Control setpoint 2 override
+
+{% warning %}
+The use of these entities involves a level of risk and is not recommended. Possible consequences of using these entities are uncontrolled heating of the boiler, inefficient and inaccurate heating of your home and disturbing your thermostat's internal heating algorithm. This may have a long-term impact even after you stop using these entities.
+
+Read the [stand-alone operation notes](https://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using these entities.
+
+To reduce the risks involved as much as possible, use the following guidelines:
+
+- Update your OpenTherm Gateway to firmware version 5.8/6.5 or greater.
+- Send values of 8 °C (46.4 °F) or higher at intervals of at most 1 minute as long as there is a heating need.
+- Keep values as low as possible.
+
+{% endwarning %}
+
+These number entities, which can be found on the `OpenTherm Gateway` device, allow you to override the control setpoint for the respective central heating circuit. When active, the OpenTherm Gateway overrides the control setpoint determined by the thermostat. Set the entity to 0 °C (32 °F) to return control to the thermostat.
+These entities are disabled by default.
 
 ### Select
 

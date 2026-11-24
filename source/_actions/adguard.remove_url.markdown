@@ -10,7 +10,7 @@ related_actions:
   - adguard.refresh
 ---
 
-The **Remove URL** action deletes a filter subscription from AdGuard Home. AdGuard Home stops using the rules from that list and removes the subscription completely.
+The **AdGuard Home: Remove URL** action deletes a filter subscription from AdGuard Home. AdGuard Home stops using the rules from that list and removes the subscription completely.
 
 Use this to clean up a blocklist you no longer need, such as a temporary list you added earlier. If you only want to switch a list off for a while and keep it around, use [Disable URL](/actions/adguard.disable_url/) instead.
 
@@ -72,7 +72,9 @@ url:
 
 When study time ends, remove the extra blocklist you added earlier so normal browsing resumes.
 
-- **Trigger**: A study-time helper turns off
+- **Trigger**: State changed
+  - **Entity**: Study time helper
+  - **To**: Off
 - **Action**: AdGuard Home: Remove URL
 
 {% details "YAML example for removing a blocklist when study time ends" %}

@@ -1,20 +1,7 @@
 ---
-title: Min/Max
 description: Instructions on how to integrate min/max sensors into Home Assistant.
-ha_category:
-  - Helper
-  - Sensor
-  - Utility
-ha_iot_class: Calculated
 ha_release: 0.31
-ha_quality_scale: internal
-ha_codeowners:
-  - '@gjohansson-ST'
 ha_domain: min_max
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: helper
 ---
 
 The **Min/Max** {% term integration %} consumes the state from other sensors to determine the minimum, maximum, latest (last), mean, median, range and sum of the collected states.

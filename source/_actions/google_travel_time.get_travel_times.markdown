@@ -2,12 +2,13 @@
 title: "Get travel times"
 action: google_travel_time.get_travel_times
 domain: google_travel_time
+response: required
 description: "Retrieves route alternatives and travel times between two locations."
 related_actions:
   - google_travel_time.get_transit_times
 ---
 
-The **Get travel times** action retrieves route alternatives and travel times between two locations, and returns them as response data. It covers driving, walking, and bicycling. For public transit, use the [Get transit times](/actions/google_travel_time.get_transit_times/) action instead.
+The **Google Maps Travel Time: Get travel times** action retrieves route alternatives and travel times between two locations, and returns them as response data. It covers driving, walking, and bicycling. For public transit, use the [Get transit times](/actions/google_travel_time.get_transit_times/) action instead.
 
 This action does not target an entity. Instead, you select which configuration entry of the [Google Maps Travel Time](/integrations/google_travel_time/) integration to use, and provide the origin and destination.
 
@@ -47,6 +48,9 @@ Language:
   required: false
 Avoid:
   description: A route feature to avoid, either tolls, highways, ferries, or indoor.
+  required: false
+Travel routing preference:
+  description: Factors to take into consideration when calculating the route, corresponding to the [RoutingPreference](https://developers.google.com/maps/documentation/routes/reference/rest/v2/RoutingPreference). The default is traffic-aware optimal for the highest quality travel times. Traffic-unaware routing uses the Compute Routes Essentials SKU, which has a higher free usage limit.
   required: false
 Traffic model:
   description: The traffic model to use when calculating driving routes, either best guess, pessimistic, or optimistic.
@@ -112,10 +116,18 @@ avoid:
     `indoor`.
   required: false
   type: string
+travel_routing_preference:
+  description: >
+    The routing preference to use when calculating routes. One of
+    `traffic_aware_optimal`, `traffic_aware`, or `traffic_unaware`.
+  required: false
+  type: string
+  default: traffic_aware_optimal
 traffic_model:
   description: >
     The traffic model to use when calculating driving routes. One of
-    `best_guess`, `pessimistic`, or `optimistic`.
+    `best_guess`, `pessimistic`, or `optimistic`. Not allowed when the
+    `travel_routing_preference` is `traffic_unaware` or `traffic_aware`.
   required: false
   type: string
 departure_time:
@@ -131,6 +143,8 @@ response_variable:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response data is a mapping with a `routes` list. Each route has the following fields:
 

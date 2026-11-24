@@ -120,7 +120,9 @@ location:
 
 When the washing machine finishes, record it on a calendar so you have a history of when laundry was done.
 
-- **Trigger**: Washing machine power drops to idle
+- **Trigger**: State changed
+  - **Entity**: Washing machine status sensor
+  - **To**: Idle
 - **Action**: Create calendar event
   - **Target**: Home log
   - **Summary**: Laundry finished

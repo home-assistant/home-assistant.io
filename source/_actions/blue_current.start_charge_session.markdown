@@ -73,7 +73,9 @@ charging_card_id:
 
 When the cheaper night-time electricity rate starts, begin a charge session on your charge point.
 
-- **Trigger**: Night-time tariff helper turns on
+- **Trigger**: State changed
+  - **Entity**: Night tariff sensor
+  - **To**: On
 - **Action**: Blue Current: Start charge session
 
 {% details "YAML example for starting a charge session at night" %}

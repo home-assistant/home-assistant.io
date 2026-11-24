@@ -1,25 +1,10 @@
 ---
-title: TellStick
 description: Instructions on how to integrate your TellStick into Home Assistant.
 ha_release: pre 0.7
-ha_category:
-  - Cover
-  - Hub
-  - Light
-  - Sensor
-  - Switch
-ha_iot_class: Assumed State
 ha_domain: tellstick
-ha_platforms:
-  - cover
-  - light
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **TellStick** {% term integration %} integrates [TellStick][tellstick-gateway] devices into Home Assistant. This integration allows users to add switches, lights, and sensors which are communicating with 433 MHz. There are several vendors (Capidi Elro, Intertechno, Nexa, Proove, Sartano, and Viking) who are selling products that work with TellStick. For more details, please check the TellStick [protocol list](http://developer.telldus.com/wiki/TellStick_conf).

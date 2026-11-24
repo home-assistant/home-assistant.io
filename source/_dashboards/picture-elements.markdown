@@ -23,6 +23,8 @@ The cards allow you to position icons or text and even buttons on an image based
 
 {% include dashboard/edit_dashboard.md %}
 
+In the preview of the card configuration dialog, you can select the element and drag it where you want it. The `left` and `top` values in **Style** are automatically updated.
+
 ## YAML configuration
 
 The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
@@ -396,7 +398,7 @@ elements:
 ### Custom elements
 
 The process for creating and referencing custom elements is the same as for custom cards.
-Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card)
+Please see the [developer documentation](https://contributors.home-assistant.io/frontend/custom-ui/card/)
 for more information.
 
 {% configuration %}

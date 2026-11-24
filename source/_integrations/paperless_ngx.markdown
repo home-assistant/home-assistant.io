@@ -1,24 +1,10 @@
 ---
-title: Paperless-ngx
 description: Instructions on how to integrate Paperless-ngx into Home Assistant
 ha_release: 2025.6
-ha_category:
-  - Sensor
-  - Update
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: paperless_ngx
-ha_codeowners:
-  - '@fvgarrel'
-ha_integration_type: service
-ha_quality_scale: platinum
 related:
   - url: https://docs.paperless-ngx.com/
     title: Paperless-ngx
-ha_platforms:
-  - diagnostics
-  - sensor
-  - update
 ---
 
 The **Paperless-ngx** {% term integration %} allows you to connect your [Paperless-ngx](https://docs.paperless-ngx.com/) instance to Home Assistant and monitor its status and activity.

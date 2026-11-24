@@ -19,7 +19,7 @@ Additionally, Netlify provides a preview deployment for every pull request, link
 
 ## Setup
 
-Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting/).
+Setting up to contribute to documentation and the process for submitting pull requests is explained in the [contributor documentation](https://contributors.home-assistant.io/writing/).
 
 ## Site preview
 

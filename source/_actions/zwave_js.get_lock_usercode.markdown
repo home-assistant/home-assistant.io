@@ -2,6 +2,7 @@
 title: "Get lock user code"
 action: zwave_js.get_lock_usercode
 domain: zwave_js
+response: required
 description: "Gets user codes from a Z-Wave lock."
 related_actions:
   - zwave_js.set_lock_usercode
@@ -9,8 +10,6 @@ related_actions:
 ---
 
 Use this action to read the user codes from a Z-Wave lock. You can query a single code slot or retrieve all code slots at once, for example to check which slots are in use before assigning a new code.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -21,7 +20,7 @@ To get lock user codes from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the locks to read.
-6. From the actions shown for that target, select **Get lock user code**.
+6. From the actions shown for that target, under **Z-Wave**, select **Get lock user code**.
 7. Optionally set a **Code slot** to read a single slot.
 8. In the **Response variable** field, enter a name to store the result, for example, `codes`.
 9. Select **Save**.
@@ -58,6 +57,8 @@ code_slot:
 {% include actions/targets.md domain="lock" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by code slot. Each slot includes the following fields:
 

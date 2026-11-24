@@ -1,18 +1,7 @@
 ---
-title: MTA New York City Transit
 description: Instructions on how to integrate real-time NYC subway and bus arrival information within Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: 2026.3
-ha_config_flow: true
-ha_codeowners:
-  - '@OnFreund'
 ha_domain: mta
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 The **MTA New York City Transit** {% term integration %} provides real-time subway and bus arrival predictions for NYC transit lines using GTFS-RT data from the [Metropolitan Transportation Authority (MTA)](https://new.mta.info/).
@@ -68,6 +57,10 @@ For each of the next 3 arrivals, the following sensors are created:
 {% include common-tasks/define_custom_polling.md %}
 
 The default {% term polling %} interval is 30 seconds.
+
+## Data updates
+
+The integration {% term polling polls %} the MTA's real-time feeds every 30 seconds.
 
 ## Removing the integration
 

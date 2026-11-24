@@ -1,31 +1,10 @@
 ---
-title: Elgato Light
 description: Instructions on how to integrate an Elgato Light with Home Assistant.
-ha_category:
-  - Light
-  - Update
 ha_release: 0.104
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: elgato
-ha_zeroconf: true
-ha_platforms:
-  - button
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: device
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
-ha_quality_scale: platinum
-ha_dhcp: true
 ---
 
 The **Elgato Light** {% term integration %} lets you control [Elgato](https://www.elgato.com/) LED lighting devices locally over your network. Elgato Lights are designed for streamers, content creators, and home studio setups, and are commonly used on platforms like YouTube and Twitch.
@@ -104,7 +83,7 @@ The integration creates a light entity for each Elgato Light device. You can con
   - **Entity category**: Diagnostic
 
 - **Wi-Fi RSSI**
-  - **Description**: The same signal in dBm, the unit the device itself reports. Disabled by default.
+  - **Description**: The same signal in dBm, the unit the device itself reports. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   - **Entity category**: Diagnostic
 
 ### Switches

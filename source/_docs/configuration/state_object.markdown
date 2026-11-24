@@ -51,7 +51,7 @@ In templates, you can read an attribute by its name, for example, `states.light.
 ## Using states in automations
 
 - To start an automation when the state or an attribute of an entity changes, use the [**State changed**](/triggers/state/) trigger.
-- To check the current state before an automation continues, use the [state condition](/docs/scripts/conditions/#state-condition).
+- To check the current state before an automation continues, use the [State condition](/conditions/state/).
 
 Behind the scenes, every change to a state or its attributes fires a [`state_changed` event](/docs/configuration/events/#state_changed).
 

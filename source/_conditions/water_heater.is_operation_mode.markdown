@@ -68,8 +68,6 @@ condition: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 operation_mode:
   description: >
@@ -84,9 +82,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the water heater must stay in the selected mode before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes.
+    How long the water heater must stay in the selected mode before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -98,7 +96,7 @@ for:
 
 - The available operation modes depend on the device. Home Assistant only shows modes that the targeted water heater supports.
 - `unavailable` and `unknown` are not offered as selectable modes.
-- With **Any**, unavailable and unknown water heaters are skipped. With **All**, they make the condition fail.
+{% include conditions/unavailable_targets.md entities="water heaters" %}
 - To react when the mode changes instead of checking the current mode, use [Water heater operation mode changed](/triggers/water_heater.operation_mode_changed/).
 
 {% include conditions/try_it.md %}

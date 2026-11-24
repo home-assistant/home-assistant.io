@@ -1,20 +1,7 @@
 ---
-title: AprilAire
 description: Instructions on how to integrate AprilAire devices into Home Assistant.
-ha_category:
-  - Climate
-ha_iot_class: Local Push
 ha_release: 2024.3
 ha_domain: aprilaire
-ha_codeowners:
-  - '@chamberlain2007'
-ha_config_flow: true
-ha_platforms:
-  - climate
-  - humidifier
-  - select
-  - sensor
-ha_integration_type: device
 ---
 
 The **AprilAire** {% term integration %} allows you to control an AprilAire thermostat.

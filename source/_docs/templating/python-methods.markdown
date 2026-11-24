@@ -117,6 +117,35 @@ template: '{{ "Temperature: {} {}".format(22.5, "°C") }}'
 output: "Temperature: 22.5 °C"
 {% endexample %}
 
+## List methods
+
+Lists show up in attributes, such as the `source_list` of a media player, and as the result of filters like [`map`](/template-functions/map/) after `| list`.
+
+### index, count
+
+`.index()` finds the position of the first item that matches. Positions start at `0`. `.count()` counts how many items match.
+
+{% example %}
+template: |
+  {% set rooms = ['kitchen', 'bedroom', 'kitchen'] %}
+  Position: {{ rooms.index('bedroom') }}
+  Count: {{ rooms.count('kitchen') }}
+output: |
+  Position: 1
+  Count: 2
+{% endexample %}
+
+### Methods that change a list
+
+Templates run in a sandbox that doesn't let a template change a list in place. Methods such as `.append()`, `.extend()`, `.insert()`, `.remove()`, `.pop()`, `.sort()`, `.reverse()`, and `.clear()` give the error `access to attribute 'append' of 'list' object is unsafe`, with the name of the method. The same applies to methods that change a dictionary, such as `.update()`, `.pop()`, and `.setdefault()`, and to methods that change a set, such as `.add()`.
+
+Instead, create a new list:
+
+- To add items, join two lists with `+`, such as `rooms + ['garage']`.
+- To sort a list, use the [`sort`](/template-functions/sort/) filter. To reverse it, use the [`reverse`](/template-functions/reverse/) filter, followed by `| list`, such as `rooms | reverse | list`.
+- To remove items, use the [`reject`](/template-functions/reject/) filter, such as `rooms | reject('eq', 'garage') | list`.
+- To build up a list in a loop, use a [`namespace`](/template-functions/namespace/).
+
 ## Dictionary methods
 
 Dictionaries show up in entity attributes, JSON responses, and action responses.
@@ -151,7 +180,7 @@ output: |
 
 ### get
 
-Fetch a value by key, with a fallback if the key is missing. This is safer than bracket lookup, which errors on missing keys.
+Fetch a value by key, with a fallback if the key is missing. With bracket lookup, a missing key gives an undefined value instead. It shows as empty text, with a warning in the logs, and math with it fails.
 
 {% example %}
 template: |

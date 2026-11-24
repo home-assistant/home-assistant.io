@@ -1,28 +1,7 @@
 ---
-title: Subaru
 description: Instructions on how to set up your Subaru account with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Car
-  - Lock
-  - Presence detection
-  - Sensor
 ha_release: 2021.3
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@G-Two'
-  - '@jpettitt'
 ha_domain: subaru
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - lock
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 This {% term integration %} retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.
@@ -73,7 +52,7 @@ Available sensors will vary by model, year, and subscription type. The integrati
 
 \* Gen 1 odometer only updates every 500 miles. <br>
 
-EV sensors (EV battery level, EV range, EV time to full charge) are only present on PHEV vehicles. The recommended tire pressure sensors are disabled by default and may report `unknown` on older Gen 2 vehicles that do not advertise the underlying tire-pressure recommendation in `vehicle_health`. The vehicle state sensor reports one of `ignition_off`, `ignition_acc` (accessory power), `ignition_on`, or `engine_on_remote_start`; if your vehicle reports a value not in that list, please file a bug and attach the integration's diagnostics download.
+EV sensors (EV battery level, EV range, EV time to full charge) are only present on PHEV vehicles. The recommended tire pressure sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and may report `unknown` on older Gen 2 vehicles that do not advertise the underlying tire-pressure recommendation in `vehicle_health`. The vehicle state sensor reports one of `ignition_off`, `ignition_acc` (accessory power), `ignition_on`, or `engine_on_remote_start`; if your vehicle reports a value not in that list, please file a bug and attach the integration's diagnostics download.
 
 ## Binary sensors
 

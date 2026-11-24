@@ -1,19 +1,7 @@
 ---
-title: iBeacon Tracker
 description: Instructions on how to integrate iBeacon devices into Home Assistant.
-ha_category:
-  - Device tracker
-  - Presence detection
-  - Sensor
 ha_release: '2022.10'
-ha_iot_class: Local Push
 ha_domain: ibeacon
-ha_platforms:
-  - device_tracker
-  - sensor
-ha_bluetooth: true
-ha_config_flow: true
-ha_integration_type: hub
 ---
 
 {% include integrations/config_flow.md %}

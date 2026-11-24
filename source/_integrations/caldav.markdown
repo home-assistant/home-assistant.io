@@ -1,17 +1,7 @@
 ---
-title: CalDAV
 description: Instructions on how to integrate a WebDav calendar into Home Assistant.
-ha_category:
-  - Calendar
-  - To-do List
-ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: caldav
-ha_platforms:
-  - calendar
-  - todo
-ha_integration_type: service
-ha_config_flow: true
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation
@@ -46,6 +36,18 @@ This integration was tested against the following systems, but any other complyi
 - [Nextcloud](https://nextcloud.com/)
 - [Owncloud](https://owncloud.org/)
 - [Synology Calendar](https://www.synology.com/en-us/dsm/feature/calendar)
+
+## Reconfiguration
+
+If your CalDAV server moves, your password changes, or you want to turn certificate checking on or off, you can update the integration without removing it:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **CalDAV** integration card.
+3. Select the three dots menu {% icon "mdi:dots-vertical" %} of the account, and then select **Reconfigure**.
+4. Change the **URL** or **Verify SSL certificate** and enter the **Password** again.
+5. Select **Submit**.
+
+The username stays the same. To use another account, add the integration again.
 
 ## Manual configuration
 
@@ -174,7 +176,7 @@ Individual Calendar *Events* can power automations such as:
 - Send a notification *5 minutes before the start of any event*
 - Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
 
-See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/trigger-data/#calendar-triggers) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
 ## Calendar Entity Attributes
 

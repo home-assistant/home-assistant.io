@@ -1,0 +1,23 @@
+{
+  "domain": "iseo_argo_ble",
+  "name": "ISEO Argo BLE Lock",
+  "integration_type": "device",
+  "codeowners": [
+    "@FezVrasta"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "security_safety.locks_access"
+  ],
+  "connectivity": [
+    "bluetooth"
+  ],
+  "platforms": [
+    "lock"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

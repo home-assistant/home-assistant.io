@@ -1,5 +1,5 @@
 ---
-title: "Thermostat is in HVAC mode"
+title: "Thermostat HVAC mode"
 condition: climate.is_hvac_mode
 domain: climate
 description: "Tests if one or more thermostats are set to a specific HVAC mode."
@@ -10,19 +10,19 @@ related_conditions:
   - climate.is_cooling
 ---
 
-The **Thermostat is in HVAC mode** condition passes when a thermostat {% term entity %} is set to a specific HVAC mode. HVAC modes control the thermostat's operating mode and typically include **Off**, **Heat**, **Cool**, **Heat/cool**, **Dry**, **Fan only**, and **Auto**, though the exact modes available depend on your device. Use **Thermostat is in HVAC mode** to have an automation run only when the thermostat is set to a specific mode, such as ensuring the blinds only close when cooling is active.
+The **Thermostat HVAC mode** condition passes when a thermostat {% term entity %} is set to a specific HVAC mode. HVAC modes control the thermostat's operating mode and typically include **Off**, **Heat**, **Cool**, **Heat/cool**, **Dry**, **Fan only**, and **Auto**, though the exact modes available depend on your device. Use **Thermostat HVAC mode** to have an automation run only when the thermostat is set to a specific mode, such as ensuring the blinds only close when cooling is active.
 
 When you target more than one thermostat, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted thermostat to be in the selected mode, or demand that all of them are.
 
 {% include conditions/ui_header.md %}
 
-To use **Thermostat is in HVAC mode** in an automation:
+To use **Thermostat HVAC mode** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your thermostat is in (like your living room or bedroom). You can also select a device, a specific entity, or a label.
-5. From the conditions shown for that target, select **Thermostat is in HVAC mode**.
+5. From the conditions shown for that target, select **Thermostat HVAC mode**.
 6. Under **HVAC mode**, select one or more modes to check for. Only modes available on the targeted device are shown. Typical modes include **Off**, **Heat**, **Cool**, **Heat/cool**, **Auto**, **Dry**, and **Fan only**.
 7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple thermostats are targeted.
 8. Under **For at least**, set how long the thermostat must have been in the selected mode before the condition passes. Leave it at zero to pass immediately.
@@ -41,7 +41,7 @@ For at least:
 
 {% include conditions/yaml_header.md %}
 
-In YAML, **Thermostat is in HVAC mode** is referred to as `climate.is_hvac_mode`. A basic example looks like this:
+In YAML, **Thermostat HVAC mode** is referred to as `climate.is_hvac_mode`. A basic example looks like this:
 
 {% example %}
 condition: |
@@ -83,9 +83,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the thermostat must have been continuously in the selected mode before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the thermostat must have been continuously in the selected mode before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -108,8 +108,8 @@ for:
 When the outdoor temperature rises above 28°C during the day, close the living room blinds to help the air conditioner, but only if the thermostat is already set to cool mode.
 
 - **Trigger**: Numeric state crossed threshold: Outdoor temperature above 28°C
-- **Condition**: Sun elevation above horizon
-- **Condition**: Thermostat is in HVAC mode
+- **Condition**: Sun is up
+- **Condition**: Thermostat HVAC mode
   - **HVAC mode**: Cool
   - **Target**: Living room thermostat
 - **Action**: Close cover
@@ -124,9 +124,7 @@ automation: |
       entity_id: sensor.outdoor_temperature
       above: 28
   conditions:
-    - condition: sun
-      after: sunrise
-      before: sunset
+    - condition: sun.is_up
     - condition: climate.is_hvac_mode
       target:
         entity_id: climate.living_room

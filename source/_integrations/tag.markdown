@@ -1,14 +1,7 @@
 ---
-title: Tags
 description: Instructions on how to get started with tags in Home Assistant
-ha_category:
-  - Automation
 ha_release: 0.115
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: tag
-ha_quality_scale: internal
-ha_integration_type: entity
 ---
 
 <p class='img'>

@@ -1,0 +1,24 @@
+{
+  "domain": "rainforest_eagle",
+  "name": "Rainforest Eagle",
+  "integration_type": "device",
+  "codeowners": [
+    "@gtdiehl",
+    "@jcalbert"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

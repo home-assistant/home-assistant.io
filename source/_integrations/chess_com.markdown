@@ -1,20 +1,7 @@
 ---
-title: Chess.com
 description: Instructions on how to integrate Chess.com with Home Assistant.
-ha_category:
-  - Gaming
-  - Sensor
 ha_release: 2026.4
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@joostlek'
 ha_domain: chess_com
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Chess.com** {% term integration %} allows you to monitor your [Chess.com](https://chess.com/) statistics in Home Assistant.

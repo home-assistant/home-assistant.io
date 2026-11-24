@@ -7,7 +7,7 @@ related_actions:
   - ness_alarm.panic
 ---
 
-The **Aux** action changes the state of an auxiliary output on your Ness alarm panel. This requires PCB version 7.8 or higher.
+The **Ness Alarm: Aux** action changes the state of an auxiliary output on your Ness alarm panel. This requires PCB version 7.8 or higher.
 
 This is handy when you want to drive an extra output from Home Assistant, for example to switch a gate relay or a siren that is wired to one of the panel's aux outputs.
 
@@ -74,7 +74,9 @@ state:
 
 When a switch helper turns on, turn on aux output 1 on the panel.
 
-- **Trigger**: A switch helper turns on
+- **Trigger**: State changed
+  - **Entity**: Gate relay helper
+  - **To**: On
 - **Action**: Ness Alarm: Aux
 
 {% details "YAML example for switching an aux output" %}

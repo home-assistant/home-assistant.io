@@ -54,7 +54,7 @@ auto_off:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="switch" %}
+{% include actions/targets.md entity_type="Switcher switch" example="switch.switcher_kis_boiler" %}
 
 {% include actions/try_it.md %}
 
