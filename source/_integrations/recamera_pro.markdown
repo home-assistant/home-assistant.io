@@ -7,7 +7,7 @@ ha_release: "2026.12"
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - "@yyling0101-a11y"
+  - "@zhousizhao"
 ha_domain: recamera_pro
 ha_platforms:
   - camera
