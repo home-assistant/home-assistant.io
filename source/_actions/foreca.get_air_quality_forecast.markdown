@@ -9,10 +9,6 @@ The **Get air quality forecast** action returns the forecasted US EPA air qualit
 
 Home Assistant keeps forecasts out of entities, so the coming hours and days are available here as [response data](/docs/automation/action/#action-response-data).
 
-{% important %}
-The air quality forecast needs a Foreca plan that includes air quality. If your plan does not, the action fails with an error that says so.
-{% endimportant %}
-
 {% include actions/targets.md domain="weather" entity_type="Foreca weather entity" example="weather.home" %}
 
 {% include actions/ui_header.md %}
