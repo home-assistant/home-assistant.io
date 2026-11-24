@@ -27,7 +27,7 @@ If you want to talk to Claude or ChatGPT and have it turn on your lights, you ne
 - An AI conversation agent in Home Assistant that can use tools. For example, [Anthropic](/integrations/anthropic/), [Google Gemini](/integrations/google_generative_ai_conversation/), [Ollama](/integrations/ollama/), or [OpenAI](/integrations/openai_conversation/).
 - The URL of an [MCP server](https://modelcontextprotocol.io/examples) that Home Assistant can reach over the network.
 - If your MCP server only runs locally using <abbr title="Standard input/output">*stdio*</abbr>, you also need an MCP proxy, such as [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy), to make it available over the network.
-- If your MCP server requires you to sign in, an OAuth client ID and client secret from the service that provides the MCP server.
+- If your MCP server requires you to sign in: when the server supports it, you can sign in without creating an OAuth client ID. Otherwise, you need an OAuth client ID and client secret from the service that provides the MCP server.
 
 {% include integrations/config_flow.md %}
 
@@ -44,10 +44,17 @@ URL:
 
 ### Signing in to the MCP server
 
-If the MCP server requires you to sign in, Home Assistant detects this after you enter the URL. The first time, it asks you for an OAuth **Client ID** and **Client Secret** for the MCP server and stores them as [Application Credentials](/integrations/application_credentials/).
+If the MCP server requires you to sign in, Home Assistant detects this after you enter the URL.
 
-If you entered OAuth credentials for an MCP server before, Home Assistant asks how you want to sign in instead:
+If the MCP server supports [OAuth Client ID Metadata Documents](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents), Home Assistant can sign in as itself. You do not need to create or enter an OAuth Client ID or Client Secret. This is the recommended option when it is offered, and Home Assistant uses it automatically when you have not stored credentials yet.
 
+This option is labeled **Sign in without credentials**. It uses a public [client metadata document](/mcp/oauth-client.json) and the [My Home Assistant](/integrations/my/) redirect URL. My Home Assistant is enabled by default. If you have disabled it, Home Assistant cannot use this option and will ask for an OAuth Client ID and Client Secret instead.
+
+If the MCP server does not support client metadata documents, or you prefer to use your own app registration, Home Assistant asks you for an OAuth **Client ID** and **Client Secret** and stores them as [Application Credentials](/integrations/application_credentials/).
+
+If you entered OAuth credentials for an MCP server before, Home Assistant asks how you want to sign in:
+
+- **Sign in without credentials**: Use Home Assistant's published client identity, with no Client ID or secret. Offered only when the MCP server supports it and My Home Assistant is enabled.
 - **Set up new credentials**: Enter a new OAuth **Client ID** and **Client Secret** for the MCP server.
 - **Use existing credentials**: Reuse OAuth credentials you entered before.
 
@@ -80,7 +87,7 @@ Many MCP servers are made to run as a local command-line tool that an AI app sta
 
 ### Authorization
 
-The Model Context Protocol supports OAuth, so you can give Home Assistant access to MCP servers that require you to sign in. Home Assistant stores the MCP server's OAuth client ID and client secret as [Application Credentials](/integrations/application_credentials/). For the setup steps, refer to [Signing in to the MCP server](#signing-in-to-the-mcp-server).
+The Model Context Protocol supports OAuth, so you can give Home Assistant access to MCP servers that require you to sign in. When the server supports client ID metadata documents, Home Assistant can sign in without an OAuth Client ID or Client Secret. Otherwise, it stores the server's OAuth client ID and client secret as [Application Credentials](/integrations/application_credentials/). For the setup steps, refer to [Signing in to the MCP server](#signing-in-to-the-mcp-server).
 
 ## Data updates
 
