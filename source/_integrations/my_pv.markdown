@@ -192,7 +192,7 @@ If the IP address or hostname of your device changes, you can update it without 
 
 To change it manually:
 
-1. Go to **Settings** > **Devices & services** and select the **my-PV** integration.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **my-PV** integration.
 2. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
 3. Enter the new IP address or hostname. If the device asks for a password that Home Assistant does not have yet, you are asked to enter it.
 
@@ -229,7 +229,7 @@ If Home Assistant loses the connection to the device, its entities become unavai
 
 ### Reporting an issue
 
-When you report an issue, include the diagnostics of the integration. Go to **Settings** > **Devices & services**, select the **my-PV** integration, select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and then select **Download diagnostics**. The password, IP address, MAC address, and serial number are removed from the diagnostics file.
+When you report an issue, include the diagnostics of the integration. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **my-PV** integration, select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and then select **Download diagnostics**. The password, IP address, MAC address, and serial number are removed from the diagnostics file.
 
 ## Removing the integration
 
