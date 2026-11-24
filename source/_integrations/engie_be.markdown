@@ -112,9 +112,9 @@ Every address gets the following peak sensors:
 
 The peak start and peak end sensors are diagnostic sensors. Power and energy values are shown with two decimals.
 
-Early in the month, ENGIE has not published a peak for the current month yet. The monthly sensors then show the peak of the previous month instead. The **Capacity tariff monthly power peak** sensor makes this visible with two attributes: `peak_month` shows which month the displayed peak belongs to, like `2026-10`, and `peak_is_fallback` is `true` while the previous month's peak is shown. When neither month has a peak, for example on a new address, the monthly sensors have no value yet. If a new peak during the month is higher than the current one, the replaced peak stays available in the `previous_peak` attribute.
+Early in the month, ENGIE has not published a peak for the current month yet. The monthly sensors then show the peak of the previous month instead. When neither month has a peak, for example on a new address, the monthly sensors have no value yet.
 
-The **Capacity tariff daily power peak** sensor lists all daily peaks of the month in its `daily_peaks` attribute. It does not fall back to the previous month, so it has no value until the first daily peak of the month is published.
+The **Capacity tariff daily power peak** sensor does not fall back to the previous month, so it has no value until the first daily peak of the month is published.
 
 ENGIE publishes peaks after the fact, so these sensors tell you that a peak has been set rather than warning you while one is forming.
 
@@ -159,7 +159,7 @@ The integration could not look up your tariff while it was starting, for example
 
 ### The capacity tariff peak sensors show an old peak
 
-Early in the month, ENGIE has not published a peak for the current month yet, so the monthly sensors show the previous month's peak. The `peak_is_fallback` attribute of the **Capacity tariff monthly power peak** sensor is `true` while the shown peak belongs to the previous month.
+Early in the month, ENGIE has not published a peak for the current month yet, so the monthly sensors show the previous month's peak until the new one is published.
 
 ## Removing the integration
 
