@@ -73,12 +73,12 @@ You can assign an area to multiple items at once in the {% term automation %}, {
 1. Depending on what you want to assign, go to one of the following pages:
    - For automations, scripts, or scenes {% my automations title="**Settings** > **Automations & scenes**" %} and open the respective tab.
    - For devices, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}.
-2. In the list, [select all the items](/docs/organizing/tables#selecting-multiple-items-in-a-table) you want to assign to an area.
-   - To list only the items that don't have an area yet, [filter the table](/docs/organizing/tables#filtering-items-in-a-table) by **No area**.
+2. Optional: To list only the items that don't have an area yet, [filter the table](/docs/organizing/tables#filtering-items-in-a-table) by **No area**.
+3. In the list, [select all the items](/docs/organizing/tables#selecting-multiple-items-in-a-table) you want to assign to an area.
 
     ![Screenshot showing how to assign multiple devices to an area](/images/organizing/area_assign_devices.png)
 
-3. In the top right corner, select **Move to area** and select the target area from the list.
+4. In the top right corner, select **Move to area** and select the target area from the list.
 
 ## Assigning an area to a device from the devices dashboard
 
