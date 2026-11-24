@@ -32,7 +32,7 @@ The EcoNet Sensor platform lets you view sensors associated with your EcoNet the
 
 ### Switch
 
-The EcoNet Switch platform let's you control the EcoNet thermostat emergency heat.
+The EcoNet Switch platform lets you control the EcoNet thermostat emergency heat.
 
 ### Water heater
 

@@ -17,5 +17,8 @@
     "climate",
     "diagnostics",
     "switch"
+  ],
+  "discovery": [
+    "dhcp"
   ]
 }

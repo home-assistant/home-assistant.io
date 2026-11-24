@@ -16,6 +16,7 @@
   ],
   "platforms": [
     "diagnostics",
+    "image",
     "sensor",
     "weather"
   ]

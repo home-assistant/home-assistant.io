@@ -2,7 +2,7 @@
 title: "World's most private voice assistant"
 related:
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Creating a Cloud assistant
+    title: Creating an assistant with Home Assistant Link
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
   - docs: /voice_control/assist_create_open_ai_personality/
@@ -27,7 +27,7 @@ your smart home and issue commands and get responses.
   [Grandstream HT801](https://www.amazon.com/dp/B06XW1BQHC)
   - includes a 5&nbsp;V power adapter and an Ethernet cable
 - RJ11 phone cable to connect the phone to the Grandstream
-- [Cloud assistant pipeline](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local assistant pipeline](/voice_control/voice_remote_local_assistant/)
+- An assistant, for example with [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local assistant](/voice_control/voice_remote_local_assistant/)
 
 ## Setting up Grandstream
 
@@ -112,7 +112,7 @@ If you’re unable to call Home Assistant, confirm the following settings in you
 
 **Symptom**
 You were able to control Home Assistant over the phone but it no longer works. When picking up the phone, no sound is played.
-The [debug information](/voice_control/troubleshooting#view-debug-information) shows no runs.
+The [debug information](/voice_control/troubleshooting/#viewing-debug-information) shows no runs.
 
 **Potential remedy**
 

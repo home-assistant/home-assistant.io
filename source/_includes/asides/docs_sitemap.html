@@ -1,3 +1,15 @@
+<li>
+  {% icon "mdi:transit-connection-variant" %} {% active_link /connectivity/ Connectivity %}
+  {% if root == 'connectivity' or include.docs_index %}
+  <ul>
+    {%- assign connectivity_pages = site.connectivity | sort_natural: 'title' %}
+    {%- for connectivity_page in connectivity_pages %}
+    <li>{% active_link {{connectivity_page.url}} {{connectivity_page.title}} %}</li>
+    {%- endfor %}
+  </ul>
+  {% endif %}
+</li>
+
 {%- comment -%}
   The automation branch stays open on the trigger, condition, action, and
   building block reference pages, so you keep the automation context when you
@@ -145,10 +157,10 @@
     </li>
     <li>{% icon "mdi:comment-processing-outline" %} {% active_link /voice_control/best_practices Best practices %}
       <ul>
-        <li>{% active_link /voice_control/voice_remote_expose_devices/ Exposing entities to Assist %}</li>
+        <li>{% active_link /voice_control/voice_remote_expose_devices/ Exposing entities to voice assistants %}</li>
         <li>{% active_link /voice_control/assign_areas_floors/ Assigning areas to floors and an area to a device %}</li>
         <li>{% active_link /voice_control/aliases/ Aliases for entities, areas and floors %}</li>
-        <li>{% active_link /voice_control/exposing_scripts_to_llms/ Exposing scripts to LLMs %}</li>
+        <li>{% active_link /voice_control/exposing_scripts_to_llms/ Exposing scripts to AI %}</li>
         <li>{% active_link /voice_control/builtin_sentences/ Talking to Assist - Sentences starter pack %}</li>
       </ul>
     </li>

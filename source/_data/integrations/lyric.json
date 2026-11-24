@@ -17,7 +17,8 @@
     "binary_sensor",
     "climate",
     "select",
-    "sensor"
+    "sensor",
+    "switch"
   ],
   "discovery": [
     "dhcp"
