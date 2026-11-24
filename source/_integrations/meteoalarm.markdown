@@ -75,7 +75,7 @@ attribution: Information provided by MeteoAlarm
 
 ## Data updates
 
-The integration {% term polling polls %} the country's MeteoAlarm feed every 5 minutes. If MeteoAlarm can't be reached, the error is logged and the sensor keeps its last state until the next successful update. If MeteoAlarm can't be reached when Home Assistant starts, the integration retries the setup later.
+The integration {% term polling polls %} the country's MeteoAlarm feed every 5 minutes. If MeteoAlarm can't be reached, the error is logged once. A current warning stays on until its expiration time, and then the sensor becomes unavailable. Without a current warning, the sensor becomes unavailable until the next successful update. If MeteoAlarm can't be reached when Home Assistant starts, the integration retries the setup later.
 
 ## MeteoAlarm automation examples
 
