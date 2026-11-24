@@ -118,6 +118,7 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
+| `mute`                  | Mutes the sounds the device makes. Only available on fans that support muting.     | On        |
 | `light_detection`       | Light detection On or Off. When on, the purifier responds to the light level in the room. (Vital 200S, EverestAir) | On        |
 | `child_lock`            | Child lock On or Off                                                               | Off       |
 
