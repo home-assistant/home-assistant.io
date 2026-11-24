@@ -140,6 +140,7 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Smart Plug
 - Smart Plug Compact
 - Light Switch
+- Micromodule Light Control
 - Micromodule Shutter Control
 - Micromodule Blinds
 
