@@ -61,6 +61,7 @@ There is currently support for the following device types within Home Assistant:
 - **Memory limit**: Memory limit configured for the container.
 - **Started**: When the container was last started.
 - **Restart count**: How often Docker restarted the container, for example, because of its restart policy.
+- **Last exit code**: The exit code of the container's last run, for example, `137` when it was killed. Only reported while the container is not running, because Docker resets it to `0` when the container starts. Disabled by default.
 
 #### Endpoint sensors
 
