@@ -21,7 +21,7 @@ The following devices are supported:
 - Wi-Fi Controlled Switches: `BG1`, `SC1`
 - Smart Light Bulbs: `LB1`,`LB2`
 - Air Quality Monitors: `LIFAair LAM05`
-- Air Purifiers: `LIFAair LA300/500-series` (connected via LAM05)
+- Air Purifiers: `LIFAair LA300/LA500-series` (connected via LAM05)
 
 {% include integrations/config_flow.md %}
 
