@@ -9,7 +9,7 @@ related:
   - docs: /voice_control/create_wake_word/
     title: Create your own wake words
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Creating a Cloud assistant
+    title: Creating an assistant with Home Assistant Link
   - docs: /voice_control/troubleshooting/
     title: General troubleshooting section for Assist
   - docs: /voice_control/voice_remote_local_assistant

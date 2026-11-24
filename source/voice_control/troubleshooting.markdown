@@ -84,11 +84,11 @@ assist_pipeline:
 
 ### Symptom: A text-to-speech or speech-to-text service is missing
 
-In the settings of your assistant, a text-to-speech or speech-to-text service isn't in the list of options. For example, Home Assistant Cloud is missing.
+In the settings of your assistant, a text-to-speech or speech-to-text service isn't in the list of options. For example, Home Assistant Link is missing.
 
 #### Description
 
-Home Assistant doesn't list a disabled entity as an option. Each service has a `tts` or `stt` entity. For example, Home Assistant Cloud has `tts.home_assistant_cloud` and `stt.home_assistant_cloud`.
+Home Assistant doesn't list a disabled entity as an option. Each service has a `tts` or `stt` entity. For example, Home Assistant Link has `tts.home_assistant_link` and `stt.home_assistant_link`. If you set up Home Assistant Link before it was renamed, the entities are `tts.home_assistant_cloud` and `stt.home_assistant_cloud`.
 
 #### Resolution
 
