@@ -147,7 +147,7 @@ The {% term "AI tools" %} in **Device control** depend on what you expose to voi
 - **Turn off** (`intent__HassTurnOff`): Turns off or closes an entity. For a lock, it unlocks it.
 - **Cancel all timers** (`intent__HassCancelAllTimers`): Cancels all [voice timers](/voice_control/builtin_sentences/#timers). It can also cancel only the voice timers in one area.
 - **Broadcast message** (`assist_satellite__broadcast`): Plays a message on your other {% term "voice satellites" %} that can play announcements. It also reaches voice satellites that you didn't expose. It can play the message in one area or on one floor only. For example, you can say *tell the kitchen that dinner is ready*.
-  - For which voice satellites get the message, refer to [Broadcasting](/voice_control/builtin_sentences/#broadcasting).
+  - To learn which voice satellites get the message, refer to [Broadcasting](/voice_control/builtin_sentences/#broadcasting).
 - **Schedule command** (`intent__schedule_command`): Runs a command after a delay. For example, you can say *turn off the lights in the living room in 5 minutes*. It also works where voice timers aren't supported. For example, it works in the {% term Assist %} dialog in Home Assistant.
   - When the delay ends, the {% term "conversation agent" %} runs the command in a new conversation. It doesn't remember the earlier conversation.
   - Only conversation agents can use this tool. {% term "AI apps" %} can't.
