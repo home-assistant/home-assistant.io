@@ -28,8 +28,6 @@ Port:
   description: The AMS port of the PLC runtime, for example, `851` for the first TwinCAT 3 runtime.
 IP address:
   description: The IP address of the ADS device. If left empty, it is derived from the AMS NetID.
-Local AMS NetID:
-  description: The AMS NetID Home Assistant should use to identify itself to the PLC, for example, `192.168.1.50.1.1`. Leave empty to use the automatically generated NetID. Only supported when Home Assistant runs on Linux.
 {% endconfiguration_basic %}
 
 Make sure a route to Home Assistant is configured on the ADS device before setting up the connection, otherwise it cannot be validated.
@@ -44,7 +42,7 @@ You can change the connection settings at any time without removing and re-addin
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. On the **ADS** {% term integration %}, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
-3. Update the AMS NetID, port, IP address, or local AMS NetID, then follow the steps on screen.
+3. Update the AMS NetID, port, or IP address, then follow the steps on screen.
 
 {% include integrations/actions.md %}
 
