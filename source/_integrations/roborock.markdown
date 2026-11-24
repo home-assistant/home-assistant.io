@@ -513,7 +513,7 @@ action:
 Send the vacuum to clean some rooms three times every day at 10:00. To find the ID numbers of your rooms, use the [Get maps](/actions/roborock.get_maps/) action.
 
 - **Trigger**: Time: 10:00.
-- **Actions**: Send command to vacuum cleaner, with the `app_segment_clean` command. Its parameters are a list with one item, which has two keys:
+- **Actions**: Send command to vacuum cleaner with the Roborock-specific `app_segment_clean` command. Its `params` value is a list with one item, which has two keys:
   - `segments`: The ID numbers of the rooms to clean.
   - `repeat`: The number of passes, from 1 to 3.
 
