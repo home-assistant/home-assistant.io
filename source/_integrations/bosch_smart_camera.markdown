@@ -11,6 +11,7 @@ ha_codeowners:
   - "@mosandlt"
 ha_platforms:
   - camera
+  - light
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -50,6 +51,10 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 The camera entity can show a live stream in dashboards and in the more-info dialog. Home Assistant opens a stream session when you start watching. The camera manages stream sessions of up to 60 minutes. Home Assistant renews the session automatically while you are watching, or while **Preload stream** is enabled for the camera. Otherwise, the session stays open until the camera ends it.
 
 Home Assistant must be able to reach the camera in your local network to show the stream.
+
+### Camera light
+
+The **Camera light** entity switches the light of an Eyes Outdoor camera on and off. The light cannot be dimmed. The entity is only added for the Eyes Outdoor camera.
 
 ## Data updates
 

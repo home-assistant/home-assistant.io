@@ -94,11 +94,16 @@ Each location also gets the latest measurements from the nearest weather station
 
 Where no station reports nearby, the observation sensors show as unknown.
 
+Each location also gets the US EPA air quality index for the current hour:
+
+- **Air quality index** and **Dominant pollutant**.
+- An index for each pollutant: **Carbon monoxide index**, **Nitrogen dioxide index**, **Ozone index**, **Sulphur dioxide index**, **PM10 index**, and **PM2.5 index**. These are disabled by default.
+
 {% include integrations/actions.md %}
 
 ## Data updates
 
-The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses four requests per location: three for the forecast and current conditions, and one for the weather station sensors. That's around 192 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Each location you add polls separately, so that limit allows around 10 locations. If you disable all observation sensors of a location, it uses three requests per update instead. Because the integration polls continuously, a Freemium key used this way does not go idle.
+The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses five requests per location: three for the forecast and current conditions, one for the weather station sensors, and one for the air quality sensors. That's around 240 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Each location you add polls separately, so that limit allows around 8 locations. Disabling all observation sensors of a location saves one request per update, and so does disabling all its air quality sensors. Because the integration polls continuously, a Freemium key used this way does not go idle.
 
 The `weather.get_forecasts` and `foreca.get_forecasts_extra` actions read the forecast the integration has already retrieved, so using them in templates and automations costs no extra requests.
 
@@ -132,7 +137,7 @@ The `foreca.get_3_hour_forecast` and `foreca.get_minute_forecast` actions reques
 
 #### Description
 
-The integration marks entities as unavailable when the API cannot be reached or the daily request limit is exceeded. If only the weather station request fails, only the observation sensors are unavailable, and the rest keep updating.
+The integration marks entities as unavailable when the API cannot be reached or the daily request limit is exceeded. If only the weather station or air quality request fails, only the sensors that use it are unavailable, and the rest keep updating.
 
 #### Resolution
 

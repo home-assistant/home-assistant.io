@@ -3,7 +3,7 @@ title: "Exposing entities to voice assistants"
 description: Step-by-step instructions on exposing entities to Assist, Alexa, and Google Assistant.
 related:
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Creating a Cloud assistant
+    title: Creating an assistant with Home Assistant Link
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
   - docs: /voice_control/best_practices/
@@ -36,13 +36,13 @@ With [Home Assistant Link](/integrations/link/), you can also control your {% te
 
 To use Alexa or Google Assistant this way, you need the following:
 
-- You're signed in to Home Assistant Cloud.
-- Alexa or Google Assistant is connected to Home Assistant Cloud:
-  - For Alexa, the Home Assistant skill is enabled in the Alexa app. For the steps, refer to [Alexa](https://support.nabucasa.com/hc/articles/25619363899677) in the Home Assistant Cloud documentation.
-  - For Google Assistant, the **Home Assistant Cloud by Nabu Casa** service is added in the Google Home app. For the steps, refer to [Google Assistant](https://support.nabucasa.com/hc/articles/25619376817053) in the Home Assistant Cloud documentation.
+- You're signed in to Home Assistant Link.
+- Alexa or Google Assistant is connected to Home Assistant Link:
+  - For Alexa, the Home Assistant skill is enabled in the Alexa app. For the steps, refer to [Alexa](https://support.nabucasa.com/hc/articles/25619363899677) in the Home Assistant Link documentation.
+  - For Google Assistant, the **Home Assistant Link by Nabu Casa** service is added in the Google Home app. For the steps, refer to [Google Assistant](https://support.nabucasa.com/hc/articles/25619376817053) in the Home Assistant Link documentation.
 - Alexa or Google Assistant is turned on in its card under {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
 
-If you set up Alexa or Google Assistant without Home Assistant Cloud, you choose the entities in {% term YAML %} instead. For details, refer to [Configure filter](/integrations/alexa.smart_home/#configure-filter) for Alexa and to the [Google Assistant](/integrations/google_assistant/) {% term integration %}.
+If you set up Alexa or Google Assistant without Home Assistant Link, you choose the entities in {% term YAML %} instead. For details, refer to [Configure filter](/integrations/alexa.smart_home/#configure-filter) for Alexa and to the [Google Assistant](/integrations/google_assistant/) {% term integration %}.
 
 ## Exposing entities to a voice assistant
 

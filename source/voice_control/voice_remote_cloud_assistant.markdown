@@ -21,7 +21,7 @@ Only the audio is sent to the cloud for processing. Everything Assist actually d
 If you would prefer to keep absolutely everything local, see the [fully local voice assistant guide](/voice_control/voice_remote_local_assistant/) instead.
 
 
-## Setting up a cloud Assist pipeline
+## Setting up an assistant with Home Assistant Link
 
 To have the fastest processing voice assistant experience, follow these steps:
 
