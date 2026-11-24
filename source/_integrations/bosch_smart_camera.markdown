@@ -12,6 +12,7 @@ ha_codeowners:
 ha_platforms:
   - button
   - camera
+  - light
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -49,6 +50,10 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 ### Restart
 
 The **Restart** button restarts a camera. It is disabled by default. To use it, enable the entity in the entity list of the device.
+
+### Camera light
+
+The **Camera light** entity switches the light of an Eyes Outdoor camera on and off. The light cannot be dimmed. The entity is only added for the Eyes Outdoor camera.
 
 ## Data updates
 
