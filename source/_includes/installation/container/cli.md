@@ -8,6 +8,7 @@
       --name homeassistant \
       --privileged \
       --restart=unless-stopped \
+      --stop-timeout 60 \
       -e TZ=MY_TIME_ZONE \
       -v /PATH_TO_YOUR_CONFIG:/config \
       -v /run/dbus:/run/dbus:ro \
@@ -38,6 +39,7 @@
     docker run -d \
       --name homeassistant \
       --restart=unless-stopped \
+      --stop-timeout 60 \
       --privileged \
       -e TZ=MY_TIME_ZONE \
       -v /PATH_TO_YOUR_CONFIG:/config \

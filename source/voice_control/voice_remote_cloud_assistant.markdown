@@ -9,7 +9,7 @@ related:
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing devices to Assist
+    title: Exposing entities to voice assistants
   - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition - Documentation
 ---

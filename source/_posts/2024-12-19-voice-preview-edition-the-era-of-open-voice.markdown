@@ -9,6 +9,7 @@ comments: true
 categories: 
   - Announcements
   - Assist
+  - Hardware
 og_image: /images/blog/2024-12-vpe/art.jpg
 ---
 

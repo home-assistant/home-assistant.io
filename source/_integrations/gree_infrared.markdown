@@ -183,7 +183,7 @@ remote_receiver:
 
 ### The air conditioner does not respond to commands
 
-If the climate entity changes in Home Assistant but your air conditioner does not react, the infrared signal is probably not reaching the unit. Make sure the infrared emitter points at the receiver window of the unit and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/integrations/infrared/#the-device-does-not-respond-to-commands).
+If the climate entity changes in Home Assistant but your air conditioner does not react, the infrared signal is probably not reaching the unit. Make sure the infrared emitter points at the receiver window of the unit and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/connectivity/infrared/#the-device-does-not-respond-to-commands).
 
 If the unit reacts to most commands but not to one mode, your model probably does not have that mode. Check your remote or the manual of your unit.
 

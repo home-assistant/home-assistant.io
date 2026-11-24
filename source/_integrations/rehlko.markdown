@@ -97,6 +97,10 @@ These are the generator models that have been tested:
 - [14RESA](https://www.kohler.com/content/dam/kohler-com-NA/Lifestyle/PDF/PDF-tp6803.pdf)
 - [30RCL](https://www.kohlerhomeenergy.rehlko.com/products/home+generators/30rcla)
 
+## Data updates
+
+The integration {% term polling polls %} the Rehlko cloud every 10 minutes.
+
 ## Removing the integration
 
 This integration follows the standard integration removal process; no extra steps are required.

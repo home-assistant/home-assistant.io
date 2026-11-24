@@ -2,7 +2,7 @@
 title: "Assist on Android"
 related:
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing devices to Assist
+    title: Exposing entities to voice assistants
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
   - docs: /voice_control/about_wake_word/

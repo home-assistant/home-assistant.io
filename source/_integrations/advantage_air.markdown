@@ -60,3 +60,13 @@ The update platform shows if the controller app requires an update.
 With MyLights or MyPlace, light entities will be created for each light.
 
 {% include integrations/actions.md %}
+
+## Data updates
+
+The integration {% term polling polls %} the wall-mounted tablet every 15 seconds.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
