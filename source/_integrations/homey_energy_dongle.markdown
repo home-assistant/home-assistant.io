@@ -6,10 +6,9 @@ ha_categories:
   - energy.meters_monitoring
   - water.meters_leak_detection
 ha_platforms:
-  - diagnostics
   - sensor
 ha_iot_class: Local Push
-ha_quality_scale: gold
+ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - '@Doekse'
@@ -188,7 +187,7 @@ DSMR 2.2 and Q3D meters don't protect their data with a checksum, so Home Assist
 
 ### Reporting an issue
 
-When you report an issue, add the diagnostics of the integration. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Homey Energy Dongle**, then select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download diagnostics**. Include the brand and model of your smart meter.
+When you report an issue, include the brand and model of your smart meter.
 
 ## Removing the integration
 
