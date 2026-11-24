@@ -97,6 +97,14 @@ The examples below use the entities of a location named Paris. Replace them with
 
 ### Automation: Notify on orange or red weather alerts
 
+This automation sends a notification when your department's weather alert turns orange or red.
+
+- **Trigger**: State changed
+  - **Entity**: Paris Weather alert
+  - **To**: Orange, Red
+- **Action**: Send a notification message
+  - **Message**: `Météo-France weather alert: {{ state_translated('sensor.paris_weather_alert') }}`
+
 {% details "YAML example for weather alert notifications" %}
 
 {% example %}
@@ -116,7 +124,7 @@ automation: |
 
 {% enddetails %}
 
-### Notify when rain is expected within the hour
+### Automation: Notify when rain is expected within the hour
 
 {% details "YAML example for rain notifications" %}
 
