@@ -33,9 +33,9 @@ You can also configure power sensors alongside energy sensors in the Energy dash
 ### Adding suggested meters
 
 Home Assistant suggests the energy, gas, and water meters you have that are not on the Energy dashboard yet.
+You can add a suggested meter in a few steps, without searching for its sensor.
 Only meters that already have long-term statistics are suggested.
 If a meter you expect is missing, see [The sensor doesn't appear in the selection list](/docs/energy/faq/#symptom-the-sensor-doesnt-appear-in-the-selection-list).
-You can add a suggested meter in a few steps, without searching for its sensor.
 
 1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
 2. Open the **Electricity**, **Gas**, or **Water** tab.
