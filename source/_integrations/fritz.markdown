@@ -80,7 +80,7 @@ The FRITZ!Box Tools integration provides the following main features:
 - **{% term "Binary sensor" %}** - connectivity status.
 - **{% term Image %}** - QR code for Guest Wi-Fi.
 - **{% term Button %}** - reboot, reconnect, firmware update.
-- **{% term Sensor %}** - external IP address, uptime, CPU temperature, and network monitors.
+- **{% term Sensor %}** - external IP address, uptime, CPU temperature, network monitors, and link sensors.
 - **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
 - **{% term Update %}** - firmware status of the device.
 
@@ -103,6 +103,16 @@ Parental control {% term switches %} can be used to enable and disable internet 
 ### Device tracker
 
 **Note**: If you don't want to automatically track newly detected devices, disable the {% term integration %} system option `Enable new added entities`.
+
+### Link sensors
+
+For each connected device, the integration can create {% term sensors %} that show how the device is connected to your network:
+
+- **Signal strength**: The Wi-Fi signal strength of the device in dBm, as received by the FRITZ!Box or mesh repeater it's connected to. Wi-Fi devices only.
+- **Download link rate** and **Upload link rate**: The current link speed between the device and the FRITZ!Box, in Mbit/s by default. Wi-Fi devices only.
+- **Max download link rate** and **Max upload link rate**: The highest link speed the connection supports, in Mbit/s by default. Wi-Fi and LAN devices.
+
+These are diagnostic sensors and are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). They are only created when your FRITZ!Box provides mesh information. If your FRITZ!Box doesn't support mesh, or if you use the [old discovery method](#enable-old-discovery-method), these sensors are not created. When a device is disconnected, its link sensors show as unknown.
 
 ### Port forward switches
 
