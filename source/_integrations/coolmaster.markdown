@@ -10,7 +10,7 @@ The **CoolMasterNet** {% term integration %} lets you control HVAC through [Cool
 
 ## Fan speeds
 
-The climate entity offers the fan speeds that the CoolMasterNet protocol defines: very low, low, medium, high, top, and auto. Not every indoor unit has every speed. A unit ignores a speed it doesn't support and keeps its current fan speed.
+The climate entity offers the fan speeds that the CoolMasterNet protocol defines: **Very low**, **Low**, **Medium**, **High**, **Top**, and **Auto**. Not every indoor unit has every speed. A unit ignores a speed it doesn't support and keeps its current fan speed.
 
 ## Data updates
 
