@@ -139,6 +139,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
 ### Automation: Empty the trash of a library every week
 
 This automation empties the trash of the **Documents** library every Sunday at 03:00. Files in the trash are deleted permanently, so only use this for libraries where you don't need to restore deleted files. Only the owner or an admin of the library can empty its trash.
