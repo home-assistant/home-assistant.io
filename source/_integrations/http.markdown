@@ -43,6 +43,9 @@ SSL key path:
 SSL peer certificate path:
   description: The absolute path to a client certificate Home Assistant should require for secure connections.
   required: false
+Require client certificates for remote access:
+  description: By default, SSL peer certificates apply only to local connections to Home Assistant. Enabling this also requires a client certificate on remote access through [Home Assistant Link](/integrations/cloud/).
+  required: false
 SSL profile:
   description: |
     The [Mozilla server side TLS profile](https://docs.tlsref.org/server-side-tls.html) that decides which TLS versions and ciphers clients can connect with. Each profile is named after the guideline version it follows.
