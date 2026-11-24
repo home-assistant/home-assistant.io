@@ -103,7 +103,11 @@ The **Seafile** integration {% term polling polls %} your Seafile server every 5
 
 The list of backups is cached for 5 minutes. Backups that you add or delete in Seafile directly can take up to 5 minutes to show up in Home Assistant.
 
-## Examples
+## Seafile automation examples
+
+The following examples use a library named **Documents** and a library named **Laptop backup**. Replace the entities with those of your own libraries. Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
 
 The following examples use a library named **Documents** and a library named **Laptop backup**. Replace the entity IDs with those of your own libraries.
 
