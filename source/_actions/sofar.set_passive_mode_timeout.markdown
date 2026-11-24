@@ -7,6 +7,7 @@ related_actions:
   - sofar.set_passive_mode_power
   - sofar.set_feed_in_limit
   - sofar.set_active_power_limit
+  - sofar.set_battery_cutoffs
 ---
 
 Use this action to control how long a [passive-mode power command](/actions/sofar.set_passive_mode_power/) stays in effect before the inverter falls back to its normal behavior, and what "falling back" means. Only available on inverters with battery storage.

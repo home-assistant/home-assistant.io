@@ -11,6 +11,11 @@
   "categories": [
     "diy_makers.boards_hardware"
   ],
+  "connectivity": [
+    "mqtt",
+    "network",
+    "serial"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

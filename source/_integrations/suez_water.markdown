@@ -70,6 +70,10 @@ Counter ID:
 
 {% endconfiguration_basic %}
 
+## Data updates
+
+The integration {% term polling polls %} your Suez account every 12 hours.
+
 ## Removing the integration
 
 This integration can be removed by following these steps:

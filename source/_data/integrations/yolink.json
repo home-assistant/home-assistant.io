@@ -10,10 +10,14 @@
   "categories": [
     "hubs_protocols.smart_home_hubs"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",
     "cover",
+    "diagnostics",
     "light",
     "lock",
     "number",

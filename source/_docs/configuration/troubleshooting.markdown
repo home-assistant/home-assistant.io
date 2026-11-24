@@ -191,6 +191,68 @@ The entity name must not start or end with an underscore. If you create an entit
 
 For instructions on how to change an entity name, refer to the section on [customizing entities](/docs/configuration/customizing-entities/).
 
+## Asking AI to help find a problem
+
+AI can help you find out why an {% term integration %} doesn't work. You can ask a {% term "conversation agent" %} in {% term Assist %}, or an {% term "AI app" %}, such as Claude or ChatGPT. With the **Home Assistant** set of {% term "AI tools" %}, a conversation agent or an AI app can read your logs, the status of your integrations, and information about your system. You can check the answers with the steps in [Debug logs and diagnostics](#debug-logs-and-diagnostics).
+
+{% important %}
+**Risk of sharing sensitive information**
+
+The conversation agent or AI app sends what it reads to its AI provider. This includes your logs. The **Get logs** AI tool masks values that look like credentials, but it can't recognize every secret. Logs can also contain other sensitive information. For example, they can contain IP addresses, user names, or your location.
+
+To avoid this:
+
+- Before you ask, check what your logs contain. For details, refer to [Sensitive information in logs](/common-tasks/general/logs/#sensitive-information-in-logs).
+- Turn off debug logging when you don't need it. Debug logs often contain more sensitive information.
+- Use a local AI model. Then your logs don't leave your network. For example, use a conversation agent from [Ollama](/integrations/ollama/), which runs the AI model on a computer in your home. For an AI app, refer to [Asking an AI app](#asking-an-ai-app).
+{% endimportant %}
+
+### Asking a conversation agent in Assist
+
+You can ask a conversation agent in the Assist dialog of Home Assistant. The **Home Assistant** AI tools can also change things without asking you first. For example, they can reload an integration or perform actions. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools).
+
+Prerequisites:
+
+- An administrator account in Home Assistant.
+- An assistant whose conversation agent uses the **Home Assistant** set of AI tools. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](/integrations/llm/#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
+
+To ask a conversation agent in Assist:
+
+1. On a dashboard, in the top-right corner, select **Assist** {% icon "mdi:comment-processing-outline" %}.
+   - On a narrow screen, it's under **Menu** {% icon "mdi:dots-vertical" %}. On a computer, you can also press <kbd>A</kbd>.
+2. At the top of the dialog, select the name of the assistant, and choose the assistant that uses the Home Assistant AI tools.
+3. Describe the problem, and ask what causes it.
+   - For example, ask "Why isn't my integration working?" or "Which errors are in the logs?"
+4. Optional: To see what the conversation agent looked at, select **Show details** above the answer.
+   - Result: The details list the AI tools that the conversation agent used, with the result it got back.
+5. Check the answer before you act on it.
+   - The conversation agent can be wrong. Compare its answer with the [logs](/common-tasks/general/logs/).
+
+### Asking an AI app
+
+You can also ask an {% term "AI app" %}. For example, you can ask Claude, ChatGPT, Claude Code, Codex, or OpenCode. The AI app connects to Home Assistant through the [Model Context Protocol](/integrations/mcp_server/) integration. It then uses the same AI tools as a conversation agent.
+
+To keep your logs on your network, use an AI app with a local AI model. For example, OpenCode can use a model from an Ollama server on a computer in your home. For the steps, refer to [OpenCode](https://docs.ollama.com/integrations/opencode) in the Ollama documentation.
+
+Prerequisites:
+
+- An administrator account in Home Assistant.
+- An AI app that supports <abbr title="Model Context Protocol">MCP</abbr> servers.
+
+To ask an AI app:
+
+1. Connect your AI app to Home Assistant, and sign in with an administrator account.
+   - For the steps, refer to the [Prerequisites](/integrations/mcp_server/#prerequisites) and [Client configuration](/integrations/mcp_server/#client-configuration) in the Model Context Protocol documentation.
+   - Use the **Main URL**. The individual URLs ignore the configuration options of the integration, including **Read-only**.
+   - The AI app needs the **Home Assistant** set of AI tools. When you enable the integration, the main URL includes it. If you set it up earlier, check that **Expose all AI tools** is turned on, or that **Home Assistant** is selected under **AI tools**.
+2. Optional: To keep the AI app from changing anything, turn on **Read-only**. For details, refer to [Configuration options](/integrations/mcp_server/#configuration-options).
+   - This option only applies to the main URL. The individual URLs ignore it.
+   - Result: The AI app can still read your logs, but it can't change anything. For example, it can't reload integrations or perform actions.
+3. In the AI app, describe the problem, and ask what causes it.
+   - For example, ask "Why isn't my integration working?" or "Which errors are in the logs?"
+4. Check the answer before you act on it.
+   - The AI app can be wrong. Compare its answer with the [logs](/common-tasks/general/logs/).
+
 ## Debug logs and diagnostics
 
 When an integration doesn't work as expected, debug logs and diagnostics help find the cause. Debug logs show in detail what the integration does. Diagnostics describe how the integration is set up.
@@ -206,7 +268,7 @@ Debug logging stays on if you restart Home Assistant once, so the log also shows
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
 2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Enable debug logging**.
    - Result: The integration page shows **Debug logging enabled**.
-3. Make the problem happen again.
+3. Make the problem happen again. If you want to follow the messages as they come in while you reproduce the problem, see [Viewing the live log of an integration](#viewing-the-live-log-of-an-integration).
    - For example, run the automation that fails, or use the device that doesn't respond.
 4. To get the log, continue with [Disabling debug logging and downloading the log](#disabling-debug-logging-and-downloading-the-log).
 
@@ -218,6 +280,20 @@ When you turn off debug logging, Home Assistant downloads the log right away. Th
 2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Disable debug logging**.
    - You can also select **Disable** next to **Debug logging enabled**.
    - Result: Your browser saves the log as a file, for example, `home-assistant_<integration>_<date and time>.log`.
+
+### Viewing the live log of an integration
+
+ While debug logging is on, you can follow the log messages of one integration as they come in, without going through the full log.
+ 
+ Prerequisite: Debug logging is enabled for the integration. For the steps, refer to [enabling debug logging](#enabling-debug-logging).
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
+2. Next to **Debug logging enabled**, select **Show logs**.
+   - Result: The **Live log** dialog opens. It shows the messages that the integration and its libraries logged since Home Assistant started, followed by new messages as they come in.
+3. Make the problem happen again, and watch the messages.
+   - To find a message, use the search field.
+   - To turn line wrapping on or off, use the wrap button.
+4. Optional: To keep a copy of the messages in the dialog, select **Download**.
 
 ### Setting log levels in YAML
 

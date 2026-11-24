@@ -144,9 +144,17 @@ For how to pass values in YAML, refer to [Passing values to a script in YAML](/i
 
 ### Waiting for a script to finish
 
-When you run the script itself, the automation or script that started it waits for it to finish. If the script stops because of an error, the automation or script that started it stops too.
+When you run the script itself, the automation or script that started it waits for it to finish. If an action in the script fails, the automation or script that started it stops too. To continue anyway, turn on [**Continue on error**](/docs/automation/building-blocks/#continuing-on-error) for the failing action, or for the step that runs the script.
 
-With **Turn on script**, the automation or script that started it doesn't wait. If you start several scripts, they start in the order you list them, and the automation continues as soon as the last one has started. Errors in those scripts don't affect the automation.
+In the following situations, only the script stops, and the automation or script that started it continues:
+
+- A [**Stop**](/building-blocks/stop/) building block with **Stop because of an unexpected error** turned on.
+- A wait that times out while **Continue on timeout** is turned off.
+- A template that can't be rendered in a delay, in a timeout, or in the count or the list of items of a repeat.
+
+With **Turn on script**, the automation or script that started it doesn't wait. It continues as soon as the script has started. Errors in the script don't affect the automation.
+
+If you start several scripts with one **Turn on script** action, they start one after the other. They start in the order Home Assistant loaded them, not in the order you list them. If the order matters, use a separate **Turn on script** action for each script.
 
 ![Diagram showing the difference between calling a script directly and via script.turn_on, and how the calling script waits or continues](/images/integrations/script/script_wait.jpg)
 

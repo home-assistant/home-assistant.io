@@ -17,6 +17,7 @@ The integration supports Marantz receivers that use the 2007 Marantz RS-232 prot
 The integration has been tested with the following models:
 
 - Marantz SR7002
+- Marantz SR6004
 
 Other receivers using the 2007 Marantz protocol may also work but have not been tested.
 

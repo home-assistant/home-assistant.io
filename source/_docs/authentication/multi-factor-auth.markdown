@@ -122,3 +122,9 @@ Removing MFA notify makes this MFA option unavailable to all users on the Home A
 
 1. Make sure all affected users can still sign in with their password and any other MFA method that will remain enabled for their account.
 2. Remove the Notify MFA entry from `auth_mfa_modules` in `configuration.yaml`, then restart Home Assistant.
+
+## Video tutorial
+
+This video tutorial explains how to set up Multi-Factor Authentication in Home Assistant step by step.
+
+<lite-youtube videoid="FW0iO5YKF6I" videotitle="How To Set Up Multi-Factor Authentication in Home Assistant" posterquality="maxresdefault"></lite-youtube>

@@ -1,0 +1,117 @@
+---
+// "Designed and built by" badge with the Nabu Casa and Open Home
+// Foundation logos, for the product pages' heroes. White on a
+// translucent panel, so it sits on a photo or a dark surface.
+//
+// Ports `source/_includes/collaboration/ohf-x-nabu-casa.html` and
+// `sass/homeassistant/base/_collaboration_badge.scss`, used on the
+// Green, Voice PE, Connect ZBT-2 and Connect ZWA-2 pages. Copies the
+// structure and cleans the styling, as agreed:
+//   - The panel, its border, the gaps and the padding snap to the
+//     theme: the glass surface token for both the 5% fill and the 3%
+//     border, 24px between the logos instead of 20px. The text sits
+//     8px from the logos, closer than the live badge's 20px.
+//   - It switches to its larger size at the Connect desk width
+//     (992px) instead of a one-off 768px.
+//   - Below the lap width (480px) it is a step smaller: 16px logos and
+//     12px gaps, as in the Connect AUX-2 Figma file, so it fits a
+//     phone's column on one line (the live badge needs some 370px).
+//   - It sizes to its content. The live badge stretches to fill its
+//     column; a page that wants that sets the width from its layout.
+//   - The text is white instead of #F2F4F9, like the brand API's Open
+//     Home Foundation logo that replaces the local copy. The wrapper
+//     div around each logo is left out.
+// A page can change the wording and leave out the Open Home Foundation
+// logo (the Connect AUX-2: "Designed and manufactured by" Nabu Casa).
+import nabuCasa from "../assets/collaboration/nabu-casa.svg";
+import openHomeFoundation from "../assets/brands/open-home-foundation-lockup-monochrome-dark.svg";
+
+interface Props {
+  // The text before the logos.
+  label?: string;
+  // Whether the Open Home Foundation logo follows Nabu Casa's.
+  foundation?: boolean;
+}
+
+const { label = "Designed and built by", foundation = true } = Astro.props;
+
+const logos = [
+  { image: nabuCasa, alt: "Nabu Casa" },
+  ...(foundation
+    ? [{ image: openHomeFoundation, alt: "Open Home Foundation" }]
+    : []),
+];
+---
+
+<div class="collaboration-badge">
+  <span>{label}</span>
+  <div class="collaborators">
+    {
+      logos.map(({ image, alt }) => (
+        <img src={image.src} width={image.width} height={image.height} alt={alt} />
+      ))
+    }
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  .collaboration-badge {
+    align-items: center;
+    backdrop-filter: blur(6px);
+    background: var(--color-surface-glass);
+    border: 1px solid var(--color-surface-glass);
+    border-radius: var(--radius-small);
+    color: var(--color-text-inverse);
+    display: flex;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-small);
+    font-weight: 300;
+    gap: var(--space-small);
+    line-height: 1.5;
+    padding: var(--space-medium);
+    white-space: nowrap;
+    width: fit-content;
+
+    /* The text's own padding sets the badge's height around the
+       shorter logos: 52px on phones, 50px from the desk width. */
+    span {
+      padding-block: var(--space-xsmall);
+    }
+  }
+
+  .collaborators {
+    align-items: center;
+    display: flex;
+    gap: var(--space-medium);
+
+    img {
+      height: 1rem;
+      width: auto;
+    }
+  }
+
+  /* The logos spread out from the lap width; the text stays close to
+     them. */
+  @media only screen and (min-width: breakpoints.$lap) {
+    .collaborators {
+      gap: var(--space-xlarge);
+    }
+
+    .collaborators img {
+      height: 1.125rem;
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$connect-desk) {
+    .collaboration-badge {
+      font-size: var(--font-size-large);
+      padding: var(--space-small) var(--space-xlarge);
+    }
+
+    .collaborators img {
+      height: 1.25rem;
+    }
+  }
+</style>

@@ -12,6 +12,9 @@
     "productivity_information.shopping_groceries",
     "productivity_information.calendars_todos"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "todo"
   ]

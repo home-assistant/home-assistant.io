@@ -10,6 +10,9 @@
   "categories": [
     "productivity_information.calendars_todos"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "calendar",
     "todo"

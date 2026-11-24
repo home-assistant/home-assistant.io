@@ -6,6 +6,9 @@
   "categories": [
     "ai_voice.image_recognition"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "image_processing"
   ]

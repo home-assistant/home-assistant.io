@@ -11,7 +11,12 @@
   "categories": [
     "weather_alerts.forecasts"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
+    "binary_sensor",
+    "sensor",
     "weather"
   ]
 }

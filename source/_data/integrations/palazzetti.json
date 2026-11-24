@@ -7,8 +7,12 @@
   ],
   "config_flow": true,
   "iot_class": "local_polling",
+  "quality_scale": "silver",
   "categories": [
     "climate.thermostats_heating"
+  ],
+  "connectivity": [
+    "network"
   ],
   "platforms": [
     "button",

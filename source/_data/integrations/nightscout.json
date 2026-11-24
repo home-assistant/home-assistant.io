@@ -10,6 +10,10 @@
   "categories": [
     "health_wellbeing"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "sensor"
   ]

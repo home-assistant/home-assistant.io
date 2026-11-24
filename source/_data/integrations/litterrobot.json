@@ -12,10 +12,14 @@
   "categories": [
     "pets"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",
     "diagnostics",
+    "image",
     "light",
     "select",
     "sensor",

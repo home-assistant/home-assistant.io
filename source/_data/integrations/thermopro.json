@@ -12,6 +12,9 @@
     "sensors.temperature_humidity",
     "appliances_cleaning.cooking"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "button",
     "sensor"

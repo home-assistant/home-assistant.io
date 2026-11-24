@@ -11,7 +11,11 @@
   "categories": [
     "health_wellbeing"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
+    "diagnostics",
     "sensor"
   ],
   "discovery": [

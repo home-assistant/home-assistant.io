@@ -8,6 +8,9 @@
   "categories": [
     "diy_makers.boards_hardware"
   ],
+  "connectivity": [
+    "serial"
+  ],
   "platforms": [
     "sensor"
   ]

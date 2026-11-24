@@ -10,6 +10,9 @@
   "categories": [
     "energy.ev_charging"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "button",
     "lock",
