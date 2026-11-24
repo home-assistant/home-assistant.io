@@ -28,7 +28,7 @@ The device class of a cover determines the icon shown for each state. The state 
 
 ## Device class
 
-The device class tells Home Assistant what kind of cover an entity is, such as a garage door or curtains. Home Assistant uses the device class to choose the icon and the arrows on the open and close buttons. The device class also decides where you can use the cover, such as in triggers and conditions, in [Assist](/voice_control/), on the [Security dashboard](/dashboards/dashboards/#security-dashboard), or in voice assistants. If a cover doesn't show up where you expect it, check its device class.
+The device class tells Home Assistant what kind of cover an entity is, such as a garage door or curtains. Home Assistant uses the device class to choose the icon and the arrows on the open and close buttons. In the more-info dialog, it chooses the drawing of the cover. For example, a cover with the **Garage** device class shows a garage door. Doors, windows, dampers, and covers without a device class show a plain panel. The device class also decides where you can use the cover, such as in triggers and conditions, in [Assist](/voice_control/), on the [Security dashboard](/dashboards/dashboards/#security-dashboard), or in voice assistants. If a cover doesn't show up where you expect it, check its device class.
 
 The integration that provides the cover sets the device class. When you create a cover yourself with a [template helper](/integrations/template/), you choose the device class.
 
