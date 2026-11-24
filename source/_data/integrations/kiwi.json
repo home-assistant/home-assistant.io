@@ -6,6 +6,9 @@
   "categories": [
     "security_safety.locks_access"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "lock"
   ]

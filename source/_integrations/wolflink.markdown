@@ -21,6 +21,17 @@ The {% term integration %} fetches all data based on parameters that are exposed
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+  description: "The username of your Wolf SmartSet account."
+Password:
+  description: "The password of your Wolf SmartSet account."
+{% endconfiguration_basic %}
+
+## Data updates
+
+The integration {% term polling polls %} the Wolf Smart-Set web service every 60 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.

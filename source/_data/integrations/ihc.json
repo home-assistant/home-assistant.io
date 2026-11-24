@@ -6,6 +6,9 @@
   "categories": [
     "hubs_protocols.building_automation"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "light",

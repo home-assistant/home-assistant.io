@@ -69,6 +69,16 @@ Backup folder:
   description: "The folder in the library to store backups in. Defaults to `/Home Assistant backups`. It is created when the first backup is uploaded."
 {% endconfiguration_basic %}
 
+## Reconfiguration
+
+If your Seafile server moves to a new address, its certificate changes, or you want to log in with a different username or password, you can update the integration without removing and adding it again.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Seafile** integration.
+2. Next to the account, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Enter the **URL**, **Username** and **Password**, and change **Verify SSL certificate** if needed, then select **Submit**.
+
+Home Assistant logs in again and creates a new access token. It then tries to revoke the old token, using the previous URL and SSL setting. If that fails, for example because the old address no longer works, the old **Home Assistant** entry stays under the linked devices of your account, and you can remove it there yourself. You must log in to the same Seafile account that was set up before.
+
 ## Supported functionality
 
 Each library is added as a separate device in Home Assistant, with the following entities.
@@ -87,6 +97,22 @@ Each library is added as a separate device in Home Assistant, with the following
 - **Empty trash**
   - **Description**: Permanently deletes the files and folders in the trash of the library. This can't be undone. Only the owner or an admin of the library can empty its trash.
 
+### Selects
+
+- **History**
+  - **Description**: How much file history Seafile keeps for the library, so you can restore older versions of files.
+  - **Options**:
+    - **Keep full history**: Keep all older versions. This is the default in Seafile.
+    - **Don't keep history**: Keep no older versions. Seafile removes the existing history.
+    - **Keep a period of history**: Keep the older versions for a set number of days. Switching to it from another option sets a period of 30 days. A period that is already set stays as it is. Change the number of days with **History days**.
+  - **Remarks**: Only available for libraries you own or administer.
+
+### Numbers
+
+- **History days**
+  - **Description**: For how many days Seafile keeps the older versions of files in the library, from 1 to 3650.
+  - **Remarks**: Only available when **History** is set to **Keep a period of history**.
+
 ### Backups
 
 Each library with **Store backups** turned on is available as a backup location in Home Assistant, named after the account and the library, for example, **admin@example.com (seafile.example.com) - Documents**. Libraries you select while setting up the integration have backups turned off; turn them on by reconfiguring the library.
@@ -103,6 +129,99 @@ The **Seafile** integration {% term polling polls %} your Seafile server every 5
 
 The list of backups is cached for 5 minutes. Backups that you add or delete in Seafile directly can take up to 5 minutes to show up in Home Assistant.
 
+## Seafile automation examples
+
+The following examples use a library named **Documents** and a library named **Laptop backup**. Replace the entities with those of your own libraries. Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+
+### Automation: Notify when a library grows too large
+
+This automation sends a notification when the **Documents** library grows past 50 GiB. The threshold uses the unit the **Size** sensor is shown in, which is GiB by default.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Documents Size
+  - **Above**: `50`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: {% raw %}`The Documents library in Seafile is now {{ states('sensor.documents_size') }} GiB.`{% endraw %}
+
+{% details "YAML example for a notification when a library grows too large" %}
+
+{% example %}
+automation: |
+  alias: "Seafile library grows too large"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.documents_size
+      above: 50
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The Documents library in Seafile is now {{ states('sensor.documents_size') }} GiB."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Empty the trash of a library every week
+
+This automation empties the trash of the **Documents** library every Sunday at 03:00. Files in the trash are deleted permanently, so only use this for libraries where you don't need to restore deleted files. Only the owner or an admin of the library can empty its trash.
+
+- **Trigger**: Time
+  - **At time**: `03:00:00`
+  - **Weekdays**: Sunday
+- **Action**: Press button
+  - **Target**: Documents Empty trash
+
+{% details "YAML example for emptying the trash every week" %}
+
+{% example %}
+automation: |
+  alias: "Empty Seafile trash weekly"
+  triggers:
+    - trigger: time
+      at: "03:00:00"
+      weekday: sun
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.documents_empty_trash
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify when a backup library stops changing
+
+This automation sends a notification when the **Laptop backup** library has not changed for 7 days, which can mean that your backups stopped running.
+
+- **Trigger**: Template, the **Last modified** sensor of the library is more than 7 days ago
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: `The Laptop backup library in Seafile has not changed for 7 days.`
+
+{% details "YAML example for a notification when a backup library stops changing" %}
+
+{% example %}
+automation: |
+  alias: "Seafile backup library not updated"
+  triggers:
+    - trigger: template
+      value_template: >
+        {% set modified = states('sensor.laptop_backup_last_modified') | as_datetime(None) %}
+        {{ modified is not none and now() - modified > timedelta(days=7) }}
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The Laptop backup library in Seafile has not changed for 7 days."
+{% endexample %}
+
+{% enddetails %}
+
 ## Supported versions
 
 The integration has been tested with Seafile 13 and 14 (Community Edition).
@@ -111,22 +230,24 @@ The integration has been tested with Seafile 13 and 14 (Community Edition).
 
 - Encrypted libraries are not supported and are not shown in the list of libraries.
 - An account on a server can only be added once.
+- When a library is deleted on the Seafile server, or your account loses access to it, Home Assistant doesn't remove it automatically because the library might only be unavailable for a while. Instead, a repair issue lets you remove it.
+- Changing **History** or **History days** fails with a permission error if the Seafile server administrator has turned off the library history setting.
 
 ## Troubleshooting
 
 ### Symptom: The sensors of a library are unavailable
 
-The sensors of one or more libraries show as unavailable.
+The entities of one or more libraries show as unavailable. You might also see a repair issue named **Seafile library "_name_" not found**, where _name_ is the name of your library.
 
 #### Description
 
-Home Assistant can't reach the Seafile server, or the library is no longer available to your account: it was deleted on the server, or your account lost access to it. When the server can't be reached, the sensors of the account are unavailable as well.
+Home Assistant can't reach the Seafile server, or the library is no longer available to your account: it was deleted on the server, or your account lost access to it. When the server can't be reached, the sensors of the account are unavailable as well. When the server is reachable but the library is gone, Home Assistant creates a repair issue, and the library can no longer be used as a backup location.
 
 #### Resolution
 
 1. Check that Home Assistant can reach the Seafile server, and look for connection errors in {% my logs title="**Settings** > **System** > **Logs**" %}.
-2. Sign in to the Seafile web interface with the same account and check that the library is still listed.
-3. Only if the library is gone from your account, delete its library entry from the **Seafile** integration page.
+2. Sign in to the Seafile web interface with the same account and check that the library is still listed. If the library comes back, for example because it was shared with you again, the repair issue disappears by itself within a few minutes.
+3. If the library is gone for good, open the repair issue in {% my repairs title="**Settings** > **System** > **Repairs**" %} and select **Submit**. This removes the library, its device and entities, and its backup location from Home Assistant. You can also delete the library entry from the **Seafile** integration page.
 
 ### Symptom: A library is not listed as a backup location
 

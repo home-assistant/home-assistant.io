@@ -11,6 +11,10 @@
   "categories": [
     "ai_voice.ai_models"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "conversation",
     "stt"

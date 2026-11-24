@@ -19,6 +19,11 @@ The **ElevenLabs** {% term integrations %} adds support for [ElevenLabs](https:/
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+API key:
+  description: "Your ElevenLabs API key. It needs the permissions listed under [Prerequisites](#prerequisites)."
+{% endconfiguration_basic %}
+
 ### Text-to-speech
 
 For an overview of which languages can be used, check the [complete list of supported languages](https://elevenlabs.io/languages).

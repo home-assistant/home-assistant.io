@@ -12,6 +12,9 @@
     "lighting",
     "blinds_curtains"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "cover",
     "fan",
