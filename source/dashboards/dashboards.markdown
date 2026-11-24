@@ -231,7 +231,7 @@ The **Background** tab is not available for [YAML dashboards](#adding-yaml-dashb
 
 ## Duplicating a dashboard
 
-To start a new dashboard from one that you already have, duplicate it. The copy has all the views and cards of the original. You can duplicate the dashboards that you created yourself. You can't duplicate the built-in dashboards or [YAML dashboards](#adding-yaml-dashboards).
+To start a new dashboard from one that you already have, duplicate it. The copy has all the views and cards of the original. You can duplicate the dashboards that you created in the UI, and the [Map dashboard](#map-dashboard). You can't duplicate the built-in dashboards or [YAML dashboards](#adding-yaml-dashboards).
 
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 2. On the right of the dashboard you want to duplicate, select the **Overflow menu** {% icon "mdi:dots-vertical" %} and then **Duplicate**.
