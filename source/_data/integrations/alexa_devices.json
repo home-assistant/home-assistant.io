@@ -19,6 +19,7 @@
   "platforms": [
     "binary_sensor",
     "button",
+    "climate",
     "diagnostics",
     "event",
     "light",

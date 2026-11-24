@@ -85,6 +85,7 @@ source/_integrations/aprilaire.markdown @chamberlain2007
 source/_integrations/aprs.markdown @PhilRW
 source/_integrations/apsystems.markdown @mawoka-myblock @SonnenladenGmbH
 source/_integrations/aquacell.markdown @Jordi1990
+source/_integrations/aquarite_neopool.markdown @svasek
 source/_integrations/aqvify.markdown @astrandb
 source/_integrations/aranet.markdown @aschmitz @thecode @anrijs
 source/_integrations/arcam_fmj.markdown @elupus
@@ -128,6 +129,7 @@ source/_integrations/bang_olufsen.markdown @mj23000
 source/_integrations/battery.markdown @home-assistant/core
 source/_integrations/bauknecht.markdown @abmantis @mkmer
 source/_integrations/bayesian.markdown @HarvsG
+source/_integrations/bayrol_neopool.markdown @svasek
 source/_integrations/besen.markdown @moryoav
 source/_integrations/beverly.markdown @chemelli74 @rokam
 source/_integrations/bge.markdown @tronikos
@@ -154,6 +156,7 @@ source/_integrations/brands.markdown @home-assistant/core
 source/_integrations/brandt.markdown @imicknl
 source/_integrations/braviatv.markdown @bieniu @Drafteed
 source/_integrations/brel_home.markdown @starkillerOG
+source/_integrations/brilix_neopool.markdown @svasek
 source/_integrations/bring.markdown @miaucl @tr4nt0r
 source/_integrations/broadlink.markdown @danielhiversen @felipediel @L-I-Am @DAB-LABS
 source/_integrations/brother.markdown @bieniu
@@ -182,6 +185,7 @@ source/_integrations/cast.markdown @emontnemery
 source/_integrations/ccm15.markdown @ocalvo
 source/_integrations/centriconnect.markdown @gresrun
 source/_integrations/cert_expiry.markdown @jjlawren
+source/_integrations/certikin_neopool.markdown @svasek
 source/_integrations/chacon_dio.markdown @cnico
 source/_integrations/chef_iq.markdown @Invader444
 source/_integrations/chess_com.markdown @joostlek
@@ -192,7 +196,6 @@ source/_integrations/cisco_mobility_express.markdown @fbradyirl
 source/_integrations/cisco_webex_teams.markdown @fbradyirl
 source/_integrations/climate.markdown @home-assistant/core
 source/_integrations/climate.mqtt.markdown @emontnemery @jbouwh @bdraco
-source/_integrations/cloud.markdown @home-assistant/cloud
 source/_integrations/cloudflare.markdown @ludeeus @ctalkington
 source/_integrations/cloudflare_r2.markdown @corrreia
 source/_integrations/co2signal.markdown @jpbede @VIKTORVAV99
@@ -226,6 +229,7 @@ source/_integrations/cribl.markdown @Bre77
 source/_integrations/croma_infrared.markdown @Dr-Blank
 source/_integrations/cync.markdown @Kinachi249
 source/_integrations/dacia.markdown @epenet
+source/_integrations/dagen_neopool.markdown @svasek
 source/_integrations/daikin.markdown @fredrike
 source/_integrations/data_grand_lyon.markdown @Crocmagnon
 source/_integrations/datadog.markdown @bm1549
@@ -233,7 +237,7 @@ source/_integrations/date.markdown @home-assistant/core
 source/_integrations/date.mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/datetime.markdown @home-assistant/core
 source/_integrations/datetime.mqtt.markdown @emontnemery @jbouwh @bdraco
-source/_integrations/deako.markdown @sebirdman @balake @deakolights
+source/_integrations/deako.markdown @sebirdman @balake @deakolights @iulianmac
 source/_integrations/debug_console.markdown @frenck
 source/_integrations/debugpy.markdown @frenck
 source/_integrations/deconz.markdown @Kane610
@@ -463,6 +467,7 @@ source/_integrations/hase_iq.markdown @bbayszczak
 source/_integrations/hassio.markdown @home-assistant/supervisor
 source/_integrations/havana_shade.markdown @starkillerOG
 source/_integrations/haven_iaq.markdown @krhtzoa
+source/_integrations/hayward_neopool.markdown @svasek
 source/_integrations/hdfury.markdown @glenndehaan
 source/_integrations/hdmi_cec.markdown @inytar
 source/_integrations/heatmiser.markdown @andylockran
@@ -565,6 +570,7 @@ source/_integrations/integration.markdown @dgomes
 source/_integrations/intelliclima.markdown @dvdinth
 source/_integrations/intellifire.markdown @jeeftor
 source/_integrations/intent_script.markdown @arturpragacz
+source/_integrations/intesis_modbus.markdown @TimoPtr
 source/_integrations/intesishome.markdown @jnimmo
 source/_integrations/inventor.markdown @chemelli74 @rokam
 source/_integrations/iometer.markdown @jukrebs
@@ -617,6 +623,7 @@ source/_integrations/kodi.markdown @OnFreund
 source/_integrations/konnected_esphome.markdown @jesserockz @kbx81 @bdraco @arturpragacz
 source/_integrations/kostal_plenticore.markdown @stegm
 source/_integrations/kraken.markdown @eifinger
+source/_integrations/kripsol_neopool.markdown @svasek
 source/_integrations/krispol.markdown @starkillerOG
 source/_integrations/kulersky.markdown @emlove
 source/_integrations/labs.markdown @home-assistant/core
@@ -744,7 +751,7 @@ source/_integrations/motion.markdown @home-assistant/core
 source/_integrations/motion_blinds.markdown @starkillerOG
 source/_integrations/motionblinds_ble.markdown @LennP @jerrybboy
 source/_integrations/motionblinds_matter.markdown @home-assistant/matter
-source/_integrations/motioneye.markdown @dermotduffy
+source/_integrations/motioneye.markdown @dermotduffy @mkrawcz1
 source/_integrations/motionmount.markdown @Wernes-vogels
 source/_integrations/mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/mta.markdown @OnFreund
@@ -757,6 +764,7 @@ source/_integrations/myneomitis.markdown @Epyes
 source/_integrations/mysensors.markdown @MartinHjelmare @functionpointer
 source/_integrations/mystrom.markdown @fabaff
 source/_integrations/myuplink.markdown @pajzo @astrandb
+source/_integrations/nad_infrared.markdown @rrooggiieerr
 source/_integrations/nam.markdown @bieniu
 source/_integrations/namecheapdns.markdown @tr4nt0r
 source/_integrations/nanoleaf.markdown @milanmeu @joostlek @loebi-ch @JaspervRijbroek @jonathanrobichaud4
@@ -895,6 +903,8 @@ source/_integrations/plugwise.markdown @CoMPaTech @bouwew
 source/_integrations/point.markdown @fredrike
 source/_integrations/pooldose.markdown @lmaertin
 source/_integrations/poolsense.markdown @haemishkyd
+source/_integrations/poolstar_neopool.markdown @svasek
+source/_integrations/poolwatch_neopool.markdown @svasek
 source/_integrations/portainer.markdown @erwindouna
 source/_integrations/power.markdown @home-assistant/core
 source/_integrations/powerfox.markdown @klaasnicolaas
@@ -1097,6 +1107,7 @@ source/_integrations/somfy_mylink.markdown @sslivins
 source/_integrations/sonarr.markdown @ctalkington
 source/_integrations/songpal.markdown @rytilahti @shenxn
 source/_integrations/sonos.markdown @peterager @jjlawren
+source/_integrations/sony_infrared.markdown @googanhiem
 source/_integrations/soundtouch.markdown @kroimon
 source/_integrations/spaceapi.markdown @fabaff
 source/_integrations/specialized_turbo.markdown @JamieMagee
@@ -1118,6 +1129,7 @@ source/_integrations/stream.markdown @hunterjm @uvjustin @allenporter
 source/_integrations/stt.markdown @home-assistant/core
 source/_integrations/subaru.markdown @G-Two @jpettitt
 source/_integrations/suez_water.markdown @ooii @jb101010-2
+source/_integrations/sugar_valley.markdown @svasek
 source/_integrations/sun.markdown @home-assistant/core
 source/_integrations/sunricher_dali.markdown @niracler
 source/_integrations/sunsynk.markdown @jamesridgway
@@ -1184,6 +1196,7 @@ source/_integrations/tilt_pi.markdown @michaelheyman
 source/_integrations/time.markdown @home-assistant/core
 source/_integrations/time.mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/time_date.markdown @fabaff
+source/_integrations/timer_list.markdown @home-assistant/core @synesthesiam
 source/_integrations/tmb.markdown @alemuro
 source/_integrations/todo.markdown @home-assistant/core
 source/_integrations/todoist.markdown @boralyl
@@ -1208,6 +1221,7 @@ source/_integrations/trane.markdown @bdraco
 source/_integrations/transmission.markdown @engrbm87 @JPHutchins @andrew-codechimp
 source/_integrations/trend.markdown @jpbede
 source/_integrations/triggercmd.markdown @rvmey
+source/_integrations/trimlight.markdown @spdevpro @bsholy
 source/_integrations/trmnl.markdown @joostlek
 source/_integrations/tts.markdown @home-assistant/core
 source/_integrations/tuya.markdown @Tuya @zlinoliver
@@ -1265,6 +1279,7 @@ source/_integrations/vivotek.markdown @HarlemSquirrel
 source/_integrations/vizio.markdown @raman325
 source/_integrations/vlc_telnet.markdown @rodripf @MartinHjelmare
 source/_integrations/vodafone_station.markdown @paoloantinori @chemelli74
+source/_integrations/voice_support.markdown @synesthesiam @arturpragacz
 source/_integrations/voip.markdown @home-assistant/core @jaminh
 source/_integrations/volkszaehler.markdown @StefanSchoof
 source/_integrations/volumio.markdown @OnFreund
@@ -1354,6 +1369,7 @@ source/_integrations/zwave_me.markdown @lawfulchaos @Z-Wave-Me @PoltoS
 source/_actions/abode.capture_image.markdown @shred86
 source/_actions/abode.change_setting.markdown @shred86
 source/_actions/abode.trigger_automation.markdown @shred86
+source/_actions/abrp.send_telemetry.markdown @mtandersson
 source/_actions/adguard.add_url.markdown @frenck
 source/_actions/adguard.disable_url.markdown @frenck
 source/_actions/adguard.enable_url.markdown @frenck
@@ -1450,8 +1466,6 @@ source/_actions/climate.set_temperature.markdown @home-assistant/core
 source/_actions/climate.toggle.markdown @home-assistant/core
 source/_actions/climate.turn_off.markdown @home-assistant/core
 source/_actions/climate.turn_on.markdown @home-assistant/core
-source/_actions/cloud.remote_connect.markdown @home-assistant/cloud
-source/_actions/cloud.remote_disconnect.markdown @home-assistant/cloud
 source/_actions/collection_image.select_first.markdown @karwosts
 source/_actions/collection_image.select_image.markdown @karwosts
 source/_actions/collection_image.select_last.markdown @karwosts
@@ -1559,6 +1573,7 @@ source/_actions/fully_kiosk.start_application.markdown @cgarwood
 source/_actions/geniushub.set_switch_override.markdown @manzanotti
 source/_actions/geniushub.set_zone_mode.markdown @manzanotti
 source/_actions/geniushub.set_zone_override.markdown @manzanotti
+source/_actions/geosphere_austria_warnings.get_warnings.markdown @tklecka
 source/_actions/google.create_event.markdown @allenporter
 source/_actions/google_assistant.reload.markdown @home-assistant/cloud
 source/_actions/google_assistant.request_sync.markdown @home-assistant/cloud
@@ -1667,6 +1682,7 @@ source/_actions/homematicip_cloud.pull_latch.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.reset_energy_counter.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.set_active_climate_profile.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.set_home_cooling_mode.markdown @hahn-th @lackas
+source/_actions/honeywell.set_hold_until.markdown @mkmer
 source/_actions/html5.dismiss_message.markdown @alexyao2015 @tr4nt0r
 source/_actions/html5.send_message.markdown @alexyao2015 @tr4nt0r
 source/_actions/huawei_lte.resume_integration.markdown @fphammerle
@@ -1796,6 +1812,7 @@ source/_actions/lifx.effect_sky.markdown @Djelibeybi
 source/_actions/lifx.effect_stop.markdown @Djelibeybi
 source/_actions/lifx.paint_theme.markdown @Djelibeybi
 source/_actions/lifx.set_hev_cycle_state.markdown @Djelibeybi
+source/_actions/lifx.set_mood.markdown @Djelibeybi
 source/_actions/lifx.set_state.markdown @Djelibeybi
 source/_actions/light.toggle.markdown @home-assistant/core
 source/_actions/light.turn_off.markdown @home-assistant/core
@@ -1881,9 +1898,9 @@ source/_actions/monoprice.snapshot.markdown @etsinko @OnFreund
 source/_actions/monzo.deposit_into_pot.markdown @jakemartin-icl
 source/_actions/monzo.withdraw_from_pot.markdown @jakemartin-icl
 source/_actions/motion_blinds.set_absolute_position.markdown @starkillerOG
-source/_actions/motioneye.action.markdown @dermotduffy
-source/_actions/motioneye.set_text_overlay.markdown @dermotduffy
-source/_actions/motioneye.snapshot.markdown @dermotduffy
+source/_actions/motioneye.action.markdown @dermotduffy @mkrawcz1
+source/_actions/motioneye.set_text_overlay.markdown @dermotduffy @mkrawcz1
+source/_actions/motioneye.snapshot.markdown @dermotduffy @mkrawcz1
 source/_actions/mqtt.dump.markdown @emontnemery @jbouwh @bdraco
 source/_actions/mqtt.publish.markdown @emontnemery @jbouwh @bdraco
 source/_actions/mqtt.reload.markdown @emontnemery @jbouwh @bdraco
@@ -2100,6 +2117,7 @@ source/_actions/seventeentrack.archive_package.markdown @shaiu
 source/_actions/seventeentrack.get_packages.markdown @shaiu
 source/_actions/sharkiq.clean_room.markdown @JeffResc @funkybunch
 source/_actions/shell_command.reload.markdown @home-assistant/core
+source/_actions/shelly.command.markdown @bieniu @thecode @chemelli74 @bdraco
 source/_actions/shelly.get_kvs_value.markdown @bieniu @thecode @chemelli74 @bdraco
 source/_actions/shelly.set_cover_position_and_tilt.markdown @bieniu @thecode @chemelli74 @bdraco
 source/_actions/shelly.set_kvs_value.markdown @bieniu @thecode @chemelli74 @bdraco
@@ -2159,20 +2177,24 @@ source/_actions/switch.toggle.markdown @home-assistant/core
 source/_actions/switch.turn_off.markdown @home-assistant/core
 source/_actions/switch.turn_on.markdown @home-assistant/core
 source/_actions/switchbot.add_password.markdown @danielhiversen @RenierM26 @murtas @Eloston @dsypniewski @zerzhang
+source/_actions/switchbot.get_keypad_info.markdown @danielhiversen @RenierM26 @murtas @Eloston @dsypniewski @zerzhang
 source/_actions/switchbot_cloud.upload_art_frame_image.markdown @SeraphicRav @laurence-presland @Gigatrappeur @XiaoLing-git
 source/_actions/switcher_kis.set_auto_off.markdown @thecode @YogevBokobza
 source/_actions/switcher_kis.turn_on_with_timer.markdown @thecode @YogevBokobza
+source/_actions/system_bridge.dismiss_message.markdown @timmo001
 source/_actions/system_bridge.get_process_by_id.markdown @timmo001
 source/_actions/system_bridge.get_processes_by_name.markdown @timmo001
 source/_actions/system_bridge.open_path.markdown @timmo001
 source/_actions/system_bridge.open_url.markdown @timmo001
 source/_actions/system_bridge.power_command.markdown @timmo001
 source/_actions/system_bridge.send_keypress.markdown @timmo001
+source/_actions/system_bridge.send_message.markdown @timmo001
 source/_actions/system_bridge.send_text.markdown @timmo001
 source/_actions/tado.add_meter_reading.markdown @erwindouna
 source/_actions/tado.set_climate_temperature_offset.markdown @erwindouna
 source/_actions/tado.set_climate_timer.markdown @erwindouna
 source/_actions/tado.set_water_heater_timer.markdown @erwindouna
+source/_actions/tankerkoenig.get_opening_times.markdown @guillempages @mib1185 @jpbede
 source/_actions/telegram_bot.answer_callback_query.markdown @hanwg
 source/_actions/telegram_bot.delete_message.markdown @hanwg
 source/_actions/telegram_bot.download_file.markdown @hanwg
@@ -2213,6 +2235,15 @@ source/_actions/teslemetry.valet_mode.markdown @Bre77
 source/_actions/text.set_value.markdown @home-assistant/core
 source/_actions/tibber.get_prices.markdown @danielhiversen
 source/_actions/time.set_value.markdown @home-assistant/core
+source/_actions/timer_list.add_time.markdown @home-assistant/core @synesthesiam
+source/_actions/timer_list.cancel_timer.markdown @home-assistant/core @synesthesiam
+source/_actions/timer_list.create_timer.markdown @home-assistant/core @synesthesiam
+source/_actions/timer_list.finish_timer.markdown @home-assistant/core @synesthesiam
+source/_actions/timer_list.get_timers.markdown @home-assistant/core @synesthesiam
+source/_actions/timer_list.pause_timer.markdown @home-assistant/core @synesthesiam
+source/_actions/timer_list.remove_timer.markdown @home-assistant/core @synesthesiam
+source/_actions/timer_list.subtract_time.markdown @home-assistant/core @synesthesiam
+source/_actions/timer_list.unpause_timer.markdown @home-assistant/core @synesthesiam
 source/_actions/todo.add_item.markdown @home-assistant/core
 source/_actions/todo.get_items.markdown @home-assistant/core
 source/_actions/todo.remove_completed_items.markdown @home-assistant/core
@@ -2282,6 +2313,8 @@ source/_actions/velbus.scan.markdown @Cereal2nd @brefra
 source/_actions/velbus.set_memo_text.markdown @Cereal2nd @brefra
 source/_actions/velbus.sync_clock.markdown @Cereal2nd @brefra
 source/_actions/vesync.update_devices.markdown @markperdue @webdjoe @thegardenmonkey @cdnninja @iprak @sapuseven
+source/_actions/vicare.get_circulation_schedule.markdown @CFenner @lackas
+source/_actions/vicare.set_circulation_schedule.markdown @CFenner @lackas
 source/_actions/vicare.set_vicare_mode.markdown @CFenner @lackas
 source/_actions/vizio.send_text.markdown @raman325
 source/_actions/vizio.update_setting.markdown @raman325
@@ -2355,6 +2388,7 @@ source/_actions/zha.warning_device_squawk.markdown @dmulcahey @adminiuga @puddly
 source/_actions/zha.warning_device_warn.markdown @dmulcahey @adminiuga @puddly @TheJulianJES
 source/_actions/zone.reload.markdown @home-assistant/core
 source/_actions/zoneminder.set_run_state.markdown @SteveGilvarry @nabbi @rohankapoorcom
+source/_actions/zonneplan.get_electricity_prices.markdown @erwindouna
 source/_actions/zwave_js.bulk_set_partial_config_parameters.markdown @home-assistant/z-wave
 source/_actions/zwave_js.clear_lock_usercode.markdown @home-assistant/z-wave
 source/_actions/zwave_js.delete_all_credentials.markdown @home-assistant/z-wave
@@ -2555,6 +2589,12 @@ source/_triggers/temperature.crossed_threshold.markdown @home-assistant/core
 source/_triggers/template.markdown @Petro31 @home-assistant/core
 source/_triggers/text.changed.markdown @home-assistant/core
 source/_triggers/time.markdown @home-assistant/core
+source/_triggers/timer_list.timer_cancelled.markdown @home-assistant/core @synesthesiam
+source/_triggers/timer_list.timer_created.markdown @home-assistant/core @synesthesiam
+source/_triggers/timer_list.timer_finished.markdown @home-assistant/core @synesthesiam
+source/_triggers/timer_list.timer_paused.markdown @home-assistant/core @synesthesiam
+source/_triggers/timer_list.timer_time_changed.markdown @home-assistant/core @synesthesiam
+source/_triggers/timer_list.timer_unpaused.markdown @home-assistant/core @synesthesiam
 source/_triggers/todo.item_added.markdown @home-assistant/core
 source/_triggers/todo.item_completed.markdown @home-assistant/core
 source/_triggers/todo.item_removed.markdown @home-assistant/core
@@ -2618,6 +2658,7 @@ source/_conditions/battery.is_level.markdown @home-assistant/core
 source/_conditions/battery.is_low.markdown @home-assistant/core
 source/_conditions/battery.is_not_charging.markdown @home-assistant/core
 source/_conditions/battery.is_not_low.markdown @home-assistant/core
+source/_conditions/button.is_being_held.markdown @home-assistant/core
 source/_conditions/calendar.is_event_active.markdown @home-assistant/core
 source/_conditions/climate.is_cooling.markdown @home-assistant/core
 source/_conditions/climate.is_drying.markdown @home-assistant/core
