@@ -4,7 +4,7 @@ ha_release: 2027.1
 ha_domain: wafe
 ---
 
-The **WAFE** {% term integration %} connects Home Assistant to a [WAFE](https://www.wafe.eu/) (in bankruptcy) heat recovery ventilation unit with the ACE2 controller, such as the WAFE 201 E. It talks to the unit over Modbus TCP on your local network. No cloud account is needed.
+The **WAFE** {% term integration %} connects Home Assistant to a WAFE heat recovery ventilation unit with the ACE2 controller, such as the WAFE 201 E. It talks to the unit over Modbus TCP on your local network. No cloud account is needed.
 
 A heat recovery unit replaces the stale air in your home with fresh outdoor air, and transfers the heat of the outgoing air to the incoming air. The integration shows what the unit measures: the four air temperatures, the CO2 level, the fan speeds, the airflow it aims for and what it is doing.
 
