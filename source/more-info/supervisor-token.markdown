@@ -40,43 +40,25 @@ The [Home Assistant Supervisor integration](/integrations/hassio/) provides enti
 - [Update entities](/integrations/update/) for Home Assistant Core, Supervisor, Operating System, and each installed app, with the installed and latest versions.
 - Sensors for each app's version, CPU, and memory use, and for disk usage. Some of these are disabled by default, so you may need to [enable them](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first.
 
-A common example is a command line sensor that tracks available updates:
+For example, a command line binary sensor that checks if the Mosquitto broker app has an update:
 
 {% raw %}
 
 ```yaml
 # Replace this
 command_line:
-  - sensor:
-      name: Supervisor updates
-      command: 'curl http://supervisor/supervisor/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version,"update_available":.data.update_available,"addons":[.data.addons[] | select(.update_available)]}'''
-      value_template: "{{ value_json.addons | length }}"
-      json_attributes:
-        - newest_version
-        - current_version
-        - update_available
-        - addons
+  - binary_sensor:
+      name: Mosquitto update available
+      command: 'curl http://supervisor/addons/core_mosquitto/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)"'
+      value_template: "{{ value_json.data.update_available }}"
+      payload_on: "True"
+      payload_off: "False"
 ```
 
 {% endraw %}
 
-Remove this sensor and use the update entities instead. An update entity is `on` when an update is available, and its `installed_version` and `latest_version` attributes hold the versions. To count apps with an update available, use a template:
-
-{% raw %}
-
-```yaml
-template:
-  - sensor:
-      - name: Apps with updates
-        state: >
-          {{ states.update
-             | selectattr('state', 'eq', 'on')
-             | map(attribute='entity_id')
-             | select('is_device_attr', 'model', 'Home Assistant App')
-             | list | count }}
-```
-
-{% endraw %}
+Remove this sensor and use the Mosquitto broker update entity instead.
+An update entity is `on` when an update is available, and its `installed_version` and `latest_version` attributes hold the versions.
 
 ### Use an action
 
