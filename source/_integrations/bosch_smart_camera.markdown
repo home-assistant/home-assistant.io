@@ -11,6 +11,7 @@ ha_codeowners:
   - "@mosandlt"
 ha_platforms:
   - camera
+  - light
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -48,6 +49,10 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 ### Motion detection
 
 The **Motion detection** switch turns the motion detection of a camera on or off. The switch is shown with the configuration entities of the device. The camera can switch motion detection back on its own, for example because of its own rules. The switch then shows the state the camera reports at the next update.
+
+### Camera light
+
+The **Camera light** entity switches the light of an Eyes Outdoor camera on and off. The light cannot be dimmed. The entity is only added for the Eyes Outdoor camera.
 
 ## Data updates
 
