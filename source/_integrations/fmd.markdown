@@ -1,8 +1,8 @@
 ---
 title: FMD
 description: Instructions on how to integrate FMD (Find My Device) with Home Assistant.
-ha_category:
-  - Presence detection
+ha_categories:
+  - presence_location.trackers
 ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true
