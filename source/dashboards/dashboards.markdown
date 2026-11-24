@@ -229,7 +229,7 @@ You can set a background image for a whole dashboard. The background is shown be
 
 The **Background** tab is not available for [YAML dashboards](#adding-yaml-dashboards) and for dashboards that are still generated automatically. To set a background for a generated dashboard, [take control](#editing-a-new-dashboard) of it first.
 
-## Deleting a dashboard
+## Deleting dashboards
 
 If you do not use one of the predefined dashboards, or created a dashboard you no longer need, you can delete that dashboard. It will then no longer show in the sidebar.
 
