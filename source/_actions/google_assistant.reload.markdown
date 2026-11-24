@@ -1,11 +1,11 @@
 ---
-title: "Reload Google Assistant"
+title: "Reload Google Home"
 action: google_assistant.reload
 domain: google_assistant
-description: "Reloads the manual Google Assistant configuration from YAML."
+description: "Reloads the manual Google Home configuration from YAML."
 ---
 
-The **Reload Google Assistant** action reloads the manual [Google Assistant](/integrations/google_assistant/) configuration from YAML. Use it after you change the `google_assistant` section of your `configuration.yaml`, such as which entities are exposed or their names and aliases, to apply the changes without restarting Home Assistant.
+The **Reload Google Home** action reloads the manual [Google Home](/integrations/google_assistant/) configuration from YAML. Use it after you change the `google_assistant` section of your `configuration.yaml`, such as which entities are exposed or their names and aliases, to apply the changes without restarting Home Assistant.
 
 If you configured a `service_account`, Home Assistant then asks Google to [sync your devices](/integrations/google_assistant/#utilize-device-sync), so the Google Home app shows the changes right away.
 
@@ -22,7 +22,7 @@ To use this action in an automation or script:
 5. From the search box, search for and select **Reload**.
 6. Select **Save**.
 
-You can also reload the Google Assistant configuration from {% my server_controls title="**Settings** > **Tools** > **YAML**" %}.
+You can also reload the Google Home configuration from {% my server_controls title="**Settings** > **Tools** > **YAML**" %}.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
@@ -47,7 +47,7 @@ This action has no additional options in YAML.
 
 - Changing `project_id` or `service_account` requires a restart. The action reports an error and keeps the current configuration.
 - Google uses the `room` hint only when it first adds a device, so changing it doesn't move a device that's already in Google Home.
-- If your YAML configuration is invalid, Home Assistant shows the error and keeps the current Google Assistant configuration.
+- If your YAML configuration is invalid, Home Assistant shows the error and keeps the current Google Home configuration.
 - To remove `google_assistant` from your YAML configuration, restart Home Assistant.
 
 {% include actions/try_it.md %}
@@ -56,17 +56,17 @@ This action has no additional options in YAML.
 
 ### Automation: reload from a dashboard button
 
-If you edit your Google Assistant configuration often, add a button to your dashboard that applies the changes. This example uses a **Button** {% term helper %} that you create separately.
+If you edit your Google Home configuration often, add a button to your dashboard that applies the changes. This example uses a **Button** {% term helper %} that you create separately.
 
 - **Trigger**: State
-  - **Entity**: Reload Google Assistant (`input_button.reload_google_assistant`)
+  - **Entity**: Reload Google Home (`input_button.reload_google_assistant`)
 - **Action**: Reload
 
 {% details "YAML example for reloading from a dashboard button" %}
 
 {% example %}
 automation: |
-  alias: "Reload Google Assistant from a button"
+  alias: "Reload Google Home from a button"
   triggers:
     - trigger: state
       entity_id: input_button.reload_google_assistant
@@ -78,7 +78,7 @@ automation: |
 
 ### Automation: apply configuration changes every night
 
-If you edit your YAML configuration in a file editor and don't want to reload by hand, reload Google Assistant once a night. Your changes show up in the Google Home app by the next morning.
+If you edit your YAML configuration in a file editor and don't want to reload by hand, reload Google Home once a night. Your changes show up in the Google Home app by the next morning.
 
 - **Trigger**: Time
   - **At**: 03:00
@@ -88,7 +88,7 @@ If you edit your YAML configuration in a file editor and don't want to reload by
 
 {% example %}
 automation: |
-  alias: "Reload Google Assistant every night"
+  alias: "Reload Google Home every night"
   triggers:
     - trigger: time
       at: "03:00:00"
