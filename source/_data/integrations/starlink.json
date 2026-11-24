@@ -7,6 +7,9 @@
   "categories": [
     "computers_network.routers_network"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

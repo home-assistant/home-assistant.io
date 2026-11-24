@@ -9,6 +9,9 @@
   "categories": [
     "presence_location.trackers"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "device_tracker"
   ]

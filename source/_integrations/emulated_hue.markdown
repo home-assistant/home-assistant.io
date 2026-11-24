@@ -9,7 +9,7 @@ related:
 
 {% warning %}
 
-Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant](/integrations/google_assistant/) integration or [Nabu Casa cloud](/integrations/cloud) integration.
+Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant](/integrations/google_assistant/) integration or [Nabu Casa link](/integrations/link) integration.
 
 {% endwarning %}
 

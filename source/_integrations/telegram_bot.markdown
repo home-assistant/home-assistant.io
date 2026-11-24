@@ -68,9 +68,9 @@ If you are using the *Reverse proxy* or *Direct* method, please ensure that your
 
 If you plan to use the `Webhooks` platform, you will need to allow Telegram to connect to your Home Assistant using one of the following methods:
 
-#### Home Assistant Cloud
+#### Home Assistant Link
 
-If you have a Home Assistant Cloud subscription, you can [enable remote access](https://support.nabucasa.com/hc/articles/26474279202973#to-activate-remote-access-from-outside-your-network) to your Home Assistant.
+If you have a Home Assistant Link subscription, you can [enable remote access](https://support.nabucasa.com/hc/articles/26474279202973#to-activate-remote-access-from-outside-your-network) to your Home Assistant.
 
 #### Reverse proxy
 
@@ -112,7 +112,7 @@ Proxy URL:
 ### Webhooks configuration
 
 {% note %}
-If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field because the IP address of incoming requests is not forwarded to your Home Assistant.
+If you are using Home Assistant Link, you must include `127.0.0.1` in the **Trusted networks** field because the IP address of incoming requests is not forwarded to your Home Assistant.
 {% endnote %}
 
 {% note %}
@@ -389,11 +389,11 @@ actions:
   - action: notify.persistent_notification
     data:
       message: >-
-      Message received.
-      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
-      First name: {{ trigger.to_state.attributes.from_first }}
-      Last name : {{ trigger.to_state.attributes.from_last }}
-      Message   : {{ trigger.to_state.attributes.text }}
+        Message received.
+        Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+        First name: {{ trigger.to_state.attributes.from_first }}
+        Last name : {{ trigger.to_state.attributes.from_last }}
+        Message   : {{ trigger.to_state.attributes.text }}
 ```
 
 ### Event: Message sent
@@ -413,13 +413,13 @@ bot:
   id: "<id of the bot>"
   last_name: "<last name of the bot>"
   username: "<username of the bot>"
-chat_id: "<origin chat id>"
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
-id: "<message id>"
+chat_id: "<id of the chat the message was sent to>"
+message_id: "<message id>"
+message_tag: "<message tag>"
 message_thread_id: "<message thread id>"
-user_id: "<id of the sender>"
 ```
+
+`message_tag` and `message_thread_id` are only included when the action that sent the message set them.
 
 Example automation:
 
@@ -437,9 +437,9 @@ actions:
   - action: notify.persistent_notification
     data:
       message: >-
-      Bot sent a message.
-      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
-      Message ID: {{ trigger.to_state.attributes.message_id }}
+        Bot sent a message.
+        Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+        Message ID: {{ trigger.to_state.attributes.message_id }}
         
 ```
 

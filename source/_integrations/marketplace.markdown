@@ -35,7 +35,11 @@ Until you accept the warning, Home Assistant cannot install or update Marketplac
 
 ## What you can install
 
-Marketplace projects are published in GitHub repositories. A repository is a project's source-code location on GitHub. The Marketplace includes the following content types.
+Marketplace projects are published in GitHub repositories. A repository is a project's source-code location on GitHub.
+
+The Marketplace doesn't install apps. Apps run next to Home Assistant as separate applications, and you install them from the app store on {% term "Home Assistant Operating System" %}. For the differences, refer to [Apps and integrations](/docs/apps-and-integrations/).
+
+The Marketplace includes the following content types.
 
 ### Integrations
 
@@ -209,6 +213,8 @@ A GitHub connection is needed for:
 
 The connection does not request access to private repositories or permission to make changes on GitHub. The Marketplace can read only the public information available without signing in.
 
+The connection is only used when the Marketplace gets its content from GitHub. With a relay as the [download source](#download-source), the Marketplace does not use your GitHub account.
+
 ### Connecting your GitHub account
 
 The Marketplace uses GitHub's device sign-in method. You approve the connection in GitHub rather than entering your password in Home Assistant.
@@ -226,6 +232,29 @@ To connect GitHub before you need it, or to connect a different GitHub account, 
 
 You can revoke the connection at any time in your GitHub account settings under **Applications** > **Authorized OAuth Apps**. The Marketplace then notices that the token no longer works and asks you to connect again. Until you do, Marketplace features that require GitHub become unavailable.
 
+## Download source
+
+By default, the Marketplace gets the catalog and everything you install from GitHub. If GitHub is unstable, the Marketplace can use a relay instead. A relay forwards the Marketplace's downloads through a server that can reach GitHub.
+
+The following download sources are available:
+
+- **GitHub**: run by GitHub and the Open Home Foundation. This is the default.
+- **Unofficial China relays**: run by the Home Assistant China community ([hasscn.top](https://hasscn.top)), with third-party relays as a fallback.
+
+{% important %}
+With a relay as the download source, everything the Marketplace downloads goes through whoever runs that relay, including any third-party relays it falls back to: the catalog and the content you install. Only choose a download source you trust.
+{% endimportant %}
+
+To change the download source:
+
+1. Go to **Settings** > **Marketplace**.
+2. In the upper-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Download source**.
+3. Choose the download source, then select **Submit**.
+
+The Marketplace restarts with the new download source right away.
+
+If the Marketplace cannot reach the catalog and a relay is available for your country, a repair suggests the relay. You can switch to the relay from the repair, or keep using GitHub. If you keep using GitHub, the Marketplace stops suggesting the relay.
+
 ## Coming from HACS
 
 The Marketplace replaces the Home Assistant Community Store (HACS) in Home Assistant. If you used HACS, the Marketplace migrates your HACS content automatically when Home Assistant starts after the update.
@@ -238,6 +267,7 @@ During the migration:
 - Your custom repositories and update entities carry over with their names, areas, and labels.
 - The HACS integration is removed, together with its files.
 - Bookmarks to `/hacs` open the Marketplace.
+- If you used [HACS-China](https://github.com/hacs-china), the Marketplace switches to the [Unofficial China relays](#download-source) as the download source. A GitHub token from its shared pool is removed. Your own GitHub connection is kept.
 
 The following HACS features and paths change in the Marketplace:
 

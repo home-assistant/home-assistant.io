@@ -50,6 +50,10 @@ The Watergate integration provides the following entities.
   - **Description**: Whether the device is connected to Wi-Fi.
   - **Remarks**: This is a diagnostic entity and is disabled by default.
 
+- **External power**
+  - **Description**: Whether the device is powered by an external (mains) power supply. It stays on while the device also runs on batteries.
+  - **Remarks**: This is a diagnostic entity. It is updated as soon as the device reports a change of its power source.
+
 #### Sensors
 
 
@@ -80,6 +84,10 @@ The Watergate integration provides the following entities.
   - **Description**: The current temperature of the water.
   - **Remarks**: Useful for monitoring and ensuring safe water temperatures.
 
+- **Battery voltage**
+  - **Description**: The voltage of the device's batteries.
+  - **Remarks**: This is a diagnostic entity. It is only available while the device has batteries inserted, and is unavailable on a device powered only by an external power supply.
+
 #### Valves
 
 - **Water valve state**
@@ -102,6 +110,12 @@ The Watergate integration provides the following entities.
   - **Description**: The duration of continuous water flow, in minutes, that triggers the automatic shut-off.
   - **Remarks**: This is a configuration entity. It has no effect while the **Auto shut-off** switch is turned off.
 
+#### Buttons
+
+- **Reboot**
+  - **Description**: Reboots the Sonic device.
+  - **Remarks**: This is a configuration entity. The device is unreachable while it restarts, so entities may briefly become unavailable and recover on their own once the device is back online. The button never retries a reboot on its own.
+
 #### Events
 
 - **Auto Shut-Off**
@@ -119,7 +133,7 @@ Thanks to the webhook option, Sonic will provide live telemetry every second whe
 
 ## Known limitations
 
-The integration does not provide the ability to control the device buzzer, reboot the device, or change the device's Wi-Fi configuration.
+The integration does not provide the ability to control the device buzzer or change the device's Wi-Fi configuration.
 
 Sonic firmware 2.11 and older does not report the two flow directions separately. On such a device, the **Water meter negative volume** and **Water meter negative duration** entities stay unavailable, and **Water meter volume** and **Water meter duration** report the difference between the normal and reverse readings rather than the normal direction alone.
 
@@ -129,6 +143,17 @@ Sonic firmware 2.11 and older does not report the two flow directions separately
 IP address:
     description: "The IP address of your Sonic device."
 {% endconfiguration_basic %}
+
+## Reconfiguration
+
+If the IP address of your Sonic device changes, you can update it without removing and re-adding the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **Watergate**.
+3. Next to the entry, select **Menu** {% icon "mdi:dots-vertical" %} and then select **Reconfigure**.
+4. Enter the new IP address and select **Submit**.
+
+The new address must belong to the same Sonic device that was originally set up. If it belongs to a different device, the reconfiguration stops with the message "The device at this address is not the one that was originally configured." To add a different Sonic device, [set up a new integration entry](#configuration) instead.
 
 ## Examples
 

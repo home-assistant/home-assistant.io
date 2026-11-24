@@ -56,6 +56,12 @@ Prefix:
    description: "Optional prefix for the backups. This is useful if you want to store backups in a specific folder within the bucket."
 {% endconfiguration_basic %}
 
+## Backup schedule
+
+The integration does not back up on its own schedule. Home Assistant uploads a backup to your bucket each time it creates a backup with the bucket as a location. The location is listed under your bucket name.
+
+To back up on a schedule, [set up automatic backups](/common-tasks/general/backups/#setting-up-an-automatic-backup-process) and [enable the bucket as a location for automatic backups](/common-tasks/general/backups/#to-define-the-backup-location-for-automatic-backups). You can also select it when you [create a manual backup](/common-tasks/general/backups/#creating-a-manual-backup).
+
 ## Troubleshooting
 
 ### Expired keys

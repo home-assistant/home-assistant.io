@@ -8,6 +8,10 @@ The **CoolMasterNet** {% term integration %} lets you control HVAC through [Cool
 
 {% include integrations/config_flow.md %}
 
+## Data updates
+
+The integration {% term polling polls %} the CoolMasterNet device every 60 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

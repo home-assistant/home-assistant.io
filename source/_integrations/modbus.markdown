@@ -3,61 +3,19 @@ description: Instructions on how to manually register Modbus entities and platfo
 ha_release: pre 0.7
 ha_domain: modbus
 related:
+  - docs: /connectivity/modbus/
+    title: About Modbus
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
-The **Modbus** {% term integration %} connects Home Assistant to devices that have a Modbus interface. Many integrations for these devices use the Modbus integration to connect, so you usually don't set it up yourself. To get started, refer to [Setting up Modbus control in Home Assistant](#setting-up-modbus-control-in-home-assistant). For the terms used on this page, refer to [Modbus terminology](#modbus-terminology).
+The **Modbus** {% term integration %} connects Home Assistant to devices that have a Modbus interface. Many integrations for these devices use the Modbus integration to connect, so you usually don't set it up yourself.
 
-## Supported devices
-
-Home Assistant supports devices with a Modbus interface through integrations for those devices. To find these integrations, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
+This page documents the **Modbus** integration. To learn more about Modbus, refer to [Modbus](/connectivity/modbus/).
 
 If no integration supports your device, you can still get to its data by manually configuring the Modbus registers in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
 
-## Setting up Modbus control in Home Assistant
-
-Some devices have a Modbus interface, such as solar inverters, heat pumps, and ventilation units. Home Assistant can read data from these devices and control them.
-
-{% warning %}
-Modbus TCP does not authenticate clients, and it does not encrypt traffic. Another device that can reach the Modbus TCP port can read data and write values the device accepts, without going through Home Assistant. Keep your Modbus TCP devices on a trusted network segment.
-{% endwarning %}
-
-To set up your Modbus device, add the integration for your device. For the steps, refer to [Setting up a device integration that uses Modbus](#setting-up-a-device-integration-that-uses-modbus).
-
-- To find out if an integration is available for your device, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
-- You can also search for the brand of your device when you add an integration in {% my integrations title="**Settings** > **Devices & services**" %}.
-
-If no integration supports your device, you can configure its Modbus registers manually in YAML instead. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
-
-### Setting up a device integration that uses Modbus
-
-Prerequisites:
-
-- You have administrator rights.
-- You have a device with a Modbus interface.
-- Home Assistant can reach the Modbus interface of the device in one of these ways:
-  - Over the network (Modbus TCP): the device, or a Modbus gateway that translates to Modbus TCP, is on your network.
-  - Over a serial connection (Modbus RTU): the RS-485 wires of the device are connected to one of these:
-    - A [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
-    - An [ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy) with an RS-485 port.
-    - A [serial device server](/integrations/serial/#serial-device-server) on your network.
-
-1. If needed, turn on the Modbus interface of your device.
-   - Many devices have Modbus TCP turned off by default. The documentation or the app of your device describes how to turn Modbus TCP on. Some integration pages describe the steps too, for example, [Fronius](/integrations/fronius/#modbus-tcp).
-2. Add the integration for your device, such as [SolarEdge Modbus](/integrations/solaredge_modbus/) or [STIEBEL ELTRON](/integrations/stiebel_eltron/).
-   - To add the integration, follow the steps in the integration documentation.
-   - During setup, enter how Home Assistant reaches the device:
-     - For a network connection, enter the host and the port. Use the port from the integration documentation. Many devices use `502`, but some use another port.
-     - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate).
-       - The port that an ESPHome serial proxy shares is listed with the serial ports.
-       - For a serial device server, select **Enter manually** and enter its URL. With a `socket://` URL, the baud rate isn't passed on, so set it on the serial device server itself.
-   - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**, and device manuals often use the older term slave ID. Most devices use `1`. Unless several devices share the connection, you can usually keep `1`. In YAML, it's `device_address`.
-   - Result: The entities of your device appear in Home Assistant.
-3. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
-   - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
-
-### Setting up a Modbus hub in YAML
+## Setting up a Modbus hub in YAML
 
 Use a Modbus hub in YAML only if no integration supports your device. You then configure the Modbus registers of your device yourself.
 
@@ -70,8 +28,8 @@ Prerequisites:
 - Home Assistant can reach the Modbus interface of the device in one of these ways:
   - Over the network (Modbus TCP or Modbus UDP): the device, or a Modbus gateway that translates to Modbus TCP or UDP, is on your network.
   - Over a serial connection (Modbus RTU): the RS-485 wires of the device are connected to one of these, but not to an ESPHome serial proxy:
-    - A [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
-    - A [serial device server](/integrations/serial/#serial-device-server) on your network.
+    - A [USB-to-RS-485 adapter](/connectivity/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
+    - A [serial device server](/connectivity/serial/#serial-device-server) on your network.
 
 1. If needed, turn on the Modbus interface of your device.
 2. In your {% term "`configuration.yaml`" %} file, add a Modbus hub for the connection to your device.
@@ -82,97 +40,7 @@ Prerequisites:
 4. Restart Home Assistant.
    - Result: The entities of your device appear in Home Assistant.
 5. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
-   - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
-
-## Viewing your Modbus connections
-
-You can see the connections to your Modbus devices in one place from the **Modbus** configuration panel. The panel lists the Modbus hubs that you configured in YAML, and the integrations that connect through the Modbus integration. For example, [SolarEdge Modbus](/integrations/solaredge_modbus/) and [STIEBEL ELTRON](/integrations/stiebel_eltron/) are listed. Integrations that manage their own Modbus connection, such as [Nibe Heat Pump](/integrations/nibe_heatpump/) and [NeoPool](/integrations/neopool/), don't appear in the panel.
-
-Prerequisites:
-
-- You have administrator rights.
-- You have set up an integration that connects through the Modbus integration, or a Modbus hub in YAML. Otherwise, **Modbus** doesn't appear under **Connectivity**.
-
-1. Go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
-   - At the top, a summary shows how many units (Modbus devices) are on how many connections.
-   - If no connection has been opened yet, the panel shows **No Modbus connections**.
-   - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
-2. Under **Connections**, you can see one item for each connection. A connection is the network address of a device or of a Modbus gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
-3. Still under **Connections**, for each connection item, you can see:
-   - The network address, or the [device path](/integrations/serial/#device-path) of the serial port.
-   - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
-   - Whether the connection is open right now:
-     - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
-     - **Connected** or **Open**: The connection is open right now. For a serial port, **Open** only means that the port is open, not that the device answers.
-     - **Not connected** or **Closed**: The connection is not open right now. The connection opens again the next time an integration reads from the device. A device can also close a connection that isn't used.
-   - The integrations that use the connection, with the unit IDs they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
-4. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
-
-## Modbus terminology
-
-[Modbus](https://www.modbus.org/) is a communication protocol for industrial devices, such as controllers in heating, ventilation, and solar systems. Device manuals and integration pages use the following terms. Some manuals use older or different names for the same thing. These are listed with each term.
-
-### Ways to connect
-
-#### Modbus <abbr title="Transmission Control Protocol">TCP</abbr>
-
-Modbus over your network. Most devices with a network interface use port `502`.
-
-#### Modbus <abbr title="Remote Terminal Unit">RTU</abbr>
-
-Modbus over a serial connection, usually an <abbr title="Recommended Standard 485">RS-485</abbr> bus. The data is sent in binary form.
-
-#### Modbus RTU over TCP
-
-Modbus RTU data that is sent over your network unchanged. A serial device server, or a Modbus gateway in transparent mode, uses it. Some manuals call it TCP-RTU.
-
-#### RS-485
-
-An electrical standard for the physical, wired connection that most Modbus RTU devices use. Several devices can share one RS-485 bus.
-
-### Devices between Home Assistant and your device
-
-#### Modbus gateway
-
-A device that connects a serial bus, such as RS-485, to your network. Some manuals call it a bridge or a converter. A Modbus gateway works in one of two ways:
-
-- It translates between Modbus TCP and Modbus RTU. Home Assistant then talks Modbus TCP to the gateway. Enter its host and port.
-- It forwards the Modbus RTU data unchanged, often called transparent mode. Home Assistant then sends Modbus RTU over TCP to it. As the serial port, select **Enter manually** and enter its `socket://` URL.
-  - This only works with integrations that offer a serial connection, such as Flexit and SolarEdge Modbus. With an integration that only connects over the network, such as Fronius, KACO Modbus, or STIEBEL ELTRON, set the gateway to translate. A Modbus hub in YAML works with both modes.
-
-Many gateways can do both. Set up the connection to match the mode that's set on the gateway.
-
-A device with its own network interface, such as an inverter that offers Modbus TCP, isn't a gateway. Home Assistant connects to it directly.
-
-#### Serial device server
-
-A device, or software such as `ser2net` or `socat`, that makes a serial port available over your network and passes the data on unchanged. For Modbus, it works like a gateway that forwards the data unchanged, with the same limit: integrations can only use it if they offer a serial connection. For details, refer to [Serial device server](/integrations/serial/#serial-device-server) on the Serial page.
-
-#### USB-to-RS-485 adapter
-
-An adapter that connects an RS-485 bus to a USB port of your Home Assistant system. For details, refer to [USB-to-serial adapter](/integrations/serial/#usb-to-serial-adapter) on the Serial page.
-
-#### ESPHome serial proxy
-
-An ESPHome device with an RS-485 port. It makes the bus available to Home Assistant over your network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy) on the Serial page.
-
-### Devices on a connection
-
-#### Connection
-
-The network address of a device or a Modbus gateway, or a serial port. One connection can reach several units. In the **Modbus** panel, integrations that use the same address or port share one connection.
-
-#### Unit
-
-A Modbus device behind a connection.
-
-#### Unit ID
-
-The number that identifies a unit on a connection. Most devices use `1`.
-
-On a serial bus, and behind a Modbus gateway, `0` is the broadcast address. A write to `0` reaches all units, but no unit replies, so you can't read with `0`. A device with its own network interface can use `0` in a different way. For details, check its manual.
-
-Device manuals often use the older term slave ID, or device address. Some integrations call it **Device ID**.
+   - For details, refer to [Viewing your Modbus connections](/connectivity/modbus/#viewing-your-modbus-connections).
 
 ## Modbus YAML reference
 
@@ -180,7 +48,7 @@ Use these options when you set up a Modbus hub in YAML. For the steps, refer to 
 
 ### Modbus terms used in YAML
 
-When you set up a Modbus hub in YAML, you also need the following terms. For general terms, such as a Modbus gateway or the unit ID, refer to [Modbus terminology](#modbus-terminology).
+When you set up a Modbus hub in YAML, you also need the following terms. For general terms, such as a Modbus gateway or the unit ID, refer to [Modbus terminology](/connectivity/modbus/#modbus-terminology).
 
 #### Modbus hub
 
@@ -190,10 +58,10 @@ A connection that you configure in YAML, under `modbus:`. A Modbus hub keeps a c
 
 The `type` of a Modbus hub sets how Home Assistant reaches the device:
 
-- `tcp`: [Modbus TCP](#modbus-tcp), to a device with a network interface, or to a [Modbus gateway](#modbus-gateway) that translates.
-- `rtuovertcp`: [Modbus RTU over TCP](#modbus-rtu-over-tcp), to a [serial device server](#serial-device-server), or to a Modbus gateway in transparent mode.
+- `tcp`: [Modbus TCP](/connectivity/modbus/#modbus-tcp), to a device with a network interface, or to a [Modbus gateway](/connectivity/modbus/#modbus-gateway) that translates.
+- `rtuovertcp`: [Modbus RTU over TCP](/connectivity/modbus/#modbus-rtu-over-tcp), to a [serial device server](/connectivity/modbus/#serial-device-server), or to a Modbus gateway in transparent mode.
 - `udp`: [Modbus UDP](#modbus-udp).
-- `serial`: [Modbus RTU](#modbus-rtu) or [Modbus ASCII](#modbus-ascii), over a serial port, such as a [USB-to-RS-485 adapter](#usb-to-rs-485-adapter).
+- `serial`: [Modbus RTU](/connectivity/modbus/#modbus-rtu) or [Modbus ASCII](#modbus-ascii), over a serial port, such as a [USB-to-RS-485 adapter](/connectivity/modbus/#usb-to-rs-485-adapter).
 
 #### Modbus <abbr title="American Standard Code for Information Interchange">ASCII</abbr>
 
@@ -205,7 +73,7 @@ Modbus over your network, with UDP instead of TCP. It's rarely used. Set `type: 
 
 #### Device address
 
-The [unit ID](#unit-id) of the device, set with `device_address` on each entity. Most devices use `1`. Older configurations use `slave`, which works the same.
+The [unit ID](/connectivity/modbus/#unit-id) of the device, set with `device_address` on each entity. Most devices use `1`. Older configurations use `slave`, which works the same.
 
 #### Register
 
@@ -1689,7 +1557,7 @@ sensors:
       required: false
       type: integer
     state_class:
-      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor."
+      description: "The [state_class](/integrations/sensor/#state-class) of the sensor."
       required: false
       type: string
     structure:
@@ -1712,7 +1580,7 @@ sensors:
         word_byte:
           description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
     unit_of_measurement:
-      description: "Unit to attach to value."
+      description: "Unit to attach to value. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes)."
       required: false
       type: string
     unique_id:

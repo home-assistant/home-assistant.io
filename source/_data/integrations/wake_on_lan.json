@@ -7,6 +7,9 @@
   "categories": [
     "computers_network"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "switch"

@@ -13,6 +13,9 @@
     "climate.thermostats_heating",
     "climate.water_heaters"
   ],
+  "connectivity": [
+    "modbus"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

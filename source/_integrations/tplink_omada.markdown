@@ -35,7 +35,7 @@ Controller versions 5.1.0 and later are supported.
 
 {% configuration_basic %}
 Host:
-    description: "Enter the URL of the Omada management interface. You can get this from your Omada web management interface."
+    description: "Enter the URL of the Omada management interface, for example `https://192.168.1.10` or `https://omada.example.com`. If your controller uses a custom port, add it after the address, for example `https://192.168.1.10:8043`. Use the address only, without a page path such as `/login`. If you leave out `http://` or `https://`, Home Assistant uses `https://`. You can get this from your Omada web management interface."
 Verify SSL Certificates:
     description: "Un-check this box if you are using an HTTPS URL and you have not installed a matching device certificate for the Omada controller."
 Username:
@@ -68,6 +68,13 @@ All adopted Omada devices expose:
 - WAN Port Online detection sensors
 - WAN Port Connect/Disconnect switches
 - LAN Port PoE activity sensor
+- VPN policy switches
+
+### VPN policy switches
+
+If your site has an Omada gateway, each VPN policy configured on the controller is added as a switch {% term entity %} on the gateway device. This includes VPN server, VPN client, and site-to-site policies. Turning a switch on or off enables or disables that VPN policy on the controller.
+
+VPN policies are polled every 5 minutes. New policies added on the controller are picked up automatically, and switches for deleted policies become unavailable.
 
 ## Device trackers
 

@@ -26,9 +26,11 @@ In addition, the entity can have the following states. Each item shows the inter
 
 You can use button entities in automations to react when a button is pressed, or to simulate pressing the button from Home Assistant, like pressing a physical button on the device itself.
 
-{% include integrations/triggers.md %}
+The [Button held](/triggers/button.held/) and [Button hold ended](/triggers/button.hold_ended/) triggers only work with [event entities](/integrations/event/) that have the button device class, not with button entities.
 
-{% include integrations/actions.md %}
+The [Button is being held](/conditions/button.is_being_held/) condition also only works with event entities that have the button device class.
+
+{% include integrations/triggers_conditions_actions.md %}
 
 ## Device class
 

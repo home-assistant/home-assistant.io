@@ -62,6 +62,27 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
+**2026-10-29: SSRF in Service Discovery Protocol service (SSDP)**  
+Severity: _Moderate (CVSS: 5.4)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-6456-4qg9-cqpj)_  
+Assigned CVE: _[CVE-2026-91131](https://nvd.nist.gov/vuln/detail/CVE-2026-91131)_  
+Discovered by: _[zdi-disclosures](https://github.com/zdi-disclosures)_  
+Fixed in: _Home Assistant Core 2026.8.0_
+
+**2026-09-16: XSS in Statistics Graph Card**  
+Severity: _High (CVSS: 8.8)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-wx4m-69m9-gx3m)_  
+Assigned CVE: _[CVE-2026-91130](https://nvd.nist.gov/vuln/detail/CVE-2026-91130)_  
+Discovered by: _[pwnpanda](https://github.com/pwnpanda)_  
+Fixed in: _Home Assistant Core 2026.7.0_
+
+**2026-09-16: mDNS Server-Side Request Forgery**  
+Severity: _Moderate (CVSS: 5.4)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-4ghv-53cq-7wp3)_  
+Assigned CVE: _[CVE-2026-91129](https://nvd.nist.gov/vuln/detail/CVE-2026-91129)_  
+Discovered by: _[zdi-disclosures](https://github.com/zdi-disclosures)_  
+Fixed in: _Home Assistant Core 2026.2.3_
+
 **2026-07-31: Companion app (Android) forwards NFC/QR tag scans to Home Assistant without user confirmation, allowing silent automation execution by untrusted callers**  
 Severity: _High (CVSS: 7.1)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-2xqv-hwrf-983f)_  

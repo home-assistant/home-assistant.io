@@ -13,6 +13,9 @@
     "appliances_cleaning.cleaning",
     "garden_plants"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

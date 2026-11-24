@@ -4,6 +4,8 @@ title: "Security Disclosure 2: vulnerabilities in custom integrations HACS, Font
 description: "Update your Home Assistant instance as soon as possible."
 date: 2021-01-23 00:00:00
 date_formatted: "January 23, 2021"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
@@ -12,6 +14,10 @@ og_image: /images/blog/2021-01-security-disclosure2/social.png
 ---
 
 ![Attention please read](/images/blog/2021-01-security-disclosure2/social.png)
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 This blog looks pretty much the same [as the security disclosure of yesterday](/blog/2021/01/22/security-disclosure/). However, **it is a new disclosure**, affecting a similar issue. We want to make sure the information is complete.
 

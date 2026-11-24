@@ -11,6 +11,10 @@
   "categories": [
     "messaging_notifications.push_notifications"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
     "diagnostics",
     "event",
