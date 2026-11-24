@@ -149,7 +149,7 @@ The visual editor supports the following keyboard shortcuts. On a Mac, use <kbd>
 - <kbd>Ctrl</kbd>+<kbd>X</kbd>: Cut the selected trigger, condition, or action.
 - <kbd>Ctrl</kbd>+<kbd>V</kbd>: Paste after the selected trigger, condition, or action.
 - <kbd>Ctrl</kbd>+<kbd>Delete</kbd> or <kbd>Ctrl</kbd>+<kbd>Backspace</kbd>: Delete the selected trigger, condition, or action.
-- <kbd>Esc</kbd>: Close a dialog. This shortcut also works in the script editor.
+- <kbd>Esc</kbd>: Close the settings dialog of the selected trigger, condition, or action. This shortcut also works in the script editor.
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd>: Switch between the visual editor and the YAML editor. This shortcut also works in the script and scene editors, in card and dashboard editors, and in **Settings** > **Tools** > **Actions**. It also works while you type in a text field.
 
 To see all shortcuts, open the keyboard shortcuts dialog with <kbd>Shift</kbd>+<kbd>?</kbd>.
