@@ -20,8 +20,8 @@ To activate a preset from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Vallox: Set preset mode with duration**.
-6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick your Vallox fan.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick your Vallox fan.
+6. From the actions shown for that target, select **Set preset mode with duration**.
 7. Choose the **Preset mode**. Then either set a **Duration**, or select **No time limit**. If you set neither, the unit uses the duration it has stored for the preset.
 8. Select **Save**.
 
@@ -35,7 +35,7 @@ Duration:
   description: "How long the preset stays active, in hours and minutes, from 1 minute up to 1092 hours and 14 minutes. It also switches on the timer of the preset on the unit. Leave it empty to use the duration stored on the unit."
   required: false
 No time limit:
-  description: "Keeps the preset active without a time limit. You can't combine it with **Duration**."
+  description: "Keeps the preset active without a time limit. Defaults to off. You can't combine it with **Duration**."
   required: false
 {% endoptions_ui %}
 
