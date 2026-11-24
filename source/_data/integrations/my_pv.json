@@ -17,6 +17,9 @@
   "connectivity": [
     "network"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "climate",

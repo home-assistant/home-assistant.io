@@ -42,7 +42,7 @@ Some Yale locks support a deadlock function (secure mode) for locking both the i
 
 ## Troubleshooting
 
-Lock operation requires setting up an encrypted connection highly sensitive to latency. It is recommended to use a [High-Performance Bluetooth adapter](/integrations/bluetooth/#known-working-high-performance-adapters) or [ESPHome Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) for stable operation.
+Lock operation requires setting up an encrypted connection highly sensitive to latency. It is recommended to use a [High-Performance Bluetooth adapter](/connectivity/bluetooth/#known-working-high-performance-adapters) or [ESPHome Bluetooth proxy](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies) for stable operation.
 
 ## Push updates
 

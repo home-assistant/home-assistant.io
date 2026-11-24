@@ -1,0 +1,38 @@
+---
+// Small Connect-blue pill with a white dot and an uppercase label that
+// introduces a section of a Connect product page, such as "The smart
+// home multi-tool".
+//
+// Built from the "Labels" component in the Figma file "Connect AUX-2"
+// (instance 2586:1434), not ported from Jekyll. The label is written
+// in sentence case and set in capitals by CSS, so screen readers do
+// not spell it out.
+---
+
+<p class="connect-label"><slot /></p>
+
+<style lang="scss">
+  .connect-label {
+    align-items: center;
+    background: var(--color-connect-line);
+    border-radius: var(--radius-pill);
+    color: var(--color-text-inverse);
+    display: inline-flex;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-small);
+    font-weight: 700;
+    gap: var(--space-small);
+    line-height: 1;
+    margin: 0;
+    padding: 0.375rem var(--space-large);
+    text-transform: uppercase;
+
+    &::before {
+      background: currentColor;
+      border-radius: 50%;
+      content: "";
+      height: 0.5rem;
+      width: 0.5rem;
+    }
+  }
+</style>
