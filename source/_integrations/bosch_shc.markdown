@@ -57,6 +57,8 @@ A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguar
 
 An Outdoor Siren gets **Acoustic alarm** and **Visual alarm** binary sensors that turn on while the siren sounds or flashes, and a **Tamper** diagnostic binary sensor.
 
+Outdoor Sirens that report their power supply also get diagnostic **AC/DC error**, **Battery defect**, **Battery temperature abnormal**, and **Primary power supply outage** binary sensors that turn on while the fault is present.
+
 A Motion Detector II gets an **Occupancy** binary sensor and a **Tamper** diagnostic binary sensor that turns on when the device was tampered with.
 
 ### Buttons
