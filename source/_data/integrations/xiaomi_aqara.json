@@ -11,6 +11,9 @@
   "categories": [
     "hubs_protocols.smart_home_hubs"
   ],
+  "connectivity": [
+    "zigbee"
+  ],
   "platforms": [
     "binary_sensor",
     "cover",

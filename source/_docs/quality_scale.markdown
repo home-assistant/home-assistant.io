@@ -155,7 +155,7 @@ Characteristics:
 
 A custom integration is made by the community and is not part of Home Assistant.
 
-Custom integrations are developed and distributed by the community, and offer additional functionalities and support for devices and services to Home Assistant. These integrations are not included in the official Home Assistant releases and can be installed manually or via third-party tools like HACS (Home Assistant Community Store).
+Custom integrations are developed and distributed by the community, and offer additional functionalities and support for devices and services to Home Assistant. These integrations are not included in the official Home Assistant releases and can be installed manually or via the [Marketplace](/integrations/marketplace).
 
 The Home Assistant project does not review, security audit, maintain, or support third-party custom integrations. Users are encouraged to exercise caution and review the custom integration’s source and community feedback before installation.
 
@@ -164,7 +164,7 @@ Developers are encouraged and invited to contribute their custom integration to 
 Characteristics:
 
 - Not included in the official Home Assistant releases.
-- Manually installable or installable via community tools, like <abbr title="Home Assistant Community Store">HACS</abbr>.
+- Manually installable or installable via the [Marketplace](/integrations/marketplace).
 - Maintained by individual developers or community members.
 - User experience may vary widely.
 - Functionality, security, and stability can vary widely.

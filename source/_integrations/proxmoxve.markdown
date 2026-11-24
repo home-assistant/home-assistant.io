@@ -9,6 +9,10 @@ related:
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration lets you monitor your Proxmox VE nodes, virtual machines, and containers in Home Assistant, and exposes control actions (if your Proxmox permissions allow it).
 
+## Supported devices
+
+The integration is tested with the latest version of Proxmox VE (currently Proxmox VE 9), both on a standalone node and in a cluster. Earlier versions should also work, because the integration uses the Proxmox VE API, which has been available since Proxmox VE 2.0. Some features need a more recent version. For details, see [Known limitations](#known-limitations).
+
 ## Prerequisites
 
 {% important %}
@@ -61,12 +65,15 @@ For security, create a dedicated Proxmox VE user for Home Assistant and grant on
 
 ### Choose the right role
 
-The minimum required permissions depend on what you want to do:
+Home Assistant only creates the entities your Proxmox VE user has privileges for. The privileges you need depend on what you want to do:
 
-- **Monitor only** (sensors and binary sensors): The **Auditor** role (`PVEAuditor`) is typically sufficient.
-- **Monitor and control** (button entities like start, stop, reboot): You will need a role that allows those actions, such as **User** (`PVEVMUser`) or another custom role that includes the required privileges.
+- Monitor nodes, VMs, containers, and storages: the `PVEAuditor` role.
+- Start, stop, and restart VMs and containers: `VM.PowerMgmt`, included in the `PVEVMUser` role.
+- Create snapshots: `VM.Snapshot`, included in the `PVEVMAdmin` role.
+- Restart and shut down nodes: `Sys.PowerMgmt`.
+- Show updates for nodes: `Sys.Modify`.
 
-If you are not sure which privileges you need for control in your Proxmox VE setup, start with `PVEVMUser`, confirm everything works, and then tighten the permissions by switching to a custom role. If you want full but responsible control start with `PVEVMAdmin`.
+With `PVEVMUser` or `PVEVMAdmin`, a node only shows its **Status** sensor and **Status** binary sensor. The other node entities need `Sys.Audit`, so to monitor nodes fully, assign these roles together with `PVEAuditor`. `Sys.PowerMgmt` and `Sys.Modify` are only included in the `Administrator` role. To use them without full access, create a custom role with only the privileges you need.
 
 ### Create a Home Assistant group
 
@@ -94,9 +101,10 @@ Assign the role you chose to the group at the root path (**/**) so it applies to
 3. Open **Add** and select **Group Permission**.
 4. For **Path**, select **/**.
 5. For **Group**, select your Home Assistant group (`HomeAssistant`).
-6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only) or **PVEVMUser** (monitoring plus basic actions).
+6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only).
 7. Make sure **Propagate** is checked.
 8. Confirm **Create**.
+9. To add another role, like **PVEVMUser**, repeat these steps.
 
 {% enddetails %}
 
@@ -146,29 +154,40 @@ To create a token:
 
 {% enddetails %}
 
-## Entities
+## Supported functionality
 
-Some entities are not enabled by default, you can enable them via the device page.
+The integration creates a device for each node, VM, container, and storage, and adds new ones automatically. Each device page links to the matching page in the Proxmox VE web interface.
 
-### Sensor
+Some entities are not enabled by default. You can enable them from the device page.
 
-- **CPU**: Percentage of CPU usage.
-- **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
-- **Disk**: Disk usage of the node/VM/LXC.
-- **Last backup** & **Backup duration**: Time and duration of the last backup on the node. Returns `unknown` if no backups exist.
-- **Max disk**: Maximum amount of available disk space.
-- **Memory** & **Memory percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
-- **Max memory**: Maximum amount of memory on the node/VM/LXC.
-- **Network input**: Amount of incoming network traffic since starting the VM/LXC.
-- **Network output**: Amount of outgoing network traffic since starting the VM/LXC.
+### Sensors
+
+- **CPU usage**: Percentage of CPU usage of the node/VM/LXC.
+- **Max CPU**: Number of CPUs of the node/VM/LXC.
+- **Disk usage** and **Max disk usage**: Disk space in use and total disk space of the node/VM/LXC.
+- **Memory usage** and **Memory usage percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
+- **Max memory usage**: Total amount of memory of the node/VM/LXC.
+- **Network input** and **Network output**: Amount of incoming and outgoing network traffic since the VM/LXC started.
+- **Status** (node): Shows whether the node is **Online** or **Offline**.
+- **Status** (VM/LXC): Shows whether the VM/LXC is **Running**, **Stopped**, or **Suspended**.
 - **Uptime**: Time since the node/VM/LXC started.
+- **Last backup** and **Backup duration**: Time and duration of the last backup on the node. Shows **Unknown** if no backups exist.
+- **Used storage**: Space in use on a storage.
+- **Available storage**: Free space on a storage.
+- **Total storage**: Total size of a storage.
+- **Storage usage percentage**: Percentage of the storage that is in use.
 
-### Binary sensor
+### Binary sensors
 
-- **Backup status**: for the node. This will be **on** if the last backup was successful or **off** for any other state.
-- **Status**: for each VM/LXC. This will be **on** if the state is running or **off** for any other state.
+- **Backup status**: for the node. Shows **Problem** if the last backup was not successful, for example because it failed or was canceled, and **OK** if it was successful or no backup exists.
+- **Status**: for each node/VM/LXC. Shows **Running** if the node is online or the VM/LXC is running, and **Not running** for any other state.
+- **Storage active**: for each storage. Shows **Active** if the storage is available on the node, or **Inactive** if it is not.
+- **Storage enabled**: for each storage. Shows **Enabled** if the storage is enabled in Proxmox VE, or **Disabled** if it is not.
+- **Storage shared**: for each storage. Shows **Shared** if the storage is shared between the nodes in a cluster, or **Not shared** if it is local to one node.
 
-### Button
+### Buttons
+
+Buttons are only created when the Proxmox VE user has the required privileges (see [Choose the right role](#choose-the-right-role)).
 
 - **Create snapshot**: Creates a snapshot of a VM/LXC.
 - **Start**: Starts a VM/LXC.
@@ -188,17 +207,26 @@ Some entities are not enabled by default, you can enable them via the device pag
 **Stop** ends a running VM or LXC immediately. It is like pulling the power plug of a running computer and may damage data.
 {% endnote %}
 
-### Update
+### Updates
 
 For each node in your Proxmox VE environment, the update entity shows whether the node is up to date or if a new version is available, including any pending package updates.
+
+## Use cases
+
+- See at a glance on a dashboard whether your nodes, VMs, and containers are running, and how much CPU and memory they use.
+- Get notified when a storage is almost full, or when a VM or container is running low on memory.
+- Get notified when a backup fails, or when a node has updates available.
+- Shut down non-essential VMs when your uninterruptible power supply (UPS) switches to battery, and start them again when the power is back.
+- Start a VM only when you need it, such as a game server, and shut it down again at night.
+- Create a snapshot of a VM or container on a schedule, so you can go back to an earlier state if something goes wrong.
 
 ## Data updates
 
 Data is {% term polling polled %} from devices every 60 seconds.
 
-## Examples
+## Proxmox VE automation examples
 
-### Alert for offline VM
+### Automation: Alert for offline VM
 
 This example automation will alert you if a critical VM is  offline beyond a reasonable time.
 
@@ -221,22 +249,67 @@ automation: |
         entity_id: notify.notifier
 {% endexample %}
 
+### Automation: Alert for a failed backup
+
+This example automation alerts you when the last backup on a node was not successful. It uses the **Backup status** binary sensor, which is not enabled by default.
+
+{% example %}
+automation: |
+  alias: "Proxmox backup failed"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.pve1_backup_status
+      to: "on"
+  actions:
+    - action: notify.send_message
+      data:
+        message: "The last backup on Proxmox node pve1 has failed."
+      target:
+        entity_id: notify.notifier
+{% endexample %}
+
+### Automation: Weekly snapshot of a VM
+
+This example automation creates a snapshot of a VM every Sunday night, so you can go back to an earlier state if something goes wrong.
+
+{% example %}
+automation: |
+  alias: "Proxmox weekly snapshot of database VM"
+  triggers:
+    - trigger: time
+      at: "03:00:00"
+      weekday: sun
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.databaseserver_create_snapshot
+{% endexample %}
+
+{% caution %}
+Home Assistant does not remove snapshots. Each time the automation runs, it adds a new snapshot, named `homeassistant_snapshot_` followed by the date and time in UTC. Snapshots take up space on the storage of the VM, so remove old snapshots regularly in Proxmox VE: select the VM, open **Snapshots**, select the snapshot, and select **Remove**.
+{% endcaution %}
+
 ## Known limitations
 
-Unfortunately not all storage types and data are exposed fully via the ProxmoxVE API.
+- The integration connects to a single host. In a cluster, all nodes are reported through that host, but if that host is down, all entities become unavailable.
+- For a node that is offline, no VM, container, storage, backup, or update data can be retrieved.
+- Backup entities only reflect the most recent backup (`vzdump`) task of a node.
+- The update entity only shows pending updates; installing them must be done in Proxmox VE.
+- Snapshots created with the **Create snapshot** button are not removed automatically. VM snapshots do not include the RAM state.
+- Not all storage types and data are fully available through the Proxmox VE API.
+- The **Suspend all** button requires Proxmox VE 8.1 or later.
+- Authentication with an API token requires Proxmox VE 6.2 or later.
 
 ## Troubleshooting
 
-### Buttons not working
+{% details "Buttons, node sensors, or the update entity are missing" %}
 
-If you want to use the `button` entities to perform actions on your node(s), additional privileges may be required:
-- For actions related to power, such as start, stop, or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerMgmt`, or role `PVEVMUser`.
-- To create snapshots, the privilege `VM.Snapshot` is required, or role `PVEVMAdmin`.
-If monitoring works (for example, sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
+Home Assistant only creates entities your Proxmox VE user has privileges for. For example, with only the `PVEVMUser` role, a node shows just its **Status** sensor and **Status** binary sensor.
 
-### Update unavailable
+1. Check the privileges of your user against [Choose the right role](#choose-the-right-role), and add what is missing in Proxmox VE.
+2. Home Assistant reads the privileges when the integration starts. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Proxmox VE**, and reload the integration.
 
-If the update entity for any of your nodes shows **Unavailable**, make sure your Proxmox VE user has the `Sys.Modify` privilege or the `PVEAdmin` role.
+{% enddetails %}
 
 ### Diagnostic data
 

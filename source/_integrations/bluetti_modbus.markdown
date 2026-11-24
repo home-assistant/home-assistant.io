@@ -27,12 +27,14 @@ Modbus TCP support is only available on some device models and firmware versions
 1. Make sure the computer you are using is on the same network as the device.
 2. Find the device's IP address on the network configuration page of the BLUETTI app.
 3. Open that IP address in a browser to reach the device's local web page.
-4. Sign in. The username is `admin`; the password is your BLUETTI app password, or blank if you never set one.
+4. Sign in. The username is `admin`; the password is the device's Bluetooth password set in the BLUETTI app, or blank if you never set one. It is not your BLUETTI account password.
 5. Go to **Settings** > **Modbus TCP**, turn on **Enable**, set **Port** to `502`, and select **Settings** to save.
 
 You also need the hostname or IP address of the device on your network. Giving the device a fixed address in your router keeps Home Assistant pointed at the right one.
 
 {% include integrations/config_flow.md %}
+
+Once Modbus TCP is enabled, a Balco 260 on your network is discovered automatically and shows up under {% my integrations title="**Settings** > **Devices & services**" %} as discovered. A discovered power station is reached on port `502` with device ID `1`, the BLUETTI defaults. If yours uses other settings, add it manually with the fields below. When a power station you added on port `502` with device ID `1` announces itself at a new IP address and answers there, Home Assistant updates its entry.
 
 {% configuration_basic %}
 Host:
@@ -40,21 +42,28 @@ Host:
 Port:
   description: "The port the device listens on for Modbus requests. The BLUETTI default is `502`."
 Device ID:
-  description: "The Modbus device ID of the power station, as configured on the device itself. The default is `1`. You only need to change this if your device was given another ID."
+  description: "The Modbus device ID of the power station. The BLUETTI default is `1`, and the device's web page has no setting to change it. Keep `1` unless you know your device uses another ID."
 {% endconfiguration_basic %}
 
 You change the host, port, or device ID later, for example after your power station gets a new IP address. Go to {% my integrations title="**Settings** > **Devices & services**" %}. From the listed integrations, select **BLUETTI Modbus**, select **Menu** {% icon "mdi:dots-vertical" %} and then **Reconfigure**.
 
 ## Supported functionality
 
-Your power station is added as a single device.
+Your power station is added as a device, with its built-in battery as a child device named **Built-in battery**. The built-in battery is part of the power station, so its device page shows no serial number or firmware version. When you target the power station in an automation, its built-in battery is included.
 
 ### Sensors
 
-- **Battery voltage**: The battery's voltage.
-- **Battery current**: The battery's current. The device only reports its magnitude, so it reads the same whether the battery is charging or discharging.
-- **Battery SoC**: The battery's present charge level.
-- **Total battery charged energy**, **Total battery discharged energy**: Lifetime battery energy counters, in Wh.
+On the **Built-in battery** device:
+
+- **Voltage**: The battery's voltage.
+- **Current**: The battery's current. The device only reports its magnitude, so it reads the same whether the battery is charging or discharging.
+- **SoC**: The battery's present charge level.
+- **Total charged energy**, **Total discharged energy**: Lifetime battery energy counters, in Wh.
+
+The following are added as diagnostic entities on the **Built-in battery** device: **SoH**, **Cycle count**, **Cell count**, **Temperature sensor count**.
+
+On the power station:
+
 - **AC output power**, **AC output voltage**, **AC output current**, **Total AC output energy**: What the device is feeding to AC loads.
 - **PV 1 input voltage**, **PV 1 input current**, **PV 1 input power**, and the same for **PV 2** to **PV 4**: Each of the four solar inputs (MPPT trackers). An input with no panel connected reads 0.
 - **PV AC power**, **PV AC energy**, **Total PV input power**, **Total PV input energy**: Combined solar production.
@@ -63,11 +72,11 @@ Your power station is added as a single device.
 - **Inverter status**: The inverter's current status.
 - **Inverter voltage**, **Inverter current**, **Total inverter power**: The inverter's output. The power is negative while the inverter charges the battery.
 
-The following are added as diagnostic entities: **Battery SoH**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
+The following are added as diagnostic entities on the power station: **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
 
 The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
 
-The device page links to the power station's own web interface. The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
+The device page links to the power station's own web interface. The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions, and the built-in battery's BMS firmware version when the device reports one ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
 
 ## Data updates
 
@@ -91,7 +100,6 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 ### Connection management
 
-- The device is not discovered automatically yet; add it by its address.
 - Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and the Home Assistant log says why.
 - A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
 
@@ -118,6 +126,22 @@ Setup stops with this error when the device at that address does not report itse
 
 Setup stops with this error when the device answers but reports no serial number, which Home Assistant needs to tell your power station apart from any other. Restart the power station and try again.
 
+{% details "The firmware version of the built-in battery could not be read" %}
+
+### Symptom: "The firmware version of the built-in battery could not be read from the BLUETTI power station."
+
+The integration entry shows this error and keeps retrying setup.
+
+#### Description
+
+During setup, Home Assistant reads the firmware version of the built-in battery from the power station. The power station did not answer this request.
+
+#### Resolution
+
+Home Assistant retries the setup automatically. If the error doesn't go away, follow the steps in [The device cannot be reached](#the-device-cannot-be-reached).
+
+{% enddetails %}
+
 {% details "A different device answers at the address" %}
 
 ### Symptom: The entities are unavailable and the log mentions a different device
@@ -129,6 +153,8 @@ The entities of this entry are unavailable, and the Home Assistant log says a di
 Home Assistant recognizes your power station by its serial number, not by its address. The power station this entry was set up for has moved or been replaced, and another device now answers at its address. The entities stay unavailable until the power station answers at that address again.
 
 #### Resolution
+
+If the power station is set up on port `502` with device ID `1`, Home Assistant updates the address once the power station announces itself at the new one. Otherwise:
 
 1. Find the new address of your power station, for example by looking it up in your router.
 2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.

@@ -9,3 +9,11 @@ Integrates energy usage and pricing from the Rainforest Automation's [Eagle 3](h
 As the Eagle 3 runs the same API as the Eagle 200, Home Assistant will set up your Eagle 3 as an "Eagle 200".
 
 {% include integrations/config_flow.md %}
+
+## Meter connectivity
+
+For Eagle-200 and Eagle 3 gateways, the **Meter connectivity** binary sensor reports whether the gateway is connected to its electricity meter. Its state is **Connected** or **Disconnected**. If Home Assistant cannot retrieve data from the gateway, the sensor becomes **Unavailable** instead.
+
+To view connection changes, go to **Settings** > **Devices & services**, select **Rainforest Eagle**, and open your gateway's device page. The **Activity** panel shows changes to the meter connectivity sensor. Power and energy readings are shown in **History** because numeric sensor changes are excluded from **Activity**.
+
+The integration checks the meter connection every 30 seconds. A disconnect and reconnect between checks may not be detected. Legacy Eagle-100 gateways do not provide this sensor.

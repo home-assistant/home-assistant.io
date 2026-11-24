@@ -2,6 +2,7 @@
 title: "Get torrents"
 action: transmission.get_torrents
 domain: transmission
+response: required
 description: "Returns the current torrents in Transmission."
 related_actions:
   - transmission.add_torrent
@@ -68,7 +69,9 @@ torrent_filter:
 
 ## Response data
 
-The action returns a mapping keyed by the name of each torrent. Store it in a response variable (for example, `torrents`) so you can use it in later steps.
+{% include actions/response.md %}
+
+The action returns a mapping keyed by the name of each torrent.
 
 - `id`: The ID of the torrent.
 - `name`: The name of the torrent.

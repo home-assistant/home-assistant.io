@@ -10,6 +10,9 @@
     "lighting.led_strips_controllers",
     "lighting.bulbs_lamps"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "diagnostics",

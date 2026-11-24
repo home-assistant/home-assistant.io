@@ -43,7 +43,7 @@ The integration configuration will require the **Client ID** and **Client Secret
 
 ## Supported heat-pump systems
 
-The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink](https://myuplink.com/legal/works-with/en).
+The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink](https://myuplink.com/works-with).
 However, the representation in Home Assistant depends on how and to what extent the manufacturer has implemented the service.
 
 ## Use cases
@@ -54,6 +54,8 @@ Common use cases include:
 - **Smart Notifications**: Get alerts when the water temperature is low in the heater tank
 - **Automation**: Adjust the temperature curve offset during holiday mode
 - **Analytics**: View long-term statistics and graphs for the relevant sensors
+
+{% include integrations/actions.md %}
 
 ## Example
 

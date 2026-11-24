@@ -22,10 +22,12 @@ There is currently support available for the following platforms within Home Ass
 - Light - Control lights on supported models
 - Number - View/Set the actuator positions of the foundation
 - Number - View/Set firmness for each side
+- Number - View/Set the favorite firmness for each side
 - Select - Choose a foundation preset position
 - Select/Number - Set a foot warmer mode and timeout
 - Select/Number - Set core climate heat/cool modes and timeout
 - Sensor - View pressure of each side
+- Sensor - View last night's sleep score, sleep duration (time in bed), bedtime, wake time, average heart rate, average respiratory rate, and heart rate variability for each side of the bed
 - Switch - Toggle Privacy mode
 
 ## Notes

@@ -26,6 +26,15 @@ Ensure that your power supply is not a bulk power supply for an apartment buildi
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Device:
+  description: "The Wi-SUN USB dongle, chosen from the USB serial devices Home Assistant finds. A dongle that Home Assistant discovered is already selected."
+B Route ID:
+  description: "The B Route ID from your utility company. See [Obtaining B Route credentials](#obtaining-b-route-credentials)."
+Password:
+  description: "The B Route password from your utility company."
+{% endconfiguration_basic %}
+
 ### Signal reach
 
 The Wi-SUN USB dongle has a typical signal reach of approximately 50 meters indoors and up to 200 meters outdoors, depending on environmental factors such as walls, interference, and other obstacles.
@@ -69,6 +78,10 @@ To get your monthly cost data, you can use the [template sensor](/integrations/t
 {% endif %}
 {% endraw %}
 ```
+
+## Data updates
+
+The integration {% term polling polls %} the smart meter every 5 minutes.
 
 ## Removing the {% term integration %}
 

@@ -9,6 +9,9 @@
   "categories": [
     "climate.heat_pumps_air_conditioning"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "climate"
   ]

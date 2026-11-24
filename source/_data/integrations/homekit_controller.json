@@ -11,6 +11,9 @@
   "categories": [
     "hubs_protocols"
   ],
+  "connectivity": [
+    "homekit"
+  ],
   "platforms": [
     "alarm_control_panel",
     "binary_sensor",

@@ -28,6 +28,10 @@ The integration will fetch data from each device. The following sensors are supp
 - Ambient radiation level
 - Wi-Fi signal strength
 
+## Data updates
+
+The integration {% term polling polls %} the Altruist sensor every 15 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.

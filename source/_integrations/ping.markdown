@@ -52,7 +52,7 @@ Host:
 Ping count:
   description: The number of echo requests to send to the target. The default is 5.
 Consider home:
-  description: The number of seconds that must elapse before considering a disconnected device "not at home". The default is 180 seconds (3 minutes).
+  description: The number of seconds the device tracker continues to report the device as home after the last successful ping. The default is 180 seconds (3 minutes). The binary sensor reflects the latest ping check.
 {% endconfiguration_basic %}
 
 ## Binary sensor
@@ -70,6 +70,8 @@ The integration exposes the different round trip times milliseconds as entities:
 - `Round Trip Time Maximum` - the longest round trip time
 - `Jitter` - the variation in round trip times
 - `Packet loss` - the percentage of missed ICMP replies
+
+When the host does not reply at all, `Packet loss` shows 100% and the round trip time and jitter entities become unavailable, since there is nothing to measure. When the host name can't be resolved, all of these entities become unavailable.
 
 **These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and can be enabled in the UI if needed.**
 

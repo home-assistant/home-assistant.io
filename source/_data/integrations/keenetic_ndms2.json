@@ -11,9 +11,13 @@
     "computers_network.routers_network",
     "presence_location.network_presence"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
-    "device_tracker"
+    "device_tracker",
+    "diagnostics"
   ],
   "discovery": [
     "ssdp"

@@ -7,10 +7,14 @@
   "categories": [
     "computers_network.printers"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "button",
     "camera",
+    "diagnostics",
     "sensor"
   ],
   "discovery": [

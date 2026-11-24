@@ -9,6 +9,9 @@
   "categories": [
     "sensors.air_quality"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "air_quality",
     "sensor"
