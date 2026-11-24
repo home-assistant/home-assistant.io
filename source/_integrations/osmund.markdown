@@ -64,7 +64,8 @@ Prices are per hour, or per quarter hour where your meter measures quarter hours
 Fill the dishwasher, and let it start when the cheapest hour or quarter hour of the day begins. A time trigger only fires at a time that is still ahead, so if the cheapest time has already passed, the dishwasher waits for tomorrow's.
 
 - **Trigger**: Time: at the time of the sensor **Time of lowest electricity price today**
-- **Action**: Turn on the switch of the dishwasher
+- **Action**: Turn on switch
+  - **Target**: Switch of the dishwasher (`switch.dishwasher`)
 
 {% details "YAML example for starting the dishwasher at today's lowest price" %}
 
@@ -99,7 +100,7 @@ The API counts the calls of all your keys together. The integration uses about 5
 
 ## Troubleshooting
 
-{% details "The key is refused during setup" %}
+{% details "The key is not an Osmund key" %}
 
 ### Symptom: "This is not an Osmund key"
 
@@ -111,6 +112,10 @@ The text you pasted does not start with `osm_`. It is not a key from **Min side*
 
 Copy the whole key again. If you no longer have it, it cannot be shown again: on **Min side**, under **API-adgang**, revoke it and create a new one.
 
+{% enddetails %}
+
+{% details "The key has expired or has been revoked" %}
+
 ### Symptom: "Invalid authentication"
 
 #### Description
@@ -120,6 +125,10 @@ The key has expired or has been revoked.
 #### Resolution
 
 Create a new key on **Min side**, under **API-adgang**, and use it.
+
+{% enddetails %}
+
+{% details "The key cannot read prices" %}
 
 ### Symptom: "The key cannot read prices"
 
