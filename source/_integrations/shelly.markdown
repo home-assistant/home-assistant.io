@@ -454,7 +454,7 @@ Each camera appears as a folder named after the device. A camera is only listed 
 
 The folder lists videos (recordings) and images (snapshots), with the newest first. It shows up to the 500 most recent items, with a thumbnail when the device provides one.
 
-Each item title shows the local date and time, what triggered it, and the duration in seconds when the device reports one. For example, `2025-06-15 15:13:40 - motion_detected - 5s`. Items without a trigger show `manual`.
+Each item title shows the date and time in the Home Assistant time zone, the trigger event reported by the device, and the duration in seconds when the device reports one. For example, `2025-06-15 15:13:40 - motion_detected - 5s`. Items without a trigger show `manual`.
 
 If Home Assistant cannot read the storage, the media browser shows the error "Storage unavailable for" followed by the device name.
 
