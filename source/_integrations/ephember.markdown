@@ -36,7 +36,11 @@ If **All Day** is selected in the EMBER app, it shows as **Heat/Cool** in Home A
 
 ## Data updates
 
-The **EPH Controls** integration {% term polling polls %} the EPH Ember cloud every 2 minutes. If the cloud can't be reached, the entities become unavailable until it answers again.
+The **EPH Controls** integration keeps a live connection to the EPH Ember cloud. Changes made in the EMBER app, on a thermostat, or in Home Assistant show up within seconds.
+
+The integration also {% term polling polls %} the cloud every 2 minutes. If the live connection can't be made or is interrupted, polling keeps your entities up to date, but changes can take up to 2 minutes to appear.
+
+If a poll can't reach the cloud, the entities become unavailable until the cloud responds again.
 
 ## Removing the integration
 
