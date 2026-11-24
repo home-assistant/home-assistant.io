@@ -95,6 +95,8 @@ Heat pumps that report the heat they produce have the following sensors:
 - **Heating heat production today**: the heat produced for heating today
 - **DHW heat production today**: the heat produced for domestic hot water today
 
+Heating circuits that report it have a **Target supply temperature** sensor: the supply temperature the heating curve currently asks for.
+
 {% include integrations/actions.md %}
 
 ## Viessmann ViCare automation examples
