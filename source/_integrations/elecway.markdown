@@ -1,9 +1,8 @@
 ---
 title: Elecway
 description: Monitor Elecway energy storage devices over your local network.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: '2026.11'
 ha_iot_class: Local Push
 ha_config_flow: true
