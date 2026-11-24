@@ -96,7 +96,7 @@ Shelly Gen 2 and newer devices (excluding battery-powered models) can act as Blu
 Shelly devices do **not** support proxying active (GATT) connections.
 {% endtip %}
 
-For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
+For more details, see [Remote Adapters](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
 
 ## Range Extender Support
 
@@ -183,6 +183,24 @@ Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, yo
 
 To move a cover and its tilt to target positions with a single command, use the [**Set cover position and tilt**](/actions/shelly.set_cover_position_and_tilt/) action.
 
+## Fan entities
+
+Generation 2+ devices that have a fan component create a `fan` entity.
+
+The fan entity lets you turn the fan on or off and set its speed as a percentage. It also has two preset modes:
+
+- **Manual**: You control the fan yourself by turning it on or off and setting the speed.
+- **Auto**: The device controls the fan automatically.
+
+Turning the fan on or off from Home Assistant, or setting a speed, switches it to **Manual** mode. To let the device control the fan again, select the **Auto** preset mode. When you switch from **Auto** to **Manual**, the fan keeps its current on or off state and speed until you change it.
+
+The integration also creates the following entities for the fan:
+
+- **Boost**: A `switch` entity that turns the boost function of the device on or off. It's only available while the fan is in **Auto** mode.
+- **Illuminance level**: A `sensor` entity with the states **Dark**, **Twilight**, and **Bright**.
+- **Humidity level**: A `sensor` entity with the states **Low**, **Medium**, **High**, and **Very high**.
+- **Energy**: A `sensor` entity that shows the total energy consumed by the fan, in kWh by default.
+
 ## Binary input sensors
 
 ### Binary input sensors (generation 1)
@@ -192,6 +210,12 @@ Depending on how a device's button type is configured, the integration will crea
 ### Binary input sensors (generation 2+)
 
 For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the **Input Mode** is set to `Switch`. When the **Input Mode** is set to `Button` you need to use events for your automations.
+
+## Input lock
+
+Generation 2+ devices with a physical input provide an **Input lock** switch. When it is on, the device ignores all changes to its physical inputs. The output can still be controlled from Home Assistant, the Shelly app, and automations.
+
+The switch is created for every switch or cover channel that supports it. This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Changes made in the Shelly app or web interface are reflected in Home Assistant as well.
 
 ## Media player entities
 
@@ -229,6 +253,14 @@ data:
 target:
   entity_id: media_player.shelly_wall_display
 ```
+
+## Wall Display brightness
+
+Wall Display devices with firmware 2.6.2 or newer provide entities to control the screen brightness:
+
+- **Auto display brightness** switch: When on, the device adjusts the brightness to the ambient light.
+- **Display brightness** (0–100%): The screen brightness when auto brightness is off. This entity is unavailable while auto brightness is on, because the device then sets the brightness itself.
+- **Minimum auto display brightness** (1–50%): The lowest brightness that auto brightness uses. This entity is only available when the device reports support for it.
 
 ## Event entities
 

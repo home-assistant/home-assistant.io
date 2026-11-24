@@ -1,0 +1,260 @@
+---
+// Hero of a Connect product page: a full-bleed product photo with, at
+// its bottom, the tagline, the product name as the page's heading, the
+// lead text and the collaboration badge. The product bar (ConnectNav)
+// comes before it on the page and overlaps its top, so the hero keeps
+// the bar's 120px clear above the text.
+//
+// Built from the "Hero" frames in the Figma file "Connect AUX-2"
+// (desktop node 2310:3581, mobile node 2310:3664), not ported from
+// Jekyll. It replaces `source/connect/*/components/_hero.html` on the
+// Jekyll Connect pages.
+//
+// Deliberate differences from the Figma file:
+//   - Sizes snap to the theme: the hero type scales between Figma's
+//     phone and desktop sizes (--font-size-hero and
+//     --font-size-hero-product), and the 20px gaps are 24px.
+//   - The "Designed and built by" credits are the site's collaboration
+//     badge, as on the other product pages, not Figma's variant of it
+//     (colon, smaller logos, 8% panel).
+//   - The lead text lines up with the badge's left edge on desktop
+//     instead of sitting further in.
+import type { ImageMetadata } from "astro";
+import ArtDirectedImage from "../../ArtDirectedImage.astro";
+import CollaborationBadge from "../../CollaborationBadge.astro";
+
+interface Props {
+  // Product photo, a wide band of the scene that covers the hero at
+  // any width, centered on the product.
+  image: ImageMetadata;
+  // Optional phone crop, used below the desk breakpoint (992px) when
+  // the design frames the scene differently on phones.
+  mobileImage?: ImageMetadata;
+  imageAlt: string;
+  // Where the photo is anchored as the hero crops it, as in
+  // object-position: put the product in view.
+  imagePosition?: string;
+  // How far to move the phone photo up below the desk breakpoint, as a
+  // length: the photo grows taller by this much and loses it at the
+  // top. For a phone crop that already fits the hero's shape, where
+  // imagePosition has no room to move it.
+  mobileImageLift?: string;
+  // The product name after "Home Assistant", such as "Connect AUX-2".
+  product: string;
+  // Tagline lines; the last one, the punchline, is bold.
+  tagline: string[];
+  // The collaboration badge's wording and logos (see
+  // CollaborationBadge); "Designed and built by" with both logos
+  // when left out.
+  badge?: { label?: string; foundation?: boolean };
+}
+
+const {
+  image,
+  mobileImage,
+  imageAlt,
+  imagePosition = "50% 50%",
+  mobileImageLift = "0px",
+  product,
+  tagline,
+  badge = {},
+} = Astro.props;
+---
+
+<header
+  class="connect-hero"
+  style={`--image-position: ${imagePosition}; --mobile-image-lift: ${mobileImageLift}`}
+>
+  <ArtDirectedImage
+    class="photo"
+    image={image}
+    mobileImage={mobileImage}
+    alt={imageAlt}
+    widths={[640, 1280, 1920, 2560, image.width]}
+    sizes="100vw"
+    mobileWidths={mobileImage && [640, 1280, 1920, mobileImage.width]}
+    quality={100}
+    loading="eager"
+    fetchpriority="high"
+  />
+
+  <div class="content">
+    <div class="intro">
+      <hgroup class="title">
+        <p class="tagline">
+          {tagline.map((line) => <span>{line}</span>)}
+        </p>
+        <h1>
+          <strong>Home Assistant</strong>{" "}<span class="product">{product}</span>
+        </h1>
+      </hgroup>
+
+      <div class="aside">
+        <p class="lead"><slot /></p>
+        <CollaborationBadge {...badge} />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/layout";
+
+  .connect-hero {
+    color: var(--color-text-inverse);
+    display: flex;
+    isolation: isolate;
+    min-height: 38.75rem;
+    position: relative;
+
+    /* Darkens the bottom of the photo under the text. */
+    &::after {
+      background: linear-gradient(transparent 37%, rgb(0 0 0 / 70%));
+      content: "";
+      inset: 0;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+
+  /* On phones the photo is taller than the hero by the lift and
+     shifted up by it (mobileImageLift). */
+  .photo {
+    inset: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -2;
+
+    :global(img) {
+      display: block;
+      height: calc(100% + var(--mobile-image-lift));
+      object-fit: cover;
+      object-position: var(--image-position);
+      translate: 0 calc(-1 * var(--mobile-image-lift));
+      width: 100%;
+    }
+  }
+
+  .content {
+    @include layout.container;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: 7.5rem;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxlarge);
+    padding-bottom: var(--space-xxlarge);
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-heading);
+    gap: var(--space-xlarge);
+    margin: 0;
+
+    p,
+    h1 {
+      line-height: 1.2;
+      margin: 0;
+      text-box: trim-both cap alphabetic;
+    }
+
+    /* Tighter lines in the tagline, so its two lines read as one
+       block. */
+    .tagline {
+      line-height: 1.05;
+    }
+  }
+
+  .tagline {
+    font-size: var(--font-size-hero);
+    letter-spacing: -0.02em;
+
+    span {
+      display: block;
+    }
+
+    span:last-child {
+      font-weight: 700;
+    }
+  }
+
+  /* Figma sets the whole name on one line on phones: "Home Assistant
+     Connect AUX-2" is about 14.25em wide, which just fits a 393px
+     phone at 24px. On narrower phones the size shrinks with the space
+     between the gutters (with a little to spare), so the name stays on
+     one line. The product name itself never breaks ("AUX-" / "2"). */
+  h1 {
+    font-size: min(
+      var(--font-size-hero-product),
+      (100vw - 2 * var(--layout-gutter)) / 14.5
+    );
+    font-weight: 400;
+    letter-spacing: -0.01em;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .product {
+    white-space: nowrap;
+  }
+
+  .aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-medium);
+  }
+
+  .lead {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-large);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  @media only screen and (min-width: breakpoints.$connect-desk) {
+    .photo :global(img) {
+      height: 100%;
+      translate: none;
+    }
+
+    .connect-hero {
+      min-height: 51.25rem;
+
+      &::after {
+        background: linear-gradient(transparent 31%, rgb(0 0 0 / 50%));
+      }
+    }
+
+    .intro {
+      align-items: flex-end;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      padding-bottom: var(--space-xxxlarge);
+    }
+
+    .title {
+      gap: var(--space-xxlarge);
+    }
+
+    .aside {
+      gap: var(--space-xlarge);
+    }
+
+    /* The lead keeps Figma's 407px column, flush with the badge's
+       left edge; the badge sizes to its content. */
+    .lead {
+      font-size: var(--font-size-xxlarge);
+      max-width: 25.5rem;
+    }
+  }
+</style>

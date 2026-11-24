@@ -49,6 +49,11 @@ If the message **This key is already used** appears, you must first revoke the o
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+API key:
+  description: "The API key from your Cielo Home account. To get one, see [Obtaining an API key](#obtaining-an-api-key)."
+{% endconfiguration_basic %}
+
 If authentication succeeds, Home Assistant will automatically create the climate and sensor entities for all supported Cielo devices in your account.
 
 {% note %}

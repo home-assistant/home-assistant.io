@@ -86,6 +86,9 @@ The **Škoda** integration provides the following entities. The available entiti
 - **Trunk**: Whether the trunk is open.
 - **Hood**: Whether the hood is open.
 - **Lights**: Whether the lights are on.
+- **Charging cable**: Whether the charging cable is plugged in, for vehicles that support charging.
+- **Air conditioning**: Whether the air conditioning is running.
+- **Auxiliary heating**: Whether the auxiliary heating is running, for equipped vehicles.
 
 ### Device tracker
 
@@ -111,7 +114,7 @@ The vehicle applies a new value with a short delay. After you change it, the num
 - **Charging state**: `charging`, `connect_cable`, `ready_for_charging`, `conserving`, `discharging`, or `charging_interrupted`.
 - **Time to full charge**: Estimated time when the battery will reach the charge limit, while charging.
 - **Charge type**: `ac`, `dc`, `off`, or `not_charging`.
-- **Auxiliary heating mode**: Current mode (heating/ventilation) of the auxiliary heating, for equipped vehicles.
+- **Auxiliary heating mode**: The mode the auxiliary heating starts in (heating or ventilation), for equipped vehicles. It doesn't show whether the auxiliary heating is running.
 - **Auxiliary heating remaining duration**: Estimated time when auxiliary heating will finish, while active.
 - **Target cabin temperature**: The cabin temperature configured on the vehicle/MyŠkoda app for Climate Control/Auxiliary Air Conditioning (where supported).
 

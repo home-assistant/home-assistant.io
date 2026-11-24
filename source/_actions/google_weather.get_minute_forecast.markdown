@@ -2,6 +2,7 @@
 title: "Get minute forecast"
 action: google_weather.get_minute_forecast
 domain: google_weather
+response: required
 description: "Retrieves the precipitation forecast (nowcast) for up to 6 hours. Amounts are returned in the weather entity's precipitation unit; the snowfall amount is the liquid-water equivalent, not the snow depth. Unlike the cached forecasts, every call makes a live request to the Google Weather API and counts toward your quota."
 related_actions:
   - weather.get_forecasts
@@ -9,7 +10,7 @@ related_actions:
 
 Use this action to get a short-term precipitation forecast, also called a nowcast, for one of your Google Weather entities. It covers up to the next 6 hours in short segments, so you can tell whether rain is about to start, how heavy it is likely to get, and when it is expected to stop.
 
-This is more detailed than the hourly forecast that the {% term entity %} itself provides. Use it when the timing matters, for example to send yourself a heads-up a few minutes before rain reaches your house, or to hold off the sprinklers when a shower is on the way. It returns the forecast as [response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data).
+This is more detailed than the hourly forecast that the {% term entity %} itself provides. Use it when the timing matters, for example to send yourself a heads-up a few minutes before rain reaches your house, or to hold off the sprinklers when a shower is on the way.
 
 {% important %}
 Unlike the `weather.get_forecasts` action, every call to this action sends a new request to Google and counts toward your API quota.
@@ -57,6 +58,8 @@ This action has no options beyond the target.
 {% include actions/targets.md domain="weather" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by the entity ID of each targeted weather entity. For every entity, the response contains:
 

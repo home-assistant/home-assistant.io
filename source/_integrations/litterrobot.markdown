@@ -83,10 +83,11 @@ The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode star
 
 ### Pet
 
-| Entity       | Domain   | Description                                       |
-| ------------ | -------- | ------------------------------------------------- |
-| Visits today | `sensor` | Pet's daily visits to the Litter-Robot. |
-| Weight       | `sensor` | Pet's weight.                                     |
+| Entity        | Domain   | Description                                                                                        |
+| ------------- | -------- | -------------------------------------------------------------------------------------------------- |
+| Profile image | `image`  | Pet's profile picture from the Whisker app, named after the pet. Only created if the pet has one.  |
+| Visits today  | `sensor` | Pet's daily visits to the Litter-Robot.                                                            |
+| Weight        | `sensor` | Pet's weight.                                                                                      |
 
 {% include integrations/actions.md %}
 

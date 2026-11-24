@@ -7,7 +7,7 @@
   ],
   "config_flow": true,
   "iot_class": "local_polling",
-  "quality_scale": "bronze",
+  "quality_scale": "platinum",
   "categories": [
     "computers_network.printers"
   ],
@@ -15,7 +15,11 @@
     "network"
   ],
   "platforms": [
+    "binary_sensor",
     "diagnostics",
     "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
   ]
 }
