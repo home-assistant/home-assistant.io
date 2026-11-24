@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: tile_ble
 ha_integration_type: device
 ha_platforms:
+  - button
   - device_tracker
 ha_quality_scale: bronze
 related:
@@ -20,9 +21,9 @@ related:
     title: Bluetooth
 ---
 
-The **Tile BLE** {% term integration %} lets you use your [Tile](https://www.tile.com) Bluetooth trackers directly with Home Assistant over Bluetooth. After setup, it tracks whether a Tile is in range locally, without relying on the Tile cloud.
+The **Tile BLE** {% term integration %} lets you use your [Tile](https://www.tile.com) Bluetooth trackers directly with Home Assistant over Bluetooth. After setup, it tracks whether a Tile is in range and lets you ring it, all locally, without relying on the Tile cloud.
 
-Use case: Put a Tile on your keys or in your bag, and let Home Assistant remind you when you leave without them.
+Use case: Put a Tile on your keys or in your bag, and let Home Assistant remind you when you leave without them. Can't find them at home? Ring the Tile from Home Assistant.
 
 This integration is separate from the cloud-based [Tile](/integrations/tile/) integration. You can use either of them, or both.
 
@@ -52,6 +53,12 @@ To add more Tiles, repeat these steps for each Tile.
 ## Supported functionality
 
 The **Tile BLE** integration provides the following entities for each Tile.
+
+### Buttons
+
+- **Ring**
+  - **Description**: Makes the Tile play its find song at high volume, so you can find it by sound.
+  - **Remarks**: Home Assistant connects to the Tile to ring it. This needs a Bluetooth adapter or proxy that can make active connections, within range of the Tile.
 
 ### Device trackers
 
@@ -101,12 +108,12 @@ automation: |
 
 ## Data updates
 
-The **Tile BLE** integration listens to the Bluetooth advertisements a Tile sends out. It doesn't connect to the Tile for this, so it doesn't drain the battery of the Tile. Home Assistant only connects to the Tile during setup.
+The **Tile BLE** integration listens to the Bluetooth advertisements a Tile sends out. It doesn't connect to the Tile for this, so it doesn't drain the battery of the Tile. Home Assistant only connects to the Tile during setup and when you ring it.
 
 ## Known limitations
 
 - Home Assistant can only see a Tile within Bluetooth range of one of your Bluetooth adapters or proxies. **Away** means the Tile is out of range, not that it is in a specific place. To see where a Tile is when you are out, use the [Tile](/integrations/tile/) integration.
-- Setting up a Tile needs an active Bluetooth connection, which not every Bluetooth adapter or proxy can make. See the [Bluetooth](/integrations/bluetooth/) integration for which adapters can make active connections.
+- Setting up and ringing a Tile need an active Bluetooth connection, which not every Bluetooth adapter or proxy can make. See the [Bluetooth](/integrations/bluetooth/) integration for which adapters can make active connections.
 - You can only set up Tiles that are in your own Tile account.
 - Each Tile is set up as its own integration entry.
 
@@ -159,6 +166,39 @@ The Tile you picked belongs to someone else, like a neighbor or a visitor.
 #### Resolution
 
 Pick another Tile from the list. Tiles listed by name are matched to your account already.
+
+{% enddetails %}
+
+{% details "The Tile is not in range of an adapter that can connect" %}
+
+### Symptom: "The Tile is not in range of a Bluetooth adapter or proxy that can connect to devices"
+
+When you select **Ring**, Home Assistant shows the message "The Tile is not in range of a Bluetooth adapter or proxy that can connect to devices".
+
+#### Description
+
+Home Assistant receives the Tile's advertisements, but only through Bluetooth adapters or proxies that can't make active connections. Ringing a Tile needs an active connection.
+
+#### Resolution
+
+1. Make sure at least one of your Bluetooth adapters or proxies can make active connections. See the [Bluetooth](/integrations/bluetooth/) integration for which adapters can.
+2. Move the Tile closer to that adapter or proxy, and try again.
+
+{% enddetails %}
+
+{% details "Could not connect to the Tile" %}
+
+### Symptom: "Could not connect to the Tile"
+
+When you select **Ring**, Home Assistant shows the message "Could not connect to the Tile. Make sure it is close to a Bluetooth adapter or proxy that can connect to devices."
+
+#### Description
+
+Home Assistant tried to connect to the Tile, but the connection failed or the Tile stopped responding. This can happen when the Tile is at the edge of Bluetooth range.
+
+#### Resolution
+
+Move the Tile closer to your Bluetooth adapter or proxy, and try again.
 
 {% enddetails %}
 
