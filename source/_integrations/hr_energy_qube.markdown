@@ -276,7 +276,7 @@ The host address is redacted. Attach the downloaded file when reporting an issue
 - The integration communicates with the heat pump over Modbus TCP on your local network only. Settings that are not listed under [Supported functionality](#supported-functionality), such as the heating curve parameters, are configured on the heat pump's panel.
 - Changes made on the heat pump's panel appear in Home Assistant after the next poll, within 15 seconds.
 - Automatic discovery uses mDNS, which does not cross network or VLAN boundaries unless your router forwards it. Without it, add the heat pump manually.
-- On some firmware versions the heat pump does not report its software version over Modbus. The device page then does not show a meaningful software version.
+- The device page shows the software version from the heat pump's mDNS announcement, as on its panel. It appears after Home Assistant has discovered the heat pump. Without mDNS, the version comes from Modbus, which some firmware versions do not report.
 - When the heat pump's energy counters briefly report a lower value, the energy sensors keep the previous value until the counter passes it again, so the energy dashboard does not count the difference twice. A drop of more than 1 kWh that persists for three polls is treated as a counter reset.
 - The heat pump cannot be restarted from Home Assistant. To restart it, power cycle the heat pump.
 

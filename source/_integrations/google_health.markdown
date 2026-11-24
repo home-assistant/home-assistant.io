@@ -15,6 +15,10 @@ The **Google Health** {% term integration %} allows you to expose health and fit
 
 ## Prerequisites
 
+{% important %}
+If your Google Account is enrolled in the [Advanced Protection Program](https://support.google.com/accounts/answer/7539956), you cannot use the setup described below. Advanced Protection blocks unverified apps from accessing sensitive account data, including your Google Health data. Publishing your OAuth app does not verify it.
+{% endimportant %}
+
 You need to configure developer credentials to allow Home Assistant to access your Google Account. These credentials are the same as the ones for [Google Photos](/integrations/google_photos), [Nest](/integrations/nest), [Google Tasks](/integrations/google_tasks), and [Google Mail](/integrations/google_mail).
 
 {% include integrations/google_client_secret.md %}
@@ -31,7 +35,7 @@ The integration setup will next give you instructions to enter the [Application 
     - **Activity and fitness** (optional): Granting this scope creates sensors for steps, distance, active calories, total calories, and floors.
     - **Health metrics and measurements** (optional): Granting this scope creates sensors for weight, resting heart rate, and body fat.
     - **Sleep data** (optional): Granting this scope creates sensors for time asleep, time awake, time in bed, time to fall asleep, and time after wake-up.
-    - **Nutrition and hydration** (optional): Granting this scope creates sensors for hydration and calories consumed.
+    - **Nutrition and hydration** (optional): Granting this scope creates sensors for hydration, calories consumed, macronutrients (total fat, total carbohydrates, and protein), dietary fiber, sugar, sodium, and calories from fat.
     - **Paired devices** (optional): Granting this scope creates diagnostic sensors for battery level and last sync time for your paired wearables or devices.
 3. You may get a message telling you that the app has not been verified. Acknowledge this to proceed.
 4. You can now see the details of what you are authorizing Home Assistant to access with options at the bottom. Select **Continue**.
@@ -79,7 +83,14 @@ The **Google Health** integration provides the following entities:
 *Available for accounts that grant the Nutrition and hydration scope.*
 
 - **Calories consumed**: Daily energy consumed.
+- **Calories from fat** ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)): Daily energy consumed from fat.
+- **Dietary fiber** (disabled by default): Daily dietary fiber consumed.
 - **Hydration**: Daily volume of liquids consumed.
+- **Protein**: Daily protein consumed.
+- **Sodium** (disabled by default): Daily sodium consumed.
+- **Sugar** (disabled by default): Daily sugar consumed.
+- **Total carbohydrates**: Daily total carbohydrates consumed.
+- **Total fat**: Daily total fat consumed.
 
 **Paired device sensors**
 
@@ -162,7 +173,7 @@ The integration updates sensors on different intervals based on the data type:
 
 - Activity sensors (Steps, Distance, Active calories, Total calories, Floors) are updated every 15 minutes.
 - Sleep sensors (Time asleep, Time awake, Time in bed, Time to fall asleep, Time after wake-up) are updated every 15 minutes.
-- Nutrition sensors (Hydration, Calories consumed) are updated every 15 minutes.
+- Nutrition sensors (Calories consumed, Calories from fat, Dietary fiber, Hydration, Protein, Sodium, Sugar, Total carbohydrates, Total fat) are updated every 15 minutes.
 - Body sensors (Weight, Resting heart rate, Body fat) are updated every hour.
 - Paired device sensors (Battery level, Last sync time) are updated every hour.
 

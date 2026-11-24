@@ -12,6 +12,13 @@ This integration follows standard integration installation. No extra steps are r
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+  description: "The username or email address of your Snoo account."
+Password:
+  description: "The password of your Snoo account."
+{% endconfiguration_basic %}
+
 ## Binary Sensors
 
 ### Left and right safety clips
@@ -83,6 +90,10 @@ Allows you to turn on SNOO’s soothing sounds before you put your baby in SNOO 
 ### Start
 
 Starts sleepytime sounds and motion for the SNOO. This adheres to settings such as car ride or weaning mode.
+
+## Data updates
+
+The integration subscribes to updates from your SNOO through the Happiest Baby cloud. It asks for the SNOO's status once when it starts, and after that the SNOO pushes changes as they happen.
 
 ## Removing the integration
 

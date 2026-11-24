@@ -34,9 +34,7 @@ There are several different card types, each with their own configuration option
 
 ## Adding cards to your dashboard
 
-A card can be added to a dashboard directly [from the view](#to-add-a-card-from-a-view) where you want to add it, or from the [device page](#to-add-a-card-from-the-device-page).
-
-### To add a card from a view
+A card can be added to a dashboard directly from the view where you want to have it.
 
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 2. Select your dashboard from the list.
@@ -47,20 +45,17 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
      ![Add card in sections layout](/images/dashboards/add_card_sections_layout.png)
    - For other layout types (such as Masonry, Panel, or Sidebar), in the bottom right of the view, select **Add card**.
      ![Add card in masonry layout](/images/dashboards/add_card_masonary_layout.png)
-
-6. There are two methods to add a card:
-
+6. There are three methods to add a card:
    - **By entity**.
         - Select the entities from the list.
         - Then, select the card you want from the preview.
-        - If you can't see your entity, check the **Unassigned** section. Entities that are not assigend to an area are listed there.
+        - If you can't see your entity, check the **Unassigned** section. Entities that are not assigned to an area are listed there.
         ![Screenshot add cards by entity](/images/dashboards/dashboard_add-by-entity_02.png)
-
    - **By card**:
         - Browse the list of available cards.
         - If you are using the **Sections** view, try the **Tile** card in the **Suggested cards** section.
         ![Add card by Card type dialog](/images/blog/2024-03-dashboard-chapter-1/sections-add-card-by-card.png)
-
+   - From a copied card: If you copied a card, **Paste card** is shown at the bottom left of the dialog. Select it to add the card. The same works for badges when you add a badge.
 7. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
 8. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
 9. Customize your card:
@@ -70,32 +65,18 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
    - Not all cards support these elements. Refer to the documentation of the specific card type.
 10. In the top right of the screen, select **Done** to save the changes of the view.
 
-### To add a card from the device page
+## Adding a device to your dashboard
 
-This method is useful if you are on the **Device** page and want to create a card directly from there.
+This method is useful, for example, if you are on the page of a device and want to add all its entities to a dashboard in one step, instead of adding them card by card.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. On the integration card of interest, select **Devices**.
+2. On the integration card of interest, select **Devices** or select the **Devices** tab.
    - If there are multiple devices, select the device from the list.
-3. Add the card:
-   - Find the area of interest, for example **Sensors**, or **Events** and select **Add to Dashboard**.
-  ![Add to Dashboard button on the device page](/images/dashboards/add_card_from_device_page.png)
-4. In the dialog, select the target dashboard and if you have multiple views, select the view.
-   - Select **Next**.
-   - If you like the card proposal, select **Add to dashboard**.
-   - If you want to change the card, **Pick different card** and choose your card type.
-   - **Result**: The card is added to the selected view.
-  ![Add to Dashboard button on the device page](/images/dashboards/add_card_from_device_page_02.png)
-5. To edit the card configuration, open the view to which you added the card.
-   - Select **Edit card**.
-6. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
-7. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
-
-8. Customize your card:
-   - [define card actions or header and footer widgets](#card-actions-features-header-and-footer-widgets).
-   - [define header and footer](/dashboards/header-footer/)
-   - [customize features](/dashboards/features/#customizing-features).
-   - Not all cards support these elements. Refer to the documentation of the specific card type.
+3. Next to **Related**, select **Add to…** and then **Add to a dashboard**.
+4. Select the dashboard, the view, and then select **Next**.
+5. Set the options in the **Device section configuration** dialog and select **Save**, or select **Add to dashboard**, depending on the type of the selected view.
+   - In a [sections view](/dashboards/sections/), a **Device** section for this device is added. It stays up to date when the device gets new entities.
+   - In other views, an **Entities** card is added.
 
 ## Showing or hiding a card or badge conditionally
 

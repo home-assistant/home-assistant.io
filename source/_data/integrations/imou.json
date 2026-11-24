@@ -16,6 +16,9 @@
   "connectivity": [
     "cloud"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "alarm_control_panel",
     "binary_sensor",
