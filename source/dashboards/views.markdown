@@ -69,6 +69,17 @@ You can't add views to the built-in dashboards **Activity**, **Climate**, **Ener
     - Sidebar and panel views do not support badges.
 6. By default, the new view is visible to all users. On the **Visibility** tab, you can disable the view for specific users.
 
+## Reordering views
+
+You can change the order of the view tabs of a dashboard. For example, you can move the view you use most to the first place.
+
+1. Open the dashboard. In the top right of the screen, select **Edit dashboard** {% icon "mdi:pencil" %}.
+   - On a narrow screen, such as a phone, this option might be under **Menu** {% icon "mdi:dots-vertical" %}.
+2. Drag the tab of a view to its new place.
+   - On a touch screen, the selected tab has a drag handle {% icon "mdi:drag-horizontal-variant" %}. Drag the tab by its handle. To drag another tab, press and hold it first.
+   - With a keyboard, move the focus to the tab. To move it one place earlier, press <kbd>Alt</kbd>+<kbd>↑</kbd>. To move it one place later, press <kbd>Alt</kbd>+<kbd>↓</kbd>.
+3. Select **Done**.
+
 ## Migrating a view into a sections view
 
 If you have already defined a view but you would now like to have it in a section view type, you can migrate that content. For example, you can migrate from a masonry to a sections view. Currently, you cannot migrate a sections view type into another view type.

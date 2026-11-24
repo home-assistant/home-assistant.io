@@ -11,6 +11,7 @@ ha_codeowners:
   - "@mosandlt"
 ha_platforms:
   - camera
+  - light
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -44,6 +45,10 @@ Each camera is also added as a device, together with its model and firmware vers
 ### Privacy mode
 
 The **Privacy mode** switch turns the privacy mode of a camera on or off. While privacy mode is on, the camera does not record or stream. The switch is shown with the configuration entities of the device.
+
+### Camera light
+
+The **Camera light** entity switches the light of an Eyes Outdoor camera on and off. The light cannot be dimmed. The entity is only added for the Eyes Outdoor camera.
 
 ## Data updates
 
