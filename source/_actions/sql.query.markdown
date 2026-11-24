@@ -2,6 +2,7 @@
 title: "Query"
 action: sql.query
 domain: sql
+response: required
 description: "Executes a read-only SQL query and returns the result."
 ---
 
@@ -92,6 +93,8 @@ response_variable:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `result`, which is a list of rows. Each row is a mapping of column names to their values.
 

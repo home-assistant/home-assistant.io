@@ -12,6 +12,9 @@
   "categories": [
     "hubs_protocols.building_automation"
   ],
+  "connectivity": [
+    "mqtt"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

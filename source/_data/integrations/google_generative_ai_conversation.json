@@ -12,6 +12,9 @@
     "ai_voice.ai_models",
     "ai_voice.speech"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "ai_task",
     "conversation",

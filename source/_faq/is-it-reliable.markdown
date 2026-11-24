@@ -12,7 +12,7 @@ A new version of Home Assistant is released on the first Wednesday of every mont
 
 Learn more:
 
-- [Do Home Assistant updates break things?](/faq/do-home-assistant-updates-break-things/)
+- [Do Home Assistant updates break things?](/faq/do-updates-break-things/)
 - [Backups](/common-tasks/general/backups/)
 - [Repairs](/integrations/repairs/)
 - [Browse all integrations](/integrations/)

@@ -61,7 +61,7 @@ These examples show how to use the TV notify entity in automations. Replace the 
 Show a notification with a camera snapshot on the TV when the doorbell rang.
 
 - **Trigger**: Doorbell rang
-  - **Targe**: Front door doorbell
+  - **Target**: Front door doorbell
 - **Action**: Send a notification via `nfandroidtv.send_message`
   - **Target**: Living room TV (`notify.living_room_tv`)
   - **Message**: Someone is at the front door.

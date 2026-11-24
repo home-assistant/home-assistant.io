@@ -2,6 +2,7 @@
 title: "Upload media to Google Photos"
 action: google_photos.upload
 domain: google_photos
+response: optional
 description: "Uploads one or more photos or videos from Home Assistant to Google Photos."
 ---
 
@@ -83,7 +84,9 @@ album:
 
 ## Response data
 
-This action can return a response with the uploaded media. To use it, store the result in a response variable.
+{% include actions/response.md %}
+
+The response contains the uploaded media.
 
 The response contains the following fields:
 

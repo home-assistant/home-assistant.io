@@ -60,6 +60,10 @@ Port:
   type: integer
 {% endconfiguration_basic %}
 
+## Data updates
+
+The integration {% term polling polls %} the ISG every 30 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

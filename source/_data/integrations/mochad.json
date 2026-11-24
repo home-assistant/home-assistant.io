@@ -6,6 +6,9 @@
   "categories": [
     "hubs_protocols.wireless_protocols"
   ],
+  "connectivity": [
+    "x10"
+  ],
   "platforms": [
     "light",
     "switch"

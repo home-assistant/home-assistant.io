@@ -85,8 +85,7 @@ In YAML, a trigger can also have the following elements:
 In the visual automation editor, select triggers directly when you add a **Triggered by** condition.
 Home Assistant creates and manages the trigger IDs needed for those selections.
 
-To set a specific trigger ID yourself, edit the automation in YAML.
-All triggers can be assigned an optional `id`.
+To set a specific trigger ID, [edit the ID from the user interface](#editing-the-id-of-a-trigger-from-the-ui) or change the `id` in YAML.
 If the ID is omitted, Home Assistant uses the trigger's position in the trigger list.
 You can reference the `id` in [Triggered by](/conditions/trigger/) conditions and in actions.
 IDs do not have to be unique.
@@ -349,6 +348,17 @@ triggers:
 ```
 
 This blueprint automation can then be triggered either by the fixed manual_event trigger, or additionally by any triggers selected in the trigger selector. This is also applicable for `wait_for_trigger` action.
+
+## Editing the ID of a trigger from the UI
+
+Trigger IDs are created automatically, so you don't need to set one yourself. Set your own ID if you want to refer to the trigger by a name you choose, for example, in [Triggered by](/conditions/trigger/) conditions, in templates as `trigger.id`, and in YAML as `id`.
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}, and open the automation.
+2. In the **When** section, on the right side of the trigger, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Edit ID**.
+   - Result: The **Edit trigger ID** dialog opens.
+3. In **Trigger ID**, enter the new ID. For example, `sun_has_set`.
+4. Select **Submit** to save the new ID.
+5. Select **Save** to save the automation.
 
 ## Creating an automation with actions that depend on different triggers
 

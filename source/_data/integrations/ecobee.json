@@ -7,9 +7,13 @@
   "categories": [
     "climate.thermostats_heating"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",
+    "diagnostics",
     "humidifier",
     "notify",
     "number",

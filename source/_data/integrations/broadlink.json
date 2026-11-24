@@ -14,10 +14,18 @@
     "buttons_remotes",
     "plugs_switches"
   ],
+  "connectivity": [
+    "infrared",
+    "network",
+    "rf"
+  ],
   "platforms": [
+    "binary_sensor",
     "climate",
+    "diagnostics",
     "infrared",
     "light",
+    "number",
     "radio_frequency",
     "remote",
     "select",

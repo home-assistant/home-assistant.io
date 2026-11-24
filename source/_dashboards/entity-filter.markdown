@@ -66,7 +66,7 @@ type:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
+  description: Overwrites the default name of the entity.
   type: string
 icon:
   required: false

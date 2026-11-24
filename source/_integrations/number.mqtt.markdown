@@ -173,7 +173,7 @@ unique_id:
   required: false
   type: string
 unit_of_measurement:
-  description: Defines the unit of measurement of the sensor, if any. The `unit_of_measurement` can be `null`.
+  description: Defines the unit of measurement of the number, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/number/#list-of-available-device-classes). The `unit_of_measurement` can be `null`.
   required: false
   type: string
 value_template:

@@ -11,8 +11,12 @@
   "categories": [
     "weather_alerts.forecasts"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "diagnostics",
+    "image",
     "sensor",
     "weather"
   ]
