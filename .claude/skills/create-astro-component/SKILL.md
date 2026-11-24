@@ -80,6 +80,24 @@ Decide which kind this is before writing markup, and say so:
    divs, flex/grid instead of float hacks — as long as the rendered
    result looks the same.
 
+## Where the component goes
+
+File it by which pages use it (the rule is in `astro/README.md`,
+"Where files go"):
+
+- Site-wide building blocks (header, footer, buttons, dialogs) in
+  `astro/src/components/<Name>.astro`.
+- Used by more than one product in a product line in the line's
+  folder, such as `astro/src/components/connect/<Name>.astro`.
+- Used by one product's page only in that product's folder, such as
+  `astro/src/components/connect/aux-2/<Name>.astro`. It keeps the
+  line's name prefix (`ConnectNav`), so it can move up a folder later
+  without a rename.
+
+Scripts and assets that belong to one product follow the same folders
+in `src/lib/` and `src/assets/`. Never import from a narrower folder
+than the component's own.
+
 ## Code standards
 
 These are the standards for all new Astro component code. The point
@@ -109,9 +127,20 @@ CSS.
   it: a logo `<img>` with `height` and `width: auto` needs no magic
   width at all.
 - **Breakpoints come from `astro/src/styles/_breakpoints.scss`**
-  (`@use "../styles/breakpoints";`), which holds the three widths the
-  site has always used. Media queries cannot read custom properties,
-  so these are SCSS variables. Do not invent new breakpoints.
+  (`@use "../styles/breakpoints";`). Media queries cannot read custom
+  properties, so these are SCSS variables:
+  - `$lap` (30rem), `$desk` (71.25rem) and `$desk-wide` (80rem): the
+    three widths the site has always used. Use these by default.
+  - `$tab` (48rem): a tablet width, for a page that needs a layout
+    between phone and desk.
+  - `$connect-desk` (62rem): where the Connect product pages switch to
+    their desktop layout. Use it for Connect components and the
+    components they share (such as the collaboration badge), not for
+    the rest of the site.
+
+  For markup (`media` and `sizes` attributes), `astro/src/lib/breakpoints.ts`
+  holds the same widths; keep the two files in step. Do not invent
+  new breakpoints: if a component needs another width, ask first.
 - **Styles are SCSS**: every component's style block is
   `<style lang="scss">` (the `sass` package is a dev dependency of
   `astro/`). Use nesting and `&` to keep related rules together and
@@ -189,10 +218,11 @@ Batch these questions where possible instead of asking one at a time.
 
 Every component ships as a set:
 
-1. `astro/src/components/<Name>.astro` — the component, scoped
+1. `astro/src/components/[<line>/[<product>/]]<Name>.astro` — the
+   component (see "Where the component goes"), scoped
    styles, a short comment naming the Jekyll source it replaces
    (plugin, include, or sass partial paths).
-2. `astro/src/components/<Name>.fixtures.mjs` — pure-data fixtures
+2. `<Name>.fixtures.mjs` next to it — pure-data fixtures
    (see `astro/README.md`): one variant per meaningful state, `props`
    and `slot` per variant, and the equivalent Jekyll `liquid` source
    for content components so the variants can drive the golden-output

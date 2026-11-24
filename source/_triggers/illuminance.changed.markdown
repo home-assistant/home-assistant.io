@@ -124,7 +124,7 @@ threshold:
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
 - If you use an entity as the threshold, it must use `lx` as its unit. If it has a different unit, or no unit, the trigger doesn't react.
 - Number entity support applies to threshold values, not to the target being checked. The number entity must use the illuminance device class.
-- The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
+- The threshold type checks only the new value, not the direction of the change. With **Above**, the trigger reacts to every change where the new value is above the threshold, whether the value went up or down. For example, with **Above** 500 lx, a change from 800 lx to 600 lx makes the trigger react. **Below**, **In range**, and **Outside range** work the same way.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when an illuminance reading first crosses a specific level, use [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/) instead.
 

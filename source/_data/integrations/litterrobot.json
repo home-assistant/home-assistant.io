@@ -19,6 +19,7 @@
     "binary_sensor",
     "button",
     "diagnostics",
+    "image",
     "light",
     "select",
     "sensor",

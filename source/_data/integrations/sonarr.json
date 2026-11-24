@@ -15,6 +15,7 @@
   ],
   "platforms": [
     "calendar",
+    "diagnostics",
     "sensor"
   ]
 }

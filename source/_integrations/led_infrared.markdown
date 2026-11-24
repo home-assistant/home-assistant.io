@@ -240,7 +240,7 @@ If your LED Infrared setup is not working as expected, first make sure the infra
 
 Some remotes can use overlapping infrared codes with other devices, which may cause the same code to be interpreted for different functions. If you notice unexpected behavior, try isolating the remote or checking whether another infrared device is using similar codes.
 
-For additional troubleshooting steps and guidance, see the [infrared troubleshooting](/integrations/infrared/#troubleshooting) section.
+For additional troubleshooting steps and guidance, see the [infrared troubleshooting](/connectivity/infrared/#troubleshooting) section.
 
 If you need to report an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), then reload the integration. Reproduce the issue, disable debug logging, and attach the automatically downloaded debug log to your report.
 

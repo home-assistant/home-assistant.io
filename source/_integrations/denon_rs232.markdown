@@ -14,6 +14,13 @@ The **Denon RS-232** {% term integration %} lets you control Denon receivers by 
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Receiver model:
+  description: "The model of your receiver. It determines which features are available. If your model is not in the list, select **Other**."
+Port:
+  description: "The serial port the receiver is connected to."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 The integration adds media player entities as an {% term entity %} for your receiver.

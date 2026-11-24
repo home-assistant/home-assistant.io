@@ -64,6 +64,7 @@ A Motion Detector II gets an **Occupancy** binary sensor and a **Tamper** diagno
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
 - A Motion Detector II that supports it gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
 - An Outdoor Siren gets a **Test alarm** button that fires a short alarm at the configured sound level.
+- A Smart Plug or Smart Plug Compact gets a **Reset consumption value** button that resets the accumulated energy consumption.
 
 ### Climate
 
@@ -106,6 +107,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Micromodule Dimmer that supports calibration gets a **Dimming speed** value (1 to 10), controlling how quickly the dimmer changes brightness.
 - A Thermostat II or Room Thermostat II that supports display configuration gets a **Display brightness** value (0 to 100 %) and a **Display on-time** value (0 to 3600 seconds), controlling how bright the display is and how long it stays on after a button press.
 - A Micromodule Dimmer that supports calibration gets a **Minimum brightness** and a **Maximum brightness** value (0 to 100 %), setting the lowest and highest brightness the dimmer outputs.
+- A Heating circuit gets an **Eco temperature** and a **Comfort temperature** value, setting the temperatures used by the eco and comfort levels within the range the controller allows.
 
 ### Select
 
@@ -134,6 +136,7 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Wall Thermostat
 - Room Thermostat II
 - Twinguard
+- Motion Detector II
 - Smart Plug
 - Smart Plug Compact
 - Light Switch
@@ -175,6 +178,10 @@ Some devices also get an additional, device-specific switch. These are configura
 - Smart Plug or Smart Plug Compact that supports energy-saving mode: **Energy-saving mode**
 - Twinguard that supports this feature: **Heartbeat**, which enables or disables its nightly self-test notification
 - Micromodule Relay that supports switch configuration: **Swap inputs** and **Swap outputs**
+
+### Update
+
+The Bosch Smart Home Controller gets a **Software update** entity. It shows the installed and the available firmware version and lets you start the installation when an update is offered.
 
 ### Valve
 

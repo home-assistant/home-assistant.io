@@ -1,12 +1,15 @@
 ---
 layout: post
-title: "Z-Wave reborn - Home Assistant Connect ZWA-2"
+title: "Z-Wave reborn: Home Assistant Connect ZWA-2"
 description: "Announcing the ultimate way to connect Z-Wave devices to Home Assistant"
 date: 2025-08-13 00:00:01
 date_formatted: "August 13, 2025"
 author: Paulus Schoutsen
 comments: true
-categories: Announcements Z-Wave
+categories:
+- Announcements
+- Z-Wave
+- Hardware
 og_image: /images/blog/2025-08-home-assistant-connect-zwa-2/art.webp
 ---
 

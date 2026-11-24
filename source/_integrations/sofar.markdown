@@ -46,7 +46,7 @@ Depending on how you connect the inverter, you need one of the following:
 
 Modbus also needs to be enabled on the inverter, if it has a setting for this.
 
-For help with each way to connect, such as setting up an ESPHome serial proxy, a Modbus gateway, or a serial device server, refer to [Setting up a device integration that uses Modbus](/integrations/modbus/#setting-up-a-device-integration-that-uses-modbus).
+For help with each way to connect, such as setting up an ESPHome serial proxy, a Modbus gateway, or a serial device server, refer to [Setting up a device integration that uses Modbus](/connectivity/modbus/#setting-up-a-device-integration-that-uses-modbus).
 
 {% include integrations/config_flow.md %}
 

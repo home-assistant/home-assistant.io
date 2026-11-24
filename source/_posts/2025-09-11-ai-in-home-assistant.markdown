@@ -4,6 +4,8 @@ title: "Building the AI-powered local smart home"
 description: "In the past year, we’ve made significant progress in making AI a powerful tool in the home"
 date: 2025-09-11 00:00:01
 date_formatted: "September 11, 2025"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Paulus Schoutsen
 comments: true
 categories: Assist AI
@@ -11,6 +13,10 @@ og_image: /images/blog/2025-09-ai/art.webp
 ---
 
 <img src='/images/blog/2025-09-ai/art.webp' style='border: 0;box-shadow: none;' alt="Building the AI-powered local smart home">
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 Last year, we laid out [our vision for AI in the smart home](/blog/2024/06/07/ai-agents-for-the-smart-home/), which opened up experimentation with AI in Home Assistant. In that update, we made it easier to integrate all sorts of local and cloud AI tools, and provided ways to use them to control and automate your home. A year has passed, a lot has happened in the AI space, and our community has made sure that Home Assistant has stayed at the frontier.
 

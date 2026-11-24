@@ -73,7 +73,7 @@ input_number:
         required: false
         type: device_class
       unit_of_measurement:
-        description: Unit of measurement in which the value of the slider is expressed. When a `device_class` is set, the unit must be one of the units supported by that device class. Otherwise, a warning is logged, and starting with Home Assistant 2027.5 the configuration is invalid.
+        description: Unit of measurement in which the value of the slider is expressed. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/number/#list-of-available-device-classes). Otherwise, a warning is logged, and starting with Home Assistant 2027.5 the configuration is invalid.
         required: false
         type: string
       icon:

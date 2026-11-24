@@ -336,7 +336,7 @@ a.option-card:hover {
         color: $link-color;
 
         &.active {
-          font-weight: bold;
+          font-weight: 600;
         }
       }
     }
@@ -354,7 +354,7 @@ a.option-card:hover {
 
     .filter-button-group {
       .active {
-        font-weight: bold;
+        font-weight: 600;
       }
 
       .featured {
@@ -380,7 +380,7 @@ a.option-card:hover {
         border-radius: 0;
 
         &.current {
-          font-weight: bold;
+          font-weight: 600;
         }
       }
     }
@@ -949,6 +949,12 @@ a.option-card:hover {
       margin: 0 auto 24px;
       color: $gray;
       font-size: 17px;
+    }
+
+    .empty-state-marketplace {
+      max-width: 520px;
+      margin: 24px auto 0;
+      color: $gray;
     }
   }
 
