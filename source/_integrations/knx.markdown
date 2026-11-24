@@ -289,7 +289,11 @@ Other integrations and tools can replace the project data with data that is alre
   "id": 1,
   "type": "knx/set_knx_project",
   "project": {
-    "info": { "xknxproject_version": "3.11.1", "group_address_style": "ThreeLevel", "...": "..." },
+    "info": {
+      "xknxproject_version": "3.11.1",
+      "group_address_style": "ThreeLevel",
+      "...": "..."
+    },
     "group_addresses": { "...": "..." },
     "...": "..."
   }
