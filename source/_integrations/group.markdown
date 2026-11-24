@@ -96,7 +96,7 @@ When you control the group:
 
 - A new target temperature, temperature range, or humidity is only sent to the members that support it.
 - A new HVAC, fan, preset, or swing mode is only sent to the members that support that mode.
-- Turning on the group only turns on members that are off. Members that are already running keep their current mode.
+- Turning on the group turns on all members that support it.
 
 ### Cover and valve groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover and valve groups behave:
