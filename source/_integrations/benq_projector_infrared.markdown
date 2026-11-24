@@ -94,9 +94,14 @@ If you configure an infrared receiver, the integration also updates the assumed 
 
 Other keys, and commands from other remotes, do not change the state. Commands captured during the warm-up or cool-down are ignored, because the projector ignores them too.
 
-## Examples
+## BenQ Projector Infrared automation examples
 
-### Turn on the projector and select an input
+The real power of this integration is using the projector together with the rest of your home cinema.
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Turn on the projector and select an input
 
 This automation turns on the projector when your streaming box turns on, waits for the projector to warm up, and then switches to HDMI 1.
 
@@ -104,36 +109,34 @@ To create this automation in the automation editor:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
 2. Under **When**, add a **State** trigger for your streaming box's media player entity, with **To** set to **On**.
-3. Under **Then do**, add the **Media player: Turn on** action, and select the BenQ projector as the target.
+3. Under **Then do**, add the **Turn on media player** action, and select the BenQ projector as the target.
 4. Add a **Wait for time to pass (delay)** action of 1 minute, which matches the default warm-up time. Commands sent before the warm-up is over are refused.
-5. Add the **Media player: Select source** action, select the BenQ projector as the target, and set **Source** to `hdmi_1`.
+5. Add the **Select media player source** action, select the BenQ projector as the target, and set **Source** to **HDMI 1**.
 6. Save the automation.
 
-Alternatively, you can add the automation in YAML:
+{% details "YAML example for turning on the projector and selecting HDMI 1" %}
 
-{% raw %}
+{% example %}
+automation: |
+  alias: "Turn on the projector with the streaming box"
+  triggers:
+    - trigger: state
+      entity_id: media_player.living_room_streaming_box
+      to: "on"
+  actions:
+    - action: media_player.turn_on
+      target:
+        entity_id: media_player.benq_projector
+    - delay:
+        minutes: 1
+    - action: media_player.select_source
+      target:
+        entity_id: media_player.benq_projector
+      data:
+        source: HDMI 1
+{% endexample %}
 
-```yaml
-automation:
-  - alias: "Turn on the projector with the streaming box"
-    triggers:
-      - trigger: state
-        entity_id: media_player.living_room_streaming_box
-        to: "on"
-    actions:
-      - action: media_player.turn_on
-        target:
-          entity_id: media_player.benq_projector
-      - delay:
-          minutes: 1
-      - action: media_player.select_source
-        target:
-          entity_id: media_player.benq_projector
-        data:
-          source: hdmi_1
-```
-
-{% endraw %}
+{% enddetails %}
 
 ## Known limitations
 
@@ -147,27 +150,89 @@ automation:
 
 ## Troubleshooting
 
-### The projector does not respond
+{% details "The projector does not respond" %}
 
-The infrared signal is probably not reaching the projector. Make sure the infrared emitter points at one of the projector's IR windows and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/connectivity/infrared/#the-device-does-not-respond-to-commands).
+### Symptom: The projector does not respond to commands
 
-### A command is refused because the projector is warming up or cooling down
+Commands sent from Home Assistant do not turn the projector on or off, or do not change its input or volume.
 
-The projector ignores commands for a while after it is turned on or off, so the integration refuses them during that time. Wait until the time in the error has passed and try again. In automations, add a delay after turning the projector on or off. If your projector is ready sooner or later than the integration expects, change the warm-up and cool-down times in the [options](#options).
+#### Description
 
-### The projector does not turn off
+The infrared signal is probably not reaching the projector.
 
-The projector only turns off when both off commands reach it. Check that the infrared emitter can reach the projector reliably. If the projector still shows its confirmation prompt, the second command was probably missed.
+#### Resolution
 
-### Commands from the remote do not update the media player
+Make sure the infrared emitter points at one of the projector's IR windows and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/connectivity/infrared/#the-device-does-not-respond-to-commands).
+
+{% enddetails %}
+
+{% details "A command is refused because the projector is warming up or cooling down" %}
+
+### Symptom: A command is refused with a warm-up or cool-down error
+
+Home Assistant shows an error that says how many seconds are left before the projector accepts commands.
+
+#### Description
+
+The projector ignores commands for a while after it is turned on or off, so the integration refuses them during that time.
+
+#### Resolution
+
+1. Wait until the time in the error has passed and try again.
+2. In automations, add a delay after turning the projector on or off.
+3. If your projector is ready sooner or later than the integration expects, change the warm-up and cool-down times in the [options](#options).
+
+{% enddetails %}
+
+{% details "The projector does not turn off" %}
+
+### Symptom: The projector does not turn off
+
+Home Assistant sends the off command, but the projector stays on or shows its confirmation prompt.
+
+#### Description
+
+The projector only turns off when both off commands reach it. If the projector still shows its confirmation prompt, the second command was probably missed.
+
+#### Resolution
+
+Check that the infrared emitter can reach the projector reliably, for example by moving it closer or changing its angle.
+
+{% enddetails %}
+
+{% details "Commands from the remote do not update the media player" %}
+
+### Symptom: Pressing the projector's remote does not update the media player
+
+The projector turns on or off with its remote, but the media player in Home Assistant does not change.
+
+#### Description
+
+The integration can only follow the remote when an infrared receiver is set up and picks up the remote's signals. Commands captured during the warm-up or cool-down are ignored.
+
+#### Resolution
 
 1. Make sure you selected an infrared receiver during setup.
 2. Check that the infrared receiver entity updates when you press a button on the remote. If it does not, refer to [An infrared receiver does not pick up signals](/connectivity/infrared/#an-infrared-receiver-does-not-pick-up-signals).
 3. Remember that commands captured during the warm-up or cool-down are ignored.
 
-### The integration fails to set up after removing the infrared emitter or receiver
+{% enddetails %}
 
-If the infrared emitter or receiver used by the projector has been removed, the integration cannot set up the projector and shows the error: "The infrared emitter used by this BenQ projector no longer exists" or "The infrared receiver used by this BenQ projector no longer exists." Remove the projector and add it again with another emitter or receiver.
+{% details "The integration fails to set up after removing the infrared emitter or receiver" %}
+
+### Symptom: The integration fails to set up
+
+The projector is not set up, and the integration shows the error "The infrared emitter used by this BenQ projector no longer exists" or "The infrared receiver used by this BenQ projector no longer exists."
+
+#### Description
+
+The infrared emitter or receiver used by the projector has been removed, so the integration cannot find it.
+
+#### Resolution
+
+Remove the projector and add it again with another emitter or receiver.
+
+{% enddetails %}
 
 ## Removing the integration
 
