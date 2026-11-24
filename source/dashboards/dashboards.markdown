@@ -241,7 +241,7 @@ To start a new dashboard from one that you already have, duplicate it. The copy 
    - These settings aren't copied from the original.
 5. Select **Create**.
    - Result: The copy is added to the list of dashboards.
-   - In the copy, links to the original dashboard now open the copy instead. For example, a card that opens a view of the original now opens that view in the copy.
+   - In the copy, most links to the original dashboard now open the copy instead. For example, a card that opens a view of the original now opens that view in the copy. Links that you typed into the text of a card, such as a Markdown card, still open the original.
 
 ## Deleting a dashboard
 
