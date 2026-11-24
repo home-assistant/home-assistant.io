@@ -1,23 +1,30 @@
 # frozen_string_literal: true
 
 # Builds the blog's listing pages: the blog index and a page for every
-# category, author and year, each split into pages of POSTS_PER_PAGE
-# posts. Every filter is a static page, so filtering works without
-# JavaScript, and each filtered view can be shared and indexed.
+# category, author and year, and every category in each of its years,
+# each split into pages of POSTS_PER_PAGE posts. Every filter is a
+# static page, so filtering works without JavaScript, and each filtered
+# view can be shared.
 #
-#   /blog/                          all posts; page 1 features the newest
-#   /blog/categories/<category>/    the URLs the category pages always had
-#   /blog/authors/<author>/
-#   /blog/<year>/                   the parent of the year's post URLs
-#   .../posts/<n>/                  later pages of each, as /blog/posts/<n>/
+#   /blog/                                all posts; page 1 features the newest
+#   /blog/categories/<category>/          the URLs the category pages always had
+#   /blog/categories/<category>/<year>/   a category in one year (noindex)
+#   /blog/authors/<author>/               everything by one person
+#   /blog/<year>/                         the parent of the year's post URLs
+#   .../posts/<n>/                        later pages of each, as /blog/posts/<n>/
+#
+# Only category and year combine: an author page is always that
+# person's full list of posts.
 #
 # The pages use the `blog_listing` layout. Each gets in `page.listing`:
 #   - heading, intro: the page's heading and the line under it, if any
+#   - count: how many posts match
+#   - breadcrumbs: the pages above this one ({name, url}), after Home
+#   - filters: the active filters, each {kind, label, remove_url}
+#   - drawer: the filters panel's lists, each item {label, count, url, current}
 #   - entries: the posts on the page, each with its post, categories
 #     and authors (as below) and reading time in minutes
 #   - featured: the featured entry (page 1 of /blog/ only)
-#   - facet: the filter this page shows (kind, slug, label, count, url)
-#   - facets: every filter, for the filter bar (all, categories, authors, years)
 #   - page, total_pages, pages, compact_pages: pagination (see pagination_items)
 #
 # Ported from the blog filters of esphome.io (#8195) and
@@ -81,6 +88,22 @@ module Jekyll
       end
     end
 
+    # The page for a set of filters: {'category' =>, 'year' =>, 'author' =>}
+    # with facets as values, any of them nil.
+    def self.filters_url(filters)
+      category, year, author = filters.values_at('category', 'year', 'author')
+      return author['url'] if author
+      return "#{category['url']}#{year['slug']}/" if category && year
+      return category['url'] if category
+      return year['url'] if year
+
+      '/blog/'
+    end
+
+    def self.matches?(entry, filters)
+      filters.compact.all? { |kind, facet| values(entry, kind).any? { |v| v['slug'] == facet['slug'] } }
+    end
+
     def self.page_url(base, number)
       number == 1 ? base : "#{base}posts/#{number}/"
     end
@@ -128,26 +151,33 @@ module Jekyll
       safe true
       priority :normal
 
+      BY_COUNT = ->(a, b) { [b['count'], a['label']] <=> [a['count'], b['label']] }
+
       def generate(site)
-        entries = site.posts.docs.reverse.map { |post| entry(site, post) }
+        @site = site
+        @entries = site.posts.docs.reverse.map { |post| entry(post) }
+        @categories = BlogListings.facets(@entries, 'category').sort(&BY_COUNT)
+        @authors = BlogListings.facets(@entries, 'author').sort(&BY_COUNT)
+        @years = BlogListings.facets(@entries, 'year').sort_by { |f| -f['slug'].to_i }
+        years_by_slug = @years.to_h { |y| [y['slug'], y] }
 
-        by_count = ->(a, b) { [b['count'], a['label']] <=> [a['count'], b['label']] }
-        all = { 'kind' => 'all', 'slug' => '', 'label' => 'All posts', 'count' => entries.size, 'url' => '/blog/' }
-        facets = {
-          'all' => all,
-          'categories' => BlogListings.facets(entries, 'category').sort(&by_count),
-          'authors' => BlogListings.facets(entries, 'author').sort(&by_count),
-          'years' => BlogListings.facets(entries, 'year').sort_by { |f| -f['slug'].to_i },
-        }
-
-        [all, *facets['categories'], *facets['authors'], *facets['years']].each do |facet|
-          paginate(site, facet, facets, entries)
+        listings = [{}]
+        listings += @categories.map { |c| { 'category' => c } }
+        listings += @authors.map { |a| { 'author' => a } }
+        listings += @years.map { |y| { 'year' => y } }
+        @categories.each do |category|
+          in_category = @entries.select { |e| BlogListings.matches?(e, 'category' => category) }
+          BlogListings.facets(in_category, 'year').each do |year|
+            listings << { 'category' => category, 'year' => years_by_slug[year['slug']] }
+          end
         end
+
+        listings.each { |filters| paginate(filters) }
       end
 
       private
 
-      def entry(site, post)
+      def entry(post)
         categories = Array(post.data['categories']).flat_map { |c| c.to_s.split }
         authors = Array(post.data['author']).map { |a| a.to_s.strip }.reject(&:empty?)
         {
@@ -158,62 +188,109 @@ module Jekyll
             { 'slug' => BlogListings.category_slug(name), 'label' => BlogListings.category_label(name) }
           end,
           'authors' => authors.map do |name|
-            { 'slug' => Utils.slugify(name, mode: 'latin'), 'label' => name, 'avatar' => BlogListings.avatar(site, name) }
+            { 'slug' => Utils.slugify(name, mode: 'latin'), 'label' => name, 'avatar' => BlogListings.avatar(@site, name) }
           end,
         }
       end
 
       # The unfiltered blog features its newest post on page 1, ahead of a
       # full page of cards.
-      def paginate(site, facet, facets, entries)
-        matching = if facet['kind'] == 'all'
-                     entries
-                   else
-                     entries.select { |e| BlogListings.values(e, facet['kind']).any? { |v| v['slug'] == facet['slug'] } }
-                   end
-        featured = facet['kind'] == 'all' ? matching.first : nil
+      def paginate(filters)
+        matching = @entries.select { |e| BlogListings.matches?(e, filters) }
+        base = BlogListings.filters_url(filters)
+        featured = filters.empty? ? matching.first : nil
         rest = featured ? matching.drop(1) : matching
         pages = rest.each_slice(POSTS_PER_PAGE).to_a
         pages = [[]] if pages.empty?
+        shared = {
+          'heading' => heading(filters),
+          'intro' => intro(filters),
+          'count' => matching.size,
+          'breadcrumbs' => breadcrumbs(filters),
+          'filters' => active_filters(filters),
+          'drawer' => drawer(filters),
+          'feed' => filters['category'] ? "#{filters['category']['url']}atom.xml" : '/atom.xml',
+        }
 
         pages.each_with_index do |page_entries, i|
           number = i + 1
-          url = BlogListings.page_url(facet['url'], number)
-          site.pages << ListingPage.new(site, url, {
-            'title' => title(facet, number, pages.size),
-            'description' => intro(site, facet) || description(facet),
+          @site.pages << ListingPage.new(@site, BlogListings.page_url(base, number), {
+            'title' => number > 1 ? "#{shared['heading']}, page #{number} of #{pages.size}" : shared['heading'],
+            'description' => intro(filters) || description(filters),
+            'noindex' => filters.key?('category') && filters.key?('year'),
             'blog_index' => true,
             'sidebar' => false,
             'feedback' => false,
-            'listing' => {
-              'heading' => heading(facet),
-              'intro' => intro(site, facet),
+            'listing' => shared.merge(
+              'is_index' => filters.empty? && number == 1,
               'entries' => page_entries,
               'featured' => number == 1 ? featured : nil,
-              'facet' => facet,
-              'facets' => facets,
               'page' => number,
               'total_pages' => pages.size,
-              'previous_url' => number > 1 ? BlogListings.page_url(facet['url'], number - 1) : nil,
-              'next_url' => number < pages.size ? BlogListings.page_url(facet['url'], number + 1) : nil,
-              'pages' => BlogListings.pagination_items(number, pages.size, facet['url']),
-              'compact_pages' => BlogListings.pagination_items(number, pages.size, facet['url'], compact: true),
-            },
+              'previous_url' => number > 1 ? BlogListings.page_url(base, number - 1) : nil,
+              'next_url' => number < pages.size ? BlogListings.page_url(base, number + 1) : nil,
+              'pages' => BlogListings.pagination_items(number, pages.size, base),
+              'compact_pages' => BlogListings.pagination_items(number, pages.size, base, compact: true),
+            ),
           })
         end
       end
 
-      def heading(facet)
-        case facet['kind']
-        when 'all' then 'Blog'
-        when 'category' then facet['label']
-        when 'author' then "Posts by #{facet['label']}"
-        when 'year' then "Posts from #{facet['label']}"
+      # The active filters for the toolbar's chips. Removing one keeps the
+      # others.
+      def active_filters(filters)
+        %w[category year author].filter_map do |kind|
+          facet = filters[kind] or next
+          { 'kind' => kind, 'label' => facet['label'], 'remove_url' => BlogListings.filters_url(filters.except(kind)) }
         end
       end
 
-      def title(facet, number, total)
-        number > 1 ? "#{heading(facet)}, page #{number} of #{total}" : heading(facet)
+      # The filters panel shows what each choice would give from this page:
+      # a category's years, or a year's categories, with their counts.
+      # Authors always lead to the author's full list.
+      def drawer(filters)
+        category, year, author = filters.values_at('category', 'year', 'author')
+        in_year = year ? @entries.select { |e| BlogListings.matches?(e, 'year' => year) } : @entries
+        in_category = category ? @entries.select { |e| BlogListings.matches?(e, 'category' => category) } : @entries
+
+        categories = BlogListings.facets(in_year, 'category').sort(&BY_COUNT).map do |c|
+          item(c['label'], c['count'], BlogListings.filters_url('category' => c, 'year' => year), category&.dig('slug') == c['slug'])
+        end
+        years = BlogListings.facets(in_category, 'year').sort_by { |y| -y['slug'].to_i }.map do |y|
+          item(y['label'], y['count'], BlogListings.filters_url('category' => category, 'year' => y), year&.dig('slug') == y['slug'])
+        end
+
+        {
+          'all_categories' => item('All posts', in_year.size, BlogListings.filters_url('year' => year), !category && !author),
+          'top_categories' => categories.first(7),
+          'more_categories' => categories.drop(7).sort_by { |c| c['label'].downcase },
+          'more_open' => categories.drop(7).any? { |c| c['current'] },
+          'all_years' => item('All', in_category.size, BlogListings.filters_url('category' => category), !year && !author),
+          'years' => years,
+          'authors' => @authors.map do |a|
+            item(a['label'], a['count'], a['url'], author&.dig('slug') == a['slug']).merge('avatar' => a['avatar'])
+          end,
+        }
+      end
+
+      def item(label, count, url, current)
+        { 'label' => label, 'count' => count, 'url' => url, 'current' => current }
+      end
+
+      def breadcrumbs(filters)
+        crumbs = [{ 'name' => 'Blog', 'url' => '/blog/' }]
+        crumbs << { 'name' => filters['category']['label'], 'url' => filters['category']['url'] } if filters['category'] && filters['year']
+        crumbs
+      end
+
+      def heading(filters)
+        category, year, author = filters.values_at('category', 'year', 'author')
+        if category && year then "#{category['label']} from #{year['label']}"
+        elsif category then category['label']
+        elsif author then "Posts by #{author['label']}"
+        elsif year then "Posts from #{year['label']}"
+        else 'Blog'
+        end
       end
 
       # The line under the heading: the blog's own, or a category's from
@@ -223,20 +300,22 @@ module Jekyll
       #     intro: Everything new in each monthly release.
       #
       # Other filtered pages have none.
-      def intro(site, facet)
-        case facet['kind']
-        when 'all' then description(facet)
-        when 'category' then site.data.dig('blog_categories', facet['slug'], 'intro')
-        end
+      def intro(filters)
+        return description(filters) if filters.empty?
+        return unless filters.keys == ['category']
+
+        @site.data.dig('blog_categories', filters['category']['slug'], 'intro')
       end
 
-      def description(facet)
-        case facet['kind']
-        when 'all' then 'News, release notes, and stories from the Home Assistant project and community.'
-        when 'category' then "Home Assistant blog posts in #{facet['label']}."
-        when 'author' then "Home Assistant blog posts by #{facet['label']}."
-        when 'year' then "Home Assistant blog posts from #{facet['label']}."
-        end
+      def description(filters)
+        return 'News, release notes, and stories from the Home Assistant project and community.' if filters.empty?
+
+        category, year, author = filters.values_at('category', 'year', 'author')
+        parts = []
+        parts << "in #{category['label']}" if category
+        parts << "by #{author['label']}" if author
+        parts << "from #{year['label']}" if year
+        "Home Assistant blog posts #{parts.join(' ')}."
       end
     end
   end

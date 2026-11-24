@@ -1,43 +1,40 @@
 {%- comment -%}
-  The blog's filters: the active filter, with a link to clear it, and a
-  Filters button that opens a drawer with every year, category and
-  author. The drawer is a side panel on wider screens and a bottom
-  sheet on phones.
+  The blog's filters: the active filters, each removable on its own, and
+  a Filters button that opens a drawer with every category, year and
+  author. The drawer's lists show what each choice gives from this page,
+  so a category's years, or a year's categories, combine the two. The
+  drawer is a side panel on wider screens and a bottom sheet on phones.
 
   Every filter is a link to a static page, so filtering works without
   JavaScript. The drawer opens with invoker commands (commandfor),
   with a small script for browsers that don't support them yet.
+  See plugins/blog_listings.rb for page.listing.
 {%- endcomment -%}
-{%- assign facets = page.listing.facets -%}
-{%- assign current = page.listing.facet -%}
-
-{%- case current.kind -%}
-  {%- when "category" -%}{%- assign active_prefix = "Category" -%}
-  {%- when "author" -%}{%- assign active_prefix = "Author" -%}
-  {%- when "year" -%}{%- assign active_prefix = "Year" -%}
-{%- endcase -%}
-
-{%- if current.kind == "category" -%}
-  {%- assign feed = current.url | append: "atom.xml" -%}
-{%- else -%}
-  {%- assign feed = "/atom.xml" -%}
-{%- endif -%}
+{%- assign listing = page.listing -%}
+{%- assign drawer = listing.drawer -%}
 
 <div class="blog-toolbar">
   <div class="blog-active-filter">
-    <span class="blog-chip active">
-      {%- if active_prefix %}<span class="blog-chip-prefix">{{ active_prefix }}:</span> {% endif -%}
-      {{ current.label }} <span class="blog-count">{{ current.count }}</span>
-    </span>
-    {%- if current.kind != "all" %}
-    <a class="blog-clear-filter" href="/blog/">Clear filter</a>
+    {%- if listing.filters.size == 0 %}
+    <span class="blog-chip active">All posts <span class="blog-count">{{ listing.count }}</span></span>
+    {%- else %}
+    {%- for filter in listing.filters %}
+    {%- capture prefix %}{% case filter.kind %}{% when "category" %}Category{% when "year" %}Year{% else %}Author{% endcase %}{% endcapture %}
+    <a class="blog-chip active" href="{{ filter.remove_url }}" aria-label="Remove filter {{ prefix }}: {{ filter.label }}">
+      <span><span class="blog-chip-prefix">{{ prefix }}:</span> {{ filter.label }}</span> {% icon "mdi:close" %}
+    </a>
+    {%- endfor %}
+    <span class="blog-result-count">{{ listing.count }} {% if listing.count == 1 %}post{% else %}posts{% endif %}</span>
+    {%- if listing.filters.size > 1 %}
+    <a class="blog-clear-filter" href="/blog/">Clear filters</a>
+    {%- endif %}
     {%- endif %}
   </div>
   <div class="blog-actions">
     <button type="button" class="blog-action blog-filters-button" commandfor="blog-filters" command="show-modal">
       {% icon "mdi:filter-variant" %} Filters
     </button>
-    <a class="blog-action blog-feed" href="{{ feed }}">{% icon "mdi:rss" %} <span>RSS</span></a>
+    <a class="blog-action blog-feed" href="{{ listing.feed }}">{% icon "mdi:rss" %} <span>RSS</span></a>
   </div>
 </div>
 
@@ -47,26 +44,21 @@
     <button type="button" class="blog-drawer-close" commandfor="blog-filters" command="close" aria-label="Close filters">{% icon "mdi:close" %}</button>
   </header>
   <div class="blog-drawer-body">
-    {%- assign top_categories = facets.categories | slice: 0, 7 -%}
-    {%- assign more_categories = facets.categories | slice: 7, 1000 | sort_natural: "label" -%}
-    {%- assign current_in_more = false -%}
-    {%- for facet in more_categories -%}
-      {%- if facet.url == current.url -%}{%- assign current_in_more = true -%}{%- endif -%}
-    {%- endfor %}
     <section>
       <h3>Category</h3>
       <ul>
-        <li><a href="/blog/"{% if current.kind == "all" %} aria-current="page"{% endif %}><span class="label">{{ facets.all.label }}</span> <span class="blog-count">{{ facets.all.count }}</span></a></li>
-        {%- for facet in top_categories %}
-        <li><a href="{{ facet.url }}"{% if facet.url == current.url %} aria-current="page"{% endif %}><span class="label">{{ facet.label }}</span> <span class="blog-count">{{ facet.count }}</span></a></li>
+        {%- assign item = drawer.all_categories %}
+        <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}><span class="label">{{ item.label }}</span> <span class="blog-count">{{ item.count }}</span></a></li>
+        {%- for item in drawer.top_categories %}
+        <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}><span class="label">{{ item.label }}</span> <span class="blog-count">{{ item.count }}</span></a></li>
         {%- endfor %}
       </ul>
-      {%- if more_categories.size > 0 %}
-      <details class="blog-drawer-more"{% if current_in_more %} open{% endif %}>
+      {%- if drawer.more_categories.size > 0 %}
+      <details class="blog-drawer-more"{% if drawer.more_open %} open{% endif %}>
         <summary>More categories</summary>
         <ul>
-          {%- for facet in more_categories %}
-          <li><a href="{{ facet.url }}"{% if facet.url == current.url %} aria-current="page"{% endif %}><span class="label">{{ facet.label }}</span> <span class="blog-count">{{ facet.count }}</span></a></li>
+          {%- for item in drawer.more_categories %}
+          <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}><span class="label">{{ item.label }}</span> <span class="blog-count">{{ item.count }}</span></a></li>
           {%- endfor %}
         </ul>
       </details>
@@ -75,25 +67,27 @@
     <section>
       <h3>Year</h3>
       <ul class="blog-drawer-years">
-        {%- for facet in facets.years %}
-        <li><a href="{{ facet.url }}"{% if facet.url == current.url %} aria-current="page"{% endif %}>{{ facet.label }}</a></li>
+        {%- assign item = drawer.all_years %}
+        <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- for item in drawer.years %}
+        <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
         {%- endfor %}
       </ul>
     </section>
     <section>
       <h3>Author</h3>
       <ul>
-        {%- for facet in facets.authors %}
-        <li><a href="{{ facet.url }}"{% if facet.url == current.url %} aria-current="page"{% endif %}>
-          {%- if facet.avatar %}<img src="{{ facet.avatar }}" alt="" width="24" height="24" loading="lazy" />{% else %}<span class="avatar-placeholder" aria-hidden="true"></span>{% endif %}
-          <span class="label">{{ facet.label }}</span> <span class="blog-count">{{ facet.count }}</span></a></li>
+        {%- for item in drawer.authors %}
+        <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>
+          {%- if item.avatar %}<img src="{{ item.avatar }}" alt="" width="24" height="24" loading="lazy" />{% else %}<span class="avatar-placeholder" aria-hidden="true"></span>{% endif %}
+          <span class="label">{{ item.label }}</span> <span class="blog-count">{{ item.count }}</span></a></li>
         {%- endfor %}
       </ul>
     </section>
   </div>
   <footer class="blog-drawer-footer">
-    {%- if current.kind != "all" %}
-    <a href="/blog/">Clear filter</a>
+    {%- if listing.filters.size > 0 %}
+    <a href="/blog/">Clear filters</a>
     {%- else %}
     <span></span>
     {%- endif %}

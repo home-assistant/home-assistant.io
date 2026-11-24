@@ -109,6 +109,29 @@ $desk: 1200px;
   }
 }
 
+// A filter chip is a link that removes that filter.
+a.blog-chip.active {
+  transition: background-color 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--blog-highlight-shade);
+    border-color: var(--blog-highlight-shade);
+    color: var(--blog-inverse);
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--blog-ink);
+    outline-offset: 2px;
+  }
+}
+
+.blog-result-count {
+  color: var(--blog-muted);
+  font-size: 0.875rem;
+}
+
 .blog-clear-filter {
   color: var(--blog-link);
   font-size: 0.875rem;
