@@ -109,6 +109,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Thermostat II or Room Thermostat II that supports display configuration gets a **Display brightness** value (0 to 100 %) and a **Display on-time** value (0 to 3600 seconds), controlling how bright the display is and how long it stays on after a button press.
 - A Micromodule Dimmer that supports calibration gets a **Minimum brightness** and a **Maximum brightness** value (0 to 100 %), setting the lowest and highest brightness the dimmer outputs.
 - A Heating circuit gets an **Eco temperature** and a **Comfort temperature** value, setting the temperatures used by the eco and comfort levels within the range the controller allows.
+- An Outdoor Siren gets configuration values for the **Siren alarm duration** and **Flashing light alarm duration** (1 to 15 minutes), and the **Siren alarm delay** and **Flashing light alarm delay** (0 to 180 seconds).
 
 ### Select
 
