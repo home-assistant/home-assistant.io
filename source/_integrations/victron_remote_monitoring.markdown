@@ -79,7 +79,7 @@ Solar production forecasts can be added to the built-in [Energy dashboard](/docs
 
 ### To add Victron Remote Monitoring to the Energy dashboard
 
-1. Go to {% my energy title="**Settings** > **Dashboards** > **Energy**" %}.
+1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
 2. In the **Solar panels** section, select your solar panels.
 3. Under **Solar production forecast**, select your Victron Remote Monitoring installation.
 4. Select **Save**. 
