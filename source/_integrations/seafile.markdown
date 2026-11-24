@@ -109,7 +109,6 @@ The following examples use a library named **Documents** and a library named **L
 
 {% include docs/paste_yaml_tip.md %}
 
-The following examples use a library named **Documents** and a library named **Laptop backup**. Replace the entity IDs with those of your own libraries.
 
 ### Automation: Notify when a library grows too large
 
