@@ -81,7 +81,7 @@ The group state is its HVAC mode:
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
-- Otherwise, the group state is the highest-priority HVAC mode of its members, in this order: `heat`, `cool`, `heat_cool`, `auto`, `dry`, `fan_only`, `off`. This means the group is only `off` when all available members are `off`.
+- Otherwise, the group state is the highest-priority HVAC mode of its members, in this order: `heat`, `cool`, `heat_cool`, `auto`, `dry`, `fan_only`, `off`. This means the group is only `off` when all members with a known state are `off`. The group ignores members that are `unknown` or `unavailable`.
 
 The other values of the group are combined from its members:
 
@@ -90,7 +90,7 @@ The other values of the group are combined from its members:
 - **Minimum and maximum temperature and humidity**: The range that every member accepts. This is the highest minimum and the lowest maximum of the members, so any value you set on the group is accepted by all members.
 - **Temperature and humidity step**: The largest step of the members.
 - **Available modes**: All HVAC, fan, preset, and swing modes of the members.
-- **Current fan, preset, and swing mode**: The mode used by most members. If there is a tie, the mode of the first member in the group is used.
+- **Current fan, preset, and swing mode**: The mode used by most members. If there is a tie, the group uses the tied mode that comes first in the member list.
 
 When you control the group:
 
