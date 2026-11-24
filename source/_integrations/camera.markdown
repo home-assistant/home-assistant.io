@@ -39,7 +39,7 @@ Prerequisites:
 - You open Home Assistant in one of these ways:
   - In a browser or a Home Assistant app, using an HTTPS address. Browsers only allow access to the microphone over a secure connection.
   - In the Home Assistant app on iPhone or iPad, version 2026.10.3 or later. The app also supports two-way audio over HTTP.
-  - In the Home Assistant app on Android, version ANDROID_VERSION or later. The app also supports two-way audio over HTTP.
+  - In the Home Assistant app on Android, version 2026.12.1 or later. The app also supports two-way audio over HTTP.
 
 To talk through a camera:
 
@@ -110,7 +110,7 @@ Browsers only allow access to the microphone over a secure connection. You opene
 
 - Open Home Assistant using an HTTPS address, for example through [Home Assistant Cloud](/cloud/).
 - If you use an iPhone or iPad, update the Home Assistant app to version 2026.10.3 or later. This version supports two-way audio over HTTP.
-- If you use an Android device, update the Home Assistant app to version ANDROID_VERSION or later. This version supports two-way audio over HTTP.
+- If you use an Android device, update the Home Assistant app to version 2026.12.1 or later. This version supports two-way audio over HTTP.
 
 When the problem is solved, you can select **Start talking**.
 
