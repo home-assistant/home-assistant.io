@@ -120,7 +120,14 @@ A sensor shows as unknown while the device has no reading for it.
   - **Unit**: ppm (parts per million)
   - **Measurement type**: Air quality/VOC level
   - **Remarks**: Higher values indicate lower air quality and may trigger automatic ventilation adjustments.
-  - **Available for devices**: Ecocomfort 2.0 and Ecocomfort 3
+  - **Available for devices**: Ecocomfort 2.0
+
+- **Estimated carbon dioxide**
+  - **Description**: An estimated carbon dioxide (eCO₂) level derived from volatile organic compounds.
+  - **Unit**: ppm (parts per million)
+  - **Measurement type**: Estimated carbon dioxide
+  - **Remarks**: This is an estimate, not a direct carbon dioxide measurement. Solvents and cooking can also affect the reading.
+  - **Available for devices**: Ecocomfort 3
 
 ## Data updates
 
