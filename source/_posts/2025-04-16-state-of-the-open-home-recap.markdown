@@ -4,6 +4,8 @@ title: "2 million homes strong: State of the Open Home 2025"
 description: "We celebrate the biggest moments of 2025, the community, and look forward to what’s next."
 date: 2025-04-16 00:00:01
 date_formatted: "April 16, 2025"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Paulus Schoutsen
 comments: true
 categories: 
@@ -12,6 +14,10 @@ categories:
 og_image: /images/blog/2025-04-SOTOH/art.jpg
 ---
 <lite-youtube videoid="o4Vctz1_KYE" videotitle="State of the Open Home 2025"></lite-youtube>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 The State of the Open Home 2025 has wrapped, and a big thanks to everyone who tuned in to the live stream! If you missed it, please [check out the recording](https://www.youtube.com/live/o4Vctz1_KYE?si=U7oCoNE0TLsWoUX8&t=601), it's a slick production and definitely the best way to take it all in. For those who would rather read about all the updates and announcements, we've also got you covered with this blog.
 

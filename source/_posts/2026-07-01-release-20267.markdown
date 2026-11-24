@@ -4,6 +4,8 @@ title: "2026.7: Automations that speak your language"
 description: "Purpose-specific triggers and conditions graduate from Labs to become the new default, letting your automations describe what you want instead of the technical building blocks underneath. The logbook is rebuilt into the new Activity timeline, an update-all button, dedicated infrared and radio frequency panels, an overhauled ZHA Zigbee device management, and 10 new integrations from the community!"
 date: 2026-07-01 00:00:00
 date_formatted: "July 1, 2026"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
@@ -175,7 +177,7 @@ Not anymore. This release reorganizes the updates page around how you actually t
 Instead of one long, flat list, your pending updates are now grouped into clear cards, each covering a part of your setup:
 
 - **Home Assistant** sits right at the top, with Core, the Operating System, and the Supervisor. These run the core of your system, so they're kept on their own, without an **Update all** button. You apply them yourself, on purpose.
-- **Integrations with several pending updates** get a card of their own. Those seven ESPHome devices? Bundled together, so a single selection brings them all up to date. The same goes for a stack of <abbr title="Home Assistant Community Store">HACS</abbr> integrations waiting on a new version.
+- **Integrations with several pending updates** get a card of their own. Those seven ESPHome devices? Bundled together, so a single selection brings them all up to date. The same goes for a stack of integrations from the Marketplace (formerly known as <abbr title="Home Assistant Community Store">HACS</abbr>) waiting on a new version.
 - **Integrations** gathers the remaining one-off integration updates into one tidy card.
 - **Apps** does the same for your apps (used to be called add-ons).
 - **Skipped** updates show up in their own card once you turn on **Show skipped updates**. Keeping them separate means they never get swept along by an **Update all** you didn't intend for them.
