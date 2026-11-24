@@ -94,7 +94,7 @@ The other values of the group are combined from its members:
 
 When you control the group:
 
-- A new target temperature, temperature range, or humidity is only sent to the members that support it.
+- A new target temperature, temperature range, or humidity is only sent to the members that support it. If the action also sets an HVAC mode, it is only sent to the members that support that mode.
 - A new HVAC, fan, preset, or swing mode is only sent to the members that support that mode.
 - Turning on the group turns on all members that support it.
 
