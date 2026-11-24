@@ -5,6 +5,7 @@ domain: recorder
 response: required
 description: "Retrieves long-term statistics for one or more entities."
 related_actions:
+  - recorder.get_history
   - recorder.purge
   - recorder.purge_entities
   - recorder.enable
@@ -16,7 +17,7 @@ Use this action to retrieve long-term statistics, such as the mean, minimum, max
 Only users with administrator rights can run this action.
 
 {% note %}
-Statistics are only available for entities that store {% term "Long-term statistics" %}.
+Statistics are only available for entities that store {% term "Long-term statistics" %}. For other entities (or to retrieve raw state transitions), use [`recorder.get_history`](/actions/recorder.get_history/) instead.
 {% endnote %}
 
 {% include actions/ui_header.md %}
@@ -135,7 +136,7 @@ statistics:
 
 ## Good to know
 
-- Only entities that store {% term "Long-term statistics" %} return data. If an entity has no statistics, it is not included in the response.
+- Only entities that store {% term "Long-term statistics" %} return data. If an entity has no statistics, it is not included in the response. For other entities (or to retrieve raw state transitions), use [`recorder.get_history`](/actions/recorder.get_history/) instead.
 - The value types you set in **Types** decide which fields each period contains, on top of the start and end that are always present.
 
 {% include actions/stuck.md %}

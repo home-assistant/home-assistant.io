@@ -5,9 +5,9 @@ related:
     title: Create a $13 voice assistant
   - docs: /voice_control/create_wake_word/
     title: Create your own wake words
-  - docs: /voice_control/voice_remote_cloud_assistant/)
-    title: Create a cloud assistant
-  - docs: /voice_control/voice_remote_local_assistant/)
+  - docs: /voice_control/voice_remote_cloud_assistant/
+    title: Create an assistant with Home Assistant Link
+  - docs: /voice_control/voice_remote_local_assistant/
     title: Create a local assistant
   - docs: /voice_control/best_practices/)
     title: Best practices with Assist

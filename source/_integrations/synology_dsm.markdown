@@ -146,6 +146,22 @@ To restart or shut down the NAS from an automation or a script, target the butto
   - **Description**: The mode of the system fan speed, if your NAS supports it.
   - **Options**: Low-Power mode (_only supported on some devices_), Quiet mode, Cool mode, Full-speed mode.
 
+## Updates
+
+### DSM update
+
+Entity showing the installed DSM version and the latest version available for your NAS, with a link to the release notes.
+
+### Package updates
+
+An entity is created for each package installed on the NAS and named after the package, like **Audio Station update**. It shows the installed version and the latest version available in Package Center. Where available, it includes the release notes and a link to the full release notes on the Synology website. Packages that Package Center doesn't list are not included. Entities are added automatically for packages you install later, and the entity of a package you uninstall becomes unavailable.
+
+The latest version is unknown if the NAS can't load the Package Center catalog, for example without internet access, or if the package isn't in it, such as packages from other sources.
+
+{% note %}
+The update entities are read-only. Installing updates from Home Assistant isn't supported, so they don't appear under **Settings** > **Updates**. You can still see them on the device page and use them in automations.
+{% endnote %}
+
 ## Media source
 
 A media source is provided for your [Synology Photos](https://www.synology.com/en-global/dsm/feature/photos).

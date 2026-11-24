@@ -177,7 +177,7 @@ When the backup software on your NAS finishes a job, it can send a JSON request 
   - **Webhook ID**: The ID that Home Assistant generated
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-  - **Message**: The message from the request ({% raw %}`{{ trigger.json.message }}`{% endraw %})
+  - **Message**: The message from the request (`{{ trigger.json.message }}`)
 
 {% details "YAML example for forwarding a message from the request" %}
 
