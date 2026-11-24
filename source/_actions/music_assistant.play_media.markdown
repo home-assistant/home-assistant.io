@@ -19,7 +19,7 @@ To play media from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Music Assistant media player you want to play media on.
-6. From the actions shown for that target, select **Play media**.
+6. From the actions shown for that target, under **Music Assistant**, select **Play media**.
 7. Fill in the options you want to use.
 8. Select **Save**.
 
@@ -38,6 +38,8 @@ Enqueue:
   description: Whether the content should be played now or added to the queue.
 Enable radio mode:
   description: Turns on radio mode to auto-generate a playlist based on the selection.
+Shuffle:
+  description: Whether to play the content in randomized order. Only applies when the content starts playing right away. When left empty, the queue's shuffle setting and the type of content decide.
 Start item:
   description: "The item to start playback from, instead of the first one. Use `latest` to play a podcast from its newest episode, or enter the URI, ID, or part of the name (at least 3 characters) of the track or episode to start from."
 Username:
@@ -85,6 +87,11 @@ radio_mode:
   required: false
   type: boolean
   default: false
+shuffle:
+  description: Whether to play the content in randomized order. Only applies when the content starts playing right away.
+  required: false
+  type: boolean
+  default: "Decided by the queue's shuffle setting and the type of content"
 start_item:
   description: "The item to start playback from, instead of the first one. Use `latest` (or `newest`) to play a podcast from its newest episode, or give the URI, ID, or part of the name (at least 3 characters) of the track or episode to start from."
   required: false
@@ -114,6 +121,18 @@ action: |
 {% endexample %}
 
   Some providers, such as Spotify, refresh their episode lists less often, so the newest episode they offer can lag behind the podcast's own feed.
+- To start an album or playlist shuffled regardless of the current shuffle setting of the queue, set `shuffle` to `true`. There is no need to call `media_player.shuffle_set` first:
+
+{% example %}
+action: |
+  action: music_assistant.play_media
+  target:
+    entity_id: media_player.kitchen_speaker
+  data:
+    media_id: spotify://playlist/aabbccddeeff
+    enqueue: replace
+    shuffle: true
+{% endexample %}
 
 {% include actions/try_it.md %}
 

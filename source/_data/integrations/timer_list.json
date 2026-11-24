@@ -1,0 +1,10 @@
+{
+  "domain": "timer_list",
+  "name": "Timer list",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core",
+    "@synesthesiam"
+  ],
+  "quality_scale": "internal"
+}

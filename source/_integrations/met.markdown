@@ -1,18 +1,7 @@
 ---
-title: Meteorologisk institutt (Met.no)
 description: Instructions on how to integrate Met.no with Home Assistant.
-ha_category:
-  - Weather
 ha_release: 0.79
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@danielhiversen'
 ha_domain: met
-ha_platforms:
-  - diagnostics
-  - weather
-ha_integration_type: service
 related:
   - docs: /integrations/weather/
     title: Weather entity
@@ -29,12 +18,8 @@ By default, the integration uses your Home Assistant [home location](/docs/confi
 ## Configuration options
 
 {% configuration_basic %}
-Name:
-  description: "A name for this weather location. It is shown in the UI and used to form the entity ID."
-Latitude:
-  description: "The latitude of the location for which to retrieve weather data."
-Longitude:
-  description: "The longitude of the location for which to retrieve weather data."
+Location:
+  description: "The location for which to retrieve weather data."
 Elevation:
   description: "The elevation (in meters) of the location. This affects the accuracy of the temperature forecast, especially in mountainous areas."
 {% endconfiguration_basic %}

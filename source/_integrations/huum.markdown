@@ -1,33 +1,12 @@
 ---
-title: Huum
 description: Instructions on how to integrate Huum saunas into Home Assistant.
 ha_release: 2024.2
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@frwickst'
-  - '@vincentwolsink'
 ha_domain: huum
-ha_integration_type: device
-ha_config_flow: true
-ha_quality_scale: silver
 related:
   - url: https://huum.eu/
     title: Huum
   - url: https://huum.eu/products/uku-wifi/
     title: Huum UKU WiFi smart sauna control system
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - light
-  - number
-  - sensor
-ha_category:
-  - Binary sensor
-  - Climate
-  - Light
-  - Number
-  - Sensor
 ---
 
 The **Huum** {% term integration %} lets you monitor and control your [Huum](https://huum.eu/) sauna from Home Assistant. Huum manufactures electric sauna heaters with smart connectivity, allowing you to adjust the temperature and, when your sauna controller supports these features, control the light and manage the steamer humidity level right from your dashboard.
@@ -75,13 +54,16 @@ The **Huum** integration provides the following entities.
 ### Numbers
 
 - **Humidity**
-  - **Description**: Controls the steamer to adjust the sauna humidity level (0-40%).
-  - **Remarks**: Only available if the sauna controller is configured with a steamer or a steamer and light combination. The humidity level can only be changed while the sauna is actively heating.
+  - **Description**: Controls the steamer to adjust the sauna humidity level, in percent.
+  - **Remarks**: Only available if the sauna controller is configured with a steamer or a steamer and light combination. The humidity level can only be changed while the sauna is actively heating. The highest level you can set depends on the target temperature and is reported by the sauna controller. For example, up to 90% is allowed at 45 °C, but only 10% at 90 °C.
 
 ### Sensors
 
 - **Temperature**
   - **Description**: Shows the current sauna temperature in degrees Celsius.
+- **Measured humidity**
+  - **Description**: Shows the relative humidity measured in the sauna, in percent.
+  - **Remarks**: Only available if the sauna controller reports a measured humidity value. This is the actual humidity in the sauna, not the steamer setting of the **Humidity** number entity.
 
 ## Examples
 
@@ -100,7 +82,8 @@ The **Huum** integration {% term polling polls %} the Huum cloud service every 3
 ## Known limitations
 
 - The light and steamer entities are only available when the corresponding hardware is configured on the sauna controller.
-- The steamer humidity level can only be adjusted while the sauna is actively heating.
+- The **Measured humidity** sensor is only available when the sauna controller reports a measured humidity value.
+- The steamer humidity level can only be adjusted while the sauna is actively heating, and only up to the maximum the sauna controller allows for the target temperature.
 - The target temperature can only be changed while the sauna is in heat mode.
 - The integration applies the same safety measures as the Huum app. If a safety condition is triggered (for example, the sauna door is open), the sauna will not turn on.
 
@@ -152,7 +135,8 @@ The **Huum** integration {% term polling polls %} the Huum cloud service every 3
 
 1. The target temperature and humidity level can only be changed while the sauna is in heat mode. Make sure the sauna is actively heating.
 2. If the door sensor indicates the door is open, the sauna will not turn on. Close the door and try again.
-3. Confirm you can adjust the settings through the Huum app. If the app also shows restrictions, the issue is with the sauna controller.
+3. If you cannot set a higher humidity level, check the maximum shown on the **Humidity** entity. The higher the target temperature, the lower the steamer level the sauna controller allows.
+4. Confirm you can adjust the settings through the Huum app. If the app also shows restrictions, the issue is with the sauna controller.
 
 {% enddetails %}
 

@@ -38,7 +38,11 @@ The full brand personality guide is at [`personality.markdown`](https://raw.gith
 - Use the Oxford comma.
 - Follow grammar and syntax rules. End sentences with a period.
 - Do not put two spaces after a period.
-- Use flowing text in Markdown files. Do not enforce arbitrary line wrapping for prose.
+- In Markdown files, write each sentence of a paragraph on its own line, with a single line break.
+  Do not wrap lines at a fixed width.
+  This is recommended, but optional, and keeping a whole paragraph on a single line is still fine.
+  When you change a paragraph that is on a single line, split only that paragraph into sentences, and leave the other paragraphs as they are.
+  Do not make edits that only change how paragraphs are split into lines.
 - Do not use all caps for emphasis. Use italics only when emphasis is needed.
 - Use **bold** for UI strings. Do not use bold for emphasis or as a heading replacement.
 - Use UI breadcrumbs in this format: **Settings** > **Devices & services**.
@@ -49,6 +53,7 @@ The full brand personality guide is at [`personality.markdown`](https://raw.gith
 - Do not use "master/slave". Use alternatives such as "client/server", "leader/follower", "main/replica", or "controller/device".
 - Match the official capitalization of brand names, services, protocols, integrations, and platforms. For example, use "Z-Wave", not "Zwave", "Z-wave", "Z Wave", or "ZWave".
 - Follow the terminology rules listed in `.textlintrc.json`.
+- For textlint commands, follow the linting guidance in `home-assistant-markdown-liquid-style`.
 
 ## Lists
 
@@ -62,6 +67,15 @@ The full brand personality guide is at [`personality.markdown`](https://raw.gith
 
 ## Content structure
 
+The [topic-based authoring guide](https://contributors.home-assistant.io/writing/guides/structure/) defines topic types, headings, and what goes in each section.
+Before you add or restructure a section, read the guide.
+Fetch the Markdown version at `https://contributors.home-assistant.io/writing/guides/structure/index.md`.
+Do not work from memory or from general technical writing conventions, because the guide differs from them in several places.
+
+- Organize each section around one purpose: concept, task, reference, tutorial, or troubleshooting.
+- Keep setup instructions in task sections, options and defined behavior in reference sections, and problem resolution in troubleshooting sections.
+- When a feature is configurable from the UI, document the UI path and options before supported YAML or command-line alternatives.
+- For pages with dedicated documentation guidance, follow that guidance first, then apply topic-based authoring.
 - Start pages with a brief overview or introduction.
 - Use progressive disclosure: basic information first, more complex details later.
 - Break longer content into logical sections with clear headings.
@@ -70,26 +84,36 @@ The full brand personality guide is at [`personality.markdown`](https://raw.gith
 - Foster internal linking when it helps readers find related information.
 - Use relevant long-tail words, phrases, and keywords only when they fit naturally.
 
+### Topic types and headings
+
+Decide the topic type of each section before you write its heading.
+Then follow the heading and content rules for that type in the guide:
+
+- [Concept](https://contributors.home-assistant.io/writing/guides/structure/#concept)
+- [Task](https://contributors.home-assistant.io/writing/guides/structure/#task)
+- [Reference](https://contributors.home-assistant.io/writing/guides/structure/#reference)
+- [Tutorial](https://contributors.home-assistant.io/writing/guides/structure/#tutorial)
+- [Troubleshooting](https://contributors.home-assistant.io/writing/guides/structure/#troubleshooting)
+
+These rules are easy to get wrong, so check them explicitly:
+
+- Task headings name the action and its object, in one of the forms the guide lists: an `-ing` phrase, or an imperative for the stages of a longer procedure. Other forms, like "To ..." headings, do not match.
+- Sibling task headings use the same grammatical form. Sibling headings of different topic types, like "Areas", "Creating an area", and "Area settings", do not need to match.
+- Task prerequisites go directly before the steps, under a `Prerequisites:` lead-in. Use a `Prerequisites` heading only when the requirements apply to the whole page.
+- Troubleshooting puts each problem in its own `{% details %}` block, not under its own heading. The block title is the symptom or the exact error message the reader sees.
+
+### Check the structure before you finish
+
+List every heading and details block title you added or changed, with its topic type.
+Compare each one with the heading rules for that type in the guide, and fix any mismatch.
+
 ## Integration and platform content
 
+- For integration, trigger, condition, and action pages, follow their dedicated structure and templates first, then apply topic-based authoring.
 - Start with the UI path when an integration can be set up from the UI.
 - Include reusable snippets like `{% include integrations/config_flow.md %}` when they apply.
 - Use `source/_integrations/_integration_docs_template.markdown` as the starting point for integration pages.
-- Keep integration pages close to the current template structure:
-  - Introduction
-  - Supported devices
-  - Unsupported devices
-  - Prerequisites
-  - Configuration
-  - Configuration options
-  - Supported functionality
-  - Triggers, conditions, and actions
-  - Examples
-  - Data updates
-  - Known limitations
-  - Troubleshooting
-  - Community notes
-  - Removing the integration
+- Follow the section order and section formats in [Integration page structure](https://contributors.home-assistant.io/writing/reference/integration-page/). Fetch the Markdown version at `https://contributors.home-assistant.io/writing/reference/integration-page/index.md`.
 - Document triggers, conditions, and actions in separate files under `source/_triggers`, `source/_conditions`, and `source/_actions`, and include them from the integration page.
 - Use `document-integration-docs` when creating or substantially updating integration documentation.
 
@@ -99,7 +123,7 @@ When a feature is deprecated or an integration is removed from Home Assistant, r
 
 - If a feature is deprecated, remove the related section from the integration page.
 - Do not add a deprecation notice to the documentation.
-- If an entire integration is deprecated, follow the steps on [removing an integration page](https://developers.home-assistant.io/docs/documenting/remove-page).
+- If an entire integration is deprecated, follow the steps on [removing an integration page](https://contributors.home-assistant.io/writing/guides/move-or-remove/).
 
 ## Other documentation rules
 

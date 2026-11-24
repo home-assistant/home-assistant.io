@@ -1,15 +1,7 @@
 ---
-title: Recorder
 description: Instructions on how to configure the data recorder for Home Assistant.
-ha_category:
-  - History
 ha_release: pre 0.7
-ha_quality_scale: internal
 ha_domain: recorder
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: system
 related:
   - docs: /integrations/sql/
     title: SQL integration

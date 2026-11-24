@@ -1,15 +1,7 @@
 ---
-title: Siren
 description: Instructions on how to set up siren devices within Home Assistant.
-ha_category:
-  - Siren
 ha_release: '2021.8'
 ha_domain: siren
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-  - '@raman325'
-ha_integration_type: entity
 ---
 
 The **Siren** {% term integration %} lets you control siren and chime devices and build automations around when they turn on or off.

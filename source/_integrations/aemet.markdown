@@ -1,21 +1,7 @@
 ---
-title: AEMET OpenData
 description: Instructions on how to integrate AEMET OpenData within Home Assistant.
 ha_release: 2021.3
-ha_category:
-  - Sensor
-  - Weather
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: aemet
-ha_platforms:
-  - diagnostics
-  - image
-  - sensor
-  - weather
-ha_integration_type: service
-ha_codeowners:
-  - '@Noltari'
 ---
 
 The **AEMET** {% term integration %} uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.
@@ -29,6 +15,8 @@ There is currently support for the following entity types within Home Assistant:
 You need an API key, which is free but requires a [registration](https://opendata.aemet.es/centrodedescargas/altaUsuario).
 The AEMET OpenData service is completely free but is limited to the Spanish territory.
 
+New AEMET API keys expire after 3 months, and older keys without an expiration date are being retired. When AEMET rejects your key, Home Assistant asks you to enter a new one. For the steps, refer to [Troubleshooting](#troubleshooting).
+
 ## Configuration
 
 To add AEMET OpenData integration go to {% my integrations title="**Settings** > **Devices & services**" %} and find the integration in the list.
@@ -36,13 +24,16 @@ To add AEMET OpenData integration go to {% my integrations title="**Settings** >
 {% configuration_basic %}
 API Key:
   description: "API Key from the website"
-Name:
-  description: "Name of the integration"
-Latitude:
-  description: "Latitude for weather forecast and sensor"
-Longitude:
-  description: "Longitude for weather forecast and sensor"
+Location:
+  description: "Latitude and longitude for weather forecast and sensor"
 {% endconfiguration_basic %}
+
+To replace your API key before it expires, without removing the integration:
+
+1. Request a new API key on the [AEMET OpenData registration page](https://opendata.aemet.es/centrodedescargas/altaUsuario).
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **AEMET OpenData**.
+3. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+4. Enter the new API key and select **Submit**.
 
 The integration creates one weather entity per forecast mode and also sensors for all available conditions. There are two forecast modes, `daily` for daily forecast up to 6 days or `hourly` for an hourly forecast up to 3 days.
 
@@ -73,6 +64,27 @@ For each condition, the following sensors are created:
 The integration creates an image entity for the weather radar if the radar option is enabled.
 
 Details about the API are available in the [AEMET OpenData documentation](https://opendata.aemet.es/dist).
+
+## Troubleshooting
+
+{% details "The API key is invalid or has expired" %}
+
+### Symptom: The API key is invalid or has expired
+
+In {% my integrations title="**Settings** > **Devices & services**" %}, **AEMET OpenData** is listed under **Attention required**, and the AEMET entities are unavailable. The Home Assistant log shows "The AEMET OpenData API key is invalid or has expired".
+
+#### Description
+
+New AEMET API keys expire after 3 months. AEMET is also retiring older keys that were issued without an expiration date. Until they are fully retired, AEMET rejects these older keys more and more often, so replace an older key as soon as you can. When AEMET rejects the key, Home Assistant stops updating the AEMET data and asks you for a new key.
+
+#### Resolution
+
+1. Request a new API key on the [AEMET OpenData registration page](https://opendata.aemet.es/centrodedescargas/altaUsuario).
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **AEMET OpenData**.
+3. Under **Needs attention**, next to your AEMET entry, select **Reconfigure**.
+4. Enter the new API key and select **Submit**.
+
+{% enddetails %}
 
 ## Removing the integration
 

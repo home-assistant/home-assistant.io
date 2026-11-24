@@ -1,23 +1,7 @@
 ---
-title: Flexit Nordic (BACnet)
 description: Instructions on how to integrate Flexit air handling unit into Home Assistant.
-ha_category:
-  - Climate
 ha_release: 2024.1
-ha_iot_class: Local Polling
 ha_domain: flexit_bacnet
-ha_platforms:
-  - binary_sensor
-  - climate
-  - number
-  - sensor
-  - switch
-ha_integration_type: device
-ha_codeowners:
-  - '@lellky'
-  - '@piotrbulinski'
-ha_config_flow: true
-ha_quality_scale: silver
 ---
 
 Integrates [Flexit](https://www.flexit.no/en/) Nordic series air handling unit into Home Assistant.
@@ -60,6 +44,7 @@ The integration adds entities for sensors with different readings from the devic
  - Supply air temperature 
  - Exhaust air temperature
  - Extract air temperature
+ - Extract air humidity (only on units with a built-in humidity sensor)
  - Room temperature
  - Fireplace ventilation remaining duration
  - Rapid ventilation remaining duration

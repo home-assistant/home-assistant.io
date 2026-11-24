@@ -24,8 +24,12 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Update is not available**.
 5. Select what you want to check. Under **By target** (see [Targets](#targets)),
-   pick the device, area, floor, label, or specific update entity you want to
-   evaluate.
+   select the update entities you want to check, or a label that you assigned
+   to them.
+   If you select a device, area, or floor instead, update entities marked as
+   configuration or diagnostic entities are not included. This is common for
+   device firmware updates. For details, refer to
+   [Entities that are not part of a target](/docs/automation/targets/#entities-that-are-not-part-of-a-target).
 6. Under **Condition passes if** (see
    [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the update must have stayed up to
@@ -71,9 +75,9 @@ behavior:
 for:
   description: >
     How long the update must have stayed up to date before the condition
-    passes. Use the `HH:MM:SS` format, like `00:10:00` for 10 minutes.
+    passes. Use the `HH:MM:SS` format, like `00:10:00` for 10 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -85,10 +89,7 @@ for:
 
 - This condition checks update entities whose state is `off`, which means no
   update is available.
-- Entities in the `unavailable` or `unknown` state are ignored.
-- With **All**, the condition passes only if every available targeted update is
-  up to date. If every targeted entity is `unavailable` or `unknown`, **All**
-  passes and **Any** fails.
+{% include conditions/unavailable_targets.md entities="update entities" %}
 - If you use `for`, each matching update must stay up to date for the full time
   you set.
 
@@ -130,11 +131,12 @@ automation: |
 
 If you have created a script for a routine that should run only after updates
 are done, this automation can wait until every targeted update entity is back
-to up to date.
+to up to date. The **Upstairs updates** label is assigned to the update entities
+themselves.
 
 - **Trigger**: Time: 22:00
 - **Condition**: Update is not available
-  - **Target**: Upstairs update label
+  - **Target**: Upstairs updates label
   - **Condition passes if**: All
 - **Action**: Run script
 

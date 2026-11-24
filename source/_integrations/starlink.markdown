@@ -1,27 +1,7 @@
 ---
-title: Starlink
 description: Instructions on how to integrate Starlink into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Device tracker
-  - Network
-  - Sensor
-  - Switch
-  - Time
 ha_release: 2023.2
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: starlink
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - sensor
-  - switch
-  - time
-ha_integration_type: device
 ---
 
 The **Starlink** {% term integration %} allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.

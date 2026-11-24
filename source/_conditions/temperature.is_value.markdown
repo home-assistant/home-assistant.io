@@ -97,7 +97,7 @@ This passes when the living room temperature sensor reads between 20 and 22°C.
    unit_example_value="22"
    threshold_required="true" %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="temperature sensor, thermostat, water heater, or weather entity" example="sensor.living_room_temperature" %}
 
 {% include conditions/behavior.md %}
 
@@ -106,7 +106,7 @@ This passes when the living room temperature sensor reads between 20 and 22°C.
 - The target must provide a current temperature reading.
 - Supported target types are temperature sensors, climate entities, water heater entities, and weather entities.
 - Climate, water heater, and weather entities must expose a current temperature attribute. Entities without a valid temperature value are excluded automatically from evaluation.
-- Entities that have an `unavailable` or `unknown` state are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md %}
 - This condition checks the entity's current temperature reading, not its target setpoint. To check a climate device's target setpoint instead, use the climate target temperature condition.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
 - All temperature values are automatically converted to the unit you specify. For example, if your sensor reports in Fahrenheit but you configure the condition in Celsius, the conversion happens automatically.
@@ -207,8 +207,9 @@ When the bedroom temperature is already within your comfort range, this automati
 
 - **Trigger**: Time pattern
   - **Minutes**: `/30`
-- **Condition**: Temperature (in range, using number helpers)
+- **Condition**: Temperature value
   - **Target**: Bedroom temperature sensor
+  - **Threshold type**: In range, from the Comfort temperature min to the Comfort temperature max number helper
   - **Condition passes if**: Any
 - **Action**: Set thermostat HVAC mode (state: off)
 

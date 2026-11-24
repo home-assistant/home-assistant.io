@@ -20,7 +20,7 @@ To send a PCK command from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **LCN: PCK**.
-6. Select the LCN module or group in the **Device** field and enter the **PCK** command.
+6. Select the LCN module or group in the **Device** field and enter the command in the **PCK** field.
 7. Select **Save**.
 
 This action does not support targets. Instead, you select the LCN module or group through the **Device** field.

@@ -1,20 +1,10 @@
 ---
-title: Apprise
 description: Instructions on how to use Apprise to send notifications from Home Assistant to more than 140 notification services.
-ha_category:
-  - Notifications
-ha_iot_class: Cloud Push
 ha_release: 0.101
-ha_codeowners:
-  - '@caronc'
 ha_domain: apprise
-ha_platforms:
-  - notify
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The Apprise integration connects Home Assistant to [more than 140 notification services](https://appriseit.com/services/), including Amazon SNS, Discord, Telegram, Slack, Microsoft Teams, Twilio, and many more. A single Apprise configuration can route alerts to multiple services at once, so your automations stay simple and provider-independent.

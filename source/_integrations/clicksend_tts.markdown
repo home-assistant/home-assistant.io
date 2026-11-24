@@ -1,15 +1,7 @@
 ---
-title: ClickSend TTS
 description: Instructions on how to add ClickSend text-to-speech (TTS) notifications to Home Assistant.
-ha_category:
-  - Notifications
-ha_iot_class: Cloud Push
 ha_release: 0.55
 ha_domain: clicksend_tts
-ha_platforms:
-  - notify
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **ClickSend TTS** {% term integration %} uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
@@ -63,8 +55,7 @@ ClickSend is a notify platform and thus can be controlled by calling the notify 
 ```yaml
 alias: "The sun has set"
 triggers:
-  - trigger: sun
-    event: sunset
+  - trigger: sun.sunset
 actions:
   - action: notify.clicksend_tts
     data:

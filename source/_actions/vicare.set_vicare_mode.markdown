@@ -5,7 +5,7 @@ domain: vicare
 description: "Sets the mode of the climate device as defined by Viessmann."
 ---
 
-The **Set ViCare mode** action sets the mode of the climate device as defined by Viessmann.
+The **Viessmann ViCare: Set ViCare mode** action sets the mode of the climate device as defined by Viessmann.
 
 This gives you more fine-grained control of the heating modes than the standard [`climate.set_hvac_mode`](/integrations/climate/) action, because it exposes the Viessmann operation modes directly.
 
@@ -61,7 +61,7 @@ vicare_mode:
 
 The available modes depend on your specific Viessmann device. Always check the `vicare_modes` attribute of the climate entity for the values it accepts.
 
-For a mapping of the standard Home Assistant climate modes to Viessmann operation modes, see [setting the HVAC mode](/integrations/vicare/#setting-the-hvac-mode) on the integration page.
+For a mapping of the standard Home Assistant climate modes to Viessmann operation modes, see [heating](/integrations/vicare/#heating) on the integration page.
 
 {% include actions/try_it.md %}
 

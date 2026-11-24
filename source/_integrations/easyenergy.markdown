@@ -1,20 +1,7 @@
 ---
-title: easyEnergy
 description: Instructions on how to integrate easyEnergy within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.3
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@klaasnicolaas'
 ha_domain: easyenergy
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **easyEnergy** {% term integration %} integrates the [easyEnergy](https://www.easyenergy.com) API platform with Home Assistant.

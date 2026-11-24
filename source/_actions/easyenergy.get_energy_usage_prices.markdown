@@ -2,13 +2,14 @@
 title: "Get energy usage prices"
 action: easyenergy.get_energy_usage_prices
 domain: easyenergy
+response: required
 description: "Requests energy usage prices from easyEnergy."
 related_actions:
   - easyenergy.get_gas_prices
   - easyenergy.get_energy_return_prices
 ---
 
-The **Get energy usage prices** action fetches the prices for energy that you use (buy) from easyEnergy and returns them as response data.
+The **easyEnergy: Get energy usage prices** action fetches the prices for energy that you use (buy) from easyEnergy and returns them as response data.
 
 This action does not target an entity. Instead, you select which easyEnergy configuration entry to use.
 
@@ -99,6 +100,8 @@ end:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response data is a mapping with a `prices` list. Each entry has a `timestamp` (string) and a `price` (number).
 

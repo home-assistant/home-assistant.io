@@ -1,23 +1,7 @@
 ---
-title: Environment Canada
 description: Weather data from Environment Canada.
-ha_category:
-  - Camera
-  - Sensor
-  - Weather
-ha_platforms:
-  - camera
-  - diagnostics
-  - sensor
-  - weather
 ha_release: 0.95
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@gwww'
-  - '@michaeldavie'
 ha_domain: environment_canada
-ha_config_flow: true
-ha_integration_type: service
 ---
 
 The **Environment Canada** {% term integration %} provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
@@ -42,7 +26,7 @@ The integration will create the entities listed below.
 ### Radar map (Camera)
 
 - Loop of radar imagery from the last 3 hours.
-- This entity is disabled by default and can be enabled in the entry's settings dialog.
+- This entity is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and can be enabled in the entry's settings dialog.
 - Radar display settings can be customized through the integration options. See [Radar camera options](#radar-camera-options) below.
 
 ### Sensors
@@ -179,11 +163,11 @@ The configuration snippet below adds a template sensor containing the current fo
 
 ```yaml
 - trigger:
-    - platform: time_pattern
+    - trigger: time_pattern
       hours: "/4"
-    - platform: homeassistant
+    - trigger: homeassistant
       event: start
-    - platform: event
+    - trigger: event
       event_type: event_template_reloaded
   actions:
     - action: environment_canada.get_forecasts
@@ -207,11 +191,11 @@ To get the alerts in a sensor with all the alert data, use the following, replac
 
 ```yaml
 - trigger:
-    - platform: time_pattern
+    - trigger: time_pattern
       minutes: "/1"
-    - platform: homeassistant
+    - trigger: homeassistant
       event: start
-    - platform: event
+    - trigger: event
       event_type: event_template_reloaded
   actions:
     - action: environment_canada.get_alerts

@@ -43,7 +43,7 @@ This reacts every time someone rings the doorbell of `event.front_door_doorbell`
 
 This trigger has no additional YAML options beyond the target.
 
-{% include triggers/targets.md domain="event" %}
+{% include triggers/targets.md entity_type="doorbell event entity" example="event.front_door_doorbell" %}
 
 ## Good to know
 

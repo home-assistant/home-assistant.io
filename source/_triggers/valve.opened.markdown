@@ -54,8 +54,6 @@ This fires every time `valve.garden_irrigation` transitions to the **Open** stat
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -69,9 +67,9 @@ behavior:
   default: each
 for:
   description: >
-    How long the valve must stay open before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:30` fires only after the valve has stayed open for 30 seconds, which helps ignore brief or accidental openings.
+    How long the valve must stay open before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:30` fires only after the valve has stayed open for 30 seconds, which helps ignore brief or accidental openings. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

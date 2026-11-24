@@ -1,19 +1,7 @@
 ---
-title: Tonewinner
 description: Instructions on how to integrate Tonewinner processors and receivers into Home Assistant.
-ha_category:
-  - Media player
-  - Serial-controlled
-ha_codeowners:
-  - '@emma-sg'
-ha_config_flow: true
 ha_domain: tonewinner
-ha_integration_type: device
-ha_iot_class: Local Push
-ha_platforms:
-  - media_player
 ha_release: '2026.9'
-ha_quality_scale: silver
 ---
 
 The **Tonewinner** {% term integration %} allows you to control [Tonewinner](https://en.tonewinner.com/) AV processors, receivers, and amps from Home Assistant over an RS-232 serial connection.
@@ -59,7 +47,7 @@ You can use Home Assistant to:
 ## Known limitations
 
 - At least for the AT-500, there is a period of a few seconds during startup when the device may not accept commands, and may report incorrect information. Status should be correct once the boot sequence completes.
-- The device should be powered on and connected to the serial port before setting up the integration in Home Assistant.
+- The device needs to be connected to the serial port before setting up the integration, but it can be on or in standby. During setup, the device will be turned on to read its model name, and then returned to standby if it was previously in standby.
 
 ## Removing the integration
 

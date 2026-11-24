@@ -1,17 +1,7 @@
 ---
-title: Anova
 description: Instructions on how to integrate Anova Wi-Fi Sous Vide into home assistant.
-ha_category:
-  - Sensor
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_release: 2023.5
-ha_codeowners:
-  - '@Lash-L'
 ha_domain: anova
-ha_integration_type: hub
-ha_platforms:
-  - sensor
 ---
 
 The **Anova** {% term integration %} allows you to control [Anova](https://anovaculinary.com/pages/find-your-anova-precision-cooker) sous vides with Wi-Fi capability.

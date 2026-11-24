@@ -10,7 +10,7 @@ related_actions:
   - lifx.effect_stop
 ---
 
-The **Color loop effect** action runs an effect with looping colors, moving each light steadily around the color wheel. It's a nice fit for parties, holidays, or any time you want gentle, shifting color in a room.
+The **LIFX: Color loop effect** action runs an effect with looping colors, moving each light steadily around the color wheel. It's a nice fit for parties, holidays, or any time you want gentle, shifting color in a room.
 
 This is a software effect, which means Home Assistant drives each color change over your network. It needs color-capable LIFX lights, so white-only models can't run it. It also runs on lights connected over Thread. When you target more than one light, they coordinate so their colors stay related but not identical. The effect keeps running until you stop it.
 
@@ -22,7 +22,7 @@ To run the color loop effect from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Color loop effect**.
+5. From the search box, search for and select **LIFX: Color loop effect**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX lights are in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 7. Set **Period** to control how long one full trip around the color wheel takes.
 8. _Optional_: set **Spread** to control how different the colors of your lights are from each other, and **Minimum saturation** and **Maximum saturation** to control how vivid they get.
@@ -164,9 +164,8 @@ At sunset, start a slow, gentle color loop in the living room, and stop it again
 automation: |
   alias: "Color loop in the living room after sunset"
   triggers:
-    - trigger: sun
-      event: sunset
-      id: "start"
+    - trigger: sun.sunset
+      id: start
     - trigger: time
       at: "23:00:00"
       id: "stop"
@@ -195,10 +194,12 @@ automation: |
 
 When you arrive home, run a fast color loop in the hallway for 30 seconds, then stop it.
 
-- **Trigger**: Person arrives home (`person.paulus`)
-- **Action**: Color loop effect
+- **Trigger**: State changed
+  - **Entity**: Paulus person
+  - **To**: Home
+- **Action**: LIFX: Color loop effect
   - **Target**: Hallway light (`light.hallway`)
-- **Action**: Stop effect
+- **Action**: LIFX: Stop effect
   - **Target**: Hallway light (`light.hallway`)
 
 {% example %}

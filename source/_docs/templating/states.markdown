@@ -112,6 +112,28 @@ output: "192"
 
 You can find an entity's attribute names by looking at {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
+## Reading the state object
+
+[`states`](/template-functions/states/) only gives you the state, as text. To read more about an entity, use its state object: `states.` followed by the entity ID, such as `states.sensor.outdoor_temperature`.
+
+The state object has the following properties:
+
+- `state`: The state, as text.
+- `state_with_unit`: The state followed by its unit, such as `22.5 °C`. For sensors, the value is rounded the way Home Assistant shows it. Only available in templates.
+- `attributes`: The attributes, such as `attributes.brightness`.
+- `name`: The name of the entity.
+- `entity_id`, `domain`, and `object_id`: The entity ID, and its two parts. For `sensor.outdoor_temperature`, the domain is `sensor` and the object ID is `outdoor_temperature`.
+- `last_changed`, `last_updated`, and `last_reported`: When the state last changed, when the state or attributes last changed, and when the entity last reported its state. All three are in UTC.
+- `context`: The [context](/docs/configuration/state_object/#context) of the state, which tells you what caused the change.
+
+{% example %}
+template: |
+  It is {{ states.sensor.outdoor_temperature.state_with_unit }} outside.
+output: "It is 22.5 °C outside."
+{% endexample %}
+
+If the entity doesn't exist, the state object is `none`. Reading one of its properties gives an empty result, but reading further, such as `.attributes.unit_of_measurement`, causes an error. Check for `none` first, for example, {% jinja %}{% if states.sensor.outdoor_temperature is not none %}{% endjinja %}. To read only the state or an attribute, `states()` and `state_attr()` are safer. For all details, refer to [State object](/docs/configuration/state_object/#state-object).
+
 ## Checking a state
 
 You can compare a state with `==`, but there is a dedicated function that is cleaner and handles missing entities without surprises: [`is_state`](/template-functions/is_state/).
@@ -171,6 +193,16 @@ output: |
     - Desk
 {% endexample %}
 
+## How often templates update
+
+Templates that update automatically, such as in a [template entity](/integrations/template/) or a Markdown card, render again when an entity they use changes. To keep this light, Home Assistant limits how often templates that use many entities render again:
+
+- A template that goes through all states, such as `states | selectattr('state', 'eq', 'unavailable') | list | count`, renders again at most once per minute. A template that only counts all entities, such as `states | count`, isn't limited. It renders again only when an entity is added or removed.
+- A template that goes through all entities of a domain, such as `states.light`, renders again at most once per second.
+- A change to an entity that the template names directly, such as in `states('sensor.outdoor_temperature')`, always makes the template render again right away.
+
+For details, and how to avoid the limit with a trigger, refer to [Rate limiting updates](/integrations/template/#rate-limiting-updates).
+
 ## Finding entities by area, device, label, or floor
 
 Home Assistant comes with a family of functions for finding entities grouped by how you've organized them:
@@ -201,40 +233,51 @@ output: |
 
 ## The `this` variable (in template entities)
 
-When you write a template that defines a [template entity](/integrations/template/), `this` refers to the entity itself. That is useful when the entity needs to read its own state or attributes without hardcoding its entity ID.
+When you write a template that defines a [template entity](/integrations/template/), `this` refers to the entity itself. That is useful when the entity needs to read its own state or attributes without hardcoding its entity ID. For example, this sensor keeps its last value while the outdoor sensor is unavailable:
 
 {% example %}
 automation: |
   template:
     - sensor:
-        - name: "Kitchen helper"
-          state: "{{ this.attributes.get('counter', 0) + 1 }}"
-          attributes:
-            counter: "{{ this.state | int(0) + 1 }}"
-output: "1 (the sensor increments its own value each time it updates)"
+        - name: "Outdoor temperature (last known)"
+          unit_of_measurement: "°C"
+          state: >
+            {% if has_value('sensor.outdoor_temperature') %}
+              {{ states('sensor.outdoor_temperature') }}
+            {% else %}
+              {{ this.state | float(none) }}
+            {% endif %}
+output: "22.5 (the last value, while the outdoor sensor is unavailable)"
 {% endexample %}
+
+The sensor has a unit, so its state must be a number. Before it has had a value, `this.state` is `unknown`, so [`float(none)`](/template-functions/float/) turns it into `none` instead.
+
+A template that reads its own entity renders again when that entity changes. If the template changes the value every time, such as a counter that adds one to its own state, it keeps updating itself. Home Assistant detects this loop, stops it, and logs a "Template loop detected" warning. To count something, use a [counter](/integrations/counter/) helper instead.
 
 `this` only exists where Home Assistant knows which entity the template belongs to. That means template entities and some automation contexts, but not the **Template editor** available in {% my tools_template title="**Settings** > **Tools** > **Template**" %}.
 
 ## The `trigger` variable (in automations)
 
-When an automation runs, it receives a `trigger` variable with details about what caused it. The fields depend on the {% term trigger %} type; the [Automation trigger variables](/docs/automation/templating/) page lists them all.
+When an automation runs, it receives a `trigger` variable with details about what caused it. The fields depend on the {% term trigger %} type; the [Automation trigger variables](/docs/automation/trigger-data/) page lists them all.
 
 {% example %}
 automation: |
-  - trigger: state
-    entity_id: binary_sensor.front_door
-    to: "on"
-  action:
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  actions:
     - action: notify.send_message
       target:
         entity_id: notify.my_device
       data:
         message: >
           {{ trigger.to_state.name }} was opened at
-          {{ trigger.to_state.last_changed.strftime('%H:%M') }}.
+          {{ as_local(trigger.to_state.last_changed).strftime('%H:%M') }}.
 output: "Front door was opened at 14:32."
 {% endexample %}
+
+`last_changed` is in UTC, so the example converts it to your local time with [`as_local`](/template-functions/as_local/) before formatting it.
 
 ## Next steps
 

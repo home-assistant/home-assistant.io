@@ -1,16 +1,9 @@
 ---
-title: Button
 description: Instructions on how to set up your button with Home Assistant.
-ha_category:
-  - Button
 ha_release: 2021.12
-ha_quality_scale: internal
 ha_domain: button
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard
@@ -33,9 +26,11 @@ In addition, the entity can have the following states. Each item shows the inter
 
 You can use button entities in automations to react when a button is pressed, or to simulate pressing the button from Home Assistant, like pressing a physical button on the device itself.
 
-{% include integrations/triggers.md %}
+The [Button held](/triggers/button.held/) and [Button hold ended](/triggers/button.hold_ended/) triggers only work with [event entities](/integrations/event/) that have the button device class, not with button entities.
 
-{% include integrations/actions.md %}
+The [Button is being held](/conditions/button.is_being_held/) condition also only works with event entities that have the button device class.
+
+{% include integrations/triggers_conditions_actions.md %}
 
 ## Device class
 
@@ -96,7 +91,10 @@ automation: |
 
 Use the button action when an integration exposes a restart or update button that you want to run from an automation.
 
-- **Trigger**: Internet connection turns off for 10 minutes
+- **Trigger**: State changed
+  - **Entity**: Internet connection sensor
+  - **To**: Off
+  - **For at least**: `00:10:00`
 - **Action**: Press button
   - **Target**: Router restart button
 

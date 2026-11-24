@@ -2,6 +2,7 @@
 title: "Ask question on satellite"
 action: assist_satellite.ask_question
 domain: assist_satellite
+response: required
 description: "Asks a question on an Assist satellite and gets the response."
 related_actions:
   - assist_satellite.announce
@@ -106,11 +107,13 @@ preannounce_media_id:
 Each entry in `answers` has the following structure:
 
 - `id`: A unique identifier for the answer, which is returned when the response matches.
-- `sentences`: A list of [sentence templates](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) to match the response against.
+- `sentences`: A list of [sentence templates](https://contributors.home-assistant.io/translate/voice/template-syntax/#template-syntax) to match the response against.
 
 Sentence templates can contain wildcard `{slots}` that capture part of the response. For example, `play {album} by {artist}` matches "play the white album by the beatles", storing "the white album" in `slots.album` and "the beatles" in `slots.artist`.
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the matched answer in the response variable, with the following fields:
 

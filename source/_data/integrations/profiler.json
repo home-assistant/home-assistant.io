@@ -1,0 +1,12 @@
+{
+  "domain": "profiler",
+  "name": "Profiler",
+  "codeowners": [
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "quality_scale": "internal",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ]
+}

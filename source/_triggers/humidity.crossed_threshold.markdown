@@ -86,13 +86,11 @@ This fires when the first humidity sensor with the `humidity_sensors` label cros
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% include triggers/threshold_crossed_options_yaml.md
    unit_phrase_yaml="literal percentage 0–100"
    example_value="70" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="humidity sensor, thermostat, humidifier, or weather entity" example="sensor.bathroom_humidity" %}
 
 {% include triggers/behavior.md %}
 

@@ -1,14 +1,7 @@
 ---
-title: Device tracker
 description: Instructions on how to set up device tracking within Home Assistant.
-ha_category:
-  - Presence detection
 ha_release: 0.7
-ha_quality_scale: internal
 ha_domain: device_tracker
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
   - docs: /integrations/person/
     title: Person
@@ -53,7 +46,7 @@ Device trackers that track the position of a device, for example with GPS or ano
 
 #### Connection trackers
 
-Device trackers that track whether a device is connected to a fixed device have the `tracking_type` state attribute set to `connection`. Connection device trackers assume the device is in their associated zone when connected. The default associated zone is the [home zone](/integrations/zone#home-zone), but you can [customize](/docs/configuration/customizing-devices/) the device tracker to use a different zone.
+Device trackers that track whether a device is connected to a fixed device have the `tracking_type` state attribute set to `connection`. Connection device trackers assume the device is in their associated zone when connected. The default associated zone is the [home zone](/integrations/zone#home-zone), but you can [customize](/docs/configuration/customizing-entities/) the device tracker to use a different zone.
 
 ### Legacy device trackers
 

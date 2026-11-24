@@ -15,7 +15,7 @@ To refresh a Plex library from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Plex: Refresh library**.
+5. From the search box, search for and select **Plex Media Server: Refresh library**.
 6. Enter the **Library name** you want to refresh.
 7. _Optional_: If you have more than one Plex server, enter the **Server name** to choose which one to use.
 8. Select **Save**.
@@ -72,8 +72,8 @@ server_name:
 Keep your Plex library up to date by scanning it once a day, while everyone is asleep.
 
 - **Trigger**: Time, 03:00
-- **Action**: Plex: Refresh library
-  - **Library name**: TV Shows
+- **Action**: Plex Media Server: Refresh library
+  - **Library name**: `TV Shows`
 
 {% details "Show example YAML" %}
 

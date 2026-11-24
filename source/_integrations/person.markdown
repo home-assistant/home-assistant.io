@@ -1,13 +1,7 @@
 ---
-title: Person
 description: Instructions on how to set up people tracking within Home Assistant.
-ha_category:
-  - Presence detection
 ha_release: 0.88
-ha_quality_scale: internal
 ha_domain: person
-ha_iot_class: Calculated
-ha_integration_type: system
 related:
   - docs: /integrations/device_tracker/
     title: Device tracker
@@ -58,7 +52,7 @@ If you have administrator rights, you can add other persons to Home Assistant an
    - If there are user accounts that are not linked to a person yet, the **Select user account** dialog opens. To use one of these accounts, select it and continue with step 6. For more information, refer to [linking an existing user account to a person](#linking-an-existing-user-account-to-a-person). To create a new account, select **Create a new username**.
    - If you select **Create a new username**, the **Add user** dialog opens, where you fill in the user information.
    - Check if the username is correct. Home Assistant suggests one based on the person name, but the two do not have to be identical.
-     - The username must be lowercase and contain no spaces.
+     - The username must be lowercase and contain no spaces. For details, refer to [Username format](/docs/configuration/user-configuration/#username-format).
      - The username is required to sign in.
      - The person name is the name displayed in the UI.
    - Enter a password, confirm it, and store it in a safe location.

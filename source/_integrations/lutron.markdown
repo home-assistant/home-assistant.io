@@ -1,42 +1,16 @@
 ---
-title: Lutron
 description: Instructions on how to use Lutron devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Scene
-  - Select
-  - Switch
 ha_release: 0.37
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@cdheiser'
-  - '@wilburCForce'
 ha_domain: lutron
-ha_platforms:
-  - binary_sensor
-  - cover
-  - event
-  - fan
-  - light
-  - scene
-  - select
-  - switch
-ha_integration_type: hub
-ha_config_flow: true
 ---
 
 [Lutron](https://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, and HVAC controls. The `lutron` integration in Home Assistant is responsible for communicating with the main hub for these systems.
 
 Presently, there's only support for communicating with the RadioRA 2 Main Repeater and only handle light switches, dimmers, and seeTouch keypad scenes.
 
-## Configuration
-
 When configured, the `lutron` integration will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.
+
+## Prerequisites
 
 To use Lutron RadioRA 2 devices in your installation, you'll need to first create a username/password in your Lutron programming software. Once a telnet username/password has been programmed, you can follow the instructions from the next chapter.
 

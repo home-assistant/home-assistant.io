@@ -1,18 +1,7 @@
 ---
-title: Phone Modem
 description: Instructions on how to integrate the Caller ID sensor into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: '0.40'
-ha_iot_class: Local Polling
 ha_domain: modem_callerid
-ha_codeowners:
-  - '@tkdrob'
-ha_platforms:
-  - button
-  - sensor
-ha_config_flow: true
-ha_integration_type: device
 ---
 
 The **Phone Modem** {% term integration %} uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1). Usually any modem that uses a CX93001 will support this.

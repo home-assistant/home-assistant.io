@@ -1,70 +1,524 @@
-@use '../variables' as *;
-@use '../../inuitcss/defaults' as *;
-@use '../../inuitcss/generic/mixins' as *;
-body > header {
-  background-color: $header-background;
-  margin-bottom: 2em;
-  backdrop-filter: blur(24px);
+// Site header: a port of the Astro header's styles
+// (astro/src/components/SiteHeader.astro and the Button component its
+// call to action uses), so pages built by Jekyll and by Astro share one
+// header during the migration. The markup in
+// source/_includes/site/header.html uses the same class names.
+//
+// The design tokens, breakpoints and container come straight from the
+// Astro build, so both stacks always use the same values. Everything is
+// scoped under .site-header, where Astro scopes per component.
+//
+// Differences from the Astro header, all down to Jekyll's page:
+//   - Icons are <iconify-icon> elements rather than inline SVGs.
+//   - Both logos are in the markup and .dark picks one, because the
+//     homepage hero toggles .dark on scroll.
+//   - The header is `position: fixed` (see _overrides.scss) rather than
+//     sticky.
+@use '../../../astro/src/styles/tokens';
+@use '../../../astro/src/styles/breakpoints';
+@use '../../../astro/src/styles/layout';
 
-  .site-title {
-    color: rgba(229, 229, 229, 0.8);
-    font-size: 1.7em;
-    font-weight: bold;
-    line-height: 2.5em;
-  }
+// Not part of the header; kept from the stylesheet this replaced.
+.header {
+  position: relative;
+}
 
-  .release-date {
-    font-size: 10px;
-    margin: 29.5px 0 0;
-    padding: 0 4px 0 4px;
-    background: #e8edf0;
-    height: fit-content;
-    color: $link-color;
-    font-weight: 500;
-    border-radius: 4px;
-    letter-spacing: .025rem;
-  }
+/* Mobile first: the menu is a panel that drops out of the bar and is
+   opened by the checkbox. The desktop bar is the media query at the
+   bottom.
+
+   Every link in the header — bar item, dropdown item, panel item —
+   shares one style: current color, no decoration, a wash on hover
+   and focus, the accent color when active. The three variables
+   below are all the dark variant changes. */
+
+.site-header {
+  --nav-color: var(--color-text);
+  --nav-color-active: var(--color-link);
+  --nav-wash: var(--color-hover-wash);
+
+  backdrop-filter: blur(1.5rem);
+  background-color: var(--color-header-surface);
+  color: var(--nav-color);
+  font-family: var(--font-sans);
+  /* What the Astro page leaves the header to inherit. */
+  font-size: 1rem;
+  line-height: normal;
 
   &.dark {
-    background-color: rgba(255,255,255,0);
     backdrop-filter: none;
-    // transition: background-color 1s;
+    background-color: transparent;
+  }
 
-    @media only screen and (min-width: $desk-start) {
-      .menu>li>a, .docsearch .DocSearch-Search-Icon {
-        color: $white;
+  .bar {
+    align-items: center;
+    display: flex;
+    gap: var(--layout-gutter);
+    height: var(--header-height);
+    justify-content: space-between;
+    @include layout.container;
+    /* Full width even where a page makes the header a flex container
+       (the Voice Preview Edition page does). */
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* Logo and version badge */
+
+  /* On the narrowest phones the logo scales down (keeping its
+     proportions) so the bar never overflows; the version badge and the
+     menu button keep their size. */
+  .brand {
+    align-items: center;
+    display: flex;
+    gap: var(--space-small);
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .site-title {
+    min-width: 0;
+  }
+
+  .logo {
+    display: block;
+    height: auto;
+    max-height: 2rem;
+    max-width: 100%;
+    width: auto;
+  }
+
+  .logo-inverse,
+  &.dark .logo {
+    display: none;
+  }
+
+  &.dark .logo-inverse {
+    display: block;
+  }
+
+  /* A small tag beside the logo, nudged down to sit with the
+     wordmark rather than dead center. */
+  .version {
+    background: var(--color-surface-subtle);
+    border-radius: var(--radius-xsmall);
+    color: var(--color-link);
+    flex: none;
+    font-size: var(--font-size-xsmall);
+    font-weight: 500;
+    padding: 0.125rem 0.375rem;
+    text-decoration: none;
+    translate: 0 0.1875rem;
+  }
+
+  /* Menu button (the checkbox drives the panel, no JavaScript) */
+
+  nav {
+    align-items: center;
+    display: flex;
+  }
+
+  .menu-state {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+  }
+
+  .menu-button {
+    align-items: center;
+    background: var(--color-highlight);
+    border-radius: 50%;
+    color: var(--color-text-inverse);
+    cursor: pointer;
+    display: flex;
+    height: 2rem;
+    justify-content: center;
+    user-select: none;
+    width: 2rem;
+
+    &:hover {
+      background: var(--color-highlight-shade);
+    }
+  }
+
+  .menu-state:focus-visible + .menu-button {
+    background: var(--color-highlight-shade);
+  }
+
+  /* Three bars: the span is the middle one, its pseudo-elements the
+     outer two. Opening the menu fades the middle bar and turns the
+     outer two into a cross. */
+  .bars {
+    --bar-gap: 0.3125rem;
+    --bar-weight: 0.125rem;
+
+    background: currentColor;
+    height: var(--bar-weight);
+    position: relative;
+    transition: background-color 0.2s;
+    width: 0.875rem;
+
+    &::before,
+    &::after {
+      background: currentColor;
+      content: "";
+      height: var(--bar-weight);
+      left: 0;
+      position: absolute;
+      transition: transform 0.2s;
+      width: 100%;
+    }
+
+    &::before {
+      transform: translateY(calc(var(--bar-gap) * -1));
+    }
+
+    &::after {
+      transform: translateY(var(--bar-gap));
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      &::before,
+      &::after {
+        transition: none;
+      }
+    }
+  }
+
+  .menu-state:checked + .menu-button .bars {
+    background-color: transparent;
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  /* Menu panel */
+
+  /* The panel scrolls on its own when it is taller than the screen:
+     its height, padding included, stops at the visible area below the
+     bar (dvh leaves out the space behind a mobile browser's toolbars),
+     and scrolling past its end does not move the page behind it. */
+  .menu {
+    background: var(--color-surface);
+    box-shadow: var(--shadow-panel);
+    box-sizing: border-box;
+    display: none;
+    flex-wrap: wrap;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    max-height: calc(100dvh - var(--header-height));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: var(--layout-gutter) 0;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 10;
+
+    /* Jekyll's global list styles add margins and letter spacing. */
+    li {
+      letter-spacing: normal;
+      list-style: none;
+      margin: 0;
+      width: 100%;
+    }
+
+    /* Submenus sit inline and stay open inside the panel. */
+    ul {
+      list-style: none;
+      margin: 0 0 0 var(--layout-gutter);
+      padding: 0;
+    }
+
+    a:not(.nav-button) {
+      align-items: center;
+      border-radius: var(--radius-small);
+      box-sizing: border-box;
+      color: inherit;
+      display: flex;
+      font-size: var(--font-size-medium);
+      font-weight: normal;
+      gap: var(--space-small);
+      /* A whole-pixel line height keeps the bar's items, and the call
+         to action's artwork, on the pixel grid. */
+      line-height: 1rem;
+      margin: 0 var(--layout-gutter);
+      padding: var(--space-medium);
+      text-decoration: none;
+      transition: background-color 0.15s;
+
+      &:hover,
+      &:focus-visible {
+        background: var(--nav-wash);
+      }
+
+      &.active {
+        color: var(--nav-color-active);
       }
     }
 
-    .ha-title {
-      .logo {
-        background-image: url('/images/home-assistant-logo-white.svg');
+    a:not(.nav-button) iconify-icon {
+      display: inline-flex;
+      flex: none;
+      font-size: var(--font-size-large);
+      height: var(--font-size-large);
+      width: var(--font-size-large);
+    }
+  }
+
+  .menu-state:checked ~ .menu {
+    display: flex;
+  }
+
+  /* Search and call to action lead the panel, side by side. The call
+     to action goes first, with search beside it, reversing their
+     desktop-bar DOM order. */
+
+  /* Scoped under .menu to outrank the panel's full-width items. */
+  .menu :is(.nav-cta, .nav-search) {
+    width: auto;
+  }
+
+  /* Scoped under .menu to outrank its list item margin reset. */
+  .menu .nav-cta {
+    margin-left: var(--layout-gutter);
+    order: -2;
+  }
+
+  .nav-search {
+    order: -1;
+  }
+
+  /* DocSearch renders its button into the empty container; reduce it to
+     the magnifier in the navigation color. */
+  .docsearch .DocSearch-Button {
+    background: none;
+    box-shadow: none;
+    color: var(--nav-color);
+    margin: 0;
+    padding: var(--space-medium);
+  }
+
+  .docsearch .DocSearch-Search-Icon {
+    color: inherit;
+  }
+
+  .docsearch :is(.DocSearch-Button-Placeholder, .DocSearch-Button-Keys) {
+    display: none;
+  }
+
+  /* Desktop bar */
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    &.dark {
+      --nav-color: var(--color-text-inverse);
+      --nav-color-active: var(--color-text-inverse);
+      --nav-wash: var(--color-hover-wash-inverse);
+    }
+
+    /* The checkbox goes too, or keyboard focus would land on it. */
+    .menu-state,
+    .menu-button {
+      display: none;
+    }
+
+    .menu {
+      align-items: center;
+      background: none;
+      box-shadow: none;
+      display: flex;
+      max-height: none;
+      flex-wrap: nowrap;
+      overflow: visible;
+      padding: 0;
+      position: static;
+
+      a:not(.nav-button) {
+        margin: 0;
       }
+
+      > li {
+        display: flex;
+        position: relative;
+        width: auto;
+      }
+
+      > li > a {
+        white-space: nowrap;
+      }
+
+      /* Dropdowns: hover for pointers, focus-within for keyboards. */
+      /* The dropdown panel is light even in the dark header, so it
+         takes back the light navigation colors. */
+      > li > ul {
+        --nav-color-active: var(--color-link);
+        --nav-wash: var(--color-hover-wash);
+
+        background: var(--color-surface);
+        border-radius: var(--radius-small);
+        box-shadow: var(--shadow-panel);
+        color: var(--color-text);
+        display: none;
+        flex-direction: column;
+        left: 0;
+        margin: 0;
+        padding: var(--space-small);
+        position: absolute;
+        top: calc(100% + var(--space-small));
+        /* Absolute boxes shrink to the item above them without this. */
+        width: max-content;
+
+        /* An invisible bridge over the gap above, so the pointer can
+           cross it without leaving the item and closing the dropdown. */
+        &::before {
+          content: "";
+          height: var(--space-small);
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: calc(var(--space-small) * -1);
+        }
+      }
+
+      > li:hover > ul,
+      > li:focus-within > ul {
+        display: flex;
+      }
+    }
+
+    /* In the bar they follow the navigation instead of leading it. */
+    .nav-cta,
+    .nav-search {
+      order: 0;
+    }
+
+    .menu .nav-cta {
+      margin-left: var(--space-small);
+      order: 0;
+    }
+  }
+
+  /* Just above the desk breakpoint the bar has only a few pixels to
+     spare, and a classic scrollbar takes those (media queries count it,
+     the layout does not). Tighter link padding up to the wide breakpoint
+     keeps it on one line. */
+  @media only screen and (min-width: breakpoints.$desk) and (max-width: breakpoints.$desk-wide) {
+    .menu > li > a:not(.nav-button),
+    .docsearch .DocSearch-Button {
+      padding-inline: var(--space-small);
     }
   }
 }
 
+/* "Get started": the Astro Button component, primary scheme with an
+   arrow, or the secondary scheme in its on-dark colors over the
+   homepage hero, where the cyan would blend into the hero's gradient. */
+.site-header .nav-button {
+  --button-ink: #002e3e;
+  /* The resting colors; the states below change --surface and --text,
+     the dark header only this palette. */
+  --rest-surface: #18bcf2;
+  --rest-text: var(--button-ink);
+  --surface: var(--rest-surface);
+  --text: var(--rest-text);
+  --ring: transparent;
+  --ring-width: 0;
+  --icon-surface: #fff;
+  --icon-color: var(--button-ink);
+  --hover-surface: #b9e6fc;
+  --hover-text: var(--button-ink);
+  --active-surface: #006895;
+  --active-text: #fff;
+  --focus-ring: #37c8fd;
 
-.ha-title {
+  align-items: center;
+  background: var(--surface);
+  border: 0;
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 0 0 var(--ring-width) var(--ring);
+  box-sizing: border-box;
+  color: var(--text);
+  cursor: pointer;
   display: inline-flex;
-  height: 100%;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  gap: var(--space-small);
+  justify-content: center;
+  line-height: 1;
+  min-height: 2rem;
+  padding: 0 var(--space-xsmall) 0 var(--space-medium);
+  text-decoration: none;
   white-space: nowrap;
 
-  .logo {
-    border-radius: 0;
-    width: 216px;
-    height: 32px;
-    margin-right: 10px;
-    background-image: url('/images/home-assistant-logo.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
+  &:hover {
+    --surface: var(--hover-surface);
+    --text: var(--hover-text);
+  }
 
-    @media only screen and (min-width: 389px) {
-      width: 226px;
+  &:active {
+    --surface: var(--active-surface);
+    --text: var(--active-text);
+  }
+
+  &:focus-visible {
+    --surface: var(--active-surface);
+    --text: var(--active-text);
+    --ring: var(--focus-ring);
+    --ring-width: 0.25rem;
+    outline: none;
+  }
+
+  /* Centered on its capitals; without trimming, Figtree's deeper
+     descent space lifts the label 1px. */
+  .label {
+    text-box: trim-both cap alphabetic;
+  }
+
+  .icon {
+    background: var(--icon-surface);
+    border-radius: var(--radius-pill);
+    flex: none;
+    height: 1.5rem;
+    position: relative;
+    width: 1.5rem;
+
+    /* The arrow (astro/src/assets/button-arrow.svg), painted as a
+       mask on the circle's own box. */
+    &::before {
+      background: var(--icon-color);
+      content: "";
+      inset: 0;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' viewBox='-0.75 -0.625 12 10'%3E%3Cpath d='M6.125 8.75L10.5 4.375L6.125 0L4.85625 1.225L7.13125 3.5L0 3.5L0 5.25L7.13125 5.25L4.85625 7.525L6.125 8.75Z'/%3E%3C/svg%3E") center / 0.75rem 0.625rem no-repeat;
+      position: absolute;
     }
   }
 
-  a>* {
-    vertical-align: middle;
+  @media only screen and (min-width: breakpoints.$lap) {
+    font-size: var(--font-size-medium);
+    gap: var(--space-medium);
+    min-height: 2.375rem;
+    padding: 0 var(--space-small) 0 var(--space-xlarge);
   }
+}
+
+.site-header.dark .nav-button {
+  --rest-surface: #006787;
+  --rest-text: #fff;
+  --icon-surface: var(--button-ink);
+  --icon-color: #fff;
+  --hover-surface: #004156;
+  --hover-text: #fff;
+  --active-surface: #009ac7;
+  --active-text: #fff;
+  --focus-ring: #b9e6fc;
 }

@@ -1,13 +1,7 @@
 ---
-title: FFmpeg
 description: Instructions on how to integrate FFmpeg within Home Assistant.
-ha_category:
-  - Image processing
 ha_release: 0.29
 ha_domain: ffmpeg
-ha_platforms:
-  - camera
-ha_integration_type: system
 ---
 
 The **FFmpeg** {% term integration %} allows other Home Assistant integrations to process
@@ -100,11 +94,10 @@ With the FFmpeg actions, you decide when your FFmpeg motion and noise sensors an
 
 When you leave home, you want to know about motion on the driveway camera. This automation starts the FFmpeg motion sensor when you leave.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone left
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Leave
-- **Action**: Start
+- **Action**: FFmpeg: Start
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
 
 {% details "YAML example for starting motion analysis when you leave" %}
@@ -113,10 +106,11 @@ When you leave home, you want to know about motion on the driveway camera. This 
 automation: |
   alias: "Start driveway motion analysis when I leave"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: ffmpeg.start
       data:
@@ -129,11 +123,10 @@ automation: |
 
 When you're home, you don't need motion alerts from the driveway camera. Stopping the sensor also saves the processing power FFmpeg uses.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone entered
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Enter
-- **Action**: Stop
+- **Action**: FFmpeg: Stop
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
 
 {% details "YAML example for stopping motion analysis when you get home" %}
@@ -142,10 +135,11 @@ When you're home, you don't need motion alerts from the driveway camera. Stoppin
 automation: |
   alias: "Stop driveway motion analysis when I get home"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: ffmpeg.stop
       data:

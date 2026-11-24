@@ -82,9 +82,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the humidifier must have been continuously in the selected mode before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the humidifier must have been continuously in the selected mode before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -108,10 +108,13 @@ for:
 When you press the bedtime button, activate the night  {% term scene %}. But if the bedroom humidifier is already in sleep mode, skip the scene because the room is clearly already set up for rest.
 
 - **Trigger**: State changed: Bedtime button pressed
-- **Condition**: Humidifier is in mode (negated: not in sleep mode)
-  - **Target**: Bedroom humidifier
-  - **Condition passes if**: Any
-- **Action**: Scene: Activate night scene
+- **Condition**: Not
+  - **Condition**: Humidifier is in mode
+    - **Target**: Bedroom humidifier
+    - **Mode**: Sleep
+    - **Condition passes if**: Any
+- **Action**: Activate scene
+  - **Target**: Bedroom night scene
 
 {% details "YAML example for skipping the night scene in sleep mode" %}
 

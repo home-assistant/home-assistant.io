@@ -2,12 +2,13 @@
 title: "Get price forecasts"
 action: amberelectric.get_forecasts
 domain: amberelectric
+response: required
 description: "Retrieves price forecasts from Amber Electric for a site and channel."
 ---
 
 Use this action to retrieve the price forecasts from Amber Electric for one of your channels, such as general usage, controlled load, or feed-in.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to start an appliance during the cheapest forecast hour.
+For example, you can use the result to start an appliance during the cheapest forecast hour.
 
 {% include actions/ui_header.md %}
 
@@ -66,6 +67,8 @@ channel_type:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `forecasts` list. Each forecast interval includes the following fields:
 

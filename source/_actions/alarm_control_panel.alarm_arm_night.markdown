@@ -84,9 +84,9 @@ code:
 
 Add a dashboard tile that arms the alarm in night mode with a single tap. A quick way to lock down the house before you head upstairs.
 
-- **Action**: Alarm control panel: Arm alarm night
-- **Target**: Home alarm
-- **Code**: 1234
+- **Action**: Arm alarm night
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming night with a code" %}
 
@@ -106,8 +106,9 @@ action: |
 At 11 in the evening, switch the alarm to night mode automatically. You go to sleep knowing the house is protected without having to walk to the keypad.
 
 - **Trigger**: Time: 23:00
-- **Action**: Alarm control panel: Arm alarm night
-- **Target**: Home alarm
+- **Action**: Arm alarm night
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for a bedtime night mode automation" %}
 
@@ -134,8 +135,9 @@ When the last light in the bedroom turns off, arm the alarm in night mode. This 
 - **Trigger**: State changed
   - **Entity**: Bedroom light
   - **To**: Off 
-- **Action**: Alarm control panel: Arm alarm night
-- **Target**: Home alarm
+- **Action**: Arm alarm night
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming night when bedroom lights go off" %}
 

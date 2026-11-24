@@ -1,20 +1,10 @@
 ---
-title: QVR Pro
 description: Instructions on how to integrate QVR Pro within Home Assistant.
-ha_category:
-  - Camera
-ha_iot_class: Local Polling
 ha_release: 0.107
 ha_domain: qvr_pro
-ha_codeowners:
-  - '@oblogic7'
-ha_platforms:
-  - camera
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 [QVR Pro](https://www.qnap.com/en/software/qvr-pro) allows you to create 
@@ -84,8 +74,8 @@ Start recording the driveway camera on your QVR Pro server as soon as the motion
 - **Trigger**: State changed
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
   - **To**: Detected
-- **Action**: Start record
-  - **GUID**: The GUID of the driveway camera channel
+- **Action**: QVR Pro: Start record
+  - **GUID**: `YOUR_CHANNEL_GUID`
 
 {% details "YAML example for recording when motion is detected" %}
 
@@ -112,8 +102,8 @@ Stop recording the driveway camera when the motion sensor has not detected motio
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
   - **To**: Clear
   - **For at least**: 2 minutes
-- **Action**: Stop record
-  - **GUID**: The GUID of the driveway camera channel
+- **Action**: QVR Pro: Stop record
+  - **GUID**: `YOUR_CHANNEL_GUID`
 
 {% details "YAML example for stopping the recording when it's quiet" %}
 

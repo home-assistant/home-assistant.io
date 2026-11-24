@@ -1,24 +1,7 @@
 ---
-title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
-ha_category:
-  - Downloading
-  - Sensor
-  - Switch
 ha_release: 0.87
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@engrbm87'
-  - '@JPHutchins'
-  - '@andrew-codechimp'
 ha_domain: transmission
-ha_platforms:
-  - event
-  - sensor
-  - switch
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Transmission** {% term integration %} allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
@@ -45,8 +28,17 @@ Username:
   description: "Your Transmission username, if set."
 Password:
   description: "Your Transmission password, if set."
-Verify SSL certificate:
-  description: "Enable SSL certificate verification when connecting via HTTPS."
+Uses an SSL certificate:
+  description: "Connect to the Transmission RPC interface using HTTPS."
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Limit:
+  description: "The maximum number of torrents listed in the `torrent_info` attribute, from 1 to 500. Defaults to 10."
+Order:
+  description: "The order of the torrents in the `torrent_info` attribute: oldest first (the default), newest first, best ratio first, or worst ratio first."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -177,6 +169,10 @@ content: >
   {{ name|truncate(20) }} is {{ data.percent_done }}% complete, with {{ data.ratio }} ratio, {{ data.eta }} remaining {% endfor %}
 type: markdown
 ```
+
+## Data updates
+
+The integration {% term polling polls %} the Transmission server every 2 minutes.
 
 ## Removing the integration
 

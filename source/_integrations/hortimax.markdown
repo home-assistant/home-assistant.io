@@ -1,18 +1,7 @@
 ---
-title: Ridder HortiMaX Pro
 description: Instructions on how to integrate Ridder HortiMaX Pro greenhouse controllers into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 2026.9
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@wildekek'
 ha_domain: hortimax
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Ridder HortiMaX Pro** {% term integration %} reads measurements from
@@ -112,7 +101,7 @@ per key; if you use the same key elsewhere, the two can interfere.
 
 ### A sensor is missing
 
-Readouts that could not be classified are disabled by default. Open the device
+Readouts that could not be classified are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Open the device
 page, select the line that shows how many entities are hidden (for example,
 **+ 12 entities not shown**), and then enable the sensor you need.
 

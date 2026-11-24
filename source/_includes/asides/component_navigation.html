@@ -79,8 +79,14 @@
   {% if page.ha_domain %}
   <div class='section'>
     <a href="https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ domain }}" target="_blank">{% icon "simple-icons:github" %} View source on GitHub</a><br />
-    <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+label%3A%22integration%3A+{{ domain }}%22" target="_blank">{% icon "mdi:bug" %} View known issues</a><br />
     <a href="https://github.com/orgs/home-assistant/discussions?discussions_q=label%3A%22integration%3A+{{ domain }}%22" target="_blank">{% icon "mdi:lightbulb-question" %} View feature requests</a>
+  </div>
+
+  <div class="section">
+    <h2 class="h1 title epsilon">Get help</h2>
+    <a href="https://community.home-assistant.io/">{% icon "mdi:forum-outline" %} Ask the community</a><br />
+    <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+label%3A%22integration%3A+{{ domain }}%22" target="_blank">{% icon "mdi:format-list-bulleted" %} View known issues</a><br />
+    <a href="https://github.com/home-assistant/core/issues/new?template=bug_report.yml">{% icon "mdi:bug" %} Report an integration bug</a>
   </div>
   {%- endif -%}
 </section>

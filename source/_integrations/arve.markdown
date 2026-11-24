@@ -1,19 +1,7 @@
 ---
-title: Arve
 description: Instructions on how to integrate Arve into Home Assistant
-ha_category:
-  - Environment
-  - Health
-  - Sensor
 ha_release: '2024.5'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@ikalnyi'
 ha_domain: arve
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_config_flow: true
 ---
 
 The **Arve** {% term integration %} provides the ability to monitor real-life air quality data, as measured by your [Arve](https://www.arveair.com) device.

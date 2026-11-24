@@ -66,7 +66,9 @@ host:
 
 When the router comes back online, run an iperf3 speed test so you have a fresh measurement of the connection.
 
-- **Trigger**: Router connectivity sensor turns on
+- **Trigger**: State changed
+  - **Entity**: Router online sensor
+  - **To**: On
 - **Action**: Iperf3: Speedtest
 
 {% details "YAML example for testing after a router reboot" %}

@@ -1,5 +1,5 @@
 ---
-title: "Start the air conditioning of a Renault vehicle"
+title: "Start A/C"
 action: renault.ac_start
 domain: renault
 description: "Starts the air conditioning of a Renault vehicle."

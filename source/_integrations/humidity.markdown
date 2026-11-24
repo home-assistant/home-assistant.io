@@ -1,14 +1,7 @@
 ---
-title: Humidity
 description: This integration provides humidity automation triggers and conditions.
-ha_category:
-  - Automation
 ha_release: 2026.4
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: humidity
-ha_integration_type: system
 related:
   - docs: /integrations/humidifier/
     title: Humidifier

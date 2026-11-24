@@ -1,22 +1,7 @@
 ---
-title: OpenWeatherMap
 description: Instructions on how to integrate OpenWeatherMap within Home Assistant.
 ha_release: 0.32
-ha_category:
-  - Sensor
-  - Weather
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@fabaff'
-  - '@freekode'
-  - '@nzapponi'
-  - '@wittypluck'
 ha_domain: openweathermap
-ha_platforms:
-  - sensor
-  - weather
-ha_integration_type: service
 related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
@@ -39,7 +24,11 @@ There are currently two types of OpenWeatherMap services supported by this integ
 
 - `v3.0` : current weather, hourly forecast for 48 hours, daily forecast for 8 days
 
-The One Call API 3.0 services requires a [subscription](https://openweathermap.org/api/one-call-3). The subscription has a free tier with 1000 calls/day. Consider setting the limit on the OpenWeatherMap website to stay under the threshold where API usage incurs a cost. This is done in the [Billing plans](https://home.openweathermap.org/subscriptions) page, under "Calls per day".
+The One Call API 3.0 service requires a [subscription](https://openweathermap.org/api/one-call-3). The subscription has a free tier with 1000 calls/day. Consider setting the limit on the OpenWeatherMap website to stay under the threshold where API usage incurs a cost. This is done in the [Billing plans](https://home.openweathermap.org/subscriptions) page, under "Calls per day".
+
+{% important %}
+Select mode `v3.0` to use One Call API 3.0. Although OpenWeather promotes One Call API 4.0, this integration does not support its endpoints. OpenWeather's [migration guide](https://openweathermap.org/api/one-call-3-migration#billing) states that both endpoint versions are included in the same One Call API subscription. If your API key cannot access the 3.0 endpoint, contact OpenWeather support to check your account's access. Alternatively, use the free modes below for current weather, a 5-day forecast in 3-hour steps, or air quality data.
+{% endimportant %}
 
 ### [Free](https://openweathermap.org/price#freeaccess)
 
@@ -51,13 +40,13 @@ The Free services require a registration but no subscription. Once signed up, th
 
 ## ⚠️ Important Deprecation Notice
 
-### OpenWeatherMap API V2.5 Deprecation
+### One Call API 2.5 deprecation
 
-OpenWeatherMap API V2.5 has been deprecated and is no longer supported by this integration. You need to use API V3.0.
+One Call API 2.5 is no longer supported by this integration. To use One Call data, select mode `v3.0` and make sure your account has access to One Call API 3.0. The free `current`, `forecast`, and `air_pollution` modes are separate services and remain supported.
 
-To continue using the service if you were previously using API V2.5:
+To continue using the service if you were previously using One Call API 2.5:
 
-- Visit the OpenWeatherMap website and activate the One Call subscription.
+- Visit the OpenWeatherMap website and activate a subscription that provides access to One Call API 3.0.
 - During activation, you will be prompted for a credit card, but you will not be charged unless you exceed the free tier limits.
 - Configure your OWM integration to select mode `v3.0`.
 - Note: Subscription activation may take up to 2 hours.
@@ -78,7 +67,7 @@ Invalid API-key errors can also occur if you use a key which doesn't match the c
 | Name      | Name of the integration                                   |
 | Latitude  | Latitude for weather forecast and sensor                  |
 | Longitude | Longitude for weather forecast and sensor                 |
-| Mode      | <li>`v3.0` (new API version) current weather plus daily forecast for 8 days, and 1-hour steps for 48 hours</li><li>`current` current weather data only, no forecast</li><li>`forecast` weather forecast only, in 3-hour steps for 5 days, no current weather data</li><li>`air_pollution` current air quality data</li> |
+| Mode      | <li>`v3.0` (One Call API 3.0) current weather plus daily forecast for 8 days, and 1-hour steps for 48 hours</li><li>`current` current weather data only, no forecast</li><li>`forecast` weather forecast only, in 3-hour steps for 5 days, no current weather data</li><li>`air_pollution` current air quality data</li> |
 | Language  | Language for receiving data (only for `sensor`)           |
 
 A `sensor` entity will be created for each supported condition. Their IDs will follow the format:
@@ -100,7 +89,7 @@ If you want to change the weather location, you will need to delete and re-add t
 | Condition                | Description                                                                                                                       |
 | :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
 | `cloud_coverage`         | Cloudiness, %.                                                                                                                    |
-| `condition`              | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition).   |
+| `condition`              | [Weather condition](/integrations/weather/#condition-mapping).   |
 | `dew_point`              | Atmospheric temperature below which water droplets begin to condense and dew can form, ºC.                                        |
 | `feels_like_temperature` | Temperature accounting for the human perception of weather, ºC.                                                                   |
 | `humidity`               | Humidity, %.                                                                                                                      |

@@ -1,29 +1,7 @@
 ---
-title: Portainer
 description: Instructions on how to integrate Portainer with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Event
-  - Sensor
-  - Switch
-  - Update
 ha_release: '2025.10'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@erwindouna'
 ha_domain: portainer
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - sensor
-  - switch
-  - update
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **Portainer** {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
@@ -97,15 +75,24 @@ There is currently support for the following device types within Home Assistant:
 - **Containers paused**: Number of paused containers.
 - **Container count**: Total number of containers on the endpoint.
 - **Image count**: Total number of Docker images.
+
+#### Disk space sensors
+
+These sensors are disabled by default, because calculating them can take a long time on slower hardware (see [Data updates](#data-updates)). This also applies to existing installations: when you upgrade, the integration disables these sensors. [Enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the ones you need. Enabled disk space sensors update every 30 minutes.
+
 - **Container disk usage total size**: Total disk space used by containers.
+- **Container disk usage reclaimable**: Disk space used by containers that are not running.
 - **Image disk usage total size**: Total disk space used by images.
+- **Image disk usage reclaimable**: Disk space used by images that no container uses.
 - **Volume disk usage total size**: Total disk space used by volumes.
+- **Volume size**: Disk space used by a single volume. Unknown for volumes whose driver doesn't report a size.
 
 #### Stack sensors
 
 - **Status**: Whether the stack is `active` or `inactive`.
 - **Type**: The stack type: `Compose`, `Swarm`, or `Kubernetes`.
 - **Container count**: Number of containers belonging to the stack.
+- **Last deployed**: When the stack was last deployed or updated, including redeploys and Git auto-updates. For a stack that was never updated, this is when it was created.
 
 ### Switches
 
@@ -165,13 +152,15 @@ Each Docker container is a child device under its endpoint or stack. Container d
 
 ### Stacks
 
-Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, a switch to start or stop the entire stack, and a button to update it.
+Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, a last deployed sensor, a switch to start or stop the entire stack, and a button to update it.
 
 Docker API Engine needs to be equal to or above version 1.44. Older versions are [deprecated](https://docs.docker.com/reference/api/engine/#deprecated-api-versions). 
 
 ## Data updates
 
 The integration normally updates every 60 seconds. The Portainer version is checked every 6 hours, because Portainer looks up the latest release on GitHub for every check. For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+The [disk space sensors](#disk-space-sensors) update every 30 minutes, and only for endpoints with at least one of them enabled. To calculate them, Docker adds up every file in every volume, which can take minutes on slower hardware.
 
 ### Defining a custom polling interval
 
@@ -180,6 +169,28 @@ The integration normally updates every 60 seconds. The Portainer version is chec
 ## Known limitations
 
 Currently, the integration does not support stacks or Edge computing.
+
+## Troubleshooting
+
+{% details "Sensors are unavailable or the integration times out" %}
+
+### Symptom: Timeouts when the integration updates
+
+The integration fails to update, or you see timeout errors in the logs such as:
+
+- `Timed out fetching DF data for endpoint`
+- `Timeout fetching portainer data`
+
+#### Description
+
+Docker calculates the disk space sensors by adding up every file in every volume. On lower-end hardware with slower disks, such as a Raspberry Pi, this can take long enough to cause timeouts.
+
+#### Resolution
+
+1. [Disable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the [disk space sensors](#disk-space-sensors) of the endpoint. Once none of them are enabled, the integration stops fetching disk space data for that endpoint.
+2. If timeouts persist, reduce the load by [setting a longer polling interval](#defining-a-custom-polling-interval).
+
+{% enddetails %}
 
 ## Removing the integration
 

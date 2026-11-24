@@ -1,18 +1,7 @@
 ---
-title: Epic Games Store
 description: Instructions on how to integrate Epic Games Store service into Home Assistant.
-ha_category:
-  - Calendar
-  - Gaming
 ha_release: 2024.5
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@Quentame'
 ha_domain: epic_games_store
-ha_config_flow: true
-ha_platforms:
-  - calendar
-ha_integration_type: service
 ---
 
 The **Epic Games Store** {% term integration %} integrates the [Epic Games Store](https://store.epicgames.com/) service into Home Assistant.

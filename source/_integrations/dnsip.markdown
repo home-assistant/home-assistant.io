@@ -1,18 +1,7 @@
 ---
-title: DNS IP
 description: Instructions on how to integrate a DNS IP sensor into Home Assistant.
-ha_category:
-  - Network
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_release: '0.40'
 ha_domain: dnsip
-ha_platforms:
-  - sensor
-ha_codeowners:
-  - '@gjohansson-ST'
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **DNS IP** {% term integration %} will expose an IP address, fetched via DNS resolution (every 2 minutes), as its value. It provides both IPv4 and IPv6 lookup as separate sensors depending on accessibility to resolvers.

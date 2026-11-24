@@ -8,7 +8,7 @@ related_actions:
   - abode.trigger_automation
 ---
 
-The **Capture image** action requests a new still image from an Abode camera.
+The **Abode: Capture image** action requests a new still image from an Abode camera.
 
 This is handy when you want an up-to-date image from an automation or a script, for example when a door opens.
 

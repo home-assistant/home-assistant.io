@@ -1,21 +1,10 @@
 ---
-title: Zabbix
 description: Instructions on how to integrate Zabbix into Home Assistant.
-ha_category:
-  - Sensor
-  - System monitor
 ha_release: 0.37
-ha_iot_class: Local Polling
 ha_domain: zabbix
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
-ha_codeowners:
-  - '@kruton'
 ---
 
 The **Zabbix** {% term integration %} is the main {% term integration %} to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.

@@ -1,26 +1,7 @@
 ---
-title: MySensors
 description: Instructions on how to integrate MySensors into Home Assistant.
-ha_category:
-  - DIY
-ha_iot_class: Local Push
 ha_release: 0.73
-ha_codeowners:
-  - '@MartinHjelmare'
-  - '@functionpointer'
 ha_domain: mysensors
-ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - device_tracker
-  - light
-  - remote
-  - sensor
-  - switch
-  - text
-ha_config_flow: true
-ha_integration_type: hub
 ---
 
 The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to {% my tools_states title="**Settings** > **Tools** > **States**" %} to find the devices that have been identified.

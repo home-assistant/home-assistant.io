@@ -1,30 +1,7 @@
 ---
-title: WLED
 description: Instructions on how to integrate WLED with Home Assistant.
-ha_category:
-  - Light
-  - Sensor
-  - Switch
-  - Update
 ha_release: 0.102
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
-  - '@mik-laj'
 ha_domain: wled
-ha_zeroconf: true
-ha_platforms:
-  - button
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 [WLED](https://kno.wled.ge) is a fast and feature-rich
@@ -120,7 +97,7 @@ for the following information from WLED:
 - Estimated current (in mA, only when a automatic brightness limiter is configured on the device)
 - Max current (in mA, only when a automatic brightness limiter is configured on the device)
 - LED count
-- Uptime (disabled by default)
+- Uptime ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - Free memory (in bytes, disabled by default)
 - Wi-Fi Signal Strength (in %, disabled by default)
 - Wi-Fi Signal Strength (RSSI in dBm, disabled by default)

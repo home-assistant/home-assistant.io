@@ -1,5 +1,5 @@
 ---
-title: Create notification
+title: "Create persistent notification"
 action: persistent_notification.create
 domain: persistent_notification
 description: "Creates a persistent notification in the Home Assistant frontend."
@@ -8,7 +8,7 @@ related_actions:
   - persistent_notification.dismiss_all
 ---
 
-The **Create notification** action shows a persistent notification in the Home Assistant frontend. The notification stays visible until someone dismisses it, which makes it useful for messages that need attention, such as a reminder or a warning from an automation.
+The **Persistent Notification: Create persistent notification** action shows a persistent notification in the Home Assistant frontend. The notification stays visible until someone dismisses it, which makes it useful for messages that need attention, such as a reminder or a warning from an automation.
 
 {% include actions/ui_header.md %}
 
@@ -18,7 +18,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Persistent notification: Create**.
+5. From the search box, search for and select **Persistent Notification: Create persistent notification**.
 6. Provide a **Message** and, if you want, a **Title** and a **Notification ID**.
 7. Select **Save**.
 

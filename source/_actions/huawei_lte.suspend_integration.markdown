@@ -7,7 +7,7 @@ related_actions:
   - huawei_lte.resume_integration
 ---
 
-The **Suspend integration** action suspends the integration. It logs the integration out from the router and stops accessing it. This is useful when you temporarily need to access the router web interface from another source, such as a web browser. Use the [Resume integration](/actions/huawei_lte.resume_integration/) action to resume.
+The **Huawei LTE: Suspend integration** action suspends the integration. It logs the integration out from the router and stops accessing it. This is useful when you temporarily need to access the router web interface from another source, such as a web browser. Use the [Resume integration](/actions/huawei_lte.resume_integration/) action to resume.
 
 This action does not target an entity. Only users with administrator rights can run it. If you have more than one router configured, you provide the router URL.
 

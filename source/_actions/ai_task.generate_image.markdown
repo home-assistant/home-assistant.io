@@ -2,6 +2,7 @@
 title: "Generate image"
 action: ai_task.generate_image
 domain: ai_task
+response: required
 description: "Uses AI to generate an image from a set of instructions."
 related_actions:
   - ai_task.generate_data
@@ -20,7 +21,7 @@ To generate an image from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **AI Task: Generate image**.
+5. From the search box, search for and select **Generate image**.
 6. Enter a **Task name** and the **Instructions**, and set any of the options you need.
 7. In the **Response variable** field, enter a name to store the result, for example, `generated_image`.
 8. Select **Save**.
@@ -83,6 +84,8 @@ attachments:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response data is a mapping with the following fields:
 

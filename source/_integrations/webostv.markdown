@@ -1,24 +1,7 @@
 ---
-title: LG webOS TV
 description: Instructions on how to integrate a LG webOS TV within Home Assistant.
-ha_category:
-  - Media player
-  - Notifications
-  - Switch
-ha_iot_class: Local Push
 ha_release: 0.18
-ha_codeowners:
-  - '@thecode'
 ha_domain: webostv
-ha_config_flow: true
-ha_ssdp: true
-ha_platforms:
-  - diagnostics
-  - media_player
-  - notify
-  - switch
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **LG webOS TV** {% term integration %} allows you to control a [LG](https://www.lg.com/) webOS TV.
@@ -64,7 +47,7 @@ The **LG webOS TV** integration provides the following entities.
 ### Switches
 
 - **Screen** (disabled by default)
-  - **Description**: Turns off the TV screen while the TV keeps running, so you can keep listening to the sound. Turn the switch back on to show the picture again. You have to [enable this entity](/common-tasks/general/#to-enable-or-disable-a-single-entity) before you can use it.
+  - **Description**: Turns off the TV screen while the TV keeps running, so you can keep listening to the sound. Turn the switch back on to show the picture again. You have to [enable this entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) before you can use it.
   - **Remarks**: This entity is unavailable when the TV is off, even if the TV media player remains available (for example, because you use the [**TV turn on requested**](/triggers/webostv.turn_on/) trigger). Not all TVs support turning the screen on or off. If your TV doesn't support it, you'll see an error the first time you use the switch, and the entity becomes unavailable from then on.
 
 {% include integrations/triggers.md %}

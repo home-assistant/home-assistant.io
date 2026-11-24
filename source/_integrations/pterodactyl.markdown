@@ -1,38 +1,29 @@
 ---
-title: Pterodactyl
 description: Instructions on how to integrate a Pterodactyl server into Home Assistant.
 ha_release: 2025.4
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@elmurato'
 ha_domain: pterodactyl
-ha_platforms:
-  - binary_sensor
-  - button
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 [Pterodactyl](https://www.pterodactyl.io) is a game server management panel designed to simplify the administration of game servers. It offers a user-friendly interface  which allows users to manage multiple game servers from a single dashboard, supporting popular games like Minecraft. Its key features include an intuitive web-based control panel, automated server installation, real-time server monitoring, scheduled backups and more. Each game server runs in an isolated Docker container, ensuring security and stability.
 
-The Pterodactyl {% term integration %} allows you to monitor your game servers of your Pterodactyl server within Home Assistant.
+The Pterodactyl {% term integration %} allows you to monitor and control the game servers on your Pterodactyl server from Home Assistant.
+
+## Use cases
+
+- Check whether your game servers are running.
+- Track resource usage such as CPU, memory and disk over time.
+- Start, stop, or restart your game servers.
 
 ## Prerequisites
 
 To access your Pterodactyl server, an account API key is required. Follow these steps to create a new one:
 
-- Access your **Pterodactyl Panel** and log in with your user account.
-- From the main dashboard, click your **username** or **profile icon** in the top-right corner, then select **API Credentials**.
-- Enter a **Description** to identify the key (for example, "Home Assistant").
-- Optionally, specify **Allowed IPs** to restrict where the key can be used (leave blank to allow all IPs).
-- Click **Create**. The panel will generate and display your new account API key.
-- Copy the **account API key** immediately and store it securely. You won’t be able to view it again after leaving the page.
+1. Access your **Pterodactyl Panel** and log in with your user account.
+2. From the main dashboard, select your **username** or **profile icon** in the top-right corner, then select **API Credentials**.
+3. Enter a **Description** to identify the key (for example, `Home Assistant`).
+4. Optionally, specify **Allowed IPs** to restrict where the key can be used (leave blank to allow all IPs).
+5. Select **Create**. The panel generates and displays your new account API key.
+6. Copy the **account API key** immediately and store it securely. You won’t be able to view it again after leaving the page.
 
 {% important %}
 Pterodactyl has two different types of API keys: Account and Application. Application API keys are not supported, an account API key as described above is required instead.
@@ -49,22 +40,22 @@ Account API key:
     description: "The account API key for accessing your Pterodactyl server (see prerequisites)."
 {% endconfiguration_basic %}
 
-## Binary sensors
+## Supported functionality
 
-This integration provides the following {% term binary_sensor "binary sensor" %} entities for each game server on your Pterodactyl server:
+This integration provides the following entities for each game server of your Pterodactyl server.
+
+### Binary sensors
 
 - Status: `Running` or `Not running`
 - Suspended: `On` or `Off`
 
-## Buttons
-
-This integration provides the following {% term buttons %} for each game server of your Pterodactyl server:
+### Buttons
 
 - Start server
 - Stop server
 - Restart server
 
-The following button is provided as well, but disabled by default:
+The following button is provided as well, but [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity):
 
 - Force stop server
 
@@ -76,9 +67,7 @@ Using **force stop** will terminate the server immediately and may lead to game 
 All buttons are unavailable when the server is suspended.
 {% endnote %}
 
-## Sensors
-
-This integration provides the following {% term sensors %} for each game server of your Pterodactyl server:
+### Sensors
 
 - CPU utilization
 - Memory usage
@@ -92,6 +81,10 @@ The following sensors are provided as well, but disabled by default:
 - Disk limit
 - Network inbound
 - Network outbound
+
+## Data updates
+
+This integration {% term polling polls %} each game server on your Pterodactyl server every 60 seconds. If a request for one game server fails, entities for all game servers become unavailable until a refresh succeeds.
 
 ## Removing the integration
 

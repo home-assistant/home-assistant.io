@@ -1,23 +1,10 @@
 ---
-title: IamMeter
 description: Instructions on how to integrate IAMMETER sensor within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 0.107
-ha_iot_class: Local Polling
 ha_domain: iammeter
-ha_codeowners:
-  - '@lewei50'
-  - '@IAMMETER'
-  - '@miwyf'
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 [IAMMETER](https://www.iammeter.com/) provides both a bi-directional single-phase energy meter([WEM3080](https://www.iammeter.com/products/single-phase-meter)) and a bi-directional three-phase energy monitor ([WEM3080T](https://www.iammeter.com/products/three-phase-meter)). Both of them can be integrated into Home Assistant.

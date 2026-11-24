@@ -33,6 +33,8 @@ The two are linked only when the same individual needs both. You attach a user t
 
 To create a user that is not linked to a person, add it from the **Users** tab instead of from **People**. You can still [link it to a person](/integrations/person/#linking-an-existing-user-account-to-a-person) later.
 
+A user with **Local access only** turned on can sign in and connect only from your local network. This applies to every such user, whether or not the user is linked to a person. From outside your network, the user cannot sign in or use Home Assistant, neither through Home Assistant Cloud nor through direct remote access. This includes the Home Assistant app on a phone.
+
 ## About user accounts
 
 When you start Home Assistant for the first time, the _owner_ user account is created. The owner has the highest level of access and can manage every part of the system, including creating and managing other user accounts.
@@ -50,6 +52,12 @@ User accounts come in two levels of access:
 - _Non-administrator users_ have restricted access. They can use Home Assistant and see their own dashboards, but cannot reach the configuration and system settings.
 
 You set whether a user is an administrator with the **Administrator** toggle when you create or edit their account.
+
+### Username format
+
+Usernames must be lowercase and can't start or end with a space. We recommend not using spaces at all. When someone signs in, Home Assistant ignores uppercase and lowercase letters, and spaces before or after the username.
+
+Some older usernames still contain uppercase letters or start or end with a space. Those keep working unless two usernames differ only in uppercase and lowercase letters, or in spaces before or after them. In that case, only one of these users can sign in. For example, `Bob` and `bob` match the same login.
 
 ## About your account profile
 
@@ -146,8 +154,7 @@ The username is the name that is used to log in. It can differ from the display 
 2. Select the person whose username you want to change.
 3. Next to the username, select {% icon "mdi:pencil" %} **Edit**.
 4. In the **Change username** dialog, enter the **New username** and select **Change**.
-   - The username must be lowercase and must not contain spaces.
-   - Signing in is case-sensitive.
+   - The username must be lowercase and can't start or end with a space. For details, refer to [Username format](#username-format).
 
 ## Changing authentication settings
 
