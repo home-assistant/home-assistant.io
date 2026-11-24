@@ -298,13 +298,19 @@ Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device a
 
 - **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. It arms using the currently selected alarm profile and always reports the generic _armed away_ state. The name of the active profile is shown by the **Alarm profile** entity instead.
 - **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. You can only change the profile while the alarm is disarmed. To switch profiles while armed, disarm first, select the new profile, and arm again.
+- **Arm profiles**: An alarm control panel entity for each arm profile of the global Alarm Manager, named after the profile. You can arm and disarm each profile on its own. The entity shows _arming_ during the exit delay, _pending_ during the entry delay, and _triggered_ when the alarm is breached. Arm profiles you add or delete in UniFi OS are added or removed in Home Assistant automatically.
 - **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
 - **Storage Sensors**: Sensors for storage utilization, recording capacity, and the distribution of the video on disk.
 
 {% important %}
-The **Alarm Manager** and **Alarm profile** entities are only available when the UniFi Protect Alarm Manager is set to _Local_ mode. While it is in _Global_ mode, these entities do not appear, because arm profiles are currently not exposed by the public API in that mode.
+Which alarm entities you get depends on the mode of the UniFi Protect Alarm Manager:
 
-UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you adopt sensors, relays, fobs, or an Alarm Hub, so the alarm entities are currently unavailable if you use any of those devices.
+- In _Local_ mode, you get the **Alarm Manager** and **Alarm profile** entities.
+- In _Global_ mode, you get an alarm control panel entity for each arm profile. This requires UniFi Protect 7.4 or later. On earlier versions, the alarm cannot be controlled from Home Assistant in _Global_ mode.
+
+UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you adopt sensors, relays, fobs, or an Alarm Hub.
+When the mode changes, Home Assistant replaces the alarm entities.
+Update the automations and dashboards that use them.
 {% endimportant %}
 
 ## Media source
