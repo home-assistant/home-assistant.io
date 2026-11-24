@@ -305,7 +305,7 @@ This entity is informational only: the engine upgrade cannot be installed from H
 
 ### Block a network until morning
 
-This script turns on a Zone-Based Firewall Policy from now until 08:00: the next morning when you run it in the evening, or the same morning when you run it after midnight. The policy stops applying on its own at 08:00. The example assumes a policy named **Block kids' Wi-Fi** with its schedule entities enabled, and that Home Assistant and the UniFi Network application use the same time zone, because the start time is taken from Home Assistant's clock.
+This script turns on a Zone-Based Firewall Policy from now until the next 08:00: the same morning when you run it between midnight and 08:00, or the next morning when you run it later in the day. The policy stops applying on its own at 08:00. The example assumes a policy named **Block kids' Wi-Fi** with its schedule entities enabled, and that Home Assistant and the UniFi Network application use the same time zone, because the start time is taken from Home Assistant's clock.
 
 - **Action**: Select an option, **One time**, on the policy's **Schedule** entity. Choose the mode first: the time entities can't be changed while the mode has no time window.
 - **Action**: Set the **Schedule start** time to now.
