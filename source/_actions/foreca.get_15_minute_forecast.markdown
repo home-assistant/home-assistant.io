@@ -2,6 +2,7 @@
 title: "Get 15-minute forecast"
 action: foreca.get_15_minute_forecast
 domain: foreca
+response: required
 description: "Retrieves the Foreca forecast in 15-minute steps for the next three hours."
 ---
 
@@ -44,7 +45,9 @@ This action has no options beyond the target.
 
 ## Response data
 
-The action returns the forecast for each targeted weather entity, keyed by its entity ID. For each entity, the response contains a `forecast` field with a list of up to 12 entries, one for each 15 minutes of the next three hours. An entry that the API returns without a valid time is left out, so the list can be shorter. Values are in the weather entity's units. Each entry has the fields of an hourly entry of [`weather.get_forecasts`](/integrations/weather#action-weatherget_forecasts), except precipitation, plus the following:
+{% include actions/response.md %}
+
+The action returns the forecast for each targeted weather entity, keyed by its entity ID. For each entity, the response contains a `forecast` field with a list of up to 12 entries, one for each 15 minutes of the next three hours. An entry that the API returns without a valid time is left out, so the list can be shorter. Values are in the weather entity's units. Each entry has the fields of an hourly entry of [`weather.get_forecasts`](/actions/weather.get_forecasts/), except precipitation, plus the following:
 
 - `precipitation_rate`: the precipitation rate, in the precipitation unit per hour.
 - `snow_rate`: the rate at which snow builds up, in the precipitation unit per hour.
