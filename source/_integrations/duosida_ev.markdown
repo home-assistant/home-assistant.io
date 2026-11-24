@@ -71,7 +71,7 @@ The following sensors are enabled by default:
 - **Current**: Charging current in amperes (A).
 - **Power**: Charging power in watts (W).
 - **Session energy**: Energy delivered during the current charging session in kilowatt-hours (kWh). It goes back to 0 when the vehicle is unplugged.
-- **Session time**: Duration of the current charging session in hours (h). The value is unknown while there is no session.
+- **Session start**: When the current charging session started. The value is unknown while there is no session.
 - **Total energy**: The charger's energy counter in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management/).
 
 The following diagnostic sensors are available:
