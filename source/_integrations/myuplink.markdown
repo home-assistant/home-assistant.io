@@ -82,6 +82,8 @@ automation:
 
 The integration will poll the API for data every 60 seconds. This polling interval is designed to work within the rate limits of myUplink APIs while providing timely updates.
 
+A device that is added to your myUplink account later, such as a new control module, is added to Home Assistant with the next update. You don't need to reload the integration.
+
 ## Known limitations
 
 - The integration makes the best effort to map data-points from the API to relevant entities in Home Assistant. However, some sensors may not appear for certain heat-pump models, or in other cases, numerous irrelevant entities might be created. Please create an issue on GitHub and include a diagnostic download file from your installation if you believe that the mapping can be improved.
