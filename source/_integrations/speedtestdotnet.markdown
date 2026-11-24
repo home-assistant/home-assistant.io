@@ -1,19 +1,7 @@
 ---
-title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
-ha_category:
-  - Sensor
-  - System monitor
 ha_release: 0.13
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@rohankapoorcom'
-  - '@engrbm87'
 ha_domain: speedtestdotnet
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 The **Speedtest.net** {% term integration %} uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.

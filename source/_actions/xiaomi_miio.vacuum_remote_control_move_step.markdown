@@ -8,7 +8,7 @@ related_actions:
   - xiaomi_miio.vacuum_remote_control_start
 ---
 
-The **Vacuum remote control move step** action makes a Xiaomi robot vacuum enter remote control mode, perform one move, and then stop. Unlike [Vacuum remote control move](/actions/xiaomi_miio.vacuum_remote_control_move/), you don't have to start and stop remote control mode separately.
+The **Xiaomi Home: Vacuum remote control move step** action makes a Xiaomi robot vacuum enter remote control mode, perform one move, and then stop. Unlike [Vacuum remote control move](/actions/xiaomi_miio.vacuum_remote_control_move/), you don't have to start and stop remote control mode separately.
 
 {% include actions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To make a single move from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Xiaomi robot vacuum you want to control.
-6. From the actions shown for that target, select **Vacuum remote control move step**.
+6. From the actions shown for that target, under **Xiaomi Home**, select **Vacuum remote control move step**.
 7. Set the **Velocity**, **Rotation**, and **Duration**.
 8. Select **Save**.
 

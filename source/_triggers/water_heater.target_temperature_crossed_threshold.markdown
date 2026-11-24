@@ -37,8 +37,8 @@ Threshold type:
 
     - **Above** (exclusive): Fires when the setpoint crosses to strictly above the threshold. A setpoint equal to the threshold does not trigger a crossing.
     - **Below** (exclusive): Fires when the setpoint crosses to strictly below the threshold. A setpoint equal to the threshold does not trigger a crossing.
-    - **In range** (exclusive): Fires when the setpoint crosses into the range. A setpoint equal to either bound is not considered inside the range.
-    - **Outside range** (inclusive): Fires when the setpoint crosses out of the range. A setpoint equal to either bound is considered outside the range.
+    - **In range** (inclusive): Fires when the setpoint crosses into the range. A setpoint equal to either bound is considered inside the range.
+    - **Outside range** (exclusive): Fires when the setpoint crosses out of the range. A setpoint equal to either bound is still considered inside the range.
 
     You can use a fixed number or select a temperature sensor, a temperature number entity, or a [number helper](/integrations/input_number/) as the threshold.
 Unit:
@@ -93,8 +93,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |
@@ -102,8 +100,8 @@ threshold:
 
     - `type: above`: Fires when the setpoint crosses to strictly above `value`.
     - `type: below`: Fires when the setpoint crosses to strictly below `value`.
-    - `type: between`: Fires when the setpoint crosses into the range between `value_min` and `value_max`.
-    - `type: outside`: Fires when the setpoint crosses out of the range and reaches `value_min` or below, or `value_max` or above.
+    - `type: between` (inclusive): Fires when the setpoint crosses into the range between `value_min` and `value_max`. A setpoint equal to either bound is inside the range.
+    - `type: outside` (exclusive): Fires when the setpoint crosses out of the range, to below `value_min` or above `value_max`. A setpoint equal to either bound is still inside the range.
 
     For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`.
   required: true
@@ -120,9 +118,9 @@ behavior:
   default: each
 for:
   description: >
-    How long the setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:10:00` waits 10 minutes.
+    How long the setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:10:00` waits 10 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

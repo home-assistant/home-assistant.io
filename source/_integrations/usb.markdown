@@ -1,15 +1,7 @@
 ---
-title: USB Discovery
 description: Discover usb devices on the host.
-ha_category:
-  - Utility
-ha_iot_class: Local Push
 ha_release: 2021.9
 ha_domain: usb
-ha_quality_scale: internal
-ha_codeowners:
-  - '@bdraco'
-ha_integration_type: system
 ---
 
 The **USB Discovery** {% term integration %} detects supported USB devices that can be discovered by Home Assistant integrations. Devices that match a supported integration appear in the **Discovered** section on {% my integrations title="**Settings** > **Devices & services**" %}.
@@ -19,6 +11,8 @@ This integration does not manage USB storage devices. To use a USB-attached driv
 - On all supported systems, devices are detected during startup.
 - On Linux systems that have functional `udev` support, including Home Assistant Operating System, devices are detected as soon as they are plugged in.
 - On non-Linux systems or systems without `udev` support, devices are detected when visiting the integrations page and during onboarding.
+
+The USB Discovery integration also provides the **Serial** panel under **Settings** > **Connectivity**. This panel lists serial ports that Home Assistant detects or tracks through an integration or {% term app %}. This includes USB devices, but also serial ports that are built into your system or shared over your network. For details about this panel, refer to [Viewing your serial ports](/connectivity/serial/#viewing-your-serial-ports).
 
 ## Configuration
 

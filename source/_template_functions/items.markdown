@@ -57,16 +57,18 @@ value:
 
 ### Display all entity attributes
 
-Iterate over all attributes of a sensor and display them.
+Iterate over all attributes of an entity and display them.
 
 {% example %}
 template: |
-  {% for key, value in state_attr("climate.living_room", "hvac_modes")
-    | default({}) | items %}
+  {% for key, value in states.climate.living_room.attributes | items %}
     {{ key }}: {{ value }}
   {% endfor %}
 type: string
-output: ""
+output: |
+  current_temperature: 21.5
+  temperature: 22
+  friendly_name: Living room
 {% endexample %}
 
 ### Iterate over a configuration dictionary
@@ -93,7 +95,7 @@ Combine `items` with [`selectattr`](/template-functions/selectattr/) or conditio
 {% example %}
 template: |
   {% set temps = {"kitchen": 22.5, "bedroom": 19.8, "living_room": 21.3} %}
-  {% for room, temp in temps | dictsort %}
+  {% for room, temp in temps | items %}
     {% if temp > 20 %}
       {{ room }}: {{ temp }}°C
     {% endif %}

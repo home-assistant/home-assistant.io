@@ -1,18 +1,10 @@
 ---
-title: Alpha Vantage
 description: Instructions on how to set up Alpha Vantage within Home Assistant.
-ha_category:
-  - Finance
-ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: alpha_vantage
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Alpha Vantage** {% term integration %} uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.

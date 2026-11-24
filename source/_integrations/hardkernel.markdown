@@ -1,13 +1,7 @@
 ---
-title: Hardkernel
 description: Shows information about your Hardkernel ODROID board in Home Assistant.
 ha_release: 2022.6
-ha_category:
-  - Other
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: hardkernel
-ha_integration_type: hardware
 ---
 
 The **Hardkernel** {% term integration %} shows which Hardkernel ODROID board Home Assistant is running on. This includes the Home Assistant Blue, which is based on the ODROID-N2+.

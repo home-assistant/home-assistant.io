@@ -1,19 +1,7 @@
 ---
-title: Victron BLE
 description: Instructions on how to integrate Victron BLE devices into Home Assistant.
-ha_category:
-  - Sensor
-ha_bluetooth: true
 ha_release: '2025.12'
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@rajlaud'
 ha_domain: victron_ble
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Victron BLE** {% term integration %} integrates [Victron Energy](https://www.victronenergy.com/) devices that support **Instant Readout via Bluetooth** (Bluetooth Low Energy, or BLE) into Home Assistant.

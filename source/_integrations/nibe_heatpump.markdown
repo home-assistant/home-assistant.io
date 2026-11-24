@@ -1,25 +1,7 @@
 ---
-title: Nibe Heat Pump
 description: Instructions on how to integrate a Nibe Heat Pump into Home Assistant.
-ha_category:
-  - Climate
-  - Modbus-controlled
 ha_release: '2022.10'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@elupus'
 ha_domain: nibe_heatpump
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - number
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: device
 ---
 
 The **Nibe Heat Pump** {% term integration %} allows you to control and monitor [Nibe Heat Pumps](https://www.nibe.eu/en-eu/products/heat-pumps) in Home Assistant.
@@ -95,6 +77,10 @@ A standard Linux application for running the Nibe Gateway software is also avail
 
 Home Assistant support connecting to Nibe heat pumps over Modbus over either TCP or RCU like connections. When connecting to the pump inside a Home Assistant, the Modbus connection string must be specified.
 
+{% note %}
+This integration requires write access over Modbus. Make sure Modbus is configured to allow writes on the heat pump.
+{% endnote %}
+
 #### TCP/IP
 
 The newer S-series pump exposes a built-in TCP Modbus server that can be used to communicate with the pump. To enable support for this integration, the pump must be connected to your local network and network (5.2 - Network settings) and Modbus (7.5.9 - Modbus TCP/IP) must be enabled. More details on the Modbus support in the pump can be found in Nibe document [M12676EN](https://www.nibe.eu/download/18.3db69dc1795e0d992c5722/1622634529178/Modbus%20S-series%20EN%20M12676EN-1.pdf).
@@ -112,3 +98,25 @@ If your system is equipped with a MODBUS40 accessory, this can be used to contro
 {% note %}
 Support for RCU-based communication is currently untested.
 {% endnote %}
+
+## Supported functionality
+
+Besides the entities for the registers of your pump, the **Nibe Heat Pump** integration provides the following entities.
+
+### Images
+
+- **Heating curve**
+  - **Description**: Shows the heating curve of a climate system: the supply temperature the pump aims for at each outdoor temperature, limited by the minimum and maximum supply temperatures. The current outdoor, supply, and return temperatures are marked on the curve.
+  - **Available for**: Each climate system, for example **Heating curve S1**.
+  - **Remarks**: Disabled by default for climate systems that need an accessory.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant.
+
+{% include integrations/remove_device_service.md %}
+
+After removing the integration, you can turn off what you set up on the pump for it, if nothing else uses it:
+
+- **Modbus connection**: Turn off Modbus TCP/IP on the pump (menu 7.5.9 on S-series pumps).
+- **NibeGW**: If you also remove the NibeGW unit, turn off the MODBUS40 accessory in the pump's settings, or the pump raises an alarm about the missing accessory.

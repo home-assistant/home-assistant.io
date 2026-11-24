@@ -1,18 +1,7 @@
 ---
-title: Aseko Pool Live
 description: Instructions on how to integrate Aseko ASIN AQUA dosing systems within Home Assistant.
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_release: 2022.2
-ha_category:
-  - Sensor
-ha_codeowners:
-  - '@milanmeu'
 ha_domain: aseko_pool_live
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Aseko Pool Live** {% term integration %} allows you to monitor your Aseko ASIN Aqua dosing systems and Aseko ASIN Pool controllers.

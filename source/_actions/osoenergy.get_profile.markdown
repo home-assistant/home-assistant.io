@@ -2,14 +2,13 @@
 title: "Get heater profile"
 action: osoenergy.get_profile
 domain: osoenergy
+response: required
 description: "Gets the temperature profile of an OSO Energy water heater."
 related_actions:
   - osoenergy.set_profile
 ---
 
 Use this action to get the temperature profile of a water heater. The profile is a list of 24 temperatures, one for each hour of the current day in your local time. For example, the temperature at index 1 corresponds to 01:00 local time.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -20,7 +19,7 @@ To get the heater profile from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the water heater you want to read.
-6. From the actions shown for that target, select **OSO Energy: Get heater profile**.
+6. From the actions shown for that target, under **OSO Energy**, select **Get heater profile**.
 7. Select **Save**.
 
 This action has no additional options beyond the target.
@@ -42,6 +41,8 @@ This fetches the temperature profile of `water_heater.heater`.
 {% include actions/targets.md domain="water_heater" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by the water heater entity ID. Each entity contains a `profile` list of 24 temperatures, one for each hour of the current day in your local time.
 

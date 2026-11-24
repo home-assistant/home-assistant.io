@@ -1,0 +1,21 @@
+{
+  "domain": "firefly_iii",
+  "name": "Firefly III",
+  "integration_type": "service",
+  "codeowners": [
+    "@erwindouna"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "finance"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

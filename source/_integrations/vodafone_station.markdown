@@ -1,28 +1,7 @@
 ---
-title: Vodafone Station
 description: Instructions on how to integrate Vodafone Station routers into Home Assistant.
-ha_category:
-  - Button
-  - Image
-  - Presence detection
-  - Sensor
-  - Switch
 ha_release: 2023.9
 ha_domain: vodafone_station
-ha_config_flow: true
-ha_codeowners:
-  - '@paoloantinori'
-  - '@chemelli74'
-ha_iot_class: Local Polling
-ha_platforms:
-  - button
-  - device_tracker
-  - diagnostics
-  - image
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Vodafone Station** {% term integration %} allows you to control your [Vodafone Station](https://www.vodafone.it/privati/area-supporto/assistenza-dispositivi/vodafone-station.html) based router.
@@ -109,7 +88,7 @@ automation:
 automation:
 - alias: "Apple TV disconnect"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: device_tracker.appletv
       to: "not_home"
   actions:
@@ -126,7 +105,7 @@ automation:
 automation:
 - alias: "Vodafone Station CPU high cpu usage"
   triggers:
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.vodafone_station_xxxx_cpu_usage
       above: 80
   actions:

@@ -70,7 +70,9 @@ is_volume_muted:
 
 Mute a media player when something needs your attention, for example an incoming call.
 
-- **Trigger**: Phone is ringing
+- **Trigger**: State changed
+  - **Entity**: Phone ringing sensor
+  - **To**: On
 - **Action**: Mute/unmute media player
   - **Target**: Living room TV
   - **Muted**: on

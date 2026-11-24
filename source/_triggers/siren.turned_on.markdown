@@ -47,8 +47,6 @@ This fires every time `siren.entry` turns on.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +58,9 @@ behavior:
 for:
   description: >
     How long the siren must stay on before the trigger fires.
-    Accepts a duration string like `00:05:00`.
+    Accepts a duration string like `00:05:00`. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

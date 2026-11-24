@@ -9,7 +9,7 @@ related_actions:
   - teslemetry.navigation_gps_request
 ---
 
-The **Set scheduled departure** action tells your Tesla vehicle when you plan to leave. The car uses this to finish charging and to warm up or cool down the cabin so it's ready by your departure time. You can also let it shift charging into off-peak hours.
+The **Teslemetry: Set scheduled departure** action tells your Tesla vehicle when you plan to leave. The car uses this to finish charging and to warm up or cool down the cabin so it's ready by your departure time. You can also let it shift charging into off-peak hours.
 
 Use it to have the car comfortable and fully charged for your morning commute, while charging during cheaper off-peak periods overnight.
 

@@ -2,6 +2,7 @@
 title: "Get device time"
 action: neopool.get_device_time
 domain: neopool
+response: required
 description: "Reads the controller's real-time clock and reports its drift from Home Assistant."
 related_actions:
   - neopool.set_device_time
@@ -53,6 +54,8 @@ device_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the following fields:
 

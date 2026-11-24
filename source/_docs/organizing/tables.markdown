@@ -12,8 +12,8 @@ related:
     title: Categories
   - docs: /docs/organizing/
     title: Grouping your assets
-  - docs: /common-tasks/general/
-    title: Enabling or disabling entities and automations
+  - docs: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
+    title: Disabling or enabling an entity
 ---
 
 Many pages under **Settings** show their items in a table, such as your devices, entities, automations, and helpers. Depending on the table, you can search, filter, group, sort, select several items at once, and choose which columns to show.
@@ -32,7 +32,7 @@ Selecting multiple items lets you change them all at the same time, instead of o
 
    ![Selecting multiple elements in a list](/images/organizing/multiselect_01.png)
 
-3. Apply your change to all selected items, such as [adding labels](/docs/organizing/labels/) or [enabling or disabling entities and automations](/common-tasks/general/).
+3. Apply your change to all selected items, such as [adding labels](/docs/organizing/labels/) or [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Filtering items in a table
 

@@ -8,7 +8,7 @@ related_actions:
   - ombi.submit_music_request
 ---
 
-The **Submit TV request** action searches your Ombi instance for a TV show by name and submits a request for the first matching result. You can choose which seasons to request.
+The **Ombi: Submit TV request** action searches your Ombi instance for a TV show by name and submits a request for the first matching result. You can choose which seasons to request.
 
 This is handy when you want to request a show without opening the Ombi interface, for example from a voice assistant or a dashboard button.
 
@@ -75,7 +75,8 @@ season:
 
 When you press a dashboard button, request the latest season of a specific show in Ombi.
 
-- **Trigger**: A button helper is pressed
+- **Trigger**: State changed
+  - **Entity**: Tv request helper
 - **Action**: Ombi: Submit TV request
 
 {% details "YAML example for requesting a show from a button" %}

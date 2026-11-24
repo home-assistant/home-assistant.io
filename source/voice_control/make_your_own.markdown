@@ -7,7 +7,7 @@ related:
 
 If you wish to develop your own Assist device here are some useful advices we can think of:
 
-1. Make sure you understand the setup and implications of voice Assistants. For reference, we have  and we highly recommend you check the information in the [developers Portal](https://developers.home-assistant.io/docs/voice/overview/).
+1. Make sure you understand the setup and implications of voice Assistants. For reference, we have  and we highly recommend you check the information on the [contributors website](https://contributors.home-assistant.io/core/internals/assist-pipelines/).
 
 2. Make sure your setup is going to work with enough quality when adding a voice assistant.
 

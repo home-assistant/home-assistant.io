@@ -1,28 +1,14 @@
 ---
-title: Mobile App
 description: The Mobile App integration provides a generic platform for integrating mobile apps with Home Assistant.
-ha_category:
-  - Other
 ha_release: 0.89
-ha_config_flow: true
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: mobile_app
-ha_iot_class: Local Push
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - notify
-  - sensor
-ha_integration_type: device
 ---
 
 The **Mobile App** {% term integration %} lets Home Assistant mobile apps integrate with Home Assistant.
 
 If you are planning to use a mobile application that integrates with Home Assistant, we recommend that you keep this integration enabled.
 
-If you are a mobile app developer, see the [developer documentation](https://developers.home-assistant.io/docs/api/native-app-integration/) for instructions on how to build your app on top of the mobile app integration.
+If you are a mobile app developer, see the [developer documentation](https://contributors.home-assistant.io/companion/mobile-app-api/) for instructions on how to build your app on top of the mobile app integration.
 
 ## Configuration
 

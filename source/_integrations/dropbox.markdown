@@ -1,16 +1,7 @@
 ---
-title: Dropbox
 description: Instructions on how to set up backup to a Dropbox account within Home Assistant.
-ha_category:
-  - Backup
 ha_release: 2026.4
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bdr99'
 ha_domain: dropbox
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 This {% term integration %} allows you to connect your [Dropbox](https://dropbox.com) account with Home Assistant Backups.
@@ -18,7 +9,7 @@ This {% term integration %} allows you to connect your [Dropbox](https://dropbox
 {% include integrations/config_flow.md %}
 
 {% note %}
-By default, this integration will use the Home Assistant Cloud Account Linking service to authenticate with Dropbox. This does not require a Home Assistant Cloud subscription, and is the easiest and recommended way to set up the integration. If you want to use your own Dropbox application credentials instead, please follow the instructions in the "Using custom application credentials" section below.
+By default, this integration will use the Home Assistant Link Account Linking service to authenticate with Dropbox. This does not require a Home Assistant Link subscription, and is the easiest and recommended way to set up the integration. If you want to use your own Dropbox application credentials instead, please follow the instructions in the "Using custom application credentials" section below.
 {% endnote %}
 
 {% details "Using custom application credentials" icon="mdi:account-key" %}

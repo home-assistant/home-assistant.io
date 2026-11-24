@@ -1,36 +1,7 @@
 ---
-title: Ring
 description: Instructions on integrating Ring.com devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Light
-  - Number
-  - Sensor
-  - Switch
 ha_release: 0.42
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: ring
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - event
-  - light
-  - number
-  - sensor
-  - siren
-  - switch
-ha_integration_type: hub
-ha_codeowners:
-  - '@sdb9696'
-ha_quality_scale: bronze
 ---
 
 The **Ring** {% term integration %} allows you to control your [Ring.com](https://ring.com/) doorbell, stick up cam, chime, and intercom devices in Home Assistant.
@@ -93,6 +64,17 @@ Two camera entities are provided: `live_view` and `last_recording`.
 Downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
 {% endimportant %}
 
+#### Two-way audio
+
+If your Ring doorbell or camera supports two-way talk in the Ring app, you can talk through it from the live view camera entity in Home Assistant. For the steps, refer to [Talking through a camera](/integrations/camera/#talking-through-a-camera).
+For the steps, refer to [Talking through a camera](/integrations/camera/#talking-through-a-camera).
+
+Two-way audio has the following requirements:
+
+- The **Two-way audio** preview feature is enabled in {% my labs title="**Settings** > **System** > **Labs**" %}. For more information, see [Home Assistant Labs](/integrations/labs/).
+- You use the `live_view` camera entity. The `last_recording` camera entity doesn't support two-way audio.
+- Home Assistant is opened over HTTPS, because browsers only allow microphone access over a secure connection. The Home Assistant app on iPhone or iPad, version 2026.10.3 or later, also supports two-way audio over HTTP.
+
 ### Event
 
 The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
@@ -101,7 +83,7 @@ The event entity captures events like doorbell rings, motion alerts, and interco
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level, Wi-Fi signal, and the last recording timestamp for subscribed video devices.
 
-The `last_recording` timestamp sensor is disabled by default. When enabled, it shows when Ring created the latest ready recording. Its state is `unknown` until Home Assistant retrieves recording history.
+The `last_recording` timestamp sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). When enabled, it shows when Ring created the latest ready recording. Its state is `unknown` until Home Assistant retrieves recording history.
 
 The volume sensors are being replaced with the number entity, which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
 
@@ -132,10 +114,6 @@ The Ring cloud API is {% term polling polled %} for data updates every 60 second
 The Ring integration does not connect locally to devices, all communication goes via the cloud.
 
 ## Known limitations
-
-### Two-way audio
-
-Two-way audio in camera live view is not currently supported.
 
 ### Last recording
 

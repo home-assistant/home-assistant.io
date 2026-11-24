@@ -7,6 +7,9 @@
       "NODE_VERSION": "26"
     }
   },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
   "appPort": [4000, 4321],
   "onCreateCommand": "bundle install && npm install && npx pnpm --dir astro install",
   "containerEnv": {

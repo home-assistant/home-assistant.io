@@ -1,0 +1,16 @@
+{
+  "domain": "lacrosse",
+  "name": "LaCrosse",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "sensors.temperature_humidity"
+  ],
+  "connectivity": [
+    "rf",
+    "serial"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

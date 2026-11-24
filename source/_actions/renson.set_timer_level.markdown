@@ -8,7 +8,7 @@ related_actions:
   - renson.set_pollution_settings
 ---
 
-The **Set timer** action runs your Renson ventilation unit at a chosen ventilation level for a set number of minutes. When the timer ends, the unit returns to its normal program.
+The **Renson: Set timer** action runs your Renson ventilation unit at a chosen ventilation level for a set number of minutes. When the timer ends, the unit returns to its normal program.
 
 This is useful when you want an automation to boost ventilation for a while, for example after a shower or while cooking.
 
@@ -23,7 +23,7 @@ To set a timer from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Renson ventilation unit.
-6. From the actions shown for that target, select **Renson: Set timer**.
+6. From the actions shown for that target, under **Renson**, select **Set timer**.
 7. Select the **Level** and enter the **Time** in minutes.
 8. Select **Save**.
 
@@ -79,7 +79,9 @@ minutes:
 
 This automation runs your ventilation unit at its highest level for 30 minutes whenever the bathroom humidity rises above 70%.
 
-- **Trigger**: the bathroom humidity goes above 70%
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Bathroom humidity
+  - **Above**: `70`
 - **Action**: Renson: Set timer
   - **Target**: the ventilation unit
   - **Level**: `level4`

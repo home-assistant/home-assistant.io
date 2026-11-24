@@ -60,8 +60,6 @@ This fires 2 minutes after the outdoor light sensor stops detecting light.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -75,13 +73,13 @@ behavior:
   default: each
 for:
   description: |
-    How long the sensor or sensors must remain dark before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+    How long the sensor or sensors must remain dark before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="light sensor" example="binary_sensor.garden_light" %}
 
 {% include triggers/behavior.md %}
 

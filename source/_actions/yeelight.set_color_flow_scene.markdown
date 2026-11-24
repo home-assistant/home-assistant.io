@@ -9,7 +9,7 @@ related_actions:
   - yeelight.set_auto_delay_off_scene
 ---
 
-The **Set color flow scene** action starts a color flow on a Yeelight light, using a list of transitions that you define. If the light is off, it turns on.
+The **Yeelight: Set color flow scene** action starts a color flow on a Yeelight light, using a list of transitions that you define. If the light is off, it turns on.
 
 This is useful for creating dynamic lighting effects that should persist as a scene, such as a slow color cycle or a flickering fire effect.
 
@@ -22,7 +22,7 @@ To set a color flow scene from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Yeelight light you want to control.
-6. From the actions shown for that target, select **Set color flow scene**.
+6. From the actions shown for that target, under **Yeelight**, select **Set color flow scene**.
 7. Enter the **Transitions**, and optionally a **Count** and an **Action**.
 8. Select **Save**.
 

@@ -59,7 +59,8 @@ This action has no additional YAML options beyond the target.
 
 Stop a cover tilt each time you press a button, for example to halt the slats at any angle.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Stop blind tilt helper
 - **Action**: Stop cover tilt
   - **Target**: Living room blind
 

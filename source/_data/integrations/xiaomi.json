@@ -1,0 +1,17 @@
+{
+  "domain": "xiaomi",
+  "name": "Xiaomi",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "security_safety.cameras",
+    "presence_location.network_presence"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "camera",
+    "device_tracker"
+  ]
+}

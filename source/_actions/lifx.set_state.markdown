@@ -9,7 +9,7 @@ related_actions:
   - lifx.effect_stop
 ---
 
-The **Set state** action sets a color and brightness on a LIFX light, and can optionally turn the light on or off at the same time. Unlike [`light.turn_on`](/actions/light.turn_on/), which always powers the light on, this action leaves the power state alone unless you ask it to change. That makes it useful for preparing how a light looks while it is still off, so it comes on the way you want when a motion sensor, a button, or another automation switches it on.
+The **LIFX: Set state** action sets a color and brightness on a LIFX light, and can optionally turn the light on or off at the same time. Unlike [`light.turn_on`](/actions/light.turn_on/), which always powers the light on, this action leaves the power state alone unless you ask it to change. That makes it useful for preparing how a light looks while it is still off, so it comes on the way you want when a motion sensor, a button, or another automation switches it on.
 
 This action accepts every color and brightness option that `light.turn_on` accepts, such as **Color name**, **Brightness**, or **Color temperature**, and adds a few LIFX-only options on top. It works with any light provided by the LIFX {% term integration %}.
 
@@ -21,7 +21,7 @@ To set the state of a LIFX light from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Set state**.
+5. From the search box, search for and select **LIFX: Set state**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX lights are in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 7. Choose the color and brightness you want. _Optional_: to also switch the lights on or off, enable **Power** and set it. If you leave **Power** out, the lights keep the power state they already have.
 8. Select **Save**.
@@ -115,16 +115,17 @@ You can also use any color and brightness option that the [`light.turn_on`](/act
 
 At sunset, set the hallway lights to a dim, warm color without switching them on. When a motion sensor turns them on later that evening, they come on at that setting instead of at their bright daytime one.
 
-- **Trigger**: Sun: sunset
-- **Action**: Set state
+- **Trigger**: Sunset
+- **Action**: LIFX: Set state
   - **Target**: Hallway lights (`light.hallway`)
+  - **Color name**: `orange`
+  - **Brightness pct**: `15`
 
 {% example %}
 automation: |
   alias: "Preset the hallway lights for the evening"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: lifx.set_state
       target:
@@ -138,9 +139,15 @@ automation: |
 
 Turn the first five zones of a light strip red and switch the strip on when the front door opens. The rest of the strip keeps its current colors.
 
-- **Trigger**: State: front door opens
-- **Action**: Set state
+- **Trigger**: State changed
+  - **Entity**: Front door sensor
+  - **To**: Open
+- **Action**: LIFX: Set state
   - **Target**: Light strip (`light.light_strip`)
+  - **Zones**: `[0, 1, 2, 3, 4]`
+  - **Color name**: `red`
+  - **Power**: On
+  - **Transition**: `1` seconds
 
 {% example %}
 automation: |

@@ -1,19 +1,7 @@
 ---
-title: Stookwijzer
 description: Instructions on how to use Stookwijzer data within Home Assistant
-ha_category:
-  - Environment
-  - Sensor
 ha_release: 2023.2
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fwestenberg'
 ha_domain: stookwijzer
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **Stookwijzer** {% term integration %} queries the [Atlas Leefomgeving Stookwijzer](https://www.atlasleefomgeving.nl/stookwijzer) API for windspeed and air quality index. Based on these values, Stookwijzer advises people not to burn pallets or wood or use barbecues. This can help prevent health issues for people in the area.
@@ -30,6 +18,11 @@ Additionally, various sensor entities are provided:
 - **Air Quality Index**: Sensor containing the air quality index at the selected location.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Location:
+  description: "The location you want the Stookwijzer information for. Select it on the map. It defaults to your Home Assistant home location."
+{% endconfiguration_basic %}
 
 {% include integrations/actions.md %}
 
@@ -65,3 +58,13 @@ template:
 ```
 
 {% enddetails %}
+
+## Data updates
+
+The integration {% term polling polls %} the Stookwijzer API once an hour. The **Get forecast** action fetches the forecast from the API each time it runs.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

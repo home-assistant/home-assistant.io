@@ -1,18 +1,7 @@
 ---
-title: Kegtron
 description: Instructions on how to integrate Kegtron Smart Keg Monitor (Gen 1) into Home Assistant.
-ha_category:
-  - Sensor
-ha_bluetooth: true
 ha_release: '2022.10'
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Ernst79'
 ha_domain: kegtron
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: device
 ---
 
 Integrates [Kegtron](https://kegtron.com/) Smart Keg Monitor (Gen 1) devices into Home Assistant.

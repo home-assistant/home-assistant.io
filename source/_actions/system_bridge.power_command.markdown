@@ -2,15 +2,14 @@
 title: "Power command"
 action: system_bridge.power_command
 domain: system_bridge
+response: optional
 description: "Sends a power command to a System Bridge server."
 related_actions:
   - system_bridge.send_keypress
   - system_bridge.send_text
 ---
 
-The **Power command** action sends a power command to a System Bridge server, such as putting it to sleep, locking it, or shutting it down.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
+The **System Bridge: Power command** action sends a power command to a System Bridge server, such as putting it to sleep, locking it, or shutting it down.
 
 {% include actions/ui_header.md %}
 
@@ -66,6 +65,8 @@ command:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response confirms the command that was sent and includes the following fields:
 

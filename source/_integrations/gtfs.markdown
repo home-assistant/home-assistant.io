@@ -1,18 +1,10 @@
 ---
-title: General Transit Feed Specification (GTFS)
 description: Instructions on how to use public transit open data in Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Local Polling
 ha_release: 0.17
 ha_domain: gtfs
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **GTFS** {% term integration %} will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as [General Transit Feed Specification](https://developers.google.com/transit/gtfs/) data, commonly known as GTFS.

@@ -7,7 +7,7 @@ related_actions:
   - xiaomi_miio.light_night_light_mode_off
 ---
 
-The **Light night light mode on** action turns on night light mode. This action only works with the Philips Eyecare Smart Lamp 2.
+The **Xiaomi Home: Light night light mode on** action turns on night light mode. This action only works with the Philips Eyecare Smart Lamp 2.
 
 {% include actions/ui_header.md %}
 

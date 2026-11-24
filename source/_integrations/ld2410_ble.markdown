@@ -1,20 +1,7 @@
 ---
-title: LD2410 BLE
 description: Instructions on how to integrate LD2410 BLE devices into Home Assistant.
-ha_category:
-  - Presence detection
-  - Sensor
-ha_bluetooth: true
 ha_release: 2023.2
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@930913'
 ha_domain: ld2410_ble
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: device
 ---
 
 Integrates LD2410 BLE sensors from [Hi-Link](http://www.hlktech.net/) into Home Assistant.

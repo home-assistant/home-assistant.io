@@ -70,6 +70,7 @@ attr_value:
 ## Good to know
 
 - Returns `false` (not an error) when the device or attribute does not exist.
+- The device or entity ID must be text. If it's `None`, the template fails with the error **Must provide a device or entity ID**.
 - String comparison is case-sensitive. `is_device_attr(id, "manufacturer", "philips")` does not match `"Philips"`.
 - Accepts either a device ID or an entity ID. With an entity ID, the device is resolved first.
 

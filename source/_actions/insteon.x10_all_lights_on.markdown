@@ -8,7 +8,7 @@ related_actions:
   - insteon.x10_all_units_off
 ---
 
-The **X10 all lights on** action sends an X10 *All lights on* command to every X10 light that uses the given house code.
+The **Insteon: X10 all lights on** action sends an X10 *All lights on* command to every X10 light that uses the given house code.
 
 This is useful when you have X10 lights on your Insteon network and want to switch them all on at once, for example as part of an arriving home automation.
 

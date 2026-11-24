@@ -81,9 +81,12 @@ type:
 
 When the living room is occupied during civil evening twilight, switch the lights to a warm evening scene.
 
-- **Trigger**: Living room occupancy detected
+- **Trigger**: State changed
+  - **Entity**: Living room occupancy sensor
+  - **To**: Detected
 - **Condition**: It is evening twilight (Civil)
-- **Action**: Activate the evening lighting scene
+- **Action**: Activate scene
+  - **Target**: Living room evening scene
 
 {% details "YAML example for evening lighting at dusk" %}
 
