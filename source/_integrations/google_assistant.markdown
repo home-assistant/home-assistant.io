@@ -1,31 +1,25 @@
 ---
-title: Google Assistant
 description: Setup for Google Assistant integration
+ha_categories:
+  - other_ecosystems
 featured: true
 ha_release: 0.56
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@home-assistant/cloud'
 ha_domain: google_assistant
-ha_integration_type: system
-ha_platforms:
-  - button
-  - diagnostics
 ---
 
 The **Google Assistant** {% term integration %} allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet, or Google Home device.
 
 If you want to send commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant, or broadcast messages to Google Assistant speakers and displays without interrupting music/video playback, take a look at the [Google Assistant SDK](/integrations/google_assistant_sdk) integration.
 
-## Automatic setup via Home Assistant Cloud
+## Automatic setup via Home Assistant Link
 
-With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
+With [Home Assistant Link](/link/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Link you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
 
-For Home Assistant Cloud users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
+For Home Assistant Link users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
 
-## Manual setup (if you don't have Home Assistant Cloud)
+## Manual setup (if you don't have Home Assistant Link)
 
-The Google Assistant integration (without Home Assistant Cloud) requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
+The Google Assistant integration (without Home Assistant Link) requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
 ### Prerequisites
 
@@ -240,6 +234,8 @@ entity_config:
           type: string
 {% endconfiguration %}
 
+To apply changes to this configuration without restarting Home Assistant, use the [`google_assistant.reload`](/actions/google_assistant.reload/) action. Changing `project_id` or `service_account` still requires a restart.
+
 ### Available domains
 
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
@@ -345,7 +341,7 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
-Your **Cloud fulfillment URL** may be invalid or unreachable. Recheck the **Cloud fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-cloud) and verify that it's publicly reachable.
+Your **Cloud fulfillment URL** may be invalid or unreachable. Recheck the **Cloud fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-link) and verify that it's publicly reachable.
 
 #### 500 / 429 error on request sync
 
@@ -375,7 +371,7 @@ With the manual setup, Google doesn't always notice right away when your devices
 
 ### Automation: sync with Google after Home Assistant starts
 
-When you add or remove devices in your YAML configuration, restart Home Assistant. This automation then asks Google to sync, so the Google Home app shows your devices right away.
+When you add or remove devices in your YAML configuration, use the [`google_assistant.reload`](/actions/google_assistant.reload/) action, which asks Google to sync right away. This automation covers restarts: it asks Google to sync after Home Assistant starts, so the Google Home app shows your devices.
 
 - **Trigger**: Home Assistant
   - **Event**: Start

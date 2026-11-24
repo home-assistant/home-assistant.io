@@ -23,8 +23,8 @@ To use this trigger in an automation:
 4. From the search box, search for and select **Golden hour started**.
 5. Under **Period**, select **Any**, **Morning**, or **Evening**.
 6. Optionally, set an offset to fire before or after golden hour starts:
-   - Under **Offset**, enter how far from the start of golden hour to fire, such as 15 minutes.
-   - Under **Offset type**, select **Before** or **After**.
+   - Under **Offset**, select **Before** or **After**.
+   - Under **Duration**, enter how far from the start of golden hour to fire, such as 15 minutes.
 7. Select **Save**.
 
 ### Options in the UI
@@ -38,13 +38,12 @@ Period:
     - **Morning**: only the golden hour around sunrise, while the sun is rising.
     - **Evening**: only the golden hour around sunset, while the sun is descending.
 Offset:
-  description: The length of time from the start of golden hour when the trigger fires, in days, hours, minutes, and seconds. By default there is no offset, so the trigger fires exactly when golden hour starts.
-Offset type:
   description: |
-    Whether the offset applies before or after golden hour starts:
+    Whether to fire before or after golden hour starts:
 
-    - **Before**: fires the offset amount before golden hour starts. This is the default.
-    - **After**: fires the offset amount after golden hour starts.
+    - **No offset**: fires exactly when golden hour starts. This is the default.
+    - **Before**: fires the duration you enter before golden hour starts.
+    - **After**: fires the duration you enter after golden hour starts.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -65,7 +64,7 @@ trigger: |
     period: evening
 {% endexample %}
 
-To fire a fixed amount of time before or after golden hour starts, add the `offset` and `offset_type` options:
+To fire a fixed amount of time before or after golden hour starts, add the `offset` option. A negative offset fires before and a positive one after:
 
 {% example %}
 trigger: |
@@ -73,8 +72,7 @@ trigger: |
   options:
     period: evening
     offset:
-      minutes: 15
-    offset_type: before
+      minutes: -15
 {% endexample %}
 
 This fires 15 minutes before the evening golden hour starts.
@@ -90,16 +88,10 @@ period:
   default: any
 offset:
   description: >
-    The length of time from the start of golden hour when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. Combine it with `offset_type` to fire before or after golden hour starts.
+    The length of time from the start of golden hour when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. A negative value, such as `minutes: -30` or `"-00:30:00"`, fires before golden hour starts. A positive value fires after.
   required: false
   type: time
   default: "00:00:00"
-offset_type:
-  description: >
-    Whether the offset applies before or after golden hour starts. Accepts `before` or `after`.
-  required: false
-  type: string
-  default: before
 {% endoptions_yaml %}
 
 ## Good to know

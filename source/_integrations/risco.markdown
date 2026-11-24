@@ -1,20 +1,7 @@
 ---
-title: Risco
 description: Instructions on how to integrate Risco alarms into Home Assistant using Risco Cloud.
-ha_categories:
-  - security_safety.alarm_systems
 ha_release: '0.115'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@OnFreund'
 ha_domain: risco
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - sensor
-  - switch
-ha_integration_type: integration
 ---
 
 This {% term integration %} connects with Risco Alarms, in one of two ways:
@@ -57,8 +44,6 @@ Require pin code to arm:
   description: When checked, you'll need to enter your pin code when arming through Home Assistant.
 Require pin code to disarm:
   description: When checked, you'll need to enter your pin code when disarming through Home Assistant.
-How often to poll Risco Cloud (in seconds):
-  description: "The lower this is, the faster your entities will reflect changes, but the more resource-intensive it'll be. Only available when using Cloud."
 Maximum concurrent requests in Risco local:
   description: "Lower values cause the integration to load slower. Higher values could lead to errors. Only available when using Local."
 {% endconfiguration_basic %}
@@ -96,3 +81,7 @@ And in the reverse direction:
 - [Switch](/integrations/switch/)
 
 {% include integrations/actions.md %}
+
+## Data updates
+
+When connected through Risco Cloud, the integration {% term polling polls %} the cloud every 30 seconds for the alarm state, and every 60 seconds for events. The local connection receives updates from the panel as they happen.

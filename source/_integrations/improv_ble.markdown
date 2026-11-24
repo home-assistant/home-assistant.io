@@ -1,16 +1,7 @@
 ---
-title: Improv via BLE
 description: Send your Wi-Fi details over Bluetooth to Wi-Fi devices that support Improv, such as ESP32 devices running ESPHome, so they can join your Wi-Fi network.
 ha_release: 2023.11
-ha_bluetooth: true
-ha_categories:
-  - diy_makers.boards_hardware
-ha_codeowners:
-  - '@emontnemery'
 ha_domain: improv_ble
-ha_integration_type: device
-ha_iot_class: Local Polling
-ha_config_flow: true
 ---
 
 The **Improv via BLE** {% term integration %} sends your Wi-Fi network name and password to a Wi-Fi device over Bluetooth, so the device can join your Wi-Fi network. It works with Wi-Fi devices that support the open [Improv via BLE](https://www.improv-wifi.com/ble/) standard, such as many devices with an ESP32 chip that run [ESPHome](/integrations/esphome/). After the device is on your Wi-Fi network, it communicates with Home Assistant over Wi-Fi.
@@ -30,8 +21,8 @@ If your device supports Improv via BLE, Home Assistant shows it under **Discover
 - The Wi-Fi device supports Improv via BLE and isn't connected to a Wi-Fi network yet.
 - One of the following is within Bluetooth range of the Wi-Fi device. It sends your Wi-Fi details to the device:
   - The Bluetooth adapter of your Home Assistant server.
-  - A [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) that supports active connections.
-    - Home Assistant needs a [connection](/integrations/bluetooth/#connection) to the Wi-Fi device to send it your Wi-Fi details. An ESPHome Bluetooth proxy supports this. On ESP32 devices, active connections are turned on by default. Shelly and SMLIGHT proxies only listen to Bluetooth devices, so they can't be used.
+  - A [Bluetooth proxy](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies) that supports active connections.
+    - Home Assistant needs a [connection](/connectivity/bluetooth/#connection) to the Wi-Fi device to send it your Wi-Fi details. An ESPHome Bluetooth proxy supports this. On ESP32 devices, active connections are turned on by default. Shelly and SMLIGHT proxies only listen to Bluetooth devices, so they can't be used.
   - Your phone with the [Home Assistant Companion app](https://companion.home-assistant.io/), if the app has Bluetooth access.
     - In the app, go to {% my integrations title="**Settings** > **Devices & services**" %}. Wi-Fi devices that your phone finds show up under **Discovered** as **Improv via BLE**.
     - When you start the setup in the app, the app sends the Wi-Fi details itself, even if Home Assistant also found the device.
@@ -62,7 +53,7 @@ After the device has joined your Wi-Fi network, add it to Home Assistant with th
   - It doesn't add the Wi-Fi device to Home Assistant, and it doesn't show up in your list of integrations.
   - You add the Wi-Fi device itself with its own integration, for example, [ESPHome](/integrations/esphome/).
 - Improv via BLE only works for Wi-Fi devices that aren't connected to a Wi-Fi network yet.
-- If Improv via BLE uses a Bluetooth proxy, the proxy must support [active connections](/integrations/bluetooth/#connection), such as an ESPHome proxy. Shelly and SMLIGHT proxies can't make connections.
+- If Improv via BLE uses a Bluetooth proxy, the proxy must support [active connections](/connectivity/bluetooth/#connection), such as an ESPHome proxy. Shelly and SMLIGHT proxies can't make connections.
 
 ## Troubleshooting
 

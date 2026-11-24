@@ -1,18 +1,7 @@
 ---
-title: AirNow
 description: Instructions on how to integrate AirNow within Home Assistant.
-ha_categories:
-  - weather_alerts.air_quality_pollen
 ha_release: 2021.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@asymworks'
 ha_domain: airnow
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **AirNow** {% term integration %} uses the [AirNow](https://www.airnow.gov/) web service
@@ -23,6 +12,17 @@ as a source for air quality data for your location.
 To generate an AirNow API key, go to the [AirNow Developer Tools](https://docs.airnowapi.org/account/request/) page.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+API key:
+  description: "Your AirNow API key. To generate one, go to the [AirNow Developer Tools](https://docs.airnowapi.org/account/request/) page."
+Location:
+  description: "The location you want air quality data for. Select it on the map. It defaults to your Home Assistant home location."
+{% endconfiguration_basic %}
+
+## Data updates
+
+The integration {% term polling polls %} the AirNow API every 30 minutes.
 
 ## Troubleshooting
 

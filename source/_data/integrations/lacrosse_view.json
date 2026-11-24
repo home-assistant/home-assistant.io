@@ -1,0 +1,20 @@
+{
+  "domain": "lacrosse_view",
+  "name": "LaCrosse View",
+  "integration_type": "hub",
+  "codeowners": [
+    "@IceBotYT"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "sensors.temperature_humidity"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

@@ -1,32 +1,10 @@
 ---
-title: FRITZ!Box Tools
 description: Instructions on how to integrate FRITZ!Box routers into Home Assistant.
-ha_categories:
-  - computers_network.routers_network
-  - presence_location.network_presence
 ha_release: '0.10'
 ha_domain: fritz
-ha_config_flow: true
-ha_codeowners:
-  - '@AaronDavidSchneider'
-  - '@chemelli74'
-  - '@mib1185'
-ha_iot_class: Local Polling
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - image
-  - sensor
-  - switch
-  - update
-ha_ssdp: true
-ha_integration_type: hub
 related:
-  - docs: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  - docs: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
     title: Enabling or disabling entities
-ha_quality_scale: gold
 ---
 
 The **FRITZ!Box Tools** {% term integration %} allows you to control your [FRITZ!Box](https://en.fritz.com/products/fritzbox/) router (by FRITZ!, formerly AVM) and have presence detection for connected network devices.
@@ -46,7 +24,9 @@ Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status informatio
 To use the [dial](/actions/fritz.dial/) action, the click to dial service of the FRITZ!Box must also be enabled under **Telephony** > **Calls** > **Click to Dial**.
 {% endimportant %}
 
-### Username
+### Credentials
+
+#### FRITZ!Box
 
 It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **FRITZ!Box Settings** permission.
 
@@ -54,6 +34,14 @@ It is recommended to create a separate user to connect Home Assistant to your FR
 If you still want to use the predefined user, as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Before FRITZ!OS 7.24, the default username was `admin`.
 
 FRITZ!Powerline devices do not validate the **Username** value. Only the **Password** value is checked, so you can enter any value in **Username**.
+{% endnote %}
+
+#### FRITZ!Repeater
+
+It is recommended to set a password for the FRITZ!Repeater. Go to **System** > **Password**, select **Login with the FRITZ!Repeater password**, and set a password. The FRITZ!Repeater does not use a username with this setting, so you can enter any value in **Username**.
+
+{% note %}
+Before FRITZ!OS 8.50, the FRITZ!Repeater accepted any credentials for API calls when **Login without password (not recommended, unprotected)** was selected under **System** > **Password**. This was true even when the FRITZ!Repeater's web interface was protected by the mesh master's credentials. Starting with FRITZ!OS 8.50, the FRITZ!Repeater blocks API access when this option is selected. We recommend using **Login with the FRITZ!Repeater password** instead.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -64,9 +52,9 @@ Host:
 Port:
     description: The port used to connect to your FRITZ!Box router. Leave it empty to use the default port.
 Username:
-    description: Name of the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)
+    description: Username Home Assistant uses to connect to the FRITZ!Box (_see [credentials](#credentials)_)
 Password:
-    description: Password for the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)
+    description: Password for the user to connect Home Assistant to your FRITZ!Box (_see [credentials](#credentials)_)
 Uses an SSL certificate:
     description: Whether to use SSL encryption for connecting to your FRITZ!Box router.
 Enable network device tracking:
@@ -92,7 +80,7 @@ The FRITZ!Box Tools integration provides the following main features:
 - **{% term "Binary sensor" %}** - connectivity status.
 - **{% term Image %}** - QR code for Guest Wi-Fi.
 - **{% term Button %}** - reboot, reconnect, firmware update.
-- **{% term Sensor %}** - external IP address, uptime, CPU temperature, and network monitors.
+- **{% term Sensor %}** - external IP address, uptime, CPU temperature, network monitors, and link sensors.
 - **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
 - **{% term Update %}** - firmware status of the device.
 
@@ -115,6 +103,16 @@ Parental control {% term switches %} can be used to enable and disable internet 
 ### Device tracker
 
 **Note**: If you don't want to automatically track newly detected devices, disable the {% term integration %} system option `Enable new added entities`.
+
+### Link sensors
+
+For each connected device, the integration can create {% term sensors %} that show how the device is connected to your network:
+
+- **Signal strength**: The Wi-Fi signal strength of the device in dBm, as received by the FRITZ!Box or mesh repeater it's connected to. Wi-Fi devices only.
+- **Download link rate** and **Upload link rate**: The current link speed between the device and the FRITZ!Box, in Mbit/s by default. Wi-Fi devices only.
+- **Max download link rate** and **Max upload link rate**: The highest link speed the connection supports, in Mbit/s by default. Wi-Fi and LAN devices.
+
+These are diagnostic sensors and are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). They are only created when your FRITZ!Box provides mesh information. If your FRITZ!Box doesn't support mesh, or if you use the [old discovery method](#enable-old-discovery-method), these sensors are not created. When a device is disconnected, its link sensors show as unknown.
 
 ### Port forward switches
 
@@ -201,7 +199,7 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 Some FRITZ!Repeater models with newer FRITZ!OS versions use their own users for app access. If Home Assistant reports an authentication error after a repeater firmware update, sign in to the repeater web interface and go to **System** > **FRITZ!Box Users** > **Users**.
 
-Create a dedicated user for Home Assistant on the repeater, or use an existing local repeater user in the integration (_see [username](#username) section above for details_). In a mesh setup, do not assume that a user from the main FRITZ!Box is also available on the repeater.
+Create a dedicated user for Home Assistant on the repeater, or use an existing local repeater user in the integration (_see [credentials](#credentials) section above for details_). In a mesh setup, do not assume that a user from the main FRITZ!Box is also available on the repeater.
 
 ### Device presence detection is not working as expected
 

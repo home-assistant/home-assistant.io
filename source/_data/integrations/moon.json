@@ -1,0 +1,18 @@
+{
+  "domain": "moon",
+  "name": "Moon",
+  "integration_type": "service",
+  "codeowners": [
+    "@fabaff",
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "weather_alerts"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

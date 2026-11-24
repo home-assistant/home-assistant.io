@@ -1,31 +1,7 @@
 ---
-title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
-ha_categories:
-  - climate.thermostats_heating
-  - security_safety.cameras
-  - weather_alerts
 ha_release: '0.20'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@cgtobi'
-ha_config_flow: true
 ha_domain: netatmo
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - diagnostics
-  - fan
-  - light
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 [Netatmo](https://www.netatmo.com/) is a smart home brand from the Legrand group that makes connected devices for the home, including weather stations, indoor and outdoor cameras, video doorbells, smart thermostats and radiator valves, air quality monitors, and Legrand and BTicino electrical products such as switches, dimmers, and power plugs.
@@ -75,13 +51,13 @@ It also exposes [Netatmo Smart Door and Window Sensors](https://www.netatmo.com/
 ## Button
 
 The `netatmo` button sensor platform provides support for moving compatible shutters to a preferred position.
-Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Camera
 
 The `netatmo` camera platform is consuming the information provided by a [Netatmo Smart Indoor](https://www.netatmo.com/smart-indoor-camera), [Outdoor](https://www.netatmo.com/smart-outdoor-camera) and [Netatmo Smart Video Doorbell](https://www.netatmo.com/smart-video-doorbell) camera. This integration allows you to view the current live stream created by the camera (exception: video doorbell).
 
-The doorbell is currently not supported with the Home Assistant Cloud link mode (configured in the integration). Please use a [Netatmo dev account](#development--testing-with-your-own-client-id). Note that: if you have already created the Netatmo integration, you must remove it and configure it with the Netatmo dev account as explained in the previous link. Then you will see a Smart Doorbell device with a camera sensor.
+The doorbell is currently not supported with the Home Assistant Link mode (configured in the integration). Please use a [Netatmo dev account](#development--testing-with-your-own-client-id). Note that: if you have already created the Netatmo integration, you must remove it and configure it with the Netatmo dev account as explained in the previous link. Then you will see a Smart Doorbell device with a camera sensor.
 
 ## Climate
 
@@ -117,7 +93,7 @@ The Netatmo backend sends instant events to Home Assistant by using webhooks whi
 [Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/smart-indoor-air-quality-monitor) or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
 
 {% warning %}
-Netatmo webhook events have known issues with Home Assistant Cloud Link.
+Netatmo webhook events have known issues with Home Assistant Link.
 It is therefore recommended to use [an individual development account](#development--testing-with-your-own-client-id).
 {% endwarning %}
 

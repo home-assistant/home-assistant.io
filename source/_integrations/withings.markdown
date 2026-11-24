@@ -1,21 +1,7 @@
 ---
-title: Withings
 description: Instructions on how to integrate Withings health products within Home Assistant.
-ha_categories:
-  - health_wellbeing
 ha_release: 0.99
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@joostlek'
 ha_domain: withings
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_dhcp: true
 ---
 
 The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
@@ -46,6 +32,7 @@ You must have a developer account to distribute the data.
    - **Application name**: [any name]
    - **Application description**: [any description]
    - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
+     - Keep this URL when My Home Assistant is enabled, even if you access Home Assistant through a local IP address.
      - Do not test this URL. It won't work at this stage. It will be set up once you install the integration in Home Assistant.
    - **Change logo**: Optional
 6. **Save** your changes.
@@ -58,8 +45,11 @@ If you don't have [My Home Assistant](/integrations/my) on your installation,
 you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
 instead.
 
-The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
-authentication process.
+Before starting setup or reauthentication, open Home Assistant using `<HOME_ASSISTANT_URL>` in your browser. The address must match the one registered with Withings, including `https://`, the hostname, and any port number.
+
+For example, if you registered `https://home.example.com/auth/external/callback`, start setup from `https://home.example.com`.
+
+Home Assistant uses your browser address to generate this callback. Opening Home Assistant through a local IP address generates an IP-based callback instead. Changing the **Internet** or **Local network** URL under {% my network title="**Settings** > **System** > **Network**" %} does not change this sign-in callback. The [webhook URL](#how-the-webhook-url-is-determined) used for data updates is separate.
 
 Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
 
@@ -95,7 +85,7 @@ You do not enter the webhook URL anywhere in the integration. Home Assistant bui
 
 Home Assistant prefers the **Internet** URL and falls back to the **Local Network** URL. For Withings webhooks to register successfully, the URL that Home Assistant selects must be a public HTTPS URL on port 443 with a valid certificate.
 
-If you use Home Assistant Cloud from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
+If you use Home Assistant Link from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
 
 #### Changing the webhook URL
 
@@ -118,6 +108,12 @@ For example, measurement sensors like weight only work when data has been regist
 Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
 
 Workout {% term calendar %} and the workout and activity sensors show if the latest available data point is no older than 14 days.
+
+### Basal metabolic rate
+
+The **Basal metabolic rate** sensor shows your estimated daily energy requirement at rest in kilocalories per day (kcal/day). It is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and is created only when Withings returns this measurement.
+
+Withings lists basal metabolic rate as requiring its Advanced Biomarkers API plan. See [Withings' available health data](https://developer.withings.com/developer-guide/v3/data-api/all-available-health-data/) for supported devices and API availability.
 
 ## Removing the integration
 

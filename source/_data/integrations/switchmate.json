@@ -1,0 +1,19 @@
+{
+  "domain": "switchmate",
+  "name": "Switchmate SimplySmart Home",
+  "codeowners": [
+    "@danielhiversen",
+    "@qiz-li"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "plugs_switches"
+  ],
+  "connectivity": [
+    "bluetooth"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

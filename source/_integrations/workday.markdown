@@ -1,22 +1,7 @@
 ---
-title: Workday
 description: Check whether today, or a day you choose, is a workday, based on your workdays and the public holidays of your country.
-ha_categories:
-  - productivity_information.calendars_todos
-  - helpers.calculate_value
-ha_iot_class: Local Polling
 ha_release: 0.41
-ha_quality_scale: internal
-ha_config_flow: true
-ha_codeowners:
-  - '@fabaff'
-  - '@gjohansson-ST'
 ha_domain: workday
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - diagnostics
-ha_integration_type: service
 ---
 
 The **Workday** {% term integration %} indicates whether a day is a workday or not. By default, it checks today. With the **Offset** option, it can check a later or earlier day instead, such as tomorrow.
@@ -33,6 +18,8 @@ Check the [country list](https://github.com/vacanza/holidays#available-countries
 
 {% include integrations/config_flow.md %}
 
+The **Custom holidays** and **Country settings** sections are collapsed. Select a section to open it. The **Country settings** section is only shown when the selected country has settings.
+
 {% configuration_basic %}
 Country:
   description: The country whose public holidays you want to use. Leave it empty to start with an empty set of holidays.
@@ -43,16 +30,16 @@ Days to exclude:
 Offset:
   description: The number of days to shift the day that is checked. The default `0` checks today. Enter `1` to check whether tomorrow is a workday, for example, for an evening automation that prepares for the next day. You can enter a value from -10 to 10.
 Add holidays:
-  description: Provide dates formatted with `YYYY-MM-DD` or a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` to add them as holidays.
+  description: Enter dates formatted as `YYYY-MM-DD` or a date range formatted as `YYYY-MM-DD,YYYY-MM-DD` to add them as holidays. Available under **Custom holidays**.
 Remove holidays:
-  description: Provide dates formatted with `YYYY-MM-DD`, a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` or partial of name, (for example, `christmas` will find `Christmas Day`) to remove them from the list of holidays.
+  description: Enter dates formatted as `YYYY-MM-DD`, a date range formatted as `YYYY-MM-DD,YYYY-MM-DD`, or part of a holiday name (for example, `christmas` finds `Christmas Day`) to remove them from the list of holidays. Available under **Custom holidays**.
 Language for named holidays:
-  description: The language of the holiday names. It's used when you remove holidays by name in **Remove holidays**.
+  description: The language of the holiday names. It's used to match names you enter in **Remove holidays** (under **Custom holidays**). Available under **Country settings**.
 Subdivision of country:
-  description: The subdivision of the chosen country, if any or wanted.
+  description: The subdivision of the chosen country, if any or wanted. Available under **Country settings**.
   required: false
 Additional category as holiday:
-  description: Additional holiday categories to include. Check the supported categories for each country in the [holidays library webpage](https://pypi.org/project/holidays/).
+  description: Additional holiday categories to include. Check the supported categories for each country in the [holidays library webpage](https://pypi.org/project/holidays/). Available under **Country settings**.
 {% endconfiguration_basic %}
 
 {% important %}

@@ -1,21 +1,7 @@
 ---
-title: Ping (ICMP)
 description: Instructions on how to use ICMP ping checks in Home Assistant.
-ha_categories:
-  - presence_location.network_presence
-  - computers_network.monitoring
 ha_release: 0.43
-ha_iot_class: Local Polling
-ha_quality_scale: internal
 ha_domain: ping
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - sensor
-ha_integration_type: service
-ha_config_flow: true
-ha_codeowners:
-  - '@jpbede'
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -66,7 +52,7 @@ Host:
 Ping count:
   description: The number of echo requests to send to the target. The default is 5.
 Consider home:
-  description: The number of seconds that must elapse before considering a disconnected device "not at home". The default is 180 seconds (3 minutes).
+  description: The number of seconds the device tracker continues to report the device as home after the last successful ping. The default is 180 seconds (3 minutes). The binary sensor reflects the latest ping check.
 {% endconfiguration_basic %}
 
 ## Binary sensor
@@ -85,7 +71,9 @@ The integration exposes the different round trip times milliseconds as entities:
 - `Jitter` - the variation in round trip times
 - `Packet loss` - the percentage of missed ICMP replies
 
-**These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and can be enabled in the UI if needed.**
+When the host does not reply at all, `Packet loss` shows 100% and the round trip time and jitter entities become unavailable, since there is nothing to measure. When the host name can't be resolved, all of these entities become unavailable.
+
+**These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and can be enabled in the UI if needed.**
 
 ## Presence detection
 

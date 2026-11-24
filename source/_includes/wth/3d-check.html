@@ -1,0 +1,23 @@
+{%- comment -%}
+  Include before the "What the Heck?!" wordmark. When the browser can draw
+  the 3D wordmark from source/javascripts/wth/logo.js, this adds `wth-3d` to
+  the page, which keeps the CSS wordmark hidden until the 3D one replaces it.
+  That way, the flat text never flashes up first. Without JavaScript or
+  WebGL, the CSS wordmark shows straight away. logo.js removes `wth-3d` if
+  the 3D wordmark fails, and so does an error loading the script; add
+  `onerror="document.documentElement.classList.remove('wth-3d')"` to its
+  script tag. The 3D wordmark needs WebGL 2 with float color buffers, which
+  its sticker outline renders into; keep this check in step with
+  `supportsWebGL` in logo.js. Keep blank lines out of this file: the blog
+  header is placed inside Markdown.
+{%- endcomment -%}
+<script>
+  (function () {
+    try {
+      var gl = document.createElement("canvas").getContext("webgl2");
+      if (gl && gl.getExtension("EXT_color_buffer_float")) document.documentElement.classList.add("wth-3d");
+      var lose = gl && gl.getExtension("WEBGL_lose_context");
+      if (lose) lose.loseContext();
+    } catch (error) {}
+  })();
+</script>

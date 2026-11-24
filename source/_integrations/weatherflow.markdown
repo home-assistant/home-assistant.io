@@ -1,19 +1,7 @@
 ---
-title: WeatherFlow
 description: Instructions on how to integrate your WeatherFlow Tempest into Home Assistant over your local network.
 ha_release: '2023.10'
-ha_categories:
-  - weather_alerts
-ha_platforms:
-  - event
-  - sensor
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@natekspencer'
-  - '@jeeftor'
 ha_domain: weatherflow
-ha_integration_type: hub
 ---
 
 The **WeatherFlow** {% term integration %} is a local-only {% term integration %} that reads weather data from all [WeatherFlow Tempest](https://tempest.earth/tempest-home-weather-system/)-compatible weather stations on the local network.
@@ -154,6 +142,10 @@ This {% term integration %} will expose these {% term event %} {% term entities 
     
 - **Precipitation start**
   - **Description**: Fires when precipitation starts at the station.
+
+## Data updates
+
+The integration doesn't {% term polling poll %}. It listens for the updates your WeatherFlow hub broadcasts over UDP on your local network and updates the entities as they arrive. For the port this needs, see [Networking notes](#networking-notes).
 
 ## Known limitations
 

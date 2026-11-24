@@ -1,24 +1,7 @@
 ---
-title: Rain Bird
 description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
-ha_categories:
-  - garden_plants
-ha_config_flow: true
 ha_release: 0.61
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@konikvranik'
-  - '@allenporter'
 ha_domain: rainbird
-ha_platforms:
-  - binary_sensor
-  - button
-  - calendar
-  - diagnostics
-  - number
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **Rain Bird** {% term integration %} allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.

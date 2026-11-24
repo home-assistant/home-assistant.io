@@ -1,0 +1,22 @@
+{
+  "domain": "hikvision",
+  "name": "Hikvision",
+  "integration_type": "device",
+  "codeowners": [
+    "@mezz64",
+    "@ptarjan"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "security_safety.cameras"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "camera",
+    "event"
+  ]
+}

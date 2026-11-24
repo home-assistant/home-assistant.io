@@ -1,18 +1,10 @@
 ---
-title: Syslog
 description: Instructions on how to add syslog notifications to Home Assistant.
-ha_categories:
-  - computers_network.monitoring
 ha_release: pre 0.7
-ha_iot_class: Local Push
 ha_domain: syslog
-ha_platforms:
-  - notify
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Syslog** {% term integration %} allows you to deliver notifications from Home Assistant to the local syslog.
@@ -44,10 +36,10 @@ option:
   default: pid
   type: string
 priority:
-  description: Priority of the messages. Check the table below for entries.
+  description: "Priority of the messages: `5` (emergency), `4` (alert), `3` (critical), `2` (error), `1` (warning), `0` (notice), `-1` (info), or `-2` (debug)."
   required: false
-  default: info
-  type: string
+  default: -1
+  type: integer
 {% endconfiguration %}
 
 The table contains values to use in your `configuration.yaml` file.

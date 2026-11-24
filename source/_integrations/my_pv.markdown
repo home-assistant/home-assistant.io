@@ -1,27 +1,7 @@
 ---
-title: my-PV
 description: Instructions on how to integrate my-PV devices into Home Assistant.
-ha_categories:
-  - climate.water_heaters
-  - energy.solar_batteries
 ha_release: '2026.10'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@my-pv'
-  - '@rrooggiieerr'
 ha_domain: my_pv
-ha_platforms:
-  - button
-  - number
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: device
-ha_config_flow: true
-ha_dhcp: true
-ha_zeroconf: true
-ha_quality_scale: bronze
 ---
 
 The **my-PV** {% term integration %} lets you control and monitor devices made by [my-PV](https://www.my-pv.com/) from Home Assistant. my-PV builds power electronics that turn surplus solar electricity into heat, for example by driving a heating element in a hot water tank.
@@ -81,9 +61,17 @@ Which entities are created depends on your device model, its firmware, and how i
 
 When the device is configured for hot water heating and has a temperature sensor connected, a [water heater](/integrations/water_heater/) entity is created. It provides:
 
-- **Current temperature**: The temperature measured by the first temperature sensor.
-- **Target temperature**: The hot water target temperature. The minimum, maximum, and step size are taken from the device's own configuration.
+- **Current temperature**: The temperature measured by the temperature sensor.
+- **Target temperature**: The hot water target temperature.
 - **Operation mode**: `Off` or `Electric`. You can also use the turn on and turn off actions.
+
+### Climate
+
+When the device is configured for space heating and has a temperature sensor connected, a [climate](/integrations/climate/) entity is created. It provides:
+
+- **Current temperature**: The temperature measured by the temperature sensor.
+- **Target temperature**: The space target temperature.
+- **HVAC mode**: `Off` or `Heat`. You can also use the turn on and turn off actions.
 
 ### Switches
 
@@ -99,10 +87,6 @@ When the device is configured for hot water heating and has a temperature sensor
 - **Boost target temperature**: The temperature the hot water is heated to during boost.
 - **Minimum hysteresis**: How far the temperature has to drop below the target temperature before heating starts again. Disabled by default.
 - **Maximum hysteresis**: How far the temperature has to rise above the target temperature before heating stops. Disabled by default.
-
-### Buttons
-
-- **Restart**: Restarts the my-PV device.
 
 ### Sensors
 
@@ -120,6 +104,14 @@ The following diagnostic sensors are disabled by default:
 - **Network mode**: `LAN`, `WLAN`, or `AP`.
 - **Uptime**
 - **Wi-Fi signal strength**
+
+### Buttons
+
+- **Restart**: Restarts the my-PV device.
+
+### Updates
+
+- **Firmware**: Shows the firmware version installed on the device and the latest version available for it. When a newer version is available, you can install it from Home Assistant. While the update is being installed, the entity shows its progress. The device checks for new firmware about once a day. This entity is only created when the device reports both its installed and its latest firmware version.
 
 ## Examples
 
@@ -194,11 +186,21 @@ automation: |
 
 The **my-PV** integration {% term polling polls %} the device every 5 seconds. If the device reports that it is receiving too many requests, the integration keeps the last known values and slows down polling to every 10 seconds.
 
+## Reconfiguration
+
+If the IP address or hostname of your device changes, you can update it without removing the integration. If the device is discovered on a new IP address, Home Assistant updates it automatically.
+
+To change it manually:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **my-PV** integration.
+2. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
+3. Enter the new IP address or hostname. If the device asks for a password that Home Assistant does not have yet, you are asked to enter it.
+
+The new address must belong to the same device. If you enter the address of another my-PV device, reconfiguration stops with a message that the serial number does not match.
+
 ## Known limitations
 
-- The water heater entity only supports hot water heating. Other operating modes of my-PV devices, such as room heating, are not available as a water heater.
-- Entities are created when the integration is set up. If you change the configuration of the device, for example by connecting an extra temperature sensor, reload the integration to update the entities.
-- The IP address or hostname cannot be changed through the UI. If the device is discovered on a new IP address, Home Assistant updates it automatically. Otherwise, remove the integration and add it again.
+- Entities are created when the integration is set up. If you change the configuration of the device, for example by connecting an extra temperature sensor or switching between hot water and space heating, reload the integration to update the entities.
 
 ## Troubleshooting
 
@@ -220,6 +222,14 @@ The device limits how often it accepts requests. Wait a few seconds and try agai
 ### An entity is missing
 
 Entities are only created for values your device reports. Check the configuration in the web interface of your my-PV device, then reload the integration. Some diagnostic entities are disabled by default and need to be enabled first.
+
+### The device is unavailable
+
+If Home Assistant loses the connection to the device, its entities become unavailable. They become available again as soon as the device responds. Check that the device is powered on and still has the same IP address. If the address has changed, update it as described under [Reconfiguration](#reconfiguration).
+
+### Reporting an issue
+
+When you report an issue, include the diagnostics of the integration. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **my-PV** integration, select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and then select **Download diagnostics**. The password, IP address, MAC address, and serial number are removed from the diagnostics file.
 
 ## Removing the integration
 

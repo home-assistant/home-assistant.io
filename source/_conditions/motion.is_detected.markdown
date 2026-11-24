@@ -39,12 +39,12 @@ In YAML, refer to this condition as `motion.is_detected`. A basic example looks 
 condition: |
   condition: motion.is_detected
   target:
-    entity_id: motion.entrance_motion_sensor
+    entity_id: binary_sensor.entrance_motion
   options:
     for: "00:05:00"
 {% endexample %}
 
-This passes when the entity `motion.entrance_motion_sensor` has been continuously detecting motion for 5 minutes.
+This passes when the entity `binary_sensor.entrance_motion` has been continuously detecting motion for 5 minutes.
 
 ### Options in YAML
 
@@ -63,9 +63,9 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include conditions/targets.md entity_type="motion sensor" example="binary_sensor.hallway_motion" %}
 
-{% include triggers/behavior.md %}
+{% include conditions/behavior.md %}
 
 ## Good to know
 

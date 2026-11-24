@@ -63,7 +63,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="carbon monoxide detector" example="binary_sensor.hallway_carbon_monoxide" %}
 
 {% include triggers/behavior.md %}
 

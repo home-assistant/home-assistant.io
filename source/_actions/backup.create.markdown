@@ -9,7 +9,7 @@ related_actions:
 
 Use this action to create a quick local backup of your Home Assistant instance. It always includes your Home Assistant configuration and the database, and saves the backup to local storage.
 
-This action is meant for simple, no-setup backups. If you want control over what goes into the backup, where it is stored, or whether it is protected with a password, configure [automatic backups](/common-tasks/general/#setting-up-an-automatic-backup-process) and use the [Create automatic backup](/actions/backup.create_automatic/) action instead.
+This action is meant for simple, no-setup backups. If you want control over what goes into the backup, where it is stored, or whether it is protected with a password, configure [automatic backups](/common-tasks/general/backups/#setting-up-an-automatic-backup-process) and use the [Create automatic backup](/actions/backup.create_automatic/) action instead.
 
 This action is only available on [core and container installations](/installation/#about-installation-types). On Home Assistant Operating System and supervised installations, use [Create automatic backup](/actions/backup.create_automatic/).
 

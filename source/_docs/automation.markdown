@@ -15,7 +15,33 @@ An {% term automation %} makes your home react on its own when something happens
 
 - [How automations react to changes](/docs/automation/how-automations-react-to-changes/): why an automation starts when something happens, not while something is true.
 - [Which tool to use](/docs/automation/which-tool-to-use/): when to use an automation, a script, a scene, a blueprint, or a helper.
-- [Automation editors](/docs/automation/editor/): everything you can do in the editor.
+
+## What you can use in an automation
+
+To look up what you can use in an automation, use the following references:
+
+- [All triggers](/triggers/): every trigger, grouped by integration.
+- [All conditions](/conditions/): every condition, grouped by integration.
+- [All actions](/actions/): every action, grouped by integration.
+- [All building blocks](/building-blocks/): the steps that control the flow of actions, such as waiting, choosing, and repeating.
+- [Targets](/docs/automation/targets/): which entities a trigger, condition, or action covers when you select an area, floor, label, or device.
+- [Trigger data in templates](/docs/automation/trigger-data/): the data that each trigger passes to your templates.
+
+## Setting up an automation
+
+To create and adjust your automations, refer to the following pages:
+
+- [Automation editors](/docs/automation/editor/): how to create and edit automations.
+- [Automation modes](/docs/automation/modes/): what happens when an automation starts while it's still running.
+- [Automations in YAML](/docs/automation/yaml/): the full YAML structure, and the options that are only available in YAML.
+
+## Scripts, scenes, and blueprints
+
+Automations often work together with scripts, scenes, and blueprints:
+
+- [Scripts](/docs/script/): a saved list of steps that runs when you start it, for example, from an automation or a dashboard.
+- [Scenes](/docs/scene/): set a group of devices to saved states in one step.
+- [Blueprints](/docs/blueprint/): ready-made automations and scripts that you install and adjust for your own home.
 
 ## When something doesn't work
 

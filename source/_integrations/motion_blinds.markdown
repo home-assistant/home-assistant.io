@@ -1,20 +1,7 @@
 ---
-title: Motionblinds
 description: Instructions on how to integrate Motionblinds from Coulisse B.V. into Home Assistant.
-ha_categories:
-  - blinds_curtains
-ha_iot_class: Local Push
 ha_release: 2020.12
 ha_domain: motion_blinds
-ha_codeowners:
-  - '@starkillerOG'
-ha_config_flow: true
-ha_platforms:
-  - button
-  - cover
-  - sensor
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 The **Motionblinds** {% term integration %} allows you to control [Motionblinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
@@ -34,7 +21,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Gaviota](https://www.gaviotagroup.com/en/)
 - Havana Shade
 - [Heicko](https://heicko.de/en/tubular-motors/controls/e-smart-home/usb-smart-home-stick-bi-direktional-1-st.html)
-- [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
+- [Hurricane Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.autoblinds.co.nz/)
 - [Kaiser Nienhaus](https://www.kaiser-nienhaus.de/)

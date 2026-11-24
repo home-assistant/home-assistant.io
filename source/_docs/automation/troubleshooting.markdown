@@ -335,8 +335,9 @@ Not every {% term integration %} provides device triggers. Without them, the **D
 Use a trigger on an {% term entity %} of the device instead:
 
 1. In the automation editor, select **Add trigger**.
-2. On the **By target** tab, select the device or one of its entities.
-   - Result: The triggers for this target are shown, for example, **State changed**.
+2. On the **By target** tab, select one of the device's entities.
+   - Result: The triggers for this entity are shown, for example, **State changed**.
+   - If you select the device itself, only triggers that fit its entities are shown, such as **Light turned on**. **State changed** isn't one of them.
 3. Select the trigger that fits.
 
 {% enddetails %}
@@ -374,7 +375,7 @@ When you add a trigger, the device or entity is not in the list.
 
 #### Description
 
-The device or entity is disabled. Disabled devices and entities are not shown when you add a trigger. For what disabling does, refer to [Hidden versus disabled entities](/docs/configuration/customizing-devices/#hidden-versus-disabled-entities).
+The device or entity is disabled. Disabled devices and entities are not shown when you add a trigger. For what disabling does, refer to [Hidden versus disabled entities](/docs/configuration/customizing-entities/#hidden-versus-disabled-entities).
 
 #### Resolution
 
@@ -600,7 +601,8 @@ An automation, a script, a scene, a person, an integration, or the device itself
      - **By** and the name of a person who changed it in the UI or the app.
      - **Via** and the name of an integration, for example, when a scene or an action changed it.
 3. If an automation or script caused the change, select **View trace** to see why it ran. **View trace** is only shown while Home Assistant still keeps the trace of that run.
-4. To see which automations, scripts, and scenes use the entity, in the dialog of the entity, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Related**.
+4. To see all actions that were performed around that time, and what performed them, go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %} and select the date range.
+5. To see which automations, scripts, and scenes use the entity, in the dialog of the entity, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Related**.
 
 {% enddetails %}
 
@@ -618,6 +620,7 @@ Home Assistant didn't record what caused the change. Often, the change came from
 
 #### Resolution
 
+- Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %}, select a date range that includes the change, and check for actions that could have changed the device. If you don't find a matching action, continue with the checks below.
 - Check the device and the app of the manufacturer for schedules, scenes, or automations that control the device.
 - Check the documentation of the integration, and the logs under {% my logs title="**Settings** > **System** > **Logs**" %}, for changes that the integration made.
 
@@ -678,14 +681,12 @@ The automation has a sun trigger with an offset, and it runs before the sunrise 
 
 #### Description
 
-The offset is set to before the event. In the **Sunrise** and **Sunset** triggers, **Offset type** decides this, and **Before** is the default. In the **Sun** trigger, a negative offset means before the event, and a positive offset means after it.
+The offset is set to before the event. In the **Sunrise**, **Sunset**, and **Sun** triggers, a negative offset means before the event, and a positive offset means after it. In the editor, **Offset** shows this as **Before** or **After**.
 
 #### Resolution
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. In the trigger, set the offset to after the event:
-   - In the **Sunrise** or **Sunset** trigger, set **Offset type** to **After**.
-   - In the **Sun** trigger, remove the `-` from the offset.
+2. In the trigger, under **Offset**, select **After**. In YAML, remove the `-` from the offset.
 3. Select **Save**.
 
 {% enddetails %}

@@ -1,19 +1,7 @@
 ---
-title: PrusaLink
 description: Instructions on monitoring Prusa 3D printers using PrusaLink.
-ha_categories:
-  - computers_network.printers
-ha_iot_class: Local Polling
 ha_release: '2022.9'
-ha_config_flow: true
 ha_domain: prusalink
-ha_integration_type: device
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - sensor
-ha_dhcp: true
 related:
   - url: https://help.prusa3d.com/article/prusa-connect-and-prusalink-explained_302608
     title: PrusaLink documentation
@@ -49,3 +37,22 @@ Firmware update guides can be found here:
  - Use the **username** and **password** you entered during the initial PrusaLink setup (not the API key).
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The IP address or hostname of your printer. If you leave out `http://` or `https://`, the integration uses `http://`."
+Username:
+  description: "The PrusaLink username. It defaults to `maker`, the fixed username on some models. On the MK2.5 and MK3, use the username from your PrusaLink setup."
+Password:
+  description: "The PrusaLink password. Some models call it **API key**. On the MK2.5 and MK3, use the password from your PrusaLink setup, not the API key."
+{% endconfiguration_basic %}
+
+## Data updates
+
+The integration {% term polling polls %} the printer every 30 seconds. After you press one of its job buttons, such as pause or resume, it polls every 5 seconds for the next 30 seconds, so the new state shows quickly.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

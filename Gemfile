@@ -1,13 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '> 2.5.0'
-
 group :development do
   gem 'rake', '13.4.2'
   gem 'jekyll', '4.4.1'
   gem 'stringex', '2.8.6'
-  gem 'sass-embedded', '1.105.2'
-  gem 'rubocop', '1.92.0'
+  gem 'sass-embedded', '1.108.2'
+  gem 'rubocop', '1.92.3'
   gem 'ruby-lsp', '0.26.11'
   gem 'rackup', '2.3.1'
 end
@@ -19,8 +17,8 @@ group :jekyll_plugins do
   gem 'jekyll-toc', '0.19.0'
 end
 
-gem 'sinatra', '4.2.1'
-gem 'nokogiri', '1.19.4'
+gem 'sinatra', '4.2.2'
+gem 'nokogiri', '1.19.7'
 gem 'ostruct', '0.6.3'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -31,4 +29,4 @@ install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
 end
 
 # Performance-booster for watching directories on Windows
-gem "wdm", "~> 0.1.0" if Gem.win_platform?
+gem "wdm", "~> 0.2.0" if Gem.win_platform?

@@ -1,28 +1,10 @@
 ---
-title: myUplink
 description: Instructions on how to set up the myUplink integration within Home Assistant.
-ha_categories:
-  - climate.heat_pumps_air_conditioning
-ha_iot_class: Cloud Polling
 ha_release: '2024.2'
 ha_domain: myuplink
-ha_codeowners:
-  - '@pajzo'
-  - '@astrandb'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: hub
 related:
   - url: https://myuplink.com/
     title: myUplink web portal
-ha_quality_scale: silver
 ---
 
 The **myUplink** {% term integration %} lets you get information about and control heat-pump devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
@@ -61,7 +43,7 @@ The integration configuration will require the **Client ID** and **Client Secret
 
 ## Supported heat-pump systems
 
-The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink](https://myuplink.com/legal/works-with/en).
+The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink](https://myuplink.com/works-with).
 However, the representation in Home Assistant depends on how and to what extent the manufacturer has implemented the service.
 
 ## Use cases
@@ -72,6 +54,8 @@ Common use cases include:
 - **Smart Notifications**: Get alerts when the water temperature is low in the heater tank
 - **Automation**: Adjust the temperature curve offset during holiday mode
 - **Analytics**: View long-term statistics and graphs for the relevant sensors
+
+{% include integrations/actions.md %}
 
 ## Example
 

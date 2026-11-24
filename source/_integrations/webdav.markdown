@@ -1,22 +1,13 @@
 ---
-title: WebDAV
-description: Instructions on how to set up a WebDAV location to be used with backups.
+description: Instructions on how to set up a WebDAV location for backups and file uploads.
 ha_release: 2025.3
-ha_categories:
-  - computers_network.cloud_developer_tools
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: webdav
-ha_codeowners:
-  - '@jpbede'
-ha_integration_type: service
 related:
-  - docs: /common-tasks/general/#backups
+  - docs: /common-tasks/general/backups/
     title: Backups
-ha_quality_scale: bronze
 ---
 
-This {% term integration %} allows you to use a [WebDAV](https://en.wikipedia.org/wiki/WebDAV) compatible location for [Home Assistant Backups](/common-tasks/general/#backups).
+This {% term integration %} lets you use a [WebDAV](https://en.wikipedia.org/wiki/WebDAV)-compatible server as a storage location for [Home Assistant backups](/common-tasks/general/backups/). You can also upload files from Home Assistant to your WebDAV server, such as camera snapshots, with the [Upload files](/actions/webdav.upload/) action.
 
 ## Installation
 
@@ -29,7 +20,7 @@ Username:
 Password:
   description: "Password for the WebDAV server."
 Backup path:
-  description: "Path to the folder where the backups should be stored. The path is relative to the root of the WebDAV server."
+  description: "Path to the folder where the backups should be stored. The path is relative to the root of the WebDAV server. This path is only used for backups. Files you upload with the **Upload files** action go to the destination folder you choose in the action."
 Verify SSL:
   description: "Verify the SSL certificate of the WebDAV server."
 {% endconfiguration_basic %}
@@ -45,6 +36,81 @@ Verify SSL:
 - [Beeline Cloud](https://cloudbeeline.ru/): `https://webdav.cloudbeeline.ru` – free 10GB (forever), to enable WebDAV – navigate to Profile → Security and toggle the setting (screenshots and [detailed explanation here](https://t.me/another_mvp/49)).
 - [Mail.ru Cloud](https://cloud.mail.ru/): `https://webdav.cloud.mail.ru/` – free 8GB (forever).
 
+{% include integrations/actions.md %}
+
+## WebDAV automation examples
+
+Besides storing backups, you can use WebDAV to keep copies of files from Home Assistant on your own server, such as camera snapshots. Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: upload a snapshot when motion is detected
+
+When motion is detected at the front door, take a snapshot and upload it to your WebDAV server, so you have a copy even if Home Assistant is offline. The snapshot uses the same filename each time, so each upload replaces the previous one on the server.
+
+- **Trigger**: State changed
+  - **Entity**: Front door motion sensor
+  - **To**: Detected
+- **Action**: Take camera snapshot
+  - **Target**: Front door camera
+  - **Filename**: `/config/www/snapshots/front_door.jpg`
+- **Action**: Upload files
+  - **Config entry**: Your WebDAV server
+  - **Filenames**: `/config/www/snapshots/front_door.jpg`
+  - **Destination folder**: `Snapshots`
+
+{% details "YAML example for uploading a snapshot on motion" %}
+
+{% example %}
+automation: |
+  alias: "Upload a snapshot when motion is detected"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door_motion
+      to: "on"
+  actions:
+    - action: camera.snapshot
+      target:
+        entity_id: camera.front_door
+      data:
+        filename: /config/www/snapshots/front_door.jpg
+    - action: webdav.upload
+      data:
+        config_entry_id: a1bee602deade2b09bc522749bbce48e
+        filename: /config/www/snapshots/front_door.jpg
+        destination_folder: Snapshots
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: upload all snapshots every night
+
+Every night, upload all snapshots from the `snapshots` folder to your WebDAV server. The wildcard picks up every JPG file in the folder, so you don't need to list each file.
+
+- **Trigger**: Time
+  - **At time**: `23:00`
+- **Action**: Upload files
+  - **Config entry**: Your WebDAV server
+  - **Filenames**: `/config/www/snapshots/*.jpg`
+  - **Destination folder**: `Snapshots/Archive`
+
+{% details "YAML example for uploading all snapshots every night" %}
+
+{% example %}
+automation: |
+  alias: "Upload all snapshots every night"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: webdav.upload
+      data:
+        config_entry_id: a1bee602deade2b09bc522749bbce48e
+        filename: /config/www/snapshots/*.jpg
+        destination_folder: Snapshots/Archive
+{% endexample %}
+
+{% enddetails %}
 
 ## Removing the integration
 

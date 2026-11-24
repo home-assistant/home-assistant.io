@@ -1,17 +1,7 @@
 ---
-title: Pushover
 description: Instructions on how to add Pushover notifications to Home Assistant.
-ha_categories:
-  - messaging_notifications.push_notifications
 ha_release: pre 0.7
-ha_config_flow: true
-ha_iot_class: Cloud Push
 ha_domain: pushover
-ha_platforms:
-  - notify
-ha_integration_type: service
-ha_codeowners:
-  - '@engrbm87'
 ---
 
 The [Pushover action](https://pushover.net/) is a platform for the notify integration. This allows integrations to send messages to the user using Pushover.

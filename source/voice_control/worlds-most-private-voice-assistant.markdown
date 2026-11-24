@@ -10,7 +10,7 @@ related:
   - url: https://www.amazon.com/dp/B06XW1BQHC
     title: Grandstream HT801
   - url: https://www.nabucasa.com
-    title: Home Assistant Cloud
+    title: Home Assistant Link
 ---
 
 This tutorial will guide you to turn your old landline phone into the
@@ -112,7 +112,7 @@ If you’re unable to call Home Assistant, confirm the following settings in you
 
 **Symptom**
 You were able to control Home Assistant over the phone but it no longer works. When picking up the phone, no sound is played.
-The [debug information](/voice_control/troubleshooting#view-debug-information) shows no runs.
+The [debug information](/voice_control/troubleshooting/#viewing-debug-information) shows no runs.
 
 **Potential remedy**
 

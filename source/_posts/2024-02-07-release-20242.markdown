@@ -192,7 +192,7 @@ On the device page of the Matter device in Home Assistant, we will now show
 additional diagnostic information about the device. This information can be
 used to troubleshoot issues with the device or when reporting issues. Some
 examples include the network type the device uses, its addresses, and IDs,
-device types and its connected [fabrics](/integrations/matter#multi-fabric-join-to-multiple-controllers).
+device types and its connected [fabrics](/connectivity/matter/#multi-fabric-join-to-multiple-controllers).
 
 <img class="no-shadow" src='/images/blog/2024-02/matter-diagnostic-information.png' alt='Screenshots showing a matter device in the UI with additional diagnostic information. The other screenshots shows the overflow menu on the device, that provides more actions.'>
 
