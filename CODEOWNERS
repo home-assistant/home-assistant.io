@@ -1367,6 +1367,7 @@ source/_actions/agent_dvr.snapshot.markdown @ispysoftware
 source/_actions/agent_dvr.start_recording.markdown @ispysoftware
 source/_actions/agent_dvr.stop_recording.markdown @ispysoftware
 source/_actions/ai_task.clear_images.markdown @home-assistant/core
+source/_actions/ai_task.evaluate.markdown @home-assistant/core
 source/_actions/ai_task.generate_data.markdown @home-assistant/core
 source/_actions/ai_task.generate_image.markdown @home-assistant/core
 source/_actions/alarm_control_panel.alarm_arm_away.markdown @home-assistant/core
@@ -1662,6 +1663,7 @@ source/_actions/homematicip_cloud.arm_anyway.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.deactivate_eco_mode.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.deactivate_vacation.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.dump_hap_config.markdown @hahn-th @lackas
+source/_actions/homematicip_cloud.pull_latch.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.reset_energy_counter.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.set_active_climate_profile.markdown @hahn-th @lackas
 source/_actions/homematicip_cloud.set_home_cooling_mode.markdown @hahn-th @lackas
@@ -1918,6 +1920,7 @@ source/_actions/nexia.set_hvac_run_mode.markdown @bdraco
 source/_actions/nfandroidtv.send_message.markdown @tkdrob
 source/_actions/nintendo_parental_controls.add_bonus_time.markdown @pantherale0
 source/_actions/nintendo_parental_controls.device_usage_report.markdown @pantherale0
+source/_actions/nintendo_parental_controls.player_usage_report.markdown @pantherale0
 source/_actions/nintendo_parental_controls.update_daily_restrictions.markdown @pantherale0
 source/_actions/nintendo_parental_controls.update_pin_code.markdown @pantherale0
 source/_actions/nordpool.get_price_indices_for_date.markdown @gjohansson-ST
@@ -2031,6 +2034,7 @@ source/_actions/rainmachine.unpause_watering.markdown @bachya
 source/_actions/rainmachine.unrestrict_watering.markdown @bachya
 source/_actions/recorder.disable.markdown @home-assistant/core
 source/_actions/recorder.enable.markdown @home-assistant/core
+source/_actions/recorder.get_history.markdown @home-assistant/core
 source/_actions/recorder.get_statistics.markdown @home-assistant/core
 source/_actions/recorder.purge.markdown @home-assistant/core
 source/_actions/recorder.purge_entities.markdown @home-assistant/core
@@ -2263,11 +2267,7 @@ source/_actions/vacuum.return_to_base.markdown @home-assistant/core
 source/_actions/vacuum.send_command.markdown @home-assistant/core
 source/_actions/vacuum.set_fan_speed.markdown @home-assistant/core
 source/_actions/vacuum.start.markdown @home-assistant/core
-source/_actions/vacuum.start_pause.markdown @home-assistant/core
 source/_actions/vacuum.stop.markdown @home-assistant/core
-source/_actions/vacuum.toggle.markdown @home-assistant/core
-source/_actions/vacuum.turn_off.markdown @home-assistant/core
-source/_actions/vacuum.turn_on.markdown @home-assistant/core
 source/_actions/vallox.set_profile.markdown @andre-richter @slovdahl @viiru- @yozik04
 source/_actions/vallox.set_profile_fan_speed_away.markdown @andre-richter @slovdahl @viiru- @yozik04
 source/_actions/vallox.set_profile_fan_speed_boost.markdown @andre-richter @slovdahl @viiru- @yozik04
@@ -2473,6 +2473,7 @@ source/_triggers/geo_location.markdown @home-assistant/core
 source/_triggers/homeassistant.host_reboot_required.markdown @home-assistant/core
 source/_triggers/homeassistant.markdown @home-assistant/core
 source/_triggers/homeassistant.restart_required.markdown @home-assistant/core
+source/_triggers/homeassistant.updated.markdown @home-assistant/core
 source/_triggers/humidifier.mode_changed.markdown @home-assistant/core @Shulyaka
 source/_triggers/humidifier.started_drying.markdown @home-assistant/core @Shulyaka
 source/_triggers/humidifier.started_humidifying.markdown @home-assistant/core @Shulyaka

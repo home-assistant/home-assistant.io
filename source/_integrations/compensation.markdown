@@ -103,7 +103,7 @@ source:
   required: true
   type: string
 state_class:
-  description: The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor.
+  description: The [state_class](/integrations/sensor/#state-class) of the sensor.
   required: false
   type: string
 unique_id:
@@ -111,7 +111,7 @@ unique_id:
   required: false
   type: string
 unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
+  description: Defines the units of measurement of the sensor, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes).
   required: false
   type: string
 upper_limit:

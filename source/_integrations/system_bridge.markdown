@@ -15,17 +15,19 @@ ha_domain: system_bridge
 
 ## Supported devices
 
-The integration works with any computer running [System Bridge](https://system-bridge.timmo.dev) 5.0.0 or later. System Bridge has packages for Linux and Windows. macOS isn't officially supported, but you can build System Bridge from source to run it there. Some features depend on the operating system; see [Known limitations](#known-limitations).
+The integration works with any computer running [System Bridge](https://system-bridge.timmo.dev) 5.28.6 or later. System Bridge has packages for Linux and Windows. macOS isn't officially supported, but you can build System Bridge from source to run it there. Some features depend on the operating system; see [Known limitations](#known-limitations).
 
 ## Prerequisites
 
 ### Version
 
-This integration requires System Bridge 5.0.0 and above. Any older version will not work.
+This integration requires System Bridge 5.28.6 or later. Older versions aren't supported.
 
-### Token
+### Key or pairing code
 
-You will need your token. For instructions on finding your token, follow the steps in the [System Bridge documentation](https://system-bridge.timmo.dev/running/#token).
+Home Assistant signs in to System Bridge with a key of its own. To set it up, you need a key or a pairing code from the computer. Open the System Bridge [web client](https://system-bridge.timmo.dev/using/web-client/) on the computer and go to **Settings** > **Devices**, or run `system-bridge client key create "Home Assistant"` there. A pairing code works once, for 5 minutes, and Home Assistant trades it for its key.
+
+If you set up the integration with the System Bridge token before keys, Home Assistant trades the token for a key of its own the next time it connects. There's nothing you need to do.
 
 {% include integrations/config_flow.md %}
 
@@ -34,11 +36,11 @@ Host:
   description: The hostname or IP address of the computer running System Bridge.
 Port:
   description: The port System Bridge listens on. The default is `9170`, and you can change it on the computer with the `SYSTEM_BRIDGE_PORT` environment variable.
-Token:
-  description: The token from the System Bridge settings. To find it, run `system-bridge client token` on the computer, as the same user that runs System Bridge. On Windows, run `.\system-bridge.exe client token` in PowerShell from the `C:\Program Files\System Bridge` folder.
+Key or pairing code:
+  description: A key or a pairing code from **Settings** > **Devices** in the System Bridge web client. You can also paste the link a pairing code comes with. Pairing again replaces Home Assistant's key, rather than adding another.
 {% endconfiguration_basic %}
 
-Home Assistant discovers computers running System Bridge on your network. A discovered computer shows up under {% my integrations title="**Settings** > **Devices & services**" %}, and you only need to enter its token.
+Home Assistant discovers computers running System Bridge on your network. A discovered computer shows up under {% my integrations title="**Settings** > **Devices & services**" %}, and you only need to enter a key or a pairing code.
 
 ## Binary sensors
 
@@ -147,6 +149,14 @@ Brightness is set through the backlight on built-in screens and over Display Dat
 The integration provides a button for each power command: **Sleep**, **Hibernate**, **Restart**, **Shut down**, **Lock**, and **Log out**. Pressing one sends the command to the device straight away, with no confirmation, so add a confirmation to any dashboard button that uses them. If System Bridge reports an error for a command, pressing the button shows it.
 
 The buttons do the same as the [`system_bridge.power_command`](/actions/system_bridge.power_command/) action, and are easier to add to a dashboard or an automation.
+
+## Command buttons
+
+Each command in the device's [command allowlist](https://system-bridge.timmo.dev/features/commands/) gets a button named after it. Adding, renaming, or removing a command in System Bridge adds, renames, or removes its button straight away.
+
+Pressing a button runs the command on the device and waits for it to finish. Pressing it shows an error if the command can't run, exits with a code other than `0`, or doesn't finish within a few seconds. A command that takes longer keeps running on the device.
+
+Anyone who can press the button in Home Assistant can run the command, so only add commands to the allowlist that you're happy to run from Home Assistant.
 
 ## Power controls
 
@@ -367,11 +377,11 @@ Home Assistant can't reach System Bridge on the host and port you entered. The c
 
 #### Description
 
-The token Home Assistant uses no longer matches the one in System Bridge, for example after reinstalling System Bridge.
+System Bridge no longer accepts Home Assistant's key, for example after it was removed under **Settings** > **Devices** in the web client, or after reinstalling System Bridge.
 
 #### Resolution
 
-Under {% my integrations title="**Settings** > **Devices & services**" %}, select **Reconfigure** on the notification and enter the new token.
+Under {% my integrations title="**Settings** > **Devices & services**" %}, select **Reconfigure** on the notification and enter a new key or pairing code.
 
 {% enddetails %}
 
@@ -381,7 +391,7 @@ Under {% my integrations title="**Settings** > **Devices & services**" %}, selec
 
 #### Description
 
-The computer runs a System Bridge version older than 5.0.0. Home Assistant doesn't set up the integration until System Bridge is updated.
+The computer runs a System Bridge version older than 5.28.6. Home Assistant doesn't set up the integration until System Bridge is updated.
 
 #### Resolution
 

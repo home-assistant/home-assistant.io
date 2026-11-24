@@ -64,5 +64,5 @@ To set the URL under which your Home Assistant can be accessed from outside your
 
 1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
 2. Under **Home Assistant URL**, in the **Internet** field, enter the external URL that you previously set up for your instance.
-    - If you use Home Assistant Link, you can turn on **Use Home Assistant Cloud** instead, and your Nabu Casa URL is used automatically.
+    - If you use Home Assistant Link, you can turn on **Use Home Assistant Link** instead, and your Nabu Casa URL is used automatically.
 3. Select **Save**.

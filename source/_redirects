@@ -297,6 +297,8 @@ layout: null
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
 /s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
 
+/actions/cloud.remote_connect /actions/link.remote_connect/
+/actions/cloud.remote_disconnect /actions/link.remote_disconnect/
 /docs/assist/troubleshooting/ /voice_control/troubleshooting/
 /docs/assist/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
 /projects/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
@@ -349,7 +351,6 @@ layout: null
 /docs/z-wave /integrations/zwave_js
 /docs/z-wave/adding /integrations/zwave_js#how-can-i-add-include-a-new-device-to-my-z-wave-network
 /docs/z-wave/control-panel /integrations/zwave_js#using-z-wave-js
-/docs/z-wave/controllers/#aeotec-stick /docs/z-wave/controllers/#aeotec-z-stick
 /docs/z-wave/device-specific /integrations/zwave_js
 /docs/z-wave/devices /integrations/zwave_js#supported-devices-and-command-classes
 /docs/z-wave/entities /integrations/zwave_js#using-z-wave-js
@@ -429,7 +430,7 @@ layout: null
 /hassio/hassos_faq /faq
 /hassio/index /installation
 /hassio/installation /installation
-/hassio/installing_third_party_addons /common-tasks/os#installing-a-third-party-app-repository
+/hassio/installing_third_party_addons /common-tasks/os/apps/#adding-an-app-repository
 /integrations/faadelays /integrations/faa_delays
 /cookbook/notify.mqtt /examples#notifications
 /cookbook/#example-configurationyaml /examples/#example-configurationyaml
@@ -444,6 +445,11 @@ layout: null
 
 # Moved marketing pages / rebranding
 /skyconnect /connectzbt1
+/no-device-left-behind /connect/aux-2/ 301
+
+# Month of "What the Heck?!"
+/wth /what-the-heck/ 301
+/wth-2026 /what-the-heck/ 301
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942

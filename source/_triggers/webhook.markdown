@@ -45,7 +45,7 @@ With [Home Assistant Link](/link/), a webhook gets a public address. Apps and se
 
 1. In the automation, select **Webhook settings** {% icon "mdi:cog" %} on the trigger, and turn off **Only accessible from the local network**. Then, select **Save**.
    - Requests through Home Assistant Link don't count as local, so the webhook must accept requests from outside your local network. Webhooks that only accept local requests don't appear in the list of Home Assistant Link webhooks.
-2. Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %}, and select **Webhooks**.
+2. Go to {% my link title="**Settings** > **Home Assistant Link**" %}, and select **Webhooks**.
 3. Next to your automation, turn on the switch.
    - Result: A dialog shows the **Public address** of the webhook.
 4. Use the public address in the app or service. To see the address again later, select **Manage** next to the automation.
@@ -177,7 +177,7 @@ When the backup software on your NAS finishes a job, it can send a JSON request 
   - **Webhook ID**: The ID that Home Assistant generated
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-  - **Message**: The message from the request ({% raw %}`{{ trigger.json.message }}`{% endraw %})
+  - **Message**: The message from the request (`{{ trigger.json.message }}`)
 
 {% details "YAML example for forwarding a message from the request" %}
 

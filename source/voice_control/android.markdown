@@ -2,7 +2,7 @@
 title: "Assist on Android"
 related:
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing devices to Assist
+    title: Exposing entities to voice assistants
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
   - docs: /voice_control/about_wake_word/
@@ -175,7 +175,7 @@ The way how Assist can be set up on your phone may differ depending on your vers
 
     ![Assist speak your command](/images/assist/android_watch_3.png)
 
-4. To change the assistant, tap the current assistant (**Home Assistant Cloud** in the screenshot above).
+4. To change the assistant, tap the current assistant (**Home Assistant Link** in the screenshot above).
    - Select the assistant from the list.
 
    ![List of assistants](/images/assist/android_watch_6.png)

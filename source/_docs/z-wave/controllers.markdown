@@ -83,12 +83,10 @@ The following 700 series USB adapters have been reported to work with Home Assis
 
 The following 500 series USB adapters have been reported to work with Home Assistant:
 
-- Aeotec Z-Stick Gen5 (see note below)
 - Everspring USB stick - Gen 5
 - GoControl HUSBZB-1 stick
 - Sigma Designs UZB stick
 - Vision USB stick - Gen5
-- Z-Wave.Me UZB1 stick (see Aeotec Z-Stick note below)
 - HomeSeer SmartStick+ G2
 - HomeSeer Z-NET G2
 
@@ -99,24 +97,3 @@ The following 500 series USB adapters have been reported to work with Home Assis
 - Z-Wave.Me RaZberry 7 Pro (ZMEERAZBERRY7_PRO or ZMEURAZBERRY7_PRO, 700 series)
 - Z-Wave.Me Razberry 2 (500 series)
 - Z-Wave.Me Razberry 1 (300 series)
-
-## Third-party hubs
-
-For the best experience, it is recommended to use an adapter directly with Home Assistant. If this doesn't work for you, you can use a hub that supports Z-Wave. Home Assistant supports the following third-party hubs with Z-Wave support:
-
-- [Vera](/integrations/vera/)
-- [Fibaro](/integrations/fibaro/)
-- [SmartThings](/integrations/smartthings/)
-- [Z-Wave.Me Z-Way](/integrations/zwave_me)
-
-## Adapter notes
-
-### Aeotec Z-Stick
-
-{% note %}
-
-The Aeotec Z-Stick and some of its variants (such as the Z-Wave.Me UZB1) are known to have compatibility issues with the Linux kernel because of their [non-compliant behavior](https://forums.raspberrypi.com/viewtopic.php?f=28&t=245031#p1502030). Plugging these adapters through a USB hub can serve as a workaround that sometimes mitigates the issue.
-
-{% endnote %}
-
-It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system.
