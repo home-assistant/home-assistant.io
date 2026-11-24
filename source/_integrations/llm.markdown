@@ -137,9 +137,9 @@ The **Home Assistant** set of {% term "AI tools" %} contains the following tools
 
 The {% term "AI tools" %} in **Device control** depend on what you expose to voice assistants. Most AI tools only appear if you expose at least one {% term entity %} that they can control. For example, **Set light** only appears if you expose a light. The AI tools only reach the entities that you expose, unless the entry says otherwise. For how to expose entities, refer to [Exposing entities to voice assistants](/voice_control/voice_remote_expose_devices/).
 
-#### AI tools that are always available
+#### General AI tools
 
-**Device control** always has the following AI tools:
+**Device control** has the following AI tools, no matter which entities you expose. {% term "AI apps" %} and [AI tasks](/integrations/ai_task/) get all of them except **Schedule command**.
 
 - **Get live context** (`homeassistant__GetLiveContext`): Returns the current state of the entities that you expose. For example, it can check if a light is on, or what the temperature in the living room is.
 - **Get date and time** (`llm__GetDateTime`): Returns the current date and time.
@@ -206,8 +206,8 @@ When you expose at least one entity of the following types, **Device control** a
 
 Your own scripts can also become AI tools:
 
-- Each {% term script %} that you expose becomes its own AI tool. Its ID starts with `script__`, followed by the script's ID. For details, refer to [Exposing scripts to conversation agents that use AI](/voice_control/exposing_scripts_to_llms/).
-- Each [intent script](/integrations/intent_script/) becomes its own AI tool. Its ID starts with `intent_script__`, followed by the intent name. If an intent script only works for some types of entities, it only appears if you expose an entity of that type.
+- Each {% term script %} that you expose becomes its own AI tool. Its ID starts with `script__`, followed by the script's ID. The script can also control entities that you didn't expose. For details, refer to [Exposing scripts to conversation agents that use AI](/voice_control/exposing_scripts_to_llms/).
+- Each [intent script](/integrations/intent_script/) becomes its own AI tool. Its ID starts with `intent_script__`, followed by the intent name. In the ID, characters other than letters and numbers become underscores. If an intent script only works for some types of entities, it only appears if you expose an entity of that type.
 
 ## Known limitations
 
