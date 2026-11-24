@@ -3,7 +3,7 @@ title: Plexilent
 description: Instructions on how to control Plexilent lights with Home Assistant.
 ha_category:
   - Light
-ha_release: 2026.11
+ha_release: 2026.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -15,7 +15,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Plexilent** {% term integration %} lets you control [Plexilent](https://plexilent.com/) smart lights from Home Assistant: switch them on and off, dim them, and set their white temperature or color.
+The **Plexilent** {% term integration %} lets you control [Plexilent](https://plexilent.com/) smart lights from Home Assistant: switch them on and off, dim them, and set their color temperature or color.
 
 Plexilent lights form a Bluetooth mesh that a Plexilent Wi-Fi gateway connects to the Plexilent cloud. This integration talks to that cloud with the same account you use in the Plexilent app, so it works wherever Home Assistant has internet access.
 
@@ -23,8 +23,8 @@ Plexilent lights form a Bluetooth mesh that a Plexilent Wi-Fi gateway connects t
 
 Every light in your Plexilent homes that a Wi-Fi gateway can reach:
 
-- **Color lights**: on/off, brightness, white temperature and color.
-- **Tunable white lights**: on/off, brightness and white temperature, within the range set for each light in the app.
+- **Color lights**: on/off, brightness, color temperature, and color.
+- **Tunable white lights**: on/off, brightness, and color temperature, within the range set for each light in the app.
 - **Dimmable lights**: on/off and brightness.
 - **On/off lights**.
 
@@ -41,6 +41,17 @@ Email:
 Password:
   description: "Your Plexilent app password. It is used once to sign in and is not stored; Home Assistant keeps only a sign-in token."
 {% endconfiguration_basic %}
+
+## Supported functionality
+
+The integration creates a light entity for each supported Plexilent light. Depending on the light's capabilities, you can:
+
+- Turn the light on or off.
+- Set its brightness.
+- Set its color temperature within the range configured in the Plexilent app.
+- Set its color using hue and saturation.
+
+These controls are available in the light's dashboard card and through Home Assistant actions, scenes, and automations.
 
 ## Data updates
 
