@@ -170,23 +170,9 @@ To move a cover to a target position and tilt in one smooth motion, use the [Set
 
 Some Atlantic towel dryers, such as the Adélis 2 Digit, are controlled with heating levels. They support the **Comfort**, **Comfort -1°C**, **Comfort -2°C**, **Eco**, **Frost protection**, and **Boost** presets.
 
-- **Boost** heats for 60 minutes, like the boost button on the towel dryer. The towel dryer then returns to the preset it had before the boost. The **Boost end** sensor shows when the boost ends.
+- **Boost** heats for 60 minutes, like the boost button on the towel dryer. The towel dryer then returns to the preset it had before the boost.
 - The gateway doesn't report the boost or its end, so Home Assistant tracks the boosts it starts. A boost started on the towel dryer itself or from the vendor app isn't shown.
 - The gateway doesn't report changes made on the towel dryer itself.
-
-For example, this automation sends a notification when the boost ends:
-
-```yaml
-automation:
-  - alias: "Notify when the towel dryer boost ends"
-    triggers:
-      - trigger: time
-        at: sensor.bathroom_towel_dryer_boost_end
-    actions:
-      - action: notify.notify
-        data:
-          message: "The towels are warm."
-```
 
 ### Troubleshooting connection issues with the local API
 
