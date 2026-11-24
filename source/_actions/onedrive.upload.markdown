@@ -2,6 +2,7 @@
 title: "Upload files"
 action: onedrive.upload
 domain: onedrive
+response: optional
 description: "Uploads one or more files to OneDrive."
 related_actions:
   - onedrive.delete
@@ -81,6 +82,8 @@ destination_folder:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 When you provide a response variable, the action returns a `files` list. Each entry describes one uploaded file, with the metadata that OneDrive returns for it, such as its ID, name, and size.
 

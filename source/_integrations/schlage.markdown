@@ -23,6 +23,13 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+  description: "The email address of your Schlage account."
+Password:
+  description: "The password of your Schlage account."
+{% endconfiguration_basic %}
+
 ## Data updates
 
 The Schlage integration fetches updated lock state data every 30 seconds.

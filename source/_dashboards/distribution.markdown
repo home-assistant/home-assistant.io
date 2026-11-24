@@ -42,6 +42,11 @@ title:
   required: false
   description: The card title.
   type: string
+expand_legend:
+  required: false
+  description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Options for entities
@@ -55,7 +60,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
 color:
   required: false

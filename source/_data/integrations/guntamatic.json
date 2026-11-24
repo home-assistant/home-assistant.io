@@ -11,6 +11,9 @@
   "categories": [
     "climate.thermostats_heating"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor"
   ],

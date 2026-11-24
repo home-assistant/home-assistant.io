@@ -4,12 +4,16 @@
   "codeowners": [
     "@sebirdman",
     "@balake",
-    "@deakolights"
+    "@deakolights",
+    "@iulianmac"
   ],
   "config_flow": true,
   "iot_class": "local_polling",
   "categories": [
     "plugs_switches"
+  ],
+  "connectivity": [
+    "network"
   ],
   "platforms": [
     "light"

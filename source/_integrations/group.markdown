@@ -137,6 +137,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
       - if at least one member has a numeric state: calculated according to the `type`
       - otherwise: set to `unknown`
 - The variable `ignore_non_numeric` can be combined with the type `first_available` to always take the first available numeric state from a group.
+- The type `stdev` calculates the sample standard deviation, which needs at least two numeric states. With fewer, a group that is not `unavailable` has the state `unknown`, whatever `ignore_non_numeric` is set to.
 
 ## Managing groups
 
@@ -341,7 +342,7 @@ ignore_non_numeric:
   required: false
   default: false
 unit_of_measurement:
-  description: Only available for `sensor` group. Set the unit of measurement for the sensor.
+  description: Only available for `sensor` group. Set the unit of measurement for the sensor. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes).
   type: string
   required: false
 device_class:
@@ -349,7 +350,7 @@ device_class:
   type: string
   required: false
 state_class:
-  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](/integrations/sensor/#state-class).
   type: string
   required: false
 {% endconfiguration %}

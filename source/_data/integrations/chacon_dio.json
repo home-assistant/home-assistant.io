@@ -10,6 +10,9 @@
     "plugs_switches",
     "blinds_curtains"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "cover",
     "switch"

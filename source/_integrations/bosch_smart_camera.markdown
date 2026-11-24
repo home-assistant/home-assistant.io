@@ -11,6 +11,7 @@ ha_codeowners:
   - "@mosandlt"
 ha_platforms:
   - camera
+  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -40,6 +41,10 @@ The integration adds one camera entity per camera of the account. The entity sho
 
 Each camera is also added as a device, together with its model and firmware version. Cameras that are added to or removed from the account are added or removed in Home Assistant automatically.
 
+### Privacy mode
+
+The **Privacy mode** switch turns the privacy mode of a camera on or off. While privacy mode is on, the camera does not record or stream. The switch is shown with the configuration entities of the device.
+
 ## Data updates
 
 The integration polls the Bosch cloud for the list of cameras every 5 minutes. The image of a camera is only retrieved when it is requested.
@@ -66,6 +71,16 @@ After signing in, you are not sent back to Home Assistant.
 
 1. Make sure [My Home Assistant](https://my.home-assistant.io/) is configured with your instance URL in the same browser you use to sign in.
 2. Start the setup again from {% my integrations title="**Settings** > **Devices & services**" %}.
+
+### Signing in again
+
+#### Symptom
+
+Home Assistant shows that the integration needs you to sign in again.
+
+#### Resolution
+
+Follow the prompt to sign in again with your SingleKey ID. The cameras and their entities stay as they are.
 
 ## Removing the integration
 

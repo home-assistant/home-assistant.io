@@ -10,7 +10,11 @@
   "categories": [
     "ai_voice.speech"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
+    "diagnostics",
     "stt",
     "tts"
   ]

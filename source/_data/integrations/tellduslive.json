@@ -10,6 +10,12 @@
   "categories": [
     "hubs_protocols.smart_home_hubs"
   ],
+  "connectivity": [
+    "cloud",
+    "network",
+    "rf",
+    "zwave"
+  ],
   "platforms": [
     "binary_sensor",
     "cover",

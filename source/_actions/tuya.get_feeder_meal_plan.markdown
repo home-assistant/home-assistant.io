@@ -2,14 +2,13 @@
 title: "Get feeder meal plan data"
 action: tuya.get_feeder_meal_plan
 domain: tuya
+response: required
 description: "Retrieves the feeding schedule from a Tuya pet feeder."
 related_actions:
   - tuya.set_feeder_meal_plan
 ---
 
 Use this action to read the feeding schedule from a Tuya pet feeder. A common use is to check the current schedule before you change it, so you can build the new plan on top of what is already there.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -52,6 +51,8 @@ device_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the feeder's meal plan in a `meal_plan` field. The meal plan is a list of scheduled feedings, each with the following:
 
