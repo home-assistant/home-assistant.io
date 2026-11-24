@@ -11,6 +11,7 @@ ha_codeowners:
   - "@mosandlt"
 ha_platforms:
   - camera
+  - light
   - sensor
   - switch
 ha_integration_type: hub
@@ -49,6 +50,10 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 ### Wi-Fi signal strength
 
 The **Wi-Fi signal strength** sensor shows how well a camera is connected to your Wi-Fi network, in percent. It is a diagnostic sensor and is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
+
+### Camera light
+
+The **Camera light** entity switches the light of an Eyes Outdoor camera on and off. The light cannot be dimmed. The entity is only added for the Eyes Outdoor camera.
 
 ## Data updates
 
