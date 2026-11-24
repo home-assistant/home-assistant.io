@@ -1,25 +1,7 @@
 ---
-title: Lunatone
 description: Instructions on how to integrate Lunatone REST API devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Hub
-  - Light
-  - Sensor
 ha_release: 2025.11
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@MoonDevLT'
 ha_domain: lunatone
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - light
-  - sensor
-ha_integration_type: hub
-ha_zeroconf: true
-ha_quality_scale: silver
 ---
 
 The **Lunatone** {% term integration %} is used to integrate with the devices of [Lunatone](https://www.lunatone.com) that offer a REST API. This allows you to use lights and sensors in Home Assistant that are connected to the DALI bus via your device.
@@ -87,11 +69,11 @@ The following sensor entities are available from your Lunatone gateway and conne
 
 - **Air quality index**
   - **Description**: Shows the overall air quality index reported by the connected sensor device.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **Carbon dioxide**
   - **Description**: Shows the measured carbon dioxide concentration.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **DALI line status**
   - **Description**: Shows the status of each DALI line. Possible states: `OK`, `Low bus power`, `Bus power failure`, `Charging`, `Not reachable`.
@@ -99,23 +81,23 @@ The following sensor entities are available from your Lunatone gateway and conne
 
 - **Humidity**
   - **Description**: Shows the measured relative humidity.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **Illuminance**
   - **Description**: Shows the measured ambient light level.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **Pressure**
   - **Description**: Shows the measured air pressure.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **Temperature**
   - **Description**: Shows the measured temperature.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **Volatile organic compounds**
   - **Description**: Shows the measured level of volatile organic compounds.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 ## Removing the integration
 

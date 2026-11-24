@@ -1,51 +1,7 @@
 ---
-title: Demo
 description: Instructions on how to use the Platform demos with Home Assistant.
-ha_category:
-  - Other
-  - Update
 ha_release: 0.7
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: demo
-ha_iot_class: Calculated
-ha_platforms:
-  - air_quality
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - calendar
-  - camera
-  - climate
-  - cover
-  - date
-  - datetime
-  - device_tracker
-  - event
-  - fan
-  - geo_location
-  - humidifier
-  - light
-  - lock
-  - media_player
-  - notify
-  - number
-  - remote
-  - select
-  - sensor
-  - siren
-  - stt
-  - switch
-  - text
-  - time
-  - tts
-  - update
-  - vacuum
-  - valve
-  - water_heater
-  - weather
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -68,6 +24,7 @@ Available demo platforms:
 - [Geolocation](/integrations/geo_location/) (`geo_location`)
 - [Humidifier](/integrations/humidifier/) (`humidifier`)
 - [Image processing](/integrations/image_processing/) (`image_processing`)
+- [Lawn mower](/integrations/lawn_mower/) (`lawn_mower`)
 - [Light](/integrations/light/) (`light`)
 - [Lock](/integrations/lock/) (`lock`)
 - [Media player](/integrations/media_player/) (`media_player`)

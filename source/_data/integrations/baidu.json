@@ -1,0 +1,15 @@
+{
+  "domain": "baidu",
+  "name": "Baidu",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "ai_voice.speech"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "tts"
+  ]
+}

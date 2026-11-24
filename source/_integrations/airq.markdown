@@ -1,23 +1,7 @@
 ---
-title: air-Q
 description: Instructions on how to integrate air-Q into Home Assistant
-ha_category:
-  - Environment
-  - Health
-  - Sensor
 ha_release: '2022.12'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@Sibgatulin'
-  - '@dl2080'
 ha_domain: airq
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - number
-  - sensor
-ha_zeroconf: true
-ha_integration_type: hub
 ---
 
 The **air-Q** {% term integration %} allows integrating the sensors, provided by your [air-Q](https://www.air-q.com/) device, into Home Assistant.

@@ -1,5 +1,5 @@
 ---
-title: "Change a timer"
+title: "Change timer"
 action: timer.change
 domain: timer
 description: "Adds or subtracts time on a running timer."
@@ -21,7 +21,7 @@ To change a timer from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the timer you want to change.
-6. From the actions shown for that target, select **Timer: Change timer**.
+6. From the actions shown for that target, under **Timer**, select **Change timer**.
 7. Set the **Duration** to add or subtract.
 8. Select **Save**.
 
@@ -69,7 +69,7 @@ duration:
 
 ## Good to know
 
-- You cannot extend a timer beyond the duration set when it was started.
+- If you extend a timer beyond its current duration, the duration grows to match the new remaining time. It resets to the configured duration when the timer finishes or is canceled.
 - The timer must be running for this action to have an effect.
 
 {% include actions/stuck.md %}

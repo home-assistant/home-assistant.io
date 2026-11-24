@@ -593,6 +593,7 @@ body.js-ready .hero-c-in {
 
 .vpe-nav .nav-logo img {
   grid-area: 1/1;
+  max-width: 100%;
   width: 200px;
 }
 
@@ -611,6 +612,25 @@ body.js-ready .hero-c-in {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 8px;
+  /* On phones the logo gives up width to the Buy button. */
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Phones: the Buy button sits in the bar, left of the menu button, as
+   on the Connect pages. From the desktop width it is in the links. */
+.vpe-nav .mobile-buy {
+  align-items: center;
+  background-color: var(--color-navy);
+  border-radius: 16px;
+  color: #ffffff;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 12px;
+  height: 32px;
+  margin: 0 12px;
+  padding: 0 12px;
+  text-transform: uppercase;
 }
 
 .vpe-nav .badge {
@@ -3012,7 +3032,7 @@ section#collaboration .collaboration-card .partner {
   font-weight: 300;
   align-items: center;
   display: flex;
-  gap: 16px;
+  gap: 24px;
   font-size: 16px;
   margin-bottom: 12px;
 }
@@ -3025,14 +3045,8 @@ section#collaboration .collaboration-card .partner {
 }
 
 section#collaboration .collaboration-card .partner img {
-  height: 25px;
+  height: 20px;
   border-radius: 0;
-}
-
-@media (min-width: 768px) {
-  section#collaboration .collaboration-card .partner img {
-    height: 30px;
-  }
 }
 
 section#collaboration .collaboration-card .collaboration-card-inner {
@@ -3057,6 +3071,12 @@ section#collaboration .collaboration-card .collaboration-card-inner {
 
 section#collaboration .collaboration-card .collaboration-card-inner p {
   font-size: 16px;
+}
+
+section#collaboration .collaboration-card .collaboration-card-inner p a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .vpe-main #controls {
@@ -5633,8 +5653,13 @@ section#collaboration .collaboration-card .collaboration-card-inner p {
     width: unset;
   }
 
-  .vpe-nav .burger {
+  .vpe-nav .burger,
+  .vpe-nav .mobile-buy {
     display: none;
+  }
+
+  .vpe-nav .nav-logo-wrapper {
+    flex: none;
   }
 }
 

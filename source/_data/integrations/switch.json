@@ -1,0 +1,12 @@
+{
+  "domain": "switch",
+  "name": "Switch",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal",
+  "platforms": [
+    "light"
+  ]
+}

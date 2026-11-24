@@ -42,7 +42,7 @@ action: |
   data:
     device_id: 1234567890abcdef1234567890abcdef
     doorbells:
-      entity_id: binary_sensor.front_doorbell_doorbell
+      entity_id: event.front_doorbell_doorbell
 {% endexample %}
 
 This pairs the front doorbell with the selected chime.
@@ -65,6 +65,7 @@ doorbells:
 
 - The doorbells you select replace the current pairing. Doorbells you leave out are unpaired.
 - Leaving the doorbells empty unpairs every doorbell from the chime.
+- Select a doorbell by its doorbell event entity (`event.*_doorbell`).
 
 {% include actions/try_it.md %}
 
@@ -74,7 +75,8 @@ doorbells:
 
 Unpair all doorbells from a bedroom chime at night, then pair them again in the morning.
 
-- **Trigger**: A scheduled time
+- **Trigger**: Time
+  - **At time**: `22:00`
 - **Action**: UniFi Protect: Set chime paired doorbells
 
 {% details "YAML example for unpairing a chime at night" %}

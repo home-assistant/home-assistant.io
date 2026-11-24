@@ -1,16 +1,7 @@
 ---
-title: Configuration
 description: Instructions on how to set up the configuration panel for Home Assistant.
-ha_category:
-  - Front end
 ha_release: 0.39
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: config
-ha_platforms:
-  - scene
-ha_integration_type: system
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -22,9 +13,9 @@ This is an internal integration and is enabled by default.
 
 The **Settings** menu provides access to the following panels:
 
-### Home Assistant Cloud
+### Home Assistant Link
 
-Enables you to connect to [Home Assistant Cloud](https://support.nabucasa.com/hc/articles/26260474250269) to use features such as secure remote access, voice assistants, or cloud storage for backups.
+Enables you to connect to [Home Assistant Link](https://support.nabucasa.com/hc/articles/26260474250269) to use features such as secure remote access, voice assistants, or cloud storage for backups.
 
 ### Devices & services
 

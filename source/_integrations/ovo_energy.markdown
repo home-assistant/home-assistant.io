@@ -1,18 +1,7 @@
 ---
-title: OVO Energy
 description: Instructions on how to integrate OVO Energy with Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 0.114
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@timmo001'
 ha_domain: ovo_energy
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 The **OVO Energy** {% term integration %} allows you to monitor your energy consumption data

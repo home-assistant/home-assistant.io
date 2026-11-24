@@ -1,27 +1,7 @@
 ---
-title: SimpliSafe
 description: Instructions on how to integrate SimpliSafe into Home Assistant.
 ha_release: 0.81
-ha_iot_class: Cloud Polling
-ha_category:
-  - Alarm
-  - Button
-  - Event
-  - Lock
-ha_config_flow: true
-ha_codeowners:
-  - '@bachya'
 ha_domain: simplisafe
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - lock
-  - sensor
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 The **SimpliSafe** {% term integration %} integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.

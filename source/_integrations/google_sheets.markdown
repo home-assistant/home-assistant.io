@@ -1,15 +1,7 @@
 ---
-title: Google Sheets
 description: Instructions on how to use Google Sheets in Home Assistant.
-ha_category:
-  - Utility
-ha_iot_class: Cloud Polling
 ha_release: '2022.10'
-ha_config_flow: true
 ha_domain: google_sheets
-ha_codeowners:
-  - '@tkdrob'
-ha_integration_type: service
 api: Google Drive API
 api_link: https://console.cloud.google.com/apis/library/drive.googleapis.com
 api2: Google Sheets API

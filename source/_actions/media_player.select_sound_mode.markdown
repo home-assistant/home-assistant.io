@@ -69,7 +69,9 @@ sound_mode:
 
 Select a sound mode when a trigger fires, for example to switch a receiver to a movie preset.
 
-- **Trigger**: TV starts playing
+- **Trigger**: State changed
+  - **Entity**: Living room tv media player
+  - **To**: Playing
 - **Action**: Select media player sound mode
   - **Target**: Living room receiver
   - **Sound mode**: Movie

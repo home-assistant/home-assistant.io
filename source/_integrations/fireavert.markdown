@@ -3,11 +3,8 @@ title: FireAvert
 description: Connect and control your FireAvert Z-Wave series devices using the Z-Wave integration
 ha_release: '2026.8'
 ha_iot_class: Local Push
-ha_category:
-  - Plug
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - security_safety
 ha_domain: fireavert
 ha_integration_type: brand
 ha_platforms:
@@ -26,3 +23,7 @@ ha_brand: true
 {% my add_zwave_device badge domain=page.ha_domain %}
 
 [Learn more about Z-Wave in Home Assistant.](/integrations/zwave_js/)
+
+## Works with Home Assistant certified devices
+
+{% include integrations/device_list.html brand="fireavert" %}

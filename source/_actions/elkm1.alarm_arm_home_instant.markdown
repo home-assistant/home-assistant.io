@@ -8,7 +8,7 @@ related_actions:
   - elkm1.alarm_arm_vacation
 ---
 
-The **Alarm arm home instant** action arms an Elk-M1 area in *home instant* mode. This arms the system for staying at home, but without an entry delay, so any triggered zone sounds the alarm immediately.
+The **Elk-M1 Control: Alarm arm home instant** action arms an Elk-M1 area in *home instant* mode. This arms the system for staying at home, but without an entry delay, so any triggered zone sounds the alarm immediately.
 
 This is useful when you want an automation to arm your system for being home with no entry delay, for example at bedtime.
 

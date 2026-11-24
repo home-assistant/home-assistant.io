@@ -1,27 +1,19 @@
 ---
-title: Samsung Infrared
 description: Integration to control Samsung TVs and air conditioners using an infrared transmitter.
-ha_category:
-  - Infrared-controlled
-  - Media player
-  - Climate
 ha_release: 2026.6
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@lmaertin'
 ha_domain: samsung_infrared
-ha_config_flow: true
-ha_platforms:
-  - button
-  - climate
-  - media_player
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Samsung Infrared** {% term integration %} lets you control a Samsung TV or air conditioner using any infrared transmitter previously configured in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device but there is no feedback channel to confirm its current state. The integration therefore uses assumed states.
+
+## Supported devices
+
+The integration supports:
+
+- Samsung TVs that can be controlled via the standard Samsung infrared protocol.
+- Samsung air conditioners that use the Samsung AC 0292 infrared protocol.
 
 ## Prerequisites
 
@@ -38,18 +30,21 @@ Infrared transmitter:
   description: The infrared transmitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR transmitter.
 {% endconfiguration_basic %}
 
-## Supported devices
-
-The integration supports:
-
-- Samsung TVs that can be controlled via the standard Samsung infrared protocol.
-- Samsung air conditioners that use the Samsung AC 0292 infrared protocol.
-
 ## Supported functionality
 
 The **Samsung Infrared** integration provides the following entities, depending on the device type selected during setup.
 
-### Buttons
+### AC
+
+#### Climate
+
+Available when **AC** is selected as the device type.
+
+- **Samsung AC**: Represents the Samsung air conditioner and allows you to control it via IR commands. Supported features include turn on, turn off, HVAC mode (off, auto, cool, heat, dry, fan only), target temperature (16-30°C, in 1°C steps), and fan mode (auto, low, medium, high).
+
+### TV
+
+#### Buttons
 
 Available when **TV** is selected as the device type.
 
@@ -73,23 +68,120 @@ Available when **TV** is selected as the device type.
 - **AD/Subtitle**: Toggles audio description or subtitles.
 - **E-Manual**: Opens the electronic manual.
 
-### Media player
+#### Media player
 
 Available when **TV** is selected as the device type.
 
 - **Samsung TV**: Represents the Samsung TV and allows you to control it via IR commands. Supported features include turn on, turn off, volume up, volume down, mute, channel up, channel down, play, pause, stop, and source selection (TV, HDMI 1, HDMI 2, HDMI 3, HDMI 4).
 
-### Climate
+## Samsung Infrared automation examples
 
-Available when **AC** is selected as the device type.
+The integration can be used to manually control a device (using buttons on a dashboard or voice commands) or automatically issue commands using automations.
 
-- **Samsung AC**: Represents the Samsung air conditioner and allows you to control it via IR commands. Supported features include turn on, turn off, HVAC mode (off, auto, cool, heat, dry, fan only), target temperature (16-30°C, in 1°C steps), and fan mode (auto, low, medium, high).
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Turn off the TV when nobody is in the same room
+
+If you pair the Samsung Infrared integration with a smart plug with power monitoring capabilities, you can detect whether a TV is on (see the **Known limitations** section) and turn it off when no one is in the room.
+
+- **Trigger**: Occupancy cleared
+  - **Target**: Living room occupancy sensor
+  - **For at least**: 00:15:00
+- **Condition**: Power value (above 10 W for at least 1 minute)
+  - **Target**: TV power sensor
+- **Action**: Press button
+  - **Target**: Samsung TV power button
+
+{% details "YAML example for turning off the TV when the room is empty" %}
+
+{% example %}
+alias: "Turn TV off if the room is empty"
+triggers:
+  - trigger: occupancy.cleared
+    target:
+      entity_id: binary_sensor.living_room_occupancy
+    options:
+      for:
+        minutes: 15
+conditions:
+  - condition: power.is_value
+    target:
+      entity_id: sensor.tv_power
+    options:
+      behavior: any
+      for: '00:01:00'
+      threshold:
+        type: above
+        value:
+          active_choice: number
+          number: 10
+          unit_of_measurement: W
+actions:
+  - action: button.press
+    target:
+      entity_id: button.samsung_tv_power
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turn on the TV in the morning
+
+You could also configure an automation to turn a TV on in the morning.
+
+ - **Trigger**: Time: It is 9:00 am
+- **Action**: Press button
+
+{% details "YAML example for turning on the TV at 09:00 every day" %}
+
+{% example %}
+triggers:
+  - trigger: time
+    at: '09:00:00'
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+      - sat
+      - sun
+conditions: []
+actions:
+  - action: button.press
+    metadata: {}
+    target:
+      entity_id: button.samsung_tv_power
+    data: {}
+{% endexample %}
+
+{% enddetails %}
 
 ## Known limitations
 
 - The integration uses assumed state, meaning Home Assistant cannot read the actual state of the device (for example, whether the TV is on or off, or the AC's current room temperature).
+  - You may still be able to detect the increased power draw when a TV is on using a smart plug with power monitoring capabilities.
 - For the media player, volume control is step-based only; there is no way to set an absolute volume level.
 - For the climate entity, swing mode is not currently configurable through the UI and is always sent as off.
+
+## Troubleshooting
+
+{% details "Buttons are unavailable" %}
+
+### Symptom
+
+In the Device info page, all buttons are greyed out and the "Activity" panel shows they are "Unavailable".
+
+#### Description
+
+The integration only works if a functional infrared transmitter is configured and enabled.
+
+#### Resolution
+
+1. Check that your Infrared Proxy Transmitter device is connected to power.
+2. Check that the transmitter has been configured in Home Assistant.
+3. Check that the transmitter entity is enabled.
+
+{% enddetails %}
 
 ## Removing the integration
 

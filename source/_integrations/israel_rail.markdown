@@ -1,17 +1,7 @@
 ---
-title: Israel Railways
 description: Instructions on how to integrate timetable data for traveling in Israel rail within Home Assistant.
-ha_category:
-  - Transport
-ha_iot_class: Cloud Polling
 ha_release: 2024.8
-ha_config_flow: true
-ha_codeowners:
-  - '@shaiu'
 ha_domain: israel_rail
-ha_platforms:
-  - sensor
-ha_integration_type: service
 ---
 
 The **Israel Railways** {% term integration %} will give you the next three departure times from a given location to another one in Israel rail.

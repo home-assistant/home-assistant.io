@@ -1,61 +1,16 @@
 ---
-title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Device tracker
-  - Event
-  - Fan
-  - Hub
-  - Infrared
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
-  - Valve
 ha_release: 0.44
-ha_iot_class: Local Polling
 featured: true
-ha_config_flow: true
-ha_codeowners:
-  - '@dmulcahey'
-  - '@adminiuga'
-  - '@puddly'
-  - '@TheJulianJES'
 ha_domain: zha
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - device_tracker
-  - diagnostics
-  - event
-  - fan
-  - infrared
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-  - valve
-ha_zeroconf: true
-ha_integration_type: hub
+related:
+  - docs: /connectivity/zigbee/
+    title: About Zigbee
 ---
 
 The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.
+
+This page documents the **Zigbee Home Automation** integration. To learn more about Zigbee, refer to [Zigbee](/connectivity/zigbee/).
 
 This {% term integration %} currently supports the following device types within Home Assistant:
 
@@ -82,118 +37,7 @@ This {% term integration %} currently supports the following device types within
 
 The ZHA integration is a hardware-independent Zigbee gateway implementation that can replace most proprietary Zigbee gateways (or bridges, hubs, or controllers). ZHA creates a single Zigbee network to which you can add most Zigbee-based devices.
 
-If you do not have a coordinator yet, the [Home Assistant Connect ZBT-2](/connect/zbt-2/) is the recommended choice. For all the options, refer to [compatible hardware](#compatible-hardware).
-
-### Zigbee terminology
-
-- **Zigbee network**: A mesh-network of devices with low-power digital radios using a low-bandwidth communication protocol.
-- **Zigbee coordinator**: A hardware radio adapter (typically a USB dongle) that plugs directly into the same computer running your Home Assistant installation.
-- **Zigbee router device**: A hardware device that is always mains-powered (AC) such as outlets or fans.
-- **Zigbee end device**: A hardware device that is typically battery-powered (DC) such as remotes or motion sensors.
-- **Zigbee group**: A collection of two or more Zigbee devices of the same type, different from Home Assistant's [Groups](/integrations/group/).
-
-### Zigbee concepts
-
-- A Zigbee network can have only one Zigbee coordinator.
-- The Zigbee coordinator can have multiple **Zigbee router devices** or **Zigbee end devices** connected.
-- Each Zigbee router device can have multiple **Zigbee end devices** connected to it.
-- A Zigbee device can only be connected to a single Zigbee network.
-- Zigbee networks depend heavily on having multiple [Zigbee Router devices](#using-router-devices-to-add-more-devices) to expand coverage and increase device capacity.
-- Router devices help pass messages to other nearby devices in the Zigbee network and therefore can improve range and increase the number of devices you can add.
-
-## Compatible hardware
-
-The hardware-independent design of this integration provides support for many Zigbee coordinators available from different manufacturers, as long as the coordinator is compatible with the [zigpy](https://github.com/zigpy/zigpy) library.
-
-### Recommended: official Home Assistant hardware
-
-Official Home Assistant hardware is the recommended choice for ZHA. It is designed and built by Nabu Casa, a commercial partner of the [Open Home Foundation](https://www.openhomefoundation.org), together with the team at Home Assistant responsible for Zigbee. The Zigbee firmware is maintained by that same team, with optimizations for ZHA and support for large Zigbee networks. You can keep it up to date from within Home Assistant.
-
-- [Home Assistant Connect ZBT-2](/connect/zbt-2/): USB adapter. If you are setting up a new Zigbee network, this is the one to get.
-- Home Assistant Connect ZBT-1: USB adapter. Discontinued and replaced by the Connect ZBT-2, but fully supported if you already have one.
-- Home Assistant Yellow: hub with a built-in Zigbee radio. Currently out of stock, but fully supported if you already have one.
-
-{% tip %}
-Home Assistant Green does not have a built-in Zigbee radio. To use ZHA with Green, or with any other computer running Home Assistant, add a Zigbee adapter such as the [Home Assistant Connect ZBT-2](/connect/zbt-2/).
-{% endtip %}
-
-### Other tested and compatible Zigbee adapters
-
-The following adapters are made by other manufacturers. They are not official Home Assistant hardware, but they are known to work well with ZHA. Home Assistant does not update the firmware on these adapters. To keep them up to date, use the tools their manufacturer provides.
-
-- Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
-  - [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)
-  - [SMLIGHT SLZB-07](https://smlight.tech/product/slzb-07/) (EFR32MG21-based USB dongle)
-- Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
-  - [CC2652P/CC2652R/CC2652RB-based USB adapters flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
-  - [CC1352P/CC1352R-based USB adapters flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
-- dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
-  - [ConBee III (a.k.a. ConBee 3) USB adapter from dresden elektronik](https://phoscon.de/conbee3)
-
-### Supported but not recommended Zigbee adapters
-
-The following hardware is supported, but _not recommended_. Specific models and details are noted where available in each section.
-
-{% details "List of hardware that is not recommended" %}
-
-{% caution %}
-
-- It is _not recommended_ to run a coordinator via **Serial-Proxy-Server** _(also called Serial-to-IP bridge or Ser2Net remote adapter)_ over:
-  
-  - **Wi-Fi**,
-  - **WAN**, or
-  - **VPN**
-
-- The coordinator requires a stable, local connection to its serial port interface without drops in communication with the Zigbee gateway application running on the host computer.
-- Serial protocols used by the coordinator do not have enough robustness, resilience, or fault tolerance to handle packet loss and latency delays that can occur over unstable connections.
-{% endcaution %}
-
-**Silicon Labs EmberZNet based radios using legacy hardware using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)**
-
-- [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs-usb-adapter.html)/POPP ZB-Stick
-  - It is suggested to [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility)
-- [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs-zigbee-shield.html)
-  - It is suggested to [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility)
-- [ITead Sonoff ZBBridge](https://itead.cc/product/sonoff-zbbridge/)
-  - Note: [Wi-Fi-based bridges are not recommended for ZHA with EZSP radios](https://github.com/home-assistant/home-assistant.io/issues/17170).
-  - These first need to be flashed with [Tasmota firmware and Silabs EmberZNet NCP EZSP UART Host firmware to use as Serial-to-IP adapter](https://www.digiblur.com/2020/07/how-to-use-sonoff-zigbee-bridge-with.html)
-- [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee Ember 3581 USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)
-  - It is suggested to [upgrade the EmberZNet NCP application firmware](https://github.com/walthowd/husbzb-firmware)
-- [Bitron Video/Smabit BV AV2010/10 USB-Stick](https://manuals.smabit.eu/len/av2010_10.html) with Silicon Labs Ember 3587
-- Telegesis ETRX357USB/ETRX357USB-LR/ETRX357USB-LRS+8M
-  - These first need to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware)
-
-**Texas Instruments based radios using legacy hardware (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)**
-
-- [CC2538 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-  - This is no longer recommended as it can only run deprecated (old/end-of-life) firmware.
-- [CC2530/CC2531 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-  - This is no longer recommended as it uses deprecated hardware and very old, end-of-life firmware.
-  - This will not work properly if the Zigbee network has more than 15-20 devices.
-
-**dresden elektronik deCONZ based Zigbee radios using legacy hardware (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)**
-
-- [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
-- [RaspBee II (a.k.a. RaspBee 2) Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee2)
-- [ConBee USB adapter from dresden elektronik](https://phoscon.de/conbee)
-- [RaspBee Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee)
-
-**Digi XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)**
-
-- [Digi XBee Series 3 (xbee3-24)](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee3-zigbee-3) and [Digi XBee Series S2C](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee-zigbee) modules
-  - It is suggested to [upgrade XBee Series 3 and S2C to newest firmware using XCTU](https://www.digi.com/resources/documentation/Digidocs/90002002/Default.htm#Tasks/t_load_zb_firmware.htm)
-- [Digi XBee Series 2 (S2)](https://www.digi.com/support/productdetail?pid=3430) modules
-  - These first need to be [flashed with Zigbee Coordinator API firmware](https://www.digi.com/support/productdetail?pid=3430)
-
-**ZiGate based radios (via the [zigpy-zigate](https://github.com/zigpy/zigpy-zigate) library for zigpy and require firmware 3.1d or later)**
-
-- [ZiGate USB](https://zigate.fr/produit/zigate-usb/)
-- [ZiGate USB-DIN](https://zigate.fr/produit/zigatev2-usb-din/)
-- [PiZiGate (ZiGate Raspberry Pi module)](https://zigate.fr/produit/pizigatev2/)
-- [ZiGate-Ethernet (Ethernet gateway board for PiZiGate)](https://zigate.fr/produit/zigate-ethernet/)
-- [ZiGate + WiFi Pack](https://zigate.fr/produit/zigatev2-pack-wifi/)
-
-{% enddetails %}
+If you do not have a coordinator yet, the [Home Assistant Connect ZBT-2](/connect/zbt-2/) is the recommended choice. For all the options, refer to [Zigbee adapters](/connectivity/zigbee/#zigbee-adapters).
 
 ## Configuration requirements
 
@@ -221,7 +65,7 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
     - Select **Submit** to proceed to the next step.
 5. Enter the **Serial device path**:
     - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use the device path from the `/dev/serial/by-id` folder (for example, `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
-    - To look up the device path, go to **Settings** > **Connectivity** > **Serial**. Next to the port of your radio, select **Port information** {% icon "mdi:information-outline" %}, and copy the **Device** field. For more details, refer to [Viewing your serial ports](/integrations/serial/#viewing-your-serial-ports).
+    - To look up the device path, go to **Settings** > **Connectivity** > **Serial**. Next to the port of your radio, select **Port information** {% icon "mdi:information-outline" %}, and copy the **Device** field. For more details, refer to [Viewing your serial ports](/connectivity/serial/#viewing-your-serial-ports).
 6. Set the **Port speed** (not applicable for all radios).
 7. Set the **Data flow control** (not applicable for all radios).
 8. Press **Submit**.
@@ -290,7 +134,7 @@ The best practice is to _not change the Zigbee channel_ from the ZHA default.
 {% note %}
 **Before changing the Zigbee channel on an existing network**, review the following sections on this page:
 
-- [Best practices to avoid pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties)
+- [Best practices to avoid pairing/connection difficulties](/connectivity/zigbee/#best-practices-to-avoid-pairingconnection-difficulties)
 - [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization)
 
 These sections both provide helpful advice on improving your Zigbee network performance.
@@ -319,12 +163,6 @@ These sections both provide helpful advice on improving your Zigbee network perf
 The related troubleshooting segments mentioned above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
 
 MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistence](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
-
-#### About Zigbee channels
-
-The Zigbee specification standards divide the 2.4&nbsp;GHz ISM radio band into 16 Zigbee channels (that is, distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (that is, the Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels. Channel support usually depends on the age of the hardware and firmware, as well as on the device's power ratings.
-
-The general recommendation is to only use channels 15, 20, or 25 to avoid interoperability problems with Zigbee devices. Not only because there is less chance of Wi-Fi networks interfering too much with the Zigbee network on other channels, but also because not all Zigbee devices support all channels.
 
 ### Modifying the device type
 
@@ -370,7 +208,7 @@ Refer to the [zigpy documentation for OTA configuration](https://github.com/zigp
 {% tip %}
 When adding devices, review the following sections on this page:
 
-- [Best practices to avoid pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties)
+- [Best practices to avoid pairing/connection difficulties](/connectivity/zigbee/#best-practices-to-avoid-pairingconnection-difficulties)
 - [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization)
 
 These sections both provide helpful advice on improving your Zigbee network performance.
@@ -379,29 +217,46 @@ These sections both provide helpful advice on improving your Zigbee network perf
 **To add a new Zigbee device:**
 
 1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
-2. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
+2. To open your Zigbee network for new devices to join, on the bottom right corner of the screen, select **Add device**.
 3. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (for example, turn lights on and off up to 10 times; switches usually have a reset button or pin). It might take a few seconds for the devices to appear. You can select **Show logs** for more verbose output.
-4. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
+4. Once the device joins, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). If the network has closed, select **Try again** to add another device, or go back to the list of added devices.
 
-### Using router devices to add more devices
+### Adding Green Power devices
 
-Most mains-powered devices, such as many always-powered wall plugs or light bulbs in your Zigbee network, will automatically act as a Zigbee router device (sometimes also referred to as a Zigbee "signal repeater" or "range extender").
+Zigbee Green Power devices, such as the Philips Hue Tap and some "Friends of Hue" switches, have no battery. They send short messages that nearby Zigbee router devices pass on to the Zigbee coordinator.
 
-Because Zigbee should use a [wireless mesh network](https://en.wikipedia.org/wiki/Wireless_mesh_network) to be effective, you will need to add Zigbee router devices to increase the number of Zigbee devices that can be used in your Zigbee network, both in the total number of devices that can be added as well as the total range and coverage of the network. Some Zigbee router devices do a much better job at routing and repeating Zigbee signals and messages than some other devices. You should not have a setup where Zigbee router devices (for example, light bulbs) are often powered off. Zigbee router devices are meant to be always available.
+Support for Green Power devices was added in Home Assistant 2026.11.0. Some Zigbee coordinators can also receive messages from Green Power devices directly, usually with no limit on the number of devices. With these coordinators, Green Power devices in range of the coordinator work without a router device. The following radio types receive Green Power messages directly:
 
-All Zigbee coordinator firmware will only allow you to directly connect a certain number of devices. That limit is set for two reasons; firstly, to not overload the Zigbee coordinator, and secondly, to encourage your Zigbee network to quickly begin to use a "[mesh networking](https://en.wikipedia.org/wiki/Mesh_networking)" topology instead of only a "[star network](https://en.wikipedia.org/wiki/Star_network)" topology.
+- Ziggurat (`ziggurat`)
+- Silicon Labs (`ezsp`)
+- deCONZ (`deconz`)
 
-The total number of Zigbee devices that you can have on a Zigbee network depends on a few things. The Zigbee coordinator hardware and its firmware only play a larger role in Zigbee networks with a lot of devices. More important is the number of directly connected devices ("direct children") versus the number of routers that are connected to your Zigbee coordinator. The Zigpy library, which the ZHA {% term integration %} depends on, has an upper limit that is 32 direct children, but you can still have hundreds of Zigbee devices in total connected indirectly through routes via Zigbee router devices.
+With other radio types, such as Texas Instruments (`znp`), ZiGate (`zigate`), and XBee (`xbee`), Green Power devices only work through router devices that pass on their messages. To check which radio type your coordinator uses, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}, select **Network information**, and look at **Radio type**.
 
-In this theoretical example, a CC2652-based Zigbee coordinator has three CC2530 Zigbee router devices for a total limit of 77 devices:
+Most Green Power devices do not have enough power to search for your Zigbee network. Instead, you may need to manually pick the Zigbee channel of your device, usually by pressing a combination of buttons when joining. If your Green Power device requires manual channel selection, first find the channel of your Zigbee network.
 
-- Coordinator: 32 Zigbee End devices - 3 routers = 29
-- Router one: + 16 devices
-- Router two: + 16 devices
-- Router three: + 16 devices
-- Total device limit = **77 devices**
+To find the channel of your Zigbee network:
 
-In practice, you will likely need to add a lot more Zigbee router devices than in this example to extend the coverage of the network to reach that many devices.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
+2. Select **Network information**.
+3. Note the number shown under **Channel**.
+
+Check that your Green Power device supports this channel. If it does not, you can [change the Zigbee channel](#to-change-the-zigbee-channel) to one that it supports, but other devices in your network must support that channel too. For more information, refer to [About Zigbee channels](/connectivity/zigbee/#about-zigbee-channels).
+
+To add a Green Power device:
+
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Add device**.
+2. If your device requires manual channel selection, set the device to the channel of your Zigbee network according to the instructions provided by the manufacturer.
+3. Put the device in pairing mode according to the instructions provided by the manufacturer.
+4. Once the device joins, it will appear on that page and will be automatically added to your devices.
+
+Unlike other Zigbee end devices, a Green Power device is not connected to a single parent router device. Instead, every router device that receives its messages passes them on. Each router device can only do this for a limited number of Green Power devices. Depending on the manufacturer, this limit is anywhere from 5 to more than 40. Philips Hue lights and other Philips Hue router devices have a high limit. If you have more than a few Green Power devices, make sure enough router devices with a high limit are in range of them.
+
+Green Power devices work differently from other Zigbee devices:
+
+- They always show as available, because they only send messages when you use them.
+- They show a source ID instead of a network (NWK) address.
+- You cannot reconfigure them, bind them, or manage their clusters.
 
 ### Discovery via USB or Zeroconf
 
@@ -468,7 +323,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 {% enddetails %}
 
-Additional devices in the [Compatible hardware](#compatible-hardware) section may be discoverable, however, only devices that have been confirmed discoverable are listed above.
+Additional devices in the [Compatible hardware](/connectivity/zigbee/#zigbee-adapters) section may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
 {% include integrations/actions.md %}
 
@@ -619,8 +474,6 @@ The list of ZHA limitations may not be exhaustive.
 
 **ZHA does _not_ currently support devices that can only use:**
 
-- The ZGP ("Zigbee Green Power") profile:
-  - This is used in a few batteryless self-powered or energy harvesting devices, (such as Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches).
 - The ZSE ("Zigbee Smart Energy") profile:
   - This is due to the "Zigbee SE" specification not being part of the standard Zigbee 3.0 specification and thus not implemented in most of the Zigbee protocol stacks that are commonly available Zigbee Coordinator radio adapters and modules.
 
@@ -651,7 +504,7 @@ If you're comfortable writing Python code, you can work around such interoperabi
 {% note %}
 _If a device will not join or pair_ at all, review the following sections on this page:
 
-- [Best practices to avoid pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties)
+- [Best practices to avoid pairing/connection difficulties](/connectivity/zigbee/#best-practices-to-avoid-pairingconnection-difficulties)
 - [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization)
 
 These sections both provide helpful advice on improving your Zigbee network performance.
@@ -694,33 +547,6 @@ The project relies on volunteers; submitting a new device support request does n
 
 {% enddetails %}
 
-
-### Best practices to avoid pairing/connection difficulties
-
-If you experience problems pairing a device, verify that you follow best practices to avoid pairing/connection issues:
-
-1. Reduce network interference:
-    - Check that your setup and environment are optimized to avoid interference.
-    - Interference avoidance is an extremely important topic on its own. Review the tips in the separate section below about Zigbee interference avoidance and network range/coverage optimization.
-2. Strengthen your network:
-    - Check that you have enough Zigbee router devices (Zigbee signal repeaters or range extenders).
-    - If you do not have any, you should add additional mains-powered devices to serve as Zigbee routers.
-    - Aim to start with mains-powered devices before adding battery-operated devices. 
-      - A "weak" Zigbee network mesh may prevent some devices from being paired (such as a device being too far from a Zigbee router or coordinator). 
-    - Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network.
-    - Some Zigbee devices are not fully compatible with all brands of Zigbee router devices. 
-      - Xiaomi/Aqara devices known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM, LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. 
-    - Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios.
-3. Plan your pairing:
-    - Try to pair Zigbee devices where you intend to use them:
-      - Avoid pairing next to the Zigbee coordinator if you intend to move its location afterward.
-      - Pairing a device next to the coordinator and moving it later can result in degraded connections.
-    - If the device you want to add has been previously paired to another network, you will likely need to manually factory-reset the device to add/pair it.
-    - Some battery-operated Zigbee devices are known to have problems with pairing if they have low battery voltage.
-      - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
-4. Be patient:
-    - The pairing of some Zigbee devices may require multiple or repeated attempts.
-    - Some devices, such as those from Xiaomi/Aqara, may not be fully compliant with Zigbee standards and may therefore require many paring attempts over 10-20 minutes or longer.
 
 ### Zigbee interference avoidance and network range/coverage optimization
 
@@ -866,7 +692,7 @@ When reporting potential bugs related to the ZHA integration on the issues track
 {% tip %}
 For troubleshooting, read the following sections on this page. They provide information on improving your Zigbee network performance.
 
-- [Best practices to avoid pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties)
+- [Best practices to avoid pairing/connection difficulties](/connectivity/zigbee/#best-practices-to-avoid-pairingconnection-difficulties)
 - [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization)
 {% endtip %}
 
@@ -876,7 +702,7 @@ To enable debug logging, follow the steps on [Debug logs and diagnostics](/docs/
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
-Philips Hue bulbs that have previously been paired to another bridge or gateway will not show up during search in ZHA to add a Zigbee device. Bulbs must be restored to their factory default settings.
+Philips Hue bulbs that have previously been paired to another bridge or gateway will not join ZHA when you add a Zigbee device. Bulbs must be restored to their factory default settings.
 
 {% important %}
 You must factory-reset the device.

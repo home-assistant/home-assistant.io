@@ -82,7 +82,8 @@ delete_data:
 
 This automation listens for the Transmission download-complete event and removes the torrent, but keeps the downloaded data, when it carries the `Remove` label.
 
-- **Trigger**: A Transmission torrent finishes downloading
+- **Trigger**: Manual event received
+  - **Event type**: `transmission_downloaded_torrent`
 - **Action**: Transmission: Remove torrent
 
 {% details "YAML example for removing labeled torrents on completion" %}

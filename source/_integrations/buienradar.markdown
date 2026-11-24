@@ -1,22 +1,7 @@
 ---
-title: Buienradar
 description: Instructions on how to integrate buienradar.nl weather within Home Assistant.
-ha_category:
-  - Camera
-  - Weather
 ha_release: 0.47
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@mjj4791'
-  - '@ties'
-  - '@Robbie1221'
 ha_domain: buienradar
-ha_platforms:
-  - camera
-  - sensor
-  - weather
-ha_integration_type: service
 ---
 
 The **Buienradar** {% term integration %} uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
@@ -37,7 +22,7 @@ The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as
 Internally, this integration uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
 The downloaded image is cached to prevent Home Assistant from making a new request to buienradar.nl multiple times a minute when Home Assistant checks for new stills from the camera.
 
-The camera {% term entity %} is disabled by default and should be [enabled](/common-tasks/general/#enabling-entities) before it reads the camera images.
+The camera {% term entity %} is disabled by default and should be [enabled](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) before it reads the camera images.
 
 ## Sensor
 

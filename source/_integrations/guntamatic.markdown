@@ -1,19 +1,7 @@
 ---
-title: Guntamatic
 description: Guntamatic wood/pellet heater integration.
-ha_category:
-  - Sensor
-ha_iot_class: Local Polling
 ha_release: 2026.6
-ha_codeowners:
-  - '@JensTimmerman'
-ha_config_flow: true
 ha_domain: guntamatic
-ha_platforms:
-  - sensor
-ha_dhcp: true
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The Guntamatic integration allows you to monitor your [Guntamatic](https://www.guntamatic.com) wood or pellet heater from Home Assistant.
@@ -129,7 +117,7 @@ Each connected heating circuit device provides the following sensors:
 
 ### Additional sensors
 
-Additional sensors are disabled by default and can be enabled in the entity settings. These include buffer stage temperatures (top/bottom 0–2), auxiliary and extra domestic hot water pumps, extra domestic hot water temperatures, boiler shunt pump, suction fan, primary and secondary air, CO₂ content, interruptions, operating time (in hours) and service date (next service as an ISO date).
+Additional sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) and can be enabled in the entity settings. These include buffer stage temperatures (top/bottom 0–2), auxiliary and extra domestic hot water pumps, extra domestic hot water temperatures, boiler shunt pump, suction fan, primary and secondary air, CO₂ content, interruptions, operating time (in hours) and service date (next service as an ISO date).
 
 ## Examples
 

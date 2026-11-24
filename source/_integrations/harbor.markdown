@@ -1,24 +1,7 @@
 ---
-title: Harbor Sleep
 description: Instructions on how to set up Harbor Sleep baby monitors in Home Assistant.
-ha_category:
-  - Select
-  - Sensor
-  - Switch
-ha_config_flow: true
 ha_release: 2026.8
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Lash-L'
-  - '@afgarcia86'
 ha_domain: harbor
-ha_platforms:
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: bronze
-ha_dhcp: true
 ---
 
 The **Harbor Sleep** {% term integration %} lets you monitor a [Harbor Sleep](https://harbor.co/) baby monitor in Home Assistant.

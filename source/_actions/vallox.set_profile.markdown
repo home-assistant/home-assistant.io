@@ -1,5 +1,5 @@
 ---
-title: "Set profile"
+title: "Activate profile for duration"
 action: vallox.set_profile
 domain: vallox
 description: "Activates a ventilation profile on a Vallox unit, optionally for a set duration."
@@ -19,7 +19,7 @@ To set the profile from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Vallox: Set profile**.
+5. Search for and select **Vallox: Activate profile for duration**.
 6. Set the **Profile**, and optionally a **Duration**.
 7. Select **Save**.
 
@@ -27,7 +27,7 @@ To set the profile from an automation or a script:
 
 {% options_ui %}
 Profile:
-  description: "The profile to activate: `home`, `away`, `boost`, `fireplace`, or `extra`."
+  description: "The profile to activate: `home`, `away`, `boost`, `fireplace`, `extra`, or `auto`."
   required: true
 Duration:
   description: "How long to keep the profile active, in minutes, between 1 and 65535. Only applies to the `boost`, `fireplace`, and `extra` profiles. A value of 65535 activates the profile without a timeout."
@@ -52,7 +52,7 @@ This activates the Boost profile for 30 minutes.
 
 {% options_yaml %}
 profile:
-  description: "The profile to activate: `home`, `away`, `boost`, `fireplace`, or `extra`."
+  description: "The profile to activate: `home`, `away`, `boost`, `fireplace`, `extra`, or `auto`."
   required: true
   type: string
 duration:

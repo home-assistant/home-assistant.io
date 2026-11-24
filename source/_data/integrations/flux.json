@@ -1,0 +1,12 @@
+{
+  "domain": "flux",
+  "name": "Flux",
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "lighting"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

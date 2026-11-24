@@ -1,0 +1,24 @@
+{
+  "domain": "tankerkoenig",
+  "name": "Tankerkoenig",
+  "integration_type": "service",
+  "codeowners": [
+    "@guillempages",
+    "@mib1185",
+    "@jpbede"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "local_services"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ]
+}

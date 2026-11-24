@@ -3,11 +3,9 @@ title: HomeSeer
 description: Connect and control your HomeSeer Z-Wave devices using the Z-Wave integration
 ha_release: '2023.4'
 ha_iot_class: Local Push
-ha_category:
-  - Binary sensor
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - plugs_switches
+  - lighting
 ha_domain: homeseer
 ha_integration_type: brand
 works_with:

@@ -1,8 +1,6 @@
 ---
 title: "Amazon Alexa Custom Skill"
 description: "Instructions on how to build your Alexa/Amazon Echo custom commands to connect with Home Assistant."
-ha_category:
-  - Voice
 ha_release: "0.10"
 ha_domain: alexa
 related:
@@ -407,4 +405,4 @@ You can do this by using Alexa routines.
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
 [templates]: /docs/templating/
-[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token
+[generate-long-lived-access-token]: https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens

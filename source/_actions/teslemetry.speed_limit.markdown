@@ -8,7 +8,7 @@ related_actions:
   - teslemetry.navigation_gps_request
 ---
 
-The **Set speed limit** action turns Speed Limit Mode on or off for your Tesla vehicle. When active, it caps the car's maximum speed. The setting is protected by a 4-digit PIN.
+The **Teslemetry: Set speed limit** action turns Speed Limit Mode on or off for your Tesla vehicle. When active, it caps the car's maximum speed. The setting is protected by a 4-digit PIN.
 
 Use it to keep a cap on the car's speed in certain situations, for example when a younger or newer driver is borrowing it.
 

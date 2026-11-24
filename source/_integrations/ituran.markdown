@@ -1,22 +1,7 @@
 ---
-title: Ituran
 description: Instructions on how to add Ituran to Home Assistant.
-ha_category:
-  - Car
-  - Device Tracker
-  - Presence detection
 ha_release: '2025.1'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@shmuelzon'
 ha_domain: ituran
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Ituran** {% term integration %} allows you to retrieve information from your Ituran-equipped vehicle using the [Ituran APP service](https://www.ituran.co.il/ituranfront/comfort-services-2/ituran-app-comfort). It pulls information from the Ituran web service regarding the vehicle's location.

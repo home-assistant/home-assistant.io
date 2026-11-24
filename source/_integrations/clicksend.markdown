@@ -1,18 +1,10 @@
 ---
-title: ClickSend SMS
 description: Instructions on how to add ClickSend notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_release: 0.48
 ha_domain: clicksend
-ha_iot_class: Cloud Push
-ha_platforms:
-  - notify
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **ClickSend SMS** {% term integration %} uses [ClickSend](https://clicksend.com) to deliver notifications from Home Assistant.

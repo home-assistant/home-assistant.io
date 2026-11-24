@@ -8,7 +8,7 @@ related_actions:
   - flux_led.set_music_mode
 ---
 
-The **Set zones** action assigns a color to each zone of an Addressable v3 (0xA3) light strip. The length of each zone is the number of pixels per segment divided by the number of colors you provide.
+The **Magic Home: Set zones** action assigns a color to each zone of an Addressable v3 (0xA3) light strip. The length of each zone is the number of pixels per segment divided by the number of colors you provide.
 
 This is handy for splitting a single strip into sections, for example lighting one part of a shelf red and another part blue.
 
@@ -91,7 +91,9 @@ effect:
 
 When someone sits down at the desk, set only the zone above the desk to a neutral white and leave the rest of the strip off. This avoids powering the full strip when only a small area needs illumination.
 
-- **Trigger**: Binary sensor turns on (desk occupancy sensor)
+- **Trigger**: State changed
+  - **Entity**: Desk occupancy sensor
+  - **To**: Detected
 - **Action**: Magic Home: Set zones
 
 {% details "YAML example for highlighting active zone desk" %}

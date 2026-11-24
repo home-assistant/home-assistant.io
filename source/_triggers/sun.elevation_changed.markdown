@@ -38,8 +38,8 @@ Threshold type:
 
     - **Any change**: fires on any elevation change, regardless of value.
     - **Above** or **Below** (exclusive): fires only when the new elevation is strictly above or below the angle.
-    - **In range** (exclusive): fires only when the new elevation is strictly between the two angles.
-    - **Outside range** (inclusive): fires when the new elevation is at or below the lower angle, or at or above the upper angle.
+    - **In range** (inclusive): fires when the new elevation is between the two angles, or equal to one of them.
+    - **Outside range** (exclusive): fires when the new elevation is below the lower angle or above the upper angle.
 
     For each mode except **Any change** you can enter a fixed angle in degrees, or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 {% endoptions_ui %}
@@ -70,8 +70,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |
@@ -80,8 +78,8 @@ threshold:
     - `type: any`: Fires on any change (no additional keys needed).
     - `type: above` (exclusive): Fires when the new elevation is strictly above `value`. Provide `value` with a `number` key (a fixed angle in degrees) or an `entity` key (an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Fires when the new elevation is strictly below `value`. Provide `value` with a `number` key (a fixed angle in degrees) or an `entity` key (an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Fires when the new elevation is strictly between `value_min` and `value_max`. Provide both, each with a `number` key (a fixed angle in degrees) or an `entity` key.
-    - `type: outside` (inclusive): Fires when the new elevation is at or below `value_min`, or at or above `value_max`. Provide both, each with a `number` key (a fixed angle in degrees) or an `entity` key.
+    - `type: between` (inclusive): Fires when the new elevation is between `value_min` and `value_max`, or equal to one of them. Provide both, each with a `number` key (a fixed angle in degrees) or an `entity` key.
+    - `type: outside` (exclusive): Fires when the new elevation is below `value_min` or above `value_max`. Provide both, each with a `number` key (a fixed angle in degrees) or an `entity` key.
   required: true
   type: map
 {% endoptions_yaml %}

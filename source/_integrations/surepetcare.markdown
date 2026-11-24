@@ -1,22 +1,7 @@
 ---
-title: Sure Petcare
 description: Instructions on how to integrate the Sure Petcare cat and pet flaps into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Lock
-  - Sensor
 ha_release: 0.104
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@benleb'
-  - '@danielhiversen'
 ha_domain: surepetcare
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - lock
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Sure Petcare** {% term integration %} allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
@@ -35,7 +20,7 @@ These are the entities available in the Sure Petcare integration.
 
 #### Sensors
 
-- **Last seen flap device ID**: Last flap device ID used by the pet (useful for the [pet select location blueprint](#pet-select-location-template-entity)). `unknown` if the last status is not from a flap update. This sensor is disabled by default.
+- **Last seen flap device ID**: Last flap device ID used by the pet (useful for the [pet select location blueprint](#pet-select-location-template-entity)). `unknown` if the last status is not from a flap update. This sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Last seen user ID**: Last user ID that manually changed the pet location (useful for the [pet select location blueprint](#pet-select-location-template-entity)). `unknown` if the last status is not from a manual update. This sensor is disabled by default.
 
 ### Pet and cat flaps

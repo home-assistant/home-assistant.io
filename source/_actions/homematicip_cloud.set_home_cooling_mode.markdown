@@ -9,7 +9,7 @@ related_actions:
   - homematicip_cloud.activate_vacation
 ---
 
-The **Set home cooling mode** action switches your entire Homematic IP home between heating and cooling. Enable cooling to switch to cooling mode, or disable it to revert to heating.
+The **HomematicIP Cloud: Set home cooling mode** action switches your entire Homematic IP home between heating and cooling. Enable cooling to switch to cooling mode, or disable it to revert to heating.
 
 This action is only available to Home Assistant administrators.
 

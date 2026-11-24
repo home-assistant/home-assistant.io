@@ -1,20 +1,7 @@
 ---
-title: Firefly III
 description: Instructions on how to integrate Firefly III with Home Assistant.
-ha_category:
-  - Finance
-  - Sensor
 ha_release: '2025.11'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@erwindouna'
 ha_domain: firefly_iii
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The **Firefly III** {% term integration %} is used as an interface to the [Firefly III API](https://api-docs.firefly-iii.org/).
@@ -40,6 +27,10 @@ Create a Firefly III Personal Access Token by following these steps:
 There is currently support for the following device types within Home Assistant:
 
 - Sensors - for monitoring the accounts, categories and their balances.
+
+## Data updates
+
+The integration {% term polling polls %} the Firefly III server every 5 minutes.
 
 ## Removing the integration
 

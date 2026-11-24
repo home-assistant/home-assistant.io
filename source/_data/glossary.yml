@@ -9,34 +9,44 @@
 # - aliases: A list of aliases for the term (optional)
 #
 - term: Action
-  definition: |-
-    Actions are used in several places in Home Assistant. As part of a script or
-    automation, actions define what is going to happen once a trigger is
-    activated. In scripts, an action is called *sequence*. An action is a **software
-    function that interacts with targets to make something happen**. Actions can use other actions
-    and/or scenes to interact with entities and cause these entities to do
-    something. Actions can also include conditions and a delay. An action can
-    perform multiple actions at the same time. For example, if your presence is
-    detected in a room, an action may perform one action to turn on a light and
-    perform another action to start playing music after a delay. Actions are also
-    used on the dashboard, for example as tap or hold action on a UI element.
-    When triggered, the action performs another action. Home Assistant provides a series of predefined actions,
-    such as `homeassistant.turn_on`, `homeassistant.toggle`, or
-    `homeassistant.reload`. An action makes something happen, while an event
-    tells you that something happened. For more information, refer to
-    [events and actions](/docs/configuration/events/#events-and-actions).
+  definition: >-
+    An action makes Home Assistant do something, for example, turn on a light,
+    send a notification, or activate a scene. Automations and scripts run a
+    list of actions. A dashboard card can also perform an action when you tap
+    it. This is one of several [dashboard actions](/dashboards/actions/), next
+    to others like opening another dashboard. Events are different: an event
+    tells you that something happened.
+    For more information, refer to [events and
+    actions](/docs/configuration/events/#events-and-actions).
   aliases:
     - actions
   link: /docs/automation/action/
-  excerpt: >
-    Actions are used in several places in Home Assistant. As part of a script or
-    automation, actions define what is going to happen once a trigger is
-    activated. In scripts, an action is called *sequence*.
+  excerpt: >-
+    An action makes Home Assistant do something, for example, turn on a light,
+    send a notification, or activate a scene. Automations and scripts run a
+    list of actions.
+
 - term: Actor
   definition: |-
     An entity that receives a control signal and performs an action in a system.
   aliases:
     - actors
+- term: AI app
+  definition: >-
+    Third-party software that connects to Home Assistant through the Model Context Protocol integration.
+
+    An AI app can use the AI tools that you allow.
+  aliases:
+    - AI apps
+  link: /integrations/mcp_server/
+- term: AI tool
+  definition: >-
+    A function that conversation agents and AI apps can use to read information, control entities, or manage Home Assistant.
+
+    AI tools are grouped into sets. Each set provides different functionality. Some sets only work for administrators.
+  aliases:
+    - AI tools
+  link: /integrations/llm/
 - term: App
   definition: >-
     Apps, formerly known as add-ons, are additional standalone third-party software packages that can be
@@ -66,6 +76,19 @@
   aliases:
     - areas
   link: /docs/organizing/areas/
+- term: Assist
+  definition: >-
+    The voice assistant built into Home Assistant.
+    
+    You can use Assist by talking or typing in the Home Assistant web interface and in the Home Assistant Companion app. You can also use it by talking through a voice satellite. You can set up several assistants, each with its own language and conversation agent.
+  link: /voice_control/
+- term: Assistant
+  definition: >-
+    A configuration of Assist with its own name, language, and conversation agent.
+
+    An assistant can also use speech-to-text to understand spoken commands and text-to-speech to reply out loud.
+  aliases:
+    - assistants
 - term: Automation
   definition: >-
     Automations connect one or more triggers to one or more actions in a 'when
@@ -86,7 +109,7 @@
     of your configuration. This can be used to restore your Home Assistant as
     well as migrate to a new system. The backup feature is available for all
     [installation types](/installation/#about-installation-types).
-  link: /common-tasks/general/#backups
+  link: /common-tasks/general/backups/
   aliases:
     - backups
 - term: Binary sensor
@@ -147,7 +170,7 @@
     Devices that talk over local protocols such as Zigbee, Z-Wave, Matter,
     Thread, and ESPHome continue to work even when the internet is down or a
     manufacturer shuts down its cloud service. Optional cloud features, such as
-    [Home Assistant Cloud](https://www.nabucasa.com), can be added on top, but
+    [Home Assistant Link](https://www.nabucasa.com), can be added on top, but
     the core of your smart home stays on your own hardware.
   excerpt: >-
     Cloud-independent means Home Assistant does not need an internet
@@ -183,7 +206,7 @@
     condition is not met, the actions that come after it in the same sequence do
     not run. At the top level of an automation or script, this stops the
     automation or script.
-  link: /docs/scripts/conditions/
+  link: /docs/automation/condition/
   aliases:
     - conditions
 - term: Configuration file
@@ -193,6 +216,12 @@
   definition: >-
     The configuration.yaml file is the main configuration file for Home Assistant. It lists the integrations to be loaded and their specific configurations. In some cases, the configuration needs to be edited manually directly in the configuration.yaml file. Most integrations can be configured in the UI.
   link: /docs/configuration/
+- term: Conversation agent
+  definition: >-
+    Software that Home Assistant uses to understand a request and decide what to do. Home Assistant has a built-in conversation agent. Integrations can add others, including ones that use AI. Conversation agents that use AI can also use AI tools. Each assistant uses a conversation agent.
+  aliases:
+    - conversation agents
+  link: /integrations/conversation/
 - term: Cover
   definition: >-
     Covers are devices such as blinds, garage doors, etc that can be opened and
@@ -202,9 +231,10 @@
     - covers
 - term: Custom integration
   definition: >-
-    A custom integration is an integration that has been created by someone from the Home Assistant community and has been published for others to use at their own risk. Custom integrations are not supported by the Home Assistant project. They are not reviewed or tested by the Home Assistant development team and thus may negatively impact the stability of your Home Assistant instance. An example of a custom integration is the [Spook](https://spook.boo/) integration.
+    A custom integration is an integration that has been created by someone from the Home Assistant community and has been published for others to use at their own risk. You can install custom integrations from the Marketplace. Custom integrations are not supported by the Home Assistant project. They are not reviewed or tested by the Home Assistant development team and thus may negatively impact the stability of your Home Assistant instance. An example of a custom integration is the [Spook](https://spook.boo/) integration.
   aliases:
     - custom integrations
+  link: /integrations/marketplace/
 - term: Customize
   definition: >-
     Customization allows you to overwrite the default parameters of your devices
@@ -332,7 +362,7 @@
     A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need.
   aliases:
     - helpers
-  link: /integrations/#helper
+  link: /docs/configuration/helpers/
 - term: HASS
   definition: >-
     HASS is an abbreviation for Home Assistant that was commonly used in the past.
@@ -342,6 +372,13 @@
   definition: >-
     Another name for Home Assistant Operating System
   link: /hassio/installation/
+- term: Home Assistant Companion app
+  definition: >-
+    The official Home Assistant app for Android and Apple devices. On phones, tablets, and Macs, it shows your Home Assistant interface, like a browser does. It can also share data from your device's sensors with Home Assistant and receive notifications. The Home Assistant Companion app also works on smartwatches and in cars, with Android Auto, Android Automotive OS, or Apple CarPlay.
+  aliases:
+    - Companion app
+    - Companion apps
+  link: https://companion.home-assistant.io/
 - term: Home Assistant Container
   definition: >-
     Home Assistant Container is a standalone container-based installation of
@@ -443,7 +480,7 @@
     Intent is a term used with voice assistants. The intent is what Home
     Assistant thinks you want it to do when it extracts a command from your
     voice or text utterance.
-  link: https://developers.home-assistant.io/docs/intent_builtin
+  link: https://contributors.home-assistant.io/core/internals/built-in-intents/
   aliases:
     - Intents
 - term: Label
@@ -538,10 +575,10 @@
     Applies the changes made to the Home Assistant configuration files. Changes
     are normally automatically updated. However, changes made outside of the
     front end will not be reflected in Home Assistant and require a reload. To
-    perform a manual reload, go to **Settings** > **System** > **Restart Home
-    Assistant** (top right) > **Quick reload**. More granular reload options
-    are available in *YAML configuration reloading* section in **Settings** >
-    **Tools** > **YAML**.
+    reload, go to **Settings** > **System**, select the power icon in the
+    top-right corner, and then select **Quick reload**. To reload only some
+    parts, go to **Settings** > **Tools** > **YAML**.
+  link: /common-tasks/general/restarting/#reloading-the-yaml-configuration
   excerpt: >
     Applies the changes made to Home Assistant configuration files. Changes are
     normally automatically updated. However, changes made outside of the front
@@ -556,10 +593,11 @@
     - scenes
 
 - term: Script
-  definition: >
-    Scripts are components that allow you to specify a sequence of actions to
-    be executed by Home Assistant when turned on.
-  link: /docs/scripts/
+  definition: >-
+    A script is a saved list of steps that runs when you start it, for
+    example, from a dashboard, with Assist, or from an automation. Unlike an
+    automation, a script has no triggers, so it doesn't start by itself.
+  link: /docs/script/
   aliases:
     - scripts
 - term: Sensor
@@ -590,6 +628,14 @@
     confusion, as it does not come with a piece of hardware.
   aliases:
     - services
+
+- term: Speech-to-text
+  definition: >-
+    Technology that turns spoken words into text. Assist uses speech-to-text when you talk to it. Integrations provide speech-to-text. Some run locally, and others run in the cloud.
+  aliases:
+    - STT
+  link: /integrations/stt/
+
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
@@ -599,7 +645,7 @@
     at a time. However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
     current brightness and color values. To start an automation when a state changes, use
-    the [**State** trigger](/triggers/state/). The current state can be used in conditions.
+    the [**State changed** trigger](/triggers/state/). The current state can be used in conditions.
   link: /docs/configuration/state_object/
   aliases:
     - states
@@ -630,9 +676,16 @@
     A template is an automation definition that can include variables for the
     action or data from the trigger values. This allows automations to generate
     dynamic actions.
-  link: /docs/automation/templating/
+  link: /docs/automation/trigger-data/
   aliases:
     - templates
+
+- term: Text-to-speech
+  definition: >-
+    Technology that turns text into spoken words. Assist uses text-to-speech to reply out loud. Home Assistant can also use it to make announcements on media players and voice satellites. Integrations provide text-to-speech. Some run locally, and others run in the cloud.
+  aliases:
+    - TTS
+  link: /integrations/tts/
 
 - term: Thread
   definition: >-
@@ -660,21 +713,17 @@
     Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod
     mini, and the Home Assistant Connect&nbsp;ZBT-2 together with the OpenThread Border
     Router app.
-  link: /integrations/thread/#about-thread-border-routers
+  link: /connectivity/thread/#about-thread-border-routers
   aliases:
     - Thread border routers
 - term: Trigger
   definition: >-
-    A trigger is a set of values or conditions of a platform that are defined to
-    cause an automation to run.
+    A trigger is the part of an automation that makes the automation start when
+    something specific happens, for example, when the sun sets, a door opens,
+    or a button is pressed.
   link: /docs/automation/trigger/
   aliases:
     - triggers
-
-- term: TTS
-  definition: >-
-    TTS (text-to-speech) allows Home Assistant to talk to you.
-  link: /integrations/tts/
 
 - term: Update
   definition: >-
@@ -699,7 +748,14 @@
   definition: >-
     Variables are used to store values in memory that can be processed for
     example, in a script.
-  link: /docs/scripts/#variables
+  link: /building-blocks/variables/
+- term: Voice satellite
+  definition: >-
+    A standalone device with a microphone that you use to talk to Assist.
+
+    Some voice satellites also have a speaker to play Assist's replies. Unlike a browser or the Home Assistant Companion app, a voice satellite isn't signed in to a user account. This means Home Assistant can't tell who is speaking. Each voice satellite uses at least one assistant.
+  aliases:
+    - voice satellites
 - term: YAML
   definition: >-
     YAML is a human-readable data serialization language. It is used to store and transmit data in a structured format. In Home Assistant, YAML is used for configuration, for example in the `configuration.yaml` or `automations.yaml` files.
@@ -712,8 +768,12 @@
     - zones
 - term: Long-term statistics
   definition: >-
-    Home Assistant saves long-term statistics for a sensor if the entity has a state_class of measurement, total, or total_increasing. For short-term statistics, a snapshot is taken every 5 minutes. For long-term statistics, an hourly aggregate is stored of the short-term statistics. Short-term statistics are automatically purged after a predefined period (default is 10 days). Long-term statistics are never purged.
-  link: /blog/2021/08/04/release-20218/#long-term-statistics
+    Home Assistant keeps statistics for sensors that have a state class, such
+    as measurement, total, or total increasing. Every 5 minutes, it saves
+    short-term statistics, which are deleted after 10 days by default. Every
+    hour, it saves long-term statistics, which are never deleted
+    automatically. The Energy dashboard and statistics cards use them.
+  link: /docs/configuration/long-term-statistics/
 - term: boolean
   definition: >-
     A value that is either true or false. Used for on/off states, yes/no conditions, and similar binary choices.

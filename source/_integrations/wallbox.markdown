@@ -1,22 +1,7 @@
 ---
-title: Wallbox
 description: Instructions on how to integrate sensors Wallbox EV chargers to Home Assistant
-ha_category:
-  - Car
 ha_release: 2021.6
-ha_iot_class: Cloud Polling
 ha_domain: wallbox
-ha_platforms:
-  - button
-  - lock
-  - number
-  - select
-  - sensor
-  - switch
-ha_config_flow: true
-ha_codeowners:
-  - '@hesselonline'
-ha_integration_type: device
 ---
 
 The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station. 

@@ -1,25 +1,7 @@
 ---
-title: Ohme
 description: Instructions to configure the Ohme integration into Home Assistant.
-ha_category:
-  - Car
-  - Sensor
 ha_release: 2025.1
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@dan-r'
-ha_config_flow: true
 ha_domain: ohme
-ha_platforms:
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_quality_scale: platinum
-ha_integration_type: device
 ---
 
 The **Ohme** {% term integration %} allows you to connect your [Ohme](https://ohme-ev.com/) EV charger to Home Assistant.
@@ -71,7 +53,7 @@ The Ohme integration provides the following entities.
 - **State of charge input**
   - **Description**: Used to set the current state of charge for non-API connected vehicles. This will only function when a vehicle is connected. For more information, refer to the related [Ohme documentation](https://ohme-ev.com/support/how-to-set-your-battery-level-when-you-plug-in).
   - **Available for devices**: all
-  - **Note**: This input is disabled by default.
+  - **Note**: This input is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 #### Selects
 

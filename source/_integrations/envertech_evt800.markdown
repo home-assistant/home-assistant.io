@@ -1,18 +1,7 @@
 ---
-title: ENVERTECH EVT800
 description: Instructions on how to connect your Envertech EVT800 device to Home Assistant.
-ha_iot_class: Local Polling
-ha_category:
-  - Energy
-ha_config_flow: true
 ha_release: 2026.7
-ha_codeowners:
-  - '@daniel-bergmann-00'
 ha_domain: envertech_evt800
-ha_integration_type: device
-ha_quality_scale: bronze
-ha_platforms:
-  - sensor
 ---
 
 The **Envertech EVT800** {% term integration %} allows you to integrate [Envertech EVT800](https://www.envertec.com/products/microinverter/66.html/) solar inverters in Home Assistant.

@@ -1,18 +1,7 @@
 ---
-title: Snooz
 description: Instructions on how to integrate SNOOZ devices into Home Assistant.
-ha_category:
-  - Fan
-ha_bluetooth: true
 ha_release: '2022.11'
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@AustinBrunkhorst'
 ha_domain: snooz
-ha_config_flow: true
-ha_platforms:
-  - fan
-ha_integration_type: device
 ---
 
 Integrates [SNOOZ](https://getsnooz.com/) devices into Home Assistant.

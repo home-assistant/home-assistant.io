@@ -1,0 +1,9 @@
+{
+  "domain": "media_player",
+  "name": "Media player",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

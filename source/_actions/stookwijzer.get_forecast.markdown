@@ -2,10 +2,11 @@
 title: "Get forecast"
 action: stookwijzer.get_forecast
 domain: stookwijzer
+response: required
 description: "Retrieves the advice forecast from Stookwijzer."
 ---
 
-The **Get forecast** action retrieves the Stookwijzer advice forecast and returns it as [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+The **Stookwijzer: Get forecast** action retrieves the Stookwijzer advice forecast and returns it as [response data](/docs/automation/action/#action-response-data).
 
 This is useful when you want an automation or a template to read upcoming Stookwijzer advice, for example to decide whether to light a wood fire later in the day.
 
@@ -55,6 +56,8 @@ config_entry_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `forecast` field. `forecast` is a list of advice entries, each with the following fields:
 

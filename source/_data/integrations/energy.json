@@ -1,0 +1,13 @@
+{
+  "domain": "energy",
+  "name": "Energy",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "platforms": [
+    "sensor"
+  ]
+}

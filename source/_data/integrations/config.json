@@ -1,0 +1,12 @@
+{
+  "domain": "config",
+  "name": "Configuration",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal",
+  "platforms": [
+    "scene"
+  ]
+}

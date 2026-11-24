@@ -1,17 +1,7 @@
 ---
-title: Last.fm
 description: Instructions on how to integrate Last.fm sensors into Home Assistant.
-ha_category:
-  - Social
-ha_iot_class: Cloud Polling
 ha_release: '0.20'
 ha_domain: lastfm
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_config_flow: true
-ha_codeowners:
-  - '@joostlek'
 ---
 
 The **Last.fm** {% term integration %} lets you monitor the listening activity of [Last.fm](https://www.last.fm/) users. It creates a sensor for each user you add, showing whether they are currently scrobbling and what they are listening to.

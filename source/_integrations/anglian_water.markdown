@@ -1,18 +1,7 @@
 ---
-title: Anglian Water
 description: The Anglian Water integration allows you to access your smart meter data within Home Assistant.
 ha_release: 2025.12
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@pantherale0'
 ha_domain: anglian_water
-ha_integration_type: service
-ha_platforms:
-  - sensor
-ha_category:
-  - Sensor
-ha_quality_scale: bronze
-ha_config_flow: true
 ---
 
 The **Anglian Water** {% term integration %} is used to integrate with the smart meters of [Anglian Water](https://www.anglianwater.co.uk).
