@@ -24,6 +24,23 @@ To add energy data to the dashboard, start with the type of source or device you
 - [Integrate your water consumption](/docs/energy/water/)
 - [Integrate individual devices](/docs/energy/individual-devices/)
 
+### Adding suggested meters
+
+Home Assistant suggests the energy, gas, and water meters you have that are not on the Energy dashboard yet.
+You can add a suggested meter in a few steps, without searching for its sensor.
+
+1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
+2. Open the **Electricity**, **Gas**, or **Water** tab.
+   - If there are meters to suggest, they are listed at the top of the tab.
+3. If a meter has an **Add as** list, choose what the meter measures, such as **Grid consumption**, **Solar production**, or **Individual device**.
+4. Select **Add**.
+   - The settings for that source or device open, with the meter already selected.
+5. Check the settings and select **Save**.
+   - Result: The meter is added to your Energy dashboard.
+
+If you don't want to add a meter, select **Dismiss**.
+The meter is no longer suggested to you, but you can still add it manually.
+
 If you have a sensor that returns instantaneous power readings (W or kW), then to add a sensor that returns energy usage or generation (kWh), refer to the [Riemann sum integral integration](/integrations/integration/#energy).
 
 You can also configure power sensors alongside energy sensors in the Energy dashboard. Power inputs accept sensors with `state_class: measurement` and appropriate units (for example `W` or `kW`).
