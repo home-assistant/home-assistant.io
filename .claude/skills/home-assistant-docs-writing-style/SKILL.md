@@ -38,7 +38,11 @@ The full brand personality guide is at [`personality.markdown`](https://raw.gith
 - Use the Oxford comma.
 - Follow grammar and syntax rules. End sentences with a period.
 - Do not put two spaces after a period.
-- Use flowing text in Markdown files. Do not enforce arbitrary line wrapping for prose.
+- In Markdown files, write each sentence of a paragraph on its own line, with a single line break.
+  Do not wrap lines at a fixed width.
+  This is recommended, but optional, and keeping a whole paragraph on a single line is still fine.
+  When you change a paragraph that is on a single line, split only that paragraph into sentences, and leave the other paragraphs as they are.
+  Do not make edits that only change how paragraphs are split into lines.
 - Do not use all caps for emphasis. Use italics only when emphasis is needed.
 - Use **bold** for UI strings. Do not use bold for emphasis or as a heading replacement.
 - Use UI breadcrumbs in this format: **Settings** > **Devices & services**.
