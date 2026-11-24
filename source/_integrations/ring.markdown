@@ -66,7 +66,7 @@ Downloading and playing Ring video from the `last_recording` camera will require
 
 #### Two-way audio
 
-You can talk through your Ring doorbell or camera from the live view camera entity in Home Assistant.
+If your Ring doorbell or camera supports two-way talk in the Ring app, you can talk through it from the live view camera entity in Home Assistant. For the steps, refer to [Talking through a camera](/integrations/camera/#talking-through-a-camera).
 For the steps, refer to [Talking through a camera](/integrations/camera/#talking-through-a-camera).
 
 Two-way audio has the following requirements:
