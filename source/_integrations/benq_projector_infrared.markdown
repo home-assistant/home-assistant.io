@@ -18,6 +18,7 @@ Because the integration communicates over infrared, it operates in a one-way, fi
 - Turn on the projector and switch to the right input when you start a movie.
 - Turn off the projector when you turn off the rest of your home cinema, or when everyone leaves the house.
 - Keep using the projector's own remote. With an infrared receiver, the media player follows the changes you make with it.
+- Open the projector's menu, or switch the picture mode or aspect ratio, from a dashboard or a script.
 
 ## Supported devices
 
@@ -63,7 +64,7 @@ Set these to match your projector. After you change the options, the integration
 
 ### Entities
 
-Each projector gets one media player entity.
+Each projector gets a media player entity and button entities.
 
 #### Media player
 
@@ -71,13 +72,34 @@ Each projector gets one media player entity.
 - **Sources**: HDMI 1, HDMI 2, PC 1, PC 2, Component 1, Component 2, Video 1, Video 2, S-Video 1, S-Video 2, DVI-D, and USB reader.
 - The last selected source and power state are remembered across restarts of Home Assistant.
 
+#### Buttons
+
+Buttons send the other keys of the BenQ remote. Power, volume, mute and the inputs are controlled by the media player, so there are no buttons for them.
+
+The following buttons are enabled by default:
+
+- **Navigation**: Menu, Back, Cursor up, Cursor down, Cursor left, Cursor right, Enter, and Info.
+- **Picture**: Picture mode, Aspect ratio, Light mode, and Eco blank.
+
+Not every projector has every key, so the following buttons are disabled by default. To use one that your projector supports, open the projector's device page, select the button, and enable it in its settings.
+
+- **Navigation**: Return, Auto adjust, and Freeze.
+- **Picture**: User 1, User 2, User 3, Brightness, Contrast, Color, Tint, Sharpness, Gamma, Color temperature, Color management, BrilliantColor, Detail enhancement, Fine tune, CinemaMaster, Dynamic iris, HDR, LumiExpert, and Overscan.
+- **Sound**: Sound mode.
+- **Aspect ratio**: Anamorphic, 4:3, Letterbox, Wide, and Real aspect ratio.
+- **3D**: 3D, 3D menu, and 3D sync invert.
+- **Media**: Play, Pause, Stop, Previous track, Next track, Rewind, and Fast forward. These are for projectors with a built-in streaming device.
+- **Installation**: Keystone up, Keystone down, 2D keystone, Vertical keystone, Horizontal keystone, Digital zoom in, Digital zoom out, Lens, Focus, Zoom, Pan, and Test pattern. These are listed under the device's configuration.
+
+Pressing a button only sends the key; the integration does not track what it changes on the projector.
+
 ### Turning off
 
 A BenQ projector only turns off after the off command is confirmed by a second one. When you turn off the projector from Home Assistant, the integration sends the off command twice, one second apart.
 
 ### Warm-up and cool-down
 
-After it is turned on or off, a BenQ projector ignores every command while it warms up or cools down. During that time, the integration refuses commands from Home Assistant instead of sending them, and shows an error that says how many seconds are left. You can change both times in the [options](#options).
+After it is turned on or off, a BenQ projector ignores every command while it warms up or cools down. During that time, the integration refuses commands from Home Assistant instead of sending them, buttons included, and shows an error that says how many seconds are left. You can change both times in the [options](#options).
 
 The warm-up or cool-down starts when the power state changes, whether you turned the projector on or off from Home Assistant or, with a receiver, from the remote. Turning on a projector that is already on does not start a new warm-up.
 
@@ -88,7 +110,7 @@ The integration does not {% term polling poll %} the projector. After sending a 
 If you configure an infrared receiver, the integration also updates the assumed state when the receiver captures a command from the projector's remote:
 
 - **On**: Sets the media player to on.
-- **Off**: Sets the media player to off after the second press, the same way the projector asks you to confirm. If the second press does not follow within about four seconds, the first press is ignored, just like the projector's confirmation prompt disappears. Pressing any other key in between also cancels it.
+- **Off**: Sets the media player to off after the second press, the same way the projector asks you to confirm. If the second press does not follow within about four seconds, the first press is ignored, just like the projector's confirmation prompt disappears. Pressing any other key in between also cancels it, on the remote or with a button in Home Assistant.
 - **Input keys**, such as **HDMI 1**: Set the source.
 - **Source**: This key cycles through the inputs, so the integration cannot know which input is selected. It clears the source.
 
@@ -133,7 +155,7 @@ automation: |
       target:
         entity_id: media_player.benq_projector
       data:
-        source: HDMI 1
+        source: hdmi_1
 {% endexample %}
 
 {% enddetails %}
@@ -145,6 +167,7 @@ automation: |
 - A warm-up or cool-down in progress is not remembered across a restart of Home Assistant.
 - Volume control is step-based only; there is no way to set an absolute volume level.
 - BenQ projectors only have a mute toggle, not separate mute on and mute off commands. Muting and unmuting both send the toggle, and the mute state is not tracked.
+- Not every projector supports every button. Pressing a button for a key your projector does not have does nothing, and Home Assistant cannot tell.
 - All BenQ projectors respond to the same IR codes. If more than one BenQ projector can see the infrared emitter, they all respond.
 - Some business projectors have a single power key that also turns the projector off when pressed twice. With a receiver, the integration treats that key as **On** only.
 
@@ -215,6 +238,23 @@ The integration can only follow the remote when an infrared receiver is set up a
 1. Make sure you selected an infrared receiver during setup.
 2. Check that the infrared receiver entity updates when you press a button on the remote. If it does not, refer to [An infrared receiver does not pick up signals](/connectivity/infrared/#an-infrared-receiver-does-not-pick-up-signals).
 3. Remember that commands captured during the warm-up or cool-down are ignored.
+
+{% enddetails %}
+
+{% details "A button does nothing" %}
+
+### Symptom: Pressing a button does not do anything on the projector
+
+The button press succeeds in Home Assistant, but the projector does not react.
+
+#### Description
+
+Not every BenQ projector has every key. Buttons for keys that your projector does not have are sent, but the projector ignores them.
+
+#### Resolution
+
+1. Check whether the projector's own remote has the key. If it does not, the projector most likely does not support it, and you can disable the button.
+2. If the remote has the key, check the steps under **The projector does not respond**.
 
 {% enddetails %}
 
