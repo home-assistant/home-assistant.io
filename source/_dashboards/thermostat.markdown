@@ -38,7 +38,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
   default: Name of entity.
 theme:

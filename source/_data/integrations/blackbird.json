@@ -6,6 +6,10 @@
   "categories": [
     "media_entertainment"
   ],
+  "connectivity": [
+    "network",
+    "serial"
+  ],
   "platforms": [
     "media_player"
   ]

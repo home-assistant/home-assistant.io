@@ -11,6 +11,9 @@
     "weather_alerts.air_quality_pollen",
     "health_wellbeing"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "diagnostics",
     "sensor"

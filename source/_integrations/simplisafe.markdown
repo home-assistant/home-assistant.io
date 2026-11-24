@@ -116,3 +116,10 @@ Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fi
 again for any notifications still active in the SimpliSafe web and mobile apps. To
 prevent this, either (a) clear them in the web/mobile app or (b) use the
 `clear_notifications` button provided by the alarm control panel.
+
+## Removing the integration
+
+The SimpliSafe integration follows the standard integration removal process - no additional steps are required.
+
+{% include integrations/remove_device_service.md %}
+

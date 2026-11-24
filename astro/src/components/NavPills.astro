@@ -1,0 +1,105 @@
+---
+// A centered row of pills that jump to the sections of a page, under the
+// site header. Used on the Month of "What the Heck?!" page; the community
+// page carries the same row.
+//
+// Replaces the `.nav-pills` and `.nav-pill` markup and rules of the
+// community page (source/community/components/_nav.html and
+// sass/homeassistant/pages/community/components/_nav.scss), which the
+// What the Heck page copied (source/what-the-heck/components/_nav.html and
+// the `#nav` rules in sass/homeassistant/pages/wth/_sections.scss).
+//
+// Chrome component, ported from the community page's markup and its Sass
+// partial (the built site could not be fetched from the build sandbox, so
+// the compiled rules were read from the Sass source, not from the live
+// stylesheet).
+//
+// Fidelity: copy the structure, clean the styling. Same pill row, but a
+// <nav> with a list instead of a <section> of bare links, one set of
+// theme sizes, and the focus ring the Jekyll pills lack outside the
+// What the Heck page. Sizes snap to tokens.scss (12px/14px type, 6px/12px
+// padding and 20px/40px section spacing become the nearest steps).
+//
+// Theming: a page that wants its own colors sets these custom properties
+// on a parent, and each falls back to the site's colors (the community
+// page's white pills that turn blue):
+//   --nav-pills-bg, --nav-pills-color, --nav-pills-hover-bg,
+//   --nav-pills-hover-color, --nav-pills-focus.
+import "../styles/tokens.scss";
+
+interface Props {
+  /** The pills, in order. `href` is usually a fragment on the same page. */
+  links: { href: string; label: string }[];
+  /** Name of the navigation for screen readers. */
+  label?: string;
+}
+
+const { links, label = "On this page" } = Astro.props;
+---
+
+<nav aria-label={label}>
+  <ul>
+    {
+      links.map((link) => (
+        <li>
+          <a href={link.href}>{link.label}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  /* The row needs air on both sides: it sits between the site header
+     above and the content below, and crowds both without it. */
+  nav {
+    padding-block: var(--space-xlarge);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-medium);
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    background-color: var(--nav-pills-bg, var(--color-surface));
+    border-radius: var(--radius-pill);
+    color: var(--nav-pills-color, var(--color-text));
+    display: block;
+    font-size: var(--font-size-small);
+    font-weight: 500;
+    padding: var(--space-small) var(--space-large);
+    text-decoration: none;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: var(--nav-pills-hover-bg, var(--color-highlight));
+      color: var(--nav-pills-hover-color, var(--color-text-inverse));
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--nav-pills-focus, var(--color-link));
+      outline-offset: 3px;
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    nav {
+      padding-block: var(--space-xxlarge);
+    }
+
+    a {
+      font-size: var(--font-size-medium);
+    }
+  }
+</style>

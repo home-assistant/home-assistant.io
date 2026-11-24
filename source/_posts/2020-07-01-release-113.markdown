@@ -4,6 +4,8 @@ title: "0.113: Automations & Scripts, and even more performance!"
 description: "Automate with sub-second precision in different running modes, use loops, repeats, choose and cool down. New MDI icons and a generally faster performance with lower CPU usage"
 date: 2020-07-22 00:00:00
 date_formatted: "July 22, 2020"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
@@ -14,6 +16,10 @@ og_image: /images/blog/2020-07-0.113/social.png
 ---
 
 <a href='/integrations/#version/0.113'><img src='/images/blog/2020-07-0.113/social.png' style='border: 0;box-shadow: none;'></a>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 Another special, themed, release inbound!
 

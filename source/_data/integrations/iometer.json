@@ -11,6 +11,9 @@
   "categories": [
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "sensor"

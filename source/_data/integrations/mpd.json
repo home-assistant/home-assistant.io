@@ -7,6 +7,9 @@
   "categories": [
     "media_entertainment.music_radio_services"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "media_player"
   ]

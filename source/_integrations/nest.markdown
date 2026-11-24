@@ -95,8 +95,8 @@ By the end of this section you will have configured the OAuth consent screen, ne
 3. Click **Branding** in the left sidebar. Fill in the required fields:
    - **App name**: Enter a name (e.g. Home Assistant). This is shown during the OAuth login flow.
    - **User support email**: Select your Google account email.
-   - **Application home page**: Enter a placeholder URL, such as `https://home-assistant.io`.
-   - **Application privacy policy link**: Enter a placeholder URL, such as `https://home-assistant.io/privacy`.
+   - **Application home page**: Enter a placeholder URL, such as `https://www.home-assistant.io`.
+   - **Application privacy policy link**: Enter a placeholder URL, such as `https://www.home-assistant.io/privacy`.
    - **Authorized domains**: Select **Add Domain** then include the domain(s) for the URLs in the previous two points, such as: `home-assistant.io`.
    - **Developer contact email**: Enter your email address under Developer contact information.
    
@@ -106,7 +106,7 @@ By the end of this section you will have configured the OAuth consent screen, ne
    - Under **User type**, confirm it shows **External**.
    - Under **Test users**, click **+ Add users** and add your Google account email (e.g. your @gmail.com address). Click **Save**.
 
-5. Still on the **Audience** page, under **Publishing status**, click **Publish app** to set the status to **In production**.
+5. Still on the **Audience** page, under **Publishing status**, click **Publish app** and select **Confirm** to set the status to **In production**.
 
    Make sure the status is not **Testing**, or you will get logged out every 7 days.
 

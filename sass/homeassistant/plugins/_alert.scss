@@ -5,13 +5,14 @@ div.alert {
   padding: 20px 24px 20px 24px;
   position: relative;
 
-  >:last-child {
+  >:last-child,
+  .alert-content > :last-child {
     margin-bottom: 0;
   }
 
   p {
     &.alert-title {
-      font-weight: bold;
+      font-weight: 600;
       line-height: 1.5em;
     }
 

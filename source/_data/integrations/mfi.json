@@ -7,6 +7,9 @@
     "plugs_switches",
     "sensors"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "sensor",
     "switch"

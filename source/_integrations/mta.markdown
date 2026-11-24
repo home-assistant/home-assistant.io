@@ -58,6 +58,10 @@ For each of the next 3 arrivals, the following sensors are created:
 
 The default {% term polling %} interval is 30 seconds.
 
+## Data updates
+
+The integration {% term polling polls %} the MTA's real-time feeds every 30 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

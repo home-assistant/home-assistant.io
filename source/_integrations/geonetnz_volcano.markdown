@@ -50,13 +50,3 @@ the standard ones:
 | distance               | The distance in km or mi to Home Assistant's location. |
 | last update            | Timestamp of the last update from the feed.  |
 | last update successful | Timestamp of the last successful update from the feed.  |
-
-## Full configuration
-
-```yaml
-# Example configuration.yaml entry
-geonetnz_volcano:
-  radius: 100
-  latitude: -41.2
-  longitude: 174.7
-```

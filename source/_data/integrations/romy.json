@@ -10,6 +10,9 @@
   "categories": [
     "appliances_cleaning.cleaning"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "sensor",

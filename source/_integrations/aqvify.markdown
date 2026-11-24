@@ -57,7 +57,7 @@ automation: |
 
 ## Data updates
 
-The integration will poll the API for data every 60 seconds. This polling interval is designed to work within the rate limits of Aqvify APIs while providing timely updates.
+The integration polls the API for device data every 5 minutes, and for the previous hour's aggregated values every 30 minutes. These polling intervals are designed to work within the rate limits of Aqvify APIs while providing timely updates.
 
 ## Troubleshooting
 

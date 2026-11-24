@@ -13,6 +13,9 @@
     "energy.meters_monitoring",
     "water.meters_leak_detection"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "diagnostics",
     "sensor"
