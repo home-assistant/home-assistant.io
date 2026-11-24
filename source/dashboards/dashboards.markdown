@@ -238,6 +238,16 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 3. In the dialog, select **Delete**.
    ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
 
+To delete several dashboards at once:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. Select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
+3. Select the dashboards you want to delete.
+4. In the bar at the top of the list, select **Delete**, then confirm.
+   - Result: The selected dashboards are permanently deleted.
+
+You can only delete dashboards you created in the UI. Built-in dashboards and dashboards configured in YAML are skipped. In that case, the dialog tells you how many of the selected dashboards can be deleted.
+
 ## Adding or removing a dashboard from the sidebar
 
 Except for the built-in **Overview**, any dashboard that is listed in {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} can be added to or removed from the vertical bar on the left side of Home Assistant UI at any time. This is different from [reordering or hiding items that are already in the sidebar](#reorganizing-items-in-the-sidebar).
