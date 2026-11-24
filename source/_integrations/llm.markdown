@@ -40,10 +40,12 @@ To avoid this:
 
 The Home Assistant {% term "AI tools" %} can read the state of every entity, the status of your {% term integrations %}, your logs, and the history of your sensors. For the full list, refer to [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools).
 
-Most of the Home Assistant AI tools only read. Two tools can change things:
+Most of the Home Assistant AI tools only read. Five tools can change things:
 
 - **Call action** can perform any {% term action %} in Home Assistant, on any entity, device, or area. This includes entities that you didn't expose. For example, it can turn off a light, run a script, or restart Home Assistant.
 - **Reload config entry** can reload an integration.
+- **Start configuration flow** and **Configure flow step** can add an integration or a helper. They can also change the options and the connection settings of an integration that is set up.
+- **Update core config** can change the information about your home. For example, it can change the name, the location, the time zone, the unit system, and the Home Assistant URLs.
 
 ## Who can use the Home Assistant AI tools
 
@@ -117,12 +119,24 @@ The **Home Assistant** set of {% term "AI tools" %} contains the following tools
   - To do this yourself: Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 - **Reload config entry** (`config__reload_config_entry`): Reloads an integration that is set up. For example, it helps after a temporary connection error. Changes things.
   - To do this yourself: On the integration page, under {% my integrations title="**Settings** > **Devices & services**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Reload** on the integration entry.
-- **Search available integrations** (`config__search_integrations`): Searches the integrations and helpers that you can set up from the UI, including ones that you haven't added yet. Only reads.
+- **Search available integrations** (`config__search_integrations`): Searches the integrations and helpers that you can set up from the UI, including ones that you haven't added yet. It can filter by category. For example, it can list only helpers. Only reads.
   - To do this yourself: Select **Add integration**, under {% my integrations title="**Settings** > **Devices & services**" %}.
+- **Get config flows in progress** (`config__get_flows_in_progress`): Lists the flows that Home Assistant started by itself and that are waiting for you. For example, it lists devices that Home Assistant discovered, and integrations that ask you to sign in again. Only reads.
+  - To do this yourself: Go to {% my integrations title="**Settings** > **Devices & services**" %}. Discovered devices and integrations that need your attention are shown at the top.
+- **Start configuration flow** (`config__start_flow`): Starts to add an integration or a helper. It can also start to change the options of an integration that is set up, or its connection settings. For example, connection settings are a host name or a password. Changes things.
+  - To do this yourself: Under {% my integrations title="**Settings** > **Devices & services**" %}, select **Add integration**. To change an integration that is set up, open the integration page. To change the options, select **Configure** on the integration entry. To change the connection settings, select **Menu** {% icon "mdi:dots-vertical" %} > **Reconfigure**.
+- **Configure flow step** (`config__configure_flow`): Goes through the steps of a flow that **Start configuration flow** started, or of a flow that **Get config flows in progress** found. It fills in the fields of each step and selects options in menus. It can also cancel the flow. Changes things.
+  - To do this yourself: Fill in the dialog that opens when you add or change an integration.
 - **Search Home Assistant** (`search__search`): Finds entities, devices, areas, labels, automations, scripts, and scenes by name. Only reads.
   - To do this yourself: Use the [quick search](/docs/tools/quick-search/).
 - **Get system info** (`system_health__get_system_info`): Returns the installation type, the CPU architecture, the time zone, and the versions of Home Assistant Core, the frontend, Python, the operating system, and the Supervisor. For example, you can use it to fill in a bug report. Only reads.
   - To do this yourself: Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **System information**.
+- **Get core config** (`config__get_core_config`): Returns the information about your home. This includes the name, the location and elevation, the radius of the home zone, the time zone, the country, the currency, the language, and the unit system. It also returns the Home Assistant URLs. Only reads.
+  - To do this yourself: Go to {% my general title="**Settings** > **System** > **Home information**" %}. For the URLs, go to {% my network title="**Settings** > **System** > **Network**" %}.
+- **Update core config** (`config__update_core_config`): Changes the information about your home and the Home Assistant URLs. It only changes the settings it's asked to change. If it changes the unit system, the units of your sensors change too. Units that you set yourself stay the same. Changes things.
+  - To do this yourself: Go to {% my general title="**Settings** > **System** > **Home information**" %}. For the URLs, go to {% my network title="**Settings** > **System** > **Network**" %}.
+- **Get repair issues** (`repairs__get_issues`): Lists the issues that Home Assistant found, with their severity. For example, an issue can be a broken automation or a device with a problem. It also includes issues that you ignored. Only reads.
+  - To do this yourself: Go to {% my repairs title="**Settings** > **System** > **Repairs**" %}.
 - **Get history** (`history__get_history`): Returns statistics of entities, not their individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It only works for entities with statistics, such as sensors with a state class. Only reads.
   - To do this yourself: Use the {% my history title="**History**" %} panel.
 - **Get system log entries** (`system_log__get_entries`): Returns recent errors and warnings from the system log. It doesn't include info or debug messages. It can filter by level and by integration. Only reads.
@@ -131,6 +145,8 @@ The **Home Assistant** set of {% term "AI tools" %} contains the following tools
   - On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} installations, the ID is `hassio__get_logs`. It also reads the logs of the Supervisor, the operating system, the DNS, audio, and multicast plugins, and your apps.
   - On {% term "Home Assistant Container" %} installations, and on other installations without the Supervisor, the ID is `system_log__get_logs`. It only reads the Home Assistant log, and it needs the log file.
   - To do this yourself: Under {% my logs title="**Settings** > **System** > **Logs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Show raw logs**.
+- **Get installed apps** (`hassio__get_apps`): Lists your installed apps, with their version, whether an update is available, and whether they are running. It's only available on {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} installations. Only reads.
+  - To do this yourself: Go to {% my supervisor title="**Settings** > **Apps**" %}.
 - **Get date and time** (`llm__GetDateTime`): Returns the current date and time. Both built-in sets of AI tools, **Device control** and **Home Assistant**, have this tool. Only reads.
 
 ## Known limitations
