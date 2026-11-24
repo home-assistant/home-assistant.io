@@ -128,6 +128,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Motion Detector II that supports it: a **Sensitivity for alarm system** select and a **Sensitivity for other cases** select, each letting you choose between **High**, **Medium**, or **Low**. In YAML, the medium option is `middle`.
 - Micromodule Dimmer that supports it: a **Dimmer phase control** select, letting you choose between **Trailing edge phase cut** and **Leading edge phase cut**. In YAML, the options are `trailing` and `leading`.
 - Motion Detector II: an **Orientation light response time** select, letting you choose between **Long** and **Short**. In YAML, the options are `long` and `short`.
+- A Motion Detector II, Micromodule Relay, Smart Plug, or Smart Plug Compact that advertises installation profiles gets a **Purpose of use** configuration select (for example **Standard** or **Outdoors**). Changing it reloads the integration, because a different profile can add or remove entities of the device.
 
 ### Sensors
 
