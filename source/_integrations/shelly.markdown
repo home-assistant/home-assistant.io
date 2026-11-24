@@ -450,7 +450,7 @@ You can browse the recordings and snapshots saved on the camera's storage in the
 2. Select **Shelly**, and then select your camera.
 3. Select a video or an image to play or view it. To view it in your browser, select **Web browser** as the player. For more details, refer to [Browsing your media](/integrations/media_source/#browsing-your-media).
 
-Each camera appears as a folder named after the device. A camera is only listed while its storage is active.
+Each camera appears as a folder named after the device. A camera is only listed while the device reports its storage (for example, a microSD card) as mounted and ready.
 
 The folder lists videos (recordings) and images (snapshots), with the newest first. It shows up to the 500 most recent items, with a thumbnail when the device provides one.
 
