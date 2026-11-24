@@ -139,7 +139,7 @@ The {% term "AI tools" %} in **Device control** depend on what you expose to voi
 
 #### General AI tools
 
-**Device control** has the following AI tools, no matter which entities you expose. {% term "AI apps" %} and [AI tasks](/integrations/ai_task/) get all of them except **Schedule command**.
+**Device control** has the following AI tools, no matter which entities you expose. {% term "AI apps" %} get all of them except **Schedule command**.
 
 - **Get live context** (`homeassistant__GetLiveContext`): Returns the current state of the entities that you expose. For example, it can check if a light is on, or what the temperature in the living room is.
 - **Get date and time** (`llm__GetDateTime`): Returns the current date and time.
@@ -150,7 +150,7 @@ The {% term "AI tools" %} in **Device control** depend on what you expose to voi
   - For which voice satellites get the message, refer to [Broadcasting](/voice_control/builtin_sentences/#broadcasting).
 - **Schedule command** (`intent__schedule_command`): Runs a command after a delay. For example, you can say *turn off the lights in the living room in 5 minutes*. It also works where voice timers aren't supported. For example, it works in the {% term Assist %} dialog in Home Assistant.
   - When the delay ends, the {% term "conversation agent" %} runs the command in a new conversation. It doesn't remember the earlier conversation.
-  - Only conversation agents can use this tool. {% term "AI apps" %} and [AI tasks](/integrations/ai_task/) can't.
+  - Only conversation agents can use this tool. {% term "AI apps" %} can't.
 
 #### Voice timer AI tools
 
