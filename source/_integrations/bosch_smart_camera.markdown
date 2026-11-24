@@ -11,6 +11,7 @@ ha_codeowners:
   - "@mosandlt"
 ha_platforms:
   - camera
+  - light
   - switch
   - update
 ha_integration_type: hub
@@ -49,6 +50,10 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 ### Firmware
 
 The **Firmware** entity shows the installed firmware version of a camera and whether a newer version is available. Bosch installs firmware updates on its own, so you cannot start an update from Home Assistant. While an update is installed, the entity shows its progress.
+
+### Camera light
+
+The **Camera light** entity switches the light of an Eyes Outdoor camera on and off. The light cannot be dimmed. The entity is only added for the Eyes Outdoor camera.
 
 ## Data updates
 
