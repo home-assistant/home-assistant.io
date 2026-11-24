@@ -214,7 +214,7 @@ Your own scripts can also become AI tools:
 ### Access to AI tools
 
 - Only administrators can use the Home Assistant {% term "AI tools" %}. Requests without an administrator account fail. For example, requests from a {% term "voice satellite" %} fail, and so do requests from users who aren't administrators. This also stops **Device control** on that {% term "conversation agent" %}, because the agent can't prepare any of its sets of AI tools.
-- The **Home Assistant Cloud** conversation agent of [Home Assistant Cloud](/integrations/cloud/) can't use the Home Assistant AI tools. It always uses **Device control**.
+- The **Home Assistant Link** conversation agent of [Home Assistant Link](/integrations/link/) can't use the Home Assistant AI tools. It always uses **Device control**.
 
 ### Entity history
 
