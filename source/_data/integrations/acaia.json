@@ -11,6 +11,9 @@
   "categories": [
     "appliances_cleaning.cooking"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

@@ -21,6 +21,10 @@ Device tracker entities are [disabled by default](/docs/configuration/customizin
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
 
+## Data updates
+
+The integration {% term polling polls %} the Sky Hub router every 30 seconds.
+
 ## Troubleshooting
 
 {% details "Some device trackers are missing or no longer updating" %}

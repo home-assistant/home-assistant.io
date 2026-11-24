@@ -47,7 +47,7 @@ The **Zinvolt** integration provides the following entities.
 
 ## Data updates
 
-The integration {% term polling polls %} the Zinvolt servers every 5 minutes to update sensor data.
+The integration {% term polling polls %} the Zinvolt servers every 30 seconds to update sensor data.
 
 ## Removing the integration
 

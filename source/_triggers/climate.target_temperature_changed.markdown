@@ -123,7 +123,7 @@ threshold:
 
 - Use a climate entity that exposes a target temperature attribute.
 - This trigger monitors the target temperature setpoint (what you want the thermostat to maintain), not the current room temperature (the actual measured temperature). To react to changes in measured room temperature, use [Temperature changed](/triggers/temperature.changed/) instead.
-- The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
+- The threshold type checks only the new value, not the direction of the change. With **Above**, the trigger reacts to every change where the new value is above the threshold, whether the value went up or down. For example, with **Above** 22°C, a change from 25°C to 23°C makes the trigger react. **Below**, **In range**, and **Outside range** work the same way.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when the target temperature first crosses a specific level, use [Thermostat target temperature crossed threshold](/triggers/climate.target_temperature_crossed_threshold/) instead.
 - All temperature values are automatically converted to the unit you specify. For example, if your thermostat reports in Fahrenheit but you configure the trigger in Celsius, the conversion happens automatically.

@@ -10,6 +10,9 @@
   "categories": [
     "presence_location.trackers"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "device_tracker",
     "sensor"

@@ -144,7 +144,7 @@ The list shows the following columns:
 
 ### Viewing the action history
 
-1. Go to **Settings** > **Tools** > **Action history**.
+1. Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %}.
    - Result: The list shows the actions performed from the start of the previous hour until now.
 2. Optional: To show a different period, at the top of the list, select the date range. Select a preset, or select a start and end date and time.
 3. Optional: To find an action, enter text in the search box. The search matches the action name, the action ID, the targets, and the cause.
@@ -152,7 +152,7 @@ The list shows the following columns:
 
 ### Viewing the details of an action
 
-1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+1. Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %} and select an action from the list.
    - Result: A dialog shows the details of the action:
      - **Time**: The date and time the action was performed, to the second.
      - **Cause**: What or who performed the action and, if available, what triggered it.
@@ -165,7 +165,7 @@ The list shows the following columns:
 
 You can copy the YAML of an action and use it in an automation or a script.
 
-1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+1. Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %} and select an action from the list.
 2. In the action dialog, select **Copy as YAML** {% icon "mdi:content-copy" %} button to copy the YAML.
    - Result: The action is copied with its targets and data, in the same format as an action in an automation.
 
@@ -173,7 +173,7 @@ You can copy the YAML of an action and use it in an automation or a script.
 
 To perform an action again with the same data:
 
-1. Go to **Settings** > **Tools** > **Action history** and select an action from the list.
+1. Go to {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %} and select an action from the list.
 2. In the action dialog, select **Perform again**. This button is only shown if the action is still available.
    - Result: The action runs again, and controls the same devices as the first time.
 
@@ -293,7 +293,7 @@ Use the **Statistics** tab to:
 - Find the statistics that an {% term integration %} created, for example, to use them in the Energy dashboard.
 - Fix an issue that stops Home Assistant from keeping statistics for an entity.
 - Correct a wrong value, for example, a spike in your energy use.
-- Delete statistics that you no longer need.
+- [Delete statistics](#deleting-statistics) that you no longer need, or [remove bad readings from a time range](#deleting-statistics-in-a-time-range).
 
 ### Fixing a statistics issue
 
@@ -366,11 +366,31 @@ To avoid this:
 4. Select **Delete selected statistics**, and then select **Delete**.
    - Result: The statistics are deleted from the database.
 
+### Deleting statistics in a time range
+
+Statistics of values such as temperature can't be adjusted, but you can delete statistics for a time range. Home Assistant deletes entire five-minute and hourly statistics periods that overlap the selected range, including periods that only partly overlap. Periods that do not overlap the range are kept.
+
+{% important %}
+**Risk of data loss**
+
+Deleted statistics can't be restored, except from a backup. Before you delete statistics, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup) and make sure that you select the right statistics to delete.
+{% endimportant %}
+
+To delete statistics in a time range:
+
+1. Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+2. In the row of the statistic, select **Delete statistics in a time range** {% icon "mdi:delete-clock" %}.
+   - Result: The **Delete statistics in a time range** dialog opens.
+3. Select the start and end time.
+   - The dialog shows a graph of the statistics in that range, so you can check them before you delete anything.
+4. Select **Delete**.
+   - Result: The statistics in the time range are deleted.
+
 ## Assist tab
 
 The **Assist** tab lets you test how Assist understands a sentence, without running anything. Home Assistant checks the sentence against the [built-in sentences](/voice_control/builtin_sentences/), your [custom sentences](/integrations/conversation/#adding-custom-sentences), and the [sentence triggers](/triggers/conversation/) of your {% term automations %}, and shows what matches. No {% term action %} runs, and no automation starts. Use it to find out why Assist doesn't understand a sentence, or to check a new sentence before you use it.
 
-The **Assist** tab only tests the built-in Home Assistant conversation agent. If your assistant uses another conversation agent, such as an AI agent, [test the sentence in the debug view](/voice_control/troubleshooting/#test-a-sentence-per-assistant-without-voice-while-executing-the-commands) instead.
+The **Assist** tab only tests the built-in Home Assistant conversation agent. If your assistant uses another conversation agent, such as an AI agent, [test the sentence in the debug view](/voice_control/troubleshooting/#testing-a-sentence-with-an-assistant) instead.
 
 ### Testing a sentence
 

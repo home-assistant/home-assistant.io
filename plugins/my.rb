@@ -16,7 +16,7 @@ module Jekyll
             #{args}
 
             Valid syntax:
-              {% my <redirect> [title="Link name"] [badge] [icon[="icon-puzzle-piece"]] [addon="core_ssh"] [blueprint_url="http://example.com/blueprint.yaml"] [domain="hue"] [brand="philips"] [service="light.turn_on"] %}
+              {% my <redirect> [title="Link name"] [badge] [icon[="icon-puzzle-piece"]] [addon="core_ssh"] [blueprint_url="http://example.com/blueprint.yaml"] [domain="hue"] [brand="philips"] [service="light.turn_on"] [provider="supervisor"] [search="error"] [integration="hue"] [raw] %}
           MSG
         end
       end
@@ -36,6 +36,10 @@ module Jekyll
         query += [["brand", options[:brand]]] if options.include? :brand
         query += [["repository_url", options[:repository_url]]] if options.include? :repository_url
         query += [["service", options[:service]]] if options.include? :service
+        query += [["provider", options[:provider]]] if options.include? :provider
+        query += [["search", options[:search]]] if options.include? :search
+        query += [["integration", options[:integration]]] if options.include? :integration
+        query += [["raw", "1"]] if options[:raw]
         unless query.empty?
             uri.query = URI.encode_www_form(query)
         end
@@ -116,7 +120,7 @@ module Jekyll
         return options if input.empty?
         # Split along 3 possible forms: key="value", key=value, or just key
         input.scan(OPTIONS_REGEX) do |opt|
-          key, value = opt.split("=")
+          key, value = opt.split("=", 2)
           if !value.nil?
             if value&.include?('"')
               value.delete!('"')

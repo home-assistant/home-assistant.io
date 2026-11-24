@@ -12,8 +12,12 @@
   "categories": [
     "security_safety.locks_access"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
+    "diagnostics",
     "lock",
     "sensor"
   ],
