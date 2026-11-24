@@ -7,7 +7,7 @@ related:
     title: Configuration file
 ---
 
-The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches, sensors, air quality monitors and air purifiers.
+The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches, sensors, air quality monitors, and air purifiers.
 
 The manufacturer's app is required to connect new devices to the network.
 
