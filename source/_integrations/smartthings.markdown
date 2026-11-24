@@ -367,20 +367,60 @@ The SmartThings Water heater platform lets you control heat pumps that provide h
 
 ## Troubleshooting
 
-### SmartThings API plan required or quota exceeded
+{% details "SmartThings API Plan required" %}
 
-SmartThings rejects requests when your account has no active API plan, or when the plan's API usage quota is used up.
+### Symptom: "SmartThings API Plan required"
 
-- **API plan required**: Subscribe to a plan in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans). Then reauthenticate the integration. If the error appears during setup, also check that your Personal Access Token has the **Applications** scopes selected.
-- **Quota exceeded**: Home Assistant retries setting up the integration later. Check your remaining quota, or change your plan, in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans).
+Setup stops with this error. If the integration was already set up, it is listed under **Attention required**, and commands fail with "SmartThings subscription required. Reconnect your SmartThings account to restore access."
 
-### Setup fails after the API Access App credentials were regenerated
+#### Description
 
-The configuration flow tries to use an existing Home Assistant API Access App on your SmartThings account, if there is one. If the client ID and secret of that API Access App were regenerated in SmartThings, the application credentials stored in Home Assistant are no longer valid. Remove the stored application credentials before you try setting up the integration again:
+SmartThings rejects requests when your Samsung account has no active API plan. For individual users, this is the Developer Plan.
+
+#### Resolution
+
+1. Subscribe to a plan in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans).
+2. If the error appears during setup, check that your Personal Access Token has the **Applications** scopes selected.
+3. If the integration is listed under **Attention required**, select **Reconfigure** and reauthenticate it.
+
+{% enddetails %}
+
+{% details "SmartThings API quota exceeded" %}
+
+### Symptom: "SmartThings API quota exceeded"
+
+Setup stops with this error, commands fail with it, or the integration doesn't finish loading and Home Assistant keeps retrying the setup.
+
+#### Description
+
+Your SmartThings API plan has a limit on the number of API calls. According to SmartThings, the Developer Plan allows 100,000 calls per month for each account. When you reach the limit, SmartThings rejects requests until more quota is available.
+
+#### Resolution
+
+1. Check your usage on the Service Integrations dashboard in the [SmartThings Developer Center](https://developer.smartthings.com/console/dashboard).
+2. If you reached the limit, wait until quota is available again, or change your plan in the [SmartThings Developer Center](https://developer.smartthings.com/console/service-integrations/manage-plans).
+3. Home Assistant retries the setup by itself. If the integration still doesn't load after the quota is available again, reload it.
+
+{% enddetails %}
+
+{% details "Setup fails after the API Access App credentials were regenerated" %}
+
+### Symptom: Setup fails after the API Access App credentials were regenerated
+
+Setting up or reauthenticating the integration fails when you sign in to SmartThings, after the client ID and secret of the Home Assistant API Access App were regenerated in SmartThings.
+
+#### Description
+
+The configuration flow tries to use an existing Home Assistant API Access App on your SmartThings account, if there is one. If the client ID and secret of that API Access App were regenerated in SmartThings, the application credentials stored in Home Assistant are no longer valid.
+
+#### Resolution
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Application credentials**.
 3. Delete the SmartThings credential. Credentials that Home Assistant created are named **Created** followed by the date and time they were created.
+4. Set up the integration again.
+
+{% enddetails %}
 
 ### Enabling debug logs
 
