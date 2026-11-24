@@ -128,6 +128,7 @@ automation: |
       value_template: >
         {{ radar['weather.brussels'].forecast
            | map(attribute='precipitation')
+           | reject('none')
            | select('gt', 0)
            | list
            | count == 0 }}

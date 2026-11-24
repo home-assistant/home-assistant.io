@@ -68,7 +68,7 @@ include_past_forecasts:
 The response is keyed by the entity ID of each targeted weather entity. For every entity, the response contains a `forecast` list with one entry per radar frame, oldest first. Each entry has these fields:
 
 - `datetime`: when the radar frame starts.
-- `precipitation`: the expected rain rate, in mm/h.
+- `precipitation`: the expected rain rate, in mm/h. It is `null` when the provider reports no rate for the frame.
 - `rain_forecast_min` and `rain_forecast_max`: the lower and upper bound of the expected rain rate, in mm/h.
 - `might_rain`: whether rain is possible during the frame.
 - `unit`: the unit of the rain rates, `mm/h`.
@@ -94,7 +94,7 @@ weather.brussels:
 
 ## Good to know
 
-- Without past forecasts, the first entry is the frame that covers the current time. Its `datetime` is usually a few minutes in the past.
+- Without past forecasts, the first entry is the radar frame that covers the current time. Its `datetime` is the start of that frame, so it can be several minutes in the past.
 - Frames are 10 minutes apart in Belgium and Luxembourg, and 5 minutes apart in the Netherlands. Don't count on a fixed number of frames.
 - The action uses the radar data from the last update of the integration. It does not send a new request to the provider.
 - If the provider has no radar data for the location, the action fails with the error "The rain radar reported no forecast for this location". Try again after the next update.
@@ -103,7 +103,7 @@ weather.brussels:
 
 {% include actions/more_examples.md %}
 
-### Automation: skip the sprinklers when rain is on the way
+### Automation: Skip the sprinklers when rain is on the way
 
 Before the evening watering run, check the radar and only turn on the sprinklers when no rain shows up in any of the frames.
 
@@ -132,6 +132,7 @@ automation: |
       value_template: >
         {{ radar['weather.brussels'].forecast
            | map(attribute='precipitation')
+           | reject('none')
            | select('gt', 0)
            | list
            | count == 0 }}
@@ -142,7 +143,7 @@ automation: |
 
 {% enddetails %}
 
-### Automation: get a heads-up before rain starts
+### Automation: Get a heads-up before rain starts
 
 Check the radar every 10 minutes, and send a notification when it is dry now but rain shows up in a later frame. You may get the same heads-up more than once while the rain comes closer.
 
@@ -174,7 +175,8 @@ automation: |
              | list }}
     - condition: template
       value_template: >
-        {{ rates[0] == 0 and rates | select('gt', 0) | list | count > 0 }}
+        {{ rates[0] == 0
+           and rates | reject('none') | select('gt', 0) | list | count > 0 }}
     - action: notify.send_message
       target:
         entity_id: notify.my_device
