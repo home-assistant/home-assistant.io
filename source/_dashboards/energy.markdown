@@ -29,7 +29,7 @@ To show or hide cards on the built-in Energy dashboard, see [customizing the Ene
 
 This card allows you to pick what data to show. Changing it in this card will influence the data in all other cards.
 Specific dates and ranges can be selected by opening the date range picker. The current period can be compared to the previous one using the compare data option within the menu.
-With `show_combine_sources`, the menu also has a **Combine sources** option for the energy cards linked to this date picker. The Energy dashboard turns it on for its **Electricity**, **Gas**, and **Water** tabs when they have two or more sources of the same type. For more information, see [combining sources of the same type](/docs/energy/#combining-sources-of-the-same-type).
+With `show_combine_sources`, the menu also has a **Combine sources** option for the energy cards linked to this date picker. The Energy dashboard turns it on for its **Electricity**, **Gas**, **Water**, and **Heat** tabs when they have two or more sources of the same type. For more information, see [combining sources of the same type](/docs/energy/#combining-sources-of-the-same-type).
 
 ### YAML configuration
 

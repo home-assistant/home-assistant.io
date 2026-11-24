@@ -8,7 +8,7 @@ Home Assistant turns your home into a clear, easy-to-read picture of how energy 
 
 {% my energy badge %} {% my config_energy badge %}
 
-The Energy dashboard works with electricity, gas, water, and heat. For each one, your usage is grouped into three simple types: what you consume, what you produce, and what you store. You can start with a single source, even just your electricity meter, and add more as you go. Every source you add makes the picture more complete.
+The Energy dashboard works with electricity, gas, water, and heat. Your usage is grouped into three simple types: what you consume, what you produce, and what you store. Gas, water, and heat only have consumption. You can start with a single source, even just your electricity meter, and add more as you go. Every source you add makes the picture more complete.
 
 Home Assistant is open and works with hardware from many different brands, so you are not locked into one ecosystem. Any energy monitor, smart plug, solar inverter, or utility meter that integrates with Home Assistant can feed data into the Energy dashboard.
 
