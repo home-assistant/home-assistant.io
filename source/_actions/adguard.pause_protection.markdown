@@ -64,15 +64,16 @@ duration:
 
 ## Good to know
 
+- Only administrators can run this action.
 - If you have more than one AdGuard Home instance set up in Home Assistant, this action pauses protection on all of them.
-- While protection is paused, the **Protection** switch shows as off. It turns back on when AdGuard Home resumes protection.
+- While protection is paused, the **Protection** switch shows as off. When AdGuard Home resumes protection, the switch turns back on within about 10 seconds.
 - To resume protection before the duration ends, turn on the **Protection** switch.
 
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
 
-### Automation: pause protection from a dashboard button
+### Automation: Pause protection from a dashboard button
 
 Give everyone in your home a quick way to pause blocking for 10 minutes when a website doesn't load correctly. This example uses a button {% term helper %}, which you need to create separately and can add to your dashboard.
 
@@ -98,7 +99,7 @@ automation: |
 
 {% enddetails %}
 
-### Automation: pause protection and send a notification
+### Automation: Pause protection and send a notification
 
 When protection is paused, send a notification to your phone so you know blocking is off and when it comes back on. This example uses the same user-created button helper.
 
