@@ -16,9 +16,18 @@ get the Zeversolar IP address.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Zeversolar inverter."
+{% endconfiguration_basic %}
+
 ## Sensor types
 
 When configured, the {% term integration %} will create two sensors for each configured inverter:
 
 - Energy today, in `kWh` (Kilowatt-hour)
 - Current power, in `W` (Watts)
+
+## Data updates
+
+The integration {% term polling polls %} the inverter every minute.

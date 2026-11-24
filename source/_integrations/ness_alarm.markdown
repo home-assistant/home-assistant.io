@@ -55,4 +55,11 @@ After setting up the integration, you can add zones through the UI:
 
 You can reconfigure a zone's device class at any time by selecting the zone's configure button.
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Show arm home mode:
+  description: "Show the **Arm home** option on the alarm panel. It is on by default."
+{% endconfiguration_basic %}
+
 {% include integrations/actions.md %}

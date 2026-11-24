@@ -15,6 +15,7 @@
     "cloud"
   ],
   "platforms": [
+    "conversation",
     "diagnostics",
     "notify"
   ]

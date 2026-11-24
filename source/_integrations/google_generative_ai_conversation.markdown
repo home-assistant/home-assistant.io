@@ -4,7 +4,7 @@ ha_release: 2023.6
 ha_domain: google_generative_ai_conversation
 related:
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing entities to Assist
+    title: Exposing entities to voice assistants
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Create an AI personality
   - url: https://aistudio.google.com/app/apikey
@@ -17,7 +17,7 @@ The **Google Gemini** {% term integration %} adds a conversation agent, speech-t
 
 Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/triggers/conversation/).
+When you talk to a Google Gemini conversation agent through an {% term assistant %}, Home Assistant first checks your [sentence triggers](/triggers/conversation/). If one of them matches, the sentence trigger answers, and the conversation agent doesn't get the sentence. Sentence triggers don't run when you call the conversation agent directly, for example with the `conversation.process` action. They also don't run when you answer a follow-up question from the conversation agent.
 
 This integration requires an API key to use, [which you can generate here](https://aistudio.google.com/app/apikey), and to be in one of the [available regions](https://ai.google.dev/gemini-api/docs/available-regions).
 
@@ -77,16 +77,16 @@ But you can do the following workaround that exposes a script to voice assistant
 
 {% details "Workaround for Google Search tool" %}
 
-1. Add a second Google Gemini conversation agent.
-2. Select **Configure**
-3. In **AI tools**, uncheck **Device control** and any other options.
-4. Uncheck **Recommended model settings**
-5. Select **Submit**
-6. Check **Enable Google Search tool**
-7. Increase **Maximum tokens to return in response**
-8. Select **Submit**
-9. Create a script (**Settings** > **Automations & scenes** > **Scripts** > **Create script**)
-10. Select 3 dots > **Edit in YAML** and enter the following (edit the `conversation.google_generative_ai_2` to match the entity created from the 1st step):
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select **Google Gemini**.
+2. Select **Add conversation agent**.
+3. Under **AI tools**, clear **Device control** and any other selected sets of AI tools.
+4. Clear **Recommended model settings**.
+   - Result: More options appear.
+5. Select **Enable Google Search tool**.
+6. Increase **Maximum tokens to return in response**.
+7. Select **Submit**.
+8. Go to {% my scripts title="**Settings** > **Automations & scenes** > **Scripts**" %}, and select **Create script** > **Create new script**.
+9. Select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML**, and enter the following. Change `conversation.google_generative_ai_2` to the entity ID of the conversation agent you added in step 2:
 
     ```yaml
     sequence:
@@ -116,9 +116,9 @@ But you can do the following workaround that exposes a script to voice assistant
         required: true
     ```
 
-11. Select **Save script**
-12. Select 3 dots > **Settings** > **Voice assistants**
-13. Check **Expose** **Assist**
+10. Select **Save**.
+11. Select **Menu** {% icon "mdi:dots-vertical" %} > **Settings** > **Voice assistants**.
+12. Under **Expose**, turn on **Assist**.
 
 {% enddetails %}
 

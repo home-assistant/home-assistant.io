@@ -17,9 +17,10 @@ The **Choose** building block has several options, each with its own conditions 
 3. Select **Blocks**, then select **Choose**.
 4. Under **Option 1**, add the conditions under **Conditions**, and the actions under **Actions**.
 5. Optional: To give the option a name, select **Menu** {% icon "mdi:dots-vertical" %} > **Rename**.
-6. Optional: To add another option, select **Add option**.
-7. Optional: To add actions that run if no option matches, select **Add default actions**.
-8. Select **Save**.
+6. Optional: To edit an option in YAML, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML** on the option.
+7. Optional: To add another option, select **Add option**.
+8. Optional: To add actions that run if no option matches, select **Add default actions**.
+9. Select **Save**.
 
 ### Options in the UI
 

@@ -8,6 +8,11 @@ The **Vallox** {% term integration %} lets you control any Vallox ventilation un
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Vallox unit."
+{% endconfiguration_basic %}
+
 ## Platforms
 
 ### Fan
@@ -49,3 +54,13 @@ The presets of the **Vallox** fan {% term entity %} are the ventilation modes of
 The unit doesn't report which modes it supports, so the fan always lists all six presets.
 
 {% include integrations/actions.md %}
+
+## Data updates
+
+The integration {% term polling polls %} the Vallox unit every 60 seconds.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
