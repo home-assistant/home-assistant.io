@@ -4,7 +4,7 @@ ha_release: 2027.1
 ha_domain: wafe
 ---
 
-The **WAFE** {% term integration %} connects Home Assistant to a [WAFE](https://www.wafe.eu/) heat recovery ventilation unit with the ACE2 controller, such as the WAFE 201 E. It talks to the unit over Modbus TCP on your local network. No cloud account is needed.
+The **WAFE** {% term integration %} connects Home Assistant to a [WAFE](https://www.wafe.eu/) (in bankruptcy) heat recovery ventilation unit with the ACE2 controller, such as the WAFE 201 E. It talks to the unit over Modbus TCP on your local network. No cloud account is needed.
 
 A heat recovery unit replaces the stale air in your home with fresh outdoor air, and transfers the heat of the outgoing air to the incoming air. The integration shows what the unit measures: the four air temperatures, the CO2 level, the fan speeds, the airflow it aims for and what it is doing.
 
@@ -54,13 +54,13 @@ The integration reads the unit during setup to check that it answers. It names t
 
 The temperatures are measured inside the unit, so they can differ from the temperature in your rooms or outside.
 
-## Examples
+## WAFE automation examples
 
 {% include docs/paste_yaml_tip.md %}
 
 The entity IDs below assume the unit is named **WAFE W201**. Replace them with your own.
 
-### Notify when the ventilation stops
+### Automation: Notify when the ventilation stops
 
 This automation sends a notification when both fans have been standing still for 30 minutes, whatever the reason, for example standby, holiday mode or a scheduler without a plan.
 
@@ -100,20 +100,56 @@ A change made in the MyWAFE app shows up in Home Assistant within 5 seconds of t
 
 ## Troubleshooting
 
-### Cannot connect to the unit
+{% details "Can't connect to the unit" %}
+
+### Symptom: "No WAFE unit answered at this address"
+
+When you set up the integration, the form shows the message "No WAFE unit answered at this address". After setup, the same problem makes all entities of the unit unavailable.
+
+#### Description
+
+Home Assistant cannot reach the unit at the configured address, or another Modbus client is already connected to it. The unit serves only one Modbus client at a time.
+
+#### Resolution
 
 1. Check that the unit is powered on and that its Ethernet cable is plugged in.
 2. Check the IP address in your router. If it changed, remove the integration and add it again with the new address.
 3. Make sure no other Modbus client is connected to the unit, such as a `modbus:` entry for the same address in your YAML configuration. Remove it and restart Home Assistant.
 4. If it still fails, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the problem, and [open an issue on GitHub](https://github.com/home-assistant/core/issues/new?template=bug_report.yml&integration_name=WAFE&integration_link=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Fwafe) with the log.
 
-### "A different WAFE unit answers at the configured address"
+{% enddetails %}
 
-The unit at the configured address reports another ID than the unit you set up, for example because your router gave its IP address to another WAFE unit. Give the unit a fixed IP address in your router, then remove the integration and add it again.
+{% details "Another WAFE unit answers at the address" %}
 
-### "The unit did not report its ID"
+### Symptom: "A different WAFE unit answers at the configured address"
 
-Setup stops when the unit reports no ID, because Home Assistant uses it to tell units apart. Check that the unit has the ACE2 controller. If it does, open an issue with the unit's model and firmware version.
+The integration fails to set up and shows the message "A different WAFE unit answers at the configured address".
+
+#### Description
+
+The unit at the configured address reports another ID than the unit you set up, for example because your router gave its IP address to another WAFE unit.
+
+#### Resolution
+
+Give the unit a fixed IP address in your router, then remove the integration and add it again.
+
+{% enddetails %}
+
+{% details "The unit has no ID" %}
+
+### Symptom: "The unit did not report its ID"
+
+Setup stops with the message "The unit did not report its ID".
+
+#### Description
+
+Home Assistant uses the unit's ID to tell units apart, so it cannot set up a unit that reports none.
+
+#### Resolution
+
+Check that the unit has the ACE2 controller. If it does, open an issue with the unit's model and firmware version.
+
+{% enddetails %}
 
 ## Removing the integration
 
