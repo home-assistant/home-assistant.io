@@ -129,6 +129,99 @@ The **Seafile** integration {% term polling polls %} your Seafile server every 5
 
 The list of backups is cached for 5 minutes. Backups that you add or delete in Seafile directly can take up to 5 minutes to show up in Home Assistant.
 
+## Seafile automation examples
+
+The following examples use a library named **Documents** and a library named **Laptop backup**. Replace the entities with those of your own libraries. Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+
+### Automation: Notify when a library grows too large
+
+This automation sends a notification when the **Documents** library grows past 50 GiB. The threshold uses the unit the **Size** sensor is shown in, which is GiB by default.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Documents Size
+  - **Above**: `50`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: {% raw %}`The Documents library in Seafile is now {{ states('sensor.documents_size') }} GiB.`{% endraw %}
+
+{% details "YAML example for a notification when a library grows too large" %}
+
+{% example %}
+automation: |
+  alias: "Seafile library grows too large"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.documents_size
+      above: 50
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The Documents library in Seafile is now {{ states('sensor.documents_size') }} GiB."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Empty the trash of a library every week
+
+This automation empties the trash of the **Documents** library every Sunday at 03:00. Files in the trash are deleted permanently, so only use this for libraries where you don't need to restore deleted files. Only the owner or an admin of the library can empty its trash.
+
+- **Trigger**: Time
+  - **At time**: `03:00:00`
+  - **Weekdays**: Sunday
+- **Action**: Press button
+  - **Target**: Documents Empty trash
+
+{% details "YAML example for emptying the trash every week" %}
+
+{% example %}
+automation: |
+  alias: "Empty Seafile trash weekly"
+  triggers:
+    - trigger: time
+      at: "03:00:00"
+      weekday: sun
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.documents_empty_trash
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify when a backup library stops changing
+
+This automation sends a notification when the **Laptop backup** library has not changed for 7 days, which can mean that your backups stopped running.
+
+- **Trigger**: Template, the **Last modified** sensor of the library is more than 7 days ago
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: `The Laptop backup library in Seafile has not changed for 7 days.`
+
+{% details "YAML example for a notification when a backup library stops changing" %}
+
+{% example %}
+automation: |
+  alias: "Seafile backup library not updated"
+  triggers:
+    - trigger: template
+      value_template: >
+        {% set modified = states('sensor.laptop_backup_last_modified') | as_datetime(None) %}
+        {{ modified is not none and now() - modified > timedelta(days=7) }}
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The Laptop backup library in Seafile has not changed for 7 days."
+{% endexample %}
+
+{% enddetails %}
+
 ## Supported versions
 
 The integration has been tested with Seafile 13 and 14 (Community Edition).
