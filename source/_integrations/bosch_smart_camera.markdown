@@ -11,6 +11,7 @@ ha_codeowners:
   - "@mosandlt"
 ha_platforms:
   - camera
+  - light
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -48,6 +49,10 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 ### Speaker level
 
 The **Speaker level** number sets the speaker volume of a camera, from 0 to 100 percent. It is only added for cameras that have a speaker and is shown with the configuration entities of the device.
+
+### Camera light
+
+The **Camera light** entity switches the light of an Eyes Outdoor camera on and off. The light cannot be dimmed. The entity is only added for the Eyes Outdoor camera.
 
 ## Data updates
 
